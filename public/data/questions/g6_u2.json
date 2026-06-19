@@ -1,0 +1,172 @@
+{
+  "questions": [
+    {
+      "id": "g6_u2_q001",
+      "unit_id": "g6_u2",
+      "type": "video_intro",
+      "difficulty": 1,
+      "question": {
+        "text": "歴史の紹介を見たあと、聖徳太子（しょうとくたいし）が行ったこととして正しいものを選びましょう。",
+        "choices": [
+          {
+            "id": "a",
+            "text": "冠位十二階の制定や遣隋使の派遣"
+          },
+          {
+            "id": "b",
+            "text": "鎌倉幕府の成立"
+          },
+          {
+            "id": "c",
+            "text": "明治維新"
+          },
+          {
+            "id": "d",
+            "text": "大化の改新"
+          }
+        ],
+        "media": {
+          "kind": "history_animation",
+          "title": "飛鳥時代の日本",
+          "description": "遣隋使や冠位十二階など、飛鳥時代の出来事を見てみよう。",
+          "slides": [
+            {
+              "era": "飛鳥",
+              "period": "6〜7世紀",
+              "headline": "遣隋使の派遣",
+              "detail": "中国（隋）に使いを送り、文化や制度を学びました。"
+            },
+            {
+              "era": "飛鳥",
+              "period": "603年",
+              "headline": "冠位十二階の制定",
+              "detail": "能力や功績に応じて役割を与える制度を整えました。"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "聖徳太子は冠位十二階を定め、遣隋使を派遣するなど、国家の基盤を整えました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "飛鳥時代"
+      },
+      "hint": "紹介で出てきた制度の名前を思い出そう。",
+      "tags": [
+        "歴史",
+        "動画"
+      ]
+    },
+    {
+      "id": "g6_u2_q002",
+      "unit_id": "g6_u2",
+      "type": "sort_order",
+      "difficulty": 2,
+      "question": {
+        "text": "次の出来事を古い順に並べ替えよう。",
+        "choices": [],
+        "sort_items": [
+          {
+            "id": "e1",
+            "text": "大化の改新"
+          },
+          {
+            "id": "e2",
+            "text": "鎌倉幕府の成立"
+          },
+          {
+            "id": "e3",
+            "text": "明治維新"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "e1",
+          "e2",
+          "e3"
+        ]
+      },
+      "explanation": {
+        "short": "大化の改新（645年）→ 鎌倉幕府（1185年）→ 明治維新（1868年）の順です。",
+        "detail": "年表を使うと、歴史の流れを整理できます。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "時代区分"
+      },
+      "hint": "一番古いのは奈良時代より前の出来事だよ。",
+      "tags": [
+        "年表",
+        "並べ替え"
+      ]
+    },
+    {
+      "id": "g6_u2_q003",
+      "unit_id": "g6_u2",
+      "type": "video_intro",
+      "difficulty": 3,
+      "question": {
+        "text": "江戸時代の紹介を見たあと、当時のくらしについて正しいものを選びましょう。",
+        "choices": [
+          {
+            "id": "a",
+            "text": "幕府が政治の中心で、町人文化も花開いた"
+          },
+          {
+            "id": "b",
+            "text": "コンピュータが普及していた"
+          },
+          {
+            "id": "c",
+            "text": "自動車で移動していた"
+          },
+          {
+            "id": "d",
+            "text": "外国と交流が完全になかった"
+          }
+        ],
+        "media": {
+          "kind": "history_animation",
+          "title": "江戸時代のくらし",
+          "slides": [
+            {
+              "era": "江戸",
+              "period": "1603〜1868年",
+              "headline": "幕府による政治",
+              "detail": "江戸幕府が全国を治め、長い平和な時代が続きました。"
+            },
+            {
+              "era": "江戸",
+              "period": "17〜19世紀",
+              "headline": "町人文化の発展",
+              "detail": "浮世絵や歌舞伎など、町人の文化が栄えました。"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "江戸時代は幕府が政治の中心で、農業や町人文化など独自の発展を遂げました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "江戸時代"
+      },
+      "hint": "浮世絵や歌舞伎が盛んだった時代だよ。"
+    }
+  ]
+}

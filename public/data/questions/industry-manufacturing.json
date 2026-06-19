@@ -1,0 +1,587 @@
+{
+  "questions": [
+    {
+      "id": "ind_mfg_q001",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "スーパーマーケットが、朝早くから夜遅くまで開いているのは、どんな理由が考えられますか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "働く人の生活に合わせて買い物しやすくするため"
+          },
+          {
+            "id": "b",
+            "text": "電気代を節約するため"
+          },
+          {
+            "id": "c",
+            "text": "商品を少なく並べるため"
+          },
+          {
+            "id": "d",
+            "text": "店員の数を減らすため"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "営業時間を長くすると、仕事のあとや朝早くなど、さまざまな時間に買い物できます。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "営業時間"
+      },
+      "tags": [
+        "スーパー",
+        "営業時間"
+      ],
+      "hint": "お父さんやお母さんがいつ買い物をするか考えてみよう。"
+    },
+    {
+      "id": "ind_mfg_q002",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "工場で行われる仕事として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "機械を使って商品をたくさん作る"
+          },
+          {
+            "id": "b",
+            "text": "魚を海でとる"
+          },
+          {
+            "id": "c",
+            "text": "店の前でチラシを配る"
+          },
+          {
+            "id": "d",
+            "text": "畑でトマトを育てる"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "工場では機械や人の手で、同じ商品を効率よくたくさん作ります。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "工業"
+      },
+      "tags": [
+        "工場",
+        "生産"
+      ],
+      "hint": "パンやお菓子、自動車などはどこで作られるか考えてみよう。"
+    },
+    {
+      "id": "ind_mfg_q003",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "パン屋さんの仕事と、地域の人々の生活の関わりとして正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "毎日食べるパンを近くで作って届ける"
+          },
+          {
+            "id": "b",
+            "text": "外国の法律を決める"
+          },
+          {
+            "id": "c",
+            "text": "山の木を切って家を建てる"
+          },
+          {
+            "id": "d",
+            "text": "天気予報を伝える"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "パン屋さんは地域の人々が毎日食べるパンを作り、生活を支えています。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "仕事と生活"
+      },
+      "tags": [
+        "パン屋",
+        "生活"
+      ],
+      "hint": "朝ごはんやおやつに使うものを考えてみよう。"
+    },
+    {
+      "id": "ind_mfg_q004",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "スーパーマーケットが、いろいろな種類の商品を並べる（品ぞろえ）理由として最も適切なものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "お客さんの好みや必要に合わせて選べるようにするため"
+          },
+          {
+            "id": "b",
+            "text": "店の床を広く見せるため"
+          },
+          {
+            "id": "c",
+            "text": "商品を値下げするため"
+          },
+          {
+            "id": "d",
+            "text": "店員の仕事を減らすため"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "品ぞろえは、お客さんが欲しいものを見つけやすくするための大切な工夫です。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "品ぞろえ"
+      },
+      "tags": [
+        "スーパー",
+        "販売"
+      ],
+      "hint": "大きい店ほど、いろいろな商品がある理由を考えてみよう。"
+    },
+    {
+      "id": "ind_mfg_q005",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "トラックや船、飛行機で商品を運ぶ仕事をする人は、地域の生活とどう関わっていますか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "他の地域や外国で作られた商品を届けて生活を豊かにする"
+          },
+          {
+            "id": "b",
+            "text": "天気を調べて農家に教える"
+          },
+          {
+            "id": "c",
+            "text": "店のレジでお金を受け取る"
+          },
+          {
+            "id": "d",
+            "text": "畑で野菜の種をまく"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "運ぶ仕事があるから、遠くで作られた商品も私たちの手元に届きます。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "流通"
+      },
+      "tags": [
+        "運送",
+        "地域"
+      ],
+      "hint": "バナナやオレンジなど、日本であまり作られないものはどうやって来るか考えよう。"
+    },
+    {
+      "id": "ind_mfg_q006",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "地域の特産品（その土地で有名なもの）を売る店がある理由として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "その地域で作られた良い商品を広く知ってもらうため"
+          },
+          {
+            "id": "b",
+            "text": "外国の商品だけを売るため"
+          },
+          {
+            "id": "c",
+            "text": "店の電気代をなくすため"
+          },
+          {
+            "id": "d",
+            "text": "農家の仕事をやめさせるため"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "特産品を売ることで、その地域の生産の仕事が応援され、広まります。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "特産品"
+      },
+      "tags": [
+        "特産品",
+        "販売"
+      ],
+      "hint": "お土産屋さんで売っているものを思い出してみよう。"
+    },
+    {
+      "id": "ind_mfg_q007",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "コンビニエンスストアが地域の人々の生活に役立つ例として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "近くで必要なものを早朝や深夜でも買える"
+          },
+          {
+            "id": "b",
+            "text": "米を田んぼで育てる"
+          },
+          {
+            "id": "c",
+            "text": "外国の国の法律を作る"
+          },
+          {
+            "id": "d",
+            "text": "大きな工場で自動車を作る"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "コンビニは家の近くにあり、長い時間営業しているので便利です。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "コンビニ"
+      },
+      "tags": [
+        "コンビニ",
+        "生活"
+      ],
+      "hint": "急に必要なものを買うとき、どこに行くか考えてみよう。"
+    },
+    {
+      "id": "ind_mfg_q008",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "外国から日本に届く商品の例として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "コーヒー豆やバナナなど、温暖な国で作られるもの"
+          },
+          {
+            "id": "b",
+            "text": "すべてのお米"
+          },
+          {
+            "id": "c",
+            "text": "すべての魚"
+          },
+          {
+            "id": "d",
+            "text": "すべてのパン"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "コーヒー豆やバナナなど、日本の気候では育てにくいものは外国から輸入されます。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "輸入"
+      },
+      "tags": [
+        "外国",
+        "商品"
+      ],
+      "hint": "日本の気候で育てにくい食べ物はどこから来るか考えよう。"
+    },
+    {
+      "id": "ind_mfg_q009",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "question": {
+        "text": "次の説明のうち、生産と販売の仕事について最も正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "生産の仕事で作られたものを、販売の仕事が届け、人々の生活を支える"
+          },
+          {
+            "id": "b",
+            "text": "生産と販売は関係なく、それぞれ別の国だけで行われる"
+          },
+          {
+            "id": "c",
+            "text": "販売の仕事だけがあれば、食べ物は自動的に生まれる"
+          },
+          {
+            "id": "d",
+            "text": "生産の仕事はスーパーのレジだけを指す"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "生産と販売の仕事がつながることで、私たちの生活に必要なものが届きます。",
+        "detail": "この単元のまとめとして、さまざまな仕事のつながりを考えましょう。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "単元まとめ"
+      },
+      "tags": [
+        "まとめ",
+        "生産",
+        "販売"
+      ],
+      "hint": "この単元で学んだ「作る仕事」と「売る・届ける仕事」を思い出してみよう。"
+    },
+    {
+      "id": "ind_mfg_q010",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "工業生産の特徴として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "工場で機械を使い、同じ製品を効率よく作る"
+          },
+          {
+            "id": "b",
+            "text": "1つ1つ手作りだけで作る"
+          },
+          {
+            "id": "c",
+            "text": "工場では何も作らない"
+          },
+          {
+            "id": "d",
+            "text": "工業製品は使われない"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "工業は工場で機械や人の技術を使い、たくさんの製品を作ります。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 3,
+        "learning_point": "工業生産"
+      },
+      "hint": "自動車や家電はどこで作られる？"
+    },
+    {
+      "id": "ind_mfg_q011",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "情報化が産業や生活にもたらした変化として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "インターネットで情報を素早く伝えられる"
+          },
+          {
+            "id": "b",
+            "text": "情報は一切使われなくなった"
+          },
+          {
+            "id": "c",
+            "text": "新聞や放送はなくなった"
+          },
+          {
+            "id": "d",
+            "text": "電話は使えなくなった"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "情報通信技術は、産業の発展や国民生活の向上に大きく関わっています。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 4,
+        "learning_point": "情報化"
+      },
+      "hint": "スマートフォンやパソコンで何ができる？"
+    },
+    {
+      "id": "ind_mfg_q012",
+      "unit_id": "industry-manufacturing",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "森林が国土の環境にもたらす役割として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "土砂を守り、水を蓄えるなど環境を守る"
+          },
+          {
+            "id": "b",
+            "text": "必ず地震を起こす"
+          },
+          {
+            "id": "c",
+            "text": "雨をふらせなくする"
+          },
+          {
+            "id": "d",
+            "text": "土地を汚す"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "森林は国土の環境保全に重要な役割を果たしています。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 5,
+        "learning_point": "森林"
+      },
+      "hint": "山に木がたくさんあるとどんな良いことが？"
+    },
+    {
+      "id": "ind_mfg_q013",
+      "unit_id": "industry-manufacturing",
+      "type": "map_pin",
+      "difficulty": 2,
+      "question": {
+        "text": "地図で、伝統的な陶磁器の産地として有名な「瀬戸」がある地方をタップしよう。",
+        "choices": [],
+        "map": {
+          "map_id": "japan_regions",
+          "regions": [
+            {
+              "id": "chubu",
+              "label": "中部",
+              "x": 50,
+              "y": 63
+            },
+            {
+              "id": "kinki",
+              "label": "近畿",
+              "x": 42,
+              "y": 67
+            },
+            {
+              "id": "tohoku",
+              "label": "東北",
+              "x": 64,
+              "y": 45
+            },
+            {
+              "id": "kyushu",
+              "label": "九州",
+              "x": 15,
+              "y": 85
+            }
+          ]
+        }
+      },
+      "answer": {
+        "correct_ids": [
+          "chubu"
+        ]
+      },
+      "explanation": {
+        "short": "瀬戸焼など、伝統的な技術を生かした地場産業が盛んな地域があります。"
+      },
+      "curriculum_ref": {
+        "grade": 4,
+        "unit_number": 5,
+        "learning_point": "地場産業"
+      },
+      "hint": "愛知県あたりにある、やきものの町で有名な地域だよ。"
+    }
+  ]
+}

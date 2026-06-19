@@ -1,0 +1,631 @@
+{
+  "questions": [
+    {
+      "id": "ind_fish_q001",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "漁師さんの仕事の流れとして正しい順番に近いものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "海で魚をとる → 市場や店に届ける → 人々の食卓へ"
+          },
+          {
+            "id": "b",
+            "text": "店で売る → 海でとる → 畑で育てる"
+          },
+          {
+            "id": "c",
+            "text": "工場で加工する → 種をまく → 海でとる"
+          },
+          {
+            "id": "d",
+            "text": "外国から運ぶ → 畑で育てる → 海でとる"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "漁師さんがとった魚は、市場や店を通って私たちの食卓に届きます。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 2,
+        "learning_point": "漁業の流れ"
+      },
+      "tags": [
+        "漁師",
+        "工程"
+      ],
+      "hint": "魚が海から食卓に来るまでの道のりを想像してみよう。"
+    },
+    {
+      "id": "ind_fish_q002",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "海流とは、どのようなものですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "海の水が大きく流れていること"
+          },
+          {
+            "id": "b",
+            "text": "海の底に沈んだ岩のこと"
+          },
+          {
+            "id": "c",
+            "text": "海に浮かぶ氷のこと"
+          },
+          {
+            "id": "d",
+            "text": "海の色が変わること"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "海流は、風や地球の自転などの影響で、海の水が大きく流れることです。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "海流"
+      },
+      "hint": "川の流れのように、海の水も動いているよ。",
+      "tags": [
+        "海流"
+      ]
+    },
+    {
+      "id": "ind_fish_q003",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "日本の太平洋側を流れる、暖かい海流の名前はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "黒潮"
+          },
+          {
+            "id": "b",
+            "text": "親潮"
+          },
+          {
+            "id": "c",
+            "text": "日本海流"
+          },
+          {
+            "id": "d",
+            "text": "赤道海流"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "黒潮は暖かい海流で、本州の太平洋側を南から北へ流れ、魚の回遊路として知られています。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "海流"
+      },
+      "hint": "「くろしお」と読む、日本でいちばん有名な暖流だよ。",
+      "tags": [
+        "海流",
+        "黒潮"
+      ]
+    },
+    {
+      "id": "ind_fish_q004",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "北海道の太平洋側などを流れる、冷たい海流の名前はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "親潮"
+          },
+          {
+            "id": "b",
+            "text": "黒潮"
+          },
+          {
+            "id": "c",
+            "text": "対馬海流"
+          },
+          {
+            "id": "d",
+            "text": "南海海流"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "親潮は冷たい海流で、栄養分をたくさん含んだ水を運び、漁場づくりに関わっています。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "海流"
+      },
+      "hint": "黒潮とはちがう、冷たい方の海流だよ。",
+      "tags": [
+        "海流",
+        "親潮"
+      ]
+    },
+    {
+      "id": "ind_fish_q005",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "黒潮の特徴として、最も適切なものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "暖かく、多くの魚が回遊する"
+          },
+          {
+            "id": "b",
+            "text": "いつも氷でおおわれている"
+          },
+          {
+            "id": "c",
+            "text": "海の水がまったく動かない"
+          },
+          {
+            "id": "d",
+            "text": "淡水だけが流れる"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "黒潮は暖かい海流のため、マグロやサバなど多くの魚が回遊し、漁業にとって大切な海です。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "海流"
+      },
+      "hint": "暖かい海には、どんな魚がいそうか考えてみよう。",
+      "tags": [
+        "海流",
+        "黒潮"
+      ]
+    },
+    {
+      "id": "ind_fish_q006",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "黒潮と親潮が出会う海域で、漁がさかんになる主な理由はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "栄養分が豊富で魚が集まりやすいから"
+          },
+          {
+            "id": "b",
+            "text": "海の水がまったく動かないから"
+          },
+          {
+            "id": "c",
+            "text": "船が進めなくなるから"
+          },
+          {
+            "id": "d",
+            "text": "魚がまったくいなくなるから"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "暖かい黒潮と冷たい親潮が出会うと、海の中で栄養分が豊かになり、サンマやサケなどの良い漁場ができます。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "海流"
+      },
+      "hint": "暖かい流れと冷たい流れがぶつかると、海の生き物にとって良い場所になるよ。",
+      "tags": [
+        "海流",
+        "漁場"
+      ]
+    },
+    {
+      "id": "ind_fish_q007",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "黒潮が主に流れているのは、日本のどちら側の海ですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "太平洋側"
+          },
+          {
+            "id": "b",
+            "text": "日本海側"
+          },
+          {
+            "id": "c",
+            "text": "内陸の湖"
+          },
+          {
+            "id": "d",
+            "text": "山の頂上"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "黒潮は本州の東側、太平洋に面した海を流れる暖かい海流です。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "海流"
+      },
+      "hint": "東京や大阪の東側にある大きな海を思い出してみよう。",
+      "tags": [
+        "海流",
+        "黒潮"
+      ]
+    },
+    {
+      "id": "ind_fish_q008",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "海流が漁業にもたらす役割として、最も適切なものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "魚が集まる漁場をつくる"
+          },
+          {
+            "id": "b",
+            "text": "海の水をなくす"
+          },
+          {
+            "id": "c",
+            "text": "船を動かせなくする"
+          },
+          {
+            "id": "d",
+            "text": "魚を海から消す"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "海流は魚の移動の道になり、栄養分を運ぶため、どこで漁がさかんかを知るうえで大切です。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "海流"
+      },
+      "hint": "魚は海流にのって移動することが多いよ。",
+      "tags": [
+        "海流",
+        "漁業"
+      ]
+    },
+    {
+      "id": "ind_fish_q009",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "「排他的経済水域」を英語の略称でいうと、どれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "EEZ"
+          },
+          {
+            "id": "b",
+            "text": "GPS"
+          },
+          {
+            "id": "c",
+            "text": "JR"
+          },
+          {
+            "id": "d",
+            "text": "NHK"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "排他的経済水域は Exclusive Economic Zone の略で EEZ と呼ばれます。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "排他的経済水域"
+      },
+      "hint": "英語の頭文字をとった3文字だよ。",
+      "tags": [
+        "排他的経済水域",
+        "EEZ"
+      ]
+    },
+    {
+      "id": "ind_fish_q010",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "排他的経済水域の範囲として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "沿岸からおおよそ200海里（約370km）の海域"
+          },
+          {
+            "id": "b",
+            "text": "沿岸から1kmの海域だけ"
+          },
+          {
+            "id": "c",
+            "text": "日本全国の陸地だけ"
+          },
+          {
+            "id": "d",
+            "text": "外国の海もすべて含む"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "各国は沿岸からおおよそ200海里（約370km）までの海域を排他的経済水域として管理できます。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "排他的経済水域"
+      },
+      "hint": "とても広い範囲の海が対象だよ。",
+      "tags": [
+        "排他的経済水域"
+      ]
+    },
+    {
+      "id": "ind_fish_q011",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "排他的経済水域で、国が行えることとして正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "漁業や海底の資源開発を管理する"
+          },
+          {
+            "id": "b",
+            "text": "他国の領土を自由に支配する"
+          },
+          {
+            "id": "c",
+            "text": "海をなくして陸地にする"
+          },
+          {
+            "id": "d",
+            "text": "すべての船の通行を禁止する"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "排他的経済水域では、漁業や海底資源の開発などをその国が管理し、大切に活用します。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "排他的経済水域"
+      },
+      "hint": "海の資源や漁業に関することだよ。",
+      "tags": [
+        "排他的経済水域"
+      ]
+    },
+    {
+      "id": "ind_fish_q012",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "日本の排他的経済水域の特徴として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "島国のため、世界でも広い範囲を持つ"
+          },
+          {
+            "id": "b",
+            "text": "世界でいちばん狭い"
+          },
+          {
+            "id": "c",
+            "text": "日本にはまったくない"
+          },
+          {
+            "id": "d",
+            "text": "陸地だけで海は含まない"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "日本は四方を海に囲まれた島国で、排他的経済水域の面積は世界でも上位にあります。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "排他的経済水域"
+      },
+      "hint": "日本は島国だよね。海は広いかな？",
+      "tags": [
+        "排他的経済水域",
+        "日本"
+      ]
+    },
+    {
+      "id": "ind_fish_q013",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "排他的経済水域が漁業にとって大切な理由として、最も適切なものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "日本の海で漁業を行う権利を守れるから"
+          },
+          {
+            "id": "b",
+            "text": "海の魚がすべてなくなるから"
+          },
+          {
+            "id": "c",
+            "text": "外国の魚だけをとれるから"
+          },
+          {
+            "id": "d",
+            "text": "漁師の仕事がなくなるから"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "排他的経済水域を定めることで、日本の海の漁業資源を大切に守りながら活用できます。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "排他的経済水域"
+      },
+      "hint": "日本の海で、日本の漁師が漁をするために必要なルールだよ。",
+      "tags": [
+        "排他的経済水域",
+        "漁業"
+      ]
+    },
+    {
+      "id": "ind_fish_q014",
+      "unit_id": "industry-fisheries",
+      "type": "multiple_choice",
+      "difficulty": 3,
+      "question": {
+        "text": "領海と排他的経済水域のちがいとして、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "領海は国の領土の一部、排他的経済水域は漁業などを管理する海域"
+          },
+          {
+            "id": "b",
+            "text": "どちらもまったく同じ意味"
+          },
+          {
+            "id": "c",
+            "text": "領海は外国だけが使える"
+          },
+          {
+            "id": "d",
+            "text": "排他的経済水域は陸地のこと"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "領海は国の領土の一部ですが、排他的経済水域は領海の外側で、漁業や資源開発を管理する海域です。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 2,
+        "learning_point": "排他的経済水域"
+      },
+      "hint": "領海はもっと沿岸に近く、排他的経済水域はもっと広いよ。",
+      "tags": [
+        "排他的経済水域",
+        "領海"
+      ]
+    }
+  ]
+}

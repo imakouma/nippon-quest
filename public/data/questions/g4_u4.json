@@ -1,0 +1,68 @@
+{
+  "questions": [
+    {
+      "id": "g4_u4_q001",
+      "unit_id": "g4_u4",
+      "type": "video_intro",
+      "difficulty": 2,
+      "question": {
+        "text": "紹介を見たあと、お祭りが伝統文化として大切な理由を選びましょう。",
+        "choices": [
+          {
+            "id": "a",
+            "text": "地域の人々の願いや歴史が受け継がれているから"
+          },
+          {
+            "id": "b",
+            "text": "毎日同じ料理が食べられるから"
+          },
+          {
+            "id": "c",
+            "text": "学校の宿題がなくなるから"
+          },
+          {
+            "id": "d",
+            "text": "外国の法律が決まるから"
+          }
+        ],
+        "media": {
+          "kind": "history_animation",
+          "title": "年中行事と伝統文化",
+          "description": "地域の祭りがどのように受け継がれてきたかを見てみよう。",
+          "slides": [
+            {
+              "era": "昔",
+              "period": "100年前",
+              "headline": "村の人々が集まる祭り",
+              "detail": "収穫を祝い、先祖に感謝する行事が行われました。"
+            },
+            {
+              "era": "今",
+              "period": "現在",
+              "headline": "受け継がれる年中行事",
+              "detail": "祭りは地域のつながりと文化を伝える大切な活動です。"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "年中行事や文化財は、地域の人々の願いや歴史を伝える大切なものです。"
+      },
+      "curriculum_ref": {
+        "grade": 4,
+        "unit_number": 4,
+        "learning_point": "伝統文化"
+      },
+      "hint": "祭りは何を伝える行事だろう？",
+      "tags": [
+        "動画",
+        "文化"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "questions": [
+    {
+      "id": "hist_ka_q001",
+      "unit_id": "history-kofun-asuka",
+      "type": "video_intro",
+      "difficulty": 1,
+      "question": {
+        "text": "歴史の紹介を見たあと、聖徳太子（しょうとくたいし）が行ったこととして正しいものを選びましょう。",
+        "choices": [
+          {
+            "id": "a",
+            "text": "冠位十二階の制定や遣隋使の派遣"
+          },
+          {
+            "id": "b",
+            "text": "鎌倉幕府の成立"
+          },
+          {
+            "id": "c",
+            "text": "明治維新"
+          },
+          {
+            "id": "d",
+            "text": "大化の改新"
+          }
+        ],
+        "media": {
+          "kind": "history_animation",
+          "title": "飛鳥時代の日本",
+          "description": "遣隋使や冠位十二階など、飛鳥時代の出来事を見てみよう。",
+          "slides": [
+            {
+              "era": "飛鳥",
+              "period": "6〜7世紀",
+              "headline": "遣隋使の派遣",
+              "detail": "中国（隋）に使いを送り、文化や制度を学びました。"
+            },
+            {
+              "era": "飛鳥",
+              "period": "603年",
+              "headline": "冠位十二階の制定",
+              "detail": "能力や功績に応じて役割を与える制度を整えました。"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "聖徳太子は冠位十二階を定め、遣隋使を派遣するなど、国家の基盤を整えました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "飛鳥時代"
+      },
+      "hint": "紹介で出てきた制度の名前を思い出そう。",
+      "tags": [
+        "歴史",
+        "動画"
+      ]
+    },
+    {
+      "id": "hist_ka_q002",
+      "unit_id": "history-kofun-asuka",
+      "type": "sort_order",
+      "difficulty": 2,
+      "question": {
+        "text": "次の出来事を古い順に並べ替えよう。",
+        "choices": [],
+        "sort_items": [
+          {
+            "id": "e1",
+            "text": "大化の改新"
+          },
+          {
+            "id": "e2",
+            "text": "鎌倉幕府の成立"
+          },
+          {
+            "id": "e3",
+            "text": "明治維新"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "e1",
+          "e2",
+          "e3"
+        ]
+      },
+      "explanation": {
+        "short": "大化の改新（645年）→ 鎌倉幕府（1185年）→ 明治維新（1868年）の順です。",
+        "detail": "年表を使うと、歴史の流れを整理できます。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "時代区分"
+      },
+      "hint": "一番古いのは奈良時代より前の出来事だよ。",
+      "tags": [
+        "年表",
+        "並べ替え"
+      ]
+    },
+    {
+      "id": "hist_ka_q003",
+      "unit_id": "history-kofun-asuka",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "古墳時代に各地に作られた、大きな墓のことを何といいますか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "古墳"
+          },
+          {
+            "id": "b",
+            "text": "天守閣"
+          },
+          {
+            "id": "c",
+            "text": "神社"
+          },
+          {
+            "id": "d",
+            "text": "城下町"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "古墳時代には、有力者の墓として大きな古墳が各地に作られました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "古墳時代"
+      },
+      "hint": "時代の名前にもなっている、大きな墓だよ。",
+      "tags": [
+        "古墳時代"
+      ]
+    },
+    {
+      "id": "hist_ka_q004",
+      "unit_id": "history-kofun-asuka",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "645年に行われ、天皇中心の国づくりを進めた改革はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "大化の改新"
+          },
+          {
+            "id": "b",
+            "text": "明治維新"
+          },
+          {
+            "id": "c",
+            "text": "廃藩置県"
+          },
+          {
+            "id": "d",
+            "text": "冠位十二階"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "大化の改新は飛鳥時代の改革で、天皇を中心とした政治を進めました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "飛鳥時代"
+      },
+      "hint": "聖徳太子のあと、中大兄皇子らが行った改革だよ。",
+      "tags": [
+        "飛鳥時代",
+        "大化の改新"
+      ]
+    }
+  ]
+}

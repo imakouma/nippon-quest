@@ -1,0 +1,57 @@
+{
+  "questions": [
+    {
+      "id": "g4_u5_q001",
+      "unit_id": "g4_u5",
+      "type": "map_pin",
+      "difficulty": 2,
+      "question": {
+        "text": "地図で、伝統的な陶磁器の産地として有名な「瀬戸」がある地方をタップしよう。",
+        "choices": [],
+        "map": {
+          "map_id": "japan_regions",
+          "regions": [
+            {
+              "id": "chubu",
+              "label": "中部",
+              "x": 67,
+              "y": 36
+            },
+            {
+              "id": "kinki",
+              "label": "近畿",
+              "x": 63,
+              "y": 42
+            },
+            {
+              "id": "tohoku",
+              "label": "東北",
+              "x": 76,
+              "y": 22
+            },
+            {
+              "id": "kyushu",
+              "label": "九州",
+              "x": 42,
+              "y": 62
+            }
+          ]
+        }
+      },
+      "answer": {
+        "correct_ids": [
+          "chubu"
+        ]
+      },
+      "explanation": {
+        "short": "瀬戸焼など、伝統的な技術を生かした地場産業が盛んな地域があります。"
+      },
+      "curriculum_ref": {
+        "grade": 4,
+        "unit_number": 5,
+        "learning_point": "地場産業"
+      },
+      "hint": "愛知県あたりにある、やきものの町で有名な地域だよ。"
+    }
+  ]
+}

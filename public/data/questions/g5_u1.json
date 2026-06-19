@@ -1,0 +1,103 @@
+{
+  "questions": [
+    {
+      "id": "g5_u1_q001",
+      "unit_id": "g5_u1",
+      "type": "map_pin",
+      "difficulty": 1,
+      "question": {
+        "text": "日本列島で、本州・四国・九州・沖縄などと並ぶ「最北の大きな島」をタップしよう。",
+        "choices": [],
+        "map": {
+          "map_id": "japan_islands",
+          "regions": [
+            {
+              "id": "hokkaido",
+              "label": "北海道",
+              "x": 69,
+              "y": 14
+            },
+            {
+              "id": "honshu",
+              "label": "本州",
+              "x": 67,
+              "y": 32
+            },
+            {
+              "id": "shikoku",
+              "label": "四国",
+              "x": 54,
+              "y": 48
+            },
+            {
+              "id": "kyushu",
+              "label": "九州",
+              "x": 42,
+              "y": 62
+            }
+          ]
+        }
+      },
+      "answer": {
+        "correct_ids": [
+          "hokkaido"
+        ]
+      },
+      "explanation": {
+        "short": "日本の国土は北海道、本州、四国、九州、沖縄などの島々からなっています。",
+        "source_note": "学習指導要領解説 第5章 第5学年 (1)"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 1,
+        "learning_point": "国土の構成"
+      },
+      "hint": "一番北にある島だよ。",
+      "tags": [
+        "地図",
+        "国土"
+      ]
+    },
+    {
+      "id": "g5_u1_q002",
+      "unit_id": "g5_u1",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "我が国の気候について正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "四季の変化があり、地域によって気候が異なる"
+          },
+          {
+            "id": "b",
+            "text": "全国どこも同じ気温"
+          },
+          {
+            "id": "c",
+            "text": "日本には季節がない"
+          },
+          {
+            "id": "d",
+            "text": "南と北で気候は同じ"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "日本は南北に長く、太平洋側と日本海側でも気候が異なります。"
+      },
+      "curriculum_ref": {
+        "grade": 5,
+        "unit_number": 1,
+        "learning_point": "気候"
+      },
+      "hint": "北海道と沖縄の気温を比べてみよう。"
+    }
+  ]
+}

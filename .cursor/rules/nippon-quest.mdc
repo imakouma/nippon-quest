@@ -1,0 +1,68 @@
+---
+description: にっぽん探検たい プロジェクト規約
+globs:
+alwaysApply: true
+---
+
+## プロジェクト概要
+小学3〜6年生向け社会科学習ゲームアプリ「にっぽん探検たい」。
+教育サービスとしての提供を目標とするWebアプリ（現在MVP開発中）。
+ターゲットは8〜12歳の小学生。スマートフォン・タブレットでのタッチ操作が主。
+
+## 技術スタック
+- フロントエンド: Next.js (App Router) + TypeScript
+- バックエンド: Convex（問題データ・進捗同期）
+- スタイリング: Tailwind CSS
+- 状態管理: Zustand（LocalStorage persist + Convex同期）
+- データ: Convex DB + public/data/ JSON（フォールバック）
+
+## フォルダ構成
+src/
+  app/               # Next.js App Router ページ
+  components/quiz/   # ChoiceButton, ExplanationPanel, QuizView
+  components/ui/     # ProgressBar, StarAnimation
+  components/providers/ # ConvexClientProvider, ProgressSync
+  store/             # progressStore.ts, quizStore.ts（Zustand）
+  types/             # question.ts（型定義）
+  hooks/             # useQuiz.ts
+  utils/             # storage.ts
+convex/              # Convex スキーマ・クエリ・ミューテーション
+public/data/
+  questions/g3_unit2.json ...
+
+## 問題データのスキーマ（src/types/question.ts に定義）
+- Question型: id, unit_id, type, difficulty(1-3), question{text,choices[]},
+  answer{correct_ids[]}, explanation{short,detail}, curriculum_ref, tags, hint
+- MVPでは type='multiple_choice' のみ実装する
+
+## コーディング規約
+- 関数コンポーネント + hooks のみ（クラスコンポーネント禁止）
+- propsの型は必ずinterfaceで定義
+- ファイル名: コンポーネントはPascalCase、それ以外はcamelCase
+- CSSはTailwindクラスのみ（インラインstyleは最小限）
+- タップ対象は最低48pxの高さを確保（小学生向け）
+- console.logは本番コードに残さない
+
+## MVPスコープ（この段階で作るもの）
+1. 4択クイズエンジン（3年生 単元2のみ）
+2. 正解演出（スターアニメーション）+ 不正解時ハイライト
+3. 進捗バー（現在問題数/全問題数）
+4. 解説パネル（正誤後に表示）
+5. 間違い記録 + 復習リスト
+6. LocalStorage + Convex への進捗保存
+7. 単元クリア結果画面
+
+## 実装状況
+- [x] 型定義（question.ts）
+- [x] 問題データ（g3_unit2.json + Convex seed）
+- [x] ChoiceButton コンポーネント
+- [x] ExplanationPanel コンポーネント
+- [x] StarAnimation コンポーネント
+- [x] ProgressBar コンポーネント
+- [x] Quiz ページ（クイズ本体）
+- [x] Result ページ（クリア結果）
+- [x] progressStore（Zustand）
+- [x] quizStore（Zustand）
+- [x] useQuiz フック
+- [x] Home ページ
+- [x] Convex バックエンド

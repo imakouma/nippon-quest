@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# にっぽん探検たい
 
-## Getting Started
+小学3〜6年生向け社会科学習クイズアプリ（MVP）。
 
-First, run the development server:
+## 技術スタック
+
+- **フロントエンド**: Next.js (App Router) + TypeScript + Tailwind CSS
+- **バックエンド**: Convex（問題データ・進捗同期）
+- **状態管理**: Zustand（LocalStorage persist）
+
+## セットアップ
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd nippon-quest
+npm install
+npx convex dev --once   # 初回のみ（.env.local 生成）
+npm run dev             # 別ターミナルで npx convex dev も推奨
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開く。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 開発
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| コマンド | 説明 |
+|---------|------|
+| `npm run dev` | Next.js 開発サーバー |
+| `npm run convex` | Convex バックエンド |
+| `npm run build` | 本番ビルド |
 
-## Learn More
+## ルート
 
-To learn more about Next.js, take a look at the following resources:
+- `/` — ホーム（タイトル画面）
+- `/quiz/g3_u2` — 3年生 単元2 クイズ
+- `/result` — クリア結果
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## データ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 問題データ: `convex/questionData.ts` → Convex DB に seed
+- フォールバック: `public/data/questions/g3_unit2.json`
+- 進捗: LocalStorage + Convex `userProgress` テーブル

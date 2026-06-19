@@ -1,0 +1,99 @@
+{
+  "questions": [
+    {
+      "id": "hist_sg_q001",
+      "unit_id": "history-sengoku",
+      "type": "sort_order",
+      "difficulty": 2,
+      "question": {
+        "text": "次の時代を古い順に並べ替えよう。",
+        "choices": [],
+        "sort_items": [
+          {
+            "id": "e8",
+            "text": "室町時代"
+          },
+          {
+            "id": "e9",
+            "text": "戦国時代"
+          },
+          {
+            "id": "e10",
+            "text": "安土桃山時代"
+          },
+          {
+            "id": "e11",
+            "text": "江戸時代"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "e8",
+          "e9",
+          "e10",
+          "e11"
+        ]
+      },
+      "explanation": {
+        "short": "室町→戦国→安土桃山→江戸の順で、争いの時代から統一と江戸幕府へ進みました。",
+        "detail": "年表を使うと、歴史の流れを整理できます。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "時代区分"
+      },
+      "hint": "戦国時代のあとに安土桃山時代が来るよ。",
+      "tags": [
+        "歴史",
+        "年表",
+        "並べ替え"
+      ]
+    },
+    {
+      "id": "hist_sg_q002",
+      "unit_id": "history-sengoku",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "戦国時代の特徴として、最も適切なものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "各地の大名が領地を広げようと争った"
+          },
+          {
+            "id": "b",
+            "text": "全国が完全に平和だった"
+          },
+          {
+            "id": "c",
+            "text": "外国との交流がなかった"
+          },
+          {
+            "id": "d",
+            "text": "天皇だけが政治を行った"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "戦国時代には各地の大名が力を競い合い、天下統一を目指して争いました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "戦国時代"
+      },
+      "hint": "織田信長や豊臣秀吉が活躍した時代だよ。",
+      "tags": [
+        "戦国時代"
+      ]
+    }
+  ]
+}

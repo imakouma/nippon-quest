@@ -1,0 +1,271 @@
+{
+  "questions": [
+    {
+      "id": "civ_const_q001",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "国の政治を行う機関として正しい組み合わせはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "国会・内閣・裁判所"
+          },
+          {
+            "id": "b",
+            "text": "市役所・学校・病院"
+          },
+          {
+            "id": "c",
+            "text": "銀行・工場・農家"
+          },
+          {
+            "id": "d",
+            "text": "消防署・郵便局・図書館"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "国会は法律を作り、内閣は行政を行い、裁判所は法律に基づいて裁判をします。",
+        "source_note": "学習指導要領解説 第6章 第6学年 (1)"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "三権分立"
+      },
+      "hint": "三つの柱を思い出そう。"
+    },
+    {
+      "id": "civ_const_q002",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "日本国憲法が公布された年はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "1946年"
+          },
+          {
+            "id": "b",
+            "text": "1868年"
+          },
+          {
+            "id": "c",
+            "text": "1603年"
+          },
+          {
+            "id": "d",
+            "text": "1945年"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "日本国憲法は1946年11月3日に公布され、1947年5月3日から施行されました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "憲法の公布"
+      },
+      "hint": "第二次世界大戦のあと、戦後に作られた憲法だよ。",
+      "tags": [
+        "憲法",
+        "公布"
+      ]
+    },
+    {
+      "id": "civ_const_q003",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "日本国憲法の三大原則として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "国民主権・基本的人権の尊重・平和主義"
+          },
+          {
+            "id": "b",
+            "text": "天皇主権・軍国主義・身分制度"
+          },
+          {
+            "id": "c",
+            "text": "武士の政治・農業のみ・戦争の推進"
+          },
+          {
+            "id": "d",
+            "text": "貴族の支配・鎖国・海外進出"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "日本国憲法の三大原則は、国民主権・基本的人権の尊重・平和主義の3つです。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "三大原則"
+      },
+      "hint": "「国民」「人権」「平和」に関する原則を考えてみよう。",
+      "tags": [
+        "憲法",
+        "三大原則"
+      ]
+    },
+    {
+      "id": "civ_const_q004",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "国民主権の考え方として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "国の政治は国民の意思で決められる"
+          },
+          {
+            "id": "b",
+            "text": "天皇だけが国のことを決める"
+          },
+          {
+            "id": "c",
+            "text": "外国の人が政治を行う"
+          },
+          {
+            "id": "d",
+            "text": "政治に国民は関わらない"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "国民主権は、国の政治の最終的な決定権が国民にあるという考え方です。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "国民主権"
+      },
+      "hint": "「主権」は「しゅけん」。だれが国の主人かを考えてみよう。",
+      "tags": [
+        "憲法",
+        "国民主権"
+      ]
+    },
+    {
+      "id": "civ_const_q005",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "基本的人権の尊重について、正しい説明はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "すべての人が生まれながらに大切にされる権利がある"
+          },
+          {
+            "id": "b",
+            "text": "一部の人だけが権利を持つ"
+          },
+          {
+            "id": "c",
+            "text": "人権は憲法に書かれていない"
+          },
+          {
+            "id": "d",
+            "text": "人権は戦争のときだけ認められる"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "基本的人権の尊重は、すべての人が生まれながらに持つ大切な権利を守るという原則です。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "基本的人権の尊重"
+      },
+      "hint": "「基本的人権」は、すべての人に共通する大切な権利のことだよ。",
+      "tags": [
+        "憲法",
+        "基本的人権"
+      ]
+    },
+    {
+      "id": "civ_const_q006",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "平和主義について、日本国憲法で定められていることとして正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "戦争を放棄し、武力による国際紛争の解決をしない"
+          },
+          {
+            "id": "b",
+            "text": "いつでも自由に戦争をしてよい"
+          },
+          {
+            "id": "c",
+            "text": "軍隊を大きく育てることが目的である"
+          },
+          {
+            "id": "d",
+            "text": "外国を支配することが認められている"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "平和主義では、戦争の放棄や武力の不行使など、平和を大切にする考え方が憲法に定められています。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "平和主義"
+      },
+      "hint": "戦後の日本が大切にしている「平和」について考えてみよう。",
+      "tags": [
+        "憲法",
+        "平和主義"
+      ]
+    }
+  ]
+}

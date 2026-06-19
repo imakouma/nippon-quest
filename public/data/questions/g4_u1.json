@@ -1,0 +1,109 @@
+{
+  "questions": [
+    {
+      "id": "g4_u1_q001",
+      "unit_id": "g4_u1",
+      "type": "map_pin",
+      "difficulty": 1,
+      "question": {
+        "text": "日本地図で「北海道」の位置をタップしよう。",
+        "choices": [],
+        "map": {
+          "map_id": "japan_prefectures",
+          "regions": [
+            {
+              "id": "hokkaido",
+              "label": "北海道",
+              "x": 69,
+              "y": 14
+            },
+            {
+              "id": "tohoku",
+              "label": "東北",
+              "x": 76,
+              "y": 22
+            },
+            {
+              "id": "kanto",
+              "label": "関東",
+              "x": 76,
+              "y": 32
+            },
+            {
+              "id": "kinki",
+              "label": "近畿",
+              "x": 63,
+              "y": 40
+            },
+            {
+              "id": "kyushu",
+              "label": "九州",
+              "x": 42,
+              "y": 62
+            }
+          ]
+        }
+      },
+      "answer": {
+        "correct_ids": [
+          "hokkaido"
+        ]
+      },
+      "explanation": {
+        "short": "北海道は日本の最北にある大きな島です。47都道府県の一つです。",
+        "source_note": "学習指導要領解説 第4章 第4学年 (1)"
+      },
+      "curriculum_ref": {
+        "grade": 4,
+        "unit_number": 1,
+        "learning_point": "都道府県の位置"
+      },
+      "hint": "日本で一番北にある大きな島だよ。",
+      "tags": [
+        "地図",
+        "都道府県"
+      ]
+    },
+    {
+      "id": "g4_u1_q002",
+      "unit_id": "g4_u1",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "日本は全部でいくつの都道府県でできていますか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "47都道府県"
+          },
+          {
+            "id": "b",
+            "text": "50都道府県"
+          },
+          {
+            "id": "c",
+            "text": "43都道府県"
+          },
+          {
+            "id": "d",
+            "text": "31都道府県"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "日本は1都（東京）、1道（北海道）、2府（大阪・京都）、43県の計47都道府県で構成されています。"
+      },
+      "curriculum_ref": {
+        "grade": 4,
+        "unit_number": 1,
+        "learning_point": "47都道府県"
+      },
+      "hint": "四十七都道府県の「47」を思い出そう。"
+    }
+  ]
+}

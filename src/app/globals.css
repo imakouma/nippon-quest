@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-star-burst: star-burst 1.5s ease-out forwards;
+  --animate-slide-up: slide-up 0.35s ease-out forwards;
+  --animate-brush-maru-pop: brush-maru-pop 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-brush-batsu-pop: brush-batsu-pop 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes star-burst {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--tw-rotate, 0deg)) translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--tw-rotate, 0deg)) translateY(-120px) scale(0.5);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brush-maru-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.82) rotate(-4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes brush-maru-draw {
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.animate-star-burst {
+  animation: star-burst 1.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.35s ease-out forwards;
+}
+
+.animate-brush-maru-pop {
+  animation: brush-maru-pop 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.brush-maru-stroke {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.75s cubic-bezier(0.4, 0, 0.2, 1) 0.05s forwards;
+}
+
+.brush-maru-ink {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.brush-maru-tail {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.35s ease-out 0.55s forwards;
+}
+
+@keyframes brush-batsu-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.82) rotate(4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-brush-batsu-pop {
+  animation: brush-batsu-pop 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.brush-batsu-stroke-1 {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.05s forwards;
+}
+
+.brush-batsu-stroke-2 {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.55s cubic-bezier(0.4, 0, 0.2, 1) 0.35s forwards;
+}
+
+.brush-batsu-ink-1 {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.brush-batsu-ink-2 {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.65s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+.brush-batsu-tail-1 {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.3s ease-out 0.45s forwards;
+}
+
+.brush-batsu-tail-2 {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: brush-maru-draw 0.3s ease-out 0.75s forwards;
 }

@@ -1,0 +1,703 @@
+{
+  "questions": [
+    {
+      "id": "civ_const_q001",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "国の政治を行う機関として正しい組み合わせはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "国会・内閣・裁判所"
+          },
+          {
+            "id": "b",
+            "text": "市役所・学校・病院"
+          },
+          {
+            "id": "c",
+            "text": "銀行・工場・農家"
+          },
+          {
+            "id": "d",
+            "text": "消防署・郵便局・図書館"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "国会は法律を作り、内閣は行政を行い、裁判所は法律に基づいて裁判をします。",
+        "source_note": "学習指導要領解説 第6章 第6学年 (1)"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "三権分立"
+      },
+      "hint": "三つの柱を思い出そう。"
+    },
+    {
+      "id": "civ_const_q002",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "日本国憲法が公布された年はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "1946年"
+          },
+          {
+            "id": "b",
+            "text": "1868年"
+          },
+          {
+            "id": "c",
+            "text": "1603年"
+          },
+          {
+            "id": "d",
+            "text": "1945年"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "日本国憲法は1946年11月3日に公布され、1947年5月3日から施行されました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "憲法の公布"
+      },
+      "hint": "第二次世界大戦のあと、戦後に作られた憲法だよ。",
+      "tags": [
+        "憲法",
+        "公布"
+      ]
+    },
+    {
+      "id": "civ_const_q003",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "日本国憲法の三大原則として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "国民主権・基本的人権の尊重・平和主義"
+          },
+          {
+            "id": "b",
+            "text": "天皇主権・軍国主義・身分制度"
+          },
+          {
+            "id": "c",
+            "text": "武士の政治・農業のみ・戦争の推進"
+          },
+          {
+            "id": "d",
+            "text": "貴族の支配・鎖国・海外進出"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "日本国憲法の三大原則は、国民主権・基本的人権の尊重・平和主義の3つです。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "三大原則"
+      },
+      "hint": "「国民」「人権」「平和」に関する原則を考えてみよう。",
+      "tags": [
+        "憲法",
+        "三大原則"
+      ]
+    },
+    {
+      "id": "civ_const_q004",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "国民主権の考え方として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "国の政治は国民の意思で決められる"
+          },
+          {
+            "id": "b",
+            "text": "天皇だけが国のことを決める"
+          },
+          {
+            "id": "c",
+            "text": "外国の人が政治を行う"
+          },
+          {
+            "id": "d",
+            "text": "政治に国民は関わらない"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "国民主権は、国の政治の最終的な決定権が国民にあるという考え方です。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "国民主権"
+      },
+      "hint": "「主権」は「しゅけん」。だれが国の主人かを考えてみよう。",
+      "tags": [
+        "憲法",
+        "国民主権"
+      ]
+    },
+    {
+      "id": "civ_const_q005",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "基本的人権の尊重について、正しい説明はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "すべての人が生まれながらに大切にされる権利がある"
+          },
+          {
+            "id": "b",
+            "text": "一部の人だけが権利を持つ"
+          },
+          {
+            "id": "c",
+            "text": "人権は憲法に書かれていない"
+          },
+          {
+            "id": "d",
+            "text": "人権は戦争のときだけ認められる"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "基本的人権の尊重は、すべての人が生まれながらに持つ大切な権利を守るという原則です。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "基本的人権の尊重"
+      },
+      "hint": "「基本的人権」は、すべての人に共通する大切な権利のことだよ。",
+      "tags": [
+        "憲法",
+        "基本的人権"
+      ]
+    },
+    {
+      "id": "civ_const_q006",
+      "unit_id": "civics-constitution",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "平和主義について、日本国憲法で定められていることとして正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "戦争を放棄し、武力による国際紛争の解決をしない"
+          },
+          {
+            "id": "b",
+            "text": "いつでも自由に戦争をしてよい"
+          },
+          {
+            "id": "c",
+            "text": "軍隊を大きく育てることが目的である"
+          },
+          {
+            "id": "d",
+            "text": "外国を支配することが認められている"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "平和主義では、戦争の放棄や武力の不行使など、平和を大切にする考え方が憲法に定められています。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "平和主義"
+      },
+      "hint": "戦後の日本が大切にしている「平和」について考えてみよう。",
+      "tags": [
+        "憲法",
+        "平和主義"
+      ]
+    },
+    {
+      "id": "civ_pol_q001",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "火事が起きたとき、最初に頼るべき機関はどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "消防署"
+          },
+          {
+            "id": "b",
+            "text": "市役所の税務課"
+          },
+          {
+            "id": "c",
+            "text": "郵便局"
+          },
+          {
+            "id": "d",
+            "text": "博物館"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "消防署は火事や救急など、地域の安全を守る働きをしています。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 3,
+        "learning_point": "消防"
+      },
+      "hint": "119番に電話するところを考えよう。"
+    },
+    {
+      "id": "civ_pol_q002",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "地震の備えとして正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "家具の固定や非常袋の準備"
+          },
+          {
+            "id": "b",
+            "text": "窓を開けっ放しにする"
+          },
+          {
+            "id": "c",
+            "text": "高い棚の上に重いものを置く"
+          },
+          {
+            "id": "d",
+            "text": "避難場所を調べない"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "家具の固定や非常袋の準備は、地震から身を守る大切な備えです。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 3,
+        "learning_point": "防災"
+      },
+      "hint": "学校で防災の学習をしたことを思い出そう。"
+    },
+    {
+      "id": "civ_pol_q003",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "きれいな水を家庭に届ける仕事をしているのはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "上水道の事業"
+          },
+          {
+            "id": "b",
+            "text": "農家"
+          },
+          {
+            "id": "c",
+            "text": "パン屋"
+          },
+          {
+            "id": "d",
+            "text": "銀行"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "上水道は、人々の健康や生活を支える大切な公共サービスです。"
+      },
+      "curriculum_ref": {
+        "grade": 4,
+        "unit_number": 2,
+        "learning_point": "上水道"
+      },
+      "hint": "蛇口から水が出るのは誰の働きかな？"
+    },
+    {
+      "id": "civ_pol_q004",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "台風の前にできる備えとして正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "雨どいの掃除や飛ばされやすい物の片付け"
+          },
+          {
+            "id": "b",
+            "text": "川の近くで遊ぶ"
+          },
+          {
+            "id": "c",
+            "text": "窓を開けたまま外出する"
+          },
+          {
+            "id": "d",
+            "text": "避難場所を調べない"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "台風の前には、家の周りの安全確認や避難場所の確認が大切です。"
+      },
+      "curriculum_ref": {
+        "grade": 4,
+        "unit_number": 3,
+        "learning_point": "台風への備え"
+      },
+      "hint": "強い風で飛んでいきそうなものは？"
+    },
+    {
+      "id": "civ_pol_q005",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "地方自治の意味として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "その地域の住民が自治を行うこと"
+          },
+          {
+            "id": "b",
+            "text": "外国の政府が日本を治めること"
+          },
+          {
+            "id": "c",
+            "text": "学校だけが政治を行うこと"
+          },
+          {
+            "id": "d",
+            "text": "市長だけが決めること"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "地方自治は、住民が選んだ代表者などを通じて、その地域の政治を行う仕組みです。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "地方自治"
+      },
+      "hint": "市や県のくらしは誰が決める？"
+    },
+    {
+      "id": "civ_pol_q006",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "選挙権を持てる年齢として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "18歳以上"
+          },
+          {
+            "id": "b",
+            "text": "12歳以上"
+          },
+          {
+            "id": "c",
+            "text": "15歳以上"
+          },
+          {
+            "id": "d",
+            "text": "25歳以上"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "日本では18歳以上の国民が選挙権を持ち、投票によって政治に参加できます。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "選挙権"
+      },
+      "hint": "高校生になるころから投票できる年齢だよ。",
+      "tags": [
+        "政治や選挙",
+        "選挙権"
+      ]
+    },
+    {
+      "id": "civ_pol_q007",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "国会が持つ権限として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "法律を作る"
+          },
+          {
+            "id": "b",
+            "text": "裁判を行う"
+          },
+          {
+            "id": "c",
+            "text": "消防活動を行う"
+          },
+          {
+            "id": "d",
+            "text": "郵便を届ける"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "国会は法律を作る立法権を持ち、国の政治の中心となる機関です。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "国会の権限"
+      },
+      "hint": "三権分立のうち、国会の役割を考えてみよう。",
+      "tags": [
+        "政治や選挙",
+        "国会"
+      ]
+    },
+    {
+      "id": "civ_pol_q008",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "国会が行う仕事として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "国のお金の使い方（予算）を決める"
+          },
+          {
+            "id": "b",
+            "text": "市のゴミを収集する"
+          },
+          {
+            "id": "c",
+            "text": "天気予報を行う"
+          },
+          {
+            "id": "d",
+            "text": "商店の値段を決める"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "国会は、法律を作るほかに、国の予算を議決するなど、国の重要なことを決めます。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "国会の権限"
+      },
+      "hint": "税金などで集めた国のお金をどう使うか、だれが決めるかな？",
+      "tags": [
+        "政治や選挙",
+        "国会",
+        "予算"
+      ]
+    },
+    {
+      "id": "civ_pol_q009",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "国会を構成する両院の組み合わせとして、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "衆議院と参議院"
+          },
+          {
+            "id": "b",
+            "text": "衆議院と裁判所"
+          },
+          {
+            "id": "c",
+            "text": "内閣と参議院"
+          },
+          {
+            "id": "d",
+            "text": "市議会と県議会"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "国会は衆議院と参議院の二院制で、両方の議院が法律や予算などを議決します。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "国会"
+      },
+      "hint": "「院」が2つある国会の名前を思い出そう。",
+      "tags": [
+        "政治や選挙",
+        "国会",
+        "二院制"
+      ]
+    },
+    {
+      "id": "civ_pol_q010",
+      "unit_id": "civics-politics-election",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "選挙の意味として、正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "国民が代表者を選び、政治に参加すること"
+          },
+          {
+            "id": "b",
+            "text": "市長だけが勝手に決めること"
+          },
+          {
+            "id": "c",
+            "text": "外国の人が日本の政治を決めること"
+          },
+          {
+            "id": "d",
+            "text": "くじ引きで代表者を決めること"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "選挙は、国民が投票して代表者を選び、自分たちの意思を政治に反映させる大切な仕組みです。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 1,
+        "learning_point": "選挙"
+      },
+      "hint": "投票箱に票を入れるのは、どんな目的かな？",
+      "tags": [
+        "政治や選挙",
+        "選挙"
+      ]
+    }
+  ]
+}

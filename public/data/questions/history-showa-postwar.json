@@ -1,0 +1,226 @@
+{
+  "questions": [
+    {
+      "id": "hist_sw_q001",
+      "unit_id": "history-showa-postwar",
+      "type": "sort_order",
+      "difficulty": 2,
+      "question": {
+        "text": "市の人口が増えてきた順番に並べ替えよう。",
+        "choices": [],
+        "sort_items": [
+          {
+            "id": "s1",
+            "text": "100人の小さな村"
+          },
+          {
+            "id": "s2",
+            "text": "5000人の町"
+          },
+          {
+            "id": "s3",
+            "text": "10万人の市"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ]
+      },
+      "explanation": {
+        "short": "市の様子は、人口や建物、くらし方などが時代とともに変化していきます。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 4,
+        "learning_point": "人口の変化"
+      },
+      "hint": "少ない→多いの順番だよ。"
+    },
+    {
+      "id": "hist_sw_q002",
+      "unit_id": "history-showa-postwar",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "昔のくらしと今のくらしの違いとして正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "今は電気や水道が使いやすくなった"
+          },
+          {
+            "id": "b",
+            "text": "昔のほうが必ず自動車が多かった"
+          },
+          {
+            "id": "c",
+            "text": "今はスーパーがなかった"
+          },
+          {
+            "id": "d",
+            "text": "昔からインターネットがあった"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "電気や水道などの普及で、人々のくらしは便利になってきました。"
+      },
+      "curriculum_ref": {
+        "grade": 3,
+        "unit_number": 4,
+        "learning_point": "くらしの変化"
+      },
+      "hint": "おじいちゃん・おばあちゃんの幼少期と比べてみよう。"
+    },
+    {
+      "id": "hist_sw_q003",
+      "unit_id": "history-showa-postwar",
+      "type": "sort_order",
+      "difficulty": 2,
+      "question": {
+        "text": "次の時代を古い順に並べ替えよう。",
+        "choices": [],
+        "sort_items": [
+          {
+            "id": "e12",
+            "text": "明治時代"
+          },
+          {
+            "id": "e13",
+            "text": "大正時代"
+          },
+          {
+            "id": "e14",
+            "text": "昭和時代（戦前）"
+          },
+          {
+            "id": "e15",
+            "text": "昭和時代（戦後）"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "e12",
+          "e13",
+          "e14",
+          "e15"
+        ]
+      },
+      "explanation": {
+        "short": "明治→大正→昭和（戦前）→昭和（戦後）の順が、近代から戦後への流れです。",
+        "detail": "年表を使うと、歴史の流れを整理できます。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "時代区分"
+      },
+      "hint": "いま学んでいる昭和（戦後）がいちばん新しい時代だよ。",
+      "tags": [
+        "歴史",
+        "年表",
+        "並べ替え"
+      ]
+    },
+    {
+      "id": "hist_sw_q004",
+      "unit_id": "history-showa-postwar",
+      "type": "multiple_choice",
+      "difficulty": 2,
+      "question": {
+        "text": "第二次世界大戦後、日本が受け入れた新しい憲法の特徴として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "戦争を放棄し、国民の権利を大切にする"
+          },
+          {
+            "id": "b",
+            "text": "天皇だけがすべてを決める"
+          },
+          {
+            "id": "c",
+            "text": "武士が政治を行う"
+          },
+          {
+            "id": "d",
+            "text": "外国の法律をそのまま使う"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "戦後の日本国憲法では戦争の放棄や基本的人権の尊重などが定められました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "昭和時代（戦後）"
+      },
+      "hint": "平和を大切にする憲法だよ。",
+      "tags": [
+        "昭和時代",
+        "憲法"
+      ]
+    },
+    {
+      "id": "hist_sw_q005",
+      "unit_id": "history-showa-postwar",
+      "type": "multiple_choice",
+      "difficulty": 1,
+      "question": {
+        "text": "戦後の高度経済成長期に広まった、くらしの変化として正しいものはどれですか？",
+        "choices": [
+          {
+            "id": "a",
+            "text": "電化製品や自動車が家庭に広がった"
+          },
+          {
+            "id": "b",
+            "text": "電気も水道も使えなかった"
+          },
+          {
+            "id": "c",
+            "text": "農業だけが行われた"
+          },
+          {
+            "id": "d",
+            "text": "外国との交流が完全になくなった"
+          }
+        ]
+      },
+      "answer": {
+        "correct_ids": [
+          "a"
+        ]
+      },
+      "explanation": {
+        "short": "戦後の復興と経済成長により、テレビや冷蔵庫、自動車などが生活に広がりました。"
+      },
+      "curriculum_ref": {
+        "grade": 6,
+        "unit_number": 2,
+        "learning_point": "昭和時代（戦後）"
+      },
+      "hint": "おじいちゃん・おばあちゃんの若いころに増えた物を考えてみよう。",
+      "tags": [
+        "昭和時代",
+        "経済成長"
+      ]
+    }
+  ]
+}
