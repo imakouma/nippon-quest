@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-boss-oudon-ryu",
+  "name": "オウドンリュウ",
+  "area": "kagawa",
+  "motifId": "sanuki-udon",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 437,
+    "mp": 59,
+    "atk": 25,
+    "def": 17,
+    "spd": 10,
+    "wis": 17
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-hono-no-uzu",
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "kagawa-olive-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "kagawa-uchiwa-no-washi",
+      "rate": 1
+    },
+    {
+      "itemId": "kagawa-sanuki-no-shio",
+      "rate": 1
+    },
+    {
+      "itemId": "kagawa-chichibu-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 297,
+  "gold": 349,
+  "spriteKey": "mon.kagawa-boss-oudon-ryu",
+  "dexBlurb": "讃岐[さぬき]うどんの 大[おお]がまから 生[う]まれた 竜[りゅう]。香川県[かがわけん]は うどん屋[や]さんが とても 多[おお]く、「うどん県[けん]」とも よばれる。",
+  "fieldLine": "ずずずっ…。ここまで 来[き]たか。わしの コシの 強[つよ]さ、あじわって いけ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "mizu",
+      "skills": [
+        "sk-fubuki",
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ],
+      "line": "つめたい 水[みず]で しめた！ コシの 強[つよ]さ、ここからが 本番[ほんばん]じゃ！"
+    }
+  ]
+}

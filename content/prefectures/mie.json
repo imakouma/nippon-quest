@@ -1,0 +1,285 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "mie",
+  "name": "三重県[みえけん]",
+  "island": "tokai",
+  "capital": "津市[つし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "mie-field",
+    "town": "mie-town",
+    "dungeon": "mie-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "ise-jingu",
+      "name": "伊勢神宮[いせじんぐう]",
+      "kind": "landmark",
+      "imageKey": "motif.mie.ise-jingu",
+      "blurb": "伊勢市[いせし]に ある 神社[じんじゃ]。20年[ねん]ごとに 建物[たてもの]を 新[あたら]しく 建[た]てかえる。"
+    },
+    {
+      "id": "iga-ninja",
+      "name": "伊賀[いが]の 忍者[にんじゃ]",
+      "kind": "history",
+      "imageKey": "motif.mie.iga-ninja",
+      "blurb": "伊賀市[いがし]は、むかし 忍者[にんじゃ]が いた ことで 有名[ゆうめい]な 町[まち]。"
+    },
+    {
+      "id": "onigajo",
+      "name": "鬼ヶ城[おにがじょう]",
+      "kind": "nature",
+      "imageKey": "motif.mie.onigajo",
+      "blurb": "熊野市[くまのし]の 海岸[かいがん]。波[なみ]に けずられた 大[おお]きな 岩[いわ]の あなが ならぶ。"
+    },
+    {
+      "id": "akame-48taki",
+      "name": "赤目四十八滝[あかめしじゅうはちたき]",
+      "kind": "nature",
+      "imageKey": "motif.mie.akame-48taki",
+      "blurb": "名張市[なばりし]の 谷[たに]に、たくさんの 滝[たき]が つづく。"
+    },
+    {
+      "id": "gozaishodake",
+      "name": "御在所岳[ございしょだけ]",
+      "kind": "nature",
+      "imageKey": "motif.mie.gozaishodake",
+      "blurb": "三重県[みえけん]と 滋賀県[しがけん]の さかいに ある 山[やま]。ロープウェイで のぼれる。"
+    },
+    {
+      "id": "ago-shinju",
+      "name": "英虞湾[あごわん]の 真珠[しんじゅ]",
+      "kind": "craft",
+      "imageKey": "motif.mie.ago-shinju",
+      "blurb": "英虞湾[あごわん]では、あこや貝[がい]を 育[そだ]てて 真珠[しんじゅ]を 作[つく]る。"
+    },
+    {
+      "id": "iseebi",
+      "name": "伊勢[いせ]えび",
+      "kind": "food",
+      "imageKey": "motif.mie.iseebi",
+      "blurb": "鳥羽[とば]や 志摩[しま]の 海[うみ]で とれる、大[おお]きな えび。"
+    },
+    {
+      "id": "matsusakaushi",
+      "name": "松阪牛[まつさかうし]",
+      "kind": "food",
+      "imageKey": "motif.mie.matsusakaushi",
+      "blurb": "松阪市[まつさかし]の あたりで 育[そだ]てられた 牛[うし]の お肉[にく]。とても 有名[ゆうめい]。"
+    },
+    {
+      "id": "bankoyaki",
+      "name": "萬古焼[ばんこやき]",
+      "kind": "craft",
+      "imageKey": "motif.mie.bankoyaki",
+      "blurb": "四日市市[よっかいちし]で 作[つく]られる やきもの。土[ど]なべや 急須[きゅうす]が 有名[ゆうめい]。"
+    },
+    {
+      "id": "kuwana-hamaguri",
+      "name": "桑名[くわな]の はまぐり",
+      "kind": "food",
+      "imageKey": "motif.mie.kuwana-hamaguri",
+      "blurb": "大[おお]きな 川[かわ]が 海[うみ]に 流[なが]れこむ 桑名[くわな]で とれる はまぐり。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "mie-iganin",
+          "weight": 40
+        },
+        {
+          "monsterId": "mie-donabee",
+          "weight": 35
+        },
+        {
+          "monsterId": "mie-kuwanaguri",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "mie-donabee",
+          "weight": 55
+        },
+        {
+          "monsterId": "mie-iganin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "mie-iganin",
+          "weight": 75
+        },
+        {
+          "monsterId": "mie-donabee",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "mie-kuwanaguri",
+          "weight": 50
+        },
+        {
+          "monsterId": "mie-iganin",
+          "weight": 25
+        },
+        {
+          "monsterId": "mie-akoyan",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "mie-kuwanaguri",
+          "weight": 35
+        },
+        {
+          "monsterId": "mie-donabee",
+          "weight": 40
+        },
+        {
+          "monsterId": "mie-akoyan",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "mie-iganin",
+          "weight": 45
+        },
+        {
+          "monsterId": "mie-donabee",
+          "weight": 30
+        },
+        {
+          "monsterId": "mie-kuwanaguri",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "mie-boss-iseebi-taisho",
+  "midBoss": "mie-midboss-oosansho-ou",
+  "secret": {
+    "name": "伊賀上野城[いがうえのじょう]",
+    "boss": "mie-lastboss-todo-takatora"
+  },
+  "events": [
+    {
+      "id": "ev-mie-iga-ninja",
+      "motifId": "iga-ninja",
+      "trigger": {
+        "map": "mie-field",
+        "objectName": "event_mie_iga-ninja"
+      },
+      "once": true,
+      "cutinImageKey": "motif.mie.iga-ninja",
+      "dialogue": [
+        {
+          "speaker": "伊賀[いが]の 忍者[にんじゃ]の 先生[せんせい]",
+          "text": "ここは 伊賀[いが]。むかし 忍者[にんじゃ]が くらした 町[まち]じゃ。忍者[にんじゃ]の 知恵[ちえ]を ためして みるか？"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:mie"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "伊賀[いが]の 忍者[にんじゃ]の 先生[せんせい]",
+          "text": "みごと！ 忍者[にんじゃ]は たたかう より、知[し]らせを もちかえる ことが 大事[だいじ]だったのじゃ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "津市[つし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-mie-shop",
+        "name": "はまぐり屋[や]の おばちゃん",
+        "spriteKey": "char.npc-mie-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！「その 手[て]は 桑名[くわな]の 焼[や]きはまぐり」って ことば、知[し]ってる？"
+          }
+        ]
+      },
+      {
+        "id": "npc-mie-smith",
+        "name": "萬古焼[ばんこやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-mie-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "四日市[よっかいち]の 萬古焼[ばんこやき]は、火[ひ]に 強[つよ]い 土[ど]なべが 有名[ゆうめい]なんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

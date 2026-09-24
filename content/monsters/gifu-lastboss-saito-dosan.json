@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-lastboss-saito-dosan",
+  "name": "斎藤道三[さいとうどうさん]",
+  "area": "gifu",
+  "motifId": "nagaragawa-ukai",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 452,
+    "mp": 57,
+    "atk": 25,
+    "def": 19,
+    "spd": 13,
+    "wis": 18
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 406,
+  "gold": 468,
+  "spriteKey": "mon.gifu-lastboss-saito-dosan",
+  "dexBlurb": "戦国時代[せんごくじだい]の 美濃[みの]の 大名[だいみょう]（1494ごろ〜1556年[ねん]）。稲葉山城[いなばやまじょう]に すんで 美濃[みの]を おさめ、むすめを 織田信長[おだのぶなが]に とつがせた。",
+  "fieldLine": "斎藤道三[さいとうどうさん]じゃ。稲葉山城[いなばやまじょう]から 長良川[ながらがわ]を 見[み]おろして、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "yami",
+      "skills": [
+        "sk-yami-no-uta",
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ],
+      "line": "「美濃[みの]の マムシ」と よばれた わしの 本気[ほんき]、うけて みよ！"
+    }
+  ]
+}

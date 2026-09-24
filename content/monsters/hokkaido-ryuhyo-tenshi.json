@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-ryuhyo-tenshi",
+  "name": "リュウヒョウテンシ",
+  "area": "hokkaido",
+  "motifId": "ryuhyo",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 45,
+    "mp": 15,
+    "atk": 13,
+    "def": 8,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1,
+    "spd": 1.3,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 25,
+  "gold": 19,
+  "spriteKey": "mon.hokkaido-ryuhyo-tenshi",
+  "dexBlurb": "クリオネルが しんかした すがた。クリオネは 大人[おとな]に なると 貝[かい]がらが なくなり、つばさの ような ひれで およぐ。"
+}

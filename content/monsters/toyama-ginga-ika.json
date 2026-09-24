@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-ginga-ika",
+  "name": "ギンガイカ",
+  "area": "toyama",
+  "motifId": "hotaruika",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 50,
+    "mp": 17,
+    "atk": 15,
+    "def": 9,
+    "spd": 12,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.3,
+    "wis": 1.1
+  },
+  "skills": ["sk-tashizan-giri", "sk-kanji-barrier", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 28,
+  "gold": 21,
+  "spriteKey": "mon.toyama-ginga-ika",
+  "dexBlurb": "ピッカイカが しんかした すがた。たくさんの ホタルイカが 光[ひか]る 海[うみ]は、夜空[よぞら]の 天[あま]の川[がわ]のよう。"
+}

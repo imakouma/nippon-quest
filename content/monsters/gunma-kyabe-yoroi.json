@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gunma-kyabe-yoroi",
+  "name": "キャベヨロイ",
+  "area": "gunma",
+  "motifId": "tsumagoi-kyabetsu",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 56,
+    "mp": 13,
+    "atk": 15,
+    "def": 11,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 26,
+  "gold": 17,
+  "spriteKey": "mon.gunma-kyabe-yoroi",
+  "dexBlurb": "キャベズキンが しんかした すがた。何[なん]まいも かさなった キャベツの 葉[は]が、じょうぶな よろいに なった。"
+}

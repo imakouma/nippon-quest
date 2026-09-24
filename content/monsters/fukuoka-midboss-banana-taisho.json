@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-midboss-banana-taisho",
+  "name": "バナナタイショウ",
+  "area": "fukuoka",
+  "motifId": "mojiko",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 168,
+    "mp": 29,
+    "atk": 17,
+    "def": 12,
+    "spd": 9,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-happa-cutter"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 98,
+  "gold": 115,
+  "spriteKey": "mon.fukuoka-midboss-banana-taisho",
+  "dexBlurb": "門司港[もじこう]の バナナ売[う]りの 大将[たいしょう]。門司港[もじこう]は、バナナの「たたき売[う]り」が はじまった 場所[ばしょ]と いわれている。",
+  "fieldLine": "さあ さあ よってらっしゃい 見[み]てらっしゃい！ ここを とおるなら、まずは わしと しょうぶじゃ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-happa-arashi",
+        "sk-kuku-rush"
+      ],
+      "line": "ほう、やるのう！ ならば ほんきの たたき売[う]りじゃ！ バナナあらし、いくぞ！"
+    }
+  ]
+}

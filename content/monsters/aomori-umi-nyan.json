@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-umi-nyan",
+  "name": "ウミニャン",
+  "area": "aomori",
+  "motifId": "tsugaru-kaikyo",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 30,
+    "mp": 8,
+    "atk": 8,
+    "def": 5,
+    "spd": 12,
+    "wis": 5
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 0.9,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "aomori-umineko-no-hane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.1,
+  "xp": 17,
+  "gold": 12,
+  "spriteKey": "mon.aomori-umi-nyan",
+  "evolution": {
+    "to": "aomori-umineko-taicho",
+    "item": "aomori-umineko-no-hane"
+  },
+  "dexBlurb": "ミャーオと ねこのように なく 海[うみ]の 鳥[とり]、ウミネコ。八戸[はちのへ]の 蕪島[かぶしま]には、春[はる]に 3万羽[まんば]いじょうも あつまるよ。"
+}

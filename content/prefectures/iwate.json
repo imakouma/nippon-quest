@@ -1,0 +1,312 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "iwate",
+  "name": "岩手県[いわてけん]",
+  "island": "tohoku",
+  "capital": "盛岡市[もりおかし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "iwate-field",
+    "town": "iwate-town",
+    "dungeon": "iwate-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "chusonji",
+      "name": "中尊寺金色堂[ちゅうそんじこんじきどう]",
+      "kind": "history",
+      "imageKey": "motif.iwate.chusonji",
+      "blurb": "平泉[ひらいずみ]に ある、金[きん]ぴかの お堂[どう]。900年[ねん]ほど 前[まえ]に 建[た]てられ、世界遺産[せかいいさん]の ひとつに なっている。"
+    },
+    {
+      "id": "wanko",
+      "name": "わんこそば",
+      "kind": "food",
+      "imageKey": "motif.iwate.wanko",
+      "blurb": "小[ちい]さな おわんに 入[はい]った そばを、おかわりしながら つぎつぎ 食[た]べる 岩手[いわて]の 名物[めいぶつ]。"
+    },
+    {
+      "id": "nanbu-tekki",
+      "name": "南部鉄器[なんぶてっき]",
+      "kind": "craft",
+      "imageKey": "motif.iwate.nanbu-tekki",
+      "blurb": "岩手[いわて]で 作[つく]られる、鉄[てつ]の やかんや なべ。じょうぶで 長[なが]もちする。"
+    },
+    {
+      "id": "ryusendo",
+      "name": "龍泉洞[りゅうせんどう]",
+      "kind": "nature",
+      "imageKey": "motif.iwate.ryusendo",
+      "blurb": "岩手[いわて]に ある 大[おお]きな しょうにゅうどう。とても すきとおった 青[あお]い 地底湖[ちていこ]が ある。"
+    },
+    {
+      "id": "iwate-san",
+      "name": "岩手山[いわてさん]",
+      "kind": "nature",
+      "imageKey": "motif.iwate.iwate-san",
+      "blurb": "岩手県[いわてけん]で いちばん 高[たか]い 山[やま]。すがたが 富士山[ふじさん]に にていて「岩手富士[いわてふじ]」とも よばれる。"
+    },
+    {
+      "id": "jodogahama",
+      "name": "浄土ヶ浜[じょうどがはま]",
+      "kind": "nature",
+      "imageKey": "motif.iwate.jodogahama",
+      "blurb": "三陸海岸[さんりくかいがん]に ある 浜[はま]。白[しろ]い 岩[いわ]と 青[あお]い 海[うみ]が とても きれい。"
+    },
+    {
+      "id": "tono",
+      "name": "遠野[とおの]の 昔話[むかしばなし]",
+      "kind": "history",
+      "imageKey": "motif.iwate.tono",
+      "blurb": "遠野[とおの]には カッパや 座敷[ざしき]わらしの 昔話[むかしばなし]が たくさん のこっていて、『遠野物語[とおのものがたり]』という 本[ほん]に まとめられた。"
+    },
+    {
+      "id": "morioka-reimen",
+      "name": "盛岡冷麺[もりおかれいめん]",
+      "kind": "food",
+      "imageKey": "motif.iwate.morioka-reimen",
+      "blurb": "こしの 強[つよ]い めんを、つめたい スープで 食[た]べる 盛岡[もりおか]の 名物[めいぶつ]。"
+    },
+    {
+      "id": "sanriku-wakame",
+      "name": "三陸[さんりく]の わかめ",
+      "kind": "food",
+      "imageKey": "motif.iwate.sanriku-wakame",
+      "blurb": "三陸[さんりく]の 海[うみ]で 育[そだ]てられる わかめ。岩手県[いわてけん]は わかめが たくさん とれる。"
+    },
+    {
+      "id": "hachimantai",
+      "name": "八幡平[はちまんたい]",
+      "kind": "nature",
+      "imageKey": "motif.iwate.hachimantai",
+      "blurb": "岩手県[いわてけん]と 秋田県[あきたけん]の さかいに 広[ひろ]がる 高原[こうげん]。春[はる]には 高[たか]い 雪[ゆき]の かべの 道[みち]が できる。"
+    },
+    {
+      "id": "geibikei",
+      "name": "猊鼻渓[げいびけい]",
+      "kind": "nature",
+      "imageKey": "motif.iwate.geibikei",
+      "blurb": "高[たか]い 岩[いわ]の かべに はさまれた 川[かわ]を、船頭[せんどう]さんの こぐ 小舟[こぶね]で ゆっくり めぐる 谷[たに]。"
+    },
+    {
+      "id": "kitayamazaki",
+      "name": "北山崎[きたやまざき]",
+      "kind": "nature",
+      "imageKey": "motif.iwate.kitayamazaki",
+      "blurb": "とても 高[たか]い がけが ながく つづく 三陸[さんりく]の 海岸[かいがん]。岩[いわ]の トンネルや 小[ちい]さな 島[しま]も 見[み]える。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 55
+        },
+        {
+          "monsterId": "iwate-tono-kappa",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "iwate-tono-kappa",
+          "weight": 50
+        },
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 30
+        },
+        {
+          "monsterId": "iwate-iwa-kamoshika",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "iwate-iwa-kamoshika",
+          "weight": 40
+        },
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 35
+        },
+        {
+          "monsterId": "iwate-tono-kappa",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "iwate-iwa-kamoshika",
+          "weight": 70
+        },
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "iwate-tono-kappa",
+          "weight": 40
+        },
+        {
+          "monsterId": "iwate-ryusen-uo",
+          "weight": 35
+        },
+        {
+          "monsterId": "iwate-wakamekko",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "iwate-tono-kappa",
+          "weight": 55
+        },
+        {
+          "monsterId": "iwate-ryusen-uo",
+          "weight": 25
+        },
+        {
+          "monsterId": "iwate-wakamekko",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "iwate-ryusen-uo",
+          "weight": 60
+        },
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "iwate-boss-konjiki-no-tora",
+  "midBoss": "iwate-midboss-tetsubin-game",
+  "secret": {
+    "name": "平泉[ひらいずみ] 高館[たかだち]",
+    "boss": "iwate-lastboss-minamoto-yoshitsune"
+  },
+  "events": [
+    {
+      "id": "ev-iwate-chusonji",
+      "motifId": "chusonji",
+      "trigger": {
+        "map": "iwate-field",
+        "objectName": "event_iwate_chusonji"
+      },
+      "once": true,
+      "cutinImageKey": "motif.iwate.chusonji",
+      "dialogue": [
+        {
+          "speaker": "金色堂[こんじきどう]の あんないにん",
+          "text": "ようこそ 中尊寺金色堂[ちゅうそんじこんじきどう]へ！ むかしの ことを しっているかな？"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:iwate"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "金色堂[こんじきどう]の あんないにん",
+          "text": "よく がんばったね。また おいで。"
+        }
+      ]
+    }
+  ],
+  "town": {
+    "name": "盛岡市[もりおかし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-iwate-shop",
+        "name": "わんこそば屋[や]の おかみさん",
+        "spriteKey": "char.npc-iwate-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ わんこそばは なんばい 食[た]べられるかな？"
+          }
+        ]
+      },
+      {
+        "id": "npc-iwate-smith",
+        "name": "南部鉄器[なんぶてっき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-iwate-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "南部鉄器[なんぶてっき]の 鉄[てつ]びんは じょうぶで 長[なが]もちするぞ。"
+          }
+        ]
+      }
+    ]
+  }
+}

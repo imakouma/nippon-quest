@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-juwanasu",
+  "name": "ジュワナス",
+  "area": "osaka",
+  "motifId": "mizunasu",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 52,
+    "mp": 12,
+    "atk": 11,
+    "def": 10,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "osaka-mizunasu-no-nukazuke",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 16,
+  "spriteKey": "mon.osaka-juwanasu",
+  "evolution": {
+    "to": "osaka-juwanasu-zamurai",
+    "item": "osaka-mizunasu-no-nukazuke"
+  },
+  "dexBlurb": "水[みず]を たっぷり ふくんだ 水[みず]なすの モンスター。泉州[せんしゅう]の 水[みず]なすは、生[なま]のまま 食[た]べられるほど やわらかい。"
+}

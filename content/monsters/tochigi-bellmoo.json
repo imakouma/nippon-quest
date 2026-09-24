@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tochigi-bellmoo",
+  "name": "ベルモー",
+  "area": "tochigi",
+  "motifId": "nasu-kogen",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 49,
+    "mp": 7,
+    "atk": 10,
+    "def": 9,
+    "spd": 5,
+    "wis": 4
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.6
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "tochigi-nasu-no-gyunyu",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 13,
+  "spriteKey": "mon.tochigi-bellmoo",
+  "evolution": {
+    "to": "tochigi-go-bellmoo",
+    "item": "tochigi-nasu-no-gyunyu"
+  },
+  "dexBlurb": "首[くび]に カウベルを さげた、那須[なす]の 牧場[ぼくじょう]の 牛[うし]の モンスター。すずしい 那須[なす]の 高原[こうげん]は、牛[うし]を かうのに むいて いる。"
+}

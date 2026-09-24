@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "wakayama-lastboss-tokugawa-yoshimune",
+  "name": "徳川吉宗[とくがわよしむね]",
+  "area": "wakayama",
+  "motifId": "wakayama-jo",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 490,
+    "mp": 59,
+    "atk": 26,
+    "def": 21,
+    "spd": 13,
+    "wis": 18
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-happa-arashi",
+    "sk-happa-cutter"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 457,
+  "gold": 522,
+  "spriteKey": "mon.wakayama-lastboss-tokugawa-yoshimune",
+  "dexBlurb": "紀州藩[きしゅうはん]の 殿[との]さまから、江戸幕府[えどばくふ]の 8代[だい] 将軍[しょうぐん]に なった 人[ひと]（1684〜1751年[ねん]）。目安箱[めやすばこ]を おいて、人々[ひとびと]の 意見[いけん]を 聞[き]いた。",
+  "fieldLine": "徳川吉宗[とくがわよしむね]じゃ。ふるさとの 和歌山城[わかやまじょう]で、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-happa-arashi"
+      ],
+      "line": "紀州[きしゅう]は 木[き]の 国[くに]！ 将軍[しょうぐん]の 本気[ほんき]を 見[み]よ！"
+    }
+  ]
+}

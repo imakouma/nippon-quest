@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kumamoto-dai-karudera",
+  "name": "ダイカルデラ",
+  "area": "kumamoto",
+  "motifId": "asosan",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 71,
+    "mp": 20,
+    "atk": 23,
+    "def": 14,
+    "spd": 11,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.1,
+    "spd": 1.1,
+    "wis": 1
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 42,
+  "gold": 28,
+  "spriteKey": "mon.kumamoto-dai-karudera",
+  "dexBlurb": "カルデランが しんかした すがた。せなかに 広[ひろ]い 草原[そうげん]を せおい、火口[かこう]から 白[しろ]い けむりを 上[あ]げる。"
+}

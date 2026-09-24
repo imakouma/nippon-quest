@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shizuoka-boss-fujimine-ou",
+  "name": "フジミネオウ",
+  "area": "shizuoka",
+  "motifId": "fujisan",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 421,
+    "mp": 52,
+    "atk": 23,
+    "def": 18,
+    "spd": 8,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "shizuoka-makinohara-shincha",
+      "rate": 1
+    },
+    {
+      "itemId": "shizuoka-tenryu-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "shizuoka-hamamatsu-takoito",
+      "rate": 1
+    },
+    {
+      "itemId": "shizuoka-wasabi-oroshi",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 265,
+  "gold": 312,
+  "spriteKey": "mon.shizuoka-boss-fujimine-ou",
+  "dexBlurb": "雪[ゆき]の ぼうしを かぶった 富士山[ふじさん]の 大男[おおおとこ]。すその 茶畑[ちゃばたけ]を まもって いる。朝日[あさひ]で 赤[あか]く そまる 富士山[ふじさん]は「赤富士[あかふじ]」と よばれる。",
+  "fieldLine": "ズズズ……！ 日本[にほん]で いちばん 高[たか]い この 山[やま]に いどむ 気[き]か。よかろう、かかって こい！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin",
+        "sk-iwa-otoshi"
+      ],
+      "line": "見[み]よ、朝日[あさひ]に もえる 赤富士[あかふじ]の 力[ちから]を！ 日本一[にほんいち]の 山[やま]を なめるな！"
+    }
+  ]
+}

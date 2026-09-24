@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/items.schema.json",
+  "id": "shiga-funazushi",
+  "name": "ふなずし",
+  "kind": "consumable",
+  "use": {
+    "heal": 20
+  },
+  "price": 20,
+  "iconKey": "item.shiga-funazushi",
+  "areaOrigin": "shiga",
+  "blurb": "琵琶湖[びわこ]の ふなを、ごはんと いっしょに 長[なが]い あいだ つけこんで 作[つく]る おすし。 たべると HPが 20 かいふく。"
+}

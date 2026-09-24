@@ -1,0 +1,60 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "eigo.g3.sea.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "prompt": "「さかな」は えいごで どれ？",
+      "choices": [
+        { "id": "a", "text": "fish" },
+        { "id": "b", "text": "bird" },
+        { "id": "c", "text": "cat" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "fish（フィッシュ）は さかな。"
+  },
+  {
+    "id": "eigo.g3.sea.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "prompt": "「うみ」は えいごで どれ？",
+      "choices": [
+        { "id": "a", "text": "sea" },
+        { "id": "b", "text": "sky" },
+        { "id": "c", "text": "sun" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "sea（シー）は うみ。sky（スカイ）は そら、sun（サン）は たいよう。"
+  },
+  {
+    "id": "eigo.g3.sea.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "prompt": "「かに」は えいごで どれ？",
+      "choices": [
+        { "id": "a", "text": "crab" },
+        { "id": "b", "text": "cow" },
+        { "id": "c", "text": "cake" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "crab（クラブ）は かに。"
+  }
+]

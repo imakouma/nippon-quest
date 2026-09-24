@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokyo-musasabyun",
+  "name": "ムササビュン",
+  "area": "tokyo",
+  "motifId": "takaosan",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 34,
+    "mp": 9,
+    "atk": 10,
+    "def": 4,
+    "spd": 12,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 4,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "tokyo-momiji-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 17,
+  "gold": 11,
+  "spriteKey": "mon.tokyo-musasabyun",
+  "evolution": {
+    "to": "tokyo-tsukiyo-musasabi",
+    "item": "tokyo-momiji-no-tane"
+  },
+  "dexBlurb": "高尾山[たかおさん]の 森[もり]に すむ ムササビ。前足[まえあし]と 後[うし]ろ足[あし]の あいだの まくを ひろげて、木[き]から 木[き]へ すべるように とぶ。"
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "shakai.g4.todofuken.0001",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:aomori"],
+    "payload": {
+      "prompt": "青森県[あおもりけん]で とくに たくさん 作[つく]られている くだものは？",
+      "choices": [
+        { "id": "a", "text": "りんご" },
+        { "id": "b", "text": "みかん" },
+        { "id": "c", "text": "ぶどう" },
+        { "id": "d", "text": "もも" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "青森県[あおもりけん]は りんごの 生産[せいさん]が 日本一[にほんいち]。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0002",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:aomori"],
+    "payload": {
+      "prompt": "本州[ほんしゅう]と 北海道[ほっかいどう]の 間[あいだ]に ある 海[うみ]は？",
+      "choices": [
+        { "id": "a", "text": "津軽海峡[つがるかいきょう]" },
+        { "id": "b", "text": "関門海峡[かんもんかいきょう]" },
+        { "id": "c", "text": "瀬戸内海[せとないかい]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "津軽海峡[つがるかいきょう]の 下[した]には 青函[せいかん]トンネルが ある。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0003",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:aomori", "event:sannai"],
+    "payload": {
+      "prompt": "三内丸山遺跡[さんないまるやまいせき]は どの 時代[じだい]の 村[むら]のあと？",
+      "choices": [
+        { "id": "a", "text": "縄文時代[じょうもんじだい]" },
+        { "id": "b", "text": "江戸時代[えどじだい]" },
+        { "id": "c", "text": "明治時代[めいじじだい]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "今[いま]から およそ 5000年[ねん] 前[まえ]の 縄文時代[じょうもんじだい]。"
+  }
+]

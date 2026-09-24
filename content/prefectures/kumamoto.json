@@ -1,0 +1,296 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "kumamoto",
+  "name": "熊本県[くまもとけん]",
+  "island": "kyushu-okinawa",
+  "capital": "熊本市[くまもとし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "kumamoto-field",
+    "town": "kumamoto-town",
+    "dungeon": "kumamoto-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kumamoto-jo",
+      "name": "熊本城[くまもとじょう]",
+      "kind": "history",
+      "imageKey": "motif.kumamoto.kumamoto-jo",
+      "blurb": "高[たか]く そびえる 大[おお]きな 石垣[いしがき]が 有名[ゆうめい]な お城[しろ]。"
+    },
+    {
+      "id": "asosan",
+      "name": "阿蘇山[あそさん]",
+      "kind": "nature",
+      "imageKey": "motif.kumamoto.asosan",
+      "blurb": "とても 大[おお]きな くぼ地[ち]「カルデラ」の 中[なか]に ある 火山[かざん]。まわりに 広[ひろ]い 草原[そうげん]が 広[ひろ]がる。"
+    },
+    {
+      "id": "tsujunkyo",
+      "name": "通潤橋[つうじゅんきょう]",
+      "kind": "landmark",
+      "imageKey": "motif.kumamoto.tsujunkyo",
+      "blurb": "田[た]んぼに 水[みず]を おくるために 作[つく]られた 石[いし]の 橋[はし]。橋[はし]から 水[みず]を いきおいよく 出[だ]す ことが ある。"
+    },
+    {
+      "id": "kurokawa-onsen",
+      "name": "黒川温泉[くろかわおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.kumamoto.kurokawa-onsen",
+      "blurb": "山[やま]あいの 川[かわ]ぞいに、木[き]づくりの 旅館[りょかん]が ならぶ 温泉[おんせん]の 町[まち]。"
+    },
+    {
+      "id": "kikuchi-keikoku",
+      "name": "菊池渓谷[きくちけいこく]",
+      "kind": "nature",
+      "imageKey": "motif.kumamoto.kikuchi-keikoku",
+      "blurb": "すずしい 森[もり]の 中[なか]を、すきとおった 水[みず]が 流[なが]れる 谷[たに]。"
+    },
+    {
+      "id": "yamaga-toro",
+      "name": "山鹿灯籠[やまがとうろう]まつり",
+      "kind": "festival",
+      "imageKey": "motif.kumamoto.yamaga-toro",
+      "blurb": "夏[なつ]の 山鹿市[やまがし]で、金色[きんいろ]の 紙[かみ]の とうろうを 頭[あたま]に のせて おどる お祭[まつ]り。"
+    },
+    {
+      "id": "yatsushiro-igusa",
+      "name": "八代[やつしろ]の い草[ぐさ]",
+      "kind": "craft",
+      "imageKey": "motif.kumamoto.yatsushiro-igusa",
+      "blurb": "たたみの 表面[ひょうめん]に なる い草[ぐさ]。八代[やつしろ]で ほとんどが 作[つく]られる。"
+    },
+    {
+      "id": "kumamoto-suika",
+      "name": "熊本[くまもと]の スイカ",
+      "kind": "food",
+      "imageKey": "motif.kumamoto.kumamoto-suika",
+      "blurb": "熊本県[くまもとけん]は、スイカの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "sakitsu",
+      "name": "崎津[さきつ]の 漁村[ぎょそん]",
+      "kind": "landmark",
+      "imageKey": "motif.kumamoto.sakitsu",
+      "blurb": "天草[あまくさ]の 海[うみ]ぞいの 小[ちい]さな 漁村[ぎょそん]。教会[きょうかい]の ある 町[まち]なみが 世界遺産[せかいいさん]に なっている。"
+    },
+    {
+      "id": "amakusa-iruka",
+      "name": "天草[あまくさ]の イルカ",
+      "kind": "nature",
+      "imageKey": "motif.kumamoto.amakusa-iruka",
+      "blurb": "天草[あまくさ]の 海[うみ]には 野生[やせい]の イルカが くらしていて、船[ふね]から 見[み]る ことが できる。"
+    },
+    {
+      "id": "amakusa-kurumaebi",
+      "name": "天草[あまくさ]の 車[くるま]えび",
+      "kind": "food",
+      "imageKey": "motif.kumamoto.amakusa-kurumaebi",
+      "blurb": "天草[あまくさ]の あたたかい 海[うみ]で 育[そだ]てられる、しまもようの 大[おお]きな えび。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 35
+        },
+        {
+          "monsterId": "kumamoto-karuderan",
+          "weight": 30
+        },
+        {
+          "monsterId": "kumamoto-ebiguruma",
+          "weight": 20
+        },
+        {
+          "monsterId": "kumamoto-tatamin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 40
+        },
+        {
+          "monsterId": "kumamoto-karuderan",
+          "weight": 25
+        },
+        {
+          "monsterId": "kumamoto-tatamin",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "kumamoto-karuderan",
+          "weight": 55
+        },
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "kumamoto-karuderan",
+          "weight": 70
+        },
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "kumamoto-ebiguruma",
+          "weight": 75
+        },
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "kumamoto-karuderan",
+          "weight": 35
+        },
+        {
+          "monsterId": "kumamoto-ebiguruma",
+          "weight": 25
+        },
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 15
+        },
+        {
+          "monsterId": "kumamoto-tatamin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "kumamoto-boss-mushagaeshi",
+  "midBoss": "kumamoto-midboss-kindouro",
+  "secret": {
+    "name": "熊本城[くまもとじょう]",
+    "boss": "kumamoto-lastboss-kato-kiyomasa"
+  },
+  "events": [
+    {
+      "id": "ev-kumamoto-tsujunkyo",
+      "motifId": "tsujunkyo",
+      "trigger": {
+        "map": "kumamoto-field",
+        "objectName": "event_kumamoto_tsujunkyo"
+      },
+      "once": true,
+      "cutinImageKey": "motif.kumamoto.tsujunkyo",
+      "dialogue": [
+        {
+          "speaker": "通潤橋[つうじゅんきょう]の あんないの おじさん",
+          "text": "この 石[いし]の 橋[はし]は、田[た]んぼに 水[みず]を おくる ために 作[つく]られたんだ。水[みず]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:kumamoto"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "通潤橋[つうじゅんきょう]の あんないの おじさん",
+          "text": "よく しらべたね！ 水[みず]は 高[たか]い ところから 低[ひく]い ところへ 流[なが]れるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "熊本市[くまもとし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-kumamoto-shop",
+        "name": "からしれんこん屋[や]の おじさん",
+        "spriteKey": "char.npc-kumamoto-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "ようこそ 熊本[くまもと]へ！ からしれんこんは、れんこんの あなに からしみそを つめた 名物[めいぶつ]だよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-kumamoto-smith",
+        "name": "い草[ぐさ]の 職人[しょくにん]",
+        "spriteKey": "char.npc-kumamoto-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "八代[やつしろ]の い草[ぐさ]は たたみの 表[おもて]に なる。青[あお]い かおりが するだろう？"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shimane-yuhi-shijimi",
+  "name": "ユウヒシジミ",
+  "area": "shimane",
+  "motifId": "shinjiko-shijimi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 65,
+    "mp": 17,
+    "atk": 17,
+    "def": 16,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 1.0
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 26,
+  "spriteKey": "mon.shimane-yuhi-shijimi",
+  "dexBlurb": "シジミンが しんかした すがた。宍道湖[しんじこ]の 夕日[ゆうひ]の 色[いろ]に かがやく からで、水[みず]の うずを おこす。"
+}

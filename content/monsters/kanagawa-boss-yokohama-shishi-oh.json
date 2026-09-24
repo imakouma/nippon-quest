@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kanagawa-boss-yokohama-shishi-oh",
+  "name": "ヨコハマシシオウ",
+  "area": "kanagawa",
+  "motifId": "yokohama-chukagai",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 302,
+    "mp": 43,
+    "atk": 18,
+    "def": 12,
+    "spd": 10,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 10,
+    "mp": 2,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-hono-no-uzu", "sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "kanagawa-shirasu-ami",
+      "rate": 1
+    },
+    {
+      "itemId": "kanagawa-yosegi-block",
+      "rate": 1
+    },
+    {
+      "itemId": "kanagawa-tonbi-no-hane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 196,
+  "gold": 230,
+  "spriteKey": "mon.kanagawa-boss-yokohama-shishi-oh",
+  "dexBlurb": "横浜中華街[よこはまちゅうかがい]の お祭[まつ]りで まう 獅子[しし]の 王[おう]。春節[しゅんせつ]（中国[ちゅうごく]の お正月[しょうがつ]）には、獅子舞[ししまい]が 町[まち]を ねり歩[ある]く。",
+  "fieldLine": "ガオー！ この 門[もん]を くぐりたければ、わしと しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "actionsPerTurn": 2,
+      "line": "ジャーン！ 春節[しゅんせつ]の 獅子舞[ししまい]を 見[み]よ！"
+    }
+  ]
+}

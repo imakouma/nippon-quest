@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-denkou-giku",
+  "name": "デンコウギク",
+  "area": "aichi",
+  "motifId": "denshogiku",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 60,
+    "mp": 18,
+    "atk": 16,
+    "def": 12,
+    "spd": 12,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 31,
+  "gold": 22,
+  "spriteKey": "mon.aichi-denkou-giku",
+  "dexBlurb": "デンキクンが しんかした すがた。電照菊[でんしょうぎく]の 畑[はたけ]は、夜[よる]に なると 光[ひかり]の じゅうたんの ように 見[み]える。"
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-midboss-toumeika",
+  "name": "トウメイカ",
+  "area": "saga",
+  "motifId": "yobuko-ika",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 177,
+    "mp": 29,
+    "atk": 17,
+    "def": 10,
+    "spd": 10,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 98,
+  "gold": 115,
+  "spriteKey": "mon.saga-midboss-toumeika",
+  "dexBlurb": "呼子[よぶこ]の 海[うみ]に すむ、からだが すきとおった 大[おお]イカ。とれたての いかは、すきとおって いるほど 新[あたら]しい。",
+  "fieldLine": "ゲソゲソ…！ ここは わしの 海[うみ]の 通[とお]り道[みち]じゃ。とおりたければ、しょうぶ しょうぶ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ],
+      "line": "ゲソォォ！ 呼子[よぶこ]の うず潮[しお]よ、ここへ 来[こ]い！"
+    }
+  ]
+}

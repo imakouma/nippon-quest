@@ -1,0 +1,257 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "tochigi",
+  "name": "栃木県[とちぎけん]",
+  "island": "kanto",
+  "capital": "宇都宮市[うつのみやし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "tochigi-field",
+    "town": "tochigi-town",
+    "dungeon": "tochigi-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "nikko-toshogu",
+      "name": "日光東照宮[にっこうとうしょうぐう]",
+      "kind": "history",
+      "imageKey": "motif.tochigi.nikko-toshogu",
+      "blurb": "日光[にっこう]に ある、はなやかな かざりの 建物[たてもの]で 有名[ゆうめい]な 神社[じんじゃ]。「見[み]ざる・言[い]わざる・聞[き]かざる」の さるの ほりものが ある。"
+    },
+    {
+      "id": "kegon-no-taki",
+      "name": "華厳[けごん]の 滝[たき]",
+      "kind": "nature",
+      "imageKey": "motif.tochigi.kegon-no-taki",
+      "blurb": "中禅寺湖[ちゅうぜんじこ]の 水[みず]が、高[たか]い がけから いっきに 流[なが]れ落[お]ちる 大[おお]きな 滝[たき]。"
+    },
+    {
+      "id": "nasu-kogen",
+      "name": "那須高原[なすこうげん]",
+      "kind": "nature",
+      "imageKey": "motif.tochigi.nasu-kogen",
+      "blurb": "茶臼岳[ちゃうすだけ]の ふもとに 広[ひろ]がる、夏[なつ]でも すずしい 高原[こうげん]。牧場[ぼくじょう]が 多[おお]い。"
+    },
+    {
+      "id": "ashikaga-gakko",
+      "name": "足利学校[あしかががっこう]",
+      "kind": "history",
+      "imageKey": "motif.tochigi.ashikaga-gakko",
+      "blurb": "日本[にほん]で いちばん 古[ふる]い 学校[がっこう]と いわれる ところ。むかしの 学校[がっこう]の 建物[たてもの]が のこる。"
+    },
+    {
+      "id": "kinugawa-onsen",
+      "name": "鬼怒川温泉[きぬがわおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.tochigi.kinugawa-onsen",
+      "blurb": "鬼怒川[きぬがわ]の 谷[たに]ぞいに 旅館[りょかん]が ならぶ 温泉[おんせん]の 町[まち]。"
+    },
+    {
+      "id": "oyaishi",
+      "name": "大谷石[おおやいし]",
+      "kind": "landmark",
+      "imageKey": "motif.tochigi.oyaishi",
+      "blurb": "宇都宮市[うつのみやし]の 大谷[おおや]で とれる やわらかい 石[いし]。地下[ちか]には 石[いし]を ほり出[だ]した 大[おお]きな あなが ある。"
+    },
+    {
+      "id": "tochigi-ichigo",
+      "name": "いちご",
+      "kind": "food",
+      "imageKey": "motif.tochigi.tochigi-ichigo",
+      "blurb": "真岡市[もおかし]など 栃木県[とちぎけん]は、いちごの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "kanpyo",
+      "name": "かんぴょう",
+      "kind": "food",
+      "imageKey": "motif.tochigi.kanpyo",
+      "blurb": "ゆうがおの 実[み]を ほそく むいて ほした 食[た]べもの。のりまきに 入[い]れる。ほとんどが 栃木県[とちぎけん]で 作[つく]られる。"
+    },
+    {
+      "id": "utsunomiya-gyoza",
+      "name": "宇都宮[うつのみや]の ぎょうざ",
+      "kind": "food",
+      "imageKey": "motif.tochigi.utsunomiya-gyoza",
+      "blurb": "宇都宮[うつのみや]は ぎょうざの 町[まち]として 有名[ゆうめい]。町[まち]に ぎょうざの お店[みせ]が たくさん ある。"
+    },
+    {
+      "id": "mashikoyaki",
+      "name": "益子焼[ましこやき]",
+      "kind": "craft",
+      "imageKey": "motif.tochigi.mashikoyaki",
+      "blurb": "益子町[ましこまち]で 作[つく]られる、ぽってりと あつみの ある やきもの。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "tochigi-ichigoro",
+          "weight": 40
+        },
+        {
+          "monsterId": "tochigi-gyozan",
+          "weight": 35
+        },
+        {
+          "monsterId": "tochigi-bellmoo",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "tochigi-ichigoro",
+          "weight": 60
+        },
+        {
+          "monsterId": "tochigi-gyozan",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "tochigi-bellmoo",
+          "weight": 70
+        },
+        {
+          "monsterId": "tochigi-gyozan",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "tochigi-bellmoo",
+          "weight": 55
+        },
+        {
+          "monsterId": "tochigi-ichigoro",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "tochigi-gyozan",
+          "weight": 40
+        },
+        {
+          "monsterId": "tochigi-bellmoo",
+          "weight": 35
+        },
+        {
+          "monsterId": "tochigi-ichigoro",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "tochigi-boss-kegon-ryuo",
+  "midBoss": "tochigi-midboss-oyaishi-don",
+  "secret": {
+    "name": "那須[なす]の やかた",
+    "boss": "tochigi-lastboss-nasu-no-yoichi"
+  },
+  "events": [
+    {
+      "id": "ev-tochigi-nikko-toshogu",
+      "motifId": "nikko-toshogu",
+      "trigger": {
+        "map": "tochigi-field",
+        "objectName": "event_tochigi_nikko-toshogu"
+      },
+      "once": true,
+      "cutinImageKey": "motif.tochigi.nikko-toshogu",
+      "dialogue": [
+        {
+          "speaker": "東照宮[とうしょうぐう]の あんないにん",
+          "text": "ここは 日光東照宮[にっこうとうしょうぐう]。はなやかな ほりものが たくさん あるよ。むかしの ことを しっているかな？"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:tochigi"]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "東照宮[とうしょうぐう]の あんないにん",
+          "text": "よく がんばったね！「見[み]ざる・言[い]わざる・聞[き]かざる」の さるも さがして みてね。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "宇都宮市[うつのみやし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-tochigi-shop",
+        "name": "ぎょうざ屋[や]の おかみさん",
+        "spriteKey": "char.npc-tochigi-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 宇都宮[うつのみや]は ぎょうざの 町[まち]。やきたては パリッと おいしいよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-tochigi-smith",
+        "name": "益子焼[ましこやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-tochigi-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "益子[ましこ]では 春[はる]と 秋[あき]に 陶器市[とうきいち]が あって、たくさんの 人[ひと]で にぎわうんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

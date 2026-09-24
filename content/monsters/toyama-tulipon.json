@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-tulipon",
+  "name": "チューリポン",
+  "area": "toyama",
+  "motifId": "tonami-tulip",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 38,
+    "mp": 11,
+    "atk": 9,
+    "def": 7,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.0,
+    "wis": 0.9
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "toyama-tulip-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.toyama-tulipon",
+  "evolution": {
+    "to": "toyama-mankai-churi",
+    "item": "toyama-tulip-no-hana"
+  },
+  "dexBlurb": "赤[あか]い チューリップの 花[はな]の モンスター。チューリップは、秋[あき]に 球根[きゅうこん]を うえると 春[はる]に 花[はな]が さく。"
+}

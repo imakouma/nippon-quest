@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-kitakaze-zake",
+  "name": "キタカゼザケ",
+  "area": "niigata",
+  "motifId": "shiobiki-zake",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 55,
+    "mp": 14,
+    "atk": 15,
+    "def": 11,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 28,
+  "gold": 20,
+  "spriteKey": "mon.niigata-kitakaze-zake",
+  "dexBlurb": "北風[きたかぜ]を まとって とびはねる 大[おお]きな 鮭[さけ]。三面川[みおもてがわ]では、むかしから 鮭[さけ]を 大切[たいせつ]に 育[そだ]てて きた。"
+}

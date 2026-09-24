@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shiga-ibuki-no-oyama",
+  "name": "イブキノオヤマ",
+  "area": "shiga",
+  "motifId": "ibukiyama",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 68,
+    "mp": 16,
+    "atk": 16,
+    "def": 15,
+    "spd": 9,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 6.2,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.3,
+    "spd": 1,
+    "wis": 1.1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 27,
+  "spriteKey": "mon.shiga-ibuki-no-oyama",
+  "dexBlurb": "イブキッコが しんかした すがた。夏[なつ]は 花[はな]の じゅうたん、冬[ふゆ]は 雪[ゆき]の ぼうし。伊吹山[いぶきやま]は、雪[ゆき]が とても 多[おお]い 山[やま]。"
+}

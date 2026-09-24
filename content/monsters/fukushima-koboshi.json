@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-koboshi",
+  "name": "コボシ",
+  "area": "fukushima",
+  "motifId": "okiagari-koboshi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 40,
+    "mp": 10,
+    "atk": 9,
+    "def": 9,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.2,
+    "def": 1.3,
+    "spd": 1.2,
+    "wis": 0.9
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "fukushima-nanakorobi-no-hata",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 23,
+  "gold": 16,
+  "spriteKey": "mon.fukushima-koboshi",
+  "evolution": {
+    "to": "fukushima-yaoki-koboshi",
+    "item": "fukushima-nanakorobi-no-hata"
+  },
+  "dexBlurb": "起[お]き上[あ]がり小法師[こぼし]の モンスター。何回[なんかい] たおれても すぐに 起[お]き上[あ]がる。"
+}

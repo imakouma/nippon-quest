@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tohoku-boss-rokufuyu",
+  "name": "ロクフユノオウ",
+  "area": "tohoku",
+  "motifId": "rokufuyu",
+  "element": "mizu",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 504,
+    "mp": 72,
+    "atk": 20,
+    "def": 16,
+    "spd": 8,
+    "wis": 13
+  },
+  "growth": {
+    "hp": 0,
+    "mp": 0,
+    "atk": 0,
+    "def": 0,
+    "spd": 0,
+    "wis": 0
+  },
+  "skills": [
+    "sk-fubuki",
+    "sk-uzushio",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 600,
+  "gold": 720,
+  "spriteKey": "mon.tohoku-boss-rokufuyu",
+  "dexBlurb": "東北[とうほく]の 長[なが]い 冬[ふゆ] そのもの。6つの 県[けん]の たからものを 身[み]につけている。",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.66,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-fubuki",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "こおりが われる…！ 六[むっ]つの 冬[ふゆ]が もえあがる！"
+    },
+    {
+      "hpBelow": 0.25,
+      "element": "none",
+      "skills": [
+        "sk-happa-arashi",
+        "sk-tashizan-giri"
+      ],
+      "line": "……春[はる]を まっていただけなんだ。"
+    }
+  ]
+}

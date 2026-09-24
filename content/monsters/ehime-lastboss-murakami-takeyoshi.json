@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ehime-lastboss-murakami-takeyoshi",
+  "name": "村上武吉[むらかみたけよし]",
+  "area": "ehime",
+  "motifId": "shimanami",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 444,
+    "mp": 59,
+    "atk": 25,
+    "def": 19,
+    "spd": 14,
+    "wis": 18
+  },
+  "growth": {
+    "hp": 12,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.5,
+    "spd": 0.9,
+    "wis": 1.3
+  },
+  "skills": ["sk-uzushio", "sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 392,
+  "gold": 451,
+  "spriteKey": "mon.ehime-lastboss-murakami-takeyoshi",
+  "dexBlurb": "戦国[せんごく]時代[じだい]の 村上海賊[むらかみかいぞく]の かしら（1533〜1604年[ねん]）。能島[のしま]に とりでを かまえ、はやい 潮[しお]の 流[なが]れを 読[よ]んで、瀬戸内海[せとないかい]を ゆく 船[ふね]の 見[み]はりや 道[みち]あんないを した。",
+  "fieldLine": "われは 村上武吉[むらかみたけよし]。能島[のしま]の はやい 潮[しお]を こえて きたか。いざ、しょうぶじゃ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "kaze",
+      "skills": ["sk-kaikyo-no-kaze", "sk-habataki"],
+      "line": "潮[しお]の 流[なが]れも 風[かぜ]も、わしの 味方[みかた]じゃ！"
+    }
+  ]
+}

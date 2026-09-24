@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-itakodori",
+  "name": "イタコドリ",
+  "area": "aomori",
+  "motifId": "osorezan",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": {
+    "hp": 26,
+    "mp": 12,
+    "atk": 9,
+    "def": 4,
+    "spd": 11,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 3.5,
+    "mp": 1.5,
+    "atk": 1.3,
+    "def": 0.7,
+    "spd": 1.4,
+    "wis": 1.2
+  },
+  "skills": ["sk-yami-no-uta"],
+  "drops": [
+    {
+      "itemId": "aomori-kazaguruma",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.05,
+  "xp": 24,
+  "gold": 14,
+  "spriteKey": "mon.aomori-itakodori",
+  "evolution": {
+    "to": "aomori-kaza-mimizuku",
+    "item": "aomori-kazaguruma"
+  },
+  "dexBlurb": "恐山[おそれざん]の 風車[かざぐるま]の そばに いる 黒[くろ]い 鳥[とり]。ちょっと ふしぎな 歌[うた]を うたう。"
+}

@@ -1,0 +1,267 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "fukuoka",
+  "name": "福岡県[ふくおかけん]",
+  "island": "kyushu-okinawa",
+  "capital": "福岡市[ふくおかし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "fukuoka-field",
+    "town": "fukuoka-town",
+    "dungeon": "fukuoka-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "dazaifu",
+      "name": "太宰府天満宮[だざいふてんまんぐう]",
+      "kind": "landmark",
+      "imageKey": "motif.fukuoka.dazaifu",
+      "blurb": "学問[がくもん]の 神様[かみさま]を まつる 神社[じんじゃ]。春[はる]の はじめに 梅[うめ]の 花[はな]が さく。"
+    },
+    {
+      "id": "mojiko",
+      "name": "門司港[もじこう]",
+      "kind": "landmark",
+      "imageKey": "motif.fukuoka.mojiko",
+      "blurb": "明治[めいじ]や 大正[たいしょう]の ころの 古[ふる]い 建物[たてもの]が のこる 港[みなと]。"
+    },
+    {
+      "id": "yanagawa",
+      "name": "柳川[やながわ]の 川下[かわくだ]り",
+      "kind": "landmark",
+      "imageKey": "motif.fukuoka.yanagawa",
+      "blurb": "柳川市[やながわし]の 町[まち]なかの 水路[すいろ]を、小舟[こぶね]で ゆっくり めぐる。"
+    },
+    {
+      "id": "akizuki",
+      "name": "秋月[あきづき]の 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.fukuoka.akizuki",
+      "blurb": "朝倉市[あさくらし]の 秋月[あきづき]には、城下町[じょうかまち]の 古[ふる]い 町[まち]なみが のこる。"
+    },
+    {
+      "id": "hiraodai",
+      "name": "平尾台[ひらおだい]",
+      "kind": "nature",
+      "imageKey": "motif.fukuoka.hiraodai",
+      "blurb": "北九州市[きたきゅうしゅうし]に ある 台地[だいち]。白[しろ]い 石灰岩[せっかいがん]が、ひつじの むれのように 見[み]える。"
+    },
+    {
+      "id": "hakata-ramen",
+      "name": "博多[はかた]ラーメン",
+      "kind": "food",
+      "imageKey": "motif.fukuoka.hakata-ramen",
+      "blurb": "ぶたの 骨[ほね]で 作[つく]る 白[しろ]い スープに、細[ほそ]い めんの ラーメン。"
+    },
+    {
+      "id": "yamecha",
+      "name": "八女茶[やめちゃ]",
+      "kind": "food",
+      "imageKey": "motif.fukuoka.yamecha",
+      "blurb": "八女市[やめし]で 作[つく]られる、あまみの ある お茶[ちゃ]。"
+    },
+    {
+      "id": "fukuoka-ichigo",
+      "name": "福岡[ふくおか]の いちご",
+      "kind": "food",
+      "imageKey": "motif.fukuoka.fukuoka-ichigo",
+      "blurb": "久留米市[くるめし]など、福岡県[ふくおかけん]は いちご作[づく]りが とても さかん。"
+    },
+    {
+      "id": "koishiwarayaki",
+      "name": "小石原焼[こいしわらやき]",
+      "kind": "craft",
+      "imageKey": "motif.fukuoka.koishiwarayaki",
+      "blurb": "東峰村[とうほうむら]で 作[つく]られる、はけで もようを つけた やきもの。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "fukuoka-barikatan",
+          "weight": 35
+        },
+        {
+          "monsterId": "fukuoka-strobaby",
+          "weight": 30
+        },
+        {
+          "monsterId": "fukuoka-donkomaru",
+          "weight": 20
+        },
+        {
+          "monsterId": "fukuoka-tobikanna",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "fukuoka-strobaby",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukuoka-barikatan",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "fukuoka-strobaby",
+          "weight": 40
+        },
+        {
+          "monsterId": "fukuoka-donkomaru",
+          "weight": 25
+        },
+        {
+          "monsterId": "fukuoka-tobikanna",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "fukuoka-donkomaru",
+          "weight": 70
+        },
+        {
+          "monsterId": "fukuoka-barikatan",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "fukuoka-barikatan",
+          "weight": 35
+        },
+        {
+          "monsterId": "fukuoka-donkomaru",
+          "weight": 25
+        },
+        {
+          "monsterId": "fukuoka-strobaby",
+          "weight": 15
+        },
+        {
+          "monsterId": "fukuoka-tobikanna",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "fukuoka-boss-hiraodaio",
+  "midBoss": "fukuoka-midboss-banana-taisho",
+  "secret": {
+    "name": "福岡城[ふくおかじょう]",
+    "boss": "fukuoka-lastboss-kuroda-kanbei"
+  },
+  "events": [
+    {
+      "id": "ev-fukuoka-hiraodai",
+      "motifId": "hiraodai",
+      "trigger": {
+        "map": "fukuoka-field",
+        "objectName": "event_fukuoka_hiraodai"
+      },
+      "once": true,
+      "cutinImageKey": "motif.fukuoka.hiraodai",
+      "dialogue": [
+        {
+          "speaker": "平尾台[ひらおだい]の 自然[しぜん]ガイドさん",
+          "text": "白[しろ]い 岩[いわ]が、ひつじの むれみたいでしょう？ 岩[いわ]と 水[みず]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:fukuoka"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "平尾台[ひらおだい]の 自然[しぜん]ガイドさん",
+          "text": "よく しらべたね！ 雨水[あまみず]は、とても 長[なが]い 時間[じかん]を かけて 岩[いわ]を とかすんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "福岡市[ふくおかし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-fukuoka-shop",
+        "name": "屋台[やたい]の おじさん",
+        "spriteKey": "char.npc-fukuoka-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "ようこそ 福岡[ふくおか]へ！ 博多[はかた]の 夜[よる]は、川[かわ]ぞいに 屋台[やたい]が ならんで にぎやかなんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-fukuoka-smith",
+        "name": "小石原焼[こいしわらやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-fukuoka-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "小石原焼[こいしわらやき]は「とびかんな」という どうぐで、ちょんちょんと もようを つけるんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

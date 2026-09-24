@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-nuri-kagayaki",
+  "name": "ヌリカガヤキ",
+  "area": "aomori",
+  "motifId": "tsugaru-nuri",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 48,
+    "mp": 14,
+    "atk": 13,
+    "def": 11,
+    "spd": 8,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-kanji-barrier",
+    "sk-tashizan-giri",
+    "sk-hikari-no-ya"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 20,
+  "spriteKey": "mon.aomori-nuri-kagayaki",
+  "dexBlurb": "ツガルヌリンが しんかした すがた。何十[なんじゅう]もの ぬりの そうが、かがみの ように 光[ひかり]を はねかえす。"
+}

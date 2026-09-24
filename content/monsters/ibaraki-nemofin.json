@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ibaraki-nemofin",
+  "name": "ネモフィン",
+  "area": "ibaraki",
+  "motifId": "nemophila",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 38,
+    "mp": 8,
+    "atk": 10,
+    "def": 5,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.6,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "ibaraki-nemophila-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.09,
+  "xp": 17,
+  "gold": 12,
+  "spriteKey": "mon.ibaraki-nemofin",
+  "evolution": {
+    "to": "ibaraki-aozora-hime",
+    "item": "ibaraki-nemophila-no-hana"
+  },
+  "dexBlurb": "青[あお]い ネモフィラの 花[はな]を かぶった 小鳥[ことり]。ひたち海浜公園[かいひんこうえん]では、春[はる]に 丘[おか]いっぱいの ネモフィラが さく。"
+}

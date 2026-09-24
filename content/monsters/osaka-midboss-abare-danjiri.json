@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-midboss-abare-danjiri",
+  "name": "アバレダンジリ",
+  "area": "osaka",
+  "motifId": "kishiwada-danjiri",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 164,
+    "mp": 24,
+    "atk": 17,
+    "def": 11,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-yamadashi-tosshin"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 94,
+  "gold": 109,
+  "spriteKey": "mon.osaka-midboss-abare-danjiri",
+  "dexBlurb": "岸和田[きしわだ]の だんじりが 大[おお]あばれする すがた。だんじりが 町[まち]の 角[かど]を いきおいよく まがる ことを「やりまわし」と いう。",
+  "fieldLine": "そーりゃ！ そーりゃ！ この 道[みち]は わしが かけぬける 道[みち]じゃ。どいてもらおか！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "kaze",
+      "skills": [
+        "sk-habataki",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "そーりゃ！ そーりゃ！ 町[まち]の 角[かど]を かけぬける やりまわしじゃー！"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kochi-midboss-narukomai",
+  "name": "ナルコマイ",
+  "area": "kochi",
+  "motifId": "yosakoi",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 148,
+    "mp": 24,
+    "atk": 16,
+    "def": 10,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 8,
+    "mp": 2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.6,
+    "wis": 0.6
+  },
+  "skills": ["sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 84,
+  "gold": 99,
+  "spriteKey": "mon.kochi-midboss-narukomai",
+  "dexBlurb": "よさこい祭[まつ]りの おどり手[て]の モンスター。両手[りょうて]の なるこを かちかち ならして おどる。なるこは もともと、田[た]んぼの 鳥[とり]を おどろかす どうぐ だった。",
+  "fieldLine": "よっちょれ、よっちょれ！ とおりたいなら、おどりで しょうぶじゃ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": ["sk-yamadashi-tosshin", "sk-hono-no-mai"],
+      "line": "まだまだ おどるぜよ！ よっちょれ よっちょれ！"
+    }
+  ]
+}

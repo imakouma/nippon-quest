@@ -1,0 +1,285 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "hiroshima",
+  "name": "広島県[ひろしまけん]",
+  "island": "chugoku",
+  "capital": "広島市[ひろしまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "hiroshima-field",
+    "town": "hiroshima-town",
+    "dungeon": "hiroshima-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "itsukushima",
+      "name": "厳島神社[いつくしまじんじゃ]",
+      "kind": "landmark",
+      "imageKey": "motif.hiroshima.itsukushima",
+      "blurb": "宮島[みやじま]に ある 神社[じんじゃ]。海[うみ]の 中[なか]に 大[おお]きな 赤[あか]い 鳥居[とりい]が 立[た]つ。世界遺産[せかいいさん]。"
+    },
+    {
+      "id": "onomichi",
+      "name": "尾道[おのみち]",
+      "kind": "landmark",
+      "imageKey": "motif.hiroshima.onomichi",
+      "blurb": "坂道[さかみち]と 小[ちい]さな お寺[てら]が 多[おお]い 港町[みなとまち]。"
+    },
+    {
+      "id": "tomonoura",
+      "name": "鞆[とも]の浦[うら]",
+      "kind": "history",
+      "imageKey": "motif.hiroshima.tomonoura",
+      "blurb": "福山市[ふくやまし]の 古[ふる]い 港町[みなとまち]。むかしながらの 町[まち]なみや 灯台[とうだい]が のこる。"
+    },
+    {
+      "id": "taishakukyo",
+      "name": "帝釈峡[たいしゃくきょう]",
+      "kind": "nature",
+      "imageKey": "motif.hiroshima.taishakukyo",
+      "blurb": "石灰岩[せっかいがん]の 谷[たに]。自然[しぜん]に できた 大[おお]きな 石[いし]の 橋[はし]「雄橋[おんばし]」が ある。"
+    },
+    {
+      "id": "sandankyo",
+      "name": "三段峡[さんだんきょう]",
+      "kind": "nature",
+      "imageKey": "motif.hiroshima.sandankyo",
+      "blurb": "深[ふか]い 谷[たに]に、滝[たき]や 青[あお]い 淵[ふち]が つづく。"
+    },
+    {
+      "id": "takehara",
+      "name": "竹原[たけはら]の 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.hiroshima.takehara",
+      "blurb": "むかし 塩[しお]作[づく]りで さかえた 竹原市[たけはらし]の 古[ふる]い 町[まち]なみ。"
+    },
+    {
+      "id": "hiroshima-kaki",
+      "name": "広島[ひろしま]の かき",
+      "kind": "food",
+      "imageKey": "motif.hiroshima.hiroshima-kaki",
+      "blurb": "広島湾[ひろしまわん]で 育[そだ]てられる かき。広島県[ひろしまけん]は かきの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "okonomiyaki",
+      "name": "お好[この]み焼[や]き",
+      "kind": "food",
+      "imageKey": "motif.hiroshima.okonomiyaki",
+      "blurb": "うすく やいた 生地[きじ]に、キャベツや そばを かさねて やく 広島[ひろしま]の お好[この]み焼[や]き。"
+    },
+    {
+      "id": "kumano-fude",
+      "name": "熊野筆[くまのふで]",
+      "kind": "craft",
+      "imageKey": "motif.hiroshima.kumano-fude",
+      "blurb": "熊野町[くまのちょう]で 作[つく]られる 筆[ふで]。書道[しょどう]の 筆[ふで]や、お化粧[けしょう]の 筆[ふで]が 有名[ゆうめい]。"
+    },
+    {
+      "id": "setoda-lemon",
+      "name": "瀬戸田[せとだ]の レモン",
+      "kind": "food",
+      "imageKey": "motif.hiroshima.setoda-lemon",
+      "blurb": "瀬戸内海[せとないかい]の 島[しま]で 作[つく]られる レモン。広島県[ひろしまけん]は レモンの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "hiroshima-kasaneyakin",
+          "weight": 40
+        },
+        {
+          "monsterId": "hiroshima-setolemon",
+          "weight": 35
+        },
+        {
+          "monsterId": "hiroshima-kakigaran",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "hiroshima-setolemon",
+          "weight": 55
+        },
+        {
+          "monsterId": "hiroshima-kasaneyakin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "hiroshima-kasaneyakin",
+          "weight": 55
+        },
+        {
+          "monsterId": "hiroshima-setolemon",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "hiroshima-setolemon",
+          "weight": 40
+        },
+        {
+          "monsterId": "hiroshima-iwabashigame",
+          "weight": 35
+        },
+        {
+          "monsterId": "hiroshima-kasaneyakin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "hiroshima-kakigaran",
+          "weight": 70
+        },
+        {
+          "monsterId": "hiroshima-setolemon",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "hiroshima-kakigaran",
+          "weight": 35
+        },
+        {
+          "monsterId": "hiroshima-iwabashigame",
+          "weight": 30
+        },
+        {
+          "monsterId": "hiroshima-kasaneyakin",
+          "weight": 20
+        },
+        {
+          "monsterId": "hiroshima-setolemon",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "hiroshima-boss-momiji-ryu",
+  "midBoss": "hiroshima-midboss-fude-daisho",
+  "secret": {
+    "name": "吉田郡山城[よしだこおりやまじょう]",
+    "boss": "hiroshima-lastboss-mouri-motonari"
+  },
+  "events": [
+    {
+      "id": "ev-hiroshima-itsukushima",
+      "motifId": "itsukushima",
+      "trigger": {
+        "map": "hiroshima-field",
+        "objectName": "event_hiroshima_itsukushima"
+      },
+      "once": true,
+      "cutinImageKey": "motif.hiroshima.itsukushima",
+      "dialogue": [
+        {
+          "speaker": "宮島[みやじま]の ガイドさん",
+          "text": "海[うみ]の 中[なか]に 立[た]つ 大[おお]きな 鳥居[とりい]が 見[み]えるかな？ 世界遺産[せかいいさん]の 島[しま]の ことを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:hiroshima"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "宮島[みやじま]の ガイドさん",
+          "text": "よく できたね！ 潮[しお]が ひくと、鳥居[とりい]の そばまで 歩[ある]いて 行[い]けるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "広島市[ひろしまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-hiroshima-shop",
+        "name": "お好[この]み焼[や]き屋[や]の おじさん",
+        "spriteKey": "char.npc-hiroshima-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 広島[ひろしま]の お好[この]み焼[や]きは、キャベツと そばを かさねて やくんじゃ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-hiroshima-smith",
+        "name": "熊野筆[くまのふで]の 職人[しょくにん]",
+        "spriteKey": "char.npc-hiroshima-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "熊野[くまの]の 筆[ふで]は、毛[け]を 手[て]で ていねいに そろえて 作[つく]るんだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

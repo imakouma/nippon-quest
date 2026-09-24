@@ -1,0 +1,270 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "nara",
+  "name": "奈良県[ならけん]",
+  "island": "kinki",
+  "capital": "奈良市[ならし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "nara-field",
+    "town": "nara-town",
+    "dungeon": "nara-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "todaiji-daibutsu",
+      "name": "東大寺[とうだいじ]の 大仏[だいぶつ]",
+      "kind": "history",
+      "imageKey": "motif.nara.todaiji-daibutsu",
+      "blurb": "奈良[なら]の 東大寺[とうだいじ]に ある、とても 大[おお]きな 仏像[ぶつぞう]。大[おお]きな 木[き]の 建物[たてもの]の 中[なか]に すわっている。"
+    },
+    {
+      "id": "nara-shika",
+      "name": "奈良公園[ならこうえん]の シカ",
+      "kind": "nature",
+      "imageKey": "motif.nara.nara-shika",
+      "blurb": "奈良公園[ならこうえん]には たくさんの シカが くらしていて、大切[たいせつ]に まもられている。"
+    },
+    {
+      "id": "horyuji",
+      "name": "法隆寺[ほうりゅうじ]",
+      "kind": "history",
+      "imageKey": "motif.nara.horyuji",
+      "blurb": "世界[せかい]で いちばん 古[ふる]い 木[き]の 建物[たてもの]が のこる お寺[てら]。世界遺産[せかいいさん]。"
+    },
+    {
+      "id": "ishibutai",
+      "name": "石舞台古墳[いしぶたいこふん]",
+      "kind": "history",
+      "imageKey": "motif.nara.ishibutai",
+      "blurb": "明日香村[あすかむら]に ある、大[おお]きな 石[いし]を 組[く]んで 作[つく]った 古墳[こふん]。"
+    },
+    {
+      "id": "yoshinoyama",
+      "name": "吉野山[よしのやま]の さくら",
+      "kind": "nature",
+      "imageKey": "motif.nara.yoshinoyama",
+      "blurb": "春[はる]に なると、山[やま]じゅうが たくさんの さくらで おおわれる。"
+    },
+    {
+      "id": "odaigahara",
+      "name": "大台ヶ原[おおだいがはら]",
+      "kind": "nature",
+      "imageKey": "motif.nara.odaigahara",
+      "blurb": "とても 雨[あめ]の 多[おお]い、山[やま]の 上[うえ]の 高原[こうげん]。こけむした 森[もり]が 広[ひろ]がる。"
+    },
+    {
+      "id": "nara-zumi",
+      "name": "奈良[なら]の 墨[すみ]",
+      "kind": "craft",
+      "imageKey": "motif.nara.nara-zumi",
+      "blurb": "書写[しょしゃ]で 使[つか]う 墨[すみ]の ほとんどは、奈良[なら]で 作[つく]られている。"
+    },
+    {
+      "id": "takayama-chasen",
+      "name": "高山茶筌[たかやまちゃせん]",
+      "kind": "craft",
+      "imageKey": "motif.nara.takayama-chasen",
+      "blurb": "生駒市[いこまし]の 高山[たかやま]で 作[つく]られる、竹[たけ]の 茶筌[ちゃせん]。お茶[ちゃ]を たてる 道具[どうぐ]。"
+    },
+    {
+      "id": "kakinohazushi",
+      "name": "柿[かき]の 葉[は]ずし",
+      "kind": "food",
+      "imageKey": "motif.nara.kakinohazushi",
+      "blurb": "さばなどの おすしを、柿[かき]の 葉[は]で つつんだ 奈良[なら]の 郷土料理[きょうどりょうり]。"
+    },
+    {
+      "id": "miwa-somen",
+      "name": "三輪[みわ]そうめん",
+      "kind": "food",
+      "imageKey": "motif.nara.miwa-somen",
+      "blurb": "桜井市[さくらいし]の 三輪[みわ]で 作[つく]られる、細[ほそ]い そうめん。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "nara-happazushi",
+          "weight": 33
+        },
+        {
+          "monsterId": "nara-suminosuke",
+          "weight": 25
+        },
+        {
+          "monsterId": "nara-somen-tsururi",
+          "weight": 25
+        },
+        {
+          "monsterId": "nara-chasenmaru",
+          "weight": 17
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "nara-happazushi",
+          "weight": 65
+        },
+        {
+          "monsterId": "nara-somen-tsururi",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "nara-suminosuke",
+          "weight": 55
+        },
+        {
+          "monsterId": "nara-happazushi",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "nara-suminosuke",
+          "weight": 40
+        },
+        {
+          "monsterId": "nara-somen-tsururi",
+          "weight": 40
+        },
+        {
+          "monsterId": "nara-chasenmaru",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "nara-suminosuke",
+          "weight": 45
+        },
+        {
+          "monsterId": "nara-somen-tsururi",
+          "weight": 30
+        },
+        {
+          "monsterId": "nara-happazushi",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "nara-boss-shika-daio",
+  "midBoss": "nara-midboss-hitome-senbon",
+  "secret": {
+    "name": "斑鳩宮[いかるがのみや]",
+    "boss": "nara-lastboss-shotoku-taishi"
+  },
+  "events": [
+    {
+      "id": "ev-nara-ishibutai",
+      "motifId": "ishibutai",
+      "trigger": {
+        "map": "nara-field",
+        "objectName": "event_nara_ishibutai"
+      },
+      "once": true,
+      "cutinImageKey": "motif.nara.ishibutai",
+      "dialogue": [
+        {
+          "speaker": "明日香村[あすかむら]の ガイドさん",
+          "text": "これが 石舞台古墳[いしぶたいこふん]。1400年[ねん]ほど 前[まえ]に、大[おお]きな 石[いし]を 組[く]んで 作[つく]られたんだ。むかしの 日本[にほん]を しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:nara"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "明日香村[あすかむら]の ガイドさん",
+          "text": "よく しらべたね！ 明日香村[あすかむら]には、飛鳥時代[あすかじだい]の あとが たくさん のこっているよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "奈良市[ならし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-nara-shop",
+        "name": "柿[かき]の 葉[は]ずし屋[や]の おばあちゃん",
+        "spriteKey": "char.npc-nara-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 柿[かき]の 葉[は]ずしは、葉[は]を はがしてから 食[た]べるんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-nara-smith",
+        "name": "奈良墨[ならずみ]の 職人[しょくにん]",
+        "spriteKey": "char.npc-nara-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "墨[すみ]は、すすと にかわを よく ねって、木[き]の 型[かた]に 入[い]れて 作[つく]るんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-boss-momiji-ryu",
+  "name": "モミジリュウ",
+  "area": "hiroshima",
+  "motifId": "sandankyo",
+  "element": "mizu",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 419,
+    "mp": 57,
+    "atk": 24,
+    "def": 16,
+    "spd": 11,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "hiroshima-tappuri-kyabetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "hiroshima-tanegaki-hotate",
+      "rate": 1
+    },
+    {
+      "itemId": "hiroshima-lemon-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "hiroshima-taishaku-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 284,
+  "gold": 327,
+  "spriteKey": "mon.hiroshima-boss-momiji-ryu",
+  "dexBlurb": "三段峡[さんだんきょう]の 青[あお]い 淵[ふち]に すむ、もみじの たてがみの 竜[りゅう]。もみじは 広島県[ひろしまけん]の 県[けん]の 木[き]で、秋[あき]の 三段峡[さんだんきょう]は まっかに そまる。",
+  "fieldLine": "三段峡[さんだんきょう]の 淵[ふち]を さわがすのは だれだ…！ ここから 先[さき]へは 行[い]かせぬ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "mori",
+      "skills": [
+        "sk-happa-arashi",
+        "sk-kuku-rush",
+        "sk-uzushio"
+      ],
+      "line": "ぐおおお…！ 三段峡[さんだんきょう]の もみじよ、あらしと なって まいあがれ！"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-hatchon",
+  "name": "ハッチョン",
+  "area": "aichi",
+  "motifId": "hatcho-miso",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 55,
+    "mp": 9,
+    "atk": 10,
+    "def": 12,
+    "spd": 6,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "aichi-kioke-no-ita",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.07,
+  "xp": 22,
+  "gold": 16,
+  "spriteKey": "mon.aichi-hatchon",
+  "evolution": {
+    "to": "aichi-miso-yagura",
+    "item": "aichi-kioke-no-ita"
+  },
+  "dexBlurb": "八丁味噌[はっちょうみそ]の 大[おお]きな 木[き]の おけの モンスター。おけの ふたの 上[うえ]には、山[やま]の ように 石[いし]を つみ上[あ]げて おもしに する。"
+}

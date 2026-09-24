@@ -1,0 +1,257 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "chiba",
+  "name": "千葉県[ちばけん]",
+  "island": "kanto",
+  "capital": "千葉市[ちばし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "chiba-field",
+    "town": "chiba-town",
+    "dungeon": "chiba-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "naritasan",
+      "name": "成田山新勝寺[なりたさんしんしょうじ]",
+      "kind": "landmark",
+      "imageKey": "motif.chiba.naritasan",
+      "blurb": "成田市[なりたし]に ある 大[おお]きな お寺[てら]。門前町[もんぜんまち]の 参道[さんどう]には お店[みせ]が ならぶ。"
+    },
+    {
+      "id": "kujukurihama",
+      "name": "九十九里浜[くじゅうくりはま]",
+      "kind": "nature",
+      "imageKey": "motif.chiba.kujukurihama",
+      "blurb": "太平洋[たいへいよう]に そって、60キロメートルほど つづく 長[なが]い 砂浜[すなはま]。"
+    },
+    {
+      "id": "nokogiriyama",
+      "name": "鋸山[のこぎりやま]",
+      "kind": "nature",
+      "imageKey": "motif.chiba.nokogiriyama",
+      "blurb": "石[いし]を 切[き]り出[だ]した あとが のこる 山[やま]。のこぎりの 歯[は]のような 形[かたち]に 見[み]える。"
+    },
+    {
+      "id": "inubosaki",
+      "name": "犬吠埼[いぬぼうさき]",
+      "kind": "landmark",
+      "imageKey": "motif.chiba.inubosaki",
+      "blurb": "銚子市[ちょうしし]の、太平洋[たいへいよう]に つき出[で]た みさき。白[しろ]い 灯台[とうだい]が 立[た]つ。"
+    },
+    {
+      "id": "oyama-senmaida",
+      "name": "大山千枚田[おおやませんまいだ]",
+      "kind": "nature",
+      "imageKey": "motif.chiba.oyama-senmaida",
+      "blurb": "鴨川市[かもがわし]の 山[やま]の しゃめんに、小[ちい]さな 田[た]んぼが 階段[かいだん]のように ならぶ。"
+    },
+    {
+      "id": "sawara",
+      "name": "佐原[さわら]の 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.chiba.sawara",
+      "blurb": "香取市[かとりし]の 佐原[さわら]には、川[かわ]ぞいに 古[ふる]い 商家[しょうか]の 町[まち]なみが のこる。"
+    },
+    {
+      "id": "noda-shoyu",
+      "name": "野田[のだ]の しょうゆ",
+      "kind": "food",
+      "imageKey": "motif.chiba.noda-shoyu",
+      "blurb": "野田市[のだし]は、むかしから しょうゆ作[づく]りが さかんな 町[まち]。"
+    },
+    {
+      "id": "rakkasei",
+      "name": "落花生[らっかせい]",
+      "kind": "food",
+      "imageKey": "motif.chiba.rakkasei",
+      "blurb": "八街市[やちまたし]など 千葉県[ちばけん]は、落花生[らっかせい]の 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "chiba-nashi",
+      "name": "なし",
+      "kind": "food",
+      "imageKey": "motif.chiba.chiba-nashi",
+      "blurb": "白井市[しろいし]や 市川市[いちかわし]などで 作[つく]られる。千葉県[ちばけん]は なしの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "boshu-uchiwa",
+      "name": "房州[ぼうしゅう]うちわ",
+      "kind": "craft",
+      "imageKey": "motif.chiba.boshu-uchiwa",
+      "blurb": "南房総[みなみぼうそう]で 作[つく]られる、細[ほそ]く わった 竹[たけ]の ほねを 生[い]かした うちわ。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "chiba-horipii",
+          "weight": 40
+        },
+        {
+          "monsterId": "chiba-sharirin",
+          "weight": 35
+        },
+        {
+          "monsterId": "chiba-kujukurin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "chiba-horipii",
+          "weight": 50
+        },
+        {
+          "monsterId": "chiba-sharirin",
+          "weight": 50
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "chiba-kujukurin",
+          "weight": 70
+        },
+        {
+          "monsterId": "chiba-horipii",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "chiba-kujukurin",
+          "weight": 75
+        },
+        {
+          "monsterId": "chiba-sharirin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "chiba-horipii",
+          "weight": 45
+        },
+        {
+          "monsterId": "chiba-kujukurin",
+          "weight": 30
+        },
+        {
+          "monsterId": "chiba-sharirin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "chiba-boss-shoyu-ryu",
+  "midBoss": "chiba-midboss-inubouken",
+  "secret": {
+    "name": "佐原[さわら] 伊能忠敬[いのうただたか]の 家[いえ]",
+    "boss": "chiba-lastboss-ino-tadataka"
+  },
+  "events": [
+    {
+      "id": "ev-chiba-kujukurihama",
+      "motifId": "kujukurihama",
+      "trigger": {
+        "map": "chiba-field",
+        "objectName": "event_chiba_kujukurihama"
+      },
+      "once": true,
+      "cutinImageKey": "motif.chiba.kujukurihama",
+      "dialogue": [
+        {
+          "speaker": "九十九里浜[くじゅうくりはま]の ライフセーバー",
+          "text": "ここは 60キロメートルほど つづく 長[なが]い すなはまだよ。海[うみ]と すなの ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:chiba"]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "九十九里浜[くじゅうくりはま]の ライフセーバー",
+          "text": "よく しらべたね！ 波[なみ]が すなを はこんで、この 長[なが]い はまが できたんだ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "千葉市[ちばし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-chiba-shop",
+        "name": "落花生屋[らっかせいや]の おばちゃん",
+        "spriteKey": "char.npc-chiba-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 千葉[ちば]の 落花生[らっかせい]は、畑[はたけ]で じっくり かわかすから おいしいよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-chiba-smith",
+        "name": "房州[ぼうしゅう]うちわの 職人[しょくにん]",
+        "spriteKey": "char.npc-chiba-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "房州[ぼうしゅう]うちわは、まるい 竹[たけ]を 細[ほそ]く わって ほねに するんだ。もつ ところも 竹[たけ]の まま だよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

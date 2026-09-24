@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-kitakon",
+  "name": "キタコン",
+  "area": "hokkaido",
+  "motifId": "shiretoko",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 34,
+    "mp": 8,
+    "atk": 12,
+    "def": 5,
+    "spd": 10,
+    "wis": 5
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "hokkaido-hamanasu-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 19,
+  "gold": 14,
+  "spriteKey": "mon.hokkaido-kitakon",
+  "evolution": {
+    "to": "hokkaido-homura-gitsune",
+    "item": "hokkaido-hamanasu-no-hana"
+  },
+  "dexBlurb": "北海道[ほっかいどう]に すむ キタキツネの 子[こ]。キタキツネは、耳[みみ]の うらと 足[あし]の 先[さき]が 黒[くろ]い。"
+}

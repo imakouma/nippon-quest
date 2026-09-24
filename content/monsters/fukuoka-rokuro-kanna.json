@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-rokuro-kanna",
+  "name": "ロクロカンナ",
+  "area": "fukuoka",
+  "motifId": "koishiwarayaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 76,
+    "mp": 14,
+    "atk": 18,
+    "def": 18,
+    "spd": 8,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-tashizan-giri",
+    "sk-iwa-otoshi"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 39,
+  "gold": 24,
+  "spriteKey": "mon.fukuoka-rokuro-kanna",
+  "dexBlurb": "トビカンナが しんかした すがた。大[おお]きな ろくろの 上[うえ]に どっしり すわり、もようが きれいな うずを えがく。"
+}

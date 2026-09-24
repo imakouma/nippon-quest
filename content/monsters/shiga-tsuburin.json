@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shiga-tsuburin",
+  "name": "ツブリン",
+  "area": "shiga",
+  "motifId": "biwako",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 41,
+    "mp": 11,
+    "atk": 11,
+    "def": 7,
+    "spd": 12,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.2,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "shiga-nionoumi-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 22,
+  "gold": 16,
+  "spriteKey": "mon.shiga-tsuburin",
+  "evolution": {
+    "to": "shiga-naminori-tsuburi",
+    "item": "shiga-nionoumi-no-shizuku"
+  },
+  "dexBlurb": "滋賀県[しがけん]の 県[けん]の 鳥[とり]、カイツブリの モンスター。水草[みずくさ]で 水[みず]に うかぶ すを 作[つく]り、ひなを そだてる。"
+}

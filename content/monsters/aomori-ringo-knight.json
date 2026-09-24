@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-ringo-knight",
+  "name": "リンゴナイト",
+  "area": "aomori",
+  "motifId": "ringo",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 40,
+    "mp": 10,
+    "atk": 11,
+    "def": 8,
+    "spd": 8,
+    "wis": 5
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.2,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.aomori-ringo-knight",
+  "dexBlurb": "リンゴロンが しんかした すがた。りんごの よろいと 葉[は]の つるぎで、なかまを まもる。"
+}

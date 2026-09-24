@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okayama-emeraldou",
+  "name": "エメラルドウ",
+  "area": "okayama",
+  "motifId": "okayama-muscat",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 65,
+    "mp": 20,
+    "atk": 18,
+    "def": 13,
+    "spd": 12,
+    "wis": 13
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.3,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 38,
+  "gold": 30,
+  "spriteKey": "mon.okayama-emeraldou",
+  "dexBlurb": "マスカットンが しんかした すがた。一[ひと]つぶ 一[ひと]つぶが エメラルドのように 光[ひか]り、光[ひかり]の 矢[や]を はなつ。"
+}

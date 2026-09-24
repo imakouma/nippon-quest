@@ -1,0 +1,309 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "miyagi",
+  "name": "宮城県[みやぎけん]",
+  "island": "tohoku",
+  "capital": "仙台市[せんだいし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "miyagi-field",
+    "town": "miyagi-town",
+    "dungeon": "miyagi-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "matsushima",
+      "name": "松島[まつしま]",
+      "kind": "nature",
+      "imageKey": "motif.miyagi.matsushima",
+      "blurb": "260ほどの 小[ちい]さな 島[しま]が 海[うみ]に うかぶ、日本三景[にほんさんけい]の ひとつ。"
+    },
+    {
+      "id": "gyutan",
+      "name": "牛[ぎゅう]タン",
+      "kind": "food",
+      "imageKey": "motif.miyagi.gyutan",
+      "blurb": "牛[うし]の したを うすく 切[き]って やいた、仙台[せんだい]の 名物[めいぶつ]。"
+    },
+    {
+      "id": "sendai-tanabata",
+      "name": "仙台七夕[せんだいたなばた]まつり",
+      "kind": "festival",
+      "imageKey": "motif.miyagi.sendai-tanabata",
+      "blurb": "夏[なつ]に、町[まち]じゅうが 大[おお]きな ささかざりで いろどられる お祭[まつ]り。"
+    },
+    {
+      "id": "naruko-kyo",
+      "name": "鳴子峡[なるこきょう]",
+      "kind": "nature",
+      "imageKey": "motif.miyagi.naruko-kyo",
+      "blurb": "ふかい たにを 川[かわ]が ながれる けいこく。秋[あき]の 紅葉[こうよう]が とても きれい。"
+    },
+    {
+      "id": "kesennuma",
+      "name": "気仙沼[けせんぬま]の 港[みなと]",
+      "kind": "landmark",
+      "imageKey": "motif.miyagi.kesennuma",
+      "blurb": "カツオや サンマが たくさん 水[みず]あげされる、東北[とうほく]の 大[おお]きな 漁港[ぎょこう]。"
+    },
+    {
+      "id": "sasakama",
+      "name": "笹[ささ]かまぼこ",
+      "kind": "food",
+      "imageKey": "motif.miyagi.sasakama",
+      "blurb": "魚[さかな]の 身[み]を すりつぶし、笹[ささ]の 葉[は]の 形[かたち]に して やいた かまぼこ。仙台[せんだい]の おみやげとして 有名[ゆうめい]。"
+    },
+    {
+      "id": "zunda",
+      "name": "ずんだもち",
+      "kind": "food",
+      "imageKey": "motif.miyagi.zunda",
+      "blurb": "えだまめを すりつぶした みどりの あん「ずんだ」を、おもちに からめた おかし。"
+    },
+    {
+      "id": "naruko-kokeshi",
+      "name": "鳴子[なるこ]こけし",
+      "kind": "craft",
+      "imageKey": "motif.miyagi.naruko-kokeshi",
+      "blurb": "鳴子温泉[なるこおんせん]で 作[つく]られる 木[き]の 人形[にんぎょう]。頭[あたま]を まわすと キュッキュッと 鳴[な]る。"
+    },
+    {
+      "id": "sendai-jo",
+      "name": "仙台城跡[せんだいじょうあと]",
+      "kind": "history",
+      "imageKey": "motif.miyagi.sendai-jo",
+      "blurb": "伊達政宗[だてまさむね]が きずいた お城[しろ]の あと。三日月[みかづき]の かぶとを かぶった 政宗[まさむね]の 像[ぞう]が、仙台[せんだい]の 町[まち]を 見[み]わたしている。"
+    },
+    {
+      "id": "izunuma",
+      "name": "伊豆沼[いずぬま]",
+      "kind": "nature",
+      "imageKey": "motif.miyagi.izunuma",
+      "blurb": "冬[ふゆ]に なると、北[きた]の 国[くに]から マガンや ハクチョウが たくさん わたって くる 沼[ぬま]。"
+    },
+    {
+      "id": "miyagi-kaki",
+      "name": "宮城[みやぎ]の かき",
+      "kind": "food",
+      "imageKey": "motif.miyagi.miyagi-kaki",
+      "blurb": "石巻[いしのまき]など 三陸[さんりく]の 海[うみ]で 育[そだ]てられる かき。宮城県[みやぎけん]は かきの 生産[せいさん]が さかん。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 44
+        },
+        {
+          "monsterId": "miyagi-kokeshina",
+          "weight": 31
+        },
+        {
+          "monsterId": "miyagi-sasakama-uo",
+          "weight": 13
+        },
+        {
+          "monsterId": "miyagi-tanyakki",
+          "weight": 12
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 44
+        },
+        {
+          "monsterId": "miyagi-shiratorin",
+          "weight": 31
+        },
+        {
+          "monsterId": "miyagi-kokeshina",
+          "weight": 13
+        },
+        {
+          "monsterId": "miyagi-tanyakki",
+          "weight": 12
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "miyagi-kokeshina",
+          "weight": 55
+        },
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "miyagi-kokeshina",
+          "weight": 70
+        },
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "miyagi-sasakama-uo",
+          "weight": 75
+        },
+        {
+          "monsterId": "miyagi-shiratorin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "miyagi-shiratorin",
+          "weight": 75
+        },
+        {
+          "monsterId": "miyagi-sasakama-uo",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "miyagi-kokeshina",
+          "weight": 55
+        },
+        {
+          "monsterId": "miyagi-sasakama-uo",
+          "weight": 25
+        },
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "miyagi-boss-mikazuki-shogun",
+  "midBoss": "miyagi-midboss-tanabata-dori",
+  "secret": {
+    "name": "仙台城[せんだいじょう] 本丸[ほんまる]",
+    "boss": "miyagi-lastboss-date-masamune"
+  },
+  "events": [
+    {
+      "id": "ev-miyagi-matsushima",
+      "motifId": "matsushima",
+      "trigger": {
+        "map": "miyagi-field",
+        "objectName": "event_miyagi_matsushima"
+      },
+      "once": true,
+      "cutinImageKey": "motif.miyagi.matsushima",
+      "dialogue": [
+        {
+          "speaker": "松島[まつしま]の 船頭[せんどう]さん",
+          "text": "ようこそ 松島[まつしま]へ！ 島[しま]めぐりの ふねから もんだいを だすよ！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:miyagi"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "松島[まつしま]の 船頭[せんどう]さん",
+          "text": "ありがとう！ また ふねに のりに きてね。"
+        }
+      ]
+    }
+  ],
+  "town": {
+    "name": "仙台市[せんだいし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-miyagi-shop",
+        "name": "ささかま屋[や]の おじさん",
+        "spriteKey": "char.npc-miyagi-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "やきたての ささかまぼこは おいしいぞ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-miyagi-talk",
+        "name": "仙台[せんだい]の 町[まち]の 人[ひと]",
+        "spriteKey": "char.npc-miyagi-talk",
+        "role": "talk",
+        "dialogue": [
+          {
+            "text": "伊達政宗[だてまさむね]が きずいた 城下町[じょうかまち]へ ようこそ！"
+          }
+        ]
+      }
+    ]
+  }
+}

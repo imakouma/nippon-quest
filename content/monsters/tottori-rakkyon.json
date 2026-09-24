@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tottori-rakkyon",
+  "name": "ラッキョン",
+  "area": "tottori",
+  "motifId": "rakkyo",
+  "element": "tsuchi",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 47,
+    "mp": 12,
+    "atk": 13,
+    "def": 11,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-tashizan-giri"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "tottori-rakkyo-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 25,
+  "gold": 17,
+  "spriteKey": "mon.tottori-rakkyon",
+  "evolution": {
+    "to": "tottori-rakkyo-musha",
+    "item": "tottori-rakkyo-no-tane"
+  },
+  "dexBlurb": "砂丘[さきゅう]らっきょうの モンスター。秋[あき]に なると、砂[すな]の 畑[はたけ]いちめんに むらさきの 花[はな]が さく。"
+}

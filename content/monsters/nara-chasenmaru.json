@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nara-chasenmaru",
+  "name": "チャセンマル",
+  "area": "nara",
+  "motifId": "takayama-chasen",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 44,
+    "mp": 12,
+    "atk": 12,
+    "def": 7,
+    "spd": 11,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.1,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "nara-chasen-no-ho",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.09,
+  "xp": 22,
+  "gold": 16,
+  "spriteKey": "mon.nara-chasenmaru",
+  "evolution": {
+    "to": "nara-matcha-arashi",
+    "item": "nara-chasen-no-ho"
+  },
+  "dexBlurb": "高山茶筌[たかやまちゃせん]の モンスター。生駒市[いこまし]の 高山[たかやま]は、むかしから 茶筌[ちゃせん]作[づく]りが さかんな 町[まち]。"
+}

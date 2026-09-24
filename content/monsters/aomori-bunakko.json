@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-bunakko",
+  "name": "ブナッコ",
+  "area": "aomori",
+  "motifId": "shirakami",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 34,
+    "mp": 8,
+    "atk": 8,
+    "def": 8,
+    "spd": 5,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.1,
+    "def": 1.2,
+    "spd": 0.7,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.3
+    },
+    {
+      "itemId": "aomori-buna-no-mi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.1,
+  "xp": 18,
+  "gold": 13,
+  "spriteKey": "mon.aomori-bunakko",
+  "evolution": {
+    "to": "aomori-buna-taiju",
+    "item": "aomori-buna-no-mi"
+  },
+  "dexBlurb": "白神山地[しらかみさんち]の ブナの 森[もり]の 子[こ]ども。ブナの 森[もり]は 雨[あめ]の 水[みず]を たっぷり たくわえる「みどりの ダム」だよ。"
+}

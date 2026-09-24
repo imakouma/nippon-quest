@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-midboss-tsubo-musha",
+  "name": "ツボムシャ",
+  "area": "kagoshima",
+  "motifId": "satsumayaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 181,
+    "mp": 29,
+    "atk": 17,
+    "def": 13,
+    "spd": 9,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 102,
+  "gold": 118,
+  "spriteKey": "mon.kagoshima-midboss-tsubo-musha",
+  "dexBlurb": "薩摩焼[さつまやき]の つぼが 武者[むしゃ]に なった 中[ちゅう]ボス。薩摩焼[さつまやき]には、白[しろ]い「白[しろ]もん」と 黒[くろ]い「黒[くろ]もん」が ある。",
+  "fieldLine": "この 道[みち]は とおさぬ！ 薩摩焼[さつまやき]の かたい 体[からだ]、やぶれるものなら やぶってみよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-iwa-otoshi"
+      ],
+      "line": "かまの 火[ひ]が もえさかる！ 焼[や]きあがった この 体[からだ]、われは せぬぞ！"
+    }
+  ]
+}

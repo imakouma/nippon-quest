@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-tsumuji-uchiwa",
+  "name": "ツムジウチワ",
+  "area": "kagawa",
+  "motifId": "marugame-uchiwa",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 62,
+    "mp": 18,
+    "atk": 19,
+    "def": 10,
+    "spd": 16,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 36,
+  "gold": 25,
+  "spriteKey": "mon.kagawa-tsumuji-uchiwa",
+  "dexBlurb": "アオギンが しんかした すがた。2まいの うちわを つばさに して、つむじ風[かぜ]を まきおこす。"
+}

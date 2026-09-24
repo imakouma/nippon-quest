@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-sakusaku-momiji",
+  "name": "サクサクモミジ",
+  "area": "osaka",
+  "motifId": "minoo-no-taki",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 41,
+    "mp": 12,
+    "atk": 12,
+    "def": 7,
+    "spd": 13,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.2,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.8,
+    "spd": 1.3,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "osaka-minoo-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 22,
+  "gold": 16,
+  "spriteKey": "mon.osaka-sakusaku-momiji",
+  "evolution": {
+    "to": "osaka-momiji-fubuki",
+    "item": "osaka-minoo-no-shizuku"
+  },
+  "dexBlurb": "箕面[みのお]の もみじの モンスター。箕面[みのお]の 名物[めいぶつ]「もみじの 天[てん]ぷら」は、もみじの 葉[は]に ころもを つけて あげた おかし。"
+}

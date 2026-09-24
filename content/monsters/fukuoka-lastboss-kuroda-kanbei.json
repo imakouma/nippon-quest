@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-lastboss-kuroda-kanbei",
+  "name": "黒田官兵衛[くろだかんべえ]",
+  "area": "fukuoka",
+  "motifId": "akizuki",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 536,
+    "mp": 74,
+    "atk": 29,
+    "def": 23,
+    "spd": 13,
+    "wis": 23
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-kanji-barrier"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 480,
+  "gold": 554,
+  "spriteKey": "mon.fukuoka-lastboss-kuroda-kanbei",
+  "dexBlurb": "戦国時代[せんごくじだい]の 武将[ぶしょう]（1546〜1604年[ねん]）。豊臣秀吉[とよとみひでよし]の 軍師[ぐんし]として 知恵[ちえ]を かし、むすこの 長政[ながまさ]と ともに 福岡[ふくおか]の 町[まち]の もとを きずいた。",
+  "fieldLine": "黒田官兵衛[くろだかんべえ]じゃ。この 福岡城[ふくおかじょう]で、そなたの 知恵[ちえ]を ためさせて もらおう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "みごと！ ならば わしの 采配[さいはい]、しかと 見[み]よ！"
+    }
+  ]
+}

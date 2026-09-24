@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ehime-jakotengyo",
+  "name": "ジャコテンギョ",
+  "area": "ehime",
+  "motifId": "jakoten",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 53,
+    "mp": 12,
+    "atk": 15,
+    "def": 9,
+    "spd": 9,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 1,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "ehime-uwakai-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 27,
+  "gold": 19,
+  "spriteKey": "mon.ehime-jakotengyo",
+  "evolution": {
+    "to": "ehime-jakotendai",
+    "item": "ehime-uwakai-no-shizuku"
+  },
+  "dexBlurb": "じゃこ天[てん]の すがたの 魚[さかな]。じゃこ天[てん]は、宇和海[うわかい]で とれた 小[ちい]さな 魚[さかな]を 骨[ほね]ごと すりつぶして あげた 宇和島[うわじま]の 名物[めいぶつ]。"
+}

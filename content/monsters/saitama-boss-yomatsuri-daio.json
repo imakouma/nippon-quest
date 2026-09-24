@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saitama-boss-yomatsuri-daio",
+  "name": "ヨマツリダイオウ",
+  "area": "saitama",
+  "motifId": "chichibu-yomatsuri",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 297,
+    "mp": 40,
+    "atk": 17,
+    "def": 12,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 10,
+    "mp": 2,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-hono-no-uzu", "sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "saitama-haniwa-doki-kakera",
+      "rate": 1
+    },
+    {
+      "itemId": "saitama-negi-no-tane",
+      "rate": 1
+    },
+    {
+      "itemId": "saitama-shoyu-no-fude",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 193,
+  "gold": 226,
+  "spriteKey": "mon.saitama-boss-yomatsuri-daio",
+  "dexBlurb": "秩父夜祭[ちちぶよまつり]の 山車[だし]が 動[うご]きだした すがた。12月[がつ]の 夜[よる]、ちょうちんを つけた 笠鉾[かさぼこ]や 屋台[やたい]が、花火[はなび]の 下[した]を 進[すす]む。",
+  "fieldLine": "秩父[ちちぶ]の 夜[よる]の 山車[だし]、ひいて みるか！ まけたら 通[とお]さんぞ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "actionsPerTurn": 2,
+      "line": "冬[ふゆ]の 夜空[よぞら]に 花火[はなび]を あげろ！"
+    }
+  ]
+}

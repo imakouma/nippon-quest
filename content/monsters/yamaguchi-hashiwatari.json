@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamaguchi-hashiwatari",
+  "name": "ハシワタリ",
+  "area": "yamaguchi",
+  "motifId": "tsunoshima-ohashi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 49,
+    "mp": 12,
+    "atk": 13,
+    "def": 8,
+    "spd": 14,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "yamaguchi-tsunoshima-no-hane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 25,
+  "gold": 18,
+  "spriteKey": "mon.yamaguchi-hashiwatari",
+  "evolution": {
+    "to": "yamaguchi-oohashiwatari",
+    "item": "yamaguchi-tsunoshima-no-hane"
+  },
+  "dexBlurb": "白[しろ]い 橋[はし]の かたちの つばさを もつ 鳥[とり]。角島大橋[つのしまおおはし]は、青[あお]い 海[うみ]の 上[うえ]を まっすぐに のびる 長[なが]い 橋[はし]。"
+}

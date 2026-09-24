@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shimane-tenshu-chidori",
+  "name": "テンシュチドリ",
+  "area": "shimane",
+  "motifId": "matsue-jo",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 60,
+    "mp": 18,
+    "atk": 18,
+    "def": 11,
+    "spd": 15,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 34,
+  "gold": 26,
+  "spriteKey": "mon.shimane-tenshu-chidori",
+  "dexBlurb": "チドリンが しんかした すがた。黒[くろ]い 天守[てんしゅ]の よろいを まとい、はばたくと お堀[ほり]に 大[おお]きな 波[なみ]が たつ。"
+}

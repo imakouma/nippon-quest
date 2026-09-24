@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tottori-rakkyo-musha",
+  "name": "ラッキョムシャ",
+  "area": "tottori",
+  "motifId": "rakkyo",
+  "element": "tsuchi",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 64,
+    "mp": 17,
+    "atk": 18,
+    "def": 15,
+    "spd": 10,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-tashizan-giri",
+    "sk-iwa-otoshi"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 38,
+  "gold": 26,
+  "spriteKey": "mon.tottori-rakkyo-musha",
+  "dexBlurb": "白[しろ]い 身[み]を かさねて よろいに した らっきょうの 武者[むしゃ]。砂[すな]に もぐって 相手[あいて]を まちぶせる。"
+}

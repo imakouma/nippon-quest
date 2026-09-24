@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kochi-oowashigami",
+  "name": "オオワシガミ",
+  "area": "kochi",
+  "motifId": "tosa-washi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 65,
+    "mp": 18,
+    "atk": 19,
+    "def": 12,
+    "spd": 17,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.3,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1,
+    "spd": 1.6,
+    "wis": 1
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 36,
+  "gold": 25,
+  "spriteKey": "mon.kochi-oowashigami",
+  "dexBlurb": "カミワシが しんかした すがた。大[おお]きな 紙[かみ]の つばさで 風[かぜ]に のる。土佐和紙[とさわし]は こうぞや みつまたの 皮[かわ]から 作[つく]る。"
+}

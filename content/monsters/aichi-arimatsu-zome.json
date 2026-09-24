@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-arimatsu-zome",
+  "name": "アリマツゾメ",
+  "area": "aichi",
+  "motifId": "arimatsu-shibori",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 57,
+    "mp": 13,
+    "atk": 15,
+    "def": 11,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.aichi-arimatsu-zome",
+  "dexBlurb": "シボリンが しんかした すがた。大[おお]きな のれんの ように 藍色[あいいろ]の 布[ぬの]を ひろげ、水[みず]の ように ゆれる。"
+}

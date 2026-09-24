@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyagi-zundagon",
+  "name": "ズンダゴン",
+  "area": "miyagi",
+  "motifId": "zunda",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 44,
+    "mp": 12,
+    "atk": 12,
+    "def": 9,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 1.1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.miyagi-zundagon",
+  "dexBlurb": "ズンダマルが しんかした すがた。えだまめの ちからで、ぐんぐん 大[おお]きく なった。"
+}

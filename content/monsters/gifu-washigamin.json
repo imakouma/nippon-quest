@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-washigamin",
+  "name": "ワシガミン",
+  "area": "gifu",
+  "motifId": "mino-washi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 45,
+    "mp": 9,
+    "atk": 11,
+    "def": 8,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.0,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "gifu-tesuki-washi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 13,
+  "spriteKey": "mon.gifu-washigamin",
+  "evolution": {
+    "to": "gifu-kamiori-dori",
+    "item": "gifu-tesuki-washi"
+  },
+  "dexBlurb": "美濃和紙[みのわし]が 生[い]きものに なった モンスター。美濃和紙[みのわし]は うすくて とても じょうぶで、しょうじや あかりに つかわれる。"
+}

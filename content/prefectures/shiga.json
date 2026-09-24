@@ -1,0 +1,285 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "shiga",
+  "name": "滋賀県[しがけん]",
+  "island": "kinki",
+  "capital": "大津市[おおつし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "shiga-field",
+    "town": "shiga-town",
+    "dungeon": "shiga-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "biwako",
+      "name": "琵琶湖[びわこ]",
+      "kind": "nature",
+      "imageKey": "motif.shiga.biwako",
+      "blurb": "日本[にほん]で いちばん 大[おお]きな 湖[みずうみ]。滋賀県[しがけん]の 6分[ぶん]の 1ほどを しめる。"
+    },
+    {
+      "id": "hikone-jo",
+      "name": "彦根城[ひこねじょう]",
+      "kind": "history",
+      "imageKey": "motif.shiga.hikone-jo",
+      "blurb": "むかしの 天守[てんしゅ]が そのまま のこる お城[しろ]。国宝[こくほう]に なっている。"
+    },
+    {
+      "id": "enryakuji",
+      "name": "比叡山延暦寺[ひえいざんえんりゃくじ]",
+      "kind": "landmark",
+      "imageKey": "motif.shiga.enryakuji",
+      "blurb": "京都府[きょうとふ]との さかいの 山[やま]に ある、とても 古[ふる]い お寺[てら]。世界遺産[せかいいさん]。"
+    },
+    {
+      "id": "omihachiman",
+      "name": "近江八幡[おうみはちまん]の 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.shiga.omihachiman",
+      "blurb": "近江八幡市[おうみはちまんし]には、水路[すいろ]に そって 古[ふる]い 町[まち]なみが のこる。"
+    },
+    {
+      "id": "nagahama-hikiyama",
+      "name": "長浜[ながはま]の 曳山[ひきやま]まつり",
+      "kind": "festival",
+      "imageKey": "motif.shiga.nagahama-hikiyama",
+      "blurb": "長浜市[ながはまし]の 春[はる]の お祭[まつ]り。山車[だし]の 上[うえ]で 子[こ]どもたちが 歌舞伎[かぶき]を 演[えん]じる。"
+    },
+    {
+      "id": "ibukiyama",
+      "name": "伊吹山[いぶきやま]",
+      "kind": "nature",
+      "imageKey": "motif.shiga.ibukiyama",
+      "blurb": "滋賀県[しがけん]で いちばん 高[たか]い 山[やま]。夏[なつ]には たくさんの 花[はな]が さく。"
+    },
+    {
+      "id": "shigarakiyaki",
+      "name": "信楽焼[しがらきやき]",
+      "kind": "craft",
+      "imageKey": "motif.shiga.shigarakiyaki",
+      "blurb": "甲賀市[こうかし]の 信楽[しがらき]で 作[つく]られる やきもの。たぬきの おきものが 有名[ゆうめい]。"
+    },
+    {
+      "id": "omiushi",
+      "name": "近江牛[おうみうし]",
+      "kind": "food",
+      "imageKey": "motif.shiga.omiushi",
+      "blurb": "滋賀県[しがけん]で 育[そだ]てられた 牛[うし]の お肉[にく]。むかしから 有名[ゆうめい]。"
+    },
+    {
+      "id": "funazushi",
+      "name": "ふなずし",
+      "kind": "food",
+      "imageKey": "motif.shiga.funazushi",
+      "blurb": "琵琶湖[びわこ]の ふなを、ごはんと いっしょに 長[なが]い あいだ つけこんで 作[つく]る おすし。"
+    },
+    {
+      "id": "omi-jofu",
+      "name": "近江上布[おうみじょうふ]",
+      "kind": "craft",
+      "imageKey": "motif.shiga.omi-jofu",
+      "blurb": "愛荘町[あいしょうちょう]などで 作[つく]られる 麻[あさ]の 布[ぬの]。すずしくて、夏[なつ]の 着物[きもの]に 使[つか]う。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "shiga-ibukikko",
+          "weight": 20
+        },
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 35
+        },
+        {
+          "monsterId": "shiga-nigoron",
+          "weight": 25
+        },
+        {
+          "monsterId": "shiga-asanunon",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "shiga-nigoron",
+          "weight": 35
+        },
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 40
+        },
+        {
+          "monsterId": "shiga-asanunon",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "shiga-ibukikko",
+          "weight": 65
+        },
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "shiga-ibukikko",
+          "weight": 80
+        },
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "shiga-nigoron",
+          "weight": 55
+        },
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "shiga-nigoron",
+          "weight": 40
+        },
+        {
+          "monsterId": "shiga-ibukikko",
+          "weight": 35
+        },
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "shiga-boss-dainamazu",
+  "midBoss": "shiga-midboss-ponpoko-oyabun",
+  "secret": {
+    "name": "彦根城[ひこねじょう] 天守[てんしゅ]",
+    "boss": "shiga-lastboss-ii-naosuke"
+  },
+  "events": [
+    {
+      "id": "ev-shiga-biwako",
+      "motifId": "biwako",
+      "trigger": {
+        "map": "shiga-field",
+        "objectName": "event_shiga_biwako"
+      },
+      "once": true,
+      "cutinImageKey": "motif.shiga.biwako",
+      "dialogue": [
+        {
+          "speaker": "琵琶湖[びわこ]の 漁師[りょうし]さん",
+          "text": "ここは 日本[にほん]で いちばん 大[おお]きな 湖[みずうみ]、琵琶湖[びわこ]だよ。湖[みずうみ]の ことを しらべて みよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:shiga"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "琵琶湖[びわこ]の 漁師[りょうし]さん",
+          "text": "よく できたね！ 琵琶湖[びわこ]の 水[みず]は、京都[きょうと]や 大阪[おおさか]でも 使[つか]われているんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "大津市[おおつし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-shiga-shop",
+        "name": "近江商人[おうみしょうにん]の だんなさん",
+        "spriteKey": "char.npc-shiga-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 近江商人[おうみしょうにん]は「売[う]り手[て]よし、買[か]い手[て]よし、世間[せけん]よし」の「三方[さんぽう]よし」を 大切[たいせつ]に したんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-shiga-smith",
+        "name": "信楽焼[しがらきやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-shiga-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "信楽焼[しがらきやき]の たぬきは、「他[た]を ぬく」で 商売[しょうばい]はんじょうの えんぎものなんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

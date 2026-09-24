@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-lastboss-todo-takatora",
+  "name": "藤堂高虎[とうどうたかとら]",
+  "area": "mie",
+  "motifId": "iga-ninja",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 444,
+    "mp": 57,
+    "atk": 25,
+    "def": 19,
+    "spd": 14,
+    "wis": 18
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-habataki"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 413,
+  "gold": 475,
+  "spriteKey": "mon.mie-lastboss-todo-takatora",
+  "dexBlurb": "戦国時代[せんごくじだい]から 江戸時代[えどじだい]の はじめの 武将[ぶしょう]（1556〜1630年[ねん]）。お城[しろ]づくりの 名人[めいじん]で、伊賀上野城[いがうえのじょう]に とても 高[たか]い 石垣[いしがき]を きずいた。",
+  "fieldLine": "藤堂高虎[とうどうたかとら]じゃ。わしの きずいた 石垣[いしがき]を よくぞ のぼって きた。いざ、しょうぶ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "tsuchi",
+      "skills": [
+        "sk-iwa-otoshi",
+        "sk-habataki",
+        "sk-kuku-rush"
+      ],
+      "line": "わしが きずいた 日本一[にほんいち]の 高[たか]い 石垣[いしがき]、その おもさを 思[おも]い しれ！"
+    }
+  ]
+}

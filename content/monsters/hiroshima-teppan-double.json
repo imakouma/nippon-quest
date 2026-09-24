@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-teppan-double",
+  "name": "テッパンダブル",
+  "area": "hiroshima",
+  "motifId": "okonomiyaki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 65,
+    "mp": 17,
+    "atk": 21,
+    "def": 11,
+    "spd": 12,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 38,
+  "gold": 28,
+  "spriteKey": "mon.hiroshima-teppan-double",
+  "dexBlurb": "カサネヤキンが しんかした すがた。そばを 2玉[たま]に した「そばダブル」で、あつあつの 鉄板[てっぱん]の 上[うえ]に 立[た]つ。"
+}

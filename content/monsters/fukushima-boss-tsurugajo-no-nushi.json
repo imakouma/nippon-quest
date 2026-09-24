@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-boss-tsurugajo-no-nushi",
+  "name": "ツルガジョウノヌシ",
+  "area": "fukushima",
+  "motifId": "tsurugajo",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 336,
+    "mp": 50,
+    "atk": 18,
+    "def": 13,
+    "spd": 11,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-habataki"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "fukushima-hariko-no-washi",
+      "rate": 1
+    },
+    {
+      "itemId": "fukushima-akatsuki-no-tane",
+      "rate": 1
+    },
+    {
+      "itemId": "fukushima-nanakorobi-no-hata",
+      "rate": 1
+    },
+    {
+      "itemId": "fukushima-kitakata-no-dashi",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 234,
+  "gold": 270,
+  "spriteKey": "mon.fukushima-boss-tsurugajo-no-nushi",
+  "dexBlurb": "鶴ヶ城[つるがじょう]の 赤[あか]い かわらを よろいに した 大[おお]きな 鶴[つる]。鶴ヶ城[つるがじょう]は 赤[あか]い かわらの 天守[てんしゅ]が めずらしい お城[しろ]。",
+  "fieldLine": "クワーッ！ 城[しろ]の たからに ちかづく ものは だれだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-habataki",
+        "sk-hikari-no-hane",
+        "sk-hikari-no-ya"
+      ],
+      "line": "クワーッ！ この 城[しろ]は けっして おちぬ！ 赤[あか]がわらの つばさよ、かがやけ！"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shiga-lastboss-ii-naosuke",
+  "name": "井伊直弼[いいなおすけ]",
+  "area": "shiga",
+  "motifId": "hikone-jo",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 473,
+    "mp": 59,
+    "atk": 26,
+    "def": 21,
+    "spd": 12,
+    "wis": 18
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hono-no-uzu",
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 425,
+  "gold": 490,
+  "spriteKey": "mon.shiga-lastboss-ii-naosuke",
+  "dexBlurb": "江戸[えど]時代[じだい]の おわりの 彦根藩[ひこねはん]の 殿[との]さま（1815〜1860年[ねん]）。大老[たいろう]として アメリカと 条約[じょうやく]を むすび、茶道[さどう]では「一期一会[いちごいちえ]」の 心[こころ]を 大切[たいせつ]に した。",
+  "fieldLine": "井伊直弼[いいなおすけ]じゃ。一期一会[いちごいちえ]の この 出会[であ]い、しょうぶで たしかめよう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "彦根[ひこね]の 赤備[あかぞな]え、いざ 出陣[しゅつじん]！ うけて みよ！"
+    }
+  ]
+}

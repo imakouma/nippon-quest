@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-oo-kappa",
+  "name": "オオカッパ",
+  "area": "iwate",
+  "motifId": "tono",
+  "element": "mizu",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 48,
+    "mp": 12,
+    "atk": 13,
+    "def": 9,
+    "spd": 11,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.3,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.iwate-oo-kappa",
+  "dexBlurb": "トオノカッパが しんかした すがた。あたまの お皿[さら]に 水[みず]が あるかぎり、とても 力[ちから]もち。"
+}

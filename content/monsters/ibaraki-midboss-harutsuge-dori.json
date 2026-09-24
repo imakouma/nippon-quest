@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ibaraki-midboss-harutsuge-dori",
+  "name": "ハルツゲドリ",
+  "area": "ibaraki",
+  "motifId": "kairakuen",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 114,
+    "mp": 21,
+    "atk": 12,
+    "def": 8,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-abc-shout",
+    "sk-habataki"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 71,
+  "gold": 84,
+  "spriteKey": "mon.ibaraki-midboss-harutsuge-dori",
+  "dexBlurb": "梅[うめ]の 花[はな]を まとった 大[おお]きな ウグイス。ウグイスは 春[はる]を つげる 鳥[とり]と いわれ、偕楽園[かいらくえん]では 約[やく]3000本[ぼん]の 梅[うめ]が さく。",
+  "fieldLine": "ホー、ホケキョ！ 梅[うめ]の 花[はな]を 見[み]たければ、わしと しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "line": "ホー、ホケキョ！ 梅[うめ]の 花[はな]ふぶきで、空[そら]ごと まき上[あ]げて くれる！",
+      "skills": [
+        "sk-habataki",
+        "sk-happa-arashi"
+      ]
+    }
+  ]
+}

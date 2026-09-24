@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kochi-yuzupika",
+  "name": "ユズピカ",
+  "area": "kochi",
+  "motifId": "kochi-yuzu",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 53,
+    "mp": 15,
+    "atk": 12,
+    "def": 9,
+    "spd": 9,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.9,
+    "wis": 1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "kochi-yuzu-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 27,
+  "gold": 19,
+  "spriteKey": "mon.kochi-yuzupika",
+  "evolution": {
+    "to": "kochi-kagayaki-yuzu",
+    "item": "kochi-yuzu-no-hana"
+  },
+  "dexBlurb": "ゆずの モンスター。でこぼこの かわが 山[やま]の 光[ひかり]を あつめて、まわりを ぱっと 明[あか]るく する。高知県[こうちけん]は ゆずの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+}

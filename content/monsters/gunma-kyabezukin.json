@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gunma-kyabezukin",
+  "name": "キャベズキン",
+  "area": "gunma",
+  "motifId": "tsumagoi-kyabetsu",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 43,
+    "mp": 9,
+    "atk": 10,
+    "def": 8,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "gunma-kyabetsu-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 17,
+  "gold": 11,
+  "spriteKey": "mon.gunma-kyabezukin",
+  "evolution": {
+    "to": "gunma-kyabe-yoroi",
+    "item": "gunma-kyabetsu-no-tane"
+  },
+  "dexBlurb": "キャベツの 葉[は]を ずきんのように かぶった モンスター。嬬恋村[つまごいむら]の キャベツは、夏[なつ]でも すずしい 高原[こうげん]で そだつ。"
+}

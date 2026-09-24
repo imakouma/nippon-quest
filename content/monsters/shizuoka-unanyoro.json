@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shizuoka-unanyoro",
+  "name": "ウナニョロ",
+  "area": "shizuoka",
+  "motifId": "hamanako-unagi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 44,
+    "mp": 12,
+    "atk": 12,
+    "def": 6,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "shizuoka-tenryu-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.07,
+  "xp": 20,
+  "gold": 13,
+  "spriteKey": "mon.shizuoka-unanyoro",
+  "evolution": {
+    "to": "shizuoka-unagi-nobori",
+    "item": "shizuoka-tenryu-no-shizuku"
+  },
+  "dexBlurb": "浜名湖[はまなこ]の うなぎの モンスター。浜名湖[はまなこ]の まわりでは、100年[ねん]いじょう 前[まえ]から うなぎを 育[そだ]てて いる。"
+}

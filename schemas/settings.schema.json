@@ -1,0 +1,302 @@
+{
+  "$ref": "#/definitions/settings",
+  "definitions": {
+    "settings": {
+      "type": "object",
+      "properties": {
+        "timeLimitSecByGrade": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "scoreMultipliers": {
+          "type": "object",
+          "properties": {
+            "perfect": {
+              "type": "number"
+            },
+            "good": {
+              "type": "number"
+            },
+            "weak": {
+              "type": "number"
+            },
+            "miss": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "perfect",
+            "good",
+            "weak",
+            "miss"
+          ],
+          "additionalProperties": false,
+          "description": "問題の できばえ → いりょくの 倍率（perfect=1.0 / good=0.5〜0.99 / weak=0.01〜0.49 / miss=0）"
+        },
+        "weaknessMultiplier": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "defeatGoldLossRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "recruitHpThreshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "recentQuestionWindow": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "adaptiveWeakUnitRatio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "damageScale": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "default": 12,
+          "description": "ダメージ式 BaseDamage = こうげき × いりょく ÷ ぼうぎょ × damageScale の 係数"
+        },
+        "combo": {
+          "type": "object",
+          "properties": {
+            "perCombo": {
+              "type": "number",
+              "minimum": 0,
+              "description": "1 コンボ（れんぞく せいかい）ごとの いりょく・けいけんち・おかねの 上乗せ"
+            },
+            "maxBonus": {
+              "type": "number",
+              "minimum": 0,
+              "description": "上乗せの 上限（0.5 = +50%）"
+            },
+            "critBase": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "かいしんの いちげき の 基本の 確率"
+            },
+            "critPerCombo": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "1 コンボごとに ふえる かいしんの 確率"
+            },
+            "critMax": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "かいしんの 確率の 上限"
+            },
+            "critMultiplier": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "かいしんの いちげき の 倍率"
+            }
+          },
+          "required": [
+            "perCombo",
+            "maxBonus",
+            "critBase",
+            "critPerCombo",
+            "critMax",
+            "critMultiplier"
+          ],
+          "additionalProperties": false,
+          "default": {
+            "perCombo": 0.05,
+            "maxBonus": 0.5,
+            "critBase": 0.05,
+            "critPerCombo": 0.02,
+            "critMax": 0.25,
+            "critMultiplier": 1.5
+          },
+          "description": "コンボ＆ストリーク倍率：れんぞく せいかいで いりょく・かいしん・けいけんち・おかねが ふえる"
+        },
+        "subjectGauge": {
+          "type": "object",
+          "properties": {
+            "max": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "1 教科の ゲージの 上限"
+            },
+            "charge": {
+              "type": "object",
+              "properties": {
+                "perfect": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "good": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "weak": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "miss": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "perfect",
+                "good",
+                "weak",
+                "miss"
+              ],
+              "additionalProperties": false,
+              "description": "問題に こたえたとき その教科の ゲージに たまる量"
+            },
+            "companionBoost": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "オトモ（出撃中の 仲間）の 教科は この倍 たまる"
+            },
+            "uniqueSkills": {
+              "type": "object",
+              "properties": {
+                "kokugo": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "sansu": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "rika": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "shakai": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "seikatsu": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "eigo": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                }
+              },
+              "additionalProperties": false,
+              "default": {},
+              "description": "教科ごとの 固有スキル（skills の id）。その教科の ゲージを ためれば だれでも 使える"
+            }
+          },
+          "required": [
+            "max",
+            "charge",
+            "companionBoost"
+          ],
+          "additionalProperties": false,
+          "default": {
+            "max": 100,
+            "charge": {
+              "perfect": 40,
+              "good": 30,
+              "weak": 15,
+              "miss": 10
+            },
+            "companionBoost": 1.5,
+            "uniqueSkills": {}
+          },
+          "description": "教科ゲージ：こたえると たまり、必殺技の costGauge ぶん つかう"
+        },
+        "specialtyDropRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.35,
+          "description": "モンスターが その県の特産品を落とす確率（特産品ぜんぶ合わせて）"
+        },
+        "turns": {
+          "type": "object",
+          "properties": {
+            "buffTurns": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "ぼうぎょ アップ・ダウンが つづく ターン数"
+            },
+            "statusTurns": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "「うごきを とめる」で 敵が 休む ターン数（できばえで のびる）"
+            }
+          },
+          "required": [
+            "buffTurns",
+            "statusTurns"
+          ],
+          "additionalProperties": false,
+          "default": {
+            "buffTurns": 3,
+            "statusTurns": 1
+          },
+          "description": "ターン制の 長さ：1 ターンに 主人公・オトモ・てきが 1 回ずつ 動く"
+        },
+        "bag": {
+          "type": "object",
+          "properties": {
+            "baseSlots": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "さいしょの マスの数"
+            },
+            "levelsPerSlot": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "主人公の レベルが これだけ 上がるごとに 1 マス ふえる"
+            },
+            "maxSlots": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "マスの 上限"
+            }
+          },
+          "required": [
+            "baseSlots",
+            "levelsPerSlot",
+            "maxSlots"
+          ],
+          "additionalProperties": false,
+          "default": {
+            "baseSlots": 3,
+            "levelsPerSlot": 2,
+            "maxSlots": 12
+          },
+          "description": "バッグの マス：仲間（しんかの だんかい ぶん 1〜3 マス）と そうび（1 こ 1 マス）を 入れる"
+        }
+      },
+      "required": [
+        "timeLimitSecByGrade",
+        "scoreMultipliers",
+        "weaknessMultiplier",
+        "defeatGoldLossRate",
+        "recruitHpThreshold",
+        "recentQuestionWindow",
+        "adaptiveWeakUnitRatio"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

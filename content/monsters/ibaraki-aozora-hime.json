@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ibaraki-aozora-hime",
+  "name": "アオゾラヒメ",
+  "area": "ibaraki",
+  "motifId": "nemophila",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 50,
+    "mp": 12,
+    "atk": 14,
+    "def": 8,
+    "spd": 12,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-abc-shout",
+    "sk-habataki"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.ibaraki-aozora-hime",
+  "dexBlurb": "ネモフィンが しんかした すがた。花[はな]びらの つばさで、空[そら]の 色[いろ]の かぜを おこす。"
+}

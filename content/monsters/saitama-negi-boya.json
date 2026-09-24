@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saitama-negi-boya",
+  "name": "ネギボーヤ",
+  "area": "saitama",
+  "motifId": "fukaya-negi",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 38,
+    "mp": 10,
+    "atk": 11,
+    "def": 6,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.8,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "saitama-negi-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 17,
+  "gold": 11,
+  "spriteKey": "mon.saitama-negi-boya",
+  "evolution": {
+    "to": "saitama-negi-lancer",
+    "item": "saitama-negi-no-tane"
+  },
+  "dexBlurb": "白[しろ]い ところが 長[なが]い 深谷[ふかや]ねぎの モンスター。深谷[ふかや]の あたりの 土[つち]は、ねぎづくりに むいて いる。"
+}

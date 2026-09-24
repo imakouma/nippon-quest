@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-lastboss-murasaki-shikibu",
+  "name": "紫式部[むらさきしきぶ]",
+  "area": "kyoto",
+  "motifId": "ujicha",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 457,
+    "mp": 59,
+    "atk": 25,
+    "def": 20,
+    "spd": 13,
+    "wis": 20
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-kanji-barrier"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 440,
+  "gold": 506,
+  "spriteKey": "mon.kyoto-lastboss-murasaki-shikibu",
+  "dexBlurb": "平安[へいあん]時代[じだい]の 作家[さっか]（生[う]まれた 年[とし]も なくなった 年[とし]も はっきり しない。1000年[ねん]ごろに かつやく）。長[なが]い 物語[ものがたり]『源氏物語[げんじものがたり]』を 書[か]いた。",
+  "fieldLine": "わたくしは 紫式部[むらさきしきぶ]。この 宇治[うじ]の やかたで、あなたの 知恵[ちえ]を ためしましょう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya",
+        "sk-yami-no-uta"
+      ],
+      "line": "光[ひか]る 君[きみ]の 物語[ものがたり]、五十四帖[ごじゅうよじょう]の ことばの 力[ちから]を ごらんあれ！"
+    }
+  ]
+}

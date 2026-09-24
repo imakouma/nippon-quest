@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-magurodo",
+  "name": "マグロード",
+  "area": "aomori",
+  "motifId": "oma-maguro",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 34,
+    "mp": 6,
+    "atk": 10,
+    "def": 6,
+    "spd": 9,
+    "wis": 3
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 1,
+    "spd": 1.2,
+    "wis": 0.5
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "aomori-maguro-no-kiba",
+      "rate": 0.25
+    },
+    {
+      "itemId": "aomori-ippon-zuri-no-ito",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.06,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.aomori-magurodo",
+  "evolution": {
+    "to": "aomori-kuro-magurodo",
+    "item": "aomori-ippon-zuri-no-ito"
+  },
+  "dexBlurb": "二本足[にほんあし]で 立[た]つ マグロの けんし。大間[おおま]の マグロは とても 大[おお]きい。"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyagi-lastboss-date-masamune",
+  "name": "伊達政宗[だてまさむね]",
+  "area": "miyagi",
+  "motifId": "sendai-jo",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": {
+    "hp": 360,
+    "mp": 48,
+    "atk": 19,
+    "def": 15,
+    "spd": 11,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 2.0,
+    "def": 1.5,
+    "spd": 1.1,
+    "wis": 1.3
+  },
+  "skills": [
+    "sk-mikazuki-giri",
+    "sk-yami-no-uta"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 312,
+  "gold": 360,
+  "spriteKey": "mon.miyagi-lastboss-date-masamune",
+  "dexBlurb": "仙台藩[せんだいはん]を ひらいた 戦国[せんごく]武将[ぶしょう]（1567〜1636年[ねん]）。三日月[みかづき]の 前立[まえだ]ての かぶとで『独眼竜[どくがんりゅう]』と よばれ、仙台[せんだい]の 町[まち]を つくった。",
+  "fieldLine": "よくぞ ここまで まいった。わしが 仙台[せんだい]の あるじ、伊達政宗[だてまさむね]じゃ！ いざ、しょうぶ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-hikari-no-ya",
+        "sk-mikazuki-giri",
+        "sk-hikari-no-hane"
+      ],
+      "line": "三日月[みかづき]が かがやく！ 独眼竜[どくがんりゅう]の 本気[ほんき]を 見[み]よ！"
+    }
+  ]
+}

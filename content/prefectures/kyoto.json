@@ -1,0 +1,270 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "kyoto",
+  "name": "京都府[きょうとふ]",
+  "island": "kinki",
+  "capital": "京都市[きょうとし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "kyoto-field",
+    "town": "kyoto-town",
+    "dungeon": "kyoto-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kinkaku",
+      "name": "金閣[きんかく]",
+      "kind": "landmark",
+      "imageKey": "motif.kyoto.kinkaku",
+      "blurb": "京都[きょうと]の お寺[てら]に ある、金[きん]ぴかの 建物[たてもの]。池[いけ]に うつる すがたが 美[うつく]しい。"
+    },
+    {
+      "id": "kiyomizu",
+      "name": "清水[きよみず]の 舞台[ぶたい]",
+      "kind": "landmark",
+      "imageKey": "motif.kyoto.kiyomizu",
+      "blurb": "京都[きょうと]の 清水寺[きよみずでら]に ある、がけの 上[うえ]に 大[おお]きく せり出[だ]した 木[き]の 舞台[ぶたい]。"
+    },
+    {
+      "id": "amanohashidate",
+      "name": "天橋立[あまのはしだて]",
+      "kind": "nature",
+      "imageKey": "motif.kyoto.amanohashidate",
+      "blurb": "海[うみ]に のびる、松[まつ]の 生[は]えた 細長[ほそなが]い 砂[すな]の 道[みち]。日本三景[にほんさんけい]の ひとつ。"
+    },
+    {
+      "id": "ine-funaya",
+      "name": "伊根[いね]の 舟屋[ふなや]",
+      "kind": "history",
+      "imageKey": "motif.kyoto.ine-funaya",
+      "blurb": "海[うみ]ぎわに、1かいが 船[ふね]の 車庫[しゃこ]に なった 家[いえ]「舟屋[ふなや]」が ならぶ。"
+    },
+    {
+      "id": "byodoin",
+      "name": "平等院[びょうどういん]",
+      "kind": "history",
+      "imageKey": "motif.kyoto.byodoin",
+      "blurb": "宇治市[うじし]に ある お寺[てら]。10円玉[えんだま]に えがかれている 建物[たてもの]「鳳凰堂[ほうおうどう]」が ある。"
+    },
+    {
+      "id": "miyama-kayabuki",
+      "name": "美山[みやま]の かやぶきの 里[さと]",
+      "kind": "history",
+      "imageKey": "motif.kyoto.miyama-kayabuki",
+      "blurb": "南丹市[なんたんし]の 美山[みやま]には、かやぶき屋根[やね]の 家[いえ]が たくさん のこる。"
+    },
+    {
+      "id": "ujicha",
+      "name": "宇治茶[うじちゃ]",
+      "kind": "food",
+      "imageKey": "motif.kyoto.ujicha",
+      "blurb": "和束町[わづかちょう]など 京都[きょうと]の 南[みなみ]で 作[つく]られる お茶[ちゃ]。山[やま]の しゃめんに 茶畑[ちゃばたけ]が 広[ひろ]がる。"
+    },
+    {
+      "id": "tango-chirimen",
+      "name": "丹後[たんご]ちりめん",
+      "kind": "craft",
+      "imageKey": "motif.kyoto.tango-chirimen",
+      "blurb": "京丹後市[きょうたんごし]で 作[つく]られる、細[こま]かい しわの ある 絹[きぬ]の 布[ぬの]。着物[きもの]に 使[つか]われる。"
+    },
+    {
+      "id": "manganji",
+      "name": "万願寺[まんがんじ]とうがらし",
+      "kind": "food",
+      "imageKey": "motif.kyoto.manganji",
+      "blurb": "舞鶴市[まいづるし]で 生[う]まれた、大[おお]きくて からくない とうがらし。"
+    },
+    {
+      "id": "taiza-gani",
+      "name": "間人[たいざ]がに",
+      "kind": "food",
+      "imageKey": "motif.kyoto.taiza-gani",
+      "blurb": "京丹後市[きょうたんごし]の 間人[たいざ]の 港[みなと]に あがる、大[おお]きな ずわいがに。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "kyoto-chatsumin",
+          "weight": 20
+        },
+        {
+          "monsterId": "kyoto-karakunain",
+          "weight": 40
+        },
+        {
+          "monsterId": "kyoto-funayadokari",
+          "weight": 20
+        },
+        {
+          "monsterId": "kyoto-chirimenko",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "kyoto-karakunain",
+          "weight": 55
+        },
+        {
+          "monsterId": "kyoto-chatsumin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "kyoto-chatsumin",
+          "weight": 40
+        },
+        {
+          "monsterId": "kyoto-karakunain",
+          "weight": 35
+        },
+        {
+          "monsterId": "kyoto-chirimenko",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "kyoto-funayadokari",
+          "weight": 70
+        },
+        {
+          "monsterId": "kyoto-karakunain",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "kyoto-funayadokari",
+          "weight": 40
+        },
+        {
+          "monsterId": "kyoto-chatsumin",
+          "weight": 35
+        },
+        {
+          "monsterId": "kyoto-karakunain",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "kyoto-boss-amano-hiryu",
+  "midBoss": "kyoto-midboss-kayabuki-monban",
+  "secret": {
+    "name": "宇治[うじ]の やかた",
+    "boss": "kyoto-lastboss-murasaki-shikibu"
+  },
+  "events": [
+    {
+      "id": "ev-kyoto-amanohashidate",
+      "motifId": "amanohashidate",
+      "trigger": {
+        "map": "kyoto-field",
+        "objectName": "event_kyoto_amanohashidate"
+      },
+      "once": true,
+      "cutinImageKey": "motif.kyoto.amanohashidate",
+      "dialogue": [
+        {
+          "speaker": "天橋立[あまのはしだて]の ガイドさん",
+          "text": "ここは 日本三景[にほんさんけい]の ひとつ、天橋立[あまのはしだて]だよ。また のぞきを すると、竜[りゅう]が 空[そら]に のぼる ように 見[み]えるんだ！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:kyoto"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "天橋立[あまのはしだて]の ガイドさん",
+          "text": "よく できたね！ 天橋立[あまのはしだて]の 松[まつ]なみきは、およそ 3.6キロメートルも つづいて いるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "京都市[きょうとし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-kyoto-shop",
+        "name": "宇治茶[うじちゃ]の お店[みせ]の おかみさん",
+        "spriteKey": "char.npc-kyoto-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "おこしやす。京都[きょうと]は、1000年[ねん]いじょう 日本[にほん]の 都[みやこ]やったんどすえ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-kyoto-smith",
+        "name": "丹後[たんご]ちりめんの 職人[しょくにん]",
+        "spriteKey": "char.npc-kyoto-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "丹後[たんご]ちりめんは、つよく ねじった 糸[いと]で おるから、こまかい しわが できるんや。"
+          }
+        ]
+      }
+    ]
+  }
+}

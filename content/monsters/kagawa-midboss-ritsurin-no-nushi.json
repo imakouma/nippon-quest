@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-midboss-ritsurin-no-nushi",
+  "name": "リツリンノヌシ",
+  "area": "kagawa",
+  "motifId": "ritsurin",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 162,
+    "mp": 27,
+    "atk": 17,
+    "def": 11,
+    "spd": 9,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 96,
+  "gold": 113,
+  "spriteKey": "mon.kagawa-midboss-ritsurin-no-nushi",
+  "dexBlurb": "栗林公園[りつりんこうえん]の 池[いけ]に すむ、大[おお]きな 錦鯉[にしきごい]の ぬし。栗林公園[りつりんこうえん]は、1400本[ぽん]ほどの 松[まつ]が ある 大名[だいみょう]の 庭[にわ]だった。",
+  "fieldLine": "ここは わしの 池[いけ]の ほとりじゃ。とおりたければ、しょうぶせい！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ],
+      "line": "ばっしゃーん！ 池[いけ]の 水[みず]が うずを まいた！ もう 手[て]かげんは せんぞ！"
+    }
+  ]
+}

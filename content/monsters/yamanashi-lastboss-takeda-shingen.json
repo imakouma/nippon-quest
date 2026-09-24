@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamanashi-lastboss-takeda-shingen",
+  "name": "武田信玄[たけだしんげん]",
+  "area": "yamanashi",
+  "motifId": "houtou",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 439,
+    "mp": 56,
+    "atk": 24,
+    "def": 21,
+    "spd": 11,
+    "wis": 17
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 395,
+  "gold": 439,
+  "spriteKey": "mon.yamanashi-lastboss-takeda-shingen",
+  "dexBlurb": "甲斐[かい]の 国[くに]（いまの 山梨県[やまなしけん]）の 戦国大名[せんごくだいみょう]（1521〜1573年[ねん]）。「風林火山[ふうりんかざん]」の 旗[はた]で 知[し]られ、大[おお]きな 川[かわ]の 水[みず]を ふせぐ 信玄堤[しんげんづつみ]を きずいた。",
+  "fieldLine": "われこそは 武田信玄[たけだしんげん]。この 躑躅ヶ崎館[つつじがさきやかた]で、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-hono-no-uzu"
+      ],
+      "line": "動[うご]かざること 山[やま]の ごとし。いまこそ 火[ひ]の ごとく せめよ！"
+    }
+  ]
+}

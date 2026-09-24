@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyagi-oo-sumibitan",
+  "name": "オオスミビタン",
+  "area": "miyagi",
+  "motifId": "gyutan",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 48,
+    "mp": 12,
+    "atk": 15,
+    "def": 9,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 0.9
+  },
+  "skills": [
+    "sk-hono-no-mai",
+    "sk-hono-no-uzu"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.miyagi-oo-sumibitan",
+  "dexBlurb": "タンヤッキーが しんかした すがた。せなかに 大[おお]きな 炭火[すみび]の こんろを しょっている。"
+}

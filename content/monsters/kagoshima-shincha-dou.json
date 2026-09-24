@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-shincha-dou",
+  "name": "シンチャドウ",
+  "area": "kagoshima",
+  "motifId": "kagoshima-cha",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 74,
+    "mp": 22,
+    "atk": 19,
+    "def": 14,
+    "spd": 11,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 1.2
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 41,
+  "gold": 27,
+  "spriteKey": "mon.kagoshima-shincha-dou",
+  "dexBlurb": "チャッパが しんかした すがた。新茶[しんちゃ]の かおりを まとい、大[おお]きな きゅうすから 湯[ゆ]けむりを 立[た]ちのぼらせる。"
+}

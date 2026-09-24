@@ -1,0 +1,300 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "oita",
+  "name": "大分県[おおいたけん]",
+  "island": "kyushu-okinawa",
+  "capital": "大分市[おおいたし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "oita-field",
+    "town": "oita-town",
+    "dungeon": "oita-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "beppu-onsen",
+      "name": "別府温泉[べっぷおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.oita.beppu-onsen",
+      "blurb": "町[まち]の あちこちから 湯[ゆ]けむりが 上[あ]がる 温泉[おんせん]の 町[まち]。大分県[おおいたけん]は 温泉[おんせん]の 数[かず]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "yufuin",
+      "name": "湯布院[ゆふいん]",
+      "kind": "landmark",
+      "imageKey": "motif.oita.yufuin",
+      "blurb": "由布岳[ゆふだけ]の ふもとに ある 温泉[おんせん]の 町[まち]。朝[あさ]は きりに つつまれる ことが ある。"
+    },
+    {
+      "id": "yabakei",
+      "name": "耶馬渓[やばけい]",
+      "kind": "nature",
+      "imageKey": "motif.oita.yabakei",
+      "blurb": "山国川[やまくにがわ]ぞいに、ごつごつした 岩[いわ]の 山[やま]が つづく 谷[たに]。"
+    },
+    {
+      "id": "usuki-sekibutsu",
+      "name": "臼杵石仏[うすきせきぶつ]",
+      "kind": "history",
+      "imageKey": "motif.oita.usuki-sekibutsu",
+      "blurb": "岩[いわ]の かべに ほられた、たくさんの 古[ふる]い 仏像[ぶつぞう]。国宝[こくほう]に なっている。"
+    },
+    {
+      "id": "kunisaki",
+      "name": "国東半島[くにさきはんとう]",
+      "kind": "history",
+      "imageKey": "motif.oita.kunisaki",
+      "blurb": "古[ふる]い お寺[てら]や 石[いし]の 仏像[ぶつぞう]が たくさん のこる、まるい 形[かたち]の 半島[はんとう]。"
+    },
+    {
+      "id": "kuju",
+      "name": "くじゅう連山[れんざん]",
+      "kind": "nature",
+      "imageKey": "motif.oita.kuju",
+      "blurb": "九州[きゅうしゅう]本土[ほんど]で いちばん 高[たか]い 山[やま]が ある 山々[やまやま]。"
+    },
+    {
+      "id": "seki-aji",
+      "name": "関[せき]あじ・関[せき]さば",
+      "kind": "food",
+      "imageKey": "motif.oita.seki-aji",
+      "blurb": "佐賀関[さがのせき]の 海[うみ]で とれる あじと さば。身[み]が しまって おいしい。"
+    },
+    {
+      "id": "kabosu",
+      "name": "かぼす",
+      "kind": "food",
+      "imageKey": "motif.oita.kabosu",
+      "blurb": "ほとんどが 大分県[おおいたけん]で 作[つく]られる、すっぱくて いい かおりの みどりの 実[み]。"
+    },
+    {
+      "id": "oita-shiitake",
+      "name": "大分[おおいた]の しいたけ",
+      "kind": "food",
+      "imageKey": "motif.oita.oita-shiitake",
+      "blurb": "大分県[おおいたけん]は、ほした しいたけの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "ontayaki",
+      "name": "小鹿田焼[おんたやき]",
+      "kind": "craft",
+      "imageKey": "motif.oita.ontayaki",
+      "blurb": "日田市[ひたし]の 山[やま]あいの 里[さと]で 作[つく]られる、はけで もようを つけた やきもの。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "oita-yukemurin",
+          "weight": 35
+        },
+        {
+          "monsterId": "oita-kabosuppa",
+          "weight": 30
+        },
+        {
+          "monsterId": "oita-sekiajiro",
+          "weight": 20
+        },
+        {
+          "monsterId": "oita-shiitaken",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "oita-kabosuppa",
+          "weight": 70
+        },
+        {
+          "monsterId": "oita-yukemurin",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "oita-kabosuppa",
+          "weight": 35
+        },
+        {
+          "monsterId": "oita-shiitaken",
+          "weight": 35
+        },
+        {
+          "monsterId": "oita-yukemurin",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "oita-yukemurin",
+          "weight": 70
+        },
+        {
+          "monsterId": "oita-kabosuppa",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "oita-sekiajiro",
+          "weight": 75
+        },
+        {
+          "monsterId": "oita-yukemurin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "oita-yukemurin",
+          "weight": 35
+        },
+        {
+          "monsterId": "oita-sekiajiro",
+          "weight": 25
+        },
+        {
+          "monsterId": "oita-kabosuppa",
+          "weight": 20
+        },
+        {
+          "monsterId": "oita-shiitaken",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "oita-boss-yukemuryu",
+  "midBoss": "oita-midboss-yabakeiwa",
+  "secret": {
+    "name": "中津[なかつ]の 福沢[ふくざわ] 旧居[きゅうきょ]",
+    "boss": "oita-lastboss-fukuzawa-yukichi"
+  },
+  "events": [
+    {
+      "id": "ev-oita-beppu-onsen",
+      "motifId": "beppu-onsen",
+      "trigger": {
+        "map": "oita-field",
+        "objectName": "event_oita_beppu-onsen"
+      },
+      "once": true,
+      "cutinImageKey": "motif.oita.beppu-onsen",
+      "dialogue": [
+        {
+          "speaker": "湯[ゆ]けむりの 案内人[あんないにん]",
+          "text": "大分県[おおいたけん]は 温泉[おんせん]が とても 多[おお]いんだ。地面[じめん]の 下[した]の 熱[ねつ]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:oita"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "湯[ゆ]けむりの 案内人[あんないにん]",
+          "text": "よく しらべたね！ 温泉[おんせん]の お湯[ゆ]は、地[ち]の 下[した]の 熱[ねつ]で あたためられて いるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "大分市[おおいたし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-oita-shop",
+        "name": "かぼす屋[や]の おばあちゃん",
+        "spriteKey": "char.npc-oita-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ かぼすは、やき魚[ざかな]や みそしるに しぼっても おいしいよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-oita-smith",
+        "name": "小鹿田焼[おんたやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-oita-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "小鹿田焼[おんたやき]の 土[つち]は、川[かわ]の 水[みず]の 力[ちから]で 動[うご]く「唐臼[からうす]」で ついて 作[つく]るんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-oita-inn",
+        "name": "温泉宿[おんせんやど]の おかみさん",
+        "spriteKey": "char.npc-oita-inn",
+        "role": "inn",
+        "dialogue": [
+          {
+            "text": "ようこそ。温泉[おんせん]に ゆっくり つかって、たびの つかれを とってね。"
+          }
+        ]
+      }
+    ]
+  }
+}

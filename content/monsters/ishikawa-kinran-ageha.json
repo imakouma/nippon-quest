@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ishikawa-kinran-ageha",
+  "name": "キンランアゲハ",
+  "area": "ishikawa",
+  "motifId": "kanazawa-kinpaku",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 50,
+    "mp": 17,
+    "atk": 14,
+    "def": 9,
+    "spd": 13,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.1
+  },
+  "skills": ["sk-tashizan-giri", "sk-kanji-barrier", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 28,
+  "gold": 21,
+  "spriteKey": "mon.ishikawa-kinran-ageha",
+  "dexBlurb": "キンパクチョウが しんかした すがた。金沢[かなざわ]では、たてものや 工芸品[こうげいひん]の かざりに 金箔[きんぱく]が つかわれる。"
+}

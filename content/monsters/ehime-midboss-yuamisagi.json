@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ehime-midboss-yuamisagi",
+  "name": "ユアミサギ",
+  "area": "ehime",
+  "motifId": "dogo-onsen",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 145,
+    "mp": 24,
+    "atk": 15,
+    "def": 10,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 8,
+    "mp": 2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.6,
+    "wis": 0.6
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 83,
+  "gold": 98,
+  "spriteKey": "mon.ehime-midboss-yuamisagi",
+  "dexBlurb": "道後温泉[どうごおんせん]の 湯[ゆ]に つかる 大[おお]きな 白[しろ]い サギ。けがを した 白[しろ]い サギが この 湯[ゆ]で きずを なおした、という 言[い]いつたえが ある。",
+  "fieldLine": "ここから さきは わたしの 湯[ゆ]の みち。とおりたければ、しょうぶよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": ["sk-habataki", "sk-abc-shout"],
+      "line": "ゆけむりの つばさを 見[み]せて あげる！"
+    }
+  ]
+}

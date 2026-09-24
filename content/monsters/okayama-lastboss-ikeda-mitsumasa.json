@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okayama-lastboss-ikeda-mitsumasa",
+  "name": "池田光政[いけだみつまさ]",
+  "area": "okayama",
+  "motifId": "korakuen",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 511,
+    "mp": 63,
+    "atk": 26,
+    "def": 22,
+    "spd": 13,
+    "wis": 20
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-kanji-barrier"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 460,
+  "gold": 528,
+  "spriteKey": "mon.okayama-lastboss-ikeda-mitsumasa",
+  "dexBlurb": "江戸時代[えどじだい]の はじめの 岡山藩[おかやまはん]の 大名[だいみょう]（1609〜1682年[ねん]）。武士[ぶし]だけで なく、村[むら]の 子[こ]どもも 学[まな]べる 閑谷学校[しずたにがっこう]を ひらいた。",
+  "fieldLine": "池田光政[いけだみつまさ]じゃ。この 閑谷学校[しずたにがっこう]で、そなたの 学[まな]びの 力[ちから]を ためそう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "学[まな]びの 光[ひかり]は、どんな 闇[やみ]より つよいぞ！"
+    }
+  ]
+}

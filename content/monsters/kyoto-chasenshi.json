@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-chasenshi",
+  "name": "チャセンシ",
+  "area": "kyoto",
+  "motifId": "ujicha",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 65,
+    "mp": 18,
+    "atk": 16,
+    "def": 14,
+    "spd": 11,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 1.1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 27,
+  "spriteKey": "mon.kyoto-chasenshi",
+  "dexBlurb": "チャツミンが しんかした 茶[ちゃ]の 戦士[せんし]。竹[たけ]の 茶[ちゃ]せんを ふって、あわの 立[た]った 抹茶[まっちゃ]の ような みどりの 風[かぜ]を おこす。"
+}

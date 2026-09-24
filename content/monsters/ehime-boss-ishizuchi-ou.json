@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ehime-boss-ishizuchi-ou",
+  "name": "イシヅチオウ",
+  "area": "ehime",
+  "motifId": "ishizuchisan",
+  "element": "tsuchi",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 377,
+    "mp": 50,
+    "atk": 22,
+    "def": 18,
+    "spd": 9,
+    "wis": 13
+  },
+  "growth": {
+    "hp": 10,
+    "mp": 2,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-iwa-otoshi", "sk-tsuchi-kabe"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "ehime-mikan-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "ehime-wata-no-ito",
+      "rate": 1
+    },
+    {
+      "itemId": "ehime-uwakai-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 252,
+  "gold": 296,
+  "spriteKey": "mon.ehime-boss-ishizuchi-ou",
+  "dexBlurb": "石鎚山[いしづちさん]の 岩[いわ]から 生[う]まれた 大[おお]おとこ。石鎚山[いしづちさん]は 西日本[にしにほん]で いちばん 高[たか]い 山[やま]で、頂上[ちょうじょう]の 近[ちか]くには 太[ふと]い くさりを つかって のぼる 道[みち]が ある。",
+  "fieldLine": "この 山[やま]の おくへ すすむ つもりか。ならば、わしの 岩[いわ]の こぶしを うけてみよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": ["sk-hono-no-uzu", "sk-yamadashi-tosshin"],
+      "line": "ゴゴゴ…！ 体[からだ]の 銅[どう]が 赤[あか]く もえだしたぞ！"
+    }
+  ]
+}

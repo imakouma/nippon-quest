@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ishikawa-lastboss-maeda-toshiie",
+  "name": "前田利家[まえだとしいえ]",
+  "area": "ishikawa",
+  "motifId": "kenrokuen",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 425,
+    "mp": 53,
+    "atk": 24,
+    "def": 17,
+    "spd": 13,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-habataki",
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 376,
+  "gold": 432,
+  "spriteKey": "mon.ishikawa-lastboss-maeda-toshiie",
+  "dexBlurb": "加賀藩[かがはん]の もとを きずいた 戦国大名[せんごくだいみょう]（1538ごろ〜1599年[ねん]）。やりの 名人[めいじん]で「やりの 又左[またざ]」と よばれた。",
+  "fieldLine": "前田利家[まえだとしいえ]じゃ。この 金沢城[かなざわじょう]で、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-habataki",
+        "sk-kuku-rush"
+      ],
+      "line": "やりの 又左[またざ]、ここに あり！ 加賀[かが]百万石[ひゃくまんごく]の 力[ちから]、見[み]よ！"
+    }
+  ]
+}

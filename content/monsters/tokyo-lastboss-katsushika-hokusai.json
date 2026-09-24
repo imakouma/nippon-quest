@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokyo-lastboss-katsushika-hokusai",
+  "name": "葛飾北斎[かつしかほくさい]",
+  "area": "tokyo",
+  "motifId": "edo-kiriko",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 314,
+    "mp": 45,
+    "atk": 19,
+    "def": 15,
+    "spd": 11,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 12,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.5,
+    "spd": 0.9,
+    "wis": 1.3
+  },
+  "skills": ["sk-uzushio", "sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 302,
+  "gold": 347,
+  "spriteKey": "mon.tokyo-lastboss-katsushika-hokusai",
+  "dexBlurb": "江戸時代[えどじだい]の 絵師[えし]（1760〜1849年[ねん]）。「富嶽三十六景[ふがくさんじゅうろっけい]」など、富士山[ふじさん]や 大波[おおなみ]を えがいた 絵[え]は 世界[せかい]じゅうで 知[し]られている。",
+  "fieldLine": "わしは 葛飾北斎[かつしかほくさい]。一生[いっしょう] 絵[え]を かきつづけた この 筆[ふで]で、しょうぶじゃ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": ["sk-fubuki", "sk-uzushio"],
+      "line": "見[み]よ、この 大波[おおなみ]を！ 筆[ふで] ひとつで えがいてみせよう！"
+    }
+  ]
+}

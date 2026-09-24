@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-iganin",
+  "name": "イガニン",
+  "area": "mie",
+  "motifId": "iga-ninja",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": {
+    "hp": 44,
+    "mp": 12,
+    "atk": 13,
+    "def": 6,
+    "spd": 12,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "mie-kumihimo-no-ito",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 20,
+  "gold": 13,
+  "spriteKey": "mon.mie-iganin",
+  "evolution": {
+    "to": "mie-iga-jonin",
+    "item": "mie-kumihimo-no-ito"
+  },
+  "dexBlurb": "伊賀[いが]の 忍者[にんじゃ]の モンスター。忍者[にんじゃ]は、たたかう よりも、しのびこんで 知[し]らせを あつめる ことが 大事[だいじ]な 仕事[しごと]だった。"
+}

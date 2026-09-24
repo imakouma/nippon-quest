@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-setolemon",
+  "name": "セトレモン",
+  "area": "hiroshima",
+  "motifId": "setoda-lemon",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 45,
+    "mp": 14,
+    "atk": 13,
+    "def": 7,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.1,
+    "wis": 0.9
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "hiroshima-lemon-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 23,
+  "gold": 17,
+  "spriteKey": "mon.hiroshima-setolemon",
+  "evolution": {
+    "to": "hiroshima-taiyo-lemon",
+    "item": "hiroshima-lemon-no-hana"
+  },
+  "dexBlurb": "瀬戸内海[せとないかい]の おひさまを たっぷり あびた レモンの 妖精[ようせい]。広島県[ひろしまけん]は レモンが 日本[にほん]で いちばん たくさん とれる。"
+}

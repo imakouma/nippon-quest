@@ -1,0 +1,60 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "rika.g4.mizu-no-sugata.0001",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.mizu-no-sugata",
+    "tags": ["theme:water"],
+    "payload": {
+      "prompt": "水[みず]を ひやしつづけると、何度[なんど]で こおりはじめる？",
+      "choices": [
+        { "id": "a", "text": "0度[ど]" },
+        { "id": "b", "text": "10度[ど]" },
+        { "id": "c", "text": "100度[ど]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "水[みず]は 0度[ど]で こおりはじめる。"
+  },
+  {
+    "id": "rika.g4.mizu-no-sugata.0002",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.mizu-no-sugata",
+    "tags": ["theme:water"],
+    "payload": {
+      "prompt": "水[みず]を あたためつづけると、およそ 何度[なんど]で ふっとうする？",
+      "choices": [
+        { "id": "a", "text": "100度[ど]" },
+        { "id": "b", "text": "50度[ど]" },
+        { "id": "c", "text": "0度[ど]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "水[みず]は およそ 100度[ど]で ふっとうし、目[め]に 見[み]えない 水蒸気[すいじょうき]に なって 出[で]ていく。"
+  },
+  {
+    "id": "rika.g4.mizu-no-sugata.0003",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.mizu-no-sugata",
+    "tags": ["theme:water"],
+    "payload": {
+      "prompt": "水[みず]が こおって 氷[こおり]に なると、かさ（体積[たいせき]）は どう なる？",
+      "choices": [
+        { "id": "a", "text": "ふえる" },
+        { "id": "b", "text": "へる" },
+        { "id": "c", "text": "かわらない" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "水[みず]は こおると 体積[たいせき]が 少[すこ]し ふえる。"
+  }
+]

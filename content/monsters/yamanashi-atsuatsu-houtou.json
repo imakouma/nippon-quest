@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamanashi-atsuatsu-houtou",
+  "name": "アツアツホウトウ",
+  "area": "yamanashi",
+  "motifId": "houtou",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 62,
+    "mp": 15,
+    "atk": 19,
+    "def": 11,
+    "spd": 9,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.1,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 35,
+  "gold": 25,
+  "spriteKey": "mon.yamanashi-atsuatsu-houtou",
+  "dexBlurb": "ホウトウンが しんかした すがた。ほうとうは、寒[さむ]い 冬[ふゆ]に 体[からだ]が あたたまる 山梨[やまなし]の 家庭[かてい]の 味[あじ]。"
+}

@@ -1,0 +1,304 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "tottori",
+  "name": "鳥取県[とっとりけん]",
+  "island": "chugoku",
+  "capital": "鳥取市[とっとりし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "tottori-field",
+    "town": "tottori-town",
+    "dungeon": "tottori-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "tottori-sakyu",
+      "name": "鳥取砂丘[とっとりさきゅう]",
+      "kind": "nature",
+      "imageKey": "motif.tottori.tottori-sakyu",
+      "blurb": "海[うみ]ぞいに 広[ひろ]がる 大[おお]きな 砂[すな]の おか。風[かぜ]が 砂[すな]の 上[うえ]に もようを つける。"
+    },
+    {
+      "id": "daisen",
+      "name": "大山[だいせん]",
+      "kind": "nature",
+      "imageKey": "motif.tottori.daisen",
+      "blurb": "中国地方[ちゅうごくちほう]で いちばん 高[たか]い 山[やま]。すがたが 美[うつく]しく「伯耆富士[ほうきふじ]」とも よばれる。"
+    },
+    {
+      "id": "nageiredo",
+      "name": "三徳山[みとくさん]の 投入堂[なげいれどう]",
+      "kind": "landmark",
+      "imageKey": "motif.tottori.nageiredo",
+      "blurb": "がけの くぼみに はめこむように 建[た]てられた、ふしぎな お堂[どう]。"
+    },
+    {
+      "id": "kurayoshi-shirakabe",
+      "name": "倉吉[くらよし]の 白壁土蔵群[しらかべどぞうぐん]",
+      "kind": "history",
+      "imageKey": "motif.tottori.kurayoshi-shirakabe",
+      "blurb": "倉吉市[くらよしし]の 川[かわ]ぞいに、白[しろ]い かべと 赤[あか]い 屋根[やね]の 古[ふる]い 蔵[くら]が ならぶ。"
+    },
+    {
+      "id": "kaike-onsen",
+      "name": "皆生温泉[かいけおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.tottori.kaike-onsen",
+      "blurb": "米子市[よなごし]の 海[うみ]ぞいに ある 温泉[おんせん]の 町[まち]。"
+    },
+    {
+      "id": "uradome",
+      "name": "浦富海岸[うらどめかいがん]",
+      "kind": "nature",
+      "imageKey": "motif.tottori.uradome",
+      "blurb": "小[ちい]さな 島[しま]や 岩[いわ]が つづく、美[うつく]しい 海岸[かいがん]。水[みず]が とても すんでいる。"
+    },
+    {
+      "id": "beni-zuwai",
+      "name": "境港[さかいみなと]の ベニズワイガニ",
+      "kind": "food",
+      "imageKey": "motif.tottori.beni-zuwai",
+      "blurb": "境港[さかいみなと]には、赤[あか]い ベニズワイガニが たくさん 水[みず]あげ される。"
+    },
+    {
+      "id": "nijisseiki-nashi",
+      "name": "二十世紀梨[にじっせいきなし]",
+      "kind": "food",
+      "imageKey": "motif.tottori.nijisseiki-nashi",
+      "blurb": "鳥取県[とっとりけん]で むかしから 作[つく]られてきた、みずみずしい 青[あお]い なし。"
+    },
+    {
+      "id": "rakkyo",
+      "name": "砂丘[さきゅう]らっきょう",
+      "kind": "food",
+      "imageKey": "motif.tottori.rakkyo",
+      "blurb": "鳥取市[とっとりし]の 砂地[すなち]の 畑[はたけ]で 作[つく]られる らっきょう。秋[あき]には むらさきの 花[はな]が さく。"
+    },
+    {
+      "id": "inshu-washi",
+      "name": "因州和紙[いんしゅうわし]",
+      "kind": "craft",
+      "imageKey": "motif.tottori.inshu-washi",
+      "blurb": "鳥取市[とっとりし]の 青谷[あおや]などで 作[つく]られる 和紙[わし]。書道[しょどう]の 紙[かみ]が 有名[ゆうめい]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "tottori-nashikoron",
+          "weight": 33
+        },
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 29
+        },
+        {
+          "monsterId": "tottori-beniganin",
+          "weight": 21
+        },
+        {
+          "monsterId": "tottori-rakkyon",
+          "weight": 17
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "tottori-nashikoron",
+          "weight": 56
+        },
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 24
+        },
+        {
+          "monsterId": "tottori-rakkyon",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 70
+        },
+        {
+          "monsterId": "tottori-nashikoron",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 75
+        },
+        {
+          "monsterId": "tottori-nashikoron",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "tottori-beniganin",
+          "weight": 75
+        },
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "tottori-beniganin",
+          "weight": 70
+        },
+        {
+          "monsterId": "tottori-nashikoron",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "tottori-beniganin",
+          "weight": 45
+        },
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 30
+        },
+        {
+          "monsterId": "tottori-nashikoron",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "tottori-boss-sakyu-majin",
+  "midBoss": "tottori-midboss-dosshiri-dozo",
+  "secret": {
+    "name": "因幡国庁[いなばこくちょう]あと",
+    "boss": "tottori-lastboss-otomo-no-yakamochi"
+  },
+  "events": [
+    {
+      "id": "ev-tottori-tottori-sakyu",
+      "motifId": "tottori-sakyu",
+      "trigger": {
+        "map": "tottori-field",
+        "objectName": "event_tottori_tottori-sakyu"
+      },
+      "once": true,
+      "cutinImageKey": "motif.tottori.tottori-sakyu",
+      "dialogue": [
+        {
+          "speaker": "砂丘[さきゅう]の ガイドさん",
+          "text": "ようこそ 鳥取砂丘[とっとりさきゅう]へ！ 風[かぜ]が ふくと、砂[すな]の 上[うえ]に 波[なみ]のような もようが できるんだ。"
+        },
+        {
+          "speaker": "砂丘[さきゅう]の ガイドさん",
+          "text": "風[かぜ]と 砂[すな]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:tottori"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "砂丘[さきゅう]の ガイドさん",
+          "text": "よく しらべたね！ 風[かぜ]が つくる この 砂[すな]の もようは「風紋[ふうもん]」と いうんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "鳥取市[とっとりし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-tottori-shop",
+        "name": "梨屋[なしや]さんの おばあちゃん",
+        "spriteKey": "char.npc-tottori-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 二十世紀梨[にじっせいきなし]は、100年[ねん]いじょうも 前[まえ]から 鳥取[とっとり]で 作[つく]られて いるんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-tottori-smith",
+        "name": "因州和紙[いんしゅうわし]の 職人[しょくにん]",
+        "spriteKey": "char.npc-tottori-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "紙[かみ]すきは 水[みず]が いのち。因州和紙[いんしゅうわし]は、書道[しょどう]の 紙[かみ]として 全国[ぜんこく]で 使[つか]われて いるんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-okojon",
+  "name": "オコジョン",
+  "area": "toyama",
+  "motifId": "tateyama",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 35,
+    "mp": 9,
+    "atk": 12,
+    "def": 6,
+    "spd": 11,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "toyama-haimatsu-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 14,
+  "spriteKey": "mon.toyama-okojon",
+  "evolution": {
+    "to": "toyama-fubuki-okojo",
+    "item": "toyama-haimatsu-no-tane"
+  },
+  "dexBlurb": "立山[たてやま]の 岩[いわ]の あいだを すばやく 走[はし]る オコジョの モンスター。オコジョは 冬[ふゆ]に なると、毛[け]が まっ白[しろ]に かわる。"
+}

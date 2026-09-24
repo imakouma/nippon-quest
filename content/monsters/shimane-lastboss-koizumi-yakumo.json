@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shimane-lastboss-koizumi-yakumo",
+  "name": "小泉八雲[こいずみやくも]",
+  "area": "shimane",
+  "motifId": "matsue-jo",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": {
+    "hp": 478,
+    "mp": 63,
+    "atk": 26,
+    "def": 20,
+    "spd": 14,
+    "wis": 20
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-yami-no-uta",
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 451,
+  "gold": 520,
+  "spriteKey": "mon.shimane-lastboss-koizumi-yakumo",
+  "dexBlurb": "明治時代[めいじじだい]の 作家[さっか]（1850〜1904年[ねん]）。松江[まつえ]で 英語[えいご]の 先生[せんせい]を して、日本[にほん]の ふしぎな 話[はなし]を あつめた『怪談[かいだん]』を 書[か]いた。",
+  "fieldLine": "わたしは 小泉八雲[こいずみやくも]。ふしぎな 話[はなし]が すきな きみに、しょうぶを もうしこもう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-kuku-rush",
+        "sk-yami-no-uta"
+      ],
+      "line": "さあ、いちばん こわい 話[はなし]を はじめよう…！"
+    }
+  ]
+}

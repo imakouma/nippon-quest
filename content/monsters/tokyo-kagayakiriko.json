@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokyo-kagayakiriko",
+  "name": "カガヤキリコ",
+  "area": "tokyo",
+  "motifId": "edo-kiriko",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 52,
+    "mp": 16,
+    "atk": 13,
+    "def": 11,
+    "spd": 10,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.4,
+    "atk": 1.4,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1.2
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 20,
+  "spriteKey": "mon.tokyo-kagayakiriko",
+  "dexBlurb": "キラリコが しんかした すがた。江戸切子[えどきりこ]の もようには、竹[たけ]の かごの あみめのような「かごめ」などが ある。"
+}

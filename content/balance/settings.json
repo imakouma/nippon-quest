@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/settings.schema.json",
+  "timeLimitSecByGrade": { "1": 20, "2": 20, "3": 18, "4": 15, "5": 15, "6": 15 },
+  "scoreMultipliers": { "perfect": 2.0, "good": 1.2, "weak": 0.8, "miss": 0.5 },
+  "weaknessMultiplier": 1.5,
+  "defeatGoldLossRate": 0.1,
+  "recruitHpThreshold": 0.2,
+  "recentQuestionWindow": 20,
+  "adaptiveWeakUnitRatio": 0.7,
+  "specialtyDropRate": 0.35,
+  "turns": { "buffTurns": 3, "statusTurns": 1 },
+  "bag": { "baseSlots": 3, "levelsPerSlot": 2, "maxSlots": 12 },
+  "damageScale": 12,
+  "combo": {
+    "perCombo": 0.05,
+    "maxBonus": 0.5,
+    "critBase": 0.05,
+    "critPerCombo": 0.02,
+    "critMax": 0.25,
+    "critMultiplier": 1.5
+  },
+  "subjectGauge": {
+    "max": 100,
+    "charge": { "perfect": 40, "good": 30, "weak": 15, "miss": 10 },
+    "companionBoost": 1.5,
+    "uniqueSkills": {
+      "kokugo": "sk-burst-kokugo",
+      "sansu": "sk-burst-sansu",
+      "rika": "sk-burst-rika",
+      "shakai": "sk-burst-shakai",
+      "seikatsu": "sk-burst-seikatsu",
+      "eigo": "sk-burst-eigo"
+    }
+  }
+}

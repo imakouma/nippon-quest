@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tochigi-ichigo-ouji",
+  "name": "イチゴオウジ",
+  "area": "tochigi",
+  "motifId": "tochigi-ichigo",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 52,
+    "mp": 15,
+    "atk": 15,
+    "def": 9,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1,
+    "spd": 1.3,
+    "wis": 1.1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 26,
+  "gold": 19,
+  "spriteKey": "mon.tochigi-ichigo-ouji",
+  "dexBlurb": "イチゴローが しんかした すがた。栃木県[とちぎけん]は「いちご王国[おうこく]」を 名[な]のるほど、いちごづくりが さかん。"
+}

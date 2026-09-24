@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okinawa-niji-kurage",
+  "name": "ニジイロクラゲ",
+  "area": "okinawa",
+  "motifId": "ryukyu-glass",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 65,
+    "mp": 22,
+    "atk": 22,
+    "def": 12,
+    "spd": 14,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 5.0,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.3,
+    "wis": 1.1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 28,
+  "spriteKey": "mon.okinawa-niji-kurage",
+  "dexBlurb": "ガラスクラゲが しんかした すがた。かさが 大[おお]きく なり、光[ひかり]を うけて 虹色[にじいろ]に かがやく。"
+}

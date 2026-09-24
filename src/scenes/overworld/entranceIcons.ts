@@ -1,0 +1,92 @@
+/**
+ * フィールドの 入口の しるし（ドラクエの 地図のように、行き先が 絵で わかる）。16×16・すけ。NQ-48 だけ。
+ *  fld.icon.town：町（赤と 青の 屋根の 家）／fld.icon.cave：ダンジョン（岩山の どうくつ）
+ *  fld.icon.castle：裏ステージ（お城の 門）／fld.icon.port：港（船と さんばし）
+ */
+import type Phaser from 'phaser';
+import { NQ } from '../art/palette';
+import { addImage } from '../art/sheet';
+
+type Rect = (x: number, y: number, w: number, h: number, col: string) => void;
+
+const ICONS: Record<string, (r: Rect) => void> = {
+  'fld.icon.town': (r) => {
+    // うしろの 家（青い 屋根）
+    r(8, 2, 7, 1, NQ.ink);
+    r(7, 3, 9, 3, NQ.azure);
+    r(7, 3, 9, 1, NQ.sky);
+    r(8, 6, 7, 4, NQ.paper);
+    r(10, 7, 2, 2, NQ.sky);
+    // まえの 家（赤い 屋根）
+    r(2, 5, 8, 1, NQ.ink);
+    r(1, 6, 10, 4, NQ.red);
+    r(1, 6, 10, 1, NQ.vermilion);
+    r(2, 10, 8, 5, NQ.paper);
+    r(5, 11, 2, 4, NQ.brown);
+    r(3, 11, 1, 2, NQ.sky);
+    r(8, 11, 1, 2, NQ.sky);
+    r(1, 15, 14, 1, NQ.green);
+  },
+  'fld.icon.cave': (r) => {
+    // 岩山と まっくらな 入口
+    r(4, 3, 8, 2, NQ.tan);
+    r(2, 5, 12, 3, NQ.tan);
+    r(1, 8, 14, 7, NQ.brown);
+    r(4, 3, 3, 2, NQ.sand);
+    r(2, 5, 3, 2, NQ.sand);
+    r(5, 8, 6, 7, NQ.ink);
+    r(6, 7, 4, 1, NQ.ink);
+    r(1, 15, 14, 1, NQ.bark);
+    r(12, 9, 2, 1, NQ.tan);
+  },
+  'fld.icon.castle': (r) => {
+    // 石の お城と 赤い はた・くらい 門
+    r(2, 5, 3, 10, NQ.silver);
+    r(11, 5, 3, 10, NQ.silver);
+    r(2, 4, 1, 1, NQ.silver);
+    r(4, 4, 1, 1, NQ.silver);
+    r(11, 4, 1, 1, NQ.silver);
+    r(13, 4, 1, 1, NQ.silver);
+    r(5, 7, 6, 8, NQ.cloud);
+    r(5, 6, 1, 1, NQ.cloud);
+    r(7, 6, 2, 1, NQ.cloud);
+    r(10, 6, 1, 1, NQ.cloud);
+    r(6, 10, 4, 5, NQ.night);
+    r(7, 9, 2, 1, NQ.night);
+    r(7, 1, 1, 6, NQ.slate);
+    r(8, 1, 3, 2, NQ.red);
+    r(2, 15, 12, 1, NQ.gray);
+    r(3, 7, 1, 2, NQ.slate);
+    r(12, 7, 1, 2, NQ.slate);
+  },
+  'fld.icon.port': (r) => {
+    // さんばしと 小さな 船
+    r(0, 9, 7, 2, NQ.tan);
+    r(0, 11, 7, 1, NQ.brown);
+    r(1, 12, 1, 3, NQ.brown);
+    r(5, 12, 1, 3, NQ.brown);
+    r(8, 10, 8, 3, NQ.brown);
+    r(8, 10, 8, 1, NQ.tan);
+    r(9, 13, 6, 1, NQ.bark);
+    r(11, 3, 1, 7, NQ.slate);
+    r(12, 3, 3, 5, NQ.paper);
+    r(12, 3, 3, 1, NQ.white);
+    r(9, 14, 7, 1, NQ.sky);
+  },
+};
+
+/** 入口の しるしの テクスチャを 作る（何度 呼んでもよい） */
+export function buildEntranceIcons(scene: Phaser.Scene): void {
+  for (const [key, draw] of Object.entries(ICONS)) {
+    if (scene.textures.exists(key)) continue;
+    const c = document.createElement('canvas');
+    c.width = 16;
+    c.height = 16;
+    const ctx = c.getContext('2d')!;
+    draw((x, y, w, h, col) => {
+      ctx.fillStyle = col;
+      ctx.fillRect(x, y, w, h);
+    });
+    addImage(scene.textures, key, c);
+  }
+}

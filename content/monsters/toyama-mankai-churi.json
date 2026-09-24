@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-mankai-churi",
+  "name": "マンカイチューリ",
+  "area": "toyama",
+  "motifId": "tonami-tulip",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 52,
+    "mp": 15,
+    "atk": 14,
+    "def": 11,
+    "spd": 10,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 1.1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 18,
+  "spriteKey": "mon.toyama-mankai-churi",
+  "dexBlurb": "チューリポンが しんかした すがた。砺波[となみ]では、赤[あか]・白[しろ]・黄色[きいろ]の チューリップが いっせいに さく。"
+}

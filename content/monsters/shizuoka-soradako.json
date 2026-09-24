@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shizuoka-soradako",
+  "name": "ソラダコ",
+  "area": "shizuoka",
+  "motifId": "hamamatsu-tako",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 42,
+    "mp": 10,
+    "atk": 12,
+    "def": 6,
+    "spd": 12,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 4.3,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "shizuoka-hamamatsu-takoito",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 20,
+  "gold": 13,
+  "spriteKey": "mon.shizuoka-soradako",
+  "evolution": {
+    "to": "shizuoka-kazekiri-dako",
+    "item": "shizuoka-hamamatsu-takoito"
+  },
+  "dexBlurb": "浜松[はままつ]まつりの 大[おお]だこの モンスター。浜松[はままつ]では、子[こ]どもが 生[う]まれた おいわいに 「初凧[はつだこ]」を あげる。"
+}

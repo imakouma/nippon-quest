@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamaguchi-nanabaken",
+  "name": "ナナバケン",
+  "area": "yamaguchi",
+  "motifId": "hagiyaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 57,
+    "mp": 10,
+    "atk": 11,
+    "def": 13,
+    "spd": 6,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 0.9,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "yamaguchi-nanabake-hagiyaki",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.yamaguchi-nanabaken",
+  "evolution": {
+    "to": "yamaguchi-noborigaman",
+    "item": "yamaguchi-nanabake-hagiyaki"
+  },
+  "dexBlurb": "萩焼[はぎやき]の 茶[ちゃ]わんの モンスター。萩焼[はぎやき]は 使[つか]う うちに 色[いろ]あいが かわり、「萩[はぎ]の 七化[ななば]け」と よばれる。"
+}

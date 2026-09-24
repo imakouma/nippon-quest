@@ -1,0 +1,731 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "eigo.g1.alphabet.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『エー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A"
+        },
+        {
+          "id": "b",
+          "text": "V"
+        },
+        {
+          "id": "c",
+          "text": "H"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "A は『エー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ビー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "B"
+        },
+        {
+          "id": "b",
+          "text": "D"
+        },
+        {
+          "id": "c",
+          "text": "P"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "B は『ビー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『シー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "C"
+        },
+        {
+          "id": "b",
+          "text": "G"
+        },
+        {
+          "id": "c",
+          "text": "O"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "C は『シー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ディー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "D"
+        },
+        {
+          "id": "b",
+          "text": "B"
+        },
+        {
+          "id": "c",
+          "text": "O"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "D は『ディー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『イー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "E"
+        },
+        {
+          "id": "b",
+          "text": "F"
+        },
+        {
+          "id": "c",
+          "text": "B"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "E は『イー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『エフ』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "F"
+        },
+        {
+          "id": "b",
+          "text": "E"
+        },
+        {
+          "id": "c",
+          "text": "P"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "F は『エフ』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ジー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "G"
+        },
+        {
+          "id": "b",
+          "text": "C"
+        },
+        {
+          "id": "c",
+          "text": "O"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "G は『ジー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『エイチ』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "H"
+        },
+        {
+          "id": "b",
+          "text": "N"
+        },
+        {
+          "id": "c",
+          "text": "A"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "H は『エイチ』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『アイ』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I"
+        },
+        {
+          "id": "b",
+          "text": "J"
+        },
+        {
+          "id": "c",
+          "text": "L"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "I は『アイ』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ジェー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "J"
+        },
+        {
+          "id": "b",
+          "text": "I"
+        },
+        {
+          "id": "c",
+          "text": "L"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "J は『ジェー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0011",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ケー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "K"
+        },
+        {
+          "id": "b",
+          "text": "X"
+        },
+        {
+          "id": "c",
+          "text": "H"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "K は『ケー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0012",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『エル』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "L"
+        },
+        {
+          "id": "b",
+          "text": "I"
+        },
+        {
+          "id": "c",
+          "text": "J"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "L は『エル』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0013",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『エム』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "M"
+        },
+        {
+          "id": "b",
+          "text": "N"
+        },
+        {
+          "id": "c",
+          "text": "W"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "M は『エム』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0014",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『エヌ』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "N"
+        },
+        {
+          "id": "b",
+          "text": "M"
+        },
+        {
+          "id": "c",
+          "text": "H"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "N は『エヌ』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0015",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『オー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "O"
+        },
+        {
+          "id": "b",
+          "text": "Q"
+        },
+        {
+          "id": "c",
+          "text": "C"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "O は『オー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0016",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ピー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "P"
+        },
+        {
+          "id": "b",
+          "text": "B"
+        },
+        {
+          "id": "c",
+          "text": "R"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "P は『ピー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0017",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『キュー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Q"
+        },
+        {
+          "id": "b",
+          "text": "O"
+        },
+        {
+          "id": "c",
+          "text": "G"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Q は『キュー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0018",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『アール』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "R"
+        },
+        {
+          "id": "b",
+          "text": "P"
+        },
+        {
+          "id": "c",
+          "text": "B"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "R は『アール』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0019",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『エス』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "S"
+        },
+        {
+          "id": "b",
+          "text": "Z"
+        },
+        {
+          "id": "c",
+          "text": "C"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "S は『エス』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0020",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ティー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "T"
+        },
+        {
+          "id": "b",
+          "text": "I"
+        },
+        {
+          "id": "c",
+          "text": "F"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "T は『ティー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0021",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ユー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "U"
+        },
+        {
+          "id": "b",
+          "text": "V"
+        },
+        {
+          "id": "c",
+          "text": "J"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "U は『ユー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0022",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ブイ』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "V"
+        },
+        {
+          "id": "b",
+          "text": "U"
+        },
+        {
+          "id": "c",
+          "text": "W"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "V は『ブイ』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0023",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ダブリュー』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "W"
+        },
+        {
+          "id": "b",
+          "text": "M"
+        },
+        {
+          "id": "c",
+          "text": "V"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "W は『ダブリュー』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0024",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『エックス』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "X"
+        },
+        {
+          "id": "b",
+          "text": "K"
+        },
+        {
+          "id": "c",
+          "text": "Y"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "X は『エックス』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0025",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ワイ』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Y"
+        },
+        {
+          "id": "b",
+          "text": "V"
+        },
+        {
+          "id": "c",
+          "text": "X"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Y は『ワイ』と よむよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0026",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "『ゼット』と よむ もじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Z"
+        },
+        {
+          "id": "b",
+          "text": "S"
+        },
+        {
+          "id": "c",
+          "text": "N"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Z は『ゼット』と よむよ。"
+  }
+]

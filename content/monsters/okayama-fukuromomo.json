@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okayama-fukuromomo",
+  "name": "フクロモモ",
+  "area": "okayama",
+  "motifId": "okayama-hakuto",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 54,
+    "mp": 11,
+    "atk": 11,
+    "def": 10,
+    "spd": 7,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.1,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "okayama-momo-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 26,
+  "gold": 17,
+  "spriteKey": "mon.okayama-fukuromomo",
+  "evolution": {
+    "to": "okayama-hakuto-hime",
+    "item": "okayama-momo-no-hana"
+  },
+  "dexBlurb": "紙[かみ]の ふくろから 顔[かお]を 出[だ]した 白桃[はくとう]の ようせい。岡山[おかやま]の 白桃[はくとう]は、実[み]に 一[ひと]つずつ ふくろを かけて 育[そだ]てるので、白[しろ]く きれいに なる。"
+}

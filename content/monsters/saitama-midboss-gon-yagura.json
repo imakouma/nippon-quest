@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saitama-midboss-gon-yagura",
+  "name": "ゴーンヤグラ",
+  "area": "saitama",
+  "motifId": "kawagoe",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 106,
+    "mp": 18,
+    "atk": 11,
+    "def": 8,
+    "spd": 7,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 8,
+    "mp": 2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.6,
+    "wis": 0.6
+  },
+  "skills": ["sk-abc-shout", "sk-kuku-rush"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 64,
+  "gold": 74,
+  "spriteKey": "mon.saitama-midboss-gon-yagura",
+  "dexBlurb": "川越[かわごえ]の 時[とき]の 鐘[かね]が 動[うご]きだした すがた。3階[かい]だての やぐらから、いまも 1日[にち]に 4回[かい]、鐘[かね]の 音[おと]が ひびく。",
+  "fieldLine": "ゴーン…！ 時[とき]を つげる 鐘[かね]の 音[おと]、聞[き]いて いくかい？",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "line": "ゴーン！ ゴーン！ 時[とき]は まった なしだ！"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-tebasakky",
+  "name": "テバサッキー",
+  "area": "aichi",
+  "motifId": "tebasaki",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 42,
+    "mp": 10,
+    "atk": 12,
+    "def": 6,
+    "spd": 12,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 4.3,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "aichi-cochin-no-hane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 20,
+  "gold": 13,
+  "spriteKey": "mon.aichi-tebasakky",
+  "evolution": {
+    "to": "aichi-kokekokkochin",
+    "item": "aichi-cochin-no-hane"
+  },
+  "dexBlurb": "手羽先[てばさき]の かたちの つばさで とぶ モンスター。名古屋[なごや]の 手羽先[てばさき]は、あまからい たれと こしょうが きめて。"
+}

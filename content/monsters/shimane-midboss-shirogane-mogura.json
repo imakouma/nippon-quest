@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shimane-midboss-shirogane-mogura",
+  "name": "シロガネモグラ",
+  "area": "shimane",
+  "motifId": "iwami-ginzan",
+  "element": "tsuchi",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 171,
+    "mp": 23,
+    "atk": 18,
+    "def": 12,
+    "spd": 7,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 94,
+  "gold": 112,
+  "spriteKey": "mon.shimane-midboss-shirogane-mogura",
+  "dexBlurb": "石見銀山[いわみぎんざん]の 間歩[まぶ]（あな）を ほりすすむ 大[おお]きな モグラ。むかし 石見銀山[いわみぎんざん]で とれた 銀[ぎん]は、船[ふね]で 世界[せかい]へ はこばれた。",
+  "fieldLine": "モグモグ…！ この 先[さき]の 銀[ぎん]は わたさないぞ！ しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-iwa-otoshi"
+      ],
+      "line": "ピカーッ！ 銀[ぎん]の よろいで つきくずすぞ！"
+    }
+  ]
+}

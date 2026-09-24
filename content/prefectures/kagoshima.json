@@ -1,0 +1,306 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "kagoshima",
+  "name": "鹿児島県[かごしまけん]",
+  "island": "kyushu-okinawa",
+  "capital": "鹿児島市[かごしまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "kagoshima-field",
+    "town": "kagoshima-town",
+    "dungeon": "kagoshima-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kirishima-jingu",
+      "name": "霧島神宮[きりしまじんぐう]",
+      "kind": "landmark",
+      "imageKey": "motif.kagoshima.kirishima-jingu",
+      "blurb": "霧島山[きりしまやま]の ふもとに ある、朱[しゅ]ぬりの 神社[じんじゃ]。"
+    },
+    {
+      "id": "ibusuki-sunamushi",
+      "name": "指宿[いぶすき]の 砂[すな]むし温泉[おんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.kagoshima.ibusuki-sunamushi",
+      "blurb": "あたたかい 砂[すな]に うまって 体[からだ]を あたためる、めずらしい 温泉[おんせん]。"
+    },
+    {
+      "id": "kaimondake",
+      "name": "開聞岳[かいもんだけ]",
+      "kind": "nature",
+      "imageKey": "motif.kagoshima.kaimondake",
+      "blurb": "海[うみ]ぞいに そびえる、すがたの 美[うつく]しい 山[やま]。「薩摩富士[さつまふじ]」とも よばれる。"
+    },
+    {
+      "id": "karukan",
+      "name": "かるかん",
+      "kind": "food",
+      "imageKey": "motif.kagoshima.karukan",
+      "blurb": "山[やま]いもと お米[こめ]の 粉[こな]で 作[つく]る、白[しろ]くて ふんわりした 鹿児島[かごしま]の おかし。"
+    },
+    {
+      "id": "sogi-no-taki",
+      "name": "曽木[そぎ]の 滝[たき]",
+      "kind": "nature",
+      "imageKey": "motif.kagoshima.sogi-no-taki",
+      "blurb": "川[かわ]の はば いっぱいに 流[なが]れ落[お]ちる、はばの 広[ひろ]い 滝[たき]。"
+    },
+    {
+      "id": "izumi-tsuru",
+      "name": "出水[いずみ]の ツル",
+      "kind": "nature",
+      "imageKey": "motif.kagoshima.izumi-tsuru",
+      "blurb": "冬[ふゆ]に なると、出水市[いずみし]に たくさんの ツルが わたって くる。"
+    },
+    {
+      "id": "satsumayaki",
+      "name": "薩摩焼[さつまやき]",
+      "kind": "craft",
+      "imageKey": "motif.kagoshima.satsumayaki",
+      "blurb": "日置市[ひおきし]の 美山[みやま]などで 作[つく]られる やきもの。"
+    },
+    {
+      "id": "satsumaimo",
+      "name": "さつまいも",
+      "kind": "food",
+      "imageKey": "motif.kagoshima.satsumaimo",
+      "blurb": "鹿児島県[かごしまけん]は、さつまいもの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "kurobuta",
+      "name": "鹿児島[かごしま]の 黒豚[くろぶた]",
+      "kind": "food",
+      "imageKey": "motif.kagoshima.kurobuta",
+      "blurb": "鹿児島[かごしま]で 育[そだ]てられる、黒[くろ]い 毛[け]の ぶた。お肉[にく]が おいしいと 有名[ゆうめい]。"
+    },
+    {
+      "id": "kagoshima-cha",
+      "name": "鹿児島[かごしま]の お茶[ちゃ]",
+      "kind": "food",
+      "imageKey": "motif.kagoshima.kagoshima-cha",
+      "blurb": "鹿児島県[かごしまけん]は、お茶[ちゃ]作[づく]りが とても さかん。"
+    },
+    {
+      "id": "sakurajima",
+      "name": "桜島[さくらじま]",
+      "kind": "nature",
+      "imageKey": "motif.kagoshima.sakurajima",
+      "blurb": "鹿児島湾[かごしまわん]に ある 火山[かざん]。いまも ときどき 火山灰[かざんばい]を ふき上[あ]げる。"
+    },
+    {
+      "id": "sakurajima-daikon",
+      "name": "桜島大根[さくらじまだいこん]",
+      "kind": "food",
+      "imageKey": "motif.kagoshima.sakurajima-daikon",
+      "blurb": "桜島[さくらじま]で 作[つく]られる、とても 大[おお]きな まるい 大根[だいこん]。"
+    },
+    {
+      "id": "jomonsugi",
+      "name": "縄文杉[じょうもんすぎ]",
+      "kind": "nature",
+      "imageKey": "motif.kagoshima.jomonsugi",
+      "blurb": "屋久島[やくしま]の 山[やま]おくに ある、とても 古[ふる]くて 大[おお]きな 杉[すぎ]の 木[き]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "kagoshima-roppaku-boo",
+          "weight": 35
+        },
+        {
+          "monsterId": "kagoshima-nabezurun",
+          "weight": 25
+        },
+        {
+          "monsterId": "kagoshima-maru-daikon",
+          "weight": 25
+        },
+        {
+          "monsterId": "kagoshima-chappa",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "kagoshima-maru-daikon",
+          "weight": 45
+        },
+        {
+          "monsterId": "kagoshima-chappa",
+          "weight": 30
+        },
+        {
+          "monsterId": "kagoshima-roppaku-boo",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "kagoshima-roppaku-boo",
+          "weight": 55
+        },
+        {
+          "monsterId": "kagoshima-maru-daikon",
+          "weight": 25
+        },
+        {
+          "monsterId": "kagoshima-chappa",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "kagoshima-nabezurun",
+          "weight": 70
+        },
+        {
+          "monsterId": "kagoshima-maru-daikon",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "kagoshima-roppaku-boo",
+          "weight": 45
+        },
+        {
+          "monsterId": "kagoshima-maru-daikon",
+          "weight": 35
+        },
+        {
+          "monsterId": "kagoshima-nabezurun",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "kagoshima-boss-sakurajimaguma",
+  "midBoss": "kagoshima-midboss-tsubo-musha",
+  "secret": {
+    "name": "鶴丸城[つるまるじょう]あと",
+    "boss": "kagoshima-lastboss-saigo-takamori"
+  },
+  "events": [
+    {
+      "id": "ev-kagoshima-izumi-tsuru",
+      "motifId": "izumi-tsuru",
+      "trigger": {
+        "map": "kagoshima-field",
+        "objectName": "event_kagoshima_izumi-tsuru"
+      },
+      "once": true,
+      "cutinImageKey": "motif.kagoshima.izumi-tsuru",
+      "dialogue": [
+        {
+          "speaker": "ツルの ガイドさん",
+          "text": "冬[ふゆ]に なると、遠[とお]い 北[きた]の 国[くに]から ツルが わたって くるんだ。生[い]きものの ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:kagoshima"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "ツルの ガイドさん",
+          "text": "よく しらべたね！ 出水[いずみ]には、毎年[まいとし] 1万[まん]羽[わ]を こえる ツルが やって くるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "鹿児島市[かごしまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-kagoshima-shop",
+        "name": "かるかん屋[や]の おばあちゃん",
+        "spriteKey": "char.npc-kagoshima-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ ふんわり 白[しろ]い かるかんは、山[やま]いもと お米[こめ]の 粉[こな]で 作[つく]るんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-kagoshima-smith",
+        "name": "薩摩焼[さつまやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-kagoshima-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "薩摩焼[さつまやき]には、白[しろ]い「白[しろ]もん」と、黒[くろ]い「黒[くろ]もん」が あるんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-kagoshima-inn",
+        "name": "宿[やど]の おかみさん",
+        "spriteKey": "char.npc-kagoshima-inn",
+        "role": "inn",
+        "dialogue": [
+          {
+            "text": "桜島[さくらじま]の 灰[はい]が ふった 日[ひ]は、黄色[きいろ]い ふくろに あつめて 出[だ]すのよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

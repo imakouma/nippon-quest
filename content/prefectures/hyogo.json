@@ -1,0 +1,287 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "hyogo",
+  "name": "兵庫県[ひょうごけん]",
+  "island": "kinki",
+  "capital": "神戸市[こうべし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "hyogo-field",
+    "town": "hyogo-town",
+    "dungeon": "hyogo-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "himeji-jo",
+      "name": "姫路城[ひめじじょう]",
+      "kind": "history",
+      "imageKey": "motif.hyogo.himeji-jo",
+      "blurb": "白[しろ]く かがやく すがたから「白鷺城[しらさぎじょう]」とも よばれる お城[しろ]。世界遺産[せかいいさん]。"
+    },
+    {
+      "id": "kobe-ko",
+      "name": "神戸港[こうべこう]",
+      "kind": "landmark",
+      "imageKey": "motif.hyogo.kobe-ko",
+      "blurb": "むかしから 外国[がいこく]の 船[ふね]が 行[い]き来[き]した 港[みなと]。港町[みなとまち]に 異国[いこく]ふうの 建物[たてもの]が のこる。"
+    },
+    {
+      "id": "arima-onsen",
+      "name": "有馬温泉[ありまおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.hyogo.arima-onsen",
+      "blurb": "六甲山[ろっこうさん]の 北[きた]に ある、とても 古[ふる]くからの 温泉[おんせん]。"
+    },
+    {
+      "id": "kinosaki-onsen",
+      "name": "城崎温泉[きのさきおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.hyogo.kinosaki-onsen",
+      "blurb": "柳[やなぎ]の 並木[なみき]と 川[かわ]ぞいに 旅館[りょかん]が ならぶ 温泉[おんせん]の 町[まち]。"
+    },
+    {
+      "id": "takeda-jo",
+      "name": "竹田城跡[たけだじょうあと]",
+      "kind": "history",
+      "imageKey": "motif.hyogo.takeda-jo",
+      "blurb": "山[やま]の 上[うえ]に 石垣[いしがき]が のこる お城[しろ]の あと。雲[くも]の 海[うみ]に うかんで 見[み]える ことから「天空[てんくう]の 城[しろ]」と よばれる。"
+    },
+    {
+      "id": "akashi-tako",
+      "name": "明石[あかし]の たこ",
+      "kind": "food",
+      "imageKey": "motif.hyogo.akashi-tako",
+      "blurb": "明石[あかし]の 海[うみ]で とれる たこ。明石焼[あかしや]きにも 使[つか]う。"
+    },
+    {
+      "id": "tanba-kuromame",
+      "name": "丹波篠山[たんばささやま]の 黒豆[くろまめ]",
+      "kind": "food",
+      "imageKey": "motif.hyogo.tanba-kuromame",
+      "blurb": "丹波篠山市[たんばささやまし]で 作[つく]られる、大[おお]つぶの 黒豆[くろまめ]。"
+    },
+    {
+      "id": "tajimaushi",
+      "name": "但馬牛[たじまうし]",
+      "kind": "food",
+      "imageKey": "motif.hyogo.tajimaushi",
+      "blurb": "但馬[たじま]で 育[そだ]てられる 黒毛[くろげ]の 牛[うし]。有名[ゆうめい]な 牛肉[ぎゅうにく]の もとに なる。"
+    },
+    {
+      "id": "banshu-soroban",
+      "name": "播州[ばんしゅう]そろばん",
+      "kind": "craft",
+      "imageKey": "motif.hyogo.banshu-soroban",
+      "blurb": "小野市[おのし]で 作[つく]られる そろばん。むかしから そろばん作[づく]りが さかん。"
+    },
+    {
+      "id": "izushi-soba",
+      "name": "出石[いずし]そば",
+      "kind": "food",
+      "imageKey": "motif.hyogo.izushi-soba",
+      "blurb": "豊岡市[とよおかし]の 出石[いずし]の 名物[めいぶつ]。小[ちい]さな お皿[さら]に わけて 出[だ]す そば。"
+    },
+    {
+      "id": "awaji-tamanegi",
+      "name": "淡路[あわじ]の たまねぎ",
+      "kind": "food",
+      "imageKey": "motif.hyogo.awaji-tamanegi",
+      "blurb": "淡路島[あわじしま]で 作[つく]られる、あまくて やわらかい たまねぎ。"
+    },
+    {
+      "id": "awaji-ningyo",
+      "name": "淡路人形浄瑠璃[あわじにんぎょうじょうるり]",
+      "kind": "history",
+      "imageKey": "motif.hyogo.awaji-ningyo",
+      "blurb": "淡路島[あわじしま]に つたわる、人形[にんぎょう]を あやつって 物語[ものがたり]を 演[えん]じる お芝居[しばい]。"
+    },
+    {
+      "id": "awaji-senko",
+      "name": "淡路[あわじ]の お線香[せんこう]",
+      "kind": "craft",
+      "imageKey": "motif.hyogo.awaji-senko",
+      "blurb": "淡路市[あわじし]では、お線香[せんこう]作[づく]りが とても さかん。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "hyogo-sorobanban",
+          "weight": 33
+        },
+        {
+          "monsterId": "hyogo-kuromamen",
+          "weight": 33
+        },
+        {
+          "monsterId": "hyogo-takotsubon",
+          "weight": 17
+        },
+        {
+          "monsterId": "hyogo-tamanegin",
+          "weight": 17
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "hyogo-kuromamen",
+          "weight": 56
+        },
+        {
+          "monsterId": "hyogo-sorobanban",
+          "weight": 24
+        },
+        {
+          "monsterId": "hyogo-tamanegin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "hyogo-sorobanban",
+          "weight": 60
+        },
+        {
+          "monsterId": "hyogo-kuromamen",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "hyogo-takotsubon",
+          "weight": 100
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "hyogo-sorobanban",
+          "weight": 40
+        },
+        {
+          "monsterId": "hyogo-takotsubon",
+          "weight": 35
+        },
+        {
+          "monsterId": "hyogo-kuromamen",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "hyogo-boss-shirasagi-tenshu",
+  "midBoss": "hyogo-midboss-tajima-mogyu",
+  "secret": {
+    "name": "姫路城[ひめじじょう]",
+    "boss": "hyogo-lastboss-ikeda-terumasa"
+  },
+  "events": [
+    {
+      "id": "ev-hyogo-takeda-jo",
+      "motifId": "takeda-jo",
+      "trigger": {
+        "map": "hyogo-field",
+        "objectName": "event_hyogo_takeda-jo"
+      },
+      "once": true,
+      "cutinImageKey": "motif.hyogo.takeda-jo",
+      "dialogue": [
+        {
+          "speaker": "竹田城跡[たけだじょうあと]の ガイドさん",
+          "text": "秋[あき]の 朝[あさ]は、この 城跡[しろあと]が 雲[くも]の 海[うみ]に うかんで 見[み]えるんだ。天気[てんき]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:hyogo"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "竹田城跡[たけだじょうあと]の ガイドさん",
+          "text": "よく しらべたね！ 雲[くも]の 海[うみ]は、よく 晴[は]れて 冷[ひ]えこんだ 朝[あさ]に 見[み]えやすいんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "神戸市[こうべし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-hyogo-shop",
+        "name": "港町[みなとまち]の パン屋[や]さん",
+        "spriteKey": "char.npc-hyogo-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 神戸[こうべ]は 外国[がいこく]の 船[ふね]が 来[く]る 港町[みなとまち]。パンの お店[みせ]も とても 多[おお]いんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-hyogo-smith",
+        "name": "三木[みき]の 金物[かなもの]職人[しょくにん]",
+        "spriteKey": "char.npc-hyogo-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "三木[みき]は むかしから、のこぎりや かんななど、大工[だいく]さんの 道具[どうぐ]づくりが さかんな 町[まち]なんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

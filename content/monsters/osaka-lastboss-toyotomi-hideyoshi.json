@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-lastboss-toyotomi-hideyoshi",
+  "name": "豊臣秀吉[とよとみひでよし]",
+  "area": "osaka",
+  "motifId": "osaka-jo",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 506,
+    "mp": 59,
+    "atk": 26,
+    "def": 21,
+    "spd": 13,
+    "wis": 18
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-konjiki-no-kiba",
+    "sk-hikari-no-ya"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 457,
+  "gold": 522,
+  "spriteKey": "mon.osaka-lastboss-toyotomi-hideyoshi",
+  "dexBlurb": "戦国[せんごく]時代[じだい]の 武将[ぶしょう]（1537〜1598年[ねん]）。大阪城[おおさかじょう]を きずき、全国[ぜんこく]を ひとつに まとめた。",
+  "fieldLine": "わしは 豊臣秀吉[とよとみひでよし]じゃ。この 大阪城[おおさかじょう]で、そなたの 知恵[ちえ]を ためして やろう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya",
+        "sk-namahage-otakebi"
+      ],
+      "line": "これが 天下[てんか]を ひとつに した 金[きん]の 力[ちから]じゃ！"
+    }
+  ]
+}

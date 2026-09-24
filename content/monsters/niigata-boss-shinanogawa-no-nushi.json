@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-boss-shinanogawa-no-nushi",
+  "name": "シナノガワノヌシ",
+  "area": "niigata",
+  "motifId": "shinanogawa",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 348,
+    "mp": 47,
+    "atk": 19,
+    "def": 15,
+    "spd": 10,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "niigata-yukidoke-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "niigata-hisui-no-genseki",
+      "rate": 1
+    },
+    {
+      "itemId": "niigata-toki-no-hane",
+      "rate": 1
+    },
+    {
+      "itemId": "niigata-shiobiki-no-shio",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 230,
+  "gold": 271,
+  "spriteKey": "mon.niigata-boss-shinanogawa-no-nushi",
+  "dexBlurb": "日本[にほん]で いちばん 長[なが]い 信濃川[しなのがわ]に すむ、大[おお]きな 錦鯉[にしきごい]の ぬし。錦鯉[にしきごい]は、新潟県[にいがたけん]の 小千谷[おぢや]や 長岡[ながおか]の 山[やま]あいで 生[う]まれた、色[いろ]あざやかな コイ。",
+  "fieldLine": "ざざーん…。山[やま]から 海[うみ]まで ながれる この 川[かわ]の 力[ちから]、うけてみよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "line": "滝[たき]を のぼった 鯉[こい]は 竜[りゅう]と なる！ 川[かわ]よ、あばれよ！",
+      "skills": [
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ]
+    }
+  ]
+}

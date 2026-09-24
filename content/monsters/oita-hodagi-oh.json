@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-hodagi-oh",
+  "name": "ホダギオー",
+  "area": "oita",
+  "motifId": "oita-shiitake",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 75,
+    "mp": 19,
+    "atk": 18,
+    "def": 17,
+    "spd": 9,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 6.2,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-tashizan-giri",
+    "sk-iwa-otoshi"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 39,
+  "gold": 27,
+  "spriteKey": "mon.oita-hodagi-oh",
+  "dexBlurb": "シイタケンが しんかした すがた。くぬぎの ほだ木[ぎ]を せおい、たくさんの しいたけを 育[そだ]てる 森[もり]の 王[おう]。"
+}

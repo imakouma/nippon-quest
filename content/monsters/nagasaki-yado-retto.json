@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-yado-retto",
+  "name": "ヤドレットウ",
+  "area": "nagasaki",
+  "motifId": "kujukushima",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 77,
+    "mp": 20,
+    "atk": 18,
+    "def": 17,
+    "spd": 9,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 6.2,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 26,
+  "spriteKey": "mon.nagasaki-yado-retto",
+  "dexBlurb": "ヤドシマが しんかした すがた。せなかの 島[しま]が ふえて、小[ちい]さな 列島[れっとう]に なった。"
+}

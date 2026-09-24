@@ -1,0 +1,67 @@
+/*
+ * メニュー（ずかん・どうぐ・そうび）。枠は チーム編成・にほんちずと同じ（.nq-wmap-box）で、上に タブを ならべる。
+ * 文字は 12 / 24 / 36 / 48px だけ。
+ */
+.nq-menu-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nq-menu-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+.nq-menu-tab {
+  flex: none;
+  gap: 4px;
+  padding: 0 8px;
+  font-size: 24px;
+  white-space: nowrap;
+}
+/* 「ずかん」の 見出し（モンスター・とくさんひん の タブの 前） */
+.nq-menu-group {
+  flex: none;
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--nq-cloud);
+  white-space: nowrap;
+}
+.nq-menu-count {
+  font-size: 12px;
+  color: var(--nq-yellow);
+}
+.nq-menu-close {
+  flex: none;
+  margin-left: auto;
+  white-space: nowrap;
+}
+/* タブの下に、左の リストと 右の せつめい */
+.nq-menu-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  gap: 16px;
+}
+.nq-menu-body > .nq-wmap-left,
+.nq-menu-body > .nq-wmap-right {
+  min-height: 0;
+}
+.nq-menu-summary {
+  margin: 0;
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--nq-cloud);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+/* まだ であっていない・見つけていない：リストは うすく、絵は かげだけ */
+.nq-menu-unknown {
+  opacity: 0.55;
+}
+.nq-menu-unknown .nq-menu-icon,
+.nq-menu-unknown-art img {
+  filter: brightness(0);
+  opacity: 0.6;
+}

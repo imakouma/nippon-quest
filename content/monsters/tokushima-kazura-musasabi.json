@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokushima-kazura-musasabi",
+  "name": "カズラムササビ",
+  "area": "tokushima",
+  "motifId": "iya-kazurabashi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 49,
+    "mp": 12,
+    "atk": 15,
+    "def": 7,
+    "spd": 14,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.5,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "tokushima-kazurabashi-no-ita",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 25,
+  "gold": 18,
+  "spriteKey": "mon.tokushima-kazura-musasabi",
+  "evolution": {
+    "to": "tokushima-sorawatari",
+    "item": "tokushima-kazurabashi-no-ita"
+  },
+  "dexBlurb": "つるの マントを ひろげて 祖谷[いや]の 谷[たに]を とびわたる ムササビ。祖谷[いや]の かずら橋[ばし]は、しらくちかずらと いう つるを あんで 作[つく]られている。"
+}

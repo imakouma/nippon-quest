@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okinawa-yanbaru-totto",
+  "name": "ヤンバルトット",
+  "area": "okinawa",
+  "motifId": "yanbaru",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 53,
+    "mp": 12,
+    "atk": 14,
+    "def": 9,
+    "spd": 12,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.9,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "okinawa-yanbaru-no-hane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 27,
+  "gold": 19,
+  "spriteKey": "mon.okinawa-yanbaru-totto",
+  "evolution": {
+    "to": "okinawa-yanbaru-kakeru",
+    "item": "okinawa-yanbaru-no-hane"
+  },
+  "dexBlurb": "やんばるの 森[もり]を 走[はし]りまわる 赤[あか]い くちばしの 鳥[とり]。やんばるは 沖縄島[おきなわじま]の 北[きた]に ひろがる 森[もり]で、めずらしい 生[い]きものが すんでいる。"
+}

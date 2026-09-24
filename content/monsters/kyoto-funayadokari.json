@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-funayadokari",
+  "name": "フナヤドカリ",
+  "area": "kyoto",
+  "motifId": "ine-funaya",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 49,
+    "mp": 11,
+    "atk": 12,
+    "def": 12,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "kyoto-funaya-no-ita",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 24,
+  "gold": 18,
+  "spriteKey": "mon.kyoto-funayadokari",
+  "evolution": {
+    "to": "kyoto-funaya-don",
+    "item": "kyoto-funaya-no-ita"
+  },
+  "dexBlurb": "伊根[いね]の 舟屋[ふなや]を せおった ヤドカリ。舟屋[ふなや]は、1かいに 船[ふね]を しまい、2かいで くらす 海[うみ]べの 家[いえ]。"
+}

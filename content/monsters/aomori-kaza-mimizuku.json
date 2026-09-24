@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-kaza-mimizuku",
+  "name": "カザミミズク",
+  "area": "aomori",
+  "motifId": "osorezan",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": {
+    "hp": 38,
+    "mp": 16,
+    "atk": 13,
+    "def": 7,
+    "spd": 13,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 4.2,
+    "mp": 1.8,
+    "atk": 1.6,
+    "def": 0.8,
+    "spd": 1.7,
+    "wis": 1.4
+  },
+  "skills": ["sk-yami-no-uta", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.aomori-kaza-mimizuku",
+  "dexBlurb": "イタコドリが しんかした すがた。かざぐるまの 風[かぜ]に のって、夜[よる]の 空[そら]を とぶ。"
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-midboss-kayabuki-monban",
+  "name": "カヤブキモンバン",
+  "area": "kyoto",
+  "motifId": "miyama-kayabuki",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 156,
+    "mp": 24,
+    "atk": 16,
+    "def": 12,
+    "spd": 7,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-happa-arashi"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 91,
+  "gold": 106,
+  "spriteKey": "mon.kyoto-midboss-kayabuki-monban",
+  "dexBlurb": "美山[みやま]の かやぶき屋根[やね]の 大[おお]きな 門番[もんばん]。美山[みやま]では 火事[かじ]に そなえて、屋根[やね]に いっせいに 水[みず]を かける 放水[ほうすい]の 行事[ぎょうじ]が ある。",
+  "fieldLine": "ここは かやぶきの 里[さと]の 入口[いりぐち]じゃ。とおりたければ、わしを こえて いけ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "mizu",
+      "skills": [
+        "sk-uzushio",
+        "sk-happa-arashi"
+      ],
+      "line": "放水[ほうすい]、はじめ！ 里[さと]の 屋根[やね]は、わしが まもりぬく！"
+    }
+  ]
+}

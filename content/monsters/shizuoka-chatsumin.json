@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shizuoka-chatsumin",
+  "name": "チャツミン",
+  "area": "shizuoka",
+  "motifId": "shizuoka-cha",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 49,
+    "mp": 10,
+    "atk": 10,
+    "def": 9,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "shizuoka-makinohara-shincha",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 21,
+  "gold": 14,
+  "spriteKey": "mon.shizuoka-chatsumin",
+  "evolution": {
+    "to": "shizuoka-chabashira",
+    "item": "shizuoka-makinohara-shincha"
+  },
+  "dexBlurb": "お茶[ちゃ]の 若葉[わかば]の モンスター。お茶[ちゃ]は、春[はる]に 出[で]た 新[あたら]しい めと 若葉[わかば]を つんで 作[つく]る。"
+}

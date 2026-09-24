@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-onbashigame",
+  "name": "オンバシガメ",
+  "area": "hiroshima",
+  "motifId": "taishakukyo",
+  "element": "tsuchi",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 70,
+    "mp": 14,
+    "atk": 17,
+    "def": 18,
+    "spd": 8,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6.2,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.6,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": ["sk-tashizan-giri", "sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 39,
+  "gold": 29,
+  "spriteKey": "mon.hiroshima-onbashigame",
+  "dexBlurb": "イワバシガメが しんかした すがた。せなかの 石[いし]の 橋[はし]は 人[ひと]が わたれるほど 大[おお]きい。雄橋[おんばし]は 長[なが]い 年月[としつき]を かけて 水[みず]が けずった 自然[しぜん]の 橋[はし]。"
+}

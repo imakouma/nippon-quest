@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamanashi-suzuri-tatsujin",
+  "name": "スズリタツジン",
+  "area": "yamanashi",
+  "motifId": "amahata-suzuri",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 64,
+    "mp": 12,
+    "atk": 15,
+    "def": 15,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 1.1
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 33,
+  "gold": 22,
+  "spriteKey": "mon.yamanashi-suzuri-tatsujin",
+  "dexBlurb": "スズリンが しんかした すがた。雨畑[あまはた]の 石[いし]は きめが こまかく、すみを なめらかに する ことが できる。"
+}

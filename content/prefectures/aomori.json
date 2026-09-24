@@ -1,0 +1,698 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "aomori",
+  "name": "青森県[あおもりけん]",
+  "island": "tohoku",
+  "capital": "青森市[あおもりし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "aomori-field",
+    "town": "aomori-town",
+    "dungeon": "aomori-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "ringo",
+      "name": "りんご",
+      "kind": "food",
+      "imageKey": "motif.aomori.ringo",
+      "blurb": "青森県[あおもりけん]は りんごの 生産量[せいさんりょう]が 日本[にほん]で いちばん 多[おお]い。"
+    },
+    {
+      "id": "sannai-maruyama",
+      "name": "三内丸山遺跡[さんないまるやまいせき]",
+      "kind": "history",
+      "imageKey": "motif.aomori.sannai-maruyama",
+      "blurb": "5000年[ねん]ほど 前[まえ]の 縄文時代[じょうもんじだい]の 大[おお]きな 村[むら]のあと。大[おお]きな 柱[はしら]の 建物[たてもの]が 有名[ゆうめい]。"
+    },
+    {
+      "id": "tsugaru-kaikyo",
+      "name": "津軽海峡[つがるかいきょう]",
+      "kind": "nature",
+      "imageKey": "motif.aomori.tsugaru-kaikyo",
+      "blurb": "本州[ほんしゅう]と 北海道[ほっかいどう]の 間[あいだ]の 海[うみ]。海[うみ]の 下[した]を 青函[せいかん]トンネルが 通[とお]っている。"
+    },
+    {
+      "id": "towada-ko",
+      "name": "十和田湖[とわだこ]",
+      "kind": "nature",
+      "imageKey": "motif.aomori.towada-ko",
+      "blurb": "火山[かざん]の あとに 水[みず]が たまって できた 湖[みずうみ]。青森[あおもり]と 秋田[あきた]に またがる。"
+    },
+    {
+      "id": "osorezan",
+      "name": "恐山[おそれざん]",
+      "kind": "landmark",
+      "imageKey": "motif.aomori.osorezan",
+      "blurb": "日本[にほん]で 有名[ゆうめい]な 霊場[れいじょう]の ひとつ。カラカラ 回[まわ]る 風車[かざぐるま]が たくさん。"
+    },
+    {
+      "id": "nebuta",
+      "name": "ねぶた祭[まつり]",
+      "kind": "festival",
+      "imageKey": "motif.aomori.nebuta",
+      "blurb": "夏[なつ]の 夜[よる]、光[ひか]る 大[おお]きな 人形[にんぎょう]の 山車[だし]が 町[まち]を ねり歩[ある]く。"
+    },
+    {
+      "id": "oma-maguro",
+      "name": "大間[おおま]のマグロ",
+      "kind": "food",
+      "imageKey": "motif.aomori.oma-maguro",
+      "blurb": "津軽海峡[つがるかいきょう]で とれる 大[おお]きな クロマグロ。"
+    },
+    {
+      "id": "shirakami",
+      "name": "白神山地[しらかみさんち]",
+      "kind": "nature",
+      "imageKey": "motif.aomori.shirakami",
+      "blurb": "ブナの 森[もり]が 広[ひろ]がる 世界自然遺産[せかいしぜんいさん]。秋田[あきた]との さかいに ある。"
+    },
+    {
+      "id": "hirosaki-jo",
+      "name": "弘前城[ひろさきじょう]",
+      "kind": "landmark",
+      "imageKey": "motif.aomori.hirosaki-jo",
+      "blurb": "春[はる]の さくらが とても きれいな お城[しろ]。"
+    },
+    {
+      "id": "tsugaru-nuri",
+      "name": "津軽塗[つがるぬり]",
+      "kind": "craft",
+      "imageKey": "motif.aomori.tsugaru-nuri",
+      "blurb": "何回[なんかい]も うるしを ぬって みがく、まだら模様[もよう]の 工芸品[こうげいひん]。"
+    },
+    {
+      "id": "oirase",
+      "name": "奥入瀬渓流[おいらせけいりゅう]",
+      "kind": "nature",
+      "imageKey": "motif.aomori.oirase",
+      "blurb": "十和田湖[とわだこ]から 流[なが]れ出[で]る 川[かわ]ぞいの 谷[たに]。こけむした 岩[いわ]の あいだに いくつもの 滝[たき]が ある。"
+    },
+    {
+      "id": "senbeijiru",
+      "name": "八戸[はちのへ]の せんべい汁[じる]",
+      "kind": "food",
+      "imageKey": "motif.aomori.senbeijiru",
+      "blurb": "おなべ用[よう]の かたい せんべいを、肉[にく]や 野菜[やさい]と いっしょに にこむ 八戸[はちのへ]の 郷土料理[きょうどりょうり]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "aomori-ringoron",
+          "weight": 45
+        },
+        {
+          "monsterId": "aomori-nebutan",
+          "weight": 40
+        },
+        {
+          "monsterId": "aomori-doguukun",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "aomori-ringoron",
+          "weight": 70
+        },
+        {
+          "monsterId": "aomori-nebutan",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "aomori-bunakko",
+          "weight": 45
+        },
+        {
+          "monsterId": "aomori-itakodori",
+          "weight": 22
+        },
+        {
+          "monsterId": "aomori-ringoron",
+          "weight": 20
+        },
+        {
+          "monsterId": "aomori-tsugaru-nurin",
+          "weight": 13
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "aomori-itakodori",
+          "weight": 45
+        },
+        {
+          "monsterId": "aomori-doguukun",
+          "weight": 30
+        },
+        {
+          "monsterId": "aomori-bunakko",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "aomori-umi-nyan",
+          "weight": 50
+        },
+        {
+          "monsterId": "aomori-magurodo",
+          "weight": 50
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "aomori-umi-nyan",
+          "weight": 50
+        },
+        {
+          "monsterId": "aomori-bunakko",
+          "weight": 50
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "aomori-doguukun",
+          "weight": 52
+        },
+        {
+          "monsterId": "aomori-nebutan",
+          "weight": 22
+        },
+        {
+          "monsterId": "aomori-itakodori",
+          "weight": 13
+        },
+        {
+          "monsterId": "aomori-tsugaru-nurin",
+          "weight": 13
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "aomori-boss-tsugaru-no-nushi",
+  "midBoss": "aomori-midboss-nebuta-taisho",
+  "secret": {
+    "name": "弘前城[ひろさきじょう] 天守[てんしゅ]",
+    "boss": "aomori-lastboss-tsugaru-tamenobu"
+  },
+  "events": [
+    {
+      "id": "aomori-ev-ringoen",
+      "motifId": "ringo",
+      "trigger": {
+        "map": "aomori-field",
+        "objectName": "ev_ringoen"
+      },
+      "once": false,
+      "cutinImageKey": "motif.aomori.ringo",
+      "dialogue": [
+        {
+          "speaker": "りんご屋[や]の おばあちゃん",
+          "face": "face.npc-aomori-shop",
+          "text": "りんごの しゅうかくを 手伝[てつだ]って くれるかい？"
+        }
+      ],
+      "question": {
+        "subject": "sansu",
+        "gradeRange": [
+          1,
+          2
+        ],
+        "tags": [
+          "theme:ringo"
+        ],
+        "type": "number-build"
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "items": [
+              {
+                "itemId": "aomori-ringo",
+                "n": 5
+              }
+            ],
+            "xp": 20
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "items": [
+              {
+                "itemId": "aomori-ringo",
+                "n": 3
+              }
+            ],
+            "xp": 10
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "items": [
+              {
+                "itemId": "aomori-ringo",
+                "n": 1
+              }
+            ],
+            "xp": 5
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "りんご屋[や]の おばあちゃん",
+          "text": "ありがとうねえ。これは おれいだよ。"
+        }
+      ]
+    },
+    {
+      "id": "aomori-ev-sannai",
+      "motifId": "sannai-maruyama",
+      "trigger": {
+        "map": "aomori-field",
+        "objectName": "ev_sannai"
+      },
+      "once": true,
+      "cutinImageKey": "motif.aomori.sannai-maruyama",
+      "dialogue": [
+        {
+          "speaker": "はっくつ隊長[たいちょう]",
+          "text": "ここは 三内丸山遺跡[さんないまるやまいせき]。5000年[ねん]も 前[まえ]の 村[むら]だよ！"
+        },
+        {
+          "speaker": "はっくつ隊長[たいちょう]",
+          "text": "土[つち]の 中[なか]から 出[で]てきたものを 古[ふる]い じゅんに ならべて くれるかい？"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:aomori",
+          "event:sannai"
+        ],
+        "type": "sort-order"
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "items": [
+              {
+                "itemId": "aomori-jomon-kubikazari",
+                "n": 1
+              }
+            ],
+            "xp": 40
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "items": [
+              {
+                "itemId": "aomori-doki-kakera",
+                "n": 2
+              }
+            ],
+            "xp": 20
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "items": [
+              {
+                "itemId": "aomori-doki-kakera",
+                "n": 1
+              }
+            ],
+            "xp": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "aomori-ev-kaikyo",
+      "motifId": "tsugaru-kaikyo",
+      "trigger": {
+        "map": "aomori-field",
+        "objectName": "ev_kaikyo"
+      },
+      "once": true,
+      "cutinImageKey": "motif.aomori.tsugaru-kaikyo",
+      "dialogue": [
+        {
+          "speaker": "船長[せんちょう]",
+          "text": "海[うみ]の 生[い]きものの 名前[なまえ]、英語[えいご]で 言[い]えるかい？"
+        }
+      ],
+      "question": {
+        "subject": "eigo",
+        "gradeRange": [
+          1,
+          3
+        ],
+        "tags": [
+          "theme:sea"
+        ],
+        "type": "picture-word"
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "recipes": [
+              "rc-maguro-zutsuki"
+            ],
+            "skills": [
+              "sk-abc-shout"
+            ],
+            "xp": 30
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "recipes": [
+              "rc-maguro-zutsuki"
+            ],
+            "xp": 15
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "aomori-ev-towada",
+      "motifId": "towada-ko",
+      "trigger": {
+        "map": "aomori-field",
+        "objectName": "ev_towada"
+      },
+      "once": true,
+      "cutinImageKey": "motif.aomori.towada-ko",
+      "dialogue": [
+        {
+          "speaker": "湖[みずうみ]の はかせ",
+          "text": "この 湖[みずうみ]の 水[みず]の 温度[おんど]を いっしょに 調[しら]べよう。"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          4,
+          4
+        ],
+        "tags": [
+          "theme:water"
+        ],
+        "type": "experiment"
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "skills": [
+              "sk-shiraberu"
+            ],
+            "items": [
+              {
+                "itemId": "aomori-mizu-no-kakera",
+                "n": 1
+              }
+            ],
+            "xp": 30
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "skills": [
+              "sk-shiraberu"
+            ],
+            "xp": 15
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "aomori-ev-osorezan",
+      "motifId": "osorezan",
+      "trigger": {
+        "map": "aomori-dungeon",
+        "objectName": "ev_osorezan"
+      },
+      "once": true,
+      "cutinImageKey": "motif.aomori.osorezan",
+      "dialogue": [
+        {
+          "speaker": "石碑[せきひ]",
+          "text": "……風車[かざぐるま]が 回[まわ]っている。石[いし]に ほられた 字[じ]を なぞると 何[なに]かが 起[お]きそうだ。"
+        }
+      ],
+      "question": {
+        "subject": "kokugo",
+        "gradeRange": [
+          1,
+          2
+        ],
+        "tags": [
+          "theme:osorezan"
+        ],
+        "type": "kanji-trace"
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "skills": [
+              "sk-kanji-barrier"
+            ],
+            "unlockMonsters": [
+              "aomori-itakodori"
+            ],
+            "xp": 30
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "skills": [
+              "sk-kanji-barrier"
+            ],
+            "xp": 15
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 5
+          }
+        }
+      ]
+    }
+  ],
+  "shop": [
+    {
+      "itemId": "common-yakusou",
+      "price": 20
+    },
+    {
+      "itemId": "aomori-ringo",
+      "price": 15
+    },
+    {
+      "itemId": "aomori-hiba-zai",
+      "price": 30
+    },
+    {
+      "itemId": "aomori-tsugaru-nuri-boots",
+      "price": 480
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "price": 200
+    }
+  ],
+  "missions": [
+    {
+      "id": "aomori-ms-01",
+      "title": "リンゴロンを 3びき たおそう",
+      "giverNpc": "npc-aomori-board",
+      "condition": "defeat:aomori-ringoron:3",
+      "reward": {
+        "gold": 50,
+        "items": [
+          {
+            "itemId": "aomori-ringo",
+            "n": 3
+          }
+        ]
+      },
+      "hint": "りんご園[えん]の あたりに いるよ。"
+    },
+    {
+      "id": "aomori-ms-02",
+      "title": "たしざんぎりで「かんぺき！」を 5回[かい]",
+      "giverNpc": "npc-aomori-board",
+      "condition": "perfect:sansu:5",
+      "reward": {
+        "items": [
+          {
+            "itemId": "aomori-nebuta-no-akari",
+            "n": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "aomori-ms-03",
+      "title": "りんごを 10こ あつめよう",
+      "giverNpc": "npc-aomori-board",
+      "condition": "collect:aomori-ringo:10",
+      "reward": {
+        "recipes": [
+          "rc-ringo-no-yoroi"
+        ]
+      }
+    },
+    {
+      "id": "aomori-ms-04",
+      "title": "ネブタンを なかまに しよう",
+      "giverNpc": "npc-aomori-board",
+      "condition": "recruit:aomori-nebutan",
+      "reward": {
+        "gold": 100,
+        "title": "ねぶた見習[みなら]い"
+      }
+    }
+  ],
+  "town": {
+    "name": "りんごの 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-aomori-shop",
+        "name": "りんご屋[や]の おばあちゃん",
+        "spriteKey": "char.npc-aomori-shop",
+        "face": "face.npc-aomori-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい。あまい りんごは いかが？"
+          }
+        ]
+      },
+      {
+        "id": "npc-aomori-smith",
+        "name": "ひばの かじ屋[や]",
+        "spriteKey": "char.npc-aomori-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "青森[あおもり]ひばは くさりにくくて いい木[き]だ。ざいりょうが あれば 何[なん]でも 作[つく]るぞ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-aomori-inn",
+        "name": "宿屋[やどや]の 兄[にい]ちゃん",
+        "spriteKey": "char.npc-aomori-inn",
+        "role": "inn",
+        "dialogue": [
+          {
+            "text": "青森[あおもり]の りんごは 明治時代[めいじじだい]に 外国[がいこく]から 来[き]たんだって。ゆっくり 休[やす]んでいきな。"
+          }
+        ]
+      },
+      {
+        "id": "npc-aomori-board",
+        "name": "掲示板[けいじばん]の ねぶた職人[しょくにん]",
+        "spriteKey": "char.npc-aomori-board",
+        "role": "board",
+        "dialogue": [
+          {
+            "text": "手伝[てつだ]って ほしいことが 貼[は]ってある。見[み]ていくかい？"
+          }
+        ]
+      },
+      {
+        "id": "npc-aomori-dex",
+        "name": "図鑑係[ずかんがかり]の 学芸員[がくげいいん]",
+        "spriteKey": "char.npc-aomori-dex",
+        "role": "dex",
+        "dialogue": [
+          {
+            "text": "出会[であ]った モンスターや 名所[めいしょ]は ここで 見[み]られるよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-aomori-arena",
+        "name": "たいせんじょうの 船長[せんちょう]",
+        "spriteKey": "char.npc-aomori-arena",
+        "role": "arena",
+        "dialogue": [
+          {
+            "text": "自慢[じまん]の なかまで 勝負[しょうぶ]しないか？"
+          }
+        ]
+      }
+    ]
+  }
+}

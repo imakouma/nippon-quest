@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-kurawan-nushi",
+  "name": "クラワンヌシ",
+  "area": "nagasaki",
+  "motifId": "hasamiyaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 76,
+    "mp": 14,
+    "atk": 18,
+    "def": 18,
+    "spd": 8,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-tashizan-giri",
+    "sk-iwa-otoshi"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 39,
+  "gold": 24,
+  "spriteKey": "mon.nagasaki-kurawan-nushi",
+  "dexBlurb": "クラワンボウが しんかした すがた。青[あお]い 呉須[ごす]の もようが せなか いっぱいに 広[ひろ]がり、どっしり かまえる。"
+}

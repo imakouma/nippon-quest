@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tottori-beniganin",
+  "name": "ベニガニン",
+  "area": "tottori",
+  "motifId": "beni-zuwai",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 48,
+    "mp": 11,
+    "atk": 14,
+    "def": 11,
+    "spd": 7,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "tottori-shinkai-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.tottori-beniganin",
+  "evolution": {
+    "to": "tottori-beniyoroigani",
+    "item": "tottori-shinkai-no-shizuku"
+  },
+  "dexBlurb": "境港[さかいみなと]に 水[みず]あげ される ベニズワイガニの モンスター。ベニズワイガニは、ゆでる 前[まえ]から 赤[あか]い からだを している。"
+}

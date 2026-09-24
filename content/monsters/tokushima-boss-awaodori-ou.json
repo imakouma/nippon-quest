@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokushima-boss-awaodori-ou",
+  "name": "アワオドリオウ",
+  "area": "tokushima",
+  "motifId": "awa-odori",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 445,
+    "mp": 59,
+    "atk": 25,
+    "def": 17,
+    "spd": 14,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-habataki",
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "tokushima-sudachi-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "tokushima-satsumaimo-no-tsuru",
+      "rate": 1
+    },
+    {
+      "itemId": "tokushima-kazurabashi-no-ita",
+      "rate": 1
+    },
+    {
+      "itemId": "tokushima-oohama-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 301,
+  "gold": 346,
+  "spriteKey": "mon.tokushima-boss-awaodori-ou",
+  "dexBlurb": "藍染[あいぞ]めの はっぴを きた、阿波[あわ]おどりの 大[おお]きな おどり手[て]。阿波[あわ]おどりは 400年[ねん]いじょう つづく お祭[まつ]りで、夏[なつ]の 町[まち]じゅうが おどりで にぎわう。",
+  "fieldLine": "えらいやっちゃ えらいやっちゃ！ おどらにゃ そんそん、ここは とおさんぞ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "kaze",
+      "skills": [
+        "sk-habataki",
+        "sk-kuku-rush",
+        "sk-abc-shout"
+      ],
+      "line": "ヤットサー！ ここからは 本気[ほんき]の おどりじゃ。ついて こられるか！"
+    }
+  ]
+}

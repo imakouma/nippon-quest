@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-ukaidori",
+  "name": "ウカイドリ",
+  "area": "gifu",
+  "motifId": "nagaragawa-ukai",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 44,
+    "mp": 12,
+    "atk": 12,
+    "def": 6,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "gifu-nagaragawa-ayu",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 20,
+  "gold": 13,
+  "spriteKey": "mon.gifu-ukaidori",
+  "evolution": {
+    "to": "gifu-ushou-dori",
+    "item": "gifu-nagaragawa-ayu"
+  },
+  "dexBlurb": "長良川[ながらがわ]の 鵜飼[うかい]で はたらく 鵜[う]の モンスター。鵜[う]は 水[みず]に もぐって、あゆを 上手[じょうず]に つかまえる。"
+}

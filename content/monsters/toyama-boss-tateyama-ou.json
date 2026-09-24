@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-boss-tateyama-ou",
+  "name": "タテヤマオウ",
+  "area": "toyama",
+  "motifId": "tateyama",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 362,
+    "mp": 45,
+    "atk": 20,
+    "def": 16,
+    "spd": 8,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "toyama-tulip-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "toyama-aoi-hikari-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "toyama-haimatsu-no-tane",
+      "rate": 1
+    },
+    {
+      "itemId": "toyama-masuzushi-no-sasa",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 237,
+  "gold": 278,
+  "spriteKey": "mon.toyama-boss-tateyama-ou",
+  "dexBlurb": "立山[たてやま]の 山々[やまやま]が 目[め]を さました 岩[いわ]と 雪[ゆき]の 王[おう]。かたから ながれおちる 滝[たき]は、日本[にほん]で いちばん 高[たか]い 称名滝[しょうみょうだき]の よう。",
+  "fieldLine": "ゴゴゴ…。3000メートルの 山[やま]の 力[ちから]、うけてみよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "line": "立山[たてやま]に 朝日[あさひ]が のぼる！ 山[やま]よ、うごけ！",
+      "skills": [
+        "sk-iwa-otoshi",
+        "sk-kuku-rush"
+      ]
+    }
+  ]
+}

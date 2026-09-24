@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-ami-melon",
+  "name": "アミメロン",
+  "area": "hokkaido",
+  "motifId": "yubari-melon",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 40,
+    "mp": 8,
+    "atk": 10,
+    "def": 7,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "hokkaido-melon-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 13,
+  "spriteKey": "mon.hokkaido-ami-melon",
+  "evolution": {
+    "to": "hokkaido-dodeka-melon",
+    "item": "hokkaido-melon-no-tane"
+  },
+  "dexBlurb": "あみめ もようの メロンの モンスター。メロンの あみめは、実[み]が 大[おお]きく なる ときに 皮[かわ]に できた ひびが かたまった もの。"
+}

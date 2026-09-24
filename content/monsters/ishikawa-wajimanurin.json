@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ishikawa-wajimanurin",
+  "name": "ワジマヌリン",
+  "area": "ishikawa",
+  "motifId": "wajimanuri",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 43,
+    "mp": 9,
+    "atk": 11,
+    "def": 8,
+    "spd": 7,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.0,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "ishikawa-wajima-nuri-wan",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 14,
+  "spriteKey": "mon.ishikawa-wajimanurin",
+  "evolution": {
+    "to": "ishikawa-kaga-nurimaru",
+    "item": "ishikawa-wajima-nuri-wan"
+  },
+  "dexBlurb": "輪島塗[わじまぬり]の 赤[あか]い おわんの モンスター。うるしは 木[き]から とれる しるで、かわくと つやつやに なる。"
+}

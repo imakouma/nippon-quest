@@ -1,0 +1,76 @@
+{
+  "$ref": "#/definitions/recipes",
+  "definitions": {
+    "recipes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*$",
+            "description": "一意なID（小文字英数字・ドット・ハイフン）"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "n": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "default": 1
+              }
+            },
+            "required": [
+              "itemId"
+            ],
+            "additionalProperties": false
+          },
+          "materials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "itemId": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "n": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [
+                "itemId",
+                "n"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "gold": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          },
+          "unlockedByDefault": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "id",
+          "result",
+          "materials"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

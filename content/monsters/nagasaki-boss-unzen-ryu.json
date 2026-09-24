@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-boss-unzen-ryu",
+  "name": "ウンゼンリュウ",
+  "area": "nagasaki",
+  "motifId": "unzen",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 499,
+    "mp": 71,
+    "atk": 26,
+    "def": 20,
+    "spd": 11,
+    "wis": 17
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "nagasaki-kiwaku-no-ita",
+      "rate": 1
+    },
+    {
+      "itemId": "nagasaki-biwa-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "nagasaki-kujuku-shinju",
+      "rate": 1
+    },
+    {
+      "itemId": "nagasaki-gosu-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 324,
+  "gold": 379,
+  "spriteKey": "mon.nagasaki-boss-unzen-ryu",
+  "dexBlurb": "雲仙[うんぜん]の 湯[ゆ]けむりから 生[う]まれた 竜[りゅう]。雲仙[うんぜん]は、日本[にほん]で はじめて 国立公園[こくりつこうえん]に えらばれた 場所[ばしょ]の ひとつ。",
+  "fieldLine": "シュウウウ……。雲仙[うんぜん]の 湯[ゆ]けむりを みだす ものは だれだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin",
+        "sk-uzushio"
+      ],
+      "line": "ゴオオオッ！ 雲仙[うんぜん]の あつい 湯[ゆ]けむり、すべて ふきあげる！"
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "nagano",
+  "name": "長野県[ながのけん]",
+  "island": "koshinetsu",
+  "capital": "長野市[ながのし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "nagano-field",
+    "town": "nagano-town",
+    "dungeon": "nagano-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "zenkoji",
+      "name": "善光寺[ぜんこうじ]",
+      "kind": "landmark",
+      "imageKey": "motif.nagano.zenkoji",
+      "blurb": "長野市[ながのし]に ある 大[おお]きな お寺[てら]。「一生[いっしょう]に 一度[いちど]は 善光寺[ぜんこうじ]まいり」と いわれ、たくさんの 人[ひと]が おまいりする。"
+    },
+    {
+      "id": "matsumoto-jo",
+      "name": "松本城[まつもとじょう]",
+      "kind": "history",
+      "imageKey": "motif.nagano.matsumoto-jo",
+      "blurb": "黒[くろ]い 色[いろ]の 天守[てんしゅ]が 国宝[こくほう]に なっている お城[しろ]。400年[ねん]より 前[まえ]に 建[た]てられた。"
+    },
+    {
+      "id": "kamikochi",
+      "name": "上高地[かみこうち]",
+      "kind": "nature",
+      "imageKey": "motif.nagano.kamikochi",
+      "blurb": "北[きた]アルプスの 高[たか]い 山[やま]に かこまれた 谷[たに]。すきとおった 梓川[あずさがわ]に 河童橋[かっぱばし]が かかる。"
+    },
+    {
+      "id": "suwako",
+      "name": "諏訪湖[すわこ]",
+      "kind": "nature",
+      "imageKey": "motif.nagano.suwako",
+      "blurb": "長野県[ながのけん]で いちばん 大[おお]きな 湖[みずうみ]。冬[ふゆ]に こおると、氷[こおり]が もり上[あ]がる「御神渡[おみわた]り」が 見[み]られる ことが ある。"
+    },
+    {
+      "id": "onsen-zaru",
+      "name": "温泉[おんせん]に 入[はい]る サル",
+      "kind": "nature",
+      "imageKey": "motif.nagano.onsen-zaru",
+      "blurb": "山[やま]おくの 温泉[おんせん]に、冬[ふゆ]に なると ニホンザルが 入[はい]って あたたまる。世界中[せかいじゅう]から 見[み]に 来[く]る 人[ひと]が いる。"
+    },
+    {
+      "id": "karuizawa",
+      "name": "軽井沢[かるいざわ]",
+      "kind": "landmark",
+      "imageKey": "motif.nagano.karuizawa",
+      "blurb": "夏[なつ]でも すずしい 高原[こうげん]の 町[まち]。むかしから 夏[なつ]を すごす 別荘地[べっそうち]として 知[し]られる。"
+    },
+    {
+      "id": "tsumago",
+      "name": "妻籠宿[つまごじゅく]",
+      "kind": "history",
+      "imageKey": "motif.nagano.tsumago",
+      "blurb": "江戸時代[えどじだい]の 中山道[なかせんどう]の 宿場町[しゅくばまち]。むかしの 木[き]の 家[いえ]が ならぶ 町[まち]なみが のこっている。"
+    },
+    {
+      "id": "togakushi-soba",
+      "name": "戸隠[とがくし]そば",
+      "kind": "food",
+      "imageKey": "motif.nagano.togakushi-soba",
+      "blurb": "長野県[ながのけん]の そばは「信州[しんしゅう]そば」と よばれ 有名[ゆうめい]。山[やま]の 中[なか]の 戸隠[とがくし]は その 本場[ほんば]の ひとつ。"
+    },
+    {
+      "id": "nozawana",
+      "name": "野沢菜[のざわな]",
+      "kind": "food",
+      "imageKey": "motif.nagano.nozawana",
+      "blurb": "野沢温泉村[のざわおんせんむら]で 生[う]まれた 野菜[やさい]。つけものに して、冬[ふゆ]の あいだ 食[た]べる。"
+    },
+    {
+      "id": "kawakami-retasu",
+      "name": "川上村[かわかみむら]の レタス",
+      "kind": "food",
+      "imageKey": "motif.nagano.kawakami-retasu",
+      "blurb": "夏[なつ]でも すずしい 高原[こうげん]で 作[つく]られる。長野県[ながのけん]は レタスの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "kiso-shikki",
+      "name": "木曽漆器[きそしっき]",
+      "kind": "craft",
+      "imageKey": "motif.nagano.kiso-shikki",
+      "blurb": "木曽[きそ]の 木[き]に うるしを ぬって 作[つく]る おわんや おぼん。塩尻市[しおじりし]の 木曽平沢[きそひらさわ]で 作[つく]られる。"
+    },
+    {
+      "id": "shinshu-ringo",
+      "name": "りんご",
+      "kind": "food",
+      "imageKey": "motif.nagano.shinshu-ringo",
+      "blurb": "長野県[ながのけん]は りんごの 生産量[せいさんりょう]が 青森県[あおもりけん]に つぎ 2番目[ばんめ]。飯田市[いいだし]には りんご並木[なみき]が ある。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "nagano-retasuke",
+          "weight": 35
+        },
+        {
+          "monsterId": "nagano-zaru-soban",
+          "weight": 27
+        },
+        {
+          "monsterId": "nagano-yukemuri-zaru",
+          "weight": 25
+        },
+        {
+          "monsterId": "nagano-wakasagin",
+          "weight": 13
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "nagano-retasuke",
+          "weight": 70
+        },
+        {
+          "monsterId": "nagano-zaru-soban",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "nagano-yukemuri-zaru",
+          "weight": 55
+        },
+        {
+          "monsterId": "nagano-zaru-soban",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "nagano-yukemuri-zaru",
+          "weight": 60
+        },
+        {
+          "monsterId": "nagano-zaru-soban",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "nagano-yukemuri-zaru",
+          "weight": 33
+        },
+        {
+          "monsterId": "nagano-zaru-soban",
+          "weight": 30
+        },
+        {
+          "monsterId": "nagano-retasuke",
+          "weight": 20
+        },
+        {
+          "monsterId": "nagano-wakasagin",
+          "weight": 17
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "nagano-boss-inazuma-raicho",
+  "midBoss": "nagano-midboss-karasu-jo",
+  "secret": {
+    "name": "上田城[うえだじょう]",
+    "boss": "nagano-lastboss-sanada-yukimura"
+  },
+  "events": [
+    {
+      "id": "ev-nagano-suwako",
+      "motifId": "suwako",
+      "trigger": {
+        "map": "nagano-field",
+        "objectName": "event_nagano_suwako"
+      },
+      "once": true,
+      "cutinImageKey": "motif.nagano.suwako",
+      "dialogue": [
+        {
+          "speaker": "諏訪湖[すわこ]の ガイドさん",
+          "text": "冬[ふゆ]に 湖[みずうみ]が こおると、氷[こおり]が もり上[あ]がる ことが あるよ。水[みず]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:nagano"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "諏訪湖[すわこ]の ガイドさん",
+          "text": "よく しらべたね！ 冬[ふゆ]の 諏訪湖[すわこ]にも また 来[き]てね。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "長野市[ながのし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-nagano-shop",
+        "name": "そば屋[や]の おじさん",
+        "spriteKey": "char.npc-nagano-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 長野[ながの]の そばは「信州[しんしゅう]そば」と いって、とても 有名[ゆうめい]なんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-nagano-smith",
+        "name": "木曽漆器[きそしっき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-nagano-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "木曽漆器[きそしっき]は、木[き]に うるしを なんども ぬり重[かさ]ねて 作[つく]るんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

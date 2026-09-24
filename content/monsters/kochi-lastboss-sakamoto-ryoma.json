@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kochi-lastboss-sakamoto-ryoma",
+  "name": "坂本龍馬[さかもとりょうま]",
+  "area": "kochi",
+  "motifId": "katsurahama",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 437,
+    "mp": 59,
+    "atk": 25,
+    "def": 19,
+    "spd": 15,
+    "wis": 18
+  },
+  "growth": {
+    "hp": 12,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.5,
+    "spd": 0.9,
+    "wis": 1.3
+  },
+  "skills": ["sk-kaikyo-no-kaze", "sk-habataki"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 392,
+  "gold": 451,
+  "spriteKey": "mon.kochi-lastboss-sakamoto-ryoma",
+  "dexBlurb": "江戸[えど]時代[じだい]の おわりの 土佐[とさ]の 武士[ぶし]（1836〜1867年[ねん]）。海援隊[かいえんたい]という 船[ふね]の 仲間[なかま]を つくり、仲[なか]の わるかった 薩摩[さつま]と 長州[ちょうしゅう]を むすびつけた。",
+  "fieldLine": "わしは 坂本龍馬[さかもとりょうま]。ここは わしの 生[う]まれた 家[いえ]の あたりぜよ。いざ、しょうぶじゃ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": ["sk-hikari-no-hane", "sk-hikari-no-ya"],
+      "line": "日本[にほん]の 夜明[よあ]けは、すぐ そこぜよ！"
+    }
+  ]
+}

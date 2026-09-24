@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-suigo-maru",
+  "name": "スイゴウマル",
+  "area": "fukuoka",
+  "motifId": "yanagawa",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 77,
+    "mp": 20,
+    "atk": 20,
+    "def": 15,
+    "spd": 10,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.3,
+    "spd": 1.1,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 26,
+  "spriteKey": "mon.fukuoka-suigo-maru",
+  "dexBlurb": "ドンコマルが しんかした すがた。柳川[やながわ]は 町[まち]じゅうに 水路[すいろ]が めぐる「水[みず]の 町[まち]」として 知[し]られる。"
+}

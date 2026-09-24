@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-shiobikin",
+  "name": "シオビキン",
+  "area": "niigata",
+  "motifId": "shiobiki-zake",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 41,
+    "mp": 9,
+    "atk": 10,
+    "def": 7,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.0,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "niigata-shiobiki-no-shio",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 13,
+  "spriteKey": "mon.niigata-shiobikin",
+  "evolution": {
+    "to": "niigata-kitakaze-zake",
+    "item": "niigata-shiobiki-no-shio"
+  },
+  "dexBlurb": "村上[むらかみ]の 塩引[しおび]き鮭[ざけ]の モンスター。鮭[さけ]は 海[うみ]で 大[おお]きく なり、生[う]まれた 川[かわ]に もどって くる。"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-yukemurin",
+  "name": "ユケムリン",
+  "area": "oita",
+  "motifId": "beppu-onsen",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 52,
+    "mp": 12,
+    "atk": 17,
+    "def": 8,
+    "spd": 9,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.8,
+    "spd": 1,
+    "wis": 0.8
+  },
+  "skills": ["sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "oita-yu-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 28,
+  "gold": 18,
+  "spriteKey": "mon.oita-yukemurin",
+  "evolution": {
+    "to": "oita-yubune-don",
+    "item": "oita-yu-no-hana"
+  },
+  "dexBlurb": "湯[ゆ]おけの 温泉[おんせん]に つかって、頭[あたま]に タオルを のせた モンスター。別府[べっぷ]では、町[まち]の あちこちから 湯[ゆ]けむりが 上[あ]がる。"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-lastboss-oda-nobunaga",
+  "name": "織田信長[おだのぶなが]",
+  "area": "aichi",
+  "motifId": "nagoya-jo",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 468,
+    "mp": 57,
+    "atk": 26,
+    "def": 19,
+    "spd": 14,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hono-no-uzu",
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 430,
+  "gold": 492,
+  "spriteKey": "mon.aichi-lastboss-oda-nobunaga",
+  "dexBlurb": "戦国時代[せんごくじだい]の 武将[ぶしょう]（1534〜1582年[ねん]）。尾張[おわり]（いまの 愛知県[あいちけん]の 西[にし]の ほう）で 生[う]まれ、那古野城[なごやじょう]で そだった。天下[てんか]統一[とういつ]に あと 一歩[いっぽ]まで せまった。",
+  "fieldLine": "織田信長[おだのぶなが]じゃ。この 那古野城[なごやじょう]で そだった わしに いどむ とは、おもしろい！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "天下布武[てんかふぶ]！ わしの ほのおに やけぬ ものは ない！"
+    }
+  ]
+}

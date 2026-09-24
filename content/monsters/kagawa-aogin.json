@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-aogin",
+  "name": "アオギン",
+  "area": "kagawa",
+  "motifId": "marugame-uchiwa",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 44,
+    "mp": 12,
+    "atk": 13,
+    "def": 6,
+    "spd": 14,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.2,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "kagawa-uchiwa-no-washi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 16,
+  "spriteKey": "mon.kagawa-aogin",
+  "evolution": {
+    "to": "kagawa-tsumuji-uchiwa",
+    "item": "kagawa-uchiwa-no-washi"
+  },
+  "dexBlurb": "丸亀[まるがめ]うちわの モンスター。パタパタ あおいで 風[かぜ]を おこす。丸亀[まるがめ]うちわは、1本[ぽん]の 竹[たけ]から え と ほねを 作[つく]る。"
+}

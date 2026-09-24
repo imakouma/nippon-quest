@@ -1,0 +1,90 @@
+[
+  {
+    "$schema": "../../../schemas/questions/picture-word.schema.json",
+    "id": "sample.picture-word.0001",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "payload": {
+      "picture": "apple",
+      "words": [
+        {
+          "id": "apple",
+          "text": "apple"
+        },
+        {
+          "id": "grapes",
+          "text": "grapes"
+        },
+        {
+          "id": "peach",
+          "text": "peach"
+        }
+      ],
+      "answer": "apple",
+      "shuffle": true
+    },
+    "explanation": "apple（アップル）"
+  },
+  {
+    "id": "sample.picture-word.0002",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "payload": {
+      "prompt": "この どうぶつは えいごで なんと いう？",
+      "picture": "dog",
+      "words": [
+        {
+          "id": "dog",
+          "text": "dog"
+        },
+        {
+          "id": "cat",
+          "text": "cat"
+        },
+        {
+          "id": "pig",
+          "text": "pig"
+        },
+        {
+          "id": "bear",
+          "text": "bear"
+        }
+      ],
+      "answer": "dog",
+      "shuffle": true
+    },
+    "explanation": "dog（ドッグ）"
+  },
+  {
+    "id": "sample.picture-word.0003",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "payload": {
+      "picture": "octopus",
+      "image": "questions/eigo/octopus.png",
+      "words": [
+        {
+          "id": "octopus",
+          "text": "octopus"
+        },
+        {
+          "id": "crab",
+          "text": "crab"
+        },
+        {
+          "id": "fish",
+          "text": "fish"
+        }
+      ],
+      "answer": "octopus",
+      "shuffle": false
+    },
+    "explanation": "octopus（オクトパス）。image の 絵が まだ 無いときは picture の 絵が 出る。"
+  }
+]

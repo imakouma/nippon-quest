@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamaguchi-boss-akiyoshi-daiou",
+  "name": "アキヨシダイオウ",
+  "area": "yamaguchi",
+  "motifId": "akiyoshidai",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 435,
+    "mp": 54,
+    "atk": 24,
+    "def": 19,
+    "spd": 7,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "yamaguchi-fugu-chochin",
+      "rate": 1
+    },
+    {
+      "itemId": "yamaguchi-nanabake-hagiyaki",
+      "rate": 1
+    },
+    {
+      "itemId": "yamaguchi-natsumikan-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "yamaguchi-tsunoshima-no-hane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 293,
+  "gold": 335,
+  "spriteKey": "mon.yamaguchi-boss-akiyoshi-daiou",
+  "dexBlurb": "秋吉台[あきよしだい]の 石灰岩[せっかいがん]から 生[う]まれた 大[おお]きな 王[おう]。秋吉台[あきよしだい]では 毎年[まいとし] 2月[がつ]ごろ「山焼[やまや]き」を して、草原[そうげん]を まもっている。",
+  "fieldLine": "ゴゴゴ…。秋芳洞[あきよしどう]の おくまで 来[き]たのは だれだ！ その 力[ちから]、ためして やろう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-iwa-otoshi",
+        "sk-kuku-rush"
+      ],
+      "line": "ゴゴゴ…！ 山焼[やまや]きの 炎[ほのお]よ、草原[そうげん]を つつめ！"
+    }
+  ]
+}

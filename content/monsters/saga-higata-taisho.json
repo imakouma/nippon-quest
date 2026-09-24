@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-higata-taisho",
+  "name": "ヒガタタイショウ",
+  "area": "saga",
+  "motifId": "mutsugoro",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 71,
+    "mp": 20,
+    "atk": 20,
+    "def": 12,
+    "spd": 15,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 23,
+  "spriteKey": "mon.saga-higata-taisho",
+  "dexBlurb": "ピョンゴロウが しんかした すがた。有明海[ありあけかい]は 潮[しお]の みちひきが とても 大[おお]きく、潮[しお]が ひくと 広[ひろ]い ひがたが あらわれる。"
+}

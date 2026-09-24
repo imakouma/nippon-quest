@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-umineko-taicho",
+  "name": "ウミネコタイチョウ",
+  "area": "aomori",
+  "motifId": "tsugaru-kaikyo",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 42,
+    "mp": 12,
+    "atk": 12,
+    "def": 7,
+    "spd": 14,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.1,
+    "spd": 1.3,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.aomori-umineko-taicho",
+  "dexBlurb": "ウミニャンが しんかした すがた。船長[せんちょう]の ぼうしを かぶって、津軽海峡[つがるかいきょう]の 風[かぜ]に のり、海[うみ]の 上[うえ]を ゆうゆうと とびまわる。"
+}

@@ -1,0 +1,255 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/picture-word.schema.json",
+    "id": "eigo.g1.fruits.0001",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "apple",
+      "words": [
+        {
+          "id": "apple",
+          "text": "apple"
+        },
+        {
+          "id": "banana",
+          "text": "banana"
+        },
+        {
+          "id": "peach",
+          "text": "peach"
+        }
+      ],
+      "answer": "apple",
+      "shuffle": true
+    },
+    "explanation": "apple（アップル）"
+  },
+  {
+    "id": "eigo.g1.fruits.0002",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "banana",
+      "words": [
+        {
+          "id": "banana",
+          "text": "banana"
+        },
+        {
+          "id": "grapes",
+          "text": "grapes"
+        },
+        {
+          "id": "strawberry",
+          "text": "strawberry"
+        }
+      ],
+      "answer": "banana",
+      "shuffle": true
+    },
+    "explanation": "banana（バナナ）"
+  },
+  {
+    "id": "eigo.g1.fruits.0003",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "grapes",
+      "words": [
+        {
+          "id": "grapes",
+          "text": "grapes"
+        },
+        {
+          "id": "orange",
+          "text": "orange"
+        },
+        {
+          "id": "lemon",
+          "text": "lemon"
+        }
+      ],
+      "answer": "grapes",
+      "shuffle": true
+    },
+    "explanation": "grapes（グレープス）"
+  },
+  {
+    "id": "eigo.g1.fruits.0004",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "orange",
+      "words": [
+        {
+          "id": "orange",
+          "text": "orange"
+        },
+        {
+          "id": "peach",
+          "text": "peach"
+        },
+        {
+          "id": "cherry",
+          "text": "cherry"
+        }
+      ],
+      "answer": "orange",
+      "shuffle": true
+    },
+    "explanation": "orange（オレンジ）"
+  },
+  {
+    "id": "eigo.g1.fruits.0005",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "peach",
+      "words": [
+        {
+          "id": "peach",
+          "text": "peach"
+        },
+        {
+          "id": "strawberry",
+          "text": "strawberry"
+        },
+        {
+          "id": "melon",
+          "text": "melon"
+        }
+      ],
+      "answer": "peach",
+      "shuffle": true
+    },
+    "explanation": "peach（ピーチ）"
+  },
+  {
+    "id": "eigo.g1.fruits.0006",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "strawberry",
+      "words": [
+        {
+          "id": "strawberry",
+          "text": "strawberry"
+        },
+        {
+          "id": "lemon",
+          "text": "lemon"
+        },
+        {
+          "id": "apple",
+          "text": "apple"
+        }
+      ],
+      "answer": "strawberry",
+      "shuffle": true
+    },
+    "explanation": "strawberry（ストロベリー）"
+  },
+  {
+    "id": "eigo.g1.fruits.0007",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "lemon",
+      "words": [
+        {
+          "id": "lemon",
+          "text": "lemon"
+        },
+        {
+          "id": "cherry",
+          "text": "cherry"
+        },
+        {
+          "id": "banana",
+          "text": "banana"
+        }
+      ],
+      "answer": "lemon",
+      "shuffle": true
+    },
+    "explanation": "lemon（レモン）"
+  },
+  {
+    "id": "eigo.g1.fruits.0008",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "cherry",
+      "words": [
+        {
+          "id": "cherry",
+          "text": "cherry"
+        },
+        {
+          "id": "melon",
+          "text": "melon"
+        },
+        {
+          "id": "grapes",
+          "text": "grapes"
+        }
+      ],
+      "answer": "cherry",
+      "shuffle": true
+    },
+    "explanation": "cherry（チェリー）"
+  },
+  {
+    "id": "eigo.g1.fruits.0009",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": ["theme:fruits"],
+    "payload": {
+      "picture": "melon",
+      "words": [
+        {
+          "id": "melon",
+          "text": "melon"
+        },
+        {
+          "id": "apple",
+          "text": "apple"
+        },
+        {
+          "id": "orange",
+          "text": "orange"
+        }
+      ],
+      "answer": "melon",
+      "shuffle": true
+    },
+    "explanation": "melon（メロン）"
+  }
+]

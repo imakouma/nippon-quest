@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-kurogane-boo",
+  "name": "クロガネブー",
+  "area": "kagoshima",
+  "motifId": "kurobuta",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 80,
+    "mp": 17,
+    "atk": 20,
+    "def": 17,
+    "spd": 9,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 42,
+  "gold": 31,
+  "spriteKey": "mon.kagoshima-kurogane-boo",
+  "dexBlurb": "ロッパクブーが しんかした すがた。黒[くろ]がねの よろいの ように かたい 体[からだ]で、どしんと 体[たい]あたり。"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokyo-nerikon",
+  "name": "ネリコン",
+  "area": "tokyo",
+  "motifId": "nerima-daikon",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 43,
+    "mp": 9,
+    "atk": 10,
+    "def": 7,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "tokyo-daikon-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.tokyo-nerikon",
+  "evolution": {
+    "to": "tokyo-daikon-zamurai",
+    "item": "tokyo-daikon-no-tane"
+  },
+  "dexBlurb": "練馬[ねりま]だいこんの モンスター。練馬[ねりま]だいこんは 細長[ほそなが]くて、長[なが]さが 1メートル ちかくにも なる。"
+}

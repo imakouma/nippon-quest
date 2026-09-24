@@ -1,0 +1,113 @@
+{
+  "$ref": "#/definitions/world",
+  "definitions": {
+    "world": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        },
+        "name": {
+          "type": "string",
+          "description": "RubyText: \"漢字[かんじ]\" 形式"
+        },
+        "islands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "name": {
+                "type": "string",
+                "description": "RubyText: \"漢字[かんじ]\" 形式"
+              },
+              "order": {
+                "type": "integer",
+                "exclusiveMinimum": 0
+              },
+              "mapKey": {
+                "type": "string"
+              },
+              "areas": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "minItems": 1
+              },
+              "bossId": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "recommendedGrade": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [
+                  {
+                    "type": "number",
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ]
+                  },
+                  {
+                    "type": "number",
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6
+                    ]
+                  }
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "playable",
+                  "stub"
+                ],
+                "default": "stub",
+                "description": "stub = シルエット表示のみ"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "order",
+              "mapKey",
+              "areas",
+              "bossId",
+              "recommendedGrade"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "islands"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

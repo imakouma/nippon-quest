@@ -1,0 +1,257 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "saitama",
+  "name": "埼玉県[さいたまけん]",
+  "island": "kanto",
+  "capital": "さいたま市[し]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "saitama-field",
+    "town": "saitama-town",
+    "dungeon": "saitama-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kawagoe",
+      "name": "川越[かわごえ]の 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.saitama.kawagoe",
+      "blurb": "川越[かわごえ]には、あつい どろの かべの「蔵[くら]づくり」の 古[ふる]い お店[みせ]や、時[とき]の 鐘[かね]が のこる。"
+    },
+    {
+      "id": "nagatoro",
+      "name": "長瀞[ながとろ]",
+      "kind": "nature",
+      "imageKey": "motif.saitama.nagatoro",
+      "blurb": "荒川[あらかわ]の 岩[いわ]だたみの 間[あいだ]を、舟[ふね]で 下[くだ]る ことが できる 谷[たに]。"
+    },
+    {
+      "id": "chichibu-yomatsuri",
+      "name": "秩父夜祭[ちちぶよまつり]",
+      "kind": "festival",
+      "imageKey": "motif.saitama.chichibu-yomatsuri",
+      "blurb": "冬[ふゆ]の 夜[よる]、ちょうちんで かざった 大[おお]きな 山車[だし]が 町[まち]を 引[ひ]かれていく お祭[まつ]り。"
+    },
+    {
+      "id": "sakitama-kofun",
+      "name": "さきたま古墳群[こふんぐん]",
+      "kind": "history",
+      "imageKey": "motif.saitama.sakitama-kofun",
+      "blurb": "行田市[ぎょうだし]に ある、大[おお]きな 古墳[こふん]が あつまった ところ。字[じ]の きざまれた 鉄[てつ]の 剣[けん]が 見[み]つかった。"
+    },
+    {
+      "id": "gaikaku-hosuiro",
+      "name": "首都圏外郭放水路[しゅとけんがいかくほうすいろ]",
+      "kind": "landmark",
+      "imageKey": "motif.saitama.gaikaku-hosuiro",
+      "blurb": "大雨[おおあめ]の とき、あふれそうな 川[かわ]の 水[みず]を 地下[ちか]に ためて 流[なが]す 大[おお]きな トンネル。「地下[ちか]の 神殿[しんでん]」とも よばれる。"
+    },
+    {
+      "id": "soka-senbei",
+      "name": "草加[そうか]せんべい",
+      "kind": "food",
+      "imageKey": "motif.saitama.soka-senbei",
+      "blurb": "草加市[そうかし]の 名物[めいぶつ]。お米[こめ]で 作[つく]った かたい せんべいに、しょうゆを ぬって やく。"
+    },
+    {
+      "id": "fukaya-negi",
+      "name": "深谷[ふかや]ねぎ",
+      "kind": "food",
+      "imageKey": "motif.saitama.fukaya-negi",
+      "blurb": "深谷市[ふかやし]で 作[つく]られる、白[しろ]い ところが 長[なが]くて あまい ねぎ。"
+    },
+    {
+      "id": "sayamacha",
+      "name": "狭山茶[さやまちゃ]",
+      "kind": "food",
+      "imageKey": "motif.saitama.sayamacha",
+      "blurb": "狭山市[さやまし]や 入間市[いるまし]の あたりで 作[つく]られる お茶[ちゃ]。"
+    },
+    {
+      "id": "iwatsuki-hina",
+      "name": "岩槻[いわつき]の ひな人形[にんぎょう]",
+      "kind": "craft",
+      "imageKey": "motif.saitama.iwatsuki-hina",
+      "blurb": "さいたま市[し]の 岩槻[いわつき]は、ひな人形[にんぎょう]を 作[つく]る 町[まち]として 有名[ゆうめい]。"
+    },
+    {
+      "id": "ogawa-washi",
+      "name": "小川和紙[おがわわし]",
+      "kind": "craft",
+      "imageKey": "motif.saitama.ogawa-washi",
+      "blurb": "小川町[おがわまち]で 作[つく]られる じょうぶな 和紙[わし]。その わざは ユネスコの 無形文化遺産[むけいぶんかいさん]に なっている。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "saitama-haniwaltz",
+          "weight": 35
+        },
+        {
+          "monsterId": "saitama-negi-boya",
+          "weight": 35
+        },
+        {
+          "monsterId": "saitama-parissen",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "saitama-negi-boya",
+          "weight": 60
+        },
+        {
+          "monsterId": "saitama-parissen",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "saitama-haniwaltz",
+          "weight": 65
+        },
+        {
+          "monsterId": "saitama-negi-boya",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "saitama-haniwaltz",
+          "weight": 55
+        },
+        {
+          "monsterId": "saitama-parissen",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "saitama-haniwaltz",
+          "weight": 45
+        },
+        {
+          "monsterId": "saitama-parissen",
+          "weight": 30
+        },
+        {
+          "monsterId": "saitama-negi-boya",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "saitama-boss-yomatsuri-daio",
+  "midBoss": "saitama-midboss-gon-yagura",
+  "secret": {
+    "name": "渋沢[しぶさわ]の やしき",
+    "boss": "saitama-lastboss-shibusawa-eiichi"
+  },
+  "events": [
+    {
+      "id": "ev-saitama-sakitama-kofun",
+      "motifId": "sakitama-kofun",
+      "trigger": {
+        "map": "saitama-field",
+        "objectName": "event_saitama_sakitama-kofun"
+      },
+      "once": true,
+      "cutinImageKey": "motif.saitama.sakitama-kofun",
+      "dialogue": [
+        {
+          "speaker": "さきたま古墳[こふん]の ガイドさん",
+          "text": "ここは「埼玉[さいたま]」の 名前[なまえ]の もとに なった 場所[ばしょ]だよ。むかしの ことを しらべて みよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:saitama"]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "さきたま古墳[こふん]の ガイドさん",
+          "text": "よく がんばったね！ 大[おお]きな 古墳[こふん]の まわりには、はにわが ならべられて いたんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "さいたま市[し]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-saitama-shop",
+        "name": "せんべい屋[や]の おじさん",
+        "spriteKey": "char.npc-saitama-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "草加[そうか]せんべいは かたいぞ！ ふでで しょうゆを ぬって、こんがり やくんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-saitama-smith",
+        "name": "小川和紙[おがわわし]の 職人[しょくにん]",
+        "spriteKey": "char.npc-saitama-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "小川和紙[おがわわし]は、こうぞと いう 木[き]の 皮[かわ]から 作[つく]る じょうぶな 紙[かみ]だよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

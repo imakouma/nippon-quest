@@ -1,0 +1,285 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "aichi",
+  "name": "愛知県[あいちけん]",
+  "island": "tokai",
+  "capital": "名古屋市[なごやし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "aichi-field",
+    "town": "aichi-town",
+    "dungeon": "aichi-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "nagoya-jo",
+      "name": "名古屋城[なごやじょう]",
+      "kind": "history",
+      "imageKey": "motif.aichi.nagoya-jo",
+      "blurb": "屋根[やね]の 上[うえ]に 金色[きんいろ]の しゃちほこが のる お城[しろ]。"
+    },
+    {
+      "id": "inuyama-jo",
+      "name": "犬山城[いぬやまじょう]",
+      "kind": "history",
+      "imageKey": "motif.aichi.inuyama-jo",
+      "blurb": "木曽川[きそがわ]の そばに 立[た]つ、むかしの 天守[てんしゅ]が のこる お城[しろ]。国宝[こくほう]に なっている。"
+    },
+    {
+      "id": "denshogiku",
+      "name": "渥美半島[あつみはんとう]の 菊[きく]",
+      "kind": "nature",
+      "imageKey": "motif.aichi.denshogiku",
+      "blurb": "夜[よる]も 電気[でんき]の あかりを あてて 育[そだ]てる 菊[きく]。畑[はたけ]が 光[ひか]って 見[み]える。"
+    },
+    {
+      "id": "takeshima",
+      "name": "竹島[たけしま]",
+      "kind": "nature",
+      "imageKey": "motif.aichi.takeshima",
+      "blurb": "蒲郡市[がまごおりし]の 海[うみ]に うかぶ 小[ちい]さな 島[しま]。長[なが]い 橋[はし]で 歩[ある]いて わたれる。"
+    },
+    {
+      "id": "korankei",
+      "name": "香嵐渓[こうらんけい]",
+      "kind": "nature",
+      "imageKey": "motif.aichi.korankei",
+      "blurb": "豊田市[とよたし]の 足助[あすけ]に ある 谷[たに]。秋[あき]の もみじが とても きれい。"
+    },
+    {
+      "id": "tokonameyaki",
+      "name": "常滑焼[とこなめやき]",
+      "kind": "craft",
+      "imageKey": "motif.aichi.tokonameyaki",
+      "blurb": "常滑市[とこなめし]で 作[つく]られる やきもの。赤[あか]っぽい 急須[きゅうす]が 有名[ゆうめい]。"
+    },
+    {
+      "id": "arimatsu-shibori",
+      "name": "有松絞[ありまつしぼ]り",
+      "kind": "craft",
+      "imageKey": "motif.aichi.arimatsu-shibori",
+      "blurb": "布[ぬの]を 糸[いと]で しばってから そめて、もようを 出[だ]す そめもの。"
+    },
+    {
+      "id": "setoyaki",
+      "name": "瀬戸焼[せとやき]",
+      "kind": "craft",
+      "imageKey": "motif.aichi.setoyaki",
+      "blurb": "瀬戸市[せとし]で 作[つく]られる やきもの。やきものを「せともの」と よぶのは ここから。"
+    },
+    {
+      "id": "hatcho-miso",
+      "name": "八丁味噌[はっちょうみそ]",
+      "kind": "food",
+      "imageKey": "motif.aichi.hatcho-miso",
+      "blurb": "岡崎市[おかざきし]で 作[つく]られる、こい 色[いろ]の 豆[まめ]みそ。"
+    },
+    {
+      "id": "tebasaki",
+      "name": "名古屋[なごや]の 手羽先[てばさき]",
+      "kind": "food",
+      "imageKey": "motif.aichi.tebasaki",
+      "blurb": "とり肉[にく]の 手羽先[てばさき]を からっと あげて、あまからい たれを ぬった 名古屋[なごや]の 名物[めいぶつ]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "aichi-hatchon",
+          "weight": 15
+        },
+        {
+          "monsterId": "aichi-tebasakky",
+          "weight": 35
+        },
+        {
+          "monsterId": "aichi-denkikun",
+          "weight": 30
+        },
+        {
+          "monsterId": "aichi-shiborin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "aichi-denkikun",
+          "weight": 35
+        },
+        {
+          "monsterId": "aichi-hatchon",
+          "weight": 40
+        },
+        {
+          "monsterId": "aichi-shiborin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "aichi-tebasakky",
+          "weight": 60
+        },
+        {
+          "monsterId": "aichi-hatchon",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "aichi-hatchon",
+          "weight": 60
+        },
+        {
+          "monsterId": "aichi-tebasakky",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "aichi-denkikun",
+          "weight": 55
+        },
+        {
+          "monsterId": "aichi-tebasakky",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "aichi-hatchon",
+          "weight": 45
+        },
+        {
+          "monsterId": "aichi-tebasakky",
+          "weight": 30
+        },
+        {
+          "monsterId": "aichi-denkikun",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "aichi-boss-kinshachi-ou",
+  "midBoss": "aichi-midboss-tokoname-neko",
+  "secret": {
+    "name": "那古野城[なごやじょう]",
+    "boss": "aichi-lastboss-oda-nobunaga"
+  },
+  "events": [
+    {
+      "id": "ev-aichi-nagoya-jo",
+      "motifId": "nagoya-jo",
+      "trigger": {
+        "map": "aichi-field",
+        "objectName": "event_aichi_nagoya-jo"
+      },
+      "once": true,
+      "cutinImageKey": "motif.aichi.nagoya-jo",
+      "dialogue": [
+        {
+          "speaker": "名古屋城[なごやじょう]の ガイドさん",
+          "text": "屋根[やね]の 上[うえ]の 金[きん]の しゃちほこが 見[み]えるかな？ 名古屋城[なごやじょう]の クイズに ちょうせん！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:aichi"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "名古屋城[なごやじょう]の ガイドさん",
+          "text": "よく できたね！ 名古屋城[なごやじょう]は、徳川家康[とくがわいえやす]が 建[た]てさせた お城[しろ]なんだ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "名古屋市[なごやし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-aichi-shop",
+        "name": "手羽先[てばさき]屋[や]の おじさん",
+        "spriteKey": "char.npc-aichi-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 名古屋[なごや]の 手羽先[てばさき]は、あまからい たれと こしょうが きめてだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-aichi-smith",
+        "name": "瀬戸焼[せとやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-aichi-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "瀬戸[せと]では 1000年[ねん]いじょう 前[まえ]から やきものを 作[つく]って いる。だから やきものを「せともの」と よぶんだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

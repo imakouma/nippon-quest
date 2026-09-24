@@ -1,0 +1,349 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "hokkaido",
+  "name": "北海道[ほっかいどう]",
+  "island": "hokkaido",
+  "capital": "札幌市[さっぽろし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "hokkaido-field",
+    "town": "hokkaido-town",
+    "dungeon": "hokkaido-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "shiretoko",
+      "name": "知床[しれとこ]",
+      "kind": "nature",
+      "imageKey": "motif.hokkaido.shiretoko",
+      "blurb": "世界自然遺産[せかいしぜんいさん]の 半島[はんとう]。ヒグマや シカ、ワシなど たくさんの 生[い]きものが くらしている。"
+    },
+    {
+      "id": "mashuko",
+      "name": "摩周湖[ましゅうこ]",
+      "kind": "nature",
+      "imageKey": "motif.hokkaido.mashuko",
+      "blurb": "水[みず]が とても すきとおった 青[あお]い 湖[みずうみ]。まわりは 高[たか]い がけで、きりに つつまれる ことが 多[おお]い。"
+    },
+    {
+      "id": "kushiro-shitsugen",
+      "name": "釧路湿原[くしろしつげん]",
+      "kind": "nature",
+      "imageKey": "motif.hokkaido.kushiro-shitsugen",
+      "blurb": "日本[にほん]で いちばん 大[おお]きな 湿原[しつげん]。頭[あたま]の てっぺんが 赤[あか]い つる、タンチョウが くらしている。"
+    },
+    {
+      "id": "ryuhyo",
+      "name": "流氷[りゅうひょう]",
+      "kind": "nature",
+      "imageKey": "motif.hokkaido.ryuhyo",
+      "blurb": "冬[ふゆ]、オホーツク海[かい]を 流[なが]れて くる 氷[こおり]。網走[あばしり]の 海[うみ]が 白[しろ]い 氷[こおり]で いっぱいに なる。"
+    },
+    {
+      "id": "asahidake",
+      "name": "旭岳[あさひだけ]",
+      "kind": "nature",
+      "imageKey": "motif.hokkaido.asahidake",
+      "blurb": "北海道[ほっかいどう]で いちばん 高[たか]い 山[やま]。夏[なつ]でも 雪[ゆき]が のこり、高山植物[こうざんしょくぶつ]の 花[はな]が さく。"
+    },
+    {
+      "id": "furano-lavender",
+      "name": "富良野[ふらの]の ラベンダー",
+      "kind": "nature",
+      "imageKey": "motif.hokkaido.furano-lavender",
+      "blurb": "夏[なつ]に なると、むらさき色[いろ]の ラベンダーの 花[はな]が 丘[おか]いっぱいに さき、いい かおりが する。"
+    },
+    {
+      "id": "toyako",
+      "name": "洞爺湖[とうやこ]",
+      "kind": "nature",
+      "imageKey": "motif.hokkaido.toyako",
+      "blurb": "火山[かざん]の 噴火[ふんか]で できた くぼ地[ち]に 水[みず]が たまった 湖[みずうみ]。まん中[なか]に 島[しま]が うかんでいる。"
+    },
+    {
+      "id": "goryokaku",
+      "name": "五稜郭[ごりょうかく]",
+      "kind": "history",
+      "imageKey": "motif.hokkaido.goryokaku",
+      "blurb": "江戸時代[えどじだい]の 終[お]わりごろに 作[つく]られた、星[ほし]の 形[かたち]を した 城[しろ]の あと。春[はる]は さくらが きれい。"
+    },
+    {
+      "id": "yuki-matsuri",
+      "name": "さっぽろ雪[ゆき]まつり",
+      "kind": "festival",
+      "imageKey": "motif.hokkaido.yuki-matsuri",
+      "blurb": "冬[ふゆ]の 札幌[さっぽろ]で ひらかれる お祭[まつ]り。雪[ゆき]や 氷[こおり]で 作[つく]った 大[おお]きな 像[ぞう]が ならぶ。"
+    },
+    {
+      "id": "soya-misaki",
+      "name": "宗谷岬[そうやみさき]",
+      "kind": "landmark",
+      "imageKey": "motif.hokkaido.soya-misaki",
+      "blurb": "北海道[ほっかいどう]の 北[きた]の はしに ある 岬[みさき]。晴[は]れた 日[ひ]には 海[うみ]の むこうに サハリンが 見[み]える。"
+    },
+    {
+      "id": "upopoy",
+      "name": "ウポポイ",
+      "kind": "history",
+      "imageKey": "motif.hokkaido.upopoy",
+      "blurb": "白老町[しらおいちょう]に ある、アイヌの 歴史[れきし]と 文化[ぶんか]を 学[まな]べる ところ。アイヌの 歌[うた]や おどりも 見[み]られる。"
+    },
+    {
+      "id": "yubari-melon",
+      "name": "夕張[ゆうばり]メロン",
+      "kind": "food",
+      "imageKey": "motif.hokkaido.yubari-melon",
+      "blurb": "夕張市[ゆうばりし]で 作[つく]られる、中[なか]が オレンジ色[いろ]の あまい メロン。夏[なつ]に とれる。"
+    },
+    {
+      "id": "tokachi-jagaimo",
+      "name": "十勝[とかち]の じゃがいも",
+      "kind": "food",
+      "imageKey": "motif.hokkaido.tokachi-jagaimo",
+      "blurb": "広[ひろ]い 十勝平野[とかちへいや]の 畑[はたけ]で たくさん とれる。北海道[ほっかいどう]は じゃがいもの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "konsen-gyunyu",
+      "name": "根釧台地[こんせんだいち]の 牛乳[ぎゅうにゅう]",
+      "kind": "food",
+      "imageKey": "motif.hokkaido.konsen-gyunyu",
+      "blurb": "別海町[べつかいちょう]など 根釧台地[こんせんだいち]では 牛[うし]を たくさん かう。北海道[ほっかいどう]は 牛乳[ぎゅうにゅう]の 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "sarufutsu-hotate",
+      "name": "猿払[さるふつ]の ホタテ",
+      "kind": "food",
+      "imageKey": "motif.hokkaido.sarufutsu-hotate",
+      "blurb": "オホーツク海[かい]で たくさん とれる 大[おお]きな 貝[かい]。猿払村[さるふつむら]は ホタテの 村[むら]として 有名[ゆうめい]。"
+    },
+    {
+      "id": "hidaka-konbu",
+      "name": "日高昆布[ひだかこんぶ]",
+      "kind": "food",
+      "imageKey": "motif.hokkaido.hidaka-konbu",
+      "blurb": "えりもなど 日高[ひだか]の 海[うみ]で とれる 昆布[こんぶ]。日本[にほん]の 昆布[こんぶ]は ほとんどが 北海道[ほっかいどう]で とれる。"
+    },
+    {
+      "id": "kibori-guma",
+      "name": "木彫[きぼ]り熊[ぐま]",
+      "kind": "craft",
+      "imageKey": "motif.hokkaido.kibori-guma",
+      "blurb": "木[き]を ほって 作[つく]る 熊[くま]の おきもの。八雲町[やくもちょう]は 木彫[きぼ]り熊[ぐま]の ふるさとの ひとつ。"
+    },
+    {
+      "id": "kitami-tamanegi",
+      "name": "北見[きたみ]の 玉[たま]ねぎ",
+      "kind": "food",
+      "imageKey": "motif.hokkaido.kitami-tamanegi",
+      "blurb": "北見市[きたみし]の 畑[はたけ]では 玉[たま]ねぎが とても たくさん とれる。北海道[ほっかいどう]は 玉[たま]ねぎの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "hokkaido-jaga-goron",
+          "weight": 28
+        },
+        {
+          "monsterId": "hokkaido-ami-melon",
+          "weight": 22
+        },
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 28
+        },
+        {
+          "monsterId": "hokkaido-hotaten",
+          "weight": 12
+        },
+        {
+          "monsterId": "hokkaido-lavendori",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "hokkaido-ami-melon",
+          "weight": 40
+        },
+        {
+          "monsterId": "hokkaido-jaga-goron",
+          "weight": 35
+        },
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 12
+        },
+        {
+          "monsterId": "hokkaido-lavendori",
+          "weight": 13
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 60
+        },
+        {
+          "monsterId": "hokkaido-jaga-goron",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 55
+        },
+        {
+          "monsterId": "hokkaido-jaga-goron",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "hokkaido-hotaten",
+          "weight": 55
+        },
+        {
+          "monsterId": "hokkaido-kurioneru",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "hokkaido-kurioneru",
+          "weight": 40
+        },
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 30
+        },
+        {
+          "monsterId": "hokkaido-jaga-goron",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "hokkaido-boss-higuma-daio",
+  "midBoss": "hokkaido-midboss-setsuzo-golem",
+  "secret": {
+    "name": "札幌[さっぽろ] 時計台[とけいだい]",
+    "boss": "hokkaido-lastboss-clark"
+  },
+  "events": [
+    {
+      "id": "ev-hokkaido-kushiro-shitsugen",
+      "motifId": "kushiro-shitsugen",
+      "trigger": {
+        "map": "hokkaido-field",
+        "objectName": "event_hokkaido_kushiro-shitsugen"
+      },
+      "once": true,
+      "cutinImageKey": "motif.hokkaido.kushiro-shitsugen",
+      "dialogue": [
+        {
+          "speaker": "釧路湿原[くしろしつげん]の レンジャーさん",
+          "text": "ここは 日本[にほん]で いちばん 大[おお]きな 湿原[しつげん]だよ。生[い]き物[もの]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:hokkaido"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "釧路湿原[くしろしつげん]の レンジャーさん",
+          "text": "よく しらべたね！ 湿原[しつげん]には、頭[あたま]の 赤[あか]い タンチョウも くらしているんだ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "札幌市[さっぽろし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-hokkaido-shop",
+        "name": "市場[いちば]の おじさん",
+        "spriteKey": "char.npc-hokkaido-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 北海道[ほっかいどう]は じゃがいもも 玉[たま]ねぎも、日本[にほん]で いちばん たくさん とれるんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-hokkaido-smith",
+        "name": "木彫[きぼ]り熊[ぐま]の 職人[しょくにん]",
+        "spriteKey": "char.npc-hokkaido-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "木彫[きぼ]り熊[ぐま]は、大[おお]きな 木[き]の かたまりを ほって 作[つく]るんだ。サケを くわえた 熊[くま]が 人気[にんき]だよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

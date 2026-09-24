@@ -1,0 +1,263 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "yamaguchi",
+  "name": "山口県[やまぐちけん]",
+  "island": "chugoku",
+  "capital": "山口市[やまぐちし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "yamaguchi-field",
+    "town": "yamaguchi-town",
+    "dungeon": "yamaguchi-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "akiyoshidai",
+      "name": "秋吉台[あきよしだい]",
+      "kind": "nature",
+      "imageKey": "motif.yamaguchi.akiyoshidai",
+      "blurb": "白[しろ]い 石灰岩[せっかいがん]が 草原[そうげん]から 顔[かお]を 出[だ]す 台地[だいち]。地下[ちか]には 大[おお]きな しょうにゅうどう「秋芳洞[あきよしどう]」が ある。"
+    },
+    {
+      "id": "kintaikyo",
+      "name": "錦帯橋[きんたいきょう]",
+      "kind": "landmark",
+      "imageKey": "motif.yamaguchi.kintaikyo",
+      "blurb": "岩国市[いわくにし]の 川[かわ]に かかる、5つの アーチが つらなる 木[き]の 橋[はし]。"
+    },
+    {
+      "id": "tsunoshima-ohashi",
+      "name": "角島大橋[つのしまおおはし]",
+      "kind": "landmark",
+      "imageKey": "motif.yamaguchi.tsunoshima-ohashi",
+      "blurb": "エメラルドグリーンの 海[うみ]の 上[うえ]に のびる、長[なが]い 橋[はし]。"
+    },
+    {
+      "id": "hagi",
+      "name": "萩[はぎ]の 城下町[じょうかまち]",
+      "kind": "history",
+      "imageKey": "motif.yamaguchi.hagi",
+      "blurb": "萩市[はぎし]には、むかしの 武家屋敷[ぶけやしき]や 土[つち]べいの 町[まち]なみが のこる。"
+    },
+    {
+      "id": "rurikoji",
+      "name": "瑠璃光寺[るりこうじ]の 五重塔[ごじゅうのとう]",
+      "kind": "landmark",
+      "imageKey": "motif.yamaguchi.rurikoji",
+      "blurb": "山口市[やまぐちし]の お寺[てら]に ある、美[うつく]しい 五重塔[ごじゅうのとう]。国宝[こくほう]に なっている。"
+    },
+    {
+      "id": "motonosumi",
+      "name": "元乃隅神社[もとのすみじんじゃ]",
+      "kind": "landmark",
+      "imageKey": "motif.yamaguchi.motonosumi",
+      "blurb": "海[うみ]に むかって、赤[あか]い 鳥居[とりい]が たくさん ならぶ 神社[じんじゃ]。"
+    },
+    {
+      "id": "shimonoseki-fugu",
+      "name": "下関[しものせき]の ふぐ",
+      "kind": "food",
+      "imageKey": "motif.yamaguchi.shimonoseki-fugu",
+      "blurb": "関門海峡[かんもんかいきょう]に 面[めん]した 下関[しものせき]は、ふぐの 町[まち]として 有名[ゆうめい]。"
+    },
+    {
+      "id": "hagiyaki",
+      "name": "萩焼[はぎやき]",
+      "kind": "craft",
+      "imageKey": "motif.yamaguchi.hagiyaki",
+      "blurb": "萩[はぎ]や 長門[ながと]で 作[つく]られる、やわらかな 色[いろ]の やきもの。"
+    },
+    {
+      "id": "oshima-mikan",
+      "name": "周防大島[すおうおおしま]の みかん",
+      "kind": "food",
+      "imageKey": "motif.yamaguchi.oshima-mikan",
+      "blurb": "瀬戸内海[せとないかい]に うかぶ 周防大島[すおうおおしま]で たくさん 作[つく]られる みかん。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "yamaguchi-natsumikan-bushi",
+          "weight": 35
+        },
+        {
+          "monsterId": "yamaguchi-pukufuku",
+          "weight": 25
+        },
+        {
+          "monsterId": "yamaguchi-nanabaken",
+          "weight": 25
+        },
+        {
+          "monsterId": "yamaguchi-hashiwatari",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "yamaguchi-natsumikan-bushi",
+          "weight": 60
+        },
+        {
+          "monsterId": "yamaguchi-nanabaken",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "yamaguchi-nanabaken",
+          "weight": 60
+        },
+        {
+          "monsterId": "yamaguchi-natsumikan-bushi",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "yamaguchi-pukufuku",
+          "weight": 55
+        },
+        {
+          "monsterId": "yamaguchi-hashiwatari",
+          "weight": 30
+        },
+        {
+          "monsterId": "yamaguchi-natsumikan-bushi",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "yamaguchi-nanabaken",
+          "weight": 45
+        },
+        {
+          "monsterId": "yamaguchi-pukufuku",
+          "weight": 30
+        },
+        {
+          "monsterId": "yamaguchi-natsumikan-bushi",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "yamaguchi-boss-akiyoshi-daiou",
+  "midBoss": "yamaguchi-midboss-kintai-shirohebi",
+  "secret": {
+    "name": "松下村塾[しょうかそんじゅく]",
+    "boss": "yamaguchi-lastboss-yoshida-shoin"
+  },
+  "events": [
+    {
+      "id": "ev-yamaguchi-akiyoshidai",
+      "motifId": "akiyoshidai",
+      "trigger": {
+        "map": "yamaguchi-field",
+        "objectName": "event_yamaguchi_akiyoshidai"
+      },
+      "once": true,
+      "cutinImageKey": "motif.yamaguchi.akiyoshidai",
+      "dialogue": [
+        {
+          "speaker": "秋吉台[あきよしだい]の ガイドさん",
+          "text": "白[しろ]い 石[いし]が 草原[そうげん]から 顔[かお]を 出[だ]しているね。石灰岩[せっかいがん]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:yamaguchi"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "秋吉台[あきよしだい]の ガイドさん",
+          "text": "よく しらべたね！ 雨水[あまみず]が 石灰岩[せっかいがん]を すこしずつ とかして、地下[ちか]に 大[おお]きな 洞[どう]くつが できたんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "山口市[やまぐちし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-yamaguchi-shop",
+        "name": "ふく屋[や]の おかみさん",
+        "spriteKey": "char.npc-yamaguchi-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 下関[しものせき]では、ふぐの ことを「ふく」って よぶんよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-yamaguchi-smith",
+        "name": "萩焼[はぎやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-yamaguchi-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "萩焼[はぎやき]は、400年[ねん]ほど 前[まえ]から 萩[はぎ]で 作[つく]られている やきものじゃ。"
+          }
+        ]
+      }
+    ]
+  }
+}

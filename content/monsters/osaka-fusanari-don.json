@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-fusanari-don",
+  "name": "フサナリドン",
+  "area": "osaka",
+  "motifId": "kawachi-budo",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 60,
+    "mp": 14,
+    "atk": 16,
+    "def": 11,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-happa-cutter",
+    "sk-happa-arashi"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 33,
+  "gold": 21,
+  "spriteKey": "mon.osaka-fusanari-don",
+  "dexBlurb": "ブドウマルが しんかした すがた。大[おお]きな ふさを いくつも みのらせ、つるを むちの ように しならせる。"
+}

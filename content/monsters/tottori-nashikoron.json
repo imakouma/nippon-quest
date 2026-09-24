@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tottori-nashikoron",
+  "name": "ナシコロン",
+  "area": "tottori",
+  "motifId": "nijisseiki-nashi",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 51,
+    "mp": 11,
+    "atk": 11,
+    "def": 10,
+    "spd": 7,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.1,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "tottori-nashi-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 26,
+  "gold": 17,
+  "spriteKey": "mon.tottori-nashikoron",
+  "evolution": {
+    "to": "tottori-nijisseikishi",
+    "item": "tottori-nashi-no-hana"
+  },
+  "dexBlurb": "二十世紀梨[にじっせいきなし]の ようせい。二十世紀梨[にじっせいきなし]は うすい みどり色[いろ]の 皮[かわ]で、かじると 水[みず]が あふれるほど みずみずしい。"
+}

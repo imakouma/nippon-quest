@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hyogo-midboss-tajima-mogyu",
+  "name": "タジマモウギュウ",
+  "area": "hyogo",
+  "motifId": "tajimaushi",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 156,
+    "mp": 24,
+    "atk": 17,
+    "def": 11,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 86,
+  "gold": 101,
+  "spriteKey": "mon.hyogo-midboss-tajima-mogyu",
+  "dexBlurb": "但馬[たじま]の 山[やま]あいで 育[そだ]った、黒毛[くろげ]の 力[ちから]もち。日本[にほん]の 黒毛和牛[くろげわぎゅう]には、但馬牛[たじまうし]の 血[ち]を ひく 牛[うし]が とても 多[おお]い。",
+  "fieldLine": "ブルルッ…。ここは とおさんぞ！ わしの ツノと ちからくらべだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-yamadashi-tosshin",
+        "sk-namahage-otakebi"
+      ],
+      "line": "モォォォーッ！ 但馬[たじま]の 山[やま]を ゆらす とっしんだ！"
+    }
+  ]
+}

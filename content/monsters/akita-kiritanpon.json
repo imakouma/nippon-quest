@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-kiritanpon",
+  "name": "キリタンポン",
+  "area": "akita",
+  "motifId": "kiritanpo",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 36,
+    "mp": 8,
+    "atk": 11,
+    "def": 5,
+    "spd": 8,
+    "wis": 5
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.8,
+    "spd": 1,
+    "wis": 0.6
+  },
+  "skills": ["sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "akita-hinaijidori-no-dashi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 14,
+  "spriteKey": "mon.akita-kiritanpon",
+  "evolution": {
+    "to": "akita-kiritanpo-nabe",
+    "item": "akita-hinaijidori-no-dashi"
+  },
+  "dexBlurb": "きりたんぽに 手足[てあし]が 生[は]えた モンスター。きりたんぽは つぶした ごはんを 杉[すぎ]の ぼうに まいて やいた、秋田[あきた]の 食[た]べもの。"
+}

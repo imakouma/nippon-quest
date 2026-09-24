@@ -1,0 +1,837 @@
+/*
+ * フィールドの DOM 部品（場所の窓・県名・名所カットイン・にほんちず）。
+ * 文字は 12 / 24 / 36 / 48px だけ（PixelMplus12 のマス目の倍数。ほかの大きさはにじむ）。
+ */
+
+/* ───── いまいる場所 ───── */
+.nq-fhud {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  pointer-events: none;
+  z-index: 10;
+}
+.nq-fhud-loc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 4px 12px 12px;
+  font-size: 24px;
+  line-height: 36px;
+  transition: opacity 0.2s steps(4);
+}
+/* 歩いている あいだは 左上の 窓を かくす（止まると 出る。地図を 広く 見せる） */
+.nq-fhud-away {
+  opacity: 0;
+}
+.nq-fhud-away,
+.nq-fhud-away * {
+  pointer-events: none !important;
+}
+/* 場所の名前・種類・スタンプ。地図（144px）の幅で折り返して、窓を地図の幅に そろえる（右に黒い すきまを作らない） */
+.nq-fhud-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 12px;
+  max-width: 144px;
+}
+
+/* ───── 左上の小さな地図（いまいる地方を、主人公を まん中に拡大）。144px の正方形。タップで県の大きな地図 ───── */
+.nq-mini {
+  position: relative;
+  display: block;
+  width: 144px;
+  height: 144px;
+  flex: none;
+  padding: 0;
+  overflow: hidden;
+  background: #3d8ef0;
+  border: 2px solid #000;
+  cursor: pointer;
+  pointer-events: auto;
+}
+/* 地方の地図全体。主人公が まん中に来るように left / top でずらす */
+.nq-mini-map {
+  position: absolute;
+}
+/* いまいる県の細かい地形（フィールドのタイル）。県の範囲に のばして重ねる */
+.nq-mini .nq-mini-detail {
+  inset: auto;
+  image-rendering: pixelated;
+}
+/* 行ったことのない県は、ぼかして色をぬく（行ったことのある県は上の層で はっきり）。ぼかしの強さは拡大に合わせて style で */
+.nq-mini-fog {
+  filter: blur(1.5px) saturate(0.35) brightness(0.8);
+}
+.nq-mini:hover {
+  border-color: var(--nq-yellow);
+}
+.nq-mini canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+/* 中ボスは地図でも「？」（フィールドの「？」マークと同じ色）。大きさは ほかのしるしと同じ 16px */
+.nq-amap-boss {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #fff;
+  background: #7b4fd6;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #000;
+  pointer-events: none;
+}
+.nq-mini-hero {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  transform: translate(-50%, -50%);
+  background: #e5484d;
+  box-shadow: 0 0 0 2px #fff;
+  animation: nq-blink 0.6s steps(2) infinite;
+}
+
+/* ───── ひらいた地図（いったことの ある ばしょへワープ）。枠は にほんちずと同じ ───── */
+/* 県のまわりの地方の地図は、枠の外へはみださない */
+.nq-amap-view {
+  overflow: hidden;
+}
+.nq-amap-legend {
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--nq-silver);
+  white-space: nowrap;
+}
+/* ひらいた地図の 見出しの右：にほんちず（ほかの県へ）を ひらく */
+.nq-amap-world {
+  flex: none;
+  gap: 4px;
+  min-height: 40px;
+  padding: 0 8px;
+  font-size: 24px;
+  white-space: nowrap;
+}
+/* 県のまわりの地方の地図（行ったことのある県は緑、未踏の県は灰色）。県のフィールドの地形の下に のばして かさねる */
+.nq-wmap-canvas .nq-amap-region {
+  inset: auto;
+  width: auto;
+  height: auto;
+}
+/* 見出しと「とじる」は 1 行のまま（右の列がせまいと語の途中で折り返していた） */
+.nq-wmap-title {
+  white-space: nowrap;
+}
+.nq-wmap-head .nq-back {
+  flex: none;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.nq-amap-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  line-height: 0;
+  pointer-events: none;
+}
+.nq-amap-todo {
+  display: inline-block;
+  filter: grayscale(1) brightness(2);
+}
+.nq-amap-sel {
+  position: absolute;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+  border: 4px solid var(--nq-yellow);
+  pointer-events: none;
+  animation: nq-wmap-blink 1s linear infinite;
+}
+.nq-amap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+}
+.nq-amap-list .nq-opt {
+  width: 100%;
+}
+.nq-amap-cur {
+  width: 24px;
+  flex: none;
+}
+.nq-amap-empty {
+  margin: 0;
+  /* 分かち書きのすきまで折り返す（「ま／ちや」のように語の途中で切らない） */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  line-height: 36px;
+  color: var(--nq-cloud);
+}
+.nq-fhud-title {
+  color: var(--nq-yellow);
+  white-space: nowrap;
+}
+.nq-fhud-sub {
+  font-size: 12px;
+  color: var(--nq-cloud);
+}
+.nq-fhud-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 24px;
+  color: var(--nq-yellow);
+}
+/* 右上の ボタンは 小さく・うすく（地図の じゃまを しない） */
+.nq-fhud-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 40px;
+  padding: 0 8px;
+  font-size: 24px;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0.85;
+}
+.nq-fhud-btn .nq-picon {
+  width: 24px;
+  height: 24px;
+}
+.nq-fhud-btn:hover {
+  color: var(--nq-yellow);
+  border-color: var(--nq-yellow);
+}
+/* 開発者モードの ボタン（開発サーバー・?dev のときだけ）。ON は むらさきに 光る */
+.nq-fhud-dev {
+  color: var(--nq-yellow);
+}
+.nq-fhud-dev-on {
+  color: #fff;
+  background: #6e4fc4;
+  border-color: #a28be6;
+}
+/* 右上：なかま・にほんちず */
+.nq-fhud-right {
+  display: flex;
+  gap: 12px;
+}
+
+/* ───── チーム編成（なかま）。枠は にほんちずと同じ ───── */
+.nq-party-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+}
+.nq-party-list .nq-opt {
+  width: 100%;
+}
+.nq-party-lv {
+  font-size: 12px;
+  color: var(--nq-yellow);
+}
+.nq-party-tag {
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #1a1428;
+  background: var(--nq-yellow);
+}
+.nq-party-tag-evo {
+  background: #ff8fb1;
+  animation: nq-blink 0.6s steps(2) infinite;
+}
+/* 中身が多い仲間（必殺技 3 つ・説明 2 行）でも枠に入るよう、行とすきまを詰める。入りきらなければ枠の中でスクロール */
+.nq-party-info {
+  gap: 4px;
+  overflow-y: auto;
+}
+/* ボタン 2 つ（しゅつげきさせる・しんかする）が枠の中に並ぶように */
+.nq-party-foot {
+  gap: 12px;
+}
+.nq-party-foot .nq-opt {
+  flex: none;
+  padding: 0 8px;
+  gap: 6px;
+}
+.nq-party-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nq-party-art {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  flex: none;
+  background: #1d2033;
+  border: 4px solid var(--nq-slate);
+}
+/* 枠（96px・ふち 4px）の 内がわに ぴったり。96px に すると ふちの ぶん 右下へ はみだして ずれて 見えた */
+/* grid の 中では height: 100% が きかず、たて長の 絵（主人公 16×24）が 下に はみだしたので 内がわの 88px を 指定 */
+.nq-party-art img {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.nq-party-evolved {
+  animation: nq-party-flash 0.9s steps(9);
+}
+@keyframes nq-party-flash {
+  0%,
+  60% {
+    filter: brightness(3);
+  }
+  100% {
+    filter: none;
+  }
+}
+.nq-party-who {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nq-party-name {
+  font-size: 36px;
+  line-height: 48px;
+  color: var(--nq-yellow);
+}
+.nq-party-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+}
+.nq-party-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 24px;
+}
+.nq-party-stats small {
+  margin-right: 4px;
+  font-size: 12px;
+  color: var(--nq-cloud);
+}
+/* 「必殺技[ひっさつわざ]」の見出し。12px にふりがなを付けると字がばらけるので 24px で */
+.nq-party-label {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--nq-cloud);
+}
+.nq-party-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0 0 0 8px;
+  list-style: none;
+  font-size: 24px;
+  line-height: 28px;
+}
+.nq-party-skills li {
+  display: flex;
+  gap: 12px;
+}
+.nq-party-star {
+  color: var(--nq-yellow);
+}
+.nq-party-blurb {
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--nq-cloud);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.nq-party-msg {
+  color: var(--nq-yellow);
+  font-size: 24px;
+  line-height: 28px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.nq-party-evolve-ok {
+  border-color: #ff8fb1;
+  color: #ff8fb1;
+  animation: nq-glow 0.9s steps(3) infinite alternate;
+}
+/* ボタン 3 つ（しゅつげき・せんとうに・しんか）でも 枠に入るように */
+.nq-party-foot .nq-opt {
+  padding: 0 4px;
+  gap: 4px;
+}
+.nq-party-foot .nq-picon {
+  width: 16px;
+  height: 16px;
+}
+.nq-party-foot {
+  gap: 6px;
+}
+/* ひかえの仲間（出撃チームに入っていない）は うすく */
+.nq-party-reserve {
+  opacity: 0.6;
+}
+.nq-party-count {
+  font-size: 12px;
+  color: var(--nq-yellow);
+}
+/* しゅつげきの わくの 番号（1〜3。主人公と ひかえは 空き） */
+.nq-party-no {
+  width: 12px;
+  flex: none;
+  font-size: 12px;
+  text-align: center;
+  color: var(--nq-cloud);
+}
+/* あいている わくは 空欄：点線の わくだけ */
+.nq-party-blank {
+  flex: 1;
+  height: 24px;
+  border: 2px dashed var(--nq-slate);
+}
+.nq-party-art-empty {
+  background: transparent;
+  border-style: dashed;
+}
+/* 「ひかえ」の 見出し */
+.nq-party-sep {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--nq-cloud);
+}
+.nq-party-none {
+  padding-left: 32px;
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--nq-cloud);
+  opacity: 0.6;
+}
+.nq-party-hint {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--nq-cloud);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* ───── 町の人の しごと（おみせ・かじや・けいじばん）。枠は チーム編成と同じ ───── */
+.nq-town-gold {
+  font-size: 24px;
+  color: var(--nq-yellow);
+  white-space: nowrap;
+}
+.nq-town-icon {
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
+.nq-town-right {
+  margin-left: auto;
+  padding-left: 8px;
+  font-size: 12px;
+  color: var(--nq-yellow);
+  white-space: nowrap;
+}
+.nq-town-dim {
+  opacity: 0.55;
+}
+/* 長い名前（たのみごと）は リストでは「…」で切る（右の せつめいに ぜんぶ出る） */
+.nq-town-list .nq-opt-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nq-town-art img {
+  width: 64px;
+  height: 64px;
+}
+.nq-town-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 24px;
+  line-height: 28px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.nq-town-empty {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* ───── 場所の名前（移動したとき、画面のまん中に） ───── */
+.nq-atitle {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 20;
+  animation: nq-atitle 2.6s steps(26) forwards;
+}
+.nq-atitle-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 36px;
+}
+.nq-atitle-name {
+  font-size: 48px;
+  line-height: 72px;
+  color: var(--nq-yellow);
+}
+.nq-atitle-name rt {
+  font-size: 24px;
+}
+.nq-atitle-sub {
+  font-size: 24px;
+  color: var(--nq-cloud);
+}
+@keyframes nq-atitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  12%,
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ───── 名所カットイン ───── */
+.nq-cutin {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 60;
+  background: rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+.nq-cutin-band {
+  width: 100%;
+  padding: 24px 0;
+  display: grid;
+  place-items: center;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+  background: repeating-linear-gradient(90deg, #2e2a45 0 24px, #3a2672 24px 48px);
+  animation: nq-cutin-in 0.3s steps(5);
+}
+.nq-cutin-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 24px;
+  max-width: 800px;
+}
+.nq-cutin-pic {
+  display: grid;
+  place-items: center;
+  width: 240px;
+  /* 内がわ 132px（ふち 4px ×2）。えはがき（32×32）を ×4＝128px で 入れる */
+  height: 140px;
+  background: #1a1428;
+  border: 4px solid #4a5063;
+}
+.nq-cutin-pic img[src$='.png'] {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+/* 名所の えはがき（32×32）は ×4、どうぐの アイコン（16×16）は ×8。どちらも 128px で まん中に */
+.nq-cutin-pic img[src^='data:'] {
+  width: 128px;
+  height: 128px;
+  image-rendering: pixelated;
+}
+.nq-cutin-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nq-cutin-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: var(--nq-yellow);
+}
+.nq-cutin-name {
+  font-size: 48px;
+  line-height: 72px;
+}
+.nq-cutin-name rt {
+  font-size: 24px;
+}
+.nq-cutin-kind {
+  align-self: flex-start;
+  padding: 0 8px;
+  font-size: 24px;
+  color: #1a1428;
+  background: var(--nq-yellow);
+}
+@keyframes nq-cutin-in {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* ───── にほんちず（地方ごとの地図・県の進みぐあい・ワープ） ───── */
+.nq-wmap {
+  position: absolute;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+.nq-wmap-box {
+  display: flex;
+  gap: 16px;
+  width: 912px;
+  height: 516px;
+  padding: 12px;
+}
+.nq-wmap-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 408px;
+  flex: none;
+}
+.nq-wmap-region {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 48px;
+}
+.nq-wmap-rname {
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--nq-yellow);
+  white-space: nowrap;
+}
+.nq-wmap-rname rt,
+.nq-wmap-aname rt {
+  font-size: 12px;
+}
+.nq-wmap-arrow {
+  width: 48px;
+  height: 44px;
+  flex: none;
+  background: var(--nq-night);
+  color: var(--nq-white);
+  border: 4px solid var(--nq-white);
+  font-size: 24px;
+  cursor: pointer;
+}
+.nq-wmap-arrow:hover {
+  color: var(--nq-yellow);
+  border-color: var(--nq-yellow);
+}
+/* 海の色（NQ azure）の上に地図を置く。地図が小さい地方も、まわりは海。枠の内側がちょうど 400×400（50 マス×8px） */
+.nq-wmap-view {
+  display: grid;
+  place-items: center;
+  width: 408px;
+  height: 408px;
+  background: #3d8ef0;
+  border: 4px solid #000;
+}
+.nq-wmap-canvas {
+  position: relative;
+  cursor: pointer;
+}
+.nq-wmap-canvas canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.nq-wmap-sel {
+  animation: nq-wmap-blink 1s linear infinite;
+}
+@keyframes nq-wmap-blink {
+  0%,
+  49% {
+    opacity: 0.85;
+  }
+  50%,
+  100% {
+    opacity: 0.35;
+  }
+}
+.nq-wmap-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  line-height: 0;
+  pointer-events: none;
+}
+.nq-wmap-hero {
+  z-index: 2;
+  animation: nq-wmap-bob 0.8s steps(1) infinite;
+}
+@keyframes nq-wmap-bob {
+  50% {
+    margin-top: -4px;
+  }
+}
+.nq-wmap-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.nq-wmap-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nq-wmap-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: var(--nq-yellow);
+}
+.nq-wmap-info {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 4px solid var(--nq-slate);
+  font-size: 24px;
+}
+.nq-wmap-aname {
+  font-size: 36px;
+  line-height: 48px;
+}
+.nq-wmap-aname-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nq-wmap-here {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 24px;
+  color: #1a1428;
+  background: var(--nq-yellow);
+}
+.nq-wmap-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 36px;
+}
+.nq-wmap-ok {
+  color: var(--nq-yellow);
+}
+.nq-wmap-yet {
+  color: var(--nq-silver);
+}
+/* 名所・特産品は 1 県 8〜12 こ あるので 2 列に。入りきらなければ枠の中でスクロール（枠の外に はみださない） */
+.nq-wmap-stamps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+  gap: 4px 12px;
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0 0 0 8px;
+  list-style: none;
+  overflow-y: auto;
+}
+.nq-wmap-stamps li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  line-height: 28px;
+}
+.nq-wmap-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nq-wmap-go {
+  flex: none;
+}
+.nq-wmap-go:disabled {
+  color: var(--nq-slate);
+  cursor: default;
+}
+.nq-wmap-locked {
+  margin: 0;
+  font-size: 12px;
+  line-height: 24px;
+  color: #ff8fb1;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.nq-wmap-keys {
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--nq-cloud);
+  /* 「（もっている：0／こ）」のように ことばの途中で切らない */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okinawa-midboss-eisa-daiko",
+  "name": "エイサーダイコ",
+  "area": "okinawa",
+  "motifId": "eisa",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 177,
+    "mp": 29,
+    "atk": 17,
+    "def": 12,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-habataki",
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 102,
+  "gold": 117,
+  "spriteKey": "mon.okinawa-midboss-eisa-daiko",
+  "dexBlurb": "エイサーの 太鼓[たいこ]が おどりだした 中[ちゅう]ボス。エイサーは お盆[ぼん]に、太鼓[たいこ]を たたきながら 町[まち]を おどり歩[ある]く 沖縄[おきなわ]の おどり。",
+  "fieldLine": "いーやーさーさー！ この 先[さき]へ 行[い]きたければ、わたしの おどりに ついて おいで！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-habataki",
+        "sk-abc-shout"
+      ],
+      "line": "ドン ドン ドドン！ 太鼓[たいこ]の ひびきが 島[しま]じゅうを ゆらすぞ！"
+    }
+  ]
+}

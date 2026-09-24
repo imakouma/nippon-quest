@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamaguchi-kanmon-fuku",
+  "name": "カンモンフク",
+  "area": "yamaguchi",
+  "motifId": "shimonoseki-fugu",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 68,
+    "mp": 18,
+    "atk": 18,
+    "def": 13,
+    "spd": 11,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 26,
+  "spriteKey": "mon.yamaguchi-kanmon-fuku",
+  "dexBlurb": "プクフクが しんかした すがた。本州[ほんしゅう]と 九州[きゅうしゅう]の あいだの 関門海峡[かんもんかいきょう]は、潮[しお]の 流[なが]れが とても はやい。"
+}

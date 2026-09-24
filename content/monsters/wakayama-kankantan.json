@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "wakayama-kankantan",
+  "name": "カンカンタン",
+  "area": "wakayama",
+  "motifId": "binchotan",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 46,
+    "mp": 11,
+    "atk": 15,
+    "def": 10,
+    "spd": 7,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.6,
+    "def": 1,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "wakayama-ubamegashi-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 18,
+  "spriteKey": "mon.wakayama-kankantan",
+  "evolution": {
+    "to": "wakayama-bincho-homura",
+    "item": "wakayama-ubamegashi-no-tane"
+  },
+  "dexBlurb": "紀州備長炭[きしゅうびんちょうたん]の モンスター。とても かたい 炭[すみ]で、たたくと カンカンと 金[かね]のような 音[おと]が する。"
+}

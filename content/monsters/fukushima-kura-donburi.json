@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-kura-donburi",
+  "name": "クラドンブリ",
+  "area": "fukushima",
+  "motifId": "kitakata-ramen",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 52,
+    "mp": 13,
+    "atk": 15,
+    "def": 10,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.7,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 1
+  },
+  "skills": [
+    "sk-hono-no-mai",
+    "sk-hono-no-uzu"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 34,
+  "gold": 24,
+  "spriteKey": "mon.fukushima-kura-donburi",
+  "dexBlurb": "チヂレメンが しんかした すがた。喜多方[きたかた]の 蔵[くら]の ような どんぶりを せおっている。"
+}

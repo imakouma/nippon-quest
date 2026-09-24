@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamanashi-midboss-sakasa-fujin",
+  "name": "サカサフジン",
+  "area": "yamanashi",
+  "motifId": "fujigoko",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 139,
+    "mp": 22,
+    "atk": 14,
+    "def": 10,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 80,
+  "gold": 96,
+  "spriteKey": "mon.yamanashi-midboss-sakasa-fujin",
+  "dexBlurb": "富士五湖[ふじごこ]に すむ、大[おお]きな 水[みず]の せい。風[かぜ]の ない 日[ひ]には、湖[みずうみ]に 富士山[ふじさん]が さかさまに うつる「逆[さか]さ富士[ふじ]」が 見[み]られる。",
+  "fieldLine": "ここは 富士山[ふじさん]の ふもとの 湖[みずうみ]。とおりたければ、わたしに 勝[か]って みよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ],
+      "line": "ざっぱーん！ 湖[みずうみ]の 水[みず]よ、大[おお]うずと なれ！"
+    }
+  ]
+}

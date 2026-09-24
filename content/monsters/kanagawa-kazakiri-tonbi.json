@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kanagawa-kazakiri-tonbi",
+  "name": "カザキリトンビ",
+  "area": "kanagawa",
+  "motifId": "enoshima",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 49,
+    "mp": 13,
+    "atk": 16,
+    "def": 8,
+    "spd": 14,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 19,
+  "spriteKey": "mon.kanagawa-kazakiri-tonbi",
+  "dexBlurb": "ピーヒョロが しんかした すがた。つばさの 先[さき]の 風切[かざき]り羽[ばね]で 風[かぜ]を きり、高[たか]く まいあがる。"
+}

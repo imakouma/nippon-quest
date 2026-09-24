@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-iwa-kamoshika",
+  "name": "イワカモシカ",
+  "area": "iwate",
+  "motifId": "iwate-san",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 38,
+    "mp": 6,
+    "atk": 10,
+    "def": 8,
+    "spd": 8,
+    "wis": 5
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 0.8,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": ["sk-tsuchi-kabe"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "iwate-komakusa",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.1,
+  "xp": 21,
+  "gold": 14,
+  "spriteKey": "mon.iwate-iwa-kamoshika",
+  "evolution": {
+    "to": "iwate-hayate-kamoshika",
+    "item": "iwate-komakusa"
+  },
+  "dexBlurb": "けわしい 山[やま]に くらす ニホンカモシカ。岩手県[いわてけん]の「県[けん]の けもの」で、岩[いわ]の 上[うえ]を ぴょんぴょん かけのぼる。"
+}

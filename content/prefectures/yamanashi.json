@@ -1,0 +1,270 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "yamanashi",
+  "name": "山梨県[やまなしけん]",
+  "island": "koshinetsu",
+  "capital": "甲府市[こうふし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "yamanashi-field",
+    "town": "yamanashi-town",
+    "dungeon": "yamanashi-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "fujigoko",
+      "name": "富士五湖[ふじごこ]",
+      "kind": "nature",
+      "imageKey": "motif.yamanashi.fujigoko",
+      "blurb": "富士山[ふじさん]の 北[きた]がわの ふもとに ある 5つの 湖[みずうみ]。河口湖[かわぐちこ]は その ひとつで、水[みず]に うつる 富士山[ふじさん]が きれい。"
+    },
+    {
+      "id": "oshino-hakkai",
+      "name": "忍野八海[おしのはっかい]",
+      "kind": "nature",
+      "imageKey": "motif.yamanashi.oshino-hakkai",
+      "blurb": "富士山[ふじさん]に ふった 雪[ゆき]や 雨[あめ]が、長[なが]い 時間[じかん]を かけて わき出[で]る 8つの 池[いけ]。水[みず]が とても すんでいる。"
+    },
+    {
+      "id": "shosenkyo",
+      "name": "昇仙峡[しょうせんきょう]",
+      "kind": "nature",
+      "imageKey": "motif.yamanashi.shosenkyo",
+      "blurb": "甲府[こうふ]の 北[きた]に ある 谷[たに]。大[おお]きな 岩[いわ]や 滝[たき]が つづき、秋[あき]の 紅葉[こうよう]が とても きれい。"
+    },
+    {
+      "id": "kitadake",
+      "name": "北岳[きただけ]",
+      "kind": "nature",
+      "imageKey": "motif.yamanashi.kitadake",
+      "blurb": "南[みなみ]アルプスに ある、富士山[ふじさん]に つぎ 日本[にほん]で 2番目[ばんめ]に 高[たか]い 山[やま]。キタダケソウという めずらしい 花[はな]が さく。"
+    },
+    {
+      "id": "yatsugatake",
+      "name": "八ヶ岳[やつがたけ]",
+      "kind": "nature",
+      "imageKey": "motif.yamanashi.yatsugatake",
+      "blurb": "山梨県[やまなしけん]と 長野県[ながのけん]の さかいに ならぶ 山々[やまやま]。南[みなみ]の ふもとには すずしい 高原[こうげん]が 広[ひろ]がる。"
+    },
+    {
+      "id": "saruhashi",
+      "name": "猿橋[さるはし]",
+      "kind": "landmark",
+      "imageKey": "motif.yamanashi.saruhashi",
+      "blurb": "大月市[おおつきし]の 谷[たに]に かかる 木[き]の 橋[はし]。川[かわ]に 柱[はしら]を 立[た]てず、両[りょう]がわから のばした 木[き]で ささえる めずらしい 橋[はし]。"
+    },
+    {
+      "id": "budou",
+      "name": "ぶどう",
+      "kind": "food",
+      "imageKey": "motif.yamanashi.budou",
+      "blurb": "甲州市[こうしゅうし]の 勝沼[かつぬま]など、甲府盆地[こうふぼんち]で たくさん 作[つく]られる。山梨県[やまなしけん]は ぶどうの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "momo",
+      "name": "もも",
+      "kind": "food",
+      "imageKey": "motif.yamanashi.momo",
+      "blurb": "笛吹市[ふえふきし]では 春[はる]に ももの 花[はな]が いっぱい さく。山梨県[やまなしけん]は ももの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "houtou",
+      "name": "ほうとう",
+      "kind": "food",
+      "imageKey": "motif.yamanashi.houtou",
+      "blurb": "平[ひら]たい めんを かぼちゃや 野菜[やさい]と いっしょに みそで にこむ、山梨[やまなし]の 郷土料理[きょうどりょうり]。"
+    },
+    {
+      "id": "amahata-suzuri",
+      "name": "雨畑硯[あまはたすずり]",
+      "kind": "craft",
+      "imageKey": "motif.yamanashi.amahata-suzuri",
+      "blurb": "早川町[はやかわちょう]の 雨畑[あまはた]で とれる 石[いし]を けずって 作[つく]る すずり。書写[しょしゃ]で 使[つか]う 道具[どうぐ]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "yamanashi-budoon",
+          "weight": 33
+        },
+        {
+          "monsterId": "yamanashi-houtoun",
+          "weight": 30
+        },
+        {
+          "monsterId": "yamanashi-suzurin",
+          "weight": 22
+        },
+        {
+          "monsterId": "yamanashi-momorin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "yamanashi-budoon",
+          "weight": 45
+        },
+        {
+          "monsterId": "yamanashi-houtoun",
+          "weight": 25
+        },
+        {
+          "monsterId": "yamanashi-momorin",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "yamanashi-budoon",
+          "weight": 55
+        },
+        {
+          "monsterId": "yamanashi-suzurin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "yamanashi-suzurin",
+          "weight": 60
+        },
+        {
+          "monsterId": "yamanashi-houtoun",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "yamanashi-suzurin",
+          "weight": 45
+        },
+        {
+          "monsterId": "yamanashi-houtoun",
+          "weight": 30
+        },
+        {
+          "monsterId": "yamanashi-budoon",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "yamanashi-boss-suisho-ryu",
+  "midBoss": "yamanashi-midboss-sakasa-fujin",
+  "secret": {
+    "name": "躑躅ヶ崎館[つつじがさきやかた]",
+    "boss": "yamanashi-lastboss-takeda-shingen"
+  },
+  "events": [
+    {
+      "id": "ev-yamanashi-oshino-hakkai",
+      "motifId": "oshino-hakkai",
+      "trigger": {
+        "map": "yamanashi-field",
+        "objectName": "event_yamanashi_oshino-hakkai"
+      },
+      "once": true,
+      "cutinImageKey": "motif.yamanashi.oshino-hakkai",
+      "dialogue": [
+        {
+          "speaker": "忍野八海[おしのはっかい]の ガイドさん",
+          "text": "ここの 池[いけ]の 水[みず]は、富士山[ふじさん]に ふった 雪[ゆき]や 雨[あめ]が、長[なが]い 時間[じかん]を かけて わき出[で]た ものだよ。水[みず]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:yamanashi"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "忍野八海[おしのはっかい]の ガイドさん",
+          "text": "よく しらべたね！ すきとおった 池[いけ]の そこまで 見[み]えるでしょう。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "甲府市[こうふし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-yamanashi-shop",
+        "name": "くだもの屋[や]の おばさん",
+        "spriteKey": "char.npc-yamanashi-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 山梨[やまなし]は ぶどうも ももも、日本[にほん]で いちばん たくさん とれるのよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-yamanashi-smith",
+        "name": "水晶[すいしょう]みがきの 職人[しょくにん]",
+        "spriteKey": "char.npc-yamanashi-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "甲府[こうふ]では むかしから、水晶[すいしょう]や 宝石[ほうせき]を みがいて かざりを 作[つく]る 仕事[しごと]が さかんなんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

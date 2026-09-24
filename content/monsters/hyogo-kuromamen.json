@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hyogo-kuromamen",
+  "name": "クロマメン",
+  "area": "hyogo",
+  "motifId": "tanba-kuromame",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 44,
+    "mp": 11,
+    "atk": 11,
+    "def": 8,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "hyogo-kuromame-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 22,
+  "gold": 15,
+  "spriteKey": "mon.hyogo-kuromamen",
+  "evolution": {
+    "to": "hyogo-kuromame-musha",
+    "item": "hyogo-kuromame-no-hana"
+  },
+  "dexBlurb": "つやつやの 黒豆[くろまめ]の モンスター。丹波篠山[たんばささやま]の 黒豆[くろまめ]は 大[おお]つぶで、お正月[しょうがつ]の おせち料理[りょうり]にも 使[つか]われる。"
+}

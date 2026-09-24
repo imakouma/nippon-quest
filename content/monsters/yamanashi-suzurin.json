@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamanashi-suzurin",
+  "name": "スズリン",
+  "area": "yamanashi",
+  "motifId": "amahata-suzuri",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 50,
+    "mp": 7,
+    "atk": 10,
+    "def": 11,
+    "spd": 6,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.9
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "yamanashi-shuji-no-fude",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 22,
+  "gold": 15,
+  "spriteKey": "mon.yamanashi-suzurin",
+  "evolution": {
+    "to": "yamanashi-suzuri-tatsujin",
+    "item": "yamanashi-shuji-no-fude"
+  },
+  "dexBlurb": "雨畑硯[あまはたすずり]から 生[う]まれた、書写[しょしゃ]が 大好[だいす]きな モンスター。すずりの すみを する ところを「おか」、すみを ためる ところを「うみ」と いう。"
+}

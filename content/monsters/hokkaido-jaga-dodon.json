@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-jaga-dodon",
+  "name": "ジャガドドン",
+  "area": "hokkaido",
+  "motifId": "tokachi-jagaimo",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 57,
+    "mp": 11,
+    "atk": 14,
+    "def": 12,
+    "spd": 7,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 19,
+  "spriteKey": "mon.hokkaido-jaga-dodon",
+  "dexBlurb": "ジャガゴロンが しんかした すがた。じゃがいもの 芽[め]には 毒[どく]が あるので、料理[りょうり]する ときは とりのぞく。"
+}

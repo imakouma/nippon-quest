@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagano-koori-wakasagi",
+  "name": "コオリワカサギ",
+  "area": "nagano",
+  "motifId": "suwako",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 57,
+    "mp": 15,
+    "atk": 16,
+    "def": 11,
+    "spd": 12,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 30,
+  "gold": 21,
+  "spriteKey": "mon.nagano-koori-wakasagi",
+  "dexBlurb": "こおりの よろいを まとった 大[おお]きな わかさぎ。諏訪湖[すわこ]の こおりが もりあがる ことを「御神渡[おみわた]り」と よぶ。"
+}

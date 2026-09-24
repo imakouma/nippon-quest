@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-kurioneru",
+  "name": "クリオネル",
+  "area": "hokkaido",
+  "motifId": "ryuhyo",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 32,
+    "mp": 11,
+    "atk": 8,
+    "def": 5,
+    "spd": 9,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 0.8,
+    "spd": 1.1,
+    "wis": 0.9
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "hokkaido-ryuhyo-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.06,
+  "xp": 17,
+  "gold": 13,
+  "spriteKey": "mon.hokkaido-kurioneru",
+  "evolution": {
+    "to": "hokkaido-ryuhyo-tenshi",
+    "item": "hokkaido-ryuhyo-no-shizuku"
+  },
+  "dexBlurb": "流氷[りゅうひょう]の 海[うみ]に すむ クリオネの モンスター。クリオネは「流氷[りゅうひょう]の 天使[てんし]」と よばれる、貝[かい]の なかま。"
+}

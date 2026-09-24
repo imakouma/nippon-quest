@@ -1,0 +1,10 @@
+{
+  "$schema": "../../schemas/items.schema.json",
+  "id": "common-yakusou",
+  "name": "やくそう",
+  "kind": "consumable",
+  "use": { "heal": 30 },
+  "price": 20,
+  "iconKey": "item.common-yakusou",
+  "blurb": "HPが 30 かいふくする。"
+}

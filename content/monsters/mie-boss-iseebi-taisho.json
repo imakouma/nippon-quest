@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-boss-iseebi-taisho",
+  "name": "イセエビタイショウ",
+  "area": "mie",
+  "motifId": "iseebi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 430,
+    "mp": 57,
+    "atk": 24,
+    "def": 18,
+    "spd": 9,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "mie-kumihimo-no-ito",
+      "rate": 1
+    },
+    {
+      "itemId": "mie-kaiawase-hamaguri",
+      "rate": 1
+    },
+    {
+      "itemId": "mie-igayaki",
+      "rate": 1
+    },
+    {
+      "itemId": "mie-akoya-no-shinju",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 281,
+  "gold": 328,
+  "spriteKey": "mon.mie-boss-iseebi-taisho",
+  "dexBlurb": "伊勢[いせ]えびの 大将[たいしょう]。かたい からは よろいの よう。かぶとには 英虞湾[あごわん]の 大[おお]きな 真珠[しんじゅ]が ひかる。",
+  "fieldLine": "ザザーン！ この 海[うみ]の 大将[たいしょう]に いどむとは、いい どきょうだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya",
+        "sk-uzushio"
+      ],
+      "line": "真珠[しんじゅ]よ、ひかれ！ 海[うみ]の 大将[たいしょう]の よろい、やぶれる ものか！"
+    }
+  ]
+}

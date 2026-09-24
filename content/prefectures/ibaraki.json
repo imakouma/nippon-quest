@@ -1,0 +1,255 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "ibaraki",
+  "name": "茨城県[いばらきけん]",
+  "island": "kanto",
+  "capital": "水戸市[みとし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "ibaraki-field",
+    "town": "ibaraki-town",
+    "dungeon": "ibaraki-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kairakuen",
+      "name": "偕楽園[かいらくえん]",
+      "kind": "landmark",
+      "imageKey": "motif.ibaraki.kairakuen",
+      "blurb": "水戸[みと]に ある 大[おお]きな 庭園[ていえん]。春[はる]の はじめに、たくさんの 梅[うめ]の 花[はな]が さく。"
+    },
+    {
+      "id": "fukuroda-no-taki",
+      "name": "袋田[ふくろだ]の 滝[たき]",
+      "kind": "nature",
+      "imageKey": "motif.ibaraki.fukuroda-no-taki",
+      "blurb": "大子町[だいごまち]に ある 大[おお]きな 滝[たき]。4つの 段[だん]に なって 流[なが]れ落[お]ちる。冬[ふゆ]に こおる ことも ある。"
+    },
+    {
+      "id": "kasumigaura",
+      "name": "霞ヶ浦[かすみがうら]",
+      "kind": "nature",
+      "imageKey": "motif.ibaraki.kasumigaura",
+      "blurb": "日本[にほん]で 2番目[ばんめ]に 大[おお]きな 湖[みずうみ]。わかさぎ などの 魚[さかな]が とれる。"
+    },
+    {
+      "id": "tsukubasan",
+      "name": "筑波山[つくばさん]",
+      "kind": "nature",
+      "imageKey": "motif.ibaraki.tsukubasan",
+      "blurb": "てっぺんが 2つに 分[わ]かれている 山[やま]。のぼると 広[ひろ]い 関東平野[かんとうへいや]を 見[み]わたせる。"
+    },
+    {
+      "id": "nemophila",
+      "name": "ひたち海浜公園[かいひんこうえん]の ネモフィラ",
+      "kind": "nature",
+      "imageKey": "motif.ibaraki.nemophila",
+      "blurb": "春[はる]に なると、丘[おか]いっぱいに 青[あお]い ネモフィラの 花[はな]が さく。空[そら]と 花[はな]の 青[あお]が きれい。"
+    },
+    {
+      "id": "natto",
+      "name": "水戸[みと]の 納豆[なっとう]",
+      "kind": "food",
+      "imageKey": "motif.ibaraki.natto",
+      "blurb": "むした 大豆[だいず]を ねかせて 作[つく]る、ねばねばの 食[た]べもの。水戸[みと]の 名物[めいぶつ]として 有名[ゆうめい]。"
+    },
+    {
+      "id": "hoshiimo",
+      "name": "干[ほ]しいも",
+      "kind": "food",
+      "imageKey": "motif.ibaraki.hoshiimo",
+      "blurb": "さつまいもを むして、うすく 切[き]って ほした おやつ。茨城県[いばらきけん]で たくさん 作[つく]られる。"
+    },
+    {
+      "id": "ibaraki-melon",
+      "name": "メロン",
+      "kind": "food",
+      "imageKey": "motif.ibaraki.ibaraki-melon",
+      "blurb": "鉾田市[ほこたし]など 茨城県[いばらきけん]は、メロンの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "kasamayaki",
+      "name": "笠間焼[かさまやき]",
+      "kind": "craft",
+      "imageKey": "motif.ibaraki.kasamayaki",
+      "blurb": "笠間市[かさまし]で 作[つく]られる やきもの。じょうぶで、ふだん使[づか]いの 食器[しょっき]が 多[おお]い。"
+    },
+    {
+      "id": "renkon",
+      "name": "れんこん",
+      "kind": "food",
+      "imageKey": "motif.ibaraki.renkon",
+      "blurb": "霞ヶ浦[かすみがうら]の まわりの 田[た]んぼで 作[つく]られる。茨城県[いばらきけん]は れんこんの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "ibaraki-natton",
+          "weight": 25
+        },
+        {
+          "monsterId": "ibaraki-renkonta",
+          "weight": 25
+        },
+        {
+          "monsterId": "ibaraki-hobikin",
+          "weight": 25
+        },
+        {
+          "monsterId": "ibaraki-nemofin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "ibaraki-natton",
+          "weight": 34
+        },
+        {
+          "monsterId": "ibaraki-renkonta",
+          "weight": 33
+        },
+        {
+          "monsterId": "ibaraki-nemofin",
+          "weight": 33
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "ibaraki-hobikin",
+          "weight": 60
+        },
+        {
+          "monsterId": "ibaraki-renkonta",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "ibaraki-natton",
+          "weight": 40
+        },
+        {
+          "monsterId": "ibaraki-hobikin",
+          "weight": 30
+        },
+        {
+          "monsterId": "ibaraki-renkonta",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "ibaraki-boss-tsukuba-gama-o",
+  "midBoss": "ibaraki-midboss-harutsuge-dori",
+  "secret": {
+    "name": "弘道館[こうどうかん]",
+    "boss": "ibaraki-lastboss-tokugawa-nariaki"
+  },
+  "events": [
+    {
+      "id": "ev-ibaraki-fukuroda-no-taki",
+      "motifId": "fukuroda-no-taki",
+      "trigger": {
+        "map": "ibaraki-field",
+        "objectName": "event_ibaraki_fukuroda-no-taki"
+      },
+      "once": true,
+      "cutinImageKey": "motif.ibaraki.fukuroda-no-taki",
+      "dialogue": [
+        {
+          "speaker": "袋田[ふくろだ]の 滝[たき]の ガイドさん",
+          "text": "ここは 袋田[ふくろだ]の 滝[たき]。冬[ふゆ]に こおる ことも あるんだ。水[みず]の すがたの ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:ibaraki"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "袋田[ふくろだ]の 滝[たき]の ガイドさん",
+          "text": "よく しらべたね！ 滝[たき]が こおると「氷瀑[ひょうばく]」と いうんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "水戸市[みとし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-ibaraki-shop",
+        "name": "納豆屋[なっとうや]の おじさん",
+        "spriteKey": "char.npc-ibaraki-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 水戸[みと]の 納豆[なっとう]は、よく かきまぜると もっと ねばねばに なるよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-ibaraki-smith",
+        "name": "笠間焼[かさまやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-ibaraki-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "笠間焼[かさまやき]は じょうぶな やきもの。ふだんの 食器[しょっき]に ぴったりだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

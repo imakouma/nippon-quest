@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-karakunain",
+  "name": "カラクナイン",
+  "area": "kyoto",
+  "motifId": "manganji",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 44,
+    "mp": 11,
+    "atk": 15,
+    "def": 7,
+    "spd": 9,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.8,
+    "spd": 1,
+    "wis": 0.6
+  },
+  "skills": ["sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "kyoto-manganji-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 16,
+  "spriteKey": "mon.kyoto-karakunain",
+  "evolution": {
+    "to": "kyoto-hontoha-karain",
+    "item": "kyoto-manganji-no-tane"
+  },
+  "dexBlurb": "万願寺[まんがんじ]とうがらしの モンスター。長[なが]さ 15センチほどにも なる 大[おお]きな とうがらしだが、ほとんど からくない。"
+}

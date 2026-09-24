@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saitama-haniwa-musha",
+  "name": "ハニワムシャ",
+  "area": "saitama",
+  "motifId": "sakitama-kofun",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 60,
+    "mp": 12,
+    "atk": 13,
+    "def": 12,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 19,
+  "spriteKey": "mon.saitama-haniwa-musha",
+  "dexBlurb": "ハニワルツが しんかした すがた。よろいを つけた 武人[ぶじん]の はにわ。稲荷山古墳[いなりやまこふん]からは、金[きん]の 文字[もじ]が 入[はい]った 鉄[てつ]の 剣[けん]が 見[み]つかった。"
+}

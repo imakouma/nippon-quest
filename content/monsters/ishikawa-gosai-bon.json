@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ishikawa-gosai-bon",
+  "name": "ゴサイボン",
+  "area": "ishikawa",
+  "motifId": "kutaniyaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 47,
+    "mp": 8,
+    "atk": 9,
+    "def": 11,
+    "spd": 5,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-tashizan-giri", "sk-tsuchi-kabe"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "ishikawa-etsuke-no-fude",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 21,
+  "gold": 15,
+  "spriteKey": "mon.ishikawa-gosai-bon",
+  "evolution": {
+    "to": "ishikawa-gosai-musha",
+    "item": "ishikawa-etsuke-no-fude"
+  },
+  "dexBlurb": "九谷焼[くたにやき]の つぼの モンスター。九谷焼[くたにやき]の 色絵[いろえ]は「五彩[ごさい]」と よばれる 5つの 色[いろ]で かかれる。"
+}

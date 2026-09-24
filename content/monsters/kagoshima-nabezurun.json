@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-nabezurun",
+  "name": "ナベヅルン",
+  "area": "kagoshima",
+  "motifId": "izumi-tsuru",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 46,
+    "mp": 14,
+    "atk": 15,
+    "def": 8,
+    "spd": 14,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.2,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.3,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "kagoshima-negura-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.kagoshima-nabezurun",
+  "evolution": {
+    "to": "kagoshima-watari-zuru",
+    "item": "kagoshima-negura-no-shizuku"
+  },
+  "dexBlurb": "冬[ふゆ]に 北[きた]の 国[くに]から わたって くる ナベヅルの 子[こ]。ナベヅルの 名前[なまえ]は、なべの すすのような 灰色[はいいろ]の 体[からだ]から ついたと いわれる。"
+}

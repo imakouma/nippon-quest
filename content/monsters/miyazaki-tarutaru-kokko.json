@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyazaki-tarutaru-kokko",
+  "name": "タルタルコッコ",
+  "area": "miyazaki",
+  "motifId": "chicken-nanban",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 49,
+    "mp": 12,
+    "atk": 15,
+    "def": 8,
+    "spd": 13,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "miyazaki-amazu-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.miyazaki-tarutaru-kokko",
+  "evolution": {
+    "to": "miyazaki-nanban-ondori",
+    "item": "miyazaki-amazu-no-shizuku"
+  },
+  "dexBlurb": "頭[あたま]に タルタルソースを のせた、こんがり 色[いろ]の ニワトリ。チキン南蛮[なんばん]は、延岡[のべおか]で 生[う]まれたと いわれる 料理[りょうり]。"
+}

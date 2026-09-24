@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-hontoha-karain",
+  "name": "ホントハカライン",
+  "area": "kyoto",
+  "motifId": "manganji",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 60,
+    "mp": 16,
+    "atk": 20,
+    "def": 11,
+    "spd": 12,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 24,
+  "spriteKey": "mon.kyoto-hontoha-karain",
+  "dexBlurb": "カラクナインが しんかした すがた。おこると からく なる…かも？ 万願寺[まんがんじ]とうがらしにも、まれに からい ものが まじる。"
+}

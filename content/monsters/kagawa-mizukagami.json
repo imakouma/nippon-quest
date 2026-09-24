@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-mizukagami",
+  "name": "ミズカガミ",
+  "area": "kagawa",
+  "motifId": "chichibugahama",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 50,
+    "mp": 14,
+    "atk": 13,
+    "def": 8,
+    "spd": 11,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1.2,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.1,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "kagawa-chichibu-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 19,
+  "spriteKey": "mon.kagawa-mizukagami",
+  "evolution": {
+    "to": "kagawa-sorautsushi",
+    "item": "kagawa-chichibu-no-shizuku"
+  },
+  "dexBlurb": "うすい 水[みず]の まくで できた モンスター。父母ヶ浜[ちちぶがはま]は 潮[しお]が ひくと、のこった 水[みず]が 鏡[かがみ]の ように 空[そら]を うつす。"
+}

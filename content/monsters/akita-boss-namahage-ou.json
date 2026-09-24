@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-boss-namahage-ou",
+  "name": "ナマハゲオウ",
+  "area": "akita",
+  "motifId": "namahage",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 288,
+    "mp": 46,
+    "atk": 17,
+    "def": 12,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-namahage-otakebi",
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "akita-hinaijidori-no-dashi",
+      "rate": 1
+    },
+    {
+      "itemId": "akita-akitasugi-no-ita",
+      "rate": 1
+    },
+    {
+      "itemId": "akita-chuken-no-kubikazari",
+      "rate": 1
+    },
+    {
+      "itemId": "akita-hanabi-no-tane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 198,
+  "gold": 234,
+  "spriteKey": "mon.akita-boss-namahage-ou",
+  "dexBlurb": "なまはげたちの 王[おう]さま。「なまけものは いねがー」と 大[おお]きな 声[こえ]で さけぶが、がんばる 子[こ]には やさしい。",
+  "fieldLine": "なまけものは いねがー！ きょうの べんきょうは、ちゃんと したか？",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "なまけものは いねがー！ 大晦日[おおみそか]の 火[ひ]を うけてみろー！"
+    }
+  ]
+}

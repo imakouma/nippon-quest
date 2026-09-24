@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nara-uzumaki-somen",
+  "name": "ウズマキソウメン",
+  "area": "nara",
+  "motifId": "miwa-somen",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 57,
+    "mp": 18,
+    "atk": 16,
+    "def": 11,
+    "spd": 13,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1,
+    "spd": 1.4,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 31,
+  "gold": 23,
+  "spriteKey": "mon.nara-uzumaki-somen",
+  "dexBlurb": "ソウメンツルリが しんかした すがた。うずまく 水[みず]の 中[なか]で、そうめんが 竜巻[たつまき]のように ぐるぐる まわる。"
+}

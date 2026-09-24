@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kumamoto-lastboss-kato-kiyomasa",
+  "name": "加藤清正[かとうきよまさ]",
+  "area": "kumamoto",
+  "motifId": "tsujunkyo",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 554,
+    "mp": 74,
+    "atk": 30,
+    "def": 25,
+    "spd": 11,
+    "wis": 21
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 490,
+  "gold": 564,
+  "spriteKey": "mon.kumamoto-lastboss-kato-kiyomasa",
+  "dexBlurb": "安土桃山[あづちももやま]から 江戸[えど]時代[じだい]の はじめの 武将[ぶしょう]（1562〜1611年[ねん]）。熊本城[くまもとじょう]を きずき、川[かわ]の 水[みず]を おさめる 工事[こうじ]にも 力[ちから]を つくした。",
+  "fieldLine": "加藤清正[かとうきよまさ]じゃ。わしが きずいた 熊本城[くまもとじょう]、たやすくは 通[とお]さぬぞ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "tsuchi",
+      "skills": [
+        "sk-iwa-otoshi",
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ],
+      "line": "よくぞ ここまで！ 石[いし]と 水[みず]を あやつる わしの まことの 力[ちから]、見[み]せて くれよう！"
+    }
+  ]
+}

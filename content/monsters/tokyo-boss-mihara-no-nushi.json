@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokyo-boss-mihara-no-nushi",
+  "name": "ミハラノヌシ",
+  "area": "tokyo",
+  "motifId": "miharayama",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 291,
+    "mp": 40,
+    "atk": 17,
+    "def": 13,
+    "spd": 6,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 10,
+    "mp": 2,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-iwa-otoshi", "sk-tsuchi-kabe"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "tokyo-daikon-no-tane",
+      "rate": 1
+    },
+    {
+      "itemId": "tokyo-kiriko-kobachi",
+      "rate": 1
+    },
+    {
+      "itemId": "tokyo-momiji-no-tane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 190,
+  "gold": 224,
+  "spriteKey": "mon.tokyo-boss-mihara-no-nushi",
+  "dexBlurb": "伊豆大島[いずおおしま]の 三原山[みはらやま]の ぬし。黒[くろ]い 岩[いわ]の からだに、赤[あか]い つばきの 花[はな]を さかせる。伊豆大島[いずおおしま]も 東京都[とうきょうと]の 島[しま]。",
+  "fieldLine": "ゴゴゴ……。島[しま]の 火[ひ]の 山[やま]の 力[ちから]、見[み]せてやろう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": ["sk-hono-no-uzu", "sk-yamadashi-tosshin"],
+      "line": "マグマの 力[ちから]が わきあがる！ つばきの 花[はな]よ、もえあがれ！"
+    }
+  ]
+}

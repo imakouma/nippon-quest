@@ -1,0 +1,257 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "gunma",
+  "name": "群馬県[ぐんまけん]",
+  "island": "kanto",
+  "capital": "前橋市[まえばしし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "gunma-field",
+    "town": "gunma-town",
+    "dungeon": "gunma-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kusatsu-onsen",
+      "name": "草津温泉[くさつおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.gunma.kusatsu-onsen",
+      "blurb": "町[まち]の まん中[なか]に、お湯[ゆ]が わき出[で]る「湯畑[ゆばたけ]」が ある 温泉[おんせん]の 町[まち]。"
+    },
+    {
+      "id": "tomioka-seishijo",
+      "name": "富岡製糸場[とみおかせいしじょう]",
+      "kind": "history",
+      "imageKey": "motif.gunma.tomioka-seishijo",
+      "blurb": "明治時代[めいじじだい]に 作[つく]られた、まゆから 生糸[きいと]を とる 工場[こうじょう]。世界遺産[せかいいさん]に なっている。"
+    },
+    {
+      "id": "oze",
+      "name": "尾瀬[おぜ]",
+      "kind": "nature",
+      "imageKey": "motif.gunma.oze",
+      "blurb": "山[やま]の 上[うえ]に 広[ひろ]がる 湿原[しつげん]。初夏[しょか]に 白[しろ]い ミズバショウの 花[はな]が さく。"
+    },
+    {
+      "id": "tanigawadake",
+      "name": "谷川岳[たにがわだけ]",
+      "kind": "nature",
+      "imageKey": "motif.gunma.tanigawadake",
+      "blurb": "群馬県[ぐんまけん]と 新潟県[にいがたけん]の さかいに ある 山[やま]。ロープウェイで 高[たか]い ところまで 行[い]ける。"
+    },
+    {
+      "id": "fukiware-no-taki",
+      "name": "吹割[ふきわれ]の 滝[たき]",
+      "kind": "nature",
+      "imageKey": "motif.gunma.fukiware-no-taki",
+      "blurb": "川[かわ]の 岩[いわ]が われた ところに、水[みず]が 流[なが]れこむ めずらしい 滝[たき]。「東洋[とうよう]の ナイアガラ」とも よばれる。"
+    },
+    {
+      "id": "ikaho-onsen",
+      "name": "伊香保温泉[いかほおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.gunma.ikaho-onsen",
+      "blurb": "長[なが]い 石段[いしだん]の 両[りょう]がわに、旅館[りょかん]や お店[みせ]が ならぶ 温泉[おんせん]の 町[まち]。"
+    },
+    {
+      "id": "takasaki-daruma",
+      "name": "高崎[たかさき]だるま",
+      "kind": "craft",
+      "imageKey": "motif.gunma.takasaki-daruma",
+      "blurb": "高崎市[たかさきし]は、えんぎものの だるまを たくさん 作[つく]る 町[まち]。ねがいごとを して 目[め]を かき入[い]れる。"
+    },
+    {
+      "id": "konnyaku",
+      "name": "こんにゃく",
+      "kind": "food",
+      "imageKey": "motif.gunma.konnyaku",
+      "blurb": "こんにゃくいもから 作[つく]る 食[た]べもの。こんにゃくいもは ほとんどが 群馬県[ぐんまけん]で 作[つく]られる。"
+    },
+    {
+      "id": "tsumagoi-kyabetsu",
+      "name": "嬬恋村[つまごいむら]の キャベツ",
+      "kind": "food",
+      "imageKey": "motif.gunma.tsumagoi-kyabetsu",
+      "blurb": "夏[なつ]でも すずしい 嬬恋村[つまごいむら]の 高原[こうげん]で、たくさん 作[つく]られる キャベツ。"
+    },
+    {
+      "id": "yakimanju",
+      "name": "焼[や]きまんじゅう",
+      "kind": "food",
+      "imageKey": "motif.gunma.yakimanju",
+      "blurb": "くしに さした まんじゅうに、あまい みそだれを ぬって やいた 群馬[ぐんま]の 名物[めいぶつ]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "gunma-kyabezukin",
+          "weight": 40
+        },
+        {
+          "monsterId": "gunma-mayumaru",
+          "weight": 30
+        },
+        {
+          "monsterId": "gunma-purukon",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "gunma-kyabezukin",
+          "weight": 60
+        },
+        {
+          "monsterId": "gunma-purukon",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "gunma-purukon",
+          "weight": 55
+        },
+        {
+          "monsterId": "gunma-mayumaru",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "gunma-mayumaru",
+          "weight": 60
+        },
+        {
+          "monsterId": "gunma-kyabezukin",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "gunma-purukon",
+          "weight": 40
+        },
+        {
+          "monsterId": "gunma-mayumaru",
+          "weight": 35
+        },
+        {
+          "monsterId": "gunma-kyabezukin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "gunma-boss-gankake-daruma",
+  "midBoss": "gunma-midboss-yumomi-daisho",
+  "secret": {
+    "name": "新田荘[にったのしょう]",
+    "boss": "gunma-lastboss-nitta-yoshisada"
+  },
+  "events": [
+    {
+      "id": "ev-gunma-tomioka-seishijo",
+      "motifId": "tomioka-seishijo",
+      "trigger": {
+        "map": "gunma-field",
+        "objectName": "event_gunma_tomioka-seishijo"
+      },
+      "once": true,
+      "cutinImageKey": "motif.gunma.tomioka-seishijo",
+      "dialogue": [
+        {
+          "speaker": "製糸場[せいしじょう]の ガイドさん",
+          "text": "富岡製糸場[とみおかせいしじょう]は、1872年[ねん]に できた 工場[こうじょう]だよ。むかしの 日本[にほん]の ものづくりを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:gunma"]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "製糸場[せいしじょう]の ガイドさん",
+          "text": "よく がんばったね！ ここで 作[つく]られた 生糸[きいと]は、世界[せかい]へ 送[おく]られたんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "前橋市[まえばしし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-gunma-shop",
+        "name": "焼[や]きまんじゅう屋[や]の おばあちゃん",
+        "spriteKey": "char.npc-gunma-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "焼[や]きまんじゅうは、あまい みそだれを ぬって こんがり やくんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-gunma-smith",
+        "name": "だるま職人[しょくにん]",
+        "spriteKey": "char.npc-gunma-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "高崎[たかさき]だるまの まゆげは 鶴[つる]、ひげは 亀[かめ]の 形[かたち]なんだ。えんぎが いいだろう？"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saitama-lastboss-shibusawa-eiichi",
+  "name": "渋沢栄一[しぶさわえいいち]",
+  "area": "saitama",
+  "motifId": "fukaya-negi",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 308,
+    "mp": 45,
+    "atk": 18,
+    "def": 15,
+    "spd": 11,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 12,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.5,
+    "spd": 0.9,
+    "wis": 1.3
+  },
+  "skills": ["sk-happa-arashi", "sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 297,
+  "gold": 342,
+  "spriteKey": "mon.saitama-lastboss-shibusawa-eiichi",
+  "dexBlurb": "深谷[ふかや]の 農家[のうか]に 生[う]まれた 実業家[じつぎょうか]（1840〜1931年[ねん]）。日本[にほん]で はじめての 銀行[ぎんこう]など、500ほどの 会社[かいしゃ]づくりに かかわった。",
+  "fieldLine": "渋沢栄一[しぶさわえいいち]じゃ。深谷[ふかや]の 生[う]まれの わしと、そろばんで しょうぶと いこう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": ["sk-hikari-no-ya", "sk-happa-arashi"],
+      "line": "学[まな]びと はたらきは、車[くるま]の 両輪[りょうりん]じゃ！"
+    }
+  ]
+}

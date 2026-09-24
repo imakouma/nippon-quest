@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-tono-kappa",
+  "name": "トオノカッパ",
+  "area": "iwate",
+  "motifId": "tono",
+  "element": "mizu",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 36,
+    "mp": 8,
+    "atk": 9,
+    "def": 6,
+    "spd": 9,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.25
+    },
+    {
+      "itemId": "iwate-kappabuchi-no-kyuri",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.1,
+  "xp": 20,
+  "gold": 14,
+  "spriteKey": "mon.iwate-tono-kappa",
+  "evolution": {
+    "to": "iwate-oo-kappa",
+    "item": "iwate-kappabuchi-no-kyuri"
+  },
+  "dexBlurb": "遠野[とおの]の 昔話[むかしばなし]に 出[で]てくる カッパ。あたまの お皿[さら]が かわくと 元気[げんき]が なくなる。きゅうりが 大好[だいす]き。"
+}

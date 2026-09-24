@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyagi-tanyakki",
+  "name": "タンヤッキー",
+  "area": "miyagi",
+  "motifId": "gyutan",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 36,
+    "mp": 8,
+    "atk": 11,
+    "def": 6,
+    "spd": 8,
+    "wis": 5
+  },
+  "growth": {
+    "hp": 4.6,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.9,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "miyagi-gyutan-no-shio",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 14,
+  "spriteKey": "mon.miyagi-tanyakki",
+  "dexBlurb": "炭火[すみび]の 上[うえ]で はねる 牛[ぎゅう]タンの モンスター。こんがり やけると いい においが する。",
+  "evolution": {
+    "to": "miyagi-oo-sumibitan",
+    "item": "miyagi-gyutan-no-shio"
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "$ref": "#/definitions/monsters",
+  "definitions": {
+    "monsters": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        },
+        "name": {
+          "type": "string",
+          "description": "RubyText: \"漢字[かんじ]\" 形式"
+        },
+        "area": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        },
+        "motifId": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        },
+        "element": {
+          "type": "string",
+          "enum": [
+            "hino",
+            "mizu",
+            "mori",
+            "tsuchi",
+            "kaze",
+            "hikari",
+            "yami",
+            "none"
+          ]
+        },
+        "weakness": {
+          "type": "string",
+          "enum": [
+            "hino",
+            "mizu",
+            "mori",
+            "tsuchi",
+            "kaze",
+            "hikari",
+            "yami",
+            "none"
+          ],
+          "description": "「しらべる」で判明するじゃくてん"
+        },
+        "baseStats": {
+          "type": "object",
+          "properties": {
+            "hp": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "mp": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "atk": {
+              "type": "number",
+              "minimum": 0
+            },
+            "def": {
+              "type": "number",
+              "minimum": 0
+            },
+            "spd": {
+              "type": "number",
+              "minimum": 0
+            },
+            "wis": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "hp",
+            "mp",
+            "atk",
+            "def",
+            "spd",
+            "wis"
+          ],
+          "additionalProperties": false
+        },
+        "growth": {
+          "type": "object",
+          "properties": {
+            "hp": {
+              "type": "number"
+            },
+            "mp": {
+              "type": "number"
+            },
+            "atk": {
+              "type": "number"
+            },
+            "def": {
+              "type": "number"
+            },
+            "spd": {
+              "type": "number"
+            },
+            "wis": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "hp",
+            "mp",
+            "atk",
+            "def",
+            "spd",
+            "wis"
+          ],
+          "additionalProperties": false
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*$",
+            "description": "一意なID（小文字英数字・ドット・ハイフン）"
+          },
+          "default": []
+        },
+        "drops": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "rate": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "itemId",
+              "rate"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "recruitRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0
+        },
+        "recruitItem": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        },
+        "xp": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "gold": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "spriteKey": {
+          "type": "string"
+        },
+        "dexBlurb": {
+          "type": "string",
+          "description": "RubyText: \"漢字[かんじ]\" 形式"
+        },
+        "isBoss": {
+          "type": "boolean",
+          "default": false
+        },
+        "bossPhases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hpBelow": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "skills": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                }
+              },
+              "spriteKey": {
+                "type": "string"
+              },
+              "element": {
+                "type": "string",
+                "enum": [
+                  "hino",
+                  "mizu",
+                  "mori",
+                  "tsuchi",
+                  "kaze",
+                  "hikari",
+                  "yami",
+                  "none"
+                ]
+              },
+              "actionsPerTurn": {
+                "type": "integer",
+                "exclusiveMinimum": 0
+              },
+              "line": {
+                "type": "string",
+                "description": "RubyText: \"漢字[かんじ]\" 形式"
+              }
+            },
+            "required": [
+              "hpBelow"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "actionIntervalMs": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "description": "（ターン制では つかわない。だれでも 1 ターンに 1 回 動く）むかしの リアルタイム用の 周期"
+        },
+        "evolution": {
+          "type": "object",
+          "properties": {
+            "to": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9.-]*$",
+              "description": "しんかした あとの モンスター id"
+            },
+            "item": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9.-]*$",
+              "description": "しんかに つかう どうぐ（count こ へる）"
+            },
+            "count": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "しんかに つかう どうぐの数（省略時は 1）"
+            },
+            "minLevel": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "description": "このレベルから しんかできる"
+            }
+          },
+          "required": [
+            "to",
+            "item"
+          ],
+          "additionalProperties": false,
+          "description": "しんか：なかまの画面で item を つかうと to に なる"
+        },
+        "fieldLine": {
+          "type": "string",
+          "description": "フィールドで道をふさぐ中ボスのセリフ。名前は出さず「？？？」の発言として出す（無ければ共通のセリフ）"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "area",
+        "motifId",
+        "element",
+        "baseStats",
+        "growth",
+        "xp",
+        "gold",
+        "spriteKey",
+        "dexBlurb"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

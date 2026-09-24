@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nara-happazushi",
+  "name": "ハッパズシ",
+  "area": "nara",
+  "motifId": "kakinohazushi",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 46,
+    "mp": 11,
+    "atk": 11,
+    "def": 10,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.1,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "nara-gojo-gaki",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 23,
+  "gold": 16,
+  "spriteKey": "mon.nara-happazushi",
+  "evolution": {
+    "to": "nara-happazushi-yagura",
+    "item": "nara-gojo-gaki"
+  },
+  "dexBlurb": "柿[かき]の 葉[は]で くるまれた おすしの モンスター。海[うみ]の ない 奈良[なら]では、塩[しお]で しめた さばを 柿[かき]の 葉[は]で つつんで 長[なが]もちさせた。"
+}

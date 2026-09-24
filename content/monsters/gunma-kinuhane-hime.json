@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gunma-kinuhane-hime",
+  "name": "キヌハネヒメ",
+  "area": "gunma",
+  "motifId": "tomioka-seishijo",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 54,
+    "mp": 16,
+    "atk": 13,
+    "def": 10,
+    "spd": 10,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.3,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 19,
+  "spriteKey": "mon.gunma-kinuhane-hime",
+  "dexBlurb": "マユマルが しんかした すがた。カイコは まゆの 中[なか]で すがたを かえ、白[しろ]い ガに なる。"
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "chiba-midboss-inubouken",
+  "name": "イヌボウケン",
+  "area": "chiba",
+  "motifId": "inubosaki",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 106,
+    "mp": 18,
+    "atk": 11,
+    "def": 8,
+    "spd": 7,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 8,
+    "mp": 2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.6,
+    "wis": 0.6
+  },
+  "skills": ["sk-tashizan-giri", "sk-kanji-barrier"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 62,
+  "gold": 73,
+  "spriteKey": "mon.chiba-midboss-inubouken",
+  "dexBlurb": "犬吠埼[いぬぼうさき]の 白[しろ]い 灯台[とうだい]を せおった 大[おお]きな 犬[いぬ]。犬吠埼[いぬぼうさき]は 関東[かんとう]の 東[ひがし]の はしに ある みさきで、初日[はつひ]の 出[で]の 名所[めいしょ]。",
+  "fieldLine": "ワオーン！ この みさきを とおりたければ、わしと しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": ["sk-hikari-no-ya"],
+      "line": "灯台[とうだい]の 光[ひかり]よ、てらせー！"
+    }
+  ]
+}

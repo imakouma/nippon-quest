@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "wakayama-ootakimaru",
+  "name": "オオタキマル",
+  "area": "wakayama",
+  "motifId": "nachi-no-taki",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 64,
+    "mp": 17,
+    "atk": 17,
+    "def": 13,
+    "spd": 11,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.9,
+    "def": 1.2,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 34,
+  "gold": 24,
+  "spriteKey": "mon.wakayama-ootakimaru",
+  "dexBlurb": "滝[たき]の 水[みず]を そのまま せなかに せおった すがた。おちる 水[みず]の 音[おと]で 相手[あいて]を おどろかせる。"
+}

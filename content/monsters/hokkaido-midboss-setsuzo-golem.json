@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-midboss-setsuzo-golem",
+  "name": "セツゾウゴーレム",
+  "area": "hokkaido",
+  "motifId": "yuki-matsuri",
+  "element": "mizu",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 122,
+    "mp": 20,
+    "atk": 12,
+    "def": 9,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 70,
+  "gold": 83,
+  "spriteKey": "mon.hokkaido-midboss-setsuzo-golem",
+  "dexBlurb": "さっぽろ雪[ゆき]まつりの 大[おお]きな 雪像[せつぞう]が 動[うご]きだした すがた。雪[ゆき]まつりでは、雪[ゆき]を かためて けずり、大[おお]きな 像[ぞう]を 作[つく]る。",
+  "fieldLine": "ゴゴゴ…。この 先[さき]へは 通[とお]さん。雪[ゆき]の 力[ちから]で しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-fubuki",
+        "sk-iwa-otoshi"
+      ],
+      "line": "ゴゴゴ…！ 雪[ゆき]の よろいが 氷[こおり]に かわる！ 北[きた]の ふぶきを うけて みよ！"
+    }
+  ]
+}

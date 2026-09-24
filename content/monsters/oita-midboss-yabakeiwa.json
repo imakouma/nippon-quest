@@ -1,0 +1,52 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-midboss-yabakeiwa",
+  "name": "ヤバケイワ",
+  "area": "oita",
+  "motifId": "yabakei",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 177,
+    "mp": 29,
+    "atk": 17,
+    "def": 13,
+    "spd": 9,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 102,
+  "gold": 117,
+  "spriteKey": "mon.oita-midboss-yabakeiwa",
+  "dexBlurb": "耶馬渓[やばけい]の ごつごつの 岩山[いわやま]が 動[うご]きだした 中[ちゅう]ボス。耶馬渓[やばけい]には、人[ひと]が 30年[ねん]ほど かけて 岩[いわ]を ほった トンネル「青[あお]の 洞門[どうもん]」が ある。",
+  "fieldLine": "ここは 通[とお]さん！ 耶馬渓[やばけい]の 岩山[いわやま]を こえたければ、わしと しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-iwa-otoshi",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "ゴゴゴゴ……岩山[いわやま]が 目[め]を さました！ 耶馬渓[やばけい]の 岩[いわ]、まとめて たたきつけるぞ！"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyazaki-hyuga-maru",
+  "name": "ヒュウガマル",
+  "area": "miyazaki",
+  "motifId": "hyuganatsu",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 73,
+    "mp": 21,
+    "atk": 19,
+    "def": 14,
+    "spd": 12,
+    "wis": 13
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-happa-cutter",
+    "sk-happa-arashi"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 41,
+  "gold": 27,
+  "spriteKey": "mon.miyazaki-hyuga-maru",
+  "dexBlurb": "ヒュウガナッツが しんかした すがた。日[ひ]の 光[ひかり]を たっぷり あびて 大[おお]きく そだち、葉[は]の マントを ひるがえす。"
+}

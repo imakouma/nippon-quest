@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kochi-homura-katsuo",
+  "name": "ホムラカツオ",
+  "area": "kochi",
+  "motifId": "katsuo-tataki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 68,
+    "mp": 18,
+    "atk": 22,
+    "def": 12,
+    "spd": 14,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1,
+    "spd": 1.3,
+    "wis": 0.8
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 30,
+  "spriteKey": "mon.kochi-homura-katsuo",
+  "dexBlurb": "アブリカツオが しんかした すがた。せなかから わらの ほのおを あげて つっこむ。かつおは 高知県[こうちけん]の 県[けん]の 魚[さかな]。"
+}

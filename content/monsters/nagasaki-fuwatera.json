@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-fuwatera",
+  "name": "フワテラ",
+  "area": "nagasaki",
+  "motifId": "castella",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 55,
+    "mp": 15,
+    "atk": 12,
+    "def": 11,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.1,
+    "spd": 0.8,
+    "wis": 0.9
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "nagasaki-kiwaku-no-ita",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 20,
+  "spriteKey": "mon.nagasaki-fuwatera",
+  "evolution": {
+    "to": "nagasaki-castel-knight",
+    "item": "nagasaki-kiwaku-no-ita"
+  },
+  "dexBlurb": "ふわふわの カステラの モンスター。長崎[ながさき]の カステラは、むかし ポルトガルから つたわった おかしが もとに なっている。"
+}

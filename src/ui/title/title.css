@@ -1,0 +1,79 @@
+/*
+ * タイトル画面のメニュー。窓（.nq-win）と ♥（.nq-heart）は app.css の共通部品。
+ * 文字は 12 / 24 / 36px（PixelMplus12 のマス目の倍数）。
+ */
+.nq-title {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.nq-title-menu {
+  position: absolute;
+  left: 400px;
+  top: 328px;
+  width: 312px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  animation: nq-pop-in 0.3s steps(4) 0.9s both;
+}
+.nq-title-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 60px;
+  padding: 0 4px;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 36px;
+  text-align: left;
+  cursor: pointer;
+}
+.nq-title-opt .nq-cur {
+  width: 36px;
+  font-size: 36px;
+}
+.nq-title-opt.nq-focus {
+  color: var(--nq-yellow);
+}
+.nq-title-opt.nq-off {
+  color: #6b6f80;
+}
+.nq-title-opt.nq-chosen {
+  animation: nq-blink 0.12s steps(2) 5;
+}
+.nq-title-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 484px;
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  color: #fff3a3;
+  text-shadow:
+    2px 2px 0 #1a1428,
+    -2px 2px 0 #1a1428,
+    2px -2px 0 #1a1428,
+    -2px -2px 0 #1a1428;
+  animation: nq-blink 1.2s steps(2) 1.2s infinite;
+}
+.nq-title-note {
+  color: #ff8fb1;
+  animation: none;
+}
+.nq-title-credit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 4px 0;
+  background: rgba(26, 20, 40, 0.75);
+  text-align: center;
+  font-size: 12px;
+  line-height: 12px;
+  color: #a3aabb;
+}

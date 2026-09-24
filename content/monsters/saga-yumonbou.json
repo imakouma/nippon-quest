@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-yumonbou",
+  "name": "ユモンボウ",
+  "area": "saga",
+  "motifId": "takeo-onsen",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 51,
+    "mp": 12,
+    "atk": 16,
+    "def": 9,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.9,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "saga-takeo-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 16,
+  "spriteKey": "mon.saga-yumonbou",
+  "evolution": {
+    "to": "saga-yumon-douji",
+    "item": "saga-takeo-no-shizuku"
+  },
+  "dexBlurb": "武雄温泉[たけおおんせん]の 朱色[しゅいろ]の 楼門[ろうもん]から 生[う]まれた 子[こ]。頭[あたま]の 上[うえ]から いつも あたたかい 湯[ゆ]けむりが 立[た]つ。"
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okayama-boss-kibi-no-onio",
+  "name": "キビノオニオウ",
+  "area": "okayama",
+  "motifId": "okayama-hakuto",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": {
+    "hp": 460,
+    "mp": 59,
+    "atk": 26,
+    "def": 18,
+    "spd": 10,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-yami-no-uta",
+    "sk-kuku-rush"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "okayama-momo-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "okayama-onshitsu-no-glass",
+      "rate": 1
+    },
+    {
+      "itemId": "okayama-akamatsu-no-maki",
+      "rate": 1
+    },
+    {
+      "itemId": "okayama-denim-no-ito",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 298,
+  "gold": 349,
+  "spriteKey": "mon.okayama-boss-kibi-no-onio",
+  "dexBlurb": "桃太郎[ももたろう]の 話[はなし]に 出[で]てくる 鬼[おに]の 王[おう]さま。「吉備[きび]」は 岡山[おかやま]の むかしの よび名[な]で、岡山[おかやま]は 桃太郎[ももたろう]の 話[はなし]の ふるさとと いわれる。",
+  "fieldLine": "ガッハッハ！「鬼[おに]に 金棒[かなぼう]」とは わしの ことよ！ かかって こい！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-hono-no-uzu"
+      ],
+      "line": "ぬぅん…！ 赤鬼[あかおに]と なり、金棒[かなぼう]に 炎[ほのお]を まとうぞ！"
+    }
+  ]
+}

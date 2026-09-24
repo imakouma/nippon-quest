@@ -1,0 +1,209 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "ehime",
+  "name": "愛媛県[えひめけん]",
+  "island": "shikoku",
+  "capital": "松山市[まつやまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "ehime-field",
+    "town": "ehime-town",
+    "dungeon": "ehime-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "dogo-onsen",
+      "name": "道後温泉[どうごおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.ehime.dogo-onsen",
+      "blurb": "とても 古[ふる]くからの 温泉[おんせん]。木[き]づくりの 大[おお]きな 湯屋[ゆや]が 有名[ゆうめい]。"
+    },
+    {
+      "id": "shimanami",
+      "name": "しまなみ海道[かいどう]",
+      "kind": "landmark",
+      "imageKey": "motif.ehime.shimanami",
+      "blurb": "今治市[いまばりし]から 広島県[ひろしまけん]の 尾道[おのみち]まで、島[しま]と 島[しま]を 橋[はし]で むすぶ 道[みち]。自転車[じてんしゃ]でも わたれる。"
+    },
+    {
+      "id": "uchiko",
+      "name": "内子[うちこ]の 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.ehime.uchiko",
+      "blurb": "むかし ろうそく作[づく]りで さかえた 町[まち]。白[しろ]い かべの 家[いえ]が ならぶ。"
+    },
+    {
+      "id": "ishizuchisan",
+      "name": "石鎚山[いしづちさん]",
+      "kind": "nature",
+      "imageKey": "motif.ehime.ishizuchisan",
+      "blurb": "西日本[にしにほん]で いちばん 高[たか]い 山[やま]。"
+    },
+    {
+      "id": "sadamisaki",
+      "name": "佐田岬[さだみさき]",
+      "kind": "nature",
+      "imageKey": "motif.ehime.sadamisaki",
+      "blurb": "四国[しこく]で いちばん 西[にし]に つき出[で]た、細長[ほそなが]い 半島[はんとう]の 先[さき]。"
+    },
+    {
+      "id": "besshi-dozan",
+      "name": "別子銅山[べっしどうざん]",
+      "kind": "history",
+      "imageKey": "motif.ehime.besshi-dozan",
+      "blurb": "むかし 銅[どう]を ほった 鉱山[こうざん]の あと。山[やま]の 中[なか]に 石[いし]づくりの 建物[たてもの]の あとが のこる。"
+    },
+    {
+      "id": "imabari-towel",
+      "name": "今治[いまばり]の タオル",
+      "kind": "craft",
+      "imageKey": "motif.ehime.imabari-towel",
+      "blurb": "今治市[いまばりし]は、タオル作[づく]りが とても さかんな 町[まち]。"
+    },
+    {
+      "id": "ehime-mikan",
+      "name": "愛媛[えひめ]の みかん",
+      "kind": "food",
+      "imageKey": "motif.ehime.ehime-mikan",
+      "blurb": "海[うみ]に 面[めん]した 山[やま]の だんだん畑[ばたけ]で、みかんなどの かんきつが たくさん 作[つく]られる。"
+    },
+    {
+      "id": "jakoten",
+      "name": "じゃこ天[てん]",
+      "kind": "food",
+      "imageKey": "motif.ehime.jakoten",
+      "blurb": "小[ちい]さな 魚[さかな]を 骨[ほね]ごと すりつぶして あげた、宇和島[うわじま]の 名物[めいぶつ]。"
+    },
+    {
+      "id": "tobeyaki",
+      "name": "砥部焼[とべやき]",
+      "kind": "craft",
+      "imageKey": "motif.ehime.tobeyaki",
+      "blurb": "砥部町[とべちょう]で 作[つく]られる、白[しろ]い 地[じ]に 青[あお]い もようの やきもの。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        { "monsterId": "ehime-mofutaoru", "weight": 45 },
+        { "monsterId": "ehime-komikan", "weight": 35 },
+        { "monsterId": "ehime-jakotengyo", "weight": 20 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        { "monsterId": "ehime-komikan", "weight": 70 },
+        { "monsterId": "ehime-mofutaoru", "weight": 30 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        { "monsterId": "ehime-mofutaoru", "weight": 55 },
+        { "monsterId": "ehime-komikan", "weight": 45 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        { "monsterId": "ehime-komikan", "weight": 60 },
+        { "monsterId": "ehime-mofutaoru", "weight": 40 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        { "monsterId": "ehime-jakotengyo", "weight": 70 },
+        { "monsterId": "ehime-mofutaoru", "weight": 30 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        { "monsterId": "ehime-jakotengyo", "weight": 40 },
+        { "monsterId": "ehime-mofutaoru", "weight": 35 },
+        { "monsterId": "ehime-komikan", "weight": 25 }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "ehime-boss-ishizuchi-ou",
+  "midBoss": "ehime-midboss-yuamisagi",
+  "secret": { "name": "能島[のしま]の とりで", "boss": "ehime-lastboss-murakami-takeyoshi" },
+  "events": [
+    {
+      "id": "ev-ehime-uchiko",
+      "motifId": "uchiko",
+      "trigger": {
+        "map": "ehime-field",
+        "objectName": "event_ehime_uchiko"
+      },
+      "once": true,
+      "cutinImageKey": "motif.ehime.uchiko",
+      "dialogue": [
+        {
+          "speaker": "内子[うちこ]の 町[まち]の ガイドさん",
+          "text": "内子[うちこ]は むかし、ろうそくの もとに なる ろうを 作[つく]って さかえた 町[まち]。白[しろ]い かべの 家[いえ]が ならんでいるよ。"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:ehime"]
+      },
+      "rewardByScore": [
+        { "min": 1, "reward": { "xp": 40, "gold": 100 } },
+        { "min": 0.5, "reward": { "xp": 20, "gold": 50 } },
+        { "min": 0, "reward": { "xp": 10, "gold": 10 } }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "内子[うちこ]の 町[まち]の ガイドさん",
+          "text": "よく しらべたね。むかしの 人[ひと]の くらしが 見[み]えて きたかな。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "松山市[まつやまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-ehime-shop",
+        "name": "みかん屋[や]の おばちゃん",
+        "spriteKey": "char.npc-ehime-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 愛媛[えひめ]では みかんの ほかにも、いよかんや ぽんかんなど たくさんの かんきつが とれるのよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-ehime-smith",
+        "name": "砥部焼[とべやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-ehime-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "砥部焼[とべやき]は ぽってり あつくて じょうぶだ。白[しろ]い 地[じ]に 青[あお]い もようを 筆[ふで]で かくんだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

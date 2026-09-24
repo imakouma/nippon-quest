@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokushima-sorawatari",
+  "name": "ソラワタリ",
+  "area": "tokushima",
+  "motifId": "iya-kazurabashi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 67,
+    "mp": 18,
+    "atk": 21,
+    "def": 12,
+    "spd": 16,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1,
+    "spd": 1.8,
+    "wis": 1
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 38,
+  "gold": 27,
+  "spriteKey": "mon.tokushima-sorawatari",
+  "dexBlurb": "カズラムササビが しんかした すがた。かずら橋[ばし]の ゆかは 板[いた]の すきまが あいていて、下[した]の 川[かわ]が 見[み]える。"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-lastboss-mouri-motonari",
+  "name": "毛利元就[もうりもとなり]",
+  "area": "hiroshima",
+  "motifId": "takehara",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 503,
+    "mp": 64,
+    "atk": 27,
+    "def": 22,
+    "spd": 12,
+    "wis": 20
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-kaikyo-no-kaze",
+    "sk-habataki"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 452,
+  "gold": 503,
+  "spriteKey": "mon.hiroshima-lastboss-mouri-motonari",
+  "dexBlurb": "戦国[せんごく]時代[じだい]の 武将[ぶしょう]（1497〜1571年[ねん]）。安芸[あき]の 吉田[よしだ]から 中国地方[ちゅうごくちほう]の 大[おお]きな 大名[だいみょう]に なった。3人[にん]の 子[こ]に 力[ちから]を 合[あ]わせる 大切[たいせつ]さを 教[おし]えた という「三本[さんぼん]の 矢[や]」の 話[はなし]が 有名[ゆうめい]。",
+  "fieldLine": "毛利元就[もうりもとなり]じゃ。この 郡山城[こおりやまじょう]で、そなたの ちえと 力[ちから]を ためそう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-hikari-no-ya",
+        "sk-hikari-no-hane",
+        "sk-konjiki-no-kiba"
+      ],
+      "line": "1本[ぽん]の 矢[や]は おれても、3本[ぼん] たばねれば おれぬ！ これが 毛利[もうり]の 力[ちから]よ！"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-miso-yagura",
+  "name": "ミソヤグラ",
+  "area": "aichi",
+  "motifId": "hatcho-miso",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 70,
+    "mp": 14,
+    "atk": 16,
+    "def": 16,
+    "spd": 8,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 1.0
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 34,
+  "gold": 23,
+  "spriteKey": "mon.aichi-miso-yagura",
+  "dexBlurb": "ハッチョンが しんかした すがた。八丁味噌[はっちょうみそ]の 名前[なまえ]は、岡崎城[おかざきじょう]から 八丁[はっちょう]（やく 870メートル）はなれた 村[むら]で 作[つく]られた ことから。"
+}

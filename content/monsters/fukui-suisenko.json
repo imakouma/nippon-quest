@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukui-suisenko",
+  "name": "スイセンコ",
+  "area": "fukui",
+  "motifId": "echizen-suisen",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 38,
+    "mp": 11,
+    "atk": 9,
+    "def": 7,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "fukui-suisen-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.fukui-suisenko",
+  "evolution": {
+    "to": "fukui-yuki-no-suisen",
+    "item": "fukui-suisen-no-hana"
+  },
+  "dexBlurb": "越前[えちぜん]の 水仙[すいせん]の モンスター。水仙[すいせん]は 冬[ふゆ]の さむい 時[とき]に、海[うみ]の 見[み]える がけで 花[はな]を さかせる。"
+}

@@ -1,0 +1,278 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "tokushima",
+  "name": "徳島県[とくしまけん]",
+  "island": "shikoku",
+  "capital": "徳島市[とくしまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "tokushima-field",
+    "town": "tokushima-town",
+    "dungeon": "tokushima-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "naruto-uzushio",
+      "name": "鳴門[なると]の うず潮[しお]",
+      "kind": "nature",
+      "imageKey": "motif.tokushima.naruto-uzushio",
+      "blurb": "鳴門海峡[なるとかいきょう]で、潮[しお]の 流[なが]れが ぶつかって できる 大[おお]きな うず。"
+    },
+    {
+      "id": "awa-odori",
+      "name": "阿波[あわ]おどり",
+      "kind": "festival",
+      "imageKey": "motif.tokushima.awa-odori",
+      "blurb": "夏[なつ]に、町[まち]じゅうの 人[ひと]が 三味線[しゃみせん]や たいこに 合[あ]わせて おどる お祭[まつ]り。"
+    },
+    {
+      "id": "iya-kazurabashi",
+      "name": "祖谷[いや]の かずら橋[ばし]",
+      "kind": "landmark",
+      "imageKey": "motif.tokushima.iya-kazurabashi",
+      "blurb": "つるの 植物[しょくぶつ]「しらくちかずら」を あんで 作[つく]られた つり橋[ばし]。"
+    },
+    {
+      "id": "tsurugisan",
+      "name": "剣山[つるぎさん]",
+      "kind": "nature",
+      "imageKey": "motif.tokushima.tsurugisan",
+      "blurb": "徳島県[とくしまけん]で いちばん 高[たか]い 山[やま]。四国[しこく]では 2番目[ばんめ]に 高[たか]い。"
+    },
+    {
+      "id": "hiwasa-umigame",
+      "name": "日和佐[ひわさ]の ウミガメ",
+      "kind": "nature",
+      "imageKey": "motif.tokushima.hiwasa-umigame",
+      "blurb": "美波町[みなみちょう]の 大浜海岸[おおはまかいがん]には、アカウミガメが たまごを うみに やって くる。"
+    },
+    {
+      "id": "udatsu",
+      "name": "脇町[わきまち]の うだつの 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.tokushima.udatsu",
+      "blurb": "美馬市[みまし]の 脇町[わきまち]には、火事[かじ]よけの かべ「うだつ」を つけた 古[ふる]い 家[いえ]が ならぶ。"
+    },
+    {
+      "id": "sudachi",
+      "name": "すだち",
+      "kind": "food",
+      "imageKey": "motif.tokushima.sudachi",
+      "blurb": "ほとんどが 徳島県[とくしまけん]で 作[つく]られる、すっぱくて いい かおりの 小[ちい]さな みどりの 実[み]。"
+    },
+    {
+      "id": "aizome",
+      "name": "阿波[あわ]の 藍染[あいぞ]め",
+      "kind": "craft",
+      "imageKey": "motif.tokushima.aizome",
+      "blurb": "藍[あい]という 草[くさ]から とった 青[あお]い 色[いろ]で、布[ぬの]を そめる。徳島[とくしま]の 藍[あい]は とても 有名[ゆうめい]。"
+    },
+    {
+      "id": "naruto-kintoki",
+      "name": "なると金時[きんとき]",
+      "kind": "food",
+      "imageKey": "motif.tokushima.naruto-kintoki",
+      "blurb": "鳴門[なると]の 砂地[すなち]の 畑[はたけ]で 作[つく]られる、あまい さつまいも。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "tokushima-sudachibi",
+          "weight": 35
+        },
+        {
+          "monsterId": "tokushima-kintokin",
+          "weight": 35
+        },
+        {
+          "monsterId": "tokushima-kazura-musasabi",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "tokushima-kintokin",
+          "weight": 55
+        },
+        {
+          "monsterId": "tokushima-sudachibi",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "tokushima-kazura-musasabi",
+          "weight": 60
+        },
+        {
+          "monsterId": "tokushima-sudachibi",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "tokushima-kazura-musasabi",
+          "weight": 70
+        },
+        {
+          "monsterId": "tokushima-kintokin",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "tokushima-kintokin",
+          "weight": 45
+        },
+        {
+          "monsterId": "tokushima-hamagamen",
+          "weight": 35
+        },
+        {
+          "monsterId": "tokushima-sudachibi",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "tokushima-kazura-musasabi",
+          "weight": 35
+        },
+        {
+          "monsterId": "tokushima-hamagamen",
+          "weight": 30
+        },
+        {
+          "monsterId": "tokushima-kintokin",
+          "weight": 20
+        },
+        {
+          "monsterId": "tokushima-sudachibi",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "tokushima-boss-awaodori-ou",
+  "midBoss": "tokushima-midboss-uzushion",
+  "secret": {
+    "name": "徳島城[とくしまじょう]あと",
+    "boss": "tokushima-lastboss-hachisuka-iemasa"
+  },
+  "events": [
+    {
+      "id": "ev-tokushima-naruto-uzushio",
+      "motifId": "naruto-uzushio",
+      "trigger": {
+        "map": "tokushima-field",
+        "objectName": "event_tokushima_naruto-uzushio"
+      },
+      "once": true,
+      "cutinImageKey": "motif.tokushima.naruto-uzushio",
+      "dialogue": [
+        {
+          "speaker": "鳴門[なると]の ガイドさん",
+          "text": "橋[はし]の 上[うえ]から 見[み]ると、大[おお]きな うずが ぐるぐる まわって いるよ。海[うみ]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:tokushima"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "鳴門[なると]の ガイドさん",
+          "text": "よく しらべたね！ うず潮[しお]は、潮[しお]の 満[み]ちひきが 大[おお]きい 日[ひ]に とくに よく 見[み]られるんだ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "徳島市[とくしまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-tokushima-shop",
+        "name": "すだち農家[のうか]の おばあちゃん",
+        "spriteKey": "char.npc-tokushima-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい。すだちを ぎゅっと しぼると、なんでも おいしく なるんよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-tokushima-smith",
+        "name": "藍染[あいぞ]めの 職人[しょくにん]",
+        "spriteKey": "char.npc-tokushima-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "阿波[あわ]の 藍[あい]は、葉[は]を ねかせて「すくも」に してから、布[ぬの]を 青[あお]く そめるんじゃ。"
+          }
+        ]
+      }
+    ]
+  }
+}

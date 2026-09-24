@@ -1,0 +1,324 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "niigata",
+  "name": "新潟県[にいがたけん]",
+  "island": "hokuriku",
+  "capital": "新潟市[にいがたし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "niigata-field",
+    "town": "niigata-town",
+    "dungeon": "niigata-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "shinanogawa",
+      "name": "信濃川[しなのがわ]",
+      "kind": "nature",
+      "imageKey": "motif.niigata.shinanogawa",
+      "blurb": "日本[にほん]で いちばん 長[なが]い 川[かわ]。長野県[ながのけん]から 流[なが]れてきて、新潟市[にいがたし]で 海[うみ]に そそぐ。"
+    },
+    {
+      "id": "uonuma-okome",
+      "name": "魚沼[うおぬま]の お米[こめ]",
+      "kind": "food",
+      "imageKey": "motif.niigata.uonuma-okome",
+      "blurb": "魚沼[うおぬま]は おいしい お米[こめ]の 産地[さんち]。新潟県[にいがたけん]は お米[こめ]の 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "nagaoka-hanabi",
+      "name": "長岡[ながおか]まつりの 花火[はなび]",
+      "kind": "festival",
+      "imageKey": "motif.niigata.nagaoka-hanabi",
+      "blurb": "長岡市[ながおかし]で 夏[なつ]に ひらかれる 大[おお]きな 花火[はなび]大会[たいかい]。信濃川[しなのがわ]の 上[うえ]に 花火[はなび]が 上[あ]がる。"
+    },
+    {
+      "id": "tsubame-sanjo",
+      "name": "燕三条[つばめさんじょう]の 金物[かなもの]",
+      "kind": "craft",
+      "imageKey": "motif.niigata.tsubame-sanjo",
+      "blurb": "燕市[つばめし]と 三条市[さんじょうし]は、スプーンや なべなど 金属[きんぞく]の 道具[どうぐ]作[づく]りが さかん。"
+    },
+    {
+      "id": "ojiya-chijimi",
+      "name": "小千谷縮[おぢやちぢみ]",
+      "kind": "craft",
+      "imageKey": "motif.niigata.ojiya-chijimi",
+      "blurb": "小千谷市[おぢやし]で 作[つく]られる 麻[あさ]の 布[ぬの]。冬[ふゆ]に 雪[ゆき]の 上[うえ]に 広[ひろ]げて さらす。"
+    },
+    {
+      "id": "sasagawa-nagare",
+      "name": "笹川流[ささがわなが]れ",
+      "kind": "nature",
+      "imageKey": "motif.niigata.sasagawa-nagare",
+      "blurb": "村上市[むらかみし]の 海岸[かいがん]。青[あお]い 海[うみ]と、おもしろい 形[かたち]の 岩[いわ]が つづく。"
+    },
+    {
+      "id": "shiobiki-zake",
+      "name": "村上[むらかみ]の 塩引[しおび]き鮭[ざけ]",
+      "kind": "food",
+      "imageKey": "motif.niigata.shiobiki-zake",
+      "blurb": "村上市[むらかみし]の 名物[めいぶつ]。塩[しお]を した 鮭[さけ]を、冬[ふゆ]の 北風[きたかぜ]に あてて ほす。"
+    },
+    {
+      "id": "oyashirazu",
+      "name": "親不知[おやしらず]",
+      "kind": "nature",
+      "imageKey": "motif.niigata.oyashirazu",
+      "blurb": "けわしい 山[やま]が そのまま 海[うみ]に おちこむ がけの 海岸[かいがん]。むかしは 通[とお]るのが たいへんな 道[みち]だった。"
+    },
+    {
+      "id": "itoigawa-hisui",
+      "name": "糸魚川[いといがわ]の ヒスイ",
+      "kind": "nature",
+      "imageKey": "motif.niigata.itoigawa-hisui",
+      "blurb": "糸魚川[いといがわ]の 川[かわ]や 海岸[かいがん]では、みどり色[いろ]の 美[うつく]しい 石[いし]「ヒスイ」が 見[み]つかる。"
+    },
+    {
+      "id": "takada-yozakura",
+      "name": "高田[たかだ]の 夜[よ]ざくら",
+      "kind": "landmark",
+      "imageKey": "motif.niigata.takada-yozakura",
+      "blurb": "上越市[じょうえつし]の お城[しろ]の あとの 公園[こうえん]。春[はる]には 夜[よる]の さくらが あかりに てらされる。"
+    },
+    {
+      "id": "myokosan",
+      "name": "妙高山[みょうこうさん]",
+      "kind": "nature",
+      "imageKey": "motif.niigata.myokosan",
+      "blurb": "長野県[ながのけん]との さかいに 近[ちか]い 大[おお]きな 火山[かざん]。すがたが 美[うつく]しく「越後富士[えちごふじ]」とも よばれる。"
+    },
+    {
+      "id": "hyoko",
+      "name": "瓢湖[ひょうこ]",
+      "kind": "nature",
+      "imageKey": "motif.niigata.hyoko",
+      "blurb": "阿賀野市[あがのし]の 湖[みずうみ]。冬[ふゆ]に なると、北[きた]の 国[くに]から ハクチョウが たくさん やって くる。"
+    },
+    {
+      "id": "sado-kinzan",
+      "name": "佐渡金山[さどきんざん]",
+      "kind": "history",
+      "imageKey": "motif.niigata.sado-kinzan",
+      "blurb": "むかし 金[きん]や 銀[ぎん]を ほった 鉱山[こうざん]の あと。世界遺産[せかいいさん]に なっている。"
+    },
+    {
+      "id": "taraibune",
+      "name": "たらい舟[ぶね]",
+      "kind": "landmark",
+      "imageKey": "motif.niigata.taraibune",
+      "blurb": "大[おお]きな たらいのような 形[かたち]の 舟[ふね]。佐渡[さど]の 小木[おぎ]の 海[うみ]で のる ことが できる。"
+    },
+    {
+      "id": "sado-toki",
+      "name": "佐渡[さど]の トキ",
+      "kind": "nature",
+      "imageKey": "motif.niigata.sado-toki",
+      "blurb": "佐渡島[さどがしま]で 大切[たいせつ]に 育[そだ]てられ、空[そら]に もどされた 鳥[とり]。つばさを 広[ひろ]げると うすい ピンク色[いろ]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "niigata-inahon",
+          "weight": 35
+        },
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 28
+        },
+        {
+          "monsterId": "niigata-hisui-koro",
+          "weight": 20
+        },
+        {
+          "monsterId": "niigata-shiobikin",
+          "weight": 17
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "niigata-inahon",
+          "weight": 60
+        },
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 60
+        },
+        {
+          "monsterId": "niigata-inahon",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "niigata-hisui-koro",
+          "weight": 70
+        },
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "niigata-hisui-koro",
+          "weight": 38
+        },
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 22
+        },
+        {
+          "monsterId": "niigata-shiobikin",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "niigata-hisui-koro",
+          "weight": 45
+        },
+        {
+          "monsterId": "niigata-inahon",
+          "weight": 25
+        },
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 15
+        },
+        {
+          "monsterId": "niigata-shiobikin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "niigata-boss-shinanogawa-no-nushi",
+  "midBoss": "niigata-midboss-sanjaku-don",
+  "secret": {
+    "name": "春日山城[かすがやまじょう]",
+    "boss": "niigata-lastboss-uesugi-kenshin"
+  },
+  "events": [
+    {
+      "id": "ev-niigata-shinanogawa",
+      "motifId": "shinanogawa",
+      "trigger": {
+        "map": "niigata-field",
+        "objectName": "event_niigata_shinanogawa"
+      },
+      "once": true,
+      "cutinImageKey": "motif.niigata.shinanogawa",
+      "dialogue": [
+        {
+          "speaker": "信濃川[しなのがわ]の ガイドさん",
+          "text": "ここは 日本[にほん]で いちばん 長[なが]い 信濃川[しなのがわ]。川[かわ]と くらしの ことを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:niigata"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "信濃川[しなのがわ]の ガイドさん",
+          "text": "よく できたね！ 信濃川[しなのがわ]は、長野県[ながのけん]では 千曲川[ちくまがわ]と よばれて いるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "新潟市[にいがたし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-niigata-shop",
+        "name": "笹[ささ]だんご屋[や]の おばあちゃん",
+        "spriteKey": "char.npc-niigata-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 新潟[にいがた]の 笹[ささ]だんごは、よもぎの おだんごを 笹[ささ]の 葉[は]で つつんで あるんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-niigata-smith",
+        "name": "燕三条[つばめさんじょう]の 職人[しょくにん]",
+        "spriteKey": "char.npc-niigata-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "燕[つばめ]の スプーンや 三条[さんじょう]の はさみは、金属[きんぞく]を たたいて みがいて 作[つく]るんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-donabee",
+  "name": "ドナベエ",
+  "area": "mie",
+  "motifId": "bankoyaki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 47,
+    "mp": 10,
+    "atk": 14,
+    "def": 8,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.6,
+    "def": 0.9,
+    "spd": 0.9,
+    "wis": 0.6
+  },
+  "skills": ["sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "mie-igayaki",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 22,
+  "gold": 16,
+  "spriteKey": "mon.mie-donabee",
+  "evolution": {
+    "to": "mie-gutsugutsu-don",
+    "item": "mie-igayaki"
+  },
+  "dexBlurb": "萬古焼[ばんこやき]の 土[ど]なべの モンスター。萬古焼[ばんこやき]の 土[ど]なべは 火[ひ]に つよく、日本[にほん]の 土[ど]なべの 多[おお]くが 四日市[よっかいち]で 作[つく]られる。"
+}

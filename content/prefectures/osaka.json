@@ -1,0 +1,256 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "osaka",
+  "name": "大阪府[おおさかふ]",
+  "island": "kinki",
+  "capital": "大阪市[おおさかし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "osaka-field",
+    "town": "osaka-town",
+    "dungeon": "osaka-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "osaka-jo",
+      "name": "大阪城[おおさかじょう]",
+      "kind": "history",
+      "imageKey": "motif.osaka.osaka-jo",
+      "blurb": "大[おお]きな 石垣[いしがき]と ほりに かこまれた お城[しろ]。まわりは 広[ひろ]い 公園[こうえん]に なっている。"
+    },
+    {
+      "id": "daisen-kofun",
+      "name": "大仙古墳[だいせんこふん]",
+      "kind": "history",
+      "imageKey": "motif.osaka.daisen-kofun",
+      "blurb": "堺市[さかいし]に ある、日本[にほん]で いちばん 大[おお]きな 古墳[こふん]。上[うえ]から 見[み]ると かぎあなの 形[かたち]。"
+    },
+    {
+      "id": "minoo-no-taki",
+      "name": "箕面[みのお]の 滝[たき]",
+      "kind": "nature",
+      "imageKey": "motif.osaka.minoo-no-taki",
+      "blurb": "箕面市[みのおし]の 山[やま]に ある 滝[たき]。秋[あき]は もみじが きれい。"
+    },
+    {
+      "id": "kishiwada-danjiri",
+      "name": "岸和田[きしわだ]だんじり祭[まつ]り",
+      "kind": "festival",
+      "imageKey": "motif.osaka.kishiwada-danjiri",
+      "blurb": "大[おお]きな 木[き]の 山車[だし]「だんじり」を 引[ひ]いて、町[まち]を いきおいよく かけぬける お祭[まつ]り。"
+    },
+    {
+      "id": "banpaku-koen",
+      "name": "万博記念公園[ばんぱくきねんこうえん]",
+      "kind": "landmark",
+      "imageKey": "motif.osaka.banpaku-koen",
+      "blurb": "むかし 万国博覧会[ばんこくはくらんかい]が ひらかれた 場所[ばしょ]に できた、大[おお]きな 公園[こうえん]。"
+    },
+    {
+      "id": "takoyaki",
+      "name": "たこ焼[や]き",
+      "kind": "food",
+      "imageKey": "motif.osaka.takoyaki",
+      "blurb": "小麦粉[こむぎこ]の 生地[きじ]に たこを 入[い]れて、まるく やいた 大阪[おおさか]の 名物[めいぶつ]。"
+    },
+    {
+      "id": "mizunasu",
+      "name": "泉州[せんしゅう]の 水[みず]なす",
+      "kind": "food",
+      "imageKey": "motif.osaka.mizunasu",
+      "blurb": "泉州[せんしゅう]で 作[つく]られる、水分[すいぶん]が 多[おお]くて やわらかい なす。"
+    },
+    {
+      "id": "kawachi-budo",
+      "name": "河内[かわち]の ぶどう",
+      "kind": "food",
+      "imageKey": "motif.osaka.kawachi-budo",
+      "blurb": "柏原市[かしわらし]など、河内[かわち]の 山[やま]の しゃめんで ぶどうが 作[つく]られる。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "osaka-hafuhafu-yaki",
+          "weight": 25
+        },
+        {
+          "monsterId": "osaka-juwanasu",
+          "weight": 35
+        },
+        {
+          "monsterId": "osaka-sakusaku-momiji",
+          "weight": 20
+        },
+        {
+          "monsterId": "osaka-budomaru",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "osaka-juwanasu",
+          "weight": 35
+        },
+        {
+          "monsterId": "osaka-hafuhafu-yaki",
+          "weight": 40
+        },
+        {
+          "monsterId": "osaka-budomaru",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "osaka-sakusaku-momiji",
+          "weight": 70
+        },
+        {
+          "monsterId": "osaka-juwanasu",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "osaka-hafuhafu-yaki",
+          "weight": 60
+        },
+        {
+          "monsterId": "osaka-juwanasu",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "osaka-hafuhafu-yaki",
+          "weight": 40
+        },
+        {
+          "monsterId": "osaka-sakusaku-momiji",
+          "weight": 35
+        },
+        {
+          "monsterId": "osaka-juwanasu",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "osaka-boss-takoishi-daio",
+  "midBoss": "osaka-midboss-abare-danjiri",
+  "secret": {
+    "name": "大阪城[おおさかじょう] 本丸[ほんまる]",
+    "boss": "osaka-lastboss-toyotomi-hideyoshi"
+  },
+  "events": [
+    {
+      "id": "ev-osaka-daisen-kofun",
+      "motifId": "daisen-kofun",
+      "trigger": {
+        "map": "osaka-field",
+        "objectName": "event_osaka_daisen-kofun"
+      },
+      "once": true,
+      "cutinImageKey": "motif.osaka.daisen-kofun",
+      "dialogue": [
+        {
+          "speaker": "古墳[こふん]の ガイドさん",
+          "text": "これが 日本[にほん]で いちばん 大[おお]きな 古墳[こふん]、大仙古墳[だいせんこふん]だよ。むかしの ことを しらべて みよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:osaka"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "古墳[こふん]の ガイドさん",
+          "text": "よく できたね！ 大仙古墳[だいせんこふん]の ある 古墳群[こふんぐん]は、世界遺産[せかいいさん]にも なって いるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "大阪市[おおさかし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-osaka-shop",
+        "name": "たこ焼[や]き屋[や]の おっちゃん",
+        "spriteKey": "char.npc-osaka-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "まいど！ 大阪[おおさか]は むかし「天下[てんか]の 台所[だいどころ]」って よばれとったんやで。"
+          }
+        ]
+      },
+      {
+        "id": "npc-osaka-smith",
+        "name": "堺[さかい]の かじやの 親方[おやかた]",
+        "spriteKey": "char.npc-osaka-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "堺[さかい]は むかしから 鉄[てつ]を きたえる 町[まち]なんや。ええ どうぐを 作[つく]ったるで！"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "sansu.g1.tashizan.0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "tags": ["prefecture:aomori", "theme:ringo"],
+    "payload": {
+      "prompt": "りんごが 3こ、みかんが 4こ。ぜんぶで なんこ？",
+      "choices": [
+        { "id": "a", "text": "7こ" },
+        { "id": "b", "text": "6こ" },
+        { "id": "c", "text": "8こ" },
+        { "id": "d", "text": "1こ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "3こと 4こを あわせると 7こ。"
+  },
+  {
+    "id": "sansu.g1.tashizan.0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "5 + 2 = ？",
+      "choices": [
+        { "id": "a", "text": "7" },
+        { "id": "b", "text": "3" },
+        { "id": "c", "text": "8" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "5に 2を たすと 7。"
+  },
+  {
+    "id": "sansu.g1.tashizan.0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "6 + 4 = ？",
+      "choices": [
+        { "id": "a", "text": "10" },
+        { "id": "b", "text": "9" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "11" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "6と 4で 10の まとまり。"
+  },
+  {
+    "id": "sansu.g1.tashizan.0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "tags": ["theme:ringo"],
+    "payload": {
+      "prompt": "カゴに りんごが 8こ。あと 2こ いれると？",
+      "choices": [
+        { "id": "a", "text": "10こ" },
+        { "id": "b", "text": "6こ" },
+        { "id": "c", "text": "9こ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "8に 2を たすと 10。"
+  },
+  {
+    "id": "sansu.g1.tashizan.0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "9 + 3 = ？",
+      "choices": [
+        { "id": "a", "text": "12" },
+        { "id": "b", "text": "11" },
+        { "id": "c", "text": "13" },
+        { "id": "d", "text": "6" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "9に 1を たして 10、のこりの 2を たして 12。"
+  }
+]

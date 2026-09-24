@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kumamoto-boss-mushagaeshi",
+  "name": "ムシャガエシ",
+  "area": "kumamoto",
+  "motifId": "kumamoto-jo",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 490,
+    "mp": 66,
+    "atk": 29,
+    "def": 23,
+    "spd": 8,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "kumamoto-odama-no-tane",
+      "rate": 1
+    },
+    {
+      "itemId": "kumamoto-higotai-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "kumamoto-tairyo-hata",
+      "rate": 1
+    },
+    {
+      "itemId": "kumamoto-aoigusa-no-tabane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 324,
+  "gold": 379,
+  "spriteKey": "mon.kumamoto-boss-mushagaeshi",
+  "dexBlurb": "熊本城[くまもとじょう]の 石垣[いしがき]から 生[う]まれた 岩[いわ]の 巨人[きょじん]。下[した]は ゆるやかで、上[うえ]に いくほど 急[きゅう]に なる 石垣[いしがき]は「武者返[むしゃがえ]し」と よばれる。",
+  "fieldLine": "この 石垣[いしがき]は 武者返[むしゃがえ]し…。のぼれる ものなら、のぼって みよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin",
+        "sk-iwa-otoshi"
+      ],
+      "line": "ゴゴゴ……！ 阿蘇[あそ]の 火[ひ]よ、この 石垣[いしがき]に やどれ！"
+    }
+  ]
+}

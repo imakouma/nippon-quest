@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "chiba-kousui-hime",
+  "name": "コウスイヒメ",
+  "area": "chiba",
+  "motifId": "chiba-nashi",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 54,
+    "mp": 13,
+    "atk": 15,
+    "def": 10,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 19,
+  "spriteKey": "mon.chiba-kousui-hime",
+  "dexBlurb": "シャリリンが しんかした すがた。なしの 花[はな]の かんざしを つけた、なし畑[ばたけ]の おひめさま。なしの 木[き]は、たなに えだを はわせて そだてる。"
+}

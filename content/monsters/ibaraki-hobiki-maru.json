@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ibaraki-hobiki-maru",
+  "name": "ホビキマル",
+  "area": "ibaraki",
+  "motifId": "kasumigaura",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 49,
+    "mp": 15,
+    "atk": 15,
+    "def": 9,
+    "spd": 12,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1,
+    "spd": 1.4,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 24,
+  "gold": 17,
+  "spriteKey": "mon.ibaraki-hobiki-maru",
+  "dexBlurb": "ホビキンが しんかした すがた。帆引[ほび]き船[せん]のように 大[おお]きな 帆[ほ]を ひろげ、風[かぜ]を うけて すいすい およぐ。"
+}

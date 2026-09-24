@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-juwanasu-zamurai",
+  "name": "ジュワナスザムライ",
+  "area": "osaka",
+  "motifId": "mizunasu",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 68,
+    "mp": 18,
+    "atk": 16,
+    "def": 14,
+    "spd": 11,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 6.2,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 24,
+  "spriteKey": "mon.osaka-juwanasu-zamurai",
+  "dexBlurb": "ジュワナスが しんかした すがた。へたの かぶとを かぶった なすの さむらいで、からだから 水[みず]が じゅわっと あふれる。"
+}

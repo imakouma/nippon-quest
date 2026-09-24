@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-boss-konjiki-no-tora",
+  "name": "コンジキノトラ",
+  "area": "iwate",
+  "motifId": "chusonji",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 240,
+    "mp": 41,
+    "atk": 15,
+    "def": 11,
+    "spd": 8,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-konjiki-no-kiba"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "iwate-wanko-no-futa",
+      "rate": 1
+    },
+    {
+      "itemId": "iwate-chiteiko-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "iwate-kappabuchi-no-kyuri",
+      "rate": 1
+    },
+    {
+      "itemId": "iwate-wakame-no-shinme",
+      "rate": 1
+    },
+    {
+      "itemId": "iwate-komakusa",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 162,
+  "gold": 198,
+  "spriteKey": "mon.iwate-boss-konjiki-no-tora",
+  "dexBlurb": "平泉[ひらいずみ]の 金色[こんじき]の 光[ひかり]を まとった トラ。むかしの 岩手[いわて]では 金[きん]が たくさん とれ、平泉[ひらいずみ]は 金[きん]の 力[ちから]で さかえた。",
+  "fieldLine": "グルル…。金[きん]の 光[ひかり]を ねらう ものは、ゆるさんぞ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-hane",
+        "sk-hikari-no-ya"
+      ],
+      "line": "ガオオーッ！ 金色[こんじき]の 光[ひかり]よ、みな 焼[や]きつくせ！"
+    }
+  ]
+}

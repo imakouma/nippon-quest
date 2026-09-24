@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagano-retasu-zamurai",
+  "name": "レタスザムライ",
+  "area": "nagano",
+  "motifId": "kawakami-retasu",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 62,
+    "mp": 15,
+    "atk": 15,
+    "def": 14,
+    "spd": 9,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.3,
+    "spd": 1,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 32,
+  "gold": 22,
+  "spriteKey": "mon.nagano-retasu-zamurai",
+  "dexBlurb": "レタスケが しんかした すがた。川上村[かわかみむら]では、夏[なつ]の まだ 暗[くら]い 朝[あさ]から レタスを とり入[い]れる。"
+}

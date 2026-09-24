@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-midboss-goshiki-slime",
+  "name": "ゴシキスライム",
+  "area": "fukushima",
+  "motifId": "goshikinuma",
+  "element": "mizu",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 121,
+    "mp": 21,
+    "atk": 12,
+    "def": 7,
+    "spd": 6,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1.0
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 75,
+  "gold": 92,
+  "spriteKey": "mon.fukushima-midboss-goshiki-slime",
+  "dexBlurb": "五色沼[ごしきぬま]に すむ スライム。見[み]る たびに からだの 色[いろ]が かわる。",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "mori",
+      "skills": [
+        "sk-happa-arashi",
+        "sk-happa-cutter"
+      ],
+      "line": "ぬまの 色[いろ]が かわった！ 五色[ごしき]の 波[なみ]が おそいかかる！"
+    }
+  ],
+  "fieldLine": "ぬまの 水[みず]は だれにも わたさない。いろを かえて、まっていたぞ！"
+}

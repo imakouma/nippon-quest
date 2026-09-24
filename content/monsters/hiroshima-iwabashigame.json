@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-iwabashigame",
+  "name": "イワバシガメ",
+  "area": "hiroshima",
+  "motifId": "taishakukyo",
+  "element": "tsuchi",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 52,
+    "mp": 10,
+    "atk": 12,
+    "def": 13,
+    "spd": 6,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.3,
+    "spd": 0.7,
+    "wis": 0.6
+  },
+  "skills": ["sk-tashizan-giri", "sk-tsuchi-kabe"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "hiroshima-taishaku-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 19,
+  "spriteKey": "mon.hiroshima-iwabashigame",
+  "evolution": {
+    "to": "hiroshima-onbashigame",
+    "item": "hiroshima-taishaku-no-shizuku"
+  },
+  "dexBlurb": "こうらが 石[いし]の 橋[はし]の かたちを した カメ。帝釈峡[たいしゃくきょう]には、水[みず]が 石灰岩[せっかいがん]を とかして できた 石[いし]の 橋[はし]「雄橋[おんばし]」が かかっている。"
+}

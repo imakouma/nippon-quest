@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-shiitaken",
+  "name": "シイタケン",
+  "area": "oita",
+  "motifId": "oita-shiitake",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 56,
+    "mp": 12,
+    "atk": 12,
+    "def": 13,
+    "spd": 7,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-tashizan-giri"
+  ],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "oita-shiitake-no-hodagi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.oita-shiitaken",
+  "evolution": {
+    "to": "oita-hodagi-oh",
+    "item": "oita-shiitake-no-hodagi"
+  },
+  "dexBlurb": "かさを ふかぶかと かぶった しいたけの 子[こ]。大分[おおいた]は ほした しいたけの 生産[せいさん]が とても さかんで、くぬぎの 木[き]に きのこを 育[そだ]てる。"
+}

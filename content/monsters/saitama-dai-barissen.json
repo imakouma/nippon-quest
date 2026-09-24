@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saitama-dai-barissen",
+  "name": "ダイバリッセン",
+  "area": "saitama",
+  "motifId": "soka-senbei",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 56,
+    "mp": 13,
+    "atk": 16,
+    "def": 11,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 19,
+  "spriteKey": "mon.saitama-dai-barissen",
+  "dexBlurb": "パリッセンが しんかした すがた。大[おお]きな せんべいの たてで、こうげきを バリッと うけとめる。"
+}

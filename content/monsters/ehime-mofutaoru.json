@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ehime-mofutaoru",
+  "name": "モフタオル",
+  "area": "ehime",
+  "motifId": "imabari-towel",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 47,
+    "mp": 12,
+    "atk": 12,
+    "def": 7,
+    "spd": 12,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.4,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 0.9,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "ehime-wata-no-ito",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 24,
+  "gold": 16,
+  "spriteKey": "mon.ehime-mofutaoru",
+  "evolution": {
+    "to": "ehime-soratobi-taoru",
+    "item": "ehime-wata-no-ito"
+  },
+  "dexBlurb": "ふわふわの タオルの モンスター。風[かぜ]に ひらひら まう。今治市[いまばりし]は タオル作[づく]りが とても さかんな 町[まち]で、やわらかい 水[みず]で 糸[いと]を さらす。"
+}

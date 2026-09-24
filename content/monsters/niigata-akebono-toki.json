@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-akebono-toki",
+  "name": "アケボノトキ",
+  "area": "niigata",
+  "motifId": "sado-toki",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 50,
+    "mp": 15,
+    "atk": 15,
+    "def": 9,
+    "spd": 13,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 18,
+  "spriteKey": "mon.niigata-akebono-toki",
+  "dexBlurb": "コトキが しんかした すがた。トキは 日本[にほん]の 空[そら]から 一度[いちど] いなくなったが、佐渡[さど]で そだてられ、2008年[ねん]から 空[そら]に もどされている。"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okinawa-ougon-pine",
+  "name": "オウゴンパイン",
+  "area": "okinawa",
+  "motifId": "okinawa-pineapple",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 71,
+    "mp": 22,
+    "atk": 20,
+    "def": 14,
+    "spd": 11,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.1,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 42,
+  "gold": 31,
+  "spriteKey": "mon.okinawa-ougon-pine",
+  "dexBlurb": "パイナポンが しんかした すがた。お日[ひ]さまを あびて、実[み]が こがね色[いろ]に かがやく。"
+}

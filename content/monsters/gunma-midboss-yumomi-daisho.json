@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gunma-midboss-yumomi-daisho",
+  "name": "ユモミダイショウ",
+  "area": "gunma",
+  "motifId": "kusatsu-onsen",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 110,
+    "mp": 18,
+    "atk": 11,
+    "def": 8,
+    "spd": 6,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 8,
+    "mp": 2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.6,
+    "wis": 0.6
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 64,
+  "gold": 75,
+  "spriteKey": "mon.gunma-midboss-yumomi-daisho",
+  "dexBlurb": "湯[ゆ]もみの 板[いた]を もつ、湯[ゆ]けむりの 大男[おおおとこ]。草津[くさつ]の お湯[ゆ]は とても あついので、板[いた]で かきまぜて さます「湯[ゆ]もみ」を する。",
+  "fieldLine": "ちょいな ちょいな！ 湯[ゆ]もみを 手[て]つだって いくか？ それとも しょうぶか！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": ["sk-hono-no-mai"],
+      "line": "ちょいな ちょいな！ お湯[ゆ]が あつく なって きたぞ！"
+    }
+  ]
+}

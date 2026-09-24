@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okayama-denim-bushi",
+  "name": "デニムブシ",
+  "area": "okayama",
+  "motifId": "okayama-denim",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 67,
+    "mp": 17,
+    "atk": 18,
+    "def": 13,
+    "spd": 11,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.1,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 39,
+  "gold": 27,
+  "spriteKey": "mon.okayama-denim-bushi",
+  "dexBlurb": "こい あい色[いろ]の デニムを よろいに した 武者[むしゃ]。じょうぶな 生地[きじ]は、やぶれても また ぬいなおせる。"
+}

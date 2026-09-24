@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kumamoto-ebiguruma",
+  "name": "エビグルマ",
+  "area": "kumamoto",
+  "motifId": "amakusa-kurumaebi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 49,
+    "mp": 12,
+    "atk": 15,
+    "def": 9,
+    "spd": 11,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.6,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.9,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-yakusou",
+      "rate": 0.2
+    },
+    {
+      "itemId": "kumamoto-tairyo-hata",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 25,
+  "gold": 17,
+  "spriteKey": "mon.kumamoto-ebiguruma",
+  "evolution": {
+    "to": "kumamoto-ebi-musha",
+    "item": "kumamoto-tairyo-hata"
+  },
+  "dexBlurb": "天草[あまくさ]の 車[くるま]えびの モンスター。からだを まるめた ときの しまもようが 車[くるま]の わのように 見[み]える ことから、その 名[な]が ついたと いわれる。"
+}
