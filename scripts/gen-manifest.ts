@@ -5,9 +5,10 @@
  */
 import { readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { contentKinds, type ContentKind } from '../src/core/content/schemas';
 
-const ROOT = new URL('../content/', import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL('../content/', import.meta.url));
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {

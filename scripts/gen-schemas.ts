@@ -4,13 +4,14 @@
  * 問題タイプの payload スキーマは各レンダラー（registry）から集める（docs/01 §3.3 ルール3）。
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { z } from 'zod';
 import { contentKinds } from '../src/core/content/schemas';
 import { questionBaseSchema } from '../src/questions/contracts';
 import { allRenderers } from '../src/questions/renderers/registry';
 
-const OUT = new URL('../schemas/', import.meta.url).pathname;
+const OUT = fileURLToPath(new URL('../schemas/', import.meta.url));
 mkdirSync(`${OUT}questions`, { recursive: true });
 
 let count = 0;
