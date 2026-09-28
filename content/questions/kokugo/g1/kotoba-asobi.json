@@ -1,0 +1,158 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g1.kotoba-asobi.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kotoba-asobi",
+    "payload": {
+      "prompt": "「りんご」のつぎに、しりとりでつづくことばはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "くるま"
+        },
+        {
+          "id": "b",
+          "text": "ごりら"
+        },
+        {
+          "id": "c",
+          "text": "みかん"
+        },
+        {
+          "id": "d",
+          "text": "すいか"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "しりとりは前のことばのさいごの音からはじめます。「りんご」→「ご」→「ごりら」。"
+  },
+  {
+    "id": "kokugo.g1.kotoba-asobi.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kotoba-asobi",
+    "payload": {
+      "prompt": "「い・か・す」をならびかえてできる、たべものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いかす"
+        },
+        {
+          "id": "b",
+          "text": "すいか"
+        },
+        {
+          "id": "c",
+          "text": "かすい"
+        },
+        {
+          "id": "d",
+          "text": "かいす"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「い・か・す」をならべかえると「すいか」になります。"
+  },
+  {
+    "id": "kokugo.g1.kotoba-asobi.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kotoba-asobi",
+    "payload": {
+      "prompt": "「か」ではじまることばはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さる"
+        },
+        {
+          "id": "b",
+          "text": "かさ"
+        },
+        {
+          "id": "c",
+          "text": "つくえ"
+        },
+        {
+          "id": "d",
+          "text": "めがね"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「かさ」は「か」ではじまります。"
+  },
+  {
+    "id": "kokugo.g1.kotoba-asobi.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kotoba-asobi",
+    "payload": {
+      "prompt": "「さくら」は音がいくつありますか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1つ"
+        },
+        {
+          "id": "b",
+          "text": "2つ"
+        },
+        {
+          "id": "c",
+          "text": "3つ"
+        },
+        {
+          "id": "d",
+          "text": "4つ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "さ・く・らで3つです。"
+  },
+  {
+    "id": "kokugo.g1.kotoba-asobi.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kotoba-asobi",
+    "payload": {
+      "prompt": "次の中で、たべものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "えんぴつ"
+        },
+        {
+          "id": "b",
+          "text": "くるま"
+        },
+        {
+          "id": "c",
+          "text": "みかん"
+        },
+        {
+          "id": "d",
+          "text": "ぼうし"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「みかん」はくだもの（たべもの）です。"
+  }
+]

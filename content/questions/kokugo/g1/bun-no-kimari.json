@@ -1,0 +1,313 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g1.bun-no-kimari.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "文の終わりに必ずつける記号は何ですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "、(てん)"
+        },
+        {
+          "id": "b",
+          "text": "。(まる)"
+        },
+        {
+          "id": "c",
+          "text": "？(はてな)"
+        },
+        {
+          "id": "d",
+          "text": "！(びっくり)"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "文の終わりには「句点（くてん・まる）」をつけます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「きょうはてんきがいい」を正しく分かち書きしたものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きょうはてんきがいい"
+        },
+        {
+          "id": "b",
+          "text": "きょう はてんき がいい"
+        },
+        {
+          "id": "c",
+          "text": "きょうは てんきが いい"
+        },
+        {
+          "id": "d",
+          "text": "きょ うはてん きがいい"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "言葉のまとまりごとにスペースを空ける分かち書きでは、「きょうは / てんきが / いい」と分けます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "かぎかっこ「 」は、主にどのようなときに使いますか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しゃべった言葉（会話）や、特別な言葉を表すとき"
+        },
+        {
+          "id": "b",
+          "text": "ぶんの おわり"
+        },
+        {
+          "id": "c",
+          "text": "ぶんの とちゅうの きれめ"
+        },
+        {
+          "id": "d",
+          "text": "なまえを かくとき"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "かぎかっこは会話文や強調したい言葉を囲むときに使います。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「ぼくは、あした」の「、」の記号の名前は何ですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "くてん"
+        },
+        {
+          "id": "b",
+          "text": "とうてん"
+        },
+        {
+          "id": "c",
+          "text": "かぎかっこ"
+        },
+        {
+          "id": "d",
+          "text": "のばすおと"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「、」は「読点（とうてん・てん）」と呼びます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「おもしろい本を読んだ」という文で、正しい順序になっているものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "本をおもしろい読んだ"
+        },
+        {
+          "id": "b",
+          "text": "おもしろい本を読んだ"
+        },
+        {
+          "id": "c",
+          "text": "読んだ本をおもしろい"
+        },
+        {
+          "id": "d",
+          "text": "おもしろい読んだ本を"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "日本語では修飾語（おもしろい）が被修飾語（本）の前にきます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「ことりが なく。」という文で、「だれが」にあたる言葉はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なく。"
+        },
+        {
+          "id": "b",
+          "text": "ことり"
+        },
+        {
+          "id": "c",
+          "text": "ことりが"
+        },
+        {
+          "id": "d",
+          "text": "がなく"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「だれが・なにが」にあたる「ことりが」が主語です。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0007",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「いぬが はしる。」という文で、「どうする（うごき）」を表す言葉はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いぬ"
+        },
+        {
+          "id": "b",
+          "text": "はしる"
+        },
+        {
+          "id": "c",
+          "text": "いぬが"
+        },
+        {
+          "id": "d",
+          "text": "がはしる"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "うごきや様子を表す「はしる」が述語です。文の終わりにくることが多いです。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0008",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「げんきですか」のように、人にたずねる文のさいごにもつける記号はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "、(てん)"
+        },
+        {
+          "id": "b",
+          "text": "。(まる)"
+        },
+        {
+          "id": "c",
+          "text": "「(かっこ)"
+        },
+        {
+          "id": "d",
+          "text": "ー(のばすおと)"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "たずねる文でも、文の終わりには「。（句点・まる）」をつけます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0009",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "読点「、」は、文のどこで使うとよいですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "文のさいご"
+        },
+        {
+          "id": "b",
+          "text": "言葉の切れめや読みやすいところ"
+        },
+        {
+          "id": "c",
+          "text": "かならず文のはじめ"
+        },
+        {
+          "id": "d",
+          "text": "会話のなかだけ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「、」は意味の切れめにつけて、文を読みやすくするための記号です。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0010",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "原稿用紙で文章を書きはじめるとき、書き出しの一マス目はどうしますか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そのまま書く"
+        },
+        {
+          "id": "b",
+          "text": "一マスあけて（下げて）書く"
+        },
+        {
+          "id": "c",
+          "text": "二マスあけて書く"
+        },
+        {
+          "id": "d",
+          "text": "一番下から書く"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "文章や段落の書き出しは、はじめの一マスをあけて書きます。"
+  }
+]
