@@ -10,8 +10,8 @@
 .nq-title-menu {
   position: absolute;
   left: 400px;
-  top: 328px;
-  width: 312px;
+  top: 304px;
+  width: 340px;
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
@@ -22,18 +22,18 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 60px;
+  height: 48px;
   padding: 0 4px;
   background: transparent;
   color: #fff;
   border: 0;
-  font-size: 36px;
+  font-size: 24px;
   text-align: left;
   cursor: pointer;
 }
 .nq-title-opt .nq-cur {
-  width: 36px;
-  font-size: 36px;
+  width: 28px;
+  font-size: 24px;
 }
 .nq-title-opt.nq-focus {
   color: var(--nq-yellow);
@@ -48,7 +48,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 484px;
+  top: 476px;
   margin: 0;
   text-align: center;
   font-size: 24px;

@@ -254,11 +254,18 @@ export class TitleScene extends Phaser.Scene {
     layer.appendChild(this.menuRoot);
     render(
       h(TitleMenu, {
-        items: [{ label: t('ui.newGame') }, { label: t('ui.continue'), disabled: true }],
+        items: [
+          { label: t('ui.newGame') },
+          { label: t('ui.continue'), disabled: true },
+          { label: t('ui.questionList') },
+        ],
         hint: t('ui.titleHint'),
         disabledNote: t('ui.noSave'),
         credit: t('ui.credits'),
-        onSelect: () => this.start(),
+        onSelect: (index: number) => {
+          if (index === 0) this.start();
+          if (index === 2) window.location.assign(`${import.meta.env.BASE_URL}playground.html`);
+        },
       }),
       this.menuRoot,
     );

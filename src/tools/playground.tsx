@@ -14,7 +14,7 @@ import {
 import { allRenderers, getRenderer } from '../questions/renderers/registry';
 import { fetchReader } from '../core/content/loader';
 import type { ContentManifest } from '../core/content/loader';
-import { setDictionary, type I18nDict } from '../ui/i18n';
+import { setDictionary, t, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
 import { QuestionList, type QuestionEntry } from './QuestionList';
@@ -205,9 +205,20 @@ function App() {
       <div class="pg-side">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
           <h2 style="margin:0">Question Playground</h2>
-          <a href={`${base}/editor.html`} style="font-size:13px; font-weight:bold; color:#4f46e5; text-decoration:none; background:#e0e7ff; padding:4px 8px; border-radius:4px;">
-            ✏️ Webエディタ＆共同編集
-          </a>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <a
+              href={`${base}/`}
+              style="font-size:13px; font-weight:bold; color:#334155; text-decoration:none; background:#e2e8f0; padding:4px 8px; border-radius:4px;"
+            >
+              ← {t('ui.backToGame')}
+            </a>
+            <a
+              href={`${base}/editor.html`}
+              style="font-size:13px; font-weight:bold; color:#4f46e5; text-decoration:none; background:#e0e7ff; padding:4px 8px; border-radius:4px;"
+            >
+              ✏️ Webエディタ＆共同編集
+            </a>
+          </div>
         </div>
         <div class="pg-row">
           <label>学年</label>
