@@ -194,7 +194,7 @@ export class TitleScene extends Phaser.Scene {
     addImage(
       this.textures,
       'title.logo',
-      textLogo('ニホンクエスト', PIXEL_FONT_NAME, [NQ.cream, NQ.gold, NQ.orange], NQ.brick),
+      textLogo(t('title'), PIXEL_FONT_NAME, [NQ.cream, NQ.gold, NQ.orange], NQ.brick),
     );
     addImage(
       this.textures,
