@@ -1,5 +1,5 @@
 /**
- * メニュー：モンスターずかん・とくさんひんずかん・どうぐ（バッグ）・そうび を タブで きりかえて見る。
+ * メニュー：モンスターずかん・とくさんひんずかん・どうぐ（バッグ）・そうび・みため を タブで きりかえて見る。
  * ロジックは持たない（中身は Overworld が GameState と content から作って渡す）。
  * 操作：←→ タブ / ↑↓ えらぶ / Z・Enter つかう・そうびする・はずす / X・Esc とじる。
  */
@@ -11,7 +11,7 @@ import { playSfx } from '../sfx';
 import './field.css';
 import './menu.css';
 
-export type MenuTab = 'monsters' | 'specialties' | 'bag' | 'equip';
+export type MenuTab = 'monsters' | 'specialties' | 'bag' | 'equip' | 'look';
 
 export interface MenuEntry {
   key: string;

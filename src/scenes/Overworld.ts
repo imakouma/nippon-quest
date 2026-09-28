@@ -141,6 +141,14 @@ const TRIGGER_RADIUS = 1;
 /** にほんちずの地図データ（scripts/scaffold-maps.ts が public/worldmap.json に作る）の cache キー */
 const WORLD_MAP_KEY = 'worldmap';
 /** 特産品（イベントの無い たべもの・こうげいひん）は ★ 看板ではなく宝箱（scripts/scaffold-maps.ts） */
+/** みため タブの 部位（GameState.player.appearance の キー と 文言の キー） */
+type HeroLookIndex = GameState['player']['appearance'];
+const LOOK_PARTS: readonly { part: keyof HeroLookIndex; key: string }[] = [
+  { part: 'hair', key: 'lookHair' },
+  { part: 'skin', key: 'lookSkin' },
+  { part: 'cloth', key: 'lookCloth' },
+];
+
 const SPECIALTY_KINDS: ReadonlySet<Motif['kind']> = new Set(['food', 'craft']);
 const MOTIF_KIND_KEY: Record<Motif['kind'], string> = {
   landmark: 'field.motifLandmark',
@@ -505,6 +513,24 @@ export class OverworldScene extends Phaser.Scene {
       .sprite(x, y, this.heroTex, walkFrame(this.facing, 1))
       .setOrigin(0.5, FEET_ORIGIN_Y);
     this.player.setDepth(y);
+  }
+
+  /** みためを かえたら 歩いている 主人公の 絵を つけかえる */
+  private refreshHeroLook(): void {
+    const ap = this.gs()?.player.appearance;
+    if (!ap || !this.player) return;
+    this.heroTex = heroKey(ap);
+    addSheet(this.textures, this.heroTex, walkSheet(heroLook(ap)), CHAR_W, CHAR_H);
+    this.ensureWalkAnims(this.heroTex);
+    this.player.anims.stop();
+    this.player.setTexture(this.heroTex, walkFrame(this.facing, 1));
+  }
+
+  /** みための 見本（正面の 立ち絵）を data URL に */
+  private heroFrameUrl(ap: HeroLookIndex): string {
+    const key = heroKey(ap);
+    addSheet(this.textures, key, walkSheet(heroLook(ap)), CHAR_W, CHAR_H);
+    return this.textures.getBase64(key, walkFrame('down', 1)) as string;
   }
 
   private ensureWalkAnims(tex: string): void {
@@ -2205,9 +2231,9 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  // ───────────────────────── メニュー（ずかん・どうぐ・そうび） ─────────────────────────
+  // ───────────────────────── メニュー（ずかん・どうぐ・そうび・みため） ─────────────────────────
 
-  /** メニュー：モンスターずかん・とくさんひんずかん・どうぐ（バッグ）・そうび。つかう・そうびの あとは 同じ タブで 作りなおす */
+  /** メニュー：モンスターずかん・とくさんひんずかん・どうぐ（バッグ）・そうび・みため。つかう・そうびの あとは 同じ タブで 作りなおす */
   private openMenu(): void {
     const c = this.content();
     if (!c || this.inBattle || this.busy || this.moving) return;
@@ -2307,6 +2333,7 @@ export class OverworldScene extends Phaser.Scene {
       },
       { key: 'bag' as const, label: t('field.tabBag'), icon: 'role-shop' },
       { key: 'equip' as const, label: t('field.tabEquip'), icon: 'role-smith' },
+      { key: 'look' as const, label: t('field.tabLook'), icon: 'hero' },
     ];
   }
 
@@ -2421,6 +2448,31 @@ export class OverworldScene extends Phaser.Scene {
       return { entries, summary: hpLine, empty: t('field.bagEmpty') };
     }
 
+    if (tab === 'look') {
+      const ap = gs.player.appearance;
+      const entries = LOOK_PARTS.flatMap(({ part, key }) =>
+        t(`field.${key}Names`)
+          .split(',')
+          .map((name, i): MenuEntry => {
+            const look = { ...ap, [part]: i };
+            const now = ap[part] === i;
+            const art = this.heroFrameUrl(look);
+            return {
+              key: `look:${part}:${i}`,
+              name: t('field.lookName', { part: t(`field.${key}`), name }),
+              icon: art,
+              art,
+              known: true,
+              tag: now ? t('field.lookNow') : undefined,
+              sub: t('field.lookSub', { part: t(`field.${key}`) }),
+              lines: [],
+              action: { label: t('field.lookPick'), ok: !now },
+            };
+          }),
+      );
+      return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
+    }
+
     // そうび：5 つの 部位
     const entries = EQUIP_SLOTS.map((slot): MenuEntry => {
       const id = gs.player.equipment[slot];
@@ -2456,6 +2508,20 @@ export class OverworldScene extends Phaser.Scene {
     const c = this.content()!;
     const gs = this.gs()!;
     const max = this.heroStats(gs);
+    if (tab === 'look') {
+      const [, part, n] = key.split(':');
+      const lp = LOOK_PARTS.find((x) => x.part === part);
+      const i = Number(n);
+      if (!lp || gs.player.appearance[lp.part] === i) return null;
+      const appearance = { ...gs.player.appearance, [lp.part]: i };
+      this.setGame({ ...gs, player: { ...gs.player, appearance } });
+      this.refreshHeroLook();
+      playSfx('select');
+      return t('field.lookPicked', {
+        part: t(`field.${lp.key}`),
+        name: t(`field.${lp.key}Names`).split(',')[i] ?? '',
+      });
+    }
     if (tab === 'equip') {
       const slot = EQUIP_SLOTS.find((s) => `slot:${s}` === key);
       const id = slot && gs.player.equipment[slot];
