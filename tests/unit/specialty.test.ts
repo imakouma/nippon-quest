@@ -38,6 +38,6 @@ describe('特産品のドロップ', () => {
     const s = idx.get('aomori-ringo')!;
     expect(s.motif.id).toBe('ringo');
     expect(s.motif.blurb.length).toBeGreaterThan(0);
-    expect(idx.has('common-yakusou')).toBe(false);
+    expect(idx.has('common-tetsu')).toBe(false);
   });
 });

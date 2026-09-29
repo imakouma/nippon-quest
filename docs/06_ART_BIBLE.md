@@ -660,7 +660,7 @@ Use only: #1a1428 #ffffff #f4f1e8 #e5484d #a8341f #ffd23f #c79a1a #c08a55 #e2b27
 [NEGATIVE]
 ```
 
-→ 順に `aomori-nebuta-no-kabuto`・`aomori-ringo-no-yoroi`・`aomori-hiba-no-koshiate`・`aomori-tsugaru-nuri-boots`・`aomori-maguro-zutsuki`（マグロずつき）・`common-dou-no-ken`・`aomori-ringo`・`common-yakusou`・`common-tetsu`。
+→ 順に `aomori-nebuta-no-kabuto`・`aomori-ringo-no-yoroi`・`aomori-hiba-no-koshiate`・`aomori-tsugaru-nuri-boots`・`aomori-maguro-zutsuki`（マグロずつき）・`common-dou-no-ken`・`aomori-ringo`・`common-yakusou`（やくそう。2026-09 に ゲームから なくした）・`common-tetsu`。
 
 2 枚目（素材）：`1 a broken piece of Jomon earthenware with rope pattern`（土器のかけら）、`2 a necklace of curved jade magatama beads`（じょうもんのくび飾り）、`3 a sharp white fish fang`（マグロのきば）、`4 a crystal of frozen lake water, pale blue`（みずのかけら）、`5 a small glowing paper lantern light`（ねぶたの灯り）、`6 a short log of pale yellow hiba wood`（ひばの木）。
 

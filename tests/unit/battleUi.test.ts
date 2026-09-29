@@ -39,7 +39,8 @@ describe('GameState → Party', () => {
     expect(party.hero.hp).toBe(12);
     expect(party.hero.stats.hp).toBe(40);
     expect(party.monsters.map((m) => m.refId)).toEqual(['aomori-nebutan']);
-    expect(party.items['common-yakusou']).toBe(3);
+    // さいしょは どうぐを もっていない（やくそうは なくした）
+    expect(party.items).toEqual({});
   });
 
   it('HP 0 のセーブでも 1 で始まる（いきなり負けない）', async () => {
@@ -97,7 +98,7 @@ const summary = (over: Partial<BattleSummary> = {}): BattleSummary => ({
   xp: 12,
   gold: 8,
   drops: ['aomori-ringo'],
-  items: { 'common-yakusou': 2 },
+  items: { 'akita-kiritanpo': 2 },
   recruitAccepted: false,
   perfectBySubject: { sansu: 2 },
   ...over,
@@ -110,7 +111,7 @@ describe('バトル結果の反映（GDD §4.5〜4.6）', () => {
     expect(state.player.gold).toBe(108);
     expect(state.player.hp).toBe(20);
     expect(state.inventory['aomori-ringo']).toBe(1);
-    expect(state.inventory['common-yakusou']).toBe(2);
+    expect(state.inventory['akita-kiritanpo']).toBe(2);
     expect(state.dex.monsters).toContain('aomori-ringoron');
     expect(state.progress.counters['defeat:aomori-ringoron']).toBe(1);
     expect(state.progress.counters['perfect:sansu']).toBe(2);
@@ -171,7 +172,7 @@ describe('バトル結果の反映（GDD §4.5〜4.6）', () => {
 const ctx: NarrateCtx = {
   nameOf: (id) => ({ hero: 'ハル', pal: 'ネブタン' })[id] ?? id,
   skillName: () => 'たしざんぎり',
-  itemName: () => 'やくそう',
+  itemName: () => 'りんご',
   elementName: (el) => (ja.elements as Record<string, string>)[el] ?? el,
   subjectName: (s) => (ja.subjects as Record<string, string>)[s] ?? s,
   enemyName: 'リンゴロン',
@@ -182,7 +183,7 @@ describe('メッセージ（narrate）', () => {
   it('どうぐ → かいふく の順に並べ替える', () => {
     const ev: BattleEvent[] = [
       { t: 'heal', side: 'ally', targetId: 'hero', amount: 30 },
-      { t: 'itemUsed', itemId: 'common-yakusou', targetId: 'hero' },
+      { t: 'itemUsed', itemId: 'aomori-ringo', targetId: 'hero' },
     ];
     expect(normalizeEvents(ev).map((e) => e.t)).toEqual(['itemUsed', 'heal']);
   });
@@ -283,7 +284,7 @@ describe('メッセージ（narrate）', () => {
       { t: 'gaugeCharge', subject: 'kokugo', amount: 40, value: 100, max: 100, boosted: true, unlocked: [] },
       { t: 'gaugeUse', subject: 'kokugo', amount: 50, value: 50 },
       { t: 'gaugeShort', subject: 'rika', need: 100, have: 0 },
-      { t: 'itemUsed', itemId: 'common-yakusou', targetId: 'pal' },
+      { t: 'itemUsed', itemId: 'aomori-ringo', targetId: 'pal' },
       { t: 'swap', from: 'pal', to: 'hero' },
       { t: 'recruitAttempt', targetId: 'enemy', success: false, chance: 0.1 },
       { t: 'recruited', monsterId: 'x' },
@@ -322,5 +323,14 @@ describe('文言キー（content/i18n/ja.json）', () => {
     expect(keys.size).toBeGreaterThan(20);
     const missing = [...keys].filter((k) => lookup(ja, k) === undefined);
     expect(missing).toEqual([]);
+  });
+});
+
+describe('前の セーブの どうぐ', () => {
+  it('content に 無い どうぐ（なくした やくそう）は バトルに もちこまない', async () => {
+    const c = await content();
+    const gs = newGame();
+    gs.inventory = { 'common-yakusou': 3, 'aomori-ringo': 1 };
+    expect(partyFromGameState(gs, c).items).toEqual({ 'aomori-ringo': 1 });
   });
 });

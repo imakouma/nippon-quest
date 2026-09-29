@@ -1,6 +1,6 @@
 /**
  * 町の人の しごと（GDD §6）。純粋関数のみ。文言は持たない（画面側が ja.json の field.town* で文にする）。
- *  - おみせ：どうぐを かう（content の shop。無い県は やくそう＋その県の特産品）
+ *  - おみせ：どうぐを かう（content の shop。無い県は その県の特産品）
  *  - やどや：とまると HP・MP が ぜんかい。負けたら ここに もどる（progress.lastInn）
  *  - かじや：レシピと ざいりょうで そうびを つくる
  *  - けいじばん：たのみごと（missions）を うけて、たっせいしたら ごほうび。無い県は モンスター退治などを 自動で用意
@@ -21,14 +21,20 @@ export interface ShopEntry {
 export const INN_PRICE = 10;
 /** 店の品数の上限（content の shop が無い県） */
 const SHOP_MAX = 6;
-const HERB = 'common-yakusou';
 
-/** おみせの 品ぞろえ。content の area.shop があれば それ、無ければ やくそう＋その県の たべもの・そざい */
+/** その県の 名産の たべもの（HP が かいふくする。名所・特産品の じゅんで さいしょの もの）。宝箱・おみやげに つかう */
+export function localFood(area: Area | undefined, items: ReadonlyMap<string, Item>): Item | undefined {
+  for (const m of area?.motifs ?? []) {
+    const it = items.get(`${area!.id}-${m.id}`);
+    if (it?.kind === 'consumable' && it.use?.heal) return it;
+  }
+  return undefined;
+}
+
+/** おみせの 品ぞろえ。content の area.shop があれば それ、無ければ その県の たべもの・そざい */
 export function shopStock(area: Area, items: ReadonlyMap<string, Item>): ShopEntry[] {
   if (area.shop.length) return area.shop.filter((s) => items.has(s.itemId));
   const out: ShopEntry[] = [];
-  const herb = items.get(HERB);
-  if (herb) out.push({ itemId: herb.id, price: herb.price ?? 20 });
   for (const it of items.values()) {
     if (out.length >= SHOP_MAX) break;
     if (it.areaOrigin !== area.id || !it.price) continue;
@@ -141,7 +147,8 @@ export function missionsFor(
       title: titles.collect(food.name, 2),
       giverNpc,
       condition: `collect:${food.id}:2`,
-      reward: { gold: 60, items: items.has(HERB) ? [{ itemId: HERB, n: 3 }] : [] },
+      // ごほうびは おかね（むかしの やくそう 3 こぶんを 足した）
+      reward: { gold: 100 },
     });
   return out;
 }
@@ -221,7 +228,7 @@ export function villagerMotif(area: Area | undefined, npcName: string): Area['mo
 
 /**
  * 町の人の おみやげ（はじめて 話したとき 1 回だけ）。はなす モチーフの しゅるい＝その人の しごと で かわる：
- * たべもの・こうげいひん → その特産品 / めいしょ・しぜん → やくそう 2 こ / まつり → おかね / れきし → けいけんち
+ * たべもの・こうげいひん → その特産品 / めいしょ・しぜん → その県の 名産の たべもの 2 こ / まつり → おかね / れきし → けいけんち
  */
 export function villagerGift(
   area: Area | undefined,
@@ -229,19 +236,20 @@ export function villagerGift(
   items: ReadonlyMap<string, Item>,
 ): Reward {
   const motif = villagerMotif(area, npcName);
-  const herb: Reward = items.has(HERB) ? { items: [{ itemId: HERB, n: 2 }] } : { gold: 20 };
-  if (!motif || !area) return herb;
+  const food = localFood(area, items);
+  const snack: Reward = food ? { items: [{ itemId: food.id, n: 2 }] } : { gold: 20 };
+  if (!motif || !area) return snack;
   const own = `${area.id}-${motif.id}`;
   switch (motif.kind) {
     case 'food':
     case 'craft':
-      return items.has(own) ? { items: [{ itemId: own, n: 1 }] } : herb;
+      return items.has(own) ? { items: [{ itemId: own, n: 1 }] } : snack;
     case 'festival':
       return { gold: 30 };
     case 'history':
       return { xp: 30 };
     default:
-      return herb;
+      return snack;
   }
 }
 

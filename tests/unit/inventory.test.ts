@@ -7,16 +7,17 @@ import { createNewGame } from '../../src/core/state/newGame';
 const fresh = () => createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
 
 describe('バッグ・そうび', () => {
-  it('やくそうは HP が へっているときだけ つかえて、1 つ へる', async () => {
+  it('りんごは HP が へっているときだけ つかえて、1 つ へる', async () => {
     const c = await content();
-    const herb = c.items.get('common-yakusou')!;
+    const herb = c.items.get('aomori-ringo')!;
     const gs = fresh();
+    gs.inventory['aomori-ringo'] = 3;
     expect(canUse(gs, herb, { hp: 40, mp: 10 })).toBe(false);
     const hurt = { ...gs, player: { ...gs.player, hp: 25 } };
     const r = useItem(hurt, herb, { hp: 40, mp: 10 })!;
     expect(r.state.player.hp).toBe(40);
     expect(r.healed).toBe(15);
-    expect(r.state.inventory['common-yakusou']).toBe(gs.inventory['common-yakusou']! - 1);
+    expect(r.state.inventory['aomori-ringo']).toBe(2);
   });
 
   it('そうびすると ステータスが あがり、前の そうびは バッグに もどる', async () => {
@@ -38,7 +39,8 @@ describe('バッグ・そうび', () => {
   it('そうびでない どうぐは そうびできない', async () => {
     const c = await content();
     const gs = fresh();
-    expect(equipItem(gs, c.items.get('common-yakusou')!)).toBeNull();
+    gs.inventory['aomori-ringo'] = 1;
+    expect(equipItem(gs, c.items.get('aomori-ringo')!)).toBeNull();
     expect(unequip(gs, 'head')).toBeNull();
   });
 });

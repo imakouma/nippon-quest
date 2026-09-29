@@ -34,11 +34,11 @@ const fresh = (): GameState =>
   createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
 
 describe('おみせ・やどや・かじや', () => {
-  it('青森の おみせは content の品ぞろえ、無い県は やくそう＋その県の どうぐ', () => {
+  it('青森の おみせは content の品ぞろえ、無い県は その県の どうぐ', () => {
     expect(shopStock(c.areas.get('aomori')!, c.items).map((s) => s.itemId)).toContain('aomori-ringo');
     const akita = shopStock(c.areas.get('akita')!, c.items);
-    expect(akita[0]!.itemId).toBe('common-yakusou');
-    expect(akita.some((s) => s.itemId.startsWith('akita-'))).toBe(true);
+    expect(akita.length).toBeGreaterThan(0);
+    expect(akita.every((s) => s.itemId.startsWith('akita-'))).toBe(true);
     expect(akita.every((s) => s.price > 0)).toBe(true);
   });
 

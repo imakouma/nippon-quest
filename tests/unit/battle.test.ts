@@ -56,7 +56,7 @@ async function setup(
   const enemyDef = c.monsters.get(opts.enemyId ?? 'aomori-ringoron')!;
   const enemy = makeMonster(enemyDef, opts.enemyLevel ?? 3, 'enemy');
   const mons = opts.withMonster ? [makeMonster(c.monsters.get('aomori-nebutan')!, 4, 'pal')] : [];
-  const party = makeParty(hero, mons, { 'common-yakusou': 2 });
+  const party = makeParty(hero, mons, { 'aomori-ringo': 2 });
   const state = createBattle({ ally: party, enemy, seed: opts.seed ?? 'test-seed' }, opts.def ?? D);
   return { state, c };
 }
@@ -567,9 +567,9 @@ describe('コマンド', () => {
       ...tough(state),
       ally: { ...tough(state).ally, monsters: [{ ...tough(state).ally.monsters[0]!, hp: 1 }] },
     };
-    const r = act(s, { kind: 'item', itemId: 'common-yakusou' }, D);
+    const r = act(s, { kind: 'item', itemId: 'aomori-ringo' }, D);
     expect(r.events.some((e) => e.t === 'itemUsed' && e.targetId === 'pal')).toBe(true);
-    expect(r.state.ally.items['common-yakusou']).toBe(1);
+    expect(r.state.ally.items['aomori-ringo']).toBe(1);
   });
 
   it('いれかえ で オトモが かわる', async () => {

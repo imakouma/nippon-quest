@@ -1199,7 +1199,6 @@ const RULES: readonly [RegExp, ItemShape, Pal | ((id: string) => Pal)][] = [
   [/doki-kakera/, 'shard', pal(NQ.tan, NQ.brown)],
   [/mizu-no-kakera/, 'shard', pal(NQ.sky, NQ.ice)],
   [/kiba/, 'fang', pal(NQ.paper)],
-  [/yakusou/, 'herb', pal(NQ.leaf, NQ.lime)],
 ];
 
 /** 種類ごとの かたち（どのきまりにも当てはまらない どうぐ） */

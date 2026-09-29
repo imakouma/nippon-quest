@@ -50,7 +50,11 @@ export function partyFromGameState(
     if (o.nickname) m.name = o.nickname;
     return m;
   });
-  const party = makeParty(hero, monsters, { ...gs.inventory });
+  // content に 無い どうぐ（なくした やくそう など、前の セーブに のこっている もの）は もちこまない
+  const items = Object.fromEntries(
+    Object.entries(gs.inventory).filter(([id, n]) => n > 0 && c.items.has(id)),
+  );
+  const party = makeParty(hero, monsters, items);
   const active = owned.findIndex((o) => o.uid === gs.party.activeUid);
   party.activeMonsterIndex = Math.max(0, active);
   return party;

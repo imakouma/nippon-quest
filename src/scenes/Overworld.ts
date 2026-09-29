@@ -1993,7 +1993,7 @@ export class OverworldScene extends Phaser.Scene {
 
   /**
    * 宝箱の中身のどうぐ。マップの itemId が content に無いとき（町の外の宝箱の "herb" など）は、
-   * 名前（itemName）が同じどうぐにする（やくそう → common-yakusou）
+   * 名前（itemName）が同じどうぐにする（りんご → aomori-ringo）
    */
   private chestItem(chest: Chest): Item | undefined {
     const items = this.content()?.items;

@@ -58,8 +58,8 @@ export const ENCLAVES: EnclaveDef[] = [
     enclaveId: 'shimane-enclave',
     name: '隠岐諸島[おきしょとう]',
     ferryName: '隠岐諸島フェリー',
-    chestItem: 'herb',
-    chestItemName: '隠岐の薬草',
+    chestItem: 'shimane-oki-iwagaki',
+    chestItemName: '隠岐[おき]の 岩[いわ]がき',
   },
   {
     prefId: 'hyogo',

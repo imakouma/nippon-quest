@@ -33,7 +33,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       activeUid: 'starter',
       team: ['starter'],
     },
-    inventory: { 'common-yakusou': 3 },
+    inventory: {},
     progress: {
       currentIsland: 'tohoku',
       currentArea: 'aomori',

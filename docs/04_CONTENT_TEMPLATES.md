@@ -70,7 +70,7 @@
   "boss": "aomori-boss-tsugaru-no-nushi",
   "midBoss": "aomori-midboss-nebuta-taisho",
   "events": [ "→ §2.6" ],
-  "shop": [ { "itemId": "common-yakusou", "price": 20 }, { "itemId": "aomori-ringo", "price": 15 } ],
+  "shop": [ { "itemId": "aomori-ringo", "price": 15 } ],
   "missions": [ "→ §2.7" ],
   "town": { "name": "りんごの 町[まち]", "npcs": [ "→ §2.8" ] }
 }

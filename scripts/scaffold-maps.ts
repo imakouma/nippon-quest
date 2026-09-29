@@ -114,6 +114,30 @@ interface ObjDef {
 
 const str = (name: string, value: string): Prop => ({ name, type: 'string', value });
 const int = (name: string, value: number): Prop => ({ name, type: 'int', value });
+
+/**
+ * 宝箱の 中身：その県の 名産の たべもの（HP が かいふくする。名所・特産品の じゅんで さいしょの もの）。
+ * src/core/progression/town.ts の localFood と 同じ えらび方。無ければ てつ
+ */
+function localFoodProps(prefId: string, count: number): Prop[] {
+  const file = `${ROOT}content/prefectures/${prefId}.json`;
+  const motifs = existsSync(file)
+    ? ((JSON.parse(readFileSync(file, 'utf8')) as { motifs?: { id: string }[] }).motifs ?? [])
+    : [];
+  for (const m of motifs) {
+    const f = `${ROOT}content/items/${prefId}-${m.id}.json`;
+    if (!existsSync(f)) continue;
+    const it = JSON.parse(readFileSync(f, 'utf8')) as {
+      id: string;
+      name: string;
+      kind: string;
+      use?: { heal?: number };
+    };
+    if (it.kind === 'consumable' && it.use?.heal)
+      return [str('itemId', it.id), str('itemName', it.name), int('count', count)];
+  }
+  return [str('itemId', 'common-tetsu'), str('itemName', 'てつ'), int('count', count)];
+}
 const warp = (targetMap: string, targetSpawn: string, label?: string): Prop[] => [
   str('targetMap', targetMap),
   str('targetSpawn', targetSpawn),
@@ -694,7 +718,7 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
       name: `chest_${prefId}_field`,
       type: 'chest',
       at: chest,
-      properties: [str('itemId', 'common-yakusou'), str('itemName', 'やくそう'), int('count', 1)],
+      properties: localFoodProps(prefId, 1),
     },
     // だれが立つかは content/prefectures/<県>.json の midBoss（マップには場所だけ）
     { name: `midboss_${prefId}`, type: 'midboss', at: midboss },
@@ -2095,17 +2119,13 @@ function dungeonMap(prefId: string, eventNames: string[], kind: 'dungeon' | 'sec
     [str('itemId', 'common-dou-no-ken'), str('itemName', 'どうのけん'), int('count', 1)],
   );
   for (const name of eventNames) place(name, 'event', spotIn(far, 1) ?? spotIn(entrance, 1));
-  // ほかの へやの たからばこ（やくそう）
+  // ほかの へやの たからばこ（その県の 名産の たべもの）
   boxes
     .slice(1)
     .filter((b) => b !== far)
     .slice(0, 2)
     .forEach((b, k) =>
-      place(`chest_${prefId}_${kind}${k ? k + 1 : ''}`, 'chest', spotIn(b, 2), [
-        str('itemId', 'common-yakusou'),
-        str('itemName', 'やくそう'),
-        int('count', 2),
-      ]),
+      place(`chest_${prefId}_${kind}${k ? k + 1 : ''}`, 'chest', spotIn(b, 2), localFoodProps(prefId, 2)),
     );
   // 岩・クリスタル・みずたまり など
   const props: Pt[] = [];
