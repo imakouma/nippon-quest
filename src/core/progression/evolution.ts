@@ -4,7 +4,7 @@
  * レベル・けいけんち・uid・ニックネームは そのまま。図鑑に しんか後のモンスターを登録する。
  * しんか先にも evolution があれば、もう一度 しんかできる（ネブタン → ネブタムシャ → ネブタイショウ）。
  */
-import type { Monster } from '../content/schemas';
+import type { Monster, Skill } from '../content/schemas';
 import type { GameState, OwnedMonster } from '../state/schema';
 
 export interface EvolutionInfo {
@@ -50,4 +50,28 @@ export function evolve(
   if (!gs.dex.monsters.includes(info.to.id)) gs.dex.monsters.push(info.to.id);
   gs.updatedAt = now;
   return gs;
+}
+
+/**
+ * しんかで わざが どう かわるか。しんか前だけの わざ（こども わざ）は、しんか後に ふえた わざの うち
+ * 属性と 教科が おなじで いちばん ★ の すくない わざに「しんか」する（ひのこ → ほのおのまい）。のこりは あたらしく おぼえた わざ
+ */
+export function skillChanges(
+  from: Monster,
+  to: Monster,
+  skills: ReadonlyMap<string, Skill>,
+): { evolved: [Skill, Skill][]; learned: Skill[] } {
+  const get = (ids: readonly string[]) => ids.flatMap((id) => skills.get(id) ?? []);
+  const lost = get(from.skills.filter((id) => !to.skills.includes(id)));
+  const added = get(to.skills.filter((id) => !from.skills.includes(id)));
+  const evolved: [Skill, Skill][] = [];
+  for (const old of lost) {
+    const next = added
+      .filter(
+        (s) => s.element === old.element && s.subject === old.subject && !evolved.some(([, n]) => n === s),
+      )
+      .sort((a, b) => a.gauge - b.gauge)[0];
+    if (next) evolved.push([old, next]);
+  }
+  return { evolved, learned: added.filter((s) => !evolved.some(([, n]) => n === s)) };
 }

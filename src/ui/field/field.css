@@ -370,6 +370,8 @@
   color: var(--nq-yellow);
   font-size: 24px;
   line-height: 28px;
+  /* しんかの あとの「わざが しんかした！」などを 行を わけて 出す */
+  white-space: pre-line;
   word-break: keep-all;
   overflow-wrap: anywhere;
 }

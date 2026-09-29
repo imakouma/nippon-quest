@@ -1,5 +1,19 @@
 [
   {
+    "id": "sk-kazoe-giri",
+    "name": "かぞえぎり",
+    "subject": "sansu",
+    "gradeRange": [1, 1],
+    "unitHint": ["sansu.g1.kazu-100"],
+    "power": 95,
+    "element": "none",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "かずを かぞえて きりつける。しんかすると「たしざんぎり」に なる"
+  },
+  {
     "id": "sk-tashizan-giri",
     "name": "たしざんぎり",
     "subject": "sansu",
@@ -14,6 +28,20 @@
     "flavor": "たしざんを といて きりつける！"
   },
   {
+    "id": "sk-happa-tobashi",
+    "name": "はっぱとばし",
+    "subject": "seikatsu",
+    "gradeRange": [1, 1],
+    "unitHint": ["seikatsu.g1.kisetsu"],
+    "power": 90,
+    "element": "mori",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "はっぱを 1まい とばす。しんかすると「はっぱカッター」に なる"
+  },
+  {
     "id": "sk-happa-cutter",
     "name": "はっぱカッター",
     "subject": "seikatsu",
@@ -25,6 +53,20 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage"
+  },
+  {
+    "id": "sk-abc-call",
+    "name": "ABCコール",
+    "subject": "eigo",
+    "gradeRange": [1, 1],
+    "unitHint": ["eigo.g1.alphabet"],
+    "power": 95,
+    "element": "kaze",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ABCを 小[ちい]さな こえで よぶ。しんかすると「ABCシャウト」に なる"
   },
   {
     "id": "sk-abc-shout",
@@ -61,6 +103,21 @@
     "flavor": "じっけんで じゃくてんを 見[み]つける"
   },
   {
+    "id": "sk-kana-barrier",
+    "name": "かなバリア",
+    "subject": "kokugo",
+    "gradeRange": [1, 1],
+    "unitHint": ["kokugo.g1.hiragana"],
+    "power": 0,
+    "element": "hikari",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "targetType": "self",
+    "effect": "buff",
+    "flavor": "ひらがなの かべで じぶんだけ まもる。しんかすると「かんじバリア」（みんなを まもる）に なる"
+  },
+  {
     "id": "sk-kanji-barrier",
     "name": "かんじバリア",
     "subject": "kokugo",
@@ -86,6 +143,20 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage"
+  },
+  {
+    "id": "sk-hinoko",
+    "name": "ひのこ",
+    "subject": "kokugo",
+    "gradeRange": [1, 1],
+    "unitHint": ["kokugo.g1.hiragana"],
+    "power": 90,
+    "element": "hino",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ちいさな 火[ひ]の粉[こ]を とばす。しんかすると「ほのおのまい」に なる"
   },
   {
     "id": "sk-hono-no-mai",
@@ -135,6 +206,20 @@
     "flavor": "ねぶたの 山車[だし]で ドーンと とっしん！"
   },
   {
+    "id": "sk-shizuku",
+    "name": "しずく",
+    "subject": "sansu",
+    "gradeRange": [1, 1],
+    "unitHint": ["sansu.g1.hikizan"],
+    "power": 90,
+    "element": "mizu",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "水[みず]の しずくを ぽたっと おとす。しんかすると「みずてっぽう」に なる"
+  },
+  {
     "id": "sk-mizu-teppo",
     "name": "みずてっぽう",
     "subject": "sansu",
@@ -146,6 +231,21 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage"
+  },
+  {
+    "id": "sk-suna-kabe",
+    "name": "すなのかべ",
+    "subject": "shakai",
+    "gradeRange": [3, 3],
+    "unitHint": ["shakai.g3.machi"],
+    "power": 0,
+    "element": "tsuchi",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "targetType": "self",
+    "effect": "buff",
+    "flavor": "すなを もりあげて じぶんだけ まもる。しんかすると「つちのかべ」（みんなを まもる）に なる"
   },
   {
     "id": "sk-tsuchi-kabe",

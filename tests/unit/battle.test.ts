@@ -435,7 +435,8 @@ describe('教科の 固有スキル・オトモの 必殺技', () => {
     const { state } = await setup({ withMonster: true, skills: ['sk-tashizan-giri'] });
     expect(keys(state)).toEqual([
       'hero:sk-tashizan-giri',
-      'pal:sk-hono-no-mai',
+      // しんか前の ネブタンは こども わざ「ひのこ」
+      'pal:sk-hinoko',
       `hero:${D.settings.subjectGauge.uniqueSkills.kokugo}`,
       `hero:${D.settings.subjectGauge.uniqueSkills.sansu}`,
     ]);
@@ -459,12 +460,8 @@ describe('教科の 固有スキル・オトモの 必殺技', () => {
 
   it('オトモの 必殺技は こたえると オトモが 使う（actorId）', async () => {
     const { state } = await setup({ withMonster: true, skills: ['sk-tashizan-giri'] });
-    const r = act(
-      tough(state),
-      { kind: 'skill', skillId: 'sk-hono-no-mai', result: R(1), actorId: 'pal' },
-      D,
-    );
-    expect(r.events.some((e) => e.t === 'act' && e.actorId === 'pal' && e.skillId === 'sk-hono-no-mai')).toBe(
+    const r = act(tough(state), { kind: 'skill', skillId: 'sk-hinoko', result: R(1), actorId: 'pal' }, D);
+    expect(r.events.some((e) => e.t === 'act' && e.actorId === 'pal' && e.skillId === 'sk-hinoko')).toBe(
       true,
     );
     expect(r.events.some((e) => e.t === 'damage' && e.side === 'enemy')).toBe(true);

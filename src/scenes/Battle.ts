@@ -1513,10 +1513,15 @@ export class BattleScene extends Phaser.Scene {
     return m ? this.content.monsters.get(m.refId) : undefined;
   }
 
-  /** 演出の はでさ：主人公・ボス＝3、モンスターは しんかの だんかい（しんか前＝1） */
+  /**
+   * 演出の はでさ：主人公・ボス＝3。モンスターは しんか前＝1、とちゅう＝2、さいごの すがた（しんかした あと もう しんかしない）＝3。
+   * しんかしない モンスターは 1（のら モンスター）
+   */
   private tierOf(def: Monster | undefined): number {
     if (!def || def.isBoss) return 3;
-    return Math.min(3, evolutionStage(def.id, this.content.monsters));
+    const stage = evolutionStage(def.id, this.content.monsters);
+    if (stage >= 2 && !def.evolution) return 3;
+    return Math.min(3, stage);
   }
 
   /** モンスターの モチーフの 絵：名産の どうぐの アイコン（16）と 名所の 絵（32）。どちらかが あれば つかう */

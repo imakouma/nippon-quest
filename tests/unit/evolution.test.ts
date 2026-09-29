@@ -62,3 +62,32 @@ describe('しんか', () => {
     expect(evolutionOf(gs, owned, c.monsters)).toBeNull();
   });
 });
+
+describe('わざの しんか', () => {
+  it('しんか前は こども わざ（ネブタン＝ひのこ）、しんかすると ほのおのまいに しんかし、ラッセラーのほのおを おぼえる', async () => {
+    const { skillChanges } = await import('../../src/core/progression/evolution');
+    const { content } = await import('./helpers');
+    const c = await content();
+    const nebutan = c.monsters.get('aomori-nebutan')!;
+    const musha = c.monsters.get('aomori-nebuta-musha')!;
+    expect(nebutan.skills).toEqual(['sk-hinoko']);
+    const ch = skillChanges(nebutan, musha, c.skills);
+    expect(ch.evolved.map(([a, b]) => [a.id, b.id])).toEqual([['sk-hinoko', 'sk-hono-no-mai']]);
+    expect(ch.learned.map((s) => s.id)).toEqual(['sk-rasseraa-no-hono']);
+  });
+
+  it('しんか前の モンスターの こども わざは、しんか後に かならず 大人の わざに しんかする', async () => {
+    const { skillChanges } = await import('../../src/core/progression/evolution');
+    const { content } = await import('./helpers');
+    const c = await content();
+    for (const m of c.monsters.values()) {
+      const to = m.evolution && c.monsters.get(m.evolution.to);
+      if (!to) continue;
+      const lost = m.skills.filter((id) => !to.skills.includes(id));
+      expect(skillChanges(m, to, c.skills).evolved.length, m.id).toBe(lost.length);
+      // こども わざは 大人より よわい
+      for (const [a, b] of skillChanges(m, to, c.skills).evolved)
+        expect(a.power, a.id).toBeLessThanOrEqual(b.power);
+    }
+  });
+});

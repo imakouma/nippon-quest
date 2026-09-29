@@ -24,7 +24,7 @@ import {
   zoneForMap,
 } from '../core/battle/setup';
 import { groundOfTile, type Ground } from '../core/world/ground';
-import { evolutionOf, evolve } from '../core/progression/evolution';
+import { evolutionOf, evolve, skillChanges } from '../core/progression/evolution';
 import {
   bagContext,
   bagMonsterUids,
@@ -2775,11 +2775,21 @@ export class OverworldScene extends Phaser.Scene {
             playSfx('miss');
             return;
           }
+          const before = cur && c.monsters.get(cur.party.owned.find((x) => x.uid === uid)?.monsterId ?? '');
+          const after = c.monsters.get(o.monsterId);
           this.setGame(next);
           playSfx('recruit');
           this.cameras.main.flash(300, 255, 255, 255);
-          const to = o.nickname ?? c.monsters.get(o.monsterId)?.name ?? '';
-          again(key, t('field.partyEvolved', { from: nameOf(key), to }), key);
+          const to = o.nickname ?? after?.name ?? '';
+          // わざも しんか（ひのこ → ほのおのまい）・あたらしい わざ
+          const change =
+            before && after ? skillChanges(before, after, c.skills) : { evolved: [], learned: [] };
+          const lines = [
+            t('field.partyEvolved', { from: nameOf(key), to }),
+            ...change.evolved.map(([a, b]) => t('field.partySkillEvolved', { from: a.name, to: b.name })),
+            ...change.learned.map((sk) => t('field.partySkillLearned', { name: sk.name })),
+          ];
+          again(key, lines.join('\n'), key);
         },
         onClose: () => {
           playSfx('back');
