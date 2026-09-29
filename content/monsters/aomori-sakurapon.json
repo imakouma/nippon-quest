@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-sakurapon",
+  "name": "サクラポン",
+  "area": "aomori",
+  "motifId": "hirosaki-jo",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 28,
+    "mp": 8,
+    "atk": 8,
+    "def": 5,
+    "spd": 10,
+    "wis": 5
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.1,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-call"],
+  "drops": [
+    {
+      "itemId": "aomori-sakura-no-hanabira",
+      "rate": 0.1
+    },
+    {
+      "itemId": "aomori-hirosaki-jo-no-kawara",
+      "rate": 0.25
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 14,
+  "gold": 9,
+  "spriteKey": "mon.aomori-sakurapon",
+  "evolution": {
+    "to": "aomori-hanaikada",
+    "item": "aomori-sakura-no-hanabira"
+  },
+  "dexBlurb": "弘前城[ひろさきじょう]の さくらの つぼみの せい。弘前公園[ひろさきこうえん]には 2600本[ぼん]ほどの さくらが あって、春[はる]に いっせいに さくよ。"
+}

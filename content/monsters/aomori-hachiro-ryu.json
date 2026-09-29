@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-hachiro-ryu",
+  "name": "ハチロウリュウ",
+  "area": "aomori",
+  "motifId": "towada-ko",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 56,
+    "mp": 15,
+    "atk": 16,
+    "def": 11,
+    "spd": 12,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.5,
+    "mp": 1.5,
+    "atk": 2.1,
+    "def": 1.5,
+    "spd": 1.4,
+    "wis": 1.1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio", "sk-fubuki"],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 50,
+  "gold": 30,
+  "spriteKey": "mon.aomori-hachiro-ryu",
+  "dexBlurb": "十和田湖に つたわる 八郎太郎[はちろうたろう]の おはなしの 竜[りゅう]。魚を たべすぎて のどが かわき、水[みず]を のみつづけて 竜に なったと いわれるよ。"
+}
