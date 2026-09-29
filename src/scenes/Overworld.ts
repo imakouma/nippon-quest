@@ -140,6 +140,8 @@ const FEET_ORIGIN_Y = 16 / CHAR_H;
 const DELTA: Record<Dir, [number, number]> = { down: [0, 1], left: [-1, 0], right: [1, 0], up: [0, -1] };
 /** collision レイヤーでこの番号のマスは通れない（scripts/scaffold-maps.ts） */
 const BLOCK_TILE = 3;
+/** background の 水（海・湖）の タイル */
+const WATER_TILE = 3;
 /** 名所に「着いた」とみなす範囲（まわり 1 マス） */
 const TRIGGER_RADIUS = 1;
 /** にほんちずの地図データ（scripts/scaffold-maps.ts が public/worldmap.json に作る）の cache キー */
@@ -231,6 +233,8 @@ interface Npc {
   name: string;
   lines: DialogueLine[];
   sprite: Phaser.GameObjects.Sprite;
+  /** 港の せんどうさん：のせてくれる 船の 行き先（place は 行き先の 名前） */
+  ferry?: { map: string; spawn: string; place: string; back: boolean };
 }
 
 interface Chest {
@@ -274,6 +278,7 @@ const ROLE_NAME_KEYS: Record<string, string> = {
   board: 'field.roleBoard',
   dex: 'field.roleDex',
   arena: 'field.roleArena',
+  ferry: 'field.roleFerry',
 };
 
 /** 町の人（talk）の しごとの名前。はなす モチーフの しゅるいで きまる */
@@ -835,6 +840,11 @@ export class OverworldScene extends Phaser.Scene {
     const target = prop(obj, 'targetMap');
     if (typeof target !== 'string') return;
     const spawn = String(prop(obj, 'targetSpawn') ?? 'spawn');
+    // 県 ⇄ 離島 は ふむと ワープ ではなく、港の せんどうさんに たのんで 船で わたる
+    if (this.isHarborGate(target)) {
+      this.addHarbor(tx, ty, target, spawn);
+      return;
+    }
     const lock = prop(obj, 'lock');
     const w = Math.max(1, Math.round((obj.width ?? TILE) / TILE));
     for (let k = 0; k < w; k++) {
@@ -860,6 +870,102 @@ export class OverworldScene extends Phaser.Scene {
         easeParams: [3],
       });
     }
+  }
+
+  /** 県の フィールド → 離島、離島 → 県の フィールド の 入口か（離島の 中の 船は ちがう） */
+  private isHarborGate(target: string): boolean {
+    const k = this.kind();
+    if (k === 'field') return ENCLAVES.some((e) => e.enclaveId === target);
+    if (k === 'enclave') return target.endsWith('-field');
+    return false;
+  }
+
+  /**
+   * 離島への 港（ハーバー）：もとの 入口の マスに せんどうさんが 立ち、海の 方へ さんばしが のびて、先に 船が うかぶ。
+   * せんどうさんに 話すと「〇〇ゆきの ふねが でるよ。のっていくかい？」→ はい で 島へ（ferryTalk）
+   */
+  private addHarbor(tx: number, ty: number, target: string, spawn: string): void {
+    const back = this.kind() === 'enclave';
+    const enclave = ENCLAVES.find((e) => e.enclaveId === (back ? this.mapKey : target));
+    const place = back
+      ? (this.content()?.areas.get(enclave?.prefId ?? '')?.name ?? target)
+      : (enclave?.name ?? target);
+    // 海の 向き：となりから 水の マスが いちばん 長く つづく 向き
+    const bg = this.map.getLayer('background');
+    const water = (x: number, y: number) => this.inside(x, y) && bg?.data[y]?.[x]?.index === WATER_TILE;
+    let sea: Dir = 'down';
+    let run = -1;
+    for (const d of DIRS) {
+      let n = 0;
+      while (n < 4 && water(tx + DELTA[d][0] * (n + 1), ty + DELTA[d][1] * (n + 1))) n++;
+      if (n > run) {
+        run = n;
+        sea = d;
+      }
+    }
+    const [dx, dy] = DELTA[sea];
+    if (run > 0) {
+      // さんばし（水の 上に 2 マスまで）と、その先の 船（ゆらゆら）
+      const len = Math.min(2, run - 1);
+      for (let k = 1; k <= len; k++)
+        this.add
+          .image((tx + dx * k) * TILE + 8, (ty + dy * k) * TILE + 8, dx ? 'fld.pier.h' : 'fld.pier.v')
+          .setDepth(2);
+      const sx = (tx + dx * (len + 1)) * TILE + 8;
+      const sy = (ty + dy * (len + 1)) * TILE + 8;
+      const ship = this.add
+        .image(sx, sy, 'fld.ship')
+        .setFlipX(dx > 0)
+        .setDepth(sy + 12);
+      this.tweens.add({
+        targets: ship,
+        y: sy - 1,
+        yoyo: true,
+        repeat: -1,
+        duration: 900,
+        ease: 'Stepped',
+        easeParams: [2],
+      });
+    }
+    // せんどうさん（陸の 方を 向く）
+    const tex = 'char.npc.ferry';
+    addSheet(this.textures, tex, walkSheet(NPC_LOOKS.ferry!), CHAR_W, CHAR_H);
+    const x = tx * TILE + 8;
+    const y = ty * TILE + 8;
+    this.add
+      .image(x, y + 6, 'fld.shadow')
+      .setAlpha(0.3)
+      .setDepth(1);
+    const land: Dir = sea === 'up' ? 'down' : sea === 'down' ? 'up' : sea === 'left' ? 'right' : 'left';
+    const sprite = this.add.sprite(x, y, tex, walkFrame(land, 1)).setOrigin(0.5, FEET_ORIGIN_Y).setDepth(y);
+    const i = this.idx(tx, ty);
+    this.blocked.add(i);
+    this.npcs.set(i, {
+      key: `ferry_${target}`,
+      role: 'ferry',
+      name: t('field.roleFerry'),
+      lines: [],
+      sprite,
+      ferry: { map: target, spawn, place, back },
+    });
+  }
+
+  /** せんどうさん：「〇〇ゆきの ふねが でるよ。のっていくかい？」→ はい で 船に のって わたる。わたったら true */
+  private async ferryTalk(npc: Npc): Promise<boolean> {
+    const f = npc.ferry;
+    if (!f) return false;
+    const go = await this.choose(
+      [{ speaker: npc.name, text: t(f.back ? 'field.ferryAskBack' : 'field.ferryAsk', { place: f.place }) }],
+      [t('ui.yes'), t('ui.no')],
+    );
+    if (go !== 0) {
+      await this.talk([{ speaker: npc.name, text: t('field.ferryLater') }]);
+      return false;
+    }
+    await this.talk([{ speaker: npc.name, text: t('field.ferryGo') }]);
+    playSfx('select');
+    this.switchMap(f.map, f.spawn);
+    return true;
   }
 
   private addNpc(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
@@ -1581,6 +1687,10 @@ export class OverworldScene extends Phaser.Scene {
         // しょうぶが はじまったら バトルへ（busy は arenaTalk が もどす）
         if (await this.arenaTalk(npc.name, lines)) return;
         break;
+      case 'ferry':
+        // 船に のったら マップが かわる（busy は switchMap が もつ）
+        if (await this.ferryTalk(npc)) return;
+        break;
       default:
         await this.talk(lines);
         await this.villagerGiftTalk(npc);
@@ -1992,7 +2102,7 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   /**
-   * 宝箱の中身のどうぐ。マップの itemId が content に無いとき（町の外の宝箱の "herb" など）は、
+   * 宝箱の中身のどうぐ。マップの itemId が content に無いときは、
    * 名前（itemName）が同じどうぐにする（りんご → aomori-ringo）
    */
   private chestItem(chest: Chest): Item | undefined {

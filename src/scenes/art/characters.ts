@@ -264,6 +264,17 @@ export const NPC_LOOKS: Readonly<Record<string, Look>> = {
     pants: NQ.paper,
     shoes: NQ.ink,
   },
+  // 離島への 港の せんどうさん（白い ぼうしに こんの 服）
+  ferry: {
+    hair: NQ.hairBlack,
+    skin: NQ.skinMid,
+    cap: NQ.white,
+    top: NQ.navy,
+    scarf: NQ.white,
+    pack: null,
+    pants: NQ.navy,
+    shoes: NQ.bark,
+  },
   talk: {
     hair: NQ.hairBrown,
     skin: NQ.skinLight,

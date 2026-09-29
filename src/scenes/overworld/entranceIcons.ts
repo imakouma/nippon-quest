@@ -2,6 +2,7 @@
  * フィールドの 入口の しるし（ドラクエの 地図のように、行き先が 絵で わかる）。16×16・すけ。NQ-48 だけ。
  *  fld.icon.town：町（赤と 青の 屋根の 家）／fld.icon.cave：ダンジョン（岩山の どうくつ）
  *  fld.icon.castle：裏ステージ（お城の 門）／fld.icon.port：港（船と さんばし）
+ * 離島への 港（ハーバー）の 絵も ここ：fld.pier.h / fld.pier.v（さんばしの 板 16×16）・fld.ship（船 32×24）
  */
 import type Phaser from 'phaser';
 import { NQ } from '../art/palette';
@@ -75,13 +76,71 @@ const ICONS: Record<string, (r: Rect) => void> = {
   },
 };
 
+/** 港（ハーバー）の 絵：さんばし（よこ・たて）と 船。[はば, 高さ, 描きかた] */
+const HARBOR: Record<string, [number, number, (r: Rect) => void]> = {
+  'fld.pier.h': [
+    16,
+    16,
+    (r) => {
+      // よこに のびる さんばし：板を たてに ならべ、下に くい
+      r(0, 4, 16, 8, NQ.tan);
+      for (let x = 3; x < 16; x += 4) r(x, 4, 1, 8, NQ.brown);
+      r(0, 4, 16, 1, NQ.sand);
+      r(0, 12, 16, 1, NQ.brown);
+      r(2, 13, 2, 3, NQ.bark);
+      r(12, 13, 2, 3, NQ.bark);
+    },
+  ],
+  'fld.pier.v': [
+    16,
+    16,
+    (r) => {
+      // たてに のびる さんばし：板を よこに ならべ、よこに くい
+      r(4, 0, 8, 16, NQ.tan);
+      for (let y = 3; y < 16; y += 4) r(4, y, 8, 1, NQ.brown);
+      r(4, 0, 1, 16, NQ.sand);
+      r(11, 0, 1, 16, NQ.brown);
+      r(2, 2, 2, 2, NQ.bark);
+      r(12, 10, 2, 2, NQ.bark);
+    },
+  ],
+  'fld.ship': [
+    32,
+    24,
+    (r) => {
+      // 白い 帆の フェリー（左向き）。赤い 船体に まど、下に なみ
+      r(15, 1, 1, 13, NQ.bark);
+      r(16, 2, 9, 9, NQ.white);
+      r(16, 2, 9, 1, NQ.cloud);
+      r(24, 3, 1, 8, NQ.cloud);
+      r(18, 5, 5, 2, NQ.red);
+      r(6, 8, 8, 5, NQ.paper);
+      r(7, 9, 2, 2, NQ.sky);
+      r(11, 9, 2, 2, NQ.sky);
+      r(2, 13, 28, 1, NQ.ink);
+      r(3, 14, 26, 4, NQ.red);
+      r(3, 14, 26, 1, NQ.vermilion);
+      r(5, 18, 22, 2, NQ.brick);
+      for (let x = 6; x < 26; x += 5) r(x, 15, 2, 2, NQ.cream);
+      r(0, 20, 32, 1, NQ.white);
+      r(4, 21, 24, 1, NQ.sky);
+    },
+  ],
+};
+
 /** 入口の しるしの テクスチャを 作る（何度 呼んでもよい） */
 export function buildEntranceIcons(scene: Phaser.Scene): void {
-  for (const [key, draw] of Object.entries(ICONS)) {
+  const all: [string, number, number, (r: Rect) => void][] = [
+    ...Object.entries(ICONS).map(([k, d]) => [k, 16, 16, d] as [string, number, number, (r: Rect) => void]),
+    ...Object.entries(HARBOR).map(
+      ([k, [w, h, d]]) => [k, w, h, d] as [string, number, number, (r: Rect) => void],
+    ),
+  ];
+  for (const [key, w, h, draw] of all) {
     if (scene.textures.exists(key)) continue;
     const c = document.createElement('canvas');
-    c.width = 16;
-    c.height = 16;
+    c.width = w;
+    c.height = h;
     const ctx = c.getContext('2d')!;
     draw((x, y, w, h, col) => {
       ctx.fillStyle = col;

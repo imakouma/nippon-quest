@@ -298,3 +298,22 @@ describe('にほんちず（public/worldmap.json）', () => {
       expect(a.stamps.length, a.id).toBeGreaterThanOrEqual(8);
   });
 });
+
+describe('宝箱の 中身', () => {
+  it('どの マップの 宝箱も、content に ある どうぐが 入っている（なくした やくそう・名前だけの どうぐ は ない）', () => {
+    const items = new Set(
+      readdirSync(new URL('../../content/items/', import.meta.url)).map((f) => f.replace(/\.json$/, '')),
+    );
+    const dir = new URL('../../public/maps/', import.meta.url);
+    const bad: string[] = [];
+    for (const f of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+      const m = JSON.parse(readFileSync(new URL(f, dir), 'utf8')) as { layers: { objects?: Obj[] }[] };
+      for (const o of m.layers.flatMap((l) => l.objects ?? []))
+        if (o.type === 'chest') {
+          const id = o.properties?.find((p) => p.name === 'itemId')?.value;
+          if (typeof id !== 'string' || !items.has(id)) bad.push(`${f}:${o.name}:${String(id)}`);
+        }
+    }
+    expect(bad).toEqual([]);
+  });
+});
