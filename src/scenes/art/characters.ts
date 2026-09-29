@@ -370,19 +370,29 @@ function legs(dir: Dir): [Rows, Rows, Rows] {
 
 /** 歩行シート。町の人は 1 コマ 16×24、hero＝true（主人公）は 24×32（HERO_FRAME） */
 export function walkSheet(l: Look, hero = false): HTMLCanvasElement {
+  return sheetCanvas(walkFrames(l, hero), 3);
+}
+
+/** 歩行シートの コマ（テスト用に マス目のまま） */
+export function walkFrames(l: Look, hero = false): Grid[] {
   const colors = colorsOf(l);
   const t = tops(l);
   const size = hero ? HERO_FRAME : NPC_FRAME;
-  const frames = DIRS.flatMap((d) =>
+  return DIRS.flatMap((d) =>
     legs(d).map((lg) =>
       frame(t[d], lg, l, colors, { size, view: VIEW[d], pose: 'walk', mirror: d === 'right' }),
     ),
   );
-  return sheetCanvas(frames, 3);
 }
 
 /** 主人公の バトルシート（1 コマ 24×32、左向き）。サイドビューの戦闘で使う */
 export function battleSheet(l: Look): HTMLCanvasElement {
+  const frames = battleFrames(l);
+  return sheetCanvas(frames, frames.length);
+}
+
+/** バトルシートの コマ（テスト用に マス目のまま） */
+export function battleFrames(l: Look): Grid[] {
   const colors = colorsOf(l);
   const side = tops(l).left;
   const replace = (rows: string[], at: number, part: Rows) => [
@@ -401,7 +411,7 @@ export function battleSheet(l: Look): HTMLCanvasElement {
     f(replace(side, 5, POSE_HURT_FACE), SIDE_LEGS.idle, 'side', 'hurt'),
     f(capped(POSE_VICTORY, l, false), FRONT_LEGS.idle, 'front', 'victory'),
   ];
-  return sheetCanvas(frames, frames.length);
+  return frames;
 }
 
 /** 主人公の コマの 大きさ と、足もと（タイルの まん中に くる 高さ）の origin */

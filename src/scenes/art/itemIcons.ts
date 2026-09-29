@@ -1209,16 +1209,12 @@ function byKind(item: Pick<Item, 'id' | 'kind'>): [ItemShape, Pal] {
     case 'weapon':
       return ['sword', /maguro/.test(id) ? pal(NQ.sky) : /dou/.test(id) ? pal(NQ.amber) : pal(NQ.silver)];
     case 'head':
-      // めいさんひんの そうび（…-meisan-…）は その 名産品の かたち
-      if (/meisan-.*melon/.test(id)) return ['melon', pal(NQ.leaf, NQ.sprout)];
       return /kubikazari/.test(id) ? ['necklace', pal(NQ.tan, NQ.green)] : ['helmet', pal(NQ.red, NQ.gold)];
     case 'chest':
-      if (/meisan-ringo/.test(id)) return ['fruit', pal(NQ.red)];
       return ['armor', /ringo/.test(id) ? pal(NQ.red, NQ.leaf) : pal(NQ.slate, NQ.gold)];
     case 'legs':
-      return ['greaves', /magewappa/.test(id) ? pal(NQ.sand, NQ.tan) : pal(NQ.tan, NQ.brown)];
+      return ['greaves', pal(NQ.tan, NQ.brown)];
     case 'feet':
-      if (/tekki/.test(id)) return ['boots', pal(NQ.slate, NQ.silver)];
       return ['boots', /nuri/.test(id) ? pal(NQ.bark, NQ.red) : pal(NQ.brown, NQ.tan)];
     case 'key':
       return ['amulet', pal(NQ.red, NQ.gold)];
@@ -1235,6 +1231,11 @@ export function itemIconDesign(item: Pick<Item, 'id' | 'kind'>): {
   pal: Pal;
   fallback: boolean;
 } {
+  // めいさんひんの そうび（<県>-meisan-<名産品>）は その 名産品の かたち（無ければ 部位の かたち）
+  const meisan = /^[a-z]+-meisan-(.+)$/.exec(item.id)?.[1];
+  if (meisan)
+    for (const [re, shape, p] of RULES)
+      if (re.test(meisan)) return { shape, pal: typeof p === 'function' ? p(meisan) : p, fallback: false };
   // そうび・だいじな もの は 種類の かたち（ぬりの ブーツ・マグロの ずつき なども）
   if (['weapon', 'head', 'chest', 'legs', 'feet', 'key'].includes(item.kind)) {
     const [shape, p] = byKind(item);

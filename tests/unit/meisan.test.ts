@@ -6,8 +6,9 @@ import { equipItem } from '../../src/core/progression/inventory';
 import { giveMeisan, isMeisanGear, meisanEarned } from '../../src/core/progression/meisan';
 import { motifStamp } from '../../src/core/progression/route';
 import { createNewGame } from '../../src/core/state/newGame';
-import { heroCostumeIds, heroKey, heroLook } from '../../src/scenes/art/characters';
-import { COSTUME_ART } from '../../src/scenes/art/costumes';
+import { battleFrames, heroCostumeIds, heroKey, heroLook, walkFrames } from '../../src/scenes/art/characters';
+import { COSTUME_ART, HERO_FRAME } from '../../src/scenes/art/costumes';
+import { NQ48 } from '../../src/scenes/art/palette';
 
 const fresh = () => createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
 const MELON = 'hokkaido-meisan-yubari-melon';
@@ -23,9 +24,9 @@ describe('めいさんひんの そうび', () => {
   it('県ごとの そうびで、強さ（stats）と 着たときの 絵（COSTUME_ART）が ある', async () => {
     const c = await content();
     const gear = [...c.items.values()].filter(isMeisanGear);
-    expect(gear.map((g) => g.id).sort()).toEqual(
-      [MELON, 'aomori-meisan-ringo', 'akita-meisan-magewappa', 'iwate-meisan-nanbu-tekki'].sort(),
-    );
+    // 47 都道府県 1 つずつ
+    expect(new Set(gear.map((g) => g.areaOrigin)).size).toBe(47);
+    expect(gear).toHaveLength(47);
     for (const g of gear) {
       expect(c.areas.has(g.areaOrigin!), g.id).toBe(true);
       expect(g.id.startsWith(`${g.areaOrigin}-meisan-`), g.id).toBe(true);
@@ -80,4 +81,29 @@ describe('めいさんひんの そうび', () => {
     expect(heroLook(ap, { head: MELON }).cap).toBeNull();
     expect(heroLook(ap).cap).not.toBeNull();
   });
+});
+
+describe('めいさんひんの そうびの 絵', () => {
+  const ap = { hair: 0, skin: 0, cloth: 0 };
+  const palette = new Set<string>(NQ48);
+  for (const id of Object.keys(COSTUME_ART)) {
+    it(`${id}：色は NQ-48 だけ・着ると 絵が かわる・いつもの 絵から はみ出さない 大きさ`, () => {
+      const eq = { [COSTUME_ART[id]!.slot]: id };
+      const plain = [...walkFrames(heroLook(ap), true), ...battleFrames(heroLook(ap))];
+      const worn = [...walkFrames(heroLook(ap, eq), true), ...battleFrames(heroLook(ap, eq))];
+      for (const f of worn) {
+        expect(f).toHaveLength(HERO_FRAME.h);
+        for (const row of f) {
+          expect(row).toHaveLength(HERO_FRAME.w);
+          for (const c of row) if (c) expect(palette.has(c), c).toBe(true);
+        }
+      }
+      // どの コマも いつもの 絵と ちがう（見て わかるほど：10 ドット いじょう）
+      worn.forEach((f, k) => {
+        let diff = 0;
+        f.forEach((row, y) => row.forEach((c, x) => c !== plain[k]![y]![x] && diff++));
+        expect(diff, `コマ ${k}`).toBeGreaterThanOrEqual(10);
+      });
+    });
+  }
 });
