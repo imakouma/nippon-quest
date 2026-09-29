@@ -106,6 +106,9 @@ import {
   CHAR_H,
   CHAR_W,
   DIRS,
+  HERO_FEET_ORIGIN_Y,
+  HERO_H,
+  HERO_W,
   heroKey,
   heroLook,
   NPC_LOOKS,
@@ -114,7 +117,7 @@ import {
   type Dir,
 } from './art/characters';
 import { itemIconUrl } from './art/itemIcons';
-import { giveHat, hatsEarned, isHat, wearHat } from '../core/progression/hats';
+import { giveMeisan, meisanEarned } from '../core/progression/meisan';
 import { motifArtUrl } from './art/motifArt';
 import { designedMonsterArt } from './art/monsters';
 import { addSheet } from './art/sheet';
@@ -500,10 +503,7 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private createHero(tx: number, ty: number): void {
-    const ap = this.gs()?.player.appearance ?? { hair: 0, skin: 0, cloth: 0 };
-    this.heroTex = heroKey(ap);
-    addSheet(this.textures, this.heroTex, walkSheet(heroLook(ap)), CHAR_W, CHAR_H);
-    this.ensureWalkAnims(this.heroTex);
+    this.heroTex = this.heroSheet();
     const x = tx * TILE + 8;
     const y = ty * TILE + 8;
     this.shadow = this.add
@@ -512,39 +512,38 @@ export class OverworldScene extends Phaser.Scene {
       .setDepth(1);
     this.player = this.add
       .sprite(x, y, this.heroTex, walkFrame(this.facing, 1))
-      .setOrigin(0.5, FEET_ORIGIN_Y);
+      .setOrigin(0.5, HERO_FEET_ORIGIN_Y);
     this.player.setDepth(y);
   }
 
-  /** かぶりものを かぶる（null＝ぬぐ）。ひとことを かえす */
-  private putOnHat(hatId: string | null): string | null {
-    const gs = this.gs()!;
-    const before = gs.player.appearance.hat;
-    const next = wearHat(gs, hatId);
-    if (!next) return null;
-    this.setGame(next);
-    this.refreshHeroLook();
-    playSfx('select');
-    const name = (id: string | null | undefined) => (id && this.content()?.items.get(id)?.name) || '';
-    return hatId ? t('field.hatWorn', { item: name(hatId) }) : t('field.hatRemoved', { item: name(before) });
+  /**
+   * 主人公の 歩行シート（見た目 と 着ている めいさんひんの そうびで きまる）を 用意して キーを かえす。
+   * ap を わたすと その 見た目の 見本（みため タブ）
+   */
+  private heroSheet(ap?: HeroLookIndex): string {
+    const gs = this.gs();
+    const look = ap ?? gs?.player.appearance ?? { hair: 0, skin: 0, cloth: 0 };
+    const eq = gs?.player.equipment ?? {};
+    const key = heroKey(look, eq);
+    addSheet(this.textures, key, walkSheet(heroLook(look, eq), true), HERO_W, HERO_H);
+    this.ensureWalkAnims(key);
+    return key;
   }
 
-  /** みためを かえたら 歩いている 主人公の 絵を つけかえる */
+  /** 見た目・そうびが かわったら 歩いている 主人公の 絵を つけかえる */
   private refreshHeroLook(): void {
-    const ap = this.gs()?.player.appearance;
-    if (!ap || !this.player) return;
-    this.heroTex = heroKey(ap);
-    addSheet(this.textures, this.heroTex, walkSheet(heroLook(ap)), CHAR_W, CHAR_H);
-    this.ensureWalkAnims(this.heroTex);
-    this.player.anims.stop();
-    this.player.setTexture(this.heroTex, walkFrame(this.facing, 1));
+    if (!this.player?.active) return;
+    const key = this.heroSheet();
+    if (key === this.heroTex) return;
+    this.heroTex = key;
+    const walking = this.player.anims.isPlaying;
+    this.player.setTexture(key, walkFrame(this.facing, 1));
+    if (walking) this.player.anims.play(`${key}:${this.facing}`, true);
   }
 
   /** みための 見本（正面の 立ち絵）を data URL に */
   private heroFrameUrl(ap: HeroLookIndex): string {
-    const key = heroKey(ap);
-    addSheet(this.textures, key, walkSheet(heroLook(ap)), CHAR_W, CHAR_H);
-    return this.textures.getBase64(key, walkFrame('down', 1)) as string;
+    return this.textures.getBase64(this.heroSheet(ap), walkFrame('down', 1)) as string;
   }
 
   private ensureWalkAnims(tex: string): void {
@@ -1196,7 +1195,7 @@ export class OverworldScene extends Phaser.Scene {
       { speaker: t('field.landmarkSpeaker'), text: motif.blurb },
       ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
     ]);
-    await this.checkHats();
+    await this.checkMeisan();
     this.busy = false;
   }
 
@@ -1211,7 +1210,7 @@ export class OverworldScene extends Phaser.Scene {
         { speaker: t('field.landmarkSpeaker'), text: motif?.blurb ?? '' },
         ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
       ]);
-      await this.checkHats();
+      await this.checkMeisan();
       this.busy = false;
       return;
     }
@@ -1222,7 +1221,7 @@ export class OverworldScene extends Phaser.Scene {
     );
     if (go !== 0) {
       await this.talk([{ speaker: host, text: t('field.eventLater') }]);
-      await this.checkHats();
+      await this.checkMeisan();
       this.busy = false;
       return;
     }
@@ -1244,7 +1243,7 @@ export class OverworldScene extends Phaser.Scene {
     out.push(...(ev.afterDialogue ?? []));
     this.renderHud();
     await this.talk(out);
-    await this.checkHats();
+    await this.checkMeisan();
     this.busy = false;
   }
 
@@ -1354,19 +1353,19 @@ export class OverworldScene extends Phaser.Scene {
     return data?.regions.flatMap((r) => r.areas).find((a) => a.id === areaId)?.stamps ?? [];
   }
 
-  /** 県の ★ が ぜんぶ そろったら かぶりものを わたす（カットイン → ひとこと） */
-  private async checkHats(): Promise<void> {
+  /** 県の ★ が ぜんぶ そろったら めいさんひんの そうびを わたす（カットイン → ひとこと） */
+  private async checkMeisan(): Promise<void> {
     const c = this.content();
     const gs = this.gs();
     if (!c || !gs) return;
-    for (const it of hatsEarned(gs, c.items.values(), (id) => this.stampsOf(id))) {
-      this.setGame(giveHat(this.gs()!, it));
+    for (const it of meisanEarned(gs, c.items.values(), (id) => this.stampsOf(id))) {
+      this.setGame(giveMeisan(this.gs()!, it));
       playSfx('discover');
-      await this.itemCutin(it, it.name, t('field.hatFound'));
+      await this.itemCutin(it, it.name, t('field.meisanFound'));
       const area = it.areaOrigin ? c.areas.get(it.areaOrigin)?.name : undefined;
       await this.talk([
-        { text: t('field.hatGet', { area: area ?? '', item: it.name }) },
-        { text: t('field.hatHowTo') },
+        { text: t('field.meisanGet', { area: area ?? '', item: it.name }) },
+        { text: t('field.meisanHowTo') },
       ]);
     }
   }
@@ -2067,7 +2066,7 @@ export class OverworldScene extends Phaser.Scene {
     if (item?.use?.heal) lines.push({ text: t('field.specialtyUse', { n: item.use.heal }) });
     lines.push({ text: t('field.specialtyStamp', this.stampCount()) });
     await this.talk(lines);
-    await this.checkHats();
+    await this.checkMeisan();
     this.busy = false;
   }
 
@@ -2480,16 +2479,11 @@ export class OverworldScene extends Phaser.Scene {
             sub: this.kindLabel(it),
             lines,
             blurb: it.blurb,
-            action: isHat(it)
-              ? {
-                  label: gs.player.appearance.hat === it.id ? t('field.hatOff') : t('field.hatOn'),
-                  ok: true,
-                }
-              : isEquip(it)
-                ? { label: t('field.bagEquip'), ok: true }
-                : it.kind === 'consumable' && it.use
-                  ? { label: t('field.bagUse'), ok: canUse(gs, it, max) }
-                  : null,
+            action: isEquip(it)
+              ? { label: t('field.bagEquip'), ok: true }
+              : it.kind === 'consumable' && it.use
+                ? { label: t('field.bagUse'), ok: canUse(gs, it, max) }
+                : null,
           };
         });
       return { entries, summary: hpLine, empty: t('field.bagEmpty') };
@@ -2517,27 +2511,6 @@ export class OverworldScene extends Phaser.Scene {
             };
           }),
       );
-      const hats = [...c.items.values()].filter(isHat);
-      const hatEntry = (id: string | null, it?: Item): MenuEntry => {
-        const owned = id === null || (gs.inventory[id] ?? 0) > 0;
-        const now = ap.hat === id;
-        const art = owned ? this.heroFrameUrl({ ...ap, hat: id }) : it ? itemIconUrl(it) : undefined;
-        const area = it?.areaOrigin ? areaName(it.areaOrigin) : unknown;
-        return {
-          key: `hat:${id ?? ''}`,
-          // 名前が ながいので「かぶりもの：」は つけない（下の 行に 出す）
-          name: it ? (owned ? it.name : unknown) : t('field.lookHatNone'),
-          icon: art,
-          art,
-          known: owned,
-          tag: now ? t('field.lookNow') : undefined,
-          sub: t('field.lookHat'),
-          lines: owned ? [] : [t('field.lookHatHint', { area })],
-          blurb: owned ? it?.blurb : undefined,
-          action: owned ? { label: t('field.lookPick'), ok: !now } : null,
-        };
-      };
-      if (hats.length) entries.push(hatEntry(null), ...hats.map((it) => hatEntry(it.id, it)));
       return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
     }
 
@@ -2576,7 +2549,6 @@ export class OverworldScene extends Phaser.Scene {
     const c = this.content()!;
     const gs = this.gs()!;
     const max = this.heroStats(gs);
-    if (key.startsWith('hat:')) return this.putOnHat(key.slice('hat:'.length) || null);
     if (tab === 'look') {
       const [, part, n] = key.split(':');
       const lp = LOOK_PARTS.find((x) => x.part === part);
@@ -2584,7 +2556,6 @@ export class OverworldScene extends Phaser.Scene {
       if (!lp || gs.player.appearance[lp.part] === i) return null;
       const appearance = { ...gs.player.appearance, [lp.part]: i };
       this.setGame({ ...gs, player: { ...gs.player, appearance } });
-      this.refreshHeroLook();
       playSfx('select');
       return t('field.lookPicked', {
         part: t(`field.${lp.key}`),
@@ -2602,7 +2573,6 @@ export class OverworldScene extends Phaser.Scene {
     }
     const it = c.items.get(key);
     if (!it) return null;
-    if (isHat(it)) return this.putOnHat(gs.player.appearance.hat === it.id ? null : it.id);
     if (isEquip(it)) return this.equipToBag(gs, it).msg;
     const used = useItem(gs, it, { hp: max.hp, mp: max.mp });
     if (!used) {
@@ -3308,6 +3278,8 @@ export class OverworldScene extends Phaser.Scene {
 
   private setGame(gs: GameState): void {
     this.registry.set('game', gs);
+    // 見た目・めいさんひんの そうびが かわったら 主人公の 絵も
+    this.refreshHeroLook();
   }
 
   private heroLevel(): number {

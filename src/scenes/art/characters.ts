@@ -7,9 +7,17 @@
  * 地図の文字（14×22 を 16×24 のまん中に置き、外側に 1 ドットの輪郭線を自動で付ける）
  *   C ぼうし  c ぼうしのかげ  H かみ  h かみのかげ  S はだ  e め  o 線  p ほっぺ
  *   T 服  t 服のかげ  R スカーフ  Y リュック  y リュックのかげ  B ズボン  K くつ
- * かぶりもの（HAT_ART）は ぼうしの 上 4 行を 差し替える。色の 文字は かぶりものごとに きめる。
+ * 主人公は 24×32 の コマ（HERO_FRAME）で、めいさんひんの そうびを 着ると 絵が かわる（costumes.ts）。
  */
-import { makeGrid, mirrorRows, outline, paint, sheetCanvas, type Grid } from './grid';
+import {
+  COSTUME_ART,
+  COSTUME_ORDER,
+  HERO_FRAME,
+  type CostumeArt,
+  type CostumePose,
+  type CostumeView,
+} from './costumes';
+import { makeGrid, outline, paint, sheetCanvas, type Grid } from './grid';
 import { NQ, shadeOf } from './palette';
 
 export const CHAR_W = 16;
@@ -34,16 +42,8 @@ export interface Look {
   pack: string | null;
   pants: string;
   shoes: string;
-  /** かぶりもの（あれば ぼうしの かわりに かぶる） */
-  hat?: HatArt | null;
-}
-
-/** かぶりものの 絵：頭の 上 4 行（正面・うしろ・よこ）と、その 文字の 色 */
-export interface HatArt {
-  front: readonly string[];
-  back: readonly string[];
-  side: readonly string[];
-  colors: Readonly<Record<string, string>>;
+  /** 着ている めいさんひんの そうび（描く じゅん） */
+  costumes?: readonly CostumeArt[];
 }
 
 // ───────────────────────── 地図（上半身 17 行 + 足 5 行） ─────────────────────────
@@ -153,28 +153,10 @@ const POSE_VICTORY = [
   '...BBBBBBBB...',
 ] as const;
 
-// ───────────────────────── かぶりもの ─────────────────────────
-
-/**
- * かぶりもの（どうぐの id → 絵）。県の 名所スタンプを ぜんぶ あつめると もらえる（progression/hats.ts）。
- *  夕張[ゆうばり]メロン：あみめの ある みどりの かわ、上に つる、ふちは オレンジの 実
- *   M かわ  m あみめ  V つる  O 実  Q 実の かげ（o は 顔の 線なので 使わない）
- */
-const MELON_COLORS = { M: NQ.leaf, m: NQ.sprout, V: NQ.brown, O: NQ.orange, Q: NQ.amber } as const;
-const MELON_FRONT = ['....mMMVMm....', '..MmMMmMMMmM..', '.MMMmMMMmMMmM.', '.OOOOOOOOOOOO.'] as const;
-export const HAT_ART: Readonly<Record<string, HatArt>> = {
-  'hokkaido-melon-kaburimono': {
-    front: MELON_FRONT,
-    back: MELON_FRONT,
-    side: ['.....MmVMM....', '...MMmMMMmMMM.', '..MmMMmMMMmMM.', '..QOOOOOOOOOO.'],
-    colors: MELON_COLORS,
-  },
-};
-
 /** テスト用：すべての地図（1 行 14 文字・上半身 17 行・足 5 行であること） */
 export const CHAR_MAPS = {
   tops: [FRONT_TOP, BACK_TOP, SIDE_TOP, POSE_VICTORY],
-  caps: [NOCAP_FRONT, NOCAP_SIDE, ...Object.values(HAT_ART).flatMap((a) => [a.front, a.back, a.side])],
+  caps: [NOCAP_FRONT, NOCAP_SIDE],
   legs: [...Object.values(FRONT_LEGS), ...Object.values(SIDE_LEGS)],
   parts: [POSE_ATTACK_ARMS, POSE_HURT_FACE],
 };
@@ -186,21 +168,32 @@ export const HERO_HAIR = [NQ.hairBrown, NQ.hairBlack, NQ.hairBlond] as const;
 export const HERO_SKIN = [NQ.skinLight, NQ.skinMid, NQ.skinDark] as const;
 export const HERO_CLOTH = [NQ.red, NQ.azure, NQ.leaf] as const;
 
-/** GameState.player.appearance（hat は 無くてもよい） */
+/** GameState.player.appearance */
 export interface HeroAppearance {
   hair: number;
   skin: number;
   cloth: number;
-  hat?: string | null;
 }
 
-export function heroLook(a: HeroAppearance): Look {
+/** GameState.player.equipment（部位 → どうぐの id） */
+export type HeroEquipment = Readonly<Partial<Record<string, string | undefined>>>;
+
+/** 着ている めいさんひんの そうびの id（描く じゅん。絵の ある ものだけ） */
+export function heroCostumeIds(equipment: HeroEquipment = {}): string[] {
+  const ids = Object.values(equipment).filter((id): id is string => !!id && !!COSTUME_ART[id]);
+  const rank = (id: string) => COSTUME_ORDER.indexOf(COSTUME_ART[id]!.slot);
+  return ids.sort((a, b) => rank(a) - rank(b));
+}
+
+export function heroLook(a: HeroAppearance, equipment: HeroEquipment = {}): Look {
   const cloth = HERO_CLOTH[a.cloth] ?? NQ.red;
+  const costumes = heroCostumeIds(equipment).map((id) => COSTUME_ART[id]!);
   return {
-    hat: (a.hat && HAT_ART[a.hat]) || null,
+    costumes,
     hair: HERO_HAIR[a.hair] ?? NQ.hairBrown,
     skin: HERO_SKIN[a.skin] ?? NQ.skinLight,
-    cap: cloth,
+    // 頭の そうびを かぶったら ぼうしは ぬぐ
+    cap: costumes.some((c) => c.slot === 'head') ? null : cloth,
     top: NQ.paper,
     scarf: cloth,
     pack: NQ.orange,
@@ -303,52 +296,92 @@ function colorsOf(l: Look): Record<string, string> {
     y: l.pack ? shadeOf(l.pack) : topShade,
     B: l.pants,
     K: l.shoes,
-    ...l.hat?.colors,
+    ...Object.assign({}, ...(l.costumes ?? []).map((c) => c.colors ?? {})),
   };
 }
 
 type Rows = readonly string[];
 
-/** かぶりものが あれば 上 4 行を それに、ぼうし無しなら かみに 差し替える */
-function capped(top: Rows, l: Look, view: 'front' | 'back' | 'side'): string[] {
-  const head = l.hat ? l.hat[view] : l.cap ? null : view === 'side' ? NOCAP_SIDE : NOCAP_FRONT;
-  if (!head) return [...top];
+/** ぼうし無しなら 上 4 行を かみに 差し替える */
+function capped(top: Rows, l: Look, side: boolean): string[] {
+  if (l.cap) return [...top];
+  const head = side ? NOCAP_SIDE : NOCAP_FRONT;
   return [...head, ...top.slice(head.length)];
 }
 
-function frame(top: Rows, legs: Rows, colors: Record<string, string>): Grid {
-  const g = makeGrid(CHAR_W, CHAR_H);
-  paint(g, [...top, ...legs], colors, 1, 1);
+/** コマの 大きさと、人物の 地図（14×22）を 置く 場所 */
+interface FrameSize {
+  w: number;
+  h: number;
+  ox: number;
+  oy: number;
+}
+const NPC_FRAME: FrameSize = { w: CHAR_W, h: CHAR_H, ox: 1, oy: 1 };
+
+/** 足の 地図に そうびの legMap を かける（先に 差し替えた 文字には あとの そうびは さわらない） */
+function dressLegs(legs: Rows, costumes: readonly CostumeArt[]): string[] {
+  return legs.map((row) =>
+    [...row]
+      .map((ch) => {
+        for (const c of costumes) {
+          const to = c.legMap?.[ch];
+          if (to) return to;
+        }
+        return ch;
+      })
+      .join(''),
+  );
+}
+
+interface FrameOpts {
+  size: FrameSize;
+  view: CostumeView;
+  pose: CostumePose;
+  /** 右向き：左向きで 描いてから 左右反転 */
+  mirror?: boolean;
+}
+
+function frame(top: Rows, legs: Rows, l: Look, colors: Record<string, string>, o: FrameOpts): Grid {
+  const costumes = l.costumes ?? [];
+  const g = makeGrid(o.size.w, o.size.h);
+  paint(g, [...top, ...dressLegs(legs, costumes)], colors, o.size.ox, o.size.oy);
+  for (const c of costumes) c.draw?.(g, o.view, o.pose, colors);
   outline(g, NQ.ink);
+  if (o.mirror) for (const row of g) row.reverse();
   return g;
 }
 
+const VIEW: Record<Dir, CostumeView> = { down: 'front', up: 'back', left: 'side', right: 'side' };
+
 function tops(l: Look): Record<Dir, string[]> {
-  const side = capped(SIDE_TOP, l, 'side');
+  const side = capped(SIDE_TOP, l, true);
   return {
-    down: capped(FRONT_TOP, l, 'front'),
+    down: capped(FRONT_TOP, l, false),
     left: side,
-    right: mirrorRows(side),
-    up: capped(BACK_TOP, l, 'back'),
+    right: side,
+    up: capped(BACK_TOP, l, false),
   };
 }
 
 function legs(dir: Dir): [Rows, Rows, Rows] {
-  if (dir === 'left') return [SIDE_LEGS.stepA, SIDE_LEGS.idle, SIDE_LEGS.stepB];
-  if (dir === 'right')
-    return [mirrorRows(SIDE_LEGS.stepA), mirrorRows(SIDE_LEGS.idle), mirrorRows(SIDE_LEGS.stepB)];
+  if (dir === 'left' || dir === 'right') return [SIDE_LEGS.stepA, SIDE_LEGS.idle, SIDE_LEGS.stepB];
   return [FRONT_LEGS.stepA, FRONT_LEGS.idle, FRONT_LEGS.stepB];
 }
 
-/** 歩行シート（48×96）。フィールドの主人公・町の人 */
-export function walkSheet(l: Look): HTMLCanvasElement {
+/** 歩行シート。町の人は 1 コマ 16×24、hero＝true（主人公）は 24×32（HERO_FRAME） */
+export function walkSheet(l: Look, hero = false): HTMLCanvasElement {
   const colors = colorsOf(l);
   const t = tops(l);
-  const frames = DIRS.flatMap((d) => legs(d).map((lg) => frame(t[d], lg, colors)));
+  const size = hero ? HERO_FRAME : NPC_FRAME;
+  const frames = DIRS.flatMap((d) =>
+    legs(d).map((lg) =>
+      frame(t[d], lg, l, colors, { size, view: VIEW[d], pose: 'walk', mirror: d === 'right' }),
+    ),
+  );
   return sheetCanvas(frames, 3);
 }
 
-/** バトルシート（96×24、左向き）。サイドビューの戦闘で使う */
+/** 主人公の バトルシート（1 コマ 24×32、左向き）。サイドビューの戦闘で使う */
 export function battleSheet(l: Look): HTMLCanvasElement {
   const colors = colorsOf(l);
   const side = tops(l).left;
@@ -357,17 +390,27 @@ export function battleSheet(l: Look): HTMLCanvasElement {
     ...part,
     ...rows.slice(at + part.length),
   ];
+  const size = HERO_FRAME;
+  const f = (top: Rows, lg: Rows, view: CostumeView, pose: CostumePose) =>
+    frame(top, lg, l, colors, { size, view, pose });
   const frames = [
-    frame(side, SIDE_LEGS.idle, colors),
-    frame(side, SIDE_LEGS.stepA, colors),
-    frame(side, SIDE_LEGS.stepB, colors),
-    frame(replace(side, 10, POSE_ATTACK_ARMS), SIDE_LEGS.stepA, colors),
-    frame(replace(side, 5, POSE_HURT_FACE), SIDE_LEGS.idle, colors),
-    frame(capped(POSE_VICTORY, l, 'front'), FRONT_LEGS.idle, colors),
+    f(side, SIDE_LEGS.idle, 'side', 'walk'),
+    f(side, SIDE_LEGS.stepA, 'side', 'walk'),
+    f(side, SIDE_LEGS.stepB, 'side', 'walk'),
+    f(replace(side, 10, POSE_ATTACK_ARMS), SIDE_LEGS.stepA, 'side', 'attack'),
+    f(replace(side, 5, POSE_HURT_FACE), SIDE_LEGS.idle, 'side', 'hurt'),
+    f(capped(POSE_VICTORY, l, false), FRONT_LEGS.idle, 'front', 'victory'),
   ];
   return sheetCanvas(frames, frames.length);
 }
 
-/** テクスチャのキー（見た目ごとに別キー。本番 PNG は char.hero / char.hero.battle） */
-export const heroKey = (a: HeroAppearance, battle = false): string =>
-  `char.hero.${a.hair}${a.skin}${a.cloth}${a.hat ? `.${a.hat}` : ''}${battle ? '.battle' : ''}`;
+/** 主人公の コマの 大きさ と、足もと（タイルの まん中に くる 高さ）の origin */
+export const HERO_W = HERO_FRAME.w;
+export const HERO_H = HERO_FRAME.h;
+export const HERO_FEET_ORIGIN_Y = (HERO_FRAME.oy - 1 + 16) / HERO_FRAME.h;
+
+/** テクスチャのキー（見た目・着ている めいさんひんの そうびごとに別キー。本番 PNG は char.hero / char.hero.battle） */
+export const heroKey = (a: HeroAppearance, equipment: HeroEquipment = {}, battle = false): string => {
+  const wear = heroCostumeIds(equipment);
+  return `char.hero.${a.hair}${a.skin}${a.cloth}${wear.length ? `.${wear.join('+')}` : ''}${battle ? '.battle' : ''}`;
+};

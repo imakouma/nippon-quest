@@ -1209,18 +1209,19 @@ function byKind(item: Pick<Item, 'id' | 'kind'>): [ItemShape, Pal] {
     case 'weapon':
       return ['sword', /maguro/.test(id) ? pal(NQ.sky) : /dou/.test(id) ? pal(NQ.amber) : pal(NQ.silver)];
     case 'head':
+      // めいさんひんの そうび（…-meisan-…）は その 名産品の かたち
+      if (/meisan-.*melon/.test(id)) return ['melon', pal(NQ.leaf, NQ.sprout)];
       return /kubikazari/.test(id) ? ['necklace', pal(NQ.tan, NQ.green)] : ['helmet', pal(NQ.red, NQ.gold)];
     case 'chest':
+      if (/meisan-ringo/.test(id)) return ['fruit', pal(NQ.red)];
       return ['armor', /ringo/.test(id) ? pal(NQ.red, NQ.leaf) : pal(NQ.slate, NQ.gold)];
     case 'legs':
-      return ['greaves', pal(NQ.tan, NQ.brown)];
+      return ['greaves', /magewappa/.test(id) ? pal(NQ.sand, NQ.tan) : pal(NQ.tan, NQ.brown)];
     case 'feet':
+      if (/tekki/.test(id)) return ['boots', pal(NQ.slate, NQ.silver)];
       return ['boots', /nuri/.test(id) ? pal(NQ.bark, NQ.red) : pal(NQ.brown, NQ.tan)];
     case 'key':
-      // かぶりもの（…-kaburimono）は その もとの かたち
-      return /melon-kaburimono/.test(id)
-        ? ['melon', pal(NQ.leaf, NQ.sprout)]
-        : ['amulet', pal(NQ.red, NQ.gold)];
+      return ['amulet', pal(NQ.red, NQ.gold)];
     case 'consumable':
       return ['herb', pal(NQ.leaf, NQ.lime)];
     case 'material':

@@ -13,7 +13,7 @@ import { PIXEL_FONT, PIXEL_FONT_NAME } from '../ui/fonts';
 import { t } from '../ui/i18n';
 import { STAGE_W } from '../ui/overlay';
 import { TitleMenu } from '../ui/title/TitleMenu';
-import { CHAR_H, CHAR_W, heroKey, heroLook, walkFrame, walkSheet } from './art/characters';
+import { HERO_H, HERO_W, heroKey, heroLook, walkFrame, walkSheet } from './art/characters';
 import { NQ } from './art/palette';
 import { addImage, addSheet } from './art/sheet';
 import {
@@ -146,13 +146,11 @@ export class TitleScene extends Phaser.Scene {
 
   /** がけの上で海を見ている主人公（うしろ姿） */
   private addHero(): void {
-    const ap = (this.registry.get('game') as GameState | undefined)?.player.appearance ?? {
-      hair: 0,
-      skin: 0,
-      cloth: 0,
-    };
-    const key = heroKey(ap);
-    addSheet(this.textures, key, walkSheet(heroLook(ap)), CHAR_W, CHAR_H);
+    const player = (this.registry.get('game') as GameState | undefined)?.player;
+    const ap = player?.appearance ?? { hair: 0, skin: 0, cloth: 0 };
+    const eq = player?.equipment ?? {};
+    const key = heroKey(ap, eq);
+    addSheet(this.textures, key, walkSheet(heroLook(ap, eq), true), HERO_W, HERO_H);
     const y = CLIFF_TOP * S + S;
     const hero = this.add
       .image(HERO_SPOT * S, y, key, walkFrame('up', 1))

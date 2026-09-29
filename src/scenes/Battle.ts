@@ -65,7 +65,7 @@ import { t } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { displayText } from '../ui/ruby';
 import { isSfxMuted, playSfx, setSfxMuted, setSfxVolume } from '../ui/sfx';
-import { BATTLE_POSE, battleSheet, CHAR_H, CHAR_W, heroKey, heroLook } from './art/characters';
+import { BATTLE_POSE, battleSheet, HERO_H, HERO_W, heroKey, heroLook } from './art/characters';
 import { itemIconUrl } from './art/itemIcons';
 import { designedMonsterArt } from './art/monsters';
 import { addImage, addSheet } from './art/sheet';
@@ -329,8 +329,9 @@ export class BattleScene extends Phaser.Scene {
     this.addShadow(this.enemySprite, ENEMY_Y, Math.round((this.enemySize * 0.7 * this.enemyScale) / S));
 
     const ap = this.gs.player.appearance;
-    const hk = heroKey(ap, true);
-    addSheet(this.textures, hk, battleSheet(heroLook(ap)), CHAR_W, CHAR_H);
+    const eq = this.gs.player.equipment;
+    const hk = heroKey(ap, eq, true);
+    addSheet(this.textures, hk, battleSheet(heroLook(ap, eq)), HERO_W, HERO_H);
     this.heroSprite = this.add
       .image(HERO_X, HERO_Y, hk, BATTLE_POSE.idle)
       .setOrigin(0.5, 1)
