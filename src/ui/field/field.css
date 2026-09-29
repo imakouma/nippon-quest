@@ -66,10 +66,6 @@
   inset: auto;
   image-rendering: pixelated;
 }
-/* 行ったことのない県は、ぼかして色をぬく（行ったことのある県は上の層で はっきり）。ぼかしの強さは拡大に合わせて style で */
-.nq-mini-fog {
-  filter: blur(1.5px) saturate(0.35) brightness(0.8);
-}
 .nq-mini:hover {
   border-color: var(--nq-yellow);
 }

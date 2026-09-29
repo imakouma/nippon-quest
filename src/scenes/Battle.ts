@@ -1510,6 +1510,8 @@ export class BattleScene extends Phaser.Scene {
     const tint = ELEMENT_FX[this.lastElement];
     if (hero) sp.setFrame(BATTLE_POSE.attack);
     if (enemySide) this.lastEnemyStyle = 'skill';
+    // 必殺技の ぶたい：画面が くらく なって 集中線（自分への 回復・まもりは しない）
+    const stage = self ? null : await this.fx.stageIn(from, this.lastElement, sp);
     this.burst(from.x, from.y, tint, 'bt.fx.star', 8 + stars * 4, -120);
     // ため：属性の かけらが あつまって 光る
     const charge = this.fx.charge(from, this.lastElement, stars);
@@ -1521,7 +1523,13 @@ export class BattleScene extends Phaser.Scene {
       await Promise.all([this.flash(sp, tint, 2), this.fx.hop(sp, baseY), charge]);
     }
     if (self) await this.fx.guardRing(from, tint);
-    else await this.fx.skill(this.lastElement, from, to, stars);
+    else {
+      // 技が とぶ ときは あいても 見えるように くらさを うすく → 当たったら きめ
+      await stage?.dim(0.3);
+      await this.fx.skill(this.lastElement, from, to, stars);
+      await this.fx.finisher(to, this.lastElement, stars);
+      await stage?.end();
+    }
     if (hero) sp.setFrame(BATTLE_POSE.idle);
     if (!enemySide && sp.active && (!hero || this.state.ally.hero.hp > 0)) this.idleBob(sp, baseY);
   }

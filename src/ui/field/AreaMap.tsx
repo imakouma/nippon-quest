@@ -139,7 +139,7 @@ function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
 
 /**
  * ひらいた地図の、県のまわりの地方の地図（1 マス = 1 ドット。CSS で県の範囲に合わせて のばす）。
- * 行ったことのある県は緑、未踏の県は灰色。いまいる県は フィールドの地形で かくので かかない。海は透明
+ * 行ったことのある県だけ緑で かく（未踏の県は かかず、海と おなじに 見える）。いまいる県は フィールドの地形で かくので かかない
  */
 function drawRegionGray(canvas: HTMLCanvasElement, r: RegionMiniView): void {
   canvas.width = r.width;
@@ -148,8 +148,8 @@ function drawRegionGray(canvas: HTMLCanvasElement, r: RegionMiniView): void {
   for (let y = 0; y < r.height; y++)
     for (let x = 0; x < r.width; x++) {
       const k = areaAt(r, x, y);
-      if (k < 0 || k === r.here) continue;
-      ctx.fillStyle = r.visited[k] ? NQ.leaf : NQ.slate;
+      if (k < 0 || k === r.here || !r.visited[k]) continue;
+      ctx.fillStyle = NQ.leaf;
       ctx.fillRect(x, y, 1, 1);
     }
 }
@@ -167,7 +167,7 @@ function useTerrain(map: AreaMapView) {
   return ref;
 }
 
-/** 左上の小さな地図の中身：いまいる地方（島）の県。行ったことのある県だけ はっきり、ほかは ぼかす */
+/** 左上の小さな地図の中身：いまいる地方（島）の県。行ったことのある県だけ かく（未踏の県は 海と おなじ） */
 export interface RegionMiniView extends RegionGrid {
   /** 地方の id（地形をかき直すかどうかの目じるし） */
   id: string;
@@ -206,24 +206,6 @@ function drawDetail(canvas: HTMLCanvasElement, d: NonNullable<RegionMiniView['de
       if (tile === 3) continue;
       ctx.fillStyle = TILE_COLOR[tile] ?? NQ.leaf;
       ctx.fillRect(x - x0, y - y0, 1, 1);
-    }
-}
-
-/**
- * ぼかす層：すべての県の陸（行ったことのない県は、この層しか見えない）。
- * 海はかかない（下の .nq-mini の青がそのまま見える。海までぼかして色をぬくと、地図ぜんたいが灰色にくすむ）
- */
-function drawFog(canvas: HTMLCanvasElement, r: RegionMiniView, cell: number): void {
-  canvas.width = r.width * cell;
-  canvas.height = r.height * cell;
-  const ctx = canvas.getContext('2d')!;
-  ctx.fillStyle = NQ.leaf;
-  // いまいる県は細かい地形（detail）で かくので、ここでは かかない
-  const skip = r.detail ? r.here : -1;
-  for (let y = 0; y < r.height; y++)
-    for (let x = 0; x < r.width; x++) {
-      const k = areaAt(r, x, y);
-      if (k >= 0 && k !== skip) ctx.fillRect(x * cell, y * cell, cell, cell);
     }
 }
 
@@ -272,7 +254,6 @@ export function RegionMiniMap({
   onOpen: () => void;
 }) {
   const box = useRef<HTMLButtonElement>(null);
-  const fog = useRef<HTMLCanvasElement>(null);
   const clear = useRef<HTMLCanvasElement>(null);
   const det = useRef<HTMLCanvasElement>(null);
   // 窓の幅いっぱいの正方形。主人公を まん中に置くため、実際の幅・高さを測る
@@ -295,9 +276,6 @@ export function RegionMiniMap({
   const opened = region.visited.map((v) => (v ? 1 : 0)).join('');
   const detailKey = region.detail?.key ?? '';
   useEffect(() => {
-    if (fog.current) drawFog(fog.current, region, cell);
-  }, [region.id, region.here, detailKey, cell]);
-  useEffect(() => {
     if (clear.current) drawVisited(clear.current, region, cell);
   }, [region.id, opened, region.here, detailKey, cell]);
   useEffect(() => {
@@ -315,11 +293,6 @@ export function RegionMiniMap({
           top: Math.round(vh / 2 - cy * cell),
         }}
       >
-        <canvas
-          ref={fog}
-          class="nq-mini-fog"
-          style={{ filter: `blur(${Math.max(1.5, cell / 3)}px) saturate(0.35) brightness(0.8)` }}
-        />
         <canvas ref={clear} />
         {region.detail && f && (
           <canvas

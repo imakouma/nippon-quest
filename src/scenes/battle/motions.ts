@@ -7,6 +7,8 @@
  *  - 当たったとき：星・光の わ・属性の かけら（火の粉・あわ・葉・小石・風・きらめき・やみの ほのお）。会心は ×印
  *  - 敵の こうげきが 当たったとき：ひっかき・かみつき・たいあたり・地ひびき の しるし
  *  - 必殺技の ため（かけらが あつまる）、主人公の 斬撃（二連・つき・回転切り）、回復と まもりの 光の わ
+ *  - 必殺技の ぶたい（stage）：画面が くらく なり、うつ 人の まわりに 属性の 色の 集中線、カメラが すこし よる。
+ *    当たった ときの きめ（finisher）：属性の 色で 画面が 光り、大きく ゆれ、光の わが かさなって ひろがり、しょうげきはと かけらが とぶ
  * ドット絵は fxArt（×4 表示）。位置は 1 ドット（4px）に そろえて にじませない。
  */
 import type Phaser from 'phaser';
@@ -54,7 +56,7 @@ export class Motions {
 
   /** 必殺技の 動き。stars は 技ゲージの 段（★1〜★3） */
   async skill(el: Element, from: Pt, to: Pt, stars = 1): Promise<void> {
-    const n = 1 + Math.min(3, Math.max(1, stars));
+    const n = 2 + Math.min(3, Math.max(1, stars));
     switch (el) {
       case 'hino':
         await this.fireballs(from, to, n);
@@ -72,7 +74,7 @@ export class Motions {
         await this.winds(to, n);
         break;
       case 'hikari':
-        await this.pillar(to);
+        await this.pillar(to, n);
         break;
       case 'yami':
         await this.orbs(to, n + 1);
@@ -80,7 +82,122 @@ export class Motions {
       default:
         await this.sparkles(to, n);
     }
-    if (stars >= 3) this.scene.cameras.main.flash(160, 255, 255, 255);
+  }
+
+  /**
+   * 必殺技の ぶたい：画面を くらくして、うつ 人（actor）の まわりに 属性の 色の 集中線。カメラが すこし よる。
+   * dim(a) で くらさを かえ（技が あいてに とぶ ときは あいても 見えるように うすく）、end() で もとに もどす
+   */
+  async stageIn(
+    from: Pt,
+    el: Element,
+    actor: Actor,
+  ): Promise<{ dim: (alpha: number) => Promise<void>; end: () => Promise<void> }> {
+    const cam = this.scene.cameras.main;
+    const tint = ELEMENT_FX[el];
+    const { width: w, height: h } = this.scene.scale;
+    const dark = this.scene.add
+      .rectangle(-w * 0.2, -h * 0.2, w * 1.4, h * 1.4, 0x0b0a14, 1)
+      .setOrigin(0)
+      .setDepth(16)
+      .setAlpha(0);
+    const lines = this.scene.add.graphics().setDepth(16.5).setAlpha(0);
+    const depth0 = actor.depth;
+    actor.setDepth(17);
+    let tick = 0;
+    const draw = () => {
+      lines.clear();
+      const n = 32;
+      for (let i = 0; i < n; i++) {
+        const a = (i / n) * Math.PI * 2 + (tick % 2) * 0.05;
+        const r0 = 34 * S + ((i * 37 + tick * 13) % 9) * 3 * S;
+        const r1 = w;
+        lines.lineStyle(i % 3 ? S : S * 2, i % 4 ? tint : 0xffffff, i % 3 ? 0.55 : 0.9);
+        lines.lineBetween(
+          from.x + Math.cos(a) * r0,
+          from.y + Math.sin(a) * r0,
+          from.x + Math.cos(a) * r1,
+          from.y + Math.sin(a) * r1,
+        );
+      }
+      tick++;
+    };
+    draw();
+    const timer = this.scene.time.addEvent({ delay: 60, loop: true, callback: draw });
+    cam.zoomTo(1.08, 240, 'Quad.easeOut');
+    await Promise.all([
+      this.tween({ targets: dark, alpha: 0.62, duration: 180 }),
+      this.tween({ targets: lines, alpha: 1, duration: 180 }),
+    ]);
+    const dim = async (alpha: number) => {
+      timer.remove();
+      await Promise.all([
+        this.tween({ targets: lines, alpha: 0, duration: 140 }),
+        this.tween({ targets: dark, alpha, duration: 140 }),
+      ]);
+    };
+    const end = async () => {
+      timer.remove();
+      cam.zoomTo(1, 220, 'Quad.easeOut');
+      await Promise.all([
+        this.tween({ targets: lines, alpha: 0, duration: 200 }),
+        this.tween({ targets: dark, alpha: 0, duration: 220 }),
+      ]);
+      lines.destroy();
+      dark.destroy();
+      if (actor.active) actor.setDepth(depth0);
+    };
+    return { dim, end };
+  }
+
+  /**
+   * 必殺技が 当たった ときの きめ：属性の 色で 画面が 光って 大きく ゆれ、大きな 星・かさなる 光の わ・
+   * 足もとの しょうげきは・属性の かけらと 星が とびちる。★ が 多いほど 大きく、長く
+   */
+  async finisher(to: Pt, el: Element, stars: number): Promise<void> {
+    const tint = ELEMENT_FX[el];
+    const st = Math.min(3, Math.max(1, stars));
+    const cam = this.scene.cameras.main;
+    cam.flash(160 + st * 50, (tint >> 16) & 255, (tint >> 8) & 255, tint & 255);
+    cam.shake(200 + st * 100, 0.008 + st * 0.005);
+    const star = this.img('spark', to.x, to.y).setTint(0xffffff);
+    void this.tween({
+      targets: star,
+      scale: S * (4 + st),
+      alpha: 0,
+      duration: 360,
+      ease: 'Stepped',
+      easeParams: [5],
+    }).then(() => star.destroy());
+    for (let k = 0; k < 2 + st; k++)
+      void this.wait(k * 90).then(() => this.bigRing(to, k % 2 ? 0xffffff : tint, 3 + k * 1.5));
+    const shock = this.img('shock', to.x, to.y + 16 * S).setTint(tint);
+    void this.tween({
+      targets: shock,
+      scaleX: S * (3 + st),
+      alpha: 0,
+      duration: 420,
+      ease: 'Stepped',
+      easeParams: [5],
+    }).then(() => shock.destroy());
+    this.scatter(BITS[el], to, 10 + st * 6, (26 + st * 6) * S, 6 * S);
+    this.burst(to.x, to.y, tint, 'bt.fx.star', 14 + st * 6, -160);
+    this.burst(to.x, to.y, 0xffffff, 'bt.fx.px', 20 + st * 6);
+    await this.wait(260 + st * 70);
+  }
+
+  /** 大きく ひろがる 光の わ（to 倍まで） */
+  private async bigRing(at: Pt, tint: number, to: number): Promise<void> {
+    const im = this.img('ring', at.x, at.y).setTint(tint);
+    await this.tween({
+      targets: im,
+      scale: S * to,
+      alpha: 0,
+      duration: 380,
+      ease: 'Stepped',
+      easeParams: [5],
+    });
+    im.destroy();
   }
 
   private async fireballs(from: Pt, to: Pt, n: number): Promise<void> {
@@ -90,43 +207,64 @@ export class Motions {
           'fireball',
           from,
           { x: to.x + (i - (n - 1) / 2) * 6 * S, y: to.y },
-          360,
-          16 * S,
-          i * 110,
-        ).then((p) => this.burst(p.x, p.y, ELEMENT_FX.hino, 'bt.fx.px', 10)),
+          380,
+          (16 + (i % 2) * 8) * S,
+          i * 100,
+          0,
+          { scale: 1.6, trail: 'ember' },
+        ).then((p) => {
+          this.burst(p.x, p.y, ELEMENT_FX.hino, 'bt.fx.px', 14);
+          this.impact(p, ELEMENT_FX.hino, true);
+        }),
       ),
     );
   }
 
   private async water(from: Pt, to: Pt, n: number): Promise<void> {
     await Promise.all(
-      Array.from({ length: n }, (_, i) => this.fly('drop', from, to, 420, 6 * S, i * 70, 3 * S)),
+      Array.from({ length: n }, (_, i) =>
+        this.fly(
+          'drop',
+          from,
+          { x: to.x, y: to.y + ((i % 3) - 1) * 8 * S },
+          420,
+          (6 + (i % 3) * 4) * S,
+          i * 60,
+          3 * S,
+          { scale: 1.4, trail: 'bubble' },
+        ),
+      ),
     );
-    this.burst(to.x, to.y, ELEMENT_FX.mizu, 'bt.fx.px', 18, 260);
-    await this.ringPop(to, 0x80c6ff);
+    // 大きな 水しぶきの 柱
+    for (const dx of [-12, 0, 12])
+      this.burst(to.x + dx * S, to.y + 8 * S, ELEMENT_FX.mizu, 'bt.fx.px', 14, 420);
+    await Promise.all([this.ringPop(to, 0x80c6ff), this.bigRing(to, 0xc8f4ff, 4)]);
   }
 
   private async leaves(to: Pt, n: number): Promise<void> {
     await Promise.all(
       Array.from({ length: n }, (_, i) => {
         const a0 = (i / n) * Math.PI * 2;
-        const im = this.img('leaf', to.x, to.y);
-        return this.counter(560, (t) => {
-          const r = 26 * S * (1 - t);
+        const im = this.img('leaf', to.x, to.y).setScale(S * 1.5);
+        return this.counter(620, (t) => {
+          const r = 36 * S * (1 - t);
           const a = a0 + t * Math.PI * 3;
           im.setPosition(snap(to.x + Math.cos(a) * r), snap(to.y + Math.sin(a) * r * 0.6));
         }).then(() => im.destroy());
       }),
     );
-    this.burst(to.x, to.y, ELEMENT_FX.mori, 'bt.fx.px', 16);
+    this.burst(to.x, to.y, ELEMENT_FX.mori, 'bt.fx.px', 22);
+    this.scatter('leafbit', to, 14, 30 * S, 10 * S);
   }
 
   private async rocks(to: Pt, n: number): Promise<void> {
     await Promise.all(
       Array.from({ length: n }, async (_, i) => {
         const x = snap(to.x + (i - (n - 1) / 2) * 8 * S);
-        const im = this.img('rock', x, to.y - 70 * S).setVisible(false);
-        await this.wait(i * 130);
+        const im = this.img('rock', x, to.y - 70 * S)
+          .setScale(S * 1.4)
+          .setVisible(false);
+        await this.wait(i * 120);
         im.setVisible(true);
         await this.tween({ targets: im, y: snap(to.y + 4 * S), duration: 260, ease: 'Quad.easeIn' });
         im.destroy();
@@ -135,6 +273,13 @@ export class Motions {
         this.burst(x, to.y, ELEMENT_FX.tsuchi, 'bt.fx.px', 8);
       }),
     );
+    // さいごに 大きな 岩が ドーン
+    const big = this.img('rock', to.x, to.y - 90 * S).setScale(S * 3);
+    await this.tween({ targets: big, y: snap(to.y), duration: 300, ease: 'Quad.easeIn' });
+    big.destroy();
+    this.scene.cameras.main.shake(260, 0.02);
+    for (const dx of [-16, 0, 16]) this.dust(to.x + dx * S, to.y + 8 * S);
+    this.scatter('pebble', to, 12, 30 * S, 12 * S);
   }
 
   private async winds(to: Pt, n: number): Promise<void> {
@@ -150,13 +295,38 @@ export class Motions {
         easeParams: [6],
       });
       im.destroy();
-      this.burst(to.x, to.y + dy, ELEMENT_FX.kaze, 'bt.fx.px', 6);
+      this.burst(to.x, to.y + dy, ELEMENT_FX.kaze, 'bt.fx.px', 8);
     }
+    // さいごに 大きな ×の 風の 刃
+    await this.pop('diag', to, ELEMENT_FX.kaze, 2, 4, 160);
+    await this.pop('diag', to, 0xffffff, 2, 4, 160, true);
+    this.scatter('gust', to, 10, 30 * S);
   }
 
-  private async pillar(to: Pt): Promise<void> {
+  private async pillar(to: Pt, n = 1): Promise<void> {
+    // まわりに 小さな 光の 柱が 先に おりて、さいごに まん中へ 太い 柱
+    const side = Math.max(0, n - 2);
+    await Promise.all(
+      Array.from({ length: side }, (_, i) => {
+        const dx = (i % 2 ? 1 : -1) * (14 + Math.floor(i / 2) * 10) * S;
+        const b = this.img('beam', to.x + dx, to.y + 10 * S).setOrigin(0.5, 1);
+        b.setScale(S * 0.6, 0);
+        return this.wait(i * 90)
+          .then(() =>
+            this.tween({
+              targets: b,
+              scaleY: (to.y + 10 * S) / 48,
+              duration: 160,
+              ease: 'Stepped',
+              easeParams: [4],
+            }),
+          )
+          .then(() => this.tween({ targets: b, alpha: 0, duration: 200 }))
+          .then(() => b.destroy());
+      }),
+    );
     const im = this.img('beam', to.x, to.y + 10 * S).setOrigin(0.5, 1);
-    im.setScale(S, 0);
+    im.setScale(S * 1.6, 0);
     await this.tween({
       targets: im,
       scaleY: (to.y + 10 * S) / 48,
@@ -169,8 +339,8 @@ export class Motions {
     await this.tween({
       targets: im,
       alpha: 0,
-      scaleX: S * 2,
-      duration: 260,
+      scaleX: S * 3.5,
+      duration: 300,
       ease: 'Stepped',
       easeParams: [4],
     });
@@ -181,7 +351,9 @@ export class Motions {
     await Promise.all(
       Array.from({ length: n }, (_, i) => {
         const a = (i / n) * Math.PI * 2 + 0.4;
-        const im = this.img('orb', to.x + Math.cos(a) * 34 * S, to.y + Math.sin(a) * 22 * S);
+        const im = this.img('orb', to.x + Math.cos(a) * 40 * S, to.y + Math.sin(a) * 26 * S).setScale(
+          S * 1.5,
+        );
         return this.tween({
           targets: im,
           x: to.x,
@@ -192,8 +364,15 @@ export class Motions {
         }).then(() => im.destroy());
       }),
     );
-    this.burst(to.x, to.y, ELEMENT_FX.yami, 'bt.fx.px', 22);
-    await this.ringPop(to, 0xa28be6);
+    // やみが ちぢんで（すいこむ わ）から はじける
+    const hole = this.img('ring', to.x, to.y)
+      .setTint(0x3a2672)
+      .setScale(S * 5);
+    await this.tween({ targets: hole, scale: S * 0.5, duration: 260, ease: 'Quad.easeIn' });
+    hole.destroy();
+    this.burst(to.x, to.y, ELEMENT_FX.yami, 'bt.fx.px', 30);
+    this.scatter('wisp', to, 12, 30 * S, 8 * S);
+    await Promise.all([this.ringPop(to, 0xa28be6), this.bigRing(to, 0x6e4fc4, 5)]);
   }
 
   private async sparkles(to: Pt, n: number): Promise<void> {
@@ -465,8 +644,20 @@ export class Motions {
   }
 
   /** from から to へ とばす。arc は 山の 高さ、wave は 上下の ゆれ。着いた 場所を かえす */
-  private fly(kind: FxKind, from: Pt, to: Pt, ms: number, arc: number, delay = 0, wave = 0): Promise<Pt> {
-    const im = this.img(kind, from.x, from.y).setVisible(false);
+  private fly(
+    kind: FxKind,
+    from: Pt,
+    to: Pt,
+    ms: number,
+    arc: number,
+    delay = 0,
+    wave = 0,
+    opt: { scale?: number; trail?: FxKind } = {},
+  ): Promise<Pt> {
+    const im = this.img(kind, from.x, from.y)
+      .setScale(S * (opt.scale ?? 1))
+      .setVisible(false);
+    let last = -1;
     return this.wait(delay)
       .then(() => {
         im.setVisible(true);
@@ -475,6 +666,15 @@ export class Motions {
           const y =
             from.y + (to.y - from.y) * t - Math.sin(Math.PI * t) * arc + Math.sin(t * Math.PI * 4) * wave;
           im.setPosition(snap(x), snap(y));
+          // とんだ あとに のこる かけら（火の粉・あわ）
+          const step = Math.floor(t * 10);
+          if (opt.trail && step !== last) {
+            last = step;
+            const tr = this.img(opt.trail, x, y);
+            void this.tween({ targets: tr, alpha: 0, y: tr.y - 3 * S, duration: 260 }).then(() =>
+              tr.destroy(),
+            );
+          }
         });
       })
       .then(() => {
