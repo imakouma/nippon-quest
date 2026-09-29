@@ -36,6 +36,10 @@ export const gameStateSchema = z.object({
       hair: z.number().int().min(0).max(2),
       skin: z.number().int().min(0).max(2),
       cloth: z.number().int().min(0).max(2),
+      hat: idSchema
+        .nullable()
+        .default(null)
+        .describe('かぶっている かぶりもの（どうぐの id。progression/hats.ts）。null＝いつもの ぼうし'),
     }),
     level: z.number().int().positive(),
     xp: z.number().int().nonnegative(),

@@ -7,6 +7,7 @@
  * 地図の文字（14×22 を 16×24 のまん中に置き、外側に 1 ドットの輪郭線を自動で付ける）
  *   C ぼうし  c ぼうしのかげ  H かみ  h かみのかげ  S はだ  e め  o 線  p ほっぺ
  *   T 服  t 服のかげ  R スカーフ  Y リュック  y リュックのかげ  B ズボン  K くつ
+ * かぶりもの（HAT_ART）は ぼうしの 上 4 行を 差し替える。色の 文字は かぶりものごとに きめる。
  */
 import { makeGrid, mirrorRows, outline, paint, sheetCanvas, type Grid } from './grid';
 import { NQ, shadeOf } from './palette';
@@ -33,6 +34,16 @@ export interface Look {
   pack: string | null;
   pants: string;
   shoes: string;
+  /** かぶりもの（あれば ぼうしの かわりに かぶる） */
+  hat?: HatArt | null;
+}
+
+/** かぶりものの 絵：頭の 上 4 行（正面・うしろ・よこ）と、その 文字の 色 */
+export interface HatArt {
+  front: readonly string[];
+  back: readonly string[];
+  side: readonly string[];
+  colors: Readonly<Record<string, string>>;
 }
 
 // ───────────────────────── 地図（上半身 17 行 + 足 5 行） ─────────────────────────
@@ -142,10 +153,28 @@ const POSE_VICTORY = [
   '...BBBBBBBB...',
 ] as const;
 
+// ───────────────────────── かぶりもの ─────────────────────────
+
+/**
+ * かぶりもの（どうぐの id → 絵）。県の 名所スタンプを ぜんぶ あつめると もらえる（progression/hats.ts）。
+ *  夕張[ゆうばり]メロン：あみめの ある みどりの かわ、上に つる、ふちは オレンジの 実
+ *   M かわ  m あみめ  V つる  O 実  Q 実の かげ（o は 顔の 線なので 使わない）
+ */
+const MELON_COLORS = { M: NQ.leaf, m: NQ.sprout, V: NQ.brown, O: NQ.orange, Q: NQ.amber } as const;
+const MELON_FRONT = ['....mMMVMm....', '..MmMMmMMMmM..', '.MMMmMMMmMMmM.', '.OOOOOOOOOOOO.'] as const;
+export const HAT_ART: Readonly<Record<string, HatArt>> = {
+  'hokkaido-melon-kaburimono': {
+    front: MELON_FRONT,
+    back: MELON_FRONT,
+    side: ['.....MmVMM....', '...MMmMMMmMMM.', '..MmMMmMMMmMM.', '..QOOOOOOOOOO.'],
+    colors: MELON_COLORS,
+  },
+};
+
 /** テスト用：すべての地図（1 行 14 文字・上半身 17 行・足 5 行であること） */
 export const CHAR_MAPS = {
   tops: [FRONT_TOP, BACK_TOP, SIDE_TOP, POSE_VICTORY],
-  caps: [NOCAP_FRONT, NOCAP_SIDE],
+  caps: [NOCAP_FRONT, NOCAP_SIDE, ...Object.values(HAT_ART).flatMap((a) => [a.front, a.back, a.side])],
   legs: [...Object.values(FRONT_LEGS), ...Object.values(SIDE_LEGS)],
   parts: [POSE_ATTACK_ARMS, POSE_HURT_FACE],
 };
@@ -157,9 +186,18 @@ export const HERO_HAIR = [NQ.hairBrown, NQ.hairBlack, NQ.hairBlond] as const;
 export const HERO_SKIN = [NQ.skinLight, NQ.skinMid, NQ.skinDark] as const;
 export const HERO_CLOTH = [NQ.red, NQ.azure, NQ.leaf] as const;
 
-export function heroLook(a: { hair: number; skin: number; cloth: number }): Look {
+/** GameState.player.appearance（hat は 無くてもよい） */
+export interface HeroAppearance {
+  hair: number;
+  skin: number;
+  cloth: number;
+  hat?: string | null;
+}
+
+export function heroLook(a: HeroAppearance): Look {
   const cloth = HERO_CLOTH[a.cloth] ?? NQ.red;
   return {
+    hat: (a.hat && HAT_ART[a.hat]) || null,
     hair: HERO_HAIR[a.hair] ?? NQ.hairBrown,
     skin: HERO_SKIN[a.skin] ?? NQ.skinLight,
     cap: cloth,
@@ -265,15 +303,16 @@ function colorsOf(l: Look): Record<string, string> {
     y: l.pack ? shadeOf(l.pack) : topShade,
     B: l.pants,
     K: l.shoes,
+    ...l.hat?.colors,
   };
 }
 
 type Rows = readonly string[];
 
-/** ぼうし無しなら上 4 行をかみに差し替える */
-function capped(top: Rows, l: Look, side: boolean): string[] {
-  if (l.cap) return [...top];
-  const head = side ? NOCAP_SIDE : NOCAP_FRONT;
+/** かぶりものが あれば 上 4 行を それに、ぼうし無しなら かみに 差し替える */
+function capped(top: Rows, l: Look, view: 'front' | 'back' | 'side'): string[] {
+  const head = l.hat ? l.hat[view] : l.cap ? null : view === 'side' ? NOCAP_SIDE : NOCAP_FRONT;
+  if (!head) return [...top];
   return [...head, ...top.slice(head.length)];
 }
 
@@ -285,12 +324,12 @@ function frame(top: Rows, legs: Rows, colors: Record<string, string>): Grid {
 }
 
 function tops(l: Look): Record<Dir, string[]> {
-  const side = capped(SIDE_TOP, l, true);
+  const side = capped(SIDE_TOP, l, 'side');
   return {
-    down: capped(FRONT_TOP, l, false),
+    down: capped(FRONT_TOP, l, 'front'),
     left: side,
     right: mirrorRows(side),
-    up: capped(BACK_TOP, l, false),
+    up: capped(BACK_TOP, l, 'back'),
   };
 }
 
@@ -324,11 +363,11 @@ export function battleSheet(l: Look): HTMLCanvasElement {
     frame(side, SIDE_LEGS.stepB, colors),
     frame(replace(side, 10, POSE_ATTACK_ARMS), SIDE_LEGS.stepA, colors),
     frame(replace(side, 5, POSE_HURT_FACE), SIDE_LEGS.idle, colors),
-    frame(capped(POSE_VICTORY, l, false), FRONT_LEGS.idle, colors),
+    frame(capped(POSE_VICTORY, l, 'front'), FRONT_LEGS.idle, colors),
   ];
   return sheetCanvas(frames, frames.length);
 }
 
 /** テクスチャのキー（見た目ごとに別キー。本番 PNG は char.hero / char.hero.battle） */
-export const heroKey = (a: { hair: number; skin: number; cloth: number }, battle = false): string =>
-  `char.hero.${a.hair}${a.skin}${a.cloth}${battle ? '.battle' : ''}`;
+export const heroKey = (a: HeroAppearance, battle = false): string =>
+  `char.hero.${a.hair}${a.skin}${a.cloth}${a.hat ? `.${a.hat}` : ''}${battle ? '.battle' : ''}`;

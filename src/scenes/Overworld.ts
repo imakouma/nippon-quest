@@ -114,6 +114,7 @@ import {
   type Dir,
 } from './art/characters';
 import { itemIconUrl } from './art/itemIcons';
+import { giveHat, hatsEarned, isHat, wearHat } from '../core/progression/hats';
 import { motifArtUrl } from './art/motifArt';
 import { designedMonsterArt } from './art/monsters';
 import { addSheet } from './art/sheet';
@@ -143,7 +144,7 @@ const WORLD_MAP_KEY = 'worldmap';
 /** 特産品（イベントの無い たべもの・こうげいひん）は ★ 看板ではなく宝箱（scripts/scaffold-maps.ts） */
 /** みため タブの 部位（GameState.player.appearance の キー と 文言の キー） */
 type HeroLookIndex = GameState['player']['appearance'];
-const LOOK_PARTS: readonly { part: keyof HeroLookIndex; key: string }[] = [
+const LOOK_PARTS: readonly { part: 'hair' | 'skin' | 'cloth'; key: string }[] = [
   { part: 'hair', key: 'lookHair' },
   { part: 'skin', key: 'lookSkin' },
   { part: 'cloth', key: 'lookCloth' },
@@ -513,6 +514,19 @@ export class OverworldScene extends Phaser.Scene {
       .sprite(x, y, this.heroTex, walkFrame(this.facing, 1))
       .setOrigin(0.5, FEET_ORIGIN_Y);
     this.player.setDepth(y);
+  }
+
+  /** かぶりものを かぶる（null＝ぬぐ）。ひとことを かえす */
+  private putOnHat(hatId: string | null): string | null {
+    const gs = this.gs()!;
+    const before = gs.player.appearance.hat;
+    const next = wearHat(gs, hatId);
+    if (!next) return null;
+    this.setGame(next);
+    this.refreshHeroLook();
+    playSfx('select');
+    const name = (id: string | null | undefined) => (id && this.content()?.items.get(id)?.name) || '';
+    return hatId ? t('field.hatWorn', { item: name(hatId) }) : t('field.hatRemoved', { item: name(before) });
   }
 
   /** みためを かえたら 歩いている 主人公の 絵を つけかえる */
@@ -1182,6 +1196,7 @@ export class OverworldScene extends Phaser.Scene {
       { speaker: t('field.landmarkSpeaker'), text: motif.blurb },
       ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
     ]);
+    await this.checkHats();
     this.busy = false;
   }
 
@@ -1196,6 +1211,7 @@ export class OverworldScene extends Phaser.Scene {
         { speaker: t('field.landmarkSpeaker'), text: motif?.blurb ?? '' },
         ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
       ]);
+      await this.checkHats();
       this.busy = false;
       return;
     }
@@ -1206,6 +1222,7 @@ export class OverworldScene extends Phaser.Scene {
     );
     if (go !== 0) {
       await this.talk([{ speaker: host, text: t('field.eventLater') }]);
+      await this.checkHats();
       this.busy = false;
       return;
     }
@@ -1227,6 +1244,7 @@ export class OverworldScene extends Phaser.Scene {
     out.push(...(ev.afterDialogue ?? []));
     this.renderHud();
     await this.talk(out);
+    await this.checkHats();
     this.busy = false;
   }
 
@@ -1328,6 +1346,29 @@ export class OverworldScene extends Phaser.Scene {
     const entry = area ? data?.regions.flatMap((r) => r.areas).find((a) => a.id === area.id) : undefined;
     const all = area && entry ? entry.stamps.map((m) => motifStamp(area.id, m)) : this.stampIds;
     return { n: all.filter((s) => have.includes(s)).length, total: all.length };
+  }
+
+  /** その県の 名所スタンプ（★）の motif id ぜんぶ（にほんちずと 同じ） */
+  private stampsOf(areaId: string): readonly string[] {
+    const data = this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined;
+    return data?.regions.flatMap((r) => r.areas).find((a) => a.id === areaId)?.stamps ?? [];
+  }
+
+  /** 県の ★ が ぜんぶ そろったら かぶりものを わたす（カットイン → ひとこと） */
+  private async checkHats(): Promise<void> {
+    const c = this.content();
+    const gs = this.gs();
+    if (!c || !gs) return;
+    for (const it of hatsEarned(gs, c.items.values(), (id) => this.stampsOf(id))) {
+      this.setGame(giveHat(this.gs()!, it));
+      playSfx('discover');
+      await this.itemCutin(it, it.name, t('field.hatFound'));
+      const area = it.areaOrigin ? c.areas.get(it.areaOrigin)?.name : undefined;
+      await this.talk([
+        { text: t('field.hatGet', { area: area ?? '', item: it.name }) },
+        { text: t('field.hatHowTo') },
+      ]);
+    }
   }
 
   // ───────────────────────── 中ボスとワープホール ─────────────────────────
@@ -2026,6 +2067,7 @@ export class OverworldScene extends Phaser.Scene {
     if (item?.use?.heal) lines.push({ text: t('field.specialtyUse', { n: item.use.heal }) });
     lines.push({ text: t('field.specialtyStamp', this.stampCount()) });
     await this.talk(lines);
+    await this.checkHats();
     this.busy = false;
   }
 
@@ -2438,11 +2480,16 @@ export class OverworldScene extends Phaser.Scene {
             sub: this.kindLabel(it),
             lines,
             blurb: it.blurb,
-            action: isEquip(it)
-              ? { label: t('field.bagEquip'), ok: true }
-              : it.kind === 'consumable' && it.use
-                ? { label: t('field.bagUse'), ok: canUse(gs, it, max) }
-                : null,
+            action: isHat(it)
+              ? {
+                  label: gs.player.appearance.hat === it.id ? t('field.hatOff') : t('field.hatOn'),
+                  ok: true,
+                }
+              : isEquip(it)
+                ? { label: t('field.bagEquip'), ok: true }
+                : it.kind === 'consumable' && it.use
+                  ? { label: t('field.bagUse'), ok: canUse(gs, it, max) }
+                  : null,
           };
         });
       return { entries, summary: hpLine, empty: t('field.bagEmpty') };
@@ -2470,6 +2517,27 @@ export class OverworldScene extends Phaser.Scene {
             };
           }),
       );
+      const hats = [...c.items.values()].filter(isHat);
+      const hatEntry = (id: string | null, it?: Item): MenuEntry => {
+        const owned = id === null || (gs.inventory[id] ?? 0) > 0;
+        const now = ap.hat === id;
+        const art = owned ? this.heroFrameUrl({ ...ap, hat: id }) : it ? itemIconUrl(it) : undefined;
+        const area = it?.areaOrigin ? areaName(it.areaOrigin) : unknown;
+        return {
+          key: `hat:${id ?? ''}`,
+          // 名前が ながいので「かぶりもの：」は つけない（下の 行に 出す）
+          name: it ? (owned ? it.name : unknown) : t('field.lookHatNone'),
+          icon: art,
+          art,
+          known: owned,
+          tag: now ? t('field.lookNow') : undefined,
+          sub: t('field.lookHat'),
+          lines: owned ? [] : [t('field.lookHatHint', { area })],
+          blurb: owned ? it?.blurb : undefined,
+          action: owned ? { label: t('field.lookPick'), ok: !now } : null,
+        };
+      };
+      if (hats.length) entries.push(hatEntry(null), ...hats.map((it) => hatEntry(it.id, it)));
       return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
     }
 
@@ -2508,6 +2576,7 @@ export class OverworldScene extends Phaser.Scene {
     const c = this.content()!;
     const gs = this.gs()!;
     const max = this.heroStats(gs);
+    if (key.startsWith('hat:')) return this.putOnHat(key.slice('hat:'.length) || null);
     if (tab === 'look') {
       const [, part, n] = key.split(':');
       const lp = LOOK_PARTS.find((x) => x.part === part);
@@ -2533,6 +2602,7 @@ export class OverworldScene extends Phaser.Scene {
     }
     const it = c.items.get(key);
     if (!it) return null;
+    if (isHat(it)) return this.putOnHat(gs.player.appearance.hat === it.id ? null : it.id);
     if (isEquip(it)) return this.equipToBag(gs, it).msg;
     const used = useItem(gs, it, { hp: max.hp, mp: max.mp });
     if (!used) {

@@ -1217,7 +1217,10 @@ function byKind(item: Pick<Item, 'id' | 'kind'>): [ItemShape, Pal] {
     case 'feet':
       return ['boots', /nuri/.test(id) ? pal(NQ.bark, NQ.red) : pal(NQ.brown, NQ.tan)];
     case 'key':
-      return ['amulet', pal(NQ.red, NQ.gold)];
+      // かぶりもの（…-kaburimono）は その もとの かたち
+      return /melon-kaburimono/.test(id)
+        ? ['melon', pal(NQ.leaf, NQ.sprout)]
+        : ['amulet', pal(NQ.red, NQ.gold)];
     case 'consumable':
       return ['herb', pal(NQ.leaf, NQ.lime)];
     case 'material':

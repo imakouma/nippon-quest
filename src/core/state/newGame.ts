@@ -17,7 +17,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
     seed: freshSeed(),
     player: {
       name: o.name,
-      appearance: o.appearance ?? { hair: 0, skin: 0, cloth: 0 },
+      appearance: { ...(o.appearance ?? { hair: 0, skin: 0, cloth: 0 }), hat: null },
       level: 1,
       xp: 0,
       gold: 100,
