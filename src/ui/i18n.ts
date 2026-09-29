@@ -37,3 +37,8 @@ export function t(key: string, vars?: I18nVars): string {
   }
   return format(s, vars);
 }
+
+/** あれば その 文言、無ければ undefined（警告を 出さない。演出の 字など、無くても よい もの） */
+export function tOpt(key: string): string | undefined {
+  return lookup(dict, key);
+}

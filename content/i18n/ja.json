@@ -433,5 +433,43 @@
     "titleHint": "↑↓ で えらんで、Z か Enter で けってい",
     "tagline": "にほんを たびして、たたかって、まなぶ RPG",
     "credits": "フォント：PixelMplus（M+ FONTS PROJECT）　ちず：国土地理院（地球地図日本・標高タイル）、Natural Earth"
+  },
+  "skillFx": {
+    "_comment": "必殺技で とぶ 字（src/scenes/battle/skillLook.ts）。スペース区切り。1〜2文字は とぶ字、3文字いじょうは きめで 大きく出す ことば。単元の id の . は _ に",
+    "subject": {
+      "kokugo": "あ か さ た な 字 文 あいうえお",
+      "sansu": "＋ － × ÷ ＝ 1 2 3 1＋1＝2 2×3＝6",
+      "rika": "○ ◎ △ ☆ ？ ！ ひらめき！",
+      "shakai": "〒 文 田 町 ちずきごう",
+      "seikatsu": "♪ ☆ はな はっけん！",
+      "eigo": "A B C Hello! Wow!"
+    },
+    "unit": {
+      "sansu_g1_tashizan": "＋ ＋ 1 2 3 4 5 3＋4＝7 5＋4＝9 2＋6＝8",
+      "sansu_g1_hikizan": "－ － 9 7 5 3 9－4＝5 8－6＝2 7－3＝4",
+      "sansu_g1_kazu-100": "10 20 50 90 100 50＋50＝100",
+      "sansu_g2_kuku": "× × 2 4 6 8 3×4＝12 7×8＝56 9×9＝81",
+      "kokugo_g1_hiragana": "あ い う え お か き く あいうえお",
+      "kokugo_g1_kanji": "山 川 木 日 月 火 水 一 二 三 大",
+      "kokugo_g1_joshi": "は が を に へ で と も わたしは",
+      "kokugo_g1_bun-no-kimari": "。 、 「 」 ！ ？ まる。",
+      "kokugo_g1_kotoba-asobi": "り ご ら しりとり りんご→ごりら",
+      "kokugo_g2_kanji": "海 雪 風 星 東 西 南 北 光",
+      "kokugo_g3_kanji": "漢 字 島 湖 波 羊 漢字",
+      "rika_g3_hikari": "☆ ◎ ◇ ★ ひかり！",
+      "rika_g4_mizu-no-sugata": "氷 水 ○ ◎ ゆげ こおり→みず→ゆげ",
+      "shakai_g3_machi": "〒 文 田 店 駅 町 ちずきごう",
+      "shakai_g4_todofuken": "都 道 府 県 北 南 47都道府県",
+      "shakai_g5_sangyo": "米 工 船 魚 牛 車 さんぎょう",
+      "shakai_g6_rekishi": "城 刀 武 士 和 れきし",
+      "seikatsu_g1_kisetsu": "♪ ☆ はる なつ あき ふゆ",
+      "seikatsu_g2_ikimono": "♪ ☆ むし かえる ちょう",
+      "eigo_g1_alphabet": "A B C D E ABC!",
+      "eigo_g2_alphabet-order": "A B C X Y Z A→Z!",
+      "eigo_g3_alphabet-small": "a b c d e abc!",
+      "eigo_g1_fruits": "A P L E APPLE! BANANA!",
+      "eigo_g2_animals": "C A T D O G CAT! DOG!",
+      "eigo_g3_sea": "F I S H FISH! SEA!"
+    }
   }
 }

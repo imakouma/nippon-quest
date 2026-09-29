@@ -61,7 +61,7 @@ import {
   type SwapOption,
   type UiAction,
 } from '../ui/battle/store';
-import { t } from '../ui/i18n';
+import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { displayText } from '../ui/ruby';
 import { isSfxMuted, playSfx, setSfxMuted, setSfxVolume } from '../ui/sfx';
@@ -70,6 +70,7 @@ import { itemIconUrl } from './art/itemIcons';
 import { designedMonsterArt } from './art/monsters';
 import { addImage, addSheet } from './art/sheet';
 import { Motions, type EnemyStyle, type SwingKind } from './battle/motions';
+import { skillLook } from './battle/skillLook';
 import { narrate, normalizeEvents, type NarrateCtx } from './battle/narrate';
 import {
   BACKDROP_SCALE,
@@ -1159,7 +1160,7 @@ export class BattleScene extends Phaser.Scene {
           void this.fx.guardRing(this.anchorOf(e.actorId), 0x80c6ff);
           await this.flash(sp, 0x80c6ff, 2);
         } else if (e.command === 'skill') {
-          await this.skillMotion(e.actorId, e.side === 'enemy', sp, sk?.gauge ?? 1, targetId);
+          await this.skillMotion(e.actorId, e.side === 'enemy', sp, sk?.gauge ?? 1, targetId, sk);
         } else if (e.command === 'scan') {
           playSfx('scan');
           const a = this.anchorOf(s.enemy.id);
@@ -1500,12 +1501,16 @@ export class BattleScene extends Phaser.Scene {
     sp: Sprite,
     stars: number,
     targetId?: string,
+    sk?: Skill,
   ): Promise<void> {
     const hero = sp === this.heroSprite;
+    // 技の タイプ・教科・単元の 見た目（とぶ 字・きめ）。こうげき・よわらせる だけ 画面を くらくして あいてへ とばす
+    const look = sk ? skillLook(sk, tOpt) : null;
+    const attack = !look || look.kind === 'attack' || look.kind === 'weaken';
     const baseY = hero ? HERO_Y : PAL_Y;
     const from = this.anchorOf(actorId);
     const toId = targetId ?? (enemySide ? this.state.ally.hero.id : this.state.enemy.id);
-    const self = toId === actorId;
+    const self = toId === actorId || !attack;
     const to = this.anchorOf(toId);
     const tint = ELEMENT_FX[this.lastElement];
     if (hero) sp.setFrame(BATTLE_POSE.attack);
@@ -1514,7 +1519,10 @@ export class BattleScene extends Phaser.Scene {
     const stage = self ? null : await this.fx.stageIn(from, this.lastElement, sp);
     this.burst(from.x, from.y, tint, 'bt.fx.star', 8 + stars * 4, -120);
     // ため：属性の かけらが あつまって 光る
-    const charge = this.fx.charge(from, this.lastElement, stars);
+    const charge = Promise.all([
+      this.fx.charge(from, this.lastElement, stars),
+      look ? this.fx.subjectCharge(from, look) : undefined,
+    ]);
     if (enemySide) {
       await Promise.all([this.flash(sp, tint, 2), charge]);
       if (!self) await this.lunge(sp, 1);
@@ -1522,12 +1530,23 @@ export class BattleScene extends Phaser.Scene {
       this.stopBob(sp, baseY);
       await Promise.all([this.flash(sp, tint, 2), this.fx.hop(sp, baseY), charge]);
     }
-    if (self) await this.fx.guardRing(from, tint);
+    if (self)
+      // まもり・かいふく・しらべる：あいて（自分・仲間・敵）に 光の わと 字の 演出
+      await Promise.all([
+        this.fx.guardRing(to, tint),
+        look ? this.fx.subjectStream(from, to, look) : undefined,
+      ]);
     else {
-      // 技が とぶ ときは あいても 見えるように くらさを うすく → 当たったら きめ
+      // 技が とぶ ときは あいても 見えるように くらさを うすく → 当たったら きめ（属性 ＋ 教科）
       await stage?.dim(0.3);
-      await this.fx.skill(this.lastElement, from, to, stars);
-      await this.fx.finisher(to, this.lastElement, stars);
+      await Promise.all([
+        this.fx.skill(this.lastElement, from, to, stars),
+        look ? this.fx.subjectStream(from, to, look) : undefined,
+      ]);
+      await Promise.all([
+        this.fx.finisher(to, this.lastElement, stars),
+        look ? this.fx.subjectFinish(to, look) : undefined,
+      ]);
       await stage?.end();
     }
     if (hero) sp.setFrame(BATTLE_POSE.idle);

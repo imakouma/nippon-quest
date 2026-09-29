@@ -9,15 +9,23 @@
  *  - 必殺技の ため（かけらが あつまる）、主人公の 斬撃（二連・つき・回転切り）、回復と まもりの 光の わ
  *  - 必殺技の ぶたい（stage）：画面が くらく なり、うつ 人の まわりに 属性の 色の 集中線、カメラが すこし よる。
  *    当たった ときの きめ（finisher）：属性の 色で 画面が 光り、大きく ゆれ、光の わが かさなって ひろがり、しょうげきはと かけらが とぶ
+ *  - 教科・単元・技の タイプの 演出（subjectCharge / subjectStream / subjectFinish。見た目は skillLook.ts）：
+ *    ためで 単元の 字が まわり、技と いっしょに 字が とび、きめは 教科ごと（国語＝筆で 大きな 字／算数＝式が ならんで ドン／
+ *    理科＝あわ・にじの 光・こおり／社会＝はんこ／生活＝花びら／英語＝ふきだし）。まもり＝字の かべ、かいふく＝字が のぼる、
+ *    しらべる＝虫めがねの 線、よわらせる＝字が うずを まいて おちる
  * ドット絵は fxArt（×4 表示）。位置は 1 ドット（4px）に そろえて にじませない。
  */
 import type Phaser from 'phaser';
 import type { Element } from '../../core/content/schemas';
 import { addImage } from '../art/sheet';
+import { PIXEL_FONT } from '../../ui/fonts';
 import { fxArt, type FxKind } from './fxArt';
+import type { SkillLook } from './skillLook';
 import { BACKDROP_SCALE, ELEMENT_FX } from './pixelArt';
 
 const S = BACKDROP_SCALE;
+/** '#rrggbb' → 0xrrggbb */
+const colorOf = (hex: string): number => parseInt(hex.slice(1), 16);
 const snap = (v: number): number => Math.round(v / S) * S;
 
 export interface Pt {
@@ -379,6 +387,395 @@ export class Motions {
     for (let i = 0; i < n; i++) {
       this.impact({ x: to.x + (i % 2 ? 8 : -8) * S, y: to.y + (i - 1) * 6 * S }, 0xffffff, i === n - 1);
       await this.wait(90);
+    }
+  }
+
+  // ───────────────────────── 教科・単元・技の タイプ ─────────────────────────
+
+  /** 字（PixelMplus は 12 の ばいすうで かく） */
+  private glyph(
+    text: string,
+    x: number,
+    y: number,
+    look: SkillLook,
+    size: 24 | 36 | 48 = 24,
+  ): Phaser.GameObjects.Text {
+    return this.scene.add
+      .text(snap(x), snap(y), text, {
+        fontFamily: PIXEL_FONT,
+        fontSize: `${size}px`,
+        color: look.color,
+        stroke: look.edge,
+        strokeThickness: size >= 36 ? 8 : 6,
+      })
+      .setOrigin(0.5)
+      .setDepth(25);
+  }
+
+  /** じゅんばんに つかう（乱数を つかわず、毎回 ちがう 字に） */
+  private nth<T>(list: readonly T[], k: number): T {
+    return list[(this.turn + k) % list.length]!;
+  }
+  private turn = 0;
+
+  private bitsAt(at: Pt, look: SkillLook, n: number, dist: number, rise = 0): void {
+    look.bits.forEach((b, i) =>
+      this.scatterTint(b.fx, b.tint, at, Math.ceil(n / look.bits.length) + i, dist, rise),
+    );
+  }
+
+  /** ため：単元の 字が うつ 人の まわりを まわって あつまる */
+  async subjectCharge(from: Pt, look: SkillLook): Promise<void> {
+    this.turn++;
+    const n = 6;
+    await Promise.all(
+      Array.from({ length: n }, (_, i) => {
+        const g = this.glyph(this.nth(look.glyphs, i), from.x, from.y, look, 36);
+        const a0 = (i / n) * Math.PI * 2;
+        return this.counter(460, (t) => {
+          const r = 30 * S * (1 - t * 0.8);
+          const a = a0 + t * Math.PI * 2;
+          g.setPosition(snap(from.x + Math.cos(a) * r), snap(from.y + Math.sin(a) * r * 0.7));
+          g.setAlpha(1 - t * 0.5);
+        }).then(() => g.destroy());
+      }),
+    );
+  }
+
+  /** 技と いっしょに：こうげきは 字が あいてへ とぶ、まもりは 字の かべ、かいふくは 字が のぼる、しらべるは 虫めがねの 線、よわらせるは 字が うずを まいて おちる */
+  async subjectStream(from: Pt, to: Pt, look: SkillLook): Promise<void> {
+    switch (look.kind) {
+      case 'barrier':
+        return this.glyphWall(to, look);
+      case 'heal':
+        return this.glyphRise(to, look);
+      case 'scan':
+        return this.scanSweep(to, look);
+      case 'weaken':
+        return this.glyphSpiral(to, look);
+      default:
+        await Promise.all(
+          Array.from({ length: 7 }, (_, i) => {
+            const g = this.glyph(this.nth(look.glyphs, i), from.x, from.y, look, 36);
+            const end = { x: to.x + ((i % 3) - 1) * 10 * S, y: to.y + ((i % 2) * 2 - 1) * 6 * S };
+            const arc = (10 + (i % 3) * 8) * S;
+            return this.wait(i * 60)
+              .then(() =>
+                this.counter(360, (t) => {
+                  g.setPosition(
+                    snap(from.x + (end.x - from.x) * t),
+                    snap(from.y + (end.y - from.y) * t - Math.sin(Math.PI * t) * arc),
+                  );
+                  g.setAngle(t * 360 * (i % 2 ? 1 : -1));
+                }),
+              )
+              .then(() => {
+                g.destroy();
+                this.bitsAt(end, look, 4, 10 * S);
+              });
+          }),
+        );
+    }
+  }
+
+  /** きめ（こうげきの ときだけ）：教科ごとの 大きな 演出 */
+  async subjectFinish(to: Pt, look: SkillLook): Promise<void> {
+    if (look.kind !== 'attack') return;
+    const word = this.nth(look.big, 0);
+    switch (look.style) {
+      case 'equation':
+        await this.equation(to, word, look);
+        break;
+      case 'write':
+        await this.brush(to, word, look);
+        break;
+      case 'lab':
+        await this.lab(to, word, look);
+        break;
+      case 'stamp':
+        await this.stamps(to, look);
+        break;
+      case 'nature':
+        await this.petals(to, word, look);
+        break;
+      case 'speech':
+        await this.speech(to, word, look);
+        break;
+    }
+  }
+
+  /** 算数：式が 1 字ずつ ならび、さいごの こたえが 大きく ドン */
+  private async equation(to: Pt, word: string, look: SkillLook): Promise<void> {
+    const chars = [...word];
+    const eq = chars.indexOf('＝');
+    const y = to.y - 30 * S;
+    // こたえ（＝の あと）は 大きい 字なので はばも ひろく。ぜんたいを あいての 上の まん中に
+    const ws = chars.map((_, i) => (eq >= 0 && i > eq ? 12 : 9) * S);
+    const total = ws.reduce((a, b) => a + b, 0);
+    let x = to.x - total / 2;
+    const ts: Phaser.GameObjects.Text[] = [];
+    for (let i = 0; i < chars.length; i++) {
+      const after = eq >= 0 && i > eq;
+      const g = this.glyph(chars[i]!, x + ws[i]! / 2, y, look, after ? 48 : 36);
+      x += ws[i]!;
+      if (after) g.setColor('#ffd23f');
+      g.setScale(after ? 2.2 : 1.6).setAlpha(0);
+      ts.push(g);
+      await this.tween({ targets: g, scale: 1, alpha: 1, duration: after ? 140 : 70, ease: 'Back.easeOut' });
+      if (after) {
+        this.scene.cameras.main.shake(120, 0.01);
+        this.bitsAt({ x: g.x, y: g.y }, look, 6, 14 * S);
+      }
+    }
+    await this.wait(260);
+    await this.tween({ targets: ts, alpha: 0, y: `-=${4 * S}`, duration: 220 });
+    ts.forEach((g) => g.destroy());
+  }
+
+  /** 国語：筆が ななめに はしり、大きな 字が すみの しぶきと いっしょに かかれる */
+  private async brush(to: Pt, word: string, look: SkillLook): Promise<void> {
+    const line = this.scene.add.graphics().setDepth(24.5);
+    await this.counter(200, (t) => {
+      line.clear();
+      line.lineStyle(6 * S, 0x1a1428, 0.9);
+      line.lineBetween(to.x - 24 * S, to.y - 24 * S, to.x - 24 * S + 48 * S * t, to.y - 24 * S + 40 * S * t);
+      line.lineStyle(2 * S, 0xe5484d, 1);
+      line.lineBetween(to.x - 24 * S, to.y - 24 * S, to.x - 24 * S + 48 * S * t, to.y - 24 * S + 40 * S * t);
+    });
+    const g = this.glyph(word, to.x, to.y - 6 * S, look, 48)
+      .setScale(3)
+      .setAlpha(0);
+    await this.tween({ targets: g, scale: 1.5, alpha: 1, duration: 180, ease: 'Quad.easeIn' });
+    this.scene.cameras.main.shake(140, 0.012);
+    this.bitsAt(to, look, 14, 26 * S, 4 * S);
+    await this.wait(320);
+    await this.tween({ targets: [g, line], alpha: 0, duration: 240 });
+    g.destroy();
+    line.destroy();
+  }
+
+  /** 理科：あわが わきあがり、光の 単元は にじの 光、水の すがたは こおりと ゆげ。さいごに ひらめきの ことば */
+  private async lab(to: Pt, word: string, look: SkillLook): Promise<void> {
+    for (let i = 0; i < 12; i++) {
+      const b = this.img('bubble', to.x + (((i * 5) % 11) - 5) * 3 * S, to.y + 12 * S).setTint(0xa4f0e2);
+      void this.tween({
+        targets: b,
+        y: to.y - (20 + (i % 4) * 6) * S,
+        alpha: 0,
+        duration: 420 + (i % 3) * 80,
+        delay: i * 30,
+        ease: 'Quad.easeOut',
+      }).then(() => b.destroy());
+    }
+    if (look.extra === 'prism') {
+      const rays = this.scene.add.graphics().setDepth(24.5);
+      const cols = [0xe5484d, 0xf2a93b, 0xffd447, 0x4cbf4c, 0x3d8ef0, 0x3a2672, 0xa28be6];
+      await this.counter(420, (t) => {
+        rays.clear();
+        cols.forEach((c, i) => {
+          const a = (i / cols.length) * Math.PI * 2 + t * Math.PI;
+          rays.lineStyle(2 * S, c, 1 - t * 0.6);
+          rays.lineBetween(to.x, to.y, to.x + Math.cos(a) * 60 * S * t, to.y + Math.sin(a) * 40 * S * t);
+        });
+      });
+      rays.destroy();
+    } else if (look.extra === 'ice') {
+      this.scatterTint('twinkle', 0xc8f4ff, to, 14, 28 * S);
+      for (const dx of [-10, 0, 10]) this.dust(to.x + dx * S, to.y - 6 * S);
+      await this.wait(260);
+    } else await this.wait(200);
+    const g = this.glyph(word, to.x, to.y - 30 * S, look, 36).setScale(0.3);
+    await this.tween({ targets: g, scale: 1, duration: 200, ease: 'Back.easeOut' });
+    await this.wait(260);
+    await this.tween({ targets: g, alpha: 0, duration: 200 });
+    g.destroy();
+  }
+
+  /** 社会：朱色の はんこが ポン ポン ポン（地図の 単元は 地図記号） */
+  private async stamps(to: Pt, look: SkillLook): Promise<void> {
+    const spots = [
+      [-14, -10],
+      [12, -4],
+      [-2, 8],
+    ] as const;
+    const made: Phaser.GameObjects.GameObject[] = [];
+    for (let i = 0; i < spots.length; i++) {
+      const [dx, dy] = spots[i]!;
+      const x = to.x + dx * S;
+      const y = to.y + dy * S;
+      const box = this.scene.add
+        .rectangle(snap(x), snap(y), 14 * S, 14 * S, 0xe5484d)
+        .setStrokeStyle(S, 0xa8341f)
+        .setDepth(25)
+        .setScale(2)
+        .setAlpha(0);
+      const g = this.glyph(this.nth(look.glyphs, i), x, y, { ...look, color: '#ffffff', edge: '#a8341f' }, 36)
+        .setScale(2)
+        .setAlpha(0);
+      made.push(box, g);
+      await this.tween({ targets: [box, g], scale: 1, alpha: 1, duration: 110, ease: 'Quad.easeIn' });
+      this.scene.cameras.main.shake(90, 0.01);
+      this.bitsAt({ x, y }, look, 4, 10 * S);
+    }
+    await this.wait(300);
+    await this.tween({ targets: made, alpha: 0, duration: 220 });
+    made.forEach((o) => o.destroy());
+  }
+
+  /** 生活：花びらと 葉が うずを まいて まいあがる（きせつは 4 色、生きものは ほたるの 光） */
+  private async petals(to: Pt, word: string, look: SkillLook): Promise<void> {
+    const tints =
+      look.extra === 'season'
+        ? [0xff8fb1, 0x4cbf4c, 0xf0603c, 0xffffff]
+        : look.extra === 'creature'
+          ? [0xe8f7a0, 0xffd447]
+          : [0xff8fb1, 0x4cbf4c];
+    const n = 16;
+    await Promise.all([
+      ...Array.from({ length: n }, (_, i) => {
+        const im = this.img(look.extra === 'creature' ? 'twinkle' : 'leafbit', to.x, to.y).setTint(
+          tints[i % tints.length]!,
+        );
+        const a0 = (i / n) * Math.PI * 2;
+        return this.counter(620, (t) => {
+          const r = 8 * S + 26 * S * t;
+          const a = a0 + t * Math.PI * 2;
+          im.setPosition(snap(to.x + Math.cos(a) * r), snap(to.y + Math.sin(a) * r * 0.6 - t * 20 * S));
+          im.setAlpha(1 - t * 0.7);
+        }).then(() => im.destroy());
+      }),
+      (async () => {
+        const g = this.glyph(word, to.x, to.y - 28 * S, look, 36).setAlpha(0);
+        await this.tween({ targets: g, alpha: 1, y: g.y - 4 * S, duration: 200 });
+        await this.wait(300);
+        await this.tween({ targets: g, alpha: 0, duration: 200 });
+        g.destroy();
+      })(),
+    ]);
+  }
+
+  /** 英語：ふきだしが ポンと ひらいて ことばを さけび、文字が とびちる */
+  private async speech(to: Pt, word: string, look: SkillLook): Promise<void> {
+    const x = to.x;
+    const y = to.y - 32 * S;
+    const w = Math.max(28, [...word].length * 7 + 8) * S;
+    const bub = this.scene.add.graphics().setDepth(24.5);
+    bub.fillStyle(0xffffff, 1);
+    bub.lineStyle(S, 0x1a1428, 1);
+    bub.fillRoundedRect(-w / 2, -9 * S, w, 18 * S, 4 * S);
+    bub.strokeRoundedRect(-w / 2, -9 * S, w, 18 * S, 4 * S);
+    bub.fillTriangle(-4 * S, 9 * S - 1, 4 * S, 9 * S - 1, 0, 16 * S);
+    bub.setPosition(snap(x), snap(y)).setScale(0);
+    const g = this.glyph(word, x, y, { ...look, color: '#6e4fc4', edge: '#ffffff' }, 36).setScale(0);
+    await this.tween({ targets: [bub, g], scale: 1, duration: 200, ease: 'Back.easeOut' });
+    this.scene.cameras.main.shake(120, 0.008);
+    // 文字が とびちる
+    const letters = [...word].filter((c) => /[A-Za-z]/.test(c)).slice(0, 8);
+    letters.forEach((c, i) => {
+      const t = this.glyph(c, x, y, look);
+      const a = (i / Math.max(1, letters.length)) * Math.PI * 2;
+      void this.tween({
+        targets: t,
+        x: x + Math.cos(a) * 34 * S,
+        y: y + Math.sin(a) * 22 * S,
+        alpha: 0,
+        duration: 480,
+        ease: 'Quad.easeOut',
+      }).then(() => t.destroy());
+    });
+    await this.wait(420);
+    await this.tween({ targets: [bub, g], alpha: 0, duration: 200 });
+    bub.destroy();
+    g.destroy();
+  }
+
+  /** まもり：字の パネルが まわりに ならんで かべに なり、光の わで かたまる */
+  private async glyphWall(at: Pt, look: SkillLook): Promise<void> {
+    const n = 8;
+    const gs = Array.from({ length: n }, (_, i) =>
+      this.glyph(this.nth(look.glyphs, i), at.x, at.y, look).setAlpha(0),
+    );
+    await this.counter(420, (t) => {
+      gs.forEach((g, i) => {
+        const a = (i / n) * Math.PI * 2 + t * Math.PI;
+        g.setPosition(snap(at.x + Math.cos(a) * 24 * S * t), snap(at.y + Math.sin(a) * 18 * S * t));
+        g.setAlpha(t);
+      });
+    });
+    const ring = this.scene.add.graphics().setDepth(24.5);
+    ring.lineStyle(2 * S, colorOf(look.edge), 1);
+    ring.strokeEllipse(at.x, at.y, 56 * S, 42 * S);
+    await this.tween({ targets: [ring, ...gs], alpha: 0, duration: 360, delay: 200 });
+    ring.destroy();
+    gs.forEach((g) => g.destroy());
+  }
+
+  /** かいふく：字と きらめきが 足もとから のぼる */
+  private async glyphRise(at: Pt, look: SkillLook): Promise<void> {
+    await Promise.all(
+      Array.from({ length: 6 }, (_, i) => {
+        const g = this.glyph(
+          this.nth(look.glyphs, i),
+          at.x + ((i % 3) - 1) * 10 * S,
+          at.y + 14 * S,
+          look,
+        ).setAlpha(0);
+        return this.tween({
+          targets: g,
+          y: at.y - 22 * S,
+          alpha: { from: 1, to: 0 },
+          duration: 560,
+          delay: i * 70,
+        }).then(() => g.destroy());
+      }),
+    );
+    this.bitsAt(at, look, 8, 14 * S, 12 * S);
+  }
+
+  /** しらべる：虫めがねの 光の 線が 上から 下へ はしり、「？」が「！」に かわる */
+  private async scanSweep(at: Pt, look: SkillLook): Promise<void> {
+    const line = this.scene.add.rectangle(at.x, at.y - 24 * S, 48 * S, 2 * S, 0xc8f4ff, 0.9).setDepth(24.5);
+    await this.tween({ targets: line, y: at.y + 20 * S, duration: 380, ease: 'Sine.easeInOut' });
+    line.destroy();
+    const q = this.glyph('？', at.x, at.y - 30 * S, look, 48);
+    await this.wait(200);
+    q.setText('！');
+    await this.tween({ targets: q, scale: 1.4, duration: 120, yoyo: true });
+    await this.tween({ targets: q, alpha: 0, duration: 200, delay: 160 });
+    q.destroy();
+  }
+
+  /** よわらせる：字が うずを まいて あいてに おちて いく */
+  private async glyphSpiral(at: Pt, look: SkillLook): Promise<void> {
+    await Promise.all(
+      Array.from({ length: 6 }, (_, i) => {
+        const g = this.glyph(this.nth(look.glyphs, i), at.x, at.y, look);
+        const a0 = (i / 6) * Math.PI * 2;
+        return this.counter(520, (t) => {
+          const r = 30 * S * (1 - t);
+          const a = a0 + t * Math.PI * 3;
+          g.setPosition(snap(at.x + Math.cos(a) * r), snap(at.y - 24 * S * (1 - t) + Math.sin(a) * r * 0.5));
+        }).then(() => g.destroy());
+      }),
+    );
+    this.bitsAt(at, look, 8, 16 * S);
+  }
+
+  /** 色つきの かけらを ちらす */
+  private scatterTint(kind: FxKind, tint: number, at: Pt, n: number, dist: number, rise = 0): void {
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2 + 0.3;
+      const d = dist * (0.6 + ((i * 7) % 5) * 0.1);
+      const im = this.img(kind, at.x, at.y).setTint(tint);
+      void this.tween({
+        targets: im,
+        x: snap(at.x + Math.cos(a) * d),
+        y: snap(at.y + Math.sin(a) * d * 0.7 - rise),
+        alpha: 0,
+        duration: 320 + (i % 3) * 60,
+        ease: 'Stepped',
+        easeParams: [5],
+      }).then(() => im.destroy());
     }
   }
 
