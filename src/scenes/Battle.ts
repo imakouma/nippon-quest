@@ -40,7 +40,7 @@ import {
   type AppliedBattle,
   type BattleSummary,
 } from '../core/progression/battleResult';
-import { bagCapacity, bagContext, stowNewMonster } from '../core/progression/bag';
+import { bagCapacity, bagContext, evolutionStage, stowNewMonster } from '../core/progression/bag';
 import { specialtyIndex, withSpecialtyDrops } from '../core/progression/specialty';
 import { createRng, freshSeed } from '../core/rng';
 import type { GameState } from '../core/state/schema';
@@ -66,10 +66,12 @@ import { createSpeaker } from '../ui/overlay';
 import { displayText } from '../ui/ruby';
 import { isSfxMuted, playSfx, setSfxMuted, setSfxVolume } from '../ui/sfx';
 import { BATTLE_POSE, battleSheet, HERO_H, HERO_W, heroKey, heroLook } from './art/characters';
-import { itemIconUrl } from './art/itemIcons';
+import { itemIconGrid, itemIconUrl } from './art/itemIcons';
 import { designedMonsterArt } from './art/monsters';
 import { addImage, addSheet } from './art/sheet';
-import { Motions, type EnemyStyle, type SwingKind } from './battle/motions';
+import { Motions, type EnemyStyle, type MotifFx, type SwingKind } from './battle/motions';
+import { toCanvas } from './art/grid';
+import { motifArtGrid } from './art/motifArt';
 import { skillLook } from './battle/skillLook';
 import { narrate, normalizeEvents, type NarrateCtx } from './battle/narrate';
 import {
@@ -180,6 +182,8 @@ export class BattleScene extends Phaser.Scene {
   private bobs = new Map<Sprite, Phaser.Tweens.Tween>();
   private perfectBySubject: Record<string, number> = {};
   private lastElement: Element = 'none';
+  /** いまの 行動の モンスターの モチーフ（主人公の 行動は null）。ふつうの こうげきが 当たった ときに アイコンが とぶ */
+  private lastMotif: MotifFx | null = null;
   /** 攻撃・必殺技などの 動き（battle/motions.ts） */
   private fx!: Motions;
   /** 動きを かわりばんこに するための 回数 */
@@ -1154,13 +1158,26 @@ export class BattleScene extends Phaser.Scene {
         const sk = e.skillId ? this.content.skills.get(e.skillId) : undefined;
         const actorEl = e.side === 'enemy' ? s.enemy.element : this.allyElement(e.actorId);
         this.lastElement = sk?.element ?? actorEl;
+        // 主人公の ターン（auto で ない 味方の 行動）は、オトモの わざを えらんでも 主人公から うつ
+        const heroTurn = e.side === 'ally' && !e.auto;
+        const def = heroTurn ? undefined : this.monsterDefOf(e.actorId);
+        this.lastMotif = def ? this.motifFx(def) : null;
         if (!sp) return;
         if (e.command === 'defend') {
           playSfx('buff');
           void this.fx.guardRing(this.anchorOf(e.actorId), 0x80c6ff);
           await this.flash(sp, 0x80c6ff, 2);
         } else if (e.command === 'skill') {
-          await this.skillMotion(e.actorId, e.side === 'enemy', sp, sk?.gauge ?? 1, targetId, sk);
+          await this.skillMotion(
+            heroTurn ? s.ally.hero.id : e.actorId,
+            e.side === 'enemy',
+            heroTurn ? this.heroSprite : sp,
+            sk?.gauge ?? 1,
+            targetId,
+            sk,
+            this.tierOf(def),
+            this.lastMotif,
+          );
         } else if (e.command === 'scan') {
           playSfx('scan');
           const a = this.anchorOf(s.enemy.id);
@@ -1180,12 +1197,11 @@ export class BattleScene extends Phaser.Scene {
         const a = e.side === 'enemy' ? this.anchorOf(s.enemy.id) : this.anchorOf(e.targetId);
         if (e.side === 'enemy') {
           playSfx(big ? 'crit' : 'hit');
-          this.burst(a.x, a.y, ELEMENT_FX[this.lastElement], big ? 'bt.fx.star' : 'bt.fx.px', big ? 28 : 14);
+          this.burst(a.x, a.y, ELEMENT_FX[this.lastElement], big ? 'bt.fx.star' : 'bt.fx.px', big ? 18 : 14);
           this.fx.hit(a, this.lastElement, big);
-          if (big) {
-            this.cameras.main.flash(140, 255, 243, 163);
-            this.cameras.main.shake(240, 0.012);
-          }
+          if (this.lastMotif) this.fx.motifPop(a, this.lastMotif);
+          // かいしんは ふつうの こうげきより すこし だけ はでに（小さく ゆれる）
+          if (big) this.cameras.main.shake(120, 0.006);
           this.popup(a.x, a.y, String(e.amount), big ? 'crit' : 'damage');
           this.patchEnemy({ hp: Math.max(0, (this.hud.get().enemy?.hp ?? 0) - e.amount) });
           await Promise.all([
@@ -1196,6 +1212,7 @@ export class BattleScene extends Phaser.Scene {
           playSfx('hurt');
           this.cameras.main.shake(180, 0.008);
           this.fx.enemyHit(a, this.lastEnemyStyle, s.enemy.element);
+          if (this.lastMotif) this.fx.motifPop(a, this.lastMotif);
           this.popup(a.x, a.y, String(e.amount), 'hurt');
           this.patchAllyHp(e.targetId, -e.amount);
           if (target) {
@@ -1205,7 +1222,7 @@ export class BattleScene extends Phaser.Scene {
             if (hero && s.ally.hero.hp > 0) target.setFrame(BATTLE_POSE.idle);
           }
         }
-        await this.wait(big ? 380 : 220);
+        await this.wait(big ? 300 : 220);
         return;
       }
       case 'heal': {
@@ -1489,6 +1506,36 @@ export class BattleScene extends Phaser.Scene {
     }
   }
 
+  /** 行動した モンスターの データ（敵・仲間。主人公は undefined） */
+  private monsterDefOf(actorId: string): Monster | undefined {
+    if (actorId === this.state.enemy.id) return this.enemyDef;
+    const m = this.state.ally.monsters.find((x) => x.id === actorId);
+    return m ? this.content.monsters.get(m.refId) : undefined;
+  }
+
+  /** 演出の はでさ：主人公・ボス＝3、モンスターは しんかの だんかい（しんか前＝1） */
+  private tierOf(def: Monster | undefined): number {
+    if (!def || def.isBoss) return 3;
+    return Math.min(3, evolutionStage(def.id, this.content.monsters));
+  }
+
+  /** モンスターの モチーフの 絵：名産の どうぐの アイコン（16）と 名所の 絵（32）。どちらかが あれば つかう */
+  private motifFx(def: Monster): MotifFx | null {
+    const motif = this.content.areas.get(def.area)?.motifs.find((m) => m.id === def.motifId);
+    if (!motif) return null;
+    const tag = `${def.area}-${def.motifId}`;
+    const item = this.content.items.get(tag);
+    const iconKey = `bt.motif.icon.${tag}`;
+    const bigKey = `bt.motif.big.${tag}`;
+    if (item) addImage(this.textures, iconKey, toCanvas(itemIconGrid(item)));
+    const scene = motifArtGrid(def.area, motif);
+    if (scene) addImage(this.textures, bigKey, toCanvas(scene));
+    const icon = item ? iconKey : scene ? bigKey : null;
+    const big = scene ? bigKey : icon;
+    if (!icon || !big) return null;
+    return { icon, big, iconScale: item ? 1 : 0.5, bigScale: scene ? 1 : 2 };
+  }
+
   /**
    * 必殺技：光って ためる（味方は その場で ジャンプ、敵は とびかかる）→ 属性ごとの 動きが あいて（targetId）へ。
    * 自分への 回復・まもり（targetId が 自分）は あいてへ とばさず、自分に 光を あつめるだけ
@@ -1502,11 +1549,16 @@ export class BattleScene extends Phaser.Scene {
     stars: number,
     targetId?: string,
     sk?: Skill,
+    tier = 3,
+    motif: MotifFx | null = null,
   ): Promise<void> {
     const hero = sp === this.heroSprite;
     // 技の タイプ・教科・単元の 見た目（とぶ 字・きめ）。こうげき・よわらせる だけ 画面を くらくして あいてへ とばす
     const look = sk ? skillLook(sk, tOpt) : null;
     const attack = !look || look.kind === 'attack' || look.kind === 'weaken';
+    // はでさ：しんか前の モンスター（tier 1）は ぶたい なし・字の 演出 なし、1 かい しんか（tier 2）は うすい ぶたい
+    const mid = tier >= 2;
+    const full = tier >= 3;
     const baseY = hero ? HERO_Y : PAL_Y;
     const from = this.anchorOf(actorId);
     const toId = targetId ?? (enemySide ? this.state.ally.hero.id : this.state.enemy.id);
@@ -1516,12 +1568,12 @@ export class BattleScene extends Phaser.Scene {
     if (hero) sp.setFrame(BATTLE_POSE.attack);
     if (enemySide) this.lastEnemyStyle = 'skill';
     // 必殺技の ぶたい：画面が くらく なって 集中線（自分への 回復・まもりは しない）
-    const stage = self ? null : await this.fx.stageIn(from, this.lastElement, sp);
-    this.burst(from.x, from.y, tint, 'bt.fx.star', 8 + stars * 4, -120);
+    const stage = self || !mid ? null : await this.fx.stageIn(from, this.lastElement, sp, !full);
+    this.burst(from.x, from.y, tint, 'bt.fx.star', (mid ? 8 : 4) + Math.min(stars, tier) * 4, -120);
     // ため：属性の かけらが あつまって 光る
     const charge = Promise.all([
-      this.fx.charge(from, this.lastElement, stars),
-      look ? this.fx.subjectCharge(from, look) : undefined,
+      this.fx.charge(from, this.lastElement, Math.min(stars, tier)),
+      look && mid ? this.fx.subjectCharge(from, look) : undefined,
     ]);
     if (enemySide) {
       await Promise.all([this.flash(sp, tint, 2), charge]);
@@ -1534,18 +1586,20 @@ export class BattleScene extends Phaser.Scene {
       // まもり・かいふく・しらべる：あいて（自分・仲間・敵）に 光の わと 字の 演出
       await Promise.all([
         this.fx.guardRing(to, tint),
-        look ? this.fx.subjectStream(from, to, look) : undefined,
+        look && mid ? this.fx.subjectStream(from, to, look) : undefined,
       ]);
     else {
       // 技が とぶ ときは あいても 見えるように くらさを うすく → 当たったら きめ（属性 ＋ 教科）
       await stage?.dim(0.3);
       await Promise.all([
-        this.fx.skill(this.lastElement, from, to, stars),
-        look ? this.fx.subjectStream(from, to, look) : undefined,
+        this.fx.skill(this.lastElement, from, to, stars, tier),
+        look && mid ? this.fx.subjectStream(from, to, look) : undefined,
+        // モンスターの モチーフ（ねぶたなら ねぶたの 山車）が とんで いく
+        motif ? this.fx.motifStrike(from, to, motif, tier) : undefined,
       ]);
       await Promise.all([
-        this.fx.finisher(to, this.lastElement, stars),
-        look ? this.fx.subjectFinish(to, look) : undefined,
+        this.fx.finisher(to, this.lastElement, stars, tier),
+        look && full ? this.fx.subjectFinish(to, look) : undefined,
       ]);
       await stage?.end();
     }

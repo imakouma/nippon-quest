@@ -13,6 +13,10 @@
  *    ためで 単元の 字が まわり、技と いっしょに 字が とび、きめは 教科ごと（国語＝筆で 大きな 字／算数＝式が ならんで ドン／
  *    理科＝あわ・にじの 光・こおり／社会＝はんこ／生活＝花びら／英語＝ふきだし）。まもり＝字の かべ、かいふく＝字が のぼる、
  *    しらべる＝虫めがねの 線、よわらせる＝字が うずを まいて おちる
+ *  - はでさ（tier）：1＝しんか前の モンスター（くらく ならず、きめも ひかえめ）／2＝1 かい しんか（うすい ぶたい）／
+ *    3＝主人公・2 かい しんか・ボス（ぜんぶ）
+ *  - モンスターの モチーフ（motifStrike / motifPop）：その モンスターの 名産の アイコンや 名所の 絵（ねぶたなら ねぶたの 山車）が
+ *    とんで いき、tier 3 では 大きな 絵が あいての 上に あらわれて ドーンと おちる
  * ドット絵は fxArt（×4 表示）。位置は 1 ドット（4px）に そろえて にじませない。
  */
 import type Phaser from 'phaser';
@@ -34,6 +38,15 @@ export interface Pt {
 }
 
 type Actor = Phaser.GameObjects.Image | Phaser.GameObjects.Sprite;
+
+/** モンスターの モチーフの 絵（Battle が テクスチャを 作って わたす）。icon は とぶ 小さな 絵、big は 大きく 出す 絵 */
+export interface MotifFx {
+  icon: string;
+  big: string;
+  /** icon を S の 何ばいで 出すか（16 ドットの アイコンは 1、32 ドットの 絵は 0.5） */
+  iconScale: number;
+  bigScale: number;
+}
 
 /** 敵の こうげきの しかた（味方に 当たったときの しるしが かわる） */
 export type EnemyStyle = 'claw' | 'bite' | 'bash' | 'quake' | 'skill';
@@ -63,8 +76,8 @@ export class Motions {
   // ───────────────────────── 必殺技 ─────────────────────────
 
   /** 必殺技の 動き。stars は 技ゲージの 段（★1〜★3） */
-  async skill(el: Element, from: Pt, to: Pt, stars = 1): Promise<void> {
-    const n = 2 + Math.min(3, Math.max(1, stars));
+  async skill(el: Element, from: Pt, to: Pt, stars = 1, tier = 3): Promise<void> {
+    const n = tier <= 1 ? 2 : 1 + tier - 2 + Math.min(3, Math.max(1, stars));
     switch (el) {
       case 'hino':
         await this.fireballs(from, to, n);
@@ -100,6 +113,7 @@ export class Motions {
     from: Pt,
     el: Element,
     actor: Actor,
+    lite = false,
   ): Promise<{ dim: (alpha: number) => Promise<void>; end: () => Promise<void> }> {
     const cam = this.scene.cameras.main;
     const tint = ELEMENT_FX[el];
@@ -115,7 +129,7 @@ export class Motions {
     let tick = 0;
     const draw = () => {
       lines.clear();
-      const n = 32;
+      const n = lite ? 14 : 32;
       for (let i = 0; i < n; i++) {
         const a = (i / n) * Math.PI * 2 + (tick % 2) * 0.05;
         const r0 = 34 * S + ((i * 37 + tick * 13) % 9) * 3 * S;
@@ -132,9 +146,9 @@ export class Motions {
     };
     draw();
     const timer = this.scene.time.addEvent({ delay: 60, loop: true, callback: draw });
-    cam.zoomTo(1.08, 240, 'Quad.easeOut');
+    if (!lite) cam.zoomTo(1.08, 240, 'Quad.easeOut');
     await Promise.all([
-      this.tween({ targets: dark, alpha: 0.62, duration: 180 }),
+      this.tween({ targets: dark, alpha: lite ? 0.38 : 0.62, duration: 180 }),
       this.tween({ targets: lines, alpha: 1, duration: 180 }),
     ]);
     const dim = async (alpha: number) => {
@@ -162,10 +176,19 @@ export class Motions {
    * 必殺技が 当たった ときの きめ：属性の 色で 画面が 光って 大きく ゆれ、大きな 星・かさなる 光の わ・
    * 足もとの しょうげきは・属性の かけらと 星が とびちる。★ が 多いほど 大きく、長く
    */
-  async finisher(to: Pt, el: Element, stars: number): Promise<void> {
+  async finisher(to: Pt, el: Element, stars: number, tier = 3): Promise<void> {
     const tint = ELEMENT_FX[el];
-    const st = Math.min(3, Math.max(1, stars));
     const cam = this.scene.cameras.main;
+    if (tier <= 1) {
+      // しんか前：ひかえめ（小さな 星と 光の わ、かけら すこし）
+      this.impact(to, tint, false);
+      void this.ringPop(to, tint);
+      this.scatter(BITS[el], to, 6, 16 * S);
+      cam.shake(120, 0.005);
+      await this.wait(220);
+      return;
+    }
+    const st = Math.min(tier === 2 ? 2 : 3, Math.max(1, stars));
     cam.flash(160 + st * 50, (tint >> 16) & 255, (tint >> 8) & 255, tint & 255);
     cam.shake(200 + st * 100, 0.008 + st * 0.005);
     const star = this.img('spark', to.x, to.y).setTint(0xffffff);
@@ -387,6 +410,65 @@ export class Motions {
     for (let i = 0; i < n; i++) {
       this.impact({ x: to.x + (i % 2 ? 8 : -8) * S, y: to.y + (i - 1) * 6 * S }, 0xffffff, i === n - 1);
       await this.wait(90);
+    }
+  }
+
+  // ───────────────────────── モンスターの モチーフ ─────────────────────────
+
+  /**
+   * モチーフの こうげき：アイコンが とんで いき（tier で 数と 大きさが ふえる）、tier 2 から 大きな 絵が あいての 上に
+   * あらわれて おちる（tier 3 は もっと 大きく、光って、ドーン）
+   */
+  async motifStrike(from: Pt, to: Pt, m: MotifFx, tier: number): Promise<void> {
+    const n = tier <= 1 ? 2 : tier === 2 ? 4 : 6;
+    const sc = S * m.iconScale * (tier <= 1 ? 1 : 1.5);
+    await Promise.all(
+      Array.from({ length: n }, (_, i) =>
+        this.flyTex(
+          m.icon,
+          from,
+          { x: to.x + ((i % 3) - 1) * 8 * S, y: to.y + ((i % 2) * 2 - 1) * 5 * S },
+          380,
+          (12 + (i % 3) * 6) * S,
+          i * 80,
+          sc,
+        ).then((p) => this.impact(p, 0xffffff, false)),
+      ),
+    );
+    if (tier <= 1) return;
+    const big = tier >= 3;
+    const scale = S * m.bigScale * (big ? 1.6 : 1);
+    const y0 = to.y - (big ? 46 : 36) * S;
+    const im = this.scene.add.image(snap(to.x), snap(y0), m.big).setScale(0).setDepth(24);
+    if (big) void this.bigRing({ x: to.x, y: y0 }, 0xffffff, 6);
+    await this.tween({ targets: im, scale, duration: 220, ease: 'Back.easeOut' });
+    if (big) {
+      // 光って ためてから おちる
+      await this.tween({ targets: im, alpha: 0.5, duration: 90, yoyo: true, repeat: 1 });
+    }
+    await this.tween({ targets: im, y: snap(to.y), duration: big ? 200 : 240, ease: 'Quad.easeIn' });
+    this.scene.cameras.main.shake(big ? 260 : 140, big ? 0.02 : 0.008);
+    this.impact(to, 0xffffff, big);
+    for (const dx of big ? [-14, 0, 14] : [0]) this.dust(to.x + dx * S, to.y + 10 * S);
+    await this.tween({ targets: im, alpha: 0, scale: scale * 1.2, duration: 220 });
+    im.destroy();
+  }
+
+  /** ふつうの こうげきが 当たった ときの モチーフ：アイコンが 2 つ ぱっと とびちる */
+  motifPop(at: Pt, m: MotifFx): void {
+    for (const s of [-1, 1]) {
+      const im = this.scene.add
+        .image(snap(at.x), snap(at.y), m.icon)
+        .setScale(S * m.iconScale)
+        .setDepth(24);
+      void this.tween({
+        targets: im,
+        x: snap(at.x + s * 14 * S),
+        y: snap(at.y - 10 * S),
+        alpha: 0,
+        duration: 380,
+        ease: 'Quad.easeOut',
+      }).then(() => im.destroy());
     }
   }
 
@@ -823,8 +905,9 @@ export class Motions {
     const tint = ELEMENT_FX[el];
     this.impact(at, tint, critical);
     void this.ringPop(at, tint);
-    this.scatter(BITS[el], at, critical ? 10 : 6, (critical ? 22 : 15) * S);
-    if (critical) void this.pop('cross', at, 0xffffff, 1, 2, 260);
+    this.scatter(BITS[el], at, critical ? 8 : 6, (critical ? 18 : 15) * S);
+    // かいしんは ふつうより すこし だけ はでに（小さな ×）
+    if (critical) void this.pop('cross', at, 0xffffff, 1, 1.5, 220);
   }
 
   /** 敵の こうげきが 味方に 当たった：こうげきの しかたで ちがう しるし＋敵の 属性の かけら */
@@ -937,9 +1020,9 @@ export class Motions {
     const im = this.img('spark', at.x, at.y).setTint(tint);
     void this.tween({
       targets: im,
-      scale: S * (big ? 3 : 2),
+      scale: S * (big ? 2.6 : 2),
       alpha: 0,
-      duration: big ? 260 : 180,
+      duration: big ? 230 : 180,
       ease: 'Stepped',
       easeParams: [4],
     }).then(() => im.destroy());
@@ -1072,6 +1155,38 @@ export class Motions {
               tr.destroy(),
             );
           }
+        });
+      })
+      .then(() => {
+        im.destroy();
+        return to;
+      });
+  }
+
+  /** テクスチャ（モチーフの 絵など）を from から to へ 山なりに とばす */
+  private flyTex(
+    key: string,
+    from: Pt,
+    to: Pt,
+    ms: number,
+    arc: number,
+    delay: number,
+    scale: number,
+  ): Promise<Pt> {
+    const im = this.scene.add
+      .image(snap(from.x), snap(from.y), key)
+      .setScale(scale)
+      .setDepth(24)
+      .setVisible(false);
+    return this.wait(delay)
+      .then(() => {
+        im.setVisible(true);
+        return this.counter(ms, (t) => {
+          im.setPosition(
+            snap(from.x + (to.x - from.x) * t),
+            snap(from.y + (to.y - from.y) * t - Math.sin(Math.PI * t) * arc),
+          );
+          im.setAngle(t * 360);
         });
       })
       .then(() => {

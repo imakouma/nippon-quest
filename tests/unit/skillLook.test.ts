@@ -4,7 +4,9 @@ import { content } from './helpers';
 import { lookup, type I18nDict } from '../../src/ui/i18n';
 import { skillLook, subjectFxKey, unitFxKey } from '../../src/scenes/battle/skillLook';
 
-const ja = JSON.parse(readFileSync(new URL('../../content/i18n/ja.json', import.meta.url), 'utf8')) as I18nDict;
+const ja = JSON.parse(
+  readFileSync(new URL('../../content/i18n/ja.json', import.meta.url), 'utf8'),
+) as I18nDict;
 const text = (k: string) => lookup(ja, k);
 
 describe('必殺技の 見た目（タイプ・教科・単元）', () => {
@@ -43,5 +45,31 @@ describe('必殺技の 見た目（タイプ・教科・単元）', () => {
     const burst = skillLook(c.skills.get('sk-burst-shakai')!, text);
     expect(burst.style).toBe('stamp');
     expect(burst.glyphs).toContain('〒');
+  });
+});
+
+describe('モンスターの モチーフの こうげき', () => {
+  it('どの モンスターも、モチーフの 絵（名産の アイコン か 名所の 絵）が 出せる', async () => {
+    const { motifArtGrid } = await import('../../src/scenes/art/motifArt');
+    const c = await content();
+    const none: string[] = [];
+    for (const m of c.monsters.values()) {
+      // 地方ボス（県で ない）は モチーフの 絵なし（ボスなので ほかの 演出は ぜんぶ 出る）
+      if (!c.areas.has(m.area)) continue;
+      const motif = c.areas.get(m.area)?.motifs.find((x) => x.id === m.motifId);
+      const ok = !!motif && (c.items.has(`${m.area}-${m.motifId}`) || !!motifArtGrid(m.area, motif));
+      if (!ok) none.push(`${m.id}(${m.motifId})`);
+    }
+    expect(none).toEqual([]);
+  });
+
+  it('ネブタン → ネブタムシャ → ネブタイショウ は しんかの だんかいが 1 → 2 → 3（演出が だんだん はでに）', async () => {
+    const { evolutionStage } = await import('../../src/core/progression/bag');
+    const c = await content();
+    expect(
+      ['aomori-nebutan', 'aomori-nebuta-musha', 'aomori-nebuta-taisho'].map((id) =>
+        evolutionStage(id, c.monsters),
+      ),
+    ).toEqual([1, 2, 3]);
   });
 });
