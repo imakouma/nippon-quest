@@ -435,7 +435,7 @@
     "credits": "フォント：PixelMplus（M+ FONTS PROJECT）　ちず：国土地理院（地球地図日本・標高タイル）、Natural Earth"
   },
   "skillFx": {
-    "_comment": "必殺技で とぶ 字（src/scenes/battle/skillLook.ts）。スペース区切り。1〜2文字は とぶ字、3文字いじょうは きめで 大きく出す ことば。単元の id の . は _ に",
+    "_comment": "必殺技で とぶ 字（src/scenes/battle/skillLook.ts）。スペース区切り。1〜2文字は とぶ字、3文字いじょうは きめで 大きく出す ことば。単元の id の . は _ に。skill.<技の id> が あれば その字だけを つかう（「炎[ほのお]」のように 読みを つけられる）",
     "subject": {
       "kokugo": "あ か さ た な 字 文 あいうえお",
       "sansu": "＋ － × ÷ ＝ 1 2 3 1＋1＝2 2×3＝6",
@@ -470,6 +470,9 @@
       "eigo_g1_fruits": "A P L E APPLE! BANANA!",
       "eigo_g2_animals": "C A T D O G CAT! DOG!",
       "eigo_g3_sea": "F I S H FISH! SEA!"
+    },
+    "skill": {
+      "sk-hono-no-mai": "炎[ほのお]"
     }
   }
 }

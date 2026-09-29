@@ -614,26 +614,35 @@ export class Motions {
     ts.forEach((g) => g.destroy());
   }
 
-  /** 国語：筆が ななめに はしり、大きな 字が すみの しぶきと いっしょに かかれる */
+  /** 国語：あいての 上に 筆が よこに はしり、その上に 大きな 字が かかれる（字は 技の 属性の 色。読みが あれば 字の 上に 小さく） */
   private async brush(to: Pt, word: string, look: SkillLook): Promise<void> {
+    // 上の メッセージの 窓に 読みが かくれない 高さ
+    const y = to.y - 22 * S;
     const line = this.scene.add.graphics().setDepth(24.5);
-    await this.counter(200, (t) => {
+    await this.counter(180, (t) => {
       line.clear();
-      line.lineStyle(6 * S, 0x1a1428, 0.9);
-      line.lineBetween(to.x - 24 * S, to.y - 24 * S, to.x - 24 * S + 48 * S * t, to.y - 24 * S + 40 * S * t);
+      line.lineStyle(7 * S, 0x1a1428, 0.85);
+      line.lineBetween(to.x - 20 * S, y + 14 * S, to.x - 20 * S + 40 * S * t, y + 14 * S);
       line.lineStyle(2 * S, 0xe5484d, 1);
-      line.lineBetween(to.x - 24 * S, to.y - 24 * S, to.x - 24 * S + 48 * S * t, to.y - 24 * S + 40 * S * t);
+      line.lineBetween(to.x - 20 * S, y + 14 * S, to.x - 20 * S + 40 * S * t, y + 14 * S);
     });
-    const g = this.glyph(word, to.x, to.y - 6 * S, look, 48)
+    const g = this.glyph(word, to.x, y, { ...look, color: look.accent, edge: '#1a1428' }, 48)
       .setScale(3)
       .setAlpha(0);
     await this.tween({ targets: g, scale: 1.5, alpha: 1, duration: 180, ease: 'Quad.easeIn' });
+    // 読み（ならっていない 漢字でも 読めるように、字の 上に 小さく）
+    const yomi = look.reading[word];
+    const ruby = yomi
+      ? this.glyph(yomi, to.x, y - 15 * S, { ...look, color: '#ffffff', edge: '#1a1428' }, 24).setAlpha(0)
+      : null;
+    if (ruby) void this.tween({ targets: ruby, alpha: 1, duration: 160 });
     this.scene.cameras.main.shake(140, 0.012);
-    this.bitsAt(to, look, 14, 26 * S, 4 * S);
-    await this.wait(320);
-    await this.tween({ targets: [g, line], alpha: 0, duration: 240 });
+    this.bitsAt(to, look, 12, 26 * S, 4 * S);
+    await this.wait(420);
+    await this.tween({ targets: [g, line, ...(ruby ? [ruby] : [])], alpha: 0, duration: 240 });
     g.destroy();
     line.destroy();
+    ruby?.destroy();
   }
 
   /** 理科：あわが わきあがり、光の 単元は にじの 光、水の すがたは こおりと ゆげ。さいごに ひらめきの ことば */

@@ -4,6 +4,8 @@
  *  - 教科（subject）：演出の しかた（style）と 色・かけら
  *      国語＝筆で 字を 書く（write）／算数＝式が ならんで こたえが ドン（equation）／理科＝じっけん（lab）／
  *      社会＝はんこを おす（stamp）／生活＝きせつの 花や 葉（nature）／英語＝ふきだしで さけぶ（speech）
+ *  - 技の 名前に あう 字（skillFx.skill.<技の id>）が あれば それだけを つかう（ほのおのまい＝「炎」）。
+ *    「炎[ほのお]」のように 読みを つけると、きめの 大きな 字の 上に 小さく 読みが 出る（ならっていない 漢字でも 読める）
  *  - 単元（unitHint）：とぶ 字や 式（content/i18n/ja.json の skillFx.unit.<単元の . を _ に>。無ければ 教科の skillFx.subject.<教科>）
  *    例：たしざん「3＋4＝7」、九九「7×8＝56」、ひらがな「あいうえお」、光「☆ ◎」、地図記号「〒 文」、くだもの「APPLE!」
  * 演出そのものは motions.ts の subject*（ため・とぶ・きめ）。
@@ -21,10 +23,14 @@ export interface SkillLook {
   glyphs: string[];
   /** きめで 大きく 出す ことば（式・かんじ・えいご）。じゅんばんに つかう */
   big: string[];
+  /** 字の 読み（「炎[ほのお]」の 炎 → ほのお）。きめの 大きな 字の 上に 小さく 出す */
+  reading: Readonly<Record<string, string>>;
   /** 字の 色（NQ-48 の 色コード） */
   color: string;
   /** 字の ふちの 色 */
   edge: string;
+  /** 技の 属性の 色（国語の きめの 大きな 字。ほのお なら 赤い「炎」） */
+  accent: string;
   /** まわりに ちらす かけら（色つき） */
   bits: { fx: FxKind; tint: number }[];
   /** 単元ごとの 追加の 演出（光の 単元は にじの 光、水の すがたは こおりと ゆげ …） */
@@ -97,6 +103,18 @@ const SUBJECT: Record<
   },
 };
 
+/** 属性の 色（NQ-48） */
+const ELEMENT_COLOR: Record<Skill['element'], string> = {
+  hino: '#f0603c',
+  mizu: '#80c6ff',
+  mori: '#8fe36f',
+  tsuchi: '#e2b27a',
+  kaze: '#a4f0e2',
+  hikari: '#ffd23f',
+  yami: '#a28be6',
+  none: '#ffffff',
+};
+
 /** 単元 → 追加の 演出 */
 const UNIT_EXTRA: Readonly<Record<string, SkillLook['extra']>> = {
   'rika.g3.hikari': 'prism',
@@ -110,6 +128,7 @@ const UNIT_EXTRA: Readonly<Record<string, SkillLook['extra']>> = {
 /** i18n の キー（単元 id の . は キーの 区切りと まざるので _ に） */
 export const unitFxKey = (unit: string): string => `skillFx.unit.${unit.replace(/\./g, '_')}`;
 export const subjectFxKey = (subject: string): string => `skillFx.subject.${subject}`;
+export const skillFxKey = (skillId: string): string => `skillFx.skill.${skillId}`;
 
 function kindOf(sk: Pick<Skill, 'effect' | 'targetType'>): SkillKind {
   switch (sk.effect) {
@@ -132,13 +151,24 @@ function kindOf(sk: Pick<Skill, 'effect' | 'targetType'>): SkillKind {
  * 字の ことばは スペースで 区切る。1〜2 文字は とぶ 字、それより 長い（式・ことば）は きめの 字
  */
 export function skillLook(
-  sk: Pick<Skill, 'subject' | 'unitHint' | 'effect' | 'targetType' | 'element'>,
+  sk: Pick<Skill, 'id' | 'subject' | 'unitHint' | 'effect' | 'targetType' | 'element'>,
   text: (key: string) => string | undefined,
 ): SkillLook {
   const sub = SUBJECT[sk.subject];
   const units = sk.unitHint ?? [];
-  const words = units.flatMap((u) => (text(unitFxKey(u)) ?? '').split(/\s+/)).filter(Boolean);
-  const pool = words.length ? words : (text(subjectFxKey(sk.subject)) ?? '').split(/\s+/).filter(Boolean);
+  const split = (v: string | undefined) => (v ?? '').split(/\s+/).filter(Boolean);
+  // 技の 名前に あう 字 → 単元の 字 → 教科の 字 の じゅん
+  const own = split(text(skillFxKey(sk.id)));
+  const words = own.length ? own : units.flatMap((u) => split(text(unitFxKey(u))));
+  const raw = words.length ? words : split(text(subjectFxKey(sk.subject)));
+  // 「炎[ほのお]」→ 字は 炎、読みは ほのお
+  const reading: Record<string, string> = {};
+  const pool = raw.map((w) => {
+    const m = /^(.+)\[(.+)\]$/.exec(w);
+    if (!m) return w;
+    reading[m[1]!] = m[2]!;
+    return m[1]!;
+  });
   const glyphs = pool.filter((w) => [...w].length <= 2);
   const big = pool.filter((w) => [...w].length > 2);
   return {
@@ -146,8 +176,10 @@ export function skillLook(
     style: sub.style,
     glyphs: glyphs.length ? glyphs : pool,
     big: big.length ? big : glyphs.slice(0, 1),
+    reading,
     color: sub.color,
     edge: sub.edge,
+    accent: ELEMENT_COLOR[sk.element],
     bits: sub.bits,
     extra: units.map((u) => UNIT_EXTRA[u]).find((x) => !!x) ?? null,
   };

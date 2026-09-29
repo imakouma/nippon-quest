@@ -48,6 +48,22 @@ describe('必殺技の 見た目（タイプ・教科・単元）', () => {
   });
 });
 
+describe('技の 名前に あう 字', () => {
+  it('ほのおのまい は「炎」だけが とび、きめの 大きな 字の 上に 読み「ほのお」が 出る', async () => {
+    const c = await content();
+    const look = skillLook(c.skills.get('sk-hono-no-mai')!, text);
+    expect(look.glyphs).toEqual(['炎']);
+    expect(look.big).toEqual(['炎']);
+    expect(look.reading['炎']).toBe('ほのお');
+  });
+
+  it('skillFx.skill の 技は ぜんぶ ある 技', async () => {
+    const c = await content();
+    const own = (ja.skillFx as { skill: Record<string, string> }).skill;
+    for (const id of Object.keys(own)) expect(c.skills.has(id), id).toBe(true);
+  });
+});
+
 describe('モンスターの モチーフの こうげき', () => {
   it('どの モンスターも、モチーフの 絵（名産の アイコン か 名所の 絵）が 出せる', async () => {
     const { motifArtGrid } = await import('../../src/scenes/art/motifArt');
