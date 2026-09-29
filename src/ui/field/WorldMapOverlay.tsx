@@ -94,9 +94,16 @@ function painter(canvas: HTMLCanvasElement, r: MapRegionInfo) {
   };
 }
 
-/** 海（波）→ 県（中ボスを倒した県は明るい緑）→ 県境 → 海岸線 → 県庁所在地 */
+/** 行ったことのある県の番号（未踏の県と海は -1。未踏の県は 海と おなじに かく） */
+const seenAt = (r: MapRegionInfo, x: number, y: number): number => {
+  const k = areaAt(r, x, y);
+  return k >= 0 && r.areas[k]?.visited ? k : -1;
+};
+
+/** 海（波）→ 県（中ボスを倒した県は明るい緑）→ 県境 → 海岸線 → 県庁所在地。未踏の県は かかない（海に見える） */
 function drawRegion(canvas: HTMLCanvasElement, r: MapRegionInfo): void {
   const px = painter(canvas, r);
+  const areaAt = seenAt;
   for (let y = 0; y < r.height; y++)
     for (let x = 0; x < r.width; x++) {
       const X = x * DOT;
@@ -108,7 +115,7 @@ function drawRegion(canvas: HTMLCanvasElement, r: MapRegionInfo): void {
         continue;
       }
       const a = r.areas[k];
-      px(X, Y, DOT, DOT, !a?.visited ? NQ.slate : a.boss === 'done' ? NQ.lime : NQ.leaf);
+      px(X, Y, DOT, DOT, a?.boss === 'done' ? NQ.lime : NQ.leaf);
       const right = areaAt(r, x + 1, y);
       const down = areaAt(r, x, y + 1);
       if (right >= 0 && right !== k) px(X + DOT - 1, Y, 1, DOT, NQ.forest);
@@ -118,12 +125,14 @@ function drawRegion(canvas: HTMLCanvasElement, r: MapRegionInfo): void {
       if (areaAt(r, x, y - 1) < 0) px(X, Y, DOT, 1, NQ.ink);
       if (down < 0) px(X, Y + DOT - 1, DOT, 1, NQ.ink);
     }
-  for (const a of r.areas) px(a.capital[0] * DOT + 1, a.capital[1] * DOT + 1, 2, 2, NQ.red);
+  for (const a of r.areas) if (a.visited) px(a.capital[0] * DOT + 1, a.capital[1] * DOT + 1, 2, 2, NQ.red);
 }
 
 /** えらんでいる県を明るくぬる（CSS で点滅させる） */
 function drawSelection(canvas: HTMLCanvasElement, r: MapRegionInfo, k: number): void {
   const px = painter(canvas, r);
+  // 未踏の県は 形も 出さない
+  if (!r.areas[k]?.visited) return;
   for (const [x, y] of cellsOf(r, k)) px(x * DOT, y * DOT, DOT, DOT, NQ.cream);
   const cap = r.areas[k]?.capital;
   if (cap) px(cap[0] * DOT + 1, cap[1] * DOT + 1, 2, 2, NQ.red);
@@ -306,7 +315,7 @@ export function WorldMapOverlay({ regions, here, onGo, onClose }: WorldMapOverla
           {area ? (
             <div class="nq-wmap-info">
               <div class="nq-wmap-aname-row">
-                <RubyLabel text={area.name} class="nq-wmap-aname" />
+                <RubyLabel text={area.visited ? area.name : t('field.dexUnknown')} class="nq-wmap-aname" />
                 {area.id === here?.areaId && (
                   <span class="nq-wmap-here">
                     <PixelIcon name="hero" scale={2} />
