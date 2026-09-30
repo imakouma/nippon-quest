@@ -165,10 +165,64 @@ export const REGION_LOOKS: Record<
   string,
   Record<string, { kind: 'forest' | 'sakura' | 'ash'; seed?: number; radius?: number }>
 > = {
+  // 2026-09-30「一旦 地面は エリアの 境界以外は 全部 草原に」→ 青森は FIELD_ALL_GRASS に して 見た目は つかわない
+  aomori: {},
+};
+
+/** フィールドの 地面を ぜんぶ 草原に する 県（エリアの さかいの 山なみ・道・建物・海・湖は べつ） */
+export const FIELD_ALL_GRASS: ReadonlySet<string> = new Set(['aomori']);
+
+/** 名所エリアの 建物（通れない）。大きさは マスで［よこ, たて］ */
+export type StructureKind = 'yagura' | 'tateana' | 'takayuka' | 'longhouse';
+export const STRUCTURE_SIZE: Readonly<Record<StructureKind, [number, number]>> = {
+  yagura: [3, 3],
+  tateana: [2, 2],
+  takayuka: [2, 2],
+  longhouse: [4, 2],
+};
+
+/**
+ * 名所エリアの むら：at（緯度経度）の まわりに 建物を ならべる（dx・dy は 建物の 左上。ふさがって いれば 近くの 空き地）。
+ * 三内丸山遺跡エリア：大型掘立柱建物（六本柱の やぐら）・大型竪穴住居・高床倉庫・竪穴住居の むらと、津軽の 小さな むら
+ */
+export const REGION_VILLAGES: Record<
+  string,
+  Record<string, { at: LonLat; buildings: { kind: StructureKind; dx: number; dy: number }[] }[]>
+> = {
   aomori: {
-    shirakami: { kind: 'forest' },
-    hirosaki: { kind: 'sakura' },
-    shimokita: { kind: 'ash', seed: 1, radius: 9 },
+    sannai: [
+      {
+        at: [140.697, 40.811], // 三内丸山遺跡（町の 入口が 東に あるので、むらは 西がわに まとめる）
+        buildings: [
+          { kind: 'yagura', dx: -10, dy: -5 },
+          { kind: 'longhouse', dx: -17, dy: -4 },
+          { kind: 'takayuka', dx: -5, dy: -5 },
+          { kind: 'takayuka', dx: -5, dy: -1 },
+          { kind: 'tateana', dx: -18, dy: 0 },
+          { kind: 'tateana', dx: -14, dy: 0 },
+          { kind: 'tateana', dx: -10, dy: 0 },
+          { kind: 'tateana', dx: -16, dy: 4 },
+          { kind: 'tateana', dx: -12, dy: 4 },
+          { kind: 'tateana', dx: -8, dy: 4 },
+        ],
+      },
+      {
+        at: [140.45, 41.0], // 津軽半島の むら
+        buildings: [
+          { kind: 'tateana', dx: 0, dy: 0 },
+          { kind: 'tateana', dx: 4, dy: 1 },
+          { kind: 'takayuka', dx: 1, dy: 4 },
+        ],
+      },
+      {
+        at: [140.6, 40.72], // 青森市の 南の むら
+        buildings: [
+          { kind: 'tateana', dx: 0, dy: 0 },
+          { kind: 'tateana', dx: 3, dy: 3 },
+          { kind: 'tateana', dx: -3, dy: 3 },
+        ],
+      },
+    ],
   },
 };
 

@@ -128,6 +128,7 @@ import { buildFieldTextures, WARP_FRAMES } from './overworld/fieldArt';
 import { overworldView } from './overworld/overworldView';
 import { buildViewTexture } from './overworld/viewTiles';
 import { buildEntranceIcons } from './overworld/entranceIcons';
+import { buildStructureArt, structureKey, type StructureKind } from './overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 
 const TILE = 16;
@@ -870,6 +871,9 @@ export class OverworldScene extends Phaser.Scene {
         case 'regionGate':
           this.addRegionGate(obj, tx, ty);
           break;
+        case 'structure':
+          this.addStructure(obj, tx, ty);
+          break;
         case 'regionBoss':
           this.addRegionBoss(obj, tx, ty, area);
           break;
@@ -1127,6 +1131,22 @@ export class OverworldScene extends Phaser.Scene {
    * ぶつかると「たたかう？」。ボスの姿はバトルで はじめて見える（バトルでは一回り大きく出す）
    */
   // ───────────────────────── 名所エリア（関所・エリアの ぬし） ─────────────────────────
+
+  /**
+   * 名所エリアの 建物（やぐら・竪穴住居・高床倉庫 など）。通れないのは collision の マス（scaffold-maps が きめる）。
+   * 絵の 足もとを 建物の マスの 下に あわせ、上へ のびる（うしろを 歩くと かくれる）
+   */
+  private addStructure(obj: TiledObject, tx: number, ty: number): void {
+    const kind = String(prop(obj, 'kind') ?? '') as StructureKind;
+    const h = Number(prop(obj, 'h') ?? 1);
+    buildStructureArt(this);
+    if (!this.textures.exists(structureKey(kind))) return;
+    const bottom = (ty + h) * TILE;
+    this.add
+      .image(tx * TILE, bottom, structureKey(kind))
+      .setOrigin(0, 1)
+      .setDepth(bottom);
+  }
 
   /** マップの regions（scaffold-maps の regionPartition）を よむ */
   private readRegions(): void {

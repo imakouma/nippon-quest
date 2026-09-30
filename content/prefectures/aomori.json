@@ -125,113 +125,6 @@
       "rate": 0.25
     },
     {
-      "zone": "farm",
-      "table": [
-        {
-          "monsterId": "aomori-ringoron",
-          "weight": 70
-        },
-        {
-          "monsterId": "aomori-nebutan",
-          "weight": 30
-        },
-        {
-          "monsterId": "aomori-sakurapon",
-          "weight": 20
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "forest",
-      "table": [
-        {
-          "monsterId": "aomori-bunakko",
-          "weight": 45
-        },
-        {
-          "monsterId": "aomori-itakodori",
-          "weight": 22
-        },
-        {
-          "monsterId": "aomori-ringoron",
-          "weight": 20
-        },
-        {
-          "monsterId": "aomori-tsugaru-nurin",
-          "weight": 13
-        },
-        {
-          "monsterId": "aomori-kokeppi",
-          "weight": 25
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "mountain",
-      "table": [
-        {
-          "monsterId": "aomori-itakodori",
-          "weight": 45
-        },
-        {
-          "monsterId": "aomori-doguukun",
-          "weight": 30
-        },
-        {
-          "monsterId": "aomori-bunakko",
-          "weight": 25
-        },
-        {
-          "monsterId": "aomori-kokeppi",
-          "weight": 20
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "beach",
-      "table": [
-        {
-          "monsterId": "aomori-umi-nyan",
-          "weight": 50
-        },
-        {
-          "monsterId": "aomori-magurodo",
-          "weight": 50
-        },
-        {
-          "monsterId": "aomori-himemassu",
-          "weight": 10
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "shore",
-      "table": [
-        {
-          "monsterId": "aomori-umi-nyan",
-          "weight": 50
-        },
-        {
-          "monsterId": "aomori-bunakko",
-          "weight": 50
-        },
-        {
-          "monsterId": "aomori-himemassu",
-          "weight": 35
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
       "zone": "dungeon",
       "table": [
         {
@@ -277,22 +170,10 @@
         {
           "monsterId": "aomori-ringoron",
           "weight": 25
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "beach",
-      "region": "sannai",
-      "table": [
+        },
         {
           "monsterId": "aomori-umi-nyan",
           "weight": 60
-        },
-        {
-          "monsterId": "aomori-nebutan",
-          "weight": 40
         }
       ],
       "stepsPerCheck": 12,
@@ -313,25 +194,9 @@
         {
           "monsterId": "aomori-tsugaru-nurin",
           "weight": 25
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "forest",
-      "region": "hirosaki",
-      "table": [
-        {
-          "monsterId": "aomori-sakurapon",
-          "weight": 40
         },
         {
           "monsterId": "aomori-bunakko",
-          "weight": 30
-        },
-        {
-          "monsterId": "aomori-tsugaru-nurin",
           "weight": 30
         }
       ],
@@ -373,22 +238,10 @@
         {
           "monsterId": "aomori-bunakko",
           "weight": 25
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "shore",
-      "region": "towada",
-      "table": [
+        },
         {
           "monsterId": "aomori-himemassu",
           "weight": 70
-        },
-        {
-          "monsterId": "aomori-kokeppi",
-          "weight": 30
         }
       ],
       "stepsPerCheck": 12,
@@ -409,26 +262,10 @@
         {
           "monsterId": "aomori-umi-nyan",
           "weight": 25
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "beach",
-      "region": "hachinohe",
-      "table": [
-        {
-          "monsterId": "aomori-umi-nyan",
-          "weight": 50
         },
         {
           "monsterId": "aomori-magurodo",
           "weight": 30
-        },
-        {
-          "monsterId": "aomori-senbein",
-          "weight": 20
         }
       ],
       "stepsPerCheck": 12,
@@ -449,22 +286,10 @@
         {
           "monsterId": "aomori-doguukun",
           "weight": 20
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "beach",
-      "region": "shimokita",
-      "table": [
+        },
         {
           "monsterId": "aomori-magurodo",
           "weight": 60
-        },
-        {
-          "monsterId": "aomori-umi-nyan",
-          "weight": 40
         }
       ],
       "stepsPerCheck": 12,

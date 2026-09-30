@@ -30,6 +30,8 @@ const TILE_GROUND = new Map<number, Ground>([
   [12, 'mountain'],
   // 名所エリアの 見た目：さくらの 木（草原）・恐山の 砂地と ゆけむり（やま）
   [160, 'grass'],
+  // 道（草原の 上の 土の 道）
+  [163, 'grass'],
   [161, 'mountain'],
   [162, 'mountain'],
 ]);

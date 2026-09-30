@@ -232,6 +232,23 @@ function drawView(px: (n: number) => Px): void {
   // 果樹園（1 本ずつ 実の なる 木）
   fruitTree(px(VIEW.ORCHARD), NQ.red, NQ.brick);
   fruitTree(px(VIEW.ORCHARD_PEACH), NQ.blush, NQ.berry);
+  // 道：草原の 上の 土の 道。まん中と、となりが 道の がわへ のびる（ふちは 草に なじむ こげ茶の 点）
+  for (let mask = 0; mask < 16; mask++) {
+    const p = px(VIEW.ROAD + mask);
+    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, grassAt(x, y, 0));
+    const inRoad = (x: number, y: number) =>
+      (x >= 4 && x <= 11 && y >= 4 && y <= 11) ||
+      (mask & 1 && x >= 4 && x <= 11 && y < 4) ||
+      (mask & 2 && y >= 4 && y <= 11 && x > 11) ||
+      (mask & 4 && x >= 4 && x <= 11 && y > 11) ||
+      (mask & 8 && y >= 4 && y <= 11 && x < 4);
+    for (let y = 0; y < 16; y++)
+      for (let x = 0; x < 16; x++) {
+        if (!inRoad(x, y)) continue;
+        const edge = !inRoad(x - 1, y) || !inRoad(x + 1, y) || !inRoad(x, y - 1) || !inRoad(x, y + 1);
+        p(x, y, edge ? NQ.tan : (x * 5 + y * 3) % 11 === 0 ? NQ.beige : NQ.sand);
+      }
+  }
   // 名所エリアの さかいの 山なみ：くらい 岩の 山に 雪。マスの はばいっぱいで すきま なく ならぶ（歩ける 茶色の 山と 見わけ）
   ridge(px(VIEW.RIDGE), 8, 1);
   ridge(px(VIEW.RIDGE2), 6, 2);

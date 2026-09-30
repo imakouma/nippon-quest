@@ -755,6 +755,11 @@ function tilesetCanvas(): HTMLCanvasElement {
       tree(r, 1, 1, 6, fruit);
       tree(r, 9, 7, 6, fruit);
     });
+  // 163 道（土の 道）
+  tile(163, (r) => {
+    r(0, 0, 16, 16, NQ.lime);
+    r(4, 0, 8, 16, NQ.sand);
+  });
   // 159 名所エリアの さかいの 山なみ（通れない。くらい 岩山に 雪）
   tile(159, (r) => {
     r(0, 0, 16, 16, NQ.slate);

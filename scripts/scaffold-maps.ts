@@ -25,8 +25,11 @@ import {
   ENCLAVE_GEO,
   EVENT_SPOTS,
   LANDMARK_SPOTS,
+  FIELD_ALL_GRASS,
   REGION_LOOKS,
   REGION_SEEDS,
+  REGION_VILLAGES,
+  STRUCTURE_SIZE,
   type LonLat,
 } from './data/geo.js';
 import {
@@ -917,7 +920,12 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
     });
   }
   const { bg, col } = terrainLayers(land, groundTiles(land, prefId));
+  if (FIELD_ALL_GRASS.has(prefId)) allGrass(land, bg);
   if (part) regionLooks(land, part, prefId, bg);
+  if (part) {
+    defs.push(...villages(land, part, prefId, defs, col));
+    roads(land, defs, col, bg);
+  }
   const props = part
     ? [
         str(
@@ -935,6 +943,154 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
       ]
     : undefined;
   return tiledMap(land.w, land.h, bg, col, toObjects(defs), false, undefined, props);
+}
+
+/** 陸の 地面を ぜんぶ 草原に（海・湖・さかいの 山なみは そのまま） */
+function allGrass(land: Land, bg: number[]): void {
+  for (let i = 0; i < bg.length; i++) {
+    if (!land.walk(i)) continue;
+    const r = noise(i % land.w, Math.floor(i / land.w));
+    bg[i] = r < 0.72 ? 1 : r < 0.92 ? 14 : 13;
+  }
+}
+
+/**
+ * 名所エリアの むら（geo.ts の REGION_VILLAGES）：建物を おいて、その マスを 通れなく する（col を BLOCK）。
+ * 建物の まわり 1 マスは 歩ける 空き地（ほかの 物・建物・海・さかいに かからない）ので、道や 陸続きを ふさがない
+ */
+function villages(
+  land: Land,
+  part: RegionPartition,
+  prefId: string,
+  defs: ObjDef[],
+  col: number[],
+): ObjDef[] {
+  const out: ObjDef[] = [];
+  const taken = new Set(defs.map((d) => land.idx([Math.floor(d.at[0]), Math.floor(d.at[1])])));
+  const used = new Set<number>();
+  const fits = (x0: number, y0: number, w: number, h: number, r: number) => {
+    for (let y = y0 - 1; y <= y0 + h; y++)
+      for (let x = x0 - 1; x <= x0 + w; x++) {
+        if (x < 0 || y < 0 || x >= land.w || y >= land.h) return false;
+        const i = y * land.w + x;
+        if (!land.walk(i) || part.region[i] !== r || col[i] === BLOCK || taken.has(i) || used.has(i))
+          return false;
+      }
+    return true;
+  };
+  for (const [regionId, list] of Object.entries(REGION_VILLAGES[prefId] ?? {})) {
+    const r = part.ids.indexOf(regionId);
+    if (r < 0) continue;
+    for (const v of list) {
+      const [cx, cy] = land.tile(v.at);
+      v.buildings.forEach((b, k) => {
+        const [w, h] = STRUCTURE_SIZE[b.kind];
+        const tx = Math.floor(cx) + b.dx;
+        const ty = Math.floor(cy) + b.dy;
+        // ふさがって いれば うずまきに 近くを さがす
+        let at: [number, number] | null = null;
+        for (let d = 0; d <= 8 && !at; d++)
+          for (let oy = -d; oy <= d && !at; oy++)
+            for (let ox = -d; ox <= d && !at; ox++)
+              if (Math.max(Math.abs(ox), Math.abs(oy)) === d && fits(tx + ox, ty + oy, w, h, r))
+                at = [tx + ox, ty + oy];
+        if (!at) {
+          console.warn(`  ${prefId}: ${regionId} の ${b.kind} を おける 場所が ありません`);
+          return;
+        }
+        for (let y = at[1]; y < at[1] + h; y++)
+          for (let x = at[0]; x < at[0] + w; x++) {
+            col[y * land.w + x] = BLOCK;
+            used.add(y * land.w + x);
+          }
+        for (let y = at[1] - 1; y <= at[1] + h; y++)
+          for (let x = at[0] - 1; x <= at[0] + w; x++) used.add(y * land.w + x);
+        out.push({
+          name: `structure_${regionId}_${b.kind}_${out.length + 1}`,
+          type: 'structure',
+          at,
+          w,
+          properties: [str('kind', b.kind), int('h', h)],
+        });
+        void k;
+      });
+    }
+  }
+  return out;
+}
+
+/** 道の タイル（草原の 上の 土の 道。歩ける。地面は 草原） */
+const ROAD_TILE = 163;
+
+/**
+ * 道：町から、関所・エリアの ぬし・名所・イベント・特産品・入口 へ、いちばん ちかい 道から 枝分かれして つなぐ。
+ * 海・湖・さかいの 山なみ・建物・ほかの 物の マスは とおらない（関所と 入口は とおる／目的地）
+ */
+function roads(land: Land, defs: ObjDef[], col: number[], bg: number[]): void {
+  const idxOf = (d: ObjDef) => land.idx([Math.floor(d.at[0]), Math.floor(d.at[1])]);
+  const passThrough = new Set(['regionGate', 'transition']);
+  const blockers = new Set(defs.filter((d) => !passThrough.has(d.type) && d.type !== 'spawn').map(idxOf));
+  const targets = defs.filter((d) =>
+    ['regionGate', 'transition', 'regionBoss', 'event', 'landmark', 'specialty', 'midboss', 'chest'].includes(
+      d.type,
+    ),
+  );
+  const town = defs.find((d) => d.name === 'to_town');
+  if (!town) return;
+  const open = (i: number) => col[i] !== BLOCK && !blockers.has(i);
+  const n = bg.length;
+  const nb = (i: number) => {
+    const x = i % land.w;
+    return [x > 0 ? i - 1 : -1, x < land.w - 1 ? i + 1 : -1, i - land.w, i + land.w].filter(
+      (j) => j >= 0 && j < n,
+    );
+  };
+  const road = new Set<number>([idxOf(town)]);
+  const goalOf = (d: ObjDef): Set<number> => {
+    const i = idxOf(d);
+    return passThrough.has(d.type) ? new Set([i]) : new Set(nb(i).filter(open));
+  };
+  // ちかい じゅん（町からの 歩く きょり）
+  const fromTown = new Int32Array(n).fill(-1);
+  {
+    const q = [idxOf(town)];
+    fromTown[q[0]!] = 0;
+    for (let h = 0; h < q.length; h++)
+      for (const j of nb(q[h]!))
+        if (
+          fromTown[j] === -1 &&
+          (open(j) || passThrough.has(defs.find((d) => idxOf(d) === j)?.type ?? ''))
+        ) {
+          fromTown[j] = fromTown[q[h]!]! + 1;
+          q.push(j);
+        }
+  }
+  const order = targets
+    .filter((d) => d !== town)
+    .sort((a, b) => (fromTown[idxOf(a)] ?? 1e9) - (fromTown[idxOf(b)] ?? 1e9));
+  for (const d of order) {
+    const goal = goalOf(d);
+    if (!goal.size || [...goal].some((g) => road.has(g))) continue;
+    // いまの 道から goal まで（関所・入口の マスは 目的地か 通りみち）
+    const prev = new Int32Array(n).fill(-2);
+    const q = [...road];
+    for (const r of q) prev[r] = -1;
+    let hit = -1;
+    for (let h = 0; h < q.length && hit < 0; h++)
+      for (const j of nb(q[h]!)) {
+        if (prev[j] !== -2) continue;
+        const through = passThrough.has(defs.find((x) => idxOf(x) === j)?.type ?? '');
+        if (!open(j) && !through && !goal.has(j)) continue;
+        prev[j] = q[h]!;
+        if (goal.has(j)) {
+          hit = j;
+          break;
+        }
+        q.push(j);
+      }
+    for (let i = hit; i >= 0 && !road.has(i); i = prev[i]!) road.add(i);
+  }
+  for (const i of road) if (col[i] !== BLOCK && land.walk(i)) bg[i] = ROAD_TILE;
 }
 
 /** 名所エリアの 見た目（geo.ts の REGION_LOOKS）で 地面の タイルを かえる */

@@ -44,8 +44,10 @@ export const VIEW = {
   ASH: 67,
   ASH2: 68,
   STEAM: 69,
+  /** + 道の しるし（となりが 道の がわ。北 1・東 2・南 4・西 8） */
+  ROAD: 72,
 } as const;
-export const VIEW_COUNT = 72;
+export const VIEW_COUNT = 88;
 
 /** background の 番号（fieldArt.ts・core/world/ground.ts） */
 const WATER = 3;
@@ -89,6 +91,8 @@ export function viewTileAt(bg: readonly number[], w: number, h: number, i: numbe
       return r % 4 === 0 ? VIEW.ASH2 : VIEW.ASH;
     case 162:
       return VIEW.STEAM;
+    case 163:
+      return VIEW.ROAD + mask((n) => n === 163);
     case 1:
     case 13:
     case 14:
