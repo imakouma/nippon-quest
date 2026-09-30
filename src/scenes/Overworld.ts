@@ -1150,8 +1150,10 @@ export class OverworldScene extends Phaser.Scene {
 
   /** マップの regions（scaffold-maps の regionPartition）を よむ */
   private readRegions(): void {
-    const props = (this.map.properties ?? []) as { name: string; value: unknown }[];
-    const raw = props.find((p) => p.name === 'regions')?.value;
+    // Tiled の プロパティが 無い マップ（町・ダンジョン・ほかの 県）は Phaser が {}（配列で ない）に する
+    const props = this.map.properties;
+    if (!Array.isArray(props)) return;
+    const raw = (props as { name: string; value: unknown }[]).find((p) => p.name === 'regions')?.value;
     if (typeof raw !== 'string') return;
     const data = JSON.parse(raw) as { ids: string[]; rows: string[] };
     this.regionIds = data.ids;

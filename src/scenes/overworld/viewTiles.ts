@@ -236,17 +236,17 @@ function drawView(px: (n: number) => Px): void {
   for (let mask = 0; mask < 16; mask++) {
     const p = px(VIEW.ROAD + mask);
     for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, grassAt(x, y, 0));
-    const inRoad = (x: number, y: number) =>
-      (x >= 4 && x <= 11 && y >= 4 && y <= 11) ||
-      (mask & 1 && x >= 4 && x <= 11 && y < 4) ||
-      (mask & 2 && y >= 4 && y <= 11 && x > 11) ||
-      (mask & 4 && x >= 4 && x <= 11 && y > 11) ||
-      (mask & 8 && y >= 4 && y <= 11 && x < 4);
+    // マス いっぱいの 土。となりが 道で ない がわだけ 草に なじむ ふち（1 ドットの 草・1 ドットの こい 土）
     for (let y = 0; y < 16; y++)
       for (let x = 0; x < 16; x++) {
-        if (!inRoad(x, y)) continue;
-        const edge = !inRoad(x - 1, y) || !inRoad(x + 1, y) || !inRoad(x, y - 1) || !inRoad(x, y + 1);
-        p(x, y, edge ? NQ.tan : (x * 5 + y * 3) % 11 === 0 ? NQ.beige : NQ.sand);
+        const d = Math.min(
+          mask & 1 ? 99 : y,
+          mask & 2 ? 99 : 15 - x,
+          mask & 4 ? 99 : 15 - y,
+          mask & 8 ? 99 : x,
+        );
+        if (d === 0) continue;
+        p(x, y, d === 1 ? NQ.tan : (x * 5 + y * 3) % 11 === 0 ? NQ.beige : NQ.sand);
       }
   }
   // 名所エリアの さかいの 山なみ：くらい 岩の 山に 雪。マスの はばいっぱいで すきま なく ならぶ（歩ける 茶色の 山と 見わけ）

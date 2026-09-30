@@ -173,12 +173,21 @@ export const REGION_LOOKS: Record<
 export const FIELD_ALL_GRASS: ReadonlySet<string> = new Set(['aomori']);
 
 /** 名所エリアの 建物（通れない）。大きさは マスで［よこ, たて］ */
-export type StructureKind = 'yagura' | 'tateana' | 'takayuka' | 'longhouse';
+export type StructureKind =
+  'yagura' | 'tateana' | 'takayuka' | 'longhouse' | 'kuri' | 'dogu' | 'stones' | 'doki';
 export const STRUCTURE_SIZE: Readonly<Record<StructureKind, [number, number]>> = {
   yagura: [3, 3],
   tateana: [2, 2],
   takayuka: [2, 2],
   longhouse: [4, 2],
+  /** クリの木（三内丸山の 人は クリを そだてて いた） */
+  kuri: [1, 1],
+  /** 大きな 板状土偶の 像 */
+  dogu: [2, 2],
+  /** 環状配石（石を わに ならべた 所） */
+  stones: [3, 3],
+  /** 円筒土器 */
+  doki: [1, 1],
 };
 
 /**
@@ -194,16 +203,31 @@ export const REGION_VILLAGES: Record<
       {
         at: [140.697, 40.811], // 三内丸山遺跡（町の 入口が 東に あるので、むらは 西がわに まとめる）
         buildings: [
-          { kind: 'yagura', dx: -10, dy: -5 },
-          { kind: 'longhouse', dx: -17, dy: -4 },
-          { kind: 'takayuka', dx: -5, dy: -5 },
-          { kind: 'takayuka', dx: -5, dy: -1 },
-          { kind: 'tateana', dx: -18, dy: 0 },
-          { kind: 'tateana', dx: -14, dy: 0 },
-          { kind: 'tateana', dx: -10, dy: 0 },
-          { kind: 'tateana', dx: -16, dy: 4 },
-          { kind: 'tateana', dx: -12, dy: 4 },
-          { kind: 'tateana', dx: -8, dy: 4 },
+          { kind: 'yagura', dx: -10, dy: -6 },
+          { kind: 'longhouse', dx: -17, dy: -5 },
+          { kind: 'takayuka', dx: -5, dy: -6 },
+          { kind: 'takayuka', dx: -5, dy: -2 },
+          { kind: 'dogu', dx: -13, dy: -1 },
+          { kind: 'stones', dx: -22, dy: -1 },
+          { kind: 'doki', dx: -8, dy: -1 },
+          { kind: 'doki', dx: -18, dy: -1 },
+          { kind: 'tateana', dx: -18, dy: 4 },
+          { kind: 'tateana', dx: -14, dy: 4 },
+          { kind: 'tateana', dx: -10, dy: 3 },
+          { kind: 'tateana', dx: -16, dy: 8 },
+          { kind: 'tateana', dx: -12, dy: 8 },
+          { kind: 'tateana', dx: -8, dy: 7 },
+          // クリの 林
+          { kind: 'kuri', dx: -26, dy: -7 },
+          { kind: 'kuri', dx: -24, dy: -9 },
+          { kind: 'kuri', dx: -22, dy: -6 },
+          { kind: 'kuri', dx: -28, dy: -4 },
+          { kind: 'kuri', dx: -25, dy: -3 },
+          { kind: 'kuri', dx: -21, dy: -9 },
+          { kind: 'kuri', dx: -3, dy: 6 },
+          { kind: 'kuri', dx: -1, dy: 8 },
+          { kind: 'kuri', dx: -5, dy: 10 },
+          { kind: 'kuri', dx: -2, dy: 11 },
         ],
       },
       {
@@ -212,6 +236,9 @@ export const REGION_VILLAGES: Record<
           { kind: 'tateana', dx: 0, dy: 0 },
           { kind: 'tateana', dx: 4, dy: 1 },
           { kind: 'takayuka', dx: 1, dy: 4 },
+          { kind: 'doki', dx: 5, dy: 5 },
+          { kind: 'kuri', dx: -3, dy: 3 },
+          { kind: 'kuri', dx: -2, dy: 6 },
         ],
       },
       {
@@ -220,6 +247,9 @@ export const REGION_VILLAGES: Record<
           { kind: 'tateana', dx: 0, dy: 0 },
           { kind: 'tateana', dx: 3, dy: 3 },
           { kind: 'tateana', dx: -3, dy: 3 },
+          { kind: 'dogu', dx: 0, dy: 6 },
+          { kind: 'kuri', dx: 5, dy: -1 },
+          { kind: 'kuri', dx: 6, dy: 2 },
         ],
       },
     ],

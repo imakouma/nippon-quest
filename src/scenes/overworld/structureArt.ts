@@ -5,13 +5,18 @@
  *  - takayuka 高床倉庫（2×2、絵は 32×40）：かやぶきの 切妻屋根、板の かべ、ねずみがえし、はしら 4 本と はしご
  *  - yagura   大型掘立柱建物（3×3、絵は 48×64）：三内丸山の 六本柱。太い はしらと 3 だんの ゆか、はしご
  *  - longhouse 大型竪穴住居（4×2）：ながい かやぶき屋根に 入口 2 つ
+ *  - kuri     クリの木（1×1、絵は 16×24）：三内丸山の 人が そだてた クリ。いがの 実
+ *  - dogu     大きな 板状土偶の 像（2×2、絵は 32×40）：十字の 形、まるい 目と 口、なわの もよう
+ *  - stones   環状配石（3×3）：石を わに ならべた 所
+ *  - doki     円筒土器（1×1、絵は 16×20）：つつの 形、口の ふちの もりあがりと なわめの もよう
  */
 import type Phaser from 'phaser';
 import { makeGrid, outline, put, toCanvas, type Grid } from '../art/grid';
 import { NQ } from '../art/palette';
 import { addImage } from '../art/sheet';
 
-export type StructureKind = 'yagura' | 'tateana' | 'takayuka' | 'longhouse';
+export type StructureKind =
+  'yagura' | 'tateana' | 'takayuka' | 'longhouse' | 'kuri' | 'dogu' | 'stones' | 'doki';
 
 type Rect = (x: number, y: number, w: number, h: number, col: string) => void;
 
@@ -39,7 +44,7 @@ function thatchDome(g: Grid, cx: number, top: number, bottom: number, half: numb
   }
 }
 
-const DRAW: Record<StructureKind, () => HTMLCanvasElement> = {
+const DRAW: Partial<Record<StructureKind, () => HTMLCanvasElement>> = {
   tateana: () =>
     canvas(32, 32, (r, g) => {
       thatchDome(g, 15.5, 4, 27, 14);
@@ -126,11 +131,83 @@ const DRAW: Record<StructureKind, () => HTMLCanvasElement> = {
     }),
 };
 
+/** 追加の 絵（三内丸山の 小物） */
+Object.assign(DRAW, {
+  kuri: () =>
+    canvas(16, 24, (r, g) => {
+      // みき
+      r(7, 14, 2, 9, NQ.brown);
+      r(8, 14, 1, 9, NQ.bark);
+      // まるい こずえ（みどり・かげ）と いがの 実
+      for (let y = 1; y <= 15; y++)
+        for (let x = 1; x <= 14; x++) {
+          const d = ((x - 7.5) / 6.8) ** 2 + ((y - 8) / 7) ** 2;
+          if (d <= 1) put(g, x, y, d > 0.6 && x > 8 ? NQ.green : (x + y) % 5 === 0 ? NQ.lime : NQ.leaf);
+        }
+      for (const [x, y] of [
+        [4, 6],
+        [10, 5],
+        [7, 10],
+        [11, 11],
+      ] as const) {
+        r(x, y, 2, 2, NQ.ochre);
+        put(g, x, y, NQ.yellow);
+      }
+    }),
+  dogu: () =>
+    canvas(32, 40, (r) => {
+      // 台
+      r(6, 34, 20, 5, NQ.gray);
+      r(6, 34, 20, 1, NQ.silver);
+      // 板状土偶：十字の からだ
+      r(11, 2, 10, 32, NQ.tan);
+      r(3, 12, 26, 8, NQ.tan);
+      r(20, 2, 1, 32, NQ.brown);
+      r(3, 19, 26, 1, NQ.brown);
+      // かお（まるい 目と 口）
+      r(13, 5, 2, 2, NQ.bark);
+      r(17, 5, 2, 2, NQ.bark);
+      r(15, 9, 2, 2, NQ.bark);
+      // なわの もよう
+      for (let y = 22; y < 33; y += 3) r(12, y, 8, 1, NQ.sand);
+      for (let x = 5; x < 28; x += 3) r(x, 15, 1, 2, NQ.sand);
+    }),
+  stones: () =>
+    canvas(48, 48, (r) => {
+      // わに ならべた 石（外の わ と 内の わ）
+      for (let k = 0; k < 16; k++) {
+        const a = (k / 16) * Math.PI * 2;
+        const x = Math.round(23 + Math.cos(a) * 19);
+        const y = Math.round(25 + Math.sin(a) * 17);
+        r(x - 2, y - 2, 5, 4, NQ.gray);
+        r(x - 2, y - 2, 5, 1, NQ.silver);
+      }
+      for (let k = 0; k < 8; k++) {
+        const a = (k / 8) * Math.PI * 2 + 0.3;
+        const x = Math.round(23 + Math.cos(a) * 8);
+        const y = Math.round(25 + Math.sin(a) * 7);
+        r(x - 1, y - 1, 3, 3, NQ.slate);
+      }
+      // まん中の 立石
+      r(22, 16, 4, 10, NQ.gray);
+      r(22, 16, 1, 10, NQ.silver);
+    }),
+  doki: () =>
+    canvas(16, 20, (r) => {
+      // つつの 形の 土器。口の ふちが もりあがる
+      r(2, 1, 12, 3, NQ.brown);
+      r(3, 4, 10, 15, NQ.tan);
+      r(10, 4, 3, 15, NQ.brown);
+      r(5, 1, 6, 1, NQ.bark);
+      for (let y = 6; y < 18; y += 3) for (let x = 3; x < 13; x += 2) r(x, y, 1, 1, NQ.sand);
+    }),
+} satisfies Partial<Record<StructureKind, () => HTMLCanvasElement>>);
+
 export const structureKey = (kind: StructureKind): string => `fld.struct.${kind}`;
 
 /** 建物の テクスチャを 作る（何度 呼んでもよい） */
 export function buildStructureArt(scene: Phaser.Scene): void {
   for (const kind of Object.keys(DRAW) as StructureKind[])
     if (!scene.textures.exists(structureKey(kind)))
-      addImage(scene.textures, structureKey(kind), DRAW[kind]());
+      addImage(scene.textures, structureKey(kind), DRAW[kind]!());
 }

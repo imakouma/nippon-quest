@@ -1090,7 +1090,16 @@ function roads(land: Land, defs: ObjDef[], col: number[], bg: number[]): void {
       }
     for (let i = hit; i >= 0 && !road.has(i); i = prev[i]!) road.add(i);
   }
-  for (const i of road) if (col[i] !== BLOCK && land.walk(i)) bg[i] = ROAD_TILE;
+  // 道は 2 マスの はば（1 マスだと 細い）：東か 南の となりも 道に（ふさがって いれば 西か 北）
+  const wide = new Set(road);
+  for (const i of road) {
+    const x = i % land.w;
+    const side = [x < land.w - 1 ? i + 1 : -1, i + land.w, x > 0 ? i - 1 : -1, i - land.w].find(
+      (j) => j >= 0 && j < n && land.walk(j) && open(j),
+    );
+    if (side !== undefined) wide.add(side);
+  }
+  for (const i of wide) if (col[i] !== BLOCK && land.walk(i)) bg[i] = ROAD_TILE;
 }
 
 /** 名所エリアの 見た目（geo.ts の REGION_LOOKS）で 地面の タイルを かえる */
