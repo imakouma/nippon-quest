@@ -232,7 +232,75 @@ function drawView(px: (n: number) => Px): void {
   // 果樹園（1 本ずつ 実の なる 木）
   fruitTree(px(VIEW.ORCHARD), NQ.red, NQ.brick);
   fruitTree(px(VIEW.ORCHARD_PEACH), NQ.blush, NQ.berry);
+  // 名所エリアの さかいの 山なみ：くらい 岩の 山に 雪。マスの はばいっぱいで すきま なく ならぶ（歩ける 茶色の 山と 見わけ）
+  ridge(px(VIEW.RIDGE), 8, 1);
+  ridge(px(VIEW.RIDGE2), 6, 2);
+  // さくらの 木（ピンクの まるい こずえに 白い 花）
+  sakuraTree(px(VIEW.SAKURA));
+  // 恐山の はいいろの 砂地（小石と いおうの 黄色）・ゆけむりの 出る あな
+  [0, 1].forEach((v) => {
+    const p = px(VIEW.ASH + v);
+    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, ashAt(x, y, v));
+  });
+  {
+    const p = px(VIEW.STEAM);
+    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, ashAt(x, y, 0));
+    for (let y = 11; y < 15; y++)
+      for (let x = 4; x < 12; x++)
+        if ((x - 7.5) ** 2 / 16 + (y - 13) ** 2 / 3 <= 1) p(x, y, y === 11 ? NQ.gray : NQ.yellow);
+    for (const [x, y] of [
+      [7, 9],
+      [8, 8],
+      [7, 7],
+      [6, 6],
+      [7, 5],
+      [8, 4],
+      [9, 3],
+      [8, 2],
+    ] as const) {
+      p(x, y, NQ.white);
+      p(x + 1, y, NQ.cloud);
+    }
+  }
 }
+
+/** さかいの 岩山：すそが マスいっぱい、上は 雪。左が 日なた（gray）、右が かげ（night） */
+function ridge(p: Px, apexX: number, apexY: number): void {
+  for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, NQ.slate);
+  for (let y = apexY; y < 16; y++) {
+    const t = (y - apexY) / (15 - apexY);
+    const left = Math.round(apexX - t * (apexX + 1));
+    const right = Math.round(apexX + t * (16 - apexX));
+    for (let x = Math.max(0, left); x <= Math.min(15, right); x++) {
+      let col: string = x <= apexX ? NQ.gray : NQ.night;
+      if (y <= apexY + 3) col = x <= apexX ? NQ.white : NQ.cloud;
+      p(x, y, col);
+    }
+  }
+}
+
+/** さくらの 木：草の 上に ピンクの まるい こずえ、白い 花の 点、茶色の みき */
+function sakuraTree(p: Px): void {
+  for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, grassAt(x, y, 0));
+  for (let y = 11; y < 15; y++) {
+    p(7, y, NQ.brown);
+    p(8, y, NQ.bark);
+  }
+  for (let y = 0; y < 16; y++)
+    for (let x = 0; x < 16; x++) {
+      const d = ((x - 7.5) / 6.5) ** 2 + ((y - 6) / 5.5) ** 2;
+      if (d > 1) continue;
+      p(x, y, d > 0.7 && x > 8 ? NQ.berry : (x * 3 + y * 5) % 7 === 0 ? NQ.white : NQ.blush);
+    }
+}
+
+/** 恐山の 砂地：はいいろに 小石、ところどころ いおうの 黄色 */
+const ashAt = (x: number, y: number, v: number): string => {
+  const h = (x * 7 + y * 13 + v * 5) % 23;
+  if (h === 0) return NQ.gray;
+  if (h === 11 && v === 1) return NQ.yellow;
+  return (x + y * 3) % 9 === 0 ? NQ.cloud : NQ.silver;
+};
 
 /** 見た目用の タイル（'overworld-view'）を 作る。Overworld が 見た目だけの タイルマップで つかう */
 export function buildViewTexture(scene: Phaser.Scene): void {

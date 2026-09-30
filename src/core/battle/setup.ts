@@ -80,14 +80,45 @@ export function zoneForGround(
   ground: Ground | null,
 ): EncounterZone {
   if (zone !== 'field' || !ground || ground === 'grass') return zone;
-  return area.encounters.some((e) => e.zone === ground) ? ground : 'field';
+  return area.encounters.some((e) => !e.region && e.zone === ground) ? ground : 'field';
 }
 
 /** 県の encounters テーブルから 1 体抽選。テーブルが無ければ null */
 export function pickEncounter(area: Pick<Area, 'encounters'>, zone: EncounterZone, rng: Rng): string | null {
-  const table = area.encounters.find((e) => e.zone === zone)?.table;
+  const table = area.encounters.find((e) => !e.region && e.zone === zone)?.table;
   if (!table?.length) return null;
   return rng.weighted(table.map((t) => ({ item: t.monsterId, weight: t.weight })));
+}
+
+type EncounterTable = Area['encounters'][number];
+
+/**
+ * いま つかう 出現表。名所エリア（region）の ある フィールドでは、その エリアの 表（地面の 表 → エリアの field の 表）。
+ * エリアの 表が 無ければ ふつうの 表（地面 → field）
+ */
+export function encounterTable(
+  area: Pick<Area, 'encounters'>,
+  zone: EncounterZone,
+  ground: Ground | null,
+  region: string | null,
+): EncounterTable | null {
+  if (region && zone === 'field') {
+    const mine = area.encounters.filter((e) => e.region === region);
+    if (mine.length)
+      return (
+        (ground && ground !== 'grass' ? mine.find((e) => e.zone === ground) : undefined) ??
+        mine.find((e) => e.zone === 'field') ??
+        null
+      );
+  }
+  const z = zoneForGround(area, zone, ground);
+  return area.encounters.find((e) => !e.region && e.zone === z) ?? null;
+}
+
+/** 表から 1 体 */
+export function pickFromTable(table: EncounterTable, rng: Rng): string | null {
+  if (!table.table.length) return null;
+  return rng.weighted(table.table.map((t) => ({ item: t.monsterId, weight: t.weight })));
 }
 
 /**

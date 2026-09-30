@@ -20,11 +20,18 @@ export const GROUND_TILES: Record<Ground, readonly number[]> = {
   farm: [155, 156, 157, 158],
 };
 
+/** 名所エリアの さかいの 山なみ（通れない。地面では ない） */
+export const RIDGE_TILE = 159;
+
 /** 地面の 性質が できる前の 丘（11）・高い山（12）の タイルも 地面に 数える */
 const TILE_GROUND = new Map<number, Ground>([
   ...GROUNDS.flatMap((g) => GROUND_TILES[g].map((t) => [t, g] as const)),
   [11, 'forest'],
   [12, 'mountain'],
+  // 名所エリアの 見た目：さくらの 木（草原）・恐山の 砂地と ゆけむり（やま）
+  [160, 'grass'],
+  [161, 'mountain'],
+  [162, 'mountain'],
 ]);
 
 /** background の タイル番号 → 地面（町の石だたみ・水 など 地面で ない タイルは null） */

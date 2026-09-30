@@ -49,7 +49,7 @@ export function FieldHud({
       <div class={`nq-win nq-fhud-loc ${idle ? '' : 'nq-fhud-away'}`}>
         <div class="nq-fhud-row">
           <RubyLabel text={title} class="nq-fhud-title" />
-          <span class="nq-fhud-sub">{sub}</span>
+          <RubyLabel text={sub} class="nq-fhud-sub" />
           {stamps && (
             <span class="nq-fhud-stamp" aria-label={stampLabel}>
               <PixelIcon name="star" scale={2} />
@@ -105,7 +105,7 @@ export function AreaTitle({ name, sub, onDone }: { name: string; sub: string; on
     <div class="nq-atitle" aria-live="polite">
       <div class="nq-win nq-atitle-box">
         <RubyLabel text={name} class="nq-atitle-name" />
-        <span class="nq-atitle-sub">{sub}</span>
+        <RubyLabel text={sub} class="nq-atitle-sub" />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { zoneForGround } from '../../src/core/battle/setup';
 import { loadContent, type ContentIndex } from '../../src/core/content/loader';
-import { GROUND_TILES, GROUNDS, groundOfTile, type Ground } from '../../src/core/world/ground';
+import { GROUND_TILES, GROUNDS, groundOfTile, RIDGE_TILE, type Ground } from '../../src/core/world/ground';
 import { read } from './helpers';
 
 const MAPS = fileURLToPath(new URL('../../maps/', import.meta.url));
@@ -40,10 +40,10 @@ describe('フィールドの 地面の 性質（docs/00 §2.2）', () => {
     expect(zoneForGround(c.areas.get('akita')!, 'field', 'beach')).toBe('field');
   });
 
-  it('県の フィールドの 陸は どの マスも どれかの 地面（3 は 海・湖・県の外）', () => {
+  it('県の フィールドの 陸は どの マスも どれかの 地面（3 は 海・湖・県の外、RIDGE_TILE は 名所エリアの さかい）', () => {
     for (const a of c.areas.values()) {
       if (!a.mapKeys) continue;
-      const bad = background(a.mapKeys.field).filter((t) => t !== 3 && !groundOfTile(t));
+      const bad = background(a.mapKeys.field).filter((t) => t !== 3 && t !== RIDGE_TILE && !groundOfTile(t));
       expect(bad, a.id).toEqual([]);
     }
   });

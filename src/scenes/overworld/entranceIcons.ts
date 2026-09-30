@@ -76,6 +76,27 @@ const ICONS: Record<string, (r: Rect) => void> = {
   },
 };
 
+/** 名所エリアの 関所（エリアの さかいの 門）。とじている ときは 木の さく、ひらくと 門だけ */
+const GATES: Record<string, (r: Rect) => void> = {
+  'fld.gate.closed': (r) => {
+    r(1, 2, 2, 14, NQ.brown);
+    r(13, 2, 2, 14, NQ.brown);
+    r(0, 1, 16, 2, NQ.bark);
+    r(0, 3, 16, 1, NQ.brown);
+    r(3, 6, 10, 2, NQ.tan);
+    r(3, 10, 10, 2, NQ.tan);
+    for (let x = 4; x < 13; x += 3) r(x, 5, 1, 9, NQ.sand);
+    r(6, 7, 4, 3, NQ.red);
+  },
+  'fld.gate.open': (r) => {
+    r(1, 2, 2, 14, NQ.brown);
+    r(13, 2, 2, 14, NQ.brown);
+    r(0, 1, 16, 2, NQ.bark);
+    r(0, 3, 16, 1, NQ.brown);
+    r(5, 1, 6, 1, NQ.gold);
+  },
+};
+
 /** 港（ハーバー）の 絵：さんばし（よこ・たて）と 船。[はば, 高さ, 描きかた] */
 const HARBOR: Record<string, [number, number, (r: Rect) => void]> = {
   'fld.pier.h': [
@@ -132,6 +153,7 @@ const HARBOR: Record<string, [number, number, (r: Rect) => void]> = {
 export function buildEntranceIcons(scene: Phaser.Scene): void {
   const all: [string, number, number, (r: Rect) => void][] = [
     ...Object.entries(ICONS).map(([k, d]) => [k, 16, 16, d] as [string, number, number, (r: Rect) => void]),
+    ...Object.entries(GATES).map(([k, d]) => [k, 16, 16, d] as [string, number, number, (r: Rect) => void]),
     ...Object.entries(HARBOR).map(
       ([k, [w, h, d]]) => [k, w, h, d] as [string, number, number, (r: Rect) => void],
     ),

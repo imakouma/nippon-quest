@@ -14,13 +14,13 @@
 import Phaser from 'phaser';
 import { h, render, type ComponentChild } from 'preact';
 import type { ContentIndex } from '../core/content/loader';
-import type { Area, AreaEvent, Item, Monster, Motif, Reward } from '../core/content/schemas';
+import type { Area, AreaEvent, Item, Monster, Motif, Region, Reward } from '../core/content/schemas';
 import { makeMonster } from '../core/battle/factory';
 import {
   encounterLevel,
+  encounterTable,
   partyFromGameState,
-  pickEncounter,
-  zoneForGround,
+  pickFromTable,
   zoneForMap,
 } from '../core/battle/setup';
 import { groundOfTile, type Ground } from '../core/world/ground';
@@ -71,6 +71,7 @@ import {
   lastBossFlag,
   midBossFlag,
   motifStamp,
+  regionBossFlag,
   nextStop,
   type NextStop,
 } from '../core/progression/route';
@@ -255,6 +256,21 @@ interface MidBoss {
   sparks: Phaser.Time.TimerEvent;
 }
 
+/** 名所エリアの 関所（エリアの さかいの 門。openedBy の エリアの ぬしを たおすと ひらく） */
+interface RegionGate {
+  tile: number;
+  between: [string, string];
+  openedBy: string;
+  sprite: Phaser.GameObjects.Image;
+}
+
+/** 名所エリアの ぬし（名所の そばに 立つ「？」マーク） */
+interface RegionBoss {
+  regionId: string;
+  region: Region;
+  boss: MidBoss;
+}
+
 interface Warp {
   tile: number;
   to: NextStop;
@@ -337,6 +353,14 @@ export class OverworldScene extends Phaser.Scene {
   private midBoss: MidBoss | null = null;
   private warp: Warp | null = null;
   private pendingMidBoss = false;
+  /** 名所エリア（マップの regions：エリアの id と、マスごとの エリアの 文字 a, b, …） */
+  private regionIds: string[] = [];
+  private regionRows: string[] = [];
+  /** いま いる エリア（入ると 名前が 出る） */
+  private currentRegion: string | null = null;
+  private regionGates = new Map<number, RegionGate>();
+  private regionBosses = new Map<number, RegionBoss>();
+  private pendingRegionBoss: RegionBoss | null = null;
   /** ダンジョンの おくに いる 県ボス（中ボスと同じ「？」マーク） */
   /** 止まっているか（左上の 窓を 出す）。歩きだすと かくし、HUD_IDLE_MS 止まると 出す */
   private hudIdle = true;
@@ -412,6 +436,8 @@ export class OverworldScene extends Phaser.Scene {
     const [sx, sy] = this.findSpawn(objects);
     this.createHero(sx, sy);
     this.setupObjects(objects);
+    // はじめに いる 名所エリア（名前は 出さない。HUD の 場所の 窓に 出る）
+    this.enterRegion(sx, sy);
     this.insideTrigger = this.triggers.get(this.idx(sx, sy))?.id ?? null;
 
     const cam = this.cameras.main;
@@ -466,6 +492,12 @@ export class OverworldScene extends Phaser.Scene {
     this.midBoss = null;
     this.warp = null;
     this.pendingMidBoss = false;
+    this.regionIds = [];
+    this.regionRows = [];
+    this.currentRegion = null;
+    this.regionGates = new Map();
+    this.regionBosses = new Map();
+    this.pendingRegionBoss = null;
     this.areaBoss = null;
     this.pendingAreaBoss = false;
     this.lastBoss = null;
@@ -629,6 +661,17 @@ export class OverworldScene extends Phaser.Scene {
       void this.confrontMidBoss();
       return;
     }
+    const rb = this.regionBosses.get(this.idx(nx, ny));
+    if (rb) {
+      this.standStill();
+      void this.confrontRegionBoss(rb);
+      return;
+    }
+    const gate = this.regionGates.get(this.idx(nx, ny));
+    if (gate && !this.gateOpen(gate)) {
+      void this.talkGateLocked(gate);
+      return;
+    }
     if (this.areaBoss && this.idx(nx, ny) === this.areaBoss.tile) {
       this.standStill();
       void this.confrontAreaBoss();
@@ -693,6 +736,7 @@ export class OverworldScene extends Phaser.Scene {
   /** 1 マス歩き終えたとき：入口 → ワープホール → 名所 → エンカウント の順に調べる */
   private arrive(x: number, y: number): void {
     const i = this.idx(x, y);
+    this.enterRegion(x, y);
     const tr = this.transitions.get(i);
     if (tr && this.canWarp && this.isLocked(i)) {
       void this.talkLocked();
@@ -730,6 +774,11 @@ export class OverworldScene extends Phaser.Scene {
     const front = this.idx(x + DELTA[this.facing][0], y + DELTA[this.facing][1]);
     if (this.midBoss && front === this.midBoss.tile) {
       void this.confrontMidBoss();
+      return;
+    }
+    const rb = this.regionBosses.get(front);
+    if (rb) {
+      void this.confrontRegionBoss(rb);
       return;
     }
     if (this.areaBoss && front === this.areaBoss.tile) {
@@ -801,6 +850,7 @@ export class OverworldScene extends Phaser.Scene {
 
   private setupObjects(layer: Phaser.Tilemaps.ObjectLayer | null): void {
     const area = this.currentArea();
+    this.readRegions();
     for (const obj of layer?.objects ?? []) {
       const tx = Math.floor((obj.x ?? 0) / TILE);
       const ty = Math.floor((obj.y ?? 0) / TILE);
@@ -816,6 +866,12 @@ export class OverworldScene extends Phaser.Scene {
           break;
         case 'midboss':
           this.addMidBoss(tx, ty, area);
+          break;
+        case 'regionGate':
+          this.addRegionGate(obj, tx, ty);
+          break;
+        case 'regionBoss':
+          this.addRegionBoss(obj, tx, ty, area);
           break;
         case 'boss':
           this.addAreaBoss(tx, ty, area);
@@ -1070,6 +1126,148 @@ export class OverworldScene extends Phaser.Scene {
    * 小物に見えないよう、まわりに光のわっか・足もとの光る輪・立ちのぼる光のつぶ（オーラ）。
    * ぶつかると「たたかう？」。ボスの姿はバトルで はじめて見える（バトルでは一回り大きく出す）
    */
+  // ───────────────────────── 名所エリア（関所・エリアの ぬし） ─────────────────────────
+
+  /** マップの regions（scaffold-maps の regionPartition）を よむ */
+  private readRegions(): void {
+    const props = (this.map.properties ?? []) as { name: string; value: unknown }[];
+    const raw = props.find((p) => p.name === 'regions')?.value;
+    if (typeof raw !== 'string') return;
+    const data = JSON.parse(raw) as { ids: string[]; rows: string[] };
+    this.regionIds = data.ids;
+    this.regionRows = data.rows;
+  }
+
+  /** その マスの 名所エリア（かべ・海・エリアの 無い マップは null） */
+  private regionAt(x: number, y: number): string | null {
+    const ch = this.regionRows[y]?.[x];
+    if (!ch || ch === '.') return null;
+    return this.regionIds[ch.charCodeAt(0) - 97] ?? null;
+  }
+
+  private regionDef(id: string | null): Region | undefined {
+    return id ? this.currentArea()?.regions.find((r) => r.id === id) : undefined;
+  }
+
+  /** 関所が ひらいているか（ぬしを たおした。開発者モードでは いつでも） */
+  private gateOpen(g: RegionGate): boolean {
+    const area = this.currentArea();
+    return (
+      this.devAll() ||
+      (!!area && !!this.gs()?.progress.eventsDone.includes(regionBossFlag(area.id, g.openedBy)))
+    );
+  }
+
+  private addRegionGate(obj: TiledObject, tx: number, ty: number): void {
+    const between = String(prop(obj, 'between') ?? '').split(',') as [string, string];
+    const openedBy = String(prop(obj, 'openedBy') ?? '');
+    const tile = this.idx(tx, ty);
+    const sprite = this.add.image(tx * TILE + 8, ty * TILE + 8, 'fld.gate.closed').setDepth(ty * TILE + 4);
+    const g: RegionGate = { tile, between, openedBy, sprite };
+    this.regionGates.set(tile, g);
+    this.syncGate(g);
+  }
+
+  /** 関所の 見た目と 通れるか を いまの ようすに あわせる */
+  private syncGate(g: RegionGate): void {
+    const open = this.gateOpen(g);
+    g.sprite.setTexture(open ? 'fld.gate.open' : 'fld.gate.closed');
+    if (open) this.blocked.delete(g.tile);
+    else this.blocked.add(g.tile);
+  }
+
+  /** とじた 関所に ぶつかった：どこへの 関所で、どの ぬしを たおせば ひらくか */
+  private async talkGateLocked(g: RegionGate): Promise<void> {
+    this.busy = true;
+    this.standStill();
+    const [x, y] = this.playerTile();
+    const here = this.regionAt(x, y);
+    const to = this.regionDef(g.between.find((id) => id !== here) ?? g.between[1]);
+    const by = this.regionDef(g.openedBy);
+    playSfx('bump');
+    await this.talk([
+      {
+        speaker: t('field.gateSpeaker'),
+        text: t('field.gateLocked', { to: to?.name ?? '', by: by?.name ?? '' }),
+      },
+    ]);
+    this.busy = false;
+  }
+
+  /** エリアの ぬし：名所の そばに「？」マーク（たおしたら 出ない） */
+  private addRegionBoss(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
+    const regionId = String(prop(obj, 'region') ?? '');
+    const region = area?.regions.find((r) => r.id === regionId);
+    const def = region?.boss && this.content()?.monsters.get(region.boss.monsterId);
+    if (!area || !region || !def) return;
+    if (this.gs()?.progress.eventsDone.includes(regionBossFlag(area.id, regionId))) return;
+    const boss = this.bossMarker(tx, ty, def);
+    this.regionBosses.set(boss.tile, { regionId, region, boss });
+  }
+
+  /** ぬしに はなしかけた・ぶつかった：ひとこと →「たたかう？」→ にげられない たたかい */
+  private async confrontRegionBoss(rb: RegionBoss): Promise<void> {
+    if (this.busy || this.inBattle) return;
+    this.busy = true;
+    this.standStill();
+    const name = t('field.regionBossName', { region: rb.region.name });
+    const choice = await this.choose(
+      [{ speaker: name, text: rb.region.boss?.line ?? t('field.bossBlock') }, { text: t('field.bossAsk') }],
+      [t('ui.yes'), t('ui.no')],
+    );
+    if (choice !== 0) {
+      await this.talk([{ text: t('field.bossLater') }]);
+      this.busy = false;
+      return;
+    }
+    this.busy = false;
+    this.pendingRegionBoss = rb;
+    this.startBattle({
+      enemyId: rb.boss.def.id,
+      level: Math.max(rb.region.boss?.level ?? 1, this.heroLevel()),
+      zone: 'field',
+      isBoss: true,
+    });
+  }
+
+  /** ぬしを たおした：しるしを つけ、この エリアが openedBy の 関所を ひらく */
+  private async regionBossDefeated(rb: RegionBoss): Promise<void> {
+    const area = this.currentArea();
+    const gs = this.gs();
+    if (!area || !gs) return;
+    this.busy = true;
+    this.setGame(markDone(gs, { eventId: regionBossFlag(area.id, rb.regionId) }));
+    this.regionBosses.delete(rb.boss.tile);
+    this.dismissBoss(rb.boss);
+    const opened = [...this.regionGates.values()].filter((g) => g.openedBy === rb.regionId);
+    for (const g of opened) this.syncGate(g);
+    await this.wait(650);
+    playSfx('victory');
+    const lines = [{ text: t('field.regionBossDown', { region: rb.region.name }) }];
+    for (const g of opened) {
+      const to = this.regionDef(g.between.find((id) => id !== rb.regionId) ?? g.between[1]);
+      lines.push({ text: t('field.gateOpened', { to: to?.name ?? '' }) });
+    }
+    await this.talk(lines);
+    this.busy = false;
+  }
+
+  /** エリアに 入った：名前を 出す（おなじ エリアの 中では 出さない） */
+  private enterRegion(x: number, y: number): void {
+    const id = this.regionAt(x, y);
+    if (!id || id === this.currentRegion) return;
+    const first = this.currentRegion === null;
+    this.currentRegion = id;
+    this.renderHud();
+    const def = this.regionDef(id);
+    // マップに 入った ときは 県の 名前が 出るので、エリアの 名前は エリアを こえた ときだけ
+    if (!def || first) return;
+    playSfx('select');
+    void this.show('title', (done) =>
+      h(AreaTitle, { name: def.name, sub: this.currentArea()?.name ?? '', onDone: done }),
+    );
+  }
+
   private addMidBoss(tx: number, ty: number, area: Area | undefined): void {
     const def = area?.midBoss ? this.content()?.monsters.get(area.midBoss) : undefined;
     if (!area || !def) return;
@@ -2193,16 +2391,16 @@ export class OverworldScene extends Phaser.Scene {
     const area = this.currentArea();
     if (!mapZone || !area) return;
     const ground = mapZone === 'field' ? this.groundHere() : null;
-    const zone = zoneForGround(area, mapZone, ground);
-    const table = area.encounters.find((e) => e.zone === zone);
+    // 名所エリアの ある フィールドは エリアの 表（エリアの 名所に ちなんだ モンスター）
+    const table = encounterTable(area, mapZone, ground, this.currentRegion);
     if (!table) return;
     if (this.stepCount % table.stepsPerCheck !== 0 || !this.rng.chance(table.rate)) return;
-    const enemyId = pickEncounter(area, zone, this.rng);
+    const enemyId = pickFromTable(table, this.rng);
     if (enemyId)
       this.startBattle({
         enemyId,
         level: encounterLevel(this.heroLevel(), this.rng),
-        zone,
+        zone: mapZone,
         ...(ground ? { ground } : {}),
       });
   }
@@ -2247,6 +2445,8 @@ export class OverworldScene extends Phaser.Scene {
     const wasMidBoss = this.pendingMidBoss;
     const wasAreaBoss = this.pendingAreaBoss;
     const wasLastBoss = this.pendingLastBoss;
+    const wasRegionBoss = this.pendingRegionBoss;
+    this.pendingRegionBoss = null;
     this.pendingMidBoss = false;
     this.pendingAreaBoss = false;
     this.pendingLastBoss = false;
@@ -2266,6 +2466,7 @@ export class OverworldScene extends Phaser.Scene {
     if (wasMidBoss && p.outcome === 'victory') void this.midBossDefeated();
     if (wasAreaBoss && p.outcome === 'victory') void this.areaBossDefeated();
     if (wasLastBoss && p.outcome === 'victory') void this.lastBossDefeated();
+    if (wasRegionBoss && p.outcome === 'victory') void this.regionBossDefeated(wasRegionBoss);
   }
 
   // ───────────────────────── 画面（DOM） ─────────────────────────
@@ -3248,6 +3449,9 @@ export class OverworldScene extends Phaser.Scene {
       (kind === 'town' ? area?.town?.name : kind === 'secret' ? area?.secret?.name : undefined) ??
       area?.name ??
       this.mapKey;
+    const region = kind === 'field' ? this.regionDef(this.currentRegion) : undefined;
+    // 左上の 窓は せまいので、エリアの 名前は かなで（ふりがなを 字の 上に のせると 行が こわれる）
+    if (region) return { title, sub: kana(region.name) };
     const sub = t(
       {
         field: 'field.kindField',
