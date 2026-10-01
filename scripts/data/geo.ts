@@ -170,7 +170,16 @@ export const FIELD_ALL_GRASS: ReadonlySet<string> = new Set(['aomori']);
 
 /** 名所エリアの 建物（通れない）。大きさは マスで［よこ, たて］ */
 export type StructureKind =
-  'yagura' | 'tateana' | 'takayuka' | 'longhouse' | 'kuri' | 'dogu' | 'stones' | 'doki';
+  | 'yagura' | 'tateana' | 'takayuka' | 'longhouse' | 'kuri' | 'dogu' | 'stones' | 'doki'
+  | 'nebutaFloat' | 'taiko' | 'chochin'
+  | 'toudai' | 'windmill' | 'hi'
+  | 'tenshu' | 'sakura' | 'ringo'
+  | 'bigBuna' | 'buna' | 'taki'
+  | 'otome' | 'torii' | 'boat'
+  | 'bigTaki' | 'kokeiwa'
+  | 'dashi' | 'yatai' | 'fune'
+  | 'sanmon' | 'jizo' | 'kazaguruma' | 'tsumi'
+  | 'maguroZo' | 'saihokutan';
 export const STRUCTURE_SIZE: Readonly<Record<StructureKind, [number, number]>> = {
   yagura: [3, 3],
   tateana: [2, 2],
@@ -184,10 +193,38 @@ export const STRUCTURE_SIZE: Readonly<Record<StructureKind, [number, number]>> =
   stones: [3, 3],
   /** 円筒土器 */
   doki: [1, 1],
+  // ── ほかの 名所エリアの 物（絵は src/scenes/overworld/landmarkArt.ts）
+  nebutaFloat: [3, 2],
+  taiko: [2, 2],
+  chochin: [1, 1],
+  toudai: [2, 2],
+  windmill: [1, 1],
+  hi: [2, 1],
+  tenshu: [3, 3],
+  sakura: [1, 1],
+  ringo: [1, 1],
+  bigBuna: [2, 2],
+  buna: [1, 1],
+  taki: [2, 2],
+  otome: [2, 2],
+  torii: [2, 1],
+  boat: [3, 1],
+  bigTaki: [3, 2],
+  kokeiwa: [1, 1],
+  dashi: [3, 2],
+  yatai: [2, 2],
+  fune: [2, 1],
+  sanmon: [3, 1],
+  jizo: [1, 1],
+  kazaguruma: [1, 1],
+  tsumi: [1, 1],
+  maguroZo: [3, 2],
+  saihokutan: [2, 1],
 };
 
 /**
  * 名所エリアの むら：at（緯度経度）の まわりに 建物を ならべる（dx・dy は 建物の 左上。ふさがって いれば 近くの 空き地）。
+ * 青森は 10 エリア ぜんぶに 名所の 物を おく。
  * 三内丸山遺跡エリア：大型掘立柱建物（六本柱の やぐら）・大型竪穴住居・高床倉庫・竪穴住居の むらと、津軽の 小さな むら
  */
 export const REGION_VILLAGES: Record<
@@ -195,6 +232,188 @@ export const REGION_VILLAGES: Record<
   Record<string, { at: LonLat; buildings: { kind: StructureKind; dx: number; dy: number }[] }[]>
 > = {
   aomori: {
+    nebuta: [
+      {
+        at: [140.8, 40.83], // ねぶた祭（ねぶたの 列・大だいこ・ちょうちん）
+        buildings: [
+          { kind: 'nebutaFloat', dx: -9, dy: -6 },
+          { kind: 'nebutaFloat', dx: -4, dy: -7 },
+          { kind: 'nebutaFloat', dx: 1, dy: -7 },
+          { kind: 'nebutaFloat', dx: 6, dy: -6 },
+          { kind: 'taiko', dx: -6, dy: 3 },
+          { kind: 'taiko', dx: 4, dy: 3 },
+          { kind: 'chochin', dx: -10, dy: -2 },
+          { kind: 'chochin', dx: -7, dy: -2 },
+          { kind: 'chochin', dx: -4, dy: -2 },
+          { kind: 'chochin', dx: -1, dy: -2 },
+          { kind: 'chochin', dx: 2, dy: -2 },
+          { kind: 'chochin', dx: 5, dy: -2 },
+          { kind: 'chochin', dx: 8, dy: -2 },
+          { kind: 'chochin', dx: 11, dy: -2 },
+          { kind: 'chochin', dx: -8, dy: 7 },
+          { kind: 'chochin', dx: -4, dy: 7 },
+          { kind: 'chochin', dx: 4, dy: 7 },
+          { kind: 'chochin', dx: 8, dy: 7 },
+        ],
+      },
+    ],
+    tsugaru: [
+      {
+        at: [140.343, 41.2], // 龍飛崎（灯台・風車・津軽海峡冬景色の 歌の 碑）
+        buildings: [
+          { kind: 'toudai', dx: -2, dy: -8 },
+          { kind: 'hi', dx: 3, dy: -3 },
+          { kind: 'windmill', dx: -8, dy: -4 },
+          { kind: 'windmill', dx: -6, dy: -7 },
+          { kind: 'windmill', dx: -9, dy: 1 },
+          { kind: 'windmill', dx: -7, dy: 4 },
+          { kind: 'windmill', dx: 7, dy: -6 },
+          { kind: 'windmill', dx: 9, dy: -2 },
+          { kind: 'windmill', dx: 8, dy: 3 },
+          { kind: 'windmill', dx: 6, dy: 6 },
+        ],
+      },
+    ],
+    hirosaki: [
+      {
+        at: [140.4645, 40.6075], // 弘前城（天守・さくら並木・りんご畑）
+        buildings: [
+          { kind: 'tenshu', dx: -1, dy: -8 },
+          { kind: 'sakura', dx: -6, dy: -9 },
+          { kind: 'sakura', dx: -6, dy: -6 },
+          { kind: 'sakura', dx: -6, dy: -3 },
+          { kind: 'sakura', dx: 4, dy: -9 },
+          { kind: 'sakura', dx: 4, dy: -6 },
+          { kind: 'sakura', dx: 4, dy: -3 },
+          { kind: 'sakura', dx: -3, dy: -3 },
+          { kind: 'sakura', dx: 2, dy: -3 },
+          { kind: 'ringo', dx: -12, dy: 3 },
+          { kind: 'ringo', dx: -12, dy: 5 },
+          { kind: 'ringo', dx: -12, dy: 7 },
+          { kind: 'ringo', dx: -10, dy: 3 },
+          { kind: 'ringo', dx: -10, dy: 5 },
+          { kind: 'ringo', dx: -10, dy: 7 },
+          { kind: 'ringo', dx: -8, dy: 3 },
+          { kind: 'ringo', dx: -8, dy: 5 },
+          { kind: 'ringo', dx: -8, dy: 7 },
+        ],
+      },
+    ],
+    shirakami: [
+      {
+        at: [140.15, 40.47], // 白神山地（マザーツリー・ブナの 森・暗門の滝）
+        buildings: [
+          { kind: 'bigBuna', dx: -1, dy: -7 },
+          { kind: 'taki', dx: 6, dy: -4 },
+          { kind: 'buna', dx: -6, dy: -8 },
+          { kind: 'buna', dx: -4, dy: -10 },
+          { kind: 'buna', dx: -8, dy: -5 },
+          { kind: 'buna', dx: -5, dy: -4 },
+          { kind: 'buna', dx: 3, dy: -9 },
+          { kind: 'buna', dx: -9, dy: -1 },
+          { kind: 'buna', dx: -7, dy: 2 },
+          { kind: 'buna', dx: -4, dy: 4 },
+          { kind: 'buna', dx: 3, dy: 4 },
+          { kind: 'buna', dx: 6, dy: 2 },
+          { kind: 'buna', dx: 8, dy: -8 },
+          { kind: 'buna', dx: -10, dy: -8 },
+          { kind: 'buna', dx: 0, dy: 7 },
+          { kind: 'buna', dx: -3, dy: 9 },
+        ],
+      },
+    ],
+    towada: [
+      {
+        at: [140.9, 40.46], // 十和田湖（乙女の像・十和田神社の 鳥居・遊覧船）
+        buildings: [
+          { kind: 'otome', dx: -2, dy: -6 },
+          { kind: 'torii', dx: 4, dy: -6 },
+          { kind: 'torii', dx: 4, dy: -3 },
+          { kind: 'boat', dx: -5, dy: 3 },
+          { kind: 'boat', dx: 3, dy: 4 },
+        ],
+      },
+    ],
+    oirase: [
+      {
+        at: [141.08, 40.6], // 奥入瀬渓流（銚子大滝・こけの 岩・ブナ）
+        buildings: [
+          { kind: 'bigTaki', dx: -1, dy: -7 },
+          { kind: 'kokeiwa', dx: -5, dy: -3 },
+          { kind: 'kokeiwa', dx: -3, dy: -1 },
+          { kind: 'kokeiwa', dx: 4, dy: -2 },
+          { kind: 'kokeiwa', dx: 6, dy: 0 },
+          { kind: 'kokeiwa', dx: -6, dy: 2 },
+          { kind: 'kokeiwa', dx: 2, dy: 3 },
+          { kind: 'kokeiwa', dx: -2, dy: 5 },
+          { kind: 'kokeiwa', dx: 5, dy: 5 },
+          { kind: 'buna', dx: -8, dy: -6 },
+          { kind: 'buna', dx: -7, dy: -9 },
+          { kind: 'buna', dx: 6, dy: -8 },
+          { kind: 'buna', dx: 8, dy: -5 },
+          { kind: 'buna', dx: -9, dy: 3 },
+          { kind: 'buna', dx: 9, dy: 2 },
+          { kind: 'buna', dx: -4, dy: 8 },
+          { kind: 'buna', dx: 7, dy: 8 },
+        ],
+      },
+    ],
+    hachinohe: [
+      {
+        at: [141.49, 40.51], // 八戸（三社大祭の 山車・せんべい汁の 屋台・漁船）
+        buildings: [
+          { kind: 'dashi', dx: -8, dy: -7 },
+          { kind: 'dashi', dx: -3, dy: -7 },
+          { kind: 'yatai', dx: 3, dy: -4 },
+          { kind: 'yatai', dx: 6, dy: -4 },
+          { kind: 'yatai', dx: 9, dy: -4 },
+          { kind: 'fune', dx: -6, dy: 4 },
+          { kind: 'fune', dx: -2, dy: 5 },
+          { kind: 'fune', dx: 2, dy: 4 },
+          { kind: 'fune', dx: 6, dy: 5 },
+        ],
+      },
+    ],
+    osorezan: [
+      {
+        at: [141.09, 41.325], // 恐山（山門・お地蔵さま・かざぐるま・積み石）
+        buildings: [
+          { kind: 'sanmon', dx: -1, dy: -6 },
+          { kind: 'jizo', dx: -6, dy: -3 },
+          { kind: 'jizo', dx: -4, dy: -3 },
+          { kind: 'jizo', dx: 4, dy: -3 },
+          { kind: 'jizo', dx: 6, dy: -3 },
+          { kind: 'kazaguruma', dx: -8, dy: 0 },
+          { kind: 'kazaguruma', dx: -6, dy: 2 },
+          { kind: 'kazaguruma', dx: -4, dy: 0 },
+          { kind: 'kazaguruma', dx: 4, dy: 0 },
+          { kind: 'kazaguruma', dx: 6, dy: 2 },
+          { kind: 'kazaguruma', dx: 8, dy: 0 },
+          { kind: 'kazaguruma', dx: -7, dy: 5 },
+          { kind: 'kazaguruma', dx: 7, dy: 5 },
+          { kind: 'tsumi', dx: -3, dy: 4 },
+          { kind: 'tsumi', dx: -1, dy: 6 },
+          { kind: 'tsumi', dx: 2, dy: 5 },
+          { kind: 'tsumi', dx: 4, dy: 7 },
+          { kind: 'tsumi', dx: -5, dy: 8 },
+          { kind: 'tsumi', dx: 0, dy: 9 },
+        ],
+      },
+    ],
+    oma: [
+      {
+        at: [140.95, 41.5], // 大間崎（マグロの 像・本州最北端の 碑・灯台・漁船）
+        buildings: [
+          { kind: 'maguroZo', dx: 1, dy: 2 },
+          { kind: 'saihokutan', dx: 4, dy: -3 },
+          { kind: 'toudai', dx: -3, dy: -3 },
+          { kind: 'fune', dx: -6, dy: 3 },
+          { kind: 'fune', dx: -2, dy: 4 },
+          { kind: 'fune', dx: 3, dy: 4 },
+          { kind: 'fune', dx: 7, dy: 3 },
+        ],
+      },
+    ],
     sannai: [
       {
         at: [140.52, 40.8], // 三内丸山遺跡（看板の まわり）

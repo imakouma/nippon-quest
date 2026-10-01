@@ -1015,7 +1015,7 @@ function villages(
         const ty = Math.floor(cy) + b.dy;
         // ふさがって いれば うずまきに 近くを さがす
         let at: [number, number] | null = null;
-        for (let d = 0; d <= 8 && !at; d++)
+        for (let d = 0; d <= 10 && !at; d++)
           for (let oy = -d; oy <= d && !at; oy++)
             for (let ox = -d; ox <= d && !at; ox++)
               if (Math.max(Math.abs(ox), Math.abs(oy)) === d && fits(tx + ox, ty + oy, w, h, r))
