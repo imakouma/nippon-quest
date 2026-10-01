@@ -121,6 +121,7 @@ import { itemIconUrl } from './art/itemIcons';
 import { giveMeisan, meisanEarned } from '../core/progression/meisan';
 import { motifArtUrl } from './art/motifArt';
 import { designedMonsterArt } from './art/monsters';
+import { NQ } from './art/palette';
 import { addSheet } from './art/sheet';
 import type { BattleEndPayload, BattleSceneData } from './Battle';
 import { MONSTER_SIZE, monsterArt } from './battle/pixelArt';
@@ -196,7 +197,20 @@ interface RawTiledMap {
   width: number;
   height: number;
   layers: { name: string; data?: number[]; objects?: TiledObject[] }[];
+  properties?: { name: string; value: unknown }[];
 }
+
+/** 名所エリア（マップの regions プロパティ）：エリアの id と マスごとの 文字（a, b, …。'.' は 海・さかい） */
+interface RegionGrid {
+  ids: string[];
+  rows: string[];
+}
+
+const regionGridOf = (props: unknown): RegionGrid | null => {
+  if (!Array.isArray(props)) return null;
+  const raw = (props as { name: string; value: unknown }[]).find((p) => p.name === 'regions')?.value;
+  return typeof raw === 'string' ? (JSON.parse(raw) as RegionGrid) : null;
+};
 
 /** 地図に出すマップ（県のフィールド。島にいるときは その島） */
 interface BaseMap {
@@ -207,6 +221,8 @@ interface BaseMap {
   height: number;
   tiles: number[];
   objects: TiledObject[];
+  /** 名所エリア（ある マップだけ） */
+  regions: RegionGrid | null;
   /** 陸（海以外）のタイルの範囲 [x0, y0, x1, y1] */
   land: [number, number, number, number] | null;
 }
@@ -439,6 +455,7 @@ export class OverworldScene extends Phaser.Scene {
     this.setupObjects(objects);
     // はじめに いる 名所エリア（名前は 出さない。HUD の 場所の 窓に 出る）
     this.enterRegion(sx, sy);
+    this.buildFog();
     this.insideTrigger = this.triggers.get(this.idx(sx, sy))?.id ?? null;
 
     const cam = this.cameras.main;
@@ -1148,14 +1165,121 @@ export class OverworldScene extends Phaser.Scene {
       .setDepth(bottom);
   }
 
+  /** 行ける（ひらいた）名所エリア：さいしょの エリアと、ぬしを たおして ひらいた 関所の 両がわ。開発者モードは ぜんぶ */
+  private unlockedRegions(): Set<string> {
+    const area = this.currentArea();
+    const gs = this.gs();
+    const out = new Set<string>();
+    if (!area?.regions.length) return out;
+    if (this.devAll()) {
+      for (const r of area.regions) out.add(r.id);
+      return out;
+    }
+    for (const r of area.regions) if (r.start) out.add(r.id);
+    for (const g of area.regionGates)
+      if (gs?.progress.eventsDone.includes(regionBossFlag(area.id, g.openedBy)))
+        for (const id of g.between) out.add(id);
+    return out;
+  }
+
+  /**
+   * まだ ひらいて いない エリアの マス（画面でも 地図でも 見せない）。さかいの 山なみは、となりに ひらいた エリアが
+   * あれば 見せる（ひらいた エリアの ふちが わかるように）
+   */
+  private hiddenIn(grid: RegionGrid | null, open: Set<string>, x: number, y: number): boolean {
+    if (!grid) return false;
+    const idOf = (xx: number, yy: number) => {
+      const ch = grid.rows[yy]?.[xx];
+      return ch && ch !== '.' ? (grid.ids[ch.charCodeAt(0) - 97] ?? null) : null;
+    };
+    const id = idOf(x, y);
+    if (id) return !open.has(id);
+    if (!grid.rows[y]?.[x]) return false;
+    for (let dy = -1; dy <= 1; dy++)
+      for (let dx = -1; dx <= 1; dx++) {
+        const n = idOf(x + dx, y + dy);
+        if (n && open.has(n)) return false;
+      }
+    // まわりに エリアの 無い 海は かくさない（となりに 何か エリアが ある さかい だけ かくす）
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (idOf(x + dx, y + dy)) return true;
+    return false;
+  }
+
+  /** 地図に 出す タイル：ひらいて いない エリアは 海（3）に して 見せない */
+  private visibleTiles(base: BaseMap): { tiles: number[]; sig: string } {
+    if (!base.regions) return { tiles: base.tiles, sig: '' };
+    const open = this.unlockedRegions();
+    const sig = [...open].sort().join(',');
+    const tiles = base.tiles.map((t, i) =>
+      this.hiddenIn(base.regions, open, i % base.width, Math.floor(i / base.width)) ? 3 : t,
+    );
+    return { tiles, sig };
+  }
+
+  private fogLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+
+  /** フィールドの きり：ひらいて いない エリアを くらい 雲で かくす（物・ボスも 見えない） */
+  private buildFog(): void {
+    this.fogLayer = null;
+    if (!this.regionRows.length) return;
+    if (!this.textures.exists('fld.fog')) {
+      const c = document.createElement('canvas');
+      c.width = 16;
+      c.height = 16;
+      const ctx = c.getContext('2d')!;
+      for (let y = 0; y < 16; y++)
+        for (let x = 0; x < 16; x++) {
+          const h = (x * 7 + y * 13) % 17;
+          ctx.fillStyle = h === 0 ? NQ.slate : h < 3 ? NQ.night : NQ.ink;
+          ctx.fillRect(x, y, 1, 1);
+        }
+      this.textures.addCanvas('fld.fog', c);
+    }
+    const w = this.map.width;
+    const h = this.map.height;
+    const fmap = this.make.tilemap({ tileWidth: TILE, tileHeight: TILE, width: w, height: h });
+    const ts = fmap.addTilesetImage('fld.fog', 'fld.fog', TILE, TILE, 0, 0, 0);
+    const layer = ts ? fmap.createBlankLayer('fog', ts, 0, 0) : null;
+    if (!layer) return;
+    layer.setDepth(9000);
+    this.fogLayer = layer;
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => fmap.destroy());
+    this.refreshFog(false);
+  }
+
+  /** きりを いまの ようすに。reveal＝ひらいた エリアの きりが すっと きえる */
+  private refreshFog(reveal: boolean): void {
+    const layer = this.fogLayer;
+    if (!layer) return;
+    const open = this.unlockedRegions();
+    const grid: RegionGrid = { ids: this.regionIds, rows: this.regionRows };
+    for (let y = 0; y < this.map.height; y++)
+      for (let x = 0; x < this.map.width; x++) {
+        const hide = this.hiddenIn(grid, open, x, y);
+        const has = layer.hasTileAt(x, y);
+        if (hide && !has) layer.putTileAt(0, x, y);
+        else if (!hide && has) {
+          if (!reveal) layer.removeTileAt(x, y);
+          else {
+            const tile = layer.getTileAt(x, y);
+            if (tile)
+              this.tweens.addCounter({
+                from: 1,
+                to: 0,
+                duration: 900,
+                onUpdate: (tw) => (tile.alpha = tw.getValue() ?? 0),
+                onComplete: () => layer.removeTileAt(x, y),
+              });
+          }
+        }
+      }
+  }
+
   /** マップの regions（scaffold-maps の regionPartition）を よむ */
   private readRegions(): void {
     // Tiled の プロパティが 無い マップ（町・ダンジョン・ほかの 県）は Phaser が {}（配列で ない）に する
-    const props = this.map.properties;
-    if (!Array.isArray(props)) return;
-    const raw = (props as { name: string; value: unknown }[]).find((p) => p.name === 'regions')?.value;
-    if (typeof raw !== 'string') return;
-    const data = JSON.parse(raw) as { ids: string[]; rows: string[] };
+    const data = regionGridOf(this.map.properties);
+    if (!data) return;
     this.regionIds = data.ids;
     this.regionRows = data.rows;
   }
@@ -1263,6 +1387,9 @@ export class OverworldScene extends Phaser.Scene {
     this.dismissBoss(rb.boss);
     const opened = [...this.regionGates.values()].filter((g) => g.openedBy === rb.regionId);
     for (const g of opened) this.syncGate(g);
+    this.refreshFog(true);
+    // 左上の 地図にも ひらいた エリアを 出す
+    this.renderHud();
     await this.wait(650);
     playSfx('victory');
     const lines = [{ text: t('field.regionBossDown', { region: rb.region.name }) }];
@@ -3224,7 +3351,13 @@ export class OverworldScene extends Phaser.Scene {
       here,
       hero,
       focus: f,
-      detail: base && land ? { key: base.key, tiles: base.tiles, width: base.width, land } : null,
+      detail:
+        base && land
+          ? (() => {
+              const vis = this.visibleTiles(base);
+              return { key: `${base.key}#${vis.sig}`, tiles: vis.tiles, width: base.width, land };
+            })()
+          : null,
     };
   }
 
@@ -3277,6 +3410,7 @@ export class OverworldScene extends Phaser.Scene {
       height: json.height,
       tiles,
       objects: json.layers.find((l) => l.name === 'objects')?.objects ?? [],
+      regions: regionGridOf(json.properties),
       land,
     };
   }
@@ -3329,9 +3463,13 @@ export class OverworldScene extends Phaser.Scene {
     const onBase = base.key === this.mapKey;
     let hero: [number, number] | null = onBase && this.player?.active ? this.playerTile() : null;
     const marks: AreaMark[] = [];
+    const vis = this.visibleTiles(base);
+    const open = this.unlockedRegions();
     for (const o of base.objects) {
       const x = Math.floor((o.x ?? 0) / TILE);
       const y = Math.floor((o.y ?? 0) / TILE);
+      // ひらいて いない エリアの しるしは 出さない
+      if (this.hiddenIn(base.regions, open, x, y)) continue;
       if (o.type === 'transition') {
         const target = String(prop(o, 'targetMap') ?? '');
         const kind = target.endsWith('-town') ? 'town' : target.endsWith('-dungeon') ? 'dungeon' : 'ship';
@@ -3351,7 +3489,15 @@ export class OverworldScene extends Phaser.Scene {
     }
     // 県のまわりの地方の地図（行ったことのある県は緑、未踏の県は灰色）。県のフィールドのときだけ
     const region = base.key.endsWith('-field') ? this.regionMiniView() : null;
-    return { key: base.key, width: base.width, height: base.height, tiles: base.tiles, marks, hero, region };
+    return {
+      key: `${base.key}#${vis.sig}`,
+      width: base.width,
+      height: base.height,
+      tiles: vis.tiles,
+      marks,
+      hero,
+      region,
+    };
   }
 
   /** ワープできる「いったことの ある ばしょ」：入ったことのある町・ダンジョン・島と、見つけた名所 */
@@ -3365,8 +3511,11 @@ export class OverworldScene extends Phaser.Scene {
     const been = (k: string) => dev || (gs.progress.counters[`visit:${k}`] ?? 0) > 0;
     const maps: Place[] = [];
     const signs: Place[] = [];
+    const open = this.unlockedRegions();
     for (const o of base.objects) {
       const at: [number, number] = [Math.floor((o.x ?? 0) / TILE), Math.floor((o.y ?? 0) / TILE)];
+      // ひらいて いない エリアへは ワープできない（地図にも 出ない）
+      if (this.hiddenIn(base.regions, open, at[0], at[1])) continue;
       if (o.type === 'transition') {
         const target = String(prop(o, 'targetMap') ?? '');
         // 同じマップの中の船は、行き先ではない

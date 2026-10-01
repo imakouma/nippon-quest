@@ -712,10 +712,26 @@ function regionPartition(land: Land, prefId: string): RegionPartition | null {
     return d;
   };
   const dist = seedIdx.map(bfs);
+  // おなじ くらいの 広さに：いちばん せまい エリアから 1 マスずつ ひろげる（陸続きの まま そだつ）
   const region = new Int32Array(n).fill(-1);
+  const size = ids.map(() => 0);
+  const front = seedIdx.map((list) => [...list]);
+  const heads = ids.map(() => 0);
+  for (;;) {
+    let r = -1;
+    for (let k = 0; k < ids.length; k++)
+      if (heads[k]! < front[k]!.length && (r < 0 || size[k]! < size[r]!)) r = k;
+    if (r < 0) break;
+    const i = front[r]![heads[r]!++]!;
+    if (region[i]! >= 0 || !land.walk(i)) continue;
+    region[i] = r;
+    size[r]!++;
+    for (const j of around(i)) if (region[j] === -1 && land.walk(j)) front[r]!.push(j);
+  }
+  // どの たねからも とどかない 島は いちばん ちかい エリア
   for (let i = 0; i < n; i++) {
-    if (!land.walk(i)) continue;
-    let best = -1;
+    if (!land.walk(i) || region[i]! >= 0) continue;
+    let best = 0;
     let bd = Infinity;
     dist.forEach((d, r) => {
       if (d[i]! >= 0 && d[i]! < bd) {
@@ -725,6 +741,16 @@ function regionPartition(land: Land, prefId: string): RegionPartition | null {
     });
     region[i] = best;
   }
+  console.log(`  ${prefId}: エリアの 広さ ${ids.map((id, r) => `${id}=${size[r]}`).join(' ')}`);
+  // となりあう エリア（関所を おける 組）を 出す：regionGates を きめる ときの 目安
+  const touch = new Map<string, number>();
+  for (let i = 0; i < n; i++)
+    for (const j of around(i))
+      if (region[i]! >= 0 && region[j]! > region[i]!) {
+        const k = `${ids[region[i]!]}-${ids[region[j]!]}`;
+        touch.set(k, (touch.get(k) ?? 0) + 1);
+      }
+  console.log(`  ${prefId}: となりあう エリア ${[...touch].map(([k, v]) => `${k}(${v})`).join(' ')}`);
   // さかいの 山なみ：となりが ちがう エリアの マスは りょうがわ とも かべ（2 マスの 山なみ。1 マスだと ななめに すきまが 見える）
   const wall = new Uint8Array(n);
   for (let i = 0; i < n; i++) {
