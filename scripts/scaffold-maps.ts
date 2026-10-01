@@ -31,6 +31,7 @@ import {
   REGION_VILLAGES,
   STRUCTURE_SIZE,
   type LonLat,
+  type StructureKind,
 } from './data/geo.js';
 import {
   CITY_LOOKS,
@@ -949,7 +950,7 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
   if (FIELD_ALL_GRASS.has(prefId)) allGrass(land, bg);
   if (part) regionLooks(land, part, prefId, bg);
   if (part) {
-    defs.push(...villages(land, part, prefId, defs, col));
+    defs.push(...villages(land, part, prefId, defs, col, bg));
     roads(land, defs, col, bg);
   }
   const props = part
@@ -982,70 +983,124 @@ function allGrass(land: Land, bg: number[]): void {
 
 /**
  * 名所エリアの むら（geo.ts の REGION_VILLAGES）：建物を おいて、その マスを 通れなく する（col を BLOCK）。
- * 建物の まわり 1 マスは 歩ける 空き地（ほかの 物・建物・海・さかいに かからない）ので、道や 陸続きを ふさがない
+ * 建物の まわり 1 マスは 歩ける 空き地（ほかの 物・建物・海・さかいに かからない）ので、道や 陸続きを ふさがない。
+ * 土地に あわせる：
+ *  - 船（boat・fune）は 陸でなく、その エリアの 岸に となりあう 海・湖の 上
+ *  - 滝（taki・bigTaki）は うしろと 横を 岩山に、下に たきつぼの 池（水）を つくる
+ *  - そのほかの 建物の 足もとと まわり 1 マスは 草の 広場（森や 砂地の 中でも 建物が 木に うもれない）
  */
+const ON_WATER = new Set<StructureKind>(['boat', 'fune']);
+const WATERFALL = new Set<StructureKind>(['taki', 'bigTaki']);
+const MOUNTAIN_TILES = GROUND_TILES.mountain;
+
 function villages(
   land: Land,
   part: RegionPartition,
   prefId: string,
   defs: ObjDef[],
   col: number[],
+  bg: number[],
 ): ObjDef[] {
   const out: ObjDef[] = [];
   const taken = new Set(defs.map((d) => land.idx([Math.floor(d.at[0]), Math.floor(d.at[1])])));
   const used = new Set<number>();
+  const inside = (x: number, y: number) => x >= 0 && y >= 0 && x < land.w && y < land.h;
   const fits = (x0: number, y0: number, w: number, h: number, r: number) => {
     for (let y = y0 - 1; y <= y0 + h; y++)
       for (let x = x0 - 1; x <= x0 + w; x++) {
-        if (x < 0 || y < 0 || x >= land.w || y >= land.h) return false;
+        if (!inside(x, y)) return false;
         const i = y * land.w + x;
         if (!land.walk(i) || part.region[i] !== r || col[i] === BLOCK || taken.has(i) || used.has(i))
           return false;
       }
     return true;
   };
+  /** 水の 上（海・湖。県の 外の 陸 x は だめ）で、その エリアの 陸に となりあう */
+  const water = (i: number) => land.cells[i] === '.' || land.cells[i] === '~';
+  const floats = (x0: number, y0: number, w: number, h: number, r: number) => {
+    let shore = false;
+    for (let y = y0 - 1; y <= y0 + h; y++)
+      for (let x = x0 - 1; x <= x0 + w; x++) {
+        if (!inside(x, y)) return false;
+        const i = y * land.w + x;
+        const body = x >= x0 && x < x0 + w && y >= y0 && y < y0 + h;
+        if (body && (!water(i) || used.has(i))) return false;
+        if (!body && used.has(i) && !water(i)) return false;
+        if (!body && part.region[i] === r && (x === x0 - 1 || x === x0 + w) !== (y === y0 - 1 || y === y0 + h))
+          shore = true;
+      }
+    return shore;
+  };
+  const free = (i: number, r: number) =>
+    land.walk(i) && part.region[i] === r && col[i] !== BLOCK && !taken.has(i) && !used.has(i);
   for (const [regionId, list] of Object.entries(REGION_VILLAGES[prefId] ?? {})) {
     const r = part.ids.indexOf(regionId);
     if (r < 0) continue;
     for (const v of list) {
       const [cx, cy] = land.tile(v.at);
-      v.buildings.forEach((b, k) => {
+      for (const b of v.buildings) {
         const [w, h] = STRUCTURE_SIZE[b.kind];
         const tx = Math.floor(cx) + b.dx;
         const ty = Math.floor(cy) + b.dy;
-        // ふさがって いれば うずまきに 近くを さがす
+        const boat = ON_WATER.has(b.kind);
+        const ok = boat ? floats : fits;
+        // ふさがって いれば うずまきに 近くを さがす（船は 岸まで とおくても よい）
         let at: [number, number] | null = null;
-        for (let d = 0; d <= 10 && !at; d++)
+        for (let d = 0; d <= (boat ? 16 : 10) && !at; d++)
           for (let oy = -d; oy <= d && !at; oy++)
             for (let ox = -d; ox <= d && !at; ox++)
-              if (Math.max(Math.abs(ox), Math.abs(oy)) === d && fits(tx + ox, ty + oy, w, h, r))
+              if (Math.max(Math.abs(ox), Math.abs(oy)) === d && ok(tx + ox, ty + oy, w, h, r))
                 at = [tx + ox, ty + oy];
         if (!at) {
           console.warn(`  ${prefId}: ${regionId} の ${b.kind} を おける 場所が ありません`);
-          return;
+          continue;
         }
-        for (let y = at[1]; y < at[1] + h; y++)
-          for (let x = at[0]; x < at[0] + w; x++) {
+        const [ax, ay] = at;
+        for (let y = ay; y < ay + h; y++)
+          for (let x = ax; x < ax + w; x++) {
             col[y * land.w + x] = BLOCK;
             used.add(y * land.w + x);
           }
-        for (let y = at[1] - 1; y <= at[1] + h; y++)
-          for (let x = at[0] - 1; x <= at[0] + w; x++) used.add(y * land.w + x);
+        if (WATERFALL.has(b.kind)) {
+          // たきつぼの 池（下 1〜2 だん）と、うしろ・横の 岩山
+          for (let x = ax; x < ax + w; x++) {
+            const i1 = (ay + h) * land.w + x;
+            bg[i1] = 3;
+            col[i1] = BLOCK;
+            const i2 = i1 + land.w;
+            if (inside(x, ay + h + 1) && free(i2, r)) {
+              bg[i2] = 3;
+              col[i2] = BLOCK;
+              used.add(i2);
+            }
+          }
+          for (let y = ay - 1; y <= ay + h; y++)
+            for (const x of y === ay - 1 ? [...Array(w + 2).keys()].map((k) => ax - 1 + k) : [ax - 1, ax + w]) {
+              const i = y * land.w + x;
+              if (land.walk(i) && col[i] !== BLOCK) bg[i] = MOUNTAIN_TILES[(x + y) % 2]!;
+            }
+        } else if (!boat) {
+          for (let y = ay - 1; y <= ay + h; y++)
+            for (let x = ax - 1; x <= ax + w; x++) {
+              const i = y * land.w + x;
+              if (land.walk(i)) bg[i] = noise(x, y) < 0.8 ? 1 : 14;
+            }
+        }
+        for (let y = ay - 1; y <= ay + h; y++)
+          for (let x = ax - 1; x <= ax + w; x++) if (inside(x, y)) used.add(y * land.w + x);
         out.push({
           name: `structure_${regionId}_${b.kind}_${out.length + 1}`,
           type: 'structure',
           at,
           w,
-          properties: [str('kind', b.kind), int('h', h)],
+          properties: [str('kind', b.kind), int('h', h), str('region', regionId)],
         });
-        void k;
-      });
+      }
     }
   }
   return out;
 }
 
-/** 道の タイル（草原の 上の 土の 道。歩ける。地面は 草原） */
 const ROAD_TILE = 163;
 
 /**

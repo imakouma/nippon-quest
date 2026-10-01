@@ -1159,11 +1159,17 @@ export class OverworldScene extends Phaser.Scene {
     buildStructureArt(this);
     if (!this.textures.exists(structureKey(kind))) return;
     const bottom = (ty + h) * TILE;
-    this.add
+    const img = this.add
       .image(tx * TILE, bottom, structureKey(kind))
       .setOrigin(0, 1)
       .setDepth(bottom);
+    // ひらいて いない エリアの 物は 見せない（海の 上の 船や、きりより 上に はみだす 高い 建物も）
+    const region = String(prop(obj, 'region') ?? '');
+    if (region) this.regionStructures.push({ img, region });
   }
+
+  /** 名所エリアの 物（エリアが ひらくまで かくす） */
+  private regionStructures: { img: Phaser.GameObjects.Image; region: string }[] = [];
 
   /** 行ける（ひらいた）名所エリア：さいしょの エリアと、ぬしを たおして ひらいた 関所の 両がわ。開発者モードは ぜんぶ */
   private unlockedRegions(): Set<string> {
@@ -1221,6 +1227,7 @@ export class OverworldScene extends Phaser.Scene {
   /** フィールドの きり：ひらいて いない エリアを くらい 雲で かくす（物・ボスも 見えない） */
   private buildFog(): void {
     this.fogLayer = null;
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => (this.regionStructures = []));
     if (!this.regionRows.length) return;
     if (!this.textures.exists('fld.fog')) {
       const c = document.createElement('canvas');
@@ -1252,6 +1259,13 @@ export class OverworldScene extends Phaser.Scene {
     const layer = this.fogLayer;
     if (!layer) return;
     const open = this.unlockedRegions();
+    for (const { img, region } of this.regionStructures) {
+      const show = open.has(region);
+      if (show && !img.visible && reveal) {
+        img.setVisible(true).setAlpha(0);
+        this.tweens.add({ targets: img, alpha: 1, duration: 900 });
+      } else img.setVisible(show);
+    }
     const grid: RegionGrid = { ids: this.regionIds, rows: this.regionRows };
     for (let y = 0; y < this.map.height; y++)
       for (let x = 0; x < this.map.width; x++) {

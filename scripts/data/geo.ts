@@ -161,12 +161,19 @@ export const REGION_LOOKS: Record<
   string,
   Record<string, { kind: 'forest' | 'sakura' | 'ash'; seed?: number; radius?: number }>
 > = {
-  // 2026-09-30「一旦 地面は エリアの 境界以外は 全部 草原に」→ 青森は FIELD_ALL_GRASS に して 見た目は つかわない
-  aomori: {},
+  // 2026-10-01「地面は 草原で ある 必要は ない。土地に あわせて」→ 地面は 本物の 地形（森・山・たはた・すなはま）に もどし、
+  // 白神山地と 奥入瀬は ブナの 森、弘前城は さくら、恐山は はいいろの 砂地と ゆけむり
+  aomori: {
+    shirakami: { kind: 'forest' },
+    oirase: { kind: 'forest' },
+    hirosaki: { kind: 'sakura' },
+    osorezan: { kind: 'ash', seed: 0, radius: 8 },
+  },
 };
 
 /** フィールドの 地面を ぜんぶ 草原に する 県（エリアの さかいの 山なみ・道・建物・海・湖は べつ） */
-export const FIELD_ALL_GRASS: ReadonlySet<string> = new Set(['aomori']);
+// 2026-10-01 青森も 土地に あわせた 地面に もどした（いまは どの 県も つかって いない）
+export const FIELD_ALL_GRASS: ReadonlySet<string> = new Set<string>([]);
 
 /** 名所エリアの 建物（通れない）。大きさは マスで［よこ, たて］ */
 export type StructureKind =
