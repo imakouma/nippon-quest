@@ -35,5 +35,9 @@ export const areaBossFlag = (areaId: string): string => `boss.${areaId}`;
 /** 裏ステージの ラスボス（歴史上の 人物）を 倒した しるし（progress.eventsDone） */
 export const lastBossFlag = (areaId: string): string => `lastboss.${areaId}`;
 
+/** 名所エリアの ぬしを 倒した しるし（progress.eventsDone）。この エリアが openedBy の 関所が ひらく */
+export const regionBossFlag = (areaId: string, regionId: string): string =>
+  `regionboss.${areaId}.${regionId}`;
+
 /** dex.motifs に入れる「名所スタンプ」の id。スタンプを持っている＝その名所を見つけた */
 export const motifStamp = (areaId: string, motifId: string): string => `${areaId}.${motifId}`;

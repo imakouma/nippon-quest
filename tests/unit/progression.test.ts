@@ -92,3 +92,34 @@ describe('名所イベントの報酬（GDD §7）', () => {
     expect(gs.dex.motifs).toEqual(['aomori.towada-ko']);
   });
 });
+
+describe('名所エリア（青森）', () => {
+  it('エリアの 中では その エリアの 表、地面の 表が あれば そちら、無い エリアの 地面は エリアの field', async () => {
+    const { encounterTable } = await import('../../src/core/battle/setup');
+    const { content } = await import('./helpers');
+    const c = await content();
+    const aomori = c.areas.get('aomori')!;
+    const ids = (t: ReturnType<typeof encounterTable>) => t?.table.map((x) => x.monsterId) ?? [];
+    expect(ids(encounterTable(aomori, 'field', 'shore', 'towada'))).toContain('aomori-himemassu');
+    expect(ids(encounterTable(aomori, 'field', 'grass', 'hirosaki'))).toContain('aomori-sakurapon');
+    // 弘前城エリアに みずべの 表は 無い → エリアの field
+    expect(ids(encounterTable(aomori, 'field', 'shore', 'hirosaki'))).toContain('aomori-sakurapon');
+    // エリアの 外（ダンジョン）は ふつうの 表
+    expect(encounterTable(aomori, 'dungeon', null, null)?.region).toBeUndefined();
+  });
+
+  it('関所で すべての エリアが つながり、さいしょの エリアから じゅんばんに ひらける', async () => {
+    const { content } = await import('./helpers');
+    const c = await content();
+    const a = c.areas.get('aomori')!;
+    const ids = a.regions.map((r) => r.id);
+    const open = new Set(a.regions.filter((r) => r.start).map((r) => r.id));
+    expect(open.size).toBe(1);
+    // ぬしを たおせる エリアから 関所を ひらいて いく
+    for (let k = 0; k < ids.length; k++)
+      for (const g of a.regionGates)
+        if (open.has(g.openedBy) && g.between.some((id) => open.has(id))) g.between.forEach((id) => open.add(id));
+    expect([...open].sort()).toEqual([...ids].sort());
+    for (const r of a.regions) expect(c.monsters.has(r.boss!.monsterId), r.id).toBe(true);
+  });
+});

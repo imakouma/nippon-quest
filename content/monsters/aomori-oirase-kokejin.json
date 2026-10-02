@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-oirase-kokejin",
+  "name": "オイラセコケジン",
+  "area": "aomori",
+  "motifId": "oirase",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 48,
+    "mp": 10,
+    "atk": 12,
+    "def": 11,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.2,
+    "spd": 1.3,
+    "wis": 0.9
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 32,
+  "gold": 22,
+  "spriteKey": "mon.aomori-oirase-kokejin",
+  "dexBlurb": "コケッピが しんかした すがた。ながれの 音[おと]を ききながら 何百年[なんびゃくねん]も かけて 大[おお]きく なった、こけの 大男[おおおとこ]。"
+}

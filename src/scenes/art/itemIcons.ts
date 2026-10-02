@@ -1199,6 +1199,10 @@ const RULES: readonly [RegExp, ItemShape, Pal | ((id: string) => Pal)][] = [
   [/doki-kakera/, 'shard', pal(NQ.tan, NQ.brown)],
   [/mizu-no-kakera/, 'shard', pal(NQ.sky, NQ.ice)],
   [/yakusugi-no-kakera/, 'log', pal(NQ.brown, NQ.tan)],
+  [/ryu-no-uroko/, 'shard', pal(NQ.teal, NQ.aqua)],
+  [/sakura-no-hanabira/, 'herb', pal(NQ.blush, NQ.white)],
+  [/-jo-no-kawara/, 'block', pal(NQ.slate, NQ.silver)],
+  [/-no-koke$/, 'herb', pal(NQ.green, NQ.lime)],
   [/ashitaba/, 'herb', pal(NQ.leaf, NQ.lime)],
   [/kiba/, 'fang', pal(NQ.paper)],
 ];

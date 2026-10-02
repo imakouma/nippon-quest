@@ -129,6 +129,133 @@ export const DUNGEON_SPOTS: Record<string, LonLat> = {
 };
 
 /** content/prefectures/*.json の events[].trigger.objectName → 実際の場所 */
+/**
+ * 名所エリアの たね（content/prefectures/<県>.json の regions の id → 緯度経度。1 つ目の 場所の そばに エリアの ぬしが 立つ）。
+ * scaffold-maps が この たねから 陸を 歩いて ちかい じゅんに エリアを わけ、さかいを 山なみで かこむ
+ */
+export const REGION_SEEDS: Record<string, Record<string, LonLat[]>> = {
+  aomori: {
+    sannai: [
+      [140.697, 40.811], // 三内丸山遺跡
+      [140.738, 40.831], // 青森市（ねぶたの家）
+    ],
+    hirosaki: [
+      [140.4645, 40.6075], // 弘前城
+      [140.44, 40.59], // りんご公園
+    ],
+    shirakami: [[140.15, 40.47]], // 白神山地
+    towada: [
+      [140.9, 40.5], // 十和田湖
+      [141.03, 40.56], // 奥入瀬
+    ],
+    hachinohe: [[141.49, 40.51]], // 八戸
+    shimokita: [
+      [140.95, 41.5], // 大間
+      [141.09, 41.325], // 恐山
+    ],
+  },
+};
+
+/**
+ * 名所エリアの 見た目（scaffold-maps が 地面の タイルを かえる）：
+ *   forest＝草原・たはたを 森に（白神山地の ブナの 森）／sakura＝草原に さくらの 木（弘前城）／
+ *   ash＝たねの seed 番目の まわり radius マスを はいいろの 砂地と ゆけむりに（恐山）
+ */
+export const REGION_LOOKS: Record<
+  string,
+  Record<string, { kind: 'forest' | 'sakura' | 'ash'; seed?: number; radius?: number }>
+> = {
+  // 2026-09-30「一旦 地面は エリアの 境界以外は 全部 草原に」→ 青森は FIELD_ALL_GRASS に して 見た目は つかわない
+  aomori: {},
+};
+
+/** フィールドの 地面を ぜんぶ 草原に する 県（エリアの さかいの 山なみ・道・建物・海・湖は べつ） */
+export const FIELD_ALL_GRASS: ReadonlySet<string> = new Set(['aomori']);
+
+/** 名所エリアの 建物（通れない）。大きさは マスで［よこ, たて］ */
+export type StructureKind =
+  'yagura' | 'tateana' | 'takayuka' | 'longhouse' | 'kuri' | 'dogu' | 'stones' | 'doki';
+export const STRUCTURE_SIZE: Readonly<Record<StructureKind, [number, number]>> = {
+  yagura: [3, 3],
+  tateana: [2, 2],
+  takayuka: [2, 2],
+  longhouse: [4, 2],
+  /** クリの木（三内丸山の 人は クリを そだてて いた） */
+  kuri: [1, 1],
+  /** 大きな 板状土偶の 像 */
+  dogu: [2, 2],
+  /** 環状配石（石を わに ならべた 所） */
+  stones: [3, 3],
+  /** 円筒土器 */
+  doki: [1, 1],
+};
+
+/**
+ * 名所エリアの むら：at（緯度経度）の まわりに 建物を ならべる（dx・dy は 建物の 左上。ふさがって いれば 近くの 空き地）。
+ * 三内丸山遺跡エリア：大型掘立柱建物（六本柱の やぐら）・大型竪穴住居・高床倉庫・竪穴住居の むらと、津軽の 小さな むら
+ */
+export const REGION_VILLAGES: Record<
+  string,
+  Record<string, { at: LonLat; buildings: { kind: StructureKind; dx: number; dy: number }[] }[]>
+> = {
+  aomori: {
+    sannai: [
+      {
+        at: [140.697, 40.811], // 三内丸山遺跡（町の 入口が 東に あるので、むらは 西がわに まとめる）
+        buildings: [
+          { kind: 'yagura', dx: -10, dy: -6 },
+          { kind: 'longhouse', dx: -17, dy: -5 },
+          { kind: 'takayuka', dx: -5, dy: -6 },
+          { kind: 'takayuka', dx: -5, dy: -2 },
+          { kind: 'dogu', dx: -13, dy: -1 },
+          { kind: 'stones', dx: -22, dy: -1 },
+          { kind: 'doki', dx: -8, dy: -1 },
+          { kind: 'doki', dx: -18, dy: -1 },
+          { kind: 'tateana', dx: -18, dy: 4 },
+          { kind: 'tateana', dx: -14, dy: 4 },
+          { kind: 'tateana', dx: -10, dy: 3 },
+          { kind: 'tateana', dx: -16, dy: 8 },
+          { kind: 'tateana', dx: -12, dy: 8 },
+          { kind: 'tateana', dx: -8, dy: 7 },
+          // クリの 林
+          { kind: 'kuri', dx: -26, dy: -7 },
+          { kind: 'kuri', dx: -24, dy: -9 },
+          { kind: 'kuri', dx: -22, dy: -6 },
+          { kind: 'kuri', dx: -28, dy: -4 },
+          { kind: 'kuri', dx: -25, dy: -3 },
+          { kind: 'kuri', dx: -21, dy: -9 },
+          { kind: 'kuri', dx: -3, dy: 6 },
+          { kind: 'kuri', dx: -1, dy: 8 },
+          { kind: 'kuri', dx: -5, dy: 10 },
+          { kind: 'kuri', dx: -2, dy: 11 },
+        ],
+      },
+      {
+        at: [140.45, 41.0], // 津軽半島の むら
+        buildings: [
+          { kind: 'tateana', dx: 0, dy: 0 },
+          { kind: 'tateana', dx: 4, dy: 1 },
+          { kind: 'takayuka', dx: 1, dy: 4 },
+          { kind: 'doki', dx: 5, dy: 5 },
+          { kind: 'kuri', dx: -3, dy: 3 },
+          { kind: 'kuri', dx: -2, dy: 6 },
+        ],
+      },
+      {
+        at: [140.6, 40.72], // 青森市の 南の むら
+        buildings: [
+          { kind: 'tateana', dx: 0, dy: 0 },
+          { kind: 'tateana', dx: 3, dy: 3 },
+          { kind: 'tateana', dx: -3, dy: 3 },
+          { kind: 'dogu', dx: 0, dy: 6 },
+          { kind: 'kuri', dx: 5, dy: -1 },
+          { kind: 'kuri', dx: 6, dy: 2 },
+        ],
+      },
+    ],
+  },
+};
+
 export const EVENT_SPOTS: Record<string, LonLat> = {
   ev_ringoen: [140.44, 40.59], // 弘前のりんご公園
   ev_sannai: [140.697, 40.811], // 三内丸山遺跡

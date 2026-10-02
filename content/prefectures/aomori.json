@@ -111,93 +111,14 @@
         {
           "monsterId": "aomori-doguukun",
           "weight": 15
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "farm",
-      "table": [
-        {
-          "monsterId": "aomori-ringoron",
-          "weight": 70
         },
         {
-          "monsterId": "aomori-nebutan",
-          "weight": 30
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "forest",
-      "table": [
-        {
-          "monsterId": "aomori-bunakko",
-          "weight": 45
-        },
-        {
-          "monsterId": "aomori-itakodori",
-          "weight": 22
-        },
-        {
-          "monsterId": "aomori-ringoron",
+          "monsterId": "aomori-sakurapon",
           "weight": 20
         },
         {
-          "monsterId": "aomori-tsugaru-nurin",
-          "weight": 13
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "mountain",
-      "table": [
-        {
-          "monsterId": "aomori-itakodori",
-          "weight": 45
-        },
-        {
-          "monsterId": "aomori-doguukun",
-          "weight": 30
-        },
-        {
-          "monsterId": "aomori-bunakko",
-          "weight": 25
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "beach",
-      "table": [
-        {
-          "monsterId": "aomori-umi-nyan",
-          "weight": 50
-        },
-        {
-          "monsterId": "aomori-magurodo",
-          "weight": 50
-        }
-      ],
-      "stepsPerCheck": 12,
-      "rate": 0.25
-    },
-    {
-      "zone": "shore",
-      "table": [
-        {
-          "monsterId": "aomori-umi-nyan",
-          "weight": 50
-        },
-        {
-          "monsterId": "aomori-bunakko",
-          "weight": 50
+          "monsterId": "aomori-senbein",
+          "weight": 15
         }
       ],
       "stepsPerCheck": 12,
@@ -221,10 +142,158 @@
         {
           "monsterId": "aomori-tsugaru-nurin",
           "weight": 13
+        },
+        {
+          "monsterId": "aomori-senbein",
+          "weight": 15
+        },
+        {
+          "monsterId": "aomori-kokeppi",
+          "weight": 10
         }
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "sannai",
+      "table": [
+        {
+          "monsterId": "aomori-doguukun",
+          "weight": 40
+        },
+        {
+          "monsterId": "aomori-nebutan",
+          "weight": 35
+        },
+        {
+          "monsterId": "aomori-ringoron",
+          "weight": 25
+        },
+        {
+          "monsterId": "aomori-umi-nyan",
+          "weight": 60
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hirosaki",
+      "table": [
+        {
+          "monsterId": "aomori-ringoron",
+          "weight": 40
+        },
+        {
+          "monsterId": "aomori-sakurapon",
+          "weight": 35
+        },
+        {
+          "monsterId": "aomori-tsugaru-nurin",
+          "weight": 25
+        },
+        {
+          "monsterId": "aomori-bunakko",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "shirakami",
+      "table": [
+        {
+          "monsterId": "aomori-bunakko",
+          "weight": 50
+        },
+        {
+          "monsterId": "aomori-kokeppi",
+          "weight": 30
+        },
+        {
+          "monsterId": "aomori-itakodori",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "towada",
+      "table": [
+        {
+          "monsterId": "aomori-kokeppi",
+          "weight": 45
+        },
+        {
+          "monsterId": "aomori-ringoron",
+          "weight": 30
+        },
+        {
+          "monsterId": "aomori-bunakko",
+          "weight": 25
+        },
+        {
+          "monsterId": "aomori-himemassu",
+          "weight": 70
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hachinohe",
+      "table": [
+        {
+          "monsterId": "aomori-senbein",
+          "weight": 50
+        },
+        {
+          "monsterId": "aomori-doguukun",
+          "weight": 25
+        },
+        {
+          "monsterId": "aomori-umi-nyan",
+          "weight": 25
+        },
+        {
+          "monsterId": "aomori-magurodo",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "shimokita",
+      "table": [
+        {
+          "monsterId": "aomori-itakodori",
+          "weight": 50
+        },
+        {
+          "monsterId": "aomori-umi-nyan",
+          "weight": 30
+        },
+        {
+          "monsterId": "aomori-doguukun",
+          "weight": 20
+        },
+        {
+          "monsterId": "aomori-magurodo",
+          "weight": 60
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "aomori-boss-tsugaru-no-nushi",
@@ -252,13 +321,8 @@
       ],
       "question": {
         "subject": "sansu",
-        "gradeRange": [
-          1,
-          2
-        ],
-        "tags": [
-          "theme:ringo"
-        ],
+        "gradeRange": [1, 2],
+        "tags": ["theme:ringo"],
         "type": "number-build"
       },
       "rewardByScore": [
@@ -327,14 +391,8 @@
       ],
       "question": {
         "subject": "shakai",
-        "gradeRange": [
-          3,
-          6
-        ],
-        "tags": [
-          "prefecture:aomori",
-          "event:sannai"
-        ],
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:aomori", "event:sannai"],
         "type": "sort-order"
       },
       "rewardByScore": [
@@ -393,34 +451,23 @@
       ],
       "question": {
         "subject": "eigo",
-        "gradeRange": [
-          1,
-          3
-        ],
-        "tags": [
-          "theme:sea"
-        ],
+        "gradeRange": [1, 3],
+        "tags": ["theme:sea"],
         "type": "picture-word"
       },
       "rewardByScore": [
         {
           "min": 1,
           "reward": {
-            "recipes": [
-              "rc-maguro-zutsuki"
-            ],
-            "skills": [
-              "sk-abc-shout"
-            ],
+            "recipes": ["rc-maguro-zutsuki"],
+            "skills": ["sk-abc-shout"],
             "xp": 30
           }
         },
         {
           "min": 0.5,
           "reward": {
-            "recipes": [
-              "rc-maguro-zutsuki"
-            ],
+            "recipes": ["rc-maguro-zutsuki"],
             "xp": 15
           }
         },
@@ -449,22 +496,15 @@
       ],
       "question": {
         "subject": "rika",
-        "gradeRange": [
-          4,
-          4
-        ],
-        "tags": [
-          "theme:water"
-        ],
+        "gradeRange": [4, 4],
+        "tags": ["theme:water"],
         "type": "experiment"
       },
       "rewardByScore": [
         {
           "min": 1,
           "reward": {
-            "skills": [
-              "sk-shiraberu"
-            ],
+            "skills": ["sk-shiraberu"],
             "items": [
               {
                 "itemId": "aomori-mizu-no-kakera",
@@ -477,9 +517,7 @@
         {
           "min": 0.5,
           "reward": {
-            "skills": [
-              "sk-shiraberu"
-            ],
+            "skills": ["sk-shiraberu"],
             "xp": 15
           }
         },
@@ -508,34 +546,23 @@
       ],
       "question": {
         "subject": "kokugo",
-        "gradeRange": [
-          1,
-          2
-        ],
-        "tags": [
-          "theme:osorezan"
-        ],
+        "gradeRange": [1, 2],
+        "tags": ["theme:osorezan"],
         "type": "kanji-trace"
       },
       "rewardByScore": [
         {
           "min": 1,
           "reward": {
-            "skills": [
-              "sk-kanji-barrier"
-            ],
-            "unlockMonsters": [
-              "aomori-itakodori"
-            ],
+            "skills": ["sk-kanji-barrier"],
+            "unlockMonsters": ["aomori-itakodori"],
             "xp": 30
           }
         },
         {
           "min": 0.5,
           "reward": {
-            "skills": [
-              "sk-kanji-barrier"
-            ],
+            "skills": ["sk-kanji-barrier"],
             "xp": 15
           }
         },
@@ -603,9 +630,7 @@
       "giverNpc": "npc-aomori-board",
       "condition": "collect:aomori-ringo:10",
       "reward": {
-        "recipes": [
-          "rc-ringo-no-yoroi"
-        ]
+        "recipes": ["rc-ringo-no-yoroi"]
       }
     },
     {
@@ -690,5 +715,90 @@
         ]
       }
     ]
-  }
+  },
+  "regions": [
+    {
+      "id": "sannai",
+      "name": "三内丸山遺跡[さんないまるやまいせき]エリア",
+      "motifs": ["sannai-maruyama", "nebuta"],
+      "start": true,
+      "boss": {
+        "monsterId": "aomori-dogu-jin",
+        "level": 3,
+        "line": "ここは じょうもんの むらじゃ。わしに かてたら、弘前[ひろさき]への 関所[せきしょ]を あけて やろう！"
+      }
+    },
+    {
+      "id": "hirosaki",
+      "name": "弘前城[ひろさきじょう]エリア",
+      "motifs": ["hirosaki-jo", "ringo", "tsugaru-nuri"],
+      "boss": {
+        "monsterId": "aomori-oka-musha",
+        "level": 5,
+        "line": "さくらの 城[しろ]を まもる むしゃとは わたしの こと。いざ、しょうぶ！"
+      }
+    },
+    {
+      "id": "shirakami",
+      "name": "白神山地[しらかみさんち]エリア",
+      "motifs": ["shirakami"],
+      "boss": {
+        "monsterId": "aomori-buna-taiju",
+        "level": 7,
+        "line": "ブナの 森[もり]は 8000年[ねん]も つづいて きた。森を あらす ものは ゆるさん！"
+      }
+    },
+    {
+      "id": "towada",
+      "name": "十和田湖[とわだこ]・奥入瀬[おいらせ]エリア",
+      "motifs": ["towada-ko", "oirase"],
+      "boss": {
+        "monsterId": "aomori-hachiro-ryu",
+        "level": 9,
+        "line": "わしは 八郎太郎[はちろうたろう]。この 湖[みずうみ]の ぬしじゃ。ためして やろう！"
+      }
+    },
+    {
+      "id": "hachinohe",
+      "name": "八戸[はちのへ]エリア",
+      "motifs": ["senbeijiru"],
+      "boss": {
+        "monsterId": "aomori-nabe-shogun",
+        "level": 11,
+        "line": "あつあつの せんべい汁[じる]を くらえ！ ここを とおりたければ わしに かて！"
+      }
+    },
+    {
+      "id": "shimokita",
+      "name": "下北[しもきた]・恐山[おそれざん]エリア",
+      "motifs": ["oma-maguro", "osorezan", "tsugaru-kaikyo"],
+      "boss": {
+        "monsterId": "aomori-kuro-magurodo",
+        "level": 13,
+        "line": "大間[おおま]の 海[うみ]の ぬし、クロマグロードだ！ 一本[いっぽん]づりで つれるかな？"
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": ["sannai", "hirosaki"],
+      "openedBy": "sannai"
+    },
+    {
+      "between": ["hirosaki", "shirakami"],
+      "openedBy": "hirosaki"
+    },
+    {
+      "between": ["hirosaki", "towada"],
+      "openedBy": "shirakami"
+    },
+    {
+      "between": ["towada", "hachinohe"],
+      "openedBy": "towada"
+    },
+    {
+      "between": ["hachinohe", "shimokita"],
+      "openedBy": "hachinohe"
+    }
+  ]
 }

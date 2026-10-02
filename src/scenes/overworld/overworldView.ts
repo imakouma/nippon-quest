@@ -35,8 +35,19 @@ export const VIEW = {
   ORCHARD_PEACH: 47,
   /** + すなはまの しるし（となりが すなはま・海の がわ。草の がわを まるく） */
   SAND_EDGE: 48,
+  /** 名所エリアの さかいの 山なみ（通れない くらい 岩山） */
+  RIDGE: 64,
+  RIDGE2: 65,
+  /** さくらの 木（弘前城エリア） */
+  SAKURA: 66,
+  /** 恐山の はいいろの 砂地・ゆけむり */
+  ASH: 67,
+  ASH2: 68,
+  STEAM: 69,
+  /** + 道の しるし（となりが 道の がわ。北 1・東 2・南 4・西 8） */
+  ROAD: 72,
 } as const;
-export const VIEW_COUNT = 64;
+export const VIEW_COUNT = 88;
 
 /** background の 番号（fieldArt.ts・core/world/ground.ts） */
 const WATER = 3;
@@ -72,6 +83,16 @@ export function viewTileAt(bg: readonly number[], w: number, h: number, i: numbe
   if (ORCHARD.has(t)) return t === 158 ? VIEW.ORCHARD_PEACH : VIEW.ORCHARD;
   if (MOUNTAIN.has(t)) return t === 12 ? VIEW.PEAK_SNOW : r % 3 === 0 ? VIEW.PEAK2 : VIEW.PEAK;
   switch (t) {
+    case 159:
+      return r % 3 === 0 ? VIEW.RIDGE2 : VIEW.RIDGE;
+    case 160:
+      return VIEW.SAKURA;
+    case 161:
+      return r % 4 === 0 ? VIEW.ASH2 : VIEW.ASH;
+    case 162:
+      return VIEW.STEAM;
+    case 163:
+      return VIEW.ROAD + mask((n) => n === 163);
     case 1:
     case 13:
     case 14:

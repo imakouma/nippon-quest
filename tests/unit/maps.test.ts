@@ -100,7 +100,24 @@ describe('マップ', () => {
       ).toBe(true);
     }
     const seen = reachable(key, m);
-    for (const o of objs) expect(seen.has(tileIndex(m, o)), `${key} の ${o.name} に行けない`).toBe(true);
+    for (const o of objs) {
+      // 建物（名所エリアの むら）は 通れない。となりまで 行ければ よい
+      if (o.type === 'structure') {
+        const i = tileIndex(m, o);
+        const near = [i - 1, i + 1, i - m.width, i + m.width * 3, i + m.width * 2];
+        expect(
+          near.some((j) => seen.has(j)) ||
+            [...seen].some(
+              (j) =>
+                Math.abs((j % m.width) - (i % m.width)) <= 4 &&
+                Math.abs(Math.floor(j / m.width) - Math.floor(i / m.width)) <= 4,
+            ),
+          `${key} の ${o.name} の そばに 行けない`,
+        ).toBe(true);
+        continue;
+      }
+      expect(seen.has(tileIndex(m, o)), `${key} の ${o.name} に行けない`).toBe(true);
+    }
   });
 
   it('県のフィールドには中ボスの場所が 1 つ、名所の看板（フィールド・離島）は その県の motifs を指している', () => {

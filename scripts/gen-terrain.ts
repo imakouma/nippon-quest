@@ -59,6 +59,11 @@ const FIELD = {
   maxH: Math.round(44 * WALK_SCALE),
   landTiles: Math.round(700 * WALK_SCALE ** 2),
 };
+/**
+ * 名所エリアに 分けた 県は、エリアごとに 歩ける 広さが いるので さらに 広げる（縦横の 倍率）。
+ * 2026-09-30 に 青森を 名所エリアに 分けたとき「島を 広くしても かまわない」と 言われた
+ */
+const FIELD_EXTRA_SCALE: Readonly<Record<string, number>> = { aomori: 1.5 };
 /** にほんちずの地方の図（見るだけの地図）は、広げない */
 const ISLAND = { margin: 2, maxW: 44, maxH: 46 };
 const ENCLAVE = { margin: 2, maxW: Math.round(44 * WALK_SCALE), maxH: Math.round(34 * WALK_SCALE) };
@@ -420,7 +425,12 @@ async function main(): Promise<void> {
       .filter((q) => bboxIntersects(q.bbox, bbox))
       .reduce((a, q) => a + q.areaKm2, 0);
     const [wkm, hkm] = sizeKm(bbox);
-    const t = Math.max(Math.sqrt(landKm2 / FIELD.landTiles), wkm / FIELD.maxW, hkm / FIELD.maxH);
+    const k = FIELD_EXTRA_SCALE[p.id] ?? 1;
+    const t = Math.max(
+      Math.sqrt(landKm2 / (FIELD.landTiles * k * k)),
+      wkm / (FIELD.maxW * k),
+      hkm / (FIELD.maxH * k),
+    );
     const key = `${p.id}-field`;
     maps[key] = buildOwn('field', p.id, layoutPanels([bbox], t, FIELD.margin));
     report(key, maps[key]);

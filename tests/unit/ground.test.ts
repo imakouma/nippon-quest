@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { zoneForGround } from '../../src/core/battle/setup';
 import { loadContent, type ContentIndex } from '../../src/core/content/loader';
-import { GROUND_TILES, GROUNDS, groundOfTile, type Ground } from '../../src/core/world/ground';
+import { GROUND_TILES, GROUNDS, groundOfTile, RIDGE_TILE, type Ground } from '../../src/core/world/ground';
 import { read } from './helpers';
 
 const MAPS = fileURLToPath(new URL('../../maps/', import.meta.url));
@@ -30,20 +30,21 @@ describe('フィールドの 地面の 性質（docs/00 §2.2）', () => {
   });
 
   it('フィールドでは 地面の 出現表。くさはら・表の 無い 地面は field、ダンジョンは そのまま', () => {
-    const aomori = c.areas.get('aomori')!;
-    expect(zoneForGround(aomori, 'field', 'beach')).toBe('beach');
-    expect(zoneForGround(aomori, 'field', 'forest')).toBe('forest');
-    expect(zoneForGround(aomori, 'field', 'grass')).toBe('field');
-    expect(zoneForGround(aomori, 'field', null)).toBe('field');
-    expect(zoneForGround(aomori, 'dungeon', 'beach')).toBe('dungeon');
+    // 青森は 名所エリアの 表（region）に したので、地面の 表の 例は 岩手
+    const iwate = c.areas.get('iwate')!;
+    expect(zoneForGround(iwate, 'field', 'beach')).toBe('beach');
+    expect(zoneForGround(iwate, 'field', 'forest')).toBe('forest');
+    expect(zoneForGround(iwate, 'field', 'grass')).toBe('field');
+    expect(zoneForGround(iwate, 'field', null)).toBe('field');
+    expect(zoneForGround(iwate, 'dungeon', 'beach')).toBe('dungeon');
     // 秋田は すなはまの 表が 無いので、くさはらの 表
     expect(zoneForGround(c.areas.get('akita')!, 'field', 'beach')).toBe('field');
   });
 
-  it('県の フィールドの 陸は どの マスも どれかの 地面（3 は 海・湖・県の外）', () => {
+  it('県の フィールドの 陸は どの マスも どれかの 地面（3 は 海・湖・県の外、RIDGE_TILE は 名所エリアの さかい）', () => {
     for (const a of c.areas.values()) {
       if (!a.mapKeys) continue;
-      const bad = background(a.mapKeys.field).filter((t) => t !== 3 && !groundOfTile(t));
+      const bad = background(a.mapKeys.field).filter((t) => t !== 3 && t !== RIDGE_TILE && !groundOfTile(t));
       expect(bad, a.id).toEqual([]);
     }
   });
@@ -80,10 +81,11 @@ describe('フィールドの 地面の 性質（docs/00 §2.2）', () => {
     }
   });
 
-  it('東北の 県は もり・やま・たはたの 出現表が あり、くさはらと 顔ぶれが ちがう', () => {
+  it('東北の 県は もり・やま・たはたの 出現表が あり、くさはらと 顔ぶれが ちがう（名所エリアの 県は エリアの 表なので のぞく）', () => {
     const tohoku = c.world.islands.find((i) => i.id === 'tohoku')!;
     for (const id of tohoku.areas) {
       const a = c.areas.get(id)!;
+      if (a.regions.length) continue;
       const who = (zone: string) =>
         a.encounters
           .find((e) => e.zone === zone)

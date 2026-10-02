@@ -66,6 +66,11 @@ export const motifSchema = z.object({
 
 export const encounterTableSchema = z.object({
   zone: z.string().describe('field / dungeon / マップ固有ゾーン名'),
+  region: idSchema
+    .optional()
+    .describe(
+      '名所エリア（regions の id）。あれば その エリアの 中だけで つかう（エリアの 表が 無い 地面は region なしの 表）',
+    ),
   table: z.array(z.object({ monsterId: idSchema, weight: z.number().positive() })).min(1),
   stepsPerCheck: z.number().int().positive().default(12),
   rate: z.number().min(0).max(1).default(0.25),
@@ -136,6 +141,31 @@ export const npcSchema = z.object({
   dialogue: z.array(dialogueLineSchema).min(1),
 });
 
+/**
+ * 名所エリア：県の フィールドを 名所ごとの エリア（ステージ）に わける。エリアの さかいは 山なみで かこまれ、
+ * 関所（regionGates）だけ とおれる。関所は エリアの ぬしを たおすと ひらく（さいしょは start の エリアだけ）
+ */
+export const regionSchema = z.object({
+  id: idSchema,
+  name: rubyTextSchema.describe('エリアの 名前（例：弘前城[ひろさきじょう]エリア）'),
+  motifs: z.array(idSchema).describe('この エリアの 名所（motifs の id）'),
+  boss: z
+    .object({
+      monsterId: idSchema,
+      level: z.number().int().positive(),
+      line: rubyTextSchema.optional().describe('はなしかけた ときの ぬしの ひとこと'),
+    })
+    .optional()
+    .describe(
+      'エリアの ぬし（さいしょの 名所の そばに 立つ。たおすと openedBy が この エリアの 関所が ひらく）',
+    ),
+  start: z.boolean().default(false),
+});
+export const regionGateSchema = z.object({
+  between: z.tuple([idSchema, idSchema]),
+  openedBy: idSchema.describe('この エリアの ぬしを たおすと ひらく'),
+});
+
 export const areaSchema = z.object({
   id: idSchema,
   name: rubyTextSchema,
@@ -145,6 +175,8 @@ export const areaSchema = z.object({
   mapKeys: z.object({ field: z.string(), town: z.string(), dungeon: z.string() }).optional(),
   motifs: z.array(motifSchema),
   encounters: z.array(encounterTableSchema).default([]),
+  regions: z.array(regionSchema).default([]).describe('名所エリア（無い 県は フィールドが 1 つの エリア）'),
+  regionGates: z.array(regionGateSchema).default([]),
   boss: idSchema.optional(),
   midBoss: idSchema
     .optional()
@@ -457,6 +489,8 @@ export type XpTable = z.infer<typeof xpTableSchema>;
 export type ElementTable = z.infer<typeof elementTableSchema>;
 export type Settings = z.infer<typeof settingsSchema>;
 export type Unit = z.infer<typeof unitSchema>;
+export type Region = z.infer<typeof regionSchema>;
+export type RegionGate = z.infer<typeof regionGateSchema>;
 export type ArenaRival = z.infer<typeof arenaRivalSchema>;
 
 /** gen-schemas / validate-content が走査する「ファイル種別 → スキーマ」の対応表 */

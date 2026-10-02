@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-nabe-shogun",
+  "name": "ナベショウグン",
+  "area": "aomori",
+  "motifId": "senbeijiru",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 46,
+    "mp": 10,
+    "atk": 14,
+    "def": 9,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.2,
+    "spd": 1.3,
+    "wis": 0.9
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 32,
+  "gold": 22,
+  "spriteKey": "mon.aomori-nabe-shogun",
+  "dexBlurb": "センベインが しんかした すがた。おなべを かぶった せんべい汁の しょうぐん。あつあつの 汁で みんなを げんきに する。"
+}

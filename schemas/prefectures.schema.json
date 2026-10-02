@@ -102,6 +102,11 @@
                 "type": "string",
                 "description": "field / dungeon / マップ固有ゾーン名"
               },
+              "region": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "名所エリア（regions の id）。あれば その エリアの 中だけで つかう（エリアの 表が 無い 地面は region なしの 表）"
+              },
               "table": {
                 "type": "array",
                 "items": {
@@ -140,6 +145,104 @@
             "required": [
               "zone",
               "table"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "name": {
+                "type": "string",
+                "description": "エリアの 名前（例：弘前城[ひろさきじょう]エリア）"
+              },
+              "motifs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "description": "この エリアの 名所（motifs の id）"
+              },
+              "boss": {
+                "type": "object",
+                "properties": {
+                  "monsterId": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                    "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                  },
+                  "level": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                  },
+                  "line": {
+                    "type": "string",
+                    "description": "はなしかけた ときの ぬしの ひとこと"
+                  }
+                },
+                "required": [
+                  "monsterId",
+                  "level"
+                ],
+                "additionalProperties": false,
+                "description": "エリアの ぬし（さいしょの 名所の そばに 立つ。たおすと openedBy が この エリアの 関所が ひらく）"
+              },
+              "start": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "motifs"
+            ],
+            "additionalProperties": false
+          },
+          "default": [],
+          "description": "名所エリア（無い 県は フィールドが 1 つの エリア）"
+        },
+        "regionGates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "between": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [
+                  {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                    "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                    "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                  }
+                ]
+              },
+              "openedBy": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "この エリアの ぬしを たおすと ひらく"
+              }
+            },
+            "required": [
+              "between",
+              "openedBy"
             ],
             "additionalProperties": false
           },

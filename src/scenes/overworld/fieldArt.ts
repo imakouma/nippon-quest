@@ -755,6 +755,36 @@ function tilesetCanvas(): HTMLCanvasElement {
       tree(r, 1, 1, 6, fruit);
       tree(r, 9, 7, 6, fruit);
     });
+  // 163 道（土の 道）
+  tile(163, (r) => {
+    r(0, 0, 16, 16, NQ.lime);
+    r(4, 0, 8, 16, NQ.sand);
+  });
+  // 159 名所エリアの さかいの 山なみ（通れない。くらい 岩山に 雪）
+  tile(159, (r) => {
+    r(0, 0, 16, 16, NQ.slate);
+    mountain(r, NQ.gray, NQ.night, NQ.white);
+  });
+  // 160 さくらの 木（弘前城エリアの 草原）
+  tile(160, (r) => {
+    r(0, 0, 16, 16, NQ.lime);
+    tree(r, 4, 3, 8, NQ.white);
+  });
+  // 161 恐山の はいいろの 砂地・162 ゆけむりの 出る あな
+  tile(161, (r) => {
+    r(0, 0, 16, 16, NQ.silver);
+    tufts(r, NQ.gray, [
+      [3, 4],
+      [11, 10],
+    ]);
+    r(8, 6, 1, 1, NQ.yellow);
+  });
+  tile(162, (r) => {
+    r(0, 0, 16, 16, NQ.silver);
+    r(5, 10, 6, 3, NQ.gray);
+    r(6, 11, 4, 1, NQ.yellow);
+    r(7, 3, 2, 6, NQ.white);
+  });
   return c;
 }
 
