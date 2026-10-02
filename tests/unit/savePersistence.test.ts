@@ -38,6 +38,14 @@ describe('セーブ永続化', () => {
     expect((storage.get('backup:1') as GameState).player.gold).toBe(20);
   });
 
+  it('保存待ちの間に呼び出し元が状態を変更しても、要求時点の内容を保存する', async () => {
+    const state = fresh(40);
+    const pending = save(1, state);
+    state.player.gold = 999;
+    await pending;
+    expect((storage.get('save:1') as GameState).player.gold).toBe(40);
+  });
+
   it('主データ破損時はバックアップを読み込み、主データも自己修復する', async () => {
     await save(2, fresh(10));
     await save(2, fresh(20));

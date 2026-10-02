@@ -64,18 +64,19 @@ export function summarizeSlot(slot: SlotId, raw: unknown, backup?: unknown): Slo
 }
 
 export async function save(slot: SlotId, state: GameState): Promise<void> {
+  // 呼び出し元が保存待ちの間に同じオブジェクトを変更しても、保存要求時点の内容を固定する。
+  const snapshot = gameStateSchema.parse({
+    ...state,
+    schemaVersion: SCHEMA_VERSION,
+    updatedAt: Date.now(),
+  });
   const previous = saveQueues.get(slot) ?? Promise.resolve();
   const queued = previous
     .catch(() => undefined)
     .then(async () => {
-      const next = gameStateSchema.parse({
-        ...state,
-        schemaVersion: SCHEMA_VERSION,
-        updatedAt: Date.now(),
-      });
       const current = await store.getItem(key(slot));
       if (parsedState(current)) await store.setItem(backupKey(slot), current);
-      await store.setItem(key(slot), next);
+      await store.setItem(key(slot), snapshot);
     });
   saveQueues.set(slot, queued);
   try {
