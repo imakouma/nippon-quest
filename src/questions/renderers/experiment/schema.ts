@@ -50,6 +50,12 @@ export const experimentPayloadSchema = z
         path: ['predict', 'answer'],
         message: 'answer が choices にありません',
       });
+    if (new Set(payload.predict.choices.map((choice) => choice.id)).size !== payload.predict.choices.length)
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['predict', 'choices'],
+        message: 'choice.id が重複しています',
+      });
     const ids = payload.controls.map((control) => control.id);
     if (new Set(ids).size !== ids.length)
       ctx.addIssue({

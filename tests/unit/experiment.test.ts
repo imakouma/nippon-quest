@@ -59,4 +59,21 @@ describe('experiment', () => {
     });
     expect(result.success).toBe(false);
   });
+
+  it('重複した予想選択肢IDを拒否する', () => {
+    const result = experimentPayloadSchema.safeParse({
+      title: 'じっけん',
+      predict: {
+        prompt: 'どうなる？',
+        choices: [
+          { id: 'same', text: 'A' },
+          { id: 'same', text: 'B' },
+        ],
+        answer: 'same',
+      },
+      controls: [{ id: 'x', label: 'X', type: 'toggle' }],
+      outcome: { formula: 'x', label: '結果', visual: 'circuit', visualRange: [0, 1] },
+    });
+    expect(result.success).toBe(false);
+  });
 });
