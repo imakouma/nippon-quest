@@ -24,6 +24,8 @@ export interface ContentManifest {
   generatedAt: string;
   files: Record<ContentKind, string[]>;
   questions: string[];
+  /** Playground の ?q= 直リンクで全問題を読み込まず、該当ファイルだけ取得する索引。 */
+  questionIndex?: Record<string, string>;
 }
 
 export type FileReader = (relPath: string) => Promise<unknown>;
@@ -66,17 +68,17 @@ export function fetchReader(base: string): FileReader {
 }
 
 /** Browser reader optimized for game boot: one generated response instead of ~1,000 JSON requests. */
-export function bundledFetchReader(base: string): FileReader {
+export function bundledFetchReader(base: string, bundleName = 'content-bundle.json'): FileReader {
   const fallback = fetchReader(base);
   let bundlePromise: Promise<Record<string, unknown> | null> | undefined;
   return async (rel) => {
-    bundlePromise ??= fetch(`${base}/content-bundle.json`, { cache: 'no-cache' }).then(async (res) =>
+    bundlePromise ??= fetch(`${base}/${bundleName}`, { cache: 'no-cache' }).then(async (res) =>
       res.ok ? ((await res.json()) as Record<string, unknown>) : null,
     );
     const bundle = await bundlePromise;
     if (!bundle) return fallback(rel);
     if (!Object.prototype.hasOwnProperty.call(bundle, rel))
-      throw new ContentError(rel, 'content-bundle.json にファイルがありません');
+      throw new ContentError(rel, `${bundleName} にファイルがありません`);
     return bundle[rel];
   };
 }

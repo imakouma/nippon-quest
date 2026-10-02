@@ -27,3 +27,18 @@ test('Playground で choice 問題を解くと QuestionResult が返る', async 
   await page.locator('.nq-choice').first().click();
   await expect(page.locator('.pg-result')).toContainText('"score"', { timeout: 10_000 });
 });
+
+test('問題データはタイトルでは取得せず、ゲーム開始時に一度だけ取得する', async ({ page }) => {
+  test.setTimeout(60_000);
+  const requests: string[] = [];
+  page.on('request', (request) => requests.push(new URL(request.url()).pathname));
+  await page.goto('/');
+  await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 20_000 });
+  expect(requests).not.toContain('/content/questions-bundle.json');
+
+  await page.getByRole('menuitem', { name: /はじめから/ }).click();
+  await page.getByRole('button', { name: /スロット 1/ }).click();
+  await page.getByRole('button', { name: 'はじめる' }).click();
+  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  expect(requests.filter((path) => path === '/content/questions-bundle.json')).toHaveLength(1);
+});

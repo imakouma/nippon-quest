@@ -97,6 +97,13 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   }
   await expect(page.locator('.nq-result')).toContainText(/しょうり|勝利/);
   await page.locator('[data-result-close]').click();
+  // 勝利後のレベルアップ等の戦闘メッセージもタップで送る。
+  for (let step = 0; step < 40 && (await page.locator('.nq-battle').isVisible()); step += 1) {
+    const message = page.locator('.nq-box');
+    if (await message.isVisible()) await message.click();
+    await page.waitForTimeout(100);
+  }
+  await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 20_000 });
 
   await expect(page.locator('.nq-dlg')).toBeVisible({ timeout: 20_000 });
   await page.locator('.nq-dlg').click({ position: { x: 420, y: 410 } });

@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import { loadContent, bundledFetchReader, fetchReader, type ContentIndex } from '../core/content/loader';
-import { QuestionBank } from '../questions/engine/bank';
 import { PIXEL_FONT_NAME } from '../ui/fonts';
 import type { GameState } from '../core/state/schema';
 import { setDictionary, type I18nDict } from '../ui/i18n';
@@ -47,15 +46,13 @@ export class BootScene extends Phaser.Scene {
         kanjiGradeTable((grades as { byGrade: Record<string, string> }).byGrade),
         new Set((proper as { names: string[] }).names),
       );
-      const { bank, report } = await QuestionBank.load(content.questionFiles, read);
-      if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
       this.registry.set('content', content);
-      this.registry.set('bank', bank);
+      this.registry.set('questionFiles', content.questionFiles);
       this.game.events.emit('boot:progress', 0.9);
       this.game.events.emit('boot:stage', 'もうすぐ はじまるよ…');
       await waitForFont();
       this.game.events.emit('boot:progress', 1);
-      this.game.events.emit('boot:done', { areas: content.areas.size, questions: bank.size });
+      this.game.events.emit('boot:done', { areas: content.areas.size });
       this.scene.start('Title');
       // 500体超の図鑑画像はタイトル表示を待たせず、別チャンクを読み込んで背後で準備する。
       // メニューを先に開いた場合も monsterMenuArtUrl 側が同じキャッシュへ必要分を生成する。

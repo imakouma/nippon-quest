@@ -113,4 +113,15 @@ describe('content loader', () => {
     await expect(bundledFetchReader('/content')('a.json')).resolves.toEqual({ id: 'fallback' });
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
+
+  it('問題専用 bundle を指定できる', async () => {
+    const fetchMock = vi.fn(async () =>
+      Promise.resolve(new Response(JSON.stringify({ 'questions/a.json': [] }), { status: 200 })),
+    );
+    vi.stubGlobal('fetch', fetchMock);
+    await expect(
+      bundledFetchReader('/content', 'questions-bundle.json')('questions/a.json'),
+    ).resolves.toEqual([]);
+    expect(fetchMock).toHaveBeenCalledWith('/content/questions-bundle.json', { cache: 'no-cache' });
+  });
 });

@@ -8,6 +8,8 @@ import { createNewGame, type NewGameOptions } from './core/state/newGame';
 import { load, save, type SlotId } from './core/state/save';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
+import { bundledFetchReader, fetchReader } from './core/content/loader';
+import { QuestionBank } from './questions/engine/bank';
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 } as const;
@@ -76,9 +78,29 @@ game.events.on('boot:error', (e: unknown) => {
   uiLayer.append(box);
 });
 let activeSlot: SlotId = 1;
+let bankPromise: Promise<QuestionBank> | undefined;
+function ensureQuestionBank(): Promise<QuestionBank> {
+  if (game.registry.get('bank')) return Promise.resolve(game.registry.get('bank') as QuestionBank);
+  bankPromise ??= (async () => {
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+    const read = import.meta.env.DEV
+      ? fetchReader(`${base}/content`)
+      : bundledFetchReader(`${base}/content`, 'questions-bundle.json');
+    const files = game.registry.get('questionFiles') as string[];
+    const { bank, report } = await QuestionBank.load(files, read);
+    if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
+    game.registry.set('bank', bank);
+    return bank;
+  })().catch((error) => {
+    bankPromise = undefined;
+    throw error;
+  });
+  return bankPromise;
+}
+
 game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1) => {
   try {
-    await ensureGameplayScenes(game);
+    await Promise.all([ensureGameplayScenes(game), ensureQuestionBank()]);
     activeSlot = slot;
     const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
     setSfxVolume(next.settings.seVolume);
@@ -93,7 +115,7 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
 
 game.events.on('title:continue', async (slot: SlotId = 1) => {
   try {
-    const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game)]);
+    const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game), ensureQuestionBank()]);
     if (!saved) return;
     activeSlot = slot;
     setSfxVolume(saved.settings.seVolume);

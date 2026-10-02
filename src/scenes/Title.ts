@@ -44,6 +44,7 @@ export class TitleScene extends Phaser.Scene {
   private hasSave = false;
   private slots: SlotSummary[] = SLOTS.map((slot) => ({ slot, exists: false }));
   private selectedSlot: SlotId = 1;
+  private menuView: 'main' | 'slots' | 'setup' = 'main';
 
   constructor() {
     super('Title');
@@ -254,6 +255,7 @@ export class TitleScene extends Phaser.Scene {
   }
 
   private mountMenu(): void {
+    this.menuView = 'main';
     const layer = document.getElementById('ui-layer');
     if (!layer) return;
     if (!this.menuRoot) {
@@ -290,7 +292,8 @@ export class TitleScene extends Phaser.Scene {
       this.hasSave = false;
     }
     this.saveChecked = true;
-    if (this.scene.isActive() && !this.starting) this.mountMenu();
+    // セーブ確認が遅れて完了しても、ユーザーが開いたスロット選択や設定画面を上書きしない。
+    if (this.scene.isActive() && !this.starting && this.menuView === 'main') this.mountMenu();
   }
 
   private continueGame(slot: SlotId): void {
@@ -301,6 +304,7 @@ export class TitleScene extends Phaser.Scene {
 
   private mountSlotPicker(mode: 'new' | 'continue'): void {
     if (!this.menuRoot) return;
+    this.menuView = 'slots';
     render(
       h(SaveSlotSelect, {
         mode,
@@ -318,6 +322,7 @@ export class TitleScene extends Phaser.Scene {
 
   private mountSetup(): void {
     if (!this.menuRoot) return;
+    this.menuView = 'setup';
     render(
       h(NewGameSetup, {
         onCancel: () => this.mountMenu(),
