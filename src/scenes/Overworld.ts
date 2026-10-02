@@ -79,6 +79,7 @@ import {
   nextStop,
   type NextStop,
 } from '../core/progression/route';
+import { canChallengeIslandBoss, completeIsland } from '../core/progression/island';
 import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
 import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
@@ -367,6 +368,7 @@ export class OverworldScene extends Phaser.Scene {
   private regionGates = new Map<number, RegionGate>();
   private regionBosses = new Map<number, RegionBoss>();
   private pendingRegionBoss: RegionBoss | null = null;
+  private pendingIslandBoss: string | null = null;
   /** ダンジョンの おくに いる 県ボス（中ボスと同じ「？」マーク） */
   /** 止まっているか（左上の 窓を 出す）。歩きだすと かくし、HUD_IDLE_MS 止まると 出す */
   private hudIdle = true;
@@ -506,6 +508,7 @@ export class OverworldScene extends Phaser.Scene {
     this.regionGates = new Map();
     this.regionBosses = new Map();
     this.pendingRegionBoss = null;
+    this.pendingIslandBoss = null;
     this.areaBoss = null;
     this.pendingAreaBoss = false;
     this.lastBoss = null;
@@ -2532,7 +2535,9 @@ export class OverworldScene extends Phaser.Scene {
     const wasAreaBoss = this.pendingAreaBoss;
     const wasLastBoss = this.pendingLastBoss;
     const wasRegionBoss = this.pendingRegionBoss;
+    const wasIslandBoss = this.pendingIslandBoss;
     this.pendingRegionBoss = null;
+    this.pendingIslandBoss = null;
     this.pendingMidBoss = false;
     this.pendingAreaBoss = false;
     this.pendingLastBoss = false;
@@ -2554,6 +2559,7 @@ export class OverworldScene extends Phaser.Scene {
     if (wasAreaBoss && p.outcome === 'victory') void this.areaBossDefeated();
     if (wasLastBoss && p.outcome === 'victory') void this.lastBossDefeated();
     if (wasRegionBoss && p.outcome === 'victory') void this.regionBossDefeated(wasRegionBoss);
+    if (wasIslandBoss && p.outcome === 'victory') void this.islandBossDefeated(wasIslandBoss);
   }
 
   // ───────────────────────── 画面（DOM） ─────────────────────────
@@ -3712,10 +3718,56 @@ export class OverworldScene extends Phaser.Scene {
           close();
           this.switchMap(this.content()?.areas.get(areaId)?.mapKeys?.field ?? `${areaId}-field`, 'spawn');
         },
+        onChallengeIslandBoss: (islandId: string) => {
+          close();
+          void this.challengeIslandBoss(islandId);
+        },
         onClose: close,
       }),
       root,
     );
+  }
+
+  /** にほんちずの城から地方ボスへ挑戦する。県のしるし不足・クリア済みなら開始しない。 */
+  private async challengeIslandBoss(islandId: string): Promise<void> {
+    const content = this.content();
+    const gs = this.gs();
+    const island = content?.world.islands.find((candidate) => candidate.id === islandId);
+    const boss = island ? content?.monsters.get(island.bossId) : undefined;
+    if (!content || !gs || !island || !boss || !canChallengeIslandBoss(content.world, islandId, gs.progress))
+      return;
+
+    this.busy = true;
+    this.standStill();
+    const choice = await this.choose(
+      [
+        { speaker: t('field.prologueFairy'), text: t('field.islandBossAsk') },
+        { speaker: boss.name, text: boss.bossPhases?.[0]?.line ?? t('field.bossBlock') },
+      ],
+      [t('ui.yes'), t('ui.no')],
+    );
+    if (choice !== 0) {
+      this.busy = false;
+      return;
+    }
+    this.pendingIslandBoss = islandId;
+    this.busy = false;
+    this.startBattle({ enemyId: boss.id, level: Math.max(1, this.heroLevel()), zone: 'field', isBoss: true });
+  }
+
+  /** 地方ボス勝利時だけ島クリアを記録する。バッグ寸法は islandsCleared に連動して広がる。 */
+  private async islandBossDefeated(islandId: string): Promise<void> {
+    const content = this.content();
+    const gs = this.gs();
+    if (!content || !gs) return;
+    const next = completeIsland(gs, content.world, islandId);
+    if (next === gs) return;
+    this.busy = true;
+    this.setGame(next);
+    await this.wait(650);
+    playSfx('victory');
+    await this.talk([{ text: t('field.islandBossCleared') }, { text: t('field.islandBagGrew') }]);
+    this.busy = false;
   }
 
   /** にほんちずの地方と県。地図は public/worldmap.json、名前は content、進みぐあいはセーブから */
@@ -3732,31 +3784,44 @@ export class OverworldScene extends Phaser.Scene {
     };
     const regions = data.regions.filter((r) => islands.has(r.id));
     regions.sort((a, b) => islands.get(a.id)!.order - islands.get(b.id)!.order);
-    return regions.map((r) => ({
-      id: r.id,
-      name: islands.get(r.id)!.name,
-      width: r.width,
-      height: r.height,
-      rows: r.rows,
-      areas: r.areas.map((a): MapAreaInfo => {
-        const area = content.areas.get(a.id);
-        // 見つけていない名所は、名前を出さない（null）。特産品（イベントの無い たべもの・こうげいひん）は宝箱
-        const stamps = a.stamps.flatMap((id) => {
-          const motif = area?.motifs.find((m) => m.id === id);
-          if (!motif) return [];
-          const box = SPECIALTY_KINDS.has(motif.kind) && !area?.events.some((e) => e.motifId === id);
-          return [{ name: gs?.dex.motifs.includes(motifStamp(a.id, id)) ? kana(motif.name) : null, box }];
-        });
-        return {
-          id: a.id,
-          name: area?.name ?? a.id,
-          capital: a.capital,
-          stamps,
-          boss: boss(area),
-          visited: been.has(a.id),
-        };
-      }),
-    }));
+    return regions.map((r) => {
+      const island = islands.get(r.id)!;
+      const foundSigns = island.areas.filter((id) => gs?.progress.areaSigns.includes(id)).length;
+      const cleared = gs?.progress.islandsCleared.includes(island.id) ?? false;
+      const ready = !!gs && canChallengeIslandBoss(content.world, island.id, gs.progress);
+      return {
+        id: r.id,
+        name: island.name,
+        width: r.width,
+        height: r.height,
+        rows: r.rows,
+        status: island.status,
+        islandBoss: {
+          name: content.monsters.get(island.bossId)?.name ?? island.bossId,
+          state: cleared ? 'done' : ready ? 'ready' : 'locked',
+          foundSigns,
+          requiredSigns: island.areas.length,
+        },
+        areas: r.areas.map((a): MapAreaInfo => {
+          const area = content.areas.get(a.id);
+          // 見つけていない名所は、名前を出さない（null）。特産品（イベントの無い たべもの・こうげいひん）は宝箱
+          const stamps = a.stamps.flatMap((id) => {
+            const motif = area?.motifs.find((m) => m.id === id);
+            if (!motif) return [];
+            const box = SPECIALTY_KINDS.has(motif.kind) && !area?.events.some((e) => e.motifId === id);
+            return [{ name: gs?.dex.motifs.includes(motifStamp(a.id, id)) ? kana(motif.name) : null, box }];
+          });
+          return {
+            id: a.id,
+            name: area?.name ?? a.id,
+            capital: a.capital,
+            stamps,
+            boss: boss(area),
+            visited: island.status === 'playable' && been.has(a.id),
+          };
+        }),
+      };
+    });
   }
 
   /** にほんちずの「いま いる ところ」。フィールドなら、県の陸地の中でのだいたいの位置（左上 0 〜 右下 1）も */
