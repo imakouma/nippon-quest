@@ -46,7 +46,9 @@ export function shopStock(area: Area, items: ReadonlyMap<string, Item>): ShopEnt
 
 /** かう。おかねが たりなければ null */
 export function buyItem(prev: GameState, e: ShopEntry, n = 1, now = Date.now()): GameState | null {
+  if (!Number.isInteger(n) || n <= 0 || !Number.isFinite(e.price) || e.price <= 0) return null;
   const cost = e.price * n;
+  if (!Number.isSafeInteger(cost)) return null;
   if (prev.player.gold < cost) return null;
   const gs = structuredClone(prev);
   gs.player.gold -= cost;
@@ -65,7 +67,8 @@ export function innRest(
   now = Date.now(),
 ): { state: GameState; paid: number } {
   const gs = structuredClone(prev);
-  const paid = gs.player.gold >= price ? price : 0;
+  const safePrice = Number.isInteger(price) && price >= 0 ? price : INN_PRICE;
+  const paid = gs.player.gold >= safePrice ? safePrice : 0;
   gs.player.gold -= paid;
   gs.player.hp = max.hp;
   gs.player.mp = max.mp;

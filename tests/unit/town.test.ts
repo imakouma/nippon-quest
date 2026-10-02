@@ -8,6 +8,7 @@ import {
   completeMission,
   craft,
   dexProgress,
+  INN_PRICE,
   innRest,
   knownRecipes,
   missionStatus,
@@ -52,6 +53,16 @@ describe('おみせ・やどや・かじや', () => {
     ).toBeNull();
   });
 
+  it('0・負数・小数の購入数や不正価格で所持数とお金を壊さない', () => {
+    gs = fresh();
+    const entry = { itemId: 'aomori-ringo', price: 15 };
+    expect(buyItem(gs, entry, 0)).toBeNull();
+    expect(buyItem(gs, entry, -2)).toBeNull();
+    expect(buyItem(gs, entry, 1.5)).toBeNull();
+    expect(buyItem(gs, { ...entry, price: -15 }, 1)).toBeNull();
+    expect(gs.inventory['aomori-ringo']).toBeUndefined();
+  });
+
   it('やどやは HP ぜんかい＋もどり先。おかねが無くても とまれる', () => {
     gs = fresh();
     const hurt = { ...gs, player: { ...gs.player, hp: 3, mp: 0, gold: 0 } };
@@ -59,6 +70,14 @@ describe('おみせ・やどや・かじや', () => {
     expect(r.paid).toBe(0);
     expect(r.state.player.hp).toBe(40);
     expect(r.state.progress.lastInn).toEqual({ map: 'aomori-town', x: 10, y: 20 });
+  });
+
+  it('不正な負の宿代でお金を増やさない', () => {
+    gs = fresh();
+    const before = gs.player.gold;
+    const result = innRest(gs, { hp: 40, mp: 10 }, { map: 'aomori-town', x: 10, y: 20 }, -100);
+    expect(result.paid).toBe(INN_PRICE);
+    expect(result.state.player.gold).toBe(before - INN_PRICE);
   });
 
   it('かじやは ざいりょうが そろうと つくれる', () => {
