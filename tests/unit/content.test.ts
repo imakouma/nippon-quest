@@ -27,6 +27,25 @@ describe('content loader', () => {
     expect(findBrokenReferences(c)).toEqual([]);
   });
 
+  it('県の複数所属・所属漏れと、島ID・順番の重複を検出する', async () => {
+    const c = await loadContent(read);
+    const world = structuredClone(c.world);
+    const tohoku = world.islands.find((island) => island.id === 'tohoku')!;
+    const hokkaido = world.islands.find((island) => island.id === 'hokkaido')!;
+    hokkaido.areas.push('aomori');
+    tohoku.areas = tohoku.areas.filter((areaId) => areaId !== 'iwate');
+    tohoku.areas = tohoku.areas.filter((areaId) => areaId !== 'miyagi');
+    hokkaido.areas.push('miyagi');
+    world.islands.push({ ...structuredClone(hokkaido), areas: ['hokkaido'] });
+
+    const errors = findBrokenReferences({ ...c, world });
+    expect(errors).toContain('world: area "aomori" が複数の島にあります: tohoku, hokkaido');
+    expect(errors).toContain('area "iwate": world のどの島にも含まれていません');
+    expect(errors).toContain('area "miyagi": island "tohoku" の areas に含まれていません');
+    expect(errors).toContain('world: island id "hokkaido" が重複しています');
+    expect(errors).toContain(`world: island order ${hokkaido.order} が重複しています`);
+  });
+
   it('青森は playable で、ボス・イベント・NPCが揃っている', async () => {
     const c = await loadContent(read);
     const aomori = c.areas.get('aomori')!;

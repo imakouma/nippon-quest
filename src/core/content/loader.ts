@@ -185,16 +185,37 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
 export function findBrokenReferences(c: ContentIndex): string[] {
   const errs: string[] = [];
   const has = (m: Map<string, unknown>, id: string | undefined) => id === undefined || m.has(id);
+  const islandIds = new Set<string>();
+  const islandOrders = new Set<number>();
+  const areaOwners = new Map<string, string[]>();
 
   for (const island of c.world.islands) {
+    if (islandIds.has(island.id)) errs.push(`world: island id "${island.id}" が重複しています`);
+    islandIds.add(island.id);
+    if (islandOrders.has(island.order)) errs.push(`world: island order ${island.order} が重複しています`);
+    islandOrders.add(island.order);
+    const ownAreas = new Set<string>();
     for (const a of island.areas)
       if (!c.areas.has(a)) errs.push(`world: island "${island.id}" の area "${a}" が存在しません`);
+      else {
+        if (ownAreas.has(a)) errs.push(`world: island "${island.id}" の area "${a}" が重複しています`);
+        else {
+          ownAreas.add(a);
+          areaOwners.set(a, [...(areaOwners.get(a) ?? []), island.id]);
+        }
+      }
     if (island.status === 'playable' && !c.monsters.has(island.bossId))
       errs.push(`world: island "${island.id}" の bossId "${island.bossId}" が存在しません`);
   }
+  for (const [areaId, owners] of areaOwners)
+    if (owners.length > 1) errs.push(`world: area "${areaId}" が複数の島にあります: ${owners.join(', ')}`);
   for (const a of c.areas.values()) {
     if (!c.world.islands.some((i) => i.id === a.island))
       errs.push(`area "${a.id}": island "${a.island}" が world にありません`);
+    const owners = areaOwners.get(a.id) ?? [];
+    if (owners.length === 0) errs.push(`area "${a.id}": world のどの島にも含まれていません`);
+    else if (!owners.includes(a.island))
+      errs.push(`area "${a.id}": island "${a.island}" の areas に含まれていません`);
     if (!has(c.monsters, a.boss)) errs.push(`area "${a.id}": boss "${a.boss}" が存在しません`);
     if (!has(c.monsters, a.midBoss)) errs.push(`area "${a.id}": midBoss "${a.midBoss}" が存在しません`);
     if (a.secret && !c.monsters.get(a.secret.boss)?.isBoss)
