@@ -15,11 +15,30 @@ const key = (slot: SlotId) => `save:${slot}`;
 export interface SlotSummary {
   slot: SlotId;
   exists: boolean;
+  corrupted?: boolean;
   name?: string;
   level?: number;
   area?: string;
   updatedAt?: number;
   signs?: number;
+}
+
+export function summarizeSlot(slot: SlotId, raw: unknown): SlotSummary {
+  if (!raw) return { slot, exists: false };
+  try {
+    const state = migrate(raw).state;
+    return {
+      slot,
+      exists: true,
+      name: state.player.name,
+      level: state.player.level,
+      area: state.progress.currentArea,
+      updatedAt: state.updatedAt,
+      signs: state.progress.areaSigns.length,
+    };
+  } catch {
+    return { slot, exists: false, corrupted: true };
+  }
 }
 
 export async function save(slot: SlotId, state: GameState): Promise<void> {
@@ -39,17 +58,8 @@ export async function remove(slot: SlotId): Promise<void> {
 export async function summaries(): Promise<SlotSummary[]> {
   return Promise.all(
     SLOTS.map(async (slot) => {
-      const raw = (await store.getItem(key(slot))) as GameState | null;
-      if (!raw) return { slot, exists: false };
-      return {
-        slot,
-        exists: true,
-        name: raw.player?.name,
-        level: raw.player?.level,
-        area: raw.progress?.currentArea,
-        updatedAt: raw.updatedAt,
-        signs: raw.progress?.areaSigns?.length,
-      };
+      const raw = await store.getItem(key(slot));
+      return summarizeSlot(slot, raw);
     }),
   );
 }
