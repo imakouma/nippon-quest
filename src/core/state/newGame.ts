@@ -32,6 +32,11 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       owned: [{ uid: 'starter', monsterId: o.starterMonsterId, level: 1, xp: 0 }],
       activeUid: 'starter',
       team: ['starter'],
+      reserve: [],
+      bagPlacements: {
+        hero: { x: 0, y: 0, rotated: false },
+        'mon:starter': { x: 1, y: 0, rotated: false },
+      },
     },
     inventory: {},
     progress: {

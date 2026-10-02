@@ -411,7 +411,10 @@ describe('オトモ（Companion）', () => {
       enemyId: 'aomori-boss-tsugaru-no-nushi',
       enemyLevel: 20,
     });
-    const second = makeMonster(c.monsters.get('aomori-ringoron')!, 3, 'pal2');
+    // このテストで確かめたいのは「先頭が倒れた直後の自動交代」。
+    // 交代後の仲間まで高レベルボスに倒されると、3ターン後には companion が
+    // null になって交代処理と全滅処理を区別できないため、控えは生存可能な HP に固定する。
+    const second = toughen(makeMonster(c.monsters.get('aomori-ringoron')!, 3, 'pal2'));
     const s: BattleState = {
       ...state,
       ally: {

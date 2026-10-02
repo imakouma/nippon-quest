@@ -309,6 +309,66 @@ const misakiTenba: MonsterDesign = {
   ]),
 };
 
+/** ヒュウガナッツ：白い内皮をまとった 日向夏の子（モリ） */
+const hyuganattsu: MonsterDesign = {
+  size: 32,
+  colors: { Y: NQ.yellow, G: NQ.gold, C: NQ.cream, W: NQ.white, L: NQ.leaf, M: NQ.lime, p: NQ.blush },
+  rim: { [NQ.yellow]: NQ.gold, [NQ.leaf]: NQ.green },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '........LL......',
+        '......LLLLL.....',
+        '.....LLMMLL.....',
+        '.......LL.......',
+        '......YYYY......',
+        '....YYYYYYYY....',
+        '...YYYYYYYYYY...',
+        '..YYYYYYYYYYYY..',
+        '.YYYYYYYYYYYYYY.',
+        '.YYYYYYWWYYYYYY.',
+        '.YYYYYYWoYYYYYY.',
+        '.YYYYYYYYYYYYYY.',
+        '.YYYYYpYYYYYYYY.',
+        '.YYYYYYYYYYYYYY.',
+        '..YYYYYYYYYYYY..',
+        '..YYYYYYYYYYYY..',
+        '...YYYYYYYYYY...',
+        '....YYYYYYYY....',
+        '.....YYYYYY.....',
+        '......YYYY......',
+        '.......CC.......',
+        '......CCCC......',
+        '.....CC..CC.....',
+        '....CC....CC....',
+        '...CC......CC...',
+        '...CC......CC...',
+        '...CC......CC...',
+        '...CC......CC...',
+        '...CC......CC...',
+      ],
+    },
+  ],
+};
+
+/** ヒュウガマル：葉のマントをひるがえす ヒュウガナッツの進化（モリ） */
+const hyugaMaru: MonsterDesign = {
+  ...hyuganattsu,
+  colors: { ...hyuganattsu.colors, R: NQ.red },
+  layers: [
+    ...hyuganattsu.layers,
+    {
+      mirror: true,
+      y: 2,
+      rows: ['....LLLLLLLL....', '..LLLLLLLLLLLL..', '.LLLMLLMLLMLLL..', '..LLLLLLLLLLLL..'],
+    },
+    { mirror: true, y: 14, rows: ['.LLLLLLLLLLLLLL.', '..LLL......LLL..', '...LL......LL...'] },
+    { mirror: true, y: 6, rows: ['......RRR.......', '.....RRYRR......'] },
+  ],
+};
+
 const half = (rows: string[]) => [{ mirror: true, rows }];
 
 /**
@@ -596,6 +656,8 @@ export const MIYAZAKI: Readonly<Record<string, MonsterDesign>> = {
   'miyazaki-nanban-ondori': nanbanOndori,
   'miyazaki-misaki-pony': misakiPony,
   'miyazaki-misaki-tenba': misakiTenba,
+  'miyazaki-hyuganattsu': hyuganattsu,
+  'miyazaki-hyuga-maru': hyugaMaru,
   'miyazaki-midboss-sentaku-oni': sentakuOni,
   'miyazaki-midboss-sentaku-oni.field': sentakuOniField,
   'miyazaki-boss-takachiho-no-nushi': takachiho,

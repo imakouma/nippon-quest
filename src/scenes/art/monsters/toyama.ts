@@ -286,7 +286,14 @@ const masuzushin: MonsterDesign = {
     {
       mirror: true,
       y: 12,
-      rows: ['..G.............', '.GGG............', '.GgGG...........', '..GgGG..........', '...GgGG.........', '....GGG.........'],
+      rows: [
+        '..G.............',
+        '.GGG............',
+        '.GgGG...........',
+        '..GgGG..........',
+        '...GgGG.........',
+        '....GGG.........',
+      ],
     },
     // わっぱの からだ
     {
@@ -326,12 +333,28 @@ const masuzushin: MonsterDesign = {
       ],
     },
     // ますの 切り身（上の 面）
-    { mirror: true, y: 7, rows: ['........PPPPPPPP', '.......PPPPPPPPP', '......PPPPPPPPPP', '......PbPPbPPbPP', '.....PPPPPPPPPPP'] },
+    {
+      mirror: true,
+      y: 7,
+      rows: [
+        '........PPPPPPPP',
+        '.......PPPPPPPPP',
+        '......PPPPPPPPPP',
+        '......PbPPbPPbPP',
+        '.....PPPPPPPPPPP',
+      ],
+    },
     // かお
     {
       mirror: true,
       y: 16,
-      rows: ['..........WW....', '..........Wo....', '..........Wo....', '........pp......', '.............ooo'],
+      rows: [
+        '..........WW....',
+        '..........Wo....',
+        '..........Wo....',
+        '........pp......',
+        '.............ooo',
+      ],
     },
     { x: 7, y: 14, rows: ['.S', 'S.'] },
   ],
@@ -358,7 +381,16 @@ const ooMasuzushi: MonsterDesign = {
     {
       mirror: true,
       y: 9,
-      rows: ['..G.............', '.GGG............', '.GgGG...........', '..GgGG..........', '...GgGG.........', '....GgGG........', '.....GGGG.......', '......GGG.......'],
+      rows: [
+        '..G.............',
+        '.GGG............',
+        '.GgGG...........',
+        '..GgGG..........',
+        '...GgGG.........',
+        '....GgGG........',
+        '.....GGGG.......',
+        '......GGG.......',
+      ],
     },
     {
       mirror: true,

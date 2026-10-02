@@ -843,7 +843,7 @@ const oogamedon: MonsterDesign = {
         '......SSSSSSSSSS',
       ],
     },
-    { x: 1, y: 25, rows: ['.KK', 'K..', '.KK'] },
+    { x: 1, y: 27, rows: ['.KK', 'K..', '.KK'] },
     { x: 27, y: 23, rows: ['KK.', '..K', 'KK.'] },
   ],
 };

@@ -23,9 +23,13 @@ export class QuestionBank {
   ): Promise<{ bank: QuestionBank; report: BankLoadReport }> {
     const bank = new QuestionBank();
     const report: BankLoadReport = { loaded: 0, skipped: [] };
-    for (const file of files) {
-      if (!opts.includeSamples && file.startsWith('questions/_samples/')) continue;
-      const raw = await read(file);
+    const targets = files.filter((file) => opts.includeSamples || !file.startsWith('questions/_samples/'));
+    // 問題ファイルは互いに独立している。順番に待つと旧版移行後の数十ファイルぶん
+    // 起動時間が伸びるため、読み込みだけ並列化し、登録順は manifest 順に保つ。
+    const raws = await Promise.all(targets.map((file) => read(file)));
+    for (let fileIndex = 0; fileIndex < targets.length; fileIndex += 1) {
+      const file = targets[fileIndex]!;
+      const raw = raws[fileIndex];
       if (!Array.isArray(raw)) {
         report.skipped.push({ file, index: -1, reason: '配列ではありません' });
         continue;

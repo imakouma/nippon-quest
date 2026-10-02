@@ -333,7 +333,13 @@ const wajimanurin: MonsterDesign = {
     {
       mirror: true,
       y: 12,
-      rows: ['..........WW....', '..........Wo....', '..........Wo....', '........pp......', '.............ooo'],
+      rows: [
+        '..........WW....',
+        '..........Wo....',
+        '..........Wo....',
+        '........pp......',
+        '.............ooo',
+      ],
     },
     { x: 6, y: 9, rows: ['.A', 'A.'] },
   ],
@@ -356,7 +362,17 @@ const kagaNurimaru: MonsterDesign = {
   rim: { [NQ.red]: NQ.brick, [NQ.bark]: NQ.ink },
   layers: [
     // ふたの かぶと
-    { mirror: true, y: 1, rows: ['.........Y..Y...', '.........YYYY...', '......KKKKKKKKKK', '.....KKKKKKKKKKK', '.....YYYYYYYYYYY'] },
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.........Y..Y...',
+        '.........YYYY...',
+        '......KKKKKKKKKK',
+        '.....KKKKKKKKKKK',
+        '.....YYYYYYYYYYY',
+      ],
+    },
     {
       mirror: true,
       rows: [
@@ -733,7 +749,13 @@ const kirikoTaisho: MonsterDesign = {
     {
       mirror: true,
       y: 4,
-      rows: ['..V.................', '.VA.................', '.VA.................', '.VA.................', '..V.................'],
+      rows: [
+        '..V.................',
+        '.VA.................',
+        '.VA.................',
+        '.VA.................',
+        '..V.................',
+      ],
     },
     { x: 33, y: 6, rows: ['.V.', 'AV.', 'AV.', '.V.'] },
     // 大きな 王冠
@@ -829,7 +851,11 @@ const kirikoTaishoField: MonsterDesign = {
   rim: { [NQ.cream]: NQ.ochre, [NQ.red]: NQ.brick },
   layers: [
     // ほのお
-    { mirror: true, y: 3, rows: ['.V..............', 'VV..............', 'VV..............', '.V..............'] },
+    {
+      mirror: true,
+      y: 3,
+      rows: ['.V..............', 'VV..............', 'VV..............', '.V..............'],
+    },
     // 王冠
     {
       mirror: true,
@@ -875,7 +901,14 @@ const kirikoTaishoField: MonsterDesign = {
     {
       mirror: true,
       y: 13,
-      rows: ['.......oo.......', '........WWo.....', '........WWo.....', '........Woo.....', '................', '.........ooooo..'],
+      rows: [
+        '.......oo.......',
+        '........WWo.....',
+        '........WWo.....',
+        '........Woo.....',
+        '................',
+        '.........ooooo..',
+      ],
     },
   ],
 };

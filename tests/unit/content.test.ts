@@ -1,10 +1,17 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { describe, expect, it } from 'vitest';
-import { findBrokenReferences, loadContent, type FileReader } from '../../src/core/content/loader';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  bundledFetchReader,
+  findBrokenReferences,
+  loadContent,
+  type FileReader,
+} from '../../src/core/content/loader';
 
 const CONTENT = fileURLToPath(new URL('../../content/', import.meta.url));
 const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, 'utf8'));
+
+afterEach(() => vi.unstubAllGlobals());
 
 describe('content loader', () => {
   it('47都道府県と10島を読み込める', async () => {
@@ -78,5 +85,32 @@ describe('content loader', () => {
   it('壊れたスキーマはファイル名つきで落ちる', async () => {
     const fake: FileReader = async (rel) => (rel === 'balance/settings.json' ? { nope: true } : read(rel));
     await expect(loadContent(fake)).rejects.toThrow(/settings\.json/);
+  });
+
+  it('本番用 reader は bundle を一度だけ取得して、複数ファイルを読む', async () => {
+    const fetchMock = vi.fn(async () =>
+      Promise.resolve(
+        new Response(JSON.stringify({ 'a.json': { id: 'a' }, 'b.json': { id: 'b' } }), { status: 200 }),
+      ),
+    );
+    vi.stubGlobal('fetch', fetchMock);
+    const bundledRead = bundledFetchReader('/content');
+
+    await expect(bundledRead('a.json')).resolves.toEqual({ id: 'a' });
+    await expect(bundledRead('b.json')).resolves.toEqual({ id: 'b' });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toHaveBeenCalledWith('/content/content-bundle.json', { cache: 'no-cache' });
+  });
+
+  it('bundle がない古い配信環境では個別 JSON の取得へ戻る', async () => {
+    const fetchMock = vi.fn(async (url: string) =>
+      url.endsWith('content-bundle.json')
+        ? Promise.resolve(new Response(null, { status: 404 }))
+        : Promise.resolve(new Response(JSON.stringify({ id: 'fallback' }), { status: 200 })),
+    );
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(bundledFetchReader('/content')('a.json')).resolves.toEqual({ id: 'fallback' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });

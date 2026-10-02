@@ -65,7 +65,8 @@ if (content) {
     });
   }
 
-  // 画像キー（docs/03 §1 の命名規則）→ ファイル存在チェック（warning）
+  // 画像キー（docs/03 §1 の命名規則）→ ファイル存在チェック（warning）。
+  // mon/item は必ず決定的なプロシージャル画像へフォールバックするため、静的PNGは必須ではない。
   const keyToPath = (key: string): string | null => {
     const [prefix, ...rest] = key.split('.');
     const id = rest.join('.');
@@ -73,13 +74,11 @@ if (content) {
       case 'char':
         return `assets/sprites/characters/${id}.png`;
       case 'mon':
-        return id.endsWith('.field')
-          ? `assets/sprites/monsters/${id.replace(/\.field$/, '')}-field.png`
-          : `assets/sprites/monsters/${id}.png`;
+        return null;
       case 'face':
         return `assets/portraits/${id}.png`;
       case 'item':
-        return `assets/items/${id}.png`;
+        return null;
       case 'motif': {
         const [area, ...m] = id.split('.');
         return `assets/motifs/${area}/${m.join('.')}.png`;

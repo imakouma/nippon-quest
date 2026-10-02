@@ -566,6 +566,72 @@ const shoHashi: MonsterDesign = {
   ]),
 };
 
+const yanbaruTotto: MonsterDesign = {
+  size: 32,
+  colors: {
+    N: NQ.night,
+    K: NQ.bark,
+    B: NQ.brown,
+    R: NQ.red,
+    V: NQ.vermilion,
+    W: NQ.white,
+    L: NQ.leaf,
+    p: NQ.blush,
+  },
+  rim: { [NQ.brown]: NQ.bark, [NQ.red]: NQ.brick },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.......NNN......',
+        '.....NNNNNNN....',
+        '....NNNNNNNNN...',
+        '...NNNNNNNNNNN..',
+        '..NNNNNNNNNNNN..',
+        '..NNNNNWWNNNNN..',
+        '.NNNNNNWoNNNNNN.',
+        '.NNNNNNNNNNNNNN.',
+        '.NNNNNpNNNNNNNN.',
+        '.NNNNNNNNNNNNNN.',
+        '..NNNNNNNNNNNN..',
+        '...NNNNNNNNNN...',
+        '....NNNBBNNN....',
+        '...BBBBBBBBBB...',
+        '..BBBBBBBBBBBB..',
+        '.BBBBBBBBBBBBBB.',
+        '.BBBBBBBBBBBBBB.',
+        '..BBBBBBBBBBBB..',
+        '...BBBBBBBBBB...',
+        '....BBBBBBBB....',
+        '.....BBBBBB.....',
+        '......BBBB......',
+        '.......RR.......',
+        '......RRRR......',
+        '.....RR..RR.....',
+        '....RR....RR....',
+        '...RR......RR...',
+        '...RR......RR...',
+        '...RR......RR...',
+      ],
+    },
+  ],
+};
+
+const yanbaruKakeru: MonsterDesign = {
+  ...yanbaruTotto,
+  colors: { ...yanbaruTotto.colors, G: NQ.gold },
+  layers: [
+    ...yanbaruTotto.layers,
+    {
+      mirror: true,
+      y: 10,
+      rows: ['.BBBBBBBBBBBBBB.', 'BBBKBBBBBBBBKBBB', 'BBBKKBBBBBBKKBBB', '..BKK......KKB..'],
+    },
+    { mirror: true, y: 3, rows: ['.....RRRRRR.....', '....RRVVRRRR....'] },
+  ],
+};
+
 export const OKINAWA: Readonly<Record<string, MonsterDesign>> = {
   'okinawa-goyamaru': goyamaru,
   'okinawa-goya-musha': goyaMusha,
@@ -573,6 +639,8 @@ export const OKINAWA: Readonly<Record<string, MonsterDesign>> = {
   'okinawa-ougon-pine': ougonPine,
   'okinawa-garasu-kurage': garasuKurage,
   'okinawa-niji-kurage': nijiKurage,
+  'okinawa-yanbaru-totto': yanbaruTotto,
+  'okinawa-yanbaru-kakeru': yanbaruKakeru,
   'okinawa-midboss-eisa-daiko': eisaDaiko,
   'okinawa-midboss-eisa-daiko.field': eisaDaikoField,
   'okinawa-boss-dairyuchu': dairyuchu,

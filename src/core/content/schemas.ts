@@ -418,6 +418,8 @@ export const unitSchema = z.object({
   name: rubyTextSchema,
   subject: subjectSchema,
   grade: gradeSchema,
+  order: z.number().int().nonnegative().optional(),
+  legacyNode: z.string().min(1).optional(),
 });
 
 export const arenaRivalSchema = z.object({

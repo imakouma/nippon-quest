@@ -2,13 +2,19 @@ import { expect, test } from '@playwright/test';
 
 test('タイトル画面が立ち上がり、コンテンツが読み込まれる', async ({ page }) => {
   const errors: string[] = [];
+  const contentRequests: string[] = [];
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
+  page.on('request', (request) => {
+    const path = new URL(request.url()).pathname;
+    if (path.startsWith('/content/')) contentRequests.push(path);
+  });
   await page.goto('/');
   await expect(page.locator('#game-root canvas')).toBeVisible({ timeout: 15_000 });
   // Boot が終わるとローディングが消える
   await expect(page.locator('.nq-loading')).toHaveCount(0, { timeout: 15_000 });
   await expect(page.locator('.nq-error')).toHaveCount(0);
   expect(errors.filter((e) => !e.includes('favicon'))).toEqual([]);
+  expect(contentRequests).toEqual(['/content/content-bundle.json']);
 });
 
 test('Playground で choice 問題を解くと QuestionResult が返る', async ({ page }) => {

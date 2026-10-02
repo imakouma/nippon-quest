@@ -16,17 +16,9 @@ import { allRenderers, getRenderer } from '../questions/renderers/registry';
 import { fetchReader } from '../core/content/loader';
 import { setDictionary, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
-import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
-import {
-  CollaborationRoom,
-  generateRoomId,
-  type Collaborator,
-} from './collaboration';
-import {
-  buildShareUrl,
-  copyToClipboard,
-  parseUrlState,
-} from './urlShare';
+import { kanjiGradeTable, setKanjiLevel } from '../ui/ruby';
+import { CollaborationRoom, generateRoomId, type Collaborator } from './collaboration';
+import { buildShareUrl, copyToClipboard, parseUrlState } from './urlShare';
 import '../questions/renderers/shared/questions.css';
 import './editor.css';
 
@@ -86,7 +78,6 @@ function App() {
   // Stage & Renderer Refs
   const stageRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
-  const [testing, setTesting] = useState<boolean>(false);
 
   // Toast helper
   const showToast = (msg: string) => {
@@ -167,7 +158,9 @@ function App() {
     if (renderer) {
       const payloadCheck = renderer.schema.safeParse(newQ.payload);
       if (!payloadCheck.success) {
-        setValidationError(`payload エラー: ${payloadCheck.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join(', ')}`);
+        setValidationError(
+          `payload エラー: ${payloadCheck.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join(', ')}`,
+        );
         return;
       }
     }
@@ -194,14 +187,14 @@ function App() {
 
     const payloadCheck = renderer.schema.safeParse(question.payload);
     if (!payloadCheck.success) {
-      setValidationError(`payload エラー: ${payloadCheck.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join(', ')}`);
+      setValidationError(
+        `payload エラー: ${payloadCheck.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join(', ')}`,
+      );
       return;
     }
 
     const controller = new AbortController();
     abortRef.current = controller;
-    setTesting(true);
-
     try {
       const res = await renderer.mount({
         container: stageRef.current,
@@ -215,12 +208,10 @@ function App() {
 
       if (!controller.signal.aborted) {
         setResult(res);
-        setTesting(false);
       }
     } catch (e) {
       if (!controller.signal.aborted) {
         setValidationError(`レンダリングエラー: ${(e as Error).message}`);
-        setTesting(false);
       }
     }
   };
@@ -249,7 +240,9 @@ function App() {
   };
 
   const handlePayloadChange = (payloadKey: string, val: unknown) => {
-    const currentPayload = (question.payload && typeof question.payload === 'object' ? question.payload : {}) as Record<string, unknown>;
+    const currentPayload = (
+      question.payload && typeof question.payload === 'object' ? question.payload : {}
+    ) as Record<string, unknown>;
     const updatedPayload = { ...currentPayload, [payloadKey]: val };
     const updated = { ...question, payload: updatedPayload };
     updateQuestionState(updated);
@@ -372,16 +365,10 @@ function App() {
                 <span>サンプルテンプレート</span>
               </div>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <button
-                  class="ed-btn"
-                  onClick={() => updateQuestionState(SAMPLE_QUESTIONS[0]!)}
-                >
+                <button class="ed-btn" onClick={() => updateQuestionState(SAMPLE_QUESTIONS[0]!)}>
                   算数（選択肢）
                 </button>
-                <button
-                  class="ed-btn"
-                  onClick={() => updateQuestionState(SAMPLE_QUESTIONS[1]!)}
-                >
+                <button class="ed-btn" onClick={() => updateQuestionState(SAMPLE_QUESTIONS[1]!)}>
                   英語（絵と単語）
                 </button>
               </div>
@@ -409,9 +396,17 @@ function App() {
                         const newType = (e.target as HTMLSelectElement).value;
                         let defaultPayload: unknown = {};
                         if (newType === 'choice') {
-                          defaultPayload = { text: '問題文', choices: ['選択肢1', '選択肢2'], correctIndex: 0 };
+                          defaultPayload = {
+                            text: '問題文',
+                            choices: ['選択肢1', '選択肢2'],
+                            correctIndex: 0,
+                          };
                         } else if (newType === 'picture-word') {
-                          defaultPayload = { image: 'questions/eigo/apple.png', choices: ['apple', 'banana'], correct: 'apple' };
+                          defaultPayload = {
+                            image: 'questions/eigo/apple.png',
+                            choices: ['apple', 'banana'],
+                            correct: 'apple',
+                          };
                         }
                         updateQuestionState({ ...question, type: newType, payload: defaultPayload });
                       }}
@@ -429,7 +424,9 @@ function App() {
                       <select
                         class="ed-select"
                         value={question.subject}
-                        onChange={(e) => handleFieldChange('subject', (e.target as HTMLSelectElement).value as Subject)}
+                        onChange={(e) =>
+                          handleFieldChange('subject', (e.target as HTMLSelectElement).value as Subject)
+                        }
                       >
                         <option value="sansu">算数 (sansu)</option>
                         <option value="kokugo">国語 (kokugo)</option>
@@ -444,7 +441,9 @@ function App() {
                       <select
                         class="ed-select"
                         value={question.grade}
-                        onChange={(e) => handleFieldChange('grade', Number((e.target as HTMLSelectElement).value) as Grade)}
+                        onChange={(e) =>
+                          handleFieldChange('grade', Number((e.target as HTMLSelectElement).value) as Grade)
+                        }
                       >
                         {[1, 2, 3, 4, 5, 6].map((g) => (
                           <option key={g} value={g}>
@@ -468,7 +467,9 @@ function App() {
                       type="number"
                       class="ed-input"
                       value={question.timeLimitSec ?? 20}
-                      onInput={(e) => handleFieldChange('timeLimitSec', Number((e.target as HTMLInputElement).value))}
+                      onInput={(e) =>
+                        handleFieldChange('timeLimitSec', Number((e.target as HTMLInputElement).value))
+                      }
                     />
                   </div>
                   <div class="ed-field">
@@ -502,7 +503,9 @@ function App() {
                               type="radio"
                               name="correct"
                               class="ed-radio"
-                              checked={((question.payload as Record<string, unknown>)?.correctIndex as number) === i}
+                              checked={
+                                ((question.payload as Record<string, unknown>)?.correctIndex as number) === i
+                              }
                               onChange={() => handlePayloadChange('correctIndex', i)}
                               title="正解の選択肢として指定"
                             />
@@ -529,7 +532,9 @@ function App() {
                         <button
                           class="ed-btn"
                           style={{ marginTop: '6px' }}
-                          onClick={() => handlePayloadChange('choices', [...choices, `選択肢${choices.length + 1}`])}
+                          onClick={() =>
+                            handlePayloadChange('choices', [...choices, `選択肢${choices.length + 1}`])
+                          }
                         >
                           ➕ 選択肢を追加
                         </button>
@@ -552,7 +557,9 @@ function App() {
                         <input
                           class="ed-input"
                           value={((question.payload as Record<string, unknown>)?.correct as string) ?? ''}
-                          onInput={(e) => handlePayloadChange('correct', (e.target as HTMLInputElement).value)}
+                          onInput={(e) =>
+                            handlePayloadChange('correct', (e.target as HTMLInputElement).value)
+                          }
                         />
                       </div>
                     </>

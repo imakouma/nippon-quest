@@ -681,7 +681,13 @@ const tokugawaIeyasu: MonsterDesign = {
     W: NQ.white,
     M: NQ.hairBlack,
   },
-  rim: { [NQ.night]: NQ.ink, [NQ.slate]: NQ.night, [NQ.skinLight]: NQ.skinMid, [NQ.gold]: NQ.ochre, [NQ.forest]: NQ.ink },
+  rim: {
+    [NQ.night]: NQ.ink,
+    [NQ.slate]: NQ.night,
+    [NQ.skinLight]: NQ.skinMid,
+    [NQ.gold]: NQ.ochre,
+    [NQ.forest]: NQ.ink,
+  },
   rimDepth: 2,
   layers: [
     {

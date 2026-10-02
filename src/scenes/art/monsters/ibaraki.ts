@@ -112,6 +112,198 @@ const aozoraHime: MonsterDesign = {
   ],
 };
 
+/** ナットン：わらづとから ねばり糸を のばす 納豆の子（ツチ） */
+const natton: MonsterDesign = {
+  size: 32,
+  colors: { S: NQ.cream, T: NQ.tan, B: NQ.brown, K: NQ.bark, W: NQ.white, p: NQ.blush },
+  rim: { [NQ.cream]: NQ.tan, [NQ.brown]: NQ.bark },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.......SSS.....',
+        '......SSSSS....',
+        '.....SSSSSSS...',
+        '....SSSSSSSS...',
+        '...STSTSTSTS...',
+        '...SSSSSSSSS...',
+        '..SSSSSSSSSS...',
+        '..SSSSSSSSSS...',
+        '.SSSBBBBBBSS...',
+        '.SSBBBBBBBBB...',
+        '.SSBBBWWBBBB...',
+        '.SSBBBWoBBBB...',
+        '.SSBBBBBBBBB...',
+        '.SSBBpBBBBBB...',
+        '.SSBBBBBBBBB...',
+        '.SSBBBBBBBBB...',
+        '.SSSSSSSSSSS...',
+        '..STSTSTSTS....',
+        '..SSSSSSSSS....',
+        '...SSSSSSS.....',
+        '....SSSSS......',
+        '.....SSS.......',
+        '.....KKK.......',
+        '.....KKK.......',
+        '....KK.KK......',
+        '...KK...KK.....',
+        '..KK.....KK....',
+        '..KK.....KK....',
+        '..KK.....KK....',
+      ],
+    },
+  ],
+};
+
+/** ワラヅトムシャ：わらの よろいと ねばり糸を まとう ナットンの進化（ツチ） */
+const warazutoMusha: MonsterDesign = {
+  ...natton,
+  colors: { ...natton.colors, G: NQ.gold, R: NQ.red },
+  layers: [
+    ...natton.layers,
+    {
+      mirror: true,
+      y: 4,
+      rows: ['.......GGG.....', '......GGRGG....', '.....GGGRGGG...', '......SSSSS....'],
+    },
+    { mirror: true, y: 15, rows: ['.GSGSGSGSGSG...', '..GSGSGSGSG....', '...GG...GG.....'] },
+    { x: 2, y: 20, rows: ['WW.', '.WW', '..W', '.WW'] },
+  ],
+};
+
+/** レンコンタ：穴のあいた れんこんの からだと ハスの芽（モリ） */
+const renkonta: MonsterDesign = {
+  size: 32,
+  colors: { C: NQ.cream, A: NQ.apricot, T: NQ.tan, G: NQ.green, L: NQ.leaf, W: NQ.white, p: NQ.blush },
+  rim: { [NQ.cream]: NQ.apricot, [NQ.leaf]: NQ.green },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.........LL.....',
+        '.......LLLL.....',
+        '......LLGL......',
+        '........G.......',
+        '.......CCC......',
+        '.....CCCCCCC....',
+        '....CCCCCCCCC...',
+        '...CCCCCCCCCC...',
+        '..CCCCCCCCCCC...',
+        '..CCCooCCooCC...',
+        '.CCCCooCCooCCC..',
+        '.CCCCCCCCCCCCC..',
+        '.CCCooCCCCoCCC..',
+        '.CCCooCCCCoCCC..',
+        '.CCCCCCWWCCCCC..',
+        '.CCCCCCWoCCCCC..',
+        '.CCCCCpCCCCCCC..',
+        '.CCCCCCCCCCCCC..',
+        '..CCCCCCCCCCC...',
+        '..CCCCCCCCCCC...',
+        '...CCCCCCCCC....',
+        '....CCCCCCC.....',
+        '.....CCCC.......',
+        '......TT........',
+        '.....TTTT.......',
+        '....TT..TT......',
+        '...TT....TT.....',
+        '...TT....TT.....',
+        '...TT....TT.....',
+      ],
+    },
+  ],
+};
+
+/** ハスカブト：大きな ハスの葉を かぶとにした レンコンタの進化（モリ） */
+const hasuKabuto: MonsterDesign = {
+  ...renkonta,
+  colors: { ...renkonta.colors, Y: NQ.gold },
+  layers: [
+    ...renkonta.layers,
+    {
+      mirror: true,
+      y: 2,
+      rows: [
+        '.....LLLLLLLL...',
+        '...LLLLLLLLLLL..',
+        '..LLLLLGLLLLLL..',
+        '...LLLLLLLLLL...',
+        '.....GGGGG......',
+      ],
+    },
+    { mirror: true, y: 17, rows: ['..YLYLYLYLYL....', '...LLLLLLLL.....', '....LL..LL......'] },
+  ],
+};
+
+/** ホビキン：白い帆の せびれをもつ わかさぎ（ミズ） */
+const hobikin: MonsterDesign = {
+  size: 32,
+  colors: { S: NQ.sky, A: NQ.azure, I: NQ.ice, W: NQ.white, C: NQ.cloud, G: NQ.gold, p: NQ.blush },
+  rim: { [NQ.sky]: NQ.azure, [NQ.white]: NQ.cloud },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '........W.......',
+        '.......WWW......',
+        '......WWWWW.....',
+        '.....WWWWWWW....',
+        '....WWWWWWWW....',
+        '.....WWWWWWW....',
+        '......WWWWW.....',
+        '.......WWW......',
+        '........W.......',
+        '................',
+        '......SSSS......',
+        '....SSSSSSSS....',
+        '..SSSSSSSSSSS...',
+        '.SSSSSSSSSSSS...',
+        '.SSSSSWWSSSSS...',
+        '.SSSSSWoSSSSS...',
+        '.SSSSSSSSSSSS...',
+        '..SSSSpSSSSSS...',
+        '...SSSSSSSSS....',
+        '....SSSSSSS.....',
+        '.....SSSSS......',
+        '......SSS.......',
+        '.......A........',
+        '......AAA.......',
+        '.....AA.AA......',
+        '....AA...AA.....',
+        '...AA.....AA....',
+        '..AA.......AA...',
+        '..AA.......AA...',
+      ],
+    },
+  ],
+};
+
+/** ホビキマル：帆引き船のような 大帆をひろげる ホビキンの進化（ミズ） */
+const hobikiMaru: MonsterDesign = {
+  ...hobikin,
+  colors: { ...hobikin.colors, Y: NQ.gold, B: NQ.blue },
+  layers: [
+    ...hobikin.layers,
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '......WWWW.....',
+        '....WWWWWWWW...',
+        '..WWWWWWWWWWW...',
+        '.WWWWWWWWWWWW...',
+        '..WWWWWWWWWWW...',
+        '....WWWWWWWW...',
+        '......BBBB.....',
+      ],
+    },
+    { mirror: true, y: 14, rows: ['..YYYYYYYYYYY...', '...Y.......Y....', '....Y.....Y.....'] },
+  ],
+};
+
 // ───────────────────────── 中ボス ─────────────────────────
 
 /** ハルツゲドリ（中ボス）：つばさを いっぱいに ひろげた 大きな ウグイス。金の 王冠と するどい くちばし、かぎづめで 梅の 枝を つかむ（カゼ） */
@@ -465,6 +657,12 @@ const tokugawaNariaki: MonsterDesign = {
 export const IBARAKI: Readonly<Record<string, MonsterDesign>> = {
   'ibaraki-nemofin': nemofin,
   'ibaraki-aozora-hime': aozoraHime,
+  'ibaraki-natton': natton,
+  'ibaraki-warazuto-musha': warazutoMusha,
+  'ibaraki-renkonta': renkonta,
+  'ibaraki-hasu-kabuto': hasuKabuto,
+  'ibaraki-hobikin': hobikin,
+  'ibaraki-hobiki-maru': hobikiMaru,
   'ibaraki-midboss-harutsuge-dori': harutsugeDori,
   'ibaraki-midboss-harutsuge-dori.field': harutsugeDoriField,
   'ibaraki-boss-tsukuba-gama-o': tsukubaGamaO,

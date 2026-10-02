@@ -1,0 +1,1766 @@
+[
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.382fd2528b02",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この学校の施設はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "図書室"
+        },
+        {
+          "id": "c2",
+          "text": "工場"
+        },
+        {
+          "id": "c3",
+          "text": "郵便局"
+        },
+        {
+          "id": "c4",
+          "text": "スーパー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/730606279e4fc5fc.jpg"
+    },
+    "explanation": "図書室は、本を読んだり借りたりする学校の施設です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.45d343b9f727",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、クラスのしごととして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ごみを分別してすてる"
+        },
+        {
+          "id": "c2",
+          "text": "ごみを道にすてる"
+        },
+        {
+          "id": "c3",
+          "text": "遊具を壊す"
+        },
+        {
+          "id": "c4",
+          "text": "大声で騒ぐ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/0ff9ef3df5db267c.jpg"
+    },
+    "explanation": "掃除やごみの分別など、みんなのしごとに参加しましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.5859e2628e2b",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みんなで遊ぶときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ルールを守って全員が参加できるようにする"
+        },
+        {
+          "id": "c2",
+          "text": "一人だけ遊ぶ"
+        },
+        {
+          "id": "c3",
+          "text": "負けたらあきらめる"
+        },
+        {
+          "id": "c4",
+          "text": "道具を片づけない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "みんなで協力して遊ぶことが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.850f8a311e43",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この学校の場所の名前はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "教室"
+        },
+        {
+          "id": "c2",
+          "text": "図書室"
+        },
+        {
+          "id": "c3",
+          "text": "給食室"
+        },
+        {
+          "id": "c4",
+          "text": "保健室"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c553768188d4bef9.jpg"
+    },
+    "explanation": "教室は、授業を受けたり友達と過ごしたりする場所です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.8e0796e9f01d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、みんなで遊ぶ場所として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公園の遊具"
+        },
+        {
+          "id": "c2",
+          "text": "道路の真ん中"
+        },
+        {
+          "id": "c3",
+          "text": "工場の中"
+        },
+        {
+          "id": "c4",
+          "text": "海の底"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fcd5e1c405f4819f.jpg"
+    },
+    "explanation": "遊具のある公園などは、みんなで安全に遊べる場所です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.94fdf5abac98",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、道を渡るときに守るものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "信号の色"
+        },
+        {
+          "id": "c2",
+          "text": "友達の名前"
+        },
+        {
+          "id": "c3",
+          "text": "靴の色"
+        },
+        {
+          "id": "c4",
+          "text": "かばんの重さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fa5c57b6d3a66ec2.jpg"
+    },
+    "explanation": "信号の色を守って、安全に道を渡りましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.9d253b14f435",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、通学路で使うものとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横断歩道"
+        },
+        {
+          "id": "c2",
+          "text": "トンネルの中"
+        },
+        {
+          "id": "c3",
+          "text": "川の上"
+        },
+        {
+          "id": "c4",
+          "text": "屋上"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/04973e910fe1c44e.jpg"
+    },
+    "explanation": "横断歩道は、安全に道路を渡るための場所です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.ac4c31822718",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校の場所を調べるときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "場所の名前と役割を記録する"
+        },
+        {
+          "id": "c2",
+          "text": "大声で走りまわる"
+        },
+        {
+          "id": "c3",
+          "text": "道具を壊す"
+        },
+        {
+          "id": "c4",
+          "text": "記録をしない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "見たことを絵や言葉で記録することが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.daa4abe8975d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、安全な登下校のために正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "友達と一緒に歩く"
+        },
+        {
+          "id": "c2",
+          "text": "一人で暗い道を歩く"
+        },
+        {
+          "id": "c3",
+          "text": "道路の真ん中を走る"
+        },
+        {
+          "id": "c4",
+          "text": "見ずに飛び出す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d131d0bec4d9bac6.jpg"
+    },
+    "explanation": "友達と一緒に歩いたり、手をつないだりしましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.e163d4cc8378",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この場所で行われる活動として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体を動かす運動"
+        },
+        {
+          "id": "c2",
+          "text": "本を借りる"
+        },
+        {
+          "id": "c3",
+          "text": "食事を作る"
+        },
+        {
+          "id": "c4",
+          "text": "手紙を出す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/35b40dd11625c045.jpg"
+    },
+    "explanation": "体育館では、体を動かす運動や体育の授業が行われます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.f38edb617d4e",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "通学路の安全を守る人はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交通整理をする警察官"
+        },
+        {
+          "id": "c2",
+          "text": "野球選手"
+        },
+        {
+          "id": "c3",
+          "text": "歌手"
+        },
+        {
+          "id": "c4",
+          "text": "画家"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "警察官やボランティアの方が安全を守ってくれています。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.f7ea232fc6e3",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、友達と仲よくするために大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一緒に遊び、話を聞く"
+        },
+        {
+          "id": "c2",
+          "text": "友達を無視する"
+        },
+        {
+          "id": "c3",
+          "text": "一人だけ遊ぶ"
+        },
+        {
+          "id": "c4",
+          "text": "けんかをする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e66d04bc983c2792.jpg"
+    },
+    "explanation": "友達と一緒に遊び、話をよく聞くことが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.0e4cbd00f3df",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家族のしごととして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食事の準備"
+        },
+        {
+          "id": "c2",
+          "text": "学校の掃除"
+        },
+        {
+          "id": "c3",
+          "text": "野球の試合"
+        },
+        {
+          "id": "c4",
+          "text": "工場での作業"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ca099c58c9dba794.jpg"
+    },
+    "explanation": "食事の準備や洗濯など、家の中のしごとがあります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.1ba7d4a2543d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、バランスのよい食事に使われるものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "野菜"
+        },
+        {
+          "id": "c2",
+          "text": "おもちゃ"
+        },
+        {
+          "id": "c3",
+          "text": "鉛筆"
+        },
+        {
+          "id": "c4",
+          "text": "くつ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2cdb73130a5405cc.jpg"
+    },
+    "explanation": "野菜や果物など、いろいろな種類の食べ物をとることが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.1c96c1be7680",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "家族のしごとを調べるときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "感謝の気持ちを伝える"
+        },
+        {
+          "id": "c2",
+          "text": "しごとをばかにする"
+        },
+        {
+          "id": "c3",
+          "text": "調べない"
+        },
+        {
+          "id": "c4",
+          "text": "記録を破る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "家族のしごとへの感謝を言葉で伝えましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.265bda0c3c1d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、健康のために大切な習慣はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "歯みがきをする"
+        },
+        {
+          "id": "c2",
+          "text": "歯みがきをしない"
+        },
+        {
+          "id": "c3",
+          "text": "夜更かしをする"
+        },
+        {
+          "id": "c4",
+          "text": "朝食を抜く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b8e137d546c0a794.jpg"
+    },
+    "explanation": "歯みがきは、毎日の健康習慣として大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.96880e55846e",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "役割を果たすために大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "決めたことを続ける"
+        },
+        {
+          "id": "c2",
+          "text": "すぐにあきらめる"
+        },
+        {
+          "id": "c3",
+          "text": "人に任せきりにする"
+        },
+        {
+          "id": "c4",
+          "text": "約束を破る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "毎日できることを決めて、続けることが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.9aa9a03cad93",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家族のくらしとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一緒に食事をとる"
+        },
+        {
+          "id": "c2",
+          "text": "一人だけで食べる"
+        },
+        {
+          "id": "c3",
+          "text": "食事をしない"
+        },
+        {
+          "id": "c4",
+          "text": "外でだけ食べる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3b4b862e380c9729.jpg"
+    },
+    "explanation": "家族で一緒に食事をとることは、くらしの大切な時間です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.a42a98a164f0",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、できたことを伝える方法として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "絵や言葉で表す"
+        },
+        {
+          "id": "c2",
+          "text": "何も言わない"
+        },
+        {
+          "id": "c3",
+          "text": "隠す"
+        },
+        {
+          "id": "c4",
+          "text": "忘れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/925523a27c7eb00d.jpg"
+    },
+    "explanation": "できたことを絵や言葉で家族に伝えましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.b33aedf0ef41",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、自分でできることの例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食器を片づける"
+        },
+        {
+          "id": "c2",
+          "text": "車を運転する"
+        },
+        {
+          "id": "c3",
+          "text": "家を建てる"
+        },
+        {
+          "id": "c4",
+          "text": "給料をもらう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5ba77448b913218e.jpg"
+    },
+    "explanation": "食器を片づけたり、洋服をたたんだり、自分にもできることがあります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.bfc299e245ab",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "規則正しい生活の例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "決まった時間に寝る"
+        },
+        {
+          "id": "c2",
+          "text": "夜更かしをする"
+        },
+        {
+          "id": "c3",
+          "text": "朝食を抜く"
+        },
+        {
+          "id": "c4",
+          "text": "外で体を動かさない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "決まった時間に起きて寝ることが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.cfb3a1193492",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生活上の習慣として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "手あらいをする"
+        },
+        {
+          "id": "c2",
+          "text": "手を洗わない"
+        },
+        {
+          "id": "c3",
+          "text": "部屋を散らかす"
+        },
+        {
+          "id": "c4",
+          "text": "水を飲まない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/675dd39244f9dec2.jpg"
+    },
+    "explanation": "手あらいは、病気を防ぐ大切な習慣です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.dbdc311e318b",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家族への気持ちとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ありがとうと伝える"
+        },
+        {
+          "id": "c2",
+          "text": "文句を言う"
+        },
+        {
+          "id": "c3",
+          "text": "何もしない"
+        },
+        {
+          "id": "c4",
+          "text": "隠れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5b6b76fd4748a382.jpg"
+    },
+    "explanation": "家族のしごとへの感謝を言葉で伝えましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.f600e928beaa",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家の中でできるしごとはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食器を洗う"
+        },
+        {
+          "id": "c2",
+          "text": "車を運転する"
+        },
+        {
+          "id": "c3",
+          "text": "家を建てる"
+        },
+        {
+          "id": "c4",
+          "text": "飛行機に乗る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b34abc3bd0f3a673.jpg"
+    },
+    "explanation": "食器を洗うなど、自分にもできる家事があります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.0e6a02faf21c",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、植物の変化として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "芽が出て育つ"
+        },
+        {
+          "id": "c2",
+          "text": "すぐに枯れる"
+        },
+        {
+          "id": "c3",
+          "text": "色が消える"
+        },
+        {
+          "id": "c4",
+          "text": "大きさが変わらない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5e7f05610e7d4009.jpg"
+    },
+    "explanation": "種から芽が出て、だんだん大きく育ちます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.11cd804ccf31",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生きものの変化の途中のすがたはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さなぎ"
+        },
+        {
+          "id": "c2",
+          "text": "卵"
+        },
+        {
+          "id": "c3",
+          "text": "成虫"
+        },
+        {
+          "id": "c4",
+          "text": "化石"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/784056348b4b9226.jpg"
+    },
+    "explanation": "幼虫がさなぎになり、その後チョウになります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.324f619c64e3",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生きものを観察するときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "生きものを傷つけない"
+        },
+        {
+          "id": "c2",
+          "text": "無理に捕まえる"
+        },
+        {
+          "id": "c3",
+          "text": "すみかを壊す"
+        },
+        {
+          "id": "c4",
+          "text": "ゴミをすてる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "やさしく接し、傷つけないことが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.4278066e5361",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、観察の記録として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ノートに書き込む"
+        },
+        {
+          "id": "c2",
+          "text": "記録しない"
+        },
+        {
+          "id": "c3",
+          "text": "破いてすてる"
+        },
+        {
+          "id": "c4",
+          "text": "他人の記録を消す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/72cc0de86d89c53f.jpg"
+    },
+    "explanation": "すがたや変化をノートに記録しましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.6ab930a87bb2",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、植物の成長の様子として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "もやしのように芽が伸びる"
+        },
+        {
+          "id": "c2",
+          "text": "すぐに花がさく"
+        },
+        {
+          "id": "c3",
+          "text": "根が消える"
+        },
+        {
+          "id": "c4",
+          "text": "葉がなくなる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8cf08b4b84df6ba9.jpg"
+    },
+    "explanation": "発芽すると、芽が伸びて成長していきます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.778e00107878",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、植物の世話として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水をあげる"
+        },
+        {
+          "id": "c2",
+          "text": "水をあげない"
+        },
+        {
+          "id": "c3",
+          "text": "日光を当てない"
+        },
+        {
+          "id": "c4",
+          "text": "記録しない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e6e5154486a8895c.jpg"
+    },
+    "explanation": "こまめに水をあげることが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.81b79eca0859",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスで生きものを育てるときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "みんなで協力して世話をする"
+        },
+        {
+          "id": "c2",
+          "text": "一人だけが世話をする"
+        },
+        {
+          "id": "c3",
+          "text": "世話をしない"
+        },
+        {
+          "id": "c4",
+          "text": "生き物をいじめる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "クラスで協力して世話をしましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.852db49579f7",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、植物を育てるはじめの活動はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "種をまく"
+        },
+        {
+          "id": "c2",
+          "text": "花を摘む"
+        },
+        {
+          "id": "c3",
+          "text": "根を切る"
+        },
+        {
+          "id": "c4",
+          "text": "葉を全部はがす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8e2d9eead197e4a1.jpg"
+    },
+    "explanation": "種をまいて、芽が出るのを待ちます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.8eb1c4d42278",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この生きもののすがたの特徴はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体が細長く、葉を食べる"
+        },
+        {
+          "id": "c2",
+          "text": "羽で空を飛ぶ"
+        },
+        {
+          "id": "c3",
+          "text": "水中だけで生活する"
+        },
+        {
+          "id": "c4",
+          "text": "足が10本以上ある"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/af5c56a38978e303.jpg"
+    },
+    "explanation": "幼虫は葉を食べながら、だんだん大きくなります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.a7872039ae49",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この生きものの名前はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "チョウ"
+        },
+        {
+          "id": "c2",
+          "text": "クジラ"
+        },
+        {
+          "id": "c3",
+          "text": "サメ"
+        },
+        {
+          "id": "c4",
+          "text": "ペンギン"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5657f7555c449e4b.jpg"
+    },
+    "explanation": "チョウは、花のまわりにいる身近な生きものです。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.a8789c90138d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生きものの変化を記録するときに書くことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いつ、どんなふうに変わったか"
+        },
+        {
+          "id": "c2",
+          "text": "何も書かない"
+        },
+        {
+          "id": "c3",
+          "text": "自分の名前だけ"
+        },
+        {
+          "id": "c4",
+          "text": "天気だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「いつ」「どんなふうに変わったか」を記録します。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-03.f7277cc993e1",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生きものを探す場所として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "草むら"
+        },
+        {
+          "id": "c2",
+          "text": "舗装された通路"
+        },
+        {
+          "id": "c3",
+          "text": "教室の中"
+        },
+        {
+          "id": "c4",
+          "text": "屋上のコンクリート"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ccece9560fdadd86.jpg"
+    },
+    "explanation": "草むらなどの自然の中には、小さな生きものがいます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.4339012bf306",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、自然を使ったあそびの場所として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公園"
+        },
+        {
+          "id": "c2",
+          "text": "工場"
+        },
+        {
+          "id": "c3",
+          "text": "地下鉄"
+        },
+        {
+          "id": "c4",
+          "text": "倉庫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b5f7915961194e66.jpg"
+    },
+    "explanation": "公園などの自然のある場所で、安全に遊べます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.43b74c6ab929",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、季節に合った食べ物を売っている場所はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "市場"
+        },
+        {
+          "id": "c2",
+          "text": "図書室"
+        },
+        {
+          "id": "c3",
+          "text": "体育館"
+        },
+        {
+          "id": "c4",
+          "text": "音楽室"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/71281541c0bb4079.jpg"
+    },
+    "explanation": "市場では、季節の魚や野菜などが売られています。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.4ed4c3f387fc",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、秋の季節のしるしはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉の色が変わる"
+        },
+        {
+          "id": "c2",
+          "text": "新しい芽が出る"
+        },
+        {
+          "id": "c3",
+          "text": "雪がつもる"
+        },
+        {
+          "id": "c4",
+          "text": "花がさく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ff70e7e75c717bca.jpg"
+    },
+    "explanation": "秋は葉の色が変わり、実りの季節でもあります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.6e93363cc85d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、日本の季節の行事に関係するものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "神社の鳥居"
+        },
+        {
+          "id": "c2",
+          "text": "工場"
+        },
+        {
+          "id": "c3",
+          "text": "飛行場"
+        },
+        {
+          "id": "c4",
+          "text": "地下鉄"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9bb2a84dc8c3c1ac.jpg"
+    },
+    "explanation": "神社などでは、季節の行事やお祭りが行われます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.7ef27b5e5fc6",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "季節の変化を見つけるために大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同じ場所を見続ける"
+        },
+        {
+          "id": "c2",
+          "text": "1回だけ見る"
+        },
+        {
+          "id": "c3",
+          "text": "室内にいるだけ"
+        },
+        {
+          "id": "c4",
+          "text": "記録しない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "同じ場所を見続けると、季節の変化に気づけます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.95d80b421b0d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、季節の行事の例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "運動会"
+        },
+        {
+          "id": "c2",
+          "text": "数学のテスト"
+        },
+        {
+          "id": "c3",
+          "text": "買い物"
+        },
+        {
+          "id": "c4",
+          "text": "映画"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4729a839fc8fa86e.jpg"
+    },
+    "explanation": "運動会は、秋の季節によく行われる学校の行事です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.a0ef27d9c65e",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あそびを工夫するときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "友達の考えを取り入れる"
+        },
+        {
+          "id": "c2",
+          "text": "一人だけで決める"
+        },
+        {
+          "id": "c3",
+          "text": "危ない遊びをする"
+        },
+        {
+          "id": "c4",
+          "text": "片づけない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "みんなで考え、作り、遊ぶことが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.a1423856f791",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、春の季節のしるしはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "花がさく"
+        },
+        {
+          "id": "c2",
+          "text": "木の葉が落ちる"
+        },
+        {
+          "id": "c3",
+          "text": "雪がふる"
+        },
+        {
+          "id": "c4",
+          "text": "セミの声"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5b2ff3597a61060a.jpg"
+    },
+    "explanation": "春には花がさき、新しい芽が出ます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.be0511000205",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、夏の季節のしるしはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "草や木がおおきく育つ"
+        },
+        {
+          "id": "c2",
+          "text": "雪がふる"
+        },
+        {
+          "id": "c3",
+          "text": "葉が全部落ちる"
+        },
+        {
+          "id": "c4",
+          "text": "池がこおる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/96ff64c6d29f35e4.jpg"
+    },
+    "explanation": "夏は草木がおおきく育ち、緑が濃くなります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.f1a1599b2509",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、自然を観察するときに使う道具はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "虫めがん"
+        },
+        {
+          "id": "c2",
+          "text": "ハサミ"
+        },
+        {
+          "id": "c3",
+          "text": "のこぎり"
+        },
+        {
+          "id": "c4",
+          "text": "かま"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c19ff27b5ea364fc.jpg"
+    },
+    "explanation": "虫めがんを使うと、小さな生きものをくわしく見られます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.ff094ad5ebd0",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、自然の物を使ったあそびの材料はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "落ち葉"
+        },
+        {
+          "id": "c2",
+          "text": "プラスチックの板"
+        },
+        {
+          "id": "c3",
+          "text": "金属の棒"
+        },
+        {
+          "id": "c4",
+          "text": "ガラス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/48f5ec48bf6bbc4c.jpg"
+    },
+    "explanation": "落ち葉や棒など、自然の物を使って遊びを工夫します。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-04.ff3454a52a19",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "季節によって変わるくらしの例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "服装"
+        },
+        {
+          "id": "c2",
+          "text": "名前"
+        },
+        {
+          "id": "c3",
+          "text": "学年"
+        },
+        {
+          "id": "c4",
+          "text": "住所"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "季節に合った食べ物や服装など、くらし方が変わります。"
+  }
+]

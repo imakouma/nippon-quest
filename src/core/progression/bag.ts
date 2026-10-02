@@ -1,53 +1,58 @@
 /**
- * バッグ：仲間モンスターと そうびを 入れる マス。バッグに 入れた ものだけ、バトルに 出せる・そうびが きく。
- *  - マスの数は 主人公の レベルで ふえる（settings.bag：さいしょ baseSlots こ、levelsPerSlot レベルごとに +1、maxSlots まで）
- *  - 仲間は しんかの だんかい ぶん マスを つかう（しんか前 1・1 かい しんか 2・2 かい しんか 3）
- *  - そうびは 1 こ 1 マス。バッグに 入っている そうび ＝ そうびちゅう（player.equipment。同じ部位は 1 つ）
- *  - たべもの・そざい・しんかの どうぐ は マスを つかわない（inventory のまま）
- * バッグの 仲間は party.team（先頭が せんとう＝バトルで さいしょに出る）。体の 上限は なく、マスの数で きまる。
- * 純粋関数のみ。
+ * 2Dバッグ編成。
+ * 主人公・仲間・装備をグリッドへ置き、バッグ外の仲間は控えとして戦闘中に交代できる。
  */
 import type { ContentIndex } from '../content/loader';
-import type { Item, Monster, Settings } from '../content/schemas';
+import type { Item, Monster, Settings, Stats } from '../content/schemas';
 import type { GameState } from '../state/schema';
-import { heroLevel } from './battleResult';
 import { equipItem, isEquip } from './inventory';
 
 export type BagSettings = Settings['bag'];
-
+export interface BagSize {
+  w: number;
+  h: number;
+}
+export interface BagPos {
+  x: number;
+  y: number;
+  rotated?: boolean;
+}
 export interface BagContext {
   monsters: ReadonlyMap<string, Monster>;
-  /** いまの マスの数 */
+  cols: number;
+  rows: number;
   capacity: number;
 }
 
-/** 主人公の レベルで きまる マスの数 */
-export function bagCapacity(level: number, cfg: BagSettings): number {
-  return Math.min(cfg.maxSlots, cfg.baseSlots + Math.floor((Math.max(1, level) - 1) / cfg.levelsPerSlot));
+export const MAX_FORMATION_CHARACTERS = 8;
+export const MAX_COMPANIONS = MAX_FORMATION_CHARACTERS - 1;
+
+/** 島のクリア数で 2x2 → 3x2 → 3x3 → 4x3。 */
+export function bagDimensions(gs: Pick<GameState, 'progress'>): BagSize {
+  const n = gs.progress.islandsCleared.length;
+  if (n >= 4) return { w: 4, h: 3 };
+  if (n >= 2) return { w: 3, h: 3 };
+  if (n >= 1) return { w: 3, h: 2 };
+  return { w: 2, h: 2 };
 }
 
-/** i ばんめ（0 から）の マスが あく レベル。はじめから ある マスは 1 */
-export function slotUnlockLevel(i: number, cfg: BagSettings): number {
-  return i < cfg.baseSlots ? 1 : (i - cfg.baseSlots + 1) * cfg.levelsPerSlot + 1;
+/** 旧API互換。レベルではなくストーリー進行へ移行したため設定上の最大値だけを返す。 */
+export function bagCapacity(_level: number, cfg: BagSettings): number {
+  return Math.min(12, cfg.maxSlots);
+}
+export function slotUnlockLevel(_i: number, _cfg: BagSettings): number {
+  return 1;
+}
+export function nextSlotLevel(_level: number, _cfg: BagSettings): number | null {
+  return null;
 }
 
-/** つぎに マスが ふえる レベル。もう ふえないなら null */
-export function nextSlotLevel(level: number, cfg: BagSettings): number | null {
-  const cap = bagCapacity(level, cfg);
-  return cap >= cfg.maxSlots ? null : slotUnlockLevel(cap, cfg);
-}
-
-/** GameState と content から いまの バッグの 大きさ */
-export function bagContext(gs: GameState, c: Pick<ContentIndex, 'monsters' | 'xp' | 'settings'>): BagContext {
-  return { monsters: c.monsters, capacity: bagCapacity(heroLevel(gs, c.xp.hero), c.settings.bag) };
+export function bagContext(gs: GameState, c: Pick<ContentIndex, 'monsters'>): BagContext {
+  const { w, h } = bagDimensions(gs);
+  return { monsters: c.monsters, cols: w, rows: h, capacity: w * h };
 }
 
 const stageMemo = new WeakMap<ReadonlyMap<string, Monster>, Map<string, number>>();
-
-/**
- * しんかの だんかい（1 = しんか前、2 = 1 かい しんか、3 = 2 かい しんか）。
- * monsters の evolution.to を さかのぼって 数える（しんか先の モンスターを そのまま 仲間にしても 同じ）
- */
 export function evolutionStage(monsterId: string, monsters: ReadonlyMap<string, Monster>): number {
   let memo = stageMemo.get(monsters);
   if (!memo) {
@@ -68,92 +73,164 @@ export function evolutionStage(monsterId: string, monsters: ReadonlyMap<string, 
   return memo.get(monsterId) ?? 1;
 }
 
-/** 仲間が つかう マスの数（しんかの だんかい） */
-export const monsterCost = evolutionStage;
-
-/**
- * バッグに 入っている 仲間の uid（先頭が せんとう）。
- * party.team が 空の 古いセーブは、せんとう（activeUid）の 1 体だけ。
- * 仲間を ぜんぶ 出したときは activeUid も null に するので、空の まま
- */
-export function bagMonsterUids(gs: GameState): string[] {
-  const owned = new Set(gs.party.owned.map((o) => o.uid));
-  const lead = gs.party.activeUid;
-  const saved = [...new Set(gs.party.team.filter((u) => owned.has(u)))];
-  const bag = saved.length ? saved : lead && owned.has(lead) ? [lead] : [];
-  return lead && bag.includes(lead) ? [lead, ...bag.filter((u) => u !== lead)] : bag;
+/** 通常キャラは1x1、仲間になったボスは2x2。 */
+export function monsterSize(monsterId: string, monsters: ReadonlyMap<string, Monster>): BagSize {
+  return monsters.get(monsterId)?.isBoss ? { w: 2, h: 2 } : { w: 1, h: 1 };
+}
+export function monsterCost(monsterId: string, monsters: ReadonlyMap<string, Monster>): number {
+  const s = monsterSize(monsterId, monsters);
+  return s.w * s.h;
 }
 
-/** バッグに 入っている そうび（部位の じゅん） */
-export function bagEquipCount(gs: GameState): number {
-  return Object.values(gs.player.equipment).filter(Boolean).length;
+const monKey = (uid: string) => `mon:${uid}`;
+const equipKey = (kind: string) => `eq:${kind}`;
+
+export function bagMonsterUids(gs: GameState): string[] {
+  const owned = new Set(gs.party.owned.map((o) => o.uid));
+  const placed = gs.party.team.filter((uid) => owned.has(uid) && !!gs.party.bagPlacements[monKey(uid)]);
+  const lead = gs.party.activeUid;
+  return lead && placed.includes(lead) ? [lead, ...placed.filter((u) => u !== lead)] : placed;
+}
+
+export function reserveMonsterUids(gs: GameState): string[] {
+  const owned = new Set(gs.party.owned.map((o) => o.uid));
+  return gs.party.reserve.filter((uid) => owned.has(uid) && !gs.party.team.includes(uid));
+}
+
+/** バッグ内＋控え。主人公と合わせて最大8体。 */
+export function battleRosterUids(gs: GameState): string[] {
+  return [...bagMonsterUids(gs), ...reserveMonsterUids(gs)].slice(0, MAX_COMPANIONS);
+}
+
+function thingSize(gs: GameState, key: string, ctx: BagContext): BagSize | null {
+  if (key === 'hero' || key.startsWith('eq:')) return { w: 1, h: 1 };
+  if (!key.startsWith('mon:')) return null;
+  const o = gs.party.owned.find((x) => x.uid === key.slice(4));
+  return o ? monsterSize(o.monsterId, ctx.monsters) : null;
+}
+
+function cellsAt(pos: BagPos, size: BagSize): string[] {
+  const w = pos.rotated ? size.h : size.w;
+  const h = pos.rotated ? size.w : size.h;
+  return Array.from({ length: h }, (_, dy) =>
+    Array.from({ length: w }, (_x, dx) => `${pos.x + dx},${pos.y + dy}`),
+  ).flat();
+}
+
+export function canPlace(gs: GameState, key: string, pos: BagPos, ctx: BagContext): boolean {
+  const size = thingSize(gs, key, ctx);
+  if (!size) return false;
+  const mine = cellsAt(pos, size);
+  if (
+    mine.some((c) => {
+      const [x, y] = c.split(',').map(Number);
+      return x! < 0 || y! < 0 || x! >= ctx.cols || y! >= ctx.rows;
+    })
+  )
+    return false;
+  const occupied = new Set<string>();
+  for (const [other, at] of Object.entries(gs.party.bagPlacements)) {
+    if (other === key) continue;
+    const os = thingSize(gs, other, ctx);
+    if (os) for (const c of cellsAt(at, os)) occupied.add(c);
+  }
+  return mine.every((c) => !occupied.has(c));
+}
+
+export function firstFreePosition(gs: GameState, key: string, ctx: BagContext): BagPos | null {
+  for (let y = 0; y < ctx.rows; y++)
+    for (let x = 0; x < ctx.cols; x++) {
+      const p = { x, y, rotated: false };
+      if (canPlace(gs, key, p, ctx)) return p;
+    }
+  return null;
+}
+
+export function moveBagThing(prev: GameState, key: string, pos: BagPos, ctx: BagContext): GameState | null {
+  if (!canPlace(prev, key, pos, ctx)) return null;
+  const gs = structuredClone(prev);
+  gs.party.bagPlacements[key] = { x: pos.x, y: pos.y, rotated: !!pos.rotated };
+  gs.updatedAt = Date.now();
+  return gs;
 }
 
 export interface BagUsage {
   used: number;
   capacity: number;
-  /** あいている マス（マスより 多く 入っている 古いセーブでも 0） */
   free: number;
-  /** マスより 多く 入っている（マスが できる前の セーブ）。出すことは できるが 入れられない */
   over: boolean;
 }
-
 export function bagUsage(gs: GameState, ctx: BagContext): BagUsage {
-  const owned = new Map(gs.party.owned.map((o) => [o.uid, o]));
-  const used =
-    bagMonsterUids(gs).reduce((n, uid) => n + monsterCost(owned.get(uid)!.monsterId, ctx.monsters), 0) +
-    bagEquipCount(gs);
+  let used = 0;
+  for (const key of Object.keys(gs.party.bagPlacements)) {
+    const s = thingSize(gs, key, ctx);
+    if (s) used += s.w * s.h;
+  }
   return { used, capacity: ctx.capacity, free: Math.max(0, ctx.capacity - used), over: used > ctx.capacity };
 }
 
-export type BagMove = 'added' | 'removed' | 'swapped' | 'full' | 'none';
-
-/** せんとう（activeUid）が バッグに いなければ、バッグの 先頭に あわせる */
+export type BagMove = 'added' | 'removed' | 'benched' | 'swapped' | 'full' | 'roster-full' | 'none';
 function fixLead(gs: GameState): void {
-  if (!gs.party.activeUid || !gs.party.team.includes(gs.party.activeUid))
-    gs.party.activeUid = gs.party.team[0] ?? null;
+  const roster = battleRosterUids(gs);
+  if (!gs.party.activeUid || !roster.includes(gs.party.activeUid)) gs.party.activeUid = roster[0] ?? null;
 }
 
-/** 仲間を バッグに 入れる / 出す。マスが たりなければ 入れられない（full） */
+/** バッグ内⇄控え。未編成の仲間は空きがあれば編成にも追加する。 */
 export function toggleBagMonster(
   prev: GameState,
   uid: string,
   ctx: BagContext,
   now = Date.now(),
 ): { state: GameState; result: BagMove } {
-  const o = prev.party.owned.find((x) => x.uid === uid);
-  if (!o) return { state: prev, result: 'none' };
-  const bag = bagMonsterUids(prev);
+  if (!prev.party.owned.some((x) => x.uid === uid)) return { state: prev, result: 'none' };
+  const key = monKey(uid);
   const gs = structuredClone(prev);
-  if (bag.includes(uid)) {
-    gs.party.team = bag.filter((u) => u !== uid);
+  if (gs.party.team.includes(uid)) {
+    gs.party.team = gs.party.team.filter((u) => u !== uid);
+    delete gs.party.bagPlacements[key];
+    if (!gs.party.reserve.includes(uid)) gs.party.reserve.push(uid);
+    if (gs.party.activeUid === uid) gs.party.activeUid = gs.party.team[0] ?? gs.party.reserve[0] ?? null;
     fixLead(gs);
     gs.updatedAt = now;
     return { state: gs, result: 'removed' };
   }
-  if (monsterCost(o.monsterId, ctx.monsters) > bagUsage(prev, ctx).free)
+  const roster = battleRosterUids(prev);
+  if (!roster.includes(uid) && roster.length >= MAX_COMPANIONS) return { state: prev, result: 'roster-full' };
+  const at = firstFreePosition(prev, key, ctx);
+  if (!at) {
+    if (!roster.includes(uid)) {
+      gs.party.reserve.push(uid);
+      fixLead(gs);
+      gs.updatedAt = now;
+      return { state: gs, result: 'benched' };
+    }
     return { state: prev, result: 'full' };
-  gs.party.team = [...bag, uid];
+  }
+  gs.party.reserve = gs.party.reserve.filter((u) => u !== uid);
+  gs.party.team.push(uid);
+  gs.party.bagPlacements[key] = { ...at, rotated: !!at.rotated };
   fixLead(gs);
   gs.updatedAt = now;
   return { state: gs, result: 'added' };
 }
 
-/** バトルで さいしょに出す仲間（せんとう）に する。バッグに いない 仲間は できない */
-export function setLeader(prev: GameState, uid: string, now = Date.now()): GameState {
-  const bag = bagMonsterUids(prev);
-  if (!bag.includes(uid)) return prev;
+export function removeFromRoster(prev: GameState, uid: string, now = Date.now()): GameState {
+  if (!prev.party.reserve.includes(uid)) return prev;
   const gs = structuredClone(prev);
-  gs.party.team = [uid, ...bag.filter((u) => u !== uid)];
+  gs.party.reserve = gs.party.reserve.filter((u) => u !== uid);
+  fixLead(gs);
+  gs.updatedAt = now;
+  return gs;
+}
+
+export function setLeader(prev: GameState, uid: string, now = Date.now()): GameState {
+  if (!battleRosterUids(prev).includes(uid)) return prev;
+  const gs = structuredClone(prev);
   gs.party.activeUid = uid;
   gs.updatedAt = now;
   return gs;
 }
 
-/**
- * そうびを バッグに 入れる（＝そうびする）。同じ部位の そうびが 入っていれば 入れかえ（swapped。マスは かわらない）。
- * あいている マスが 無ければ full。そうびでない・もっていないなら none
- */
 export function putEquip(
   prev: GameState,
   it: Item,
@@ -162,35 +239,61 @@ export function putEquip(
 ): { state: GameState; result: BagMove; old?: string } {
   if (!isEquip(it) || (prev.inventory[it.id] ?? 0) <= 0) return { state: prev, result: 'none' };
   const old = prev.player.equipment[it.kind];
-  if (!old && bagUsage(prev, ctx).free < 1) return { state: prev, result: 'full' };
+  const key = equipKey(it.kind);
+  const at = prev.party.bagPlacements[key] ?? firstFreePosition(prev, key, ctx);
+  if (!at) return { state: prev, result: 'full' };
   const next = equipItem(prev, it, now);
   if (!next) return { state: prev, result: 'none' };
+  next.party.bagPlacements[key] = { ...at, rotated: !!at.rotated };
   return old ? { state: next, result: 'swapped', old } : { state: next, result: 'added' };
 }
 
-/**
- * しんかすると ふえる マス（バッグの 外の 仲間は 0）と、バッグに 入りきるか。
- * 入りきらないときは しんかできない（先に ほかの ものを 出す）
- */
-export function evolveRoom(gs: GameState, uid: string, ctx: BagContext): { extra: number; ok: boolean } {
-  const o = gs.party.owned.find((x) => x.uid === uid);
-  const to = o && ctx.monsters.get(o.monsterId)?.evolution?.to;
-  if (!o || !to || !bagMonsterUids(gs).includes(uid)) return { extra: 0, ok: true };
-  const extra = monsterCost(to, ctx.monsters) - monsterCost(o.monsterId, ctx.monsters);
-  return { extra, ok: extra <= bagUsage(gs, ctx).free };
+export function evolveRoom(gs: GameState, uid: string, _ctx: BagContext): { extra: number; ok: boolean } {
+  // 通常進化ではサイズ不変。ボスなどサイズが変わる進化を追加したらここで再配置判定する。
+  return { extra: 0, ok: !!gs.party.owned.find((x) => x.uid === uid) };
 }
 
-/** 仲間に なったばかりの モンスター：マスが あいていれば バッグへ、たりなければ あずける */
 export function stowNewMonster(
   prev: GameState,
   uid: string,
   ctx: BagContext,
 ): { state: GameState; inBag: boolean } {
-  const o = prev.party.owned.find((x) => x.uid === uid);
-  if (!o || bagMonsterUids(prev).includes(uid)) return { state: prev, inBag: !!o };
-  if (monsterCost(o.monsterId, ctx.monsters) > bagUsage(prev, ctx).free) return { state: prev, inBag: false };
+  if (battleRosterUids(prev).length >= MAX_COMPANIONS) return { state: prev, inBag: false };
+  const placed = toggleBagMonster(prev, uid, ctx);
+  if (placed.result === 'added') return { state: placed.state, inBag: true };
   const gs = structuredClone(prev);
-  gs.party.team = [...bagMonsterUids(prev), uid];
+  if (!gs.party.reserve.includes(uid)) gs.party.reserve.push(uid);
   fixLead(gs);
-  return { state: gs, inBag: true };
+  return { state: gs, inBag: false };
+}
+
+export interface AdjacencyBonus {
+  stats: Partial<Stats>;
+  labels: string[];
+}
+/** 主人公に上下左右で隣接した仲間が、属性ごとに5%の支援効果を与える。 */
+export function adjacencyBonus(gs: GameState, ctx: BagContext, base: Stats): AdjacencyBonus {
+  const hero = gs.party.bagPlacements.hero ?? { x: 0, y: 0 };
+  const stats: Partial<Stats> = {};
+  const labels: string[] = [];
+  const map: Record<string, keyof Stats> = {
+    hino: 'atk',
+    mizu: 'def',
+    mori: 'hp',
+    tsuchi: 'def',
+    kaze: 'spd',
+    hikari: 'wis',
+    yami: 'atk',
+    none: 'hp',
+  };
+  for (const uid of bagMonsterUids(gs)) {
+    const p = gs.party.bagPlacements[monKey(uid)];
+    const o = gs.party.owned.find((x) => x.uid === uid);
+    const def = o && ctx.monsters.get(o.monsterId);
+    if (!p || !def || Math.abs(p.x - hero.x) + Math.abs(p.y - hero.y) !== 1) continue;
+    const stat = map[def.element]!;
+    stats[stat] = (stats[stat] ?? 0) + Math.max(1, Math.round(base[stat] * 0.05));
+    labels.push(`${def.name} → ${stat.toUpperCase()} +5%`);
+  }
+  return { stats, labels };
 }

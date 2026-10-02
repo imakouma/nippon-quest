@@ -28,7 +28,11 @@ export interface BagThing {
   art: string | null;
   /** つかう マスの数（主人公は 0） */
   cost: number;
+  /** 2Dバッグ上の大きさ */
+  size?: { w: number; h: number };
   inBag: boolean;
+  /** 主人公を含む最大8体の戦闘編成に入っている */
+  roster?: boolean;
   /** バトルで さいしょに出る 仲間 */
   leader?: boolean;
   level?: number;
@@ -60,6 +64,8 @@ export interface BagOverlayProps {
   /** あずけている 仲間・そうび */
   outside: BagThing[];
   cells: BagCell[];
+  cols: number;
+  rows: number;
   used: number;
   capacity: number;
   /** マスより 多く 入っている（マスが できる前の セーブ） */
@@ -74,6 +80,8 @@ export interface BagOverlayProps {
   onToggle: (key: string) => void;
   onLeader: (key: string) => void;
   onEvolve: (key: string) => void;
+  onMove: (key: string, x: number, y: number) => void;
+  onRosterRemove: (key: string) => void;
   onClose: () => void;
 }
 
@@ -97,7 +105,7 @@ function Pips({ n }: { n: number }) {
 }
 
 function Pic({ x, size }: { x: BagThing; size: number }) {
-  const src = size > 3 ? (x.art ?? x.icon) : x.icon;
+  const src = x.kind === 'hero' ? (x.art ?? x.icon) : size > 3 ? (x.art ?? x.icon) : x.icon;
   if (src) return <img src={src} alt="" />;
   return (
     <PixelIcon
@@ -112,16 +120,19 @@ export function BagOverlay({
   inBag,
   outside,
   cells,
+  cols,
+  rows,
   used,
   capacity,
   over,
-  nextLevel,
   focusKey,
   message,
   flashKey,
   onToggle,
   onLeader,
   onEvolve,
+  onMove,
+  onRosterRemove,
   onClose,
 }: BagOverlayProps) {
   // ↑↓ の じゅん：主人公 → バッグの 中身 → あずけている もの
@@ -252,23 +263,35 @@ export function BagOverlay({
               <span class={`nq-bag-count ${over ? 'nq-bag-over' : ''}`}>
                 {t('field.bagSlots', { used, max: capacity })}
               </span>
-              <span class="nq-bag-next">
-                {nextLevel ? t('field.bagNext', { lv: nextLevel }) : t('field.bagNextMax')}
-              </span>
             </span>
           </div>
-          <ul class="nq-party-list nq-bag-hero">{listRow(hero)}</ul>
-          <div class="nq-bag-grid" role="list" aria-label={t('field.bagTitle')}>
+          <div
+            class="nq-bag-grid"
+            role="list"
+            aria-label={t('field.bagTitle')}
+            style={{
+              gridTemplateColumns: `repeat(${cols}, 76px)`,
+              gridTemplateRows: `repeat(${rows}, 76px)`,
+            }}
+          >
             {cells.map((c, i) => {
               if (c.kind === 'empty')
                 return (
-                  <div key={`e${i}`} class="nq-bag-cell nq-bag-empty" aria-label={t('field.bagEmptyCell')} />
-                );
-              if (c.kind === 'locked')
-                return (
-                  <div key={`l${i}`} class="nq-bag-cell nq-bag-locked">
-                    {t('field.bagLocked', { lv: c.level })}
-                  </div>
+                  <div
+                    key={`e${i}`}
+                    class="nq-bag-cell nq-bag-empty"
+                    style={{ gridColumn: c.x + 1, gridRow: c.y + 1 }}
+                    aria-label={t('field.bagEmptyCell')}
+                    onClick={() => {
+                      if (m.kind !== 'hero' && m.inBag) onMove(m.key, c.x, c.y);
+                    }}
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      const key = e.dataTransfer?.getData('text/plain');
+                      if (key) onMove(key, c.x, c.y);
+                    }}
+                  />
                 );
               const x = byKey.get(c.key);
               if (!x) return null;
@@ -279,7 +302,9 @@ export function BagOverlay({
                   role="listitem"
                   data-bag-key={x.key}
                   class={`nq-bag-cell nq-bag-item nq-bag-${x.kind} ${x.key === m.key ? 'nq-focus' : ''}`}
-                  style={{ gridColumn: `span ${c.span}` }}
+                  style={{ gridColumn: `${c.x + 1} / span ${c.w}`, gridRow: `${c.y + 1} / span ${c.h}` }}
+                  draggable={x.kind !== 'hero'}
+                  onDragStart={(e) => e.dataTransfer?.setData('text/plain', x.key)}
                   aria-label={x.name.replace(/\[[^\]]*\]/g, '')}
                   onPointerEnter={() => pickKey(x.key)}
                   onClick={() => pickKey(x.key)}
@@ -377,6 +402,12 @@ export function BagOverlay({
                 <button type="button" class="nq-opt nq-wmap-go" onClick={leader}>
                   <PixelIcon name="hero" scale={3} />
                   {t('field.partySetLeader')}
+                </button>
+              )}
+              {m.kind === 'monster' && !m.inBag && m.roster && (
+                <button type="button" class="nq-opt nq-wmap-go" onClick={() => onRosterRemove(m.key)}>
+                  <PixelIcon name="cmd-item" scale={3} />
+                  {t('field.bagRosterRemove')}
                 </button>
               )}
               {m.evolve && (

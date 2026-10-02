@@ -1,7 +1,6 @@
 /** 岐阜県の モンスター（手描き。docs/06 §4・§6.3〜6.5 の 規格） */
 import { NQ } from '../palette';
 import type { MonsterDesign } from './design';
-import { BEARD_FACE, HELMET, lord } from './lastbosses';
 
 /** フユウガキッド：ひらたく まるい 富有柿。頭に 4 まいの がく（へた）と 葉っぱ（モリ） */
 const fuyugakid: MonsterDesign = {

@@ -4,7 +4,7 @@
  */
 import type { ContentIndex } from '../content/loader';
 import type { Area } from '../content/schemas';
-import { bagMonsterUids } from '../progression/bag';
+import { adjacencyBonus, bagContext, battleRosterUids } from '../progression/bag';
 import { heroLevel } from '../progression/battleResult';
 import type { Rng } from '../rng';
 import type { GameState } from '../state/schema';
@@ -41,8 +41,13 @@ export function partyFromGameState(
   hero.hp = Math.max(1, Math.min(hero.stats.hp, p.hp));
   hero.mp = Math.max(0, Math.min(hero.stats.mp, p.mp));
 
+  // バッグで主人公に隣接した仲間の属性支援。戦闘方式そのものは従来のターン制を保つ。
+  const adjacent = adjacencyBonus(gs, bagContext(gs, c), hero.stats);
+  for (const [k, v] of Object.entries(adjacent.stats)) hero.stats[k as keyof typeof hero.stats] += v ?? 0;
+  hero.hp = Math.min(hero.hp, hero.stats.hp);
+
   // バトルに出るのは バッグに 入れた 仲間だけ（何体でも）。あずけている 仲間は 入れかえにも出ない
-  const owned = bagMonsterUids(gs)
+  const owned = battleRosterUids(gs)
     .map((uid) => gs.party.owned.find((o) => o.uid === uid))
     .filter((o): o is NonNullable<typeof o> => !!o && c.monsters.has(o.monsterId));
   const monsters = owned.map((o) => {

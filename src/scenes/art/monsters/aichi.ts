@@ -700,7 +700,13 @@ const odaNobunaga: MonsterDesign = {
     W: NQ.white,
     M: NQ.hairBlack,
   },
-  rim: { [NQ.gray]: NQ.slate, [NQ.silver]: NQ.gray, [NQ.skinLight]: NQ.skinMid, [NQ.gold]: NQ.ochre, [NQ.brick]: NQ.ink },
+  rim: {
+    [NQ.gray]: NQ.slate,
+    [NQ.silver]: NQ.gray,
+    [NQ.skinLight]: NQ.skinMid,
+    [NQ.gold]: NQ.ochre,
+    [NQ.brick]: NQ.ink,
+  },
   rimDepth: 2,
   layers: [
     {

@@ -347,7 +347,11 @@ const shiobikin: MonsterDesign = {
       ],
     },
     // 白い おなか
-    { mirror: true, y: 20, rows: ['........PPPPPPPP', '.........PPPPPPP', '.........PPPPPPP', '..........PPPPPP'] },
+    {
+      mirror: true,
+      y: 20,
+      rows: ['........PPPPPPPP', '.........PPPPPPP', '.........PPPPPPP', '..........PPPPPP'],
+    },
     // よこの ひれ
     { x: 1, y: 17, rows: ['..VV', '.VVV', 'VVVV', '.VVb'] },
     { x: 27, y: 17, rows: ['VV..', 'VVV.', 'VVVV', 'bVV.'] },
@@ -355,7 +359,13 @@ const shiobikin: MonsterDesign = {
     {
       mirror: true,
       y: 12,
-      rows: ['..........WW....', '..........Wo....', '..........Wo....', '........pp......', '.............ooo'],
+      rows: [
+        '..........WW....',
+        '..........Wo....',
+        '..........Wo....',
+        '........pp......',
+        '.............ooo',
+      ],
     },
     // つや
     { x: 8, y: 13, rows: ['.W', 'W.'] },
@@ -419,7 +429,11 @@ const kitakazeZake: MonsterDesign = {
       ],
     },
     // 白い おなかと 赤い すじ
-    { mirror: true, y: 19, rows: ['.......PPPPPPPPP', '.......PPPPPPPPP', '........PPPPPPPP', '.........PPPPPPP'] },
+    {
+      mirror: true,
+      y: 19,
+      rows: ['.......PPPPPPPPP', '.......PPPPPPPPP', '........PPPPPPPP', '.........PPPPPPP'],
+    },
     { mirror: true, y: 13, rows: ['....bbbbbbbbbbbb'] },
     // 大きな よこひれ
     { x: 1, y: 16, rows: ['...VV', '..VVV', '.VVVV', 'VVVVV', '.VVbb'] },

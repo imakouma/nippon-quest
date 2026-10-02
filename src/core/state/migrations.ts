@@ -8,8 +8,34 @@ type Migration = (s: Record<string, unknown>) => Record<string, unknown>;
 
 /** index = 移行元バージョン。migrations[1] は v1 → v2 */
 const migrations: Record<number, Migration> = {
-  // 例：
-  // 1: (s) => ({ ...s, schemaVersion: 2, arena: { badges: 0, ghostParty: null, ...(s.arena as object) } }),
+  1: (s) => {
+    const party = (s.party ?? {}) as Record<string, unknown>;
+    const team = Array.isArray(party.team) ? (party.team as string[]) : [];
+    const placements: Record<string, { x: number; y: number; rotated: boolean }> = {
+      hero: { x: 0, y: 0, rotated: false },
+    };
+    // 古い一次元バッグは、2x2へ入る分を左上から自動配置。残りは控えへ移す。
+    const cells: Array<[number, number]> = [
+      [1, 0],
+      [0, 1],
+      [1, 1],
+    ];
+    const placed = team.slice(0, cells.length);
+    placed.forEach((uid, i) => {
+      const [x, y] = cells[i]!;
+      placements[`mon:${uid}`] = { x, y, rotated: false };
+    });
+    return {
+      ...s,
+      schemaVersion: 2,
+      party: {
+        ...party,
+        team: placed,
+        reserve: team.slice(cells.length, 7),
+        bagPlacements: placements,
+      },
+    };
+  },
 };
 
 export interface MigrateResult {

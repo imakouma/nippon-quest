@@ -1,0 +1,7381 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-1.01912a22da6a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北と南・水平・北"
+        },
+        {
+          "id": "c2",
+          "text": "南"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/778f47e643ee641f.png"
+    },
+    "explanation": "方位磁針の針は、（北と南）を指して止まる。方位磁針を使うときは（水平）にして持ち、針の動きが止まったら、文字ばんをゆっくり回して（北）の文字を針の色のついたほうに合わせてから、方位を調べる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.0813b779a6df",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "天気の決め方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れ・くもり・快晴"
+        },
+        {
+          "id": "c2",
+          "text": "雨"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ee5340112a1be4e6.png"
+    },
+    "explanation": "空全体の広さを10としたとき、雲の量が ０〜８のときは（晴れ）、９〜10 のときは（くもり）になる。晴れの中でも、雲の量が０〜１のときを特に（快晴）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.27b0e87f79ba",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲にはいろいろな種類があり、雲ができる高さや形、雨をふらせるかどうかによって、10種類に分けられる。図を見ながら、次の雲のできる高さをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "上空の高い位置にできる・中くらいの高さにできる・地上に近いところにできる・高さが一定ではない"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c0156f8917246cf0.png"
+    },
+    "explanation": "上空の高いところにできる雲には「巻」の文字がつき、その次に高い所にできる雲には「高」の文字がつく。それよりも下にできる雲や、高さが一定でない雲には「巻」も「高」もつかない。 巻雲：上空の高い位置にできる 高積雲：中くらいの高さにできる 層雲：地上に近いところにできる 積乱雲：高さが一定ではない"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.5724d56a50ad",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "天気の決め方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くもり・雲の量"
+        },
+        {
+          "id": "c2",
+          "text": "空の色"
+        },
+        {
+          "id": "c3",
+          "text": "雨"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "晴れと（くもり）の天気は、（雲の量）で決まる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.576a09546384",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "天気の決め方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲の量・雨・雪"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "晴れとくもり以外の天気は、（雲の量）に関係なく、雨が降っているときの天気は（雨）、雪が降っているときの天気は（雪）となる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.604cd3742a5f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある日の午前９時から午後３時に雲と天気の様子を観察し、記録した。この記録から分かることについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたのような・晴れ・黒っぽい・くもり"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d411886c43858202.png"
+    },
+    "explanation": "正午には、（わたのような）雲が、西から東にゆっくり動いていた。天気は（晴れ）だった。午後３時になると、（黒っぽい）雲が空一面に広がり、あまり動かなかった。天気は（くもり）になった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.871a68d3f600",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本での雲の動きについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西・東・する・する"
+        },
+        {
+          "id": "c2",
+          "text": "しない"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "雲は、おおよそ（西）から（東）のほうへ動き、時こくによって、雲の色や形、量などは変化（する）。また、雲は新しくできたり消えたり（する）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.9369170b9211",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の説明のうち、雲のようすと天気の変化について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲のようすと天気の変化には関係がない。"
+        },
+        {
+          "id": "c2",
+          "text": "雲の量は増えたり減ったりしない。"
+        },
+        {
+          "id": "c3",
+          "text": "雲のようすが変わることによって、天気は変化している。"
+        },
+        {
+          "id": "c4",
+          "text": "雲は一日中ほとんど動かずに止まっている。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "雲はだんだん移動しながら、色や形、量などが変化する。雲の量が増えると「くもり」になったり、「雨」がふることもあり、雲のようすが変化することによって、天気は変化する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.9bc0d69532f3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲が動く方位は、図のような８方位を用いて表す。図のA〜Dに当てはまる方位をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西・南・東・北東"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6ef3e6d6f0b92098.png"
+    },
+    "explanation": "A：西 B：南 C：東 D：北東"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.a8e742b7452f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、ある連続した３日間の気象情報です。この天気の変化からわかることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6月18日に大阪に雨をふらせた雲は、このまま東に動き東京に雨をふらせた。"
+        },
+        {
+          "id": "c2",
+          "text": "6月19日に東京に雨をふらせた雲は、このまま西に動き大阪に雨をふらせる。"
+        },
+        {
+          "id": "c3",
+          "text": "くもりの次の日の天気は、いつも雨になる。"
+        },
+        {
+          "id": "c4",
+          "text": "東京がくもりになると、次の日の福岡の天気はくもりになる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8415f38293f331ae.png"
+    },
+    "explanation": "日本付近では、雲はおおよそ西から東へ動き、雲の動きに合わせて天気も西から東へ変化していく。 6月17日に福岡をくもらせた雲は、西から東へ動き、6月18日に大阪、6月19日には東京に雨をふらせた。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.aaf2066e055b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲画像とアメダスの雨量情報を見くらべることで、天気のようすを知ることができる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲がある地いきで、雨が降っている。"
+        },
+        {
+          "id": "c2",
+          "text": "雲がない地いきでは、晴れている。"
+        },
+        {
+          "id": "c3",
+          "text": "雲がある地いきと、雨が降っている地いきには関係がない。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/22014aee02685d82.png"
+    },
+    "explanation": "雲画像とアメダスの気象情報を見比くらべると、雲がある地いきでは雨が降り、雲がない地いきでは晴れているなど、雲のようすと天気との関係が分かる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.ab0c8b85ca1d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、ある連続した３日間の気象衛星の雲画像です。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "晴れ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e2466d9810ba4f53.png"
+    },
+    "explanation": "日本付近では、雲はおおよそ西から東へ動き、雲の動きに合わせて天気も変化していく。６月１９日には、日本列島の西側にはほとんど雲が見られないので、次の日は晴れになると予想できる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.ae49d537dd09",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、このときの天気をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れ"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "雨"
+        },
+        {
+          "id": "c4",
+          "text": "雪"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3b798a73e15be358.png"
+    },
+    "explanation": "空全体の広さを10としたとき、雲の量が 0 〜8のときは「晴れ」、9〜 10のときは「くもり」になる。この写真では、雲の量が３くらいなので、天気は「晴れ」になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.b3d8a89df8aa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アメダス・雨の量"
+        },
+        {
+          "id": "c2",
+          "text": "雲画像"
+        },
+        {
+          "id": "c3",
+          "text": "雲の位置"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c73191cface2249a.png"
+    },
+    "explanation": "この画像は、（アメダス）（地いき気象観測システム）によって観測される雨量情報で、それぞれの地域に降った（雨の量）を知ることができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.b61a9fd48f65",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲のようすと天気の変化について調べるために、ある日の午前１０時と午後２時に雲と天気の様子を観察し、記録した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲の動きを観察するために、動かない木を目印としていっしょに記録した。"
+        },
+        {
+          "id": "c2",
+          "text": "そのときの雲の形や色だけではなく、雲の動いている方向や速さもいっしょに記録した。"
+        },
+        {
+          "id": "c3",
+          "text": "１回目と２回目の観察は、それぞれ雲が多い方位を選んで観察した。"
+        },
+        {
+          "id": "c4",
+          "text": "観察した方位を方位磁針を使って調べ、記録した。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "時間ごとの変化や、日ごとの変化を調べるためには、毎回決まった場所や方位で調べるよ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.c393bfd65a25",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雨をふらせる雲について、かっこに当てはまる言葉を答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "積乱雲・夏・かみなり"
+        },
+        {
+          "id": "c2",
+          "text": "乱層雲"
+        },
+        {
+          "id": "c3",
+          "text": "春"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9f9dd6fff5744461.png"
+    },
+    "explanation": "雨を降らせる雲は２つあり、どちらも「乱」の文字がつく。図の雲は（積乱雲）といい、にゅうどうぐも ともよばれる。（夏）によく見られる、たて方向に厚い雲で、（かみなり）をともなった大雨を降らせることもある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.c8a5a4f3522b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いろいろな雲について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "高さ・形・雨"
+        },
+        {
+          "id": "c2",
+          "text": "大きさ"
+        },
+        {
+          "id": "c3",
+          "text": "風"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "雲には、いろいろな種類があり、雲ができる（高さ）や、雲の（形）、（雨）を降らせるかどうかによって、10種類に分けられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.d938a737f163",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雨を降らせる雲について、かっこに当てはまる言葉を答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "乱層雲・黒・雪"
+        },
+        {
+          "id": "c2",
+          "text": "積乱雲"
+        },
+        {
+          "id": "c3",
+          "text": "白"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/82526292e51e492b.png"
+    },
+    "explanation": "雨を降らせる雲は２つあり、どちらも「乱」の文字がつく。図の雲は（乱層雲）といい、低い空に広がり（黒）っぽい色をしている。雨や（雪）を降らせることが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.d9404d460166",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、このときの天気をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れ"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "雨"
+        },
+        {
+          "id": "c4",
+          "text": "雪"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d02b9b3685c444ba.png"
+    },
+    "explanation": "空全体の広さを10としたとき、雲の量が 0 〜8のときは「晴れ」、9〜 10のときは「くもり」になる。この写真では、雲の量が９くらいなので、天気は「くもり」になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.e9d5bc436bf5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲のなまえに 次の文字がつく雲には、どのようなとくちょうがあるでしょう。正しいものをそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲のかたまりが集まったような形をしている。・雲が空全体をおおうように広がる。"
+        },
+        {
+          "id": "c2",
+          "text": "すじのような形をしている。"
+        },
+        {
+          "id": "c3",
+          "text": "黒っぽい色で空一面に広がり、雨をふらせる。"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d4838c27a87c67fe.png"
+    },
+    "explanation": "「積」がつく雲：雲のかたまりが集まったような形をしている。 「層」がつく雲：雲が空全体をおおうように広がる"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.fac318519353",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲のでき方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水・水じょう気・水や氷・雲"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/09180b0114f460e9.png"
+    },
+    "explanation": "海や地面の（水）が太陽の光であたためられると、じょう発して（水じょう気）になり、上空へ運ばれる。そして上空で空気が冷えると（水や氷）のつぶができる。この小さなつぶがたくさん集まったものを、（雲）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.0344a263169b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこ時計のしくみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふれはば・変わらない・ふりこの長さ"
+        },
+        {
+          "id": "c2",
+          "text": "おもりの重さ"
+        },
+        {
+          "id": "c3",
+          "text": "変わる"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9e679f06a681992f.png"
+    },
+    "explanation": "ふりこは、（ふれはば）や おもりの重さ が変わっても、１往復する時間は（変わらない） 。ふりこ時計は、この性質を利用して正確に時間をきざんでいる。ふりこの１往復する時間がずれてしまったときは、（ふりこの長さ）を変えて調節する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.05e393cd043f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        },
+        {
+          "id": "c5",
+          "text": "E"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+    },
+    "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふりこの長さがいちばん短い B のふりこが、１往復する時間がいちばん短い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.066cf2989695",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おもりの重さが10g、20g、30gのとき、ふりこが１往復するのにかかる時間を求めたところ、表のようになった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おもりの重さを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c2",
+          "text": "ふりこの重さを変えると、ふりこが１往復する時間は変わる。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこの長さを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c4",
+          "text": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cfd491a65f42ae69.png"
+    },
+    "explanation": "ふりこが１往復する時間は、すべて1.2 秒になった。つまり、おもりの重さを変えても、ふりこが１往復する時間は変わらない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.07c43e687ea6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこについて、A〜Dに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "支点・ふりこの長さ・ふれはば・１往復"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c94f006e0ee83af2.png"
+    },
+    "explanation": "A：支し点 B：ふりこの長さ C：ふれはば D：１往おう復ふく"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.0a139ce40959",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゆれているふりこを そのままにしておくと、ふりこのふれはばは、時間がたつにつれてだんだん小さくなる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変わらない。"
+        },
+        {
+          "id": "c2",
+          "text": "長くなる。"
+        },
+        {
+          "id": "c3",
+          "text": "短くなる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a5561a8ae9a9ef96.png"
+    },
+    "explanation": "ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.14b2d34aa0f6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの長さが 25cm、50cm、75cm のとき、ふりこが１０往復する時間を３回測定した結果は表のとおりだった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c2",
+          "text": "ふりこのふれはばを変えると、ふりこが１往復する時間は変わる。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこの長さを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c4",
+          "text": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/51ab1924481a49fc.png"
+    },
+    "explanation": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.19d606f94ed5",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おもりの重さが10g、20g、30gのとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。①～③に当てはまる数をそれぞれ求めよう。（小数第１位まで求めよう。）",
+      "answers": [
+        "1.2",
+        "1.2",
+        "1.2"
+      ],
+      "template": "①：{{INPUT}} 秒 ②：{{INPUT}} 秒 ③：{{INPUT}} 秒",
+      "promptImage": "questions/legacy/80af412de438952f.png"
+    },
+    "explanation": "ふりこが「１往復する時間」は、ふりこが「10往復する時間の平均」を、それぞれ 10 でわって小数第１位まで求める。 ①：12.1 ÷ 10 = 1.2 秒 ②：12.1 ÷ 10 = 1.2 秒 ③：12.0 ÷ 10 = 1.2 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.1c8d950dbf2c",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの長さが 25cm、50cm、75cm のとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。",
+      "answers": [
+        "2.0"
+      ],
+      "template": "③に当てはまる数を求めよう。（小数第１位まで求めよう。） {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/6b71dbb43331a8b8.png"
+    },
+    "explanation": "①ふりこが 10 往復する時間の合計は、 20.1 秒 + 19.6 秒 + 19.7 秒 = 59.4 秒 ②ふりこが 10 往復する時間の平均は、 59.4 ÷ 3 = 19.8（秒） ③ふりこが１ 往復する時間は、 19.8 ÷ 10 = 1.98（秒） 四捨五入すると、答えは、2.0（秒）"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.2d4432fe1785",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの１往復とは、どの動きのことでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A→B"
+        },
+        {
+          "id": "c2",
+          "text": "A→B→C"
+        },
+        {
+          "id": "c3",
+          "text": "A→B→C→B→A"
+        },
+        {
+          "id": "c4",
+          "text": "A→B→A"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1be752771ecb3f0e.png"
+    },
+    "explanation": "ふりこの１往復とは、ふりこが A から C に行ってから、また A までかえってくる動きのことをいう。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.395e68764b33",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 30° のとき、ふりこが 10 往復する時間を３回測定した結果は、表のようになった。",
+      "answers": [
+        "12.1"
+      ],
+      "template": "①に当てはまる数を求めよう。（小数第１位まで求めよう。） {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/c6b8bb51f0b6a40e.png"
+    },
+    "explanation": "ふりこが「10 往復する時間の平均」は、「３回分の時間の合計」を、3 でわって求める。 ふりこが 10 往復する時間の「３回分の時間の合計」は、 12.1 + 12.2 + 11.9 = 36.2 （秒） これを 3 でわると、 36.2 ÷ 3 = 12.066… 小数第１位まで求めるので、小数第２位を四し捨しゃ五ご入にゅうすると、ふりこが「10 往復する時間の平均」は、 12.1 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.3a4e2b96a4eb",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 10° のとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。表の①〜③を計算し、ふりこが１往復する時間を求めよう。（小数第１位まで求めよう。）",
+      "answers": [
+        "36.1",
+        "12.0",
+        "1.2"
+      ],
+      "template": "①：{{INPUT}} 秒 ②：{{INPUT}} 秒 ③：{{INPUT}} 秒",
+      "promptImage": "questions/legacy/fcefc8a2771ed7a4.png"
+    },
+    "explanation": "①ふりこが 10 往復する時間の合計は、 11.9 秒 + 12.2 秒 + 12.0 秒 = 36.1 秒 ②ふりこが 10 往復する時間の平均は、 36.1 ÷ 3 = 12.0333… 四捨五入して、12.0 秒 ③ふりこが１ 往復する時間は、 12.0 ÷ 10 = 1.2 （秒） よって答えは、①：36.1 秒、②：12.0 秒、③：1.2 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.450bc1320191",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこが 10 往復する時間を３回測定した結果の平均を求めて、ふりこが１往復する時間を調べる。このときの手順について、ア、イ に当てはまる数字をそれぞれ答えよう。",
+      "answers": [
+        "3",
+        "10"
+      ],
+      "template": "① ふりこが 10 往復する時間を３回はかる。 ② ①の３回分の時間の合計を（ア）でわり、「10 往復する時間の平均」を求める。 10 往復の時間の合計 ÷ （ア） ＝ 10 往復する時間の平均 ③ 10 往復する時間の平均を（イ）でわり、「ふりこが１往復する時間」を求める。 10 往復する時間の平均 ÷（イ）＝ ふりこが１往復する時間 ア：{{INPUT}}、イ：{{INPUT}}"
+    },
+    "explanation": "ア：3、イ：10 平均を求めるときには、全部足して、個こ数でわる。②では、３回分の時間を足しているので、３でわる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.70c020e4febc",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの長さが 25cm、50cm、75cm のとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。",
+      "answers": [
+        "1.7"
+      ],
+      "template": "②に当てはまる数を求めよう。（小数第１位まで求めよう。） {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/6b71dbb43331a8b8.png"
+    },
+    "explanation": "①ふりこが 10 往復する時間の合計は、 16.7 秒 + 17.0 秒 + 16.7 秒 = 50.4 秒 ②ふりこが 10 往復する時間の平均は、 50.4 ÷ 3 = 16.8（秒） ③ふりこが１ 往復する時間は、 16.8 ÷ 10 = 1.68（秒） 四捨五入すると、答えは、1.7（秒）"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.7a872a25bbb8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、ふりこのきまりを利用したもの ではないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メトロノーム"
+        },
+        {
+          "id": "c2",
+          "text": "ブランコ"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこ時計"
+        },
+        {
+          "id": "c4",
+          "text": "シーソー"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/351472105d07fb4c.png"
+    },
+    "explanation": "糸などにおもりをつるして、ふれるようにしたものを ふりこ という。メトロノーム、ふりこ時計、ブランコには、ふりこのきまりが利用されている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.7e04df90268c",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 30° のとき、ふりこが 10 往復する時間を３回測定した結果は、表のようになった。",
+      "answers": [
+        "1.2"
+      ],
+      "template": "①に当てはまる数を求めよう。（小数第１位まで求めよう。） {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/bda5ad0cf9f4f6c4.png"
+    },
+    "explanation": "ふりこが「１往復する時間」は、ふりこが「10 往復する時間の平均」を、10 でわって求める。 ふりこが 10 往復する時間の「３回分の時間の合計」は、 12.1 + 12.2 + 11.9 = 36.2 （秒） これを 3 でわると、 36.2 ÷ 3 = 12.066… 小数第１位まで求めるので、小数第２位を四捨五入すると、ふりこが「10 往復する時間の平均」は、 12.1 秒 これを 10 でわると、 12.1 ÷ 10 = 1.21 秒 小数第１位まで求めるので、小数第２位を四捨五入すると、ふりこが「１往復する時間」は、 1.2 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.7f8e668422db",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        },
+        {
+          "id": "c5",
+          "text": "E"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+    },
+    "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふりこの長さがいちばん長い C のふりこが、１往復する時間がいちばん長い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.827918aa972d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おもりの数をふやすときには、おもりを A のようにつなぐ。なぜ B のようにつないではいけないのでしょう。正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこの長さが変わるから。"
+        },
+        {
+          "id": "c2",
+          "text": "おもりの重さが変わるから。"
+        },
+        {
+          "id": "c3",
+          "text": "ふれはばが変わるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3082f84b3ccf1cbb.png"
+    },
+    "explanation": "おもりの数をふやすとき、おもりを B のようにつなぐとふりこの長さが変わってしまうので、おもりを A のようにつなぐ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.84f331c58c6a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B"
+        },
+        {
+          "id": "c2",
+          "text": "C"
+        },
+        {
+          "id": "c3",
+          "text": "D"
+        },
+        {
+          "id": "c4",
+          "text": "E"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+    },
+    "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふれはば や おもりの重さ が変わっても、１往復する時間は変わらない 。 １往復する時間が A と同じになるふりこは、ふりこの長さが A と同じ 25 cm の D のふりこ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.cb0d7e4a1508",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこが１往復する時間を１回はかろうとしても、正確かくな時間を調べることがむずかしい。次のうち、１往復する時間をもっとも正確にはかることができるのはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこが 10 往復する時間を ３ 回測定し、平均を求める。"
+        },
+        {
+          "id": "c2",
+          "text": "ふりこが１往復する時間を 10 回測定し、平均を求める。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこが 20 往復する時間を １ 回測定し、平均を求める。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ストップウォッチをおすタイミングや、ふりこから手をはなすタイミングなどを毎回同じにすることはむずかしい。そのため、何度か測そく定した結果の平均きんを求めて、できるだけ正確な時間を調べる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.cfad5127034e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの長さとして、正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1565b69275833480.png"
+    },
+    "explanation": "支点からおもりの中心までの長さを、ふりこの長さという。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.d44c2a3cd8cc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこ・ふりこ時計・メトロノーム"
+        },
+        {
+          "id": "c2",
+          "text": "てこ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8a95ad08c8addeaf.png"
+    },
+    "explanation": "糸などにおもりをつるして、ふれるようにしたものを A（ふりこ）という。ふりこは、B（ふりこ時計）や C（メトロノーム）に利用されている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.d51c3bb2a5ac",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 10°、20°、30° のとき、ふりこが１往復する時間を求めたところ、表のようになった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c2",
+          "text": "ふりこのふれはばを変えると、ふりこが１往復する時間は変わる。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこの長さを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c4",
+          "text": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bd3edee7a3c65d69.png"
+    },
+    "explanation": "ふりこが１往復する時間は、すべて1.2 秒になった。つまり、ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.d8b8c02a88a1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メトロノームのしくみについて、かっこに当てはまることばをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長く・おそく・短く・速く"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/84d4be646fcbbd32.png"
+    },
+    "explanation": "メトロノームは、60のめもりにおもりをあわせると１分間に60回のテンポをきざむ。おもりを上にすると、ふりこの長さが（長く）なるのでテンポは（おそく）なる。おもりを下にすると、ふりこの長さが（短く）なるのでテンポは（速く）なる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.f31f512b595e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこが１往復する時間の説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふれはばが大きいほど、ふりこが１往復する時間は長い。"
+        },
+        {
+          "id": "c2",
+          "text": "おもりの重さが重いほど、ふりこが１往復する時間は短い。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこの長さが長いほど、ふりこが１往復する時間は長い。"
+        },
+        {
+          "id": "c4",
+          "text": "おもりの重さが軽いほど、ふりこが１往復する時間は短い。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふれはば や おもりの重さ が変わっても、１往復する時間は変わらない。ふりこの長さが長いほど、ふりこが１往復する時間は長い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.fa428e6687bd",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 20° のとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。表の①〜③を計算し、ふりこが１往復する時間を求めよう。（小数第１位まで求めよう。）",
+      "answers": [
+        "36.3",
+        "12.1",
+        "1.2"
+      ],
+      "template": "①：{{INPUT}} 秒 ②：{{INPUT}} 秒 ③：{{INPUT}} 秒",
+      "promptImage": "questions/legacy/7dab7498299fc102.png"
+    },
+    "explanation": "①ふりこが 10 往復する時間の合計は、 12.0 秒 + 12.2 秒 + 12.1 秒 = 36.3 秒 ②ふりこが 10 往復する時間の平均は、 36.3 ÷ 3 = 12.1（秒） ③ふりこが１ 往復する時間は、 12.1 ÷ 10 = 1.2（秒） よって答えは、①：36.3 秒、②：12.1 秒、③：1.2 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.ff395bfcab2b",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 30° のとき、ふりこが 10 往復する時間を３回測定した結果は、表のようになった。",
+      "answers": [
+        "36.2"
+      ],
+      "template": "①に当てはまる数を求めよう。 {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/ade4458173dff49f.png"
+    },
+    "explanation": "ふりこが 10 往復する時間の「３回分の時間の合計」は、 12.1 + 12.2 + 11.9 = 36.2 （秒）"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.03637e42b7a2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の A〜E のように、インゲンマメの種子を用いて種子の発芽の条件を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "AとB・AとC・DとE"
+        },
+        {
+          "id": "c2",
+          "text": "BとC"
+        },
+        {
+          "id": "c3",
+          "text": "AとE"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e198edb0a00637c3.png"
+    },
+    "explanation": "種子の発芽には「水」が必要かどうか：AとB 種子の発芽には「空気」が必要かどうか：AとC 種子の発芽には「適当な温度」が必要かどうか：DとE"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.3be7b6992898",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヨウ素液について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・青むらさき"
+        },
+        {
+          "id": "c2",
+          "text": "赤"
+        },
+        {
+          "id": "c3",
+          "text": "水"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヨウ素液（茶色）は、（でんぷん）と反応すると、（青むらさき）色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.4d5cd3946b14",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じくらいに育ったインゲンマメのなえを２つ用意し、Aには肥料をあたえ、Bには肥料をあたえないで育てると、図のようになった。結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "肥料をあたえて育てたなえ（A）・肥料をあたえずに育てたなえ（B）・肥料をあたえると"
+        },
+        {
+          "id": "c2",
+          "text": "肥料をあたえないほうが"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/dcb6497c9439e13c.png"
+    },
+    "explanation": "（肥料をあたえて育てたなえ（A））のほうが、（肥料をあたえずに育てたなえ（B））よりもよく成長した。このことから、植物は（肥料をあたえると）よく成長することがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.50f33ad2edf1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子の中にふくまれている養分について調べるため、次の実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "インゲンマメの種子にはでんぷんがふくまれている。"
+        },
+        {
+          "id": "c2",
+          "text": "インゲンマメの種子には水がふくまれている。"
+        },
+        {
+          "id": "c3",
+          "text": "このインゲンマメの種子はもうすぐ発芽する。"
+        },
+        {
+          "id": "c4",
+          "text": "このインゲンマメの種子は発芽できない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f59fdc135009b20b.png"
+    },
+    "explanation": "ヨウ素液は、でんぷんがあると、青むらさき色に変化する。インゲンマメの種子は青むらさき色に変化したので、インゲンマメの種子にはでんぷんがふくまれていることが分かる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.5df22a155f5a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、インゲンマメの種子を用いて種子の発芽の条件を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "適当な温度"
+        },
+        {
+          "id": "c2",
+          "text": "空気"
+        },
+        {
+          "id": "c3",
+          "text": "水"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fd30ddfa35daf7ce.png"
+    },
+    "explanation": "水をあたえた種子（A）は発芽したが、水をあたえなかった種子（B）は発芽しなかった。このことから、種子の発芽には「水」が必要だということがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.601799657f6f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、インゲンマメの種子を用いて種子の発芽の条件を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "適当な温度"
+        },
+        {
+          "id": "c2",
+          "text": "水"
+        },
+        {
+          "id": "c3",
+          "text": "空気"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/27ab3926013bd70c.png"
+    },
+    "explanation": "空気にふれていた種子（B）は発芽したが、空気にふれていない種子（A）は発芽しなかった。このことから種子の発芽には、「空気」が必要だということがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.62a0c5b77911",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じくらいに育ったインゲンマメのなえを４つ用意し、次のA〜Dの条件で育て、植物の成長について調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ba0a7704a83f080e.png"
+    },
+    "explanation": "植物は、日光に当てると、よく成長する。また、植物は肥料をあたえると、よく成長する。なので、日光に当てて、さらに肥料をあたえている「C」のインゲンマメがもっともよく成長すると考えられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.76ec94e370e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子のつくりについて、かっこに当てはまる言葉をそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "子葉・根、くき、葉・成長して・しぼんで"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a92a60d30e894e8a.png"
+    },
+    "explanation": "図の A の部分を（子し葉よう）といい、発芽や成長のための養分が含まれている。B の部分は、成長すると（根、くき、葉）になる。種子が発芽すると、B の部分は（成長して）いくが、A の部分は（しぼんで）いく。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.78367fc10da4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "根、くき、葉の成長とともに子葉がしぼむのはなぜかを調べるため、次の実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷんが多くふくまれている・でんぷんがあまりふくまれていない"
+        },
+        {
+          "id": "c2",
+          "text": "水があまりふくまれていない"
+        },
+        {
+          "id": "c3",
+          "text": "水が多くふくまれている"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "種子は切り口が青むらさき色に変化したので、 （でんぷんが多くふくまれている）ことがわかった。しぼんだ子葉は色の変化がなかったので、（でんぷんがあまりふくまれていない）ことがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.7ea3ef436840",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子の発芽には「温度」が関係するのかどうかを調べるため、図のように、インゲンマメの種子を室温と冷ぞう庫の中に置き、発芽するかどうかを調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冷ぞう庫の中は暗いので、Aも暗くするために箱をかぶせた。"
+        },
+        {
+          "id": "c2",
+          "text": "クーラーの冷たい空気があたらないように箱をかぶせた。"
+        },
+        {
+          "id": "c3",
+          "text": "ネコやカラスに種子を食べられないように箱をかぶせた。"
+        },
+        {
+          "id": "c4",
+          "text": "温度があまり変化しないように箱をかぶせた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8a9c68b7ae4792ed.png"
+    },
+    "explanation": "「温度」以外の条件を同じにするため、冷ぞう庫の中は暗いので、Aも暗くするために箱をかぶせる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.824115120864",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じくらいに育ったインゲンマメのなえを２つ用意し、Aは日光にあたる場所で育て、Bには日光に当てないように箱をかぶせて育てると、図のようになった。結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日光に当てて育てたなえ（A）・日光に当てずに育てたなえ（B）・日光に当てると"
+        },
+        {
+          "id": "c2",
+          "text": "日光に当てないほうが"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/62d4064692c318b9.png"
+    },
+    "explanation": "（日光に当てて育てたなえ（A）） のほうが、（日光に当てずに育てたなえ（B））よりもよく成長した。このことから、植物は（日光に当てると）よく成長することがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.9bd195644dfc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、インゲンマメの種子を用いて種子の発芽の条件を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "適当な温度"
+        },
+        {
+          "id": "c2",
+          "text": "水"
+        },
+        {
+          "id": "c3",
+          "text": "空気"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2bc0646f5a944500.png"
+    },
+    "explanation": "室温においた種子（A）は発芽したが、冷蔵庫においた種子（B）は発芽しなかった。このことから種子の発芽には、適当な温度が必要ということがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.a389a6eed208",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子の発芽には「空気」が必要かどうかを調べるため、図のように、インゲンマメの種子をあたたかい場所に置き、発芽するかどうかを調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "◯・×・20 ℃"
+        },
+        {
+          "id": "c2",
+          "text": "5℃"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/596e9c6fe7510778.png"
+    },
+    "explanation": "２つ以上の条件を変えて実験を行うと、結果のちがいが出たときに、どうしてちがいが出たのかがわからなくなる。そのため、調べたい１つの条件だけを変えて、他の条件は同じにして実験を行うようにする。今回は、種子の発芽には「空気」が必要かどうかを調べたいので、水や温度の条件は、AとBどちらも同じにする。 A 条件 B ◯ 水 ◯ × 空気 ◯ 20 ℃ 温度 20 ℃"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.c3e6d083d142",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "発芽後しばらくたってしぼんだインゲンマメの子葉には、でんぷんがあまりふくまれていない。このことから、根、くき、葉の成長とともに子葉がしぼむ理由について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・発芽や成長"
+        },
+        {
+          "id": "c2",
+          "text": "成長"
+        },
+        {
+          "id": "c3",
+          "text": "水"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "根、くき、葉の成長とともに子葉がしぼむのは、種子にふくまれている（でんぷん）が、（発芽や成長）のために使われるから。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.c7a2088d9d7b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の種子が芽を出すことを何というでしょう。正しい言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "発芽"
+        },
+        {
+          "id": "c2",
+          "text": "発生"
+        },
+        {
+          "id": "c3",
+          "text": "たんじょう"
+        },
+        {
+          "id": "c4",
+          "text": "成長"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物の種子が芽を出すことを、発はつ芽がという。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.ee47449d7eb9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、種子の発芽に 必要ではないもの を１つえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水"
+        },
+        {
+          "id": "c2",
+          "text": "適当な温度"
+        },
+        {
+          "id": "c3",
+          "text": "空気"
+        },
+        {
+          "id": "c4",
+          "text": "日光"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "植物の種子の発芽に必要な条件は、水、空気、適当な温度の３つ。植物の種子は、土の中などの暗いところでも発芽するため、種子の発芽に日光は必要ではない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.ef307b43abfa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子の発芽には「温度」が関係するのかどうかを調べるため、図のように、インゲンマメの種子を室温と冷ぞう庫の中に置き、発芽するかどうかを調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "◯・◯・5 ℃"
+        },
+        {
+          "id": "c2",
+          "text": "×"
+        },
+        {
+          "id": "c3",
+          "text": "20℃"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8a9c68b7ae4792ed.png"
+    },
+    "explanation": "２つ以上の条件を変えて実験を行うと、結果のちがいが出たときに、どうしてちがいが出たのかがわからなくなる。そのため、調べたい１つの条件だけを変えて、他の条件は同じにして実験を行うようにする。今回は、種子の発芽には「温度」が関係するかどうかを調べたいので、水や空気の条件は、AとBどちらも同じにする。 A 条件 B ◯ 水 ◯ ◯ 空気 ◯ 20 ℃ 温度 5 ℃"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.fe0ee81a9e27",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の種子の発芽や成長に必要なものとして、正しいものをそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水、空気、適当な温度・水、空気、適当な温度、肥料、日光"
+        },
+        {
+          "id": "c2",
+          "text": "肥料、日光"
+        },
+        {
+          "id": "c3",
+          "text": "水、空気、日光"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物の成長には、日光と肥料だけでなく、発芽に必要な３つの条件も必要。 発芽に必要なもの：水、空気、適当な温度 成長に必要なもの：水、空気、適当な温度、肥料、日光"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.0a955695dfb4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカのめすとおすのちがいについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "せびれ・しりびれ・おす・めす"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e25583c25d686b58.png"
+    },
+    "explanation": "メダカのめすとおすは、アの（せびれ）や、イの（しりびれ）などの体の形で見分けることができる。Aのメダカは、ア（せびれ）に切れこみがあり、イ（しりびれ）が平行四辺形に近い形をしているので、（おす）だと分かる。Bのメダカは、せびれに切れこみがなく、しりびれのうしろが短いのにくわえて、はらがふくれているので、（めす）だと分かる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.0f0f312f0460",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカの飼かい方として まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水そうは、日光が直接当たらない、明るいところに置く。"
+        },
+        {
+          "id": "c2",
+          "text": "たまごを産みつけやすいように、水草を入れる。"
+        },
+        {
+          "id": "c3",
+          "text": "えさは食べ残しが出るくらいに十分にあたえる。"
+        },
+        {
+          "id": "c4",
+          "text": "水がにごったら、くみ置きの水と半分くらいとりかえる。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "えさをあげすぎると、水がすぐにごってしまうので、食べ残さないくらいの量のえさを、１日に数回にわけてあげるようにする。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.15dcf6be976e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そう眼実体けんび鏡・両目"
+        },
+        {
+          "id": "c2",
+          "text": "片目"
+        },
+        {
+          "id": "c3",
+          "text": "かいぼうけんび鏡"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/56678d59f3370944.png"
+    },
+    "explanation": "このけんび鏡は、（そう眼がん実じっ体たいけんび鏡）といい、見たいものを 20〜40 倍の大きさで見ることができる。接眼レンズは２つで、（両目）でのぞいて観察する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.21ce032cb3c9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカの産卵について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまご・精子・受精・受精卵"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "めすのメダカが産んだ（たまご）が、おすのメダカが出す（精子）と結びつくと、たまごは育ちはじめる。このように、たまごと精子が結びつくことを （受精）といい、受精したたまごを（受精卵らん）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.25c3b00653ad",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカがふ化するまでの間、たまごの大きさはどうなるでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だんだん大きくなる。"
+        },
+        {
+          "id": "c2",
+          "text": "だんだん小さくなる。"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/848109889976c6f1.png"
+    },
+    "explanation": "メダカがふ化するまでの間、たまごの中では、だんだんメダカの形が見られるようになるが、たまごの大きさは変わらない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.278cd9061163",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かいぼうけんび鏡の使い方について、正しい順番になるように、ア〜エをならべかえよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イ・エ・ウ・ア"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d18d67b7baf71972.png"
+    },
+    "explanation": "イ→エ→ウ→ア"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.3fffe073a7c5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かいぼうけんび鏡・片目"
+        },
+        {
+          "id": "c2",
+          "text": "両目"
+        },
+        {
+          "id": "c3",
+          "text": "そう眼実体けんび鏡"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d18d67b7baf71972.png"
+    },
+    "explanation": "このけんび鏡は、（かいぼうけんび鏡）といい、見たいものを 10〜20 倍の大きさで見ることができる。接眼レンズは１つで、（片目）でのぞいて観察する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.4a5a88e9a10e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカがたまごを産むようすを調べるために、水そうに水草を入れて、メダカを飼った。水そうに水草を入れる理由として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メダカがたまごを産みつけやすくなるから。"
+        },
+        {
+          "id": "c2",
+          "text": "水草が水温を調節してくれるから。"
+        },
+        {
+          "id": "c3",
+          "text": "水草は、メダカのエサになるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "メダカがたまごを産むようすを調べるときには、メダカがたまごを産みつけやすいように、水そうに水草を入れる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.638105087de1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカのたまごを観察し、どのように育つのかを調べた。メダカのたまごの成長について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまご・見られない・見られる"
+        },
+        {
+          "id": "c2",
+          "text": "めすのはらの中"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/848109889976c6f1.png"
+    },
+    "explanation": "メダカは、（たまご）の中で育つ。受精してすぐはたまごのなかにメダカは（見られない）が、だんだんメダカのような形が（見られる）ようになり、受精から約２週間で子メダカがたまごから出てくる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.7c18b6cb9b41",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカのたまごを観察し、どのように育つのかを調べた。次のA〜Dを、成長の順にならべよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A・B・D・C"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e2ba91f4774f79e8.png"
+    },
+    "explanation": "A→B→D→C たまごの中では、だんだんとメダカの形ができてくるよ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.84b4bda2632b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカのたまごを観察するために、図のような水そうでおすのメダカを１０ぴき育てているが、なかなかたまごを産まない。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おすのメダカをいっしょに飼う。"
+        },
+        {
+          "id": "c2",
+          "text": "水そうに水草を入れる。"
+        },
+        {
+          "id": "c3",
+          "text": "めすのメダカをいっしょに飼う。"
+        },
+        {
+          "id": "c4",
+          "text": "水道水を入れる。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7e942f257fc70f4f.png"
+    },
+    "explanation": "たまごを産むのは、めすのメダカ。おすのメダカだけではたまごを産まないので、めすのメダカもいっしょに飼おう。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.8676d6f1f289",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たまごの中のメダカは、どのようにして育っているのでしょう。正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまごの中の養分を使って育つ。"
+        },
+        {
+          "id": "c2",
+          "text": "養分がなくても育つことができる。"
+        },
+        {
+          "id": "c3",
+          "text": "日光をあびることで育つ。"
+        },
+        {
+          "id": "c4",
+          "text": "水草をエサにして育つ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "たまごの中のメダカは、たまごの中の養分を使って育つ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.86d1e3ca4fbe",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカがたまごを産むようすについて、順にならべかえよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "C・D・E・B"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f0481685d4fb2e6b.png"
+    },
+    "explanation": "（A →）C → D → E → B まず、おすがめすの目の前を輪をえがくように泳いだり、めすを追いかけたりした後、しばらくならんで泳ぐようになる。その後、体をすり合わせ、めすがたまごを産み、おすは精せい子しをかける。めすはしばらくの間たまごをつけたまま泳ぎ、たまごを水草につける。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.8d1139a33d93",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカを飼うときに、くみ置きの水（水道水をくんでから１〜２日置いておいた水）をいれる理由として、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メダカに有害な、水道水の消毒薬などをなくすため。"
+        },
+        {
+          "id": "c2",
+          "text": "水温などのかん境が急に変化しないようにするため。"
+        },
+        {
+          "id": "c3",
+          "text": "水をにごりにくくし、きれいなかん境をたもつため。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "くみ置きの水を使うのは、水道水に入っているメダカに有害な消しょう毒どく薬やくなどをなくし、水温などのかん境きょうが急に変化しないようにするため。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.c627e9711301",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のA、Bのうち、たまごを産むのはどのメダカでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Aのメダカ"
+        },
+        {
+          "id": "c2",
+          "text": "Bのメダカ"
+        },
+        {
+          "id": "c3",
+          "text": "AとBどちらのメダカもたまごを産む"
+        },
+        {
+          "id": "c4",
+          "text": "AとBどちらのメダカもたまごを産まない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4edc8eb44d45d662.png"
+    },
+    "explanation": "Aのメダカは、せびれに切れこみがあり、しりびれが平行四辺形に近い形をしているので「おす」。Bのメダカは、せびれに切れこみがなく、しりびれのうしろが短いのにくわえて、はらがふくれているので、「めす」だと分かる。たまごを産むのは、Bのめすのメダカ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.c94faa89fbd7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカは、受精してからどれくらいの期間でたんじょうするでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "約２週間"
+        },
+        {
+          "id": "c2",
+          "text": "約１週間"
+        },
+        {
+          "id": "c3",
+          "text": "約３８週間"
+        },
+        {
+          "id": "c4",
+          "text": "約１ヶ月"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "メダカは、受精してから約２週間（10〜14日）で、たんじょうする。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.cf33d0e30ef3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たまごからかえった直後の子メダカについての説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たんじょうして２〜３日は、はらのふくろにはいっている養分を使って育つ。"
+        },
+        {
+          "id": "c2",
+          "text": "たんじょうすると、すぐにエサを食べはじめる。"
+        },
+        {
+          "id": "c3",
+          "text": "たんじょうしたときには、すでに親と同じ大きさになっている。"
+        },
+        {
+          "id": "c4",
+          "text": "たんじょうしたときのすがたは、親と同じ形をしている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cf4a0ab8290f5bc9.png"
+    },
+    "explanation": "たまごからかえった直後の子メダカには、ふくろのようなものがついている。たんじょうして２〜３日は、はらのふくろにはいっている養分を使って育つ。その後、自分でエサをとって食べるようになる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.e329c7a35786",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の２種類のけんび鏡の特ちょうについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そう眼実体けんび鏡・厚みのあるものを立体的に・かいぼうけんび鏡・接眼レンズだけで"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b2578bb59a0030bc.png"
+    },
+    "explanation": "Aは（そう眼実体けんび鏡）といい、（厚みのあるものを立体的に）観察できる。Bは（かいぼうけんび鏡）といい、（接眼レンズだけで）観察する。 「そうがん」は、漢字で「双眼」と書く。「双」は、双子ふたごという言葉にも使われるように、ふたつという意味があり、双眼は２つの目で見ることを表している。両方の目で見ると、より立体的に見ることができるんだ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.076c93e9798f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "けんび鏡の使い方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "反しゃ鏡・ステージ・横・接眼レンズ・調節ねじ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "①（反しゃ鏡）を動かして、明るく見えるようにする。 ② プレパラートを（ステージ）にのせ、クリップでとめる。 ③（横）から見ながら調節ねじを回し、対物レンズとプレパラートをできるだけ近づける。 ④（接眼レンズ）をのぞきながら（調節ねじ）を回して対物レンズとプレパラートをはなしていき、ピントを合わせる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.0d00bc85d843",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉について調べるために、ヘチマを使って図のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "受粉させないため。"
+        },
+        {
+          "id": "c2",
+          "text": "花粉を集めるため。"
+        },
+        {
+          "id": "c3",
+          "text": "鳥などに食べられないようにするため。"
+        },
+        {
+          "id": "c4",
+          "text": "はやく花をさかせるため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/828b789393eb611e.png"
+    },
+    "explanation": "ヘチマの場合、ハチなどのこん虫が、おしべの花粉をめしべに運んでいる。明日さきそうなめばなに ふくろをかぶせるのは、こん虫などによって、受粉させないため。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.1302d60536c3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アブラナ や アサガオの花のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "めしべ・おしべ・がく・花びら"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/77dfbe034741cad6.png"
+    },
+    "explanation": "アブラナ や アサガオには１つの花に Aの（めしべ）と Bの（おしべ）がある。花は外側から、（がく）、（花びら）、B、A の順についている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.145e8430a7d4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉をしたヘチマのめばなは、めしべのふくらんだ部分が大きくなり、実（果実）ができた。このヘチマの実（果実）の中には、図のような黒いつぶ A があった。これは何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "種子"
+        },
+        {
+          "id": "c2",
+          "text": "実（果実）"
+        },
+        {
+          "id": "c3",
+          "text": "花粉"
+        },
+        {
+          "id": "c4",
+          "text": "こん虫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1cb189ba02a92cc6.png"
+    },
+    "explanation": "ヘチマは受粉すると、めしべのふくらんだ部分が育って実（果実）になり、中に種子ができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.1a331013566c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アサガオとヘチマの花について、次の部分として当てはまる記号の組み合わせを、それぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イとエ・アとオ・ウとカ"
+        },
+        {
+          "id": "c2",
+          "text": "イとオ"
+        },
+        {
+          "id": "c3",
+          "text": "アとエ"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b7565df23a90481f.png"
+    },
+    "explanation": "花粉をつくる部分：イとエ 花粉がつく部分：アとオ 将来、実になる部分（子ぼう）：ウとカ"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.28ad5b93b243",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヘチマの花粉をけんび鏡で観察すると、図のように見えた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/0c914d76017fc419.png"
+    },
+    "explanation": "ふつう、けんび鏡では、上下左右が逆ぎゃくに見えている。見たいものを右下に動かしたいときには、プレパラートを上下左右が逆の、A（左上）の方向に動かす。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.31aceeffc614",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "花粉がめしべの先につくことを何というでしょう。正しい言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "受粉"
+        },
+        {
+          "id": "c2",
+          "text": "受精"
+        },
+        {
+          "id": "c3",
+          "text": "発芽"
+        },
+        {
+          "id": "c4",
+          "text": "成長"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "花粉がめしべの先につくことを受粉という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.4ac9fffc9271",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉について調べるために、アサガオを使って図のような実験を行った。この実験の結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "できた・できなかった・受粉"
+        },
+        {
+          "id": "c2",
+          "text": "ふくろ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f7a1c29e0383057a.png"
+    },
+    "explanation": "受粉をしたアサガオは、実や種子が（できた）。受粉をしなかったアサガオは、実や種子が（できなかった）。よって、実や種子ができるためには（受粉）が必要だということが分かった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.4be602b9a747",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "けんび鏡について、A〜Dを何というでしょう。それぞれ正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "接眼レンズ・対物レンズ・調節ねじ・反しゃ鏡"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/10a69d9ceccd6948.png"
+    },
+    "explanation": "A：接眼レンズ B：対物レンズ C：調節ねじ D：反しゃ鏡"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.5b77afc27596",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A〜Cの アサガオとヘチマの花のうち、めしべがない花はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c2f3ef7d72b7438c.png"
+    },
+    "explanation": "花には、アブラナやアサガオのように、１つの花に めしべとおしべ があるものと、ヘチマのように おばなにおしべ、めばなにめしべ があるものがある。B はヘチマのおばな なので、めしべがない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.80f904c7f52a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "めしべ・実・種子"
+        },
+        {
+          "id": "c2",
+          "text": "おしべ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "花粉が（めしべ）の先につくことを受粉という。受粉するとめしべのもとのしぼうが育って（実）になり，中に（種子）ができる"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.85a602fb600f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉について調べるために、ヘチマを使って図のような実験を行った。この実験の結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "できた・できなかった・受粉"
+        },
+        {
+          "id": "c2",
+          "text": "ふくろ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/828b789393eb611e.png"
+    },
+    "explanation": "受粉させためばなは、めしべのふくらんだ部分が大きくなり、実が（できた）。受粉させなかっためばなは、実が（できなかった）。よって、実（果実）ができるためには、（受粉）が必要だということが分かった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.8e63cdbbe16f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おしべの先には、粉こながついている。この粉を何というでしょう。正しい言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "花粉"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷん"
+        },
+        {
+          "id": "c3",
+          "text": "がく"
+        },
+        {
+          "id": "c4",
+          "text": "種子"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "おしべの先についている粉を花粉という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.93345bcb1c56",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヘチマの花のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おばな・めばな・おしべ・めしべ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/17b7a6edafc43717.png"
+    },
+    "explanation": "ヘチマは、A の（おばな）、B の（めばな）のように、花のつくりがちがう２種類の花がさく。A には ア（おしべ）があり、B には イ（めしべ）がある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.9bb79d044710",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヘチマの花粉をけんび鏡で観察した。もっと大きくして見たいときは、どうすればいいでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "レボルバーを回して、高い倍率のレンズにかえる。"
+        },
+        {
+          "id": "c2",
+          "text": "反しゃ鏡を動かして、明るく見えるようにする。"
+        },
+        {
+          "id": "c3",
+          "text": "調節ねじを回して、対物レンズをプレパラートに近づける。"
+        },
+        {
+          "id": "c4",
+          "text": "プレパラートを動かして、花粉が視野の中央にくるようにする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/df058895b8714070.png"
+    },
+    "explanation": "けんび鏡で観察しているものを、もっと大きくして見たいときは、レボルバーを回して、高い倍率りつのレンズにかえて観察する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.c3620a32debb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉について調べるために、アサガオを使って図のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "受粉させないため。"
+        },
+        {
+          "id": "c2",
+          "text": "花粉を集めるため。"
+        },
+        {
+          "id": "c3",
+          "text": "鳥などに食べられないようにするため。"
+        },
+        {
+          "id": "c4",
+          "text": "はやく花をさかせるため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f7a1c29e0383057a.png"
+    },
+    "explanation": "アサガオは１つの花におしべとめしべが両方あって、花がさくのと同時に受粉する。アサガオのつぼみからおしべをとったのは、受粉させないため。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.e322b48ad170",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おしべ・ハチ"
+        },
+        {
+          "id": "c2",
+          "text": "花びら"
+        },
+        {
+          "id": "c3",
+          "text": "風"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヘチマのめばなをよく観察すると、めしべの先に花粉がついていた。この花粉は、（おしべ）から運ばれてきたと考えられる。ヘチマの場合、（ハチ）などが花粉をめしべに運んでいる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.1ed27d4231db",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のア～エのうち、９月ごろに日本に近づく台風の進路として、もっともふさわしいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        },
+        {
+          "id": "c4",
+          "text": "エ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/15617cd5ba19bdc7.png"
+    },
+    "explanation": "台風の進路は、台風が発生する月によって異なる。日本には、８～９月ごろに上陸することが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.426d1f6e8548",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の天気の特ちょうとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "強い風がふき、短い時間に大雨が降る。"
+        },
+        {
+          "id": "c2",
+          "text": "強い風がふき、長い間しとしとと雨が降る。"
+        },
+        {
+          "id": "c3",
+          "text": "風はあまりなく、短い時間に大雨が降る。"
+        },
+        {
+          "id": "c4",
+          "text": "風はあまりなく、長い間しとしとと雨が降る。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "台風が近づくと、多量の雨が降ふり、強い風がふく。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.675f855afcd7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の A〜D を、台風の進む順番になるように並べよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B・C・D・A"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cb9711ac8d247a25.png"
+    },
+    "explanation": "B → C → D → A 台風はカーブをえがくように移動する。日本の南の海上で発生した台風は、初めは西の方へ移動するが、やがて北や東へ向かう。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.6a3acd719cff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ダムのやくわりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨水・こう水・発電"
+        },
+        {
+          "id": "c2",
+          "text": "津波"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2241e99cc21a8ac9.png"
+    },
+    "explanation": "ダムは、台風によって短い時間に降る（雨水）をたくわえることで（こう水）を防ぐ。また、ダムにためられた水は飲料水や（発電）に利用される。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.6a4b6fd49b78",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風が１年間に何度もやってくる沖縄では、強い風から家を守るために様々な工夫がされている。次のうち、台風から家を守るための工夫としてまちがっているものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家の周りに木を植える。"
+        },
+        {
+          "id": "c2",
+          "text": "石がきをつくる。"
+        },
+        {
+          "id": "c3",
+          "text": "かわらをしっくいでぬり固めて飛ばされないようにする。"
+        },
+        {
+          "id": "c4",
+          "text": "木で家を建てる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7bc23c918e49d626.png"
+    },
+    "explanation": "沖縄では、風に強い鉄てっ筋きんコンクリートの家が建てられるほか、家の周りに木を植える、石がきをつくる、かわらをしっくいでぬり固めるなど、強い風から家を守る工夫がされている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.75f7c08460c0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本では、10月には台風による雨はあまりない。この理由として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10月には、台風はあまり日本に近づかないから。"
+        },
+        {
+          "id": "c2",
+          "text": "10月には、台風は発生しないから。"
+        },
+        {
+          "id": "c3",
+          "text": "10月の台風は、あまり雨を降らさないから。"
+        },
+        {
+          "id": "c4",
+          "text": "10月の台風は移動するのがはやいから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6587dae1a75cefc7.png"
+    },
+    "explanation": "10月は台風があまり日本に近づかないので、日本では、10月には台風による雨はあまりない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.83cffe7c2183",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の特ちょうとして、まちがっている 説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "強い風がふく。"
+        },
+        {
+          "id": "c2",
+          "text": "短い時間に大雨が降る。"
+        },
+        {
+          "id": "c3",
+          "text": "うずをまいた形をしていて、中心は雲が少ない。"
+        },
+        {
+          "id": "c4",
+          "text": "日本には春に近づくことが多い。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "台風は、夏から秋ごろに日本に近づくことが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.95bfbf41330e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風は、どの季節に日本に近づくことが多いでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "春から夏"
+        },
+        {
+          "id": "c2",
+          "text": "夏から秋"
+        },
+        {
+          "id": "c3",
+          "text": "秋から冬"
+        },
+        {
+          "id": "c4",
+          "text": "冬から春"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "台風は、夏から秋ごろに日本に近づくことが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.9c44bb5775ee",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の進む方向に向かって右側では、ひ害が大きくなることが多い。この理由について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中心・同じ・強い風がふく"
+        },
+        {
+          "id": "c2",
+          "text": "ちがう"
+        },
+        {
+          "id": "c3",
+          "text": "外側"
+        },
+        {
+          "id": "c4",
+          "text": "強い雨が降る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c41218fdd789e5d0.png"
+    },
+    "explanation": "台風の進む方向に向かって右側では、台風を動かす風の向きと、台風の（中心）に向かってふきこむ風の向きが（同じ）なので、（強い風がふく）から。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.abadeb364b15",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の情報は、図のような予想進路図で表される。A〜D は、何を表しているでしょう。それぞれ正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "風速25m以上の強い風がふくおそれがあるはんい・台風の中心の位置・風速15m以上の風がふくおそれがあるはんい・台風が動いてくると考えられるはんい"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/056e65ea00711ced.png"
+    },
+    "explanation": "A：風速25m以上の強い風がふくおそれがあるはんい B：台風の中心の位置 C：風速15m以上の風がふくおそれがあるはんい D：台風が動いてくると考えられるはんい"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.b8423b363955",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の動きについて、正しく説明している文をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台風は西から東に進む。"
+        },
+        {
+          "id": "c2",
+          "text": "台風が日本以外の国に上陸することはない。"
+        },
+        {
+          "id": "c3",
+          "text": "台風は日本の南の海上で発生し、日本に向かってまっすぐすすむ。"
+        },
+        {
+          "id": "c4",
+          "text": "台風の進路は、台風が発生する月によって異なる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "台風は日本の南の海上で発生し、初めは西の方へ移動するが、やがて北や東へ向かう。台風の進路は、台風が発生する月によって異なり、夏から秋にかけて日本に近づくことが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.d0075ea7917d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台風の目・弱く・あまり降らない"
+        },
+        {
+          "id": "c2",
+          "text": "強く"
+        },
+        {
+          "id": "c3",
+          "text": "たくさん降る"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5e70e03faa384976.png"
+    },
+    "explanation": "台風の中心は雲が少なくなっている。この部分 A を（台風の目）という。台風の目では、風が（弱く）、雨が（あまり降らない）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.d5234b74b17c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "積乱雲・中心・うず"
+        },
+        {
+          "id": "c2",
+          "text": "乱層雲"
+        },
+        {
+          "id": "c3",
+          "text": "外側"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "台風は（積せき乱らん雲うん）の集まりで、（中心）に向かって強い風がふきこみ、（うず）をまいている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.d85d3afc6786",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風が過すぎ去ると、天気はどうなることが多いでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨や風はおさまり、おだやかに晴れることが多い。"
+        },
+        {
+          "id": "c2",
+          "text": "雨はやむが、強い風がふき続けることが多い。"
+        },
+        {
+          "id": "c3",
+          "text": "風はおさまるが、長い間雨がしとしと降り続けることが多い。"
+        },
+        {
+          "id": "c4",
+          "text": "雨や風はおさまり、しばらくくもりになることが多い。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "台風が過ぎ去ると、雨や風はおさまり、おだやかに晴れることが多い。このように、台風が通り過ぎ去り、一気に青空が広がることを、「台風一過いっか」という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.deac27534880",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "過去の自然災害さいがいなどから、その地いきのひ害を予想して地図に表したものを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ハザードマップ"
+        },
+        {
+          "id": "c2",
+          "text": "進路予想図"
+        },
+        {
+          "id": "c3",
+          "text": "ダム"
+        },
+        {
+          "id": "c4",
+          "text": "気象情報"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "過去の自然災害などから、その地いきのひ害を予想して地図に表したものを、ハザードマップという。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.e9e1657b1fc5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風によるひ害について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨・こう水・風・建物"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "台風による多量の（雨）で土砂くずれや（こう水）が起こったり、強い（風）で木や（建物）がたおれたりすることがある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.f0c3a5f42e8e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風によるひ害から身を守る行動として、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "川や土砂くずれが起こりそうな場所には近づかない。"
+        },
+        {
+          "id": "c2",
+          "text": "自転車や植木ばちは家の中にしまう。"
+        },
+        {
+          "id": "c3",
+          "text": "避難する場所や安全な道を確認しておく。"
+        },
+        {
+          "id": "c4",
+          "text": "建物の外に出て雨や風のようすを観察する。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "台風による強い風で、木がたおれたり、ものが飛んでくることがあるので、むやみに建物の外に出ないようにする。また台風が来る前に、飛ばされそうなものは家の中にしまっておく。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.f47a32b7fd69",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の進路について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "南・西・北や東"
+        },
+        {
+          "id": "c2",
+          "text": "北"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/489482f4a116e86a.png"
+    },
+    "explanation": "台風は日本の（南）の海上で発生し、初めは（西）の方へ移動するが、やがて（北や東）へ向かう。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.f5860a942560",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の進路について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "月・８～９"
+        },
+        {
+          "id": "c2",
+          "text": "６〜７"
+        },
+        {
+          "id": "c3",
+          "text": "１０〜１１"
+        },
+        {
+          "id": "c4",
+          "text": "年"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/489482f4a116e86a.png"
+    },
+    "explanation": "台風の進路は、台風が発生する（月）によって異なる。日本には、（８～９）月ごろに上陸することが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.05cbe3cc1ec0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外側の地面がけずられたから。"
+        },
+        {
+          "id": "c2",
+          "text": "外側に土が積もったから。"
+        },
+        {
+          "id": "c3",
+          "text": "外側も内側も地面がけずられたから。"
+        },
+        {
+          "id": "c4",
+          "text": "外側にも内側にも土が積もったから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/668eaac423bbb5e0.png"
+    },
+    "explanation": "土で山を作って水を流したとき、曲がって流れているところの外側では地面がけずられ、内側には土が積もる。そのため、外側に立てた旗だけがたおれる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.0be9481aa222",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の曲がったところの川底のようすについて、正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "内側は浅く、小さい石が多い。外側は深く、大きい石が多い。"
+        },
+        {
+          "id": "c2",
+          "text": "内側は深く、小さい石が多い。外側は浅く、大きい石が多い。"
+        },
+        {
+          "id": "c3",
+          "text": "内側は浅く、大きい石が多い。外側は深く、小さい石が多い。"
+        },
+        {
+          "id": "c4",
+          "text": "内側は深く、大きい石が多い。外側は浅く、小さい石が多い。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43b0f63647ece486.png"
+    },
+    "explanation": "川の曲がったところでは、内側の流れはおそく、たい積のはたらきが大きくなるので、川底は浅く 小さな石が多くなる。外側の流れは速く、しん食や運ぱんのはたらきが大きくなるので、川底は深く 大きい石が多くなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.0fa64b613ae6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川原の石は下流ほど小さくなり、丸みをおびる。このようになる理由として、もっとも正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "運ぱんされる間にぶつかり合って小さくなり、角が取れるから。"
+        },
+        {
+          "id": "c2",
+          "text": "上流にある小さくて丸みをおびた石だけが、下流まで運ぱんされるから。"
+        },
+        {
+          "id": "c3",
+          "text": "下流まで運ぱんされるのは、軽い石だけだから。"
+        },
+        {
+          "id": "c4",
+          "text": "上流では小さな石が長い間に固まって、大きな岩になるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "運ぱんされる間にぶつかり合って小さくなり、角が取れるため、川原の石は下流ほど小さくなり、丸みをおびる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.1fe55c0e8999",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の曲がったところの水のはたらきについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "速く・しん食・ゆるやかで・たい積"
+        },
+        {
+          "id": "c2",
+          "text": "運ぱん"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43b0f63647ece486.png"
+    },
+    "explanation": "川の曲がったところでは、川の外側では水の流れが（速く）、（しん食）や運ぱんのはたらきが大きい。川の内側では水の流れが（ゆるやかで）、（たい積）のはたらきが大きい。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.39ba4ad88b4c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外側ではさらに深く地面がけずられ、内側ではさらに土が積もった。"
+        },
+        {
+          "id": "c2",
+          "text": "内側ではさらに深く地面がけずられ、外側ではさらに土が積もった。"
+        },
+        {
+          "id": "c3",
+          "text": "外側も内側もさらに深く地面がけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "外側にも内側にもさらに土が積もった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+    },
+    "explanation": "水を流す量を増やすと、（B）曲がって流れているところでは、外側ではさらに深く地面がけずられ、内側ではさらに土が積もる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.45c7a42af58c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "平地・海・たい積・三角州"
+        },
+        {
+          "id": "c2",
+          "text": "山地"
+        },
+        {
+          "id": "c3",
+          "text": "しん食"
+        },
+        {
+          "id": "c4",
+          "text": "せん状地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d4f2179ca51729cc.png"
+    },
+    "explanation": "この地形は、川が（平地）から（海）に流れ込む場所にできる地形で、流れる水の（たい積）のはたらきによってできる。このような地形を（三角州さんかくす）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.52d12c0fa1fa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の流れが速く、底が深くけずられた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の流れがおそく、土が積もった。"
+        },
+        {
+          "id": "c3",
+          "text": "水の流れがおそく、地面がけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "水の流れが速く、土が積もった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+    },
+    "explanation": "（A）かたむきが急でまっすぐ流れているところ では、水の流れが速く、底が深くけずられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.5cace333aab5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の流れが速く、地面がけずられた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の流れがおそく、土が積もった。"
+        },
+        {
+          "id": "c3",
+          "text": "水の流れがおそく、地面がけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "水の流れが速く、土が積もった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+    },
+    "explanation": "（B）曲がって流れているところの外側 では、水の流れが速いので、地面がけずられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.5e28fdc46e15",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石の形や大きさ、川の様子について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すなやどろ・ゆるやかで・広い"
+        },
+        {
+          "id": "c2",
+          "text": "速く"
+        },
+        {
+          "id": "c3",
+          "text": "大きな岩"
+        },
+        {
+          "id": "c4",
+          "text": "せまい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bf0e150358fe8228.png"
+    },
+    "explanation": "海の近く（下流）では、中流よりもさらに小さくて丸みのある石が多く、（すなやどろ）も見られる。中流よりも川の流れは（ゆるやかで）、川はばや川原は（広い）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.632588c9ac86",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ゆっくりと・森が豊かな"
+        },
+        {
+          "id": "c2",
+          "text": "すぐに"
+        },
+        {
+          "id": "c3",
+          "text": "木が少ない"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "山に降った雨は、落ち葉や土にしみこみながら、（ゆっくりと）川や海へと流れこむ。つまり、（森が豊ゆたかな）山は、一時的に水をたくわえる自然のダムになっている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.811743e626cc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地面を流れる水について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "高い・低い・すなやどろ"
+        },
+        {
+          "id": "c2",
+          "text": "大きな石"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地面を流れる水は、（高い）ところから（低い）ところに向かって流れる。（すなやどろ）が混じって、にごって見えることもある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.985a622d92fa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の流れについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山・海・速さ・ことなる"
+        },
+        {
+          "id": "c2",
+          "text": "同じ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "川は、（山）から（海）に向かって流れる。山の中（上流）、平地（中流）、海の近く（下流）では、水の流れの（速さ）や、川はば、河原の広さなどが（ことなる）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.9c69db6009c2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山地・平地・たい積・扇状地"
+        },
+        {
+          "id": "c2",
+          "text": "三角州"
+        },
+        {
+          "id": "c3",
+          "text": "しん食"
+        },
+        {
+          "id": "c4",
+          "text": "海"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5906f240691c9c65.png"
+    },
+    "explanation": "この地形は、川が（山地）から（平地）に移る場所で見られ、水の流れがゆるやかになることによる、（たい積）のはたらきによってできる。このような地形を（扇せん状じょう 地ち）という。「おうぎ（扇）」の形をしている地形。「扇」は「せん」とも読む。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.a4e6c713b07a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の曲がったところの水の流れについて、正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "川の内側の流れはおそく、外側の流れは速い。"
+        },
+        {
+          "id": "c2",
+          "text": "川の内側の流れは速く、外側の流れはおそい。"
+        },
+        {
+          "id": "c3",
+          "text": "川の中央ほど流れが速い。"
+        },
+        {
+          "id": "c4",
+          "text": "川のどの部分も流れる速さは同じ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43b0f63647ece486.png"
+    },
+    "explanation": "川の曲がったところでは、川の内側の流れはおそく、外側の流れは速い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.b460bf78c352",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さらに深くけずられ、はばが少し広がった。"
+        },
+        {
+          "id": "c2",
+          "text": "積もっていた土が、より下に流された。"
+        },
+        {
+          "id": "c3",
+          "text": "さらに流れが速くなり、地面はけずられなくなった。"
+        },
+        {
+          "id": "c4",
+          "text": "さらに土が積もり、はばが少しせまくなった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+    },
+    "explanation": "水を流す量を増やすと、まっすぐで流れが速いところでは、さらに深くけずられ、はばが少し広がる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.b4e4015eaf48",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さらに多くの土が運ばれ、積もった。"
+        },
+        {
+          "id": "c2",
+          "text": "流されてくる土の量が少なくなり、きれいな水が流れてきた。"
+        },
+        {
+          "id": "c3",
+          "text": "さらに流れが速くなり、地面が深くけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "流す水の量を増やしても、水の流れや土の様子に変化はなかった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+    },
+    "explanation": "水を流す量を増やすと、（C）流れがゆるやかなところ では、積もっていた土が、より下に流される。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.ba63745c8eea",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石の形や大きさ、川の様子について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きくて角ばった・速く・せまい"
+        },
+        {
+          "id": "c2",
+          "text": "広い"
+        },
+        {
+          "id": "c3",
+          "text": "ゆるやかで"
+        },
+        {
+          "id": "c4",
+          "text": "小さくて丸みのある"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7198744deb099d49.png"
+    },
+    "explanation": "山の中（上流）では、（大きくて角ばった）石が多い。水の流れは（速く）、両岸はがけになっているところが多い。川はばや河原は（せまい）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.c9e5ea36c559",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように川の曲がったところの、AとBを結んだ川底の形として近いものを、ア～ウからえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/67c8adaa19b16a3d.png"
+    },
+    "explanation": "川の曲がったところでは、内側の流れはおそく、たい積のはたらきが大きくなるので、川底は浅く 小さな石が多くなる。外側の流れは速く、しん食や運ぱんのはたらきが大きくなるので、川底は深く 大きい石が多くなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.ca10a8a2a18e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石の形や大きさ、川の様子について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さくて丸みのある・ゆるやかで・広い"
+        },
+        {
+          "id": "c2",
+          "text": "速く"
+        },
+        {
+          "id": "c3",
+          "text": "大きくて角ばった"
+        },
+        {
+          "id": "c4",
+          "text": "せまい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ce99132e33d4d2a5.png"
+    },
+    "explanation": "平地（中流）では、上流に比べると（小さくて丸みのある）石が多い。上流よりも川の流れは（ゆるやかで）、川はばや河原は（広い）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.d596541807fb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の流れが速く、地面がけずられた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の流れがおそく、土が積もった。"
+        },
+        {
+          "id": "c3",
+          "text": "水の流れがおそく、地面がけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "水の流れが速く、土が積もった。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+    },
+    "explanation": "（C）曲がって流れているところの内側 では、水の流れがおそくなっているため、上から水とともに流れてきた土が積もる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.d5c3725fe066",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "流れる水のはたらきについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "速く・大きく"
+        },
+        {
+          "id": "c2",
+          "text": "おそく"
+        },
+        {
+          "id": "c3",
+          "text": "小さく"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "流れる水の量が増えると、水の流れは（速く）なり、しん食や運ぱんのはたらきが（大きく）なる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.dbc63b4d19c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山の中・しん食・V字谷"
+        },
+        {
+          "id": "c2",
+          "text": "たい積"
+        },
+        {
+          "id": "c3",
+          "text": "平地"
+        },
+        {
+          "id": "c4",
+          "text": "三角州"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d0fe0228b72e54f4.png"
+    },
+    "explanation": "この地形は、（山の中）に見られ、流れる水の（しん食）のはたらきによってできる。このような地形を（Vブイ字じ谷こく）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.dc2e2fe35245",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川がまっすぐに流れるところの川底の形は、図のようになっていた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "川の右側の流れはおそく、左側の流れは速い。"
+        },
+        {
+          "id": "c2",
+          "text": "川の右側の流れは速く、左側の流れはおそい。"
+        },
+        {
+          "id": "c3",
+          "text": "川の中央ほど流れが速い。"
+        },
+        {
+          "id": "c4",
+          "text": "川のどの部分も流れる速さは同じ。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7126939781d57538.png"
+    },
+    "explanation": "水の流れが速いところでは、土がけずられたり、運ぱんされたりするはたらきが大きい。川底の中央が深くけずれていることから、川の中央ほど流れが速いと考えられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.ec28ffb05367",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の曲がったところの土地のようすについて、正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "内側はすなやどろがたい積して、河原になる。外側はけずられてがけになる。"
+        },
+        {
+          "id": "c2",
+          "text": "外側はすなやどろがたい積して、河原になる。内側はけずられてがけになる。"
+        },
+        {
+          "id": "c3",
+          "text": "外側にも内側にもすなやどろがたい積して、河原になる。"
+        },
+        {
+          "id": "c4",
+          "text": "内側も外側もけずられてがけになる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43b0f63647ece486.png"
+    },
+    "explanation": "川の曲がったところでは、川の内側はすなやどろがたい積して、河原になる。外側はけずられてがけになる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.ef14fbce6df8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "速く・けずられたり・あふれたり・こう水"
+        },
+        {
+          "id": "c2",
+          "text": "おそく"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fa97d0f360da2b3e.png"
+    },
+    "explanation": "大雨で川の水が増えると、川の流れが（速く）なり、川岸が（けずられたり）、川の外に水が（あふれたり）して、（こう水）が起こることがある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.038db6febe26",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの受精後、約１６〜２４週後、約３６週後のようすについて、図のア〜エに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "目、耳、鼻・性別・体・いつ生まれてもいい"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f1474df57a9edcba.png"
+    },
+    "explanation": "ア：目、耳、鼻 イ：性別 ウ：体 エ：いつ生まれてもいい"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.145483829531",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "へそのお のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばんと子どもをつなぐ。養分やいらないものが通る。"
+        },
+        {
+          "id": "c2",
+          "text": "子宮の中にある液体。しょうげきから子どもを守る。"
+        },
+        {
+          "id": "c3",
+          "text": "養分を受けとり、いらないものをわたしている。"
+        },
+        {
+          "id": "c4",
+          "text": "母親の体内で、子どもが育つところ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "赤ちゃんと子宮のかべのたいばんは、へそのおでつながっていて、養分やいらないものを受けわたししている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.1aade3ad3109",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の動物のうち、ヒトと同じ生まれかたをするものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "カエル"
+        },
+        {
+          "id": "c2",
+          "text": "ニワトリ"
+        },
+        {
+          "id": "c3",
+          "text": "メダカ"
+        },
+        {
+          "id": "c4",
+          "text": "イヌ"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "イヌは、ヒトと同じように、母親の体内で育ってから生まれる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.25d37a695329",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトとメダカのたんじょうについて、かっこに当てはまる語をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１・38・10 〜 20・10"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトはふつう１回に（１）人の子どもを産む。出産までには約（38）週かかる。メダカは１回に（10～20）個の卵を産み、１ヶ月に約（10）回産卵する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.286f98b4dcf6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "羊水のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばんと子どもをつなぐ。養分やいらないものが通る。"
+        },
+        {
+          "id": "c2",
+          "text": "子宮の中にある液体。しょうげきから子どもを守る。"
+        },
+        {
+          "id": "c3",
+          "text": "養分を受けとり、いらないものをわたしている。"
+        },
+        {
+          "id": "c4",
+          "text": "母親の体内で、子どもが育つところ。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "子宮の中にある液体を羊水といい、しょうげきから子どもを守るはたらきがある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.43d309d78bef",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの赤ちゃんがおなかの中で育つ様子について、次のA〜Dを成長の順にならべよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B・C・D・A"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bebca64202e14eb5.png"
+    },
+    "explanation": "B→C→D→A→たんじょう"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.46bd0060459a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトは、受精してからどれくらいの期間でたんじょうするでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "約38週"
+        },
+        {
+          "id": "c2",
+          "text": "約11週"
+        },
+        {
+          "id": "c3",
+          "text": "約24週"
+        },
+        {
+          "id": "c4",
+          "text": "約46週"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトは、受精してから母親の体内でだんだん育ち、約38週でたんじょうする。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.49a2ace2b033",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たいばん のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばんと子どもをつなぐ。養分やいらないものが通る。"
+        },
+        {
+          "id": "c2",
+          "text": "子宮の中にある液体。しょうげきから子どもを守る。"
+        },
+        {
+          "id": "c3",
+          "text": "養分を受けとり、いらないものをわたしている。"
+        },
+        {
+          "id": "c4",
+          "text": "母親の体内で、子どもが育つところ。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "たいばんでは、母親から養分を受けとり、いらないものをわたしている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.4c72bd7311f8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの受精後、約４週後、約８週後のようすについて、図のア〜エに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "心ぞう・どう体と頭・顔・手足"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/44df833ad4de2f9b.png"
+    },
+    "explanation": "ア：心ぞう イ：どう体と頭 ウ：顔 エ：手足"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.536697ab9198",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "母親の子宮の中のア〜エのつくりについて、当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばん・へそのお・羊水・子宮"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/16a1d28c6af7e4c6.png"
+    },
+    "explanation": "ア：たいばん イ：へそのお ウ：羊よう水すい エ：子し宮きゅう"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.8159e0ec60f1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトとメダカのたんじょうについて、かっこに当てはまる語をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまご・母親の体内・小さい・大きい"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "メダカ（たまご）の中で育つのに比べて、ヒトは（母親の体内）で大きくなってからたんじょうする。そのため、ヒトの受精卵は、メダカの受精卵よりも（小さい）が、生まれる子どもはヒトのほうが（大きい）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.82432288a4c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "母親の子宮の中のようすについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "子宮・羊水・たいばん・へそのお"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/93d335f35708aa71.png"
+    },
+    "explanation": "ヒトの受精卵は、母親の体内の（子宮）の中で育つ。子宮は（羊水）という液体で満たされていて、子どもと子宮のかべの（たいばん）は、（へそのお）でつながっている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.84bb6ad76ecc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの赤ちゃんの成長について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ヒトの赤ちゃんは、たんじょうしたあと半年以上の間、乳を飲んで育つ。"
+        },
+        {
+          "id": "c2",
+          "text": "ヒトの赤ちゃんは、たんじょうしたあと２〜３日でごはんを食べはじめる。"
+        },
+        {
+          "id": "c3",
+          "text": "ヒトの赤ちゃんは、たんじょうしてすぐに歩きはじめる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトの赤ちゃんは、たんじょうしたあと半年以上の間、乳を飲んで育つ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.a52071f8af56",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの赤ちゃんのたんじょうについて、かっこに当てはまる数字をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "50・3000"
+        },
+        {
+          "id": "c2",
+          "text": "10"
+        },
+        {
+          "id": "c3",
+          "text": "300"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトの赤ちゃんは母親の体内で育ち、生まれてくる。生まれるころには、身長約（50）cm、体重約（3000）g になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.ad88abcafa9b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトとメダカのたんじょうに共通することとして、 まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１つの受精卵からたんじょうする。"
+        },
+        {
+          "id": "c2",
+          "text": "生まれてすぐは、自分でごはんを食べない。"
+        },
+        {
+          "id": "c3",
+          "text": "卵（卵子）もしくはたまごと、精子が受精した受精卵から、新しい生命がたんじょうする。"
+        },
+        {
+          "id": "c4",
+          "text": "受精卵は母親の体内で育ち、子どもが生まれる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ヒトの受精卵は母親の体内で育ち、子どもが生まれるが、メダカは水中に産みつけられた たまごの中で育ち、たまごから生まれる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.e48ec50265b9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの子どもは生まれるまでの間、どこで育つでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "母親の体内"
+        },
+        {
+          "id": "c2",
+          "text": "たまごの中"
+        },
+        {
+          "id": "c3",
+          "text": "父親の体内"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトの子どもは生まれるまでの間、母親の体内で育つ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.e5275a698570",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "子宮の説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばんと子どもをつなぐ。養分やいらないものが通る。"
+        },
+        {
+          "id": "c2",
+          "text": "子宮の中にある液体。しょうげきから子どもを守る。"
+        },
+        {
+          "id": "c3",
+          "text": "養分を受けとり、いらないものをわたしている。"
+        },
+        {
+          "id": "c4",
+          "text": "母親の体内で、子どもが育つところ。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ヒトの子どもは、生まれるまでの間、母親の体内の子宮で育つ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.0234406a0eed",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水・均一・とうめいな"
+        },
+        {
+          "id": "c2",
+          "text": "にごった"
+        },
+        {
+          "id": "c3",
+          "text": "空気"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f540951c689fed5c.png"
+    },
+    "explanation": "（水）の中で、ものが（均きん一いつ）に広がり、（とうめいな）液になることを、「ものが水にとけた」という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.02d5b4a6af7a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "50 mL、100 mLの水に、計量スプーン何はい分の食塩、ミョウバンがとけるかを調べ、結果を表にした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の量を増やすと、とけるミョウバンの量は増えた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の量を増やすと、とける食塩の量は増えた。"
+        },
+        {
+          "id": "c3",
+          "text": "水の量を２倍にすると、水にとけるものの量は２倍になった。"
+        },
+        {
+          "id": "c4",
+          "text": "水の量を２倍にすると、水にとけるものの量は半分になった。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7dfda2bb5d79e021.png"
+    },
+    "explanation": "食塩、ミョウバンともに、水の量を増やすととける量が増えた。また、水の量を２倍にすると、とける量も２倍になった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.0317681a9dff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "15℃、60℃の水50 mL に、計量スプーン何はい分の食塩、ミョウバンがとけるかを調べ、結果を表にした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の温度を上げても、とける食塩の量は変化しなかった。"
+        },
+        {
+          "id": "c2",
+          "text": "水の温度をあげると、とける食塩の量は増えた。"
+        },
+        {
+          "id": "c3",
+          "text": "水の温度をあげると、とける食塩の量は減った。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/064aa229127ad4a7.png"
+    },
+    "explanation": "水50 mL にとける食塩の量は、水の温度が15℃のときも60℃のときも、計量スプーン３ばい分だった。つまり、水の温度を上げても、とける食塩の量は変化しなかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.099adb66f2a6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "液の中に とけきれないつぶがあるときは、図のようなそうちで こして取り出すことができる。この方法を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ろうと"
+        },
+        {
+          "id": "c2",
+          "text": "じょう発"
+        },
+        {
+          "id": "c3",
+          "text": "ろ過"
+        },
+        {
+          "id": "c4",
+          "text": "ろ紙"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/85b76e3d261a4d2b.png"
+    },
+    "explanation": "液の中に とけきれないつぶがあるときは、ろ紙でこして取り出すことができる。この方法をろ過という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.12dfb06e8f0f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水・水よう液・食塩・さとう"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ものが（水）にとけた液のことを、（水よう液）という。食塩水は（食塩）、さとう水は（さとう）がとけた水よう液である。 水溶液すいようえきの溶は、溶とけるという漢字。つまりそのまま、「ものが水に溶けた液体」という意味になるよ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.143d35c53ce7",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "115"
+      ],
+      "template": "水と食塩の重さをはかると、合わせて115 g だった。この食塩を水にとかすと、できあがった食塩水の重さは何 g になるでしょう。 {{INPUT}} g",
+      "suffix": "g"
+    },
+    "explanation": "食塩を水にとかして食塩水をつくるとき、水と食塩の重さの合計は、食塩水の重さに等しく、「水の重さ + 食塩の重さ ＝ 食塩水の重さ」と表すことができる。 食塩と水の重さは合わせて115 g だったので、できあがった食塩水の重さも 115 g になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.194df9b1675a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、水にとけない ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さとう"
+        },
+        {
+          "id": "c2",
+          "text": "食塩"
+        },
+        {
+          "id": "c3",
+          "text": "ミョウバン"
+        },
+        {
+          "id": "c4",
+          "text": "でんぷん"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/84b84a4903cc1e74.png"
+    },
+    "explanation": "ものが水にとけた液は、ものが均一に広がり、とうめいで、時間がたってもとけたものが水と分かれない。にごっていたり、時間がたつと ものと水が分かれて均一でなくなる場合、ものが水にとけたとはいえない。 さとう、食塩、ミョウバンは水にとけ、とうめいで均一な液体になるが、でんぷんはしばらくすると水と分かれて均一ではなくなるため、水にとけるとはいえない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.21c3997bd2ff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、上皿てんびんを使ってものの重さを調べたい。このとき、まず最初に皿にのせる分銅はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100 gの分銅"
+        },
+        {
+          "id": "c2",
+          "text": "50 gの分銅"
+        },
+        {
+          "id": "c3",
+          "text": "0.1 gの分銅"
+        },
+        {
+          "id": "c4",
+          "text": "2 g の分銅"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e2dd124b02db180c.png"
+    },
+    "explanation": "重い分銅から順にのせて、重さを調べる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.26dfbfca14c4",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、上皿てんびんを使ってものの重さを調べた。",
+      "answers": [
+        "37"
+      ],
+      "template": "右の皿に、20 g, 10 g, 5 g, 2 g の分銅をのせてつり合ったとき、左の皿にのっているものの重さを求めよう。 {{INPUT}} g",
+      "suffix": "g",
+      "promptImage": "questions/legacy/4894f0ef7dd47868.png"
+    },
+    "explanation": "つり合ったときに、のっている分銅の合計を求めよう。 20 + 10 + 5 + 2 = 37 よって、左の皿にのっているものの重さは 37 g。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.29d79bcf0381",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水にとけるものの量と水の温度との関係について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変わらない・増える・温度・ちがう"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水の温度をあげると、水にとける食塩の量は（変わらない）が、水にとけるミョウバンの量は（増える）。つまり、水の（温度）を上げたときにとける量の変化の仕方は、とかすものによって（ちがう）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.3178ed7fced5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "上皿てんびん・重さ・水平・つり合っている・分銅"
+        },
+        {
+          "id": "c2",
+          "text": "体積"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6838a2b198decf25.png"
+    },
+    "explanation": "図の道具 A を（上皿てんびん）といい、ものの（重さ）をはかるときに使う。はかり取るときは（水平）なところに置いて、 （つり合っている）ことを確かめてからはかる。はかりたいものを一方の皿にのせ、もう一方の皿に B（分ふん銅どう）をのせて、つり合わせてはかる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.3b5ae4c9afa4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の土地は「塩田」といい、海水から塩を作るために使われる。この塩田では、どのようにして塩を作っているのでしょう。もっとも正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "海水の水をじょう発させて、塩を作っている。"
+        },
+        {
+          "id": "c2",
+          "text": "海水の温度を下げて、塩を作っている。"
+        },
+        {
+          "id": "c3",
+          "text": "海水をすなでろ過して、塩を作っている。"
+        },
+        {
+          "id": "c4",
+          "text": "すなに海水をしみこませて、塩を作っている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/99a4fa5279395baa.png"
+    },
+    "explanation": "くんできた海水を何度も塩田にまくと、海水の水がじょう発し、すなに塩のつぶがつく。この塩のつぶがついたすなに何度も海水をかけてこい海水をつくり、かま でにつめて水をじょう発させ、塩を取り出す。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.42e02ef9febf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "15℃、60℃の水50 mL に、計量スプーン何はい分の食塩、ミョウバンがとけるかを調べ、結果を表にした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の温度をあげると、とけるミョウバンの量は増えた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の温度をあげると、とけるミョウバンの量は減った。"
+        },
+        {
+          "id": "c3",
+          "text": "水の温度を上げても、とけるミョウバンの量は変化しなかった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/064aa229127ad4a7.png"
+    },
+    "explanation": "水50 mL にとけるミョウバンの量は、水の温度が15℃のときは計量スプーン１ぱい分、水の温度が60℃のときは計量スプーン６ぱい分だった。つまり、水の温度をあげると、とけるミョウバンの量は増えた。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.5873cbbd2dfc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表とグラフは、50 mLの水にとける食塩とミョウバンの量を表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "18.5 g"
+        },
+        {
+          "id": "c2",
+          "text": "18.2 g"
+        },
+        {
+          "id": "c3",
+          "text": "5.7 g"
+        },
+        {
+          "id": "c4",
+          "text": "✕"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8efba82a68daa711.png"
+    },
+    "explanation": "食塩水は、温度を下げてもつぶを取り出すことができない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.651bd310e21a",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のメスシリンダーには、何 mL の水が入っているでしょう。",
+      "answers": [
+        "50"
+      ],
+      "template": "{{INPUT}} mL",
+      "suffix": "mL",
+      "promptImage": "questions/legacy/e3c0a498afcb85ef.png"
+    },
+    "explanation": "メスシリンダーのめもりは、液面のへこんだ下の面を、真横から見て読む。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.7fbcce511f9f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表とグラフは、50 mLの水にとける食塩とミョウバンの量を表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "28.7 g"
+        },
+        {
+          "id": "c2",
+          "text": "23 g"
+        },
+        {
+          "id": "c3",
+          "text": "5.7 g"
+        },
+        {
+          "id": "c4",
+          "text": "✕"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8efba82a68daa711.png"
+    },
+    "explanation": "60℃の水 50 mLには、28.7 g のミョウバンがとけている。この水よう液を20℃まで冷やすと、とけきれなくなったミョウバンが出てくる。20℃の水 50 mLにとけるミョウバンの量は 5.7 g なので、 28.7 (g) - 5.7 (g) = 23 (g) よって、23 g のミョウバンのつぶが出てくる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.843af3900dcb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、ものが水にとけた液の条じょう件けんとして、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すき通っている"
+        },
+        {
+          "id": "c2",
+          "text": "ものが均一に広がっている"
+        },
+        {
+          "id": "c3",
+          "text": "時間がたっても、とけたものが水と分かれない"
+        },
+        {
+          "id": "c4",
+          "text": "にごっている"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b3cd699efdc77dcf.png"
+    },
+    "explanation": "ものが水にとけた液は、ものが均一に広がり、とうめいで、時間がたってもとけたものが水と分かれない。にごっていたり、時間がたつとものと水が分かれて均一でなくなる場合、ものが水にとけたとはいえない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.86390ed7436f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水よう液の中にある・なくならない"
+        },
+        {
+          "id": "c2",
+          "text": "消えてなくなる"
+        },
+        {
+          "id": "c3",
+          "text": "なくなる"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ものが水にとけて見えなくなったとき、ものは（水よう液の中にある）。そのため、とけたものの重さは（なくならない）。 さとう水はあまい、食塩水はしょっぱいので、消えてなくなったわけではないんだね。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.8e63e1e24190",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電子てんびん・重さ・水平・０"
+        },
+        {
+          "id": "c2",
+          "text": "100"
+        },
+        {
+          "id": "c3",
+          "text": "体積"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/65b510063e914248.png"
+    },
+    "explanation": "図の道具 A を（電子てんびん）といい、ものの（重さ）をはかるときに使う。はかり取るときは（水平）なところに置いて、表示が（０）gになるようにしてから、はかりたいものをのせる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.93469736da52",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食塩を水にとかして食塩水をつくるとき、食塩をとかす前の全体の重さと、とかした後の全体の重さは等しい。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の重さ + 食塩の重さ ＝ 食塩水の重さ"
+        },
+        {
+          "id": "c2",
+          "text": "水の重さ - 食塩の重さ ＝ 食塩水の重さ"
+        },
+        {
+          "id": "c3",
+          "text": "食塩の重さ ÷ 水の重さ ＝ 食塩水の重さ"
+        },
+        {
+          "id": "c4",
+          "text": "水の重さ × 食塩の重さ ＝ 食塩水の重さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水と食塩の重さの合計は、「水の重さ + 食塩の重さ」と表すことができる。これが食塩水の重さに等しいので、「水の重さ + 食塩の重さ ＝ 食塩水の重さ」と表すことができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.95de5998a0e0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水50 mL に、計量スプーン何ばい分の食塩、ミョウバンがとけるかを調べ、結果を表にした。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "３ばい・１ぱい・あり・ちがう"
+        },
+        {
+          "id": "c2",
+          "text": "同じ"
+        },
+        {
+          "id": "c3",
+          "text": "なく"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/abd7a4f2474d3b31.png"
+    },
+    "explanation": "水50 mL に、食塩は計量スプーン（３ばい）分、ミョウバンは計量スプーン（１ぱい）分とけた。このことから、ものが水にとける量には限りが（あり）、ものによって水にとける量が（ちがう）ことがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.a3fd7dd5cc5b",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "10"
+      ],
+      "template": "水100 g にミョウバンをとかして、できた水よう液の重さをはかると 110 g だった。このとき、とかしたミョウバンの重さは、何 g でしょう。 {{INPUT}} g",
+      "suffix": "g"
+    },
+    "explanation": "「水の重さ + とかしたものの重さ ＝ 水よう液の重さ」なので、とかしたミョウバンの重さを □ g とすると、 100 (g) + □ = 110 (g) □ = 110 (g) - 100 (g) □ = 10 よって、とかしたミョウバンの重さは 10 g になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.a8e7017222ae",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水50 mL には、計量スプーン３ばい分の食塩がとけ、それ以上はとけなかった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の量を増やす。"
+        },
+        {
+          "id": "c2",
+          "text": "たくさんの食塩をいれる。"
+        },
+        {
+          "id": "c3",
+          "text": "もっとよくかきまぜる。"
+        },
+        {
+          "id": "c4",
+          "text": "水の量を減らす。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水の量を増ふやすと、もっとたくさんの食塩を水にとかすことができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.ba5c1094cfcb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、水にとけるものの量を増やす方法として、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の温度をあげると、とけるミョウバンの量は増える。"
+        },
+        {
+          "id": "c2",
+          "text": "水の量を増やすと、とけるミョウバンの量は増える。"
+        },
+        {
+          "id": "c3",
+          "text": "水の温度をあげると、とける食塩の量は増える。"
+        },
+        {
+          "id": "c4",
+          "text": "水の量を増やすと、とける食塩の量は増える。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "水の温度をあげると、水にとける食塩の量は変化しないが、水にとけるミョウバンの量は増える。また、水の量を増やすと、水にとけるものの量は増える。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.d9451562aebe",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "105"
+      ],
+      "template": "水100 g に食塩 5 g をとかした。できあがった食塩水の重さは何 g になるでしょう。 {{INPUT}} g",
+      "suffix": "g"
+    },
+    "explanation": "「水の重さ + 食塩の重さ ＝ 食塩水の重さ」なので、 100 (g) + 5 (g) =105 (g) よって、できあがった食塩水の重さは 105 g になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.eab0e5d6de1c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水にとけるものの量と水の量との関係について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える・２倍"
+        },
+        {
+          "id": "c2",
+          "text": "半分"
+        },
+        {
+          "id": "c3",
+          "text": "減る"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水の量を増やすと、水にとけるものの量は（増える）。水の量を２倍にすると、水にとけるものの量は（２倍）になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.fd3ed104b261",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メスシリンダー・体積・水平・真横"
+        },
+        {
+          "id": "c2",
+          "text": "重さ"
+        },
+        {
+          "id": "c3",
+          "text": "スポイト"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f3e0da9a3be44d78.png"
+    },
+    "explanation": "図の道具を（メスシリンダー）といい、液体の（体積）をはかるときに使う。液体をはかり取るときは、（水平）なところに置いて、（真横）から見る。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.023c71fdae5b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石について説明した次の文のうち、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コイルに流す電流を大きくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c2",
+          "text": "コイルのまき数を多くすると、電磁石は弱くなる。"
+        },
+        {
+          "id": "c3",
+          "text": "コイルのまき数を少なくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c4",
+          "text": "電磁石の強さは、変えることができない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "コイルに流す電流を大きくすると、電磁石は強くなる。また、コイルのまき数を多くすると、電磁石は強くなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.15888e856eff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように組み立てたブザーのしくみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "流れる・はなれる・流れない・音がなる"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d6e762aa1e9cf371.png"
+    },
+    "explanation": "①金具Aと金具Bがふれていると、電磁石に電流が（流れる）ため、金具Bは電磁石に引きつけられ、金具Aから（はなれる）。 ②金具Aと金具Bがはなれると、電磁石に電流が（流れない）ため、電磁石は磁石のはたらきを失う。これにより、金具Bは電磁石からはなれ、金具Aとぶつかって（音がなる）。 このように①と②をくり返すことで、ブザーがなり続ける。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.18bffa2e2ccf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電流計・直列・+・−"
+        },
+        {
+          "id": "c2",
+          "text": "並列"
+        },
+        {
+          "id": "c3",
+          "text": "電源そうち"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/afeb07ad209327de.png"
+    },
+    "explanation": "図のア（電流計）を使うと、回路に流れる電流の大きさを測定することができる。回路につなぐときには、図のように ア を（直列）つなぎにし、 + たんしをかん電池の（+）極側に、電流計の − たんしをかん電池の（−）極側につなぐ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.2169f9214d54",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、磁石の力が最も強い電磁石はどれでしょう。A〜Dからえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6f4915566834bf34.png"
+    },
+    "explanation": "コイルに流す電流を大きくすると、電磁石は強くなる。また、コイルのまき数を多くすると、電磁石は強くなる。よって、かん電池２こ、コイルのまき数100回のDが、磁石の力が最も強い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.25b7ff8976c5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の問いに答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア：N極、イ：S極"
+        },
+        {
+          "id": "c2",
+          "text": "ア：S極、イ：N極"
+        },
+        {
+          "id": "c3",
+          "text": "ア：N極、イ：N極"
+        },
+        {
+          "id": "c4",
+          "text": "ア：S極、イ：S極"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/39dd7e320631fb81.png"
+    },
+    "explanation": "磁石には、同じ極どうしは反発し、ちがう極どうしは引き合うという性質があるため、方位磁針の N極 は電磁石の S極 に引きよせられる。逆ぎゃくに、方位磁針の S極 は電磁石の N極 に引きよせられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.2fa9f234fb43",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流計をつないで、回路に流れる電流の大きさを測定した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "20 mA"
+        },
+        {
+          "id": "c2",
+          "text": "2 A"
+        },
+        {
+          "id": "c3",
+          "text": "200 mA"
+        },
+        {
+          "id": "c4",
+          "text": "2 mA"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/391590b45ee5f830.png"
+    },
+    "explanation": "数字が書かれているめもりは、10 mA、20 mA、30 mA ... となる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.40a877f8ed70",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下に落ちる・流れているときだけ"
+        },
+        {
+          "id": "c2",
+          "text": "ついたままになる"
+        },
+        {
+          "id": "c3",
+          "text": "流れていなくても"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c1f64b7c4876013a.png"
+    },
+    "explanation": "電磁石に電流を流すと、図のようにクリップがついた。電流を流すのをやめると、このクリップは（下に落ちる）。このことから電磁石は、電流が（流れているときだけ）磁石の性質をもつことが分かる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.5169c8f7dc5b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石の性質について、次の実験結果から分かることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コイルに流す電流を大きくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c2",
+          "text": "コイルに流す電流を小さくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c3",
+          "text": "コイルに流す電流の大きさと、電磁石の強さには関係がない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/52aff01ce578806f.png"
+    },
+    "explanation": "かん電池を増ふやして、電流の大きさを変えている。かん電池２このときのほうがクリップがたくさんついたので、コイルに流す電流を大きくすると、電磁石は強くなることがわかる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.534dd855967a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流計をつないで、回路に流れる電流の大きさを測定した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "360 mA"
+        },
+        {
+          "id": "c2",
+          "text": "3.6 A"
+        },
+        {
+          "id": "c3",
+          "text": "3.6 mA"
+        },
+        {
+          "id": "c4",
+          "text": "36 mA"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fcfa8ae88bdcb990.png"
+    },
+    "explanation": "数字が書かれているめもりは、100 mA、200 mA、300 mA…となるので、１めもりごとに 10 mA ずつ増える。 はりが指しているのは、300 からめもり ６こ分増えたところなので、360 mAとなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.5f4bfd9ed4f5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石に方位磁針を近づけると、方位磁針の針は図のようになった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ed54d861c7db8e3c.png"
+    },
+    "explanation": "コイルに流れる電流の向きが逆になると、電磁石のN極とS極が入れかわる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.61878f33a9e0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流の大きさを変えて、電磁石を強くすることができるのかを調べたい。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "AとB"
+        },
+        {
+          "id": "c2",
+          "text": "AとC"
+        },
+        {
+          "id": "c3",
+          "text": "BとC"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4431f01bbe3e7b4d.png"
+    },
+    "explanation": "電流の大きさを変えて電磁石の強さを調べるときは、コイルのまき数は変えない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.64e8a4dfc048",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電磁石・電流・モーター"
+        },
+        {
+          "id": "c2",
+          "text": "リニアモーターカー"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9e61af05823c3f18.png"
+    },
+    "explanation": "せん風機には、A のようなそうちが組みこまれている。A は（電磁石）と磁石（永久磁石）を組み合わせて、（電流）を流すと回転するようになっている。この A のそうちを（モーター）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.7aa8cfda1f63",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "コイルのまき数を変えて、電磁石を強くすることができるのかを調べたい。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "AとB"
+        },
+        {
+          "id": "c2",
+          "text": "AとC"
+        },
+        {
+          "id": "c3",
+          "text": "BとC"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4431f01bbe3e7b4d.png"
+    },
+    "explanation": "コイルのまき数を変えて、電磁石を強さを調べるときは、電流の大きさは変えない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.89f1d97da5d9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のクレーンのしくみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電磁石・電流を流したり止めたり・流れる電流を大きく"
+        },
+        {
+          "id": "c2",
+          "text": "磁石"
+        },
+        {
+          "id": "c3",
+          "text": "流れる電流の向きを変える"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/0a09d160cbb9ad9e.png"
+    },
+    "explanation": "このクレーンには（電磁石）が使われているので、（電流を流したり止めたり）することで、鉄を引きつけたりはなしたりすることができる。また（流れる電流を大きく）することで、磁石の力を強くすることができるので、重いものも持ち上げることができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.8a8346651bd4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "流れる電流の向きを逆にすると、電磁石はどうなるでしょう。正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電磁石のN極とS極が入れかわる。"
+        },
+        {
+          "id": "c2",
+          "text": "磁石の性質がなくなる。"
+        },
+        {
+          "id": "c3",
+          "text": "磁石の力が強くなる。"
+        },
+        {
+          "id": "c4",
+          "text": "電磁石は、特に変化しない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "流れる電流の向きを逆にすると、電磁石のN極とS極が入れかわる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.912a0dd4389a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石について説明した次の文のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電磁石は、コイルに電流が流れているときだけ、磁石の性質を持つ。"
+        },
+        {
+          "id": "c2",
+          "text": "電磁石には、ぼう磁石のように、N極とS極がある。"
+        },
+        {
+          "id": "c3",
+          "text": "コイルに流れる電流の向きが逆になると、電磁石のN極とS極が入れかわる。"
+        },
+        {
+          "id": "c4",
+          "text": "電磁石とぼう磁石は、いつでも磁石の性質を持つ。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "電磁石は、電流が流れているときだけ磁石の性質をもつのに対して、ぼう磁石はいつも磁石の性質をもつ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.c7d68110d4a8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石の性質について説明した次の文のうち、ふつうの磁石と同じ性質をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電流を流した時だけ磁石になる。"
+        },
+        {
+          "id": "c2",
+          "text": "磁石の力を変えられる。"
+        },
+        {
+          "id": "c3",
+          "text": "磁石の極を変えられる。"
+        },
+        {
+          "id": "c4",
+          "text": "Ｎ極とＳ極がある。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "電磁石と磁石の同じところ：Ｎ極とＳ極がある。鉄を引きつける。 電磁石と磁石のちがうところ：（電磁石は）電流を流した時だけ磁石になる。磁石の力を変えられる。磁石の極を変えられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.cffaafd3fb61",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A・アンペア・1000"
+        },
+        {
+          "id": "c2",
+          "text": "100"
+        },
+        {
+          "id": "c3",
+          "text": "10"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電流の単位は（A）で表し、（アンペア）と読む。1 A =（1000）mA（ミリアンペア）になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.e389972bb978",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流計をつないで、回路に流れる電流の大きさを測定した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1.2 A"
+        },
+        {
+          "id": "c2",
+          "text": "1 A"
+        },
+        {
+          "id": "c3",
+          "text": "1.5 A"
+        },
+        {
+          "id": "c4",
+          "text": "12 A"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a567672544303707.png"
+    },
+    "explanation": "数字が書かれているめもりは、1A、2A、3A…となるので、１めもりごとに 0.1 A ずつ増える。 はりが指しているのは、1A からめもり ２こ分増えたところなので、1.2 Aとなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.edf0f12cc9a5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "N極とS極・両はし"
+        },
+        {
+          "id": "c2",
+          "text": "+極と−極"
+        },
+        {
+          "id": "c3",
+          "text": "全体"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/539dc0d59ab9707d.png"
+    },
+    "explanation": "電磁石には、ぼう磁石のように、（N極とS極）があり、鉄は電磁石の（両はし）に強く引きつけられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.ef06b096aa19",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石の性質について、次の実験結果から分かることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コイルのまき数を多くすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c2",
+          "text": "コイルのまき数を少なくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c3",
+          "text": "コイルのまき数と、電磁石の強さには関係がない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6d7e9a8be8bdf639.png"
+    },
+    "explanation": "50回まきよりも100回まきのときのほうがクリップがたくさんついたので、コイルのまき数を多くすると、電磁石は強くなることがわかる。"
+  }
+]

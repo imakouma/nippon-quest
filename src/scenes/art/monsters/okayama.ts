@@ -623,6 +623,59 @@ const ikedaMitsumasa = lord(
   { [NQ.violet]: NQ.indigo },
 );
 
+const aizomen: MonsterDesign = {
+  size: 32,
+  colors: { D: NQ.denim, N: NQ.navy, A: NQ.azure, W: NQ.white, C: NQ.cloud, T: NQ.tan, p: NQ.blush },
+  rim: { [NQ.denim]: NQ.navy, [NQ.azure]: NQ.blue },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.......AAA......',
+        '.....AAAAAAA....',
+        '....AAAAAAAAA...',
+        '...AAAAAAAAAAA..',
+        '..AAAADDDDAAAA..',
+        '..AAADDDDDDAAA..',
+        '.AAADDDDDDDDAAA.',
+        '.AADDDDDDDDDDAA.',
+        '.AADDDDWWDDDDAA.',
+        '.AADDDDWoDDDDAA.',
+        '.AADDDDDDDDDDAA.',
+        '.AADDDpDDDDDDAA.',
+        '.AADDDDDDDDDDAA.',
+        '..ADDDDDDDDDDA..',
+        '..AADDDDDDDDAA..',
+        '...AADDDDDDDA...',
+        '....AADDDDDA....',
+        '.....AAAAAA.....',
+        '......AAAA......',
+        '.......TT.......',
+        '......TTTT......',
+        '.....TT..TT.....',
+        '....TT....TT....',
+        '...TT......TT...',
+        '...TT......TT...',
+        '...TT......TT...',
+        '...TT......TT...',
+        '...TT......TT...',
+        '...TT......TT...',
+      ],
+    },
+  ],
+};
+
+const denimBushi: MonsterDesign = {
+  ...aizomen,
+  colors: { ...aizomen.colors, G: NQ.gold, R: NQ.red },
+  layers: [
+    ...aizomen.layers,
+    { mirror: true, y: 2, rows: ['....GGGGGGGG....', '...GGRRGGRRGG...', '....DDDDDDDD....'] },
+    { mirror: true, y: 14, rows: ['.DGDGDGDGDGDGDG.', '..DDDDDDDDDDDD..', '...DD......DD...'] },
+  ],
+};
+
 export const OKAYAMA: Readonly<Record<string, MonsterDesign>> = {
   'okayama-fukuromomo': fukuromomo,
   'okayama-hakuto-hime': hakutoHime,
@@ -630,6 +683,8 @@ export const OKAYAMA: Readonly<Record<string, MonsterDesign>> = {
   'okayama-emeraldou': emeraldou,
   'okayama-bizentsubon': bizentsubon,
   'okayama-bizen-ootsubo': bizenOotsubo,
+  'okayama-aizomen': aizomen,
+  'okayama-denim-bushi': denimBushi,
   'okayama-midboss-mouretsu-jersey': mouretsuJersey,
   'okayama-midboss-mouretsu-jersey.field': mouretsuJerseyField,
   'okayama-boss-kibi-no-onio': kibiNoOnio,

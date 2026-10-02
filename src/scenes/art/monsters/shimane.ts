@@ -669,6 +669,61 @@ const koizumiYakumo: MonsterDesign = {
   ],
 };
 
+const rosokun: MonsterDesign = {
+  size: 32,
+  colors: { N: NQ.slate, K: NQ.gray, V: NQ.vermilion, A: NQ.apricot, Y: NQ.yellow, W: NQ.white, p: NQ.blush },
+  rim: { [NQ.slate]: NQ.night, [NQ.vermilion]: NQ.brick },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.......Y........',
+        '......AYA.......',
+        '.....AVVVA......',
+        '......VVV.......',
+        '.......V........',
+        '......NNN.......',
+        '.....NNNNN......',
+        '....NNNNNNN.....',
+        '...NNNNNNNNN....',
+        '..NNNNNWWNNNN...',
+        '..NNNNNWoNNNN...',
+        '..NNNNNNNNNNN...',
+        '..NNNNpNNNNNN...',
+        '..NNNNNNNNNNN...',
+        '...NNNNNNNNN....',
+        '...NNNNNNNNN....',
+        '....NNNNNNN.....',
+        '....NNNNNNN.....',
+        '.....NNNNN......',
+        '.....NNNNN......',
+        '......NNN.......',
+        '......NNN.......',
+        '.....KKKKK......',
+        '....KK...KK.....',
+        '...KK.....KK....',
+        '..KK.......KK...',
+        '..KK.......KK...',
+        '..KK.......KK...',
+        '..KK.......KK...',
+      ],
+    },
+  ],
+};
+const oohiRosoku: MonsterDesign = {
+  ...rosokun,
+  layers: [
+    ...rosokun.layers,
+    {
+      mirror: true,
+      y: 1,
+      rows: ['.....YYYYY......', '....YAVVVAY.....', '...YAVVVVVAY....', '....AVVVVVA.....'],
+    },
+    { mirror: true, y: 14, rows: ['..NNNNNNNNNNN...', '.NNNKKKKKKKNNN..', '..NNNNNNNNNNN...'] },
+  ],
+};
+
 export const SHIMANE: Readonly<Record<string, MonsterDesign>> = {
   'shimane-shijimin': shijimin,
   'shimane-yuhi-shijimi': yuhiShijimi,
@@ -676,6 +731,8 @@ export const SHIMANE: Readonly<Record<string, MonsterDesign>> = {
   'shimane-warigo-tower': warigoTower,
   'shimane-chidorin': chidorin,
   'shimane-tenshu-chidori': tenshuChidori,
+  'shimane-rosokun': rosokun,
+  'shimane-oohi-rosoku': oohiRosoku,
   'shimane-midboss-shirogane-mogura': shiroganeMogura,
   'shimane-midboss-shirogane-mogura.field': shiroganeMoguraField,
   'shimane-boss-kagura-orochi': kaguraOrochi,

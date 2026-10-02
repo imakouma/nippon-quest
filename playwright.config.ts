@@ -16,6 +16,8 @@ export default defineConfig({
     command: 'pnpm build && pnpm preview --port 4173',
     port: 4173,
     reuseExistingServer: true,
-    timeout: 120_000,
+    // Full content validation, typechecking, and the production bundle can take
+    // more than two minutes on a cold start as the content set grows.
+    timeout: 240_000,
   },
 });
