@@ -243,6 +243,30 @@ describe('choice レンダラーの schema', () => {
       schema.safeParse({ prompt: 'p', choices: [{ id: 'a' }, { id: 'b', text: '2' }], answer: 'a' }).success,
     ).toBe(false);
   });
+  it('存在しない正解IDは拒否', () => {
+    expect(
+      schema.safeParse({
+        prompt: 'p',
+        choices: [
+          { id: 'a', text: '1' },
+          { id: 'b', text: '2' },
+        ],
+        answer: 'missing',
+      }).success,
+    ).toBe(false);
+  });
+  it('重複した選択肢IDは拒否', () => {
+    expect(
+      schema.safeParse({
+        prompt: 'p',
+        choices: [
+          { id: 'a', text: '1' },
+          { id: 'a', text: '2' },
+        ],
+        answer: 'a',
+      }).success,
+    ).toBe(false);
+  });
 });
 
 describe('picture-word レンダラー', () => {
