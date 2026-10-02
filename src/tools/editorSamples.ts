@@ -11,6 +11,11 @@ export function validateEditorQuestion(raw: unknown): QuestionBase | null {
   return payload.success ? ({ ...base.data, payload: payload.data } as QuestionBase) : null;
 }
 
+/** JSONエディタでフォーム状態として安全に扱える最小条件。不完全な項目は後段で詳しく表示する。 */
+export function isEditorQuestionDraft(raw: unknown): raw is QuestionBase {
+  return !!raw && typeof raw === 'object' && !Array.isArray(raw);
+}
+
 /** Webエディタを開いた直後から、現行レンダラーで試せる有効なサンプル。 */
 export const SAMPLE_QUESTIONS: QuestionBase[] = [
   {

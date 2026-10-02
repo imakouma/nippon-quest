@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { decodeQuestionFromHash, encodeQuestionToHash } from '../../src/tools/urlShare';
 import { generateRandomUser, generateRoomId } from '../../src/tools/collaboration';
-import { SAMPLE_QUESTIONS, validateEditorQuestion } from '../../src/tools/editorSamples';
+import {
+  isEditorQuestionDraft,
+  SAMPLE_QUESTIONS,
+  validateEditorQuestion,
+} from '../../src/tools/editorSamples';
 import { questionBaseSchema } from '../../src/questions/contracts';
 import { requireRenderer } from '../../src/questions/renderers/registry';
 import type { QuestionBase } from '../../src/questions/contracts';
@@ -23,6 +27,13 @@ describe('Web Editor URL Sharing & Collaboration', () => {
         payload: { prompt: '問題', choices: [{ id: 'a', text: 'A' }], answer: 'missing' },
       }),
     ).toBeNull();
+  });
+
+  it('JSONフォーム状態へ null・配列・プリミティブを入れない', () => {
+    expect(isEditorQuestionDraft({ id: '編集中' })).toBe(true);
+    expect(isEditorQuestionDraft(null)).toBe(false);
+    expect(isEditorQuestionDraft([])).toBe(false);
+    expect(isEditorQuestionDraft('文字列')).toBe(false);
   });
 
   it('correctly encodes and decodes question object to/from hash string', () => {

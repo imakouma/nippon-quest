@@ -18,7 +18,7 @@ import { setDictionary, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel } from '../ui/ruby';
 import { CollaborationRoom, generateRoomId, type Collaborator } from './collaboration';
-import { SAMPLE_QUESTIONS, validateEditorQuestion } from './editorSamples';
+import { isEditorQuestionDraft, SAMPLE_QUESTIONS, validateEditorQuestion } from './editorSamples';
 import { buildShareUrl, copyToClipboard, parseUrlState } from './urlShare';
 import '../questions/renderers/shared/questions.css';
 import './editor.css';
@@ -129,7 +129,11 @@ function App() {
   }, []);
 
   // Validate question & mount renderer preview
-  const updateQuestionState = (newQ: QuestionBase, skipBroadcast = false) => {
+  const updateQuestionState = (newQ: unknown, skipBroadcast = false) => {
+    if (!isEditorQuestionDraft(newQ)) {
+      setValidationError('問題データは JSON オブジェクトで入力してください');
+      return;
+    }
     setQuestion(newQ);
     const text = JSON.stringify(newQ, null, 2);
     setJsonText(text);
