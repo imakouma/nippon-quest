@@ -4,8 +4,9 @@
  */
 import { z } from 'zod';
 import { gradeSchema, idSchema, statsSchema } from '../content/schemas';
+import { attemptEventSchema, conceptStateSchema } from '../learning/state';
 
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;
 
 export const equipmentSchema = z
   .object({ weapon: idSchema, head: idSchema, chest: idSchema, legs: idSchema, feet: idSchema })
@@ -97,6 +98,8 @@ export const gameStateSchema = z.object({
     recent: z.array(z.string()),
     mistakes: z.array(z.string()),
     playSecondsByDate: z.record(z.string(), z.number().int().nonnegative()),
+    attempts: z.array(attemptEventSchema).default([]),
+    conceptStates: z.record(z.string(), conceptStateSchema).default({}),
   }),
   arena: z.object({ badges: z.number().int().nonnegative(), ghostParty: z.unknown().nullable() }),
   settings: z.object({

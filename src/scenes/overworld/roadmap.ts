@@ -1,6 +1,6 @@
 import type { Unit } from '../../core/content/schemas';
 import type { MasteryData } from '../../questions/engine/mastery';
-import type { RoadmapNode } from '../../ui/field/MenuOverlay';
+import type { RoadmapNode } from '../../shared/menuModel';
 
 const SUBJECT_ORDER = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'];
 

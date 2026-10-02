@@ -59,6 +59,9 @@
 .nq-roadmap-subject-eigo {
   --nq-roadmap-subject: #3a2672;
 }
+.nq-roadmap-subject-all {
+  --nq-roadmap-subject: var(--nq-yellow);
+}
 .nq-roadmap-subjects {
   display: flex;
   align-items: center;
@@ -73,6 +76,82 @@
   margin-left: auto;
   color: var(--nq-yellow);
   font-size: 12px;
+}
+.nq-roadmap-overview {
+  display: grid;
+  flex: 1;
+  min-height: 0;
+  padding: 12px;
+  overflow: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  border: 4px solid #14192d;
+  background: #263759;
+  box-shadow: inset 0 0 0 4px #3e5686;
+}
+.nq-roadmap-summary {
+  --nq-roadmap-card: #e5484d;
+  display: flex;
+  min-height: 72px;
+  padding: 6px 10px;
+  color: #fff;
+  font: inherit;
+  text-align: left;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  border: 3px solid #111525;
+  background: #18223b;
+  box-shadow: 0 4px 0 #0c1020;
+}
+.nq-roadmap-summary:hover,
+.nq-roadmap-summary:focus-visible {
+  outline: 3px solid var(--nq-yellow);
+  outline-offset: -3px;
+}
+.nq-roadmap-summary-sansu {
+  --nq-roadmap-card: #3f7ee8;
+}
+.nq-roadmap-summary-rika {
+  --nq-roadmap-card: #3eb5a7;
+}
+.nq-roadmap-summary-shakai {
+  --nq-roadmap-card: #d89032;
+}
+.nq-roadmap-summary-seikatsu {
+  --nq-roadmap-card: #55a95e;
+}
+.nq-roadmap-summary-eigo {
+  --nq-roadmap-card: #8e71d1;
+}
+.nq-roadmap-summary-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--nq-yellow);
+  font-size: 16px;
+}
+.nq-roadmap-summary-meter {
+  display: block;
+  height: 12px;
+  overflow: hidden;
+  border: 2px solid #0b0e19;
+  background: #303854;
+}
+.nq-roadmap-summary-meter > span {
+  display: block;
+  height: 100%;
+  background: var(--nq-roadmap-card);
+}
+.nq-roadmap-summary-current {
+  display: block;
+  flex: none;
+  overflow: hidden;
+  color: #fff;
+  font-size: 12px;
+  line-height: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .nq-roadmap-map {
   position: relative;
@@ -327,6 +406,37 @@
   display: block;
   height: 100%;
   background: #6bd968;
+}
+.nq-parent-concept {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto auto;
+  gap: 3px 8px;
+  margin: 6px 0;
+  padding: 6px;
+  border: 1px solid #65708f;
+  font-size: 11px;
+}
+.nq-parent-concept strong,
+.nq-parent-concept small {
+  grid-column: 1 / -1;
+}
+.nq-parent-concept small {
+  color: #c9d3ee;
+}
+.nq-parent-diagnosis {
+  padding: 6px;
+  border: 1px solid #9b7b45;
+  background: #232031;
+  font-size: 11px;
+}
+.nq-parent-diagnosis p {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  margin: 7px 0;
+}
+.nq-parent-diagnosis p small {
+  grid-column: 1 / -1;
 }
 .nq-parent-save {
   display: flex;

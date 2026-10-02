@@ -44,8 +44,27 @@ async function seedTohokuBossReady(page: Page): Promise<void> {
   }, TOHOKU_SIGNS);
 }
 
+async function savedTohokuClear(page: Page): Promise<boolean> {
+  return page.evaluate(async () => {
+    const database = await new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open('nihonquest');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => resolve(request.result);
+    });
+    const state = await new Promise<{ progress?: { islandsCleared?: string[] } } | undefined>(
+      (resolve, reject) => {
+        const request = database.transaction('saves').objectStore('saves').get('save:3');
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => resolve(request.result);
+      },
+    );
+    database.close();
+    return state?.progress?.islandsCleared?.includes('tohoku') ?? false;
+  });
+}
+
 test('タップだけで東北地方ボスを倒し、再読込後もバッグ拡張と北海道の結界が残る', async ({ page }) => {
-  test.setTimeout(150_000);
+  test.setTimeout(240_000);
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(String(error)));
 
@@ -116,6 +135,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-columns', '76px 76px 76px');
   await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-rows', '76px 76px');
   await page.getByRole('button', { name: /とじる/ }).click();
+  await expect.poll(() => savedTohokuClear(page), { timeout: 20_000 }).toBe(true);
 
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
@@ -127,7 +147,8 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.getByRole('button', { name: 'にほんちず' }).click();
   await expect(page.getByRole('button', { name: /浄化.*ずみ/ })).toBeDisabled();
   await page.locator('.nq-wmap-arrow').filter({ hasText: '▶' }).click();
-  await expect(page.locator('.nq-wmap-barrier')).toContainText('まだ 結界の 中');
+  await expect(page.locator('.nq-wmap-barrier')).toContainText('結界');
+  await expect(page.locator('.nq-wmap-barrier')).toContainText('上陸');
   await expect(page.getByRole('button', { name: /いく/ })).toBeDisabled();
   expect(errors).toEqual([]);
 });

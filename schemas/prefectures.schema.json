@@ -543,7 +543,7 @@
               },
               "condition": {
                 "type": "string",
-                "pattern": "^(defeat|collect):[a-z0-9.-]+:\\d+$|^perfect:(kokugo|sansu|rika|shakai|seikatsu|eigo):\\d+$|^event:[a-z0-9.-]+$|^recruit:[a-z0-9.-]+$"
+                "pattern": "^(?:(?:defeat|collect):[a-z0-9.-]+:[1-9]\\d*|perfect:(?:kokugo|sansu|rika|shakai|seikatsu|eigo):[1-9]\\d*|(?:event|recruit):[a-z0-9.-]+)$"
               },
               "reward": {
                 "type": "object",

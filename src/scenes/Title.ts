@@ -72,12 +72,18 @@ export class TitleScene extends Phaser.Scene {
     if (import.meta.env.DEV) {
       const content = this.registry.get('content') as { areas: Map<string, unknown> } | undefined;
       const bank = this.registry.get('bank') as { size: number } | undefined;
+      const questionFiles = this.registry.get('questionFiles') as string[] | undefined;
       this.add
-        .text(8, 8, `dev: ${content?.areas.size ?? 0} areas / ${bank?.size ?? 0} questions`, {
-          fontFamily: PIXEL_FONT,
-          fontSize: '12px',
-          color: NQ.silver,
-        })
+        .text(
+          8,
+          8,
+          `dev: ${content?.areas.size ?? 0} areas / ${bank ? `${bank.size} questions` : `${questionFiles?.length ?? 0} question files (lazy)`}`,
+          {
+            fontFamily: PIXEL_FONT,
+            fontSize: '12px',
+            color: NQ.silver,
+          },
+        )
         .setAlpha(0.6)
         .setDepth(50);
     }

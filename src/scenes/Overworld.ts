@@ -41,7 +41,7 @@ import {
   toggleBagMonster,
 } from '../core/progression/bag';
 import { heroLevel } from '../core/progression/battleResult';
-import { canUse, EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
+import { EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
 import {
   acceptMission,
   canCraft,
@@ -135,6 +135,8 @@ import { buildViewTexture } from './overworld/viewTiles';
 import { buildEntranceIcons } from './overworld/entranceIcons';
 import { GEOGRAPHIC_AREA_ORDER } from './overworld/geography';
 import { buildRoadmapNodes } from './overworld/roadmap';
+import { bagMenu, equipmentMenu, menuTabs, mistakeMenu } from './overworld/menuEntries';
+import { buildReviewQueue } from './overworld/reviewQueue';
 import { buildStructureArt, structureKey, type StructureKind } from './overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 
@@ -1635,6 +1637,7 @@ export class OverworldScene extends Phaser.Scene {
       mastery: new MasteryStore(gs.learning.mastery),
       rng: this.rng,
       speak: this.speak,
+      reason: 'event',
     });
     let score: number | null = null;
     try {
@@ -2200,9 +2203,8 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     const c = this.content();
     if (!gs || !c) return;
-    const canReview = gs.learning.mistakes.some((id) =>
-      (this.registry.get('bank') as QuestionBank | undefined)?.get(id),
-    );
+    const bank = this.registry.get('bank') as QuestionBank | undefined;
+    const canReview = buildReviewQueue(gs, bank, Date.now()).length > 0;
     const choices = canReview
       ? [t('field.townInnStay'), t('field.townInnReview'), t('ui.cancel')]
       : [t('field.townInnStay'), t('ui.cancel')];
@@ -2239,13 +2241,13 @@ export class OverworldScene extends Phaser.Scene {
     ]);
   }
 
-  /** まちがいノートの先頭から最大3問。満点ならノートから外す。 */
+  /** まちがいを優先し、空きがあれば復習期限を迎えた問題を合わせて最大3問。 */
   private async reviewMistakes(speaker: string): Promise<number> {
     const content = this.content();
     const bank = this.registry.get('bank') as QuestionBank | undefined;
     const gs = this.gs();
     if (!content || !bank || !gs) return 0;
-    const ids = gs.learning.mistakes.filter((id) => bank.get(id)).slice(0, 3);
+    const ids = buildReviewQueue(gs, bank, Date.now());
     await this.talk([{ speaker, text: t('field.townInnReviewStart', { n: ids.length }) }]);
     let perfect = 0;
     for (const id of ids) {
@@ -2272,6 +2274,7 @@ export class OverworldScene extends Phaser.Scene {
             mastery: new MasteryStore(gs.learning.mastery),
             rng: this.rng,
             speak: this.speak,
+            reason: 'review',
           }),
           id,
         );
@@ -2318,28 +2321,41 @@ export class OverworldScene extends Phaser.Scene {
     await this.talk(out);
   }
 
-  /** たいせんじょう：この県の モンスターと しょうぶ（レベルは すこし上）。かったら しょうきん */
+  /** たいせんじょう：content/arena/rivals.json のライバルを選んで対戦する。 */
   private async arenaTalk(speaker: string, lines: DialogueLine[]): Promise<boolean> {
     const c = this.content();
-    const area = this.currentArea();
+    if (!c) return false;
+    const rivals = [...c.rivals.values()].filter((rival) => rival.monsters.length > 0);
+    if (!rivals.length) {
+      await this.talk([...lines, { speaker, text: t('field.townArenaNoRival') }]);
+      return false;
+    }
     const choice = await this.choose(
       [...lines, { speaker, text: t('field.townArenaAsk', { n: ARENA_PRIZE }) }],
-      [t('field.townArenaFight'), t('ui.cancel')],
+      [
+        ...rivals.map((rival) => t('field.townArenaRival', { name: rival.name, level: rival.heroLevel })),
+        t('ui.cancel'),
+      ],
     );
-    const foes = [
-      ...new Set(
-        (area?.encounters ?? [])
-          .flatMap((e) => e.table.map((x) => x.monsterId))
-          .filter((id) => c?.monsters.has(id) && !c.monsters.get(id)!.isBoss),
-      ),
-    ];
-    if (choice !== 0 || !foes.length) {
+    const rival = rivals[choice];
+    const lead = rival?.monsters[0];
+    if (!rival || !lead || !c.monsters.has(lead.monsterId)) {
       await this.talk([{ speaker, text: t('field.townLater') }]);
       return false;
     }
+    await this.talk([
+      { speaker: rival.name, text: rival.intro },
+      {
+        speaker,
+        text: t('field.townArenaMatch', {
+          name: rival.name,
+          monster: c.monsters.get(lead.monsterId)?.name ?? lead.monsterId,
+        }),
+      },
+    ]);
     this.pendingArena = speaker;
     this.busy = false;
-    this.startBattle({ enemyId: Phaser.Math.RND.pick(foes), level: this.heroLevel() + 2, zone: 'field' });
+    this.startBattle({ enemyId: lead.monsterId, level: lead.level, zone: 'field' });
     return true;
   }
 
@@ -2727,7 +2743,7 @@ export class OverworldScene extends Phaser.Scene {
       render(
         h(MenuOverlay, {
           tab,
-          tabs: this.menuTabs(),
+          tabs: menuTabs(this.gs()?.learning.mistakes.length ?? 0),
           entries: view.entries,
           roadmap: this.roadmapNodes(),
           summary: view.summary,
@@ -2833,33 +2849,6 @@ export class OverworldScene extends Phaser.Scene {
       .map((m) => ({ m, known: revealAll || seen.has(m.id) }));
   }
 
-  private menuTabs() {
-    return [
-      { key: 'roadmap' as const, label: t('field.tabRoadmap'), icon: 'star' },
-      {
-        key: 'mistakes' as const,
-        label: t('field.tabMistakes'),
-        icon: 'cmd-scan',
-        count: String(this.gs()?.learning.mistakes.length ?? 0),
-      },
-      {
-        key: 'monsters' as const,
-        label: t('field.tabMonsters'),
-        group: t('field.dexGroup'),
-        icon: 'boss',
-      },
-      {
-        key: 'specialties' as const,
-        label: t('field.tabSpecialties'),
-        group: t('field.dexGroup'),
-        icon: 'star',
-      },
-      { key: 'bag' as const, label: t('field.tabBag'), icon: 'role-shop' },
-      { key: 'equip' as const, label: t('field.tabEquip'), icon: 'role-smith' },
-      { key: 'look' as const, label: t('field.tabLook'), icon: 'hero' },
-    ];
-  }
-
   /** そうびの ステータス（こうげき+3 ぼうぎょ+2） */
   private statText(it: Item): string {
     const KEY: Record<string, string> = {
@@ -2888,37 +2877,12 @@ export class OverworldScene extends Phaser.Scene {
     const unknown = t('field.dexUnknown');
     const areaName = (id: string) => c.areas.get(id)?.name ?? unknown;
     const stats = this.heroStats(gs);
-    const hpLine = t('field.menuHp', { hp: gs.player.hp, max: stats.hp, gold: gs.player.gold });
 
     if (tab === 'roadmap') return { entries: [], empty: '' };
 
     if (tab === 'mistakes') {
       const bank = this.registry.get('bank') as QuestionBank | undefined;
-      const entries = gs.learning.mistakes
-        .map((id): MenuEntry | null => {
-          const question = bank?.get(id);
-          if (!question) return null;
-          const payload = question.payload as Record<string, unknown>;
-          const prompt = typeof payload.prompt === 'string' ? payload.prompt : question.id;
-          return {
-            key: question.id,
-            name: prompt,
-            known: true,
-            right: t('field.mistakeGrade', { n: question.grade }),
-            sub: t(`subjects.${question.subject}`),
-            lines: [
-              t('field.mistakeUnit', { unit: c.units.get(question.unit)?.name ?? question.unit }),
-              t('field.mistakeType', { type: question.type }),
-            ],
-            blurb: question.explanation ?? t('field.mistakeNoExplanation'),
-          };
-        })
-        .filter((entry): entry is MenuEntry => entry !== null);
-      return {
-        entries,
-        summary: t('field.mistakeSummary', { n: entries.length }),
-        empty: t('field.mistakeEmpty'),
-      };
+      return mistakeMenu(c, gs, bank);
     }
 
     if (tab === 'monsters') {
@@ -2977,33 +2941,13 @@ export class OverworldScene extends Phaser.Scene {
     }
 
     if (tab === 'bag') {
-      const ORDER = ['consumable', 'weapon', 'head', 'chest', 'legs', 'feet', 'material', 'key'];
-      const max = { hp: stats.hp, mp: stats.mp };
-      const entries = Object.entries(gs.inventory)
-        .filter(([id, n]) => n > 0 && c.items.has(id))
-        .map(([id, n]) => ({ it: c.items.get(id)!, n }))
-        .sort((a, b) => ORDER.indexOf(a.it.kind) - ORDER.indexOf(b.it.kind))
-        .map(({ it, n }): MenuEntry => {
-          const lines = [t('field.townHave', { n })];
-          if (it.use?.heal) lines.push(t('field.bagHeal', { n: it.use.heal }));
-          if (isEquip(it) && it.stats) lines.push(this.statText(it));
-          return {
-            key: it.id,
-            name: it.name,
-            icon: itemIconUrl(it),
-            known: true,
-            right: t('battle.itemCount', { n }),
-            sub: this.kindLabel(it),
-            lines,
-            blurb: it.blurb,
-            action: isEquip(it)
-              ? { label: t('field.bagEquip'), ok: true }
-              : it.kind === 'consumable' && it.use
-                ? { label: t('field.bagUse'), ok: canUse(gs, it, max) }
-                : null,
-          };
-        });
-      return { entries, summary: hpLine, empty: t('field.bagEmpty') };
+      return bagMenu(
+        c,
+        gs,
+        stats,
+        (item) => this.statText(item),
+        (item) => this.kindLabel(item),
+      );
     }
 
     if (tab === 'look') {
@@ -3031,34 +2975,7 @@ export class OverworldScene extends Phaser.Scene {
       return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
     }
 
-    // そうび：5 つの 部位
-    const entries = EQUIP_SLOTS.map((slot): MenuEntry => {
-      const id = gs.player.equipment[slot];
-      const it = id ? c.items.get(id) : undefined;
-      return {
-        key: `slot:${slot}`,
-        name: it ? it.name : t('field.equipNone'),
-        icon: it ? itemIconUrl(it) : undefined,
-        known: true,
-        right: t(`slots.${slot}`),
-        sub: t('field.equipSlot', { slot: t(`slots.${slot}`) }),
-        lines: it ? [this.statText(it)].filter(Boolean) : [t('field.equipEmptyHint')],
-        blurb: it?.blurb,
-        action: it ? { label: t('field.bagUnequip'), ok: true } : null,
-      };
-    });
-    return {
-      entries,
-      summary: t('field.equipStats', {
-        hp: gs.player.hp,
-        max: stats.hp,
-        atk: stats.atk,
-        def: stats.def,
-        spd: stats.spd,
-        wis: stats.wis,
-      }),
-      empty: t('field.dexEmpty'),
-    };
+    return equipmentMenu(c, gs, stats, (item) => this.statText(item));
   }
 
   /** 単元習熟度を唯一の進捗源として、ロードマップ表示用へ変換する。 */

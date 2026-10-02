@@ -36,6 +36,19 @@ const migrations: Record<number, Migration> = {
       },
     };
   },
+  2: (s) => {
+    const learning = (s.learning ?? {}) as Record<string, unknown>;
+    return {
+      ...s,
+      schemaVersion: 3,
+      learning: {
+        ...learning,
+        attempts: Array.isArray(learning.attempts) ? learning.attempts : [],
+        conceptStates:
+          learning.conceptStates && typeof learning.conceptStates === 'object' ? learning.conceptStates : {},
+      },
+    };
+  },
 };
 
 export interface MigrateResult {

@@ -63,6 +63,8 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       recent: [],
       mistakes: [],
       playSecondsByDate: {},
+      attempts: [],
+      conceptStates: {},
     },
     arena: { badges: 0, ghostParty: null },
     settings: { bgmVolume: 0.6, seVolume: 0.8, timeLimitScale: 1 },

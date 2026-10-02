@@ -1,0 +1,388 @@
+{
+  "$ref": "#/definitions/curriculum-graph",
+  "definitions": {
+    "curriculum-graph": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "publisher": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "published": {
+                "type": "string",
+                "minLength": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date"
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "publisher",
+              "url",
+              "published",
+              "checkedAt",
+              "locator"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$"
+              },
+              "subject": {
+                "type": "string",
+                "enum": [
+                  "kokugo",
+                  "sansu",
+                  "rika",
+                  "shakai",
+                  "seikatsu",
+                  "eigo"
+                ]
+              },
+              "grade": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 6
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "concept",
+                  "skill",
+                  "fact",
+                  "procedure",
+                  "reading",
+                  "misconception"
+                ]
+              },
+              "memoryType": {
+                "type": "string",
+                "enum": [
+                  "fact",
+                  "concept",
+                  "procedure",
+                  "mixed"
+                ]
+              },
+              "curriculumCodes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^82[A-Z0-9]{14}$"
+                },
+                "default": []
+              },
+              "recommendedWindow": {
+                "type": "object",
+                "properties": {
+                  "stage": {
+                    "type": "string",
+                    "enum": [
+                      "early",
+                      "middle",
+                      "late",
+                      "variable"
+                    ]
+                  },
+                  "fromMonth": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 12
+                  },
+                  "toMonth": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 12
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "official",
+                      "reference",
+                      "unverified"
+                    ]
+                  },
+                  "note": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "stage",
+                  "status",
+                  "note"
+                ],
+                "additionalProperties": false
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "review": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "draft",
+                      "source-checked",
+                      "expert-reviewed"
+                    ]
+                  },
+                  "reviewedAt": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "reviewer": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "subject",
+              "grade",
+              "unit",
+              "name",
+              "description",
+              "kind",
+              "memoryType",
+              "sourceIds",
+              "review"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "string",
+                "minLength": 1
+              },
+              "to": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "prerequisite",
+                  "component",
+                  "related",
+                  "causal",
+                  "chronological",
+                  "spatial",
+                  "category",
+                  "contrast",
+                  "transfer"
+                ]
+              },
+              "strength": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "default": 1
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "default": []
+              },
+              "reviewStatus": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "source-checked",
+                  "expert-reviewed"
+                ]
+              }
+            },
+            "required": [
+              "from",
+              "to",
+              "kind",
+              "rationale",
+              "reviewStatus"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "questionLinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "questionId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "concepts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "conceptId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "weight": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 1
+                    },
+                    "role": {
+                      "type": "string",
+                      "enum": [
+                        "primary",
+                        "supporting",
+                        "reading"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "conceptId",
+                    "weight",
+                    "role"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              },
+              "diagnosticValue": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "reviewStatus": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "source-checked",
+                  "expert-reviewed"
+                ]
+              },
+              "misconceptionSignals": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "answerId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "conceptId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "confidence": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "answerId",
+                    "conceptId",
+                    "confidence",
+                    "rationale"
+                  ],
+                  "additionalProperties": false
+                },
+                "default": []
+              }
+            },
+            "required": [
+              "questionId",
+              "concepts",
+              "diagnosticValue",
+              "reviewStatus"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "sources",
+        "concepts",
+        "relations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

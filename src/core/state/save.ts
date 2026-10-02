@@ -5,11 +5,11 @@
 import localforage from 'localforage';
 import { SCHEMA_VERSION, gameStateSchema, type GameState } from './schema';
 import { migrate } from './migrations';
+import { SLOTS, type SlotId, type SlotSummary } from './slots';
+export { exportGameJson as exportJson, importGameJson as importJson } from './serialization';
+export { SLOTS, type SlotId, type SlotSummary } from './slots';
 
 const store = localforage.createInstance({ name: 'nihonquest', storeName: 'saves' });
-export const SLOTS = [1, 2, 3] as const;
-export type SlotId = (typeof SLOTS)[number];
-
 const key = (slot: SlotId) => `save:${slot}`;
 const backupKey = (slot: SlotId) => `backup:${slot}`;
 const saveQueues = new Map<SlotId, Promise<void>>();
@@ -24,18 +24,6 @@ async function enqueueSlot<T>(slot: SlotId, operation: () => Promise<T>): Promis
   } finally {
     if (saveQueues.get(slot) === queued) saveQueues.delete(slot);
   }
-}
-
-export interface SlotSummary {
-  slot: SlotId;
-  exists: boolean;
-  corrupted?: boolean;
-  recovered?: boolean;
-  name?: string;
-  level?: number;
-  area?: string;
-  updatedAt?: number;
-  signs?: number;
 }
 
 function parsedState(raw: unknown): GameState | null {
@@ -115,12 +103,4 @@ export async function summaries(): Promise<SlotSummary[]> {
       }),
     ),
   );
-}
-
-export function exportJson(state: GameState): string {
-  return JSON.stringify(state, null, 2);
-}
-
-export function importJson(text: string): GameState {
-  return migrate(JSON.parse(text)).state;
 }

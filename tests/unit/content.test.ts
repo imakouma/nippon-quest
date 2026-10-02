@@ -75,6 +75,28 @@ describe('content loader', () => {
     expect(errors).toContain('area "aomori": encounter の region "missing-region" が存在しません');
   });
 
+  it('県内の名所・イベント・依頼・NPC・出現表の重複を検出する', async () => {
+    const c = await loadContent(read);
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    aomori.motifs.push(structuredClone(aomori.motifs[0]!));
+    aomori.events.push(structuredClone(aomori.events[0]!));
+    aomori.missions.push(structuredClone(aomori.missions[0]!));
+    aomori.town!.npcs.push(structuredClone(aomori.town!.npcs[0]!));
+    aomori.encounters.push(structuredClone(aomori.encounters[0]!));
+    areas.set(aomori.id, aomori);
+
+    const errors = findBrokenReferences({ ...c, areas });
+    expect(errors).toContain(`area "aomori": motif id "${aomori.motifs[0]!.id}" が重複しています`);
+    expect(errors).toContain(`area "aomori": event id "${aomori.events[0]!.id}" が重複しています`);
+    expect(errors).toContain(`area "aomori": mission id "${aomori.missions[0]!.id}" が重複しています`);
+    expect(errors).toContain(`area "aomori": npc id "${aomori.town!.npcs[0]!.id}" が重複しています`);
+    const encounter = aomori.encounters[0]!;
+    expect(errors).toContain(
+      `area "aomori": encounter key "${encounter.region ?? '*'}:${encounter.zone}" が重複しています`,
+    );
+  });
+
   it('青森は playable で、ボス・イベント・NPCが揃っている', async () => {
     const c = await loadContent(read);
     const aomori = c.areas.get('aomori')!;

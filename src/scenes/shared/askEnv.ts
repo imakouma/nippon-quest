@@ -4,6 +4,12 @@
  */
 import type { ContentIndex } from '../../core/content/loader';
 import type { GameState } from '../../core/state/schema';
+import {
+  applyAttemptToConcepts,
+  createAttemptEvent,
+  questionLinksById,
+  type AttemptEvent,
+} from '../../core/learning';
 import type { QuestionQuery } from '../../questions/contracts';
 import {
   ask,
@@ -21,6 +27,7 @@ export interface AskEnvOptions {
   mastery: MasteryStore;
   rng: { next(): number };
   speak: (text: string) => void;
+  reason?: AttemptEvent['reason'];
 }
 
 export function buildAskEnv(o: AskEnvOptions): AskEnv {
@@ -42,6 +49,23 @@ export function buildAskEnv(o: AskEnvOptions): AskEnv {
     weakUnitRatio: st.adaptiveWeakUnitRatio,
     recent: o.gs.learning.recent,
     mistakes: o.gs.learning.mistakes,
+    onResult: (question, result, presentedAt) => {
+      const answeredAt = Date.now();
+      const event = createAttemptEvent({
+        questionId: question.id,
+        result,
+        presentedAt,
+        answeredAt,
+        sequence: o.gs.learning.attempts.length,
+        reason: o.reason ?? 'unknown',
+        appVersion: '0.1.0',
+      });
+      o.gs.learning.attempts.push(event);
+      const link = questionLinksById.get(question.id);
+      if (link)
+        o.gs.learning.conceptStates = applyAttemptToConcepts(o.gs.learning.conceptStates, event, link);
+      window.dispatchEvent(new CustomEvent('nq:learning-changed', { detail: o.gs }));
+    },
   };
 }
 

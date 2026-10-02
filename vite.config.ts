@@ -48,6 +48,7 @@ function serveRootDirs(dirs: string[]): Plugin {
 
 export default defineConfig({
   base: process.env.BASE_PATH ?? '/',
+  esbuild: { sourcemap: false },
   plugins: [preact(), serveRootDirs(['content', 'assets', 'schemas', 'maps'])],
   resolve: { alias: { '@': resolve(root, 'src') } },
   build: {
@@ -66,5 +67,12 @@ export default defineConfig({
       },
     },
   },
-  server: { port: 5173, open: false },
+  server: {
+    port: 5173,
+    open: false,
+    // 初回の「はじめから／つづきから」で大きい Scene を変換すると、
+    // 低速環境では dynamic import がタイムアウトする。サーバー起動時に
+    // 変換を済ませ、タイトルからの遷移を安定させる。
+    warmup: { clientFiles: ['./src/scenes/Overworld.ts', './src/scenes/Battle.ts'] },
+  },
 });

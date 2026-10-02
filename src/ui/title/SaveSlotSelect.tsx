@@ -1,5 +1,5 @@
 import { useEffect } from 'preact/hooks';
-import type { SlotId, SlotSummary } from '../../core/state/save';
+import type { SlotId, SlotSummary } from '../../core/state/slots';
 import { t } from '../i18n';
 import './title.css';
 

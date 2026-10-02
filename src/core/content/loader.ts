@@ -185,6 +185,14 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
 export function findBrokenReferences(c: ContentIndex): string[] {
   const errs: string[] = [];
   const has = (m: Map<string, unknown>, id: string | undefined) => id === undefined || m.has(id);
+  const checkUnique = (ids: Iterable<string>, where: string): Set<string> => {
+    const seen = new Set<string>();
+    for (const id of ids) {
+      if (seen.has(id)) errs.push(`${where} "${id}" が重複しています`);
+      seen.add(id);
+    }
+    return seen;
+  };
   const islandIds = new Set<string>();
   const islandOrders = new Set<number>();
   const areaOwners = new Map<string, string[]>();
@@ -241,7 +249,26 @@ export function findBrokenReferences(c: ContentIndex): string[] {
       errs.push(
         `area "${a.id}": midBoss "${a.midBoss}" は isBoss: true にしてください（にげられない戦いにする）`,
       );
-    const motifIds = new Set(a.motifs.map((m) => m.id));
+    const motifIds = checkUnique(
+      a.motifs.map((motif) => motif.id),
+      `area "${a.id}": motif id`,
+    );
+    checkUnique(
+      a.events.map((event) => event.id),
+      `area "${a.id}": event id`,
+    );
+    checkUnique(
+      a.missions.map((mission) => mission.id),
+      `area "${a.id}": mission id`,
+    );
+    checkUnique(
+      (a.town?.npcs ?? []).map((npc) => npc.id),
+      `area "${a.id}": npc id`,
+    );
+    checkUnique(
+      a.encounters.map((encounter) => `${encounter.region ?? '*'}:${encounter.zone}`),
+      `area "${a.id}": encounter key`,
+    );
     const regionIds = new Set<string>();
     for (const region of a.regions) {
       if (regionIds.has(region.id)) errs.push(`area "${a.id}": region "${region.id}" が重複しています`);

@@ -1,0 +1,352 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-sansu-commentary",
+      "title": "小学校学習指導要領（平成29年告示）解説 算数編",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
+      "checkedAt": "2026-10-03",
+      "locator": "第3章 第2節 第1学年 A 数と計算、A(1)数の構成と表し方、A(2)加法・減法"
+    },
+    {
+      "id": "mext-h29-curriculum-codes",
+      "title": "文部科学省 教育データ標準：学習指導要領コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-03",
+      "locator": "小学校学習指導要領コード 82V12"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "sansu.g1.number.one-to-one",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "ものとものの対応",
+      "description": "ものを一つずつ対応させて個数を比べる。",
+      "kind": "skill",
+      "memoryType": "concept",
+      "curriculumCodes": ["8250213111100000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "学年内時期は教科書会社の年間指導計画による確認が必要。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-03",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.number.count-represent",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "個数と順番を数えて表す",
+      "description": "個数や順番を正しく数え、数字などで表す。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213111200000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "学年内時期は教科書会社の年間指導計画による確認が必要。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-03",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.number.order",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "数の大小と順序",
+      "description": "数の大小や順序を考え、数の系列や数直線で表す。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["8250213111300000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "学年内時期は教科書会社の年間指導計画による確認が必要。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-03",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.number.compose-decompose",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "数の合成と分解",
+      "description": "一つの数を、ほかの数の和や差として関係付けて見る。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["8250213111400000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "学年内時期は教科書会社の年間指導計画による確認が必要。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-03",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.number.make-ten",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "10のまとまり",
+      "description": "数を10のまとまりとして捉え、10になる組合せを使う。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213111400000", "8250213122100000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "A(1)キを基礎にした細分化。学年内時期は別途確認が必要。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": { "status": "draft" }
+    },
+    {
+      "id": "sansu.g1.addition.meaning",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.tashizan",
+      "name": "加法の意味",
+      "description": "増加や合併など、加法が用いられる場面を式と対応させる。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["8250213121100000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "学年内時期は教科書会社の年間指導計画による確認が必要。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-03",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.addition.single-digit",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.tashizan",
+      "name": "一位数の加法",
+      "description": "一位数と一位数の加法の仕方を考え、確実に計算する。",
+      "kind": "procedure",
+      "memoryType": "procedure",
+      "curriculumCodes": ["8250213121300000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "学年内時期は教科書会社の年間指導計画による確認が必要。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-03",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.misconception.add-instead-difference",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.tashizan",
+      "name": "加法場面で差を求める",
+      "description": "合併・増加の場面で、二数の差を答えてしまう誤り方。単一誤答だけでは断定しない。",
+      "kind": "misconception",
+      "memoryType": "concept",
+      "curriculumCodes": [],
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": { "status": "draft" }
+    }
+  ],
+  "relations": [
+    {
+      "from": "sansu.g1.number.one-to-one",
+      "to": "sansu.g1.number.count-represent",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "対応による個数比較は、正しく数え表す活動の基礎になる。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
+    },
+    {
+      "from": "sansu.g1.number.count-represent",
+      "to": "sansu.g1.number.order",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "数を表す理解を、大小・順序の理解へ接続する。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
+    },
+    {
+      "from": "sansu.g1.number.count-represent",
+      "to": "sansu.g1.number.compose-decompose",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "数を数えて表せることを、数同士の関係を見る前提候補とする。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
+    },
+    {
+      "from": "sansu.g1.number.compose-decompose",
+      "to": "sansu.g1.number.make-ten",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "10を作る組合せには数の合成・分解を用いる。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
+    },
+    {
+      "from": "sansu.g1.number.compose-decompose",
+      "to": "sansu.g1.addition.meaning",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "数を和として見ることが加法の意味理解を支える。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
+    },
+    {
+      "from": "sansu.g1.addition.meaning",
+      "to": "sansu.g1.addition.single-digit",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "式を用いる場面の理解と計算技能を関連付ける。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
+    },
+    {
+      "from": "sansu.g1.number.make-ten",
+      "to": "sansu.g1.addition.single-digit",
+      "kind": "component",
+      "strength": 0.8,
+      "rationale": "10のまとまりは一位数加法の方略の一つとして使う。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
+    }
+  ],
+  "questionLinks": [
+    {
+      "questionId": "sansu.g1.kazu-100.legacy-bunkai-0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.compose-decompose", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.legacy-bunkai-0002",
+      "concepts": [{ "conceptId": "sansu.g1.number.compose-decompose", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.legacy-bunkai-0003",
+      "concepts": [{ "conceptId": "sansu.g1.number.compose-decompose", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.legacy-bunkai-0004",
+      "concepts": [{ "conceptId": "sansu.g1.number.compose-decompose", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tashizan.0001",
+      "concepts": [
+        { "conceptId": "sansu.g1.addition.meaning", "weight": 0.6, "role": "primary" },
+        { "conceptId": "sansu.g1.addition.single-digit", "weight": 0.4, "role": "supporting" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": [
+        {
+          "answerId": "d",
+          "conceptId": "sansu.g1.misconception.add-instead-difference",
+          "confidence": 0.65,
+          "rationale": "3と4の差である1を選んでいる。ただし一度だけでは断定しない。"
+        }
+      ]
+    },
+    {
+      "questionId": "sansu.g1.tashizan.0002",
+      "concepts": [{ "conceptId": "sansu.g1.addition.single-digit", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "draft",
+      "misconceptionSignals": [
+        {
+          "answerId": "b",
+          "conceptId": "sansu.g1.misconception.add-instead-difference",
+          "confidence": 0.6,
+          "rationale": "5と2の差である3を選んでいる。ただし一度だけでは断定しない。"
+        }
+      ]
+    },
+    {
+      "questionId": "sansu.g1.tashizan.0003",
+      "concepts": [
+        { "conceptId": "sansu.g1.number.make-ten", "weight": 0.7, "role": "primary" },
+        { "conceptId": "sansu.g1.addition.single-digit", "weight": 0.3, "role": "supporting" }
+      ],
+      "diagnosticValue": 0.85,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tashizan.0004",
+      "concepts": [
+        { "conceptId": "sansu.g1.number.make-ten", "weight": 0.6, "role": "primary" },
+        { "conceptId": "sansu.g1.addition.meaning", "weight": 0.4, "role": "supporting" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": [
+        {
+          "answerId": "b",
+          "conceptId": "sansu.g1.misconception.add-instead-difference",
+          "confidence": 0.7,
+          "rationale": "8と2の差である6を選んでいる。ただし一度だけでは断定しない。"
+        }
+      ]
+    },
+    {
+      "questionId": "sansu.g1.tashizan.0005",
+      "concepts": [
+        { "conceptId": "sansu.g1.number.make-ten", "weight": 0.6, "role": "primary" },
+        { "conceptId": "sansu.g1.addition.single-digit", "weight": 0.4, "role": "supporting" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    }
+  ]
+}

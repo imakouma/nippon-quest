@@ -9,7 +9,6 @@
  *  - 計算は src/core/battle の act() に任せる（シーンは 演出だけ）
  *  - わざ → ask() → QuestionResult.score だけを Command に渡す（問題タイプは知らない。かかった 時間は シーンが はかる）
  * 1 ドット = 4px（背景 240×135 と同じ倍率）。人物 16×24、モンスター 32 / 40 / 48 / 56（docs/06）。
- *
  * Overworld から `scene.launch('Battle', data)` で重ねて起動し、終わると 'battle:end' を投げて自分を止める。
  */
 import Phaser from 'phaser';
@@ -1046,6 +1045,7 @@ export class BattleScene extends Phaser.Scene {
       mastery: this.mastery,
       rng: this.qRng,
       speak: this.speak,
+      reason: 'battle',
     });
     const t0 = this.time.now;
     try {
