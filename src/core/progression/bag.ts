@@ -5,7 +5,7 @@
 import type { ContentIndex } from '../content/loader';
 import type { Item, Monster, Settings, Stats } from '../content/schemas';
 import type { GameState } from '../state/schema';
-import { equipItem, isEquip } from './inventory';
+import { EQUIP_SLOTS, equipItem, isEquip } from './inventory';
 
 export type BagSettings = Settings['bag'];
 export interface BagSize {
@@ -103,7 +103,9 @@ export function battleRosterUids(gs: GameState): string[] {
 }
 
 function thingSize(gs: GameState, key: string, ctx: BagContext): BagSize | null {
-  if (key === 'hero' || key.startsWith('eq:')) return { w: 1, h: 1 };
+  if (key === 'hero') return { w: 1, h: 1 };
+  if (key.startsWith('eq:'))
+    return EQUIP_SLOTS.includes(key.slice(3) as (typeof EQUIP_SLOTS)[number]) ? { w: 1, h: 1 } : null;
   if (!key.startsWith('mon:')) return null;
   const o = gs.party.owned.find((x) => x.uid === key.slice(4));
   return o ? monsterSize(o.monsterId, ctx.monsters) : null;
@@ -118,6 +120,7 @@ function cellsAt(pos: BagPos, size: BagSize): string[] {
 }
 
 export function canPlace(gs: GameState, key: string, pos: BagPos, ctx: BagContext): boolean {
+  if (!Number.isSafeInteger(pos.x) || !Number.isSafeInteger(pos.y)) return false;
   const size = thingSize(gs, key, ctx);
   if (!size) return false;
   const mine = cellsAt(pos, size);
@@ -147,6 +150,7 @@ export function firstFreePosition(gs: GameState, key: string, ctx: BagContext): 
 }
 
 export function moveBagThing(prev: GameState, key: string, pos: BagPos, ctx: BagContext): GameState | null {
+  if (!Object.hasOwn(prev.party.bagPlacements, key)) return null;
   if (!canPlace(prev, key, pos, ctx)) return null;
   const gs = structuredClone(prev);
   gs.party.bagPlacements[key] = { x: pos.x, y: pos.y, rotated: !!pos.rotated };

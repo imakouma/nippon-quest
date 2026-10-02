@@ -59,6 +59,21 @@ describe('2Dバッグ', () => {
     ).toMatchObject({ x: 1, y: 1 });
   });
 
+  it('不正座標・存在しないキー・未配置の仲間を注入しない', () => {
+    const s = fresh();
+    own(s, 'outside');
+    const ctx = bagContext(s, c);
+
+    expect(moveBagThing(s, 'mon:starter', { x: Number.NaN, y: 1 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'mon:starter', { x: 0.5, y: 1 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'eq:not-a-slot', { x: 0, y: 1 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'mon:outside', { x: 0, y: 1 }, ctx)).toBeNull();
+    expect(s.party.bagPlacements).toEqual({
+      hero: { x: 0, y: 0, rotated: false },
+      'mon:starter': { x: 1, y: 0, rotated: false },
+    });
+  });
+
   it('通常キャラは1x1、ボスは2x2', () => {
     expect(monsterSize('aomori-nebutan', c.monsters)).toEqual({ w: 1, h: 1 });
     expect(monsterSize('tohoku-boss-rokufuyu', c.monsters)).toEqual({ w: 2, h: 2 });
