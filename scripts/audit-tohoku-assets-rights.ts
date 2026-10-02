@@ -3,7 +3,6 @@ import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { extname, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { auditAssets } from './audit-assets';
 
 const ROOT = resolve('.');
 const LEDGER = 'assets/rights/tohoku-release-ledger.json';
@@ -137,7 +136,9 @@ export async function auditTohokuAssetsRights() {
     .map((item) => item.path);
   const questionRefs = releaseQuestionReferences();
   const missingQuestionRefs = questionRefs.filter((path) => !existsSync(resolve(ROOT, path)));
-  const fallbackBacklog = await auditAssets(ROOT);
+  const fallbackBacklog = JSON.parse(
+    readFileSync(resolve(ROOT, 'imports/asset-backlog.json'), 'utf8'),
+  ) as { assets: { priority: number }[] };
   const tohokuMissingStaticReplacements = fallbackBacklog.assets.filter((item) => item.priority <= 2);
   const choiceSource = readFileSync(resolve(ROOT, 'src/questions/renderers/choice/ChoiceView.tsx'), 'utf8');
   const pictureWordSource = readFileSync(
