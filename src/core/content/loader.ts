@@ -72,9 +72,9 @@ export function bundledFetchReader(base: string, bundleName = 'content-bundle.js
   const fallback = fetchReader(base);
   let bundlePromise: Promise<Record<string, unknown> | null> | undefined;
   return async (rel) => {
-    bundlePromise ??= fetch(`${base}/${bundleName}`, { cache: 'no-cache' }).then(async (res) =>
-      res.ok ? ((await res.json()) as Record<string, unknown>) : null,
-    );
+    bundlePromise ??= fetch(`${base}/${bundleName}`, { cache: 'no-cache' })
+      .then(async (res) => (res.ok ? ((await res.json()) as Record<string, unknown>) : null))
+      .catch(() => null);
     const bundle = await bundlePromise;
     if (!bundle) return fallback(rel);
     if (!Object.prototype.hasOwnProperty.call(bundle, rel))
