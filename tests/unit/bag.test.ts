@@ -89,6 +89,19 @@ describe('バッグ内と控え', () => {
     expect(stowNewMonster(s, 'extra', bagContext(s, c)).inBag).toBe(false);
     expect(battleRosterUids(s)).toHaveLength(MAX_COMPANIONS);
   });
+
+  it('同じ仲間の再収納は配置を変えず、存在しないUIDを控えへ追加しない', () => {
+    const s = fresh();
+    const same = stowNewMonster(s, 'starter', bagContext(s, c));
+    expect(same.state).toBe(s);
+    expect(same.inBag).toBe(true);
+    expect(same.state.party.team).toEqual(['starter']);
+
+    const missing = stowNewMonster(s, 'missing', bagContext(s, c));
+    expect(missing.state).toBe(s);
+    expect(missing.inBag).toBe(false);
+    expect(missing.state.party.reserve).not.toContain('missing');
+  });
 });
 
 describe('装備・隣接効果・描画セル', () => {

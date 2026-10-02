@@ -258,6 +258,12 @@ export function stowNewMonster(
   uid: string,
   ctx: BagContext,
 ): { state: GameState; inBag: boolean } {
+  if (!prev.party.owned.some((monster) => monster.uid === uid)) return { state: prev, inBag: false };
+  if (battleRosterUids(prev).includes(uid))
+    return {
+      state: prev,
+      inBag: prev.party.team.includes(uid) && !!prev.party.bagPlacements[monKey(uid)],
+    };
   if (battleRosterUids(prev).length >= MAX_COMPANIONS) return { state: prev, inBag: false };
   const placed = toggleBagMonster(prev, uid, ctx);
   if (placed.result === 'added') return { state: placed.state, inBag: true };
