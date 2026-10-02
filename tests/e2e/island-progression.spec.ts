@@ -60,6 +60,9 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
   await clickThroughDialogue(page);
 
+  // 新規開始・プロローグ更新で発生したオートセーブを完了させてから、E2E用の進行状態を直接注入する。
+  // 書き込み中に注入すると、先に作られた古いスナップショットが後着して上書きする。
+  await page.waitForTimeout(750);
   await seedTohokuBossReady(page);
   await page.reload();
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
