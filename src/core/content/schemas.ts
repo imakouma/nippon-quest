@@ -119,7 +119,7 @@ export const shopEntrySchema = z.object({ itemId: idSchema, price: z.number().in
 export const missionConditionSchema = z
   .string()
   .regex(
-    /^(defeat|collect):[a-z0-9.-]+:\d+$|^perfect:(kokugo|sansu|rika|shakai|seikatsu|eigo):\d+$|^event:[a-z0-9.-]+$|^recruit:[a-z0-9.-]+$/,
+    /^(?:(?:defeat|collect):[a-z0-9.-]+:[1-9]\d*|perfect:(?:kokugo|sansu|rika|shakai|seikatsu|eigo):[1-9]\d*|(?:event|recruit):[a-z0-9.-]+)$/,
     'condition の形式: defeat:<monsterId>:<n> / collect:<itemId>:<n> / perfect:<subject>:<n> / event:<eventId> / recruit:<monsterId>',
   );
 

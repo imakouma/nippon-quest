@@ -7,6 +7,7 @@ import {
   loadContent,
   type FileReader,
 } from '../../src/core/content/loader';
+import { missionConditionSchema } from '../../src/core/content/schemas';
 
 const CONTENT = fileURLToPath(new URL('../../content/', import.meta.url));
 const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, 'utf8'));
@@ -55,6 +56,15 @@ describe('content loader', () => {
     const c = await loadContent(read);
     for (const a of c.areas.values())
       for (const e of a.events) expect(e.rewardByScore.some((r) => r.min === 0)).toBe(true);
+  });
+
+  it('たのみごとの必要数は 1 以上だけを受け入れる', () => {
+    expect(missionConditionSchema.safeParse('defeat:aomori-ringoron:3').success).toBe(true);
+    expect(missionConditionSchema.safeParse('collect:aomori-ringo:1').success).toBe(true);
+    expect(missionConditionSchema.safeParse('perfect:sansu:10').success).toBe(true);
+    expect(missionConditionSchema.safeParse('defeat:aomori-ringoron:0').success).toBe(false);
+    expect(missionConditionSchema.safeParse('collect:aomori-ringo:00').success).toBe(false);
+    expect(missionConditionSchema.safeParse('perfect:sansu:0').success).toBe(false);
   });
 
   it('名所・特産品の名前と説明は、漢字にすべて ひらがなのルビがある（フィールドや地図では読みを出すため）', async () => {
