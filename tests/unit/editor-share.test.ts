@@ -1,9 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { decodeQuestionFromHash, encodeQuestionToHash } from '../../src/tools/urlShare';
 import { generateRandomUser, generateRoomId } from '../../src/tools/collaboration';
+import { SAMPLE_QUESTIONS } from '../../src/tools/editorSamples';
+import { questionBaseSchema } from '../../src/questions/contracts';
+import { requireRenderer } from '../../src/questions/renderers/registry';
 import type { QuestionBase } from '../../src/questions/contracts';
 
 describe('Web Editor URL Sharing & Collaboration', () => {
+  it('エディタの全サンプルが現行の問題・payload契約を満たす', () => {
+    for (const sample of SAMPLE_QUESTIONS) {
+      expect(questionBaseSchema.safeParse(sample).success, sample.id).toBe(true);
+      expect(requireRenderer(sample.type).schema.safeParse(sample.payload).success, sample.id).toBe(true);
+    }
+  });
+
   it('correctly encodes and decodes question object to/from hash string', () => {
     const original: QuestionBase = {
       id: 'sansu.g1.tashizan.test',
