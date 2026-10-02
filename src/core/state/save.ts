@@ -14,12 +14,13 @@ const key = (slot: SlotId) => `save:${slot}`;
 const backupKey = (slot: SlotId) => `backup:${slot}`;
 const saveQueues = new Map<SlotId, Promise<void>>();
 
-async function enqueueSlot(slot: SlotId, operation: () => Promise<void>): Promise<void> {
+async function enqueueSlot<T>(slot: SlotId, operation: () => Promise<T>): Promise<T> {
   const previous = saveQueues.get(slot) ?? Promise.resolve();
-  const queued = previous.catch(() => undefined).then(operation);
+  const result = previous.catch(() => undefined).then(operation);
+  const queued = result.then(() => undefined);
   saveQueues.set(slot, queued);
   try {
-    await queued;
+    return await result;
   } finally {
     if (saveQueues.get(slot) === queued) saveQueues.delete(slot);
   }
@@ -89,13 +90,14 @@ export async function save(slot: SlotId, state: GameState): Promise<void> {
 }
 
 export async function load(slot: SlotId): Promise<GameState | null> {
-  await saveQueues.get(slot)?.catch(() => undefined);
-  const [raw, backup] = await Promise.all([store.getItem(key(slot)), store.getItem(backupKey(slot))]);
-  if (!raw && !backup) return null;
-  const recovered = recoverState(raw, backup);
-  if (!recovered) throw new Error('セーブデータとバックアップの両方が壊れています');
-  if (recovered.recovered) await store.setItem(key(slot), recovered.state);
-  return recovered.state;
+  return enqueueSlot(slot, async () => {
+    const [raw, backup] = await Promise.all([store.getItem(key(slot)), store.getItem(backupKey(slot))]);
+    if (!raw && !backup) return null;
+    const recovered = recoverState(raw, backup);
+    if (!recovered) throw new Error('セーブデータとバックアップの両方が壊れています');
+    if (recovered.recovered) await store.setItem(key(slot), recovered.state);
+    return recovered.state;
+  });
 }
 
 export async function remove(slot: SlotId): Promise<void> {
@@ -106,11 +108,12 @@ export async function remove(slot: SlotId): Promise<void> {
 
 export async function summaries(): Promise<SlotSummary[]> {
   return Promise.all(
-    SLOTS.map(async (slot) => {
-      await saveQueues.get(slot)?.catch(() => undefined);
-      const [raw, backup] = await Promise.all([store.getItem(key(slot)), store.getItem(backupKey(slot))]);
-      return summarizeSlot(slot, raw, backup);
-    }),
+    SLOTS.map((slot) =>
+      enqueueSlot(slot, async () => {
+        const [raw, backup] = await Promise.all([store.getItem(key(slot)), store.getItem(backupKey(slot))]);
+        return summarizeSlot(slot, raw, backup);
+      }),
+    ),
   );
 }
 

@@ -1,12 +1,24 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const storage = vi.hoisted(() => new Map<string, unknown>());
-const controls = vi.hoisted(() => ({ removeGate: null as Promise<void> | null, removeCalls: 0 }));
+const controls = vi.hoisted(() => ({
+  getGate: null as Promise<void> | null,
+  gatedGets: 0,
+  removeGate: null as Promise<void> | null,
+  removeCalls: 0,
+}));
 
 vi.mock('localforage', () => ({
   default: {
     createInstance: () => ({
-      getItem: async (key: string) => storage.get(key) ?? null,
+      getItem: async (key: string) => {
+        const value = storage.get(key) ?? null;
+        if (controls.getGate && controls.gatedGets < 2) {
+          controls.gatedGets += 1;
+          await controls.getGate;
+        }
+        return structuredClone(value);
+      },
       setItem: async (key: string, value: unknown) => {
         storage.set(key, structuredClone(value));
         return value;
@@ -32,6 +44,8 @@ const fresh = (gold: number) => {
 
 beforeEach(() => {
   storage.clear();
+  controls.getGate = null;
+  controls.gatedGets = 0;
   controls.removeGate = null;
   controls.removeCalls = 0;
 });
@@ -65,6 +79,24 @@ describe('セーブ永続化', () => {
       exists: true,
       name: 'ハル',
     });
+  });
+
+  it('バックアップ復旧中の新しい保存を、古い状態で上書きしない', async () => {
+    await save(2, fresh(10));
+    await save(2, fresh(20));
+    storage.set('save:2', { broken: true });
+    let release = () => {};
+    controls.getGate = new Promise<void>((resolve) => {
+      release = () => resolve();
+    });
+
+    const loading = load(2);
+    await vi.waitFor(() => expect(controls.gatedGets).toBe(2));
+    const saving = save(2, fresh(30));
+    release();
+    await Promise.all([loading, saving]);
+
+    expect((storage.get('save:2') as GameState).player.gold).toBe(30);
   });
 
   it('不正な状態は保存せず、正常な主データとバックアップを残す', async () => {
