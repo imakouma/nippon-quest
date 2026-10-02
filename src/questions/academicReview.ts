@@ -35,3 +35,14 @@ export const academicReviewLedgerSchema = z.object({
 });
 
 export type AcademicReviewLedger = z.infer<typeof academicReviewLedgerSchema>;
+
+/** 確認日から指定月数が経過したかをUTCの日付単位で判定する。 */
+export function isAcademicReviewExpired(
+  reviewedAt: string,
+  intervalMonths: number,
+  now = new Date(),
+): boolean {
+  const [year, month, day] = reviewedAt.split('-').map(Number);
+  const expiresAt = new Date(Date.UTC(year!, month! - 1 + intervalMonths, day!));
+  return now.getTime() >= expiresAt.getTime();
+}
