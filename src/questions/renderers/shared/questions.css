@@ -435,6 +435,39 @@
   justify-content: center;
   pointer-events: none;
 }
+.nq-sort-cards {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+}
+.nq-sort-vertical {
+  flex-direction: column;
+}
+.nq-sort-card {
+  min-width: 150px;
+  padding: 12px;
+  border: 4px solid #f6e7c1;
+  background: #172448;
+  display: grid;
+  gap: 8px;
+  text-align: center;
+}
+.nq-sort-card img {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+  margin: auto;
+}
+.nq-sort-card span {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.nq-sort-card .nq-btn {
+  min-width: 48px;
+  min-height: 48px;
+}
 .nq-feedback-text {
   font-size: 48px;
   font-weight: normal;

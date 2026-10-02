@@ -1,0 +1,20 @@
+[
+  {
+    "$schema": "../../../schemas/questions/sort-order.schema.json",
+    "id": "sample.sort-order.0001",
+    "type": "sort-order",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.aomori-history",
+    "payload": {
+      "prompt": "古[ふる]い じゅんに ならべよう",
+      "direction": "horizontal",
+      "cards": [
+        { "id": "kofun", "text": "はにわ" },
+        { "id": "nara", "text": "大仏[だいぶつ]" },
+        { "id": "jomon", "text": "縄文[じょうもん]土器[どき]" }
+      ],
+      "answer": ["jomon", "kofun", "nara"]
+    }
+  }
+]
