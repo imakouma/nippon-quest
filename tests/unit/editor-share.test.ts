@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { decodeQuestionFromHash, encodeQuestionToHash } from '../../src/tools/urlShare';
-import { generateRandomUser, generateRoomId } from '../../src/tools/collaboration';
+import { generateRandomUser, generateRoomId, isCollabMessage } from '../../src/tools/collaboration';
 import {
   isEditorQuestionDraft,
   SAMPLE_QUESTIONS,
@@ -71,5 +71,19 @@ describe('Web Editor URL Sharing & Collaboration', () => {
     const user = generateRandomUser();
     expect(user.name).toBeTruthy();
     expect(user.color).toMatch(/^#[0-9a-f]{6}$/i);
+  });
+
+  it('壊れたタブ間同期メッセージを拒否する', () => {
+    expect(isCollabMessage(null)).toBe(false);
+    expect(isCollabMessage({ type: 'JOIN' })).toBe(false);
+    expect(isCollabMessage({ type: 'HEARTBEAT', sender: { id: 'x' } })).toBe(false);
+    expect(isCollabMessage({ type: 'FOCUS_FIELD', senderId: 'x', field: 42 })).toBe(false);
+    expect(
+      isCollabMessage({
+        type: 'JOIN',
+        sender: { id: 'x', name: 'ハル', color: '#ffffff', lastSeen: 1, focusedField: null },
+      }),
+    ).toBe(true);
+    expect(isCollabMessage({ type: 'UPDATE_QUESTION', senderId: 'x', question: null })).toBe(true);
   });
 });

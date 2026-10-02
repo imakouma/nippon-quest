@@ -19,6 +19,35 @@ export type CollabMessage =
   | { type: 'FOCUS_FIELD'; senderId: string; field: string | null }
   | { type: 'LEAVE'; senderId: string };
 
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  !!value && typeof value === 'object' && !Array.isArray(value);
+
+function isCollaborator(value: unknown): value is Collaborator {
+  if (!isRecord(value)) return false;
+  return (
+    typeof value.id === 'string' &&
+    typeof value.name === 'string' &&
+    typeof value.color === 'string' &&
+    typeof value.lastSeen === 'number' &&
+    Number.isFinite(value.lastSeen) &&
+    (value.focusedField === undefined ||
+      value.focusedField === null ||
+      typeof value.focusedField === 'string')
+  );
+}
+
+/** BroadcastChannel は同一オリジンの別コードからも送れるため、受信値を型だけで信用しない。 */
+export function isCollabMessage(value: unknown): value is CollabMessage {
+  if (!isRecord(value) || typeof value.type !== 'string') return false;
+  if (value.type === 'JOIN' || value.type === 'HEARTBEAT') return isCollaborator(value.sender);
+  if (value.type === 'UPDATE_QUESTION')
+    return typeof value.senderId === 'string' && Object.prototype.hasOwnProperty.call(value, 'question');
+  if (value.type === 'FOCUS_FIELD')
+    return typeof value.senderId === 'string' && (value.field === null || typeof value.field === 'string');
+  if (value.type === 'LEAVE') return typeof value.senderId === 'string';
+  return false;
+}
+
 const ADJECTIVES = ['あおぞら', 'ひらめき', 'ドット', 'あかふじ', 'みどり', 'きらめき', 'もみじ', 'ほしぞら'];
 const NAMES = ['ハル', 'ポチ', 'サスケ', 'ツムギ', 'モモ', 'ライゾウ', 'カエデ', 'ソラ'];
 const COLORS = ['#e53935', '#1e88e5', '#43a047', '#fdd835', '#8e24aa', '#fb8c00', '#00acc1', '#d81b60'];
@@ -75,8 +104,8 @@ export class CollaborationRoom {
     if (typeof BroadcastChannel === 'undefined') return;
 
     this.channel = new BroadcastChannel(`nihonquest-room-${this.roomId}`);
-    this.channel.onmessage = (event: MessageEvent<CollabMessage>) => {
-      this.handleMessage(event.data);
+    this.channel.onmessage = (event: MessageEvent<unknown>) => {
+      if (isCollabMessage(event.data)) this.handleMessage(event.data);
     };
 
     // Broadcast join
@@ -170,8 +199,8 @@ export class CollaborationRoom {
   }
 
   public destroy() {
-    if (this.heartbeatTimer) clearInterval(this.heartbeatTimer);
-    if (this.cleanupTimer) clearInterval(this.cleanupTimer);
+    if (this.heartbeatTimer !== null) clearInterval(this.heartbeatTimer);
+    if (this.cleanupTimer !== null) clearInterval(this.cleanupTimer);
     this.postMessage({ type: 'LEAVE', senderId: this.localUser.id });
     this.channel?.close();
   }
