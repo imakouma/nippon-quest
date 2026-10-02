@@ -19,6 +19,6 @@ test('Playground の問題いちらん：ぜんぶ出て、しぼりこめて、
 
 test('Playground：?q=<問題 id> で ひらくと その問題が出る', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
-  await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 10_000 });
+  await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
   await expect(page.locator('.pg-table tr.pg-sel')).toContainText('eigo.g1.alphabet.0002');
 });

@@ -63,8 +63,7 @@ export class BootScene extends Phaser.Scene {
         void import('./art/menuArt')
           .then(({ warmMenuArt }) => warmMenuArt(content))
           .catch((error) => console.warn('[boot] メニュー画像の先読みを完了できませんでした', error));
-      if ('requestIdleCallback' in window)
-        window.requestIdleCallback(warm, { timeout: 2_000 });
+      if ('requestIdleCallback' in window) window.requestIdleCallback(warm, { timeout: 2_000 });
       else setTimeout(warm, 0);
     } catch (e) {
       this.game.events.emit('boot:error', e);

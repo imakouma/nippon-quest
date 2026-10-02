@@ -22,16 +22,14 @@ import {
   battleSkills,
   canAfford,
   createBattle,
-  frontAlly,
   isHeroReady,
   makeCompanion,
-  SUBJECTS,
   type BattleDeps,
   type BattleSkill,
 } from '../core/battle/engine';
 import { makeMonster } from '../core/battle/factory';
 import { partyFromGameState } from '../core/battle/setup';
-import type { ActionResult, BattleEvent, BattleState, Combatant, Command } from '../core/battle/types';
+import type { ActionResult, BattleEvent, BattleState, Command } from '../core/battle/types';
 import {
   applyBattleResult,
   heroLevel,
@@ -88,6 +86,7 @@ import {
 import type { EncounterZone } from '../core/battle/setup';
 import type { Ground } from '../core/world/ground';
 import { buildAskEnv } from './shared/askEnv';
+import { buildAllyViews, buildEnemyView, buildGaugeViews } from './battle/hudViews';
 
 export interface BattleSceneData {
   enemyId: string;
@@ -548,65 +547,16 @@ export class BattleScene extends Phaser.Scene {
   // ───────────────────────── 表示用の状態 ─────────────────────────
 
   private enemyView(hp = this.state.enemy.hp): EnemyView {
-    const e = this.state.enemy;
-    return {
-      name: e.name,
-      level: e.level,
-      hp,
-      maxHp: e.stats.hp,
-      element: e.element,
-      weakness: e.weakness,
-      weaknessRevealed: e.weaknessRevealed,
-      isBoss: this.state.isBossBattle,
-      defMult: e.buffs.def?.mult ?? 1,
-    };
+    return buildEnemyView(this.state, hp);
   }
 
   private allyViews(): AllyView[] {
-    const s = this.state;
-    const table = this.content.xp.hero;
-    const { ratio } = xpToNextLevel(table, heroLevel(this.gs, table), this.gs.player.xp);
-    const front = frontAlly(s);
-    const view = (c: Combatant, extra: Partial<AllyView>): AllyView => ({
-      id: c.id,
-      name: c.name,
-      level: c.level,
-      hp: c.hp,
-      maxHp: c.stats.hp,
-      element: c.element,
-      isHero: c.isHero,
-      defMult: c.buffs.def?.mult ?? 1,
-      front: c.id === front.id,
-      ...extra,
-    });
-    const hero = view(s.ally.hero, { xpRatio: ratio });
-    const pal = s.ally.monsters[s.ally.activeMonsterIndex];
-    if (!pal) return [hero];
-    const comp = s.companion?.id === pal.id ? s.companion : null;
-    return [hero, view(pal, { passive: comp?.passiveSkill?.subject })];
+    return buildAllyViews(this.state, this.gs, this.content);
   }
 
   /** 教科ゲージ：主人公・オトモの わざに ある 教科の ぶん */
   private gaugeViews(): SubjectGaugeView[] {
-    const s = this.state;
-    const max = this.content.settings.subjectGauge.max;
-    const list = battleSkills(s, this.deps);
-    const prev = this.hud.get().gauges;
-    const boost = s.companion?.passiveSkill?.subject;
-    return SUBJECTS.filter((sub) => list.some((b) => b.skill.subject === sub)).map((sub) => ({
-      subject: sub,
-      value: s.player.subjectGauges[sub],
-      max,
-      marks: [
-        ...new Set(
-          list
-            .filter((b) => b.skill.subject === sub && b.skill.costGauge > 0 && b.skill.costGauge < max)
-            .map((b) => b.skill.costGauge),
-        ),
-      ],
-      boosted: boost === sub,
-      gain: prev.find((g) => g.subject === sub)?.gain,
-    }));
+    return buildGaugeViews(this.state, this.deps, this.content, this.hud.get().gauges);
   }
 
   /** 演出に あわせて 教科ゲージの 1 本を 書きかえる（gain = 「+n」を 出す） */

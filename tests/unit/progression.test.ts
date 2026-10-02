@@ -118,7 +118,8 @@ describe('名所エリア（青森）', () => {
     // ぬしを たおせる エリアから 関所を ひらいて いく
     for (let k = 0; k < ids.length; k++)
       for (const g of a.regionGates)
-        if (open.has(g.openedBy) && g.between.some((id) => open.has(id))) g.between.forEach((id) => open.add(id));
+        if (open.has(g.openedBy) && g.between.some((id) => open.has(id)))
+          g.between.forEach((id) => open.add(id));
     expect([...open].sort()).toEqual([...ids].sort());
     for (const r of a.regions) expect(c.monsters.has(r.boss!.monsterId), r.id).toBe(true);
   });
