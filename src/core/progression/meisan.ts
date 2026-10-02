@@ -35,6 +35,7 @@ export function meisanEarned(
 
 /** もらう（あずけている どうぐに 1 つ 入れて、ずかんに のせる） */
 export function giveMeisan(prev: GameState, it: Item, now = Date.now()): GameState {
+  if (!isMeisanGear(it) || owns(prev, it.id)) return prev;
   const gs = structuredClone(prev);
   gs.inventory[it.id] = (gs.inventory[it.id] ?? 0) + 1;
   if (!gs.dex.items.includes(it.id)) gs.dex.items.push(it.id);
