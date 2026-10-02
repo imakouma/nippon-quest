@@ -46,6 +46,35 @@ describe('content loader', () => {
     expect(errors).toContain(`world: island order ${hokkaido.order} が重複しています`);
   });
 
+  it('ボス種別・所属と名所エリアの参照切れを検出する', async () => {
+    const c = await loadContent(read);
+    const monsters = new Map(c.monsters);
+    const islandBoss = c.world.islands.find((island) => island.id === 'tohoku')!.bossId;
+    monsters.set(islandBoss, { ...monsters.get(islandBoss)!, isBoss: false, area: 'aomori' });
+
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    monsters.set(aomori.boss!, { ...monsters.get(aomori.boss!)!, area: 'iwate' });
+    aomori.midBoss = 'missing-midboss';
+    aomori.regions.forEach((region) => (region.start = false));
+    aomori.regions[0]!.motifs.push('missing-motif');
+    aomori.regions[0]!.boss!.monsterId = 'missing-region-boss';
+    aomori.regionGates.push({ between: ['missing-region', 'missing-region'], openedBy: 'missing-region' });
+    aomori.encounters[0]!.region = 'missing-region';
+    areas.set(aomori.id, aomori);
+
+    const errors = findBrokenReferences({ ...c, areas, monsters });
+    expect(errors).toContain(`world: island "tohoku" の bossId "${islandBoss}" は isBoss: true が必要です`);
+    expect(errors).toContain(`world: island "tohoku" の bossId "${islandBoss}" の area が "aomori" です`);
+    expect(errors).toContain(`area "aomori": boss "${aomori.boss}" の area が "iwate" です`);
+    expect(errors).toContain('area "aomori": midBoss "missing-midboss" が存在しません');
+    expect(errors).toContain('area "aomori": regions の start はちょうど1つ必要です');
+    expect(errors).toContain('area "aomori": region "sannai" の motif "missing-motif" が存在しません');
+    expect(errors).toContain('area "aomori": region "sannai" の boss "missing-region-boss" が存在しません');
+    expect(errors).toContain('area "aomori": regionGate の openedBy "missing-region" が存在しません');
+    expect(errors).toContain('area "aomori": encounter の region "missing-region" が存在しません');
+  });
+
   it('青森は playable で、ボス・イベント・NPCが揃っている', async () => {
     const c = await loadContent(read);
     const aomori = c.areas.get('aomori')!;
