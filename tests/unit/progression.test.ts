@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { createNewGame } from '../../src/core/state/newGame';
 import { midBossFlag, motifStamp, nextStop } from '../../src/core/progression/route';
+import { canChallengeIslandBoss, completeIsland, hasAllAreaSigns } from '../../src/core/progression/island';
 import { applyReward, markDone, pickReward } from '../../src/core/progression/eventReward';
 
 const newGame = () => createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 }, 0);
@@ -16,10 +17,10 @@ describe('中ボスを倒したあとのワープ先', () => {
     expect(nextStop(c.world, 'akita')).toEqual({ id: 'yamagata', mapKey: 'yamagata-field' });
   });
 
-  it('島の最後の県からは、次の島（order の順）の最初の県のフィールドへ', async () => {
+  it('島の最後の県では地方ボスが結界を守るため、次の島へ直接進まない', async () => {
     const c = await content();
-    expect(nextStop(c.world, 'fukushima')).toEqual({ id: 'hokkaido', mapKey: 'hokkaido-field' });
-    expect(nextStop(c.world, 'hokkaido')).toEqual({ id: 'ibaraki', mapKey: 'ibaraki-field' });
+    expect(nextStop(c.world, 'fukushima')).toBeNull();
+    expect(nextStop(c.world, 'hokkaido')).toBeNull();
   });
 
   it('最後の島の最後の県と、どの島にも入っていない id は null', async () => {
@@ -43,6 +44,35 @@ describe('中ボスを倒したあとのワープ先', () => {
   it('しるしの id はセーブのスキーマ（id 形式）に入る形', () => {
     expect(midBossFlag('aomori')).toMatch(/^[a-z0-9][a-z0-9.-]*$/);
     expect(motifStamp('aomori', 'towada-ko')).toBe('aomori.towada-ko');
+  });
+});
+
+describe('地方ボスと島クリア', () => {
+  it('東北6県の県のしるしがすべて揃ったときだけ挑戦できる', async () => {
+    const c = await content();
+    const tohoku = c.world.islands.find((island) => island.id === 'tohoku')!;
+    expect(hasAllAreaSigns(c.world, 'tohoku', tohoku.areas.slice(0, -1))).toBe(false);
+    expect(hasAllAreaSigns(c.world, 'tohoku', [...tohoku.areas, tohoku.areas[0]!])).toBe(true);
+    expect(hasAllAreaSigns(c.world, 'no-such-island', tohoku.areas)).toBe(false);
+
+    const gs = newGame();
+    gs.progress.areaSigns = [...tohoku.areas];
+    expect(canChallengeIslandBoss(c.world, 'tohoku', gs.progress)).toBe(true);
+    gs.progress.islandsCleared.push('tohoku');
+    expect(canChallengeIslandBoss(c.world, 'tohoku', gs.progress)).toBe(false);
+  });
+
+  it('勝利処理は東北を一度だけ記録し、しるし不足では状態を変えない', async () => {
+    const c = await content();
+    const gs = newGame();
+    expect(completeIsland(gs, c.world, 'tohoku', 10)).toBe(gs);
+
+    gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'tohoku')!.areas];
+    const cleared = completeIsland(gs, c.world, 'tohoku', 20);
+    expect(cleared).not.toBe(gs);
+    expect(cleared.progress.islandsCleared).toEqual(['tohoku']);
+    expect(cleared.updatedAt).toBe(20);
+    expect(completeIsland(cleared, c.world, 'tohoku', 30)).toBe(cleared);
   });
 });
 
