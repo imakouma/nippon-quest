@@ -60,11 +60,11 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
   await clickThroughDialogue(page);
 
-  // 新規開始・プロローグ更新で発生したオートセーブを完了させてから、E2E用の進行状態を直接注入する。
-  // 書き込み中に注入すると、先に作られた古いスナップショットが後着して上書きする。
-  await page.waitForTimeout(750);
-  await seedTohokuBossReady(page);
+  // ゲーム画面を終了してオートセーブの発生源を止めてから、E2E用の進行状態を直接注入する。
+  // プレイ中に注入すると、先に作られた古いスナップショットが後着して上書きし得る。
   await page.reload();
+  await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
+  await seedTohokuBossReady(page);
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
   await page.getByRole('button', { name: /スロット 3 ハル/ }).click();
   await expect(page.getByRole('button', { name: 'ちずを ひらく（M）' })).toBeVisible({ timeout: 30_000 });
