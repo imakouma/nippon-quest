@@ -706,24 +706,8 @@ const kurodaKanbei: MonsterDesign = {
     { x: 2, y: 5, rows: ['.C.', 'CGC', '.C.'] },
     { x: 4, y: 30, rows: ['.C.', 'CGC', '.C.'] },
     ...kurodaKanbeiBase.layers,
-    // 大きな 肩よろい（赤と 金の 段）
-    {
-      mirror: true,
-      y: 22,
-      rows: [
-        '.GGGGGGGGGGG............',
-        '.NLLLLLLLLLN............',
-        '.NLNNNNNNNLN............',
-        '.GGGGGGGGGGG............',
-        '.NLNNNNNNNLN............',
-        '.NLLLLLLLLLN............',
-        '.GGGGGGGGGGG............',
-        '..NNNNNNNNN.............',
-        '..NLNNNNNLN.............',
-      ],
-    },
     // するどい まゆと 目
-    { mirror: true, y: 16, rows: ['...........ooooo........', '............WWoo........', '............WWoo........'] },
+    { mirror: true, x: 18, y: 15, rows: ['o..', 'Foo', 'FWo'] },
     // 采配（さいはい）
     {
       x: 36,

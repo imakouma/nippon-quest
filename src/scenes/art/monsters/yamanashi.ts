@@ -423,7 +423,11 @@ const hakutoHime: MonsterDesign = {
   rimDepth: 2,
   layers: [
     // 葉の かざり（左右へ 大きく）
-    { mirror: true, y: 3, rows: ['..GG............', '.GGgG...........', '..GGgG..........', '...GGG..........'] },
+    {
+      mirror: true,
+      y: 3,
+      rows: ['..GG............', '.GGgG...........', '..GGgG..........', '...GGG..........'],
+    },
     { x: 15, y: 0, rows: ['.K', '.K', 'GK', 'GG'] },
     {
       mirror: true,
@@ -467,7 +471,14 @@ const hakutoHime: MonsterDesign = {
     {
       mirror: true,
       y: 12,
-      rows: ['.........o......', '..........oo....', '..........WW....', '..........Wo....', '..........Wo....', '............oooo'],
+      rows: [
+        '.........o......',
+        '..........oo....',
+        '..........WW....',
+        '..........Wo....',
+        '..........Wo....',
+        '............oooo',
+      ],
     },
   ],
 };
@@ -955,7 +966,7 @@ const takedaShingen = lord(
   },
   { [NQ.denim]: NQ.navy, [NQ.paper]: NQ.cloud },
   [
-    { mirror: true, x: 1, y: 12, rows: SHINGEN_MANE },
+    { mirror: true, x: 6, y: 12, rows: SHINGEN_MANE },
     { x: 36, y: 14, rows: ring(GUNBAI) },
     { x: 37, y: 15, rows: GUNBAI },
   ],

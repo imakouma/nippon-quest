@@ -410,7 +410,13 @@ const toumeikaField: MonsterDesign = {
     {
       mirror: true,
       y: 6,
-      rows: ['...A............', '..AAA...........', '.AAAA...........', '..AAA...........', '...A............'],
+      rows: [
+        '...A............',
+        '..AAA...........',
+        '.AAAA...........',
+        '..AAA...........',
+        '...A............',
+      ],
     },
     {
       mirror: true,
@@ -690,28 +696,8 @@ const nabeshimaNaomasa: MonsterDesign = {
     { x: 2, y: 6, rows: ['.G.', 'GYG', '.G.'] },
     { x: 4, y: 33, rows: ['.G.', 'GYG', '.G.'] },
     ...nabeshimaNaomasaBase.layers,
-    // 大きな 肩よろい
-    {
-      mirror: true,
-      y: 22,
-      rows: [
-        '.GGGGGGGGGGG............',
-        '.KSSSSSSSSSK............',
-        '.KSKKKKKKKSK............',
-        '.GGGGGGGGGGG............',
-        '.KSKKKKKKKSK............',
-        '.KSSSSSSSSSK............',
-        '.GGGGGGGGGGG............',
-        '..KKKKKKKKK.............',
-        '..KSKKKKKSK.............',
-      ],
-    },
     // するどい まゆと 目
-    {
-      mirror: true,
-      y: 16,
-      rows: ['...........ooooo........', '............WWoo........', '............WWoo........'],
-    },
+    { mirror: true, x: 18, y: 15, rows: ['o..', 'Foo', 'FWo'] },
     // 軍配（ぐんばい）
     {
       x: 34,
@@ -1036,7 +1022,13 @@ const yumonbou: MonsterDesign = {
     {
       mirror: true,
       y: 11,
-      rows: ['................', '.........oo.....', '.........oo.....', '......p.........', '...........ooo..'],
+      rows: [
+        '................',
+        '.........oo.....',
+        '.........oo.....',
+        '......p.........',
+        '...........ooo..',
+      ],
     },
   ],
 };
@@ -1098,7 +1090,13 @@ const yumonDouji: MonsterDesign = {
     {
       mirror: true,
       y: 18,
-      rows: ['................', '.......oo.......', '.........oo.....', '.........oo.....', '......p.........'],
+      rows: [
+        '................',
+        '.......oo.......',
+        '.........oo.....',
+        '.........oo.....',
+        '......p.........',
+      ],
     },
     { mirror: true, y: 22, rows: ['...........oooo.'] },
   ],

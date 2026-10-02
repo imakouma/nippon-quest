@@ -1,6 +1,7 @@
 /** 茨城県の モンスター（手描き。docs/06 §4・§6.3〜6.5 の 規格） */
 import { NQ } from '../palette';
 import type { MonsterDesign } from './design';
+import { BEARD_FACE, HELMET, lord } from './lastbosses';
 
 /** ネモフィン：青い ネモフィラの 花を かぶった まるい 小鳥。花びらの つばさで ふわりと とぶ（カゼ） */
 const nemofin: MonsterDesign = {
@@ -387,29 +388,29 @@ const tsukubaGamaOWater: MonsterDesign = {
 };
 
 /** 徳川斉昭（ラスボス）：紅白の 梅の 枝と 金の 日輪の 前立て、大きな 肩よろいと マント。軍配を かまえて 立つ（ヒカリ） */
-const tokugawaNariaki: MonsterDesign = {
-  size: 48,
-  colors: {
+const tokugawaNariaki = lord(
+  [...HELMET, ...BEARD_FACE],
+  {
     N: NQ.indigo,
+    L: NQ.violet,
     K: NQ.violet,
+    S: NQ.lavender,
     D: NQ.navy,
     G: NQ.gold,
     Y: NQ.yellow,
     R: NQ.red,
-    F: NQ.skinLight,
-    f: NQ.skinMid,
-    W: NQ.white,
+    T: NQ.indigo,
+    H: NQ.navy,
     M: NQ.hairBlack,
     B: NQ.bark,
     p: NQ.blush,
   },
-  rim: { [NQ.violet]: NQ.indigo, [NQ.skinLight]: NQ.skinMid, [NQ.gold]: NQ.ochre },
-  rimDepth: 2,
-  layers: [
-    // 本体（かぶと・前立ての 梅・肩よろい・軍配）
+  { [NQ.violet]: NQ.indigo },
+  [
+    // 前立て：紅白の 梅の 枝と 金の 日輪（左右で ちがう）
     {
       x: 1,
-      y: 1,
+      y: 2,
       rows: [
         '...........oWo..................opo',
         '..........oWWWo...............oopppo',
@@ -419,48 +420,40 @@ const tokugawaNariaki: MonsterDesign = {
         '............ooBpppBoYYRRYYBBWWWo.o',
         '.............oppYppBYRRRRBYWWYWWo',
         '.............oopppooYYRRYYoBWWWoo',
-        '............oNNopoBoYYYYYYBooWoNNo',
-        '...........oNNNNoNoNoYYYYooNNoNNNNo',
-        '...........oNNNNNNNNNooooNNNNNNNNNo',
-        '...........oNNNNNNNNNNNNNNNNNNNNNNo......ooo',
-        '..........ooNNNNNNNNNNNNNNNNNNNNNNoo....oGGGo',
-        '.........oNNNNNNNNNNNNNNNNNNNNNNNNNNo..oGGGGGo',
-        '........oNNNNGGGGGGGGGGGGGGGGGGGGNNNNooGGGRGGG',
-        '.......oNNNNNNGGGGGGGGGGGGGGGGGGNNNNNNoGGRRRGG',
-        '...Y...oNNNNNNoNoooNNNNNNNoooNNoNNNNNNoGRRRRRG',
-        '..YWY..oNNNNNNoooooooNNNoooooFooNNNNNNoGRRRRRG',
-        '...Y...oNNNNNNoFFWWooFFFooWWFFFoNNNNNNoGRRRRRG',
-        '..oGo.ooNNNNNNooFWWWoFFFoWWWFFooNNNNNNoGRRRRRG',
-        '.oGGGoGGoNNNNoooFFFWoFFFoWFFFFoooNNNNoGGRRRRRG',
-        'oGGGGGGGGoNNoGooFFFMMMMMMMMFFFoGGoNNoGoGGRRRGG',
-        'GGGGGGGGGGooGGGooFFFFFFFFFFFFoGGGGooGGoGGGRGGG',
-        'GGGGGGGGGGGGGGGoKoFFFooooFFFooGGGGGGGGGoGGGGGo',
-        'ooKKKKKKKKKKKKoKKRooFFFFFFooRKooKKKKKKKKoBBGo',
-        'oKKKKKKKKKKKKKKoKKKKooooooKKKKoKKKKKKKKKoBBoKo',
-        'KKKKKKKKKKKKKKKKoGGGGGGGGGGGGoKKKKKKKKKKoBBoKK',
-        'KKKKKKKKKKKKKKKKoKKKKKKKKKKKKoKKKKKKKKKKoBBoKK',
-        'KKKKKKKKKKKKKKKKoKKKKKKKKKKKKoKKKKKKKKKKoBBoKK',
-        'KKKKKKKKKKKKKKKKoKKKKKKKKKKKKoKKKKKKKKKKoBBoKK',
-        'KKKooYoKKKKKKKKKoGGGGGGGGGGGGoKKKKKKKKKooBBoKK',
-        'oKoKYWYoKKKKKKKoKKKKKKKKKKKKKKoKKKKKKKoKoBBYKo',
-        '.oKKKYKKoKKKKKoKKKKKKKKKKKKKKKKoKKKKKoKKoBYWY',
-        '.oKKKKKKoKKKKoKKKKKKKKKKKKKKKKKKoKKKKoKKoBBYo',
-        'oKKKKKKKKoKoooGGGGGGGGGGGGGGGGGGoooKoKKKoBBoKo',
-        'oKKKKKKKKooDDoKKKKKKKKKKKKKKKKKKoDDooKKKoBBoKo',
-        'oKKKKKKKKoDDDoKKKKKKKKKKKKKKKKKKoDDDoKKKoBBoKo',
-        'oKKKKKKKKoDDDoKKKKKKKKKKKKKKKKKKoDDDoKKKoBBoKo',
-        'oKKKKKKKKoooooGGGGGGGGGGGGGGGGGGoooooKKKoBBoKo',
-        'oKKKKKKKKoGKKoKKKKKKKKKKKKKKKKKKoKGKoKKKoBBoKo',
-        'oKKKKKKKKoGKKoKKKKKKKKKKKKKKKKKKoKGKoKKKoBBoKo',
-        '.oKFFFFKooGKKKooooooooooooooooooKKGKooKFoBBoo',
-        '.oFFFFFFooGKKKGKKKGKKKGKKKGKKKGKKKGKooFFFooFo',
-        'oFFFFFFFFoGKKKNNNNNNKKGKKKNNNNNNKKGKoFFFFFFFFo',
-        'ooFFFFFFooGKKKNNNNNNKKGKKKNNNNNNKKGKooFFFFFFoo',
-        '.ooFFFFoooooooNNNNNNooooooNNNNNNoooooooFFFFoo',
+      ],
+    },
+    // 右手の 軍配
+    {
+      x: 33,
+      y: 12,
+      rows: [
+        '...ooo',
+        '..oGGGo',
+        '.oGGGGGo',
+        'oGGGRGGG',
+        'oGGRRRGG',
+        'oGRRRRRG',
+        'oGRRRRRG',
+        'oGRRRRRG',
+        'oGRRRRRG',
+        'GGRRRRRG',
+        'oGGRRRGG',
+        'oGGGRGGG',
+        'GoGGGGGo',
+        'KKoBBGo',
+        'KKoBBoKo',
+        'KKoBBoKK',
+        'KKoBBoKK',
+        'KKoBBoKK',
+        'KKoBBoKK',
+        'KooBBoKK',
+        'oKoBBYKo',
+        'KKoBYWY',
+        'KKoBBYo',
       ],
     },
   ],
-};
+);
 
 export const IBARAKI: Readonly<Record<string, MonsterDesign>> = {
   'ibaraki-nemofin': nemofin,

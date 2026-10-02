@@ -840,21 +840,6 @@ const mouriMotonari = lord(
   },
   { [NQ.leaf]: NQ.green },
   [
-    // 大きな かたの よろい（そで）
-    {
-      mirror: true,
-      y: 24,
-      rows: [
-        '.GGGGGGGG...............',
-        '.KKKKKKKKK..............',
-        '.KSSKKKSKK..............',
-        '.KKKKKKKKK..............',
-        '.GGGGGGGGG..............',
-        '..KKKKKKKK..............',
-        '...KKKKKKK..............',
-        '....KKKKKK..............',
-      ],
-    },
     // 高く かかげた 軍配（ぐんばい）
     ...inked(
       [
