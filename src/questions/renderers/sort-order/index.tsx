@@ -37,7 +37,9 @@ function View({
     const target = index + delta;
     if (done || target < 0 || target >= order.length) return;
     const next = [...order];
-    [next[index], next[target]] = [next[target], next[index]];
+    const current = next[index]!;
+    next[index] = next[target]!;
+    next[target] = current;
     setOrder(next);
   };
   return (
