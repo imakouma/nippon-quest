@@ -26,7 +26,7 @@
 .nq-menu-tabs {
   display: grid;
   /* 文字数の多い図鑑タブに幅を渡し、短い操作タブは詰める。 */
-  grid-template-columns: 1.23fr 1.08fr 1.23fr 0.82fr 0.82fr 0.82fr;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   align-items: center;
   gap: 3px;
   flex: none;
@@ -185,10 +185,16 @@
   position: relative;
   justify-content: center;
   min-width: 0;
-  gap: 4px;
-  padding: 0 4px;
-  font-size: 24px;
+  overflow: hidden;
+  width: 100%;
+  gap: 2px;
+  padding: 0 2px;
+  font-size: 12px !important;
   white-space: nowrap;
+}
+.nq-menu-tab > span {
+  min-width: 0;
+  overflow: hidden;
 }
 .nq-menu-detail-count {
   align-self: flex-start;

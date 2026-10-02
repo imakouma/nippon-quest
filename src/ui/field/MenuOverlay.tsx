@@ -12,7 +12,7 @@ import { playSfx } from '../sfx';
 import './field.css';
 import './menu.css';
 
-export type MenuTab = 'roadmap' | 'monsters' | 'specialties' | 'bag' | 'equip' | 'look';
+export type MenuTab = 'roadmap' | 'mistakes' | 'monsters' | 'specialties' | 'bag' | 'equip' | 'look';
 
 export interface RoadmapNode {
   id: string;
@@ -230,7 +230,7 @@ export function MenuOverlay({
               class={`nq-opt nq-menu-tab ${x.key === tab ? 'nq-focus' : ''}`}
               onClick={() => x.key !== tab && (playSfx('move'), onTab(x.key))}
             >
-              <PixelIcon name={x.icon} scale={2} />
+              <PixelIcon name={x.icon} scale={1} />
               <RubyLabel text={x.label} />
             </button>
           ))}

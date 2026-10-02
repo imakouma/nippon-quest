@@ -81,7 +81,7 @@ import {
 } from '../core/progression/route';
 import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
-import { MasteryStore, type QuestionBank } from '../questions/engine';
+import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
 import { ENCLAVES } from '../../scripts/data/prefectures';
 import { DialogueOverlay, type DialogueLine } from '../ui/dialogue';
 import {
@@ -132,6 +132,7 @@ import { buildFieldTextures, WARP_FRAMES } from './overworld/fieldArt';
 import { overworldView } from './overworld/overworldView';
 import { buildViewTexture } from './overworld/viewTiles';
 import { buildEntranceIcons } from './overworld/entranceIcons';
+import { GEOGRAPHIC_AREA_ORDER } from './overworld/geography';
 import { buildRoadmapNodes } from './overworld/roadmap';
 import { buildStructureArt, structureKey, type StructureKind } from './overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
@@ -161,57 +162,6 @@ const LOOK_PARTS: readonly { part: 'hair' | 'skin' | 'cloth'; key: string }[] = 
   { part: 'skin', key: 'lookSkin' },
   { part: 'cloth', key: 'lookCloth' },
 ];
-
-/** 図鑑の地理順。ストーリーの攻略順とは分け、北海道から沖縄へ北→南に並べる。 */
-const GEOGRAPHIC_AREA_ORDER = [
-  'hokkaido',
-  'aomori',
-  'iwate',
-  'miyagi',
-  'akita',
-  'yamagata',
-  'fukushima',
-  'ibaraki',
-  'tochigi',
-  'gunma',
-  'saitama',
-  'chiba',
-  'tokyo',
-  'kanagawa',
-  'niigata',
-  'toyama',
-  'ishikawa',
-  'fukui',
-  'yamanashi',
-  'nagano',
-  'gifu',
-  'shizuoka',
-  'aichi',
-  'mie',
-  'shiga',
-  'kyoto',
-  'osaka',
-  'hyogo',
-  'nara',
-  'wakayama',
-  'tottori',
-  'shimane',
-  'okayama',
-  'hiroshima',
-  'yamaguchi',
-  'tokushima',
-  'kagawa',
-  'ehime',
-  'kochi',
-  'fukuoka',
-  'saga',
-  'nagasaki',
-  'kumamoto',
-  'oita',
-  'miyazaki',
-  'kagoshima',
-  'okinawa',
-] as const;
 
 const SPECIALTY_KINDS: ReadonlySet<Motif['kind']> = new Set(['food', 'craft']);
 const MOTIF_KIND_KEY: Record<Motif['kind'], string> = {
@@ -2244,14 +2194,21 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     const c = this.content();
     if (!gs || !c) return;
+    const canReview = gs.learning.mistakes.some((id) =>
+      (this.registry.get('bank') as QuestionBank | undefined)?.get(id),
+    );
+    const choices = canReview
+      ? [t('field.townInnStay'), t('field.townInnReview'), t('ui.cancel')]
+      : [t('field.townInnStay'), t('ui.cancel')];
     const choice = await this.choose(
       [...lines, { speaker, text: t('field.townInnAsk', { price: INN_PRICE }) }],
-      [t('field.townInnStay'), t('ui.cancel')],
+      choices,
     );
-    if (choice !== 0) {
+    if (choice < 0 || choice === choices.length - 1) {
       await this.talk([{ speaker, text: t('field.townLater') }]);
       return;
     }
+    const reviewed = choice === 1 ? await this.reviewMistakes(speaker) : 0;
     const hero = partyFromGameState(gs, c).hero;
     const [x, y] = this.playerTile();
     const { state, paid } = innRest(
@@ -2259,6 +2216,7 @@ export class OverworldScene extends Phaser.Scene {
       { hp: hero.stats.hp, mp: hero.stats.mp },
       { map: this.mapKey, x: x * TILE + 8, y: y * TILE + 8 },
     );
+    if (reviewed > 0) state.player.gold += reviewed * 5;
     if (!paid) await this.talk([{ speaker, text: t('field.townInnFree') }]);
     this.setGame(state);
     const cam = this.cameras.main;
@@ -2270,8 +2228,56 @@ export class OverworldScene extends Phaser.Scene {
     this.renderHud();
     await this.talk([
       { speaker, text: t('field.townInnRested') },
+      ...(reviewed > 0 ? [{ speaker, text: t('field.townInnReviewBonus', { n: reviewed * 5 }) }] : []),
       { speaker, text: t('field.townInnSaved') },
     ]);
+  }
+
+  /** まちがいノートの先頭から最大3問。満点ならノートから外す。 */
+  private async reviewMistakes(speaker: string): Promise<number> {
+    const content = this.content();
+    const bank = this.registry.get('bank') as QuestionBank | undefined;
+    const gs = this.gs();
+    if (!content || !bank || !gs) return 0;
+    const ids = gs.learning.mistakes.filter((id) => bank.get(id)).slice(0, 3);
+    await this.talk([{ speaker, text: t('field.townInnReviewStart', { n: ids.length }) }]);
+    let perfect = 0;
+    for (const id of ids) {
+      const question = bank.get(id)!;
+      const host = document.createElement('div');
+      host.className = 'nq-bq-slot';
+      const root = this.root('fx');
+      render(
+        h(QuestionFrame, {
+          host,
+          title: t('field.tabMistakes'),
+          subject: question.subject,
+          hint: t('field.questionHint'),
+        }),
+        root,
+      );
+      try {
+        const result = await askById(
+          buildAskEnv({
+            host,
+            gs,
+            content,
+            bank,
+            mastery: new MasteryStore(gs.learning.mastery),
+            rng: this.rng,
+            speak: this.speak,
+          }),
+          id,
+        );
+        if (result.score >= 1) {
+          gs.learning.mistakes = gs.learning.mistakes.filter((mistake) => mistake !== id);
+          perfect++;
+        }
+      } finally {
+        render(null, root);
+      }
+    }
+    return perfect;
   }
 
   /** ずかんがかり：その県で 見つけた めいしょ・とくさんの数を おしえて、DEX_STEP こ ごとに ごほうび */
@@ -2789,6 +2795,12 @@ export class OverworldScene extends Phaser.Scene {
     return [
       { key: 'roadmap' as const, label: t('field.tabRoadmap'), icon: 'star' },
       {
+        key: 'mistakes' as const,
+        label: t('field.tabMistakes'),
+        icon: 'cmd-scan',
+        count: String(this.gs()?.learning.mistakes.length ?? 0),
+      },
+      {
         key: 'monsters' as const,
         label: t('field.tabMonsters'),
         group: t('field.dexGroup'),
@@ -2837,6 +2849,35 @@ export class OverworldScene extends Phaser.Scene {
     const hpLine = t('field.menuHp', { hp: gs.player.hp, max: stats.hp, gold: gs.player.gold });
 
     if (tab === 'roadmap') return { entries: [], empty: '' };
+
+    if (tab === 'mistakes') {
+      const bank = this.registry.get('bank') as QuestionBank | undefined;
+      const entries = gs.learning.mistakes
+        .map((id): MenuEntry | null => {
+          const question = bank?.get(id);
+          if (!question) return null;
+          const payload = question.payload as Record<string, unknown>;
+          const prompt = typeof payload.prompt === 'string' ? payload.prompt : question.id;
+          return {
+            key: question.id,
+            name: prompt,
+            known: true,
+            right: t('field.mistakeGrade', { n: question.grade }),
+            sub: t(`subjects.${question.subject}`),
+            lines: [
+              t('field.mistakeUnit', { unit: c.units.get(question.unit)?.name ?? question.unit }),
+              t('field.mistakeType', { type: question.type }),
+            ],
+            blurb: question.explanation ?? t('field.mistakeNoExplanation'),
+          };
+        })
+        .filter((entry): entry is MenuEntry => entry !== null);
+      return {
+        entries,
+        summary: t('field.mistakeSummary', { n: entries.length }),
+        empty: t('field.mistakeEmpty'),
+      };
+    }
 
     if (tab === 'monsters') {
       const owned = new Set(gs.party.owned.map((o) => o.monsterId));
