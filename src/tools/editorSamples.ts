@@ -1,4 +1,15 @@
-import type { QuestionBase } from '../questions/contracts';
+import { questionBaseSchema, type QuestionBase } from '../questions/contracts';
+import { getRenderer } from '../questions/renderers/registry';
+
+/** URL共有・タブ間同期など、外部から来た値をエディタへ入れてよいか検証する。 */
+export function validateEditorQuestion(raw: unknown): QuestionBase | null {
+  const base = questionBaseSchema.safeParse(raw);
+  if (!base.success) return null;
+  const renderer = getRenderer(base.data.type);
+  if (!renderer) return null;
+  const payload = renderer.schema.safeParse(base.data.payload);
+  return payload.success ? ({ ...base.data, payload: payload.data } as QuestionBase) : null;
+}
 
 /** Webエディタを開いた直後から、現行レンダラーで試せる有効なサンプル。 */
 export const SAMPLE_QUESTIONS: QuestionBase[] = [

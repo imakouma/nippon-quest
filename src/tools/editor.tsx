@@ -18,7 +18,7 @@ import { setDictionary, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel } from '../ui/ruby';
 import { CollaborationRoom, generateRoomId, type Collaborator } from './collaboration';
-import { SAMPLE_QUESTIONS } from './editorSamples';
+import { SAMPLE_QUESTIONS, validateEditorQuestion } from './editorSamples';
 import { buildShareUrl, copyToClipboard, parseUrlState } from './urlShare';
 import '../questions/renderers/shared/questions.css';
 import './editor.css';
@@ -88,20 +88,18 @@ function App() {
   useEffect(() => {
     const { data, roomId: urlRoom } = parseUrlState();
     const activeRoom = urlRoom || generateRoomId();
+    const sharedQuestion = validateEditorQuestion(data);
     setRoomId(activeRoom);
 
-    if (data && typeof data === 'object') {
-      const parsed = questionBaseSchema.safeParse(data);
-      if (parsed.success) {
-        setQuestion(parsed.data as QuestionBase);
-        setJsonText(JSON.stringify(parsed.data, null, 2));
-      }
+    if (sharedQuestion) {
+      setQuestion(sharedQuestion);
+      setJsonText(JSON.stringify(sharedQuestion, null, 2));
     }
 
     // Set URL Hash if not set
     const newUrl = buildShareUrl({
       roomId: activeRoom,
-      question: data ? (data as QuestionBase) : question,
+      question: sharedQuestion ?? question,
     });
     window.history.replaceState(null, '', newUrl);
 
@@ -111,9 +109,14 @@ function App() {
 
     room.onPeersChange = (newPeers) => setPeers(newPeers);
     room.onQuestionUpdate = (remoteQ) => {
+      const next = validateEditorQuestion(remoteQ);
+      if (!next) {
+        showToast('受信した問題データが不正なため無視しました');
+        return;
+      }
       isRemoteUpdate.current = true;
-      setQuestion(remoteQ);
-      setJsonText(JSON.stringify(remoteQ, null, 2));
+      setQuestion(next);
+      setJsonText(JSON.stringify(next, null, 2));
       showToast('他の編集者が問題を更新しました');
       setTimeout(() => {
         isRemoteUpdate.current = false;

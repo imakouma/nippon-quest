@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { decodeQuestionFromHash, encodeQuestionToHash } from '../../src/tools/urlShare';
 import { generateRandomUser, generateRoomId } from '../../src/tools/collaboration';
-import { SAMPLE_QUESTIONS } from '../../src/tools/editorSamples';
+import { SAMPLE_QUESTIONS, validateEditorQuestion } from '../../src/tools/editorSamples';
 import { questionBaseSchema } from '../../src/questions/contracts';
 import { requireRenderer } from '../../src/questions/renderers/registry';
 import type { QuestionBase } from '../../src/questions/contracts';
@@ -12,6 +12,17 @@ describe('Web Editor URL Sharing & Collaboration', () => {
       expect(questionBaseSchema.safeParse(sample).success, sample.id).toBe(true);
       expect(requireRenderer(sample.type).schema.safeParse(sample.payload).success, sample.id).toBe(true);
     }
+  });
+
+  it('共有・同期データは基本項目とpayloadの両方を検証する', () => {
+    expect(validateEditorQuestion(SAMPLE_QUESTIONS[0])).toMatchObject(SAMPLE_QUESTIONS[0]!);
+    expect(validateEditorQuestion({ ...SAMPLE_QUESTIONS[0], grade: 99 })).toBeNull();
+    expect(
+      validateEditorQuestion({
+        ...SAMPLE_QUESTIONS[0],
+        payload: { prompt: '問題', choices: [{ id: 'a', text: 'A' }], answer: 'missing' },
+      }),
+    ).toBeNull();
   });
 
   it('correctly encodes and decodes question object to/from hash string', () => {
