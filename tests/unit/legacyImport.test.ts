@@ -92,6 +92,33 @@ describe('旧 autonomy-game 問題の安全な取り込み', () => {
     expect(repaired.legacy.reviewFlags).toEqual([]);
   });
 
+  it('時点依存の教材表現を、問題IDを変えず基準日つきへ補正する', () => {
+    const source = {
+      question: '日本で使われている元号（年号）について、「昭和」「平成」の次の現在の元号は何ですか。',
+      choices: ['令和（れいわ）', '明治', '大正', '江戸'],
+      correctIndex: 0,
+    };
+    const result = normalizeLegacyDatabases([
+      {
+        subject: 'shakai',
+        database: {
+          'cur-1403-04': [
+            ...Array.from({ length: 10 }, (_, index) => ({
+              question: `別の問題${index}`,
+              choices: ['正解', '不正解'],
+              correctIndex: 0,
+            })),
+            source,
+          ],
+        },
+      },
+    ]);
+    const repaired = result.accepted.find((question) => question.legacy.sourceIndex === 10)!;
+    expect((repaired.payload as { prompt: string }).prompt).toContain('2019年5月1日');
+    expect(repaired.explanation).toContain('令和');
+    expect(repaired.legacy.fingerprint).toBe('a01c7b064a91');
+  });
+
   it('指紋・正解・出典確認が一致した問題だけ昇格する', () => {
     const staged = normalizeLegacyDatabases([
       {
