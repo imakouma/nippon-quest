@@ -58,6 +58,12 @@ export default defineConfig({
         playground: resolve(root, 'playground.html'),
         editor: resolve(root, 'editor.html'),
       },
+      output: {
+        // Phaser は大きく更新頻度が低い。ゲーム本体と分離して、更新時にブラウザキャッシュを再利用する。
+        manualChunks(id) {
+          if (id.includes('/node_modules/.pnpm/phaser@')) return 'phaser';
+        },
+      },
     },
   },
   server: { port: 5173, open: false },
