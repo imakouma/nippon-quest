@@ -77,8 +77,7 @@ export function bundledFetchReader(base: string, bundleName = 'content-bundle.js
       .catch(() => null);
     const bundle = await bundlePromise;
     if (!bundle) return fallback(rel);
-    if (!Object.prototype.hasOwnProperty.call(bundle, rel))
-      throw new ContentError(rel, `${bundleName} にファイルがありません`);
+    if (!Object.prototype.hasOwnProperty.call(bundle, rel)) return fallback(rel);
     return bundle[rel];
   };
 }

@@ -136,6 +136,18 @@ describe('content loader', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
+  it('bundle に目的ファイルが欠けていても個別 JSON の取得へ戻る', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ 'other.json': {} }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ id: 'fallback' }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(bundledFetchReader('/content')('a.json')).resolves.toEqual({ id: 'fallback' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenLastCalledWith('/content/a.json', { cache: 'no-cache' });
+  });
+
   it('問題専用 bundle を指定できる', async () => {
     const fetchMock = vi.fn(async () =>
       Promise.resolve(new Response(JSON.stringify({ 'questions/a.json': [] }), { status: 200 })),
