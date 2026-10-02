@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import { decodeQuestionFromHash, encodeQuestionToHash } from '../../src/tools/urlShare';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { copyToClipboard, decodeQuestionFromHash, encodeQuestionToHash } from '../../src/tools/urlShare';
 import { generateRandomUser, generateRoomId, isCollabMessage } from '../../src/tools/collaboration';
 import {
   isEditorQuestionDraft,
@@ -9,6 +9,8 @@ import {
 import { questionBaseSchema } from '../../src/questions/contracts';
 import { requireRenderer } from '../../src/questions/renderers/registry';
 import type { QuestionBase } from '../../src/questions/contracts';
+
+afterEach(() => vi.unstubAllGlobals());
 
 describe('Web Editor URL Sharing & Collaboration', () => {
   it('エディタの全サンプルが現行の問題・payload契約を満たす', () => {
@@ -60,6 +62,21 @@ describe('Web Editor URL Sharing & Collaboration', () => {
   it('handles invalid encoded string gracefully', () => {
     const decoded = decodeQuestionFromHash('invalid-base64-string!!!');
     expect(decoded).toBeNull();
+  });
+
+  it('新旧クリップボードAPIが失敗しても一時要素を残さず false を返す', async () => {
+    const textArea = { value: '', select: vi.fn(), remove: vi.fn() };
+    vi.stubGlobal('navigator', { clipboard: { writeText: vi.fn().mockRejectedValue(new Error('denied')) } });
+    vi.stubGlobal('document', {
+      createElement: vi.fn(() => textArea),
+      body: { appendChild: vi.fn() },
+      execCommand: vi.fn(() => {
+        throw new Error('unsupported');
+      }),
+    });
+
+    await expect(copyToClipboard('共有')).resolves.toBe(false);
+    expect(textArea.remove).toHaveBeenCalledOnce();
   });
 
   it('generates valid room IDs', () => {
