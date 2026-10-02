@@ -31,6 +31,10 @@ test('Playground で choice 問題を解くと QuestionResult が返る', async 
 test('問題データはタイトルでは取得せず、ゲーム開始時に一度だけ取得する', async ({ page }) => {
   test.setTimeout(60_000);
   const requests: string[] = [];
+  await page.route('**/content/questions-bundle.json', async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    await route.continue();
+  });
   page.on('request', (request) => requests.push(new URL(request.url()).pathname));
   await page.goto('/');
   await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 20_000 });
@@ -39,6 +43,8 @@ test('問題データはタイトルでは取得せず、ゲーム開始時に�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await page.getByRole('button', { name: 'はじめる' }).click();
+  await expect(page.locator('.nq-loading-label')).toHaveText('もんだいを よみこんでいるよ…');
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  await expect(page.locator('.nq-loading')).toHaveCount(0);
   expect(requests.filter((path) => path === '/content/questions-bundle.json')).toHaveLength(1);
 });

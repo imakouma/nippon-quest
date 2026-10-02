@@ -45,6 +45,18 @@ loading.innerHTML =
   '<div class="nq-loading-label">よみこみちゅう…</div><div class="nq-loading-bar"><div></div></div>';
 uiLayer.append(loading);
 
+function showLoading(label: string): void {
+  const text = loading.querySelector<HTMLDivElement>('.nq-loading-label');
+  const bar = loading.querySelector<HTMLDivElement>('.nq-loading-bar > div');
+  if (text) text.textContent = label;
+  if (bar) bar.style.width = '100%';
+  if (!loading.isConnected) uiLayer.append(loading);
+}
+
+function hideLoading(): void {
+  loading.remove();
+}
+
 const game = new Phaser.Game({
   type: Phaser.AUTO,
   parent: gameRoot,
@@ -69,9 +81,9 @@ game.events.on('boot:stage', (text: string) => {
   const label = loading.querySelector<HTMLDivElement>('.nq-loading-label');
   if (label) label.textContent = text;
 });
-game.events.on('boot:done', () => loading.remove());
+game.events.on('boot:done', hideLoading);
 game.events.on('boot:error', (e: unknown) => {
-  loading.remove();
+  hideLoading();
   const box = document.createElement('div');
   box.className = 'nq-error';
   box.textContent = `コンテンツの よみこみに しっぱいしました。\n\n${e instanceof Error ? e.message : String(e)}\n\n・pnpm gen:manifest を実行しましたか？\n・content/ の JSON に エラーは ありませんか？（pnpm validate:content）`;
@@ -100,12 +112,14 @@ function ensureQuestionBank(): Promise<QuestionBank> {
 
 game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1) => {
   try {
+    showLoading('もんだいを よみこんでいるよ…');
     await Promise.all([ensureGameplayScenes(game), ensureQuestionBank()]);
     activeSlot = slot;
     const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
     setSfxVolume(next.settings.seVolume);
     game.registry.set('game', next);
     void save(activeSlot, next).catch((error) => console.error('[save] はじめのセーブに失敗しました', error));
+    hideLoading();
     game.scene.stop('Title');
     game.scene.start('Overworld', { mapKey: 'aomori-field', spawnName: 'spawn', debugBattle });
   } catch (error) {
@@ -115,11 +129,16 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
 
 game.events.on('title:continue', async (slot: SlotId = 1) => {
   try {
+    showLoading('セーブと もんだいを よみこんでいるよ…');
     const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game), ensureQuestionBank()]);
-    if (!saved) return;
+    if (!saved) {
+      hideLoading();
+      return;
+    }
     activeSlot = slot;
     setSfxVolume(saved.settings.seVolume);
     game.registry.set('game', saved);
+    hideLoading();
     game.scene.stop('Title');
     game.scene.start('Overworld', { mapKey: saved.progress.currentMap, spawnName: 'spawn' });
   } catch (error) {
