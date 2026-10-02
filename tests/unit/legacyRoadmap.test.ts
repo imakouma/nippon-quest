@@ -18,4 +18,9 @@ describe('旧ロードマップ移行', () => {
     const row = `{ id: "sci_5_1", grade: 5, step: 1, title: "雲と天気", topic: "", icon: "" }`;
     expect(roadmapUnits(extractLegacyRoadmap(`${row}\n${row}`, 'x.ts'))).toHaveLength(1);
   });
+
+  it('単元名を持つノードは機械的な表示名へ戻さない', () => {
+    const source = `{ id: "jpn_4_5", grade: 4, step: 5, title: "作文と原稿用紙", topic: "", icon: "" }`;
+    expect(roadmapUnits(extractLegacyRoadmap(source, 'roadmapDatabase.ts'))[0]?.name).toBe('作文と原稿用紙');
+  });
 });

@@ -25,6 +25,7 @@
     "gen:manifest": "tsx scripts/gen-manifest.ts",
     "validate:content": "tsx scripts/validate-content.ts",
     "check:architecture": "tsx scripts/check-architecture.ts",
+    "audit:curriculum": "tsx scripts/audit-curriculum.ts",
     "import:legacy-questions": "tsx scripts/import-legacy-questions.ts",
     "import:legacy-roadmap": "tsx scripts/import-legacy-roadmap.ts",
     "localize:legacy-images": "tsx scripts/localize-legacy-images.ts",

@@ -14,6 +14,9 @@ interface LegacyRoadmapRow {
 }
 
 const FILES = ['roadmapDatabase.ts', 'scienceRoadmapNodes.ts', 'socialRoadmapNodes.ts'];
+const FALLBACK_TITLES: Readonly<Record<string, string>> = {
+  jpn_4_5: '作文と原稿用紙',
+};
 
 function subjectOf(id: string): Subject | null {
   if (/^math[_-]/.test(id)) return 'sansu';
@@ -100,7 +103,8 @@ async function main(): Promise<void> {
       units.push(
         unitSchema.parse({
           id: `${question.subject}.g${question.grade}.legacy-${slug(question.legacy.nodeId)}`,
-          name: `${question.grade}年 単元 ${question.legacy.nodeId}`,
+          name:
+            FALLBACK_TITLES[question.legacy.nodeId] ?? `${question.grade}年 単元 ${question.legacy.nodeId}`,
           subject: question.subject,
           grade: question.grade,
           order: 1000 + units.length,
