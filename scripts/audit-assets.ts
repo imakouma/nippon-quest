@@ -71,7 +71,6 @@ const byArea = Object.fromEntries(
   ]),
 );
 const report = {
-  generatedAt: new Date().toISOString(),
   total: missing.length,
   byKind,
   byArea,

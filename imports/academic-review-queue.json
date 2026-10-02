@@ -1,0 +1,1025 @@
+{
+  "policy": {
+    "note": "この一覧はレビュー順を決めるだけで、学術的な承認を自動化しません。",
+    "owner": "教材レビュー担当",
+    "reviewIntervalMonths": 12
+  },
+  "summary": {
+    "pendingFiles": 44,
+    "pendingQuestions": 4117,
+    "changingFactFiles": 8,
+    "visualFiles": 17
+  },
+  "nextBatch": [
+    {
+      "file": "questions/legacy/shakai/g5.json",
+      "sha256": "4fbbb81949fd96b79ae7ebee0dddd1330fc7f087268a0921f1626625c4afb363",
+      "questionCount": 116,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        5
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 7,
+      "visualQuestions": 32,
+      "priority": 100116,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/shakai/g3.json",
+      "sha256": "845653d2124a4f20afd8816bada35513718f29593e44acbf333af675161893e9",
+      "questionCount": 145,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "choice",
+        "map-tap"
+      ],
+      "changingFactCandidates": 16,
+      "visualQuestions": 19,
+      "priority": 100145,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/shakai/g6.json",
+      "sha256": "b26bf6b61f1a85fc63ec5ac284a440f9d10402b09956613de10d7aaec2a82830",
+      "questionCount": 146,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        6
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 15,
+      "visualQuestions": 39,
+      "priority": 100146,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/rika/g6.json",
+      "sha256": "ae100da571cca7f2ad9c16aeab6ccef6b8df8836d3ea6edcb4cb40b931bc7857",
+      "questionCount": 190,
+      "subjects": [
+        "rika"
+      ],
+      "grades": [
+        6
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 7,
+      "visualQuestions": 124,
+      "priority": 100190,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/sansu/g6.json",
+      "sha256": "6afde96aa80f2653b3a5d484aa94038974e2cfb5cc244c5ad324e90d03aec94f",
+      "questionCount": 193,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        6
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 3,
+      "visualQuestions": 61,
+      "priority": 100193,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "questions/legacy/shakai/g5.json",
+      "sha256": "4fbbb81949fd96b79ae7ebee0dddd1330fc7f087268a0921f1626625c4afb363",
+      "questionCount": 116,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        5
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 7,
+      "visualQuestions": 32,
+      "priority": 100116,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/shakai/g3.json",
+      "sha256": "845653d2124a4f20afd8816bada35513718f29593e44acbf333af675161893e9",
+      "questionCount": 145,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "choice",
+        "map-tap"
+      ],
+      "changingFactCandidates": 16,
+      "visualQuestions": 19,
+      "priority": 100145,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/shakai/g6.json",
+      "sha256": "b26bf6b61f1a85fc63ec5ac284a440f9d10402b09956613de10d7aaec2a82830",
+      "questionCount": 146,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        6
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 15,
+      "visualQuestions": 39,
+      "priority": 100146,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/rika/g6.json",
+      "sha256": "ae100da571cca7f2ad9c16aeab6ccef6b8df8836d3ea6edcb4cb40b931bc7857",
+      "questionCount": 190,
+      "subjects": [
+        "rika"
+      ],
+      "grades": [
+        6
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 7,
+      "visualQuestions": 124,
+      "priority": 100190,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/sansu/g6.json",
+      "sha256": "6afde96aa80f2653b3a5d484aa94038974e2cfb5cc244c5ad324e90d03aec94f",
+      "questionCount": 193,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        6
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 3,
+      "visualQuestions": 61,
+      "priority": 100193,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/kokugo/g4.json",
+      "sha256": "20ce6b985cf3cbd4f8e9222c4800f7a2b98360d179467b9716c35a5321d1a210",
+      "questionCount": 205,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        4
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 1,
+      "visualQuestions": 0,
+      "priority": 100205,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/sansu/g5.json",
+      "sha256": "6bbabca5b91733414b608229d1619a3b4abb5d5521f9a883e88d1c4b3b5ee6b1",
+      "questionCount": 333,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        5
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 44,
+      "visualQuestions": 61,
+      "priority": 100333,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/legacy/sansu/g4.json",
+      "sha256": "2686a9e1426c2d8acfbbe43203540d4b3e5a3c58781a4656a86816faf6643754",
+      "questionCount": 365,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        4
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 4,
+      "visualQuestions": 88,
+      "priority": 100365,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017",
+        "estat-portal"
+      ]
+    },
+    {
+      "file": "questions/eigo/g3/sea-pictures.json",
+      "sha256": "2fa0b45293006428fffaa1e0cafc6536793cf51af11f5581c313ab505e493f75",
+      "questionCount": 6,
+      "subjects": [
+        "eigo"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "picture-word"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 6,
+      "priority": 200006,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/eigo/g2/animals.json",
+      "sha256": "5edc57f679729833361286d2828d349f7d2d2f3e7fd27c9b475db7f00eb976f5",
+      "questionCount": 8,
+      "subjects": [
+        "eigo"
+      ],
+      "grades": [
+        2
+      ],
+      "types": [
+        "picture-word"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 8,
+      "priority": 200008,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/eigo/g1/fruits.json",
+      "sha256": "75809e103eebee4d01bf29c90f4657186ef1fe5b27f7df155eebd34e271f7ff9",
+      "questionCount": 9,
+      "subjects": [
+        "eigo"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "picture-word"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 9,
+      "priority": 200009,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/seikatsu/g1.json",
+      "sha256": "bded78b6ca2cce4ee620650b79e3d1c6759c707049070b35ab4f4d74e5111191",
+      "questionCount": 48,
+      "subjects": [
+        "seikatsu"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 36,
+      "priority": 200048,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/seikatsu/g2.json",
+      "sha256": "836a0b8725851f1d932df6fe358d2c3c1076068b928edf0b785ef7ed26d30209",
+      "questionCount": 60,
+      "subjects": [
+        "seikatsu"
+      ],
+      "grades": [
+        2
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 45,
+      "priority": 200060,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/shakai/g4.json",
+      "sha256": "50cf44ab62275ec08cce1764dd384b67f04377d1217d0f7e9ba47c8cc70db107",
+      "questionCount": 75,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        4
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 30,
+      "priority": 200075,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/sansu/g1.json",
+      "sha256": "1cc81bc649b2857c078c0f3f2e403c442db321bcd88b0efdcfdbed85aa7f98b2",
+      "questionCount": 123,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 49,
+      "priority": 200123,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/rika/g5.json",
+      "sha256": "428011f6723a4f40adf3368ec73554ce1a4c63d6fbb1d97b37fcebf426a0ba22",
+      "questionCount": 209,
+      "subjects": [
+        "rika"
+      ],
+      "grades": [
+        5
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 142,
+      "priority": 200209,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/sansu/g2.json",
+      "sha256": "1cbf1f2a95647619e50b377bdbe42eb90e4fcb5c9ca7702ebf95f7da31acf257",
+      "questionCount": 308,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        2
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 80,
+      "priority": 200308,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/sansu/g3.json",
+      "sha256": "5aa01b6cafac7da9f8a880687fc890c44cd8482c6269526513f24399afdc0f34",
+      "questionCount": 334,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "choice",
+        "text-input"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 58,
+      "priority": 200334,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/rika/g4/mizu-experiment.json",
+      "sha256": "d803cdec84f39c5064e3fee34f53800c11f1e9d28fa1888b0f435690c652f139",
+      "questionCount": 1,
+      "subjects": [
+        "rika"
+      ],
+      "grades": [
+        4
+      ],
+      "types": [
+        "experiment"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300001,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/eigo/g3/sea.json",
+      "sha256": "3c0d23f5ce1a6da06dc871f3b298f5ede4a743df6a72610bab28442bface98df",
+      "questionCount": 3,
+      "subjects": [
+        "eigo"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300003,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/rika/g4/mizu-no-sugata.json",
+      "sha256": "93ba21d033215629b147d133cb63150fcbe74d76bc89c01fd12fe5e04a22b781",
+      "questionCount": 3,
+      "subjects": [
+        "rika"
+      ],
+      "grades": [
+        4
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300003,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/sansu/g1/ringo-number-build.json",
+      "sha256": "d228c03711c81016e2b58b7e87e80403161896b95d7b187e767637be63fbb956",
+      "questionCount": 3,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "number-build"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300003,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/shakai/g4/todofuken.json",
+      "sha256": "dbca6eb3b92ad1c778dd940da3f2066f100527fd6df4ed4187db1e2df3f8c2bc",
+      "questionCount": 3,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        4
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300003,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/sansu/g1/kazu-no-bunkai.json",
+      "sha256": "cb1c37e752f8d1cf8060b40789351a4b74ec088fc119f1310ea7756e187ac382",
+      "questionCount": 4,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300004,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/kokugo/g1/kotoba-asobi.json",
+      "sha256": "a66618ad16e01847e5017fba36fc7aa2283f5dab093b016a80e16ac2809ab269",
+      "questionCount": 5,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300005,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/sansu/g1/tashizan.json",
+      "sha256": "b8860fd300c1c31eaae3cabb46c640e961ac0921859611350e6e6441bdc55ed7",
+      "questionCount": 5,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300005,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/sansu/g2/jikan-legacy.json",
+      "sha256": "ffb5be87e81d8bb4cf417c6238aaf68a114cda5621e6e96147cc1d4378bd895a",
+      "questionCount": 6,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        2
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300006,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/sansu/g2/kasa-legacy.json",
+      "sha256": "1ab699dc06d84459b8f4603350820ea7c1053b4ff72f9a61c4fcecaf9f504456",
+      "questionCount": 6,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        2
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300006,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/sansu/g3/warizan-legacy.json",
+      "sha256": "3270493b8fca3890abb9792378f4016eb8ecc11a1c72837c25bc76c5c6732131",
+      "questionCount": 6,
+      "subjects": [
+        "sansu"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300006,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/kokugo/g1/bun-no-kimari.json",
+      "sha256": "5601a3053c31baea6bd417aaf7e31116753d2b96ac5b1aee363f11e1d4307ccd",
+      "questionCount": 10,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300010,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/kokugo/g1/joshi.json",
+      "sha256": "e1c11884afa988869eac3c2227a7f91f398c00e8764ec96147a69df61280ab17",
+      "questionCount": 10,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300010,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/shakai/g4/tohoku.json",
+      "sha256": "78d29fd8752b970bf7b8dd88462cb0260673ae67a32e6cfdc3e4ba14228bc4e7",
+      "questionCount": 10,
+      "subjects": [
+        "shakai"
+      ],
+      "grades": [
+        4
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300010,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/kokugo/g1/kanji.json",
+      "sha256": "8b4d83cc20ab09fe826cc0721855b8512c982395f0571930d946986bbd8c5c2b",
+      "questionCount": 11,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300011,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/kokugo/g1/hiragana.json",
+      "sha256": "8d70c555e0e04956db0023b9037d0adc9d3caaed829010359ea604bb70f7f1b9",
+      "questionCount": 19,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300019,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/eigo/g2/alphabet-order.json",
+      "sha256": "2ecff795b4f09b7479046a2f498222cf27acaea7c1d486fdbd0647f07bca968f",
+      "questionCount": 24,
+      "subjects": [
+        "eigo"
+      ],
+      "grades": [
+        2
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300024,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/eigo/g1/alphabet.json",
+      "sha256": "931d2ec01349bcf48099e04f601386c14bafc1b58fb4d73555f7beab4a41c08e",
+      "questionCount": 26,
+      "subjects": [
+        "eigo"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300026,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/eigo/g3/alphabet-small.json",
+      "sha256": "6754be0f1439a52901c462a57ead8cc36bbd9dd0909cf08c74d34263f16c0723",
+      "questionCount": 26,
+      "subjects": [
+        "eigo"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300026,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/kokugo/g5.json",
+      "sha256": "ae56770db1da122f26b7442ec38e280f37f0b01268a799f1e58e5cbf899916a5",
+      "questionCount": 88,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        5
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300088,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/kokugo/g6.json",
+      "sha256": "436f4807dc19624b840d1bf8a6abc6526541e48afe2819e7a954ea21d9714090",
+      "questionCount": 90,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        6
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300090,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/kokugo/g2.json",
+      "sha256": "aa59388ad66a8c968df643d87d1a6a680a3610ffdaeb58a5bc98fbb54f690676",
+      "questionCount": 102,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        2
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300102,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/rika/g3.json",
+      "sha256": "fed32c15ea84d9d0d8dd2bb8c2431bc327299c4ae213f87b033eb334a92d4b9a",
+      "questionCount": 120,
+      "subjects": [
+        "rika"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300120,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/kokugo/g1.json",
+      "sha256": "c710e14dafbe4e76c2ace1417cae3692598918c2b54846bb19ad73805224102a",
+      "questionCount": 159,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        1
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300159,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/rika/g4.json",
+      "sha256": "d5535ba2b295c2f993a81b35176ccd37c9bd45d57abe35546697e54d6b32dc6d",
+      "questionCount": 168,
+      "subjects": [
+        "rika"
+      ],
+      "grades": [
+        4
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300168,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    },
+    {
+      "file": "questions/legacy/kokugo/g3.json",
+      "sha256": "95df40076ca5bdb5bf2e2a3b9c967bada7ad157e109536736fc64aaba5a5058f",
+      "questionCount": 336,
+      "subjects": [
+        "kokugo"
+      ],
+      "grades": [
+        3
+      ],
+      "types": [
+        "choice"
+      ],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300336,
+      "suggestedSourceIds": [
+        "mext-elementary-curriculum-2017"
+      ]
+    }
+  ]
+}

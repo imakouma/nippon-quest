@@ -96,7 +96,6 @@ async function main(): Promise<void> {
       a.severity.localeCompare(b.severity) || a.kind.localeCompare(b.kind) || a.id.localeCompare(b.id),
   );
   const report = {
-    generatedAt: new Date().toISOString(),
     questionCount,
     unitCount: units.length,
     summary: Object.fromEntries(
@@ -112,6 +111,9 @@ async function main(): Promise<void> {
   console.log(
     `curriculum: ${questionCount} questions / ${units.length} units / ${findings.length} review findings`,
   );
+  if (process.argv.includes('--strict') && findings.length > 0) {
+    throw new Error(`教材監査で ${findings.length} 件の要確認項目が見つかりました`);
+  }
 }
 
 await main();
