@@ -3,7 +3,7 @@
  * 保護者メニューから JSON エクスポート／インポートできる。
  */
 import localforage from 'localforage';
-import { SCHEMA_VERSION, type GameState } from './schema';
+import { SCHEMA_VERSION, gameStateSchema, type GameState } from './schema';
 import { migrate } from './migrations';
 
 const store = localforage.createInstance({ name: 'nihonquest', storeName: 'saves' });
@@ -11,11 +11,14 @@ export const SLOTS = [1, 2, 3] as const;
 export type SlotId = (typeof SLOTS)[number];
 
 const key = (slot: SlotId) => `save:${slot}`;
+const backupKey = (slot: SlotId) => `backup:${slot}`;
+const saveQueues = new Map<SlotId, Promise<void>>();
 
 export interface SlotSummary {
   slot: SlotId;
   exists: boolean;
   corrupted?: boolean;
+  recovered?: boolean;
   name?: string;
   level?: number;
   area?: string;
@@ -23,43 +26,86 @@ export interface SlotSummary {
   signs?: number;
 }
 
-export function summarizeSlot(slot: SlotId, raw: unknown): SlotSummary {
-  if (!raw) return { slot, exists: false };
+function parsedState(raw: unknown): GameState | null {
   try {
-    const state = migrate(raw).state;
+    return raw ? migrate(raw).state : null;
+  } catch {
+    return null;
+  }
+}
+
+export function recoverState(
+  primary: unknown,
+  backup: unknown,
+): { state: GameState; recovered: boolean } | null {
+  const current = parsedState(primary);
+  if (current) return { state: current, recovered: false };
+  const fallback = parsedState(backup);
+  return fallback ? { state: fallback, recovered: true } : null;
+}
+
+export function summarizeSlot(slot: SlotId, raw: unknown, backup?: unknown): SlotSummary {
+  if (!raw && !backup) return { slot, exists: false };
+  const recovered = recoverState(raw, backup);
+  if (recovered) {
+    const { state } = recovered;
     return {
       slot,
       exists: true,
+      ...(recovered.recovered ? { recovered: true } : {}),
       name: state.player.name,
       level: state.player.level,
       area: state.progress.currentArea,
       updatedAt: state.updatedAt,
       signs: state.progress.areaSigns.length,
     };
-  } catch {
-    return { slot, exists: false, corrupted: true };
   }
+  return { slot, exists: false, corrupted: true };
 }
 
 export async function save(slot: SlotId, state: GameState): Promise<void> {
-  await store.setItem(key(slot), { ...state, schemaVersion: SCHEMA_VERSION, updatedAt: Date.now() });
+  const previous = saveQueues.get(slot) ?? Promise.resolve();
+  const queued = previous
+    .catch(() => undefined)
+    .then(async () => {
+      const next = gameStateSchema.parse({
+        ...state,
+        schemaVersion: SCHEMA_VERSION,
+        updatedAt: Date.now(),
+      });
+      const current = await store.getItem(key(slot));
+      if (parsedState(current)) await store.setItem(backupKey(slot), current);
+      await store.setItem(key(slot), next);
+    });
+  saveQueues.set(slot, queued);
+  try {
+    await queued;
+  } finally {
+    if (saveQueues.get(slot) === queued) saveQueues.delete(slot);
+  }
 }
 
 export async function load(slot: SlotId): Promise<GameState | null> {
-  const raw = await store.getItem(key(slot));
-  if (!raw) return null;
-  return migrate(raw).state;
+  await saveQueues.get(slot)?.catch(() => undefined);
+  const [raw, backup] = await Promise.all([store.getItem(key(slot)), store.getItem(backupKey(slot))]);
+  if (!raw && !backup) return null;
+  const recovered = recoverState(raw, backup);
+  if (!recovered) throw new Error('セーブデータとバックアップの両方が壊れています');
+  if (recovered.recovered) await store.setItem(key(slot), recovered.state);
+  return recovered.state;
 }
 
 export async function remove(slot: SlotId): Promise<void> {
-  await store.removeItem(key(slot));
+  await saveQueues.get(slot)?.catch(() => undefined);
+  await Promise.all([store.removeItem(key(slot)), store.removeItem(backupKey(slot))]);
 }
 
 export async function summaries(): Promise<SlotSummary[]> {
   return Promise.all(
     SLOTS.map(async (slot) => {
-      const raw = await store.getItem(key(slot));
-      return summarizeSlot(slot, raw);
+      await saveQueues.get(slot)?.catch(() => undefined);
+      const [raw, backup] = await Promise.all([store.getItem(key(slot)), store.getItem(backupKey(slot))]);
+      return summarizeSlot(slot, raw, backup);
     }),
   );
 }

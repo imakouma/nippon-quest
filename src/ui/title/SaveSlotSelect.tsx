@@ -43,6 +43,7 @@ export function SaveSlotSelect({
             ) : (
               <span>{t('saveSlots.empty')}</span>
             )}
+            {slot.recovered && <small>{t('saveSlots.recovered')}</small>}
             {mode === 'new' && (slot.exists || slot.corrupted) && <small>{t('saveSlots.overwrite')}</small>}
           </button>
         ))}
