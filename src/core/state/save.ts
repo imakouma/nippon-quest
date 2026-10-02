@@ -14,6 +14,17 @@ const key = (slot: SlotId) => `save:${slot}`;
 const backupKey = (slot: SlotId) => `backup:${slot}`;
 const saveQueues = new Map<SlotId, Promise<void>>();
 
+async function enqueueSlot(slot: SlotId, operation: () => Promise<void>): Promise<void> {
+  const previous = saveQueues.get(slot) ?? Promise.resolve();
+  const queued = previous.catch(() => undefined).then(operation);
+  saveQueues.set(slot, queued);
+  try {
+    await queued;
+  } finally {
+    if (saveQueues.get(slot) === queued) saveQueues.delete(slot);
+  }
+}
+
 export interface SlotSummary {
   slot: SlotId;
   exists: boolean;
@@ -70,20 +81,11 @@ export async function save(slot: SlotId, state: GameState): Promise<void> {
     schemaVersion: SCHEMA_VERSION,
     updatedAt: Date.now(),
   });
-  const previous = saveQueues.get(slot) ?? Promise.resolve();
-  const queued = previous
-    .catch(() => undefined)
-    .then(async () => {
-      const current = await store.getItem(key(slot));
-      if (parsedState(current)) await store.setItem(backupKey(slot), current);
-      await store.setItem(key(slot), snapshot);
-    });
-  saveQueues.set(slot, queued);
-  try {
-    await queued;
-  } finally {
-    if (saveQueues.get(slot) === queued) saveQueues.delete(slot);
-  }
+  await enqueueSlot(slot, async () => {
+    const current = await store.getItem(key(slot));
+    if (parsedState(current)) await store.setItem(backupKey(slot), current);
+    await store.setItem(key(slot), snapshot);
+  });
 }
 
 export async function load(slot: SlotId): Promise<GameState | null> {
@@ -97,8 +99,9 @@ export async function load(slot: SlotId): Promise<GameState | null> {
 }
 
 export async function remove(slot: SlotId): Promise<void> {
-  await saveQueues.get(slot)?.catch(() => undefined);
-  await Promise.all([store.removeItem(key(slot)), store.removeItem(backupKey(slot))]);
+  await enqueueSlot(slot, async () => {
+    await Promise.all([store.removeItem(key(slot)), store.removeItem(backupKey(slot))]);
+  });
 }
 
 export async function summaries(): Promise<SlotSummary[]> {

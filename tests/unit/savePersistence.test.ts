@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const storage = vi.hoisted(() => new Map<string, unknown>());
+const controls = vi.hoisted(() => ({ removeGate: null as Promise<void> | null, removeCalls: 0 }));
 
 vi.mock('localforage', () => ({
   default: {
@@ -11,6 +12,8 @@ vi.mock('localforage', () => ({
         return value;
       },
       removeItem: async (key: string) => {
+        controls.removeCalls += 1;
+        await controls.removeGate;
         storage.delete(key);
       },
     }),
@@ -27,7 +30,11 @@ const fresh = (gold: number) => {
   return state;
 };
 
-beforeEach(() => storage.clear());
+beforeEach(() => {
+  storage.clear();
+  controls.removeGate = null;
+  controls.removeCalls = 0;
+});
 
 describe('セーブ永続化', () => {
   it('並行保存を呼び出し順に直列化し、直前の正常状態をバックアップする', async () => {
@@ -74,5 +81,21 @@ describe('セーブ永続化', () => {
     await remove(1);
     expect(storage.has('save:1')).toBe(false);
     expect(storage.has('backup:1')).toBe(false);
+  });
+
+  it('削除中に新しい保存が要求された場合は、新しい状態を削除後に保存する', async () => {
+    await save(1, fresh(10));
+    let release = () => {};
+    controls.removeGate = new Promise<void>((resolve) => {
+      release = () => resolve();
+    });
+
+    const removing = remove(1);
+    await vi.waitFor(() => expect(controls.removeCalls).toBe(2));
+    const saving = save(1, fresh(30));
+    release();
+    await Promise.all([removing, saving]);
+
+    expect((storage.get('save:1') as GameState).player.gold).toBe(30);
   });
 });
