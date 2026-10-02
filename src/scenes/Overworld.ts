@@ -155,6 +155,8 @@ const WATER_TILE = 3;
 const TRIGGER_RADIUS = 1;
 /** にほんちずの地図データ（scripts/scaffold-maps.ts が public/worldmap.json に作る）の cache キー */
 const WORLD_MAP_KEY = 'worldmap';
+/** 新しく始めたデータだけで青森の導入を一度表示する。既存セーブへ突然割り込ませない。 */
+const PROLOGUE_COUNTER = 'story.prologue';
 /** 特産品（イベントの無い たべもの・こうげいひん）は ★ 看板ではなく宝箱（scripts/scaffold-maps.ts） */
 /** みため タブの 部位（GameState.player.appearance の キー と 文言の キー） */
 type HeroLookIndex = GameState['player']['appearance'];
@@ -468,6 +470,7 @@ export class OverworldScene extends Phaser.Scene {
     this.baseMap = this.readBaseMap();
     this.renderHud();
     if (!this.pendingDebugBattle) this.showPlaceTitle();
+    if (!this.pendingDebugBattle) this.time.delayedCall(2850, () => void this.showPrologue());
 
     const debug = this.pendingDebugBattle;
     if (debug) {
@@ -2593,6 +2596,39 @@ export class OverworldScene extends Phaser.Scene {
     return this.choose(lines).then(() => undefined);
   }
 
+  /** 新しい旅の最初だけ、世界の異変・妖精・旅の目的を短く伝える。 */
+  private async showPrologue(): Promise<void> {
+    const gs = this.gs();
+    if (
+      this.busy ||
+      this.inBattle ||
+      this.mapKey !== 'aomori-field' ||
+      gs?.progress.counters[PROLOGUE_COUNTER] !== 0
+    )
+      return;
+
+    this.busy = true;
+    this.standStill();
+    this.setGame({
+      ...gs,
+      updatedAt: Date.now(),
+      progress: {
+        ...gs.progress,
+        counters: { ...gs.progress.counters, [PROLOGUE_COUNTER]: 1 },
+      },
+    });
+    await this.talk([
+      { speaker: t('field.prologueNarrator'), text: t('field.prologueWake') },
+      { speaker: gs.player.name, text: t('field.prologueLost') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueFairyArrives') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueKnowledge') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueNoema') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueQuest') },
+      { text: t('field.prologueStart') },
+    ]);
+    this.busy = false;
+  }
+
   /** 会話を出す。choices があれば最後の行で選ばせて、その番号を返す（選択肢なしは -1） */
   private choose(lines: DialogueLine[], choices?: string[]): Promise<number> {
     return new Promise((resolve) => {
@@ -3742,7 +3778,8 @@ export class OverworldScene extends Phaser.Scene {
     const choice = await this.choose(
       [
         { speaker: t('field.prologueFairy'), text: t('field.islandBossAsk') },
-        { speaker: boss.name, text: boss.bossPhases?.[0]?.line ?? t('field.bossBlock') },
+        { speaker: t('field.prologueFairy'), text: t('field.islandBossIntroFairy') },
+        { speaker: boss.name, text: t('field.islandBossRoar') },
       ],
       [t('ui.yes'), t('ui.no')],
     );
@@ -3766,7 +3803,16 @@ export class OverworldScene extends Phaser.Scene {
     this.setGame(next);
     await this.wait(650);
     playSfx('victory');
-    await this.talk([{ text: t('field.islandBossCleared') }, { text: t('field.islandBagGrew') }]);
+    const island = content.world.islands.find((candidate) => candidate.id === islandId);
+    const bossName = content.monsters.get(island?.bossId ?? '')?.name;
+    await this.talk([
+      { speaker: bossName, text: t('field.islandBossSecret') },
+      { speaker: t('field.prologueFairy'), text: t('field.islandFairyDeflect') },
+      { text: t('field.islandBossCleared') },
+      { text: t('field.islandBagGrew') },
+      { speaker: t('field.prologueFairy'), text: t('field.islandFairyNext') },
+      { text: t('field.islandChapterEnd') },
+    ]);
     this.busy = false;
   }
 

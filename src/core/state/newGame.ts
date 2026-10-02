@@ -51,7 +51,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       chestsOpened: [],
       unlockedRecipes: ['rc-nebuta-no-kabuto', 'rc-hiba-no-koshiate'],
       missions: {},
-      counters: {},
+      counters: { 'story.prologue': 0 },
     },
     dex: { monsters: [], items: [], motifs: [] },
     learning: {
