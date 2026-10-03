@@ -10,6 +10,7 @@ import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { playSfx } from '../sfx';
+import { useModalFocus } from '../useModalFocus';
 import './field.css';
 import './menu.css';
 
@@ -102,6 +103,8 @@ export function MenuOverlay({
   }
   const e = entries[Math.min(sel, entries.length - 1)];
   const listRef = useRef<HTMLUListElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, '[role="tab"][aria-selected="true"]');
 
   const pick = useCallback<MenuPick>(
     (k, ensureVisible = false) => {
@@ -174,9 +177,17 @@ export function MenuOverlay({
   const pic = e?.art ?? e?.icon;
   return (
     <div class="nq-wmap" onClick={onClose}>
-      <div class="nq-win nq-wmap-box nq-menu-box" onClick={(ev) => ev.stopPropagation()}>
+      <div
+        ref={dialogRef}
+        class="nq-win nq-wmap-box nq-menu-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nq-menu-title"
+        tabIndex={-1}
+        onClick={(ev) => ev.stopPropagation()}
+      >
         <div class="nq-menu-head">
-          <span class="nq-menu-title">
+          <span id="nq-menu-title" class="nq-menu-title">
             <PixelIcon name="cmd-item" scale={2} />
             {t('field.menu')}
           </span>
