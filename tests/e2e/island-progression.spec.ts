@@ -14,6 +14,10 @@ async function clickThroughDialogue(page: Page, stopWhen?: () => Promise<boolean
 }
 
 async function seedTohokuBossReady(page: Page): Promise<void> {
+  await seedTohokuSigns(page, TOHOKU_SIGNS);
+}
+
+async function seedTohokuSigns(page: Page, signs: string[]): Promise<void> {
   await page.evaluate(async (signs) => {
     const database = await new Promise<IDBDatabase>((resolve, reject) => {
       const request = indexedDB.open('nihonquest');
@@ -41,8 +45,34 @@ async function seedTohokuBossReady(page: Page): Promise<void> {
       transaction.onabort = () => reject(transaction.error);
     });
     database.close();
-  }, TOHOKU_SIGNS);
+  }, signs);
 }
+
+test('東北6県のしるしが1つでも欠けると地方ボスへ挑戦できない', async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto('/');
+  await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 30_000 });
+  await page.waitForTimeout(500);
+  await page.getByRole('menuitem', { name: /はじめから/ }).click();
+  await page.getByRole('button', { name: /スロット 3/ }).click();
+  await page.getByRole('button', { name: 'はじめる' }).click();
+  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  await clickThroughDialogue(page);
+
+  await page.reload();
+  await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
+  await seedTohokuSigns(
+    page,
+    TOHOKU_SIGNS.filter((area) => area !== 'fukushima'),
+  );
+  await page.getByRole('menuitem', { name: 'つづきから' }).click();
+  await page.getByRole('button', { name: /スロット 3 ハル/ }).click();
+  await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click({ timeout: 30_000 });
+  await page.getByRole('button', { name: 'にほんちず' }).click();
+
+  await expect(page.locator('.nq-wmap-island-boss')).toContainText('5/6');
+  await expect(page.getByRole('button', { name: /地方.*ボスに いどむ/ })).toHaveCount(0);
+});
 
 async function savedTohokuClear(page: Page): Promise<boolean> {
   return page.evaluate(async () => {
