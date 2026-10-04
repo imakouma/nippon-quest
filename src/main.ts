@@ -5,7 +5,7 @@ import { TitleScene } from './scenes/Title';
 import { ensureGameplayScenes } from './scenes/gameplayLoader';
 import { attachOverlay, STAGE_H, STAGE_W } from './ui/overlay';
 import { createNewGame, type NewGameOptions } from './core/state/newGame';
-import { load, save, type SlotId } from './core/state/save';
+import { load, save, storeStartupRetryAction, takeStartupRetryAction, type SlotId } from './core/state/save';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
 import { bundledFetchReader } from './core/content/loader';
@@ -38,6 +38,13 @@ const debugBattle =
 
 const gameRoot = document.getElementById('game-root')!;
 const uiLayer = document.getElementById('ui-layer')!;
+type RetryAction =
+  { type: 'start'; options?: NewGameOptions; slot: SlotId } | { type: 'continue'; slot: SlotId };
+
+function reloadForRetry(action: RetryAction): void {
+  storeStartupRetryAction(action);
+  location.reload();
+}
 
 const loading = document.createElement('div');
 loading.className = 'nq-loading';
@@ -55,6 +62,33 @@ function showLoading(label: string): void {
 
 function hideLoading(): void {
   loading.remove();
+}
+
+let errorBox: HTMLElement | null = null;
+
+function clearError(): void {
+  errorBox?.remove();
+  errorBox = null;
+}
+
+function showError(error: unknown, retry: () => void): void {
+  hideLoading();
+  clearError();
+  const box = document.createElement('section');
+  box.className = 'nq-error';
+  const message = document.createElement('p');
+  message.textContent = `よみこみに しっぱいしました。\n\n${error instanceof Error ? error.message : String(error)}\n\nつうしんを たしかめて、もういちど おしてね。`;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'nq-btn nq-error-retry';
+  button.textContent = 'もういちど';
+  button.addEventListener('click', () => {
+    clearError();
+    retry();
+  });
+  box.append(message, button);
+  errorBox = box;
+  uiLayer.append(box);
 }
 
 const game = new Phaser.Game({
@@ -81,13 +115,22 @@ game.events.on('boot:stage', (text: string) => {
   const label = loading.querySelector<HTMLDivElement>('.nq-loading-label');
   if (label) label.textContent = text;
 });
-game.events.on('boot:done', hideLoading);
-game.events.on('boot:error', (e: unknown) => {
+game.events.on('boot:done', () => {
   hideLoading();
-  const box = document.createElement('div');
-  box.className = 'nq-error';
-  box.textContent = `コンテンツの よみこみに しっぱいしました。\n\n${e instanceof Error ? e.message : String(e)}\n\n・pnpm gen:manifest を実行しましたか？\n・content/ の JSON に エラーは ありませんか？（pnpm validate:content）`;
-  uiLayer.append(box);
+  try {
+    const action = takeStartupRetryAction() as RetryAction | undefined;
+    if (!action) return;
+    // BootScene がこのイベントの直後に TitleScene を開始するため、次のタスクで再開する。
+    setTimeout(() => {
+      if (action.type === 'start') game.events.emit('title:start', action.options, action.slot);
+      else if (action.type === 'continue') game.events.emit('title:continue', action.slot);
+    });
+  } catch (error) {
+    console.warn('[startup] 再試行情報を復元できませんでした', error);
+  }
+});
+game.events.on('boot:error', (e: unknown) => {
+  showError(e, () => location.reload());
 });
 let activeSlot: SlotId = 1;
 let bankPromise: Promise<QuestionBank> | undefined;
@@ -111,41 +154,59 @@ function ensureQuestionBank(): Promise<QuestionBank> {
   return bankPromise;
 }
 
+let titleAction: Promise<void> | null = null;
+
+function runTitleAction(label: string, action: () => Promise<void>, retry: () => void): void {
+  if (titleAction) return;
+  clearError();
+  showLoading(label);
+  titleAction = action()
+    .catch((error) => showError(error, retry))
+    .finally(() => {
+      titleAction = null;
+    });
+}
+
 game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1) => {
-  try {
-    showLoading('もんだいを よみこんでいるよ…');
-    await Promise.all([ensureGameplayScenes(game), ensureQuestionBank()]);
-    activeSlot = slot;
-    const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
-    setSfxVolume(next.settings.seVolume);
-    game.registry.set('game', next);
-    void save(activeSlot, next).catch((error) => console.error('[save] はじめのセーブに失敗しました', error));
-    hideLoading();
-    game.scene.stop('Title');
-    game.scene.start('Overworld', { mapKey: 'aomori-field', spawnName: 'spawn', debugBattle });
-  } catch (error) {
-    game.events.emit('boot:error', error);
-  }
+  const retry = () => reloadForRetry({ type: 'start', options, slot });
+  runTitleAction(
+    'もんだいを よみこんでいるよ…',
+    async () => {
+      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank()]);
+      activeSlot = slot;
+      const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
+      setSfxVolume(next.settings.seVolume);
+      game.registry.set('game', next);
+      void save(activeSlot, next).catch((error) =>
+        console.error('[save] はじめのセーブに失敗しました', error),
+      );
+      hideLoading();
+      game.scene.stop('Title');
+      game.scene.start('Overworld', { mapKey: 'aomori-field', spawnName: 'spawn', debugBattle });
+    },
+    retry,
+  );
 });
 
 game.events.on('title:continue', async (slot: SlotId = 1) => {
-  try {
-    showLoading('セーブと もんだいを よみこんでいるよ…');
-    const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game), ensureQuestionBank()]);
-    if (!saved) {
+  const retry = () => reloadForRetry({ type: 'continue', slot });
+  runTitleAction(
+    'セーブと もんだいを よみこんでいるよ…',
+    async () => {
+      const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game), ensureQuestionBank()]);
+      if (!saved) {
+        hideLoading();
+        return;
+      }
+      activeSlot = slot;
+      setSfxVolume(saved.settings.seVolume);
+      game.registry.set('game', saved);
       hideLoading();
-      return;
-    }
-    activeSlot = slot;
-    setSfxVolume(saved.settings.seVolume);
-    game.registry.set('game', saved);
-    hideLoading();
-    game.scene.stop('Title');
-    game.scene.start('Overworld', { mapKey: saved.progress.currentMap, spawnName: 'spawn' });
-  } catch (error) {
-    console.error('[save] ロードに失敗しました', error);
-    game.events.emit('boot:error', error);
-  }
+      game.scene.stop('Title');
+      game.scene.start('Overworld', { mapKey: saved.progress.currentMap, spawnName: 'spawn' });
+    },
+    retry,
+  );
 });
 
 // GameState が更新されるたび、選択中のスロットへ自動保存する。

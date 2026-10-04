@@ -13,6 +13,19 @@ const store = localforage.createInstance({ name: 'nihonquest', storeName: 'saves
 const key = (slot: SlotId) => `save:${slot}`;
 const backupKey = (slot: SlotId) => `backup:${slot}`;
 const saveQueues = new Map<SlotId, Promise<void>>();
+const STARTUP_RETRY_KEY = 'nq:retry-title-action';
+
+/** ページ再読込をまたぐ起動再試行だけに使う、一回限りの一時データ。 */
+export function storeStartupRetryAction(action: unknown): void {
+  sessionStorage.setItem(STARTUP_RETRY_KEY, JSON.stringify(action));
+}
+
+export function takeStartupRetryAction(): unknown {
+  const serialized = sessionStorage.getItem(STARTUP_RETRY_KEY);
+  if (!serialized) return undefined;
+  sessionStorage.removeItem(STARTUP_RETRY_KEY);
+  return JSON.parse(serialized) as unknown;
+}
 
 async function enqueueSlot<T>(slot: SlotId, operation: () => Promise<T>): Promise<T> {
   const previous = saveQueues.get(slot) ?? Promise.resolve();

@@ -241,6 +241,7 @@ body {
 .nq-error {
   position: absolute;
   inset: 0;
+  z-index: 1000;
   padding: 24px;
   color: #ffb4b4;
   background: #1a1020;
@@ -249,6 +250,23 @@ body {
     monospace;
   white-space: pre-wrap;
   overflow: auto;
+}
+.nq-error p {
+  margin: 0 0 20px;
+  white-space: pre-wrap;
+}
+.nq-error-retry {
+  min-width: 160px;
+  padding: 10px 18px;
+  color: var(--nq-white);
+  background: #34203d;
+  border: 2px solid var(--nq-white);
+  font: inherit;
+  cursor: pointer;
+}
+.nq-error-retry:focus-visible {
+  outline: 3px solid var(--nq-yellow);
+  outline-offset: 3px;
 }
 
 /* ───── 会話ウィンドウ ───── */
