@@ -18,7 +18,12 @@ export function canChallengeIslandBoss(
   islandId: string,
   progress: Pick<GameState['progress'], 'areaSigns' | 'islandsCleared'>,
 ): boolean {
-  return !progress.islandsCleared.includes(islandId) && hasAllAreaSigns(world, islandId, progress.areaSigns);
+  const island = world.islands.find((candidate) => candidate.id === islandId);
+  return (
+    island?.status === 'playable' &&
+    !progress.islandsCleared.includes(islandId) &&
+    hasAllAreaSigns(world, islandId, progress.areaSigns)
+  );
 }
 
 /**

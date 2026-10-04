@@ -60,6 +60,9 @@ describe('地方ボスと島クリア', () => {
     expect(canChallengeIslandBoss(c.world, 'tohoku', gs.progress)).toBe(true);
     gs.progress.islandsCleared.push('tohoku');
     expect(canChallengeIslandBoss(c.world, 'tohoku', gs.progress)).toBe(false);
+
+    gs.progress.areaSigns = ['hokkaido'];
+    expect(canChallengeIslandBoss(c.world, 'hokkaido', gs.progress)).toBe(false);
   });
 
   it('勝利処理は東北を一度だけ記録し、しるし不足では状態を変えない', async () => {
