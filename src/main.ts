@@ -2,7 +2,8 @@ import Phaser from 'phaser';
 import './questions/renderers/shared/questions.css';
 import { BootScene } from './scenes/Boot';
 import { TitleScene } from './scenes/Title';
-import { ensureGameplayScenes } from './scenes/gameplayLoader';
+import { OverworldScene } from './scenes/Overworld';
+import { BattleScene } from './scenes/Battle';
 import { attachOverlay, STAGE_H, STAGE_W } from './ui/overlay';
 import { createNewGame, type NewGameOptions } from './core/state/newGame';
 import { load, save, storeStartupRetryAction, takeStartupRetryAction, type SlotId } from './core/state/save';
@@ -101,8 +102,8 @@ const game = new Phaser.Game({
   roundPixels: true,
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
   physics: { default: 'arcade', arcade: { gravity: { x: 0, y: 0 }, debug: false } },
-  // Overworld/Battle はタイトル表示には不要なので、開始操作のときに動的登録する。
-  scene: [BootScene, TitleScene],
+  // 開始操作の瞬間に追加通信が発生しないよう、ゲーム Scene は起動時に登録する。
+  scene: [BootScene, TitleScene, OverworldScene, BattleScene],
 });
 
 attachOverlay(gameRoot, uiLayer);
@@ -172,7 +173,7 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
   runTitleAction(
     'もんだいを よみこんでいるよ…',
     async () => {
-      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank()]);
+      await ensureQuestionBank();
       activeSlot = slot;
       const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
       setSfxVolume(next.settings.seVolume);
@@ -193,7 +194,7 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
   runTitleAction(
     'セーブと もんだいを よみこんでいるよ…',
     async () => {
-      const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game), ensureQuestionBank()]);
+      const [saved] = await Promise.all([load(slot), ensureQuestionBank()]);
       if (!saved) {
         hideLoading();
         return;
