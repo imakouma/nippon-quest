@@ -1,0 +1,2732 @@
+[
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.23873eb36d36",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域の気候の特色を調べるときに、月ごとの「気温」と「降水量」をグラフにしたものを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨温図（うおんず）"
+        },
+        {
+          "id": "c2",
+          "text": "人口ピラミッド"
+        },
+        {
+          "id": "c3",
+          "text": "白地図"
+        },
+        {
+          "id": "c4",
+          "text": "棒グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "雨温図は、気温の変化（折れ線グラフ）と降水量（棒グラフ）を組み合わせて、その地域の気候の傾向を表したものです。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.50e1192bb52c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、日本で最も面積が広い「北海道」の次に面積が広い都道府県はどこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "岩手県"
+        },
+        {
+          "id": "c2",
+          "text": "福島県"
+        },
+        {
+          "id": "c3",
+          "text": "長野県"
+        },
+        {
+          "id": "c4",
+          "text": "新潟県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/823ba85223df25c6.png"
+    },
+    "explanation": "日本の都道府県で最も広いのは北海道で、2番目に広いのが東北地方の岩手県です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.54999a4c2525",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自分の県の特色を調べてまとめる活動で、最も大切な姿勢はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地図やグラフ・文章を使って、他県との違いや工夫をわかりやすく説明する"
+        },
+        {
+          "id": "c2",
+          "text": "インターネットの文章をそのままコピーして読む"
+        },
+        {
+          "id": "c3",
+          "text": "数字やグラフは使わずに感想だけを書く"
+        },
+        {
+          "id": "c4",
+          "text": "他の県と比べることを禁止する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "調査したデータや地図を根拠にし、自分たちの県の魅力や工夫を客観的にまとめることが社会科の学習で重要です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.5880569e3aa6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "都道府県の場所や地球上の位置を確かめる際に、南北の位置を示す「緯線」と東西の位置を示す何を使いますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "経線（けいせん）"
+        },
+        {
+          "id": "c2",
+          "text": "赤道（せきどう）"
+        },
+        {
+          "id": "c3",
+          "text": "子午線（しごせん）"
+        },
+        {
+          "id": "c4",
+          "text": "等高線（とうこうせん）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地球上の位置は、南北の位置を表す「緯線（緯度）」と、東西の位置を表す「経線（経度）」を使って正確に示します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.65624ac48104",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "県の地理的環境（平野や川など）と、人々の暮らしの関係について正しい説明はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水が得やすく平らな土地に人が集まり、街や交通が発達した"
+        },
+        {
+          "id": "c2",
+          "text": "山頂の近くに大きな駅や工場が集まっている"
+        },
+        {
+          "id": "c3",
+          "text": "川の近くには危険なので家を建ててはいけない"
+        },
+        {
+          "id": "c4",
+          "text": "海岸沿いには人が住めない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平野や川の周辺は生活用水や農業用水が得やすく、建物や道路を建てやすいため、古くから人が集まり都市が発展しました。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.69bcf69a3d6b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、日本海側の地域で冬に雪が多く降る主な理由は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "シベリアからの冷たい風が日本海で水分を含み、高い山脈にぶつかるから"
+        },
+        {
+          "id": "c2",
+          "text": "太平洋から温かい湿った風が吹いてくるから"
+        },
+        {
+          "id": "c3",
+          "text": "夏に雨が全く降らないから"
+        },
+        {
+          "id": "c4",
+          "text": "海が凍って風が冷たくなるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/94bbeed2555ff1c1.png"
+    },
+    "explanation": "冬の北西の季節風が日本海で水蒸気を吸い込み、奥羽山脈や日本アルプスなどの高い山にぶつかって日本海側に大雪を降らせます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.9d0bf54d6b8a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "県の「県庁所在地（県庁がある都市）」の役割や特色として、正しい説明はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交通の拠点であり、県の政治や経済・文化の中心となっている"
+        },
+        {
+          "id": "c2",
+          "text": "農業だけを行う農村地帯である"
+        },
+        {
+          "id": "c3",
+          "text": "人がほとんど住んでいない山の中にある"
+        },
+        {
+          "id": "c4",
+          "text": "毎年場所が交代で変わる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "県庁所在地は、県内の交通網が集まる主要な都市に位置し、県の行政や経済の中心として発展しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.a0f1409a5acc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、県の地理的環境として調べるものとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山・川・平野・海岸などの地形"
+        },
+        {
+          "id": "c2",
+          "text": "友だちの身長"
+        },
+        {
+          "id": "c3",
+          "text": "教室の色"
+        },
+        {
+          "id": "c4",
+          "text": "給食の味"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/589c7873d8b41ca9.png"
+    },
+    "explanation": "4年生からの社会科では、県全体の地形（山地、平野、河川、海岸など）や位置の特色を地図帳で確認します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.a1720f7a504e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「なぜこの県ではこの産業がさかんなのか」を考えるとき、結びつけて考える要素として最も適切なものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土地の地形や気候、交通などの地理的条件"
+        },
+        {
+          "id": "c2",
+          "text": "その地域の人の苗字の多さ"
+        },
+        {
+          "id": "c3",
+          "text": "学校のチャイムの音"
+        },
+        {
+          "id": "c4",
+          "text": "曜日の並び順"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「温かい気候だからミカンが育つ」「港があるから工業が栄える」のように、地理的な条件と結びつけて考えると理由が分かります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.c1f05ba9ce2f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の都道府県は全部で47あります。「都・道・府・県」の内訳として正しい組み合わせはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1都・1道・2府・43県"
+        },
+        {
+          "id": "c2",
+          "text": "1都・2道・1府・43県"
+        },
+        {
+          "id": "c3",
+          "text": "2都・1道・2府・42県"
+        },
+        {
+          "id": "c4",
+          "text": "1都・1道・4府・41県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "東京都（1都）、北海道（1道）、京都府・大阪府（2府）、および43の県を合わせて47都道府県となります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.e43294b7ecc3",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "山から平地へ出た場所にできる水はけが良い「扇状地」で、米作りより「果樹栽培」がさかんな理由は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "石や砂が多くて水がたまりにくいため"
+        },
+        {
+          "id": "c2",
+          "text": "雨が一年中降らないから"
+        },
+        {
+          "id": "c3",
+          "text": "雪が何メートルも積もるから"
+        },
+        {
+          "id": "c4",
+          "text": "田んぼを作る土地が狭いから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/57e5f76af2d2ba75.png"
+    },
+    "explanation": "扇状地は石や砂が多く水が地下へ抜けやすいため、水をためる田んぼよりも、水はけを好む果物（ぶどうや桃など）の栽培に適しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.e8aa0746fd4d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の47都道府県のうち、周りがすべて海に囲まれている「島」で構成されている県はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "沖縄県"
+        },
+        {
+          "id": "c2",
+          "text": "長野県"
+        },
+        {
+          "id": "c3",
+          "text": "群馬県"
+        },
+        {
+          "id": "c4",
+          "text": "岐阜県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "沖縄県は多くの島々からなる島嶼（とうしょ）県です。長野県や群馬県、岐阜県は海に接していない「内陸県」です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.ef439edcacb2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "本州と四国を結ぶ「本州四国連絡橋」のように、海をはさんだ地域同士をつなぐ交通網の役割は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人や物の行き来を速くし、生活や産業を便利にする"
+        },
+        {
+          "id": "c2",
+          "text": "外国からの船の進入を防ぐため"
+        },
+        {
+          "id": "c3",
+          "text": "橋の上で生活するため"
+        },
+        {
+          "id": "c4",
+          "text": "魚をとるための網をかけるため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "橋や高速道路が開通したことで、フェリーを使わずに自動車や列車で短時間で行き来できるようになり、地域の生活が便利になりました。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.f1298ed60a6f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、九州地方の一番南に位置し、屋久島や種子島などの島々も含まれる県はどこですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鹿児島県"
+        },
+        {
+          "id": "c2",
+          "text": "宮崎県"
+        },
+        {
+          "id": "c3",
+          "text": "熊本県"
+        },
+        {
+          "id": "c4",
+          "text": "福岡県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9e789c5aeacd00da.png"
+    },
+    "explanation": "鹿児島県は九州本島の最南端に位置し、桜島や屋久島・種子島などの豊かな自然や島々を有しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.fdcf3a11be69",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図帳の「縮尺（しゅくしゃく）」で、同じ範囲をより詳しく拡大して表しているのはどちらの地図でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1:25,000の地図"
+        },
+        {
+          "id": "c2",
+          "text": "1:50,000の地図"
+        },
+        {
+          "id": "c3",
+          "text": "どちらも同じ詳しさ"
+        },
+        {
+          "id": "c4",
+          "text": "地球儀"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/589c7873d8b41ca9.png"
+    },
+    "explanation": "縮尺の分母が小さい「1:25,000」の地図の方が、実際の土地を大きく拡大して細かく表示することができます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.19f7ca707ec1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家や工場で使ったあとの汚れた水（下水）をキレイにして川や海へ戻す施設はどこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下水処理場（水再生センター）"
+        },
+        {
+          "id": "c2",
+          "text": "浄水場"
+        },
+        {
+          "id": "c3",
+          "text": "ゴミ処理場"
+        },
+        {
+          "id": "c4",
+          "text": "変電所"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e78e7b9a5c123e3e.png"
+    },
+    "explanation": "下水処理場では、微生物の力を活用して水の汚れを分解・沈殿させ、きれいな水に戻してから河川や海に流します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.271ce7198b2c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、発電所で作られた高い電圧の電気を、家庭で使える電圧に変える施設は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変電所（へんでんしょ）"
+        },
+        {
+          "id": "c2",
+          "text": "浄水場"
+        },
+        {
+          "id": "c3",
+          "text": "消防署"
+        },
+        {
+          "id": "c4",
+          "text": "ガス工場"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/699232f8f659797e.png"
+    },
+    "explanation": "発電所から届く高い電圧の電気は、各地の変電所で段階的に電圧を下げることで、安全に家や学校に届けられます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.51551b427b70",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "家庭で使われる水道水のうち、一般的に消費量が最も多い用途の組み合わせはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お風呂・トイレ・洗濯"
+        },
+        {
+          "id": "c2",
+          "text": "庭の水やり・洗車"
+        },
+        {
+          "id": "c3",
+          "text": "飲用水・料理"
+        },
+        {
+          "id": "c4",
+          "text": "水槽の水替え"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "家庭での水の使い道は、お風呂（約40%）やトイレ、洗濯などが大半を占めています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.623bfe1e8015",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、着なくなった服を弟や友達に譲ったり、洗剤の詰替え容器を何度も使い続ける行動は「3R」のどれにあたりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Reuse（リユース：くり返し使う）"
+        },
+        {
+          "id": "c2",
+          "text": "Reduce（リデュース）"
+        },
+        {
+          "id": "c3",
+          "text": "Recycle（リサイクル）"
+        },
+        {
+          "id": "c4",
+          "text": "Remove（リムーブ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e78e7b9a5c123e3e.png"
+    },
+    "explanation": "捨てずにそのままの形で何度も大切に使う取り組みを「Reuse（リユース）」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.6592c4f31dfa",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、水道水や電気・ガスを家庭へいつでも安全に届けるために行われている大切な取り組みはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "専門の人々による毎日の点検・補修と24時間の監視"
+        },
+        {
+          "id": "c2",
+          "text": "壊れたときだけ新しく作り直す"
+        },
+        {
+          "id": "c3",
+          "text": "夜間はすべての供給を止める"
+        },
+        {
+          "id": "c4",
+          "text": "利用者に点検を行わせる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8c6cc6083154ae9b.png"
+    },
+    "explanation": "ライフライン（水・電気・ガス）が止まると人々の命や生活に直結するため、24時間態勢で安全監視と保守点検が行われています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.758bb774cd46",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食べ残しや買いすぎで捨てられる食べ物を減らす「食品ロス削減」が大切な理由は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食品ごみを減らし、処理に必要なエネルギーや費用を削減できるから"
+        },
+        {
+          "id": "c2",
+          "text": "お店の商品が売れなくなるから"
+        },
+        {
+          "id": "c3",
+          "text": "食べ物の味が美味しくなるから"
+        },
+        {
+          "id": "c4",
+          "text": "お腹がいっぱいになるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食品ロスを減らすことで、食品ごみの運搬・焼却費用を抑え、資源の無駄を解消できます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.7a06841472c8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回収されたペットボトルは、リサイクルされてどのような製品に生まれ変わりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "新しいペットボトルや衣類のポリエステル繊維"
+        },
+        {
+          "id": "c2",
+          "text": "ガラス瓶や焼き物"
+        },
+        {
+          "id": "c3",
+          "text": "木製の机や家具"
+        },
+        {
+          "id": "c4",
+          "text": "アルミニウムの缶"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "洗浄・粉砕されたペットボトル樹脂は、フリースなどの服や新しいボトルの原料として再生利用されます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.8430c9fbf18b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、清掃工場（ごみ焼却場）でごみを燃やす際に出る熱の有効な活用方法はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温水プールのお湯を作ったり発電を行ったりする"
+        },
+        {
+          "id": "c2",
+          "text": "空気を暖めて打ち上げ花火を上げる"
+        },
+        {
+          "id": "c3",
+          "text": "そのまま空中に逃がす"
+        },
+        {
+          "id": "c4",
+          "text": "雪を溶かすためだけに街に送る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d8e6f6ed0c339bca.png"
+    },
+    "explanation": "焼却熱を利用してサーマルリサイクルを行い、地域施設の温水供給や発電に役立てています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.8fdb055625fe",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、私たちが家庭で電気や水を無駄遣いしないように注意することのメリットは何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "二酸化炭素の排出や資源の消費を抑え、環境保護につながる"
+        },
+        {
+          "id": "c2",
+          "text": "ゲームのプレイ時間が伸びる"
+        },
+        {
+          "id": "c3",
+          "text": "水道料金が何十倍にも高くなる"
+        },
+        {
+          "id": "c4",
+          "text": "電気メーターが逆回転する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8c6cc6083154ae9b.png"
+    },
+    "explanation": "節水・節電は、発電にかかる燃料消費や浄水にかかるエネルギーを削減し、地球温暖化防止に寄与します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.9f831272b851",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ごみを燃やした後の灰や、リサイクルできないごみは最終的にどこへ運ばれて処理されますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "最終処分場（埋立地）"
+        },
+        {
+          "id": "c2",
+          "text": "宇宙"
+        },
+        {
+          "id": "c3",
+          "text": "深海"
+        },
+        {
+          "id": "c4",
+          "text": "公園の砂場"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "最終処分場は土地の限度があるため、埋め立てるごみの量を少しでも減らす取り組みが重要です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.ad563e0bd12d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ごみを減らすための「3R（スリーアール）」のうち、買い物にマイバッグを持参してレジ袋をもらわない行動はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Reduce（リデュース：ごみを減らす）"
+        },
+        {
+          "id": "c2",
+          "text": "Reuse（リユース：くり返し使う）"
+        },
+        {
+          "id": "c3",
+          "text": "Recycle（リサイクル：資源として再利用する）"
+        },
+        {
+          "id": "c4",
+          "text": "Refuse（リフューズ：買い物をやめる）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "余分な包装やレジ袋を断り、最初から出るごみそのものを減らすことを「Reduce（リデュース）」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.b6e0a6368390",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "家庭から出るごみを「燃やすごみ」「プラスチック」「ペットボトル」などに分別して出す一番の理由は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ごみを燃やす量を減らし、資源としてリサイクルするため"
+        },
+        {
+          "id": "c2",
+          "text": "ごみ収集車のかっこよさをアピールするため"
+        },
+        {
+          "id": "c3",
+          "text": "ごみ袋の重さを重くするため"
+        },
+        {
+          "id": "c4",
+          "text": "収集日を毎日変えるため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "分別収集により、プラスチックや金属、紙などを資源として再利用し、燃やしたり埋め立てたりするゴミを減らせます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.b6f9fc60c13b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "清掃工場でごみを燃やす際、ダイオキシンなどの有害物質を出さないための工夫として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "800度以上の高温で完全燃焼させ、高性能フィルターで煙をろ過する"
+        },
+        {
+          "id": "c2",
+          "text": "低温でゆっくり煙を出さずに燃やす"
+        },
+        {
+          "id": "c3",
+          "text": "水をかけながら湿らせて燃やす"
+        },
+        {
+          "id": "c4",
+          "text": "風の強い日に屋外で燃やす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "800℃以上の高温で燃やすことで有害物質の発生を防ぎ、フィルターで微細な灰を取り除いて排気しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.b7b25c6bf36e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川やダムから取った水を、消毒・ろ過して安心して飲める水道水にする施設はどこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "浄水場（じょうすいじょう）"
+        },
+        {
+          "id": "c2",
+          "text": "下水処理場"
+        },
+        {
+          "id": "c3",
+          "text": "清掃工場"
+        },
+        {
+          "id": "c4",
+          "text": "発電所"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "浄水場では、泥やゴミを取り除き、消毒を行って安全で美味しい水道水を作り、配水池や水道管を通じて家庭に送っています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.dd8a6ffe87e5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地震や台風で水道管が破損したとき、断水した避難所に飲料水を素早く届ける特別な車両は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "給水車（きゅうすいしゃ）"
+        },
+        {
+          "id": "c2",
+          "text": "パトカー"
+        },
+        {
+          "id": "c3",
+          "text": "ダンプカー"
+        },
+        {
+          "id": "c4",
+          "text": "ミキサー車"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "給水車はタンクに清浄な水を積んで出動し、災害時に人々の命を守る飲料水を配給します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.0bbc2357fb32",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、大雨で山の斜面が崩れたり土砂が流れてきたりする災害を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土砂災害（崖崩れ・土石流）"
+        },
+        {
+          "id": "c2",
+          "text": "津波"
+        },
+        {
+          "id": "c3",
+          "text": "高潮"
+        },
+        {
+          "id": "c4",
+          "text": "火災"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/be9a86f590735486.png"
+    },
+    "explanation": "長時間の大雨で地盤が緩むと、崖崩れや土石流が発生して住宅地を襲う危険があります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.1c154e13017e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "海底で大きな地震が起きたとき、海岸に押し寄せる非常に高い波を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "津波（つなみ）"
+        },
+        {
+          "id": "c2",
+          "text": "高潮（たかしお）"
+        },
+        {
+          "id": "c3",
+          "text": "三角波"
+        },
+        {
+          "id": "c4",
+          "text": "渦潮"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "海底の地盤変動で生じる津波は凄まじい破壊力を持ち、揺れを感じたら直ちに高台へ避難する必要があります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.2b9c41ef7fde",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大雨や地震のとき、自分の地域で起こりうる危険な場所や避難場所が示された地図を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ハザードマップ（防災マップ）"
+        },
+        {
+          "id": "c2",
+          "text": "住宅地図"
+        },
+        {
+          "id": "c3",
+          "text": "路線図"
+        },
+        {
+          "id": "c4",
+          "text": "絵地図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ハザードマップには、浸水予想エリアや土砂災害警戒区域、避難所の場所がわかりやすく描かれています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.36f3afc9107d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、大雨で川の水位が上昇し、堤防を越えて街に流れ込む災害は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "洪水（こうずい）災害"
+        },
+        {
+          "id": "c2",
+          "text": "干ばつ"
+        },
+        {
+          "id": "c3",
+          "text": "地震"
+        },
+        {
+          "id": "c4",
+          "text": "噴火"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/64279aeb465f9ab7.png"
+    },
+    "explanation": "降水量が河川の容量を超えると氾濫を起こし、家屋の床上浸水や道路の通行止め被害が発生します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.3fd8a94a7246",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "災害時に家族が離れ離れになった際に備え、普段から話し合っておくべき内容はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "集合する避難場所と連絡方法（災害用伝言ダイヤル171など）"
+        },
+        {
+          "id": "c2",
+          "text": "将来の夢や進路"
+        },
+        {
+          "id": "c3",
+          "text": "好きなゲームの攻略法"
+        },
+        {
+          "id": "c4",
+          "text": "明日の献立"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電話が繋がりにくくなる事態に備え、「〇〇避難所で合流する」などの決め事や伝言サービスの利用手順を確認しておきます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.553bd3f06565",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家庭に準備しておく「非常用持ち出し袋」に入れるべきものとして最も適切なセットはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "飲料水・保存食・懐中電灯・簡易トイレ・ラジオ"
+        },
+        {
+          "id": "c2",
+          "text": "おもちゃ・漫画・お菓子だけ"
+        },
+        {
+          "id": "c3",
+          "text": "教科書・筆箱・定規"
+        },
+        {
+          "id": "c4",
+          "text": "重い辞書・大きなクッション"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8d6b8ee843548d55.png"
+    },
+    "explanation": "電気や水道が止まっても数日間安全に避難生活を過ごせる非常用品を準備しておくことが重要です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.806d3cfa513d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校や地域で行われる避難訓練に参加する一番の目的は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "避難経路を実際に歩いて確認し、いざという時に落ち着いて行動するため"
+        },
+        {
+          "id": "c2",
+          "text": "友だちとおしゃべりするため"
+        },
+        {
+          "id": "c3",
+          "text": "運動のタイムを競うため"
+        },
+        {
+          "id": "c4",
+          "text": "スタンプカードを埋めるため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日頃の避難訓練でルートや危険箇所を体に覚えさせることで、実際の災害時にもパニックを防げます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.89dc99aec6f9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、災害で「自分や家族の身は自分で守る」ことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "自助（じじょ）"
+        },
+        {
+          "id": "c2",
+          "text": "共助（きょうじょ）"
+        },
+        {
+          "id": "c3",
+          "text": "公助（こうじょ）"
+        },
+        {
+          "id": "c4",
+          "text": "補助（ほじょ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/250b8c89b8311107.png"
+    },
+    "explanation": "防災は、自分を守る「自助」、地域で助け合う「共助」、行政や消防が助ける「公助」の三つの連携で成り立ちます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.99c6f881a0dc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大きな地震のあとに発生する火災を防ぐため、家庭でできる備えとして効果的なものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家具を固定し、揺れで自動遮断する「感震ブレーカー」を設置する"
+        },
+        {
+          "id": "c2",
+          "text": "部屋の中に大きなダンボールを積んでおく"
+        },
+        {
+          "id": "c3",
+          "text": "窓ガラスをすべて開けておく"
+        },
+        {
+          "id": "c4",
+          "text": "電気製品のスイッチを入れたままにする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地震時の家具転倒を防ぎ、通電火災（揺れ後の電気復旧による出火）を防ぐ感震ブレーカーが有効です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.9d2472872b2e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、災害発生時に消防・警察・自衛隊や自治体が最初に行う最優先の活動は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人命救助と被災者の安全な避難誘導"
+        },
+        {
+          "id": "c2",
+          "text": "道路の舗装工事"
+        },
+        {
+          "id": "c3",
+          "text": "観光地のPR活動"
+        },
+        {
+          "id": "c4",
+          "text": "税金の集計"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/be9a86f590735486.png"
+    },
+    "explanation": "関係機関が連携し、倒壊した建物からの救出作業や避難所への安全な誘導を優先して行います。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.a30ed7b8db27",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "テレビやスマホの緊急速報メールで流れる防災情報の主な役割は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "危険の接近を迅速に知らせ、住民の自発的な避難行動を促す"
+        },
+        {
+          "id": "c2",
+          "text": "テレビ番組の宣伝をする"
+        },
+        {
+          "id": "c3",
+          "text": "避難所のお弁当のメニューを発表する"
+        },
+        {
+          "id": "c4",
+          "text": "スマートフォンの充電を通知する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "警報や緊急地震速報、避難指示などの情報を素早く届けることで、手遅れになる前の安全確保に役立ちます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.a53d2d72e064",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大雨による川の氾濫を防ぐため、川の土手を高く頑丈にする工事は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "堤防（ていぼう）の建設"
+        },
+        {
+          "id": "c2",
+          "text": "砂防ダムの建設"
+        },
+        {
+          "id": "c3",
+          "text": "トンネルの掘削"
+        },
+        {
+          "id": "c4",
+          "text": "用水路の開削"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "堤防を設置することで、増水した川の水が市街地や農地に溢れ出るのを防ぎます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.ba2eee192f82",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校や家で大きな地震が起きたとき、直ちにとるべき安全確保行動（シェイクアウト）はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まず低く、頭を守り、動かない"
+        },
+        {
+          "id": "c2",
+          "text": "走って外へ飛び出す"
+        },
+        {
+          "id": "c3",
+          "text": "荷物をまとめてエレベーターに乗る"
+        },
+        {
+          "id": "c4",
+          "text": "大声で叫んで立ち尽くす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地震の揺れを感じたら、倒れやすい家具から離れ、机の下などで頭を優先的に保護して静止します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.c26872ada537",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、山あいの谷に建設され、土砂や大きな岩が住宅地へ流れるのを食い止める施設は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "砂防ダム（さぼうダム）"
+        },
+        {
+          "id": "c2",
+          "text": "浄水場"
+        },
+        {
+          "id": "c3",
+          "text": "変電所"
+        },
+        {
+          "id": "c4",
+          "text": "下水処理場"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7513865491af2fbd.png"
+    },
+    "explanation": "砂防ダムは山崩れで発生した土砂を受け止め、下流にある家々や道路を守る役割を果たします。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.cfdeef7b3d3d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火山の噴火によって、数百度の熱い岩石や火山灰が高速で坂を流れ下ってくる現象を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火砕流（かさいりゅう）"
+        },
+        {
+          "id": "c2",
+          "text": "溶岩流"
+        },
+        {
+          "id": "c3",
+          "text": "火山ガス"
+        },
+        {
+          "id": "c4",
+          "text": "土石流"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火砕流は時速100km以上のスピードで襲いかかるため、噴火の予兆があれば事前の避難指示に従うことが重要です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.101c9107478f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水不足に悩んでいた台地に、遠くの川から水を引いて新しい田畑を開くために作られた人工の川は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "用水路（ようすいろ）"
+        },
+        {
+          "id": "c2",
+          "text": "防波堤"
+        },
+        {
+          "id": "c3",
+          "text": "トンネル"
+        },
+        {
+          "id": "c4",
+          "text": "自然河川"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "玉川上水や見沼代用水のように、先人たちが困難な工事を経て開削した用水路により、多くの農地が潤いました。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.1c059766bea8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "伝統工芸品（陶磁器や漆器、木工品など）をこれからも残していくため、職人さんたちが行っている工夫はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "伝統技法を守りつつ、現代の生活に合った新しいデザインや製品を作る"
+        },
+        {
+          "id": "c2",
+          "text": "機械で大量生産して安く売る"
+        },
+        {
+          "id": "c3",
+          "text": "すべて海外で作るように変更する"
+        },
+        {
+          "id": "c4",
+          "text": "作るのをやめて博物館に預ける"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "手作業の技を受け継ぎながら、現代の暮らしに馴染む食器や雑貨を開発する挑戦が続けられています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.1e90312deb75",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "私たち小学生が自分の地域の伝統や文化を守るために、身近にできる第一歩は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域の祭りや文化行事に関心を持ち、積極的に参加・見学する"
+        },
+        {
+          "id": "c2",
+          "text": "伝統文化を忘れる"
+        },
+        {
+          "id": "c3",
+          "text": "他県の文化だけを調べる"
+        },
+        {
+          "id": "c4",
+          "text": "古い建物を壊す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域にどんな歴史や文化があるかを知り、行事を応援することが保存・継承の大きな力になります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.2c3982386cf9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "古い歴史的町並みを守るため、地域の住民同士で取り決めているルールの例として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "建物の高さや壁の色を揃え、伝統的な景観を壊さないようにする"
+        },
+        {
+          "id": "c2",
+          "text": "家の中に最新の家電を置かないようにする"
+        },
+        {
+          "id": "c3",
+          "text": "看板を派手なネオンサインにする"
+        },
+        {
+          "id": "c4",
+          "text": "住宅をすべてコンクリートにする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "景観保全協定などにより、歴史的な風情を残しながら生活できる工夫を重ねています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.40d9f8ab7d73",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、神楽や和太鼓、伝統舞踊のように「形はないが人の技術や表現」である文化財を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "無形文化財（むけいぶんかざい）"
+        },
+        {
+          "id": "c2",
+          "text": "有形文化財"
+        },
+        {
+          "id": "c3",
+          "text": "埋蔵文化財"
+        },
+        {
+          "id": "c4",
+          "text": "記念物"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f9c9df9de2a64c67.png"
+    },
+    "explanation": "建造物や仏像のような「有形文化財」に対し、演劇や音楽・工芸技術など形の定まらない文化の技を「無形文化財」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.583d9d97857b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、江戸時代などに海や湖の浅瀬を堤防で囲んで排水し、新しい農地（新田）を作った事業は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "干拓（かんたく）"
+        },
+        {
+          "id": "c2",
+          "text": "地すべり"
+        },
+        {
+          "id": "c3",
+          "text": "土石流"
+        },
+        {
+          "id": "c4",
+          "text": "砂防"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f9c9df9de2a64c67.png"
+    },
+    "explanation": "八郎潟の干拓などのように、浅い水域の水を取り除いて豊かな田んぼへ生まれ変わらせる事業を干拓といいます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.5ef8fceab986",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "歴史的なお城や古い町並みを保護・活用することで、地域に生まれる良い影響は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "多くの観光客が訪れ、地域の歴史を広く知ってもらい活性化する"
+        },
+        {
+          "id": "c2",
+          "text": "お店が全部閉店してしまう"
+        },
+        {
+          "id": "c3",
+          "text": "車の通行がすべて禁止になる"
+        },
+        {
+          "id": "c4",
+          "text": "新しい高層ビルが建てやすくなる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "文化財を守りながら観光資源として活用することで、地元の賑わいや歴史学習の場を作り出しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.6c3d5154d8f7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "その土地でとれる特有の食材や、保存の工夫を生かして昔から受け継がれてきた料理を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "郷土料理（きょうどりょうり）"
+        },
+        {
+          "id": "c2",
+          "text": "ファストフード"
+        },
+        {
+          "id": "c3",
+          "text": "世界料理"
+        },
+        {
+          "id": "c4",
+          "text": "レトルト食品"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "青森のせんべい汁や秋田のきりたんぽのように、気候や地元の味覚を生かして受け継がれてきたのが郷土料理です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.7f4aebfff1e0",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、昔の先人たちが用水路や開墾などの大事業を完成させる際に直面した一番の苦労は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重機がない時代に、大勢の人力と知恵で岩を削り土を運んだこと"
+        },
+        {
+          "id": "c2",
+          "text": "インターネットの通信速度が遅かったこと"
+        },
+        {
+          "id": "c3",
+          "text": "計算機が使えなかったことだけ"
+        },
+        {
+          "id": "c4",
+          "text": "作業服のデザインが決まらなかったこと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/426eb76ff2173ffe.png"
+    },
+    "explanation": "ショベルカーやダイナマイトがない時代、ツルハシやモッコを使い、地域住民と協力して命がけで工事を成し遂げました。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.93c42081c17d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域で長く受け継がれてきた建造物や祭り、伝統芸能など、大切な歴史的遺産をまとめて何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "文化財（ぶんかざい）"
+        },
+        {
+          "id": "c2",
+          "text": "特産品"
+        },
+        {
+          "id": "c3",
+          "text": "地場産業"
+        },
+        {
+          "id": "c4",
+          "text": "ライフライン"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "歴史的・芸術的な価値が高く、将来の世代に引き継ぐべき地域の宝を「文化財」として指定し保護しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.aef3fd989900",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、学校や地域で子どもたちが太鼓やお囃子を習う取り組みの目的にあてはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "伝統文化を子どもたちへ体験を通して引き継ぎ、郷土愛を育むため"
+        },
+        {
+          "id": "c2",
+          "text": "音楽のテストで点数を上げるためだけ"
+        },
+        {
+          "id": "c3",
+          "text": "プロの演奏家にするためだけ"
+        },
+        {
+          "id": "c4",
+          "text": "体力をつけるための体操として"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f9c9df9de2a64c67.png"
+    },
+    "explanation": "子どもたちが地域の伝統に触れて親しむことで、次世代へ文化を継承する意識が高まります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.bc2311fab893",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域の祭りや伝統行事の後継者が少なくなっている主な理由は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域の少子化や、若者が都市部へ引っ越して人口が減ったため"
+        },
+        {
+          "id": "c2",
+          "text": "お祭りの太鼓の音が大きすぎるから"
+        },
+        {
+          "id": "c3",
+          "text": "神輿が重すぎるから"
+        },
+        {
+          "id": "c4",
+          "text": "お祭りが毎日行われるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5f7b47d3efe2b12d.jpg"
+    },
+    "explanation": "過疎化や少子化が進む地域では、行事を支える若手が不足し、伝統の維持が大きな課題となっています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.bde1c0e3cff5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "何百年も前に先人たちが作った用水路や堤防は、現代の私たちの暮らしにどのように役立っていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "改修を重ねながら、今も農業用水や洪水防止として地域の安全と食を支えている"
+        },
+        {
+          "id": "c2",
+          "text": "今は全く使われず放置されている"
+        },
+        {
+          "id": "c3",
+          "text": "すべて道路として埋め立てられた"
+        },
+        {
+          "id": "c4",
+          "text": "観光のためだけに展示されている"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "先人の残したインフラは補修を受け継ぎながら、今日の私たちの食べ物や水害からの安全を支え続けています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.df5861037840",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域の発展に貢献した偉人や先人の功績を詳しく知ることができる身近な施設はどこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "郷土資料館・博物館"
+        },
+        {
+          "id": "c2",
+          "text": "映画館"
+        },
+        {
+          "id": "c3",
+          "text": "ゲームセンター"
+        },
+        {
+          "id": "c4",
+          "text": "大きなショッピングモール"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "郷土資料館や歴史博物館には、当時の道具や古文書、先人の足跡を示す資料が大切に保管されています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-04.e6d33c7e64c4",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域の伝統的な「祭りや年中行事」に込められている、昔の人々の願いは何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "五穀豊穣（豊作）や病気平癒（無病息災）、地域の安全"
+        },
+        {
+          "id": "c2",
+          "text": "海外旅行に行きたいという願い"
+        },
+        {
+          "id": "c3",
+          "text": "テストで100点を取りたい願い"
+        },
+        {
+          "id": "c4",
+          "text": "新しい電車を作りたい願い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5f7b47d3efe2b12d.jpg"
+    },
+    "explanation": "伝統の行事は、神様や自然の恵みに感謝し、疫病や自然災害から地域を守る祈りが受け継がれてできたものです。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.3758f364d909",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太陽光や風力、地熱など、温室効果ガスを出さずに繰り返し利用できるエネルギーを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "再生可能エネルギー"
+        },
+        {
+          "id": "c2",
+          "text": "化石燃料"
+        },
+        {
+          "id": "c3",
+          "text": "原子爆弾"
+        },
+        {
+          "id": "c4",
+          "text": "火力発電燃料"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自然の力を利用する再生可能エネルギーは、地球環境の保護と持続可能な社会作りに貢献します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.39636e663600",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域に住む外国人の人々が安全に安心して暮らせるように自治体が行っている工夫はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "防災情報や役所のお知らせを多言語（英語や中国語など）で案内する"
+        },
+        {
+          "id": "c2",
+          "text": "日本語以外を話すことを禁止する"
+        },
+        {
+          "id": "c3",
+          "text": "外国人の避難所を遠くの山奥にする"
+        },
+        {
+          "id": "c4",
+          "text": "看板をすべて取り外す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bad8af212d806043.png"
+    },
+    "explanation": "やさしい日本語や多言語での広報・避難案内を用意することで、言葉の壁を越えて住民全員の安全を守ります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.3af1f6367576",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "屋久島や白神山地などの世界自然遺産を訪れる際、自然を未来へ残すために守るべきマナーはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "植物や珍しい生き物を持ち帰らず、決められたルートを歩く"
+        },
+        {
+          "id": "c2",
+          "text": "記念に木に名前を刻む"
+        },
+        {
+          "id": "c3",
+          "text": "ごみを草むらに隠して捨てる"
+        },
+        {
+          "id": "c4",
+          "text": "指定エリア外へ自由に入り込んで遊ぶ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生態系や希少植物を保護するため、遊歩道から外れずゴミを持ち帰るなどの高い環境マナーが求められます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.58af9254e170",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国際港や国際空港がある地域で、貿易や観光が盛んになる理由は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "世界中の人や貨物を直接、短時間で大量に行き来させられるから"
+        },
+        {
+          "id": "c2",
+          "text": "日本国内の車が入れないから"
+        },
+        {
+          "id": "c3",
+          "text": "飛行機や船の運賃が無料だから"
+        },
+        {
+          "id": "c4",
+          "text": "年中無休で雨が降らないから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "港や空港は世界の国々と結ばれる日本の玄関口となり、国際的な物流や観光客の受け入れ拠点となります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.82f157d4d65b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域の特色あるまちづくりを進める際に最も大切な協力関係はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域の住民・行政・事業者が互いに協力して話し合うこと"
+        },
+        {
+          "id": "c2",
+          "text": "他県の知事一人にすべて決定してもらうこと"
+        },
+        {
+          "id": "c3",
+          "text": "何もしないで放置すること"
+        },
+        {
+          "id": "c4",
+          "text": "企業の利益だけを優先すること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/377bda97576d0089.jpg"
+    },
+    "explanation": "住んでいる人々と自治体、地元企業が目標を共有して助け合うことで、持続可能なまちづくりが実現します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.9642c4a02efa",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "特定の地域で古くから受け継がれ、その土地の原料や技術を活かして作られる産業を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地場産業（じばさんぎょう）"
+        },
+        {
+          "id": "c2",
+          "text": "先端技術産業"
+        },
+        {
+          "id": "c3",
+          "text": "重化学工業"
+        },
+        {
+          "id": "c4",
+          "text": "第三次産業"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "有田焼の焼き物や今治のタオルなど、土地の資源や歴史と結びついて栄えた地域特有の産業を地場産業といいます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.9f9622ede0f6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、森林を適切に手入れ（間伐など）して育てることで得られる環境上の効果は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土砂崩れを防ぎ、豊かな水を蓄え、CO2を吸収する"
+        },
+        {
+          "id": "c2",
+          "text": "雨を全く降らなくする"
+        },
+        {
+          "id": "c3",
+          "text": "山がすべて平地になる"
+        },
+        {
+          "id": "c4",
+          "text": "木がすべて自動で切り出される"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/076fd8ffd8d7c9c2.png"
+    },
+    "explanation": "適切に管理された森林は「緑のダム」と呼ばれ、根が土を抱えて大雨時の土砂流出を防ぎ、地球温暖化を抑制します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.a05751cbc0fb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、国際交流を学ぶときに私たちが大切にすべき姿勢として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "我が国や諸外国の国旗・文化の違いを正しく理解し、互いに尊重する"
+        },
+        {
+          "id": "c2",
+          "text": "自分の国の考え方だけを押し付ける"
+        },
+        {
+          "id": "c3",
+          "text": "外国の料理を食べないようにする"
+        },
+        {
+          "id": "c4",
+          "text": "言葉が通じない人とは関わらない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/de7c7fddf8c0fb9a.png"
+    },
+    "explanation": "国旗や伝統習慣の違いをお互いに認め合い尊重することが、平和で豊かな共生社会の土台となります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.a20f6825673e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地場産業が盛んになることで、その地域に与える良い効果は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域に新しい仕事（雇用）や観光客を生み出し、街全体が賑わう"
+        },
+        {
+          "id": "c2",
+          "text": "地域の人口が急激に減る"
+        },
+        {
+          "id": "c3",
+          "text": "自然環境が完全に破壊される"
+        },
+        {
+          "id": "c4",
+          "text": "他地域との交通が途絶える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "工房見学や体験講座を通じて観光客が集まり、職人の育成や地域経済の活性化につながります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.c5c85fbfebf8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国の「伝統的工芸品」として指定されるための主な基準として、正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100年以上の歴史があり、主に伝統的な手作業で作られていること"
+        },
+        {
+          "id": "c2",
+          "text": "昨日作られ始めた最新のプラスチック製品であること"
+        },
+        {
+          "id": "c3",
+          "text": "全自動の大型ロボット工場で作られていること"
+        },
+        {
+          "id": "c4",
+          "text": "使い捨ての紙製品であること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "長年の歴史を持ち、伝統的な技術と原材料を用いて職人の手で作られている製品が国から指定を受けます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.cccd2a23332a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国籍や文化の異なる人々が、互いの違いを認め合い対等な立場で地域で共に生きる考え方を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "多文化共生（たぶんかきょうせい）"
+        },
+        {
+          "id": "c2",
+          "text": "単一文化政策"
+        },
+        {
+          "id": "c3",
+          "text": "鎖国（さこく）"
+        },
+        {
+          "id": "c4",
+          "text": "地域限定生活"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "多文化共生とは、文化の違いを尊重しながら、地域社会の一員として助け合って生きていく概念です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.e2c978bf2b0a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地場産業の製品を日本中や世界へ発信して売り伸ばすための最新の取り組みはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Webサイトでの通販や、海外の展示会でのPR活動"
+        },
+        {
+          "id": "c2",
+          "text": "製品を秘密にして誰も見せない"
+        },
+        {
+          "id": "c3",
+          "text": "お店をすべて閉じて看板を外す"
+        },
+        {
+          "id": "c4",
+          "text": "昔の価格のまま一切売らない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d79becb54c201fb8.png"
+    },
+    "explanation": "伝統の技法で作られた製品の魅力をネットや海外展示会で紹介し、新しいファンや市場を開拓しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.fabbab73801c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、陶磁器（焼き物）の地場産業が発達した地域に共通する自然条件は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "原料となる良質な粘土（陶土）と、窯を焼く薪（木材）が得られる山がある"
+        },
+        {
+          "id": "c2",
+          "text": "広大な牧草地と牛がいること"
+        },
+        {
+          "id": "c3",
+          "text": "一年中雪が降り積もること"
+        },
+        {
+          "id": "c4",
+          "text": "海の上に浮いていること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bb03e7328ae6ec71.png"
+    },
+    "explanation": "陶磁器作りには、良質の土（陶石や粘土）と、高温の窯を燃やし続けるための豊かな森林資源が不可欠でした。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.fac578bb6079",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自然環境に配慮しながら、地域の自然や文化を専門ガイドと学んで楽しむ新しい観光形態は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "エコツアー（エコロジカル・ツーリズム）"
+        },
+        {
+          "id": "c2",
+          "text": "宇宙旅行"
+        },
+        {
+          "id": "c3",
+          "text": "弾丸ツアー"
+        },
+        {
+          "id": "c4",
+          "text": "テーマパークめぐり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "エコツアーは、希少な植物や動物の生息地に負荷を与えないよう配慮しつつ、自然の観察や学習を楽しむ観光活動です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-05.ff644662aaf5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の市町村が、外国の都市と文化・スポーツ・教育などの友好関係を深める約束を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "姉妹都市（しまいとし）・友好都市"
+        },
+        {
+          "id": "c2",
+          "text": "安全保障条約"
+        },
+        {
+          "id": "c3",
+          "text": "自由貿易協定"
+        },
+        {
+          "id": "c4",
+          "text": "領土協定"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "姉妹都市提携を結ぶことで、学生の相互訪問や文化イベントを通じた国際交流が盛んに行われます。"
+  }
+]

@@ -1,35 +1,2276 @@
 [
-  { "id": "sansu.g1.tashizan", "name": "たしざん", "subject": "sansu", "grade": 1 },
-  { "id": "sansu.g1.hikizan", "name": "ひきざん", "subject": "sansu", "grade": 1 },
-  { "id": "sansu.g1.kazu-100", "name": "100までの かず", "subject": "sansu", "grade": 1 },
-  { "id": "sansu.g2.kuku", "name": "かけ算[ざん]九九[くく]", "subject": "sansu", "grade": 2 },
-  { "id": "sansu.g2.nagasa", "name": "長[なが]さ", "subject": "sansu", "grade": 2 },
-  { "id": "sansu.g3.warizan", "name": "わり算[ざん]", "subject": "sansu", "grade": 3 },
-  { "id": "sansu.g4.okina-kazu", "name": "大[おお]きな数[かず]", "subject": "sansu", "grade": 4 },
-  { "id": "sansu.g5.wariai", "name": "割合[わりあい]", "subject": "sansu", "grade": 5 },
-  { "id": "sansu.g6.hayasa", "name": "速[はや]さ", "subject": "sansu", "grade": 6 },
-  { "id": "kokugo.g1.hiragana", "name": "ひらがな", "subject": "kokugo", "grade": 1 },
-  { "id": "kokugo.g1.kanji", "name": "1年[ねん]の漢字[かんじ]", "subject": "kokugo", "grade": 1 },
-  { "id": "kokugo.g1.joshi", "name": "助詞[じょし]・言葉[ことば]のつなぎ方[かた]", "subject": "kokugo", "grade": 1 },
-  { "id": "kokugo.g1.bun-no-kimari", "name": "文[ぶん]のきまり・書[か]き方[かた]", "subject": "kokugo", "grade": 1 },
-  { "id": "kokugo.g1.kotoba-asobi", "name": "言葉[ことば]あそび・音[おと]のかぞえ方[かた]", "subject": "kokugo", "grade": 1 },
-  { "id": "kokugo.g2.kanji", "name": "2年[ねん]の漢字[かんじ]", "subject": "kokugo", "grade": 2 },
-  { "id": "kokugo.g3.kanji", "name": "3年[ねん]の漢字[かんじ]", "subject": "kokugo", "grade": 3 },
-  { "id": "seikatsu.g1.kisetsu", "name": "きせつ", "subject": "seikatsu", "grade": 1 },
-  { "id": "seikatsu.g2.ikimono", "name": "いきもの", "subject": "seikatsu", "grade": 2 },
-  { "id": "rika.g3.hikari", "name": "光[ひかり]のせいしつ", "subject": "rika", "grade": 3 },
-  { "id": "rika.g4.mizu-no-sugata", "name": "水[みず]のすがた", "subject": "rika", "grade": 4 },
-  { "id": "rika.g5.furiko", "name": "ふりこ", "subject": "rika", "grade": 5 },
-  { "id": "rika.g6.denki", "name": "電気[でんき]", "subject": "rika", "grade": 6 },
-  { "id": "shakai.g3.machi", "name": "わたしたちの町[まち]", "subject": "shakai", "grade": 3 },
-  { "id": "shakai.g4.todofuken", "name": "都道府県[とどうふけん]", "subject": "shakai", "grade": 4 },
-  { "id": "shakai.g5.sangyo", "name": "産業[さんぎょう]", "subject": "shakai", "grade": 5 },
-  { "id": "shakai.g6.rekishi", "name": "歴史[れきし]", "subject": "shakai", "grade": 6 },
-  { "id": "eigo.g1.alphabet", "name": "アルファベット（よみかた）", "subject": "eigo", "grade": 1 },
-  { "id": "eigo.g2.alphabet-order", "name": "アルファベットの じゅんばん", "subject": "eigo", "grade": 2 },
-  { "id": "eigo.g3.alphabet-small", "name": "アルファベット（こもじ）", "subject": "eigo", "grade": 3 },
-  { "id": "eigo.g1.fruits", "name": "くだもの", "subject": "eigo", "grade": 1 },
-  { "id": "eigo.g2.animals", "name": "どうぶつ", "subject": "eigo", "grade": 2 },
-  { "id": "eigo.g3.sea", "name": "うみの いきもの", "subject": "eigo", "grade": 3 },
-  { "id": "eigo.g4.actions", "name": "うごき", "subject": "eigo", "grade": 4 }
+  {
+    "id": "sansu.g1.tashizan",
+    "name": "たしざん",
+    "subject": "sansu",
+    "grade": 1
+  },
+  {
+    "id": "sansu.g1.hikizan",
+    "name": "ひきざん",
+    "subject": "sansu",
+    "grade": 1
+  },
+  {
+    "id": "sansu.g1.kazu-100",
+    "name": "100までの かず",
+    "subject": "sansu",
+    "grade": 1
+  },
+  {
+    "id": "sansu.g2.kuku",
+    "name": "かけ算[ざん]九九[くく]",
+    "subject": "sansu",
+    "grade": 2
+  },
+  {
+    "id": "sansu.g2.nagasa",
+    "name": "長[なが]さ",
+    "subject": "sansu",
+    "grade": 2
+  },
+  {
+    "id": "sansu.g2.jikan",
+    "name": "時刻[じこく]と時間[じかん]",
+    "subject": "sansu",
+    "grade": 2
+  },
+  {
+    "id": "sansu.g2.kasa",
+    "name": "かさ",
+    "subject": "sansu",
+    "grade": 2
+  },
+  {
+    "id": "sansu.g3.warizan",
+    "name": "わり算[ざん]",
+    "subject": "sansu",
+    "grade": 3
+  },
+  {
+    "id": "sansu.g4.okina-kazu",
+    "name": "大[おお]きな数[かず]",
+    "subject": "sansu",
+    "grade": 4
+  },
+  {
+    "id": "sansu.g5.wariai",
+    "name": "割合[わりあい]",
+    "subject": "sansu",
+    "grade": 5
+  },
+  {
+    "id": "sansu.g6.hayasa",
+    "name": "速[はや]さ",
+    "subject": "sansu",
+    "grade": 6
+  },
+  {
+    "id": "kokugo.g1.hiragana",
+    "name": "ひらがな",
+    "subject": "kokugo",
+    "grade": 1
+  },
+  {
+    "id": "kokugo.g1.kanji",
+    "name": "1年[ねん]の漢字[かんじ]",
+    "subject": "kokugo",
+    "grade": 1
+  },
+  {
+    "id": "kokugo.g1.joshi",
+    "name": "助詞[じょし]・言葉[ことば]のつなぎ方[かた]",
+    "subject": "kokugo",
+    "grade": 1
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari",
+    "name": "文[ぶん]のきまり・書[か]き方[かた]",
+    "subject": "kokugo",
+    "grade": 1
+  },
+  {
+    "id": "kokugo.g1.kotoba-asobi",
+    "name": "言葉[ことば]あそび・音[おと]のかぞえ方[かた]",
+    "subject": "kokugo",
+    "grade": 1
+  },
+  {
+    "id": "kokugo.g2.kanji",
+    "name": "2年[ねん]の漢字[かんじ]",
+    "subject": "kokugo",
+    "grade": 2
+  },
+  {
+    "id": "kokugo.g3.kanji",
+    "name": "3年[ねん]の漢字[かんじ]",
+    "subject": "kokugo",
+    "grade": 3
+  },
+  {
+    "id": "seikatsu.g1.kisetsu",
+    "name": "きせつ",
+    "subject": "seikatsu",
+    "grade": 1
+  },
+  {
+    "id": "seikatsu.g2.ikimono",
+    "name": "いきもの",
+    "subject": "seikatsu",
+    "grade": 2
+  },
+  {
+    "id": "rika.g3.hikari",
+    "name": "光[ひかり]のせいしつ",
+    "subject": "rika",
+    "grade": 3
+  },
+  {
+    "id": "rika.g4.mizu-no-sugata",
+    "name": "水[みず]のすがた",
+    "subject": "rika",
+    "grade": 4
+  },
+  {
+    "id": "rika.g5.furiko",
+    "name": "ふりこ",
+    "subject": "rika",
+    "grade": 5
+  },
+  {
+    "id": "rika.g6.denki",
+    "name": "電気[でんき]",
+    "subject": "rika",
+    "grade": 6
+  },
+  {
+    "id": "shakai.g3.machi",
+    "name": "わたしたちの町[まち]",
+    "subject": "shakai",
+    "grade": 3
+  },
+  {
+    "id": "shakai.g4.todofuken",
+    "name": "都道府県[とどうふけん]",
+    "subject": "shakai",
+    "grade": 4
+  },
+  {
+    "id": "shakai.g5.sangyo",
+    "name": "産業[さんぎょう]",
+    "subject": "shakai",
+    "grade": 5
+  },
+  {
+    "id": "shakai.g6.rekishi",
+    "name": "歴史[れきし]",
+    "subject": "shakai",
+    "grade": 6
+  },
+  {
+    "id": "eigo.g1.alphabet",
+    "name": "アルファベット（よみかた）",
+    "subject": "eigo",
+    "grade": 1
+  },
+  {
+    "id": "eigo.g2.alphabet-order",
+    "name": "アルファベットの じゅんばん",
+    "subject": "eigo",
+    "grade": 2
+  },
+  {
+    "id": "eigo.g3.alphabet-small",
+    "name": "アルファベット（こもじ）",
+    "subject": "eigo",
+    "grade": 3
+  },
+  {
+    "id": "eigo.g1.fruits",
+    "name": "くだもの",
+    "subject": "eigo",
+    "grade": 1
+  },
+  {
+    "id": "eigo.g2.animals",
+    "name": "どうぶつ",
+    "subject": "eigo",
+    "grade": 2
+  },
+  {
+    "id": "eigo.g3.sea",
+    "name": "うみの いきもの",
+    "subject": "eigo",
+    "grade": 3
+  },
+  {
+    "id": "eigo.g4.actions",
+    "name": "うごき",
+    "subject": "eigo",
+    "grade": 4
+  },
+  {
+    "id": "kokugo.g1.legacy-jpn-1-1",
+    "name": "かなのきほん",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 1,
+    "legacyNode": "jpn_1_1"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-01",
+    "name": "すうじ",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 1,
+    "legacyNode": "kanji_1_01"
+  },
+  {
+    "id": "kokugo.g1.legacy-jpn-1-2",
+    "name": "かんたんな漢字",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 2,
+    "legacyNode": "jpn_1_2"
+  },
+  {
+    "id": "kokugo.g1.legacy-jpn-1-5",
+    "name": "ことばあそび",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 2,
+    "legacyNode": "jpn_1_5"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-02",
+    "name": "ひと・かぞく",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 2,
+    "legacyNode": "kanji_1_02"
+  },
+  {
+    "id": "kokugo.g1.legacy-jpn-1-3",
+    "name": "ことばのきまり",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 3,
+    "legacyNode": "jpn_1_3"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-03",
+    "name": "からだ",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 3,
+    "legacyNode": "kanji_1_03"
+  },
+  {
+    "id": "kokugo.g1.legacy-jpn-1-4",
+    "name": "ぶんの書きかた",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 4,
+    "legacyNode": "jpn_1_4"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-04",
+    "name": "しぜん",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 4,
+    "legacyNode": "kanji_1_04"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-05",
+    "name": "うごき",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 5,
+    "legacyNode": "kanji_1_05"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-06",
+    "name": "いろ・かたち",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 6,
+    "legacyNode": "kanji_1_06"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-07",
+    "name": "いきもの",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 7,
+    "legacyNode": "kanji_1_07"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-08",
+    "name": "まち・もの",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 8,
+    "legacyNode": "kanji_1_08"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-09",
+    "name": "ほうこう・じかん",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 9,
+    "legacyNode": "kanji_1_09"
+  },
+  {
+    "id": "kokugo.g1.legacy-kanji-1-10",
+    "name": "がっこう・もじ",
+    "subject": "kokugo",
+    "grade": 1,
+    "order": 10,
+    "legacyNode": "kanji_1_10"
+  },
+  {
+    "id": "kokugo.g2.legacy-jpn-2-1",
+    "name": "2年生の漢字",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 5,
+    "legacyNode": "jpn_2_1"
+  },
+  {
+    "id": "kokugo.g2.legacy-jpn-2-2",
+    "name": "おんよみ・くんよみ",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 6,
+    "legacyNode": "jpn_2_2"
+  },
+  {
+    "id": "kokugo.g2.legacy-jpn-2-3",
+    "name": "しゅごとじゅつご",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 7,
+    "legacyNode": "jpn_2_3"
+  },
+  {
+    "id": "kokugo.g2.legacy-jpn-2-5",
+    "name": "ぶんをつくろう",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 7,
+    "legacyNode": "jpn_2_5"
+  },
+  {
+    "id": "kokugo.g2.legacy-jpn-2-4",
+    "name": "ていねいなことば",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 8,
+    "legacyNode": "jpn_2_4"
+  },
+  {
+    "id": "kokugo.g2.legacy-kanji-2-01",
+    "name": "しぜん・くらし①",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 11,
+    "legacyNode": "kanji_2_01"
+  },
+  {
+    "id": "kokugo.g2.legacy-kanji-2-02",
+    "name": "いきもの・人びと",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 12,
+    "legacyNode": "kanji_2_02"
+  },
+  {
+    "id": "kokugo.g2.legacy-kanji-2-03",
+    "name": "まち・国",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 13,
+    "legacyNode": "kanji_2_03"
+  },
+  {
+    "id": "kokugo.g2.legacy-kanji-2-04",
+    "name": "学校・学び",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 14,
+    "legacyNode": "kanji_2_04"
+  },
+  {
+    "id": "kokugo.g2.legacy-kanji-2-05",
+    "name": "からだ・動き",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 15,
+    "legacyNode": "kanji_2_05"
+  },
+  {
+    "id": "kokugo.g2.legacy-kanji-2-06",
+    "name": "食べ物・日常",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 16,
+    "legacyNode": "kanji_2_06"
+  },
+  {
+    "id": "kokugo.g2.legacy-kanji-2-07",
+    "name": "乗り物・道具",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 17,
+    "legacyNode": "kanji_2_07"
+  },
+  {
+    "id": "kokugo.g2.legacy-kanji-2-08",
+    "name": "言葉・方向",
+    "subject": "kokugo",
+    "grade": 2,
+    "order": 18,
+    "legacyNode": "kanji_2_08"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-1",
+    "name": "3年生の漢字",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 9,
+    "legacyNode": "jpn_3_1"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-2",
+    "name": "へんとつくり",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 10,
+    "legacyNode": "jpn_3_2"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-3",
+    "name": "国語辞典のひき方",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 11,
+    "legacyNode": "jpn_3_3"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-4",
+    "name": "しじごとしゅうしょくご",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 12,
+    "legacyNode": "jpn_3_4"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-5",
+    "name": "国語辞典の使い方",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 12,
+    "legacyNode": "jpn_3_5"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-6",
+    "name": "漢字の音と訓",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 13,
+    "legacyNode": "jpn_3_6"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-7",
+    "name": "説明文① 段落の役割",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 14,
+    "legacyNode": "jpn_3_7"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-8",
+    "name": "漢字③",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 15,
+    "legacyNode": "jpn_3_8"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-9",
+    "name": "漢字④",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 16,
+    "legacyNode": "jpn_3_9"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-10",
+    "name": "物語② 登場人物の特徴",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 17,
+    "legacyNode": "jpn_3_10"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-11",
+    "name": "俳句",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 18,
+    "legacyNode": "jpn_3_11"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-12",
+    "name": "こそあど言葉①",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 19,
+    "legacyNode": "jpn_3_12"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-14",
+    "name": "へんとつくり①",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 20,
+    "legacyNode": "jpn_3_14"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-15",
+    "name": "ローマ字",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 21,
+    "legacyNode": "jpn_3_15"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-16",
+    "name": "修飾語①",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 22,
+    "legacyNode": "jpn_3_16"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-17",
+    "name": "ことわざ・故事成語①",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 23,
+    "legacyNode": "jpn_3_17"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-18",
+    "name": "漢字の使い分け①",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 24,
+    "legacyNode": "jpn_3_18"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-19",
+    "name": "物語③ 登場人物の気持ち",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 25,
+    "legacyNode": "jpn_3_19"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-20",
+    "name": "説明文② 文のつながり",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 26,
+    "legacyNode": "jpn_3_20"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-21",
+    "name": "慣用句",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 27,
+    "legacyNode": "jpn_3_21"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-22",
+    "name": "漢字⑤",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 28,
+    "legacyNode": "jpn_3_22"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-23",
+    "name": "漢字⑥",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 29,
+    "legacyNode": "jpn_3_23"
+  },
+  {
+    "id": "kokugo.g3.legacy-jpn-3-24",
+    "name": "短歌",
+    "subject": "kokugo",
+    "grade": 3,
+    "order": 30,
+    "legacyNode": "jpn_3_24"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-1",
+    "name": "4年生の漢字",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 13,
+    "legacyNode": "jpn_4_1"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-2",
+    "name": "つなぎ言葉",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 14,
+    "legacyNode": "jpn_4_2"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-3",
+    "name": "ことわざと慣用句",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 15,
+    "legacyNode": "jpn_4_3"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-4",
+    "name": "都道府県の漢字",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 16,
+    "legacyNode": "jpn_4_4"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-25",
+    "name": "文のつながり",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 31,
+    "legacyNode": "jpn_4_25"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-27",
+    "name": "まちがえやすい漢字",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 32,
+    "legacyNode": "jpn_4_27"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-28",
+    "name": "都道府県の漢字",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 33,
+    "legacyNode": "jpn_4_28"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-29",
+    "name": "漢字のまとめ①",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 34,
+    "legacyNode": "jpn_4_29"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-30",
+    "name": "漢字のまとめ②",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 35,
+    "legacyNode": "jpn_4_30"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-31",
+    "name": "物語「りんごどろぼう」",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 36,
+    "legacyNode": "jpn_4_31"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-32",
+    "name": "説明文「アブラコウモリ」",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 37,
+    "legacyNode": "jpn_4_32"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-33",
+    "name": "つなぎ言葉",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 38,
+    "legacyNode": "jpn_4_33"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-34",
+    "name": "短歌と俳句",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 39,
+    "legacyNode": "jpn_4_34"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-35",
+    "name": "ことわざと故事成語",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 40,
+    "legacyNode": "jpn_4_35"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-36",
+    "name": "文の組み立て",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 41,
+    "legacyNode": "jpn_4_36"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-37",
+    "name": "まとめのテスト①",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 42,
+    "legacyNode": "jpn_4_37"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-38",
+    "name": "まとめのテスト②",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 43,
+    "legacyNode": "jpn_4_38"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-39",
+    "name": "まとめのテスト③",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 44,
+    "legacyNode": "jpn_4_39"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-40",
+    "name": "まとめのテスト④",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 45,
+    "legacyNode": "jpn_4_40"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-1",
+    "name": "5年生の漢字",
+    "subject": "kokugo",
+    "grade": 5,
+    "order": 17,
+    "legacyNode": "jpn_5_1"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-2",
+    "name": "にてる言葉はんたいの言葉",
+    "subject": "kokugo",
+    "grade": 5,
+    "order": 18,
+    "legacyNode": "jpn_5_2"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-3",
+    "name": "おなじ読みの漢字",
+    "subject": "kokugo",
+    "grade": 5,
+    "order": 19,
+    "legacyNode": "jpn_5_3"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-4",
+    "name": "和語・漢語・外来語",
+    "subject": "kokugo",
+    "grade": 5,
+    "order": 20,
+    "legacyNode": "jpn_5_4"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-1",
+    "name": "6年生の漢字",
+    "subject": "kokugo",
+    "grade": 6,
+    "order": 21,
+    "legacyNode": "jpn_6_1"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-2",
+    "name": "敬語のつかい分け",
+    "subject": "kokugo",
+    "grade": 6,
+    "order": 22,
+    "legacyNode": "jpn_6_2"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-3",
+    "name": "四字熟語のせかい",
+    "subject": "kokugo",
+    "grade": 6,
+    "order": 23,
+    "legacyNode": "jpn_6_3"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-4",
+    "name": "文章のくみたて",
+    "subject": "kokugo",
+    "grade": 6,
+    "order": 24,
+    "legacyNode": "jpn_6_4"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-01",
+    "name": "身の回りの生物",
+    "subject": "rika",
+    "grade": 3,
+    "order": 1,
+    "legacyNode": "cur-1503-01"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-02",
+    "name": "植物の育ち方",
+    "subject": "rika",
+    "grade": 3,
+    "order": 2,
+    "legacyNode": "cur-1503-02"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-03",
+    "name": "こん虫の育ちと体",
+    "subject": "rika",
+    "grade": 3,
+    "order": 3,
+    "legacyNode": "cur-1503-03"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-04",
+    "name": "植物の体のつくり",
+    "subject": "rika",
+    "grade": 3,
+    "order": 4,
+    "legacyNode": "cur-1503-04"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-05",
+    "name": "光と音の性質",
+    "subject": "rika",
+    "grade": 3,
+    "order": 5,
+    "legacyNode": "cur-1503-05"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-06",
+    "name": "風とゴムの力のはたらき",
+    "subject": "rika",
+    "grade": 3,
+    "order": 6,
+    "legacyNode": "cur-1503-06"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-07",
+    "name": "太陽と地面の様子",
+    "subject": "rika",
+    "grade": 3,
+    "order": 7,
+    "legacyNode": "cur-1503-07"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-08",
+    "name": "電気の通り道",
+    "subject": "rika",
+    "grade": 3,
+    "order": 8,
+    "legacyNode": "cur-1503-08"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-09",
+    "name": "じしゃくのせいしつ",
+    "subject": "rika",
+    "grade": 3,
+    "order": 9,
+    "legacyNode": "cur-1503-09"
+  },
+  {
+    "id": "rika.g3.legacy-cur-1503-10",
+    "name": "ものと重さ",
+    "subject": "rika",
+    "grade": 3,
+    "order": 10,
+    "legacyNode": "cur-1503-10"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-01",
+    "name": "天気と気温",
+    "subject": "rika",
+    "grade": 4,
+    "order": 11,
+    "legacyNode": "cur-1504-01"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-02",
+    "name": "春の生きもの",
+    "subject": "rika",
+    "grade": 4,
+    "order": 12,
+    "legacyNode": "cur-1504-02"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-03",
+    "name": "電池のはたらき①",
+    "subject": "rika",
+    "grade": 4,
+    "order": 13,
+    "legacyNode": "cur-1504-03"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-04",
+    "name": "電池のはたらき②",
+    "subject": "rika",
+    "grade": 4,
+    "order": 14,
+    "legacyNode": "cur-1504-04"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-05",
+    "name": "とじこめた空気や水",
+    "subject": "rika",
+    "grade": 4,
+    "order": 15,
+    "legacyNode": "cur-1504-05"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-06",
+    "name": "夏の生きもの",
+    "subject": "rika",
+    "grade": 4,
+    "order": 16,
+    "legacyNode": "cur-1504-06"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-07",
+    "name": "夏の星",
+    "subject": "rika",
+    "grade": 4,
+    "order": 17,
+    "legacyNode": "cur-1504-07"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-08",
+    "name": "雨水のゆくえ①",
+    "subject": "rika",
+    "grade": 4,
+    "order": 18,
+    "legacyNode": "cur-1504-08"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-09",
+    "name": "雨水のゆくえ②",
+    "subject": "rika",
+    "grade": 4,
+    "order": 19,
+    "legacyNode": "cur-1504-09"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-10",
+    "name": "月の位置の変化",
+    "subject": "rika",
+    "grade": 4,
+    "order": 20,
+    "legacyNode": "cur-1504-10"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-11",
+    "name": "星の位置の変化",
+    "subject": "rika",
+    "grade": 4,
+    "order": 21,
+    "legacyNode": "cur-1504-11"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-12",
+    "name": "わたしたちの体と運動",
+    "subject": "rika",
+    "grade": 4,
+    "order": 22,
+    "legacyNode": "cur-1504-12"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-13",
+    "name": "秋の生きもの",
+    "subject": "rika",
+    "grade": 4,
+    "order": 23,
+    "legacyNode": "cur-1504-13"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-14",
+    "name": "ものの温度と体積①",
+    "subject": "rika",
+    "grade": 4,
+    "order": 24,
+    "legacyNode": "cur-1504-14"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-15",
+    "name": "ものの温度と体積②",
+    "subject": "rika",
+    "grade": 4,
+    "order": 25,
+    "legacyNode": "cur-1504-15"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-16",
+    "name": "冬の星",
+    "subject": "rika",
+    "grade": 4,
+    "order": 26,
+    "legacyNode": "cur-1504-16"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-17",
+    "name": "冬の生きもの",
+    "subject": "rika",
+    "grade": 4,
+    "order": 27,
+    "legacyNode": "cur-1504-17"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-18",
+    "name": "生きものの１年間",
+    "subject": "rika",
+    "grade": 4,
+    "order": 28,
+    "legacyNode": "cur-1504-18"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-19",
+    "name": "もののあたたまり方①",
+    "subject": "rika",
+    "grade": 4,
+    "order": 29,
+    "legacyNode": "cur-1504-19"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-20",
+    "name": "もののあたたまり方②",
+    "subject": "rika",
+    "grade": 4,
+    "order": 30,
+    "legacyNode": "cur-1504-20"
+  },
+  {
+    "id": "rika.g4.legacy-cur-1504-21",
+    "name": "すがたを変える水",
+    "subject": "rika",
+    "grade": 4,
+    "order": 31,
+    "legacyNode": "cur-1504-21"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-1",
+    "name": "雲と天気",
+    "subject": "rika",
+    "grade": 5,
+    "order": 32,
+    "legacyNode": "sci_5_1"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-2",
+    "name": "植物の発芽と成長",
+    "subject": "rika",
+    "grade": 5,
+    "order": 33,
+    "legacyNode": "sci_5_2"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-3",
+    "name": "魚のたんじょう",
+    "subject": "rika",
+    "grade": 5,
+    "order": 34,
+    "legacyNode": "sci_5_3"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-4",
+    "name": "植物の実や種子のでき方",
+    "subject": "rika",
+    "grade": 5,
+    "order": 35,
+    "legacyNode": "sci_5_4"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-5",
+    "name": "台風",
+    "subject": "rika",
+    "grade": 5,
+    "order": 36,
+    "legacyNode": "sci_5_5"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-6",
+    "name": "流れる水のはたらき",
+    "subject": "rika",
+    "grade": 5,
+    "order": 37,
+    "legacyNode": "sci_5_6"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-7",
+    "name": "人のたんじょう",
+    "subject": "rika",
+    "grade": 5,
+    "order": 38,
+    "legacyNode": "sci_5_7"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-8",
+    "name": "もののとけ方",
+    "subject": "rika",
+    "grade": 5,
+    "order": 39,
+    "legacyNode": "sci_5_8"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-9",
+    "name": "電磁石",
+    "subject": "rika",
+    "grade": 5,
+    "order": 40,
+    "legacyNode": "sci_5_9"
+  },
+  {
+    "id": "rika.g5.legacy-sci-5-10",
+    "name": "ふりこ",
+    "subject": "rika",
+    "grade": 5,
+    "order": 41,
+    "legacyNode": "sci_5_10"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-1",
+    "name": "ものの燃え方",
+    "subject": "rika",
+    "grade": 6,
+    "order": 42,
+    "legacyNode": "sci_6_1"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-2",
+    "name": "動物の体のつくりとはたらき①",
+    "subject": "rika",
+    "grade": 6,
+    "order": 43,
+    "legacyNode": "sci_6_2"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-3",
+    "name": "動物の体のつくりとはたらき②",
+    "subject": "rika",
+    "grade": 6,
+    "order": 44,
+    "legacyNode": "sci_6_3"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-4",
+    "name": "植物のつくりとはたらき",
+    "subject": "rika",
+    "grade": 6,
+    "order": 45,
+    "legacyNode": "sci_6_4"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-5",
+    "name": "生物のくらしと環境",
+    "subject": "rika",
+    "grade": 6,
+    "order": 46,
+    "legacyNode": "sci_6_5"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-6",
+    "name": "月と太陽",
+    "subject": "rika",
+    "grade": 6,
+    "order": 47,
+    "legacyNode": "sci_6_6"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-7",
+    "name": "大地のつくりと変化",
+    "subject": "rika",
+    "grade": 6,
+    "order": 48,
+    "legacyNode": "sci_6_7"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-8",
+    "name": "てこのはたらき",
+    "subject": "rika",
+    "grade": 6,
+    "order": 49,
+    "legacyNode": "sci_6_8"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-9",
+    "name": "水よう液",
+    "subject": "rika",
+    "grade": 6,
+    "order": 50,
+    "legacyNode": "sci_6_9"
+  },
+  {
+    "id": "rika.g6.legacy-sci-6-10",
+    "name": "電気の利用",
+    "subject": "rika",
+    "grade": 6,
+    "order": 51,
+    "legacyNode": "sci_6_10"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-1",
+    "name": "10までのかず",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 1,
+    "legacyNode": "math_1_1"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-2",
+    "name": "たしざん",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 2,
+    "legacyNode": "math_1_2"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-3",
+    "name": "ひきざん",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 3,
+    "legacyNode": "math_1_3"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-4",
+    "name": "20までのかず",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 4,
+    "legacyNode": "math_1_4"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-5",
+    "name": "10より大きいたしざん・ひきざん",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 5,
+    "legacyNode": "math_1_5"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-6",
+    "name": "100までのかず",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 6,
+    "legacyNode": "math_1_6"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-7",
+    "name": "100までのたしざん・ひきざん",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 7,
+    "legacyNode": "math_1_7"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-8",
+    "name": "とけいをよむ",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 8,
+    "legacyNode": "math_1_8"
+  },
+  {
+    "id": "sansu.g1.legacy-math-1-9",
+    "name": "たしざん・ひきざんの文書題",
+    "subject": "sansu",
+    "grade": 1,
+    "order": 9,
+    "legacyNode": "math_1_9"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-1",
+    "name": "グラフとひょう",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 10,
+    "legacyNode": "math_2_1"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-2",
+    "name": "２けた+１けたのたしざん",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 11,
+    "legacyNode": "math_2_2"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-3",
+    "name": "２けた－１けたのひきざん",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 12,
+    "legacyNode": "math_2_3"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-4",
+    "name": "２けたのひっさん",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 13,
+    "legacyNode": "math_2_4"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-5",
+    "name": "時間と生活",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 14,
+    "legacyNode": "math_2_5"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-6",
+    "name": "ながさをはかる",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 15,
+    "legacyNode": "math_2_6"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-7",
+    "name": "100より大きい数",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 16,
+    "legacyNode": "math_2_7"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-8",
+    "name": "かさをあらわす",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 17,
+    "legacyNode": "math_2_8"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-9",
+    "name": "２けたのたし算",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 18,
+    "legacyNode": "math_2_9"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-10",
+    "name": "３けた－２けたのひき算",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 19,
+    "legacyNode": "math_2_10"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-11",
+    "name": "計算のくふう",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 20,
+    "legacyNode": "math_2_11"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-12",
+    "name": "三角形と四角形",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 21,
+    "legacyNode": "math_2_12"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-13",
+    "name": "かけ算と九九",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 22,
+    "legacyNode": "math_2_13"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-14",
+    "name": "九九のきまり",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 23,
+    "legacyNode": "math_2_14"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-15",
+    "name": "メートルであらわす",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 24,
+    "legacyNode": "math_2_15"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-16",
+    "name": "1000より大きい数",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 25,
+    "legacyNode": "math_2_16"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-17",
+    "name": "分数",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 26,
+    "legacyNode": "math_2_17"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-18",
+    "name": "はこの形",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 27,
+    "legacyNode": "math_2_18"
+  },
+  {
+    "id": "sansu.g2.legacy-math-2-19",
+    "name": "文しょうだい",
+    "subject": "sansu",
+    "grade": 2,
+    "order": 28,
+    "legacyNode": "math_2_19"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-1",
+    "name": "かけ算のおさらい",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 29,
+    "legacyNode": "math_3_1"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-2",
+    "name": "わり算",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 30,
+    "legacyNode": "math_3_2"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-3",
+    "name": "九九にないわり算",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 31,
+    "legacyNode": "math_3_3"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-4",
+    "name": "３けたのたし算、ひき算（筆算）",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 32,
+    "legacyNode": "math_3_4"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-5",
+    "name": "時間と時こく",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 33,
+    "legacyNode": "math_3_5"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-6",
+    "name": "大きな数と計算",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 34,
+    "legacyNode": "math_3_6"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-7",
+    "name": "表とぼうグラフ",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 35,
+    "legacyNode": "math_3_7"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-8",
+    "name": "暗算で計算しよう",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 36,
+    "legacyNode": "math_3_8"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-9",
+    "name": "長さをあらわす：km（キロメートル）",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 37,
+    "legacyNode": "math_3_9"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-10",
+    "name": "あまりのあるわり算",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 38,
+    "legacyNode": "math_3_10"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-11",
+    "name": "かけ算の筆算（×１けた）",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 39,
+    "legacyNode": "math_3_11"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-12",
+    "name": "円と球（きゅう）",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 40,
+    "legacyNode": "math_3_12"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-13",
+    "name": "重さをあらわす",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 41,
+    "legacyNode": "math_3_13"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-14",
+    "name": "分数（３年生）",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 42,
+    "legacyNode": "math_3_14"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-15",
+    "name": "小数（３年生）",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 43,
+    "legacyNode": "math_3_15"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-16",
+    "name": "三角形",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 44,
+    "legacyNode": "math_3_16"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-17",
+    "name": "×２けたの筆算",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 45,
+    "legacyNode": "math_3_17"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-18",
+    "name": "□が入った式",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 46,
+    "legacyNode": "math_3_18"
+  },
+  {
+    "id": "sansu.g3.legacy-math-3-19",
+    "name": "文章題（３年生）",
+    "subject": "sansu",
+    "grade": 3,
+    "order": 47,
+    "legacyNode": "math_3_19"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-1",
+    "name": "大きな数（億、兆）とかけ算",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 48,
+    "legacyNode": "math_4_1"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-2",
+    "name": "折れ線グラフ",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 49,
+    "legacyNode": "math_4_2"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-3",
+    "name": "わり算の筆算",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 50,
+    "legacyNode": "math_4_3"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-4",
+    "name": "角",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 51,
+    "legacyNode": "math_4_4"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-5",
+    "name": "直線と四角形",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 52,
+    "legacyNode": "math_4_5"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-6",
+    "name": "小数（４年生）",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 53,
+    "legacyNode": "math_4_6"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-7",
+    "name": "２けたでわる わり算の筆算",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 54,
+    "legacyNode": "math_4_7"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-8",
+    "name": "計算のきまり",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 55,
+    "legacyNode": "math_4_8"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-9",
+    "name": "倍の見方と割合",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 56,
+    "legacyNode": "math_4_9"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-10",
+    "name": "がい数（およその数）",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 57,
+    "legacyNode": "math_4_10"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-11",
+    "name": "面積",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 58,
+    "legacyNode": "math_4_11"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-12",
+    "name": "小数×整数",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 59,
+    "legacyNode": "math_4_12"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-13",
+    "name": "小数÷整数",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 60,
+    "legacyNode": "math_4_13"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-14",
+    "name": "仮分数と帯分数",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 61,
+    "legacyNode": "math_4_14"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-15",
+    "name": "変わり方調べ（４年生）",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 62,
+    "legacyNode": "math_4_15"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-16",
+    "name": "直方体と立方体",
+    "subject": "sansu",
+    "grade": 4,
+    "order": 63,
+    "legacyNode": "math_4_16"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-1",
+    "name": "整数と小数",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 64,
+    "legacyNode": "math_5_1"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-2",
+    "name": "体積",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 65,
+    "legacyNode": "math_5_2"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-3",
+    "name": "比例",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 66,
+    "legacyNode": "math_5_3"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-4",
+    "name": "小数×小数",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 67,
+    "legacyNode": "math_5_4"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-5",
+    "name": "小数÷小数",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 68,
+    "legacyNode": "math_5_5"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-6",
+    "name": "合同な図形、内角",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 69,
+    "legacyNode": "math_5_6"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-7",
+    "name": "倍数と約数",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 70,
+    "legacyNode": "math_5_7"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-8",
+    "name": "約分と通分",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 71,
+    "legacyNode": "math_5_8"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-9",
+    "name": "分数と小数",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 72,
+    "legacyNode": "math_5_9"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-10",
+    "name": "三角形・四角形の面積",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 73,
+    "legacyNode": "math_5_10"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-11",
+    "name": "平均、単位量あたりの大きさ",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 74,
+    "legacyNode": "math_5_11"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-12",
+    "name": "速さ",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 75,
+    "legacyNode": "math_5_12"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-13",
+    "name": "割合",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 76,
+    "legacyNode": "math_5_13"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-14",
+    "name": "百分率と歩合",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 77,
+    "legacyNode": "math_5_14"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-15",
+    "name": "帯グラフと円グラフ",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 78,
+    "legacyNode": "math_5_15"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-16",
+    "name": "変わり方調べ（５年生）",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 79,
+    "legacyNode": "math_5_16"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-17",
+    "name": "円と多角形",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 80,
+    "legacyNode": "math_5_17"
+  },
+  {
+    "id": "sansu.g5.legacy-math-5-18",
+    "name": "角柱と円柱",
+    "subject": "sansu",
+    "grade": 5,
+    "order": 81,
+    "legacyNode": "math_5_18"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-1",
+    "name": "対称な図形",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 82,
+    "legacyNode": "math_6_1"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-2",
+    "name": "文字と式",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 83,
+    "legacyNode": "math_6_2"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-3",
+    "name": "分数のかけ算",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 84,
+    "legacyNode": "math_6_3"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-4",
+    "name": "分数のわり算",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 85,
+    "legacyNode": "math_6_4"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-5",
+    "name": "比",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 86,
+    "legacyNode": "math_6_5"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-6",
+    "name": "拡大と縮小",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 87,
+    "legacyNode": "math_6_6"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-7",
+    "name": "円の面積、立体の体積",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 88,
+    "legacyNode": "math_6_7"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-8",
+    "name": "データの調べ方",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 89,
+    "legacyNode": "math_6_8"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-9",
+    "name": "比例と反比例",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 90,
+    "legacyNode": "math_6_9"
+  },
+  {
+    "id": "sansu.g6.legacy-math-6-10",
+    "name": "場合の数",
+    "subject": "sansu",
+    "grade": 6,
+    "order": 91,
+    "legacyNode": "math_6_10"
+  },
+  {
+    "id": "seikatsu.g1.legacy-cur-1801-01",
+    "name": "学校生活と通学路",
+    "subject": "seikatsu",
+    "grade": 1,
+    "order": 1,
+    "legacyNode": "cur-1801-01"
+  },
+  {
+    "id": "seikatsu.g1.legacy-cur-1801-02",
+    "name": "家庭生活と家族",
+    "subject": "seikatsu",
+    "grade": 1,
+    "order": 2,
+    "legacyNode": "cur-1801-02"
+  },
+  {
+    "id": "seikatsu.g1.legacy-cur-1801-03",
+    "name": "生きものを育てよう",
+    "subject": "seikatsu",
+    "grade": 1,
+    "order": 3,
+    "legacyNode": "cur-1801-03"
+  },
+  {
+    "id": "seikatsu.g1.legacy-cur-1801-04",
+    "name": "季節と自然のあそび",
+    "subject": "seikatsu",
+    "grade": 1,
+    "order": 4,
+    "legacyNode": "cur-1801-04"
+  },
+  {
+    "id": "seikatsu.g2.legacy-cur-1802-01",
+    "name": "すみかと地域の人々",
+    "subject": "seikatsu",
+    "grade": 2,
+    "order": 5,
+    "legacyNode": "cur-1802-01"
+  },
+  {
+    "id": "seikatsu.g2.legacy-cur-1802-02",
+    "name": "公共の場所を大切に",
+    "subject": "seikatsu",
+    "grade": 2,
+    "order": 6,
+    "legacyNode": "cur-1802-02"
+  },
+  {
+    "id": "seikatsu.g2.legacy-cur-1802-03",
+    "name": "生きものの育ち",
+    "subject": "seikatsu",
+    "grade": 2,
+    "order": 7,
+    "legacyNode": "cur-1802-03"
+  },
+  {
+    "id": "seikatsu.g2.legacy-cur-1802-04",
+    "name": "伝え合いのたのしさ",
+    "subject": "seikatsu",
+    "grade": 2,
+    "order": 8,
+    "legacyNode": "cur-1802-04"
+  },
+  {
+    "id": "seikatsu.g2.legacy-cur-1802-05",
+    "name": "わたしの成長",
+    "subject": "seikatsu",
+    "grade": 2,
+    "order": 9,
+    "legacyNode": "cur-1802-05"
+  },
+  {
+    "id": "shakai.g3.legacy-cur-1403-01",
+    "name": "身近な地域や市区町村の様子",
+    "subject": "shakai",
+    "grade": 3,
+    "order": 1,
+    "legacyNode": "cur-1403-01"
+  },
+  {
+    "id": "shakai.g3.legacy-cur-1403-02",
+    "name": "地域に見られる生産や販売の仕事",
+    "subject": "shakai",
+    "grade": 3,
+    "order": 2,
+    "legacyNode": "cur-1403-02"
+  },
+  {
+    "id": "shakai.g3.legacy-cur-1403-03",
+    "name": "地域の安全を守る働き",
+    "subject": "shakai",
+    "grade": 3,
+    "order": 3,
+    "legacyNode": "cur-1403-03"
+  },
+  {
+    "id": "shakai.g3.legacy-cur-1403-04",
+    "name": "市の様子の移り変わり",
+    "subject": "shakai",
+    "grade": 3,
+    "order": 4,
+    "legacyNode": "cur-1403-04"
+  },
+  {
+    "id": "shakai.g4.legacy-cur-1404-01",
+    "name": "都道府県の様子",
+    "subject": "shakai",
+    "grade": 4,
+    "order": 5,
+    "legacyNode": "cur-1404-01"
+  },
+  {
+    "id": "shakai.g4.legacy-cur-1404-02",
+    "name": "人々の健康や生活環境を支える事業",
+    "subject": "shakai",
+    "grade": 4,
+    "order": 6,
+    "legacyNode": "cur-1404-02"
+  },
+  {
+    "id": "shakai.g4.legacy-cur-1404-03",
+    "name": "自然災害から人々を守る活動",
+    "subject": "shakai",
+    "grade": 4,
+    "order": 7,
+    "legacyNode": "cur-1404-03"
+  },
+  {
+    "id": "shakai.g4.legacy-cur-1404-04",
+    "name": "県内の伝統や文化，先人の働き",
+    "subject": "shakai",
+    "grade": 4,
+    "order": 8,
+    "legacyNode": "cur-1404-04"
+  },
+  {
+    "id": "shakai.g4.legacy-cur-1404-05",
+    "name": "県内の特色ある地域の様子",
+    "subject": "shakai",
+    "grade": 4,
+    "order": 9,
+    "legacyNode": "cur-1404-05"
+  },
+  {
+    "id": "shakai.g5.legacy-soc-5-1",
+    "name": "世界と日本の国土",
+    "subject": "shakai",
+    "grade": 5,
+    "order": 10,
+    "legacyNode": "soc_5_1"
+  },
+  {
+    "id": "shakai.g5.legacy-soc-5-2",
+    "name": "日本の地形と気候",
+    "subject": "shakai",
+    "grade": 5,
+    "order": 11,
+    "legacyNode": "soc_5_2"
+  },
+  {
+    "id": "shakai.g5.legacy-soc-5-3",
+    "name": "様々な土地のくらし",
+    "subject": "shakai",
+    "grade": 5,
+    "order": 12,
+    "legacyNode": "soc_5_3"
+  },
+  {
+    "id": "shakai.g5.legacy-soc-5-4",
+    "name": "日本の食料生産①",
+    "subject": "shakai",
+    "grade": 5,
+    "order": 13,
+    "legacyNode": "soc_5_4"
+  },
+  {
+    "id": "shakai.g5.legacy-soc-5-5",
+    "name": "日本の食料生産②",
+    "subject": "shakai",
+    "grade": 5,
+    "order": 14,
+    "legacyNode": "soc_5_5"
+  },
+  {
+    "id": "shakai.g5.legacy-soc-5-6",
+    "name": "日本の工業生産と交通",
+    "subject": "shakai",
+    "grade": 5,
+    "order": 15,
+    "legacyNode": "soc_5_6"
+  },
+  {
+    "id": "shakai.g5.legacy-soc-5-7",
+    "name": "情報社会とくらし",
+    "subject": "shakai",
+    "grade": 5,
+    "order": 16,
+    "legacyNode": "soc_5_7"
+  },
+  {
+    "id": "shakai.g5.legacy-soc-5-8",
+    "name": "日本の自然と環境",
+    "subject": "shakai",
+    "grade": 5,
+    "order": 17,
+    "legacyNode": "soc_5_8"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-1",
+    "name": "日本国憲法",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 18,
+    "legacyNode": "soc_6_1"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-2",
+    "name": "政治と生活",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 19,
+    "legacyNode": "soc_6_2"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-3",
+    "name": "大昔の日本",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 20,
+    "legacyNode": "soc_6_3"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-4",
+    "name": "飛鳥～平安時代",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 21,
+    "legacyNode": "soc_6_4"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-5",
+    "name": "鎌倉・室町時代",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 22,
+    "legacyNode": "soc_6_5"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-6",
+    "name": "戦国時代",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 23,
+    "legacyNode": "soc_6_6"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-7",
+    "name": "江戸時代",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 24,
+    "legacyNode": "soc_6_7"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-8",
+    "name": "幕末と明治維新",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 25,
+    "legacyNode": "soc_6_8"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-9",
+    "name": "明治・大正時代",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 26,
+    "legacyNode": "soc_6_9"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-10",
+    "name": "世界大戦～現代",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 27,
+    "legacyNode": "soc_6_10"
+  },
+  {
+    "id": "shakai.g6.legacy-soc-6-11",
+    "name": "国際社会と日本",
+    "subject": "shakai",
+    "grade": 6,
+    "order": 28,
+    "legacyNode": "soc_6_11"
+  },
+  {
+    "id": "kokugo.g4.legacy-jpn-4-5",
+    "name": "作文と原稿用紙",
+    "subject": "kokugo",
+    "grade": 4,
+    "order": 1257,
+    "legacyNode": "jpn_4_5"
+  }
 ]

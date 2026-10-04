@@ -1,6 +1,6 @@
 /*
  * バッグ（仲間と そうびを 入れる マス）。枠は にほんちずと 同じ（.nq-wmap-box）。文字は 12 / 24 / 36 / 48px だけ。
- * 1 マス 60px・6 マスで 1 だん。仲間は しんかの だんかい ぶん 横に のびる（grid-column: span 1〜3）
+ * 2Dバッグ。主人公・仲間・装備を配置し、大型ボスは複数セルを使う。
  */
 .nq-bag-left {
   min-height: 0;
@@ -31,12 +31,13 @@
 }
 .nq-bag-grid {
   display: grid;
-  grid-template-columns: repeat(6, 60px);
-  grid-auto-rows: 60px;
-  /* 3 マスの 仲間が だんの はしに 入らないときは つぎの だんへ。あいた ところは あとの 1 マスで うめる */
-  grid-auto-flow: row dense;
-  gap: 4px;
+  gap: 6px;
   justify-content: center;
+  align-content: center;
+  min-height: 252px;
+  padding: 12px;
+  border: 4px solid #31273f;
+  background: #111321;
   flex: none;
 }
 .nq-bag-cell {
@@ -67,8 +68,8 @@
   border-color: var(--nq-yellow);
 }
 .nq-bag-item img {
-  width: 48px;
-  height: 48px;
+  width: min(64px, 90%);
+  height: min(64px, 90%);
   object-fit: contain;
   image-rendering: pixelated;
 }

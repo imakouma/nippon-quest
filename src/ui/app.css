@@ -39,6 +39,13 @@
 * {
   box-sizing: border-box;
 }
+
+/* キーボード操作では、現在位置を色だけでなく太い枠でも示す。 */
+:where(button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 4px solid var(--nq-yellow);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #111525;
+}
 html,
 body {
   margin: 0;

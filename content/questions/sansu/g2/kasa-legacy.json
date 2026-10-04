@@ -1,0 +1,194 @@
+[
+  {
+    "id": "sansu.g2.kasa.legacy-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.kasa",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_8", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "1リットルは、何デシリットル でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10dL"
+        },
+        {
+          "id": "c2",
+          "text": "100dL"
+        },
+        {
+          "id": "c3",
+          "text": "1000dL"
+        },
+        {
+          "id": "c4",
+          "text": "5dL"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "デシリットルが 10こで、1Lになるよ。"
+  },
+  {
+    "id": "sansu.g2.kasa.legacy-0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.kasa",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_8", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "デシリットルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "L"
+        },
+        {
+          "id": "c2",
+          "text": "mL"
+        },
+        {
+          "id": "c3",
+          "text": "dL"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "デシリットルは、「dL」とあらわす。1L は、10dL になるんだ。"
+  },
+  {
+    "id": "sansu.g2.kasa.legacy-0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.kasa",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_8", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "ミリリットルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "L"
+        },
+        {
+          "id": "c2",
+          "text": "mL"
+        },
+        {
+          "id": "c3",
+          "text": "dL"
+        },
+        {
+          "id": "c4",
+          "text": "M"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ミリリットルは、「mL」とあらわす。1L は、1000mL になるんだ。"
+  },
+  {
+    "id": "sansu.g2.kasa.legacy-0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.kasa",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_8", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "つぎのうち、１リットルの「かさ」になるものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きな牛にゅうパック"
+        },
+        {
+          "id": "c2",
+          "text": "きゅうしょくの牛にゅう"
+        },
+        {
+          "id": "c3",
+          "text": "じどうはんばいきの かんジュース"
+        },
+        {
+          "id": "c4",
+          "text": "コンビニの小さなペットボトル"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "１リットルは、スーパーなどでうっている 大きな牛にゅうパック１本分の 「かさ」になる。"
+  },
+  {
+    "id": "sansu.g2.kasa.legacy-0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.kasa",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_8", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "1リットルは、何ミリリットル でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1000mL"
+        },
+        {
+          "id": "c2",
+          "text": "100mL"
+        },
+        {
+          "id": "c3",
+          "text": "10000mL"
+        },
+        {
+          "id": "c4",
+          "text": "500mL"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ミリリットルが 1000 こで、1Lになるよ。 1Lは 10dLなので、100mLで 1dL になる。"
+  },
+  {
+    "id": "sansu.g2.kasa.legacy-0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.kasa",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_8", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "リットルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "L"
+        },
+        {
+          "id": "c2",
+          "text": "m"
+        },
+        {
+          "id": "c3",
+          "text": "l"
+        },
+        {
+          "id": "c4",
+          "text": "M"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「かさ」をあらわすリットルは、「L」とあらわす。"
+  }
+]

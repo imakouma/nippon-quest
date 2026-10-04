@@ -695,6 +695,58 @@ const otomoNoYakamochi: MonsterDesign = {
   ],
 };
 
+const rakkyon: MonsterDesign = {
+  size: 32,
+  colors: { W: NQ.white, C: NQ.cloud, T: NQ.tan, L: NQ.leaf, G: NQ.green, V: NQ.violet, p: NQ.blush },
+  rim: { [NQ.white]: NQ.cloud, [NQ.leaf]: NQ.green },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.......VV.......',
+        '......VVV.......',
+        '.....VVVVV......',
+        '......LLL.......',
+        '......LLL.......',
+        '.....WWWWW......',
+        '....WWWWWWW.....',
+        '...WWWWWWWWW....',
+        '..WWWWWWWWWWW...',
+        '.WWWWWWWWWWWWW..',
+        '.WWWWWWoWWWWWW..',
+        '.WWWWWWWWWWWWW..',
+        '.WWWWWpWWWWWWW..',
+        '.WWWWWWWWWWWWW..',
+        '..WWWWWWWWWWW...',
+        '...WWWWWWWWW....',
+        '....WWWWWWW.....',
+        '.....WWWWW......',
+        '......WWW.......',
+        '......TTT.......',
+        '.....TTTTT......',
+        '....TT...TT.....',
+        '...TT.....TT....',
+        '..TT.......TT...',
+        '..TT.......TT...',
+        '..TT.......TT...',
+        '..TT.......TT...',
+        '..TT.......TT...',
+        '..TT.......TT...',
+      ],
+    },
+  ],
+};
+const rakkyoMusha: MonsterDesign = {
+  ...rakkyon,
+  colors: { ...rakkyon.colors, Y: NQ.gold, R: NQ.red },
+  layers: [
+    ...rakkyon.layers,
+    { mirror: true, y: 2, rows: ['....YYYYYYYY....', '...YYRRYYRRYY...', '....WWWWWWWW....'] },
+    { mirror: true, y: 14, rows: ['.WCWCWCWCWCWCWC.', '..WWWWWWWWWWWW..', '...WW......WW...'] },
+  ],
+};
+
 export const TOTTORI: Readonly<Record<string, MonsterDesign>> = {
   'tottori-nashikoron': nashikoron,
   'tottori-nijisseikishi': nijisseikishi,
@@ -702,6 +754,8 @@ export const TOTTORI: Readonly<Record<string, MonsterDesign>> = {
   'tottori-beniyoroigani': beniyoroigani,
   'tottori-perawashi': perawashi,
   'tottori-sumiewashi': sumiewashi,
+  'tottori-rakkyon': rakkyon,
+  'tottori-rakkyo-musha': rakkyoMusha,
   'tottori-midboss-dosshiri-dozo': dosshiriDozo,
   'tottori-midboss-dosshiri-dozo.field': dosshiriDozoField,
   'tottori-boss-sakyu-majin': sakyuMajin,

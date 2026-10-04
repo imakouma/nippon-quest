@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { loadContent, fetchReader, type ContentIndex } from '../core/content/loader';
+import { loadContent, bundledFetchReader, fetchReader, type ContentIndex } from '../core/content/loader';
 import { QuestionBank } from '../questions/engine/bank';
 import { PIXEL_FONT_NAME } from '../ui/fonts';
 import type { GameState } from '../core/state/schema';
@@ -32,7 +32,9 @@ export class BootScene extends Phaser.Scene {
 
   async create(): Promise<void> {
     const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-    const read = fetchReader(`${base}/content`);
+    // Dev keeps reading the source JSON files so edits appear after a reload.
+    // Production uses the generated bundle to avoid roughly 1,000 HTTP requests.
+    const read = import.meta.env.DEV ? fetchReader(`${base}/content`) : bundledFetchReader(`${base}/content`);
     try {
       const [content, dict, grades, proper]: [ContentIndex, unknown, unknown, unknown] = await Promise.all([
         loadContent(read),
@@ -49,9 +51,20 @@ export class BootScene extends Phaser.Scene {
       if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
       this.registry.set('content', content);
       this.registry.set('bank', bank);
+      this.game.events.emit('boot:progress', 0.9);
+      this.game.events.emit('boot:stage', 'もうすぐ はじまるよ…');
       await waitForFont();
+      this.game.events.emit('boot:progress', 1);
       this.game.events.emit('boot:done', { areas: content.areas.size, questions: bank.size });
       this.scene.start('Title');
+      // 500体超の図鑑画像はタイトル表示を待たせず、別チャンクを読み込んで背後で準備する。
+      // メニューを先に開いた場合も monsterMenuArtUrl 側が同じキャッシュへ必要分を生成する。
+      const warm = () =>
+        void import('./art/menuArt')
+          .then(({ warmMenuArt }) => warmMenuArt(content))
+          .catch((error) => console.warn('[boot] メニュー画像の先読みを完了できませんでした', error));
+      if ('requestIdleCallback' in window) window.requestIdleCallback(warm, { timeout: 2_000 });
+      else setTimeout(warm, 0);
     } catch (e) {
       this.game.events.emit('boot:error', e);
     }

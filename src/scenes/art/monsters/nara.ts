@@ -785,6 +785,59 @@ const shotokuTaishi: MonsterDesign = {
   ],
 };
 
+const chasenmaru: MonsterDesign = {
+  size: 32,
+  colors: { T: NQ.tan, B: NQ.brown, C: NQ.cream, G: NQ.green, L: NQ.leaf, W: NQ.white, p: NQ.blush },
+  rim: { [NQ.tan]: NQ.brown, [NQ.leaf]: NQ.green },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '......TTTT......',
+        '.....TTTTTT.....',
+        '....TTTTTTTT....',
+        '....TTBTTBTT....',
+        '.....TTTTTT.....',
+        '......TTTT......',
+        '......GGGG......',
+        '....GGGGGGGG....',
+        '...GGGGGGGGGG...',
+        '..GGGGGWWGGGGG..',
+        '..GGGGGWoGGGGG..',
+        '..GGGGGGGGGGGG..',
+        '..GGGGpGGGGGGG..',
+        '...GGGGGGGGGG...',
+        '....GGGGGGGG....',
+        '.....GGGGGG.....',
+        '......LLLL......',
+        '.....LLLLLL.....',
+        '....LL.LL.LL....',
+        '...LL..LL..LL...',
+        '..LL...LL...LL..',
+        '..LL...LL...LL..',
+        '..LL...LL...LL..',
+        '..LL...LL...LL..',
+        '..LL...LL...LL..',
+        '..LL...LL...LL..',
+        '..LL...LL...LL..',
+        '..LL...LL...LL..',
+        '..LL...LL...LL..',
+      ],
+    },
+  ],
+};
+
+const matchaArashi: MonsterDesign = {
+  ...chasenmaru,
+  colors: { ...chasenmaru.colors, M: NQ.lime, S: NQ.sprout },
+  layers: [
+    ...chasenmaru.layers,
+    { mirror: true, y: 6, rows: ['..SSSSSSSSSSSS..', '.SSMSSMSSMSSMSS.', '..SSSSSSSSSSSS..'] },
+    { mirror: true, y: 19, rows: ['.LLLLLLLLLLLLLL.', '..LL..LL..LL....', '...LL..LL..LL...'] },
+  ],
+};
+
 export const NARA: Readonly<Record<string, MonsterDesign>> = {
   'nara-happazushi': happazushi,
   'nara-happazushi-yagura': happazushiYagura,
@@ -792,6 +845,8 @@ export const NARA: Readonly<Record<string, MonsterDesign>> = {
   'nara-sumiryu': sumiryu,
   'nara-somen-tsururi': somenTsururi,
   'nara-uzumaki-somen': uzumakiSomen,
+  'nara-chasenmaru': chasenmaru,
+  'nara-matcha-arashi': matchaArashi,
   'nara-midboss-hitome-senbon': hitomeSenbon,
   'nara-midboss-hitome-senbon.field': hitomeSenbonField,
   'nara-boss-shika-daio': shikaDaio,

@@ -1,0 +1,83 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "sansu.g1.kazu-100.legacy-bunkai-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_1_1", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "3 を ふたつの かずに わけたものは どれ？",
+      "choices": [
+        { "id": "a", "text": "1 と 1" },
+        { "id": "b", "text": "1 と 2" },
+        { "id": "c", "text": "1 と 3" },
+        { "id": "d", "text": "2 と 2" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "1 と 2 を あわせると 3 に なるよ。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.legacy-bunkai-0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_1_1", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "4 を ふたつの かずに わけたものは どれ？",
+      "choices": [
+        { "id": "a", "text": "1 と 1" },
+        { "id": "b", "text": "1 と 2" },
+        { "id": "c", "text": "1 と 3" },
+        { "id": "d", "text": "2 と 3" }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "1 と 3 を あわせると 4 に なるよ。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.legacy-bunkai-0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_1_1", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "5 を ふたつの かずに わけたものは どれ？",
+      "choices": [
+        { "id": "a", "text": "1 と 3" },
+        { "id": "b", "text": "2 と 2" },
+        { "id": "c", "text": "1 と 4" },
+        { "id": "d", "text": "2 と 4" }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "1 と 4 を あわせると 5 に なるよ。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.legacy-bunkai-0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_1_1", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "6 を ふたつの おなじ かずに わけると どれ？",
+      "choices": [
+        { "id": "a", "text": "1 と 4" },
+        { "id": "b", "text": "2 と 3" },
+        { "id": "c", "text": "3 と 3" },
+        { "id": "d", "text": "3 と 4" }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "3 と 3 を あわせると 6 に なるよ。"
+  }
+]

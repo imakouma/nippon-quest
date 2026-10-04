@@ -65,6 +65,22 @@ export function fetchReader(base: string): FileReader {
   };
 }
 
+/** Browser reader optimized for game boot: one generated response instead of ~1,000 JSON requests. */
+export function bundledFetchReader(base: string): FileReader {
+  const fallback = fetchReader(base);
+  let bundlePromise: Promise<Record<string, unknown> | null> | undefined;
+  return async (rel) => {
+    bundlePromise ??= fetch(`${base}/content-bundle.json`, { cache: 'no-cache' }).then(async (res) =>
+      res.ok ? ((await res.json()) as Record<string, unknown>) : null,
+    );
+    const bundle = await bundlePromise;
+    if (!bundle) return fallback(rel);
+    if (!Object.prototype.hasOwnProperty.call(bundle, rel))
+      throw new ContentError(rel, 'content-bundle.json にファイルがありません');
+    return bundle[rel];
+  };
+}
+
 function parseWith<T>(schema: ZodTypeAny, data: unknown, file: string): T {
   const r = schema.safeParse(data);
   if (!r.success) {
@@ -82,8 +98,14 @@ async function loadKind<T extends { id: string }>(
 ): Promise<Map<string, T>> {
   const { schema, array } = contentKinds[kind];
   const map = new Map<string, T>();
-  for (const file of manifest.files[kind] ?? []) {
-    const raw = await read(file);
+  const files = manifest.files[kind] ?? [];
+  // Fetch independent content files together. Reading hundreds of monster and
+  // item files serially makes browser boot time scale with every HTTP round trip.
+  // Promise.all preserves the manifest order, so duplicate handling stays deterministic.
+  const raws = await Promise.all(files.map((file) => read(file)));
+  for (let index = 0; index < files.length; index += 1) {
+    const file = files[index]!;
+    const raw = raws[index];
     const rows: unknown[] = array ? (Array.isArray(raw) ? raw : [raw]) : [raw];
     if (array && !Array.isArray(raw)) throw new ContentError(file, '配列である必要があります');
     for (const row of rows) {

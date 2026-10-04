@@ -1,0 +1,6050 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-01.2b087bc23952",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "気温を測るとき、温度計を置く場所として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日光が直接当たる場所"
+        },
+        {
+          "id": "c2",
+          "text": "風通しがよく日光が直接当たらない場所"
+        },
+        {
+          "id": "c3",
+          "text": "地面のすぐ上"
+        },
+        {
+          "id": "c4",
+          "text": "室内の暗い場所だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風通しがよく、日光が直接当たらない場所で測ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.4c2bd8d56476",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "晴れの日に気温が上がりやすい主な理由はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "風が強いから"
+        },
+        {
+          "id": "c2",
+          "text": "太陽の光で地面や空気があたためられるから"
+        },
+        {
+          "id": "c3",
+          "text": "雨が降るから"
+        },
+        {
+          "id": "c4",
+          "text": "雲が厚いから"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽の光で地面や空気があたためられるからです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.93a3004d88af",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温度計の目盛りを読むとき、正しいやり方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "斜め上から読む"
+        },
+        {
+          "id": "c2",
+          "text": "液の面と目の高さをそろえて読む"
+        },
+        {
+          "id": "c3",
+          "text": "振ってから読む"
+        },
+        {
+          "id": "c4",
+          "text": "遠くからざっくり読む"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "液の面と目の高さをそろえて読みます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.964c7e0f5f80",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "晴れの日の気温の変化として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ほとんど変わらない"
+        },
+        {
+          "id": "c2",
+          "text": "昼ごろ高くなりやすい"
+        },
+        {
+          "id": "c3",
+          "text": "夜がいちばん高い"
+        },
+        {
+          "id": "c4",
+          "text": "朝がいちばん高いだけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "晴れの日は昼ごろ（午後2時ごろ）気温が高くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.9d6e2516a86b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "気温を測るときの地面からの高さとして近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10cmくらい"
+        },
+        {
+          "id": "c2",
+          "text": "1.2m〜1.5mくらい"
+        },
+        {
+          "id": "c3",
+          "text": "3m以上"
+        },
+        {
+          "id": "c4",
+          "text": "高さは関係ない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "だいたい1.2m〜1.5mの高さで測ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.a2f67510d152",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "一日の気温が低くなりやすいころはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正午"
+        },
+        {
+          "id": "c2",
+          "text": "日の出ごろ"
+        },
+        {
+          "id": "c3",
+          "text": "午後2時"
+        },
+        {
+          "id": "c4",
+          "text": "夕方だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "気温は日の出ごろ低くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.c16bf5d20984",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気の温度のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気温"
+        },
+        {
+          "id": "c2",
+          "text": "水温"
+        },
+        {
+          "id": "c3",
+          "text": "体温"
+        },
+        {
+          "id": "c4",
+          "text": "湿度"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "空気の温度を気温といいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.e0bbd2cf8a4f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雨の日の気温の変化として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れの日より変化が大きい"
+        },
+        {
+          "id": "c2",
+          "text": "晴れの日より変化が小さい"
+        },
+        {
+          "id": "c3",
+          "text": "必ず氷点下になる"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "雨の日は雲で日光がさえぎられ、気温の変化は小さくなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-02.19a2bbe3675f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "春の植物の育ち方として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "成長が止まる"
+        },
+        {
+          "id": "c2",
+          "text": "あたたかくなるとよく育つ"
+        },
+        {
+          "id": "c3",
+          "text": "氷の中だけで育つ"
+        },
+        {
+          "id": "c4",
+          "text": "光がなくても同じ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "あたたかくなり日光も増えるとよく育ちます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-02.2cbfeaf6a76a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "春になると動物の種類や数はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "あたたかくなると活動する動物が増えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-02.3133ae0d9f80",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植えかえのとき正しいやり方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根の土を全部落とす"
+        },
+        {
+          "id": "c2",
+          "text": "根のまわりの土をつけたまま植えかえる"
+        },
+        {
+          "id": "c3",
+          "text": "葉だけ植える"
+        },
+        {
+          "id": "c4",
+          "text": "水に浮かべる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "根を傷めないよう、土をつけたまま植えかえます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-02.6c8a33666359",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ツルレイシのたねの特徴として近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "細長くてでこぼこがある"
+        },
+        {
+          "id": "c2",
+          "text": "透明なゼリー"
+        },
+        {
+          "id": "c3",
+          "text": "金属のように光る"
+        },
+        {
+          "id": "c4",
+          "text": "とても小さな粉"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ツルレイシのたねは細長く、表面にでこぼこがあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-02.7f138d5a51a1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "4月ごろのツバメのようすとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "南へわたる準備をする"
+        },
+        {
+          "id": "c2",
+          "text": "巣をつくる"
+        },
+        {
+          "id": "c3",
+          "text": "冬眠する"
+        },
+        {
+          "id": "c4",
+          "text": "卵だけを見る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "春になるとツバメは巣をつくります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-02.937f7225dbfe",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "4月ごろヒキガエルが見られやすい場所はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の中"
+        },
+        {
+          "id": "c2",
+          "text": "木の上だけ"
+        },
+        {
+          "id": "c3",
+          "text": "砂漠"
+        },
+        {
+          "id": "c4",
+          "text": "空"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "春は水辺で産卵などが見られます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-02.a3a3c4ab179a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物が育つと子葉や葉の数はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減るだけ"
+        },
+        {
+          "id": "c2",
+          "text": "増えていく"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "なくなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "成長すると葉の数が増えていきます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-02.b8a57531ba12",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "オオカマキリのたまごについて正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冬に成虫になる"
+        },
+        {
+          "id": "c2",
+          "text": "春にたまごからよう虫がうまれる"
+        },
+        {
+          "id": "c3",
+          "text": "水の中だけ"
+        },
+        {
+          "id": "c4",
+          "text": "土の中で成虫のまま"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "春にたまごからよう虫がうまれます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.3b6f2a0371fd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんい検流計を使うとき、はじめに選ぶ目盛りはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さい方（0.5A）"
+        },
+        {
+          "id": "c2",
+          "text": "大きい方（5A）"
+        },
+        {
+          "id": "c3",
+          "text": "どちらでもよい"
+        },
+        {
+          "id": "c4",
+          "text": "使わない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "はじめに大きい目盛りで調べ、必要なら小さい目盛りにします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.ab91fb981c89",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんい検流計で調べられることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気温だけ"
+        },
+        {
+          "id": "c2",
+          "text": "電流の強さと向き"
+        },
+        {
+          "id": "c3",
+          "text": "重さだけ"
+        },
+        {
+          "id": "c4",
+          "text": "音の大きさ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "針の振れで強さと向きがわかります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.bb4cf50ece88",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回路を流れる電気のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電流"
+        },
+        {
+          "id": "c2",
+          "text": "磁力"
+        },
+        {
+          "id": "c3",
+          "text": "気温"
+        },
+        {
+          "id": "c4",
+          "text": "体積"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "回路を流れる電気を電流といいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.ceb312650c85",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池の向きを逆にするとモーターはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず止まる"
+        },
+        {
+          "id": "c2",
+          "text": "回る向きが逆になる"
+        },
+        {
+          "id": "c3",
+          "text": "明るくなる"
+        },
+        {
+          "id": "c4",
+          "text": "音だけ出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "電流の向きが逆になり、モーターの回る向きも逆になります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.d4d68c1c529c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "モーターを回すもとになるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "風だけ"
+        },
+        {
+          "id": "c2",
+          "text": "電流"
+        },
+        {
+          "id": "c3",
+          "text": "水だけ"
+        },
+        {
+          "id": "c4",
+          "text": "音"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "電流が流れるとモーターが回ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.ddaeff146f93",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんい検流計に電池だけをつないではいけない理由はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重くなるから"
+        },
+        {
+          "id": "c2",
+          "text": "大きな電流が流れて壊れることがあるから"
+        },
+        {
+          "id": "c3",
+          "text": "色が変わるから"
+        },
+        {
+          "id": "c4",
+          "text": "音が出るから"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "負荷なしでつなぐと大きな電流が流れ、壊れることがあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.df71eee3fe1a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流の強さと向きを調べる道具はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度計"
+        },
+        {
+          "id": "c2",
+          "text": "かんい検流計"
+        },
+        {
+          "id": "c3",
+          "text": "メスシリンダー"
+        },
+        {
+          "id": "c4",
+          "text": "てんびん"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かんい検流計で電流の強さと向きを調べます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.ff616c610e4d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流は電池のどちらからどちらへ流れますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "−から＋へ"
+        },
+        {
+          "id": "c2",
+          "text": "＋から−へ"
+        },
+        {
+          "id": "c3",
+          "text": "どちらでも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "流れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "電流は＋極から−極へ流れます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.0367036b43cd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回路図で豆電球を表す記号の例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "⊗のような記号"
+        },
+        {
+          "id": "c2",
+          "text": "長い直線だけ"
+        },
+        {
+          "id": "c3",
+          "text": "三角だけ"
+        },
+        {
+          "id": "c4",
+          "text": "波線だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "豆電球は丸に×などの記号で表します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.044c9f542b2d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池2こを並列につなぐと、1ことのときにくらべてモーターの速さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とても速くなる"
+        },
+        {
+          "id": "c2",
+          "text": "ほぼ同じ"
+        },
+        {
+          "id": "c3",
+          "text": "必ず止まる"
+        },
+        {
+          "id": "c4",
+          "text": "逆回転だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "並列では速さは1ことのときとほぼ同じです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.282ab00710d1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回路図でスイッチを表す記号の例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "開閉できる線の記号"
+        },
+        {
+          "id": "c2",
+          "text": "丸だけ"
+        },
+        {
+          "id": "c3",
+          "text": "四角だけ"
+        },
+        {
+          "id": "c4",
+          "text": "星印"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "スイッチは開閉できる線の記号で表します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.34a0265e47c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池2こを並列につないだとき、豆電球の明るさは1ことのくらべてどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とても明るくなる"
+        },
+        {
+          "id": "c2",
+          "text": "ほとんど同じ"
+        },
+        {
+          "id": "c3",
+          "text": "必ず消える"
+        },
+        {
+          "id": "c4",
+          "text": "点滅する"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "並列では明るさは1ことのときとほぼ同じです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.6aa7c715e72c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "直列つなぎで電流はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さくなる"
+        },
+        {
+          "id": "c2",
+          "text": "大きくなる"
+        },
+        {
+          "id": "c3",
+          "text": "0になる"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "直列では電流が大きくなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.e6b07deb3339",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池2こを直列につなぐと、1ことのときにくらべてモーターはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "遅く回る"
+        },
+        {
+          "id": "c2",
+          "text": "速く回る"
+        },
+        {
+          "id": "c3",
+          "text": "止まらないと回らない"
+        },
+        {
+          "id": "c4",
+          "text": "向きだけ変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "直列では電流が大きくなり、モーターは速く回りやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.eec98d250b09",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池の＋どうし、−どうしをつなぐつなぎ方を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "直列つなぎ"
+        },
+        {
+          "id": "c2",
+          "text": "並列つなぎ"
+        },
+        {
+          "id": "c3",
+          "text": "交差つなぎ"
+        },
+        {
+          "id": "c4",
+          "text": "開回路"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "＋どうし・−どうしをつなぐのが並列つなぎです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.f4c0d08b8776",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池を一列につなぐつなぎ方を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "並列つなぎ"
+        },
+        {
+          "id": "c2",
+          "text": "直列つなぎ"
+        },
+        {
+          "id": "c3",
+          "text": "交差つなぎ"
+        },
+        {
+          "id": "c4",
+          "text": "短路"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "＋と−を一列につなぐのが直列つなぎです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.3799f1baed23",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気と水のちがいとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どちらも同じように押しちぢめられる"
+        },
+        {
+          "id": "c2",
+          "text": "空気は押しちぢめやすく、水は押しちぢめにくい"
+        },
+        {
+          "id": "c3",
+          "text": "水だけが気体"
+        },
+        {
+          "id": "c4",
+          "text": "空気は液体"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気は押しちぢめやすく、水は押しちぢめにくいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.4f3819fd3e4a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気でっぽうでおしぼうを押すと、中の空気の体積はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "押すと空気は押しちぢめられて体積が減ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.600963ece2ca",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "注射器にとじこめた水を強く押すと、ピストンはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すぐ下がる"
+        },
+        {
+          "id": "c2",
+          "text": "ほとんど動かない"
+        },
+        {
+          "id": "c3",
+          "text": "上に飛び出す"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水は押しちぢめにくいので、ほとんど動きません。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.72d74dd61fbc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "とじこめた水の体積について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "力を加えると大きく減る"
+        },
+        {
+          "id": "c2",
+          "text": "力を加えてもほとんど変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "必ず増える"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水の体積は力を加えてもほとんど変わりません。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.7bc760cfb26e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "とじこめた空気について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "押しちぢめられない"
+        },
+        {
+          "id": "c2",
+          "text": "押しちぢめられる"
+        },
+        {
+          "id": "c3",
+          "text": "重さがない"
+        },
+        {
+          "id": "c4",
+          "text": "固体である"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "とじこめた空気は押しちぢめられます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.81675f00e86e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気を押しちぢめると、手ごたえはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "弱くなる"
+        },
+        {
+          "id": "c2",
+          "text": "強くなる"
+        },
+        {
+          "id": "c3",
+          "text": "なくなる"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "押しちぢめるほどおし返す力が強くなります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.d42bb8d5d143",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "とじこめた水について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "押しちぢめやすい"
+        },
+        {
+          "id": "c2",
+          "text": "押しちぢめにくい"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "音になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "とじこめた水は押しちぢめにくいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.f067d2db8a66",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "少し押して手を離すと、おしぼうはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そのまま"
+        },
+        {
+          "id": "c2",
+          "text": "もとに戻ろうとする"
+        },
+        {
+          "id": "c3",
+          "text": "折れる"
+        },
+        {
+          "id": "c4",
+          "text": "熱くなるだけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気にはもとにもどろうとする性質があります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-06.309d3b122c29",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏のツルレイシのようすとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "背が低くなる"
+        },
+        {
+          "id": "c2",
+          "text": "つるがのび、花が咲く"
+        },
+        {
+          "id": "c3",
+          "text": "根だけになる"
+        },
+        {
+          "id": "c4",
+          "text": "冬眠する"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "夏はつるがのび、花が咲きます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-06.471c13b400f0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "7月ごろのオオカマキリで見られやすいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまごだけ"
+        },
+        {
+          "id": "c2",
+          "text": "よう虫や成虫"
+        },
+        {
+          "id": "c3",
+          "text": "さなぎだけ水中"
+        },
+        {
+          "id": "c4",
+          "text": "成虫はいない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "夏はよう虫や成虫が見られます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-06.5cb00c159493",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "春とくらべた夏の気温はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "低くなる"
+        },
+        {
+          "id": "c2",
+          "text": "高くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "夏は気温が高くなります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-06.78dc40687631",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏のサクラの葉のようすとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉がなくなる"
+        },
+        {
+          "id": "c2",
+          "text": "葉が大きくなり数が増える"
+        },
+        {
+          "id": "c3",
+          "text": "花だけ咲く"
+        },
+        {
+          "id": "c4",
+          "text": "冬と同じ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "夏は葉が大きくなり、数も増えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-06.8b0f117e5cad",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "7月ごろのカブトムシのようすとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "成虫が樹液にあつまる"
+        },
+        {
+          "id": "c2",
+          "text": "たまごだけ水中"
+        },
+        {
+          "id": "c3",
+          "text": "葉の上でさなぎ"
+        },
+        {
+          "id": "c4",
+          "text": "冬眠だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "夏は成虫が樹液にあつまります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-06.ca8ae43f06c6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "7月ごろのヒキガエルのようすとして近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまごのひもだけ"
+        },
+        {
+          "id": "c2",
+          "text": "成虫が陸上で見られる"
+        },
+        {
+          "id": "c3",
+          "text": "空を飛ぶ"
+        },
+        {
+          "id": "c4",
+          "text": "冬眠中だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "夏は成虫が陸上で見られます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-06.f3825866490e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏の植物について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "成長が止まる"
+        },
+        {
+          "id": "c2",
+          "text": "よく成長する"
+        },
+        {
+          "id": "c3",
+          "text": "氷の中で育つ"
+        },
+        {
+          "id": "c4",
+          "text": "光がいらない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "あたたかく日照も多い夏はよく成長します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-06.f8259173bdf0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏の動物について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "種類が減る"
+        },
+        {
+          "id": "c2",
+          "text": "活動がさかんになる"
+        },
+        {
+          "id": "c3",
+          "text": "すべて冬眠する"
+        },
+        {
+          "id": "c4",
+          "text": "姿が見えない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "あたたかい夏は活動がさかんになります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.1994e8fb649f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星座早見盤を使う目的はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重さを測る"
+        },
+        {
+          "id": "c2",
+          "text": "その日その時刻に見える星座を知る"
+        },
+        {
+          "id": "c3",
+          "text": "気温を測る"
+        },
+        {
+          "id": "c4",
+          "text": "電流を測る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "見える星座の位置を知るために使います。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.1d6dd11f9a3d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の道具の名前はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度計"
+        },
+        {
+          "id": "c2",
+          "text": "星座早見盤"
+        },
+        {
+          "id": "c3",
+          "text": "方位磁針だけ"
+        },
+        {
+          "id": "c4",
+          "text": "望遠鏡だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "星座早見盤で見える星座を調べます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.65a27a66840e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏の大三角が東の空にあるとき、さそり座はどちらに見られやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北"
+        },
+        {
+          "id": "c2",
+          "text": "南の空"
+        },
+        {
+          "id": "c3",
+          "text": "真下"
+        },
+        {
+          "id": "c4",
+          "text": "見えない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "さそり座は南の空に見られやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.739679e78171",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星座早見盤で合わせるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日付と時刻"
+        },
+        {
+          "id": "c2",
+          "text": "体重と身長"
+        },
+        {
+          "id": "c3",
+          "text": "気温と湿度"
+        },
+        {
+          "id": "c4",
+          "text": "音と光"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日付と時刻を合わせて使います。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.a2484e68bb0b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏の夜空で有名な3つの明るい星がつくる形を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冬の大三角"
+        },
+        {
+          "id": "c2",
+          "text": "夏の大三角"
+        },
+        {
+          "id": "c3",
+          "text": "南十字"
+        },
+        {
+          "id": "c4",
+          "text": "北斗七星だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ベガ・アルタイル・デネブなどで夏の大三角をつくります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.ae71c44d7880",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の集まりに名前をつけたものを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "惑星"
+        },
+        {
+          "id": "c2",
+          "text": "星座"
+        },
+        {
+          "id": "c3",
+          "text": "衛星"
+        },
+        {
+          "id": "c4",
+          "text": "彗星"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "星の集まりに名前をつけたものが星座です。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.b10edd43678f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星座早見盤で西の文字を下にして持ったとき、見ている方角はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "東"
+        },
+        {
+          "id": "c2",
+          "text": "西"
+        },
+        {
+          "id": "c3",
+          "text": "北"
+        },
+        {
+          "id": "c4",
+          "text": "南"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "下にした方角の空を見ていることになります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.fbc04fe64e04",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の明るさの表し方として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すべて同じ明るさ"
+        },
+        {
+          "id": "c2",
+          "text": "1等星・2等星など等級で表す"
+        },
+        {
+          "id": "c3",
+          "text": "色だけで表す"
+        },
+        {
+          "id": "c4",
+          "text": "音で表す"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "明るい順に1等星・2等星などと表します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-08.0baae1821827",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水の流れる向きと関係が深いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地面の傾き"
+        },
+        {
+          "id": "c2",
+          "text": "雲の色"
+        },
+        {
+          "id": "c3",
+          "text": "風の音"
+        },
+        {
+          "id": "c4",
+          "text": "月の形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地面の傾きによって流れる向きが決まります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-08.38c919888283",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水の流れについて正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "傾きと関係ない"
+        },
+        {
+          "id": "c2",
+          "text": "高いところから低いところへ流れる"
+        },
+        {
+          "id": "c3",
+          "text": "いつも同じ場所にたまる"
+        },
+        {
+          "id": "c4",
+          "text": "空気と同じ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "高いところから低いところへ流れます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-08.7bb2c46060c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ量の水を入れたとき、水が早く下にたまりやすいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "校庭の土"
+        },
+        {
+          "id": "c2",
+          "text": "すな場のすな"
+        },
+        {
+          "id": "c3",
+          "text": "どちらも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "氷の上"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "すなの方がすきまが多く、水が通りやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-08.8a56a93b8111",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "粒が小さいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すな場のすな"
+        },
+        {
+          "id": "c2",
+          "text": "校庭の土"
+        },
+        {
+          "id": "c3",
+          "text": "どちらも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "氷"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "校庭の土の方が粒が小さいことが多いです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-08.99199a72b3c9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水たまりができやすい場所はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まわりより高い場所"
+        },
+        {
+          "id": "c2",
+          "text": "まわりより低い場所"
+        },
+        {
+          "id": "c3",
+          "text": "必ず坂の上"
+        },
+        {
+          "id": "c4",
+          "text": "屋根の上だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "くぼんだ低い場所に水たまりができやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-08.be7d77ff44d3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雨水はどちらへ流れますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "低いところから高いところへ"
+        },
+        {
+          "id": "c2",
+          "text": "高いところから低いところへ"
+        },
+        {
+          "id": "c3",
+          "text": "必ず真上へ"
+        },
+        {
+          "id": "c4",
+          "text": "流れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水は高いところから低いところへ流れます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-08.d25069bd2604",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "粒が大きいほど水の通りやすさはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "通りにくくなる"
+        },
+        {
+          "id": "c2",
+          "text": "通りやすくなる"
+        },
+        {
+          "id": "c3",
+          "text": "関係ない"
+        },
+        {
+          "id": "c4",
+          "text": "止まる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "粒が大きいとすきまができ、通りやすくなります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-08.e3e421d03b9b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水たまりができやすいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すな場"
+        },
+        {
+          "id": "c2",
+          "text": "校庭の土の方"
+        },
+        {
+          "id": "c3",
+          "text": "屋上だけ"
+        },
+        {
+          "id": "c4",
+          "text": "川の中"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水が通りにくい校庭の土の方にできやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.26bc215a0434",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冷たい保冷剤を入れた袋の外側に水滴がつくとき、水はどこから来ますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "袋の中"
+        },
+        {
+          "id": "c2",
+          "text": "袋の外の空気中の水蒸気"
+        },
+        {
+          "id": "c3",
+          "text": "地面"
+        },
+        {
+          "id": "c4",
+          "text": "太陽"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気中の水蒸気が冷やされて水になります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.2e8510d75451",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふたなしのコップの水が減る主な理由はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こぼれた"
+        },
+        {
+          "id": "c2",
+          "text": "水が水蒸気になって空気中に出ていく"
+        },
+        {
+          "id": "c3",
+          "text": "凍った"
+        },
+        {
+          "id": "c4",
+          "text": "消えた"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水が蒸発して水蒸気になり空気中へ出ていきます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.47cdb54c74c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "蒸発と凝結（水にもどること）について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水は姿を変える"
+        },
+        {
+          "id": "c2",
+          "text": "水はなくなる"
+        },
+        {
+          "id": "c3",
+          "text": "温度は関係ない"
+        },
+        {
+          "id": "c4",
+          "text": "空気は関係ない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水は液体・気体など姿を変えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.4ce981cc6be3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ラップでふたをしたコップの水面はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きく減る"
+        },
+        {
+          "id": "c2",
+          "text": "ほとんど減らない"
+        },
+        {
+          "id": "c3",
+          "text": "必ず増える"
+        },
+        {
+          "id": "c4",
+          "text": "色が変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "蒸発した水が外に出にくいので減りにくいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.8223848bc98d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "目に見えない気体の水を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "氷"
+        },
+        {
+          "id": "c2",
+          "text": "水蒸気"
+        },
+        {
+          "id": "c3",
+          "text": "雨水"
+        },
+        {
+          "id": "c4",
+          "text": "雲だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "気体の水を水蒸気といいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.b8df3441ba08",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふたをしたコップの内側に水滴がつきやすい理由はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外から雨が入る"
+        },
+        {
+          "id": "c2",
+          "text": "水蒸気が冷えて水にもどる"
+        },
+        {
+          "id": "c3",
+          "text": "砂が入る"
+        },
+        {
+          "id": "c4",
+          "text": "氷が降る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水蒸気が冷やされて水の粒にもどります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.d86b93449e58",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水滴が袋の外側につく理由として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "袋の中の水がにじむ"
+        },
+        {
+          "id": "c2",
+          "text": "外の水蒸気が冷やされる"
+        },
+        {
+          "id": "c3",
+          "text": "絵の具がつく"
+        },
+        {
+          "id": "c4",
+          "text": "砂がつく"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "外側の空気中の水蒸気が冷やされます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.f0bd2048b814",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水蒸気が冷えるとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消える"
+        },
+        {
+          "id": "c2",
+          "text": "水の粒（水滴）になる"
+        },
+        {
+          "id": "c3",
+          "text": "必ず氷になる"
+        },
+        {
+          "id": "c4",
+          "text": "油になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やされると水にもどります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.0e079e9bc4d2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月はどの向きに動いて見えやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西から東へ"
+        },
+        {
+          "id": "c2",
+          "text": "東から西へ"
+        },
+        {
+          "id": "c3",
+          "text": "上下だけ"
+        },
+        {
+          "id": "c4",
+          "text": "動かない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽と同じく東から西へ動いて見えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.31f6f4dba2d8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の観察記録に書くとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時刻・方角・形"
+        },
+        {
+          "id": "c2",
+          "text": "友だちの点数"
+        },
+        {
+          "id": "c3",
+          "text": "給食"
+        },
+        {
+          "id": "c4",
+          "text": "音の大きさ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "時刻・方角・形などを記録します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.405644258fa8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ日に月を観察すると、位置はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動かない"
+        },
+        {
+          "id": "c2",
+          "text": "時間がたつと動いて見える"
+        },
+        {
+          "id": "c3",
+          "text": "消えるだけ"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "時間がたつと月の位置は動いて見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.4f4e7575bf4d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月は自分で光っていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "光っている"
+        },
+        {
+          "id": "c2",
+          "text": "太陽の光を反射して見える"
+        },
+        {
+          "id": "c3",
+          "text": "電気で光る"
+        },
+        {
+          "id": "c4",
+          "text": "星と同じ熱源"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "月は太陽の光を反射して見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.794b16e15cbb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夕方と夜中では月の位置はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがう位置に見える"
+        },
+        {
+          "id": "c3",
+          "text": "見えない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず南だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "時刻が変わると見える位置も変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.9ca9f26bec56",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の見える方角は日によってどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いつも同じ"
+        },
+        {
+          "id": "c2",
+          "text": "変わる"
+        },
+        {
+          "id": "c3",
+          "text": "北だけ"
+        },
+        {
+          "id": "c4",
+          "text": "見えない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日によって見える方角や時刻が変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.ba09bd125739",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の位置の変化を調べる目的はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動くようすを知る"
+        },
+        {
+          "id": "c2",
+          "text": "重さを測る"
+        },
+        {
+          "id": "c3",
+          "text": "電流を測る"
+        },
+        {
+          "id": "c4",
+          "text": "気温だけ測る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "時間がたつとどう動くかを知るためです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.cf2c8954c155",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の位置を調べるときに使うとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "方位や建物などの目印"
+        },
+        {
+          "id": "c2",
+          "text": "音だけ"
+        },
+        {
+          "id": "c3",
+          "text": "重さ"
+        },
+        {
+          "id": "c4",
+          "text": "電流"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位や建物を目印に位置を記録します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.06e31b0b265c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の観察に向いている天気はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "厚い雲の日"
+        },
+        {
+          "id": "c2",
+          "text": "晴れた夜"
+        },
+        {
+          "id": "c3",
+          "text": "大雨の夜"
+        },
+        {
+          "id": "c4",
+          "text": "霧だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "晴れた夜は星が見えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.14b63a37f958",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北極星の見え方として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きく動く"
+        },
+        {
+          "id": "c2",
+          "text": "ほとんど動かない位置に見える"
+        },
+        {
+          "id": "c3",
+          "text": "南だけ"
+        },
+        {
+          "id": "c4",
+          "text": "昼に見える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "北極星はほとんど動かない位置に見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.56221769fa98",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の位置を記録するときに使うとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "方位や目印"
+        },
+        {
+          "id": "c2",
+          "text": "てんびん"
+        },
+        {
+          "id": "c3",
+          "text": "シリンジ"
+        },
+        {
+          "id": "c4",
+          "text": "モーター"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位や建物などを目印にします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.573724f6bdc8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の位置の変化を調べるとわかることの例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時間がたつと動くこと"
+        },
+        {
+          "id": "c2",
+          "text": "重さ"
+        },
+        {
+          "id": "c3",
+          "text": "電流"
+        },
+        {
+          "id": "c4",
+          "text": "気温だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "時間がたつと位置が変わることがわかります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.93c897e6d701",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北極星のまわりの星はどう見えやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一直線だけ"
+        },
+        {
+          "id": "c2",
+          "text": "北極星のまわりを回るように見える"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "北極星を中心に回るように見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.bf78a904668d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "多くの星はどの向きに動いて見えやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西から東へ"
+        },
+        {
+          "id": "c2",
+          "text": "東から西へ"
+        },
+        {
+          "id": "c3",
+          "text": "上下だけ"
+        },
+        {
+          "id": "c4",
+          "text": "不动"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "東から西へ動いて見えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.d7b450ec2247",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ夜に星を観察すると、位置はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動かない"
+        },
+        {
+          "id": "c2",
+          "text": "時間がたつと動いて見える"
+        },
+        {
+          "id": "c3",
+          "text": "消えるだけ"
+        },
+        {
+          "id": "c4",
+          "text": "音が出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "星も時間がたつと動いて見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.e60ff2cacc91",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星が動いて見える主な理由に近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "星が走っている"
+        },
+        {
+          "id": "c2",
+          "text": "地球が自転している"
+        },
+        {
+          "id": "c3",
+          "text": "風が吹く"
+        },
+        {
+          "id": "c4",
+          "text": "雲が押す"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "地球の自転により星が動いて見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-12.31f2ee594417",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "骨と骨のつなぎ目を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "筋肉"
+        },
+        {
+          "id": "c2",
+          "text": "関節"
+        },
+        {
+          "id": "c3",
+          "text": "血管"
+        },
+        {
+          "id": "c4",
+          "text": "神経だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "骨と骨のつなぎ目が関節です。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-12.38c5ed1aaf60",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "胸の骨の役割として近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "内臓を守る"
+        },
+        {
+          "id": "c2",
+          "text": "光を集める"
+        },
+        {
+          "id": "c3",
+          "text": "音を出す"
+        },
+        {
+          "id": "c4",
+          "text": "水を吸う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "胸の骨は心臓や肺などを守ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-12.405b54ddb6d5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "腕を曲げるとき、筋肉はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "何も起きない"
+        },
+        {
+          "id": "c2",
+          "text": "縮んだりゆるんだりする"
+        },
+        {
+          "id": "c3",
+          "text": "骨が消える"
+        },
+        {
+          "id": "c4",
+          "text": "関節がなくなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "筋肉の収縮と弛緩で動きます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-12.461384f9defd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "骨と筋肉の関係として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "別々に動くだけ"
+        },
+        {
+          "id": "c2",
+          "text": "筋肉が骨を動かして運動する"
+        },
+        {
+          "id": "c3",
+          "text": "骨だけ動く"
+        },
+        {
+          "id": "c4",
+          "text": "筋肉は不要"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "筋肉が骨を引っ張って運動します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-12.6d1f16fbd776",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "腕を曲げたりのばしたりできるのはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "関節があるから"
+        },
+        {
+          "id": "c2",
+          "text": "骨が溶けるから"
+        },
+        {
+          "id": "c3",
+          "text": "皮膚だけ"
+        },
+        {
+          "id": "c4",
+          "text": "電気が流れるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "関節があるので曲げのばしができます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-12.804a30f02216",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "運動するとき大切なかたちはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "骨・関節・筋肉が協力する"
+        },
+        {
+          "id": "c2",
+          "text": "髪だけ"
+        },
+        {
+          "id": "c3",
+          "text": "つめだけ"
+        },
+        {
+          "id": "c4",
+          "text": "汗だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "骨・関節・筋肉が協力して動きます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-12.9e2f0c5b14b5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "体を動かすときに働くものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "筋肉"
+        },
+        {
+          "id": "c2",
+          "text": "つめ"
+        },
+        {
+          "id": "c3",
+          "text": "髪"
+        },
+        {
+          "id": "c4",
+          "text": "歯だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "筋肉が縮んだりゆるんだりして体を動かします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-12.f99da9a882bb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "体を支え、形を保つものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "骨"
+        },
+        {
+          "id": "c2",
+          "text": "髪"
+        },
+        {
+          "id": "c3",
+          "text": "つめ"
+        },
+        {
+          "id": "c4",
+          "text": "汗"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "骨が体を支え、形を保ちます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-13.01a4b47a22c0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "渡り鳥について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "秋に移動するものがいる"
+        },
+        {
+          "id": "c2",
+          "text": "動かない"
+        },
+        {
+          "id": "c3",
+          "text": "冬だけ来る"
+        },
+        {
+          "id": "c4",
+          "text": "昼間だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "秋に暖かい土地へわたる鳥がいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-13.18100477df93",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "秋の生きもの全体の特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "季節に合わせて生活が変わる"
+        },
+        {
+          "id": "c2",
+          "text": "季節と無関係"
+        },
+        {
+          "id": "c3",
+          "text": "すべて冬眠"
+        },
+        {
+          "id": "c4",
+          "text": "すべて開花"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "季節の変化に合わせて生活が変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-13.24313c9f106a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "秋の動物のようすとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冬の準備をするものがいる"
+        },
+        {
+          "id": "c2",
+          "text": "すべて夏と同じ"
+        },
+        {
+          "id": "c3",
+          "text": "すべて消える"
+        },
+        {
+          "id": "c4",
+          "text": "南極へ行くだけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "冬に備えて食べ物をためるなどが見られます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-13.38c4a227a40e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "秋の気温はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "夏より高くなる"
+        },
+        {
+          "id": "c2",
+          "text": "夏より低くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "秋は夏より気温が下がります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-13.715e3e5c62e3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "秋になるとこん虫はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増えるだけ"
+        },
+        {
+          "id": "c2",
+          "text": "減ったり成虫が見られにくくなるものがある"
+        },
+        {
+          "id": "c3",
+          "text": "すべて卵だけ"
+        },
+        {
+          "id": "c4",
+          "text": "水中だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "涼しくなり、見られるこん虫が減ることもあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-13.7416ae78d211",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "秋の植物のようすとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉が赤や黄色に変わるものがある"
+        },
+        {
+          "id": "c2",
+          "text": "夏と同じ緑だけ"
+        },
+        {
+          "id": "c3",
+          "text": "すべて花が咲く"
+        },
+        {
+          "id": "c4",
+          "text": "氷に包まれる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "秋は紅葉など葉の色が変わるものがあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-13.791e489b88ad",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "秋の観察で記録するとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "色・形・気温など"
+        },
+        {
+          "id": "c2",
+          "text": "算数の答え"
+        },
+        {
+          "id": "c3",
+          "text": "給食"
+        },
+        {
+          "id": "c4",
+          "text": "座席"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "色や形、気温などを記録します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-13.ee652373ec82",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "秋に見られやすい植物の変化はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "実がなる・葉が落ちる"
+        },
+        {
+          "id": "c2",
+          "text": "冬芽だけ"
+        },
+        {
+          "id": "c3",
+          "text": "すべて枯れて消える"
+        },
+        {
+          "id": "c4",
+          "text": "発芽だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "実がなったり葉が落ちたりします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.1ec7274f2cc2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属を冷やすと体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る（ちぢむ）"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やすとちぢんで体積が減ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.2b3787da1435",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温度によって体積が変わることを調べる道具はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度計"
+        },
+        {
+          "id": "c2",
+          "text": "方位磁針"
+        },
+        {
+          "id": "c3",
+          "text": "虫めがねだけ"
+        },
+        {
+          "id": "c4",
+          "text": "モーター"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度計で温度を測りながら調べます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.46dc44de466c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水を温めると体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える"
+        },
+        {
+          "id": "c3",
+          "text": "必ず氷になる"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水も温めると体積が増えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.4d2d857bd8f8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属を温めると体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える（ふくらむ）"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "金属は温めるとふくらみ、体積が増えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.57906082a8c8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水の温度と体積の関係を調べるとき使うものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "フラスコや温度計など"
+        },
+        {
+          "id": "c2",
+          "text": "磁石だけ"
+        },
+        {
+          "id": "c3",
+          "text": "電池だけ"
+        },
+        {
+          "id": "c4",
+          "text": "星座早見盤"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "容器と温度計などを使って調べます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.61961a25bc5d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属の棒を温めたときの変化として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "短くなる"
+        },
+        {
+          "id": "c2",
+          "text": "長くなることがある"
+        },
+        {
+          "id": "c3",
+          "text": "重さが0になる"
+        },
+        {
+          "id": "c4",
+          "text": "磁石になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "温めると伸びることがあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.b3a544eba604",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温めた水を冷やすと体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "油になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やすと体積は減りやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.e5c7dc0daa15",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ量の水でも温度が違うとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体積が違うことがある"
+        },
+        {
+          "id": "c2",
+          "text": "必ず同じ体積"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ違う"
+        },
+        {
+          "id": "c4",
+          "text": "重さだけ0"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度によって体積が変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.1cb7157dbdcf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温度と体積の関係として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度が変わると体積も変わりやすい"
+        },
+        {
+          "id": "c2",
+          "text": "無関係"
+        },
+        {
+          "id": "c3",
+          "text": "重さだけ変わる"
+        },
+        {
+          "id": "c4",
+          "text": "音だけ変わる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度の変化で体積も変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.57d45ff216b9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気を温めると体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える（ふくらむ）"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "凍る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気は温めると大きくふくらみます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.5821980d1bf6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気を冷やすと体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "水になるだけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やすとちぢみます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.78b7afad36fd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石けん膜をつけた容器の空気を温めるとどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "へこむ"
+        },
+        {
+          "id": "c2",
+          "text": "ふくらむ"
+        },
+        {
+          "id": "c3",
+          "text": "色が消える"
+        },
+        {
+          "id": "c4",
+          "text": "音だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気の体積が増えて膜がふくらみます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.9043fa2674b7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物を温めると体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える"
+        },
+        {
+          "id": "c3",
+          "text": "必ず同じ"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "多くの物は温めると体積が増えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.9b63efae9a35",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気・水・金属で、温めたときの体積の変化が大きいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "金属"
+        },
+        {
+          "id": "c2",
+          "text": "空気"
+        },
+        {
+          "id": "c3",
+          "text": "どれも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "水だけ変化しない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "気体の空気がいちばん変化しやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.cb73f7fe1894",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物を冷やすと体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やすと体積は減りやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.f640e124c0d6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "実験で大切なかんさつはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度と体積の変化"
+        },
+        {
+          "id": "c2",
+          "text": "友だちの点数"
+        },
+        {
+          "id": "c3",
+          "text": "給食"
+        },
+        {
+          "id": "c4",
+          "text": "座席"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度を変え、体積の変化をかんさつします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.00663db7499d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星座早見盤は冬の星でも使えますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "使えない"
+        },
+        {
+          "id": "c2",
+          "text": "日付と時刻を合わせれば使える"
+        },
+        {
+          "id": "c3",
+          "text": "夏だけ"
+        },
+        {
+          "id": "c4",
+          "text": "昼だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "季節に合わせて日付・時刻を合わせます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.2152ca71a8c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の星座の例として近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オリオン座など"
+        },
+        {
+          "id": "c2",
+          "text": "さそり座だけ"
+        },
+        {
+          "id": "c3",
+          "text": "夏の大三角だけ"
+        },
+        {
+          "id": "c4",
+          "text": "見えない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "オリオン座などは冬の代表的な星座です。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.34795d5a9b29",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の大三角をつくる明るい星の特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とても暗い"
+        },
+        {
+          "id": "c2",
+          "text": "明るい1等星などが多い"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ"
+        },
+        {
+          "id": "c4",
+          "text": "動く惑星だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "明るい星で三角形をつくります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.37c9856c8f52",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の夜空で有名な明るい星の三角形を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "夏の大三角"
+        },
+        {
+          "id": "c2",
+          "text": "冬の大三角"
+        },
+        {
+          "id": "c3",
+          "text": "秋の四角"
+        },
+        {
+          "id": "c4",
+          "text": "春の線"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冬の大三角が見られます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.4a6165f9579a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬と夏で見える星座はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まったく同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがう星座が見える"
+        },
+        {
+          "id": "c3",
+          "text": "星はない"
+        },
+        {
+          "id": "c4",
+          "text": "月だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "季節によって見える星座がちがいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.985be956689d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の観察記録に書くとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日付・時刻・見える星座"
+        },
+        {
+          "id": "c2",
+          "text": "算数"
+        },
+        {
+          "id": "c3",
+          "text": "給食"
+        },
+        {
+          "id": "c4",
+          "text": "体重"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日付・時刻・星座名などを書きます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.ac59f167ac2a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の夜空の観察の注意はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "暖かくして安全に観察する"
+        },
+        {
+          "id": "c2",
+          "text": "裸足で長く立つ"
+        },
+        {
+          "id": "c3",
+          "text": "車道の真ん中"
+        },
+        {
+          "id": "c4",
+          "text": "目を閉じる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "寒さ対策をして安全に観察します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.efcfc7779ced",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の星が見えやすい条件はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "厚い雲"
+        },
+        {
+          "id": "c2",
+          "text": "晴れた寒い夜"
+        },
+        {
+          "id": "c3",
+          "text": "大雨"
+        },
+        {
+          "id": "c4",
+          "text": "昼間だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "晴れた夜は冬の星が見えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-17.1d4771cc882b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の植物のようすとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉を落とす木がある"
+        },
+        {
+          "id": "c2",
+          "text": "夏と同じ繁茂"
+        },
+        {
+          "id": "c3",
+          "text": "すべて花"
+        },
+        {
+          "id": "c4",
+          "text": "氷の中で開花だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "落葉樹は葉を落とします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-17.34347e858343",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の気温はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一年で高い"
+        },
+        {
+          "id": "c2",
+          "text": "一年で低い"
+        },
+        {
+          "id": "c3",
+          "text": "春と同じ"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冬は気温が低くなります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-17.475333f0ba53",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬鳥について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冬にやってくる鳥がいる"
+        },
+        {
+          "id": "c2",
+          "text": "夏だけ"
+        },
+        {
+          "id": "c3",
+          "text": "いない"
+        },
+        {
+          "id": "c4",
+          "text": "昼だけ鳴く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "冬に日本へ来る鳥がいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-17.48be308d2134",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "常緑樹の特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冬も葉がある"
+        },
+        {
+          "id": "c2",
+          "text": "冬に必ず全落葉"
+        },
+        {
+          "id": "c3",
+          "text": "花だけ"
+        },
+        {
+          "id": "c4",
+          "text": "根がない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "常緑樹は冬も葉をつけます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-17.8f8b60b4fbeb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬芽について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "来年の葉や花のもと"
+        },
+        {
+          "id": "c2",
+          "text": "石"
+        },
+        {
+          "id": "c3",
+          "text": "虫の巣だけ"
+        },
+        {
+          "id": "c4",
+          "text": "水滴"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "冬芽は次の季節の葉や花のもとなります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-17.9a2ea79cc4ed",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬に見られにくくなるこん虫が多い理由はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あたたかいから"
+        },
+        {
+          "id": "c2",
+          "text": "寒いから活動がにぶる・越冬する"
+        },
+        {
+          "id": "c3",
+          "text": "光が強いから"
+        },
+        {
+          "id": "c4",
+          "text": "雨だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "寒さのため活動がにぶったり越冬したりします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-17.a1d8eefe4410",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の動物の過ごし方として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冬眠するものがいる"
+        },
+        {
+          "id": "c2",
+          "text": "すべて夏と同じ活動"
+        },
+        {
+          "id": "c3",
+          "text": "すべて南極"
+        },
+        {
+          "id": "c4",
+          "text": "すべて卵だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "カエルなどは冬眠します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-17.a6b5c3d4210c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の生きものの特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "寒さに合わせたくらしをする"
+        },
+        {
+          "id": "c2",
+          "text": "季節と無関係"
+        },
+        {
+          "id": "c3",
+          "text": "すべて開花"
+        },
+        {
+          "id": "c4",
+          "text": "すべて渡り"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "寒さに合わせた過ごし方をします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-18.1e17f1ffef29",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "季節の変化と生きものの関係として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "関係ない"
+        },
+        {
+          "id": "c2",
+          "text": "気温などの変化に合わせて生活が変わる"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ変わる"
+        },
+        {
+          "id": "c4",
+          "text": "名前が変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "季節に合わせて生活が変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-18.2052e85620d7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "一年を通して変わるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気温や日光のようす"
+        },
+        {
+          "id": "c2",
+          "text": "教室の広さ"
+        },
+        {
+          "id": "c3",
+          "text": "机の数"
+        },
+        {
+          "id": "c4",
+          "text": "校歌"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "気温や日の長さなどが季節で変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-18.737196a41667",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "動物の一年で見られる変化の例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "繁殖・渡り・冬眠など"
+        },
+        {
+          "id": "c2",
+          "text": "形が石になる"
+        },
+        {
+          "id": "c3",
+          "text": "電気を通す"
+        },
+        {
+          "id": "c4",
+          "text": "重さが0"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "季節に応じた行動が見られます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-18.ac76f66770b8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "春→夏→秋→冬の順で気温はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "上がってから下がる"
+        },
+        {
+          "id": "c2",
+          "text": "ずっと同じ"
+        },
+        {
+          "id": "c3",
+          "text": "下がってから上がるだけ"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "夏に高く、冬に低くなります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-18.b3194b961594",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "一年の観察で大切なかんさつはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同じ場所を続けて記録する"
+        },
+        {
+          "id": "c2",
+          "text": "一回だけ見る"
+        },
+        {
+          "id": "c3",
+          "text": "記録しない"
+        },
+        {
+          "id": "c4",
+          "text": "写真禁止"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "続けて記録すると変化がわかります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-18.c7830b01cbdb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生きものの１年間をまとめるとわかることの例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "季節とくらしのつながり"
+        },
+        {
+          "id": "c2",
+          "text": "電池のつなぎ方"
+        },
+        {
+          "id": "c3",
+          "text": "回路記号"
+        },
+        {
+          "id": "c4",
+          "text": "体積の公式だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "季節と生きもののくらしのつながりがわかります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-18.e9339a00c4d0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の一年で見られる変化の例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "発芽・成長・開花・結実など"
+        },
+        {
+          "id": "c2",
+          "text": "動かない"
+        },
+        {
+          "id": "c3",
+          "text": "音だけ"
+        },
+        {
+          "id": "c4",
+          "text": "電流"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "季節ごとに成長の段階が変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-18.ff29eda54318",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "観察カードに残すとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日付・気温・生きもののようす"
+        },
+        {
+          "id": "c2",
+          "text": "テストの点だけ"
+        },
+        {
+          "id": "c3",
+          "text": "給食"
+        },
+        {
+          "id": "c4",
+          "text": "座席番号だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日付・気温・ようすを残します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.5e554c0cec90",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属・水・空気で熱を伝えやすいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空気"
+        },
+        {
+          "id": "c2",
+          "text": "金属"
+        },
+        {
+          "id": "c3",
+          "text": "どれも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "水蒸気だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "金属がいちばん熱を伝えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.6507600aa446",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属のあたたまり方として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一部分から全体へ熱が伝わる"
+        },
+        {
+          "id": "c2",
+          "text": "全体が同時にだけ"
+        },
+        {
+          "id": "c3",
+          "text": "冷たいまま"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ変わる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温めたところから熱が伝わっていきます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.6fe6da8c180e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "フライパンの取っ手がプラスチックな理由に近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱を伝えにくく手を守る"
+        },
+        {
+          "id": "c2",
+          "text": "重いから"
+        },
+        {
+          "id": "c3",
+          "text": "音が出るから"
+        },
+        {
+          "id": "c4",
+          "text": "光るから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "熱を伝えにくい材料で手を守ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.95be7176fe62",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属のあたたまり方の特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱が伝わりやすい"
+        },
+        {
+          "id": "c2",
+          "text": "熱が伝わらない"
+        },
+        {
+          "id": "c3",
+          "text": "水だけ伝わる"
+        },
+        {
+          "id": "c4",
+          "text": "空気だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "金属は熱を伝えやすい性質があります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.9c7020398ea7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属を温めた部分の近くほど温度はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "低い"
+        },
+        {
+          "id": "c2",
+          "text": "高い"
+        },
+        {
+          "id": "c3",
+          "text": "同じ"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "温めたところに近いほど高くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.c98814a3277f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "実験の安全で大切なことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "やけどに注意する"
+        },
+        {
+          "id": "c2",
+          "text": "素手で熱い金属を長く持つ"
+        },
+        {
+          "id": "c3",
+          "text": "目を閉じる"
+        },
+        {
+          "id": "c4",
+          "text": "水をかけない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "やけどしないよう注意します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.d03aa05a175c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "熱の伝わりを調べる実験で使うもの例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "金属棒とろうなど"
+        },
+        {
+          "id": "c2",
+          "text": "星座早見盤"
+        },
+        {
+          "id": "c3",
+          "text": "磁石だけ"
+        },
+        {
+          "id": "c4",
+          "text": "電池だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "金属棒とろうで伝わり方を調べることがあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.fe7280f681ca",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属の棒の一端を温めると、熱はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "伝わらない"
+        },
+        {
+          "id": "c2",
+          "text": "他端へ伝わる"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "音になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "金属は熱を伝えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.3b1ba621982d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ビーカーの水を温める実験で観察することはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の動きと温度"
+        },
+        {
+          "id": "c2",
+          "text": "星座"
+        },
+        {
+          "id": "c3",
+          "text": "電流"
+        },
+        {
+          "id": "c4",
+          "text": "月の形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "色水などで動きと温度を観察します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.43eecc7170f4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水は金属にくらべて熱の伝わり方はどうですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まったく同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがう（動きを伴う）"
+        },
+        {
+          "id": "c3",
+          "text": "伝わらない"
+        },
+        {
+          "id": "c4",
+          "text": "一瞬で凍る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水は対流で全体があたたまります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.487010f47b5a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水のあたたまり方の特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動きながら全体があたたまる"
+        },
+        {
+          "id": "c2",
+          "text": "金属と同じに一端だけ"
+        },
+        {
+          "id": "c3",
+          "text": "熱が伝わらない"
+        },
+        {
+          "id": "c4",
+          "text": "音だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水は動き（対流）ながらあたたまります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.71979b289b43",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "部屋の暖房で上があたたかくなりやすい理由はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あたたかい空気が上へ行くから"
+        },
+        {
+          "id": "c2",
+          "text": "冷たい空気が上へ行くから"
+        },
+        {
+          "id": "c3",
+          "text": "無関係"
+        },
+        {
+          "id": "c4",
+          "text": "音のせい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "あたたかい空気は上昇します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.824b3ba12f07",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水と空気のあたたまり方に共通することはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動きながらあたたまる"
+        },
+        {
+          "id": "c2",
+          "text": "金属と同じ伝導だけ"
+        },
+        {
+          "id": "c3",
+          "text": "熱が伝わらない"
+        },
+        {
+          "id": "c4",
+          "text": "凍るだけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "どちらも動き（対流）を伴いやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.baa38010e475",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水を下から温めると、あたたかい水はどう動きやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下へたまる"
+        },
+        {
+          "id": "c2",
+          "text": "上へ動く"
+        },
+        {
+          "id": "c3",
+          "text": "動かない"
+        },
+        {
+          "id": "c4",
+          "text": "凍る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "あたたかい水は上へ動き、対流が起きます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.cb116a328349",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気を温めると、あたたかい空気はどう動きやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下へ"
+        },
+        {
+          "id": "c2",
+          "text": "上へ"
+        },
+        {
+          "id": "c3",
+          "text": "動かない"
+        },
+        {
+          "id": "c4",
+          "text": "水になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "あたたかい空気は上へ動きやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.fdd4ff7b4007",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "もののあたたまり方を調べる目的はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱の伝わり方のちがいを知る"
+        },
+        {
+          "id": "c2",
+          "text": "星を数える"
+        },
+        {
+          "id": "c3",
+          "text": "電池を直列にする"
+        },
+        {
+          "id": "c4",
+          "text": "葉の数を数える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "金属・水・空気の伝わり方のちがいを学びます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.3c80af05d7af",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水を冷やすと何度くらいで氷になりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100℃"
+        },
+        {
+          "id": "c2",
+          "text": "0℃"
+        },
+        {
+          "id": "c3",
+          "text": "50℃"
+        },
+        {
+          "id": "c4",
+          "text": "20℃"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "およそ0℃で氷になります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.3d47f44c202d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水を熱すると何度くらいで沸騰しやすいか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0℃"
+        },
+        {
+          "id": "c2",
+          "text": "100℃"
+        },
+        {
+          "id": "c3",
+          "text": "50℃"
+        },
+        {
+          "id": "c4",
+          "text": "−10℃"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "およそ100℃で沸騰し水蒸気になります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.5e0d98f201cd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "氷は水のどのすがたですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気体"
+        },
+        {
+          "id": "c2",
+          "text": "液体"
+        },
+        {
+          "id": "c3",
+          "text": "固体"
+        },
+        {
+          "id": "c4",
+          "text": "プラズマ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "氷は固体の水です。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.6ea090d8c6c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水のすがたが変わる主な要因はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度"
+        },
+        {
+          "id": "c2",
+          "text": "音"
+        },
+        {
+          "id": "c3",
+          "text": "色"
+        },
+        {
+          "id": "c4",
+          "text": "名前"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度によって固体・液体・気体に変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.9302b73742fb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水→水蒸気→水の変化で正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水がなくなる"
+        },
+        {
+          "id": "c2",
+          "text": "すがたが変わる"
+        },
+        {
+          "id": "c3",
+          "text": "重さが必ず0"
+        },
+        {
+          "id": "c4",
+          "text": "電気になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "すがた（状態）が変わるだけで、水そのものです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.c63740df25d7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "すがたを変える水の学習でわかることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度で水の状態が変わる"
+        },
+        {
+          "id": "c2",
+          "text": "電池のつなぎ方"
+        },
+        {
+          "id": "c3",
+          "text": "星座の名前だけ"
+        },
+        {
+          "id": "c4",
+          "text": "関節の数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度によって氷・水・水蒸気と変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.e907dd52095c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水蒸気が冷やされるとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消える"
+        },
+        {
+          "id": "c2",
+          "text": "水にもどる"
+        },
+        {
+          "id": "c3",
+          "text": "必ず氷だけ"
+        },
+        {
+          "id": "c4",
+          "text": "油になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やされると液体の水にもどります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.f82133213423",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水蒸気はどのようなすがたですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "固体"
+        },
+        {
+          "id": "c2",
+          "text": "液体"
+        },
+        {
+          "id": "c3",
+          "text": "気体"
+        },
+        {
+          "id": "c4",
+          "text": "プラズマ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "水蒸気は気体です。"
+  }
+]

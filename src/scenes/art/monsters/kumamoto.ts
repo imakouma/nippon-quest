@@ -796,6 +796,62 @@ const ebiMusha: MonsterDesign = {
   ],
 };
 
+/** タタミン：八代のい草で おられた 小さな畳の子（ツチ） */
+const tatamin: MonsterDesign = {
+  size: 32,
+  colors: { L: NQ.leaf, G: NQ.green, M: NQ.lime, T: NQ.tan, B: NQ.brown, W: NQ.white, p: NQ.blush },
+  rim: { [NQ.leaf]: NQ.green, [NQ.tan]: NQ.brown },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '....TTTTTTTT....',
+        '...TBBBBBBBBT...',
+        '..TBBLLLLLLBBT..',
+        '.TBBLMLMLMLLBBT.',
+        '.TBBLLMLMLMLBBT.',
+        '.TBBLMLMLMLLBBT.',
+        '.TBBLLMLMLMLBBT.',
+        '.TBBLMLMLMLLBBT.',
+        '.TBBLLWWLLLLBBT.',
+        '.TBBLLWoLLLLBBT.',
+        '.TBBLLLLLLLLBBT.',
+        '.TBBLLpLLLLLBBT.',
+        '.TBBLMLMLMLLBBT.',
+        '.TBBLLMLMLMLBBT.',
+        '.TBBLMLMLMLLBBT.',
+        '.TBBLLMLMLMLBBT.',
+        '.TBBLMLMLMLLBBT.',
+        '.TBBLLMLMLMLBBT.',
+        '.TBBLMLMLMLLBBT.',
+        '.TBBLLMLMLMLBBT.',
+        '.TBBLLLLLLLLBBT.',
+        '..TBBBBBBBBBBT..',
+        '...TTTTTTTTTT...',
+        '......BBBB......',
+        '.....BB..BB.....',
+        '....BB....BB....',
+        '...BB......BB...',
+        '...BB......BB...',
+        '...BB......BB...',
+      ],
+    },
+  ],
+};
+
+/** オリタタミン：何枚もの畳を折り重ねた タタミンの進化（ツチ） */
+const oritatamin: MonsterDesign = {
+  ...tatamin,
+  colors: { ...tatamin.colors, Y: NQ.gold },
+  layers: [
+    ...tatamin.layers,
+    { mirror: true, y: 4, rows: ['..YYYYYYYYYYYY..', '...Y........Y...', '..YYYYYYYYYYYY..'] },
+    { mirror: true, y: 14, rows: ['..BBBBBBBBBBBB..', '.BLLLLLLLLLLLLB.', '..BBBBBBBBBBBB..'] },
+    { mirror: true, y: 20, rows: ['...YYYYYYYYYY...', '....Y......Y....'] },
+  ],
+};
+
 export const KUMAMOTO: Readonly<Record<string, MonsterDesign>> = {
   'kumamoto-midboss-kindouro': kindouro,
   'kumamoto-midboss-kindouro.field': kindouroField,
@@ -808,4 +864,6 @@ export const KUMAMOTO: Readonly<Record<string, MonsterDesign>> = {
   'kumamoto-dai-karudera': daiKarudera,
   'kumamoto-ebiguruma': ebiguruma,
   'kumamoto-ebi-musha': ebiMusha,
+  'kumamoto-tatamin': tatamin,
+  'kumamoto-oritatamin': oritatamin,
 };

@@ -2,16 +2,14 @@ import Phaser from 'phaser';
 import './questions/renderers/shared/questions.css';
 import { BootScene } from './scenes/Boot';
 import { TitleScene } from './scenes/Title';
-import { OverworldScene } from './scenes/Overworld';
-import { BattleScene } from './scenes/Battle';
+import { ensureGameplayScenes } from './scenes/gameplayLoader';
 import { attachOverlay, STAGE_H, STAGE_W } from './ui/overlay';
-import { createNewGame } from './core/state/newGame';
+import { createNewGame, type NewGameOptions } from './core/state/newGame';
+import { load, save, type SlotId } from './core/state/save';
 import { GROUNDS } from './core/world/ground';
+import { setSfxVolume } from './ui/sfx';
 
-/**
- * 名前入力・スターター選択（Step 7〜9）ができるまでの仮の「はじめから」。
- * スターター（ヒノ／ミズ／モリ）が content に入ったら差し替える。
- */
+/** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 } as const;
 
 /**
@@ -41,7 +39,8 @@ const uiLayer = document.getElementById('ui-layer')!;
 
 const loading = document.createElement('div');
 loading.className = 'nq-loading';
-loading.innerHTML = '<div>よみこみちゅう…</div><div class="nq-loading-bar"><div></div></div>';
+loading.innerHTML =
+  '<div class="nq-loading-label">よみこみちゅう…</div><div class="nq-loading-bar"><div></div></div>';
 uiLayer.append(loading);
 
 const game = new Phaser.Game({
@@ -54,7 +53,8 @@ const game = new Phaser.Game({
   roundPixels: true,
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
   physics: { default: 'arcade', arcade: { gravity: { x: 0, y: 0 }, debug: false } },
-  scene: [BootScene, TitleScene, OverworldScene, BattleScene],
+  // Overworld/Battle はタイトル表示には不要なので、開始操作のときに動的登録する。
+  scene: [BootScene, TitleScene],
 });
 
 attachOverlay(gameRoot, uiLayer);
@@ -62,6 +62,10 @@ attachOverlay(gameRoot, uiLayer);
 game.events.on('boot:progress', (v: number) => {
   const bar = loading.querySelector<HTMLDivElement>('.nq-loading-bar > div');
   if (bar) bar.style.width = `${Math.round(v * 100)}%`;
+});
+game.events.on('boot:stage', (text: string) => {
+  const label = loading.querySelector<HTMLDivElement>('.nq-loading-label');
+  if (label) label.textContent = text;
 });
 game.events.on('boot:done', () => loading.remove());
 game.events.on('boot:error', (e: unknown) => {
@@ -71,12 +75,65 @@ game.events.on('boot:error', (e: unknown) => {
   box.textContent = `コンテンツの よみこみに しっぱいしました。\n\n${e instanceof Error ? e.message : String(e)}\n\n・pnpm gen:manifest を実行しましたか？\n・content/ の JSON に エラーは ありませんか？（pnpm validate:content）`;
   uiLayer.append(box);
 });
-game.events.on('title:start', () => {
-  // セーブ／ロード（Step 9）ができるまでは、はじめる たびに新しい GameState をメモリ上に作る
-  if (!game.registry.get('game')) game.registry.set('game', createNewGame({ ...DEV_NEW_GAME, grade }));
-  game.scene.stop('Title');
-  game.scene.start('Overworld', { mapKey: 'aomori-field', spawnName: 'spawn', debugBattle });
+let activeSlot: SlotId = 1;
+game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1) => {
+  try {
+    await ensureGameplayScenes(game);
+    activeSlot = slot;
+    const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
+    setSfxVolume(next.settings.seVolume);
+    game.registry.set('game', next);
+    void save(activeSlot, next).catch((error) => console.error('[save] はじめのセーブに失敗しました', error));
+    game.scene.stop('Title');
+    game.scene.start('Overworld', { mapKey: 'aomori-field', spawnName: 'spawn', debugBattle });
+  } catch (error) {
+    game.events.emit('boot:error', error);
+  }
 });
+
+game.events.on('title:continue', async (slot: SlotId = 1) => {
+  try {
+    const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game)]);
+    if (!saved) return;
+    activeSlot = slot;
+    setSfxVolume(saved.settings.seVolume);
+    game.registry.set('game', saved);
+    game.scene.stop('Title');
+    game.scene.start('Overworld', { mapKey: saved.progress.currentMap, spawnName: 'spawn' });
+  } catch (error) {
+    console.error('[save] ロードに失敗しました', error);
+  }
+});
+
+// GameState が更新されるたび、選択中のスロットへ自動保存する。
+game.registry.events.on('changedata-game', (_parent: unknown, value: unknown) => {
+  const state = value as Parameters<typeof save>[1];
+  setSfxVolume(state.settings.seVolume);
+  void save(activeSlot, state).catch((error) => console.error('[save] オートセーブに失敗しました', error));
+});
+
+// 表示中のプレイ時間を1分単位で日別に記録する。
+setInterval(() => {
+  if (document.visibilityState !== 'visible') return;
+  const current = game.registry.get('game') as Parameters<typeof save>[1] | undefined;
+  if (!current) return;
+  const date = new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date());
+  game.registry.set('game', {
+    ...current,
+    learning: {
+      ...current.learning,
+      playSecondsByDate: {
+        ...current.learning.playSecondsByDate,
+        [date]: (current.learning.playSecondsByDate[date] ?? 0) + 60,
+      },
+    },
+  });
+}, 60_000);
 
 // 開発中だけ、ブラウザのコンソールや E2E からゲームの中を見られるようにする（本番ビルドには入らない）
 if (import.meta.env.DEV) (window as unknown as { __nq?: Phaser.Game }).__nq = game;

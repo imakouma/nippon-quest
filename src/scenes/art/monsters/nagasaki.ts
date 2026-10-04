@@ -772,6 +772,65 @@ const yadoRetto: MonsterDesign = {
   ],
 };
 
+/** クラワンボウ：青い呉須もようの 丈夫なおわんの子（ツチ） */
+const kurawanbou: MonsterDesign = {
+  size: 32,
+  colors: { W: NQ.white, C: NQ.cloud, A: NQ.azure, B: NQ.blue, T: NQ.tan, p: NQ.blush },
+  rim: { [NQ.white]: NQ.cloud, [NQ.azure]: NQ.blue },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '...WWWWWWWWWW...',
+        '..WWWWWWWWWWWW..',
+        '.WWWWWWWWWWWWWW.',
+        '.WWAAAAAAAAAAWW.',
+        '.WWABABABABAWW..',
+        '.WWAAAAAAAAAAWW.',
+        '.WWWWWWWWWWWWWW.',
+        '.WWWWWAAWWWWWWW.',
+        '.WWWWWWWWWWWWWW.',
+        '.WWWWWAAWWWWWWW.',
+        '.WWWWWAAWWWWWWW.',
+        '.WWWWWWWWWWWWWW.',
+        '.WWWWWooWWWWWWW.',
+        '.WWWWWWWooWWWWW.',
+        '.WWWWWWWWWWWWWW.',
+        '.WWWWWpWWWWWWWW.',
+        '..WWWWWWWWWWWW..',
+        '..WWWWWWWWWWWW..',
+        '...WWWWWWWWWW...',
+        '....WWWWWWWW....',
+        '.....WWWWWW.....',
+        '......WWWW......',
+        '......CCCC......',
+        '.....CC..CC.....',
+        '....CC....CC....',
+        '...CC......CC...',
+        '...CC......CC...',
+        '...CC......CC...',
+        '...CC......CC...',
+      ],
+    },
+  ],
+};
+
+/** クラワンヌシ：背いっぱいに呉須もようが広がった クラワンボウの進化（ツチ） */
+const kurawanNushi: MonsterDesign = {
+  ...kurawanbou,
+  colors: { ...kurawanbou.colors, G: NQ.gold },
+  layers: [
+    ...kurawanbou.layers,
+    {
+      mirror: true,
+      y: 4,
+      rows: ['..AAAAAAAAAAAA..', '.AABBAABBAABBAA.', '..AAAAAAAAAAAA..', '...AABBAABBAA...'],
+    },
+    { mirror: true, y: 17, rows: ['...GGGGGGGGGG...', '....G......G....'] },
+  ],
+};
+
 export const NAGASAKI: Readonly<Record<string, MonsterDesign>> = {
   'nagasaki-midboss-megane-golem': meganeGolem,
   'nagasaki-midboss-megane-golem.field': meganeGolemField,
@@ -784,4 +843,6 @@ export const NAGASAKI: Readonly<Record<string, MonsterDesign>> = {
   'nagasaki-mogi-tawawa': mogiTawawa,
   'nagasaki-yadoshima': yadoshima,
   'nagasaki-yado-retto': yadoRetto,
+  'nagasaki-kurawanbou': kurawanbou,
+  'nagasaki-kurawan-nushi': kurawanNushi,
 };

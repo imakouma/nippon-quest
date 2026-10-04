@@ -385,6 +385,65 @@ const oozenigani: MonsterDesign = {
   ],
 };
 
+/** ミズカガミ：父母ヶ浜の 空をうつす 薄い水の精（ミズ） */
+const mizukagami: MonsterDesign = {
+  size: 32,
+  colors: { S: NQ.sky, A: NQ.azure, I: NQ.ice, W: NQ.white, C: NQ.cloud, Y: NQ.cream, p: NQ.blush },
+  rim: { [NQ.sky]: NQ.azure, [NQ.ice]: NQ.sky },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.......III......',
+        '.....IIIIIII....',
+        '....IIIIIIIII...',
+        '...IIIISIIIII...',
+        '..IIIISSSIIIII..',
+        '..IIISSSSSIIII..',
+        '.IIISSSSSSSIIII.',
+        '.IISSSSSSSSSIII.',
+        '.IISSSWWSSSSIII.',
+        '.IISSSWoSSSSIII.',
+        '.IISSSSSSSSSIII.',
+        '.IIISSpSSSSIIII.',
+        '..IIISSSSSIIII..',
+        '..IIIISSSIIIII..',
+        '...IIIIIIIIII...',
+        '....IIIIIIII....',
+        '.....IIIIII.....',
+        '......IIII......',
+        '.......II.......',
+        '................',
+        '...SSSSSSSSSS...',
+        '..SSSSSSSSSSSS..',
+        '.SSSSSSSSSSSSSS.',
+        '.SSSSSSSSSSSSSS.',
+        '..SSSSSSSSSSSS..',
+        '...SSSSSSSSSS...',
+        '....AAAAAAAA....',
+        '...AA......AA...',
+        '..AA........AA..',
+      ],
+    },
+  ],
+};
+
+/** ソラウツシ：夕焼けの空と海を ひとつの体にうつす ミズカガミの進化（ミズ） */
+const sorautsushi: MonsterDesign = {
+  ...mizukagami,
+  colors: { ...mizukagami.colors, V: NQ.vermilion, O: NQ.apricot, G: NQ.gold },
+  layers: [
+    ...mizukagami.layers,
+    {
+      mirror: true,
+      y: 5,
+      rows: ['....VVVVVVV....', '...VOOOOOOV....', '..VOOOGOOOOV...', '...VOOOOOOV....'],
+    },
+    { mirror: true, y: 21, rows: ['..GGGGGGGGGGG...', '...VVVVVVVVV....', '....OOOOOOO.....'] },
+  ],
+};
+
 /**
  * リツリンノヌシ（中ボス）：栗林公園の 池の ぬしの 大きな 錦鯉（紅白）。尾びれで 立ち、池から 水しぶきを あげる。
  * 頭の 赤い もように 王冠、まるく ひらいた 口、ひろげた むなびれ（ミズ）
@@ -839,4 +898,6 @@ export const KAGAWA: Readonly<Record<string, MonsterDesign>> = {
   'kagawa-tsumuji-uchiwa': tsumujiUchiwa,
   'kagawa-zenigani': zenigani,
   'kagawa-oozenigani': oozenigani,
+  'kagawa-mizukagami': mizukagami,
+  'kagawa-sorautsushi': sorautsushi,
 };

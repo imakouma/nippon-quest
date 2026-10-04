@@ -304,6 +304,70 @@ const watariZuru: MonsterDesign = {
   ]),
 };
 
+/** チャッパ：茶葉のからだに 小さな急須をのせた お茶の子（ミズ） */
+const chappa: MonsterDesign = {
+  size: 32,
+  colors: { L: NQ.leaf, G: NQ.green, M: NQ.lime, B: NQ.brown, T: NQ.tan, W: NQ.white, p: NQ.blush },
+  rim: { [NQ.leaf]: NQ.green, [NQ.brown]: NQ.bark },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '.......BBB......',
+        '.....BBBBBBB....',
+        '....BBBBBBBBB...',
+        '...BBBBBBBBBBB..',
+        '...BBBTBBBBBBB..',
+        '....BBBBBBBBB...',
+        '.....BBBBBBB....',
+        '.......BBB......',
+        '........B.......',
+        '......LLLLL.....',
+        '....LLLLLLLLL...',
+        '...LLLLLLLLLL...',
+        '..LLLLLLLLLLLL..',
+        '.LLLLLLWWLLLLLL.',
+        '.LLLLLLWoLLLLLL.',
+        '.LLLLLLLLLLLLLL.',
+        '.LLLLLpLLLLLLLL.',
+        '.LLLLLLLLLLLLLL.',
+        '..LLLLLLLLLLLL..',
+        '...LLLLLLLLLL...',
+        '....LLLLLLLL....',
+        '.....LLLLLL.....',
+        '......LLLL......',
+        '.......GG.......',
+        '......GGGG......',
+        '.....GG..GG.....',
+        '....GG....GG....',
+        '...GG......GG...',
+        '...GG......GG...',
+      ],
+    },
+  ],
+};
+
+/** シンチャドウ：大きな急須と 新茶の湯けむりをまとう チャッパの進化（ミズ） */
+const shinchaDou: MonsterDesign = {
+  ...chappa,
+  colors: { ...chappa.colors, C: NQ.cloud, Y: NQ.gold },
+  layers: [
+    ...chappa.layers,
+    {
+      mirror: true,
+      y: 1,
+      rows: ['....C.....C.....', '...CCC...CCC....', '....C.....C.....', '......CC........'],
+    },
+    {
+      mirror: true,
+      y: 5,
+      rows: ['....BBBBBBBB....', '..BBBBBBBBBBBB..', '.BBBYBBBBBYBBB..', '..BBBBBBBBBBBB..'],
+    },
+    { mirror: true, y: 18, rows: ['..YLYLYLYLYLY...', '...LLLLLLLLLL...', '....LL....LL....'] },
+  ],
+};
+
 /**
  * ツボムシャ（中ボス）：薩摩焼の つぼが 武者に なった。黒もんの ふたの かぶと、白もんの つぼの からだ。
  * 金の ふちどりの 赤い 花と みどりの 葉の 絵つけ、こまかい ひび。頭に 王冠（ツチ → ヒノ）
@@ -583,6 +647,8 @@ export const KAGOSHIMA: Readonly<Record<string, MonsterDesign>> = {
   'kagoshima-daikon-shogun': daikonShogun,
   'kagoshima-nabezurun': nabezurun,
   'kagoshima-watari-zuru': watariZuru,
+  'kagoshima-chappa': chappa,
+  'kagoshima-shincha-dou': shinchaDou,
   'kagoshima-midboss-tsubo-musha': tsuboMusha,
   'kagoshima-midboss-tsubo-musha.field': tsuboMushaField,
   'kagoshima-boss-sakurajimaguma': sakurajimaguma,

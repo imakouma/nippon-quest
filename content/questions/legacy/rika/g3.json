@@ -1,0 +1,4322 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-01.15a88fa0a6e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんさつカードのいちばん上に書くとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きのうの天気"
+        },
+        {
+          "id": "c2",
+          "text": "かんさつしたものの名前"
+        },
+        {
+          "id": "c3",
+          "text": "好きな食べ物"
+        },
+        {
+          "id": "c4",
+          "text": "座席番号"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かんさつカードには、かんさつしたものの名前を書きます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.45d11cceb0fa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねを使うとき、正しいやり方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "レンズを生き物に強く押しつける"
+        },
+        {
+          "id": "c2",
+          "text": "目と虫めがねのきょりを少しずつ変える"
+        },
+        {
+          "id": "c3",
+          "text": "レンズをよごしたまま使う"
+        },
+        {
+          "id": "c4",
+          "text": "太陽をのぞく"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "目と虫めがねのきょりを少しずつ変えて、はっきり見える位置を探します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.83348d998a7c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生き物のすがたについて正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "形・色・大きさはどれも同じ"
+        },
+        {
+          "id": "c2",
+          "text": "形・色・大きさにちがいがある"
+        },
+        {
+          "id": "c3",
+          "text": "色だけがちがう"
+        },
+        {
+          "id": "c4",
+          "text": "大きさだけがちがう"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "生き物は、形・色・大きさなどすがたにちがいがあります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.83b6770c33de",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんさつカードに書くとよい内容はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見つけた日・場所・すがた"
+        },
+        {
+          "id": "c2",
+          "text": "友だちのテストの点"
+        },
+        {
+          "id": "c3",
+          "text": "給食のメニューだけ"
+        },
+        {
+          "id": "c4",
+          "text": "校歌の歌詞"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日付・場所・色・形・大きさなど、気づいたことを書きます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.9ae2fd9effd3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「高さは15cmぐらい」は、何についての記ろくですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "形"
+        },
+        {
+          "id": "c2",
+          "text": "色"
+        },
+        {
+          "id": "c3",
+          "text": "大きさ"
+        },
+        {
+          "id": "c4",
+          "text": "音"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "高さは「大きさ」の記ろくです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.a2fd99d450a9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「花の色は黄色だった」は、何についての記ろくですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "形"
+        },
+        {
+          "id": "c2",
+          "text": "色"
+        },
+        {
+          "id": "c3",
+          "text": "大きさ"
+        },
+        {
+          "id": "c4",
+          "text": "におい"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "花の色は「色」の記ろくです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.a86d2fdd1dba",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねで物を見ると、どう見えますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きく見える"
+        },
+        {
+          "id": "c2",
+          "text": "小さく見える"
+        },
+        {
+          "id": "c3",
+          "text": "明るく見える"
+        },
+        {
+          "id": "c4",
+          "text": "さかさまに見える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "虫めがねで見ると、物は大きく見えます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.aedcad415883",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生き物をかんさつするときの注意として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どんな生き物でもさわって調べる"
+        },
+        {
+          "id": "c2",
+          "text": "危険な生き物にはさわらない"
+        },
+        {
+          "id": "c3",
+          "text": "つかまえて全部持ち帰る"
+        },
+        {
+          "id": "c4",
+          "text": "大声で追いかける"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "危険な生き物にはさわらず、やさしくかんさつします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.af8a2ed18e73",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんさつしたあと、大切なことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "生き物をもとの場所に戻す"
+        },
+        {
+          "id": "c2",
+          "text": "全部つかまえて持ち帰る"
+        },
+        {
+          "id": "c3",
+          "text": "足でふむ"
+        },
+        {
+          "id": "c4",
+          "text": "水に入れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "かんさつが終わったら、生き物をもとの場所に戻します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.bfad0c46dd5f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "動かせる物をかんさつするとき、正しく動かすのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭を動かす"
+        },
+        {
+          "id": "c2",
+          "text": "虫めがねを動かす"
+        },
+        {
+          "id": "c3",
+          "text": "かんさつする物を動かす"
+        },
+        {
+          "id": "c4",
+          "text": "両方を大きく動かす"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "動かせる物は、かんさつする物の方を動かしてピントを合わせます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.d3f6b99414c3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「葉はぎざぎざしていた」は、何についての記ろくですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "形"
+        },
+        {
+          "id": "c2",
+          "text": "色"
+        },
+        {
+          "id": "c3",
+          "text": "大きさ"
+        },
+        {
+          "id": "c4",
+          "text": "重さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "葉のようすは「形」の記ろくです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.ed5938dc69a7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねで見ていけないものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉"
+        },
+        {
+          "id": "c2",
+          "text": "太陽"
+        },
+        {
+          "id": "c3",
+          "text": "石"
+        },
+        {
+          "id": "c4",
+          "text": "虫"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽を虫めがねで見ると目を傷つけるので、絶対に見てはいけません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.1a3f0ae2f679",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒマワリとホウセンカをくらべると、夏の高さはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ヒマワリの方が高くなることが多い"
+        },
+        {
+          "id": "c3",
+          "text": "ホウセンカの方が必ず高い"
+        },
+        {
+          "id": "c4",
+          "text": "どちらも伸びない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ヒマワリの方が高く伸びることが多いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.1f2236975621",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏になるとホウセンカに見られる変化はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "つぼみができて花がさく"
+        },
+        {
+          "id": "c2",
+          "text": "必ず枯れるだけ"
+        },
+        {
+          "id": "c3",
+          "text": "子葉だけになる"
+        },
+        {
+          "id": "c4",
+          "text": "根がなくなる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "夏にはつぼみができ、花がさきます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.424be7f29b35",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "花がさいたあとにできるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "子葉"
+        },
+        {
+          "id": "c2",
+          "text": "実（たね）"
+        },
+        {
+          "id": "c3",
+          "text": "虫めがね"
+        },
+        {
+          "id": "c4",
+          "text": "回路"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "花がさいたところに実ができ、中にたねがあります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.584930957bfb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たねをまいたあとの世話として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土がかれないように水をやる"
+        },
+        {
+          "id": "c2",
+          "text": "日光に当てて土をかれさせる"
+        },
+        {
+          "id": "c3",
+          "text": "水をまったくやらない"
+        },
+        {
+          "id": "c4",
+          "text": "暗い箱に入れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "土がかれないように、適度に水をやります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.5b45b0a6c3bc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ホウセンカやヒマワリのたねのまき方として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土の上に置くだけ"
+        },
+        {
+          "id": "c2",
+          "text": "指で穴をあけてまき、土をかぶせる"
+        },
+        {
+          "id": "c3",
+          "text": "水の上に浮かせる"
+        },
+        {
+          "id": "c4",
+          "text": "石の上に置く"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "穴をあけてたねをまき、土をかぶせます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.918d188d4350",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ホウセンカのたねの特徴として近いものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きくて長い"
+        },
+        {
+          "id": "c2",
+          "text": "小さくてまるい"
+        },
+        {
+          "id": "c3",
+          "text": "金属のように光る"
+        },
+        {
+          "id": "c4",
+          "text": "とても大きな1粒だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ホウセンカのたねは小さくてまるいことが多いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.980986c641f6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "子葉のあとに出て、数が増えていく葉を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "子葉"
+        },
+        {
+          "id": "c2",
+          "text": "本葉"
+        },
+        {
+          "id": "c3",
+          "text": "根"
+        },
+        {
+          "id": "c4",
+          "text": "茎"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "子葉のあとに出てくる葉を本葉といいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.9b4ef8f1a4b9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の育ち方の順として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "実→花→子葉"
+        },
+        {
+          "id": "c2",
+          "text": "子葉→本葉が増える→花→実"
+        },
+        {
+          "id": "c3",
+          "text": "花→子葉→実"
+        },
+        {
+          "id": "c4",
+          "text": "本葉→たね→子葉"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "子葉が出て本葉が増え、花がさき、実ができます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.acbff057f0d9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒマワリのたねの特徴として近いものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きくてしま模様がある"
+        },
+        {
+          "id": "c2",
+          "text": "とても小さなまるい粒だけ"
+        },
+        {
+          "id": "c3",
+          "text": "水に浮く金属色"
+        },
+        {
+          "id": "c4",
+          "text": "透明なゼリー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒマワリのたねは大きく、しま模様があることが多いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.b639074466f8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たねをまいて最初に出てくる葉を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "本葉"
+        },
+        {
+          "id": "c2",
+          "text": "子葉"
+        },
+        {
+          "id": "c3",
+          "text": "花"
+        },
+        {
+          "id": "c4",
+          "text": "実"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "最初に出てくる葉を子葉といいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.d3c4f83856d9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ホウセンカの子葉は何枚出ますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1枚"
+        },
+        {
+          "id": "c2",
+          "text": "2枚"
+        },
+        {
+          "id": "c3",
+          "text": "4枚"
+        },
+        {
+          "id": "c4",
+          "text": "10枚"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ホウセンカの子葉は2枚出ます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-02.f67ac8878d5c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の一生の終わりごろに見られるようすはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "子葉が出る"
+        },
+        {
+          "id": "c2",
+          "text": "実ができて枯れる"
+        },
+        {
+          "id": "c3",
+          "text": "たねをまく"
+        },
+        {
+          "id": "c4",
+          "text": "回路をつくる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "実ができ、やがて植物は枯れます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.09857a7b399f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こん虫がすみかをえらぶ理由として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食べ物がある・身をかくせる"
+        },
+        {
+          "id": "c2",
+          "text": "目立つ場所だけ"
+        },
+        {
+          "id": "c3",
+          "text": "音が大きい場所だけ"
+        },
+        {
+          "id": "c4",
+          "text": "必ず教室"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食べ物があり、身をかくせる場所をすみかにします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.130d28eef4b2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たまごから出てくる細長いこん虫を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "せい虫"
+        },
+        {
+          "id": "c2",
+          "text": "よう虫"
+        },
+        {
+          "id": "c3",
+          "text": "さなぎ"
+        },
+        {
+          "id": "c4",
+          "text": "成虫の羽"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "たまごから出た細長いこん虫をよう虫といいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.1c594877ab32",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "トンボの育ち方として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "よう虫→せい虫（さなぎがない）"
+        },
+        {
+          "id": "c2",
+          "text": "よう虫→さなぎ→せい虫"
+        },
+        {
+          "id": "c3",
+          "text": "せい虫→よう虫"
+        },
+        {
+          "id": "c4",
+          "text": "たまご→せい虫だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "トンボはさなぎの段階がなく、よう虫からせい虫になります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.466eeb823e9e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "トンボのよう虫はどこでくらしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土の中"
+        },
+        {
+          "id": "c2",
+          "text": "葉の上"
+        },
+        {
+          "id": "c3",
+          "text": "水の中"
+        },
+        {
+          "id": "c4",
+          "text": "氷の中"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "トンボのよう虫は水の中でくらします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.4beecd4f35d9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "よう虫が大きくなるときにくり返すことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だつ皮"
+        },
+        {
+          "id": "c2",
+          "text": "花をさかせる"
+        },
+        {
+          "id": "c3",
+          "text": "電気を通す"
+        },
+        {
+          "id": "c4",
+          "text": "磁石になる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "よう虫はだつ皮をくり返して大きくなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.61e7fc9e66a8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こん虫の足は何本ありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4本"
+        },
+        {
+          "id": "c2",
+          "text": "6本"
+        },
+        {
+          "id": "c3",
+          "text": "8本"
+        },
+        {
+          "id": "c4",
+          "text": "100本"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "こん虫の足は6本です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.6b5fef5033f0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こん虫の足や羽がついている部分はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭"
+        },
+        {
+          "id": "c2",
+          "text": "胸"
+        },
+        {
+          "id": "c3",
+          "text": "腹"
+        },
+        {
+          "id": "c4",
+          "text": "触角の先"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "足や羽は胸の部分についています。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.6e5324aa1379",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "カブトムシのよう虫はどこでくらしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土の中"
+        },
+        {
+          "id": "c2",
+          "text": "花の上だけ"
+        },
+        {
+          "id": "c3",
+          "text": "雲の上"
+        },
+        {
+          "id": "c4",
+          "text": "教室の中"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "カブトムシのよう虫は土の中でくらします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.992fe0cc2ba0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こん虫のせい虫の体は、どの部分からできていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭と尾だけ"
+        },
+        {
+          "id": "c2",
+          "text": "頭・胸・腹"
+        },
+        {
+          "id": "c3",
+          "text": "葉と根"
+        },
+        {
+          "id": "c4",
+          "text": "羽だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "こん虫のせい虫の体は頭・胸・腹の3つに分かれます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.c86850339a50",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "チョウの育ち方の順として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまご→よう虫→さなぎ→せい虫"
+        },
+        {
+          "id": "c2",
+          "text": "せい虫→たまご→さなぎ"
+        },
+        {
+          "id": "c3",
+          "text": "よう虫→せい虫だけ"
+        },
+        {
+          "id": "c4",
+          "text": "さなぎ→たまご→よう虫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "チョウはたまご→よう虫→さなぎ→せい虫の順に育ちます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.dbd37e9cd9c9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "モンシロチョウのたまごは、どの葉によく産みつけられますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "キャベツ"
+        },
+        {
+          "id": "c2",
+          "text": "ミカン"
+        },
+        {
+          "id": "c3",
+          "text": "サンショウ"
+        },
+        {
+          "id": "c4",
+          "text": "マツ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "モンシロチョウのたまごはキャベツなどの葉に産みつけられます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.e47faa3b789a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クワガタムシやバッタはこん虫ですが、クモやダンゴムシはどうですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どちらもこん虫"
+        },
+        {
+          "id": "c2",
+          "text": "こん虫ではない"
+        },
+        {
+          "id": "c3",
+          "text": "クモだけこん虫"
+        },
+        {
+          "id": "c4",
+          "text": "ダンゴムシだけこん虫"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "クモは足が8本、ダンゴムシも体のつくりがちがい、こん虫ではありません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.1e1561d0b8f9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "茎の太さはどう変化しやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "細くなる"
+        },
+        {
+          "id": "c2",
+          "text": "変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "太くなる"
+        },
+        {
+          "id": "c4",
+          "text": "光る"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "茎はだんだん太くなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.20c6ed71fda1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "多くの植物の体について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根・茎・葉がある"
+        },
+        {
+          "id": "c2",
+          "text": "必ず羽がある"
+        },
+        {
+          "id": "c3",
+          "text": "足が6本ある"
+        },
+        {
+          "id": "c4",
+          "text": "電池が必要"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "多くの植物は根・茎・葉のつくりをもちます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.36a0387cbcd4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ホウセンカをしばらくかんさつすると、高さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "低くなる"
+        },
+        {
+          "id": "c2",
+          "text": "高くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "時間がたつと高さは高くなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.45969d4c94f1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉の数はどう変化しやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減るだけ"
+        },
+        {
+          "id": "c2",
+          "text": "変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "増える"
+        },
+        {
+          "id": "c4",
+          "text": "必ず0になる"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "葉の数は増えていきます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.4d18732ae6c6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植えかえのとき、根を大切にする理由はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根が水や養分を吸うから"
+        },
+        {
+          "id": "c2",
+          "text": "根が光るから"
+        },
+        {
+          "id": "c3",
+          "text": "根が音を出すから"
+        },
+        {
+          "id": "c4",
+          "text": "根が磁石になるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "根は水や養分を吸う大切な部分です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.82a733220e1f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "花だんに植えかえたあと、大切にすることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水をやる"
+        },
+        {
+          "id": "c2",
+          "text": "水をまったくやらない"
+        },
+        {
+          "id": "c3",
+          "text": "日光を完全にさえぎる"
+        },
+        {
+          "id": "c4",
+          "text": "土を全部取る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植えかえのあとも、水をやって育てます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.9913caa90f00",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の体の主なつくりはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭・胸・腹"
+        },
+        {
+          "id": "c2",
+          "text": "根・茎・葉"
+        },
+        {
+          "id": "c3",
+          "text": "N極・S極"
+        },
+        {
+          "id": "c4",
+          "text": "回路だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "植物の体は根・茎・葉などからできています。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.9bc36598332d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒマワリとホウセンカの葉の形について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがうことがある"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ同じで形も同じ"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "植物によって葉の形はちがいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.a3b9a7931fb6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物を大切に扱うとき、正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根をていねいに扱う"
+        },
+        {
+          "id": "c2",
+          "text": "茎を折って持ち帰る"
+        },
+        {
+          "id": "c3",
+          "text": "葉を全部むしる"
+        },
+        {
+          "id": "c4",
+          "text": "土を捨てる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "根や茎・葉をていねいに扱います。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.ad90e75aae3f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ビニールポットから花だんに植えかえるとき、正しい方法はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土を洗って落とす"
+        },
+        {
+          "id": "c2",
+          "text": "土をつけたまま植える"
+        },
+        {
+          "id": "c3",
+          "text": "根を切って植える"
+        },
+        {
+          "id": "c4",
+          "text": "水だけに浮かせる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "根のまわりの土をつけたまま植えかえます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.dd879a5ec396",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "土の中に広がっている部分はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉"
+        },
+        {
+          "id": "c2",
+          "text": "茎"
+        },
+        {
+          "id": "c3",
+          "text": "根"
+        },
+        {
+          "id": "c4",
+          "text": "花"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "根は土の中に広がっています。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.e4366cfde9ef",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉の働きとして近いものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土から水を吸うだけ"
+        },
+        {
+          "id": "c2",
+          "text": "光を受けて育つのに大切な部分"
+        },
+        {
+          "id": "c3",
+          "text": "磁石を引きつける"
+        },
+        {
+          "id": "c4",
+          "text": "電気を通す"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "葉は光を受け、植物が育つために大切な部分です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.0709527394a3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日光をさえぎるとできるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かげ"
+        },
+        {
+          "id": "c2",
+          "text": "磁石"
+        },
+        {
+          "id": "c3",
+          "text": "回路"
+        },
+        {
+          "id": "c4",
+          "text": "子葉"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "光が物でさえぎられるとかげができます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.16fe7ff6d3a6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かがみで反射した日光は、どのように進みますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "曲がって進む"
+        },
+        {
+          "id": "c2",
+          "text": "まっすぐ進む"
+        },
+        {
+          "id": "c3",
+          "text": "音と同じ"
+        },
+        {
+          "id": "c4",
+          "text": "水だけ進む"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "反射した日光も、まっすぐ進みます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.1baad717e855",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "音が出ているとき、物はどうなっていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず溶ける"
+        },
+        {
+          "id": "c2",
+          "text": "震えている"
+        },
+        {
+          "id": "c3",
+          "text": "重くなる"
+        },
+        {
+          "id": "c4",
+          "text": "光るだけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "音が出ているとき、物は震えています。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.4c167c73fe8e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太鼓を強くたたくと、紙くずの動きはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さくなる"
+        },
+        {
+          "id": "c2",
+          "text": "大きくなる"
+        },
+        {
+          "id": "c3",
+          "text": "動かなくなる"
+        },
+        {
+          "id": "c4",
+          "text": "必ず消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "音が大きいとき、震えも大きくなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.5a2f7fb57c47",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かがみで反射した光を重ねると、どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず暗くなる"
+        },
+        {
+          "id": "c2",
+          "text": "明るくあたたかくなりやすい"
+        },
+        {
+          "id": "c3",
+          "text": "重さが増える"
+        },
+        {
+          "id": "c4",
+          "text": "音が出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "光を重ねると、明るさやあたたかさが増します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.6f88211fcc69",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねで日光を集めると、その場所はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "暗くなる"
+        },
+        {
+          "id": "c2",
+          "text": "明るくあたたかくなる"
+        },
+        {
+          "id": "c3",
+          "text": "冷えるだけ"
+        },
+        {
+          "id": "c4",
+          "text": "重くなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日光を集めると、明るくあたたかくなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.7a3744f8f36a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "集めた光の点を小さくすると、どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "暗く冷える"
+        },
+        {
+          "id": "c2",
+          "text": "より明るくあたたかくなりやすい"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "音が大きくなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "集める面積が小さいほど、明るさ・あたたかさが強くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.9ad45c04607c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "光を集める実験で気をつけることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "黒い紙などに短い時間で調べる"
+        },
+        {
+          "id": "c2",
+          "text": "長い時間じっとのぞく"
+        },
+        {
+          "id": "c3",
+          "text": "目で太陽を追う"
+        },
+        {
+          "id": "c4",
+          "text": "水に沈める"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "集めた光は熱くなるので、短い時間で安全に調べます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.c432d5567dad",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かげができる向きについて正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太陽と同じ側"
+        },
+        {
+          "id": "c2",
+          "text": "太陽と反対側"
+        },
+        {
+          "id": "c3",
+          "text": "関係ない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず北"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かげは太陽と反対側にできます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.cdddd90ce47f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "糸電話で音がよく伝わるつなぎ方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "糸をたるませる"
+        },
+        {
+          "id": "c2",
+          "text": "糸をはっておく"
+        },
+        {
+          "id": "c3",
+          "text": "糸を切る"
+        },
+        {
+          "id": "c4",
+          "text": "糸を水につける"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "糸をはっておくと、震えが伝わって音が聞こえます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.cf4ced4396dc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "トライアングルを強くにぎると、音はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きくなる"
+        },
+        {
+          "id": "c2",
+          "text": "止まる（小さくなる）"
+        },
+        {
+          "id": "c3",
+          "text": "色が変わる"
+        },
+        {
+          "id": "c4",
+          "text": "重くなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "震えを止めると音も止まります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.fd7140bac78c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねで太陽を直接見てよいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "よい"
+        },
+        {
+          "id": "c2",
+          "text": "いけない"
+        },
+        {
+          "id": "c3",
+          "text": "夜だけよい"
+        },
+        {
+          "id": "c4",
+          "text": "曇りならよい"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "虫めがねで太陽を見ると目を傷つけるのでいけません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.10426b245212",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "風を強くすると、車の進むきょりはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "短くなる"
+        },
+        {
+          "id": "c2",
+          "text": "長くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず止まる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風が強いほど、遠くまで動きやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.10449977149d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "うちわであおいだ車が動くのは、何の力ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "磁力"
+        },
+        {
+          "id": "c2",
+          "text": "風の力"
+        },
+        {
+          "id": "c3",
+          "text": "電気"
+        },
+        {
+          "id": "c4",
+          "text": "音"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風の力が物を動かします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.1ca209e91733",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゴムの力で車が動くとき、何の力がはたらいていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "風の力だけ"
+        },
+        {
+          "id": "c2",
+          "text": "ゴムの力"
+        },
+        {
+          "id": "c3",
+          "text": "磁力だけ"
+        },
+        {
+          "id": "c4",
+          "text": "音の力"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "引きのばしたゴムがもどろうとする力が車を動かします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.29f106612467",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゴムを2本にすると、進むきょりはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "短くなるだけ"
+        },
+        {
+          "id": "c2",
+          "text": "長くなりやすい"
+        },
+        {
+          "id": "c3",
+          "text": "必ず0になる"
+        },
+        {
+          "id": "c4",
+          "text": "色が変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ゴムの力が強くなると、より遠くまで進みやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.357e6c67f8aa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "風の力で動くものの例として正しくないものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ヨット"
+        },
+        {
+          "id": "c2",
+          "text": "ふうりん"
+        },
+        {
+          "id": "c3",
+          "text": "水車"
+        },
+        {
+          "id": "c4",
+          "text": "こいのぼり"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "水車は水の力で動きます。風の力ではありません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.3f39fe355c4a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "実験で記録するとよいことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "力の大きさときょり"
+        },
+        {
+          "id": "c2",
+          "text": "友だちの名前だけ"
+        },
+        {
+          "id": "c3",
+          "text": "給食のメニュー"
+        },
+        {
+          "id": "c4",
+          "text": "座席番号"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "力の条件と動いたきょりを記録すると、きまりが見えます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.9b6b729600bb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゴムを長く引きのばして車を走らせると、きょりはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "短くなる"
+        },
+        {
+          "id": "c2",
+          "text": "長くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ゴムを長く引きのばすほど、遠くまで進みやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.bf887024cad1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "風やゴムの力について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "物を動かせない"
+        },
+        {
+          "id": "c2",
+          "text": "物を動かすことができる"
+        },
+        {
+          "id": "c3",
+          "text": "重さと同じ"
+        },
+        {
+          "id": "c4",
+          "text": "光と同じ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風やゴムの力は、物を動かすことができます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.c9d8cb9f4443",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゴムを引きのばすと、どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そのまま"
+        },
+        {
+          "id": "c2",
+          "text": "もとの形にもどろうとする"
+        },
+        {
+          "id": "c3",
+          "text": "必ず切れる"
+        },
+        {
+          "id": "c4",
+          "text": "電気が流れる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "のびたゴムは、もとの形にもどろうとします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.d28c7d90a446",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "力の大きさを変えると、物の動き方はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変わらない"
+        },
+        {
+          "id": "c2",
+          "text": "動き方も変わる"
+        },
+        {
+          "id": "c3",
+          "text": "必ず止まる"
+        },
+        {
+          "id": "c4",
+          "text": "名前が変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "力の大きさを変えると、動き方も変わります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.d7559b2221e0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たこが空に上がるのは、主に何の力ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "磁力"
+        },
+        {
+          "id": "c2",
+          "text": "風の力"
+        },
+        {
+          "id": "c3",
+          "text": "電気"
+        },
+        {
+          "id": "c4",
+          "text": "音"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "たこは風の力を受けて上がります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.f5bd845372b9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "風の力を使って電気をつくるものを何発電といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火力発電"
+        },
+        {
+          "id": "c2",
+          "text": "風力発電"
+        },
+        {
+          "id": "c3",
+          "text": "水力発電だけ"
+        },
+        {
+          "id": "c4",
+          "text": "手発電"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風の力でプロペラを回して電気をつくるのが風力発電です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.2b2e5dc2a113",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日なたと日陰をくらべると、明るさはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同じ"
+        },
+        {
+          "id": "c2",
+          "text": "日陰の方が明るい"
+        },
+        {
+          "id": "c3",
+          "text": "日なたの方が明るい"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日なたの方が明るいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.2f951fbe25b6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "方位じしんの色のついた針は、だいたいどちらを指しますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "東"
+        },
+        {
+          "id": "c2",
+          "text": "西"
+        },
+        {
+          "id": "c3",
+          "text": "南"
+        },
+        {
+          "id": "c4",
+          "text": "北"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "方位じしんの色のついた針は北を指します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.45545669c0bb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温度計を読むとき、正しい見方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "斜め上から見る"
+        },
+        {
+          "id": "c2",
+          "text": "液の先と同じ高さで見る"
+        },
+        {
+          "id": "c3",
+          "text": "下から見る"
+        },
+        {
+          "id": "c4",
+          "text": "遠くから当てずっぽう"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "液の先と同じ高さの目で目もりを読みます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.5b194e123371",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かげができるのは、何がさえぎられるからですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音"
+        },
+        {
+          "id": "c2",
+          "text": "光（日光）"
+        },
+        {
+          "id": "c3",
+          "text": "磁石"
+        },
+        {
+          "id": "c4",
+          "text": "電気"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日光が物でさえぎられるとかげができます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.5f2169dd2509",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かげができる向きとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太陽と同じ側"
+        },
+        {
+          "id": "c2",
+          "text": "太陽と反対側"
+        },
+        {
+          "id": "c3",
+          "text": "関係ない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず東"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かげは太陽と反対側にできます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.6225f0a93f00",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太陽は1日でだいたいどの向きに動きますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西→東"
+        },
+        {
+          "id": "c2",
+          "text": "東→南→西"
+        },
+        {
+          "id": "c3",
+          "text": "北→南だけ"
+        },
+        {
+          "id": "c4",
+          "text": "動かない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽は東から南を通って西へ動きます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.7814e9d5dcba",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太陽を直接見てよいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "よい"
+        },
+        {
+          "id": "c2",
+          "text": "いけない（器具を使う）"
+        },
+        {
+          "id": "c3",
+          "text": "夜だけよい"
+        },
+        {
+          "id": "c4",
+          "text": "雨の日だけよい"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽を直接見ると目を傷つけるので、日食グラスなどで調べます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.8865ac68a7c5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "しめり気について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同じ"
+        },
+        {
+          "id": "c2",
+          "text": "日陰の方がしめっていることが多い"
+        },
+        {
+          "id": "c3",
+          "text": "日なたの方が必ずしめっている"
+        },
+        {
+          "id": "c4",
+          "text": "関係ない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日陰の方がしめっていることが多いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.a443c7ae33a4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "方位じしんの正しい使い方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "立てて振り回す"
+        },
+        {
+          "id": "c2",
+          "text": "水平に持ち、針が止まってから読む"
+        },
+        {
+          "id": "c3",
+          "text": "水に入れる"
+        },
+        {
+          "id": "c4",
+          "text": "磁石に近づけたまま使う"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水平に持ち、針が止まってから方位を読みます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.c8975261bcb0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太陽の位置が変わると、かげはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変わらない"
+        },
+        {
+          "id": "c2",
+          "text": "向きや長さが変わる"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ変わる"
+        },
+        {
+          "id": "c4",
+          "text": "消えない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽の位置が変わると、かげの向きや長さも変わります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.df505e894844",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "正午の日なたの地面の温度は、午前にくらべてどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "低い"
+        },
+        {
+          "id": "c2",
+          "text": "高い"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "正午の日なたは、午前より温度が高くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.f68930a086f5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かげぼうし遊びに向いている天気はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れ"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "雨"
+        },
+        {
+          "id": "c4",
+          "text": "雪"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "晴れの日はかげがはっきりできます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.1b90f658c982",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "周りをビニールでおおった導線の外側だけにつなぐと、豆電球が光らない理由はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中の金属は電気を通さないから"
+        },
+        {
+          "id": "c2",
+          "text": "ビニールが電気を通しにくく、中の金属まで届かないから"
+        },
+        {
+          "id": "c3",
+          "text": "必ず切れているから"
+        },
+        {
+          "id": "c4",
+          "text": "音が出るから"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "導線の中は金属ですが、まわりのビニールは電気を通しにくいので、外側だけつなぐと光りません。両はしをむいて金属を出してつなぎます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.1e75a02b83d2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気を通すか調べる実験でわかることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度だけ"
+        },
+        {
+          "id": "c2",
+          "text": "電気が通るかどうか"
+        },
+        {
+          "id": "c3",
+          "text": "紙かどうかだけ"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "回路につないで豆電球が光るかどうかで調べます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.2d105d494dd5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気が流れる道を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "回路"
+        },
+        {
+          "id": "c2",
+          "text": "かげ"
+        },
+        {
+          "id": "c3",
+          "text": "子葉"
+        },
+        {
+          "id": "c4",
+          "text": "方位"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電気が流れる道を回路といいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.3ac86d4160a6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気を通しにくい物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "銅"
+        },
+        {
+          "id": "c2",
+          "text": "アルミニウムはく"
+        },
+        {
+          "id": "c3",
+          "text": "プラスチック"
+        },
+        {
+          "id": "c4",
+          "text": "鉄くぎ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "プラスチックやゴム・紙は電気を通しにくいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.3d64605e8be5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "豆電球を光らせるために必要なものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "磁石だけ"
+        },
+        {
+          "id": "c2",
+          "text": "かん電池・導線・豆電球のつながった回路"
+        },
+        {
+          "id": "c3",
+          "text": "水だけ"
+        },
+        {
+          "id": "c4",
+          "text": "土だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かん電池・導線・豆電球がつながった回路が必要です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.498c16e51fe0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "豆電球のガラス部分だけにつなぐとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "光る"
+        },
+        {
+          "id": "c2",
+          "text": "光らない"
+        },
+        {
+          "id": "c3",
+          "text": "必ず爆発する"
+        },
+        {
+          "id": "c4",
+          "text": "重くなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ガラスは電気を通さないので光りません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.5e58452f94a5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回路の途中が切れているとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず明るくなる"
+        },
+        {
+          "id": "c2",
+          "text": "光らない"
+        },
+        {
+          "id": "c3",
+          "text": "音が出る"
+        },
+        {
+          "id": "c4",
+          "text": "磁石になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "回路が切れていると電気が流れず光りません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.5f64bd3987e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "鉄・銅・アルミニウムのような物を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気体"
+        },
+        {
+          "id": "c2",
+          "text": "金属"
+        },
+        {
+          "id": "c3",
+          "text": "こん虫"
+        },
+        {
+          "id": "c4",
+          "text": "子葉"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "鉄・銅・アルミニウムは金属です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.8b4fbe78fa4b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "導線のビニールをどうすると電気がつながりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "両はしをむく"
+        },
+        {
+          "id": "c2",
+          "text": "片はしだけむく"
+        },
+        {
+          "id": "c3",
+          "text": "むかない"
+        },
+        {
+          "id": "c4",
+          "text": "ぬらす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "両はしのビニールをむいて金属を出します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.988c0be26210",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気を通しやすい物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輪ゴム"
+        },
+        {
+          "id": "c2",
+          "text": "鉄のクリップ"
+        },
+        {
+          "id": "c3",
+          "text": "紙"
+        },
+        {
+          "id": "c4",
+          "text": "プラスチック"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "鉄などの金属は電気を通しやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.9ea5bfe12c6d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かん電池の両端を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭と腹"
+        },
+        {
+          "id": "c2",
+          "text": "＋きょくと－きょく"
+        },
+        {
+          "id": "c3",
+          "text": "N極とS極"
+        },
+        {
+          "id": "c4",
+          "text": "根と葉"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かん電池には＋きょくと－きょくがあります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.e9416fa6bbec",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "豆電球が光るつなぎ方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "＋だけにつなぐ"
+        },
+        {
+          "id": "c2",
+          "text": "－だけにつなぐ"
+        },
+        {
+          "id": "c3",
+          "text": "＋と－の両方につなぐ"
+        },
+        {
+          "id": "c4",
+          "text": "どちらにもつながない"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "＋きょくと－きょくの両方につながる回路が必要です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.027f51f5d70c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "棒磁石で鉄をいちばん強く引きつける場所はどこですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まん中"
+        },
+        {
+          "id": "c2",
+          "text": "両はし（きょく）"
+        },
+        {
+          "id": "c3",
+          "text": "どこでも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "側面だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "きょく（両はし）がいちばん強いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.1da0cd3c9d1d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石に近づけた鉄がクリップを引きつけるとき、言えることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄が磁石になった"
+        },
+        {
+          "id": "c2",
+          "text": "鉄がプラスチックになった"
+        },
+        {
+          "id": "c3",
+          "text": "回路ができた"
+        },
+        {
+          "id": "c4",
+          "text": "音が出た"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "鉄が磁石の性質をもった（磁石になった）といえます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.42f3e50c6206",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ極どうしを近づけるとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "引き合う"
+        },
+        {
+          "id": "c2",
+          "text": "しりぞけ合う"
+        },
+        {
+          "id": "c3",
+          "text": "光る"
+        },
+        {
+          "id": "c4",
+          "text": "溶ける"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "同じ極どうしはしりぞけ合います。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.49e5b2f7126c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石と鉄のきょりが遠くなると、引きつける力はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "強くなる"
+        },
+        {
+          "id": "c2",
+          "text": "弱くなる（またはなくなる）"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず同じ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "きょりが遠くなると、引きつける力は弱くなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.76b1b18ef7de",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石と鉄の間にプラスチック板があっても、引きつける力はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず0になる"
+        },
+        {
+          "id": "c2",
+          "text": "はたらくことがある"
+        },
+        {
+          "id": "c3",
+          "text": "音が出る"
+        },
+        {
+          "id": "c4",
+          "text": "重さが増える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "間に物があっても、きょりが近ければ引きつけることがあります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.7d8945a82ba2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石につけた鉄くぎに、別の鉄くぎがつくことがあります。これはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄くぎが磁石になったから"
+        },
+        {
+          "id": "c2",
+          "text": "音が出たから"
+        },
+        {
+          "id": "c3",
+          "text": "電気が流れたから"
+        },
+        {
+          "id": "c4",
+          "text": "重くなったから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "磁石に近づけた鉄は、一時的に磁石になります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.826215f6a7df",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "棒磁石のまん中あたりの引きつける力はどうですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いちばん強い"
+        },
+        {
+          "id": "c2",
+          "text": "弱い（またはほとんどつかない）"
+        },
+        {
+          "id": "c3",
+          "text": "音が大きい"
+        },
+        {
+          "id": "c4",
+          "text": "必ず溶ける"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "まん中は引きつける力が弱いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.89b4fcaefc8e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ちがう極どうしを近づけるとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しりぞけ合う"
+        },
+        {
+          "id": "c2",
+          "text": "引き合う"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "音が出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ちがう極どうしは引き合います。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.8cfe9816af21",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石につく物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ガラスのコップ"
+        },
+        {
+          "id": "c2",
+          "text": "鉄くぎ"
+        },
+        {
+          "id": "c3",
+          "text": "消しゴム"
+        },
+        {
+          "id": "c4",
+          "text": "わりばし"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "鉄でできた物は磁石につきます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.9e8f507c75e5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石につかない物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄の空きかん"
+        },
+        {
+          "id": "c2",
+          "text": "プラスチックの消しゴム"
+        },
+        {
+          "id": "c3",
+          "text": "鉄のはさみ"
+        },
+        {
+          "id": "c4",
+          "text": "鉄くぎ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "プラスチック・木・ガラス・アルミニウムはつきません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.a11c4f96e5d4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石から鉄くぎをはずすと、下のくぎはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ついたまま"
+        },
+        {
+          "id": "c2",
+          "text": "落ちる"
+        },
+        {
+          "id": "c3",
+          "text": "光る"
+        },
+        {
+          "id": "c4",
+          "text": "伸びる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "磁石から離すと磁力が弱まり、下のくぎは落ちやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.d4c16a39487c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石の利用として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄の物を引きつけて拾う"
+        },
+        {
+          "id": "c2",
+          "text": "水を温める"
+        },
+        {
+          "id": "c3",
+          "text": "植物を発芽させる"
+        },
+        {
+          "id": "c4",
+          "text": "音を消す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "磁石は鉄の物を引きつける性質を利用します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.1e2ea9453164",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物の形を変えたときのきまりとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重さも必ず変わる"
+        },
+        {
+          "id": "c2",
+          "text": "重さは変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "色が必ず変わる"
+        },
+        {
+          "id": "c4",
+          "text": "音が出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "形が変わっても重さは変わりません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.2f37f992c555",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ大きさのアルミニウム・木・プラスチックでは、どれが重いことが多いですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "木"
+        },
+        {
+          "id": "c2",
+          "text": "プラスチック"
+        },
+        {
+          "id": "c3",
+          "text": "アルミニウム"
+        },
+        {
+          "id": "c4",
+          "text": "どれも同じ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "同じ大きさなら、アルミニウムが重いことが多いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.378f53cd51c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はかりで量る前に、表示を何にしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100"
+        },
+        {
+          "id": "c2",
+          "text": "0"
+        },
+        {
+          "id": "c3",
+          "text": "最大"
+        },
+        {
+          "id": "c4",
+          "text": "適当な数"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "はかりは0にしてから量ります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.4267ce0a6a92",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ大きさでも、材質がちがうと重さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがうことがある"
+        },
+        {
+          "id": "c3",
+          "text": "測れない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず0"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "同じ大きさ（体積）でも、材質によって重さはちがいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.62c5d7178bb5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "120gの粘土をまるくしたりのばしたりすると、重さはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100gになる"
+        },
+        {
+          "id": "c2",
+          "text": "140gになる"
+        },
+        {
+          "id": "c3",
+          "text": "120gのまま"
+        },
+        {
+          "id": "c4",
+          "text": "0gになる"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "形を変えても重さは120gのままです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.643ed37368ef",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "粘土の形を変えても、重さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "軽くなる"
+        },
+        {
+          "id": "c2",
+          "text": "重くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "なくなる"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "形が変わっても重さは変わりません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.72749b5d85f5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アルミはくを丸めても、重さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重くなる"
+        },
+        {
+          "id": "c2",
+          "text": "軽くなる"
+        },
+        {
+          "id": "c3",
+          "text": "同じ"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "形が変わっても重さは同じです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.935fc1d30972",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "重さをくらべるときに使える道具はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "虫めがね"
+        },
+        {
+          "id": "c2",
+          "text": "はかり（てんびん）"
+        },
+        {
+          "id": "c3",
+          "text": "方位じしん"
+        },
+        {
+          "id": "c4",
+          "text": "導線だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "はかりやてんびんで重さをくらべます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.a018956dd332",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "重さを調べる実験で大切なことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "条件をそろえてくらべる"
+        },
+        {
+          "id": "c2",
+          "text": "見た目だけで決める"
+        },
+        {
+          "id": "c3",
+          "text": "色だけで決める"
+        },
+        {
+          "id": "c4",
+          "text": "音だけで決める"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "同じ条件でくらべると、正しいきまりがわかります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.ba88ca416b12",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物の大きさ（かさ）を表す言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度"
+        },
+        {
+          "id": "c2",
+          "text": "体積"
+        },
+        {
+          "id": "c3",
+          "text": "方位"
+        },
+        {
+          "id": "c4",
+          "text": "回路"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "物の大きさを体積といいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.e58ebf4e9b98",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "重さの単位「g」は何と読みますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メートル"
+        },
+        {
+          "id": "c2",
+          "text": "グラム"
+        },
+        {
+          "id": "c3",
+          "text": "リットル"
+        },
+        {
+          "id": "c4",
+          "text": "度"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "gはグラムと読みます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.eb9526d72cd6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ大きさの物の重さをくらべるとわかることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "材質によって重さがちがう"
+        },
+        {
+          "id": "c2",
+          "text": "色だけがちがう"
+        },
+        {
+          "id": "c3",
+          "text": "名前だけがちがう"
+        },
+        {
+          "id": "c4",
+          "text": "音だけがちがう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "材質によって重さがちがうことがわかります。"
+  }
+]

@@ -257,6 +257,61 @@ const kuromamen: MonsterDesign = {
   ],
 };
 
+/** タマネギン：淡路島の たまねぎ。葉っぱの ちょんまげと 丸い皮（モリ） */
+const tamanegin: MonsterDesign = {
+  size: 32,
+  colors: { G: NQ.green, E: NQ.leaf, Y: NQ.cream, A: NQ.apricot, B: NQ.brown, p: NQ.blush },
+  rim: { [NQ.leaf]: NQ.green, [NQ.cream]: NQ.apricot },
+  layers: [
+    {
+      mirror: true,
+      y: 1,
+      rows: [
+        '...........E...',
+        '..........EEE..',
+        '.........EEEG..',
+        '........EEEG...',
+        '..........E....',
+        '..........E....',
+        '........YYYY...',
+        '......YYYYYYYY.',
+        '.....YYYYYYYYYY',
+        '....YYYYYYYYYYY',
+        '...YYYYYYYYYYYY',
+        '..YYYYYYYYYYYYY',
+        '..YYYYYYYYYYYYY',
+        '.YYYYYYoYYYYYYY',
+        '.YYYYYYoYYYYYYY',
+        '.YYYYYYYYYYYYYY',
+        '.YYYYYpYYYYYYYY',
+        '.YYYYYYYYYYYYYY',
+        '..YYYYYYYYYYYYY',
+        '..YYYYYYYYYYYYY',
+        '...YYYYYYYYYYYY',
+        '....YYYYYYYYYYY',
+        '.....YYYYYYYYYY',
+        '......YYYYYYYY.',
+        '........AAAA...',
+        '.........BB....',
+        '.........BB....',
+        '........BBB....',
+        '........BBB....',
+      ],
+    },
+  ],
+};
+
+/** オオタマネギ：皮が よろいの ように 重なった タマネギンの しんか（モリ） */
+const ootamanegi: MonsterDesign = {
+  ...tamanegin,
+  colors: { ...tamanegin.colors, O: NQ.ochre, W: NQ.white },
+  layers: [
+    ...tamanegin.layers,
+    { mirror: true, y: 9, rows: ['......OOOOOOOOO', '.....O.........', '....O..........'] },
+    { mirror: true, y: 14, rows: ['......WW.......', '......W........'] },
+  ],
+};
+
 /** クロマメムシャ：クロマメンの しんか。まめが 3 つ ならぶ さやの かぶと・ふた葉の 前立て・葉の たて・きりっと 目（モリ） */
 const kuromameMusha: MonsterDesign = {
   size: 32,
@@ -606,7 +661,13 @@ const tajimaMogyu: MonsterDesign = {
     {
       mirror: true,
       y: 30,
-      rows: ['................GGGG', '...............GG...', '...............GG...', '...............GG...', '................GGGG'],
+      rows: [
+        '................GGGG',
+        '...............GG...',
+        '...............GG...',
+        '...............GG...',
+        '................GGGG',
+      ],
     },
     // せなかから 立ちのぼる 炎
     {
@@ -891,6 +952,8 @@ export const HYOGO: Readonly<Record<string, MonsterDesign>> = {
   'hyogo-takotsubo-daisho': takotsuboDaisho,
   'hyogo-kuromamen': kuromamen,
   'hyogo-kuromame-musha': kuromameMusha,
+  'hyogo-tamanegin': tamanegin,
+  'hyogo-ootamanegi': ootamanegi,
   'hyogo-sorobanban': sorobanban,
   'hyogo-soroban-shogun': sorobanShogun,
   'hyogo-midboss-tajima-mogyu': tajimaMogyu,

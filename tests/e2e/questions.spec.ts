@@ -26,3 +26,25 @@ test('picture-word：1 回まちがえてから 正解すると score 0.5', asyn
   await page.locator('.nq-pw-card', { hasText: 'apple' }).click({ timeout: 5_000 });
   await expect(page.locator('.pg-result')).toContainText('"score": 0.5', { timeout: 10_000 });
 });
+
+test('旧版の文字入力問題：複数の答えを入力して採点できる', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.rika.g5.sci-5-10.19d606f94ed5');
+  await expect(page.locator('.nq-q-input')).toBeVisible({ timeout: 20_000 });
+  const answers = page.getByRole('textbox', { name: /こたえ/ });
+  await expect(answers).toHaveCount(3);
+  await answers.nth(0).fill('1.2');
+  await answers.nth(1).fill('１．２');
+  await answers.nth(2).fill('1.2');
+  await page.getByRole('button', { name: 'こたえる' }).click();
+  await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
+});
+
+test('旧版の地図問題：正しい地点をクリックして採点できる', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.shakai.g3.cur-1403-01.6d0e031ce36a');
+  const map = page.locator('.nq-map-tap');
+  await expect(map).toBeVisible({ timeout: 20_000 });
+  const box = await map.boundingBox();
+  expect(box).not.toBeNull();
+  await map.click({ position: { x: box!.width * 0.45, y: box!.height * 0.7 } });
+  await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
+});

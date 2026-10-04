@@ -56,6 +56,7 @@ export function unequip(prev: GameState, slot: EquipSlot, now = Date.now()): Gam
   if (!id) return null;
   const gs = structuredClone(prev);
   delete gs.player.equipment[slot];
+  delete gs.party.bagPlacements[`eq:${slot}`];
   gs.inventory[id] = (gs.inventory[id] ?? 0) + 1;
   gs.updatedAt = now;
   return gs;

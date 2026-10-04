@@ -11,7 +11,18 @@ import globals from 'globals';
  *  - src/core/** から DOM・phaser・renderers を import 禁止（純粋ロジック）
  */
 export default tseslint.config(
-  { ignores: ['dist/**', 'node_modules/**', 'coverage/**', 'playwright-report/**', 'raw/**', 'schemas/**'] },
+  {
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'coverage/**',
+      'playwright-report/**',
+      'test-results/**',
+      '.vite/**',
+      'raw/**',
+      'schemas/**',
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

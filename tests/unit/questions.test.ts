@@ -216,8 +216,9 @@ describe('choice レンダラーの schema', () => {
       false,
     );
   });
-  it('選択肢5つは拒否', () => {
-    const choices = Array.from({ length: 5 }, (_, i) => ({ id: String(i), text: String(i) }));
+  it('選択肢6つまで許可し、7つは拒否', () => {
+    const choices = Array.from({ length: 7 }, (_, i) => ({ id: String(i), text: String(i) }));
+    expect(schema.safeParse({ prompt: 'p', choices: choices.slice(0, 6), answer: '0' }).success).toBe(true);
     expect(schema.safeParse({ prompt: 'p', choices, answer: '0' }).success).toBe(false);
   });
   it('text も image も無い選択肢は拒否', () => {

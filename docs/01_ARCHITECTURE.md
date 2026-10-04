@@ -177,6 +177,15 @@ export interface QuestionQuery {
 4. **問題JSONが増えてもビルド不要。** `content/` は Vite の `import.meta.glob` で読むか、`public/content` に置いて fetch する。MVPでは後者（問題作成者がファイルを置くだけでリロードで反映）。
 5. 新タイプ追加の手順（UI担当）：`renderers/<type>/` を作る → `index.ts` で `QuestionRenderer` を export → `renderers/registry.ts` に1行追加 → `content/questions/_samples/<type>.json` にサンプル問題を3問 → `pnpm gen:schemas`。**これ以外のファイルを触らずに済むこと。**
 
+### 3.5 教材の学術レビュー
+
+- 自動検査は構造・参照・正解形式を保証するが、設問内容の学術的正確性を承認しない。
+- 公式出典と承認記録は `content/quality/academic-reviews.json` に集約する。
+- 人間が問題ファイルを確認したら、担当者・確認日・出典ID・ファイルの SHA-256 を `reviews` に記録する。
+- 承認済みファイルの内容が変わると `pnpm validate:content` が失敗する。変更内容を再確認してからハッシュと確認日を更新する。
+- 統計、制度、地名など変化し得る事実は、台帳の `changingFactsRequireCurrentSource` に従い、確認時点で最新の一次資料を使う。
+- 未承認ファイル数は検証時に警告として表示する。未承認を「確認済み」とみなしてはならない。
+
 ### 3.4 Question Playground（両チームの共通デバッグ画面）
 
 `/playground.html` — ゲームを起動せずに、任意の問題JSONを貼り付け／ファイル選択して、そのタイプのレンダラーで即表示・採点確認できる画面。**MVPの最初の週に作る**（問題作成者とUI担当がゲーム本体の完成を待たずに並行作業できるようになる）。

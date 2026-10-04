@@ -26,13 +26,17 @@ import {
 import { groundOfTile, type Ground } from '../core/world/ground';
 import { evolutionOf, evolve, skillChanges } from '../core/progression/evolution';
 import {
+  adjacencyBonus,
   bagContext,
   bagMonsterUids,
   bagUsage,
   evolveRoom,
+  moveBagThing,
   monsterCost,
+  monsterSize,
   nextSlotLevel,
   putEquip,
+  removeFromRoster,
   setLeader,
   toggleBagMonster,
 } from '../core/progression/bag';
@@ -77,7 +81,7 @@ import {
 } from '../core/progression/route';
 import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
-import { MasteryStore, type QuestionBank } from '../questions/engine';
+import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
 import { ENCLAVES } from '../../scripts/data/prefectures';
 import { DialogueOverlay, type DialogueLine } from '../ui/dialogue';
 import {
@@ -91,7 +95,8 @@ import { AreaTitle, FieldHud, LandmarkCutin } from '../ui/field/FieldUi';
 import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
 import { bagCells } from '../ui/field/bagLayout';
 import { TownOverlay, type TownOverlayProps, type TownRow } from '../ui/field/TownOverlay';
-import { MenuOverlay, type MenuEntry, type MenuTab } from '../ui/field/MenuOverlay';
+import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
+import { ParentOverlay } from '../ui/field/ParentOverlay';
 import {
   WorldMapOverlay,
   type MapAreaInfo,
@@ -120,15 +125,16 @@ import {
 import { itemIconUrl } from './art/itemIcons';
 import { giveMeisan, meisanEarned } from '../core/progression/meisan';
 import { motifArtUrl } from './art/motifArt';
-import { designedMonsterArt } from './art/monsters';
+import { monsterMenuArtUrl } from './art/menuArt';
 import { NQ } from './art/palette';
 import { addSheet } from './art/sheet';
 import type { BattleEndPayload, BattleSceneData } from './Battle';
-import { MONSTER_SIZE, monsterArt } from './battle/pixelArt';
 import { buildFieldTextures, WARP_FRAMES } from './overworld/fieldArt';
 import { overworldView } from './overworld/overworldView';
 import { buildViewTexture } from './overworld/viewTiles';
 import { buildEntranceIcons } from './overworld/entranceIcons';
+import { GEOGRAPHIC_AREA_ORDER } from './overworld/geography';
+import { buildRoadmapNodes } from './overworld/roadmap';
 import { buildStructureArt, structureKey, type StructureKind } from './overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 
@@ -181,6 +187,7 @@ interface OverworldSceneData {
   spawnName?: string;
   /** 地図のワープ：このマス（のとなりの歩けるマス）に立つ。spawnName より優先 */
   spawnTile?: [number, number];
+  exactSpawn?: boolean;
   /** ?debug=battle のとき、マップに入ってすぐバトルを始める */
   debugBattle?: DebugBattle | null;
 }
@@ -336,6 +343,7 @@ export class OverworldScene extends Phaser.Scene {
   private mapKey = 'aomori-field';
   private spawnName = 'spawn';
   private spawnTile: [number, number] | null = null;
+  private exactSpawn = false;
   private pendingDebugBattle: DebugBattle | null = null;
   private map!: Phaser.Tilemaps.Tilemap;
   private colLayer: Phaser.Tilemaps.TilemapLayer | null = null;
@@ -348,9 +356,6 @@ export class OverworldScene extends Phaser.Scene {
   private rng: Rng = createRng(freshSeed());
   private readonly speak = createSpeaker();
   private readonly roots = new Map<RootName, HTMLDivElement>();
-  /** チーム編成の画面の モンスターの絵（data URL）。id ごとに 1 回だけ作る */
-  private readonly artUrls = new Map<string, string>();
-
   // ↓ マップが変わるたびに resetMapState() で作り直す
   private moving = false;
   private busy = false;
@@ -403,6 +408,7 @@ export class OverworldScene extends Phaser.Scene {
     if (data?.mapKey) this.mapKey = data.mapKey;
     this.spawnName = data?.spawnName ?? 'spawn';
     this.spawnTile = data?.spawnTile ?? null;
+    this.exactSpawn = data?.exactSpawn ?? false;
     this.pendingDebugBattle = data?.debugBattle ?? null;
   }
 
@@ -472,6 +478,7 @@ export class OverworldScene extends Phaser.Scene {
 
     this.setupInput();
     this.time.delayedCall(400, () => (this.canWarp = true));
+    this.rememberLocation(sx, sy);
     this.markVisited();
     this.baseMap = this.readBaseMap();
     this.renderHud();
@@ -529,6 +536,7 @@ export class OverworldScene extends Phaser.Scene {
 
   private findSpawn(layer: Phaser.Tilemaps.ObjectLayer | null): [number, number] {
     if (this.spawnTile) {
+      if (this.exactSpawn) return this.spawnTile;
       // 地図のワープ：看板のマスではなく、となりの歩けるマスに立つ（下 → 左右 → 上 → そのマス）
       const [tx, ty] = this.spawnTile;
       for (const [dx, dy] of [
@@ -2327,14 +2335,21 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     const c = this.content();
     if (!gs || !c) return;
+    const canReview = gs.learning.mistakes.some((id) =>
+      (this.registry.get('bank') as QuestionBank | undefined)?.get(id),
+    );
+    const choices = canReview
+      ? [t('field.townInnStay'), t('field.townInnReview'), t('ui.cancel')]
+      : [t('field.townInnStay'), t('ui.cancel')];
     const choice = await this.choose(
       [...lines, { speaker, text: t('field.townInnAsk', { price: INN_PRICE }) }],
-      [t('field.townInnStay'), t('ui.cancel')],
+      choices,
     );
-    if (choice !== 0) {
+    if (choice < 0 || choice === choices.length - 1) {
       await this.talk([{ speaker, text: t('field.townLater') }]);
       return;
     }
+    const reviewed = choice === 1 ? await this.reviewMistakes(speaker) : 0;
     const hero = partyFromGameState(gs, c).hero;
     const [x, y] = this.playerTile();
     const { state, paid } = innRest(
@@ -2342,6 +2357,7 @@ export class OverworldScene extends Phaser.Scene {
       { hp: hero.stats.hp, mp: hero.stats.mp },
       { map: this.mapKey, x: x * TILE + 8, y: y * TILE + 8 },
     );
+    if (reviewed > 0) state.player.gold += reviewed * 5;
     if (!paid) await this.talk([{ speaker, text: t('field.townInnFree') }]);
     this.setGame(state);
     const cam = this.cameras.main;
@@ -2353,8 +2369,56 @@ export class OverworldScene extends Phaser.Scene {
     this.renderHud();
     await this.talk([
       { speaker, text: t('field.townInnRested') },
+      ...(reviewed > 0 ? [{ speaker, text: t('field.townInnReviewBonus', { n: reviewed * 5 }) }] : []),
       { speaker, text: t('field.townInnSaved') },
     ]);
+  }
+
+  /** まちがいノートの先頭から最大3問。満点ならノートから外す。 */
+  private async reviewMistakes(speaker: string): Promise<number> {
+    const content = this.content();
+    const bank = this.registry.get('bank') as QuestionBank | undefined;
+    const gs = this.gs();
+    if (!content || !bank || !gs) return 0;
+    const ids = gs.learning.mistakes.filter((id) => bank.get(id)).slice(0, 3);
+    await this.talk([{ speaker, text: t('field.townInnReviewStart', { n: ids.length }) }]);
+    let perfect = 0;
+    for (const id of ids) {
+      const question = bank.get(id)!;
+      const host = document.createElement('div');
+      host.className = 'nq-bq-slot';
+      const root = this.root('fx');
+      render(
+        h(QuestionFrame, {
+          host,
+          title: t('field.tabMistakes'),
+          subject: question.subject,
+          hint: t('field.questionHint'),
+        }),
+        root,
+      );
+      try {
+        const result = await askById(
+          buildAskEnv({
+            host,
+            gs,
+            content,
+            bank,
+            mastery: new MasteryStore(gs.learning.mastery),
+            rng: this.rng,
+            speak: this.speak,
+          }),
+          id,
+        );
+        if (result.score >= 1) {
+          gs.learning.mistakes = gs.learning.mistakes.filter((mistake) => mistake !== id);
+          perfect++;
+        }
+      } finally {
+        render(null, root);
+      }
+    }
+    return perfect;
   }
 
   /** ずかんがかり：その県で 見つけた めいしょ・とくさんの数を おしえて、DEX_STEP こ ごとに ごほうび */
@@ -2621,9 +2685,10 @@ export class OverworldScene extends Phaser.Scene {
       return;
     }
     if (p.outcome === 'defeat') {
-      // 最後に泊まった宿屋へ（宿屋が未実装のあいだは今のマップの出発地点へ）
+      // 最後に泊まった宿屋へ。まだ泊まっていなければ今のマップの出発地点へ。
       const inn = this.gs()?.progress.lastInn;
-      this.switchMap(inn?.map ?? this.mapKey, 'spawn');
+      if (inn) this.switchMap(inn.map, 'spawn', [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)], true);
+      else this.switchMap(this.mapKey, 'spawn');
       return;
     }
     if (wasMidBoss && p.outcome === 'victory') void this.midBossDefeated();
@@ -2763,6 +2828,7 @@ export class OverworldScene extends Phaser.Scene {
           tab,
           tabs: this.menuTabs(),
           entries: view.entries,
+          roadmap: this.roadmapNodes(),
           summary: view.summary,
           empty: view.empty,
           message,
@@ -2770,6 +2836,22 @@ export class OverworldScene extends Phaser.Scene {
           keys: t('field.menuKeys'),
           onTab: (next: MenuTab) => draw(next),
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
+          onParent: () => {
+            const game = this.gs()!;
+            render(
+              h(ParentOverlay, {
+                game,
+                mastery: this.roadmapNodes(),
+                onChange: (next: GameState) => {
+                  this.setGame(next);
+                  drawParent();
+                },
+                onImport: (next: GameState) => this.applyImportedGame(next),
+                onClose: () => draw(tab),
+              }),
+              root,
+            );
+          },
           onClose: () => {
             playSfx('back');
             render(null, root);
@@ -2782,7 +2864,30 @@ export class OverworldScene extends Phaser.Scene {
         root,
       );
     };
-    draw('monsters');
+    const drawParent = () => {
+      const game = this.gs()!;
+      render(
+        h(ParentOverlay, {
+          game,
+          mastery: this.roadmapNodes(),
+          onChange: (next: GameState) => {
+            this.setGame(next);
+            drawParent();
+          },
+          onImport: (next: GameState) => this.applyImportedGame(next),
+          onClose: () => draw('roadmap'),
+        }),
+        root,
+      );
+    };
+    draw('roadmap');
+  }
+
+  /** 保護者メニューから読み込んだセーブの場所へ、画面も同時に移す。 */
+  private applyImportedGame(next: GameState): void {
+    this.setGame(next);
+    const { x, y } = next.progress.position;
+    this.switchMap(next.progress.currentMap, 'spawn', [Math.floor(x / TILE), Math.floor(y / TILE)], true);
   }
 
   /** 主人公の いまの ステータス（そうび こみ） */
@@ -2790,16 +2895,15 @@ export class OverworldScene extends Phaser.Scene {
     return partyFromGameState(gs, this.content()!).hero.stats;
   }
 
-  /** 県の じゅん（にほんちずの 地方の じゅん＝北から南。地図データが無ければ content の じゅん） */
+  /** 図鑑の県順。ストーリー順ではなく、北海道から沖縄へ北→南。 */
   private areaOrder(): string[] {
-    const data = this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined;
-    const ids = data?.regions.flatMap((r) => r.areas.map((a) => a.id)) ?? [];
-    return [...new Set([...ids, ...(this.content()?.areas.keys() ?? [])])];
+    return [...new Set([...GEOGRAPHIC_AREA_ORDER, ...(this.content()?.areas.keys() ?? [])])];
   }
 
   /** 特産品（たべもの・こうげいひん の モチーフ）ぜんぶ。見つけた＝スタンプ か どうぐを 手に入れたことがある */
   private specialtyList(gs: GameState) {
     const c = this.content()!;
+    const revealAll = this.devAll();
     const out: { area: Area; motif: Motif; itemId: string; item?: Item; known: boolean }[] = [];
     const areas = this.areaOrder().flatMap((id) => c.areas.get(id) ?? []);
     for (const area of areas)
@@ -2807,6 +2911,7 @@ export class OverworldScene extends Phaser.Scene {
         if (!SPECIALTY_KINDS.has(motif.kind)) continue;
         const itemId = `${area.id}-${motif.id}`;
         const known =
+          revealAll ||
           gs.dex.motifs.includes(motifStamp(area.id, motif.id)) ||
           gs.dex.items.includes(itemId) ||
           (gs.inventory[itemId] ?? 0) > 0;
@@ -2818,33 +2923,35 @@ export class OverworldScene extends Phaser.Scene {
   /** モンスター（県の じゅん、ボスは さいご）。であった＝図鑑にのった か 仲間 */
   private monsterList(gs: GameState) {
     const c = this.content()!;
+    const revealAll = this.devAll();
     const order = this.areaOrder();
     const rank = (m: Monster) => (order.includes(m.area) ? order.indexOf(m.area) : order.length);
     const seen = new Set([...gs.dex.monsters, ...gs.party.owned.map((o) => o.monsterId)]);
     return [...c.monsters.values()]
       .sort((a, b) => rank(a) - rank(b) || Number(a.isBoss) - Number(b.isBoss))
-      .map((m) => ({ m, known: seen.has(m.id) }));
+      .map((m) => ({ m, known: revealAll || seen.has(m.id) }));
   }
 
   private menuTabs() {
-    const gs = this.gs()!;
-    const count = (n: number, total: number) => t('field.menuCount', { n, total });
-    const mons = this.monsterList(gs);
-    const sps = this.specialtyList(gs);
     return [
+      { key: 'roadmap' as const, label: t('field.tabRoadmap'), icon: 'star' },
+      {
+        key: 'mistakes' as const,
+        label: t('field.tabMistakes'),
+        icon: 'cmd-scan',
+        count: String(this.gs()?.learning.mistakes.length ?? 0),
+      },
       {
         key: 'monsters' as const,
         label: t('field.tabMonsters'),
         group: t('field.dexGroup'),
         icon: 'boss',
-        count: count(mons.filter((x) => x.known).length, mons.length),
       },
       {
         key: 'specialties' as const,
         label: t('field.tabSpecialties'),
         group: t('field.dexGroup'),
         icon: 'star',
-        count: count(sps.filter((x) => x.known).length, sps.length),
       },
       { key: 'bag' as const, label: t('field.tabBag'), icon: 'role-shop' },
       { key: 'equip' as const, label: t('field.tabEquip'), icon: 'role-smith' },
@@ -2882,9 +2989,41 @@ export class OverworldScene extends Phaser.Scene {
     const stats = this.heroStats(gs);
     const hpLine = t('field.menuHp', { hp: gs.player.hp, max: stats.hp, gold: gs.player.gold });
 
+    if (tab === 'roadmap') return { entries: [], empty: '' };
+
+    if (tab === 'mistakes') {
+      const bank = this.registry.get('bank') as QuestionBank | undefined;
+      const entries = gs.learning.mistakes
+        .map((id): MenuEntry | null => {
+          const question = bank?.get(id);
+          if (!question) return null;
+          const payload = question.payload as Record<string, unknown>;
+          const prompt = typeof payload.prompt === 'string' ? payload.prompt : question.id;
+          return {
+            key: question.id,
+            name: prompt,
+            known: true,
+            right: t('field.mistakeGrade', { n: question.grade }),
+            sub: t(`subjects.${question.subject}`),
+            lines: [
+              t('field.mistakeUnit', { unit: c.units.get(question.unit)?.name ?? question.unit }),
+              t('field.mistakeType', { type: question.type }),
+            ],
+            blurb: question.explanation ?? t('field.mistakeNoExplanation'),
+          };
+        })
+        .filter((entry): entry is MenuEntry => entry !== null);
+      return {
+        entries,
+        summary: t('field.mistakeSummary', { n: entries.length }),
+        empty: t('field.mistakeEmpty'),
+      };
+    }
+
     if (tab === 'monsters') {
       const owned = new Set(gs.party.owned.map((o) => o.monsterId));
-      const entries = this.monsterList(gs).map(({ m, known }, i): MenuEntry => {
+      const monsters = this.monsterList(gs);
+      const entries = monsters.map(({ m, known }, i): MenuEntry => {
         const art = this.monsterArtUrl(m);
         const area = t('field.dexArea', { area: areaName(m.area) });
         return {
@@ -2894,6 +3033,7 @@ export class OverworldScene extends Phaser.Scene {
           art,
           known,
           right: t('field.dexNo', { n: String(i + 1).padStart(3, '0') }),
+          detailIndex: `${i + 1}/${monsters.length}`,
           tag: owned.has(m.id) ? t('field.dexOwned') : undefined,
           sub: known ? t(`elements.${m.element}`) : undefined,
           lines: known
@@ -2912,13 +3052,15 @@ export class OverworldScene extends Phaser.Scene {
     }
 
     if (tab === 'specialties') {
-      const entries = this.specialtyList(gs).map(({ area, motif, itemId, item, known }): MenuEntry => ({
+      const specialties = this.specialtyList(gs);
+      const entries = specialties.map(({ area, motif, itemId, item, known }, i): MenuEntry => ({
         key: itemId,
         name: known ? motif.name : unknown,
         icon: item ? itemIconUrl(item) : undefined,
         known,
         // リストの 右はしは 小さいので ふりがなを つけず かなで
         right: kana(area.name),
+        detailIndex: `${i + 1}/${specialties.length}`,
         sub: t(MOTIF_KIND_KEY[motif.kind]),
         lines: known
           ? [
@@ -3018,6 +3160,19 @@ export class OverworldScene extends Phaser.Scene {
     };
   }
 
+  /** 単元習熟度を唯一の進捗源として、ロードマップ表示用へ変換する。 */
+  private roadmapNodes(): RoadmapNode[] {
+    const c = this.content()!;
+    const gs = this.gs()!;
+    return buildRoadmapNodes({
+      units: c.units.values(),
+      mastery: gs.learning.mastery,
+      playerGrade: gs.learning.grade,
+      challengeHigher: gs.learning.challengeHigher,
+      subjectLabel: (subject) => t(`subjects.${subject}`),
+    });
+  }
+
   /** どうぐ・そうびの タブで Z：つかう・そうびする・はずす。ひとことを かえす */
   private menuAct(tab: MenuTab, key: string): string | null {
     const c = this.content()!;
@@ -3101,9 +3256,22 @@ export class OverworldScene extends Phaser.Scene {
             if (result === 'full') {
               playSfx('miss');
               again(key, t('field.bagFullMsg', { free: bagUsage(cur, ctx).free }));
+            } else if (result === 'roster-full') {
+              playSfx('miss');
+              again(key, t('field.bagRosterFull'));
             } else if (result !== 'none') {
               this.setGame(state);
-              again(key, t(result === 'added' ? 'field.bagAdded' : 'field.bagRemoved', { name: x.name }));
+              again(
+                key,
+                t(
+                  result === 'added'
+                    ? 'field.bagAdded'
+                    : result === 'benched'
+                      ? 'field.bagBenched'
+                      : 'field.bagRemoved',
+                  { name: x.name },
+                ),
+              );
             }
             return;
           }
@@ -3155,6 +3323,26 @@ export class OverworldScene extends Phaser.Scene {
           ];
           again(key, lines.join('\n'), key);
         },
+        onMove: (key: string, x: number, y: number) => {
+          const cur = this.gs();
+          if (!cur) return;
+          const next = moveBagThing(cur, key, { x, y }, bagContext(cur, c));
+          if (!next) {
+            playSfx('miss');
+            again(key, t('field.bagPlaceBlocked'));
+            return;
+          }
+          this.setGame(next);
+          playSfx('move');
+          again(key, t('field.bagMoved'));
+        },
+        onRosterRemove: (key: string) => {
+          const cur = this.gs();
+          if (!cur) return;
+          this.setGame(removeFromRoster(cur, key.slice('mon:'.length)));
+          playSfx('back');
+          again(key, t('field.bagRosterRemoved', { name: nameOf(key) }));
+        },
         onClose: () => {
           playSfx('back');
           close();
@@ -3184,13 +3372,16 @@ export class OverworldScene extends Phaser.Scene {
       art: this.textures.exists(this.heroTex)
         ? this.textures.getBase64(this.heroTex, walkFrame('down', 1))
         : null,
-      cost: 0,
+      cost: 1,
+      size: { w: 1, h: 1 },
       inBag: true,
       level,
       stats: heroC.stats,
       skills: skills(heroC.skills),
+      lines: adjacencyBonus(gs, ctx, gs.player.baseStats).labels,
     };
     const bagUids = bagMonsterUids(gs);
+    const roster = new Set([...bagUids, ...gs.party.reserve]);
     const monster = (o: GameState['party']['owned'][number]): BagThing[] => {
       const def = c.monsters.get(o.monsterId);
       if (!def) return [];
@@ -3207,7 +3398,9 @@ export class OverworldScene extends Phaser.Scene {
           icon: art,
           art,
           cost: monsterCost(def.id, c.monsters),
+          size: monsterSize(def.id, c.monsters),
           inBag,
+          roster: roster.has(o.uid),
           leader: inBag && bagUids[0] === o.uid,
           level: o.level,
           element: def.element,
@@ -3235,6 +3428,7 @@ export class OverworldScene extends Phaser.Scene {
       icon: itemIconUrl(it),
       art: itemIconUrl(it),
       cost: 1,
+      size: { w: 1, h: 1 },
       inBag: key.startsWith('eq:'),
       count,
       sub: t('field.equipSlot', { slot: t(`slots.${it.kind}`) }),
@@ -3266,7 +3460,17 @@ export class OverworldScene extends Phaser.Scene {
         hero,
         inBag,
         outside,
-        cells: bagCells(inBag, ctx.capacity, c.settings.bag),
+        cells: bagCells(
+          [hero, ...inBag].flatMap((x) => {
+            const p = gs.party.bagPlacements[x.key];
+            const s = x.size ?? { w: 1, h: 1 };
+            return p ? [{ key: x.key, x: p.x, y: p.y, w: s.w, h: s.h }] : [];
+          }),
+          ctx.cols,
+          ctx.rows,
+        ),
+        cols: ctx.cols,
+        rows: ctx.rows,
         used: usage.used,
         capacity: usage.capacity,
         over: usage.over,
@@ -3303,15 +3507,7 @@ export class OverworldScene extends Phaser.Scene {
 
   /** モンスターの絵（手描き、無ければ属性の形で自動生成）を data URL に。バッグ・ずかんで使う */
   private monsterArtUrl(def: Monster): string {
-    let url = this.artUrls.get(def.id);
-    if (!url) {
-      const canvas =
-        designedMonsterArt(def.id) ??
-        monsterArt(def.id, { element: def.element, size: MONSTER_SIZE.normal, boss: def.isBoss });
-      url = canvas.toDataURL();
-      this.artUrls.set(def.id, url);
-    }
-    return url;
+    return monsterMenuArtUrl(def);
   }
 
   // ───────────────────────── 県の地図（左上の小さな地図・ワープ） ─────────────────────────
@@ -3748,7 +3944,7 @@ export class OverworldScene extends Phaser.Scene {
     return { areaId, at: [(px - x0 + 0.5) / (x1 - x0 + 1), (py - y0 + 0.5) / (y1 - y0 + 1)] };
   }
 
-  private switchMap(target: string, spawn = 'spawn', tile?: [number, number]): void {
+  private switchMap(target: string, spawn = 'spawn', tile?: [number, number], exactSpawn = false): void {
     this.busy = true;
     render(null, this.root('dialogue'));
     const cam = this.cameras.main;
@@ -3758,7 +3954,7 @@ export class OverworldScene extends Phaser.Scene {
     const go = () => {
       if (moved) return;
       moved = true;
-      this.scene.restart({ mapKey: target, spawnName: spawn, spawnTile: tile });
+      this.scene.restart({ mapKey: target, spawnName: spawn, spawnTile: tile, exactSpawn });
     };
     cam.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, go);
     const guard = window.setTimeout(go, 600);
@@ -3789,6 +3985,29 @@ export class OverworldScene extends Phaser.Scene {
     this.registry.set('game', gs);
     // 見た目・めいさんひんの そうびが かわったら 主人公の 絵も
     this.refreshHeroLook();
+  }
+
+  private rememberLocation(x: number, y: number): void {
+    const gs = this.gs();
+    if (!gs) return;
+    const areaId = this.areaId();
+    const currentArea = this.content()?.areas.has(areaId) ? areaId : gs.progress.currentArea;
+    if (
+      gs.progress.currentMap === this.mapKey &&
+      gs.progress.currentArea === currentArea &&
+      gs.progress.position.x === x * TILE &&
+      gs.progress.position.y === y * TILE
+    )
+      return;
+    this.setGame({
+      ...gs,
+      progress: {
+        ...gs.progress,
+        currentMap: this.mapKey,
+        currentArea,
+        position: { x: x * TILE, y: y * TILE },
+      },
+    });
   }
 
   private heroLevel(): number {

@@ -5,7 +5,7 @@
 import { z } from 'zod';
 import { gradeSchema, idSchema, statsSchema } from '../content/schemas';
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 export const equipmentSchema = z
   .object({ weapon: idSchema, head: idSchema, chest: idSchema, legs: idSchema, feet: idSchema })
@@ -17,6 +17,12 @@ export const ownedMonsterSchema = z.object({
   nickname: z.string().max(8).optional(),
   level: z.number().int().positive(),
   xp: z.number().int().nonnegative(),
+});
+
+export const bagPlacementSchema = z.object({
+  x: z.number().int().nonnegative(),
+  y: z.number().int().nonnegative(),
+  rotated: z.boolean().default(false),
 });
 
 export const masteryRecordSchema = z.object({
@@ -50,12 +56,16 @@ export const gameStateSchema = z.object({
   party: z.object({
     owned: z.array(ownedMonsterSchema),
     activeUid: z.string().nullable(),
-    team: z
+    team: z.array(z.string()).default([]).describe('バッグに配置した仲間の uid（先頭が戦闘中のオトモ）。'),
+    reserve: z
       .array(z.string())
+      .max(7)
       .default([])
-      .describe(
-        'バッグに 入れた 仲間の uid（先頭が せんとう）。体の 上限は なく マスの数で きまる。空で activeUid が あれば その 1 体（progression/bag.ts）',
-      ),
+      .describe('編成中だがバッグ外にいる控え。team と合わせて最大7体'),
+    bagPlacements: z
+      .record(z.string(), bagPlacementSchema)
+      .default({ hero: { x: 0, y: 0, rotated: false } })
+      .describe('2Dバッグ上の配置。キーは hero / mon:<uid> / eq:<slot>'),
   }),
   inventory: z.record(idSchema, z.number().int().nonnegative()),
   progress: z.object({

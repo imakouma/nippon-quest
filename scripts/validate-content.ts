@@ -6,8 +6,10 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { findBrokenReferences, loadContent, type FileReader } from '../src/core/content/loader';
+import { academicReviewLedgerSchema } from '../src/questions/academicReview';
 import { questionBaseSchema } from '../src/questions/contracts';
 import { getRenderer } from '../src/questions/renderers/registry';
 
@@ -15,7 +17,7 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const CONTENT = `${ROOT}content/`;
 
 // manifest が古いと検証がすり抜けるので、必ず作り直す
-execSync('pnpm -s gen:manifest', { cwd: ROOT, stdio: 'inherit' });
+execSync('pnpm gen:manifest', { cwd: ROOT, stdio: 'inherit' });
 
 const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, 'utf8'));
 const errors: string[] = [];
@@ -65,7 +67,44 @@ if (content) {
     });
   }
 
-  // 画像キー（docs/03 §1 の命名規則）→ ファイル存在チェック（warning）
+  // 人間が承認した教材とその根拠を固定する。承認後の無審査変更はエラーにする。
+  const ledgerPath = `${CONTENT}quality/academic-reviews.json`;
+  const ledger = academicReviewLedgerSchema.safeParse(JSON.parse(readFileSync(ledgerPath, 'utf8')));
+  if (!ledger.success) {
+    errors.push(
+      `quality/academic-reviews.json: ${ledger.error.issues.map((x) => `${x.path.join('.')}: ${x.message}`).join('; ')}`,
+    );
+  } else {
+    const sourceIds = new Set(ledger.data.sources.map((source) => source.id));
+    const productionFiles = new Set(
+      content.questionFiles.filter((file) => !file.startsWith('questions/_samples/')),
+    );
+    const approved = new Set<string>();
+    for (const review of ledger.data.reviews) {
+      if (!productionFiles.has(review.file)) {
+        errors.push(`academic review: 存在しない問題ファイル "${review.file}"`);
+        continue;
+      }
+      if (approved.has(review.file)) errors.push(`academic review: "${review.file}" の承認が重複しています`);
+      approved.add(review.file);
+      for (const sourceId of review.sourceIds)
+        if (!sourceIds.has(sourceId))
+          errors.push(`academic review: "${review.file}" が未知の出典 "${sourceId}" を参照しています`);
+      const digest = createHash('sha256')
+        .update(readFileSync(CONTENT + review.file))
+        .digest('hex');
+      if (digest !== review.sha256)
+        errors.push(`academic review: "${review.file}" は承認後に変更されています。再レビューしてください`);
+    }
+    const pending = productionFiles.size - approved.size;
+    if (pending > 0)
+      warnings.push(
+        `学術レビュー待ち: ${pending}/${productionFiles.size} 問題ファイル（承認済み ${approved.size}）`,
+      );
+  }
+
+  // 画像キー（docs/03 §1 の命名規則）→ ファイル存在チェック（warning）。
+  // mon/item は必ず決定的なプロシージャル画像へフォールバックするため、静的PNGは必須ではない。
   const keyToPath = (key: string): string | null => {
     const [prefix, ...rest] = key.split('.');
     const id = rest.join('.');
@@ -73,13 +112,11 @@ if (content) {
       case 'char':
         return `assets/sprites/characters/${id}.png`;
       case 'mon':
-        return id.endsWith('.field')
-          ? `assets/sprites/monsters/${id.replace(/\.field$/, '')}-field.png`
-          : `assets/sprites/monsters/${id}.png`;
+        return null;
       case 'face':
         return `assets/portraits/${id}.png`;
       case 'item':
-        return `assets/items/${id}.png`;
+        return null;
       case 'motif': {
         const [area, ...m] = id.split('.');
         return `assets/motifs/${area}/${m.join('.')}.png`;

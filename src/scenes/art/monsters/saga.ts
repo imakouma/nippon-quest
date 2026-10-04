@@ -1060,7 +1060,7 @@ const yumonDouji: MonsterDesign = {
         '..........NNNNNN',
         '........NNNNNNNN',
         '......NNNNNNNNNN',
-        '.....gggggggggggg',
+        '.....ggggggggggg',
         '.......VVVVVVVVV',
         '.......VWWWWWWWW',
         '.......VWWWWWWWW',

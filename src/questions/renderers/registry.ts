@@ -4,7 +4,11 @@
  */
 import type { QuestionRenderer } from '../contracts';
 import { choiceRenderer } from './choice';
+import { experimentRenderer } from './experiment';
+import { numberBuildRenderer } from './number-build';
 import { pictureWordRenderer } from './picture-word';
+import { textInputRenderer } from './text-input';
+import { mapTapRenderer } from './map-tap';
 
 const registry = new Map<string, QuestionRenderer>();
 
@@ -30,9 +34,11 @@ export function allRenderers(): QuestionRenderer[] {
 // ── 登録（1タイプ1行） ──
 registerRenderer(choiceRenderer);
 registerRenderer(pictureWordRenderer);
-// registerRenderer(numberBuildRenderer);
+registerRenderer(numberBuildRenderer);
+registerRenderer(textInputRenderer);
+registerRenderer(mapTapRenderer);
 // registerRenderer(sortOrderRenderer);
 // registerRenderer(mapTapRenderer);
-// registerRenderer(experimentRenderer);
+registerRenderer(experimentRenderer);
 // registerRenderer(kanjiTraceRenderer);
 // registerRenderer(pairMatchRenderer);

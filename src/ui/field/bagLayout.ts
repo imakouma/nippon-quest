@@ -1,22 +1,23 @@
-/**
- * バッグの マスの ならび：入れた もの（cost マスぶんの 横長）→ あいている マス → まだ ひらいていない マス（あく レベルつき）。
- * 純粋関数（画面は BagOverlay）。
- */
-import { slotUnlockLevel, type BagSettings } from '../../core/progression/bag';
-
+/** 2Dバッグを描画するためのセル配置。 */
 export type BagCell =
-  { kind: 'item'; key: string; span: number } | { kind: 'empty' } | { kind: 'locked'; level: number };
+  | { kind: 'item'; key: string; x: number; y: number; w: number; h: number }
+  | { kind: 'empty'; x: number; y: number };
 
-/** items は バッグの 中身（この じゅんに ならべる）。マスより 多く 入っている 古いセーブでも ぜんぶ 出す */
-export function bagCells(
-  items: readonly { key: string; cost: number }[],
-  capacity: number,
-  cfg: BagSettings,
-): BagCell[] {
-  const used = items.reduce((n, x) => n + x.cost, 0);
-  const cells: BagCell[] = items.map((x) => ({ kind: 'item', key: x.key, span: x.cost }));
-  for (let i = used; i < capacity; i++) cells.push({ kind: 'empty' });
-  for (let i = Math.max(used, capacity); i < cfg.maxSlots; i++)
-    cells.push({ kind: 'locked', level: slotUnlockLevel(i, cfg) });
+export interface BagLayoutItem {
+  key: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
+export function bagCells(items: readonly BagLayoutItem[], cols: number, rows: number): BagCell[] {
+  const covered = new Set<string>();
+  for (const it of items)
+    for (let y = it.y; y < it.y + it.h; y++)
+      for (let x = it.x; x < it.x + it.w; x++) covered.add(`${x},${y}`);
+  const cells: BagCell[] = items.map((it) => ({ kind: 'item', ...it }));
+  for (let y = 0; y < rows; y++)
+    for (let x = 0; x < cols; x++) if (!covered.has(`${x},${y}`)) cells.push({ kind: 'empty', x, y });
   return cells;
 }

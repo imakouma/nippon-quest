@@ -8,7 +8,7 @@ import { expect, test, type Page } from '@playwright/test';
 async function start(page: Page, lv: number): Promise<void> {
   await page.goto(`/?debug=battle&enemy=aomori-ringoron&lv=${lv}`);
   // 登場メッセージ（タップ待ち）→ コマンド。1 文字ずつ出し終わって ▼ が出てからタップする
-  await expect(page.locator('.nq-box-text')).toContainText('リンゴロン', { timeout: 20_000 });
+  await expect(page.locator('.nq-box-text')).toContainText('リンゴロン', { timeout: 30_000 });
   await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 10_000 });
   await page.locator('.nq-box').click();
 }

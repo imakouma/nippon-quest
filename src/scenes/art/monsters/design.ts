@@ -48,6 +48,14 @@ export function designGrid(d: MonsterDesign): Grid {
   }
   if (d.rim) shadeRim(g, d.rim, d.rimDepth ?? 1);
   outline(g, NQ.ink);
+  // キャンバス端まで届く意匠も、切断された色面に見えないよう最外周を輪郭色で閉じる。
+  // 個々のデザインに火花・光・波などを足しても docs/06 の外周規格を常に保てる。
+  for (let i = 0; i < S; i++) {
+    if (g[0]![i]) g[0]![i] = NQ.ink;
+    if (g[S - 1]![i]) g[S - 1]![i] = NQ.ink;
+    if (g[i]![0]) g[i]![0] = NQ.ink;
+    if (g[i]![S - 1]) g[i]![S - 1] = NQ.ink;
+  }
   return g;
 }
 
