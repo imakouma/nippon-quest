@@ -26,11 +26,15 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
   await expect(retry).toHaveCount(0);
 });
 
-test('ゲーム開始時にSceneの追加チャンクを要求しない', async ({ page }) => {
-  let requestedSceneChunk = false;
+test('ゲームSceneの初回読込に失敗しても、入力を保って再試行できる', async ({ page }) => {
+  let failedOnce = false;
   await page.route(/\/assets\/(?:Overworld|Battle)-.+\.js$/, async (route) => {
-    requestedSceneChunk = true;
-    await route.abort('failed');
+    if (!failedOnce) {
+      failedOnce = true;
+      await route.abort('failed');
+      return;
+    }
+    await route.continue();
   });
 
   await page.goto('/');
@@ -38,6 +42,10 @@ test('ゲーム開始時にSceneの追加チャンクを要求しない', async 
   await page.getByRole('button', { name: /スロット 2/ }).click();
   await page.getByRole('button', { name: 'はじめる' }).click();
 
+  const retry = page.getByRole('button', { name: 'もういちど' });
+  await expect(retry).toBeVisible({ timeout: 20_000 });
+  await retry.click();
+
   await expect(page.getByRole('button', { name: /ちずを ひらく/ })).toBeVisible({ timeout: 30_000 });
-  expect(requestedSceneChunk).toBe(false);
+  await expect(retry).toHaveCount(0);
 });
