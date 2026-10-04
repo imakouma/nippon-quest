@@ -1,6 +1,7 @@
 /** 大阪府の モンスター（手描き。docs/06 §4・§6.3〜6.5 の 規格） */
 import { NQ } from '../palette';
 import type { MonsterDesign } from './design';
+import { BEARD_FACE, HELMET, lord } from './lastbosses';
 
 /** ハフハフヤキ：アツアツの たこ焼き。ソース・マヨネーズ・青のり、炎の ように おどる かつおぶし、つまようじ、たこの あし（ヒノ） */
 const hafuhafuYaki: MonsterDesign = {
@@ -674,9 +675,20 @@ const takoishiDaioP0: MonsterDesign = {
   ],
 };
 
-const toyotomiHideyoshi: MonsterDesign = {
-  size: 48,
-  colors: {
+const toyotomiHideyoshi = lord(
+  [
+    '....G...................',
+    '.....GG................R',
+    '.......GG.............RR',
+    '........GGG..........RRR',
+    '..........GGG.........RR',
+    '...........GGGG.......GR',
+    '.............GGGG.....GG',
+    '...............GGGG.NNGG',
+    ...HELMET,
+    ...BEARD_FACE,
+  ],
+  {
     N: NQ.night,
     L: NQ.slate,
     G: NQ.gold,
@@ -687,68 +699,10 @@ const toyotomiHideyoshi: MonsterDesign = {
     T: NQ.bark,
     H: NQ.slate,
     C: NQ.brick,
-    F: NQ.skinLight,
-    f: NQ.skinMid,
-    W: NQ.white,
     M: NQ.hairBlack,
   },
-  rim: { [NQ.gold]: NQ.ochre, [NQ.cream]: NQ.gold, [NQ.skinLight]: NQ.skinMid, [NQ.brick]: NQ.ink },
-  rimDepth: 2,
-  layers: [
-    {
-      rows: [
-        '',
-        '....G......................................G',
-        '.....GG................RR................GG',
-        '.......GG.............RRRR.............GG',
-        '........GGG..........RRRRRR..........GGG',
-        '..........GGG.........RRRR.........GGG',
-        '...........GGGG.......GRRG.......GGGG',
-        '.............GGGG.....GGGG.....GGGG',
-        '...............GGGG.NNGGGGNN.GGGG',
-        '................GNNNNLGGGGLNNNNG',
-        '................NNLLLLGGGGLLLLNN',
-        '...............NNLLLLLLLLLLLLLLNN',
-        '...............NNNLLLLLLLLLLLLNNN',
-        '..............NNNNNNNLNNNNLNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '................NNNNNNNNNNNNNNNN',
-        '........GGG..GGGGGGGGGGGGGGGGGGGGGG..GGG',
-        '........GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '........GGGGG.YYYFFFFFFFFFFFFFFYYY.GGGGG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG.oooooooFFFFFFooooooo.GRRRG',
-        '.......GGGGRG..ooWWWoFFFFFFoWWWoo..GRGGGG',
-        '.........GGGG..ooWWWFFFFFFFFWWWoo..GGGG',
-        '...........GG..ooWWWFFFFFFFFWWWoo..GG',
-        '.................FFFFFFFFFFFFFF',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '...........CKKKKKKFFoooFFoooFFKKKKKKC',
-        '.....KSKKKKKKKKKKKCFFFFFFFFFFCKKKKKKKKKKKSK',
-        '...SSSSKKKKKKKKKKKCKKFFFFFFKKCKKKKKKKKKKKSSSS',
-        '...SSSSKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKSSSS',
-        '...SGGGGGGGKKKKKKKCGGGGGGGGGGCKKKKKKKGGGGGGGS',
-        '...SSSSKKKKKKKKKKKCKKKKRRKKKKCKKKKKKKKKKKSSSS',
-        '...SSSSSKKKKKKKKKKCKKKRKKRKKKCKKKKKKKKKKSSSSS',
-        '...SSKKKKKKGGGGGGGCKKRKKKKRKKCGGGGGGGKKKKKKSS',
-        '...CGGGGGGGKKKKKKKCKRKKKKKKRKCKKKKKKKGGGGGGGC',
-        '...CNKKKKKKKKKKKKKCRKKKKKKKKRCKKKKKKKKKKKKKNC',
-        '...NNKKKKKKKKKKKKKCGGGGGGGGGGCKKKKKKKKKKKKKNN',
-        '...CKKKKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKKKKC',
-        '...CGGGGGGGKKKKKKKCKKKKKKKKKKCKKKKKKKGGGGGGGC',
-        '..CCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKCC',
-        '..CCKKKKKKGGGGGGGGGGGGGGGGGGGGGGGGGGGGKKKKKKCC',
-        '..CCCCCCCCTGTTTGTTTGTTTGGTTTGTTTGTTTGTCCCCCCCC',
-        '..CCCCCCCCTGHHHHHHTGTTTGGTTTGTHHHHHHGTCCCCCCCC',
-        '..........TGHHHHHHTGTTTGGTTTGTHHHHHHGT',
-        '',
-      ],
-    },
-  ],
-};
+  { [NQ.cream]: NQ.gold, [NQ.brick]: NQ.ink },
+);
 
 export const OSAKA: Readonly<Record<string, MonsterDesign>> = {
   'osaka-hafuhafu-yaki': hafuhafuYaki,

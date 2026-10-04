@@ -34,38 +34,6 @@ export const ARMOR = [
   '...........KKKKKKK......',
 ];
 
-/**
- * 東北の 6 人の ラスボス用の 大きな よろい（左半分。y 23〜46）。
- * とがった 肩の よろい・太い 金の おび・ひろい 足の かまえで、ARMOR より ひとまわり 大きく 強そうに 見せる。
- * （ARMOR は ほかの 県の 武者も 使うので さわらない）
- */
-const ARMOR_TOHOKU = [
-  '.................FFFFFFF',
-  '.....S........GGGGGGGGGG',
-  '....SLS.......KKKKKKKKKK',
-  '...SLLLS....KKKKGGKKKKKK',
-  '..SLLLLLS...KKKGGGGKKKKK',
-  '.SSSSSSSSSS.KKKKRRKKKKKK',
-  '.SKKKKKKKKS.KKKKKRRKKKKK',
-  '.SKKKKKKKKS.KKKKKKRRKKKK',
-  '.GGGGGGGGGG.GGGGGGGGGGGG',
-  '.SKKKKKKKKS.KKSSKKKKKKKK',
-  '.SKKKKKKKKS.KKKKKKKKKKKK',
-  '.GGGGGGGGGG.KKKKKKKKKKKK',
-  '..HHHHHHHH..GGGGGGGGGGGG',
-  '..HHHHHHHH..RRRRRRRRRRRR',
-  '...HHHHFF...KKKKKKKKKKKK',
-  '....HHFFF...KKKKKKKKKKKK',
-  '.....FFF...TTTTTTTTTTTTT',
-  '..........TSSTTSSTTSSTTT',
-  '.........GGGGGGGGGGGGGGG',
-  '........TSSTTSSTTSSTTSST',
-  '........TTTTTTTTTTTTTTTT',
-  '........GGGGGGGGGGGGGGGG',
-  '...........HHHHHHHH.....',
-  '..........KKKKKKKKKK....',
-];
-
 /** かぶとの はち（前立ての すぐ下。3 行） */
 export const HELMET = ['............NNNLNNNNNNNN', '..........NNNLLNNNNNNNNN', '.........NNNLNNNNNNNNNNN'];
 
@@ -92,10 +60,94 @@ export const BEARD_FACE = [
 
 export const SKIN = { F: NQ.skinLight, f: NQ.skinMid, W: NQ.white };
 
-/** するどい 目（FACE の 上に かさねる）。まゆを つりあげ、白目を 大きく、ひとみを 小さく */
-const SHARP_EYES: Layer = { mirror: true, x: 11, y: 16, rows: ['.ooooo', 'ooWWWo', '.oWooo', '..ooo.'] };
+/**
+ * 人の すがたの 武将（2026-10-02「横に つぶれて かっこよさが ない、もっと 人間っぽく」）。
+ * 頭（かぶと＋顔）は y 11〜20 の 10 行、からだは y 21〜46（そで・胴・こて と 手・草摺・はいだて・すね・足）で、
+ * 頭：からだ ≒ 1：3.6。かたはば 26、こしは 16、顔は 12 ドット。うでは 胴から はなして 人の かたちに 見せる。前立て（かぶとの かざり）は head の 上の 行を そのまま つかう。
+ */
+const HUMAN_HELMET = ['................NNNNNNNN', '...............NNLNNNNNN', '...............NLNNNNNNN'];
+const HUMAN_FACE = [
+  '..............GGGGGGGGGG',
+  '...............NNNFFFFFF',
+  '...............NNNoooFFF',
+  '...............NNNFWoFFF',
+  '...............NNNFFFFFF',
+  '...............NNNfFFFoo',
+  '................NNffffff',
+];
+const HUMAN_BEARD_FACE = [
+  '..............GGGGGGGGGG',
+  '...............NNNFFFFFF',
+  '...............NNNoooFFF',
+  '...............NNNFWoFFF',
+  '...............NNNFFFFFF',
+  '...............NNNfFMMoo',
+  '................NNfMMMMM',
+];
+/** 人の すがたの よろいの からだ（左半分。y 21〜46） */
+export const HUMAN_BODY = [
+  '..................GGGGGG',
+  '...........SSSSSKKKKKKKK',
+  '..........SKKKKSKKKKKKKK',
+  '..........SKKKKSKSSSSSSS',
+  '..........GGGGGSKKKRRKKK',
+  '..........SKKKKSKKKKRRKK',
+  '..........SKKKKSKSSSSSSS',
+  '..........GGGGG.KKKKKKKK',
+  '...........HHH..KKKKKKKK',
+  '...........HHH..SSSSSSSS',
+  '...........HHH..RRRRRRRR',
+  '...........HHH.TTTTTTTTT',
+  '...........FFF.TSSTTSSTT',
+  '...........FFFTTTTTTTTTT',
+  '.............TSSTTSSTTSS',
+  '.............TTTTTTTTTTT',
+  '.............GGGGGGGGGGG',
+  '...............KKKKK....',
+  '...............KKKKK....',
+  '..............HHHHH.....',
+  '..............HHHHH.....',
+  '..............HHHHH.....',
+  '..............HHHHH.....',
+  '..............HHHHH.....',
+  '.............KKKKKK.....',
+  '.............KKKKKK.....',
+];
+/** 人の すがたの 頭（かぶと＋顔。y 11 から） */
+export const humanHead = (beard = false): string[] => [
+  ...HUMAN_HELMET,
+  ...(beard ? HUMAN_BEARD_FACE : HUMAN_FACE),
+];
 
-/** よろい武者：head は 22 行（y 1〜22）。extra は 左右ちがいの 物（目の しるし・つえ など） */
+/** するどい 目（人の すがたの 顔に かさねる）：外が 上がった まゆ と 白目 */
+const SHARP_EYES: Layer = { mirror: true, x: 18, y: 15, rows: ['o..', 'Foo', 'FWo'] };
+
+/**
+ * head（むかしの 22 行の 頭：前立て ＋ HELMET ＋ FACE か BEARD_FACE）から 前立てだけ とりだして、人の すがたに のせる。
+ * HELMET が なく FACE だけの 頭は、FACE より 上を 前立て（その人の かぶと）と みなす。
+ * HELMET も FACE も ない 頭は、人の すがたの 大きさで 描いた その人だけの 頭
+ */
+function humanLayers(head: readonly string[]): Layer[] {
+  const hi = head.indexOf(HELMET[0]!);
+  const fi = head.indexOf(FACE[0]!);
+  const beard = head.includes(BEARD_FACE[BEARD_FACE.length - 1]!);
+  // HELMET も FACE も ない 頭は、その人だけの 頭（頭巾 など）：下の はしを y 20 に そろえて そのまま のせる
+  if (hi < 0 && fi < 0)
+    return [
+      { mirror: true, y: 21, rows: HUMAN_BODY },
+      { mirror: true, y: Math.max(0, 21 - head.length), rows: head },
+    ];
+  let crest = head.slice(0, hi >= 0 ? hi : fi);
+  while (crest.length && /^\.*$/.test(crest[0]!)) crest = crest.slice(1);
+  const body: Layer = { mirror: true, y: 21, rows: HUMAN_BODY };
+  const face: Layer = { mirror: true, y: 11, rows: humanHead(beard) };
+  if (!crest.length) return [body, face];
+  // 10 行より 高い 前立ては その人の かぶと ごと：y 1 から 描いて、ふつうの かぶとの 上に かさねる
+  if (crest.length > 10) return [body, face, { mirror: true, y: 1, rows: crest.slice(0, 13) }];
+  return [body, face, { mirror: true, y: 11 - crest.length, rows: crest }];
+}
+
+/** よろい武者（人の すがた）。extra は 左右ちがいの 物（目の しるし・つえ など） */
 export const lord = (
   head: string[],
   colors: Record<string, string>,
@@ -106,27 +158,16 @@ export const lord = (
   colors: { ...SKIN, ...colors },
   rim: { [NQ.gold]: NQ.ochre, [NQ.skinLight]: NQ.skinMid, ...rim },
   rimDepth: 2,
-  layers: [{ mirror: true, y: 23, rows: ARMOR }, { mirror: true, y: 1, rows: head }, ...extra],
+  layers: [...humanLayers(head), ...extra],
 });
 
-/** 東北の ラスボス：大きな よろい ＋ するどい 目。extra は そのあとに かさねる */
+/** 東北の ラスボス：するどい 目。extra は そのあとに かさねる */
 const tohokuLord = (
   head: string[],
   colors: Record<string, string>,
   rim: Record<string, string>,
   extra: Layer[] = [],
-): MonsterDesign => ({
-  size: 48,
-  colors: { ...SKIN, ...colors },
-  rim: { [NQ.gold]: NQ.ochre, [NQ.skinLight]: NQ.skinMid, ...rim },
-  rimDepth: 2,
-  layers: [
-    { mirror: true, y: 23, rows: ARMOR_TOHOKU },
-    { mirror: true, y: 1, rows: head },
-    SHARP_EYES,
-    ...extra,
-  ],
-});
+): MonsterDesign => lord(head, colors, rim, [SHARP_EYES, ...extra]);
 
 /** 伊達政宗：大きな 金の 三日月の 前立てと 黒い よろい。右目に 眼帯（独眼竜）、まわりに むらさきの オーラ */
 const dateMasamune = tohokuLord(
@@ -163,7 +204,7 @@ const dateMasamune = tohokuLord(
     { mirror: true, x: 2, y: 34, rows: ['.V', 'V.', 'V.', '.V'] },
     { mirror: true, x: 4, y: 6, rows: ['.V.', 'V.V', '.V.'] },
     // 眼帯（見る がわの 左＝政宗の 右目）
-    { x: 11, y: 16, rows: ['NNNNNN', 'NNNNNN', 'NNNNNN', 'NNNNNN'] },
+    { x: 18, y: 15, rows: ['NNNN', 'NNNN', 'NNN.'] },
   ],
 );
 

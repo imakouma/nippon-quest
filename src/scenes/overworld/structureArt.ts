@@ -14,9 +14,20 @@ import type Phaser from 'phaser';
 import { makeGrid, outline, put, toCanvas, type Grid } from '../art/grid';
 import { NQ } from '../art/palette';
 import { addImage } from '../art/sheet';
+import { LANDMARK_DRAW } from './landmarkArt';
 
+/** 三内丸山の 物と、ほかの 名所エリアの 物（landmarkArt.ts）。scripts/data/geo.ts の StructureKind と おなじ */
 export type StructureKind =
-  'yagura' | 'tateana' | 'takayuka' | 'longhouse' | 'kuri' | 'dogu' | 'stones' | 'doki';
+  | 'yagura' | 'tateana' | 'takayuka' | 'longhouse' | 'kuri' | 'dogu' | 'stones' | 'doki'
+  | 'nebutaFloat' | 'taiko' | 'chochin'
+  | 'toudai' | 'windmill' | 'hi'
+  | 'tenshu' | 'sakura' | 'ringo'
+  | 'bigBuna' | 'buna' | 'taki'
+  | 'otome' | 'torii' | 'boat'
+  | 'bigTaki' | 'kokeiwa'
+  | 'dashi' | 'yatai' | 'fune'
+  | 'sanmon' | 'jizo' | 'kazaguruma' | 'tsumi'
+  | 'maguroZo' | 'saihokutan';
 
 type Rect = (x: number, y: number, w: number, h: number, col: string) => void;
 
@@ -202,6 +213,9 @@ Object.assign(DRAW, {
       for (let y = 6; y < 18; y += 3) for (let x = 3; x < 13; x += 2) r(x, y, 1, 1, NQ.sand);
     }),
 } satisfies Partial<Record<StructureKind, () => HTMLCanvasElement>>);
+
+/** ほかの 名所エリアの 物 */
+Object.assign(DRAW, LANDMARK_DRAW);
 
 export const structureKey = (kind: StructureKind): string => `fld.struct.${kind}`;
 

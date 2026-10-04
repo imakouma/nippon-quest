@@ -1,6 +1,7 @@
 /** 三重県の モンスター（手描き。docs/06 §4・§6.3〜6.5 の 規格）。下書きは 図形で かいて 1 ドットずつ 手で なおした */
 import { NQ } from '../palette';
 import type { MonsterDesign } from './design';
+import { FACE, HELMET, lord } from './lastbosses';
 
 /** イガニン：伊賀の 小さな 忍者。ずきんの むすび目が とがった 耳、金の 目、口の 前に まきもの（ヤミ） */
 const iganin: MonsterDesign = {
@@ -677,9 +678,20 @@ const iseebiTaishoP0: MonsterDesign = {
   ],
 };
 
-const todoTakatora: MonsterDesign = {
-  size: 48,
-  colors: {
+const todoTakatora = lord(
+  [
+    '.....................GGG',
+    '..........G..........GGG',
+    '..........GGGGGGG....GGG',
+    '.........GGGGGGGGGGGGGGG',
+    '........GGGGGGGGGGGGGGGG',
+    '......GGGGGGGGGGGGGGGGGG',
+    '...........GGGGGGGGGGGGG',
+    '................GGGGGGGG',
+    ...HELMET,
+    ...FACE,
+  ],
+  {
     N: NQ.night,
     L: NQ.slate,
     G: NQ.gold,
@@ -690,68 +702,10 @@ const todoTakatora: MonsterDesign = {
     T: NQ.night,
     H: NQ.slate,
     C: NQ.bark,
-    F: NQ.skinLight,
-    f: NQ.skinMid,
-    W: NQ.white,
     M: NQ.hairBlack,
   },
-  rim: { [NQ.navy]: NQ.ink, [NQ.denim]: NQ.navy, [NQ.skinLight]: NQ.skinMid, [NQ.gold]: NQ.ochre },
-  rimDepth: 2,
-  layers: [
-    {
-      rows: [
-        '',
-        '.....................GGGGGG',
-        '..........G..........GGGGGG..........G',
-        '..........GGGGGGG....GGGGGG....GGGGGGG',
-        '.........GGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '........GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '......GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '...........GGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '................GGGGGGGGGGGGGGGG',
-        '.................NNNNGGGGGGNNNN',
-        '................NNLLLLLLLLLLLLNN',
-        '...............NNLLLLLLLLLLLLLLNN',
-        '...............NNNLLLLLLLLLLLLNNN',
-        '..............NNNNNNNLNNNNLNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '................NNNNNNNNNNNNNNNN',
-        '........GGG..GGGGGGGGGGGGGGGGGGGGGG..GGG',
-        '........GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '........GGGGG.YYYFFFFFFFFFFFFFFYYY.GGGGG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG.oooooooFFFFFFooooooo.GRRRG',
-        '.......GGGGRG..ooWWWoFFFFFFoWWWoo..GRGGGG',
-        '.........GGGG..ooWWWFFFFFFFFWWWoo..GGGG',
-        '...........GG..ooWWWFFFFFFFFWWWoo..GG',
-        '.................FFFFFFFFFFFFFF',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '............CCCNNNNNNNNNNNNNNNNNNCCC',
-        '...........CKKKNNooooooNNooooooNNKKKC',
-        '.....KSKKKKKKKKNNNNNNNNNNNNNNNNNNKKKKKKKKSK',
-        '...SSSSKKKKKKKKNNNNNNNNNNNNNNNNNNKKKKKKKKSSSS',
-        '...SSSSKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKSSSS',
-        '...SGGGGGGGKKKKKKKCGGGGGGGGGGCKKKKKKKGGGGGGGS',
-        '...SSSSKKKKKKKKKKKCKKKKRRKKKKCKKKKKKKKKKKSSSS',
-        '...SSSSSKKKKKKKKKKCKKKRKKRKKKCKKKKKKKKKKSSSSS',
-        '...SSKKKKKKGGGGGGGCKKRKKKKRKKCGGGGGGGKKKKKKSS',
-        '...CGGGGGGGKKKKKKKCKRKKKKKKRKCKKKKKKKGGGGGGGC',
-        '...CNKKKKKKKKKKKKKCRKKKKKKKKRCKKKKKKKKKKKKKNC',
-        '...NNKKKKKKKKKKKKKCGGGGGGGGGGCKKKKKKKKKKKKKNN',
-        '...CKKKKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKKKKC',
-        '...CGGGGGGGKKKKKKKCKKKKKKKKKKCKKKKKKKGGGGGGGC',
-        '..CCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKCC',
-        '..CCKKKKKKGGGGGGGGGGGGGGGGGGGGGGGGGGGGKKKKKKCC',
-        '..CCCCCCCCTGTTTGTTTGTTTGGTTTGTTTGTTTGTCCCCCCCC',
-        '..CCCCCCCCTGHHHHHHTGTTTGGTTTGTHHHHHHGTCCCCCCCC',
-        '..........TGHHHHHHTGTTTGGTTTGTHHHHHHGT',
-        '',
-      ],
-    },
-  ],
-};
+  { [NQ.navy]: NQ.ink, [NQ.denim]: NQ.navy },
+);
 
 export const MIE: Readonly<Record<string, MonsterDesign>> = {
   'mie-iganin': iganin,

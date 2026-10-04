@@ -1,6 +1,7 @@
 /** 岐阜県の モンスター（手描き。docs/06 §4・§6.3〜6.5 の 規格） */
 import { NQ } from '../palette';
 import type { MonsterDesign } from './design';
+import { BEARD_FACE, HELMET, lord } from './lastbosses';
 
 /** フユウガキッド：ひらたく まるい 富有柿。頭に 4 まいの がく（へた）と 葉っぱ（モリ） */
 const fuyugakid: MonsterDesign = {
@@ -789,9 +790,20 @@ const gasshoDaiouP0: MonsterDesign = {
   ],
 };
 
-const saitoDosan: MonsterDesign = {
-  size: 48,
-  colors: {
+const saitoDosan = lord(
+  [
+    '......................GG',
+    '....................AAGG',
+    '..................AAAYGG',
+    '.................AYYYAGG',
+    '................YYAAAAGG',
+    '..............YYAAAAAAGG',
+    '................AAAAAAGG',
+    '....................NNGG',
+    ...HELMET,
+    ...BEARD_FACE,
+  ],
+  {
     N: NQ.night,
     L: NQ.slate,
     G: NQ.gold,
@@ -802,69 +814,11 @@ const saitoDosan: MonsterDesign = {
     T: NQ.night,
     H: NQ.slate,
     C: NQ.bark,
-    F: NQ.skinLight,
-    f: NQ.skinMid,
-    W: NQ.white,
     M: NQ.silver,
     A: NQ.azure,
   },
-  rim: { [NQ.forest]: NQ.ink, [NQ.green]: NQ.forest, [NQ.skinLight]: NQ.skinMid, [NQ.gold]: NQ.ochre },
-  rimDepth: 2,
-  layers: [
-    {
-      rows: [
-        '',
-        '......................GGGG',
-        '....................AAGGGGAA',
-        '..................AAAYGGGGYAAA',
-        '.................AYYYAGGGGAYYYA',
-        '................YYAAAAGGGGAAAAYY',
-        '..............YYAAAAAAGGGGAAAAAAYY',
-        '................AAAAAAGGGGAAAAAA',
-        '....................NNGGGGNN',
-        '.................NNNNLGGGGLNNNN',
-        '................NNLLLLLLLLLLLLNN',
-        '...............NNLLLLLLLLLLLLLLNN',
-        '...............NNNLLLLLLLLLLLLNNN',
-        '..............NNNNNNNLNNNNLNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '................NNNNNNNNNNNNNNNN',
-        '........GGG..GGGGGGGGGGGGGGGGGGGGGG..GGG',
-        '........GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '....A...GGGGG.YYYFFFFFFFFFFFFFFYYY.GGGGG...A',
-        '...AAA..GRRRG....FFFFFFFFFFFFFF....GRRRG..AAA',
-        '....A...GRRRG....FFFFFFFFFFFFFF....GRRRG...A',
-        '........GRRRG.oooooooFFFFFFooooooo.GRRRG',
-        '.......GGGGRG..ooWWWoFFFFFFoWWWoo..GRGGGG',
-        '.........GGGG..ooWWWFFFFFFFFWWWoo..GGGG',
-        '...........GG..ooWWWFFFFFFFFWWWoo..GG',
-        '.................FFFFFFFFFFFFFF',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '............CCCCCFFooooooooooFFCCCCC',
-        '...........CKKKKMMMMMMMMMMMMMMMMKKKKC',
-        '.....KSKKKKKKKKKMMMMMMMMMMMMMMMMKKKKKKKKKSK',
-        '...SSSSKKKKKKKKKMMMMMMMMMMMMMMMMKKKKKKKKKSSSS',
-        '...SSSSKKKKGGGGGMMMMMMMMMMMMMMMMGGGGGKKKKSSSS',
-        '...SGGGGGGGKKKKKKKCGGGGGGGGGGCKKKKKKKGGGGGGGS',
-        '...SSSSKKKKKKKKKKKCKKKKRRKKKKCKKKKKKKKKKKSSSS',
-        '...SSSSSKKKKKKKKKKCKKKRKKRKKKCKKKKKKKKKKSSSSS',
-        '...SSKKKKKKGGGGGGGCKKRKKKKRKKCGGGGGGGKKKKKKSS',
-        '...CGGGGGGGKKKKKKKCKRKKKKKKRKCKKKKKKKGGGGGGGC',
-        '...CNKKKKKKKKKKKKKCRKKKKKKKKRCKKKKKKKKKKKKKNC',
-        '...NNKKKKKKKKKKKKKCGGGGGGGGGGCKKKKKKKKKKKKKNN',
-        '...CKKKKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKKKKC',
-        '...CGGGGGGGKKKKKKKCKKKKKKKKKKCKKKKKKKGGGGGGGC',
-        '..CCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKCC',
-        '..CCKKKKKKGGGGGGGGGGGGGGGGGGGGGGGGGGGGKKKKKKCC',
-        '..CCCCCCCCTGTTTGTTTGTTTGGTTTGTTTGTTTGTCCCCCCCC',
-        '..CCCCCCCCTGHHHHHHTGTTTGGTTTGTHHHHHHGTCCCCCCCC',
-        '..........TGHHHHHHTGTTTGGTTTGTHHHHHHGT',
-        '',
-      ],
-    },
-  ],
-};
+  { [NQ.forest]: NQ.ink, [NQ.green]: NQ.forest },
+);
 
 export const GIFU: Readonly<Record<string, MonsterDesign>> = {
   'gifu-fuyugakid': fuyugakid,
