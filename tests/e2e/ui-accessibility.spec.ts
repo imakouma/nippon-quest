@@ -15,6 +15,8 @@ for (const width of [640, 960]) {
     await page.goto('/');
 
     const first = page.getByRole('menuitem').first();
+    await expect(page.getByRole('menuitem')).toHaveCount(2);
+    await expect(page.getByRole('menuitem', { name: /もんだいいちらん/ })).toHaveCount(0);
     await expect(first).toBeFocused();
     await page.keyboard.press('ArrowDown');
     await expect(page.getByRole('menuitem').nth(1)).toBeFocused();
