@@ -202,75 +202,192 @@
   grid-column: 1 / -1;
 }
 .nq-avatar {
-  width: 72px;
-  height: 108px;
+  --hair: #6b3f2a;
+  --skin: #ffd1a8;
+  --cloth: #dc4c4c;
+  width: 112px;
+  height: 148px;
   position: relative;
-  justify-self: center;
   image-rendering: pixelated;
 }
 .nq-avatar span {
   position: absolute;
-  left: 12px;
-  width: 48px;
+  box-sizing: border-box;
+}
+.nq-avatar-head {
+  top: 30px;
+  left: 29px;
+  width: 54px;
+  height: 55px;
+  background: var(--skin);
+  border: 4px solid #1a1428;
 }
 .nq-avatar-hair {
-  top: 0;
-  height: 34px;
+  top: 19px;
+  left: 22px;
+  width: 68px;
+  height: 31px;
+  background: var(--hair);
+  border: 4px solid #1a1428;
+  box-shadow: inset 0 -7px color-mix(in srgb, var(--hair), #000 18%);
+}
+.nq-avatar-body {
+  top: 81px;
+  left: 30px;
+  width: 52px;
+  height: 43px;
+  background: var(--cloth);
   border: 4px solid #1a1428;
 }
-.nq-avatar-face {
-  top: 26px;
-  height: 40px;
+.nq-avatar-eye {
+  top: 58px;
+  width: 7px;
+  height: 8px;
+  background: #1a1428;
+}
+.nq-avatar-eye-left {
+  left: 40px;
+}
+.nq-avatar-eye-right {
+  left: 65px;
+}
+.nq-avatar-arm {
+  top: 87px;
+  width: 18px;
+  height: 39px;
+  background: var(--skin);
   border: 4px solid #1a1428;
 }
-.nq-avatar-cloth {
-  top: 66px;
-  height: 42px;
+.nq-avatar-arm-left {
+  left: 15px;
+}
+.nq-avatar-arm-right {
+  left: 79px;
+}
+.nq-avatar-leg {
+  top: 119px;
+  width: 22px;
+  height: 22px;
+  background: #273251;
   border: 4px solid #1a1428;
 }
-.nq-avatar-hair-0 .nq-avatar-hair {
-  background: #6b3f2a;
+.nq-avatar-leg-left {
+  left: 31px;
 }
-.nq-avatar-hair-1 .nq-avatar-hair {
-  background: #202033;
+.nq-avatar-leg-right {
+  left: 59px;
 }
-.nq-avatar-hair-2 .nq-avatar-hair {
-  background: #ffd866;
+.nq-avatar-scarf {
+  top: 81px;
+  left: 37px;
+  width: 39px;
+  height: 10px;
+  background: var(--nq-yellow);
+  border: 3px solid #1a1428;
 }
-.nq-avatar-skin-0 .nq-avatar-face {
-  background: #ffd1a8;
+.nq-avatar-shadow {
+  top: 137px;
+  left: 19px;
+  width: 74px;
+  height: 8px;
+  background: rgba(26, 20, 40, 0.55);
 }
-.nq-avatar-skin-1 .nq-avatar-face {
-  background: #c98b62;
+.nq-avatar-hair-1 {
+  --hair: #202033;
 }
-.nq-avatar-skin-2 .nq-avatar-face {
-  background: #75452f;
+.nq-avatar-hair-2 {
+  --hair: #ffd866;
 }
-.nq-avatar-cloth-0 .nq-avatar-cloth {
-  background: #dc4c4c;
+.nq-avatar-skin-1 {
+  --skin: #c98b62;
 }
-.nq-avatar-cloth-1 .nq-avatar-cloth {
-  background: #4d8fdd;
+.nq-avatar-skin-2 {
+  --skin: #75452f;
 }
-.nq-avatar-cloth-2 .nq-avatar-cloth {
-  background: #55a45d;
+.nq-avatar-cloth-1 {
+  --cloth: #4d8fdd;
+}
+.nq-avatar-cloth-2 {
+  --cloth: #55a45d;
+}
+.nq-avatar-stage {
+  display: grid;
+  place-items: center;
+  min-height: 190px;
+  padding: 8px;
+  background: #d9eff2;
+  border: 4px solid #f6e7c1;
+  box-shadow: inset 0 -32px #9bcf91;
+}
+.nq-avatar-stage small {
+  color: #1a1428;
+  font-size: 11px;
 }
 .nq-look-controls {
   display: grid;
-  gap: 4px;
+  gap: 10px;
 }
-.nq-look-controls > div {
+.nq-look-controls fieldset {
   display: grid;
-  grid-template-columns: 72px 48px 48px 48px;
+  grid-template-columns: repeat(3, 58px);
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  margin: 0;
+  padding: 4px 8px 8px;
+  border: 2px solid #6b6f80;
 }
-.nq-look-controls button {
-  min-width: 48px;
+.nq-look-controls legend {
+  padding: 0 6px;
+  color: #fff;
+  font-size: 18px;
 }
-.nq-look-controls output {
-  text-align: center;
-  font-size: 12px;
+.nq-look-choice {
+  position: relative;
+  display: grid;
+  min-width: 58px;
+  place-items: center;
+  background: #29263a;
+}
+.nq-look-choice span {
+  width: 30px;
+  height: 24px;
+  background: #6b3f2a;
+  border: 3px solid #1a1428;
+}
+.nq-look-choice[aria-pressed='true'] {
+  border-color: var(--nq-yellow);
+  background: #4a435d;
+}
+.nq-look-choice b {
+  position: absolute;
+  right: 1px;
+  bottom: -2px;
+  color: var(--nq-yellow);
+  font-size: 16px;
+}
+.nq-look-hair-1 span {
+  background: #202033;
+}
+.nq-look-hair-2 span {
+  background: #ffd866;
+}
+.nq-look-skin-0 span {
+  background: #ffd1a8;
+}
+.nq-look-skin-1 span {
+  background: #c98b62;
+}
+.nq-look-skin-2 span {
+  background: #75452f;
+}
+.nq-look-cloth-0 span {
+  background: #dc4c4c;
+}
+.nq-look-cloth-1 span {
+  background: #4d8fdd;
+}
+.nq-look-cloth-2 span {
+  background: #55a45d;
 }
 .nq-new-game-starters {
   grid-column: 2;
@@ -398,7 +515,7 @@
   pointer-events: auto;
 }
 .nq-identity {
-  width: min(560px, calc(100% - 40px));
+  width: min(650px, calc(100% - 40px));
   padding: 16px 24px 20px;
   color: #fff;
 }
@@ -430,7 +547,7 @@
 }
 .nq-identity-look {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 190px 1fr;
   align-items: center;
   gap: 16px;
   margin-bottom: 12px;
@@ -443,4 +560,21 @@
 }
 .nq-identity > button:disabled {
   background: #6b6f80;
+}
+@media (max-width: 620px) {
+  .nq-identity {
+    padding: 12px;
+  }
+  .nq-identity-look {
+    grid-template-columns: 150px 1fr;
+    gap: 8px;
+  }
+  .nq-look-controls fieldset {
+    grid-template-columns: repeat(3, 48px);
+    gap: 4px;
+    padding-inline: 4px;
+  }
+  .nq-look-choice {
+    min-width: 48px;
+  }
 }
