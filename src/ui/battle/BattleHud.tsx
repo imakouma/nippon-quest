@@ -595,34 +595,42 @@ function ResultPanel({ r, cursor, store }: { r: ResultView; cursor: number; stor
         )}
         {r.kind === 'victory' && (
           <dl class="nq-result-list">
-            <dt>
-              <PixelIcon name="star" scale={3} />
-              {t('battle.gotXp')}
-            </dt>
-            <dd>+{r.xp}</dd>
-            <dt class="nq-result-xpbar">
-              <Bar value={xpW} max={1} kind="xp" />
-            </dt>
-            <dd class="nq-result-need">{t('battle.nextLevel', { n: r.needNext })}</dd>
-            <dt>
-              <PixelIcon name="coin" scale={3} />
-              {t('battle.gotGold')}
-            </dt>
-            <dd>+{r.gold}G</dd>
-            <dt>
-              <PixelIcon name="chest" scale={3} />
-              {t('battle.gotItems')}
-            </dt>
-            <dd>
-              {r.drops.length === 0
-                ? t('battle.none')
-                : r.drops.map((d) => (
-                    <span class="nq-result-drop" key={d.name}>
-                      {d.icon && <img class="nq-item-icon" src={d.icon} alt="" />}
-                      <RubyLabel text={d.name} /> {t('battle.itemCount', { n: d.count })}
-                    </span>
-                  ))}
-            </dd>
+            <div class="nq-result-reward nq-result-reward-xp">
+              <div class="nq-result-reward-head">
+                <dt>
+                  <PixelIcon name="star" scale={3} />
+                  {t('battle.gotXp')}
+                </dt>
+                <dd class="nq-result-amount">+{r.xp}</dd>
+              </div>
+              <div class="nq-result-xp-progress">
+                <Bar value={xpW} max={1} kind="xp" />
+                <span class="nq-result-need">{t('battle.nextLevel', { n: r.needNext })}</span>
+              </div>
+            </div>
+            <div class="nq-result-reward">
+              <dt>
+                <PixelIcon name="coin" scale={3} />
+                {t('battle.gotGold')}
+              </dt>
+              <dd class="nq-result-amount">+{r.gold}G</dd>
+            </div>
+            <div class="nq-result-reward">
+              <dt>
+                <PixelIcon name="chest" scale={3} />
+                {t('battle.gotItems')}
+              </dt>
+              <dd class="nq-result-items">
+                {r.drops.length === 0
+                  ? t('battle.none')
+                  : r.drops.map((d) => (
+                      <span class="nq-result-drop" key={d.name}>
+                        {d.icon && <img class="nq-item-icon" src={d.icon} alt="" />}
+                        <RubyLabel text={d.name} /> {t('battle.itemCount', { n: d.count })}
+                      </span>
+                    ))}
+              </dd>
+            </div>
           </dl>
         )}
         {r.kind === 'defeat' && (
