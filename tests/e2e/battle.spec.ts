@@ -83,5 +83,14 @@ test('バトル：必殺技を えらぶと 問題が出て、答えると採点
   // 不正解ならゲージ加算が0になるのが仕様。問題を閉じてターンを完走することを確認する。
   // 正解時のゲージ加算量は、乱数や問題形式に依存しない core のユニットテストで検証する。
   await expect(page.locator('.nq-bq')).toHaveCount(0, { timeout: 10_000 });
-  await expect(page.locator('.nq-turn-stage')).toContainText('ターン 2', { timeout: 30_000 });
+  // 必殺技で敵を倒した場合はターン2ではなく決着へ進む。どちらも正常なターン完了として扱う。
+  const deadline = Date.now() + 30_000;
+  while (Date.now() < deadline) {
+    if ((await page.locator('.nq-turn-stage').textContent())?.includes('ターン 2')) return;
+    if (await page.locator('.nq-result').isVisible()) return;
+    const message = page.locator('.nq-box');
+    if (await message.isVisible()) await message.click({ force: true });
+    await page.waitForTimeout(100);
+  }
+  throw new Error('必殺技の回答後に次ターンまたは決着へ進みませんでした');
 });
