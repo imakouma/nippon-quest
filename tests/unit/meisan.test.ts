@@ -6,9 +6,9 @@ import { equipItem } from '../../src/core/progression/inventory';
 import { giveMeisan, isMeisanGear, meisanEarned } from '../../src/core/progression/meisan';
 import { motifStamp } from '../../src/core/progression/route';
 import { createNewGame } from '../../src/core/state/newGame';
-import { battleFrames, heroCostumeIds, heroKey, heroLook, walkFrames } from '../../src/scenes/art/characters';
-import { COSTUME_ART, HERO_FRAME } from '../../src/scenes/art/costumes';
-import { NQ48 } from '../../src/scenes/art/palette';
+import { battleFrames, heroCostumeIds, heroKey, heroLook, walkFrames } from '../../src/rendering/characters';
+import { COSTUME_ART, HERO_FRAME } from '../../src/rendering/costumes';
+import { NQ48 } from '../../src/rendering/palette';
 
 const fresh = () => createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
 const MELON = 'hokkaido-meisan-yubari-melon';

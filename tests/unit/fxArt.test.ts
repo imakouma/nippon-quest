@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { colorsOf } from '../../src/scenes/art/monsters/design';
-import { NQ48 } from '../../src/scenes/art/palette';
-import { FX_KINDS, fxGrid } from '../../src/scenes/battle/fxArt';
+import { colorsOf } from '../../src/rendering/monsters/design';
+import { NQ48 } from '../../src/rendering/palette';
+import { FX_KINDS, fxGrid } from '../../src/rendering/battle/fxArt';
 
 describe('バトルの エフェクトの ドット絵（docs/06 §2.3）', () => {
   it('どれも 絵が あって、色は NQ-48 だけ・6 色まで', () => {

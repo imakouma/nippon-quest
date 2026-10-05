@@ -2,10 +2,10 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { loadContent, type ContentIndex, type FileReader } from '../../src/core/content/loader';
-import { MONSTER_DESIGNS } from '../../src/scenes/art/monsters';
-import { colorsOf, designGrid } from '../../src/scenes/art/monsters/design';
-import { NQ, NQ48 } from '../../src/scenes/art/palette';
-import { MONSTER_SIZE } from '../../src/scenes/battle/pixelArt';
+import { MONSTER_DESIGNS } from '../../src/rendering/monsters';
+import { colorsOf, designGrid } from '../../src/rendering/monsters/design';
+import { NQ, NQ48 } from '../../src/rendering/palette';
+import { MONSTER_SIZE } from '../../src/rendering/battle/pixelArt';
 
 const CONTENT = fileURLToPath(new URL('../../content/', import.meta.url));
 const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, 'utf8'));

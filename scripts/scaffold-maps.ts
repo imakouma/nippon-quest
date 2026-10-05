@@ -50,23 +50,20 @@ import { GROUND_TILES, type Ground } from '../src/core/world/ground.js';
 import type { TerrainMap } from './gen-terrain.js';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const DIRS = [`${ROOT}maps/`, `${ROOT}public/maps/`];
+/** マップの唯一の編集・生成先。Vite が dev では直接配信し、build では dist/maps へコピーする。 */
+const MAPS_DIR = `${ROOT}maps/`;
 
 const args = process.argv.slice(2);
 const force = args.includes('--force');
 const only = args.find((a) => a.startsWith('--only='))?.slice('--only='.length);
 
-DIRS.forEach((dir) => {
-  if (!existsSync(dir)) {
-    mkdirSync(dir, { recursive: true });
-  }
-});
+if (!existsSync(MAPS_DIR)) mkdirSync(MAPS_DIR, { recursive: true });
 
 const TERRAIN = (
   JSON.parse(readFileSync(`${ROOT}scripts/data/terrain.json`, 'utf8')) as { maps: Record<string, TerrainMap> }
 ).maps;
 
-/** 地形記号 → タイル番号（src/scenes/overworld/fieldArt.ts の仮タイルセットと対応）。県の外の陸地（x）も海（3） */
+/** 地形記号 → タイル番号（src/rendering/overworld/fieldArt.ts の仮タイルセットと対応）。県の外の陸地（x）も海（3） */
 const TILE: Record<string, number> = { '.': 3, '~': 3, '#': 1, '^': 11, A: 12, x: 3, W: 159 };
 /** にほんちずの地図データ。Tiled のマップではないので maps/ には入れず、ゲームが読む public/ にだけ置く */
 const WORLD_MAP_FILE = 'public/worldmap.json';
@@ -158,15 +155,11 @@ const PRETTIER = { ...((await resolveConfig(`${ROOT}maps/map.json`)) ?? {}), par
 
 async function saveMap(filename: string, content: object) {
   const jsonStr = await format(JSON.stringify(content), PRETTIER);
-  let createdAny = false;
-  DIRS.forEach((dir) => {
-    const filePath = `${dir}${filename}`;
-    if (!existsSync(filePath) || force) {
-      writeFileSync(filePath, jsonStr, 'utf8');
-      createdAny = true;
-    }
-  });
-  if (createdAny) createdCount++;
+  const filePath = `${MAPS_DIR}${filename}`;
+  if (!existsSync(filePath) || force) {
+    writeFileSync(filePath, jsonStr, 'utf8');
+    createdCount++;
+  }
 }
 
 async function saveWorldMap(content: object) {
@@ -1240,7 +1233,7 @@ function enclaveMap(enc: EnclaveDef): object {
 const ROOM_W = 52;
 const ROOM_H = 40;
 
-/** 町・ダンジョンで使う タイル番号（src/scenes/overworld/fieldArt.ts と対応） */
+/** 町・ダンジョンで使う タイル番号（src/rendering/overworld/fieldArt.ts と対応） */
 const T = {
   grass: 1,
   stone: 5,
@@ -1275,7 +1268,7 @@ const T = {
   pool: 58,
   altar: 59,
   water: 3,
-  // ───── 県ごとの 町の テーマ（src/scenes/overworld/townTiles.ts・scripts/data/towns.ts） ─────
+  // ───── 県ごとの 町の テーマ（src/rendering/overworld/townTiles.ts・scripts/data/towns.ts） ─────
   snow: 61,
   snow2: 62,
   sand: 63,
@@ -1333,7 +1326,7 @@ const T = {
   dino: 133,
   /** 137〜146 の 2×5 */
   pagoda: 137,
-  // ───── 都会の 町（161〜220。src/scenes/overworld/townTiles.ts） ─────
+  // ───── 都会の 町（161〜220。src/rendering/overworld/townTiles.ts） ─────
   road: 161,
   roadLineV: 162,
   roadLineH: 163,
@@ -1374,7 +1367,7 @@ const T = {
   overpass: 220,
 } as const;
 
-/** ダンジョンの タイル（221〜269 は src/scenes/overworld/dungeonTiles.ts） */
+/** ダンジョンの タイル（221〜269 は src/rendering/overworld/dungeonTiles.ts） */
 const D = {
   limeFloor: 221,
   limeFloor2: 222,

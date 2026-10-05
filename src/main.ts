@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import './questions/renderers/shared/questions.css';
-import { BootScene } from './scenes/Boot';
-import { TitleScene } from './scenes/Title';
+import { BootScene } from './scenes/entries/boot';
+import { TitleScene } from './scenes/entries/title';
 import { ensureGameplayScenes } from './scenes/gameplayLoader';
 import { attachOverlay, STAGE_H, STAGE_W } from './ui/overlay';
 import { createNewGame, type NewGameOptions } from './core/state/newGame';
@@ -13,6 +13,12 @@ import { QuestionBank } from './questions/engine/bank';
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 } as const;
+const PLAY_DATE_FORMATTER = new Intl.DateTimeFormat('sv-SE', {
+  timeZone: 'Asia/Tokyo',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+});
 
 /**
  * ?debug=battle[&enemy=<monsterId>][&lv=<n>][&zone=dungeon][&ground=beach] でタイトルを飛ばしてすぐバトル（確認・E2E 用）。
@@ -227,12 +233,7 @@ setInterval(() => {
   if (document.visibilityState !== 'visible') return;
   const current = game.registry.get('game') as Parameters<typeof save>[1] | undefined;
   if (!current) return;
-  const date = new Intl.DateTimeFormat('sv-SE', {
-    timeZone: 'Asia/Tokyo',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(new Date());
+  const date = PLAY_DATE_FORMATTER.format(new Date());
   game.registry.set('game', {
     ...current,
     learning: {

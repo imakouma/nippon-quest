@@ -22,7 +22,7 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "gen:schemas": "tsx scripts/gen-schemas.ts",
-    "gen:manifest": "tsx scripts/gen-manifest.ts",
+    "gen:manifest": "tsx scripts/gen-manifest.ts && tsx scripts/gen-asset-catalog.ts",
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:curriculum-graph": "tsx scripts/validate-curriculum-graph.ts",
     "check:architecture": "tsx scripts/check-architecture.ts",

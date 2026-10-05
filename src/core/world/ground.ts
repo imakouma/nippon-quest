@@ -8,7 +8,7 @@ export const GROUNDS = ['grass', 'forest', 'mountain', 'beach', 'shore', 'farm']
 export type Ground = (typeof GROUNDS)[number];
 
 /**
- * 地面 → background の タイル番号（絵は src/scenes/overworld/fieldArt.ts）。
+ * 地面 → background の タイル番号（絵は src/rendering/overworld/fieldArt.ts）。
  * farm は たんぼ（155・156）と 果樹園（157 = りんご・さくらんぼ、158 = もも）。県ごとに scaffold-maps.ts が えらぶ
  */
 export const GROUND_TILES: Record<Ground, readonly number[]> = {

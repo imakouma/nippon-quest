@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
-import { MOTIF_SCENES, SCENES, motifArtGrid, motifScene } from '../../src/scenes/art/motifArt';
-import { MA } from '../../src/scenes/art/motifArt/kit';
-import { NQ, NQ48 } from '../../src/scenes/art/palette';
+import { MOTIF_SCENES, SCENES, motifArtGrid, motifScene } from '../../src/rendering/motifArt';
+import { MA } from '../../src/rendering/motifArt/kit';
+import { NQ, NQ48 } from '../../src/rendering/palette';
 
 const SPECIALTY = new Set(['food', 'craft']);
 

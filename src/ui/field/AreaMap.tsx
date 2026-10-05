@@ -8,7 +8,7 @@
  * 操作：↑↓ えらぶ / Z・Enter ワープ / X・Esc・M とじる。地図のしるしをタップしても選べる。
  */
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
-import { NQ } from '../../scenes/art/palette';
+import { NQ } from '../../rendering/palette';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
@@ -58,7 +58,7 @@ export interface PlaceOption {
   at: [number, number] | null;
 }
 
-/** タイル番号 → 地図の色（フィールドの 見た目 src/scenes/overworld/viewTiles.ts と 同じ 色み。ほかは 草の 色） */
+/** タイル番号 → 地図の色（フィールドの 見た目 src/rendering/overworld/viewTiles.ts と 同じ 色み。ほかは 草の 色） */
 const TILE_COLOR: Record<number, string> = {
   2: NQ.sand,
   3: NQ.azure,
@@ -79,7 +79,7 @@ const TILE_COLOR: Record<number, string> = {
   156: NQ.sprout,
   157: NQ.green,
   158: NQ.green,
-  // 都会の 町（src/scenes/overworld/townTiles.ts の 161〜220）：道路は 灰、歩道・ビルは うすい 灰、広場は 石の 色
+  // 都会の 町（src/rendering/overworld/townTiles.ts の 161〜220）：道路は 灰、歩道・ビルは うすい 灰、広場は 石の 色
   161: NQ.slate,
   162: NQ.slate,
   163: NQ.slate,
@@ -96,7 +96,7 @@ const TILE_COLOR: Record<number, string> = {
   217: NQ.silver,
   218: NQ.slate,
   219: NQ.leaf,
-  // ダンジョンの テーマの 床（src/scenes/overworld/dungeonTiles.ts）：鍾乳洞・鉱山・火口・渓谷・お城・やしき・竹林・海の 洞くつ
+  // ダンジョンの テーマの 床（src/rendering/overworld/dungeonTiles.ts）：鍾乳洞・鉱山・火口・渓谷・お城・やしき・竹林・海の 洞くつ
   221: NQ.beige,
   222: NQ.sky,
   225: NQ.bark,

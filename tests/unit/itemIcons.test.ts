@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
-import { ITEM_ICON_SIZE, itemIconDesign, itemIconGrid } from '../../src/scenes/art/itemIcons';
-import { NQ, NQ48 } from '../../src/scenes/art/palette';
+import { ITEM_ICON_SIZE, itemIconDesign, itemIconGrid } from '../../src/rendering/itemIcons';
+import { NQ, NQ48 } from '../../src/rendering/palette';
 
 describe('アイテムのアイコン', () => {
   it('ぜんぶの どうぐに アイコンがあり、色は NQ-48 だけ・外周の輪郭が切れていない', async () => {

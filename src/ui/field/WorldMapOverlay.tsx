@@ -6,7 +6,7 @@
  * ロジックは持たない（進みぐあいは Overworld が計算して渡す）。見つけていない名所の名前は出さない。
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { NQ } from '../../scenes/art/palette';
+import { NQ } from '../../rendering/palette';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';

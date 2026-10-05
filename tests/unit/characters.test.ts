@@ -1,10 +1,10 @@
 /**
- * 人物の仮ドット絵（src/scenes/art/characters.ts）の地図が規格どおりか（docs/06 §4：1 コマ 16×24）。
+ * 人物の仮ドット絵（src/rendering/characters.ts）の地図が規格どおりか（docs/06 §4：1 コマ 16×24）。
  * 地図は 14×22 を 16×24 のまん中に置き、外側 1 ドットに輪郭線が付く。
  */
 import { describe, expect, it } from 'vitest';
-import { CHAR_H, CHAR_MAPS, CHAR_W } from '../../src/scenes/art/characters';
-import { NQ48 } from '../../src/scenes/art/palette';
+import { CHAR_H, CHAR_MAPS, CHAR_W } from '../../src/rendering/characters';
+import { NQ48 } from '../../src/rendering/palette';
 
 describe('人物の地図', () => {
   const all = [...CHAR_MAPS.tops, ...CHAR_MAPS.caps, ...CHAR_MAPS.legs, ...CHAR_MAPS.parts];

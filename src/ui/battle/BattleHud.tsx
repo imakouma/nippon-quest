@@ -9,7 +9,7 @@
  * ロジックは持たない。HudStore を読んで描き、操作は store.dispatch() で Battle シーンへ返す。
  */
 import type { JSX } from 'preact';
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 import { ElementChip, SubjectChip } from '../chips';
 import { t } from '../i18n';
 import { createSpeaker } from '../overlay';
@@ -27,19 +27,17 @@ import {
   type HudState,
   type HudStore,
   type PopupView,
-  type ResultView,
   type SkillOption,
   type SubjectGaugeView,
 } from './store';
+import { BattleResultPanel } from './BattleResultPanel';
+import { pickBattleHudOption, useBattleHudInput } from './useBattleHudInput';
 import './battle.css';
 
 const speak = createSpeaker();
 
 /** auto メッセージを読み終えてから次へ進むまで */
 const AUTO_ADVANCE_MS = 1100;
-/** わざ・どうぐ・いれかえ の窓は 2 列、コマンドの窓は 3 列 */
-const COLS = 2;
-const CMD_COLS = 3;
 
 const EFFECT_HINT = {
   damage: 'battle.powerUpHint',
@@ -199,53 +197,6 @@ function ComboBadge({ c }: { c: HudState['combo'] }) {
 
 // ───────────────────────── メニュー ─────────────────────────
 
-interface Option {
-  key: string;
-  disabled: boolean;
-  action: () => void;
-}
-
-function menuOptions(s: HudState, store: HudStore): Option[] {
-  switch (s.menu) {
-    case 'commands':
-      return s.commands.map((c) => ({
-        key: c.kind,
-        disabled: c.disabled,
-        action: () => store.dispatch({ t: 'command', kind: c.kind }),
-      }));
-    case 'skills':
-      return s.skills.map((k) => ({
-        key: k.key,
-        disabled: k.disabled,
-        action: () => store.dispatch({ t: 'skill', key: k.key }),
-      }));
-    case 'items':
-      return s.items.map((it) => ({
-        key: it.id,
-        disabled: it.count <= 0,
-        action: () => store.dispatch({ t: 'item', id: it.id }),
-      }));
-    case 'swap':
-      return s.swaps.map((w) => ({
-        key: String(w.index),
-        disabled: w.disabled,
-        action: () => store.dispatch({ t: 'swap', index: w.index }),
-      }));
-    case 'none':
-      return [];
-  }
-}
-
-function pick(o: Option | undefined): void {
-  if (!o) return;
-  if (o.disabled) {
-    playSfx('miss');
-    return;
-  }
-  playSfx('select');
-  o.action();
-}
-
 function Cursor({ on }: { on: boolean }) {
   return <span class="nq-cur">{on ? <Heart /> : null}</span>;
 }
@@ -266,7 +217,7 @@ function CommandWindow({ s, store }: { s: HudState; store: HudStore }) {
             data-cmd={c.kind}
             onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
             onClick={() =>
-              pick({
+              pickBattleHudOption({
                 key: c.kind,
                 disabled: c.disabled,
                 action: () => store.dispatch({ t: 'command', kind: c.kind }),
@@ -349,7 +300,7 @@ function SkillList({ s, store }: { s: HudState; store: HudStore }) {
             data-actor={k.actorId}
             onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
             onClick={() =>
-              pick({
+              pickBattleHudOption({
                 key: k.key,
                 disabled: k.disabled,
                 action: () => store.dispatch({ t: 'skill', key: k.key }),
@@ -416,7 +367,7 @@ function ItemList({ s, store }: { s: HudState; store: HudStore }) {
               data-item={it.id}
               onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
               onClick={() =>
-                pick({
+                pickBattleHudOption({
                   key: it.id,
                   disabled: it.count <= 0,
                   action: () => store.dispatch({ t: 'item', id: it.id }),
@@ -455,7 +406,7 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
               class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''} ${w.disabled ? 'nq-opt-off' : ''}`}
               onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
               onClick={() =>
-                pick({
+                pickBattleHudOption({
                   key: String(w.index),
                   disabled: w.disabled,
                   action: () => store.dispatch({ t: 'swap', index: w.index }),
@@ -559,137 +510,7 @@ function QuestionStrip({ s }: { s: HudState }) {
   );
 }
 
-// ───────────────────────── 結果画面 ─────────────────────────
-
-function ResultPanel({ r, cursor, store }: { r: ResultView; cursor: number; store: HudStore }) {
-  const [xpW, setXpW] = useState(r.xpFrom);
-  useEffect(() => {
-    const id = setTimeout(() => setXpW(r.xpTo), 350);
-    return () => clearTimeout(id);
-  }, [r]);
-  const title =
-    r.kind === 'victory'
-      ? t('battle.resultWin')
-      : r.kind === 'defeat'
-        ? t('battle.resultLose')
-        : r.kind === 'fled'
-          ? t('battle.resultFled')
-          : t('battle.resultRecruited');
-  return (
-    <div class="nq-result-wrap">
-      <div class={`nq-win nq-result nq-result-${r.kind}`} role="dialog" aria-label={title}>
-        {r.kind === 'defeat' ? (
-          <div class="nq-result-heart">
-            <Heart broken />
-          </div>
-        ) : null}
-        <h2 class="nq-result-title">
-          {r.kind === 'victory' && <PixelIcon name="star" scale={4} />}
-          {title}
-          {r.kind === 'victory' && <PixelIcon name="star" scale={4} />}
-        </h2>
-        {r.kind === 'victory' && r.bonus > 1 && (
-          <p class="nq-result-bonus">
-            {t('battle.rewardBonus', { n: r.maxCombo, m: Math.round(r.bonus * 100) / 100 })}
-          </p>
-        )}
-        {r.kind === 'victory' && (
-          <dl class="nq-result-list">
-            <dt>
-              <PixelIcon name="star" scale={3} />
-              {t('battle.gotXp')}
-            </dt>
-            <dd>+{r.xp}</dd>
-            <dt class="nq-result-xpbar">
-              <Bar value={xpW} max={1} kind="xp" />
-            </dt>
-            <dd class="nq-result-need">{t('battle.nextLevel', { n: r.needNext })}</dd>
-            <dt>
-              <PixelIcon name="coin" scale={3} />
-              {t('battle.gotGold')}
-            </dt>
-            <dd>+{r.gold}G</dd>
-            <dt>
-              <PixelIcon name="chest" scale={3} />
-              {t('battle.gotItems')}
-            </dt>
-            <dd>
-              {r.drops.length === 0
-                ? t('battle.none')
-                : r.drops.map((d) => (
-                    <span class="nq-result-drop" key={d.name}>
-                      {d.icon && <img class="nq-item-icon" src={d.icon} alt="" />}
-                      <RubyLabel text={d.name} /> {t('battle.itemCount', { n: d.count })}
-                    </span>
-                  ))}
-            </dd>
-          </dl>
-        )}
-        {r.kind === 'defeat' && (
-          <p class="nq-result-body">
-            {r.goldLost > 0 && (
-              <>
-                {t('battle.goldLost', { n: r.goldLost })}
-                <br />
-              </>
-            )}
-            {t('battle.restAtInn')}
-          </p>
-        )}
-        {r.recruitName ? (
-          <div class="nq-result-recruit">
-            <p>
-              <RubyLabel text={t('battle.recruitOffer', { name: r.recruitName })} />
-              <br />
-              {t('battle.recruitAsk')}
-            </p>
-            <div class="nq-result-btns">
-              {[true, false].map((yes, i) => (
-                <button
-                  key={String(yes)}
-                  type="button"
-                  class={`nq-cmd ${cursor === i ? 'nq-focus' : ''}`}
-                  onPointerEnter={() => store.set({ cursor: i })}
-                  onClick={() => {
-                    playSfx('select');
-                    store.dispatch({ t: 'recruitAnswer', yes });
-                  }}
-                >
-                  <Cursor on={cursor === i} />
-                  {t(yes ? 'battle.yes' : 'battle.no')}
-                </button>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div class="nq-result-btns">
-            <button
-              type="button"
-              class="nq-cmd nq-focus"
-              data-result-close
-              onClick={() => {
-                playSfx('select');
-                store.dispatch({ t: 'resultClose' });
-              }}
-            >
-              <Cursor on />
-              {t('battle.continue')}
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
 // ───────────────────────── ルート ─────────────────────────
-
-const KEY_DIR: Record<string, [number, number]> = {
-  ArrowLeft: [-1, 0],
-  ArrowRight: [1, 0],
-  ArrowUp: [0, -1],
-  ArrowDown: [0, 1],
-};
 
 export function BattleHud({ store }: { store: HudStore }) {
   const s = useHud(store);
@@ -715,60 +536,7 @@ export function BattleHud({ store }: { store: HudStore }) {
     return () => clearTimeout(id);
   }, [tw.done, s.message?.id]);
 
-  // キーボード：矢印で ♥ を動かす / Z・Enter・Space で決定 / X・Esc で もどる
-  const advanceRef = useRef(advance);
-  advanceRef.current = advance;
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const cur = store.get();
-      if (cur.question) return; // 問題中はレンダラーにまかせる
-      const k = e.key;
-      const ok = k === 'Enter' || k === 'z' || k === 'Z' || k === ' ';
-      const back = k === 'Escape' || k === 'x' || k === 'X' || k === 'Backspace';
-      const dir = KEY_DIR[k];
-      if (!ok && !back && !dir) return;
-      e.preventDefault();
-      if (cur.result) {
-        if (cur.result.recruitName) {
-          if (dir && dir[0] !== 0) {
-            playSfx('move');
-            store.set({ cursor: cur.cursor === 0 ? 1 : 0 });
-          } else if (ok) {
-            playSfx('select');
-            store.dispatch({ t: 'recruitAnswer', yes: cur.cursor === 0 });
-          }
-        } else if (ok) {
-          playSfx('select');
-          store.dispatch({ t: 'resultClose' });
-        }
-        return;
-      }
-      if (cur.menu !== 'none') {
-        const opts = menuOptions(cur, store);
-        if (dir && opts.length) {
-          const next = Math.max(
-            0,
-            Math.min(
-              opts.length - 1,
-              cur.cursor + dir[0] + dir[1] * (cur.menu === 'commands' ? CMD_COLS : COLS),
-            ),
-          );
-          if (next !== cur.cursor) {
-            playSfx('move');
-            store.set({ cursor: next });
-          }
-        } else if (ok) pick(opts[cur.cursor]);
-        else if (back && cur.menu !== 'commands') {
-          playSfx('back');
-          store.dispatch({ t: 'back' });
-        }
-        return;
-      }
-      if (ok) advanceRef.current();
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [store]);
+  useBattleHudInput(store, advance);
 
   const onStageClick = (e: JSX.TargetedMouseEvent<HTMLDivElement>) => {
     if (e.target !== e.currentTarget) return;
@@ -851,7 +619,7 @@ export function BattleHud({ store }: { store: HudStore }) {
         />
       )}
       {s.question && s.shake > 0 && <div key={s.shake} class="nq-hitflash" aria-hidden="true" />}
-      {s.result && <ResultPanel r={s.result} cursor={s.cursor} store={store} />}
+      {s.result && <BattleResultPanel r={s.result} cursor={s.cursor} store={store} />}
     </div>
   );
 }

@@ -13,10 +13,10 @@ export function ensureGameplayScenes(game: Phaser.Game): Promise<void> {
   if (loading) return loading;
 
   loading = (async () => {
-    const overworld = await import('./Overworld');
+    const overworld = await import('./entries/overworld');
     if (!game.scene.keys.Overworld) game.scene.add('Overworld', overworld.OverworldScene, false);
 
-    const battle = await import('./Battle');
+    const battle = await import('./entries/battle');
     if (!game.scene.keys.Battle) game.scene.add('Battle', battle.BattleScene, false);
   })().catch((error) => {
     loading = null;
