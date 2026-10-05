@@ -6,6 +6,13 @@ import { scopeQueryToGrade } from '../../src/questions/engine/gradeScope';
 import { content } from './helpers';
 
 describe('小1・小2 地方別MVP', () => {
+  it('新しい旅は名前未設定・主人公ひとりで始まる', () => {
+    const game = createNewGame({ grade: 1, startRegion: 'tohoku' });
+    expect(game.player.name).toBe('？？？');
+    expect(game.party).toMatchObject({ owned: [], activeUid: null, team: [], reserve: [] });
+    expect(game.party.bagPlacements).toEqual({ hero: { x: 0, y: 0, rotated: false } });
+  });
+
   it('東北は国語・生活科、甲信越は算数として公開される', async () => {
     const c = await content();
     expect(c.world.islands.find((x) => x.id === 'tohoku')?.featuredSubjects).toEqual(['kokugo', 'seikatsu']);
