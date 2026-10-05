@@ -271,18 +271,13 @@ export class TitleScene extends Phaser.Scene {
     }
     render(
       h(TitleMenu, {
-        items: [
-          { label: t('ui.newGame') },
-          { label: t('ui.continue'), disabled: !this.hasSave },
-          { label: t('ui.questionList') },
-        ],
+        items: [{ label: t('ui.newGame') }, { label: t('ui.continue'), disabled: !this.hasSave }],
         hint: t('ui.titleHint'),
         disabledNote: t(this.saveChecked ? 'ui.noSave' : 'ui.saveChecking'),
         credit: t('ui.credits'),
         onSelect: (index: number) => {
           if (index === 0) this.mountSlotPicker('new');
           if (index === 1 && this.hasSave) this.mountSlotPicker('continue');
-          if (index === 2) window.location.assign(`${import.meta.env.BASE_URL}playground.html`);
         },
       }),
       this.menuRoot,
