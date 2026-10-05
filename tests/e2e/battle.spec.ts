@@ -46,7 +46,7 @@ test('バトル：たたかう を続けると決着がつき、フィールド�
   while (Date.now() < deadline && !(await page.locator('.nq-result').isVisible())) {
     // 自分の ターンが 来たら たたかう。タップ待ちの 文は すすめる
     if (await attack.isVisible()) await attack.first().click({ force: true });
-    else if (await page.locator('.nq-box').isVisible()) await page.locator('.nq-box').click({ force: true });
+    else if (await page.locator('.nq-box').isVisible()) await page.keyboard.press('Enter');
     await page.waitForTimeout(250);
   }
   await expect(page.locator('.nq-result')).toBeVisible();
