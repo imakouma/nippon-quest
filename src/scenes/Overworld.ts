@@ -926,7 +926,6 @@ export class OverworldScene extends Phaser.Scene {
       }
     }
   }
-
   private addTransition(obj: TiledObject, tx: number, ty: number): void {
     const target = prop(obj, 'targetMap');
     if (typeof target !== 'string') return;
@@ -944,6 +943,8 @@ export class OverworldScene extends Phaser.Scene {
       if (typeof lock === 'string') this.lockedGates.set(i, lock);
       const icon = this.gateIcon(target);
       const pad = this.add.image((tx + k) * TILE + 8, ty * TILE + 8, icon).setDepth(ty * TILE);
+      const iconScale = Number(prop(obj, 'iconScale') ?? 1);
+      if (iconScale > 1) pad.setScale(iconScale).setOrigin(0.5, 0.75);
       // まだ ひらかない 入口（裏ステージ）は くらく、光らせない
       if (this.isLocked(i)) {
         pad.setTint(0x555566);
@@ -962,7 +963,6 @@ export class OverworldScene extends Phaser.Scene {
       });
     }
   }
-
   /** 県の フィールド → 離島、離島 → 県の フィールド の 入口か（離島の 中の 船は ちがう） */
   private isHarborGate(target: string): boolean {
     const k = this.kind();

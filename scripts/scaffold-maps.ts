@@ -885,7 +885,15 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
     { name: 'spawn', type: 'spawn', at: spawn },
     { name: 'from_town', type: 'spawn', at: place.beside(town) },
     { name: 'from_dungeon', type: 'spawn', at: place.beside(dungeon) },
-    { name: 'to_town', type: 'transition', at: town, properties: warp(`${prefId}-town`, 'from_field') },
+    {
+      name: 'to_town',
+      type: 'transition',
+      at: town,
+      properties: [
+        ...warp(`${prefId}-town`, 'from_field'),
+        ...(prefId === 'iwate' ? [int('iconScale', 2)] : []),
+      ],
+    },
     {
       name: 'to_dungeon',
       type: 'transition',

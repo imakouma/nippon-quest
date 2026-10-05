@@ -267,10 +267,6 @@ export const REGION_VILLAGES: Record<
       {
         at: [140.8, 40.83], // ねぶた祭（ねぶたの 列・大だいこ・ちょうちん）
         buildings: [
-          { kind: 'nebutaFloat', dx: -9, dy: -6 },
-          { kind: 'nebutaFloat', dx: -4, dy: -7 },
-          { kind: 'nebutaFloat', dx: 1, dy: -7 },
-          { kind: 'nebutaFloat', dx: 6, dy: -6 },
           { kind: 'taiko', dx: -6, dy: 3 },
           { kind: 'taiko', dx: 4, dy: 3 },
           { kind: 'chochin', dx: -10, dy: -2 },
