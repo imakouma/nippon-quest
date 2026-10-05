@@ -86,6 +86,12 @@ describe('マップ', () => {
     }
   });
 
+  it('青森の巨大ねぶたを置かず、盛岡の町を 2×2 マス相当で表示する', () => {
+    expect(objectsOf(maps.get('aomori-field')!).some((o) => prop(o, 'kind') === 'nebutaFloat')).toBe(false);
+    const morioka = objectsOf(maps.get('iwate-field')!).find((o) => o.name === 'to_town');
+    expect(prop(morioka!, 'iconScale')).toBe(2);
+  });
+
   it.each([...maps.keys()])('%s: 遷移先があり、すべての物体に歩いて行ける', (key) => {
     const m = maps.get(key)!;
     const objs = objectsOf(m);
