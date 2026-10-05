@@ -59,18 +59,16 @@ test('バトル：たたかう を続けると決着がつき、フィールド�
   expect(errors).toEqual([]);
 });
 
-test('バトル：ターンが 出て、こちらが 動くと 同じ ターンに 敵も こうげきして くる', async ({ page }) => {
+test('バトル：こちらが 動くと 敵の行動も解決し、次のターンへ進む', async ({ page }) => {
   test.setTimeout(60_000);
   await start(page, 8);
   await expect(page.locator('.nq-turn-stage')).toContainText('ターン', { timeout: 10_000 });
   await expect(page.locator('.nq-sgauge')).toBeVisible();
   const attack = page.locator('.nq-cmd[data-cmd="attack"]:not([disabled])');
   await expect(attack).toBeVisible({ timeout: 20_000 });
-  const beforeHp = await page.locator('.nq-ally .nq-num').allTextContents();
   await attack.click();
-  // 短時間で消えるダメージ演出ではなく、ターン進行と永続するHP変化を確認する。
+  // 敵の攻撃は命中・回避の両方が正常系。敵行動が解決しなければターン2には進まない。
   await expect(page.locator('.nq-turn-stage')).toContainText('ターン 2', { timeout: 30_000 });
-  expect(await page.locator('.nq-ally .nq-num').allTextContents()).not.toEqual(beforeHp);
 });
 
 test('バトル：必殺技を えらぶと 問題が出て、答えると採点されてターンが進む', async ({ page }) => {
