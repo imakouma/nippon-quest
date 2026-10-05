@@ -1,0 +1,132 @@
+{
+  "$ref": "#/definitions/question.sort-order",
+  "definitions": {
+    "question.sort-order": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*$",
+            "description": "一意なID。例 \"sansu.g1.tashizan.0001\""
+          },
+          "type": {
+            "type": "string",
+            "const": "sort-order"
+          },
+          "subject": {
+            "type": "string",
+            "enum": [
+              "kokugo",
+              "sansu",
+              "rika",
+              "shakai",
+              "seikatsu",
+              "eigo"
+            ]
+          },
+          "grade": {
+            "type": "number",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "pattern": "^(kokugo|sansu|rika|shakai|seikatsu|eigo)\\.g[1-6]\\.[a-z0-9-]+$",
+            "description": "単元コード"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timeLimitSec": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "prompt": {
+                "type": "string",
+                "minLength": 1
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "horizontal",
+                  "vertical"
+                ],
+                "default": "horizontal"
+              },
+              "cards": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "text": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "image": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "text"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 2,
+                "maxItems": 8
+              },
+              "answer": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 2,
+                "maxItems": 8
+              }
+            },
+            "required": [
+              "prompt",
+              "cards",
+              "answer"
+            ],
+            "additionalProperties": false
+          },
+          "explanation": {
+            "type": "string",
+            "description": "解説（RubyText）"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "subject",
+          "grade",
+          "unit",
+          "payload"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

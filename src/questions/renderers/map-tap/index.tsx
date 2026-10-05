@@ -1,5 +1,5 @@
 import { h, render } from 'preact';
-import { useRef, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import type { QuestionRenderer, RendererContext } from '../../contracts';
 import { RubyLabel } from '../../../ui/RubyLabel';
 import { Feedback } from '../shared/Feedback';
@@ -16,12 +16,22 @@ function View({
 }) {
   const [pick, setPick] = useState<{ x: number; y: number } | null>(null);
   const once = useRef(false);
+  const timer = useRef<number | null>(null);
   const finish = (x: number, y: number, t = false) => {
     if (once.current) return;
     once.current = true;
     setPick({ x, y });
-    setTimeout(() => onDone(x, y, t), 900);
+    timer.current = window.setTimeout(() => onDone(x, y, t), 900);
   };
+  useEffect(() => {
+    const abort = () => finish(-100, -100, true);
+    ctx.signal?.addEventListener('abort', abort);
+    if (ctx.signal?.aborted) abort();
+    return () => {
+      ctx.signal?.removeEventListener('abort', abort);
+      if (timer.current !== null) window.clearTimeout(timer.current);
+    };
+  }, []);
   return (
     <div class="nq-q">
       <TimerBar ms={ctx.timeLimitMs} running={!pick} onTimeout={() => finish(-100, -100, true)} />

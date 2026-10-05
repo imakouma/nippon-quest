@@ -2,7 +2,7 @@
   "$schema": "../../schemas/prefectures.schema.json",
   "id": "niigata",
   "name": "新潟県[にいがたけん]",
-  "island": "hokuriku",
+  "island": "koshinetsu",
   "capital": "新潟市[にいがたし]",
   "status": "playable",
   "mapKeys": {
@@ -252,10 +252,10 @@
         }
       ],
       "question": {
-        "subject": "shakai",
+        "subject": "sansu",
         "gradeRange": [
-          3,
-          6
+          1,
+          2
         ],
         "tags": [
           "prefecture:niigata"

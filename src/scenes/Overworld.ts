@@ -41,7 +41,7 @@ import {
   toggleBagMonster,
 } from '../core/progression/bag';
 import { heroLevel } from '../core/progression/battleResult';
-import { canUse, EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
+import { EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
 import {
   acceptMission,
   canCraft,
@@ -79,6 +79,7 @@ import {
   nextStop,
   type NextStop,
 } from '../core/progression/route';
+import { canChallengeIslandBoss, completeIsland } from '../core/progression/island';
 import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
 import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
@@ -97,12 +98,7 @@ import { bagCells } from '../ui/field/bagLayout';
 import { TownOverlay, type TownOverlayProps, type TownRow } from '../ui/field/TownOverlay';
 import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
-import {
-  WorldMapOverlay,
-  type MapAreaInfo,
-  type MapRegionInfo,
-  type WorldMapData,
-} from '../ui/field/WorldMapOverlay';
+import { WorldMapOverlay, type MapRegionInfo, type WorldMapData } from '../ui/field/WorldMapOverlay';
 import { t } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { QuestionFrame } from '../ui/QuestionFrame';
@@ -135,8 +131,12 @@ import { buildViewTexture } from './overworld/viewTiles';
 import { buildEntranceIcons } from './overworld/entranceIcons';
 import { GEOGRAPHIC_AREA_ORDER } from './overworld/geography';
 import { buildRoadmapNodes } from './overworld/roadmap';
+import { bagMenu, equipmentMenu, menuTabs, mistakeMenu } from './overworld/menuEntries';
+import { buildReviewQueue } from './overworld/reviewQueue';
+import { buildWorldMapRegions } from './overworld/worldMapRegions';
 import { buildStructureArt, structureKey, type StructureKind } from './overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
+import { scopeQueryToGrade } from '../questions/engine/gradeScope';
 
 const TILE = 16;
 const STEP_MS = 160;
@@ -155,6 +155,8 @@ const WATER_TILE = 3;
 const TRIGGER_RADIUS = 1;
 /** にほんちずの地図データ（scripts/scaffold-maps.ts が public/worldmap.json に作る）の cache キー */
 const WORLD_MAP_KEY = 'worldmap';
+/** 新しく始めたデータだけで青森の導入を一度表示する。既存セーブへ突然割り込ませない。 */
+const PROLOGUE_COUNTER = 'story.prologue';
 /** 特産品（イベントの無い たべもの・こうげいひん）は ★ 看板ではなく宝箱（scripts/scaffold-maps.ts） */
 /** みため タブの 部位（GameState.player.appearance の キー と 文言の キー） */
 type HeroLookIndex = GameState['player']['appearance'];
@@ -383,6 +385,7 @@ export class OverworldScene extends Phaser.Scene {
   private regionGates = new Map<number, RegionGate>();
   private regionBosses = new Map<number, RegionBoss>();
   private pendingRegionBoss: RegionBoss | null = null;
+  private pendingIslandBoss: string | null = null;
   /** ダンジョンの おくに いる 県ボス（中ボスと同じ「？」マーク） */
   /** 止まっているか（左上の 窓を 出す）。歩きだすと かくし、HUD_IDLE_MS 止まると 出す */
   private hudIdle = true;
@@ -483,6 +486,7 @@ export class OverworldScene extends Phaser.Scene {
     this.baseMap = this.readBaseMap();
     this.renderHud();
     if (!this.pendingDebugBattle) this.showPlaceTitle();
+    if (!this.pendingDebugBattle) this.time.delayedCall(2850, () => void this.showPrologue());
 
     const debug = this.pendingDebugBattle;
     if (debug) {
@@ -523,6 +527,7 @@ export class OverworldScene extends Phaser.Scene {
     this.regionGates = new Map();
     this.regionBosses = new Map();
     this.pendingRegionBoss = null;
+    this.pendingIslandBoss = null;
     this.areaBoss = null;
     this.pendingAreaBoss = false;
     this.lastBoss = null;
@@ -1770,10 +1775,11 @@ export class OverworldScene extends Phaser.Scene {
       mastery: new MasteryStore(gs.learning.mastery),
       rng: this.rng,
       speak: this.speak,
+      reason: 'event',
     });
     let score: number | null = null;
     try {
-      score = await askFirst(env, relaxedQueries(ev.question));
+      score = await askFirst(env, relaxedQueries(scopeQueryToGrade(ev.question, gs.learning.grade)));
     } finally {
       render(null, root);
     }
@@ -2335,9 +2341,8 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     const c = this.content();
     if (!gs || !c) return;
-    const canReview = gs.learning.mistakes.some((id) =>
-      (this.registry.get('bank') as QuestionBank | undefined)?.get(id),
-    );
+    const bank = this.registry.get('bank') as QuestionBank | undefined;
+    const canReview = buildReviewQueue(gs, bank, Date.now()).length > 0;
     const choices = canReview
       ? [t('field.townInnStay'), t('field.townInnReview'), t('ui.cancel')]
       : [t('field.townInnStay'), t('ui.cancel')];
@@ -2374,13 +2379,13 @@ export class OverworldScene extends Phaser.Scene {
     ]);
   }
 
-  /** まちがいノートの先頭から最大3問。満点ならノートから外す。 */
+  /** まちがいを優先し、空きがあれば復習期限を迎えた問題を合わせて最大3問。 */
   private async reviewMistakes(speaker: string): Promise<number> {
     const content = this.content();
     const bank = this.registry.get('bank') as QuestionBank | undefined;
     const gs = this.gs();
     if (!content || !bank || !gs) return 0;
-    const ids = gs.learning.mistakes.filter((id) => bank.get(id)).slice(0, 3);
+    const ids = buildReviewQueue(gs, bank, Date.now());
     await this.talk([{ speaker, text: t('field.townInnReviewStart', { n: ids.length }) }]);
     let perfect = 0;
     for (const id of ids) {
@@ -2407,6 +2412,7 @@ export class OverworldScene extends Phaser.Scene {
             mastery: new MasteryStore(gs.learning.mastery),
             rng: this.rng,
             speak: this.speak,
+            reason: 'review',
           }),
           id,
         );
@@ -2453,28 +2459,41 @@ export class OverworldScene extends Phaser.Scene {
     await this.talk(out);
   }
 
-  /** たいせんじょう：この県の モンスターと しょうぶ（レベルは すこし上）。かったら しょうきん */
+  /** たいせんじょう：content/arena/rivals.json のライバルを選んで対戦する。 */
   private async arenaTalk(speaker: string, lines: DialogueLine[]): Promise<boolean> {
     const c = this.content();
-    const area = this.currentArea();
+    if (!c) return false;
+    const rivals = [...c.rivals.values()].filter((rival) => rival.monsters.length > 0);
+    if (!rivals.length) {
+      await this.talk([...lines, { speaker, text: t('field.townArenaNoRival') }]);
+      return false;
+    }
     const choice = await this.choose(
       [...lines, { speaker, text: t('field.townArenaAsk', { n: ARENA_PRIZE }) }],
-      [t('field.townArenaFight'), t('ui.cancel')],
+      [
+        ...rivals.map((rival) => t('field.townArenaRival', { name: rival.name, level: rival.heroLevel })),
+        t('ui.cancel'),
+      ],
     );
-    const foes = [
-      ...new Set(
-        (area?.encounters ?? [])
-          .flatMap((e) => e.table.map((x) => x.monsterId))
-          .filter((id) => c?.monsters.has(id) && !c.monsters.get(id)!.isBoss),
-      ),
-    ];
-    if (choice !== 0 || !foes.length) {
+    const rival = rivals[choice];
+    const lead = rival?.monsters[0];
+    if (!rival || !lead || !c.monsters.has(lead.monsterId)) {
       await this.talk([{ speaker, text: t('field.townLater') }]);
       return false;
     }
+    await this.talk([
+      { speaker: rival.name, text: rival.intro },
+      {
+        speaker,
+        text: t('field.townArenaMatch', {
+          name: rival.name,
+          monster: c.monsters.get(lead.monsterId)?.name ?? lead.monsterId,
+        }),
+      },
+    ]);
     this.pendingArena = speaker;
     this.busy = false;
-    this.startBattle({ enemyId: Phaser.Math.RND.pick(foes), level: this.heroLevel() + 2, zone: 'field' });
+    this.startBattle({ enemyId: lead.monsterId, level: lead.level, zone: 'field' });
     return true;
   }
 
@@ -2673,7 +2692,9 @@ export class OverworldScene extends Phaser.Scene {
     const wasAreaBoss = this.pendingAreaBoss;
     const wasLastBoss = this.pendingLastBoss;
     const wasRegionBoss = this.pendingRegionBoss;
+    const wasIslandBoss = this.pendingIslandBoss;
     this.pendingRegionBoss = null;
+    this.pendingIslandBoss = null;
     this.pendingMidBoss = false;
     this.pendingAreaBoss = false;
     this.pendingLastBoss = false;
@@ -2695,6 +2716,7 @@ export class OverworldScene extends Phaser.Scene {
     if (wasAreaBoss && p.outcome === 'victory') void this.areaBossDefeated();
     if (wasLastBoss && p.outcome === 'victory') void this.lastBossDefeated();
     if (wasRegionBoss && p.outcome === 'victory') void this.regionBossDefeated(wasRegionBoss);
+    if (wasIslandBoss && p.outcome === 'victory') void this.islandBossDefeated(wasIslandBoss);
   }
 
   // ───────────────────────── 画面（DOM） ─────────────────────────
@@ -2726,6 +2748,39 @@ export class OverworldScene extends Phaser.Scene {
 
   private talk(lines: DialogueLine[]): Promise<void> {
     return this.choose(lines).then(() => undefined);
+  }
+
+  /** 新しい旅の最初だけ、世界の異変・妖精・旅の目的を短く伝える。 */
+  private async showPrologue(): Promise<void> {
+    const gs = this.gs();
+    if (
+      this.busy ||
+      this.inBattle ||
+      this.mapKey !== 'aomori-field' ||
+      gs?.progress.counters[PROLOGUE_COUNTER] !== 0
+    )
+      return;
+
+    this.busy = true;
+    this.standStill();
+    this.setGame({
+      ...gs,
+      updatedAt: Date.now(),
+      progress: {
+        ...gs.progress,
+        counters: { ...gs.progress.counters, [PROLOGUE_COUNTER]: 1 },
+      },
+    });
+    await this.talk([
+      { speaker: t('field.prologueNarrator'), text: t('field.prologueWake') },
+      { speaker: gs.player.name, text: t('field.prologueLost') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueFairyArrives') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueKnowledge') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueNoema') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueQuest') },
+      { text: t('field.prologueStart') },
+    ]);
+    this.busy = false;
   }
 
   /** 会話を出す。choices があれば最後の行で選ばせて、その番号を返す（選択肢なしは -1） */
@@ -2826,7 +2881,7 @@ export class OverworldScene extends Phaser.Scene {
       render(
         h(MenuOverlay, {
           tab,
-          tabs: this.menuTabs(),
+          tabs: menuTabs(this.gs()?.learning.mistakes.length ?? 0),
           entries: view.entries,
           roadmap: this.roadmapNodes(),
           summary: view.summary,
@@ -2932,33 +2987,6 @@ export class OverworldScene extends Phaser.Scene {
       .map((m) => ({ m, known: revealAll || seen.has(m.id) }));
   }
 
-  private menuTabs() {
-    return [
-      { key: 'roadmap' as const, label: t('field.tabRoadmap'), icon: 'star' },
-      {
-        key: 'mistakes' as const,
-        label: t('field.tabMistakes'),
-        icon: 'cmd-scan',
-        count: String(this.gs()?.learning.mistakes.length ?? 0),
-      },
-      {
-        key: 'monsters' as const,
-        label: t('field.tabMonsters'),
-        group: t('field.dexGroup'),
-        icon: 'boss',
-      },
-      {
-        key: 'specialties' as const,
-        label: t('field.tabSpecialties'),
-        group: t('field.dexGroup'),
-        icon: 'star',
-      },
-      { key: 'bag' as const, label: t('field.tabBag'), icon: 'role-shop' },
-      { key: 'equip' as const, label: t('field.tabEquip'), icon: 'role-smith' },
-      { key: 'look' as const, label: t('field.tabLook'), icon: 'hero' },
-    ];
-  }
-
   /** そうびの ステータス（こうげき+3 ぼうぎょ+2） */
   private statText(it: Item): string {
     const KEY: Record<string, string> = {
@@ -2987,37 +3015,12 @@ export class OverworldScene extends Phaser.Scene {
     const unknown = t('field.dexUnknown');
     const areaName = (id: string) => c.areas.get(id)?.name ?? unknown;
     const stats = this.heroStats(gs);
-    const hpLine = t('field.menuHp', { hp: gs.player.hp, max: stats.hp, gold: gs.player.gold });
 
     if (tab === 'roadmap') return { entries: [], empty: '' };
 
     if (tab === 'mistakes') {
       const bank = this.registry.get('bank') as QuestionBank | undefined;
-      const entries = gs.learning.mistakes
-        .map((id): MenuEntry | null => {
-          const question = bank?.get(id);
-          if (!question) return null;
-          const payload = question.payload as Record<string, unknown>;
-          const prompt = typeof payload.prompt === 'string' ? payload.prompt : question.id;
-          return {
-            key: question.id,
-            name: prompt,
-            known: true,
-            right: t('field.mistakeGrade', { n: question.grade }),
-            sub: t(`subjects.${question.subject}`),
-            lines: [
-              t('field.mistakeUnit', { unit: c.units.get(question.unit)?.name ?? question.unit }),
-              t('field.mistakeType', { type: question.type }),
-            ],
-            blurb: question.explanation ?? t('field.mistakeNoExplanation'),
-          };
-        })
-        .filter((entry): entry is MenuEntry => entry !== null);
-      return {
-        entries,
-        summary: t('field.mistakeSummary', { n: entries.length }),
-        empty: t('field.mistakeEmpty'),
-      };
+      return mistakeMenu(c, gs, bank);
     }
 
     if (tab === 'monsters') {
@@ -3076,33 +3079,13 @@ export class OverworldScene extends Phaser.Scene {
     }
 
     if (tab === 'bag') {
-      const ORDER = ['consumable', 'weapon', 'head', 'chest', 'legs', 'feet', 'material', 'key'];
-      const max = { hp: stats.hp, mp: stats.mp };
-      const entries = Object.entries(gs.inventory)
-        .filter(([id, n]) => n > 0 && c.items.has(id))
-        .map(([id, n]) => ({ it: c.items.get(id)!, n }))
-        .sort((a, b) => ORDER.indexOf(a.it.kind) - ORDER.indexOf(b.it.kind))
-        .map(({ it, n }): MenuEntry => {
-          const lines = [t('field.townHave', { n })];
-          if (it.use?.heal) lines.push(t('field.bagHeal', { n: it.use.heal }));
-          if (isEquip(it) && it.stats) lines.push(this.statText(it));
-          return {
-            key: it.id,
-            name: it.name,
-            icon: itemIconUrl(it),
-            known: true,
-            right: t('battle.itemCount', { n }),
-            sub: this.kindLabel(it),
-            lines,
-            blurb: it.blurb,
-            action: isEquip(it)
-              ? { label: t('field.bagEquip'), ok: true }
-              : it.kind === 'consumable' && it.use
-                ? { label: t('field.bagUse'), ok: canUse(gs, it, max) }
-                : null,
-          };
-        });
-      return { entries, summary: hpLine, empty: t('field.bagEmpty') };
+      return bagMenu(
+        c,
+        gs,
+        stats,
+        (item) => this.statText(item),
+        (item) => this.kindLabel(item),
+      );
     }
 
     if (tab === 'look') {
@@ -3130,34 +3113,7 @@ export class OverworldScene extends Phaser.Scene {
       return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
     }
 
-    // そうび：5 つの 部位
-    const entries = EQUIP_SLOTS.map((slot): MenuEntry => {
-      const id = gs.player.equipment[slot];
-      const it = id ? c.items.get(id) : undefined;
-      return {
-        key: `slot:${slot}`,
-        name: it ? it.name : t('field.equipNone'),
-        icon: it ? itemIconUrl(it) : undefined,
-        known: true,
-        right: t(`slots.${slot}`),
-        sub: t('field.equipSlot', { slot: t(`slots.${slot}`) }),
-        lines: it ? [this.statText(it)].filter(Boolean) : [t('field.equipEmptyHint')],
-        blurb: it?.blurb,
-        action: it ? { label: t('field.bagUnequip'), ok: true } : null,
-      };
-    });
-    return {
-      entries,
-      summary: t('field.equipStats', {
-        hp: gs.player.hp,
-        max: stats.hp,
-        atk: stats.atk,
-        def: stats.def,
-        spd: stats.spd,
-        wis: stats.wis,
-      }),
-      empty: t('field.dexEmpty'),
-    };
+    return equipmentMenu(c, gs, stats, (item) => this.statText(item));
   }
 
   /** 単元習熟度を唯一の進捗源として、ロードマップ表示用へ変換する。 */
@@ -3875,10 +3831,66 @@ export class OverworldScene extends Phaser.Scene {
           close();
           this.switchMap(this.content()?.areas.get(areaId)?.mapKeys?.field ?? `${areaId}-field`, 'spawn');
         },
+        onChallengeIslandBoss: (islandId: string) => {
+          close();
+          void this.challengeIslandBoss(islandId);
+        },
         onClose: close,
       }),
       root,
     );
+  }
+
+  /** にほんちずの城から地方ボスへ挑戦する。県のしるし不足・クリア済みなら開始しない。 */
+  private async challengeIslandBoss(islandId: string): Promise<void> {
+    const content = this.content();
+    const gs = this.gs();
+    const island = content?.world.islands.find((candidate) => candidate.id === islandId);
+    const boss = island ? content?.monsters.get(island.bossId) : undefined;
+    if (!content || !gs || !island || !boss || !canChallengeIslandBoss(content.world, islandId, gs.progress))
+      return;
+
+    this.busy = true;
+    this.standStill();
+    const choice = await this.choose(
+      [
+        { speaker: t('field.prologueFairy'), text: t('field.islandBossAsk') },
+        { speaker: t('field.prologueFairy'), text: t('field.islandBossIntroFairy') },
+        { speaker: boss.name, text: t('field.islandBossRoar') },
+      ],
+      [t('ui.yes'), t('ui.no')],
+    );
+    if (choice !== 0) {
+      this.busy = false;
+      return;
+    }
+    this.pendingIslandBoss = islandId;
+    this.busy = false;
+    this.startBattle({ enemyId: boss.id, level: Math.max(1, this.heroLevel()), zone: 'field', isBoss: true });
+  }
+
+  /** 地方ボス勝利時だけ島クリアを記録する。バッグ寸法は islandsCleared に連動して広がる。 */
+  private async islandBossDefeated(islandId: string): Promise<void> {
+    const content = this.content();
+    const gs = this.gs();
+    if (!content || !gs) return;
+    const next = completeIsland(gs, content.world, islandId);
+    if (next === gs) return;
+    this.busy = true;
+    this.setGame(next);
+    await this.wait(650);
+    playSfx('victory');
+    const island = content.world.islands.find((candidate) => candidate.id === islandId);
+    const bossName = content.monsters.get(island?.bossId ?? '')?.name;
+    await this.talk([
+      { speaker: bossName, text: t('field.islandBossSecret') },
+      { speaker: t('field.prologueFairy'), text: t('field.islandFairyDeflect') },
+      { text: t('field.islandBossCleared') },
+      { text: t('field.islandBagGrew') },
+      { speaker: t('field.prologueFairy'), text: t('field.islandFairyNext') },
+      { text: t('field.islandChapterEnd') },
+    ]);
+    this.busy = false;
   }
 
   /** にほんちずの地方と県。地図は public/worldmap.json、名前は content、進みぐあいはセーブから */
@@ -3886,40 +3898,7 @@ export class OverworldScene extends Phaser.Scene {
     const data = this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined;
     const content = this.content();
     if (!data || !content) return [];
-    const gs = this.gs();
-    const been = this.visitedAreas();
-    const islands = new Map(content.world.islands.map((i) => [i.id, i]));
-    const boss = (area: Area | undefined): MapAreaInfo['boss'] => {
-      if (!area?.midBoss) return 'none';
-      return gs?.progress.eventsDone.includes(midBossFlag(area.id)) ? 'done' : 'yet';
-    };
-    const regions = data.regions.filter((r) => islands.has(r.id));
-    regions.sort((a, b) => islands.get(a.id)!.order - islands.get(b.id)!.order);
-    return regions.map((r) => ({
-      id: r.id,
-      name: islands.get(r.id)!.name,
-      width: r.width,
-      height: r.height,
-      rows: r.rows,
-      areas: r.areas.map((a): MapAreaInfo => {
-        const area = content.areas.get(a.id);
-        // 見つけていない名所は、名前を出さない（null）。特産品（イベントの無い たべもの・こうげいひん）は宝箱
-        const stamps = a.stamps.flatMap((id) => {
-          const motif = area?.motifs.find((m) => m.id === id);
-          if (!motif) return [];
-          const box = SPECIALTY_KINDS.has(motif.kind) && !area?.events.some((e) => e.motifId === id);
-          return [{ name: gs?.dex.motifs.includes(motifStamp(a.id, id)) ? kana(motif.name) : null, box }];
-        });
-        return {
-          id: a.id,
-          name: area?.name ?? a.id,
-          capital: a.capital,
-          stamps,
-          boss: boss(area),
-          visited: been.has(a.id),
-        };
-      }),
-    }));
+    return buildWorldMapRegions(data, content, this.gs(), this.visitedAreas());
   }
 
   /** にほんちずの「いま いる ところ」。フィールドなら、県の陸地の中でのだいたいの位置（左上 0 〜 右下 1）も */

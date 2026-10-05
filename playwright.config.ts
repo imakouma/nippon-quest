@@ -18,7 +18,7 @@ export default defineConfig({
     ...(preinstalled ? { launchOptions: { executablePath: preinstalled } } : {}),
   },
   webServer: {
-    command: `pnpm build && pnpm preview --port ${port}`,
+    command: `pnpm build && pnpm exec vite preview --host 127.0.0.1 --port ${port} --strictPort`,
     port,
     reuseExistingServer: false,
     // Full content validation, typechecking, and the production bundle can take

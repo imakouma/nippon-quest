@@ -11,18 +11,17 @@ export interface NextStop {
 
 /**
  * 中ボスを倒したあとのワープ先のフィールド。同じ島（地方）の次の県。
- * 島の最後の県なら、次の島（order の次）の最初の県へ。最後の島の最後の県と、どの島にも無い県は null。
+ * 島の最後の県では地方ボスが次の島への結界を管理するため null。
+ * どの島にも無い県も null。
  */
 export function nextStop(
   world: World,
   areaId: string,
   fieldKeyOf: (areaId: string) => string = (id) => `${id}-field`,
 ): NextStop | null {
-  const islands = [...world.islands].sort((a, b) => a.order - b.order);
-  const k = islands.findIndex((i) => i.areas.includes(areaId));
-  if (k < 0) return null;
-  const areas = islands[k]!.areas;
-  const next = areas[areas.indexOf(areaId) + 1] ?? islands[k + 1]?.areas[0];
+  const island = world.islands.find((candidate) => candidate.areas.includes(areaId));
+  if (!island) return null;
+  const next = island.areas[island.areas.indexOf(areaId) + 1];
   return next ? { id: next, mapKey: fieldKeyOf(next) } : null;
 }
 

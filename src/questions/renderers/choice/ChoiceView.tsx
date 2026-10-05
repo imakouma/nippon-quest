@@ -47,6 +47,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
   useEffect(() => {
     const onAbort = () => finish(null, true);
     ctx.signal?.addEventListener('abort', onAbort);
+    if (ctx.signal?.aborted) onAbort();
     return () => ctx.signal?.removeEventListener('abort', onAbort);
   });
 

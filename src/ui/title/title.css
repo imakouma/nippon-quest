@@ -141,7 +141,8 @@
   color: #fff;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 24px;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 6px 24px;
   overflow: auto;
 }
 .nq-new-game h2,
@@ -153,10 +154,10 @@
 .nq-new-game h2 {
   grid-column: 1 / -1;
   text-align: center;
-  font-size: 36px;
+  font-size: 30px;
 }
 .nq-new-game h3 {
-  font-size: 24px;
+  font-size: 20px;
 }
 .nq-new-game button,
 .nq-new-game input,
@@ -172,6 +173,8 @@
   cursor: pointer;
 }
 .nq-new-game-top {
+  grid-column: 1;
+  grid-row: 2;
   display: grid;
   gap: 8px;
 }
@@ -188,6 +191,8 @@
   color: #1a1428;
 }
 .nq-new-game-look {
+  grid-column: 1;
+  grid-row: 3;
   display: grid;
   grid-template-columns: 96px 1fr;
   gap: 8px 16px;
@@ -268,7 +273,44 @@
   font-size: 12px;
 }
 .nq-new-game-starters {
+  grid-column: 2;
+  grid-row: 3;
+}
+.nq-new-game-regions {
+  grid-column: 2;
+  grid-row: 2;
+}
+.nq-new-game-regions > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+}
+.nq-new-game-regions button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  min-height: 112px;
+  padding: 6px 10px;
+  color: #1a1428;
+  text-align: left;
+}
+.nq-new-game-regions strong {
+  font-size: 20px;
+}
+.nq-new-game-regions span {
+  color: #3a2672;
+  font-size: 14px;
+}
+.nq-new-game-regions small {
   grid-column: 1 / -1;
+  font-size: 11px;
+  line-height: 1.35;
+}
+.nq-new-game-regions .nq-region-selected {
+  outline: 4px solid #ffd866;
+  outline-offset: -4px;
+  background: #6cc070;
 }
 .nq-new-game-starters > div {
   display: grid;
@@ -277,7 +319,7 @@
   margin-top: 6px;
 }
 .nq-starter {
-  min-height: 84px !important;
+  min-height: 76px !important;
   display: grid;
   grid-template-columns: 56px 1fr;
   grid-template-rows: 1fr 1fr;
@@ -303,10 +345,16 @@
   background: #55a45d;
 }
 .nq-starter strong {
-  font-size: 24px;
+  font-size: 20px;
 }
 .nq-starter small {
   font-size: 12px;
+}
+.nq-starter em {
+  grid-column: 2;
+  color: #3a2672;
+  font-size: 12px;
+  font-style: normal;
 }
 .nq-starter-selected {
   outline: 4px solid #ffd866;
@@ -315,6 +363,7 @@
 }
 .nq-new-game-actions {
   grid-column: 1 / -1;
+  grid-row: 4;
   display: flex;
   justify-content: center;
   gap: 24px;

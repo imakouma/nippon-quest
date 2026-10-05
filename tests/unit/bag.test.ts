@@ -59,6 +59,21 @@ describe('2Dバッグ', () => {
     ).toMatchObject({ x: 1, y: 1 });
   });
 
+  it('不正座標・存在しないキー・未配置の仲間を注入しない', () => {
+    const s = fresh();
+    own(s, 'outside');
+    const ctx = bagContext(s, c);
+
+    expect(moveBagThing(s, 'mon:starter', { x: Number.NaN, y: 1 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'mon:starter', { x: 0.5, y: 1 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'eq:not-a-slot', { x: 0, y: 1 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'mon:outside', { x: 0, y: 1 }, ctx)).toBeNull();
+    expect(s.party.bagPlacements).toEqual({
+      hero: { x: 0, y: 0, rotated: false },
+      'mon:starter': { x: 1, y: 0, rotated: false },
+    });
+  });
+
   it('通常キャラは1x1、ボスは2x2', () => {
     expect(monsterSize('aomori-nebutan', c.monsters)).toEqual({ w: 1, h: 1 });
     expect(monsterSize('tohoku-boss-rokufuyu', c.monsters)).toEqual({ w: 2, h: 2 });
@@ -88,6 +103,19 @@ describe('バッグ内と控え', () => {
     own(s, 'extra');
     expect(stowNewMonster(s, 'extra', bagContext(s, c)).inBag).toBe(false);
     expect(battleRosterUids(s)).toHaveLength(MAX_COMPANIONS);
+  });
+
+  it('同じ仲間の再収納は配置を変えず、存在しないUIDを控えへ追加しない', () => {
+    const s = fresh();
+    const same = stowNewMonster(s, 'starter', bagContext(s, c));
+    expect(same.state).toBe(s);
+    expect(same.inBag).toBe(true);
+    expect(same.state.party.team).toEqual(['starter']);
+
+    const missing = stowNewMonster(s, 'missing', bagContext(s, c));
+    expect(missing.state).toBe(s);
+    expect(missing.inBag).toBe(false);
+    expect(missing.state.party.reserve).not.toContain('missing');
   });
 });
 

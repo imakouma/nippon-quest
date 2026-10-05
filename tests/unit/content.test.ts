@@ -7,6 +7,7 @@ import {
   loadContent,
   type FileReader,
 } from '../../src/core/content/loader';
+import { missionConditionSchema } from '../../src/core/content/schemas';
 
 const CONTENT = fileURLToPath(new URL('../../content/', import.meta.url));
 const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, 'utf8'));
@@ -24,6 +25,81 @@ describe('content loader', () => {
   it('参照切れがない', async () => {
     const c = await loadContent(read);
     expect(findBrokenReferences(c)).toEqual([]);
+  });
+
+  it('県の複数所属・所属漏れと、島ID・順番の重複を検出する', async () => {
+    const c = await loadContent(read);
+    const world = structuredClone(c.world);
+    const tohoku = world.islands.find((island) => island.id === 'tohoku')!;
+    const hokkaido = world.islands.find((island) => island.id === 'hokkaido')!;
+    hokkaido.areas.push('aomori');
+    tohoku.areas = tohoku.areas.filter((areaId) => areaId !== 'iwate');
+    tohoku.areas = tohoku.areas.filter((areaId) => areaId !== 'miyagi');
+    hokkaido.areas.push('miyagi');
+    world.islands.push({ ...structuredClone(hokkaido), areas: ['hokkaido'] });
+
+    const errors = findBrokenReferences({ ...c, world });
+    expect(errors).toContain('world: area "aomori" が複数の島にあります: tohoku, hokkaido');
+    expect(errors).toContain('area "iwate": world のどの島にも含まれていません');
+    expect(errors).toContain('area "miyagi": island "tohoku" の areas に含まれていません');
+    expect(errors).toContain('world: island id "hokkaido" が重複しています');
+    expect(errors).toContain(`world: island order ${hokkaido.order} が重複しています`);
+  });
+
+  it('ボス種別・所属と名所エリアの参照切れを検出する', async () => {
+    const c = await loadContent(read);
+    const monsters = new Map(c.monsters);
+    const islandBoss = c.world.islands.find((island) => island.id === 'tohoku')!.bossId;
+    monsters.set(islandBoss, { ...monsters.get(islandBoss)!, isBoss: false, area: 'aomori' });
+
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    monsters.set(aomori.boss!, { ...monsters.get(aomori.boss!)!, area: 'iwate' });
+    aomori.midBoss = 'missing-midboss';
+    aomori.regions.forEach((region) => (region.start = false));
+    const brokenRegion = aomori.regions[0]!;
+    brokenRegion.motifs.push('missing-motif');
+    brokenRegion.boss!.monsterId = 'missing-region-boss';
+    aomori.regionGates.push({ between: ['missing-region', 'missing-region'], openedBy: 'missing-region' });
+    aomori.encounters[0]!.region = 'missing-region';
+    areas.set(aomori.id, aomori);
+
+    const errors = findBrokenReferences({ ...c, areas, monsters });
+    expect(errors).toContain(`world: island "tohoku" の bossId "${islandBoss}" は isBoss: true が必要です`);
+    expect(errors).toContain(`world: island "tohoku" の bossId "${islandBoss}" の area が "aomori" です`);
+    expect(errors).toContain(`area "aomori": boss "${aomori.boss}" の area が "iwate" です`);
+    expect(errors).toContain('area "aomori": midBoss "missing-midboss" が存在しません');
+    expect(errors).toContain('area "aomori": regions の start はちょうど1つ必要です');
+    expect(errors).toContain(
+      `area "aomori": region "${brokenRegion.id}" の motif "missing-motif" が存在しません`,
+    );
+    expect(errors).toContain(
+      `area "aomori": region "${brokenRegion.id}" の boss "missing-region-boss" が存在しません`,
+    );
+    expect(errors).toContain('area "aomori": regionGate の openedBy "missing-region" が存在しません');
+    expect(errors).toContain('area "aomori": encounter の region "missing-region" が存在しません');
+  });
+
+  it('県内の名所・イベント・依頼・NPC・出現表の重複を検出する', async () => {
+    const c = await loadContent(read);
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    aomori.motifs.push(structuredClone(aomori.motifs[0]!));
+    aomori.events.push(structuredClone(aomori.events[0]!));
+    aomori.missions.push(structuredClone(aomori.missions[0]!));
+    aomori.town!.npcs.push(structuredClone(aomori.town!.npcs[0]!));
+    aomori.encounters.push(structuredClone(aomori.encounters[0]!));
+    areas.set(aomori.id, aomori);
+
+    const errors = findBrokenReferences({ ...c, areas });
+    expect(errors).toContain(`area "aomori": motif id "${aomori.motifs[0]!.id}" が重複しています`);
+    expect(errors).toContain(`area "aomori": event id "${aomori.events[0]!.id}" が重複しています`);
+    expect(errors).toContain(`area "aomori": mission id "${aomori.missions[0]!.id}" が重複しています`);
+    expect(errors).toContain(`area "aomori": npc id "${aomori.town!.npcs[0]!.id}" が重複しています`);
+    const encounter = aomori.encounters[0]!;
+    expect(errors).toContain(
+      `area "aomori": encounter key "${encounter.region ?? '*'}:${encounter.zone}" が重複しています`,
+    );
   });
 
   it('青森は playable で、ボス・イベント・NPCが揃っている', async () => {
@@ -55,6 +131,15 @@ describe('content loader', () => {
     const c = await loadContent(read);
     for (const a of c.areas.values())
       for (const e of a.events) expect(e.rewardByScore.some((r) => r.min === 0)).toBe(true);
+  });
+
+  it('たのみごとの必要数は 1 以上だけを受け入れる', () => {
+    expect(missionConditionSchema.safeParse('defeat:aomori-ringoron:3').success).toBe(true);
+    expect(missionConditionSchema.safeParse('collect:aomori-ringo:1').success).toBe(true);
+    expect(missionConditionSchema.safeParse('perfect:sansu:10').success).toBe(true);
+    expect(missionConditionSchema.safeParse('defeat:aomori-ringoron:0').success).toBe(false);
+    expect(missionConditionSchema.safeParse('collect:aomori-ringo:00').success).toBe(false);
+    expect(missionConditionSchema.safeParse('perfect:sansu:0').success).toBe(false);
   });
 
   it('名所・特産品の名前と説明は、漢字にすべて ひらがなのルビがある（フィールドや地図では読みを出すため）', async () => {
@@ -112,5 +197,50 @@ describe('content loader', () => {
 
     await expect(bundledFetchReader('/content')('a.json')).resolves.toEqual({ id: 'fallback' });
     expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('bundle の通信や解析に失敗しても個別 JSON の取得へ戻る', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockRejectedValueOnce(new TypeError('network error'))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ id: 'fallback' }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(bundledFetchReader('/content')('a.json')).resolves.toEqual({ id: 'fallback' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('bundle が壊れた JSON でも個別 JSON の取得へ戻る', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response('{broken', { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ id: 'fallback' }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(bundledFetchReader('/content')('a.json')).resolves.toEqual({ id: 'fallback' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('bundle に目的ファイルが欠けていても個別 JSON の取得へ戻る', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ 'other.json': {} }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ id: 'fallback' }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(bundledFetchReader('/content')('a.json')).resolves.toEqual({ id: 'fallback' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenLastCalledWith('/content/a.json', { cache: 'no-cache' });
+  });
+
+  it('問題専用 bundle を指定できる', async () => {
+    const fetchMock = vi.fn(async () =>
+      Promise.resolve(new Response(JSON.stringify({ 'questions/a.json': [] }), { status: 200 })),
+    );
+    vi.stubGlobal('fetch', fetchMock);
+    await expect(
+      bundledFetchReader('/content', 'questions-bundle.json')('questions/a.json'),
+    ).resolves.toEqual([]);
+    expect(fetchMock).toHaveBeenCalledWith('/content/questions-bundle.json', { cache: 'no-cache' });
   });
 });

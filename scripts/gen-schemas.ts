@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { z } from 'zod';
 import { contentKinds } from '../src/core/content/schemas';
+import { curriculumGraphSchema } from '../src/core/learning/model';
 import { questionBaseSchema } from '../src/questions/contracts';
 import { allRenderers } from '../src/questions/renderers/registry';
 
@@ -21,6 +22,13 @@ for (const [kind, def] of Object.entries(contentKinds)) {
   writeFileSync(`${OUT}${kind}.schema.json`, JSON.stringify(json, null, 2) + '\n');
   count++;
 }
+
+const curriculumJson = zodToJsonSchema(curriculumGraphSchema, {
+  name: 'curriculum-graph',
+  $refStrategy: 'none',
+});
+writeFileSync(`${OUT}curriculum-graph.schema.json`, JSON.stringify(curriculumJson, null, 2) + '\n');
+count++;
 
 // 問題タイプごと：QuestionBase ∩ { type: <literal>, payload: <renderer.schema> } の配列
 for (const r of allRenderers()) {

@@ -75,9 +75,13 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     const textArea = document.createElement('textarea');
     textArea.value = text;
     document.body.appendChild(textArea);
-    textArea.select();
-    const success = document.execCommand('copy');
-    document.body.removeChild(textArea);
-    return success;
+    try {
+      textArea.select();
+      return document.execCommand('copy');
+    } catch {
+      return false;
+    } finally {
+      textArea.remove();
+    }
   }
 }

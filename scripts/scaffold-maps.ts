@@ -1026,7 +1026,11 @@ function villages(
         const body = x >= x0 && x < x0 + w && y >= y0 && y < y0 + h;
         if (body && (!water(i) || used.has(i))) return false;
         if (!body && used.has(i) && !water(i)) return false;
-        if (!body && part.region[i] === r && (x === x0 - 1 || x === x0 + w) !== (y === y0 - 1 || y === y0 + h))
+        if (
+          !body &&
+          part.region[i] === r &&
+          (x === x0 - 1 || x === x0 + w) !== (y === y0 - 1 || y === y0 + h)
+        )
           shore = true;
       }
     return shore;
@@ -1075,7 +1079,9 @@ function villages(
             }
           }
           for (let y = ay - 1; y <= ay + h; y++)
-            for (const x of y === ay - 1 ? [...Array(w + 2).keys()].map((k) => ax - 1 + k) : [ax - 1, ax + w]) {
+            for (const x of y === ay - 1
+              ? [...Array(w + 2).keys()].map((k) => ax - 1 + k)
+              : [ax - 1, ax + w]) {
               const i = y * land.w + x;
               if (land.walk(i) && col[i] !== BLOCK) bg[i] = MOUNTAIN_TILES[(x + y) % 2]!;
             }

@@ -24,6 +24,8 @@ export interface Combatant {
   isHero: boolean;
   level: number;
   element: Element;
+  /** 地方限定モンスターが得意とする教科。未指定時は技から推定する。 */
+  subjectAffinity?: Subject;
   weakness?: Element;
   weaknessRevealed: boolean;
   stats: Stats; // 装備込みの実効値

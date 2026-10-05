@@ -13,9 +13,16 @@ interface AuditFinding {
 
 const ROOT = resolve('.');
 const CONTENT = resolve(ROOT, 'content');
-const DATE_SENSITIVE = /現在|最新|ランキング|令和|平成|20\d{2}年/;
-const SOCIAL_DATE_SENSITIVE = /人口|生産量|収穫量|割合|第[一二三四五六七八九十\d]+位/;
-const VISUAL_CONTEXT = /次の図|下の図|表のとおり|グラフ|地図|写真|画像/;
+// 単なる歴史用語の「平成」や算数の「割合」は更新対象ではない。
+// 数値・順位・「現在の〜」など、時間経過で正解が変わり得る表現だけを拾う。
+const DATE_SENSITIVE = /現在の(?:元号|人口|制度)|最新の|ランキング/;
+const SOCIAL_DATE_SENSITIVE =
+  /世界で人口が多い|人口(?:が|は)\s*\d|生産量(?:が|は).*第[一二三四五六七八九十\d]+位|収穫量(?:が|は).*第[一二三四五六七八九十\d]+位/;
+const DATED_SOURCE_ANCHOR = /(?:19|20)\d{2}年(?:版|推計|時点|調査)/;
+// 「地図記号」「写真をとる」のように単語を説明するだけの問題は除き、
+// 実際に画面上の図表を見ることを要求する指示語へ限定する。
+const VISUAL_CONTEXT =
+  /(?:次|下|上|以下)の(?:図|表|地図|グラフ|写真)|図のよう|表のとおり|写真を見て|グラフを見て|図も参考に/;
 
 async function main(): Promise<void> {
   const manifest = JSON.parse(await readFile(resolve(CONTENT, 'manifest.json'), 'utf8')) as {
@@ -47,7 +54,9 @@ async function main(): Promise<void> {
       const searchable = `${prompt}\n${explanation}`;
       if (
         DATE_SENSITIVE.test(searchable) ||
-        (question.subject === 'shakai' && SOCIAL_DATE_SENSITIVE.test(searchable))
+        (question.subject === 'shakai' &&
+          SOCIAL_DATE_SENSITIVE.test(searchable) &&
+          !DATED_SOURCE_ANCHOR.test(searchable))
       )
         findings.push({
           severity: 'high',
@@ -55,7 +64,12 @@ async function main(): Promise<void> {
           id: question.id,
           detail: prompt.slice(0, 160),
         });
-      if (VISUAL_CONTEXT.test(prompt) && !payload.promptImage && question.type !== 'map-tap')
+      if (
+        VISUAL_CONTEXT.test(prompt) &&
+        !payload.promptImage &&
+        question.type !== 'map-tap' &&
+        question.type !== 'text-input'
+      )
         findings.push({
           severity: 'medium',
           kind: 'visual-context',
@@ -82,7 +96,6 @@ async function main(): Promise<void> {
       a.severity.localeCompare(b.severity) || a.kind.localeCompare(b.kind) || a.id.localeCompare(b.id),
   );
   const report = {
-    generatedAt: new Date().toISOString(),
     questionCount,
     unitCount: units.length,
     summary: Object.fromEntries(
@@ -98,6 +111,9 @@ async function main(): Promise<void> {
   console.log(
     `curriculum: ${questionCount} questions / ${units.length} units / ${findings.length} review findings`,
   );
+  if (process.argv.includes('--strict') && findings.length > 0) {
+    throw new Error(`教材監査で ${findings.length} 件の要確認項目が見つかりました`);
+  }
 }
 
 await main();

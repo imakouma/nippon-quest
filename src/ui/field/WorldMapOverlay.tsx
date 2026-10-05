@@ -47,6 +47,14 @@ export interface MapRegionInfo {
   height: number;
   rows: string[];
   areas: MapAreaInfo[];
+  /** stub の地方は結界だけを表示し、県へ移動できない。 */
+  status: 'playable' | 'stub';
+  islandBoss: {
+    name: string;
+    state: 'locked' | 'ready' | 'done';
+    foundSigns: number;
+    requiredSigns: number;
+  };
 }
 
 export interface WorldMapOverlayProps {
@@ -54,6 +62,7 @@ export interface WorldMapOverlayProps {
   /** いまいる県。at は県の陸地の中でのだいたいの位置（左上 0 〜 右下 1）。無ければ県庁所在地に立つ */
   here: { areaId: string; at?: [number, number] } | null;
   onGo: (areaId: string) => void;
+  onChallengeIslandBoss: (islandId: string) => void;
   onClose: () => void;
 }
 
@@ -163,7 +172,26 @@ export function heroCell(r: RegionGrid, k: number, at?: [number, number]): [numb
 /** 地図の上のしるし（主人公・王冠）は、マスのまん中に足もとが来るように置く */
 const pinAt = ([x, y]: [number, number]) => ({ left: x * CELL + CELL / 2, top: y * CELL + CELL / 2 });
 
-export function WorldMapOverlay({ regions, here, onGo, onClose }: WorldMapOverlayProps) {
+/** 県庁所在地の印と重なりにくい陸地を、地方ボスの城の位置にする。 */
+export function islandBossCell(r: RegionGrid): [number, number] {
+  const cells = r.areas.flatMap((_area, index) => cellsOf(r, index));
+  if (!cells.length) return [Math.floor(r.width / 2), Math.floor(r.height / 2)];
+  return cells.reduce((best, cell) => {
+    const nearest = (point: [number, number]) =>
+      Math.min(
+        ...r.areas.map((area) => (area.capital[0] - point[0]) ** 2 + (area.capital[1] - point[1]) ** 2),
+      );
+    return nearest(cell) > nearest(best) ? cell : best;
+  }, cells[0]!);
+}
+
+export function WorldMapOverlay({
+  regions,
+  here,
+  onGo,
+  onChallengeIslandBoss,
+  onClose,
+}: WorldMapOverlayProps) {
   const home = Math.max(
     0,
     regions.findIndex((r) => r.areas.some((a) => a.id === here?.areaId)),
@@ -204,12 +232,20 @@ export function WorldMapOverlay({ regions, here, onGo, onClose }: WorldMapOverla
   };
   const go = () => {
     // 行ったことのない県へは ワープできない（中ボスを倒して ワープホールから行く）
-    if (!area?.visited) {
+    if (region?.status !== 'playable' || !area?.visited) {
       playSfx('miss');
       return;
     }
     playSfx('select');
     onGo(area.id);
+  };
+  const challengeIslandBoss = () => {
+    if (!region || region.islandBoss.state !== 'ready') {
+      playSfx('miss');
+      return;
+    }
+    playSfx('select');
+    onChallengeIslandBoss(region.id);
   };
 
   const live = useRef({ pickRegion, pickArea, go, onClose, ai, n: 0 });
@@ -292,6 +328,28 @@ export function WorldMapOverlay({ regions, here, onGo, onClose }: WorldMapOverla
                       </span>
                     ),
                 )}
+                {region.status === 'playable' && (
+                  <button
+                    type="button"
+                    class={`nq-wmap-castle nq-wmap-castle-${region.islandBoss.state}`}
+                    style={pinAt(islandBossCell(region))}
+                    disabled={region.islandBoss.state !== 'ready'}
+                    aria-label={t(
+                      region.islandBoss.state === 'done'
+                        ? 'field.mapIslandBossDoneLabel'
+                        : region.islandBoss.state === 'ready'
+                          ? 'field.mapIslandBossReadyLabel'
+                          : 'field.mapIslandBossLockedLabel',
+                      { name: region.islandBoss.name },
+                    )}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      challengeIslandBoss();
+                    }}
+                  >
+                    <PixelIcon name="dungeon" scale={3} />
+                  </button>
+                )}
                 {hereK >= 0 && (
                   <span class="nq-wmap-pin nq-wmap-hero" style={pinAt(heroCell(region, hereK, here?.at))}>
                     <PixelIcon name="hero" scale={2} />
@@ -312,7 +370,13 @@ export function WorldMapOverlay({ regions, here, onGo, onClose }: WorldMapOverla
               × {t('ui.close')}
             </button>
           </div>
-          {area ? (
+          {region?.status === 'stub' ? (
+            <div class="nq-wmap-info nq-wmap-barrier">
+              <PixelIcon name="gate" scale={6} />
+              <RubyLabel text={region.name} class="nq-wmap-aname" />
+              <p>{t('field.mapIslandBarrier')}</p>
+            </div>
+          ) : area ? (
             <div class="nq-wmap-info">
               <div class="nq-wmap-aname-row">
                 <RubyLabel text={area.visited ? area.name : t('field.dexUnknown')} class="nq-wmap-aname" />
@@ -348,15 +412,48 @@ export function WorldMapOverlay({ regions, here, onGo, onClose }: WorldMapOverla
                   </li>
                 ))}
               </ul>
+              <div class={`nq-wmap-island-boss nq-wmap-island-boss-${region?.islandBoss.state}`}>
+                <PixelIcon name="dungeon" scale={3} />
+                <span>
+                  {t('field.mapIslandBoss')}: {region?.islandBoss.name}
+                </span>
+                <strong>
+                  {t(
+                    `field.mapIslandBoss${
+                      region?.islandBoss.state === 'done'
+                        ? 'Done'
+                        : region?.islandBoss.state === 'ready'
+                          ? 'Ready'
+                          : 'Locked'
+                    }`,
+                    {
+                      found: region?.islandBoss.foundSigns ?? 0,
+                      required: region?.islandBoss.requiredSigns ?? 0,
+                    },
+                  )}
+                </strong>
+              </div>
             </div>
           ) : (
             <p class="nq-wmap-info">{t('field.mapMissing')}</p>
           )}
           <div class="nq-wmap-foot">
-            <button type="button" class="nq-opt nq-wmap-go" disabled={!area?.visited} onClick={go}>
-              <PixelIcon name="warp" scale={3} />
-              {t('field.mapGo')}
-            </button>
+            {region?.islandBoss.state === 'ready' ? (
+              <button type="button" class="nq-opt nq-wmap-go" onClick={challengeIslandBoss}>
+                <PixelIcon name="dungeon" scale={3} />
+                {t('field.mapIslandBossChallenge')}
+              </button>
+            ) : (
+              <button
+                type="button"
+                class="nq-opt nq-wmap-go"
+                disabled={region?.status !== 'playable' || !area?.visited}
+                onClick={go}
+              >
+                <PixelIcon name="warp" scale={3} />
+                {t('field.mapGo')}
+              </button>
+            )}
             <span class="nq-wmap-keys">{t('field.mapKeys')}</span>
           </div>
         </div>

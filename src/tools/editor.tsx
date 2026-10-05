@@ -18,6 +18,7 @@ import { setDictionary, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel } from '../ui/ruby';
 import { CollaborationRoom, generateRoomId, type Collaborator } from './collaboration';
+import { isEditorQuestionDraft, SAMPLE_QUESTIONS, validateEditorQuestion } from './editorSamples';
 import { buildShareUrl, copyToClipboard, parseUrlState } from './urlShare';
 import '../questions/renderers/shared/questions.css';
 import './editor.css';
@@ -26,40 +27,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const read = fetchReader(`${base}/content`);
 const assets = { image: (p: string) => `${base}/assets/${p}`, audio: (p: string) => `${base}/assets/${p}` };
 const speak = createSpeaker();
-
-const SAMPLE_QUESTIONS: QuestionBase[] = [
-  {
-    id: 'sansu.g1.tashizan.0001',
-    type: 'choice',
-    subject: 'sansu',
-    grade: 1,
-    unit: 'sansu.g1.tashizan',
-    timeLimitSec: 20,
-    tags: ['たしざん', '基本'],
-    explanation: '3 と 4 を あわせると 7 に なります。',
-    payload: {
-      text: '3 + 4 = ?',
-      choices: ['5', '6', '7', '8'],
-      correctIndex: 2,
-    },
-  },
-  {
-    id: 'eigo.g1.alphabet.0001',
-    type: 'picture-word',
-    subject: 'eigo',
-    grade: 1,
-    unit: 'eigo.g1.alphabet',
-    timeLimitSec: 20,
-    tags: ['単語', 'くだもの'],
-    explanation: 'apple（アップル）は 「りんご」です。',
-    payload: {
-      image: 'questions/eigo/apple.png',
-      choices: ['apple', 'banana', 'orange'],
-      correct: 'apple',
-      audio: 'questions/eigo/apple.mp3',
-    },
-  },
-];
 
 function App() {
   const [question, setQuestion] = useState<QuestionBase>(SAMPLE_QUESTIONS[0]!);
@@ -78,6 +45,22 @@ function App() {
   // Stage & Renderer Refs
   const stageRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  // 問題UIはゲームと同じ 960x540 を基準に描き、エディタの表示幅に合わせて比率を保ったまま縮小する。
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage) return;
+    const resize = () => {
+      const width = Math.max(0, stage.getBoundingClientRect().width - 4);
+      const scale = Math.min(1, width / 960);
+      stage.style.setProperty('--ed-preview-scale', String(scale));
+      stage.style.height = `${540 * scale + 4}px`;
+    };
+    resize();
+    const observer = new ResizeObserver(resize);
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, []);
 
   // Toast helper
   const showToast = (msg: string) => {
@@ -105,20 +88,18 @@ function App() {
   useEffect(() => {
     const { data, roomId: urlRoom } = parseUrlState();
     const activeRoom = urlRoom || generateRoomId();
+    const sharedQuestion = validateEditorQuestion(data);
     setRoomId(activeRoom);
 
-    if (data && typeof data === 'object') {
-      const parsed = questionBaseSchema.safeParse(data);
-      if (parsed.success) {
-        setQuestion(parsed.data as QuestionBase);
-        setJsonText(JSON.stringify(parsed.data, null, 2));
-      }
+    if (sharedQuestion) {
+      setQuestion(sharedQuestion);
+      setJsonText(JSON.stringify(sharedQuestion, null, 2));
     }
 
     // Set URL Hash if not set
     const newUrl = buildShareUrl({
       roomId: activeRoom,
-      question: data ? (data as QuestionBase) : question,
+      question: sharedQuestion ?? question,
     });
     window.history.replaceState(null, '', newUrl);
 
@@ -128,9 +109,14 @@ function App() {
 
     room.onPeersChange = (newPeers) => setPeers(newPeers);
     room.onQuestionUpdate = (remoteQ) => {
+      const next = validateEditorQuestion(remoteQ);
+      if (!next) {
+        showToast('受信した問題データが不正なため無視しました');
+        return;
+      }
       isRemoteUpdate.current = true;
-      setQuestion(remoteQ);
-      setJsonText(JSON.stringify(remoteQ, null, 2));
+      setQuestion(next);
+      setJsonText(JSON.stringify(next, null, 2));
       showToast('他の編集者が問題を更新しました');
       setTimeout(() => {
         isRemoteUpdate.current = false;
@@ -143,7 +129,11 @@ function App() {
   }, []);
 
   // Validate question & mount renderer preview
-  const updateQuestionState = (newQ: QuestionBase, skipBroadcast = false) => {
+  const updateQuestionState = (newQ: unknown, skipBroadcast = false) => {
+    if (!isEditorQuestionDraft(newQ)) {
+      setValidationError('問題データは JSON オブジェクトで入力してください');
+      return;
+    }
     setQuestion(newQ);
     const text = JSON.stringify(newQ, null, 2);
     setJsonText(text);
@@ -175,9 +165,14 @@ function App() {
 
   // Mount/preview logic
   const renderPreview = async () => {
-    if (!stageRef.current) return;
-    stageRef.current.innerHTML = '';
+    const stage = stageRef.current;
+    if (!stage) return;
     abortRef.current?.abort();
+    // 終了が遅れた旧レンダラーが render(null, container) しても、新しい表示を消せないよう
+    // 描画ごとに独立したホストを割り当てる。
+    const host = document.createElement('div');
+    host.className = 'ed-render-host';
+    stage.replaceChildren(host);
 
     const renderer = getRenderer(question.type);
     if (!renderer) {
@@ -197,7 +192,7 @@ function App() {
     abortRef.current = controller;
     try {
       const res = await renderer.mount({
-        container: stageRef.current,
+        container: host,
         question: { ...question, payload: payloadCheck.data },
         grade: question.grade,
         assets,
@@ -287,7 +282,13 @@ function App() {
     reader.readAsText(file);
   };
 
-  const choices = ((question.payload as Record<string, unknown>)?.choices as string[]) || [];
+  const rawChoices = (question.payload as Record<string, unknown>)?.choices;
+  const choices = Array.isArray(rawChoices)
+    ? rawChoices.filter(
+        (choice): choice is { id: string; text?: string; image?: string; audio?: string } =>
+          !!choice && typeof choice === 'object' && typeof (choice as { id?: unknown }).id === 'string',
+      )
+    : [];
 
   return (
     <div class="ed-container">
@@ -397,15 +398,21 @@ function App() {
                         let defaultPayload: unknown = {};
                         if (newType === 'choice') {
                           defaultPayload = {
-                            text: '問題文',
-                            choices: ['選択肢1', '選択肢2'],
-                            correctIndex: 0,
+                            prompt: '問題文',
+                            choices: [
+                              { id: 'choice-1', text: '選択肢1' },
+                              { id: 'choice-2', text: '選択肢2' },
+                            ],
+                            answer: 'choice-1',
                           };
                         } else if (newType === 'picture-word') {
                           defaultPayload = {
                             image: 'questions/eigo/apple.png',
-                            choices: ['apple', 'banana'],
-                            correct: 'apple',
+                            words: [
+                              { id: 'apple', text: 'apple' },
+                              { id: 'banana', text: 'banana' },
+                            ],
+                            answer: 'apple',
                           };
                         }
                         updateQuestionState({ ...question, type: newType, payload: defaultPayload });
@@ -488,33 +495,37 @@ function App() {
                   {question.type === 'choice' && (
                     <>
                       <div class="ed-field">
-                        <label class="ed-label">問題文 (text)</label>
+                        <label class="ed-label">問題文 (prompt)</label>
                         <textarea
                           class="ed-textarea"
-                          value={((question.payload as Record<string, unknown>)?.text as string) ?? ''}
-                          onInput={(e) => handlePayloadChange('text', (e.target as HTMLInputElement).value)}
+                          value={((question.payload as Record<string, unknown>)?.prompt as string) ?? ''}
+                          onInput={(e) => handlePayloadChange('prompt', (e.target as HTMLInputElement).value)}
                         />
                       </div>
                       <div class="ed-field">
                         <label class="ed-label">選択肢一覧</label>
-                        {choices.map((c, i) => (
-                          <div key={i} class="ed-choice-row">
+                        {choices.map((choice, i) => (
+                          <div key={choice.id} class="ed-choice-row">
                             <input
                               type="radio"
                               name="correct"
                               class="ed-radio"
                               checked={
-                                ((question.payload as Record<string, unknown>)?.correctIndex as number) === i
+                                ((question.payload as Record<string, unknown>)?.answer as string) ===
+                                choice.id
                               }
-                              onChange={() => handlePayloadChange('correctIndex', i)}
+                              onChange={() => handlePayloadChange('answer', choice.id)}
                               title="正解の選択肢として指定"
                             />
                             <input
                               class="ed-input"
-                              value={c}
+                              value={choice.text ?? ''}
                               onInput={(e) => {
                                 const newChoices = [...choices];
-                                newChoices[i] = (e.target as HTMLInputElement).value;
+                                newChoices[i] = {
+                                  ...choice,
+                                  text: (e.target as HTMLInputElement).value,
+                                };
                                 handlePayloadChange('choices', newChoices);
                               }}
                             />
@@ -532,9 +543,14 @@ function App() {
                         <button
                           class="ed-btn"
                           style={{ marginTop: '6px' }}
-                          onClick={() =>
-                            handlePayloadChange('choices', [...choices, `選択肢${choices.length + 1}`])
-                          }
+                          onClick={() => {
+                            let number = choices.length + 1;
+                            while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;
+                            handlePayloadChange('choices', [
+                              ...choices,
+                              { id: `choice-${number}`, text: `選択肢${number}` },
+                            ]);
+                          }}
                         >
                           ➕ 選択肢を追加
                         </button>
@@ -553,13 +569,11 @@ function App() {
                         />
                       </div>
                       <div class="ed-field">
-                        <label class="ed-label">正解の単語 (correct)</label>
+                        <label class="ed-label">正解の単語ID (answer)</label>
                         <input
                           class="ed-input"
-                          value={((question.payload as Record<string, unknown>)?.correct as string) ?? ''}
-                          onInput={(e) =>
-                            handlePayloadChange('correct', (e.target as HTMLInputElement).value)
-                          }
+                          value={((question.payload as Record<string, unknown>)?.answer as string) ?? ''}
+                          onInput={(e) => handlePayloadChange('answer', (e.target as HTMLInputElement).value)}
                         />
                       </div>
                     </>

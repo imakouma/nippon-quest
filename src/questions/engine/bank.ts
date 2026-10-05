@@ -26,10 +26,26 @@ export class QuestionBank {
     const targets = files.filter((file) => opts.includeSamples || !file.startsWith('questions/_samples/'));
     // 問題ファイルは互いに独立している。順番に待つと旧版移行後の数十ファイルぶん
     // 起動時間が伸びるため、読み込みだけ並列化し、登録順は manifest 順に保つ。
-    const raws = await Promise.all(targets.map((file) => read(file)));
+    const raws = await Promise.all(
+      targets.map(async (file) => {
+        try {
+          return { ok: true as const, raw: await read(file) };
+        } catch (error) {
+          return {
+            ok: false as const,
+            reason: error instanceof Error ? error.message : String(error),
+          };
+        }
+      }),
+    );
     for (let fileIndex = 0; fileIndex < targets.length; fileIndex += 1) {
       const file = targets[fileIndex]!;
-      const raw = raws[fileIndex];
+      const loaded = raws[fileIndex]!;
+      if (!loaded.ok) {
+        report.skipped.push({ file, index: -1, reason: `読み込み失敗: ${loaded.reason}` });
+        continue;
+      }
+      const raw = loaded.raw;
       if (!Array.isArray(raw)) {
         report.skipped.push({ file, index: -1, reason: '配列ではありません' });
         continue;
@@ -51,6 +67,8 @@ export class QuestionBank {
         report.loaded++;
       });
     }
+    if (targets.length > 0 && bank.size === 0)
+      throw new Error(`問題を1問も読み込めませんでした（${report.skipped.length}件を除外）`);
     return { bank, report };
   }
 

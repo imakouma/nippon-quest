@@ -713,6 +713,30 @@
   line-height: 0;
   pointer-events: none;
 }
+.nq-wmap-castle {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  transform: translate(-50%, -100%);
+  background: var(--nq-night);
+  border: 3px solid var(--nq-silver);
+  cursor: default;
+}
+.nq-wmap-castle-ready {
+  border-color: var(--nq-yellow);
+  cursor: pointer;
+  animation: nq-wmap-bob 0.8s steps(1) infinite;
+}
+.nq-wmap-castle-done {
+  border-color: var(--nq-lime);
+}
+.nq-wmap-castle:disabled {
+  opacity: 0.72;
+}
 .nq-wmap-hero {
   z-index: 2;
   animation: nq-wmap-bob 0.8s steps(1) infinite;
@@ -824,6 +848,38 @@
   color: #ff8fb1;
   word-break: keep-all;
   overflow-wrap: anywhere;
+}
+.nq-wmap-barrier {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--nq-cloud);
+}
+.nq-wmap-barrier p {
+  margin: 8px 0;
+  color: #ff8fb1;
+}
+.nq-wmap-island-boss {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0 8px;
+  padding: 4px 8px;
+  border: 3px solid var(--nq-slate);
+  font-size: 18px;
+  line-height: 24px;
+}
+.nq-wmap-island-boss strong {
+  grid-column: 2;
+  font-size: 12px;
+  color: var(--nq-silver);
+}
+.nq-wmap-island-boss-ready {
+  border-color: var(--nq-yellow);
+}
+.nq-wmap-island-boss-ready strong,
+.nq-wmap-island-boss-done strong {
+  color: var(--nq-yellow);
 }
 .nq-wmap-keys {
   font-size: 12px;

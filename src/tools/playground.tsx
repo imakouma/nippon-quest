@@ -86,6 +86,14 @@ function App() {
     try {
       const m = (await read('manifest.json')) as ContentManifest;
       setFiles(m.questions);
+      const requestedId = new URLSearchParams(location.search).get('q');
+      const directFile = requestedId ? m.questionIndex?.[requestedId] : undefined;
+      if (requestedId && directFile) {
+        const raw = await read(directFile);
+        setEntries(toEntries([{ file: directFile, raw }]));
+        setFile(directFile);
+        return;
+      }
       setEntries(
         toEntries(await Promise.all(m.questions.map(async (f) => ({ file: f, raw: await read(f) })))),
       );

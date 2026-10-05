@@ -5,48 +5,16 @@
  */
 import { Component } from 'preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
+import type { MenuEntry, MenuTab, RoadmapNode } from '../../shared/menuModel';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { playSfx } from '../sfx';
+import { useModalFocus } from '../useModalFocus';
 import './field.css';
 import './menu.css';
 
-export type MenuTab = 'roadmap' | 'mistakes' | 'monsters' | 'specialties' | 'bag' | 'equip' | 'look';
-
-export interface RoadmapNode {
-  id: string;
-  name: string;
-  subject: string;
-  subjectLabel: string;
-  grade: number;
-  mastery: number;
-  attempts: number;
-  state: 'cleared' | 'current' | 'open' | 'locked';
-}
-
-export interface MenuEntry {
-  key: string;
-  /** 名前（RubyText）。まだ見ていないものは ？？？ */
-  name: string;
-  /** リストの 小さな絵（data URL） */
-  icon?: string;
-  /** 右の せつめいの 大きな絵（data URL）。無ければ icon */
-  art?: string;
-  /** false＝まだ であっていない・見つけていない（絵を かげに、名前を ？？？ に） */
-  known: boolean;
-  /** リストの 右はし（こすう・No.） */
-  right?: string;
-  /** 詳細欄に出す、一覧の中での位置（例: 3/202） */
-  detailIndex?: string;
-  /** 名前の あとの 札（なかま・そうびちゅう） */
-  tag?: string;
-  /** 右の せつめいの 名前の下（RubyText） */
-  sub?: string;
-  lines: string[];
-  blurb?: string;
-  action?: { label: string; ok: boolean } | null;
-}
+export type { MenuEntry, MenuTab, RoadmapNode } from '../../shared/menuModel';
 
 export interface MenuOverlayProps {
   tab: MenuTab;
@@ -135,6 +103,8 @@ export function MenuOverlay({
   }
   const e = entries[Math.min(sel, entries.length - 1)];
   const listRef = useRef<HTMLUListElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, '[role="tab"][aria-selected="true"]');
 
   const pick = useCallback<MenuPick>(
     (k, ensureVisible = false) => {
@@ -207,9 +177,17 @@ export function MenuOverlay({
   const pic = e?.art ?? e?.icon;
   return (
     <div class="nq-wmap" onClick={onClose}>
-      <div class="nq-win nq-wmap-box nq-menu-box" onClick={(ev) => ev.stopPropagation()}>
+      <div
+        ref={dialogRef}
+        class="nq-win nq-wmap-box nq-menu-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nq-menu-title"
+        tabIndex={-1}
+        onClick={(ev) => ev.stopPropagation()}
+      >
         <div class="nq-menu-head">
-          <span class="nq-menu-title">
+          <span id="nq-menu-title" class="nq-menu-title">
             <PixelIcon name="cmd-item" scale={2} />
             {t('field.menu')}
           </span>
@@ -299,17 +277,26 @@ export function MenuOverlay({
 
 function RoadmapView({ nodes }: { nodes: RoadmapNode[] }) {
   const subjects = [...new Map(nodes.map((node) => [node.subject, node.subjectLabel])).entries()];
-  const [subject, setSubject] = useState(subjects[0]?.[0] ?? 'sansu');
-  const shown = nodes.filter((node) => node.subject === subject);
+  const [subject, setSubject] = useState('all');
+  const shown = subject === 'all' ? nodes : nodes.filter((node) => node.subject === subject);
   const completed = shown.filter((node) => node.state === 'cleared').length;
   return (
     <section class={`nq-roadmap nq-roadmap-subject-${subject}`} aria-label="がくしゅうロードマップ">
       <div class="nq-roadmap-subjects">
+        <button
+          type="button"
+          class={`nq-opt nq-roadmap-subject ${subject === 'all' ? 'nq-focus' : ''}`}
+          aria-pressed={subject === 'all'}
+          onClick={() => (playSfx('move'), setSubject('all'))}
+        >
+          <RubyLabel text={t('field.roadmapAllSubjects')} />
+        </button>
         {subjects.map(([key, label]) => (
           <button
             key={key}
             type="button"
             class={`nq-opt nq-roadmap-subject ${key === subject ? 'nq-focus' : ''}`}
+            aria-pressed={key === subject}
             onClick={() => (playSfx('move'), setSubject(key))}
           >
             <RubyLabel text={label} />
@@ -319,36 +306,74 @@ function RoadmapView({ nodes }: { nodes: RoadmapNode[] }) {
           ★ {completed}/{shown.length}
         </span>
       </div>
-      <div class="nq-roadmap-map">
-        <div class="nq-roadmap-water" aria-hidden>
-          ≈ ≈ ≈
-        </div>
-        <div class="nq-roadmap-path">
-          {shown.map((node, index) => {
-            const columns = 6;
-            const row = Math.floor(index / columns);
-            const offset = index % columns;
-            const column = row % 2 === 0 ? offset + 1 : columns - offset;
+      {subject === 'all' ? (
+        <div class="nq-roadmap-overview" aria-label={t('field.roadmapAllOverview')}>
+          {subjects.map(([key, label]) => {
+            const subjectNodes = nodes.filter((node) => node.subject === key);
+            const subjectCompleted = subjectNodes.filter((node) => node.state === 'cleared').length;
+            const next =
+              subjectNodes.find((node) => node.state === 'current') ??
+              subjectNodes.find((node) => node.state !== 'cleared');
+            const progress = subjectNodes.length
+              ? Math.round((subjectCompleted / subjectNodes.length) * 100)
+              : 0;
             return (
-              <div
-                key={node.id}
-                class={`nq-roadmap-node nq-roadmap-${node.state}`}
-                style={{ gridColumn: column, gridRow: row + 1 }}
-                title={`${node.name} ${Math.round(node.mastery * 100)}%`}
+              <button
+                key={key}
+                type="button"
+                class={`nq-roadmap-summary nq-roadmap-summary-${key}`}
+                aria-label={`${label} ${subjectCompleted}/${subjectNodes.length}`}
+                onClick={() => (playSfx('move'), setSubject(key))}
               >
-                <span class="nq-roadmap-step">
-                  {node.state === 'cleared' ? '★' : node.state === 'locked' ? '🔒' : index + 1}
+                <span class="nq-roadmap-summary-head">
+                  <RubyLabel text={label} />
+                  <span>
+                    ★ {subjectCompleted}/{subjectNodes.length}
+                  </span>
                 </span>
-                <RubyLabel text={node.name} class="nq-roadmap-node-name" />
-                <span class="nq-roadmap-meter">
-                  <span style={{ width: `${Math.round(node.mastery * 100)}%` }} />
+                <span class="nq-roadmap-summary-meter" aria-hidden>
+                  <span style={{ width: `${progress}%` }} />
                 </span>
-              </div>
+                <RubyLabel
+                  class="nq-roadmap-summary-current"
+                  text={next ? t('field.roadmapNext', { name: next.name }) : t('field.roadmapCompleted')}
+                />
+              </button>
             );
           })}
         </div>
-        {!shown.length && <RubyLabel text="この きょうかは じゅんびちゅう" />}
-      </div>
+      ) : (
+        <div class="nq-roadmap-map">
+          <div class="nq-roadmap-water" aria-hidden>
+            ≈ ≈ ≈
+          </div>
+          <div class="nq-roadmap-path">
+            {shown.map((node, index) => {
+              const columns = 6;
+              const row = Math.floor(index / columns);
+              const offset = index % columns;
+              const column = row % 2 === 0 ? offset + 1 : columns - offset;
+              return (
+                <div
+                  key={node.id}
+                  class={`nq-roadmap-node nq-roadmap-${node.state}`}
+                  style={{ gridColumn: column, gridRow: row + 1 }}
+                  title={`${node.name} ${Math.round(node.mastery * 100)}%`}
+                >
+                  <span class="nq-roadmap-step">
+                    {node.state === 'cleared' ? '★' : node.state === 'locked' ? '🔒' : index + 1}
+                  </span>
+                  <RubyLabel text={node.name} class="nq-roadmap-node-name" />
+                  <span class="nq-roadmap-meter">
+                    <span style={{ width: `${Math.round(node.mastery * 100)}%` }} />
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          {!shown.length && <RubyLabel text="この きょうかは じゅんびちゅう" />}
+        </div>
+      )}
       <RubyLabel
         class="nq-wmap-keys nq-roadmap-help"
         text="★ クリア　● いまの もくひょう　うすいマスは これから"

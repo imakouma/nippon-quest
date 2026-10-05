@@ -86,6 +86,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .ed-btn {
@@ -101,6 +102,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
 }
 
 .ed-btn:hover {
@@ -306,6 +308,30 @@ body {
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   border: 2px solid #2d3446;
+}
+
+/* レンダラーはゲーム本体と同じ基準解像度で描き、プレビュー枠だけを安全に縮小する。 */
+.ed-render-host {
+  position: relative;
+  width: 960px;
+  height: 540px;
+  transform: scale(var(--ed-preview-scale, 1));
+  transform-origin: top left;
+}
+
+@media (max-width: 600px) {
+  .ed-header {
+    align-items: flex-start;
+    padding: 10px 12px;
+  }
+
+  .ed-actions {
+    width: 100%;
+  }
+
+  .ed-stage-panel {
+    padding: 12px;
+  }
 }
 
 .ed-result-card {

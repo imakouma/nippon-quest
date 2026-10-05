@@ -134,6 +134,20 @@ const PROMPT_REPAIRS: Record<string, string> = {
   'soc_5_1#6': '世界で人口が多い国の1位と2位に入る国の組み合わせとして正しいものを選ぼう。',
 };
 
+const CONTENT_REPAIRS: Record<string, { prompt: string; explanation?: string }> = {
+  'cur-1403-04#10': {
+    prompt: '2019年5月1日に始まった日本の元号（年号）は何ですか。',
+    explanation: '2019年5月1日に「平成」から「令和」へ改元されました。',
+  },
+  'cur-1404-05#2': {
+    prompt: '写真を見て、地場産業の製品を日本中や世界へ発信して売り伸ばす取り組みはどれですか。',
+  },
+  'soc_5_1#6': {
+    prompt: '国連「世界人口推計2024年版」の2024年推計で、人口が多い国の1位と2位の組み合わせを選ぼう。',
+    explanation: '国連「世界人口推計2024年版」の2024年推計では、人口は1位がインド、2位が中国です。',
+  },
+};
+
 function reject(
   rejected: RejectedLegacyQuestion[],
   subject: Subject,
@@ -268,6 +282,7 @@ function convertOne(
   const fingerprint = shortHash(
     JSON.stringify([subject, grade, normalizedText(prompt), normalizedChoices, correctIndex]),
   );
+  const contentRepair = CONTENT_REPAIRS[`${nodeId}#${sourceIndex}`];
   const choiceRows = choices.map((text, index) => ({ id: `c${index + 1}`, text: text.trim() }));
   const unitSlug = `legacy-${slugNode(nodeId)}`;
   const question: StagedLegacyQuestion = {
@@ -278,14 +293,16 @@ function convertOne(
     unit: `${subject}.g${grade}.${unitSlug}`,
     tags: ['source:legacy-autonomy-game', `legacy-node:${nodeId}`],
     payload: {
-      prompt,
+      prompt: contentRepair?.prompt ?? prompt,
       choices: choiceRows,
       answer: choiceRows[correctIndex]!.id,
       shuffle: true,
     },
-    ...(typeof raw.explanation === 'string' && raw.explanation.trim()
-      ? { explanation: raw.explanation.trim() }
-      : {}),
+    ...(contentRepair?.explanation
+      ? { explanation: contentRepair.explanation }
+      : typeof raw.explanation === 'string' && raw.explanation.trim()
+        ? { explanation: raw.explanation.trim() }
+        : {}),
     legacy: {
       source: 'autonomy-game',
       nodeId,

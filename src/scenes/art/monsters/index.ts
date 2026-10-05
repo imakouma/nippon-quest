@@ -82,6 +82,9 @@ export const MONSTER_DESIGNS: Readonly<Record<string, MonsterDesign>> = {
   // 甲信
   ...YAMANASHI,
   ...NAGANO,
+  // 甲信越の地方ボス。限定テスト中は地方ボス規格（56px）の完成済み仮絵を再利用する。
+  'koshinetsu-boss': TOHOKU['tohoku-boss-rokufuyu']!,
+  'koshinetsu-boss.p0': TOHOKU['tohoku-boss-rokufuyu.p0']!,
   // 東海
   ...GIFU,
   ...SHIZUOKA,

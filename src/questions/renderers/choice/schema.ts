@@ -9,13 +9,22 @@ const choiceOption = z
   })
   .refine((c) => c.text || c.image, '選択肢には text か image が必要');
 
-export const choicePayloadSchema = z.object({
-  prompt: z.string().min(1).describe('問題文（RubyText）'),
-  promptImage: z.string().optional(),
-  promptAudio: z.string().optional(),
-  choices: z.array(choiceOption).min(2).max(6),
-  answer: z.string().min(1).describe('正解の choice.id'),
-  shuffle: z.boolean().default(true),
-});
+export const choicePayloadSchema = z
+  .object({
+    prompt: z.string().min(1).describe('問題文（RubyText）'),
+    promptImage: z.string().optional(),
+    promptAudio: z.string().optional(),
+    choices: z.array(choiceOption).min(2).max(6),
+    answer: z.string().min(1).describe('正解の choice.id'),
+    shuffle: z.boolean().default(true),
+  })
+  .refine((payload) => payload.choices.some((choice) => choice.id === payload.answer), {
+    path: ['answer'],
+    message: 'answer が choices の id にありません',
+  })
+  .refine((payload) => new Set(payload.choices.map((choice) => choice.id)).size === payload.choices.length, {
+    path: ['choices'],
+    message: 'choices の id が重複しています',
+  });
 
 export type ChoicePayload = z.infer<typeof choicePayloadSchema>;

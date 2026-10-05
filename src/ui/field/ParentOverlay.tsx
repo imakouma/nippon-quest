@@ -1,9 +1,17 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
+import {
+  conceptsById,
+  curriculumGraph,
+  diagnosisCandidates,
+  estimatedRetention,
+  questionLinksById,
+} from '../../core/learning';
 import type { GameState } from '../../core/state/schema';
-import { exportJson, importJson } from '../../core/state/save';
+import { exportGameJson, importGameJson } from '../../core/state/serialization';
+import type { RoadmapNode } from '../../shared/menuModel';
 import { t } from '../i18n';
 import { playSfx } from '../sfx';
-import type { RoadmapNode } from './MenuOverlay';
+import { useModalFocus } from '../useModalFocus';
 
 export interface ParentOverlayProps {
   game: GameState;
@@ -14,14 +22,46 @@ export interface ParentOverlayProps {
 }
 
 const percent = (value: number) => `${Math.round(value * 100)}%`;
+const DAY = 86_400_000;
 
 export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: ParentOverlayProps) {
+  const dialogRef = useRef<HTMLElement>(null);
+  useModalFocus(dialogRef, 'input');
   const [unlocked, setUnlocked] = useState(false);
   const [answer, setAnswer] = useState('');
   const [gateError, setGateError] = useState(false);
   const [json, setJson] = useState('');
   const [message, setMessage] = useState('');
   const rows = useMemo(() => mastery.filter((row) => row.attempts > 0), [mastery]);
+  const conceptRows = useMemo(
+    () =>
+      Object.entries(game.learning.conceptStates)
+        .map(([id, state]) => ({ concept: conceptsById.get(id), state }))
+        .filter((row) => row.concept)
+        .sort((a, b) => a.state.dueAt - b.state.dueAt),
+    [game.learning.conceptStates],
+  );
+  const latestDiagnosis = useMemo(() => {
+    const failed = [...game.learning.attempts].reverse().find((attempt) => attempt.score < 0.8);
+    if (!failed) return null;
+    const link = questionLinksById.get(failed.questionId);
+    if (!link) return null;
+    return {
+      questionId: failed.questionId,
+      candidates: diagnosisCandidates(
+        curriculumGraph,
+        link,
+        game.learning.conceptStates,
+        failed.finalAnswer,
+      ).slice(0, 3),
+    };
+  }, [game.learning.attempts, game.learning.conceptStates]);
+  const dueText = (dueAt: number) => {
+    const days = Math.ceil((dueAt - Date.now()) / DAY);
+    if (days <= 0) return t('parent.reviewNow');
+    if (days === 1) return t('parent.reviewTomorrow');
+    return t('parent.reviewInDays', { n: days });
+  };
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -49,7 +89,7 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
   };
   const doImport = () => {
     try {
-      onImport(importJson(json));
+      onImport(importGameJson(json));
       setMessage(t('parent.importDone'));
       playSfx('select');
     } catch {
@@ -61,12 +101,18 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
   return (
     <div class="nq-wmap" onClick={onClose}>
       <section
+        ref={dialogRef}
         class="nq-win nq-parent-box"
-        aria-label={t('parent.title')}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nq-parent-title"
+        tabIndex={-1}
         onClick={(ev) => ev.stopPropagation()}
       >
         <header class="nq-menu-head">
-          <h2 class="nq-menu-title">⚙ {t('parent.title')}</h2>
+          <h2 id="nq-parent-title" class="nq-menu-title">
+            ⚙ {t('parent.title')}
+          </h2>
           <button type="button" class="nq-back nq-menu-close" onClick={onClose}>
             × {t('ui.close')}
           </button>
@@ -219,6 +265,38 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
                 </div>
               ))}
               {!rows.length && <p>{t('parent.noMastery')}</p>}
+              <h3>{t('parent.concepts')}</h3>
+              {conceptRows.map(({ concept, state }) => (
+                <div class="nq-parent-concept" title={concept?.description}>
+                  <strong>{concept?.name}</strong>
+                  <span>
+                    {t('parent.understanding')} {percent(state.understanding)}
+                  </span>
+                  <span>
+                    {t('parent.retention')} {percent(estimatedRetention(state, Date.now()))}
+                  </span>
+                  <small>
+                    {dueText(state.dueAt)}・{t('parent.attemptCount', { n: state.attempts })}
+                  </small>
+                </div>
+              ))}
+              {!conceptRows.length && <p>{t('parent.noConcepts')}</p>}
+              <h3>{t('parent.diagnosis')}</h3>
+              {latestDiagnosis ? (
+                <div class="nq-parent-diagnosis">
+                  <small>{t('parent.diagnosisQuestion', { id: latestDiagnosis.questionId })}</small>
+                  {latestDiagnosis.candidates.map((candidate) => (
+                    <p>
+                      <strong>{conceptsById.get(candidate.conceptId)?.name ?? candidate.conceptId}</strong>
+                      <span>{percent(candidate.confidence)}</span>
+                      <small>{candidate.reasons.join('／')}</small>
+                    </p>
+                  ))}
+                  <small>{t('parent.diagnosisCaution')}</small>
+                </div>
+              ) : (
+                <p>{t('parent.noDiagnosis')}</p>
+              )}
             </section>
             <section class="nq-parent-card nq-parent-save">
               <h3>{t('parent.saveData')}</h3>
@@ -226,7 +304,7 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
                 <button
                   type="button"
                   class="nq-opt"
-                  onClick={() => (setJson(exportJson(game)), setMessage(t('parent.exportDone')))}
+                  onClick={() => (setJson(exportGameJson(game)), setMessage(t('parent.exportDone')))}
                 >
                   {t('parent.export')}
                 </button>

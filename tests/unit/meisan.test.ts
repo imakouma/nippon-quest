@@ -48,6 +48,8 @@ describe('めいさんひんの そうび', () => {
     const got = giveMeisan(gs, earned[0]!);
     expect(got.inventory[MELON]).toBe(1);
     expect(got.dex.items).toContain(MELON);
+    expect(giveMeisan(got, earned[0]!)).toBe(got);
+    expect(giveMeisan(got, c.items.get('aomori-ringo')!)).toBe(got);
     expect(meisanEarned(got, c.items.values(), stampsOf)).toEqual([]);
     // そうびして バッグの 外に 無くても、もう もっている
     const worn = equipItem(got, c.items.get(MELON)!)!;

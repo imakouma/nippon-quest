@@ -64,6 +64,7 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
   useEffect(() => {
     const onAbort = () => finish(true);
     ctx.signal?.addEventListener('abort', onAbort);
+    if (ctx.signal?.aborted) onAbort();
     return () => ctx.signal?.removeEventListener('abort', onAbort);
   });
 

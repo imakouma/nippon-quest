@@ -29,6 +29,7 @@ export function TextInputView({
   useEffect(() => {
     const abort = () => finish(true);
     ctx.signal?.addEventListener('abort', abort);
+    if (ctx.signal?.aborted) abort();
     return () => ctx.signal?.removeEventListener('abort', abort);
   });
   const pieces = (payload.template ?? '{{INPUT}}').split('{{INPUT}}');

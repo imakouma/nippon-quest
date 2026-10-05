@@ -4,7 +4,7 @@
  * aside を わたすと、見出しの 右（ヒントの 場所）に 出す（バトルでは 敵の こうげきタイマーと HP）。
  */
 import type { ComponentChildren } from 'preact';
-import { useEffect, useRef } from 'preact/hooks';
+import { useLayoutEffect, useRef } from 'preact/hooks';
 import { SubjectChip } from './chips';
 import { RubyLabel } from './RubyLabel';
 import { displayText } from './ruby';
@@ -20,7 +20,9 @@ export interface QuestionFrameProps {
 
 export function QuestionFrame({ host, title, subject, hint, aside, class: cls }: QuestionFrameProps) {
   const slot = useRef<HTMLDivElement>(null);
-  useEffect(() => {
+  // ask() は host へ直ちに問題を描画する。通常 effect まで待つと、重いCanvas描画中に
+  // 問題が画面へ差し込まれないまま制限時間だけ進むため、DOM確定直後に同期して接続する。
+  useLayoutEffect(() => {
     slot.current?.appendChild(host);
     return () => host.remove();
   }, [host]);

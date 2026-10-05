@@ -9,7 +9,7 @@ import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { findBrokenReferences, loadContent, type FileReader } from '../src/core/content/loader';
-import { academicReviewLedgerSchema } from '../src/questions/academicReview';
+import { academicReviewLedgerSchema, isAcademicReviewExpired } from '../src/questions/academicReview';
 import { questionBaseSchema } from '../src/questions/contracts';
 import { getRenderer } from '../src/questions/renderers/registry';
 
@@ -76,6 +76,12 @@ if (content) {
     );
   } else {
     const sourceIds = new Set(ledger.data.sources.map((source) => source.id));
+    for (const source of ledger.data.sources) {
+      if (isAcademicReviewExpired(source.checkedAt, ledger.data.policy.reviewIntervalMonths))
+        warnings.push(
+          `academic review: 出典 "${source.id}" の確認期限が切れています（確認日 ${source.checkedAt}）`,
+        );
+    }
     const productionFiles = new Set(
       content.questionFiles.filter((file) => !file.startsWith('questions/_samples/')),
     );
@@ -87,6 +93,10 @@ if (content) {
       }
       if (approved.has(review.file)) errors.push(`academic review: "${review.file}" の承認が重複しています`);
       approved.add(review.file);
+      if (isAcademicReviewExpired(review.reviewedAt, ledger.data.policy.reviewIntervalMonths))
+        warnings.push(
+          `academic review: "${review.file}" の再レビュー期限が切れています（確認日 ${review.reviewedAt}）`,
+        );
       for (const sourceId of review.sourceIds)
         if (!sourceIds.has(sourceId))
           errors.push(`academic review: "${review.file}" が未知の出典 "${sourceId}" を参照しています`);

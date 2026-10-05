@@ -24,6 +24,8 @@ export interface ContentManifest {
   generatedAt: string;
   files: Record<ContentKind, string[]>;
   questions: string[];
+  /** Playground の ?q= 直リンクで全問題を読み込まず、該当ファイルだけ取得する索引。 */
+  questionIndex?: Record<string, string>;
 }
 
 export type FileReader = (relPath: string) => Promise<unknown>;
@@ -66,17 +68,16 @@ export function fetchReader(base: string): FileReader {
 }
 
 /** Browser reader optimized for game boot: one generated response instead of ~1,000 JSON requests. */
-export function bundledFetchReader(base: string): FileReader {
+export function bundledFetchReader(base: string, bundleName = 'content-bundle.json'): FileReader {
   const fallback = fetchReader(base);
   let bundlePromise: Promise<Record<string, unknown> | null> | undefined;
   return async (rel) => {
-    bundlePromise ??= fetch(`${base}/content-bundle.json`, { cache: 'no-cache' }).then(async (res) =>
-      res.ok ? ((await res.json()) as Record<string, unknown>) : null,
-    );
+    bundlePromise ??= fetch(`${base}/${bundleName}`, { cache: 'no-cache' })
+      .then(async (res) => (res.ok ? ((await res.json()) as Record<string, unknown>) : null))
+      .catch(() => null);
     const bundle = await bundlePromise;
     if (!bundle) return fallback(rel);
-    if (!Object.prototype.hasOwnProperty.call(bundle, rel))
-      throw new ContentError(rel, 'content-bundle.json にファイルがありません');
+    if (!Object.prototype.hasOwnProperty.call(bundle, rel)) return fallback(rel);
     return bundle[rel];
   };
 }
@@ -184,29 +185,129 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
 export function findBrokenReferences(c: ContentIndex): string[] {
   const errs: string[] = [];
   const has = (m: Map<string, unknown>, id: string | undefined) => id === undefined || m.has(id);
+  const checkUnique = (ids: Iterable<string>, where: string): Set<string> => {
+    const seen = new Set<string>();
+    for (const id of ids) {
+      if (seen.has(id)) errs.push(`${where} "${id}" が重複しています`);
+      seen.add(id);
+    }
+    return seen;
+  };
+  const islandIds = new Set<string>();
+  const islandOrders = new Set<number>();
+  const areaOwners = new Map<string, string[]>();
 
   for (const island of c.world.islands) {
+    if (islandIds.has(island.id)) errs.push(`world: island id "${island.id}" が重複しています`);
+    islandIds.add(island.id);
+    if (islandOrders.has(island.order)) errs.push(`world: island order ${island.order} が重複しています`);
+    islandOrders.add(island.order);
+    const ownAreas = new Set<string>();
     for (const a of island.areas)
       if (!c.areas.has(a)) errs.push(`world: island "${island.id}" の area "${a}" が存在しません`);
-    if (island.status === 'playable' && !c.monsters.has(island.bossId))
-      errs.push(`world: island "${island.id}" の bossId "${island.bossId}" が存在しません`);
+      else {
+        if (ownAreas.has(a)) errs.push(`world: island "${island.id}" の area "${a}" が重複しています`);
+        else {
+          ownAreas.add(a);
+          areaOwners.set(a, [...(areaOwners.get(a) ?? []), island.id]);
+        }
+      }
+    if (island.status === 'playable') {
+      const boss = c.monsters.get(island.bossId);
+      if (!boss) errs.push(`world: island "${island.id}" の bossId "${island.bossId}" が存在しません`);
+      else {
+        if (!boss.isBoss)
+          errs.push(`world: island "${island.id}" の bossId "${island.bossId}" は isBoss: true が必要です`);
+        if (boss.area !== island.id)
+          errs.push(
+            `world: island "${island.id}" の bossId "${island.bossId}" の area が "${boss.area}" です`,
+          );
+      }
+    }
   }
+  for (const [areaId, owners] of areaOwners)
+    if (owners.length > 1) errs.push(`world: area "${areaId}" が複数の島にあります: ${owners.join(', ')}`);
   for (const a of c.areas.values()) {
     if (!c.world.islands.some((i) => i.id === a.island))
       errs.push(`area "${a.id}": island "${a.island}" が world にありません`);
+    const owners = areaOwners.get(a.id) ?? [];
+    if (owners.length === 0) errs.push(`area "${a.id}": world のどの島にも含まれていません`);
+    else if (!owners.includes(a.island))
+      errs.push(`area "${a.id}": island "${a.island}" の areas に含まれていません`);
     if (!has(c.monsters, a.boss)) errs.push(`area "${a.id}": boss "${a.boss}" が存在しません`);
     if (!has(c.monsters, a.midBoss)) errs.push(`area "${a.id}": midBoss "${a.midBoss}" が存在しません`);
+    if (a.boss && c.monsters.has(a.boss) && !c.monsters.get(a.boss)!.isBoss)
+      errs.push(`area "${a.id}": boss "${a.boss}" は isBoss: true にしてください`);
+    for (const id of [a.boss, a.midBoss, a.secret?.boss]) {
+      const boss = id ? c.monsters.get(id) : undefined;
+      if (boss && boss.area !== a.id)
+        errs.push(`area "${a.id}": boss "${id}" の area が "${boss.area}" です`);
+    }
     if (a.secret && !c.monsters.get(a.secret.boss)?.isBoss)
       errs.push(`area "${a.id}": secret.boss "${a.secret.boss}" が無いか、isBoss: true ではありません`);
-    else if (a.midBoss && !c.monsters.get(a.midBoss)!.isBoss)
+    else if (a.midBoss && c.monsters.has(a.midBoss) && !c.monsters.get(a.midBoss)!.isBoss)
       errs.push(
         `area "${a.id}": midBoss "${a.midBoss}" は isBoss: true にしてください（にげられない戦いにする）`,
       );
-    const motifIds = new Set(a.motifs.map((m) => m.id));
-    for (const e of a.encounters)
+    const motifIds = checkUnique(
+      a.motifs.map((motif) => motif.id),
+      `area "${a.id}": motif id`,
+    );
+    checkUnique(
+      a.events.map((event) => event.id),
+      `area "${a.id}": event id`,
+    );
+    checkUnique(
+      a.missions.map((mission) => mission.id),
+      `area "${a.id}": mission id`,
+    );
+    checkUnique(
+      (a.town?.npcs ?? []).map((npc) => npc.id),
+      `area "${a.id}": npc id`,
+    );
+    checkUnique(
+      a.encounters.map((encounter) => `${encounter.region ?? '*'}:${encounter.zone}`),
+      `area "${a.id}": encounter key`,
+    );
+    const regionIds = new Set<string>();
+    for (const region of a.regions) {
+      if (regionIds.has(region.id)) errs.push(`area "${a.id}": region "${region.id}" が重複しています`);
+      regionIds.add(region.id);
+      for (const motifId of region.motifs)
+        if (!motifIds.has(motifId))
+          errs.push(`area "${a.id}": region "${region.id}" の motif "${motifId}" が存在しません`);
+      if (region.boss) {
+        const boss = c.monsters.get(region.boss.monsterId);
+        if (!boss)
+          errs.push(
+            `area "${a.id}": region "${region.id}" の boss "${region.boss.monsterId}" が存在しません`,
+          );
+        else if (boss.area !== a.id)
+          errs.push(
+            `area "${a.id}": region "${region.id}" の boss "${region.boss.monsterId}" の area が "${boss.area}" です`,
+          );
+      }
+    }
+    if (a.regions.length && a.regions.filter((region) => region.start).length !== 1)
+      errs.push(`area "${a.id}": regions の start はちょうど1つ必要です`);
+    for (const gate of a.regionGates) {
+      for (const regionId of gate.between)
+        if (!regionIds.has(regionId))
+          errs.push(`area "${a.id}": regionGate の region "${regionId}" が存在しません`);
+      if (gate.between[0] === gate.between[1])
+        errs.push(`area "${a.id}": regionGate が同じ region "${gate.between[0]}" を結んでいます`);
+      const opener = a.regions.find((region) => region.id === gate.openedBy);
+      if (!opener) errs.push(`area "${a.id}": regionGate の openedBy "${gate.openedBy}" が存在しません`);
+      else if (!opener.boss)
+        errs.push(`area "${a.id}": regionGate の openedBy "${gate.openedBy}" に boss がいません`);
+    }
+    for (const e of a.encounters) {
+      if (e.region && !regionIds.has(e.region))
+        errs.push(`area "${a.id}": encounter の region "${e.region}" が存在しません`);
       for (const t of e.table)
         if (!c.monsters.has(t.monsterId))
           errs.push(`area "${a.id}": encounter "${t.monsterId}" が存在しません`);
+    }
     for (const s of a.shop)
       if (!c.items.has(s.itemId)) errs.push(`area "${a.id}": shop "${s.itemId}" が存在しません`);
     for (const ev of a.events) {

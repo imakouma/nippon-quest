@@ -1,5 +1,5 @@
 import { useEffect } from 'preact/hooks';
-import type { SlotId, SlotSummary } from '../../core/state/save';
+import type { SlotId, SlotSummary } from '../../core/state/slots';
 import { t } from '../i18n';
 import './title.css';
 
@@ -34,14 +34,17 @@ export function SaveSlotSelect({
             onClick={() => onPick(slot.slot)}
           >
             <strong>{t('saveSlots.slot', { n: slot.slot })}</strong>
-            {slot.exists ? (
+            {slot.corrupted ? (
+              <span>{t('saveSlots.corrupted')}</span>
+            ) : slot.exists ? (
               <span>
                 {slot.name} ・ Lv{slot.level} ・ ★{slot.signs ?? 0}
               </span>
             ) : (
               <span>{t('saveSlots.empty')}</span>
             )}
-            {mode === 'new' && slot.exists && <small>{t('saveSlots.overwrite')}</small>}
+            {slot.recovered && <small>{t('saveSlots.recovered')}</small>}
+            {mode === 'new' && (slot.exists || slot.corrupted) && <small>{t('saveSlots.overwrite')}</small>}
           </button>
         ))}
       </div>

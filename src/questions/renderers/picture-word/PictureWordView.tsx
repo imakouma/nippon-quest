@@ -86,6 +86,7 @@ export function PictureWordView({ ctx, payload, order, onDone }: PictureWordView
   useEffect(() => {
     const onAbort = () => finish(0, true, 'timeout');
     ctx.signal?.addEventListener('abort', onAbort);
+    if (ctx.signal?.aborted) onAbort();
     return () => ctx.signal?.removeEventListener('abort', onAbort);
   });
 

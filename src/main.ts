@@ -8,6 +8,8 @@ import { createNewGame, type NewGameOptions } from './core/state/newGame';
 import { load, save, type SlotId } from './core/state/save';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
+import { bundledFetchReader } from './core/content/loader';
+import { QuestionBank } from './questions/engine/bank';
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 } as const;
@@ -43,6 +45,18 @@ loading.innerHTML =
   '<div class="nq-loading-label">よみこみちゅう…</div><div class="nq-loading-bar"><div></div></div>';
 uiLayer.append(loading);
 
+function showLoading(label: string): void {
+  const text = loading.querySelector<HTMLDivElement>('.nq-loading-label');
+  const bar = loading.querySelector<HTMLDivElement>('.nq-loading-bar > div');
+  if (text) text.textContent = label;
+  if (bar) bar.style.width = '100%';
+  if (!loading.isConnected) uiLayer.append(loading);
+}
+
+function hideLoading(): void {
+  loading.remove();
+}
+
 const game = new Phaser.Game({
   type: Phaser.AUTO,
   parent: gameRoot,
@@ -67,25 +81,48 @@ game.events.on('boot:stage', (text: string) => {
   const label = loading.querySelector<HTMLDivElement>('.nq-loading-label');
   if (label) label.textContent = text;
 });
-game.events.on('boot:done', () => loading.remove());
+game.events.on('boot:done', hideLoading);
 game.events.on('boot:error', (e: unknown) => {
-  loading.remove();
+  hideLoading();
   const box = document.createElement('div');
   box.className = 'nq-error';
   box.textContent = `コンテンツの よみこみに しっぱいしました。\n\n${e instanceof Error ? e.message : String(e)}\n\n・pnpm gen:manifest を実行しましたか？\n・content/ の JSON に エラーは ありませんか？（pnpm validate:content）`;
   uiLayer.append(box);
 });
 let activeSlot: SlotId = 1;
+let bankPromise: Promise<QuestionBank> | undefined;
+function ensureQuestionBank(): Promise<QuestionBank> {
+  if (game.registry.get('bank')) return Promise.resolve(game.registry.get('bank') as QuestionBank);
+  bankPromise ??= (async () => {
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+    // 問題は開発中も生成済み bundle から一括取得する。48 ファイルを同時に
+    // fetch すると、内蔵ブラウザなど接続数が限られる環境で最後の 1 件が
+    // 待ち続け、ゲーム開始画面から進めなくなることがある。
+    const read = bundledFetchReader(`${base}/content`, 'questions-bundle.json');
+    const files = game.registry.get('questionFiles') as string[];
+    const { bank, report } = await QuestionBank.load(files, read);
+    if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
+    game.registry.set('bank', bank);
+    return bank;
+  })().catch((error) => {
+    bankPromise = undefined;
+    throw error;
+  });
+  return bankPromise;
+}
+
 game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1) => {
   try {
-    await ensureGameplayScenes(game);
+    showLoading('もんだいを よみこんでいるよ…');
+    await Promise.all([ensureGameplayScenes(game), ensureQuestionBank()]);
     activeSlot = slot;
     const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
     setSfxVolume(next.settings.seVolume);
     game.registry.set('game', next);
     void save(activeSlot, next).catch((error) => console.error('[save] はじめのセーブに失敗しました', error));
+    hideLoading();
     game.scene.stop('Title');
-    game.scene.start('Overworld', { mapKey: 'aomori-field', spawnName: 'spawn', debugBattle });
+    game.scene.start('Overworld', { mapKey: next.progress.currentMap, spawnName: 'spawn', debugBattle });
   } catch (error) {
     game.events.emit('boot:error', error);
   }
@@ -93,15 +130,21 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
 
 game.events.on('title:continue', async (slot: SlotId = 1) => {
   try {
-    const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game)]);
-    if (!saved) return;
+    showLoading('セーブと もんだいを よみこんでいるよ…');
+    const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game), ensureQuestionBank()]);
+    if (!saved) {
+      hideLoading();
+      return;
+    }
     activeSlot = slot;
     setSfxVolume(saved.settings.seVolume);
     game.registry.set('game', saved);
+    hideLoading();
     game.scene.stop('Title');
     game.scene.start('Overworld', { mapKey: saved.progress.currentMap, spawnName: 'spawn' });
   } catch (error) {
     console.error('[save] ロードに失敗しました', error);
+    game.events.emit('boot:error', error);
   }
 });
 
@@ -110,6 +153,13 @@ game.registry.events.on('changedata-game', (_parent: unknown, value: unknown) =>
   const state = value as Parameters<typeof save>[1];
   setSfxVolume(state.settings.seVolume);
   void save(activeSlot, state).catch((error) => console.error('[save] オートセーブに失敗しました', error));
+});
+
+// 問題への解答は戦闘・イベントの完了を待たず、その場で保存する。
+// タブ終了や例外が直後に起きても、学習履歴を失わないための専用経路。
+window.addEventListener('nq:learning-changed', (event) => {
+  const state = (event as CustomEvent<Parameters<typeof save>[1]>).detail;
+  void save(activeSlot, state).catch((error) => console.error('[save] 学習履歴の保存に失敗しました', error));
 });
 
 // 表示中のプレイ時間を1分単位で日別に記録する。
