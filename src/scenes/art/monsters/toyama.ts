@@ -1069,7 +1069,7 @@ const narimasaBody = lord(
   { [NQ.ice]: NQ.sky },
   [
     // かたと かぶとに つもった 雪
-    { mirror: true, y: 24, rows: ['...WWWWWWW..............', '..WWWWWWWWW.............'] },
+    { mirror: true, y: 21, rows: ['...........WWWWW........', '..........WWWWWW........'] },
     // ふってくる 雪
     { x: 2, y: 3, rows: ['.W.', 'WWW', '.W.'] },
     { x: 43, y: 12, rows: ['.W.', 'WWW', '.W.'] },
@@ -1079,7 +1079,7 @@ const narimasaBody = lord(
 
 const sassaNarimasa: MonsterDesign = {
   ...narimasaBody,
-  layers: [{ mirror: true, rows: HORO }, ...narimasaBody.layers],
+  layers: [{ mirror: true, x: 5, y: 6, rows: HORO.map((r) => r.slice(0, 19)) }, ...narimasaBody.layers],
 };
 
 export const TOYAMA: Readonly<Record<string, MonsterDesign>> = {

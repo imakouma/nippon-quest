@@ -57,8 +57,9 @@ describe('content loader', () => {
     monsters.set(aomori.boss!, { ...monsters.get(aomori.boss!)!, area: 'iwate' });
     aomori.midBoss = 'missing-midboss';
     aomori.regions.forEach((region) => (region.start = false));
-    aomori.regions[0]!.motifs.push('missing-motif');
-    aomori.regions[0]!.boss!.monsterId = 'missing-region-boss';
+    const brokenRegion = aomori.regions[0]!;
+    brokenRegion.motifs.push('missing-motif');
+    brokenRegion.boss!.monsterId = 'missing-region-boss';
     aomori.regionGates.push({ between: ['missing-region', 'missing-region'], openedBy: 'missing-region' });
     aomori.encounters[0]!.region = 'missing-region';
     areas.set(aomori.id, aomori);
@@ -69,8 +70,12 @@ describe('content loader', () => {
     expect(errors).toContain(`area "aomori": boss "${aomori.boss}" の area が "iwate" です`);
     expect(errors).toContain('area "aomori": midBoss "missing-midboss" が存在しません');
     expect(errors).toContain('area "aomori": regions の start はちょうど1つ必要です');
-    expect(errors).toContain('area "aomori": region "sannai" の motif "missing-motif" が存在しません');
-    expect(errors).toContain('area "aomori": region "sannai" の boss "missing-region-boss" が存在しません');
+    expect(errors).toContain(
+      `area "aomori": region "${brokenRegion.id}" の motif "missing-motif" が存在しません`,
+    );
+    expect(errors).toContain(
+      `area "aomori": region "${brokenRegion.id}" の boss "missing-region-boss" が存在しません`,
+    );
     expect(errors).toContain('area "aomori": regionGate の openedBy "missing-region" が存在しません');
     expect(errors).toContain('area "aomori": encounter の region "missing-region" が存在しません');
   });

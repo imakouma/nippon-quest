@@ -61,9 +61,9 @@ describe('フィールドの 地面の 性質（docs/00 §2.2）', () => {
     }
   });
 
-  it('どの 県も、フィールドの 3% 以上を しめる もり・やま・たはた には 出現表が あり、くさはらと 顔ぶれが ちがう', () => {
+  it('どの 県も、フィールドの 3% 以上を しめる もり・やま・たはた には 出現表が あり、くさはらと 顔ぶれが ちがう（名所エリアの 県は エリアの 表が さきなので のぞく）', () => {
     for (const a of c.areas.values()) {
-      if (!a.mapKeys) continue;
+      if (!a.mapKeys || a.regions.length) continue;
       const land = background(a.mapKeys.field)
         .map(groundOfTile)
         .filter((g): g is Ground => g !== null);

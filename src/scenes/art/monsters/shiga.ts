@@ -1,6 +1,7 @@
 /** 滋賀県の モンスター（手描き。docs/06 §4・§6.3〜6.5 の 規格） */
 import { NQ } from '../palette';
 import type { MonsterDesign } from './design';
+import { FACE, HELMET, lord } from './lastbosses';
 
 /** ニゴロン：琵琶湖の ニゴロブナ（ふなずしの ふな）。しっぽで 立つ 金茶の 魚、うろこ・えら・水色の ひれ、すぼめた 口（ミズ） */
 const nigoron: MonsterDesign = {
@@ -691,9 +692,20 @@ const dainamazuP0: MonsterDesign = {
   ],
 };
 
-const iiNaosuke: MonsterDesign = {
-  size: 48,
-  colors: {
+const iiNaosuke = lord(
+  [
+    '.................GGGG...',
+    '..................GGGG..',
+    '..................GGGG..',
+    '...................GGG..',
+    '...................GGG..',
+    '...................GGGG.',
+    '....................GGG.',
+    '....................GGGN',
+    ...HELMET,
+    ...FACE,
+  ],
+  {
     N: NQ.brick,
     L: NQ.red,
     G: NQ.gold,
@@ -704,68 +716,10 @@ const iiNaosuke: MonsterDesign = {
     T: NQ.bark,
     H: NQ.slate,
     C: NQ.brick,
-    F: NQ.skinLight,
-    f: NQ.skinMid,
-    W: NQ.white,
     M: NQ.hairBlack,
   },
-  rim: { [NQ.red]: NQ.brick, [NQ.vermilion]: NQ.red, [NQ.skinLight]: NQ.skinMid, [NQ.gold]: NQ.ochre },
-  rimDepth: 2,
-  layers: [
-    {
-      rows: [
-        '',
-        '.................GGGG......GGGG',
-        '..................GGGG....GGGG',
-        '..................GGGG....GGGG',
-        '...................GGG....GGG',
-        '...................GGG....GGG',
-        '...................GGGG..GGGG',
-        '....................GGG..GGG',
-        '....................GGGNNGGG',
-        '.................NNNNLNNNNLNNNN',
-        '................NNLLLLLLLLLLLLNN',
-        '...............NNLLLLLLLLLLLLLLNN',
-        '...............NNNLLLLLLLLLLLLNNN',
-        '..............NNNNNNNLNNNNLNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '................NNNNNNNNNNNNNNNN',
-        '........GGG..GGGGGGGGGGGGGGGGGGGGGG..GGG',
-        '........GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '........GGGGG.YYYFFFFFFFFFFFFFFYYY.GGGGG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG.oooooooFFFFFFooooooo.GRRRG',
-        '.......GGGGRG..ooWWWoFFFFFFoWWWoo..GRGGGG',
-        '.........GGGG..ooWWWFFFFFFFFWWWoo..GGGG',
-        '...........GG..ooWWWFFFFFFFFWWWoo..GG',
-        '.................FFFFFFFFFFFFFF',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '...........CKKKKKKFFoooFFoooFFKKKKKKC',
-        '.....KSKKKKKKKKKKKCFFFFFFFFFFCKKKKKKKKKKKSK',
-        '...SSSSKKKKKKKKKKKCKKFFFFFFKKCKKKKKKKKKKKSSSS',
-        '...SSSSKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKSSSS',
-        '...SGGGGGGGKKKKKKKCGGGGGGGGGGCKKKKKKKGGGGGGGS',
-        '...SSSSKKKKKKKKKKKCKKKKRRKKKKCKKKKKKKKKKKSSSS',
-        '...SSSSSKKKKKKKKKKCKKKRKKRKKKCKKKKKKKKKKSSSSS',
-        '...SSKKKKKKGGGGGGGCKKRKKKKRKKCGGGGGGGKKKKKKSS',
-        '...CGGGGGGGKKKKKKKCKRKKKKKKRKCKKKKKKKGGGGGGGC',
-        '...CNKKKKKKKKKKKKKCRKKKKKKKKRCKKKKKKKKKKKKKNC',
-        '...NNKKKKKKKKKKKKKCGGGGGGGGGGCKKKKKKKKKKKKKNN',
-        '...CKKKKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKKKKC',
-        '...CGGGGGGGKKKKKKKCKKKKKKKKKKCKKKKKKKGGGGGGGC',
-        '..CCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKCC',
-        '..CCKKKKKKGGGGGGGGGGGGGGGGGGGGGGGGGGGGKKKKKKCC',
-        '..CCCCCCCCTGTTTGTTTGTTTGGTTTGTTTGTTTGTCCCCCCCC',
-        '..CCCCCCCCTGHHHHHHTGTTTGGTTTGTHHHHHHGTCCCCCCCC',
-        '..........TGHHHHHHTGTTTGGTTTGTHHHHHHGT',
-        '',
-      ],
-    },
-  ],
-};
+  { [NQ.red]: NQ.brick, [NQ.vermilion]: NQ.red },
+);
 
 export const SHIGA: Readonly<Record<string, MonsterDesign>> = {
   'shiga-nigoron': nigoron,
