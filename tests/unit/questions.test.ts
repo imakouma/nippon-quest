@@ -8,7 +8,7 @@ import { createRng } from '../../src/core/rng';
 import type { QuestionBase, QuestionQuery } from '../../src/questions/contracts';
 import { MAX_MISSES, pictureWordScore } from '../../src/questions/renderers/picture-word/schema';
 import { PICTURES, PICTURE_KEYS, pictureSvg } from '../../src/questions/renderers/shared/pictures';
-import { NQ48 } from '../../src/scenes/art/palette';
+import { NQ48 } from '../../src/rendering/palette';
 import { speechLang } from '../../src/ui/overlay';
 import { read } from './helpers';
 

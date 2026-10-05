@@ -1,7 +1,7 @@
 /**
- * メニュー：モンスターずかん・とくさんひんずかん・どうぐ（バッグ）・そうび・みため を タブで きりかえて見る。
+ * メニュー：大きなカテゴリーボタンから、学習・図鑑・道具などの画面へ進む。
  * ロジックは持たない（中身は Overworld が GameState と content から作って渡す）。
- * 操作：←→ タブ / ↑↓ えらぶ / Z・Enter つかう・そうびする・はずす / X・Esc とじる。
+ * 操作：矢印で選択 / Z・Enter 決定 / X・Esc ひとつ戻る。
  */
 import { Component } from 'preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
@@ -93,6 +93,13 @@ export function MenuOverlay({
       entries.findIndex((e) => e.key === focusKey),
     );
   const [sel, setSel] = useState(find);
+  const [home, setHome] = useState(true);
+  const [homeSel, setHomeSel] = useState(() =>
+    Math.max(
+      0,
+      tabs.findIndex((x) => x.key === tab),
+    ),
+  );
   // タブが かわったら いちばん上（か focusKey）から
   const lastTab = useRef(tab);
   if (lastTab.current !== tab) {
@@ -124,18 +131,72 @@ export function MenuOverlay({
     onAct(e.key);
   };
   const tabIdx = tabs.findIndex((x) => x.key === tab);
-  const moveTab = (d: number) => {
-    const next = tabs[(tabIdx + d + tabs.length) % tabs.length];
+  const openTab = (index: number) => {
+    const next = tabs[index];
     if (!next) return;
-    playSfx('move');
-    onTab(next.key);
+    playSfx('select');
+    setHomeSel(index);
+    setHome(false);
+    if (next.key !== tab) onTab(next.key);
+  };
+  const backToHome = () => {
+    playSfx('back');
+    setHome(true);
   };
 
-  const live = useRef({ pick, act, moveTab, onClose, sel, n: entries.length });
-  live.current = { pick, act, moveTab, onClose, sel, n: entries.length };
+  const live = useRef({
+    pick,
+    act,
+    openTab,
+    backToHome,
+    onClose,
+    sel,
+    n: entries.length,
+    home,
+    homeSel,
+  });
+  live.current = { pick, act, openTab, backToHome, onClose, sel, n: entries.length, home, homeSel };
   useEffect(() => {
     const onKey = (ev: KeyboardEvent) => {
       const L = live.current;
+      if (L.home) {
+        const columns = 3;
+        switch (ev.key) {
+          case 'ArrowLeft':
+            setHomeSel((current) => (current - 1 + tabs.length) % tabs.length);
+            playSfx('move');
+            break;
+          case 'ArrowRight':
+            setHomeSel((current) => (current + 1) % tabs.length);
+            playSfx('move');
+            break;
+          case 'ArrowUp':
+            setHomeSel((current) => (current - columns + tabs.length) % tabs.length);
+            playSfx('move');
+            break;
+          case 'ArrowDown':
+            setHomeSel((current) => (current + columns) % tabs.length);
+            playSfx('move');
+            break;
+          case 'Enter':
+          case ' ':
+          case 'z':
+          case 'Z':
+            L.openTab(L.homeSel);
+            break;
+          case 'Escape':
+          case 'x':
+          case 'X':
+          case 'i':
+          case 'I':
+            L.onClose();
+            break;
+          default:
+            return;
+        }
+        ev.preventDefault();
+        return;
+      }
       switch (ev.key) {
         case 'ArrowUp':
           if (L.n) L.pick((L.sel - 1 + L.n) % L.n, true);
@@ -144,10 +205,7 @@ export function MenuOverlay({
           if (L.n) L.pick((L.sel + 1) % L.n, true);
           break;
         case 'ArrowLeft':
-          L.moveTab(-1);
-          break;
         case 'ArrowRight':
-          L.moveTab(1);
           break;
         case 'Enter':
         case ' ':
@@ -158,6 +216,8 @@ export function MenuOverlay({
         case 'Escape':
         case 'x':
         case 'X':
+          L.backToHome();
+          break;
         case 'i':
         case 'I':
           L.onClose();
@@ -180,29 +240,43 @@ export function MenuOverlay({
             <PixelIcon name="cmd-item" scale={2} />
             {t('field.menu')}
           </span>
+          {!home && (
+            <span class="nq-menu-section-title">
+              <PixelIcon name={tabs[tabIdx]?.icon ?? 'star'} scale={1} />
+              <RubyLabel text={tabs[tabIdx]?.label ?? ''} />
+            </span>
+          )}
           <button type="button" class="nq-opt nq-parent-open" onClick={onParent}>
             ⚙ {t('menu.parent')}
           </button>
+          {!home && (
+            <button type="button" class="nq-back nq-menu-back" onClick={backToHome}>
+              ← {t('ui.back')}
+            </button>
+          )}
           <button type="button" class="nq-back nq-menu-close" onClick={onClose}>
             × {t('ui.close')}
           </button>
         </div>
-        <div class="nq-menu-tabs" role="tablist">
-          {tabs.map((x) => (
-            <button
-              key={x.key}
-              type="button"
-              role="tab"
-              aria-selected={x.key === tab}
-              class={`nq-opt nq-menu-tab ${x.key === tab ? 'nq-focus' : ''}`}
-              onClick={() => x.key !== tab && (playSfx('move'), onTab(x.key))}
-            >
-              <PixelIcon name={x.icon} scale={1} />
-              <RubyLabel text={x.label} />
-            </button>
-          ))}
-        </div>
-        {tab === 'roadmap' ? (
+        {home ? (
+          <div class="nq-menu-home" aria-label={t('field.menu')}>
+            {tabs.map((x, index) => (
+              <button
+                key={x.key}
+                type="button"
+                class={`nq-menu-card nq-menu-card-${x.key} ${index === homeSel ? 'nq-focus' : ''}`}
+                onPointerEnter={() => setHomeSel(index)}
+                onClick={() => openTab(index)}
+              >
+                <span class="nq-menu-card-icon">
+                  <PixelIcon name={x.icon} scale={3} />
+                </span>
+                <RubyLabel text={x.label} class="nq-menu-card-label" />
+                {x.count && Number(x.count) > 0 && <span class="nq-menu-card-count">{x.count}</span>}
+              </button>
+            ))}
+          </div>
+        ) : tab === 'roadmap' ? (
           <RoadmapView nodes={roadmap} />
         ) : (
           <div class="nq-menu-body">
@@ -325,9 +399,7 @@ function RoadmapView({ nodes }: { nodes: RoadmapNode[] }) {
                 </span>
                 <RubyLabel
                   class="nq-roadmap-summary-current"
-                  text={
-                    next ? t('field.roadmapNext', { name: next.name }) : t('field.roadmapCompleted')
-                  }
+                  text={next ? t('field.roadmapNext', { name: next.name }) : t('field.roadmapCompleted')}
                 />
               </button>
             );
@@ -335,19 +407,19 @@ function RoadmapView({ nodes }: { nodes: RoadmapNode[] }) {
         </div>
       ) : (
         <div class="nq-roadmap-map">
-          <div class="nq-roadmap-water" aria-hidden>
-            ≈ ≈ ≈
-          </div>
           <div class="nq-roadmap-path">
             {shown.map((node, index) => {
               const columns = 6;
               const row = Math.floor(index / columns);
               const offset = index % columns;
               const column = row % 2 === 0 ? offset + 1 : columns - offset;
+              const turnsToNextRow = offset === columns - 1 && index < shown.length - 1;
+              const roadFromPrevious =
+                offset === 0 ? '' : row % 2 === 0 ? ' nq-roadmap-from-left' : ' nq-roadmap-from-right';
               return (
                 <div
                   key={node.id}
-                  class={`nq-roadmap-node nq-roadmap-${node.state}`}
+                  class={`nq-roadmap-node nq-roadmap-${node.state}${roadFromPrevious}${turnsToNextRow ? ' nq-roadmap-turn' : ''}`}
                   style={{ gridColumn: column, gridRow: row + 1 }}
                   title={`${node.name} ${Math.round(node.mastery * 100)}%`}
                 >

@@ -25,7 +25,7 @@ export interface FieldHudProps {
   onMenu: () => void;
   /** 開発者モード（ぜんぶの 場所へ ワープ）。開発サーバーか ?dev のときだけ ボタンを出す */
   dev?: { label: string; on: boolean; onToggle: () => void };
-  /** 止まっている（左上の 窓を 出す）。歩いている あいだは かくして、地図を 広く 見せる */
+  /** 止まっている（場所名の窓を出す）。ミニマップは歩行中も表示する。 */
   idle?: boolean;
 }
 
@@ -46,8 +46,8 @@ export function FieldHud({
 }: FieldHudProps) {
   return (
     <div class="nq-fhud">
-      <div class={`nq-win nq-fhud-loc ${idle ? '' : 'nq-fhud-away'}`}>
-        <div class="nq-fhud-row">
+      <div class="nq-win nq-fhud-loc">
+        <div class={`nq-fhud-row ${idle ? '' : 'nq-fhud-away'}`}>
           <RubyLabel text={title} class="nq-fhud-title" />
           <RubyLabel text={sub} class="nq-fhud-sub" />
           {stamps && (

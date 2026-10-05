@@ -68,7 +68,6 @@ export class TitleScene extends Phaser.Scene {
     // ?debug=battle のときはタイトルを飛ばす（main.ts 参照）
     if (new URLSearchParams(location.search).get('debug') === 'battle')
       this.time.delayedCall(50, () => this.game.events.emit('title:start'));
-
   }
 
   /** 夜空の星（1 ドットと十字の 2 種類）。ゆっくり またたく */
@@ -253,10 +252,7 @@ export class TitleScene extends Phaser.Scene {
     }
     render(
       h(TitleMenu, {
-        items: [
-          { label: t('ui.newGame') },
-          { label: t('ui.continue'), disabled: !this.hasSave },
-        ],
+        items: [{ label: t('ui.newGame') }, { label: t('ui.continue'), disabled: !this.hasSave }],
         hint: t('ui.titleHint'),
         disabledNote: t(this.saveChecked ? 'ui.noSave' : 'ui.saveChecking'),
         credit: t('ui.credits'),

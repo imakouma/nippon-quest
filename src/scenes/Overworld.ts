@@ -134,7 +134,8 @@ import {
   type TiledMapSource,
 } from './overworld/mapModels';
 import { buildRoadmapNodes } from './overworld/roadmap';
-import { buildMenuView, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
+import { buildMenuView, itemStatText, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
+import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { buildReviewQueue } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
 import { npcModel } from './overworld/npcModel';
@@ -206,7 +207,6 @@ interface BaseMap extends MapBase {
   tiles: readonly number[];
   objects: TiledObject[];
 }
-type MapKind = 'field' | 'town' | 'dungeon' | 'enclave' | 'secret';
 type RootName = 'hud' | 'title' | 'fx' | 'dialogue' | 'travel';
 
 interface FieldTrigger {
@@ -2729,27 +2729,6 @@ export class OverworldScene extends Phaser.Scene {
     return partyFromGameState(gs, this.content()!).hero.stats;
   }
 
-  /** そうびの ステータス（こうげき+3 ぼうぎょ+2） */
-  private statText(it: Item): string {
-    const KEY: Record<string, string> = {
-      hp: 'field.statHp',
-      atk: 'field.statAtk',
-      def: 'field.statDef',
-      spd: 'field.statSpd',
-      wis: 'field.statWis',
-    };
-    return Object.entries(it.stats ?? {})
-      .map(([k, v]) => `${KEY[k] ? t(KEY[k]) : k.toUpperCase()}+${v}`)
-      .join('　');
-  }
-
-  private kindLabel(it: Item): string {
-    if (it.kind === 'consumable') return t('field.itemKindTool');
-    if (it.kind === 'material') return t('field.itemKindMaterial');
-    if (it.kind === 'key') return t('field.itemKindKey');
-    return t('field.itemKindEquip', { slot: t(`slots.${it.kind}`) });
-  }
-
   /** タブの 中身 */
   private menuView(tab: MenuTab): { entries: MenuEntry[]; summary?: string; empty: string } {
     const c = this.content()!;
@@ -2761,8 +2740,6 @@ export class OverworldScene extends Phaser.Scene {
       stats: this.heroStats(gs),
       revealAll: this.devAll(),
       bank: this.registry.get('bank') as QuestionBank | undefined,
-      statText: (item) => this.statText(item),
-      kindLabel: (item) => this.kindLabel(item),
       heroArt: (look) => this.heroFrameUrl(look),
       monsterArt: (monster) => this.monsterArtUrl(monster),
     });
@@ -3040,9 +3017,7 @@ export class OverworldScene extends Phaser.Scene {
       inBag: key.startsWith('eq:'),
       count,
       sub: t('field.equipSlot', { slot: t(`slots.${it.kind}`) }),
-      lines: [this.statText(it), count === undefined ? '' : t('field.townHave', { n: count })].filter(
-        Boolean,
-      ),
+      lines: [itemStatText(it), count === undefined ? '' : t('field.townHave', { n: count })].filter(Boolean),
       blurb: it.blurb,
     });
     const owned = new Map(gs.party.owned.map((o) => [o.uid, o]));
@@ -3475,16 +3450,11 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private kind(): MapKind {
-    const k = this.mapKey;
-    if (k.endsWith('-town')) return 'town';
-    if (k.endsWith('-dungeon')) return 'dungeon';
-    if (k.endsWith('-secret')) return 'secret';
-    if (k.endsWith('-enclave')) return 'enclave';
-    return 'field';
+    return mapKind(this.mapKey);
   }
 
   private areaId(): string {
-    return this.mapKey.split('-')[0] ?? '';
+    return areaIdFromMapKey(this.mapKey);
   }
 
   /** このマップの県（content/prefectures） */

@@ -4,7 +4,7 @@ import { TOWN_THEMES } from '../../scripts/data/towns';
 
 /**
  * scaffold:maps が作ったマップが「遊べる」ことを機械的に確かめる。
- *  - maps/ と public/maps/（ゲームが読む方）が同じ
+ *  - maps/ を唯一のマップソースとして検証する
  *  - 遷移先のマップとスポーン地点が存在する
  *  - スタート地点から、そのマップの物体すべてに歩いて（または同じマップの中の船で）行ける
  *  - content の events が使う物体が、マップにちゃんと置かれている
@@ -25,7 +25,6 @@ interface TiledMap {
 }
 
 const MAPS = new URL('../../maps/', import.meta.url);
-const PUBLIC_MAPS = new URL('../../public/maps/', import.meta.url);
 const PREFECTURES = new URL('../../content/prefectures/', import.meta.url);
 const WORLD_MAP = new URL('../../public/worldmap.json', import.meta.url);
 const WORLD = new URL('../../content/world/japan.json', import.meta.url);
@@ -79,13 +78,6 @@ function reachable(key: string, m: TiledMap): Set<number> {
 }
 
 describe('マップ', () => {
-  it('maps/ と public/maps/ の中身が同じ', () => {
-    expect(jsonFiles(PUBLIC_MAPS).sort()).toEqual(jsonFiles(MAPS).sort());
-    for (const f of jsonFiles(MAPS)) {
-      expect(readFileSync(new URL(f, PUBLIC_MAPS), 'utf8'), f).toBe(readFileSync(new URL(f, MAPS), 'utf8'));
-    }
-  });
-
   it.each([...maps.keys()])('%s: 遷移先があり、すべての物体に歩いて行ける', (key) => {
     const m = maps.get(key)!;
     const objs = objectsOf(m);
@@ -321,7 +313,7 @@ describe('宝箱の 中身', () => {
     const items = new Set(
       readdirSync(new URL('../../content/items/', import.meta.url)).map((f) => f.replace(/\.json$/, '')),
     );
-    const dir = new URL('../../public/maps/', import.meta.url);
+    const dir = MAPS;
     const bad: string[] = [];
     for (const f of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
       const m = JSON.parse(readFileSync(new URL(f, dir), 'utf8')) as { layers: { objects?: Obj[] }[] };

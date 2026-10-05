@@ -2,9 +2,11 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, extname, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { sourceBudget } from './architecture-policy';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const SRC = resolve(ROOT, 'src');
+const SCRIPTS = resolve(ROOT, 'scripts');
 const errors: string[] = [];
 
 const importSpecifiers = (source: string): string[] =>
@@ -78,16 +80,15 @@ for (const file of files(SRC)) {
     errors.push(`${rel}: 永続化APIは src/core/state/save.ts に集約してください`);
 }
 
-// 現在値を上限に固定する。新機能はSceneへ追記せず、機能別モジュールへ抽出する。
-const sceneBudgets: Readonly<Record<string, number>> = {
-  'src/scenes/Overworld.ts': 3519,
-  'src/scenes/Battle.ts': 1756,
-  'src/ui/battle/BattleHud.tsx': 625,
-};
-for (const [file, maxLines] of Object.entries(sceneBudgets)) {
-  const lines = readFileSync(resolve(ROOT, file), 'utf8').trimEnd().split('\n').length;
-  if (lines > maxLines)
-    errors.push(`${file}: ${lines}行（上限 ${maxLines}）。機能別モジュールへ分割してください`);
+// 全実装ファイルを監視する。既存の巨大ファイルだけ明示的な縮小中予算を持つ。
+for (const file of [...files(SRC), ...files(SCRIPTS)]) {
+  const rel = relative(ROOT, file);
+  const lines = readFileSync(file, 'utf8').trimEnd().split('\n').length;
+  const budget = sourceBudget(rel);
+  if (lines > budget.maxLines)
+    errors.push(
+      `${rel}: ${lines}行（上限 ${budget.maxLines}、${budget.reason}）。機能別モジュールへ分割してください`,
+    );
 }
 
 // src 内の相対 import を解決して循環依存を検出する。外部パッケージと型宣言は対象外。

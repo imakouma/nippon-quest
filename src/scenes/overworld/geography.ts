@@ -48,3 +48,17 @@ export const GEOGRAPHIC_AREA_ORDER = [
   'kagoshima',
   'okinawa',
 ] as const;
+
+export type MapKind = 'field' | 'town' | 'dungeon' | 'secret' | 'enclave';
+
+export function mapKind(key: string): MapKind {
+  if (key.endsWith('-town')) return 'town';
+  if (key.endsWith('-dungeon')) return 'dungeon';
+  if (key.endsWith('-secret')) return 'secret';
+  if (key.endsWith('-enclave')) return 'enclave';
+  return 'field';
+}
+
+export function areaIdFromMapKey(key: string): string {
+  return key.split('-')[0] ?? '';
+}

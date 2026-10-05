@@ -1,9 +1,27 @@
-import { battleSkills, frontAlly, SUBJECTS, type BattleDeps } from '../../core/battle/engine';
+import {
+  battleSkills,
+  canAfford,
+  frontAlly,
+  makeCompanion,
+  SUBJECTS,
+  type BattleDeps,
+} from '../../core/battle/engine';
 import type { BattleState, Combatant } from '../../core/battle/types';
 import type { ContentIndex } from '../../core/content/loader';
 import { heroLevel, xpToNextLevel } from '../../core/progression/battleResult';
 import type { GameState } from '../../core/state/schema';
-import type { AllyView, EnemyView, SubjectGaugeView } from '../../ui/battle/store';
+import type { Skill } from '../../core/content/schemas';
+import type { QuestionQuery } from '../../questions/contracts';
+import type {
+  AllyView,
+  CommandOption,
+  EnemyView,
+  ItemOption,
+  SkillOption,
+  SubjectGaugeView,
+  SwapOption,
+} from '../../ui/battle/store';
+import { itemIconUrl } from '../../rendering/itemIcons';
 
 export function buildEnemyView(state: BattleState, hp = state.enemy.hp): EnemyView {
   const enemy = state.enemy;
@@ -71,4 +89,86 @@ export function buildGaugeViews(
       gain: previous.find((gauge) => gauge.subject === subject)?.gain,
     }),
   );
+}
+
+export function buildItemOptions(state: BattleState, content: ContentIndex): ItemOption[] {
+  return Object.entries(state.ally.items).flatMap(([id, count]) => {
+    const item = content.items.get(id);
+    if (!item || count <= 0 || item.kind !== 'consumable' || !item.use) return [];
+    return [{ id, name: item.name, count, blurb: item.blurb, icon: itemIconUrl(item) }];
+  });
+}
+
+export function buildSwapOptions(state: BattleState, deps: BattleDeps): SwapOption[] {
+  const ally = state.ally;
+  return ally.monsters.map((monster, index) => ({
+    index,
+    name: monster.name,
+    level: monster.level,
+    hp: monster.hp,
+    maxHp: monster.stats.hp,
+    element: monster.element,
+    passive: makeCompanion(monster, deps)?.passiveSkill?.subject,
+    disabled: index === ally.activeMonsterIndex || monster.hp <= 0,
+    active: index === ally.activeMonsterIndex,
+  }));
+}
+
+export function buildSkillOptions(input: {
+  state: BattleState;
+  deps: BattleDeps;
+  queryFor: (skill: Skill) => QuestionQuery;
+  hasQuestion: (skill: Skill) => boolean;
+  nameOf: (id: string) => string;
+  preparingLabel: string;
+}): SkillOption[] {
+  const { state, deps } = input;
+  return battleSkills(state, deps).map(({ skill, actorId }) => {
+    const noQuestion = !input.hasQuestion(skill);
+    return {
+      key: `${actorId}:${skill.id}`,
+      id: skill.id,
+      actorId,
+      by: actorId === state.ally.hero.id ? undefined : input.nameOf(actorId),
+      name: skill.name,
+      subject: skill.subject,
+      gradeRange: input.queryFor(skill).gradeRange,
+      element: skill.element,
+      stars: skill.gauge,
+      cost: skill.costGauge,
+      have: state.player.subjectGauges[skill.subject],
+      effect: skill.effect,
+      flavor: skill.flavor,
+      disabled: noQuestion || !canAfford(state, skill),
+      reason: noQuestion ? input.preparingLabel : undefined,
+    };
+  });
+}
+
+export function buildCommandOptions(input: {
+  state: BattleState;
+  deps: BattleDeps;
+  hasQuestion: (skill: Skill) => boolean;
+  itemCount: number;
+  canRecruit: boolean;
+}): CommandOption[] {
+  const { state, deps } = input;
+  const skills = battleSkills(state, deps);
+  const special = skills.some(
+    ({ skill }) => skill.costGauge > 0 && canAfford(state, skill) && input.hasQuestion(skill),
+  );
+  const list: CommandOption[] = [
+    { kind: 'attack', disabled: false },
+    { kind: 'skill', disabled: skills.length === 0, glow: special },
+    { kind: 'item', disabled: input.itemCount === 0 },
+    {
+      kind: 'swap',
+      disabled: !state.ally.monsters.some(
+        (monster, index) => index !== state.ally.activeMonsterIndex && monster.hp > 0,
+      ),
+    },
+    { kind: 'flee', disabled: false },
+  ];
+  if (input.canRecruit) list.push({ kind: 'recruit', disabled: false, glow: true });
+  return list;
 }

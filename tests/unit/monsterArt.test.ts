@@ -13,6 +13,8 @@ const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, '
 /** キー（<id> / <id>.p<番号> / <id>.field）→ モンスター id */
 const baseId = (key: string) => key.replace(/\.(p\d+|field)$/, '');
 const entries = Object.entries(MONSTER_DESIGNS);
+const grids = new Map(entries.map(([key, design]) => [key, designGrid(design)]));
+const palette = new Set<string>(NQ48);
 
 let c: ContentIndex;
 beforeAll(async () => {
@@ -58,8 +60,11 @@ describe('手描きモンスター（docs/06 の規格）', () => {
 
   it('色は NQ-48 だけ、色数は上限まで（通常・フィールド 12、ボス 15）', () => {
     for (const [key, d] of entries) {
-      const cs = colorsOf(designGrid(d));
-      for (const col of cs) expect(NQ48, `${key}: ${col}`).toContain(col);
+      const cs = colorsOf(grids.get(key)!);
+      expect(
+        [...cs].filter((color) => !palette.has(color)),
+        key,
+      ).toEqual([]);
       const limit = d.size <= 32 ? 12 : 15;
       expect(cs.size, key).toBeLessThanOrEqual(limit);
     }
@@ -67,17 +72,21 @@ describe('手描きモンスター（docs/06 の規格）', () => {
 
   it('外周の輪郭が切れていない（キャンバスのふちに付く色は ink だけ）', () => {
     for (const [key, d] of entries) {
-      const g = designGrid(d);
+      const g = grids.get(key)!;
       const S = d.size;
-      for (let i = 0; i < S; i++)
-        for (const col of [g[0]![i], g[S - 1]![i], g[i]![0], g[i]![S - 1]])
-          if (col) expect(col, key).toBe(NQ.ink);
+      const invalid = Array.from({ length: S }, (_, i) => [
+        g[0]![i],
+        g[S - 1]![i],
+        g[i]![0],
+        g[i]![S - 1],
+      ]).flatMap((colors, i) => colors.filter((color) => color && color !== NQ.ink).map(() => i));
+      expect(invalid, key).toEqual([]);
     }
   });
 
   it('足もとは下端から 0〜2 ドット', () => {
     for (const [key, d] of entries) {
-      const g = designGrid(d);
+      const g = grids.get(key)!;
       const lowest = g.reduce((low, row, y) => (row.some(Boolean) ? y : low), -1);
       expect(d.size - 1 - lowest, key).toBeLessThanOrEqual(2);
     }
@@ -87,7 +96,7 @@ describe('手描きモンスター（docs/06 の規格）', () => {
     for (const [key, d] of entries) {
       const m = c.monsters.get(baseId(key))!;
       if (!m.isBoss || (!c.areas.has(m.area) && c.world.islands.some((i) => i.id === m.area))) continue;
-      const cs = colorsOf(designGrid(d));
+      const cs = colorsOf(grids.get(key)!);
       expect(cs.has(NQ.gold) && cs.has(NQ.red), key).toBe(true);
     }
   });

@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { completeNewGameSetup } from './newGame';
 
 const TOHOKU_SIGNS = ['aomori', 'iwate', 'miyagi', 'akita', 'yamagata', 'fukushima'];
 
@@ -75,7 +76,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await expect(page.locator('.nq-save-slots')).toBeVisible();
   await page.getByRole('button', { name: /スロット 3/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
+  await completeNewGameSetup(page);
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
   await clickThroughDialogue(page);
 

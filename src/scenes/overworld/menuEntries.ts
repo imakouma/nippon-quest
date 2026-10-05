@@ -24,6 +24,27 @@ const MOTIF_KIND_KEY: Record<Motif['kind'], string> = {
 
 export const motifKindLabelKey = (kind: Motif['kind']): string => MOTIF_KIND_KEY[kind];
 
+const STAT_LABELS: Readonly<Record<string, string>> = {
+  hp: 'field.statHp',
+  atk: 'field.statAtk',
+  def: 'field.statDef',
+  spd: 'field.statSpd',
+  wis: 'field.statWis',
+};
+
+export function itemStatText(item: Item): string {
+  return Object.entries(item.stats ?? {})
+    .map(([key, value]) => `${STAT_LABELS[key] ? t(STAT_LABELS[key]) : key.toUpperCase()}+${value}`)
+    .join('　');
+}
+
+export function itemKindLabel(item: Item): string {
+  if (item.kind === 'consumable') return t('field.itemKindTool');
+  if (item.kind === 'material') return t('field.itemKindMaterial');
+  if (item.kind === 'key') return t('field.itemKindKey');
+  return t('field.itemKindEquip', { slot: t(`slots.${item.kind}`) });
+}
+
 const LOOK_PARTS: readonly { part: keyof HeroLook; key: string }[] = [
   { part: 'hair', key: 'lookHair' },
   { part: 'skin', key: 'lookSkin' },
@@ -163,8 +184,6 @@ export interface MenuViewInput {
   stats: HeroStats;
   revealAll: boolean;
   bank?: QuestionBank;
-  statText: (item: Item) => string;
-  kindLabel: (item: Item) => string;
   heroArt: (look: HeroLook) => string;
   monsterArt: (monster: Monster) => string;
 }
@@ -232,7 +251,7 @@ export function buildMenuView(input: MenuViewInput): MenuView {
     return { entries, empty: t('field.dexEmpty') };
   }
 
-  if (tab === 'bag') return bagMenu(content, game, stats, input.statText, input.kindLabel);
+  if (tab === 'bag') return bagMenu(content, game, stats, itemStatText, itemKindLabel);
 
   if (tab === 'look') {
     const appearance = game.player.appearance;
@@ -259,5 +278,5 @@ export function buildMenuView(input: MenuViewInput): MenuView {
     return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
   }
 
-  return equipmentMenu(content, game, stats, input.statText);
+  return equipmentMenu(content, game, stats, itemStatText);
 }

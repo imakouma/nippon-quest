@@ -6,6 +6,7 @@ import { ensureGameplayScenes } from './scenes/gameplayLoader';
 import { attachOverlay, STAGE_H, STAGE_W } from './ui/overlay';
 import { createNewGame, type NewGameOptions } from './core/state/newGame';
 import { load, save, storeStartupRetryAction, takeStartupRetryAction, type SlotId } from './core/state/save';
+import { AutosaveCoordinator } from './core/state/autosave';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
 import { bundledFetchReader } from './core/content/loader';
@@ -138,6 +139,7 @@ game.events.on('boot:error', (e: unknown) => {
   showError(e, () => location.reload());
 });
 let activeSlot: SlotId = 1;
+const autosave = new AutosaveCoordinator(save);
 let bankPromise: Promise<QuestionBank> | undefined;
 function ensureQuestionBank(): Promise<QuestionBank> {
   if (game.registry.get('bank')) return Promise.resolve(game.registry.get('bank') as QuestionBank);
@@ -182,9 +184,9 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
       const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
       setSfxVolume(next.settings.seVolume);
       game.registry.set('game', next);
-      void save(activeSlot, next).catch((error) =>
-        console.error('[save] はじめのセーブに失敗しました', error),
-      );
+      void autosave
+        .request(activeSlot, next)
+        .catch((error) => console.error('[save] はじめのセーブに失敗しました', error));
       hideLoading();
       game.scene.stop('Title');
       game.scene.start('Overworld', { mapKey: 'aomori-field', spawnName: 'spawn', debugBattle });
@@ -218,14 +220,18 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
 game.registry.events.on('changedata-game', (_parent: unknown, value: unknown) => {
   const state = value as Parameters<typeof save>[1];
   setSfxVolume(state.settings.seVolume);
-  void save(activeSlot, state).catch((error) => console.error('[save] オートセーブに失敗しました', error));
+  void autosave
+    .request(activeSlot, state)
+    .catch((error) => console.error('[save] オートセーブに失敗しました', error));
 });
 
 // 問題への解答は戦闘・イベントの完了を待たず、その場で保存する。
 // タブ終了や例外が直後に起きても、学習履歴を失わないための専用経路。
 window.addEventListener('nq:learning-changed', (event) => {
   const state = (event as CustomEvent<Parameters<typeof save>[1]>).detail;
-  void save(activeSlot, state).catch((error) => console.error('[save] 学習履歴の保存に失敗しました', error));
+  void autosave
+    .request(activeSlot, state)
+    .catch((error) => console.error('[save] 学習履歴の保存に失敗しました', error));
 });
 
 // 表示中のプレイ時間を1分単位で日別に記録する。

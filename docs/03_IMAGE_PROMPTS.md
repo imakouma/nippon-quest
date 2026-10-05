@@ -25,7 +25,7 @@
 | UI 部品（枠・ボタン・バー） | 9-slice 用 48×48px 等 | `assets/ui/<name>.png` / `ui.<name>` |
 | 問題用の絵（picture-word など） | 128×128px、透過（ドット絵、背景なし） | `assets/questions/<subject>/<word>.png` / 問題 JSON から相対参照 |
 
-- パレットは **プロジェクト共通の 48 色 NQ-48**（`src/scenes/art/palette.ts` と `assets/palette/nq48.gpl` / `nq48.hex`。一覧は docs/06 §3）。全素材をこのパレットに減色して統一感を出す。
+- パレットは **プロジェクト共通の 48 色 NQ-48**（`src/rendering/palette.ts` と `assets/palette/nq48.gpl` / `nq48.hex`。一覧は docs/06 §3）。全素材をこのパレットに減色して統一感を出す。
 - `<id>` は content の `spriteKey` / `iconKey` / `imageKey` と一致。小文字・ハイフン。
 
 ---

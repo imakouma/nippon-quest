@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { completeNewGameSetup } from './newGame';
 
 test('起動コンテンツの初回読込に失敗しても、画面から再試行できる', async ({ page }) => {
   let bundleAttempts = 0;
@@ -28,7 +29,7 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
 
 test('ゲームSceneの初回読込に失敗しても、入力を保って再試行できる', async ({ page }) => {
   let failedOnce = false;
-  await page.route(/\/assets\/(?:Overworld|Battle)-.+\.js$/, async (route) => {
+  await page.route(/\/assets\/(?:overworld|battle)-.+\.js$/i, async (route) => {
     if (!failedOnce) {
       failedOnce = true;
       await route.abort('failed');
@@ -40,7 +41,7 @@ test('ゲームSceneの初回読込に失敗しても、入力を保って再試
   await page.goto('/');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 2/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
+  await completeNewGameSetup(page, 'リトライ');
 
   const retry = page.getByRole('button', { name: 'もういちど' });
   await expect(retry).toBeVisible({ timeout: 20_000 });

@@ -39,16 +39,24 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
     onSelect(i);
   };
 
+  // セーブ確認の完了後に「つづきから」が無効へ切り替わっても、カーソルを
+  // 無効な項目に残さない。キーボード操作でも選択できない状態を保つ。
+  useEffect(() => {
+    if (!items[cursor]?.disabled) return;
+    const firstEnabled = items.findIndex((item) => !item.disabled);
+    if (firstEnabled >= 0) setCursor(firstEnabled);
+  }, [cursor, items]);
+
   const live = useRef({ cursor, choose });
   live.current = { cursor, choose };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const k = e.key;
       if (k === 'ArrowUp' || k === 'ArrowDown') {
-        const next = Math.max(
-          0,
-          Math.min(items.length - 1, live.current.cursor + (k === 'ArrowUp' ? -1 : 1)),
-        );
+        const direction = k === 'ArrowUp' ? -1 : 1;
+        let next = live.current.cursor + direction;
+        while (next >= 0 && next < items.length && items[next]?.disabled) next += direction;
+        if (next < 0 || next >= items.length) next = live.current.cursor;
         if (next !== live.current.cursor) {
           playSfx('move');
           setCursor(next);
@@ -76,10 +84,12 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
             key={it.label}
             type="button"
             role="menuitem"
+            disabled={it.disabled}
             aria-disabled={it.disabled}
             class={`nq-title-opt ${cursor === i ? 'nq-focus' : ''} ${it.disabled ? 'nq-off' : ''} ${chosen === i ? 'nq-chosen' : ''}`}
-            onPointerEnter={() => cursor !== i && setCursor(i)}
+            onPointerEnter={() => !it.disabled && cursor !== i && setCursor(i)}
             onClick={() => {
+              if (it.disabled) return;
               setCursor(i);
               choose(i);
             }}

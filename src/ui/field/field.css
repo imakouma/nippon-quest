@@ -26,7 +26,7 @@
   line-height: 36px;
   transition: opacity 0.2s steps(4);
 }
-/* 歩いている あいだは 左上の 窓を かくす（止まると 出る。地図を 広く 見せる） */
+/* 歩いているあいだは場所名だけをかくす。ミニマップは常に見える・開ける状態にする。 */
 .nq-fhud-away {
   opacity: 0;
 }

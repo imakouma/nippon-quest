@@ -17,19 +17,19 @@ Node 20 以上、pnpm 10 以上。`pnpm dev` でタイトル画面、`http://loc
 
 ## よく使うコマンド
 
-| コマンド                     | 何をするか                                                                                                                                 | 誰が使うか                 |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
-| `pnpm dev`                   | 開発サーバ起動                                                                                                                             | 全員                       |
-| `pnpm validate:content`      | **content/ の JSON を検証**（スキーマ・id 重複・参照切れ・画像の有無）                                                                     | 問題作成者・コンテンツ担当 |
-| `pnpm test`                  | ユニットテスト（582 件、現在値は実行結果を正とする）                                                                                       | 開発者                     |
-| `pnpm test:e2e`              | ブラウザで通しテスト                                                                                                                       | 開発者                     |
-| `pnpm lint` / `pnpm format`  | Lint / 整形                                                                                                                                | 開発者                     |
-| `pnpm gen:schemas`           | Zod → JSON Schema を再生成（エディタ補完用）                                                                                               | 契約を変えたとき           |
-| `pnpm gen:manifest`          | content のファイル一覧を再生成（dev/build/test 時は自動）                                                                                  | 自動                       |
-| `pnpm scaffold:area <県id>`  | 都道府県ファイルの雛形を作る                                                                                                               | コンテンツ担当             |
-| `pnpm gen:terrain`           | 実在の地理（県境・海岸線・湖・標高）から地形データ `scripts/data/terrain.json` を作る（初回だけネット接続）                                | 地図を変えたいとき         |
-| `pnpm scaffold:maps --force` | 地形データと `scripts/data/geo.ts`（町・名所・港の位置）から `maps/`・`public/maps/` と にほんちずの地図 `public/worldmap.json` を作り直す | 地図を変えたいとき         |
-| `pnpm check`                 | lint → test → validate → build を一括                                                                                                      | コミット前・CI             |
+| コマンド                     | 何をするか                                                                                                                 | 誰が使うか                 |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `pnpm dev`                   | 開発サーバ起動                                                                                                             | 全員                       |
+| `pnpm validate:content`      | **content/ の JSON を検証**（スキーマ・id 重複・参照切れ・画像の有無）                                                     | 問題作成者・コンテンツ担当 |
+| `pnpm test`                  | ユニットテスト（582 件、現在値は実行結果を正とする）                                                                       | 開発者                     |
+| `pnpm test:e2e`              | ブラウザで通しテスト                                                                                                       | 開発者                     |
+| `pnpm lint` / `pnpm format`  | Lint / 整形                                                                                                                | 開発者                     |
+| `pnpm gen:schemas`           | Zod → JSON Schema を再生成（エディタ補完用）                                                                               | 契約を変えたとき           |
+| `pnpm gen:manifest`          | content のファイル一覧を再生成（dev/build/test 時は自動）                                                                  | 自動                       |
+| `pnpm scaffold:area <県id>`  | 都道府県ファイルの雛形を作る                                                                                               | コンテンツ担当             |
+| `pnpm gen:terrain`           | 実在の地理（県境・海岸線・湖・標高）から地形データ `scripts/data/terrain.json` を作る（初回だけネット接続）                | 地図を変えたいとき         |
+| `pnpm scaffold:maps --force` | 地形データと `scripts/data/geo.ts`（町・名所・港の位置）から `maps/` と にほんちずの地図 `public/worldmap.json` を作り直す | 地図を変えたいとき         |
+| `pnpm check`                 | lint → test → validate → build を一括                                                                                      | コミット前・CI             |
 
 ---
 
@@ -59,7 +59,8 @@ Node 20 以上、pnpm 10 以上。`pnpm dev` でタイトル画面、`http://loc
 
 ```
 docs/            ← 仕様書一式。AI に読ませる「正」。まずここを読む
-.agent/rules/    ← Antigravity の常時ルール（境界を守らせる）
+.agent/rules/    ← プロジェクト固有の必須ルール
+AGENTS.md        ← AI・開発者向けの構造マップと編集境界
 content/         ★ 問題作成者・コンテンツ担当の領域（JSON だけ。コード禁止）
   world/japan.json      10島47県の定義と攻略順
   prefectures/*.json    47県ぶん（ぜんぶ実データ。青森だけイベント・ミッションが多め）
@@ -79,6 +80,7 @@ src/
     contracts.ts   ★★ 3者の契約。ここが設計の心臓
     engine/        出題選択（アダプティブ）・習熟度・ask()
     renderers/     ★★ UI担当の主戦場（1タイプ1フォルダ）
+  rendering/     ← Sceneに依存しない共通描画・仮ドット絵生成
   scenes/        ← Phaser の Scene
   ui/            ← ふりがな・DOM オーバーレイ
 tests/           ← ユニット 582 件 + E2E（件数は増えるため実行結果を正とする）

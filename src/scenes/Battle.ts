@@ -19,10 +19,8 @@ import { comboBonus } from '../core/battle/damage';
 import {
   act,
   battleSkills,
-  canAfford,
   createBattle,
   isHeroReady,
-  makeCompanion,
   type BattleDeps,
   type BattleSkill,
 } from '../core/battle/engine';
@@ -35,7 +33,7 @@ import { settleBattleBag } from '../core/progression/battleSettlement';
 import { specialtyIndex, withSpecialtyDrops } from '../core/progression/specialty';
 import { createRng, freshSeed } from '../core/rng';
 import type { GameState } from '../core/state/schema';
-import { scoreBand, type Grade, type QuestionQuery } from '../questions/contracts';
+import { scoreBand, type QuestionQuery } from '../questions/contracts';
 import { filterCandidates, MasteryStore, type QuestionBank } from '../questions/engine';
 import { BattleHud } from '../ui/battle/BattleHud';
 import {
@@ -76,7 +74,15 @@ import {
   slashSheet,
   type BackdropKind,
 } from '../rendering/battle/pixelArt';
-import { buildAllyViews, buildEnemyView, buildGaugeViews } from './battle/hudViews';
+import {
+  buildAllyViews,
+  buildCommandOptions,
+  buildEnemyView,
+  buildGaugeViews,
+  buildItemOptions,
+  buildSkillOptions,
+  buildSwapOptions,
+} from './battle/hudViews';
 import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 import { battleSummary, defeatResultView, victoryResultView } from './battle/resultView';
 import { questionQueryForSkill, recruitQuestionQuery } from './battle/questionQueries';
@@ -186,6 +192,8 @@ export class BattleScene extends Phaser.Scene {
   private cmdCursor = 0;
   /** シーンが おわった あと（もう さわらない） */
   private stopped = false;
+  /** 例外後の終了処理を一度だけ行う。 */
+  private recovering = false;
 
   constructor() {
     super('Battle');
@@ -220,6 +228,7 @@ export class BattleScene extends Phaser.Scene {
     this.stepped = false;
     this.cmdCursor = 0;
     this.stopped = false;
+    this.recovering = false;
   }
 
   create(): void {
@@ -270,8 +279,7 @@ export class BattleScene extends Phaser.Scene {
     window.addEventListener('focus', this.onVisible);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.teardown());
     void this.run().catch((e: unknown) => {
-      console.error('[battle] 進行中にエラー', e);
-      void this.leave('fled', 0);
+      void this.recoverFromError('進行中', e);
     });
   }
 
@@ -598,72 +606,33 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private itemOptions(): ItemOption[] {
-    return Object.entries(this.state.ally.items).flatMap(([id, n]) => {
-      const it = this.content.items.get(id);
-      if (!it || n <= 0 || it.kind !== 'consumable' || !it.use) return [];
-      return [{ id, name: it.name, count: n, blurb: it.blurb, icon: itemIconUrl(it) }];
-    });
+    return buildItemOptions(this.state, this.content);
   }
 
   private swapOptions(): SwapOption[] {
-    const a = this.state.ally;
-    return a.monsters.map((m, i) => ({
-      index: i,
-      name: m.name,
-      level: m.level,
-      hp: m.hp,
-      maxHp: m.stats.hp,
-      element: m.element,
-      passive: makeCompanion(m, this.deps)?.passiveSkill?.subject,
-      disabled: i === a.activeMonsterIndex || m.hp <= 0,
-      active: i === a.activeMonsterIndex,
-    }));
+    return buildSwapOptions(this.state, this.deps);
   }
 
   /** 必殺技の一覧（主人公・オトモの わざ・教科の 固有スキル）。教科ゲージが たりない 必殺技は 打てない */
   private skillOptions(): SkillOption[] {
-    const s = this.state;
-    return battleSkills(s, this.deps).map(({ skill: sk, actorId }) => {
-      const noQuestion = !this.hasQuestion(sk);
-      return {
-        key: `${actorId}:${sk.id}`,
-        id: sk.id,
-        actorId,
-        by: actorId === s.ally.hero.id ? undefined : this.nameOf(actorId),
-        name: sk.name,
-        subject: sk.subject,
-        gradeRange: this.queryFor(sk).gradeRange,
-        element: sk.element,
-        stars: sk.gauge,
-        cost: sk.costGauge,
-        have: s.player.subjectGauges[sk.subject],
-        effect: sk.effect,
-        flavor: sk.flavor,
-        disabled: noQuestion || !canAfford(s, sk),
-        reason: noQuestion ? t('battle.preparing') : undefined,
-      };
+    return buildSkillOptions({
+      state: this.state,
+      deps: this.deps,
+      queryFor: (skill) => this.queryFor(skill),
+      hasQuestion: (skill) => this.hasQuestion(skill),
+      nameOf: (id) => this.nameOf(id),
+      preparingLabel: t('battle.preparing'),
     });
   }
 
   private commandOptions(): CommandOption[] {
-    const s = this.state;
-    const skills = battleSkills(s, this.deps);
-    // ゲージを 使う 必殺技が 打てるように なったら、必殺技の コマンドを 光らせる
-    const special = skills.some(
-      ({ skill: sk }) => sk.costGauge > 0 && canAfford(s, sk) && this.hasQuestion(sk),
-    );
-    const list: CommandOption[] = [
-      { kind: 'attack', disabled: false },
-      { kind: 'skill', disabled: skills.length === 0, glow: special },
-      { kind: 'item', disabled: this.itemOptions().length === 0 },
-      {
-        kind: 'swap',
-        disabled: !s.ally.monsters.some((m, i) => i !== s.ally.activeMonsterIndex && m.hp > 0),
-      },
-      { kind: 'flee', disabled: false },
-    ];
-    if (this.canRecruit()) list.push({ kind: 'recruit', disabled: false, glow: true });
-    return list;
+    return buildCommandOptions({
+      state: this.state,
+      deps: this.deps,
+      hasQuestion: (skill) => this.hasQuestion(skill),
+      itemCount: this.itemOptions().length,
+      canRecruit: this.canRecruit(),
+    });
   }
 
   private nameOf(id: string): string {
@@ -810,7 +779,7 @@ export class BattleScene extends Phaser.Scene {
       this.state = state;
       await this.enqueue(events);
     } catch (e) {
-      console.error('[battle] ターンの すすめかたで エラー', e);
+      await this.recoverFromError('ターンの すすめかた', e);
     } finally {
       this.busy = false;
       this.showCommands();
@@ -884,7 +853,7 @@ export class BattleScene extends Phaser.Scene {
     try {
       await this.execute(intent);
     } catch (e) {
-      console.error('[battle] 行動中に エラー', e);
+      await this.recoverFromError('行動中', e);
     } finally {
       this.busy = false;
       this.showCommands();
@@ -1677,6 +1646,26 @@ export class BattleScene extends Phaser.Scene {
   }
 
   // ───────────────────────── 終了 ─────────────────────────
+
+  /** 途中まで進んだ状態で操作へ戻さず、安全にフィールドへ退避する。 */
+  private async recoverFromError(context: string, error: unknown): Promise<void> {
+    console.error(`[battle] ${context}で エラー`, error);
+    if (this.recovering || this.stopped) return;
+    this.recovering = true;
+    this.phase = 'over';
+    this.busy = true;
+    this.abort?.abort();
+    this.hud.set({ result: null, message: null, menu: 'none', question: null, turn: null });
+    try {
+      await this.leave('fled', 0);
+    } catch (leaveError) {
+      console.error('[battle] エラーから戻れませんでした', leaveError);
+      if (!this.stopped) {
+        this.scene.stop();
+        this.game.events.emit('battle:end', { outcome: 'fled', goldLost: 0 } satisfies BattleEndPayload);
+      }
+    }
+  }
 
   private async finish(): Promise<void> {
     const s = this.state;
