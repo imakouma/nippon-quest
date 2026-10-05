@@ -50,8 +50,6 @@ const EFFECT_HINT = {
   status: 'battle.statusHint',
 } as const;
 
-// ───────────────────────── 小さな部品 ─────────────────────────
-
 type BarKind = 'hp' | 'mp' | 'xp' | 'cmd' | 'time';
 
 function Bar({ value, max, kind }: { value: number; max: number; kind: BarKind }) {
@@ -76,8 +74,6 @@ function Heart({ broken = false }: { broken?: boolean }) {
 function TurnBadge({ turn, class: cls }: { turn: number; class: string }) {
   return <span class={`nq-turn ${cls}`}>{t('battle.turn', { n: turn })}</span>;
 }
-
-// ───────────────────────── 上の窓：てき・なかま ─────────────────────────
 
 function EnemyWindow({ e }: { e: EnemyView }) {
   return (
@@ -196,8 +192,6 @@ function ComboBadge({ c }: { c: HudState['combo'] }) {
     </div>
   );
 }
-
-// ───────────────────────── メニュー ─────────────────────────
 
 interface Option {
   key: string;
@@ -485,8 +479,6 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
     </div>
   );
 }
-
-// ───────────────────────── 演出（わざの名前・できばえ・数字） ─────────────────────────
 
 function Banner({ b }: { b: BannerView }) {
   if (b.kind === 'skill')
