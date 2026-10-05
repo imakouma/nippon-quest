@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamagata-ryuo-koma",
+  "name": "リュウオウコマ",
+  "area": "yamagata",
+  "motifId": "shogi-koma",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 54,
+    "mp": 12,
+    "atk": 14,
+    "def": 13,
+    "spd": 7,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 7.2,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.8,
+    "spd": 0.7,
+    "wis": 1.3
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.yamagata-ryuo-koma",
+  "dexBlurb": "ショウギコマンダーが 成[な]った すがた。将棋[しょうぎ]の 飛車[ひしゃ]が 成[な]ると「竜王[りゅうおう]」に なる。"
+}

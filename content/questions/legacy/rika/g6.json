@@ -1,0 +1,6867 @@
+[
+  {
+    "id": "legacy.rika.g6.sci-6-1.2c883f99756a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "気体検知管を用いて、ものを燃やす前と後での、空気中の酸素の体積の割合を調べた。この結果から分かることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ものを燃やすと、空気中の酸素の割合が減った。"
+        },
+        {
+          "id": "c2",
+          "text": "ものを燃やすと、空気中の酸素の割合が増えた。"
+        },
+        {
+          "id": "c3",
+          "text": "ものを燃やしても、空気中の酸素の割合は変わらない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/db63a47c62466929.png"
+    },
+    "explanation": "空気中の酸素の割合が 21% から 17 % になっている。このことから、ものを燃やすと、空気中の酸素の割合が減ったということがわかる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.51f7e741e14c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物からできたものを燃やしたときの空気の変化について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "紙・二酸化炭素・炭・灰"
+        },
+        {
+          "id": "c2",
+          "text": "鉄"
+        },
+        {
+          "id": "c3",
+          "text": "酸素"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8448145ff6f8b539.png"
+    },
+    "explanation": "木や（紙）などの植物からできたものが燃えると、（二酸化炭素）が発生する。これらが燃えた後には、黒っぽい（炭）や、白っぽい（灰）が残る。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.53c7c779cc2c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "気体検知管を用いて、ものを燃やす前と後での、空気中の二酸化炭素の体積の割合を調べた。この結果から分かることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ものを燃やすと、空気中の二酸化炭素の割合が増えた。"
+        },
+        {
+          "id": "c2",
+          "text": "ものを燃やすと、空気中の二酸化炭素の割合が減った。"
+        },
+        {
+          "id": "c3",
+          "text": "ものを燃やしても、空気中の二酸化炭素の割合は変わらない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/560ec6b0c66a3655.png"
+    },
+    "explanation": "空気中の二酸化炭素の割合が 0.04 % から 4 % になっている。このことから、ものを燃やすと、空気中の二酸化炭素の割合が増えたということがわかる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.6afb9eafce2b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "バーベキューなどでまきを燃やすときに、うちわであおぐことがある。この理由として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "新しい空気を送って、よく燃えるようにするため。"
+        },
+        {
+          "id": "c2",
+          "text": "火が大きくなりすぎないように、いきおいを弱くするため。"
+        },
+        {
+          "id": "c3",
+          "text": "火を消すため。"
+        },
+        {
+          "id": "c4",
+          "text": "かまどが熱くなりすぎないように、冷ますため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/274fd87f684cd44c.png"
+    },
+    "explanation": "新しい空気にふれることで、ものはよく燃える。そのためバーベキューなどでまきを燃やすときには、下からうちわであおいで新しい空気を送ることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.85914b947505",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気中の気体のうち、ものを燃やすのを助けるはたらきがある気体はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素"
+        },
+        {
+          "id": "c2",
+          "text": "ちっ素"
+        },
+        {
+          "id": "c3",
+          "text": "二酸化炭素"
+        },
+        {
+          "id": "c4",
+          "text": "水じょう気"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "酸素には、ものを燃やすのを助けるはたらきがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.8dab2305003b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ものが燃える前と後の、空気中の気体の体積の割合について、A～C に当てはまる気体をそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ちっ素・酸素・二酸化炭素"
+        },
+        {
+          "id": "c2",
+          "text": "水蒸気"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e57d578a5837933c.png"
+    },
+    "explanation": "A：ちっ素 B：酸素 C：二酸化炭素"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.a12ddd07c998",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石せっ灰かい水すいの性質として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "二酸化炭素にふれると白くにごる。"
+        },
+        {
+          "id": "c2",
+          "text": "ものを燃やすはたらきがある。"
+        },
+        {
+          "id": "c3",
+          "text": "水よう液の性質によって黄色や青色に変わる。"
+        },
+        {
+          "id": "c4",
+          "text": "空気中の気体の体積を調べることができる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "石灰水は、二酸化炭素にふれると白くにごる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.aaba77afde6f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火のついたアルコールランプにふたをかぶせると、火が消える。この理由として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空気の出入りがなくなるから。"
+        },
+        {
+          "id": "c2",
+          "text": "酸素がたくさん送り込まれるから。"
+        },
+        {
+          "id": "c3",
+          "text": "アルコールがなくなるから。"
+        },
+        {
+          "id": "c4",
+          "text": "空気がなくなるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4ef56ea4c113e031.png"
+    },
+    "explanation": "ものが燃え続けるためには、新しい空気にふれることが必要。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.acbc71cd514c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ものの燃え方と空気の動きについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空気・新しい・よく燃え続ける・燃えなくなる"
+        },
+        {
+          "id": "c2",
+          "text": "同じ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "（空気）が入れかわって、（新しい）空気にふれることで、ものは（よく燃え続ける）。空気が入れかわらないところでは、ものは（燃えなくなる）。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.c5d8b662956f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気中の酸素や二酸化炭素の 体積の割合を調べることのできる図のような装そう置ちを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気体検知管"
+        },
+        {
+          "id": "c2",
+          "text": "石灰水"
+        },
+        {
+          "id": "c3",
+          "text": "集気びん"
+        },
+        {
+          "id": "c4",
+          "text": "ガスボンベ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f06e6975a95af320.png"
+    },
+    "explanation": "空気中の酸素や二酸化炭素の 体積の割合を調べることのできる図のような装置を、気体検知管という。 機械などで検査して知ることを、検知という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.c8dd7328abb6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の A～C のような集気びんの中に火のついたろうそくをいれたところ、B だけすぐに火が消えてしまった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空気が入れかわらないから。"
+        },
+        {
+          "id": "c2",
+          "text": "集気びんの下から、つめたい空気が入るから。"
+        },
+        {
+          "id": "c3",
+          "text": "ふたに水がついて、ろうそくに落ちるから。"
+        },
+        {
+          "id": "c4",
+          "text": "集気びんにすき間が空いていないから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cc5f1b2897eb2722.png"
+    },
+    "explanation": "新しい空気にふれることで、ものは燃え続ける。空気が入れかわらないところでは、ものは燃えなくなる。B では、集気びんの中の空気が入れかわらないので、ろうそくの火はすぐに消える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.e11aec13cb01",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の A～C のような集気びんに線香を近づけると、線香のけむりはどうなるでしょう。それぞれ正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "集気びんの中に上から入り、上から出ていく。・集気びんの中には入らない。・集気びんの中に下から入り、上から出ていく。"
+        },
+        {
+          "id": "c2",
+          "text": "集気びんの中に上から入り、下から出ていく。"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/60ec961a25138603.png"
+    },
+    "explanation": "A：集気びんの中に上から入り、上から出ていく。 B：集気びんの中には入らない。 C：集気びんの中に下から入り、上から出ていく。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.e17bbc6674a9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、酸素でいっぱいにした集気びんの中に火のついたろうそくを入れたところ、はじめはよく燃えていたが、しばらくすると消えてしまった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火はすぐに消える。"
+        },
+        {
+          "id": "c2",
+          "text": "はじめはよく燃え、しばらくすると消える。"
+        },
+        {
+          "id": "c3",
+          "text": "おだやかに燃え続ける。"
+        },
+        {
+          "id": "c4",
+          "text": "激しく燃える。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a78a5ba350f25591.png"
+    },
+    "explanation": "ろうそくが燃えるとき、集気びんの中では酸素がつかわれ、二酸化炭素が発生する。はじめは酸素がたくさんあるのでよく燃えるが、だんだん集気びんの中の酸素が減り、しばらくすると火は消える。 このびんの中に新しく火のついたろうそくを入れても、びんの中は二酸化炭素の割合が多くなっているので、火はすぐに消える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-1.ff109f778631",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "集気びんの中に石灰水をいれ、ろうそくを燃やす前と後の空気を調べた。この実験の結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変化しなかった・白くにごった・二酸化炭素"
+        },
+        {
+          "id": "c2",
+          "text": "酸素"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d0f75d7b926d9ef1.png"
+    },
+    "explanation": "ろうそくを燃やす前の空気では、石灰水は（変化しなかった）が、ろうそくを燃やした後の空気では、石灰水は（白くにごった） 。このことから、ろうそくを燃やすと（二酸化炭素）ができることが分かった。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.2c209c1852c8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "蓄電・コンデンサー"
+        },
+        {
+          "id": "c2",
+          "text": "発電"
+        },
+        {
+          "id": "c3",
+          "text": "発光ダイオード"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/80cd42d30d840495.png"
+    },
+    "explanation": "電気をたくわえることを（蓄ちく電でん）もしくはじゅう電という。A のような（コンデンサー）を使うと、つくった電気をためることができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.43484c1b7bf9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "光を当てると発電する図のようなそうちを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "光電池"
+        },
+        {
+          "id": "c2",
+          "text": "かん電池"
+        },
+        {
+          "id": "c3",
+          "text": "コンデンサー"
+        },
+        {
+          "id": "c4",
+          "text": "発光ダイオード"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/88059b4165a713f2.png"
+    },
+    "explanation": "光を当てると発電する図のようなそうちを、光電池こうでんちという。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.4d0e18cf5711",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気を使う量を少なくするためのくふうについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "暗・人が近づいた・明る・人がいない"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/89c8a4c3c14eddfd.jpg"
+    },
+    "explanation": "家の外にある電灯には、夜に人が近づいたときにだけ電気がつくものがある。この電灯には明るさセンサーと人感センサーがついていて、 外が（暗）く、 （人が近づいた）ときに電気をつけるというプログラムによって動作している。外が（明る）いときや、（人がいない）ときには電気はつかない。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.63d970284d87",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の電気製品は、電気を 光・音・熱・運動 のどれに変えて使っているでしょう。正しいものをそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "光・音・運動・熱"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電灯：光 スピーカー：音 せんぷう機：運動 アイロン：熱"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.7120e72536af",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "手回し発電機をモーターにつないで、ハンドルを回したときのようすを調べた。次の②〜④のときのモーターの動きとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①より速く回る・①とは逆向きに回る・①とは逆向きに速く回る"
+        },
+        {
+          "id": "c2",
+          "text": "①と同じように回る"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f137fb8e1ae7b5d.png"
+    },
+    "explanation": "①ハンドルを回しているとき：モーターが回る ②ハンドルを速く回したとき：①より速く回る ③ハンドルを逆向きに回したとき：①とは逆向きに回る ④ハンドルを逆向きに速く回したとき：①とは逆向きに速く回る 手回し発電機のハンドルを回す向きを逆にすると電流の向きが変わり、ハンドルを回す速さを変えると電流の大きさが変わる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.ae23e3182d63",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の電気製品は、電気を 光・音・熱・運動 のどれに変えて使っているでしょう。正しい組み合わせをそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱と運動・光と音・光と音と運動・熱と光"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ドライヤー：熱と運動 テレビ：光と音 スマートフォン：光と音と運動 電気ストーブ：熱と光"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.be7239b411ed",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "発光ダイオード・少ない"
+        },
+        {
+          "id": "c2",
+          "text": "豆電球"
+        },
+        {
+          "id": "c3",
+          "text": "多い"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/13d6604d65aac7ff.png"
+    },
+    "explanation": "コンデンサーにためた電気を使って、豆電球と発光ダイオードを光らせて、それぞれ光り続ける時間を調べたところ、（発光ダイオード）のほうが長い時間光った。これは、発光ダイオードのほうが豆電球よりも使う電気の量が（少ない）からである。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.c4d4e302d846",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "手回し発電機の特ちょうについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "回している・回していない・向き・量"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3baf8a67633f5f09.png"
+    },
+    "explanation": "手回し発電機のハンドルを（回している）ときに電気が流れ、（回していない）ときは電気は流れない。ハンドルを回す向きを逆にすると電流の（向き）が変わり、ハンドルを回す速さを変えると電流の（大きさ）が変わる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.ce756f4ff36f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "光電池をモーターにつないで、日光をあてたときのようすを調べた。次の②〜④のときのモーターの動きとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①とは逆向きに回る・①より速く回る・①よりゆっくりと回る"
+        },
+        {
+          "id": "c2",
+          "text": "①と同じように回る"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/82653cfe7fb147b2.png"
+    },
+    "explanation": "①日光に当てているとき：モーターが回る ②光電池をつなぐ向きを逆にしたとき：①とは逆向きに回る ③光を強くしたとき：①より速く回る ④光を弱くしたとき：①よりゆっくりと回る"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.e0744a456f7a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気を使う量を少なくするためのくふうについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "画面の明るさ・電源を消す"
+        },
+        {
+          "id": "c2",
+          "text": "電源をつける"
+        },
+        {
+          "id": "c3",
+          "text": "チャンネル"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "テレビには、明るさセンサーがついていて、部屋の明るさに合わせて（画面の明るさ）を自動で変えたり、何も操作せずに一定の時間が経つと（電源を消す）など、電気を使う量を少なくするくふうがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.e742537d2673",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "光電池の特ちょうについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "光があたっている・光があたっていない・大きさ"
+        },
+        {
+          "id": "c2",
+          "text": "向き"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/82653cfe7fb147b2.png"
+    },
+    "explanation": "光電池に（光があたっている）ときには電気が流れ、（光があたっていない）ときには電気は流れない。光の強さを変えると電流の（大きさ）が変わる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-10.fbbc87e3e543",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "発電所での発電のしくみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "発電機・風車・水車・水蒸気"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "発電所では、（発電機）を回すことで電気を生み出している。風力発電では、（風車）を回して発電機を回す。水力発電では、（水車）を回して発電機を回す。火力発電、原子力発電、地熱発電では、それぞれの熱でつくった（水蒸じょう気）の勢いでタービン（羽根車）を回して発電している。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.06018759107a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "口からこう門までの、食べ物の通り道を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消化管"
+        },
+        {
+          "id": "c2",
+          "text": "消化器官"
+        },
+        {
+          "id": "c3",
+          "text": "消化液"
+        },
+        {
+          "id": "c4",
+          "text": "食道"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "口から食道、胃、小腸、大腸、こう門までは、１本の管のようにつながっていて、これを消化管という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.2173698a98f1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液によるでんぷんの変化を調べるため、次の実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷんの液にだ液を入れると、でんぷんがなくなった。"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷんの液に水をいれると、でんぷんがなくなった。"
+        },
+        {
+          "id": "c3",
+          "text": "でんぷんの液を40℃の湯の中で5分温めると、でんぷんがなくなった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8486319b595efb08.png"
+    },
+    "explanation": "Aにはうすいでんぷんの液とだ液を入れたが、ヨウ素液は変化しなかった。一方、Bは青むらさき色になったので、水を入れたり、40℃の湯で温めたりしてもでんぷんはなくならないことがわかる。このことから、Aにはだ液を入れたことによって、でんぷんがなくなったと言える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.220ec932bfb0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷんを別のものに変える。"
+        },
+        {
+          "id": "c2",
+          "text": "酸素や二酸化炭素を全身にはこぶ。"
+        },
+        {
+          "id": "c3",
+          "text": "食べ物にふくまれている養分を吸収する。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "だ液には、でんぷんをあまく感じる別のものに変えるはたらきがある。そのため、ごはんをかんでいると、だんだんあまく感じる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.2876b85e3359",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "肺のはたらきについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "肺ほう・毛細血管・酸素・二酸化炭素"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c06eec548dd2e99f.png"
+    },
+    "explanation": "気管は、肺の中で細かく枝分かれしていて、その先には、A（肺ほう）という小さなふくろがある。A のまわりには、 B（毛細血管）という細かい血管が取り巻いている。A では、（酸素）を Bに取り入れ、（二酸化炭素）が B から取り出されている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.2e5ca6170ab2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "わたしたちが食べたものは、歯でかみくだかれて細かくなったり、体に吸収されやすいものに変えられたりする。このはたらきを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "呼吸"
+        },
+        {
+          "id": "c2",
+          "text": "成長"
+        },
+        {
+          "id": "c3",
+          "text": "消化"
+        },
+        {
+          "id": "c4",
+          "text": "はい出"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "わたしたちが食べたものは、歯でかみくだかれて細かくなったり、体に吸収されやすいものに変えられたりする。このはたらきを消化という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.421bf020ad50",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人が、空気を吸ったり、息をはき出すのは何のためでしょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素・二酸化炭素・呼吸"
+        },
+        {
+          "id": "c2",
+          "text": "ちっ素"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "空気中の（酸素）の一部を取り入れ、（二酸化炭素）を体内から出して、（呼吸）を行うため。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.5c58c7cd2e5e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "全身でできた二酸化炭素のゆくえについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "肺・二酸化炭素・血液・気管"
+        },
+        {
+          "id": "c2",
+          "text": "酸素"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d424426ca362e104.png"
+    },
+    "explanation": "全身から D（肺）に運ばれた（二酸化炭素）は、D で（血液）から出され、C（気管）を通って、はなや口からはく息として出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.626a909d4988",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "養分・血液・全身"
+        },
+        {
+          "id": "c2",
+          "text": "酸素"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小腸で吸収された（養分）は、（血液）の中に入り、（全身）に運ばれて、生きるために使われる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.6a84e9c5b4a7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "呼吸に関わる人の体のつくりについて、A〜Dに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はな・口・気管・肺"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d424426ca362e104.png"
+    },
+    "explanation": "A：はな B：口 C：気管 D：肺はい"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.78dc1a684dfc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食べ物にふくまれていた養分は、消化されたあと、主にどこで吸収されるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小腸"
+        },
+        {
+          "id": "c2",
+          "text": "胃"
+        },
+        {
+          "id": "c3",
+          "text": "口"
+        },
+        {
+          "id": "c4",
+          "text": "大腸"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/65c1472541743ccb.png"
+    },
+    "explanation": "食べ物にふくまれていた養分は、消化されたあと、小腸で吸収される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.8a05528aaf87",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヨウ素液について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・青むらさき"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素"
+        },
+        {
+          "id": "c3",
+          "text": "白"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヨウ素液は、（でんぷん）と反応すると、（青むらさき）色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.a44466a59382",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "吸った空気のゆくえについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気管・肺・酸素・血液"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d424426ca362e104.png"
+    },
+    "explanation": "はなや口から吸った空気は、C（気管）を通って D（肺）に送られる。D では、空気中の（酸素）の一部が（血液）中に取りこまれて、全身に運ばれる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.aa7f3ee64d92",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液によるでんぷんの変化を調べるため、次の実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Bだけが青むらさき色に変化する。"
+        },
+        {
+          "id": "c2",
+          "text": "Aだけが青むらさき色に変化する。"
+        },
+        {
+          "id": "c3",
+          "text": "AもBも青むらさき色に変化する。"
+        },
+        {
+          "id": "c4",
+          "text": "AもBも変化しない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/10ed6e53a0e2cb57.png"
+    },
+    "explanation": "でんぷんがだ液によって消化されるので、Aはヨウ素液の色が変化せず、Bだけが青むらさき色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.b4ec91450cd3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "吸う空気とはいた空気のちがいを調べるために、図のようにして、吸う空気とはいた空気にふくまれる酸素と二酸化炭素の体積の割合を気体検知管で調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はいた空気は、吸う空気よりも酸素の体積の割合が小さく、二酸化炭素の体積の割合が大きくなった。"
+        },
+        {
+          "id": "c2",
+          "text": "はいた空気は、吸う空気よりも酸素の体積の割合が大きく、二酸化炭素の体積の割合が小さくなった。"
+        },
+        {
+          "id": "c3",
+          "text": "はいた空気と吸う空気との、気体の体積の割合は変わらなかった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a4b9d1e1306ecb33.png"
+    },
+    "explanation": "吸う空気の酸素の体積の割合は 21 % なのに対し、はいた空気の酸素の体積の割合は 17〜18 % に減っている。また、吸う空気の二酸化炭素の体積の割合は 0.03 % なのに対し、はいた空気の二酸化炭素の体積の割合は 3 % に増えている。よって、はいた空気は、吸う空気よりも酸素の体積の割合が小さく、二酸化炭素の体積の割合が大きいことが分かる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.b7900885ecd4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "吸う空気とはいた空気のちがいを調べるために、次のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "二酸化炭素"
+        },
+        {
+          "id": "c2",
+          "text": "酸素"
+        },
+        {
+          "id": "c3",
+          "text": "ちっ素"
+        },
+        {
+          "id": "c4",
+          "text": "水蒸気"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "石灰水は、二酸化炭素にふれると、白くにごる性質がある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.b8281e87c6a4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "じゅう毛・毛細血管"
+        },
+        {
+          "id": "c2",
+          "text": "食道"
+        },
+        {
+          "id": "c3",
+          "text": "消化管"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b43bfd9bb7798efd.png"
+    },
+    "explanation": "小腸の表面には、（じゅう毛）という細かいひだ がたくさんあり、そこに（毛細血管）と呼ばれる細かい血管が通っている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.c1817c2353a6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "肺のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空気中の酸素の一部を血液中にとりこみ、血液中の二酸化炭素を出す。"
+        },
+        {
+          "id": "c2",
+          "text": "血液を全身に送り出す。"
+        },
+        {
+          "id": "c3",
+          "text": "息を吸ったり、はいたりする。"
+        },
+        {
+          "id": "c4",
+          "text": "水中の酸素を取り入れ、水中に二酸化炭素を出している。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "肺では、空気中の酸素の一部を血液中にとりこみ、血液中の二酸化炭素を出している。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.d0e4e8377692",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "肺ほうという小さなふくろがたくさんあることは、どのように役立っているでしょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "表面の面積・大きく・こうかん"
+        },
+        {
+          "id": "c2",
+          "text": "吸収"
+        },
+        {
+          "id": "c3",
+          "text": "小さく"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/776c1ec26de7e0ca.png"
+    },
+    "explanation": "空気にふれる（表面の面積）が（大きく）なるので、酸素と二酸化炭素を、効率よく（こうかん）できるようになる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.d6842b16bbc9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小腸の表面にじゅう毛があることは、どのように役立っているでしょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "表面の面積・大きく・吸収"
+        },
+        {
+          "id": "c2",
+          "text": "消化"
+        },
+        {
+          "id": "c3",
+          "text": "小さく"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小腸の内側の（表面の面積）が（大きく）なるので、養分や水をよく（吸収）できるようになる。じゅう毛の表面の面積を合わせると、大おと人なではテニスコートぐらいの広さになる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.df1353230088",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "胃・小腸・消化・吸収"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c4527bc389e673dc.png"
+    },
+    "explanation": "口で消化された食べ物は、B（胃）や C（小腸）でさらに（消化）され、（吸収）されやすい養分に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.e9aed81fb70c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大腸・水分・こう門"
+        },
+        {
+          "id": "c2",
+          "text": "小腸"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c4527bc389e673dc.png"
+    },
+    "explanation": "食べたもののうち、小腸で吸収されずに残ったものは、D（大腸）でさらに（水分）が吸収され、便として（こう門）から出る。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.e9ff2f399acb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "二酸化炭素・白くにごる"
+        },
+        {
+          "id": "c2",
+          "text": "赤くなる"
+        },
+        {
+          "id": "c3",
+          "text": "酸素"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "石灰水は、（二酸化炭素）にふれると、（白くにごる）性質がある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.eeb269615136",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "口から入った食べ物の通り道について、図のA〜Dに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食道・胃・小腸・大腸"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c4527bc389e673dc.png"
+    },
+    "explanation": "口から入った食べ物は、A（食道）、B（胃）、C（小腸）、D（大腸）を通り、残ったものがこう門から出る。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.f00a11d406bd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液のように、「消化」にかかわる液体を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消化液"
+        },
+        {
+          "id": "c2",
+          "text": "血液"
+        },
+        {
+          "id": "c3",
+          "text": "体液"
+        },
+        {
+          "id": "c4",
+          "text": "水よう液"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "だ液のように、「消化」にかかわる液体を、「消化液」という。消化液は、胃いや小しょう腸ちょうから出されるものもある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.f8c38ef686f8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "わたしたちは、空気を吸すったり、はき出すことで、空気中の酸素の一部を取り入れ、二酸化炭素を体内から出している。このはたらきを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "呼吸"
+        },
+        {
+          "id": "c2",
+          "text": "成長"
+        },
+        {
+          "id": "c3",
+          "text": "消化"
+        },
+        {
+          "id": "c4",
+          "text": "はい出"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "わたしたちは、空気を吸ったり、はき出すことで、空気中の酸素の一部を取り入れ、二酸化炭素を体内から出している。このはたらきを呼こ吸きゅうという。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.fbdfdcfeb228",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液によるでんぷんの変化を調べるため、図のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "口の中の温度と同じくらいにするため"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷんの液をやわらかくするため"
+        },
+        {
+          "id": "c3",
+          "text": "でんぷんの液とだ液が、よく混ざるようにするため"
+        },
+        {
+          "id": "c4",
+          "text": "ヨウ素液は、温度が低いと色が変化しないため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/10ed6e53a0e2cb57.png"
+    },
+    "explanation": "だ液は、温度が低いとはたらかなくなるので、口の中の温度と同じくらいにするために、40℃の湯の中で5分温める。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.ffda55796436",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ごはんつぶをかんでいると、あまく感じるようになった」",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だ液によって、あまく感じる別のものに変化したから。"
+        },
+        {
+          "id": "c2",
+          "text": "歯でかみくだかれて細かくなったから。"
+        },
+        {
+          "id": "c3",
+          "text": "たくさんかむと口がつかれるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "口の中では、「だ液」という消化液が出され、よくかむことでごはんと混ざる。だ液には、ごはんにふくまれるでんぷんを、あまく感じる別のものに変化させるはたらきがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.0467332dc3f0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "全身に血液を送り出すポンプのような役割をしている、体のつくり を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "心臓"
+        },
+        {
+          "id": "c2",
+          "text": "肺"
+        },
+        {
+          "id": "c3",
+          "text": "じん臓"
+        },
+        {
+          "id": "c4",
+          "text": "かん臓"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "全身に血液を送り出すポンプのような役やく割わりをしている、体のつくりを、心しん臓ぞうという。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.16bd961d5353",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "心臓から肺へ送られた血液について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "二酸化炭素・酸素・心臓・全身"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9156fb3fd7161af4.png"
+    },
+    "explanation": "心臓から肺へ送られた血液は、肺で（二酸化炭素）を出し、（酸素）を受け取る。この血液は（心臓）にもどり、再び心臓から（全身）に送り出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.21ad9cdcbae9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "血液中の不要なものをこしだして、血液をきれいにする体のつくりを何というでしょう。正しい言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "じん臓"
+        },
+        {
+          "id": "c2",
+          "text": "ぼうこう"
+        },
+        {
+          "id": "c3",
+          "text": "すい臓"
+        },
+        {
+          "id": "c4",
+          "text": "肺"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "血液中の不要なものをこしだして、血液をきれいにする体のつくりを、じん臓という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.321cdef043ff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "体内でできた不要なもののゆくえについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "じん臓・ぼうこう"
+        },
+        {
+          "id": "c2",
+          "text": "すい臓"
+        },
+        {
+          "id": "c3",
+          "text": "大腸"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c4628eaa08ea5985.png"
+    },
+    "explanation": "A（じん臓）でできた にょうは、しばらく B（ぼうこう）にためられ、その後、体の外に出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.3a6a63f8630d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "血液・はく動・脈はく"
+        },
+        {
+          "id": "c2",
+          "text": "酸素"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "心臓は、全身に（血液）を送り出すポンプのような役割をしている。この心臓の動きを（はく動）といい、はく動が血管を伝わって手首などで感じる動きを、（脈はく）という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.5233962add07",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "呼吸にかかわる臓器と血液の流れについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "肺・心臓・酸素・二酸化炭素"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "空気中の酸素は、A（肺）で血液に取り入れられ、血液は B（心臓）にもどる。B（心臓）から送り出された血液は、全身の臓器や各部分に（酸素）を届け、（二酸化炭素）を受け取って、再び B（心臓）にもどってくる。B（心臓）にもどってきた血液は A（肺）に送られ、血液中の二酸化炭素は、はき出す息によって体の外に出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.6821dd87c0ab",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒト以外の動物にも、消化と吸収に関わるつくりがある。図のA〜Eのつくりをそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "肺・胃・腸・こう門・えら"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/0e9bf82faf8bdca0.png"
+    },
+    "explanation": "A：肺 B：胃 C：腸 D：こう門 E：えら"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.75137293df5d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "消化に関わる臓器について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すい臓・かん臓・養分・たん汁・たんのう"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/0ca5b3eb11fb467a.png"
+    },
+    "explanation": "消化管には、さらにA（すい臓）や B（かん臓）がつながっている。A から出る消化液を、すい液という。B は（養分）を一時的にたくわえる他に、しぼうの消化を助ける（たん汁）をつくるはたらきもしている。B の近くには、C（たんのう）というたん汁をためるふくろがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.786a76b64a62",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカやフナなどの魚は、水中の酸素を取り入れ、水中に二酸化炭素を出して呼吸をしている。魚は、体のどのつくりを使って呼吸をしているでしょう。正しい言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "えら"
+        },
+        {
+          "id": "c2",
+          "text": "肺"
+        },
+        {
+          "id": "c3",
+          "text": "肺ほう"
+        },
+        {
+          "id": "c4",
+          "text": "ひれ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "メダカやフナなどの魚には、肺はない。えらを使って、水中の酸素を取り入れ、水中に二酸化炭素を出して呼吸をしている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.915bbf9c51c1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "臓器・血液"
+        },
+        {
+          "id": "c2",
+          "text": "消化管"
+        },
+        {
+          "id": "c3",
+          "text": "心臓"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "体の中のさまざまなはたらきをするつくりを、A（臓器）という。体の中の A は、（血液）によってたがいにつながり合ってはたらいている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.a4d53abfef87",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "手首に指を当てて脈はくを数えると、１分間に 80 回だった。このとき、ちょうしん器を心臓に当てて心臓のはく動を数えると、１分間に何回のはく動があったでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "80回"
+        },
+        {
+          "id": "c2",
+          "text": "40回"
+        },
+        {
+          "id": "c3",
+          "text": "160回"
+        },
+        {
+          "id": "c4",
+          "text": "100回"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "心臓が全身に血液を送り出すときの動きをはく動といい、このはく動が血管を伝わって、手首などで感じることができる動きを脈はくという。なので、脈はくを数えると１分間に 80 回だったとき、はく動も１分間に 80 回ある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.aa9156ab8edb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の臓器のはたらきとして、正しいものをそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "全身に血液を送り出す。・消化された養分を吸収する。・吸収された養分を一時的にたくわえる。・血液中に酸素を取りこみ、二酸化炭素を出す。"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "心臓：全身に血液を送り出す。 小腸：消化された養分を吸収する。 かん臓：吸収された養分を一時的にたくわえる。 肺：血液中に酸素を取りこみ、二酸化炭素を出す。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.b4cad7be7f8c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "不要物のはい出にかかわる臓器と血液の流れについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "養分・体内でできた不要なもの・じん臓・にょう・心臓"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "血液は、全身に酸素や（養分）を届けるとともに、二酸化炭素や（体内でできた不要なもの）を受け取っている。体内でできた不要なものは、A（じん臓）に運ばれる。A（じん臓）では、不要なものがこしとられ、（にょう）として体の外に出る。きれいになった血液は、再び（心臓）にもどり、全身に送られる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.d3f5a0e39379",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "吸収された養分を一時的にたくわえたり、しぼうの消化を助ける消化液をつくるなど、さまざまなはたらきをする A の臓器を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かん臓"
+        },
+        {
+          "id": "c2",
+          "text": "心臓"
+        },
+        {
+          "id": "c3",
+          "text": "じん臓"
+        },
+        {
+          "id": "c4",
+          "text": "すい臓"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d8e42763151fcce2.png"
+    },
+    "explanation": "吸収された養分を一時的にたくわえたり、しぼうの消化を助ける消化液をつくるなど、さまざまなはたらきをする A の臓器を、かん臓という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.f90d87f1b571",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "体内でできた不要なもののゆくえについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "血液・じん臓・水・にょう"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8b6b8fe353a156ba.png"
+    },
+    "explanation": "体内でできた不要なものは、（血液）によって A（じん臓）に送られる。じん臓では、不要なものが（水）とともにこしとられ、（にょう）ができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-3.ff295856c314",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100・増える"
+        },
+        {
+          "id": "c2",
+          "text": "60"
+        },
+        {
+          "id": "c3",
+          "text": "減る"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "手首に指を当てて脈はくを数えると、１分間に 80 回だった。その後、少し足ぶみをしてから脈はくを数えると、（100）回だった。このことから、軽い運動を行ったとき、心臓が動く回数は（増える）ことがわかる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.037d8afce6ff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉のでんぷんを調べる方法について、正しい順番になるよう A〜D をならべかえよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "D・B・A・C"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5377452a5f9c8918.png"
+    },
+    "explanation": "D → B → A → C 葉を湯につけてやわらかくした後、ろ紙にはさんで木づちでたたき、ろ紙をうすめたヨウ素液につけてでんぷんを調べる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.086af74e9588",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気こう・水蒸気"
+        },
+        {
+          "id": "c2",
+          "text": "水"
+        },
+        {
+          "id": "c3",
+          "text": "道管"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2bef13daa02a11bd.png"
+    },
+    "explanation": "葉の表面の皮をけんび鏡で見ると、図のように小さな穴 A（気こう）があった。根から取り入れられた水は、この小さな穴 A から（水蒸気）となって植物の体の外に出ていく。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.14d11bba72f4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉のはたらきを調べるために、次のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉を日光に当てないようにするため。"
+        },
+        {
+          "id": "c2",
+          "text": "葉によりたくさん日光を当てるため。"
+        },
+        {
+          "id": "c3",
+          "text": "実験に使う葉を虫に食べられないようにするため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6662264df8e8a9c4.png"
+    },
+    "explanation": "葉をアルミニウムはくでおおい、日光を当てないようにする。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.167628db3ac9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "蒸散・根・体全体"
+        },
+        {
+          "id": "c2",
+          "text": "葉"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物の水の通り道では、水はとぎれることなく運ばれている。そのため、葉などで（蒸散）が起こると、次々と（根）から水が吸い上げられる。このように、蒸散は植物の（体全体）に水を届とどけるために大切なはたらきをしている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.226ca88a6c0a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・光合成・養分"
+        },
+        {
+          "id": "c2",
+          "text": "呼吸"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物の葉に日光が当たると、（でんぷん）などの養分がつくられる。このはたらきを（光こう合ごう成せい）という。このように、植物は、生きるための（養分）を自分で作っている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.2bb2dff9932a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物は１日中、酸素を取り入れて、二酸化炭素を出している。このはたらきを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "呼吸"
+        },
+        {
+          "id": "c2",
+          "text": "光合成"
+        },
+        {
+          "id": "c3",
+          "text": "成長"
+        },
+        {
+          "id": "c4",
+          "text": "蒸散"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物は１日中、酸素を取り入れて、二酸化炭素を出している。このはたらきを、呼吸という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.31409ffaea03",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、植物（ホウセンカ）の根を色水にひたし、数時間後の様子を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "染まっている部分があった・根・水"
+        },
+        {
+          "id": "c2",
+          "text": "全体が染まっていた"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1a5ccc38dd305c8d.png"
+    },
+    "explanation": "数時間後、根、くき、葉の断面を観察すると、図のように色水によって（染そまっている部分があった） 。このことから、根、くき、葉には、（根）から取り入れられた（水）が通る管があることが分かった。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.35b9b82c5e34",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉のはたらきを調べるために、次のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6662264df8e8a9c4.png"
+    },
+    "explanation": "ヨウ素液は、でんぷんがあると青むらさき色に変化する。日光によく当てた B の葉にはでんぷんができるので、ヨウ素液が青むらさき色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.46a13945bbb5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・水・養分・いもや種子"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "光合成によって葉にできた（でんぷん）は、（水）にとけやすいものに変化して、体の各部分に運ばれ、生きていくための（養分）として使われたり、（いもや種子）にたくわえられる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.49e138f4f00f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日光によく当てたジャガイモの葉をヨウ素液で調べると、青むらさき色に変わった。このことから、日光によく当てた葉には何があることがわかるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん"
+        },
+        {
+          "id": "c2",
+          "text": "水"
+        },
+        {
+          "id": "c3",
+          "text": "酸素"
+        },
+        {
+          "id": "c4",
+          "text": "二酸化炭素"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヨウ素液で調べると、青むらさき色に変わったことから、でんぷんがあることがわかる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.5354ddf190dc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "根から取り入れられた水のゆくえを調べるために、以下のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根"
+        },
+        {
+          "id": "c2",
+          "text": "くき"
+        },
+        {
+          "id": "c3",
+          "text": "葉"
+        },
+        {
+          "id": "c4",
+          "text": "花"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/040ca26cd94013b4.png"
+    },
+    "explanation": "葉のついた植物 A のふくろの内側は、くもって水てきがついていたが、葉を取った植物 B のふくろの内側にはほとんど水てきがついていなかった。このことから、根から取り入れられた水は、おもに葉から体の外に出たと考えられる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.93e2ed045ae8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の気体の出入りについて、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "植物は夜の間だけ、酸素を取り入れて、二酸化炭素を出している。"
+        },
+        {
+          "id": "c2",
+          "text": "日光が当たっているとき、植物は酸素を出している。"
+        },
+        {
+          "id": "c3",
+          "text": "日光が当たっているとき、植物は二酸化炭素を取り入れている。"
+        },
+        {
+          "id": "c4",
+          "text": "植物が生きていくためには、二酸化炭素が必要である。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物は夜の間だけではなく、昼も夜も１日中、酸素を取り入れて、二酸化炭素を出している。このはたらきを、呼吸という。呼吸のほかに、日光が当たっているとき、植物は二酸化炭素を取り入れて、酸素を出している。このように、植物が生きていくためには、二酸化炭素が必要である。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.97f13d6c3daa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の成長について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・日光"
+        },
+        {
+          "id": "c2",
+          "text": "風"
+        },
+        {
+          "id": "c3",
+          "text": "水"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "発芽した植物は、しばらくの間、種子の中の（でんぷん）をつかって成長する。また、植物は、肥料をあたえたり、（日光）を当てるとよく成長する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.9da3b60d3416",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の気体の出入りを調べるために、次のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素が増えて、二酸化炭素が減った。"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素が増えて、酸素が減った。"
+        },
+        {
+          "id": "c3",
+          "text": "酸素も二酸化炭素も減った。"
+        },
+        {
+          "id": "c4",
+          "text": "酸素も二酸化炭素も増えた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e54c4708dc3d5986.png"
+    },
+    "explanation": "酸素が 17 %から 19 %に増えて、二酸化炭素が 4 %から 2 %に減った。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.9ff0cb574b4e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "一度しおれた植物でも、水をあたえると元にもどることがある。この理由として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根から取り入れられた水が、植物全体に運ばれたから。"
+        },
+        {
+          "id": "c2",
+          "text": "植物全体の表面から、水を吸収したから。"
+        },
+        {
+          "id": "c3",
+          "text": "葉で水を作り出したから。"
+        },
+        {
+          "id": "c4",
+          "text": "日光に当たって元気になったから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水は、植物の根から取り入れられる。根から取り入れられた水は、くき、葉へとつながる細い管を通って、植物全体に運ばれる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.bce0a4e99162",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように植物にふくろをかぶせ、ふくろの中にはいた空気を入れた。この植物を日光に当てずに４時間おいた後、ふくろの中の気体の割合の変化を気体検知管を使って調べたところ、表のような結果になった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素が増えて、二酸化炭素が減った。"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素が増えて、酸素が減った。"
+        },
+        {
+          "id": "c3",
+          "text": "酸素も二酸化炭素も減った。"
+        },
+        {
+          "id": "c4",
+          "text": "酸素も二酸化炭素も増えた。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a49f1e0bb7778ff1.png"
+    },
+    "explanation": "二酸化炭素が 4 %から 5 %に増えて、酸素が 17 %から 16 %に減った。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.d156086c85c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉・水蒸気・蒸散"
+        },
+        {
+          "id": "c2",
+          "text": "くき"
+        },
+        {
+          "id": "c3",
+          "text": "呼吸"
+        },
+        {
+          "id": "c4",
+          "text": "酸素"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "根から取り入れられた水は、おもに（葉）から A（水蒸気）となって出ていく。このように、植物の体から、水が A となって出ていくことを（蒸じょう散さん）という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.e377db731da2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "根から取り入れられた水のゆくえを調べるために、以下のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水蒸気"
+        },
+        {
+          "id": "c2",
+          "text": "酸素"
+        },
+        {
+          "id": "c3",
+          "text": "二酸化炭素"
+        },
+        {
+          "id": "c4",
+          "text": "ちっ素"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2f87a7a677974093.png"
+    },
+    "explanation": "ふくろの内側がくもって、水てきがついていたことから、植物から、水が水すい蒸じょう気きとして出ていたことが分かる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.fbc703b6b9d0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、植物（ホウセンカ）の根を色水にひたし、数時間後の様子を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下がった・根"
+        },
+        {
+          "id": "c2",
+          "text": "葉"
+        },
+        {
+          "id": "c3",
+          "text": "上がった"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9581cd1266362f88.png"
+    },
+    "explanation": "数時間後、水面の位置は（下がった）。このことから、植物は、（根）から水を取り入れることが分かった。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.05331a4cc637",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人と空気との関わりについて、次の説明のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "石油や石炭、天然ガスなどの燃料を燃やすことで、電気をつくっている。"
+        },
+        {
+          "id": "c2",
+          "text": "燃料を燃やすと、呼吸と同じように、酸素が使われ、二酸化炭素が出る。"
+        },
+        {
+          "id": "c3",
+          "text": "大気中の二酸化炭素の増加は、地球温暖化の原因の一つといわれている。"
+        },
+        {
+          "id": "c4",
+          "text": "山の森が減ると、空気中の二酸化炭素が減ることになる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "植物は、光合成によって酸素を出している。よって、山の森が減ると、空気中の二酸化炭素はどんどん増えることになる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.212a7dc95af9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "けんび鏡について、A〜Dを何というでしょう。それぞれ正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "接眼レンズ・対物レンズ・調節ねじ・反しゃ鏡"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/27c50ff69f5df845.png"
+    },
+    "explanation": "A：接眼レンズ B：対物レンズ C：調節ねじ D：反しゃ鏡"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.35761fe4fd2f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、空気を通した生物のつながりを表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "植物が光合成によって出した酸素を、動物が呼吸によって取り入れている。"
+        },
+        {
+          "id": "c2",
+          "text": "植物も動物も、呼吸によって酸素を取り入れ、二酸化炭素を出している。"
+        },
+        {
+          "id": "c3",
+          "text": "日中は、植物が出す二酸化炭素よりも、植物が取り入れる二酸化炭素のほうが多い。"
+        },
+        {
+          "id": "c4",
+          "text": "動物は酸素を出すことができるので、植物がなくても生きていくことができる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/73499ac9da902339.png"
+    },
+    "explanation": "動物は酸素を出すことができないので、植物がなくなると、呼吸に必要な酸素がなくなってしまう。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.36715b75511a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、海の中の食物れんさを表している。このつながりの説明について、かっこに当てはまる生物をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オキアミ・イワシ・カツオ・マグロ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/00481d934df106c5.png"
+    },
+    "explanation": "海の中の小さな生物は A（オキアミ）に食べられる。 A は B（イワシ）に食べられる。B は C（カツオ）に食べられる。C は（マグロ）に食べられる。 水中では、小さな生物を出発点とする食物れんさでつながっている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.3bf796865edb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の中には、次の図のような生物がすんでいる。これらの生物の食物れんさのつながりを、やじるし→を使って表そう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ミカヅキモ・ミジンコ・メダカ・ザリガニ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/88a86e56d3f9a14b.png"
+    },
+    "explanation": "ミカヅキモ → ミジンコ → メダカ → ザリガニ 水中では、小さな生物を出発点とする食物れんさでつながっているね。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.5194d5099a51",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水中の生物をけんび鏡で観察すると、図のように見えた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4c6f0194a87d04df.png"
+    },
+    "explanation": "ふつう、けんび鏡では、上下左右が逆ぎゃくに見えている。見たいものを右下に動かしたいときには、プレパラートを上下左右が逆の、A（左上）の方向に動かす。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.51eef29164bc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "持続可能な社会に向けたとりくみについて、次の説明のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "燃料電池自動車や太陽光発電など、二酸化炭素や有害な気体が発生しないエネルギーを使う。"
+        },
+        {
+          "id": "c2",
+          "text": "ごみが海岸にたまることのないよう、プラスチックなどのごみはすべて燃やす。"
+        },
+        {
+          "id": "c3",
+          "text": "植林によって、森を再生する。"
+        },
+        {
+          "id": "c4",
+          "text": "下水処理場でよごれた水をきれいにしてから川に流す。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "二酸化炭素を出さないようにするために、ごみを分別して燃やす量を少なくする工夫が行われている。ごみが海岸などにたまることのないよう、ごみを分別して出したり、清そう活動に参加するなど、ふだんの生活の中でもできる取り組みがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.59bdebca3064",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水中の生物をけんび鏡で観察した。もっと大きくして見たいときは、どうすればいいでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "レボルバーを回して、高い倍率のレンズにかえる。"
+        },
+        {
+          "id": "c2",
+          "text": "反しゃ鏡を動かして、明るく見えるようにする。"
+        },
+        {
+          "id": "c3",
+          "text": "調節ねじを回して、対物レンズをプレパラートに近づける。"
+        },
+        {
+          "id": "c4",
+          "text": "プレパラートを動かして、見たいものが視野の中央にくるようにする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/485fbf381a6e2696.png"
+    },
+    "explanation": "けんび鏡で観察しているものを、もっと大きくして見たいときは、レボルバーを回して、高い倍率りつのレンズにかえて観察する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.5ca94bf37164",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水中の生物をけんび鏡で観察すると、次のように見えた。実際の大きさが小さい順に並べよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B・C・D・A"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ec5314c3954aba34.png"
+    },
+    "explanation": "小さいものを観察する時ほど、けんび鏡の倍率りつを高くする。けんび鏡で見たときの大きさが同じくらいなら、倍率りつが高いほど、実際の大きさは小さい。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.7497123839a5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、水を通した生物のつながりを表している。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太陽・水蒸気・雲・雨"
+        },
+        {
+          "id": "c2",
+          "text": "月"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f150fde0d0d2908.png"
+    },
+    "explanation": "海や地面の水は、（太陽）の光によってあたためられて、（水蒸気）となって上空にはこばれる。上空にはこばれた水はやがて（雲）になり、（雨）や雪として地上にもどってくる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.8088d7eeaa7c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生物どうしは、「食べる・食べられる」の関係でつながっている。このつながりを何と言うでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食物れんさ"
+        },
+        {
+          "id": "c2",
+          "text": "弱肉強食"
+        },
+        {
+          "id": "c3",
+          "text": "生態系"
+        },
+        {
+          "id": "c4",
+          "text": "じゅんかん型社会"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生物どうしは、「食べる・食べられる」の関係でつながっている。このつながりを食しょく物もつれんさという。食物れんさは、陸上や水中、土中など、生物が生活しているいろいろな場所で見られる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.995ef767a2e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人と生物との関わりについて、次の説明のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたしたちは、植物や動物を育てたり、魚をとって食べている。"
+        },
+        {
+          "id": "c2",
+          "text": "その地域には住んでいない生物を人間が放してしまうと、もともと住んでいた生物が食べられたり、すみかをうばわれることがある。"
+        },
+        {
+          "id": "c3",
+          "text": "山の森が減ると、生物がすみかや食べ物を探して、人間が生活している場所に出てくることがある。"
+        },
+        {
+          "id": "c4",
+          "text": "生物をたくさんとりすぎたり、海岸をうめ立てたりしても、生物の数が減ることはない。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "生物をたくさんとりすぎると、生物の数は減ってしまう。また、海岸をうめ立てると、生物のすみかや産さん卵らん場所がなくなるので、生物の数が減ってしまう。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.a7a375415803",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、水を通した生物のつながりを表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水は、植物や動物の体を出たり入ったりしている。"
+        },
+        {
+          "id": "c2",
+          "text": "地面にしみこんだ水は、植物に吸収されたり、川や地下水として海や湖に流れこむ。"
+        },
+        {
+          "id": "c3",
+          "text": "蒸発や蒸散によって上空にはこばれた水は、地上にはもどってこない。"
+        },
+        {
+          "id": "c4",
+          "text": "ヒトの体の中にとりこまれた水は、にょうやあせとして体の外へ出ていく。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f150fde0d0d2908.png"
+    },
+    "explanation": "蒸発や蒸散によって上空にはこばれた水は、やがて雲になり、雨や雪として地上にもどってくる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.a9657386e70c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、陸上の食物れんさを表している。このつながりの説明について、かっこに当てはまる生物をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "バッタ・カエル・ヘビ・タカ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/795a475aab596c27.png"
+    },
+    "explanation": "イネは A（バッタ）に食べられる。 A は B（カエル）に食べられる。Bは C（ヘビ）に食べられる。C は（タカ）に食べられる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.b4b5e6710b3a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、水を通した生物のつながりを表している。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根・蒸散・水蒸気"
+        },
+        {
+          "id": "c2",
+          "text": "葉"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f150fde0d0d2908.png"
+    },
+    "explanation": "植物は、（根）から水をとりいれ、体のすみずみまで運んでいる。植物のからだの中の水分は、（蒸じょう散さん）によって（水すい蒸じょう気き）として体の外に出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.c7d92e830503",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人と水との関わりについて、次の説明のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたしたちは、生活の中や、農業や工業などのさまざまな場面で、水を利用している。"
+        },
+        {
+          "id": "c2",
+          "text": "家庭や工場などから出るよごれた水は、下水処理場できれいな水にしている。"
+        },
+        {
+          "id": "c3",
+          "text": "家庭や工場などから出るよごれた水によって川や海がよごれると、生物がすめなくなる。"
+        },
+        {
+          "id": "c4",
+          "text": "ダムの水が流れ落ちる力を利用して水車を回し、発電する方法を風力発電という。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ダムの水が流れ落ちる力を利用して水車を回し、発電する方法を 水力発電 という。他に、風のはたらきで発電する方法を風力発電、日光のはたらきで発電する方法を太陽光発電といい、燃料を燃やすことなく発電している。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.c85c10364f5a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、生物と<ruby>環<rt>かん</rt>境<rt>きょう</rt></ruby>とのつながりを表している。A〜D の矢印が表しているものをそれぞれえらぼう。<br> A：___<br> B：___<br> C：___<br> D：___",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素・二酸化炭素・水・養分（食べ物）"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/009505fc6a733fcb.png"
+    },
+    "explanation": "A：酸素 B：二酸化炭素 C：水 D：養分（食べ物）"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.cb597db6c31f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、水を通した生物のつながりを表している。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "口・全身・にょう"
+        },
+        {
+          "id": "c2",
+          "text": "水蒸気"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f150fde0d0d2908.png"
+    },
+    "explanation": "動物は、（口）から水をとりいれる。養分とともに体内に吸収された水は、（全身）に運ばれる。からだの中の水分の一部は、不要物とともに（にょう）として体の外に出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.cd7415be64e8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食物れんさと生物の数について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食べる・食べられる・ピラミッド"
+        },
+        {
+          "id": "c2",
+          "text": "正方形"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/320352771223dcdd.png"
+    },
+    "explanation": "食物れんさによってつながっている１つの地域に注目すると、ふつう（食べる）生物よりも、（食べられる）生物のほうが多い。この関係は、図のように（ピラミッド）で表すことができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.e21df8501954",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "カレーや牛乳を例に、私たちが食べるものがどんな生物にいきつくか、考えてみましょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "野菜・牛肉・牛乳・牧草"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "カレーには、ジャガイモやニンジンなどの（野菜）や、A（牛肉）が入っている。A や（牛ぎゅう乳にゅう）のもとになるウシは、（牧草）を食べて育つ。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.edd5b3f58445",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "けんび鏡の使い方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "反しゃ鏡・ステージ・横・接眼レンズ・調節ねじ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "①（反しゃ鏡）を動かして、明るく見えるようにする。 ② プレパラートを（ステージ）にのせ、クリップでとめる。 ③（横）から見ながら調節ねじを回し、対物レンズとプレパラートをできるだけ近づける。 ④（接眼レンズ）をのぞきながら（調節ねじ）を回して対物レンズとプレパラートをはなしていき、ピントを合わせる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.efb8a53ef841",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、陸上の食物れんさを表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ライオンはシマウマを食べる・シマウマは草を食べる・草はシマウマに食べられる・シマウマはライオンに食べられる"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e5ef7d52586e3543.png"
+    },
+    "explanation": "A：ライオンはシマウマを食べる B：シマウマは草を食べる C：草はシマウマに食べられる D：シマウマはライオンに食べられる"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.0f73b9fa94fd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「菜の花や月は東に日は西に」この俳句はいくは、与謝よさ蕪村ぶそんによってよまれた。このときに見えた月の形は、どんな形だと考えられるでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "満月"
+        },
+        {
+          "id": "c2",
+          "text": "半月"
+        },
+        {
+          "id": "c3",
+          "text": "三日月"
+        },
+        {
+          "id": "c4",
+          "text": "新月"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/998bd95757688635.png"
+    },
+    "explanation": "「日は西に」とあるので、太陽は西にかたむいている、つまりこの俳句がよまれたのは夕方だということがわかる。太陽は西にあるときに、太陽とは反対側の東の空にあらわれる月は、満月に近い形になる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.18be942bf0fb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の ア の位置にある月（新月）が見えないのは、なぜでしょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太陽・同じ・月"
+        },
+        {
+          "id": "c2",
+          "text": "地球"
+        },
+        {
+          "id": "c3",
+          "text": "反対"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c167cb9d61d62883.png"
+    },
+    "explanation": "月は（太陽）の光を受けてかがやいているが、月と太陽が（同じ）方向にあるときには、地球からは（ 月 ）のかがやいている側が見えないから。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.1cab69405793",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A〜D の形の月を何というでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三日月・半月（上弦の月）・満月・半月（下弦の月）"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/45c35394b826b09b.png"
+    },
+    "explanation": "A：三日月 B：半月（上弦じょうげんの月） C：満月 D：半月（下弦かげんの月） 月の満ち欠けは、「新月→上弦の月→満月→下弦の月→新月→…」とくり返される。上弦や下弦の名前に使われている「弦つる」は、弓に張る糸のこと。半月の形が弓に似ているので、「弦」の漢字が用いられている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.3c21eeb664c3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の イ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "F"
+        },
+        {
+          "id": "c2",
+          "text": "G"
+        },
+        {
+          "id": "c3",
+          "text": "H"
+        },
+        {
+          "id": "c4",
+          "text": "E"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の イ の位置に月があるとき、地球からは月の光っている部分が右側に少しだけ見えるので、F のような形の月が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.438657f7c75f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の オ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "G"
+        },
+        {
+          "id": "c2",
+          "text": "H"
+        },
+        {
+          "id": "c3",
+          "text": "F"
+        },
+        {
+          "id": "c4",
+          "text": "B"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の オ の位置に月があるとき、地球からは月の光っている部分がすべて見えるので、満月になる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.4b0519700a87",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の キ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B"
+        },
+        {
+          "id": "c2",
+          "text": "D"
+        },
+        {
+          "id": "c3",
+          "text": "F"
+        },
+        {
+          "id": "c4",
+          "text": "G"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の キ の位置に月があるとき、地球からは月の光っている左半分が見えるので、B のような半月（下弦の月）が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.52ffa8ba56bf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の ウ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "E"
+        },
+        {
+          "id": "c2",
+          "text": "C"
+        },
+        {
+          "id": "c3",
+          "text": "H"
+        },
+        {
+          "id": "c4",
+          "text": "A"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の ウ の位置に月があるとき、地球からは月の光っている右半分が見えるので、E のような半月（上弦の月）が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.9292026a1315",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の ア の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "H"
+        },
+        {
+          "id": "c2",
+          "text": "A"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "G"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の ア の位置に月があるとき、地球からは月の光っている部分が見えないので、新月になる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.96947509b9a3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の表面のようすについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "平地・高地・クレーター・石や岩"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8bac7c5a3cedf3b7.png"
+    },
+    "explanation": "月の表面の暗く見える部分には（平地）が広がっていて、明るく見える部分は（高地）が広がっている。また、表面にたくさんある A のようなくぼみを（クレーター）といい、（石や岩）が月にぶつかってできたと考えられている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.a1f7e50aa144",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本では、太陽と月はどのように動くでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "東・南・西"
+        },
+        {
+          "id": "c2",
+          "text": "北"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "太陽と月は、（東）からのぼって、（南）の空を通り、（西）にしずむ。 夕方近くに西から差しこむ日差しのことを、「西日」というよ。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.a34736bd2769",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の形や見え方について、まちがっているもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "月は、球の形をしている。"
+        },
+        {
+          "id": "c2",
+          "text": "月は、太陽の光を受けてかがやいている。"
+        },
+        {
+          "id": "c3",
+          "text": "月のかがやいている側には地球がある。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "月は、太陽の光を受けてかがやいているので、月のかがやいている側には太陽がある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.b7898b1f55cf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の ク の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "C"
+        },
+        {
+          "id": "c2",
+          "text": "D"
+        },
+        {
+          "id": "c3",
+          "text": "E"
+        },
+        {
+          "id": "c4",
+          "text": "B"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の ク の位置に月があるとき、地球からは月の光っている部分が左側に少しだけ見えるので、C のような形の月が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.b9eae8e18685",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の エ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "D"
+        },
+        {
+          "id": "c2",
+          "text": "A"
+        },
+        {
+          "id": "c3",
+          "text": "F"
+        },
+        {
+          "id": "c4",
+          "text": "B"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の エ の位置に月があるとき、地球からは月の光っている部分が半分以上見えるので、D のような形の月が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.d0359358354a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ア〜クは、月の位置を表している。月の見え方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三日月・満月・新月"
+        },
+        {
+          "id": "c2",
+          "text": "半月"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c167cb9d61d62883.png"
+    },
+    "explanation": "月は、太陽に近い側にあると（三日月）に近い形になり、遠い側にあると（満月）に近い形になる。月と太陽が同じ方向にあるときには、月は（新月）になる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.e630657ef028",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日によって月の形が変わるのはなぜでしょう。正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "実際に月の形が変わるから。"
+        },
+        {
+          "id": "c2",
+          "text": "様々な形の月があり、日によって見ている月がちがうから。"
+        },
+        {
+          "id": "c3",
+          "text": "日によって雲が月の一部をかくしているから。"
+        },
+        {
+          "id": "c4",
+          "text": "月と太陽の位置関係が変わるから。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7d12c381fef6dbb4.png"
+    },
+    "explanation": "月は太陽の光を受けてかがやいているので、かがやいている部分の見え方によって、月の形が変わっているように見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.f6f846757bc2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の見え方について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "月は、自ら光りかがやいている。"
+        },
+        {
+          "id": "c2",
+          "text": "月はいつも同じ時刻に、同じ場所に見える。"
+        },
+        {
+          "id": "c3",
+          "text": "月は夜にしか見えない。"
+        },
+        {
+          "id": "c4",
+          "text": "月の形は日によってちがうように見える。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "月は球の形をしていて、太陽の光を受けてかがやいている。月の位置や見える形は、毎日少しづつ変わっていく。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.f8337b096452",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の カ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "D"
+        },
+        {
+          "id": "c3",
+          "text": "E"
+        },
+        {
+          "id": "c4",
+          "text": "F"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の カ の位置に月があるとき、地球からは月の光っている部分が半分以上見えるので、A のような形の月が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.064fe18e2b6d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、地震によって土地の様子が変化した様子である。この様子について、正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大地がずれて、土地がもりあがった。"
+        },
+        {
+          "id": "c2",
+          "text": "山のしゃめんがくずれて、山くずれが起こった。"
+        },
+        {
+          "id": "c3",
+          "text": "大地がずれて、土地がしずんだ。"
+        },
+        {
+          "id": "c4",
+          "text": "大地がずれて、地割れが起こった。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a6e9398ea9a48612.png"
+    },
+    "explanation": "地震によって大地がずれて、地割れが起こることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.06a6d41f2791",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、火山の噴火によって土地の様子が変化した様子である。この様子について、正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山の噴火によって、新しい島ができた。"
+        },
+        {
+          "id": "c2",
+          "text": "火山の噴火によってできたくぼみに、湖ができた。"
+        },
+        {
+          "id": "c3",
+          "text": "火山の噴火によって流れ出した溶岩で、島が大きくなった。"
+        },
+        {
+          "id": "c4",
+          "text": "火山の噴火によって、新しい山ができた。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fc98dfef40178797.png"
+    },
+    "explanation": "火山の噴火によって流れ出した溶岩が固まって、もとの島よりも大きい島になった。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.084bcb4e54c9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火山灰について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角ばった・とうめい・そろっていない"
+        },
+        {
+          "id": "c2",
+          "text": "丸みをおびている"
+        },
+        {
+          "id": "c3",
+          "text": "黒っぽい"
+        },
+        {
+          "id": "c4",
+          "text": "どれも同じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火山灰のつぶは、（角ばった）ものが多く、（とうめい）なガラスのようなものもあり、色や形は（そろっていない）。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.088976700f94",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山灰・よう岩・島や山・湖"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火山が噴火すると、（火山灰）がふき出たり、（よう岩）が流れ出たりする。この活動により、新しく（島や山）ができることがある。逆に、溶岩が流れ出たことで火山にくぼみができたり、できたくぼみに雨がふるなどして（湖）ができることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.227b01b05bed",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火山の利用とめぐみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温泉・水・地熱発電・水はけ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cb1dedbaa8ec4c90.png"
+    },
+    "explanation": "火山の近くでは、あたたかい（温泉）がわき出たり、火山のふもとではきれいな（水）がわき出ることも多い。また、火山の熱を利用して電気をつくる（地熱発電）が行われる。火山灰でできた土地は（水はけ）が良いので、キャベツやダイコンなどのさいばいに適している。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.2b4f695cd2f9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、少しはなれた３地点 A～C のボーリング試料をもとに、地下の様子を表したものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "砂の層"
+        },
+        {
+          "id": "c2",
+          "text": "れきの層"
+        },
+        {
+          "id": "c3",
+          "text": "どろの層"
+        },
+        {
+          "id": "c4",
+          "text": "火山灰の層"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8b359cabde9298f5.png"
+    },
+    "explanation": "地層は、横にも、おくにも広がっている。A、C の層の順番と同じように、B の ア の層は、砂の層だと考えられる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.5099345d62cd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、地震によって土地の様子が変化した様子である。この様子について、正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大地がずれて、土地がもりあがった。"
+        },
+        {
+          "id": "c2",
+          "text": "山のしゃめんがくずれて、山くずれが起こった。"
+        },
+        {
+          "id": "c3",
+          "text": "大地がずれて、土地がしずんだ。"
+        },
+        {
+          "id": "c4",
+          "text": "大地がずれて、地割れが起こった。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b28fb6b2fbf63f94.png"
+    },
+    "explanation": "地震によって山のしゃめんがくずれ、山くずれが起こることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.5f84e1b5ebb3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "丸みをおびた・流れる水のはたらき"
+        },
+        {
+          "id": "c2",
+          "text": "人間"
+        },
+        {
+          "id": "c3",
+          "text": "角ばった"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5276749a7fba795f.png"
+    },
+    "explanation": "地層に見られる れきや砂は、（丸みをおびた）形をしているものが多い。これは、れきやすなが（流れる水のはたらき）によってけずられたからである。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.68877e7d8924",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地層をつくっているつぶについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きさ・れき・砂・どろ"
+        },
+        {
+          "id": "c2",
+          "text": "形"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c8950b20e25022cf.png"
+    },
+    "explanation": "地層に見られる、れき、砂、どろは、つぶの（大きさ）で区別されている。つぶの大きさが 2 mm以上のものを（れき）、2 mmよりも小さく目に見えるくらいのつぶのものを（砂）、さらに小さく虫眼鏡などで拡大しないと見えないようなつぶを（どろ）という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.6f846af2919f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、火山の噴火によって土地の様子が変化した様子である。この様子について、正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山の噴火によって、新しい島ができた。"
+        },
+        {
+          "id": "c2",
+          "text": "火山の噴火によってできたくぼみに、湖ができた。"
+        },
+        {
+          "id": "c3",
+          "text": "火山の噴火によって流れ出した溶岩で、島が大きくなった。"
+        },
+        {
+          "id": "c4",
+          "text": "火山の噴火によって、新しい山ができた。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6729a1747804af38.png"
+    },
+    "explanation": "火山の噴火によってできたくぼみ（カルデラ）に、雨水などの水がたまって、湖ができた。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.75343754bfaf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地面の下は、れき、砂すな、どろ、火山灰ばいなどが重なってしま模も様ようになっている。このような層そうの重なりを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地層"
+        },
+        {
+          "id": "c2",
+          "text": "化石"
+        },
+        {
+          "id": "c3",
+          "text": "たい積岩"
+        },
+        {
+          "id": "c4",
+          "text": "れき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/36b93290fc03d47a.png"
+    },
+    "explanation": "地面の下は、れき、砂、どろ、火山灰などが重なってしま模様になっている。このような層の重なりを地層という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.7b5ed487bc0f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地層からは、図のような角ばったつぶが見られることがある。これを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山灰"
+        },
+        {
+          "id": "c2",
+          "text": "化石"
+        },
+        {
+          "id": "c3",
+          "text": "れき"
+        },
+        {
+          "id": "c4",
+          "text": "砂"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/344f136f52b6e70a.png"
+    },
+    "explanation": "地層からは、図のような角ばったつぶが見られることがある。これを火山灰という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.962f22225582",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の説明のうち、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山灰の層は、水のはたらきによってできる。"
+        },
+        {
+          "id": "c2",
+          "text": "つぶの大きさによって、れき、砂、どろ、火山灰に分けることができる。"
+        },
+        {
+          "id": "c3",
+          "text": "火山灰のつぶは、丸みを帯びているものが多い。"
+        },
+        {
+          "id": "c4",
+          "text": "火山の噴火によって、火山灰の層ができることがある。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "火山の噴火によって、火山灰の層ができることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.9e76bad89cc6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、地震によって土地の様子が変化した様子である。この様子について、正しい説明をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大地がずれて、土地がもりあがった。"
+        },
+        {
+          "id": "c2",
+          "text": "山のしゃめんがくずれて、山くずれが起こった。"
+        },
+        {
+          "id": "c3",
+          "text": "大地がずれて、土地がしずんだ。"
+        },
+        {
+          "id": "c4",
+          "text": "大地がずれて、地割れが起こった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7874f78ba97af33a.png"
+    },
+    "explanation": "道路の左側の土地を見てみると、土地の高さがななめ一直線に変わっている。これは、地震によって大地がずれて、土地がもりあがったからである。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.a725e31255bb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "化石・時代"
+        },
+        {
+          "id": "c2",
+          "text": "時間"
+        },
+        {
+          "id": "c3",
+          "text": "地層"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/598ed5df4eca4c13.png"
+    },
+    "explanation": "地層には、大昔の生物の体や生活のあとが見つかることがある。これを（化石）という。化石 は、地層ができたときのかん境や（時代）などのようすを知る手がかりになる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.b678ad92b78a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、地面の土と水をペットボトルに入れて、土がたい積するようすを観察した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "つぶの大きさが大きいものから下に積もる。"
+        },
+        {
+          "id": "c2",
+          "text": "つぶの大きさが小さいものから下に積もる。"
+        },
+        {
+          "id": "c3",
+          "text": "土は均一に混ざったまま下に積もる。"
+        },
+        {
+          "id": "c4",
+          "text": "つぶの色が黒いものから下に積もる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c46e3f84d9e32cad.png"
+    },
+    "explanation": "土は、つぶの大きさが大きいものから下に積もる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.c3fe96e4f9c1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たい積岩"
+        },
+        {
+          "id": "c2",
+          "text": "火山岩"
+        },
+        {
+          "id": "c3",
+          "text": "化石"
+        },
+        {
+          "id": "c4",
+          "text": "地層"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f47740fa0c04d930.png"
+    },
+    "explanation": "地面にたい積した れき、砂、どろ、火山灰などが、長い年月の間に固まってかたい岩石になったものを、たい積岩という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.ec5c7787bc2f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のような装置に、地面の土と水をまぜて流し、土がたい積するようすを観察した。これを２回くり返すと、土はどのようにたい積したでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "れき、砂、どろの層が２組できる。"
+        },
+        {
+          "id": "c2",
+          "text": "分厚いれき、砂、どろの層が１組できる。"
+        },
+        {
+          "id": "c3",
+          "text": "れき、砂、どろは混ざってたい積する。"
+        },
+        {
+          "id": "c4",
+          "text": "１度目の層の上に、下からどろ、砂、れきの順でたい積する。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/555fda85e609bb6a.png"
+    },
+    "explanation": "２回くり返すと、れき、砂、どろの層が２組できる。これが長い間くり返されることで、しま模様の地層ができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.eff84167a8d3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火山灰の層は、どのようにしてできたでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山の噴火によってできた。"
+        },
+        {
+          "id": "c2",
+          "text": "水のはたらきによってできた。"
+        },
+        {
+          "id": "c3",
+          "text": "海の底にたまった土が変化してできた。"
+        },
+        {
+          "id": "c4",
+          "text": "火山の中でできた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火山が噴ふん火かするときに上空に吹き出す火山灰が、地面や海底にたい積して、火山灰の層ができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.0500b0b40a90",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "棒のてこで、作用点の位置だけをA、B、Cと動かして、おもりを持ち上げるときの手ごたえを比べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fe9da3d157f9289d.png"
+    },
+    "explanation": "支点から作用点までのきょりが短いほど、重いものを小さな力で持ち上げることができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.08cba85df5e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はさみは、てこを利用した道具である。はさみを使って、より小さい力で紙を切るためには、 A〜C のどこで切ると良いでしょう。正しい記号を選ぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4ab638f01ea03a1f.png"
+    },
+    "explanation": "はさみは、手で持つところが力点、交差しているところが支点、切るところが作用点となる。作用点が支点の近くにあるほど小さな力で切れるので、C で切ると良い。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.0968c54dbf18",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、てこの左のうでの３の位置に、 10g のおもりを１個つるした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "２の位置"
+        },
+        {
+          "id": "c2",
+          "text": "３の位置"
+        },
+        {
+          "id": "c3",
+          "text": "４の位置"
+        },
+        {
+          "id": "c4",
+          "text": "５の位置"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3d832c4bbbee492d.png"
+    },
+    "explanation": "てこの支点から左右に等しいきょりに物をつるし、両側の物の重さが等しいとき、てこが水平になってつり合う。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.17c8f1887fa9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さおばかりのしくみついて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "支点・位置・水平・めもり"
+        },
+        {
+          "id": "c2",
+          "text": "重さ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/273b6403ea321460.png"
+    },
+    "explanation": "さおばかりは、（支点）の近くにはかりたいものをつるし、反対側につるした分銅の（位置）を変えて、棒を（水平）につり合わせる。棒に（めもり）がついているため、分銅の位置によってものの重さがわかる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.1e13766f103a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "てこを利用した道具について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "作用点・力点・支点・小さ"
+        },
+        {
+          "id": "c2",
+          "text": "大き"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2796c39bc2fa6464.png"
+    },
+    "explanation": "パンをつかむときに使うトングは、Aが（作用点）、Bが（力点）、Cが（支点）となる。作用点よりも力点のほうが支点の近くにあるので、力点での力が作用点で（小さ）くなり、パンをつぶさずに持つことができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.2030558536f0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "てこを利用した道具について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "作用点・力点・支点・大き・小さ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9465f8853580f7a7.png"
+    },
+    "explanation": "くぎぬきは、Aが（作用点）、Bが（力点）、Cが（支点）となる。力点よりも作用点のほうが支点の近くにあるので、力点での力が作用点で（大き）くなり、（小さ）い力でくぎをぬくことができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.2f6dce5374ea",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、左のうでの３の位置に、 10g のおもりを３個つるした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１個"
+        },
+        {
+          "id": "c2",
+          "text": "２個"
+        },
+        {
+          "id": "c3",
+          "text": "３個"
+        },
+        {
+          "id": "c4",
+          "text": "４個"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/38249a2c271a6d6a.png"
+    },
+    "explanation": "てこの支点から左右に等しいきょりに物をつるし、両側の物の重さが等しいとき、てこが水平になってつり合う。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.3dc4d4beded3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、てこが水平につり合わないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/393e95ae7b855aec.png"
+    },
+    "explanation": "てこをかたむけるはたらきの大きさは、「力点にかかるおもりの重さ × 支点から力点までのきょり」で求められる。 B では、 左側：30 × 5 = 150 右側：20 × 6 = 120 となり、てこをかたむけるはたらきの大きさが左右で異なるため、てこはつり合わない。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.45157ae4cc2a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重さ・きょり・等しい"
+        },
+        {
+          "id": "c2",
+          "text": "異なる"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7933a376a7b0f36b.png"
+    },
+    "explanation": "てこをかたむけるはたらきの大きさは、「力点にかかるおもりの（重さ）× 支点から力点までの（きょり）」で表すことができる。このはたらきの大きさが左右のうでで（等しい）とき、てこが水平につり合う。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.520bd7d50d7f",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のようにてこがつり合っているとき、左右のうでのてこをかたむけるはたらきの大きさ（おもりの重さ × 支点までのきょり）をそれぞれ計算しよう。",
+      "answers": [
+        "60",
+        "60"
+      ],
+      "template": "左側：{{INPUT}} 右側：{{INPUT}}",
+      "promptImage": "questions/legacy/b5423e66d3ff2523.png"
+    },
+    "explanation": "左右のうででそれぞれ、おもりの重さ × 支点までのきょり を計算して求めよう。 左のうでを下にかたむけるはたらきの大きさは、20 × 3 ＝ 60 右のうでを下にかたむけるはたらきの大きさは、10 × 6 ＝ 60"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.6014e38abc77",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "棒のてこで、力点の位置だけをA、B、Cと動かして、おもりを持ち上げるときの手ごたえを比べた",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d6306150a9381fef.png"
+    },
+    "explanation": "支点から力点までのきょりが長いほど、重いものを小さな力で持ち上げることができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.608f54b9ce06",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "等しい・重さ・水平"
+        },
+        {
+          "id": "c2",
+          "text": "大きさ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/da5d673a84624fb9.png"
+    },
+    "explanation": "てこの支点から左右に（等しい）きょりに物をつるし、両側の物の（重さ）が等しいとき、てこが（水平）になってつり合う。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.63cd526e2279",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のとき、てこを手でおす力の大きさは何 g でしょう。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}} g",
+      "suffix": "g",
+      "promptImage": "questions/legacy/f632b6abdb2118b5.png"
+    },
+    "explanation": "力の大きさは、おもりの重さで表すことができる。図のとき、てこを手でおす力の大きさは、10 g のおもりの重さと等しい。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.760df5015e63",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おもりの重さ・250・250 gのおもりの重さ"
+        },
+        {
+          "id": "c2",
+          "text": "おもりの大きさ"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ca94f85be68a3db9.png"
+    },
+    "explanation": "力の大きさは、（おもりの重さ）で表すことができる。図では、どちらの台ばかりも（250）gを表している。つまり、右の台ばかりを手でおす力は、（250 gのおもりの重さ）と同じであるといえる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.978e2e27fb66",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "左のうでの６の位置に 10g のおもりをつるしたとき、右のうでの１～６の位置に何 g のおもりをつるすとつり合うかを調べ、表にまとめた。当てはまる数字を記入して、表を完成させよう。",
+      "answers": [
+        "60",
+        "30",
+        "20",
+        "10"
+      ],
+      "template": "左のうで 右のうで 支点からのきょり 6 1 2 3 4 5 6 重さ (g) 10 {{INPUT}} {{INPUT}} {{INPUT}} × × {{INPUT}}",
+      "promptImage": "questions/legacy/82922a7b9041bca9.png"
+    },
+    "explanation": "てこをかたむけるはたらきの大きさは、「力点にかかるおもりの重さ × 支点から力点までのきょり」で表すことができる。 左のうでを下にかたむけるはたらきの大きさは、10 × 6 ＝ 60 よって、右のうでを下にかたむけるはたらきの大きさが 60 になるようにおもりをつるすと、てこは水平につり合う。 左のうで 右のうで 支点からのきょり 6 1 2 3 4 5 6 重さ (g) 10 60 30 20 × × 10"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.cf16345b7238",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "てこのつり合いについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "半分・反比例"
+        },
+        {
+          "id": "c2",
+          "text": "比例"
+        },
+        {
+          "id": "c3",
+          "text": "２倍"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b5423e66d3ff2523.png"
+    },
+    "explanation": "支点からのきょりが２倍になると、つりあうときのおもりの重さは（半分）になる。つまり、てこがつり合っているとき、うでを引く力の大きさは、支点からのきょりに（反比例）する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.d3947df3e5e0",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "左のうでの４の位置に 30g のおもりをつるしたとき、右のうでの１～６の位置に何 g のおもりをつるすとつり合うかを調べ、表にまとめた。当てはまる数字を記入して、表を完成させよう。",
+      "answers": [
+        "120",
+        "60",
+        "40",
+        "30",
+        "20"
+      ],
+      "template": "左のうで 右のうで 支点からのきょり 4 1 2 3 4 5 6 重さ (g) 30 {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} × {{INPUT}}",
+      "promptImage": "questions/legacy/5956b4a9b76cdb72.png"
+    },
+    "explanation": "てこをかたむけるはたらきの大きさは、「力点にかかるおもりの重さ × 支点から力点までのきょり」で表すことができる。 左のうでを下にかたむけるはたらきの大きさは、30 × 4 ＝ 120 よって、右のうでを下にかたむけるはたらきの大きさが 120 になるようにおもりをつるすと、てこは水平につり合う。 左のうで 右のうで 支点からのきょり 4 1 2 3 4 5 6 重さ (g) 30 120 60 40 30 × 20"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.fae23d61eeab",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "てこを利用した道具について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "支点・作用点・力点・大き・小さ"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1caafa302811153e.png"
+    },
+    "explanation": "せんぬきは、Aが（支点）、Bが（作用点）、Cが（力点）となる。力点よりも作用点のほうが支点の近くにあるので、力点での力が作用点で（大き）くなり、（小さ）い力でふたをあけることができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.ff8e66205d03",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる数字や言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "てこ・支点・力点・作用点"
+        },
+        {
+          "id": "c2",
+          "text": "てんびん"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/47e34e5937c0eb68.png"
+    },
+    "explanation": "図のように、棒を１点で支え、棒に力を加えることで、ものを動かしたりできるようにしたものを（てこ）という。このとき、棒を支えるところ A を（支点）、棒に力を加えるところ B を（力点）、棒からものに力がはたらくところ C を（作用点）という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.06c8ba200cc6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６種の水よう液（うすい塩酸、炭酸水、食塩水、アンモニア水、重そう水、石灰水）について、次の問いに答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "うすい塩酸、アンモニア水、炭酸水"
+        },
+        {
+          "id": "c2",
+          "text": "食塩水、石灰水、重そう水"
+        },
+        {
+          "id": "c3",
+          "text": "石灰水、重そう水、アンモニア水"
+        },
+        {
+          "id": "c4",
+          "text": "うすい塩酸、炭酸水、食塩水"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/81f551fad51f266e.png"
+    },
+    "explanation": "蒸発させると、白い固体が残る水よう液：食塩水、石せっ灰かい水すい、重そう水 蒸発させると、何も残らない水よう液：うすい塩酸、炭酸水、アンモニア水"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.0ee9d3e78011",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の６種類の水よう液について、見た目、におい、蒸発させたときのようすを調べたところ、３つに区別できた。A～Cに当てはまる水よう液の組み合わせをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "塩酸、アンモニア水・食塩水、石灰水、重そう水・炭酸水"
+        },
+        {
+          "id": "c2",
+          "text": "炭酸水、重そう水"
+        },
+        {
+          "id": "c3",
+          "text": "食塩水、石灰水"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4d7cac291a1d8314.png"
+    },
+    "explanation": "A：塩酸、アンモニア水 B：食塩水、石灰水、重そう水 C：炭酸水"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.11f1365c28cc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６種の水よう液（うすい塩酸、炭酸水、食塩水、アンモニア水、重そう水、石灰水）について、次の問いに答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "うすい塩酸"
+        },
+        {
+          "id": "c2",
+          "text": "炭酸水"
+        },
+        {
+          "id": "c3",
+          "text": "食塩水"
+        },
+        {
+          "id": "c4",
+          "text": "石灰水"
+        },
+        {
+          "id": "c5",
+          "text": "アンモニア水"
+        },
+        {
+          "id": "c6",
+          "text": "重そう水"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "６種の水よう液はすべて無色とうめいで、炭酸水はあわが出ている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.13344ee34aaa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ペットボトルに二酸化炭素と水をいれて、ふるとどうなるでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ペットボトルがへこむ。"
+        },
+        {
+          "id": "c2",
+          "text": "ペットボトルがふくらむ。"
+        },
+        {
+          "id": "c3",
+          "text": "変化しない。"
+        },
+        {
+          "id": "c4",
+          "text": "水が白くにごる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ペットボトルに二酸化炭素と水をいれてふると、二酸化炭素がペットボトルの中で水にとけて、ペットボトルがへこむ。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.1403adf07c55",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水よう液の性質について、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水よう液には、金属をとかすものがある。"
+        },
+        {
+          "id": "c2",
+          "text": "水よう液には、金属を別のものに変えるものがある。"
+        },
+        {
+          "id": "c3",
+          "text": "塩酸や水酸化ナトリウム水溶液は、金属をとかす。"
+        },
+        {
+          "id": "c4",
+          "text": "金属がとけた水よう液を蒸発皿で熱すると、もとの金属をとりだすことができる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "金属がとけた水よう液を蒸発皿で熱してとりだした固体は、もとの金属とは見た目も性質もちがう。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.180e0fa0d772",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の問いに答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "液体が手につかないよう、ゴム球だけをつまんで持つ"
+        },
+        {
+          "id": "c2",
+          "text": "ゴム球とガラスがはずれないよう、ゴム球とガラスの両方を持つ"
+        },
+        {
+          "id": "c3",
+          "text": "液体が手につかないよう、液体が入ったピペットの先を上に向けない"
+        },
+        {
+          "id": "c4",
+          "text": "ゴム球が使えなくならないよう、液体が入ったピペットの先を上に向けない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/571a05bf9d33ff00.png"
+    },
+    "explanation": "こまごめピペットは、ガラスのつつの上の部分にゴム球をつけて使う。このときゴム球だけを持ってしまうと、ガラスの部分がはずれてしまうことがあるので、ゴムとガラスの両方を持つようにして使う。また、ゴム球が使えなくなったり、液体が手についてしまうことがあるので、液体が入っているときにはピペットの先を上に向けない。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.22cbed1f9920",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水よう液にとけているものについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "固体・食塩・重そう"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素"
+        },
+        {
+          "id": "c3",
+          "text": "気体"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "蒸発させると白い固体が残る水よう液には、（固体）がとけている。たとえば、食塩水には（食塩）、重そう水には（重そう）がとけている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.3488bd9a0c04",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "塩酸に金属をとかした液体から取り出した固体と、もとの金属とについての説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見た目も性質もちがう。"
+        },
+        {
+          "id": "c2",
+          "text": "見た目も性質も同じ。"
+        },
+        {
+          "id": "c3",
+          "text": "見た目はちがうが、性質は同じ。"
+        },
+        {
+          "id": "c4",
+          "text": "見た目は同じだが、性質はちがう。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "塩酸に金属をとかした液体から取り出した固体は、もとの金属とは見た目も性質もちがう。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.442eec490cc5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石灰水と重そう水を区別する方法として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "息をふきこむ。"
+        },
+        {
+          "id": "c2",
+          "text": "リトマス紙の色の変化を調べる。"
+        },
+        {
+          "id": "c3",
+          "text": "においを調べる。"
+        },
+        {
+          "id": "c4",
+          "text": "水を蒸発させる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "石灰水に 息をふきこむと、二酸化炭素によって白くにごるので、重そう水と区別することができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.515110edd734",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "うすい塩酸に、アルミニウムをいれた。このときの試験管の中のようすとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あわを出してとけ、試験管はあたたかくなる。"
+        },
+        {
+          "id": "c2",
+          "text": "あわを出してとけ、試験管はつめたくなる。"
+        },
+        {
+          "id": "c3",
+          "text": "あわを出さずにとけ、試験管はあたたかくなる。"
+        },
+        {
+          "id": "c4",
+          "text": "あわを出さずにとけ、試験管はつめたくなる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/54d7f2e7c411a618.png"
+    },
+    "explanation": "うすい塩酸に、アルミニウムをいれると、アルミニウムはあわを出してとけ、試験管はあたたかくなる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.53095dbff20e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "うすい水酸化ナトリウム水よう液、炭酸水、食塩水に、鉄とアルミニウムをいれたときの、変化の様子を表にまとめた。この結果から分かることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水酸化ナトリウム水よう液には、アルミニウムをとかすはたらきがある。"
+        },
+        {
+          "id": "c2",
+          "text": "水酸化ナトリウム水よう液には、鉄をとかすはたらきがある。"
+        },
+        {
+          "id": "c3",
+          "text": "酸性の水よう液には、金属をとかすはたらきがある。"
+        },
+        {
+          "id": "c4",
+          "text": "アルカリ性の水よう液には、金属をとかすはたらきはない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水酸化ナトリウム水よう液にアルミニウムを入れると、アルミニウムはあわを出してとけた。 この実験の結果から、水酸化ナトリウム水よう液には、アルミニウムをとかすはたらきがあることがわかる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.677f4064e390",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "身の回りの液体には、酸性・中性・アルカリ性のさまざまなものがある。次の液体は、図の A～D のどこに当てはまるでしょう。それぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "レモンのしる・しょうゆ・牛乳・石けん水"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/50deecd4c56c6c9d.png"
+    },
+    "explanation": "A：レモンのしる B：しょうゆ C：牛乳 D：石けん水"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.7482006fd9da",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "うすい塩酸に鉄やアルミニウムがとけた液体をそれぞれ蒸発皿で熱し、水を蒸発させると、どうなるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "うすい黄色の固体が残る・白い固体が残る"
+        },
+        {
+          "id": "c2",
+          "text": "何も残らない"
+        },
+        {
+          "id": "c3",
+          "text": "銀色の固体が残る"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c4a2bdccd8e902e9.png"
+    },
+    "explanation": "鉄がとけた液体：うすい黄色の固体が残る アルミニウムがとけた液体：白い固体が残る"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.9c8e71138fb8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "塩酸に金属がとけた液体からでてきた固体と、もとの金属について、見た目や性質を調べて表にまとめた。表の ①〜④ に当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "白色・黄色・つかなかった・あわを出さずに"
+        },
+        {
+          "id": "c2",
+          "text": "あわを出して"
+        },
+        {
+          "id": "c3",
+          "text": "ついた"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/40ce189e50b85ca3.png"
+    },
+    "explanation": "①：白色 ②：黄色 ③：つかなかった ④：あわを出さずに"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.aae4275b5ce0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ムラサキキャベツ・黄・緑・青"
+        },
+        {
+          "id": "c2",
+          "text": "レモン"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/68abbc66ee600eac.png"
+    },
+    "explanation": "水よう液の、酸性、中性、アルカリ性の性質は、A（ムラサキキャベツ）のしるや、BTB液などを使っても調べることができる。BTB液は、酸性だと（黄）色、中性だと（緑）色、アルカリ性だと（青）色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.ab5f3a055d8d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の６種の水よう液について、見た目、におい、蒸発させた時の様子を観察し、表にまとめた。表の①〜⑥ に当てはまる言葉をそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "無色とうめいで、あわが出ている・無色とうめい・なし・つんとしたにおい・白いものが残った・何も残らなかった"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b26a1ceed3bec28d.png"
+    },
+    "explanation": "①：無色とうめいで、あわが出ている、②：無色とうめい、③：なし、④：つんとしたにおい、⑤：白いものが残った、⑥：何も残らなかった"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.b60c8cb69eee",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６種の水よう液（うすい塩酸、炭酸水、食塩水、アンモニア水、重そう水、石灰水）について、次の問いに答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "うすい塩酸 と アンモニア水"
+        },
+        {
+          "id": "c2",
+          "text": "炭酸水 と 食塩水"
+        },
+        {
+          "id": "c3",
+          "text": "アンモニア水 と 重そう水"
+        },
+        {
+          "id": "c4",
+          "text": "石灰水 と 重そう水"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "つんとしたにおいがする水よう液：うすい塩酸、アンモニア水 においがない水よう液：炭酸水、食塩水、重そう水、石灰水"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.bea683dc6143",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "炭酸水から二酸化炭素を出して集める方法について、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "炭酸水をふる。"
+        },
+        {
+          "id": "c2",
+          "text": "炭酸水をあたためる。"
+        },
+        {
+          "id": "c3",
+          "text": "出てきた二酸化炭素を水中で集める。"
+        },
+        {
+          "id": "c4",
+          "text": "水を蒸発させる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "炭酸水にとけているのは、気体の二酸化炭素なので、蒸発させても蒸発皿には何も残らない。炭酸水をふったり、あたためたりすると二酸化炭素が出てくるので、出てきた二酸化炭素を水中で集める。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.c288c74f4b1b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あわ・液体にとけている・固体がのこる"
+        },
+        {
+          "id": "c2",
+          "text": "気体になった"
+        },
+        {
+          "id": "c3",
+          "text": "何も残らない"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "うすい塩酸に、鉄やアルミニウムをいれると（あわ）が出て、しばらくすると金属は見えなくなる 。なくなった金属は（液体にとけている）ので、この液体を蒸発させると（固体がのこる）。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.ca04f084e592",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "炭酸水から出た気体に、火のついた線香を近づけるとどうなるでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火がすぐに消える。"
+        },
+        {
+          "id": "c2",
+          "text": "よく燃えはじめる。"
+        },
+        {
+          "id": "c3",
+          "text": "しばらく燃え続けたあと消える。"
+        },
+        {
+          "id": "c4",
+          "text": "ポンッといってばく発する。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ae5875aebe8e79e7.png"
+    },
+    "explanation": "炭酸水から出た気体は二酸化炭素なので、火のついた線香を近づけると、火がすぐに消える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.ce3f06f06beb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水よう液にとけているものについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気体・塩化水素・二酸化炭素・アンモニア"
+        },
+        {
+          "id": "c2",
+          "text": "固体"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "蒸発させても何も残らない水よう液には、（気体）がとけている。たとえば、うすい塩酸には（塩化水素）、炭酸水には（二酸化炭素）、アンモニア水には（アンモニア）がとけている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.cf74842abf49",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水よう液の特ちょうとして、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すき通っている。"
+        },
+        {
+          "id": "c2",
+          "text": "ものが均一に広がっている。"
+        },
+        {
+          "id": "c3",
+          "text": "時間がたっても、とけたものが水と分かれない。"
+        },
+        {
+          "id": "c4",
+          "text": "にごっている。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/31ddaad2160a29ad.png"
+    },
+    "explanation": "ものが水にとけた水よう液は、ものが均一に広がり、とうめいで、時間がたってもとけたものが水と分かれない。にごっていたり、時間がたつとものと水が分かれて均一でなくなる場合、ものが水にとけたとはいえない。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.db47070ef49b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水よう液の見た目やにおいを調べるときの注意点として、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鼻を直接近づけず、手であおいでかぐ。"
+        },
+        {
+          "id": "c2",
+          "text": "保護眼鏡をかけ換気をする。"
+        },
+        {
+          "id": "c3",
+          "text": "他の液体とまぜない。"
+        },
+        {
+          "id": "c4",
+          "text": "液体が手についたら、手をふってかわかす。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "液体が手についたら、水でよく洗い流す。手についたままにしておくと ひふ がとけるなど、きけんな液体もあるので、水でよく洗い流すようにしよう。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.f9d40670fd7a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "炭酸水から出た気体を石灰水に通すと、石灰水はどうなるでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "白くにごる。"
+        },
+        {
+          "id": "c2",
+          "text": "黄色に変化する。"
+        },
+        {
+          "id": "c3",
+          "text": "青色に変化する。"
+        },
+        {
+          "id": "c4",
+          "text": "気体が発生する。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "炭酸水から出た気体は二酸化炭素なので、石灰水は白くにごる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-9.fcf2fb6c148c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の６種類の水よう液について、見た目、におい、蒸発させたときのようすを調べ、さらにリトマス紙で水よう液の性質を調べたところ、図のように区別できた。ア～オ の水よう液をそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "塩酸・アンモニア水・食塩水・石灰水、重そう水・炭酸水"
+        },
+        {
+          "id": "c2",
+          "text": "選択肢1"
+        },
+        {
+          "id": "c3",
+          "text": "選択肢2"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fbe3f71732cd579e.png"
+    },
+    "explanation": "ア：塩酸 イ：アンモニア水 ウ：食塩水 エ：石灰水、重そう水 オ：炭酸水"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shimane-warigo-tower",
+  "name": "ワリゴタワー",
+  "area": "shimane",
+  "motifId": "warigo-soba",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 71,
+    "mp": 17,
+    "atk": 18,
+    "def": 13,
+    "spd": 10,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6.2,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 38,
+  "gold": 28,
+  "spriteKey": "mon.shimane-warigo-tower",
+  "dexBlurb": "ワリゴンが しんかした すがた。丸[まる]い 割子[わりご]を 高[たか]く つみあげ、てっぺんに やくみを のせて いる。"
+}

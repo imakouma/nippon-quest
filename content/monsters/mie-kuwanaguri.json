@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-kuwanaguri",
+  "name": "クワナグリ",
+  "area": "mie",
+  "motifId": "kuwana-hamaguri",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 49,
+    "mp": 10,
+    "atk": 10,
+    "def": 10,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "mie-kaiawase-hamaguri",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 21,
+  "gold": 14,
+  "spriteKey": "mon.mie-kuwanaguri",
+  "evolution": {
+    "to": "mie-shinkirou-gai",
+    "item": "mie-kaiawase-hamaguri"
+  },
+  "dexBlurb": "桑名[くわな]の はまぐりの モンスター。「その 手[て]は 桑名[くわな]の 焼[や]きはまぐり」は、「その 手[て]には のらない」と いう しゃれ。"
+}

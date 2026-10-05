@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-barikatan",
+  "name": "バリカタン",
+  "area": "fukuoka",
+  "motifId": "hakata-ramen",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 52,
+    "mp": 12,
+    "atk": 17,
+    "def": 8,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.6,
+    "def": 0.8,
+    "spd": 1,
+    "wis": 0.6
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "fukuoka-tonkotsu-no-dashi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 28,
+  "gold": 18,
+  "spriteKey": "mon.fukuoka-barikatan",
+  "evolution": {
+    "to": "fukuoka-kaedama-oh",
+    "item": "fukuoka-tonkotsu-no-dashi"
+  },
+  "dexBlurb": "博多[はかた]ラーメンの どんぶりから 生[う]まれた モンスター。博多[はかた]の ラーメン屋[や]では、めんの かたさを「バリカタ」「やわ」などと えらんで たのめる。"
+}

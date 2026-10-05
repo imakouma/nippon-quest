@@ -1,0 +1,53 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/number-build.schema.json",
+    "id": "sansu.g1.kazu-100.ringo-blocks-0001",
+    "type": "number-build",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": ["prefecture:aomori", "theme:ringo"],
+    "payload": {
+      "mode": "blocks",
+      "prompt": "りんごを 23こ はこに いれよう",
+      "answer": 23,
+      "blocks": [10, 1],
+      "max": 99
+    },
+    "explanation": "10この はこを 2つと、りんごを 3こで 23こ。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.ringo-keypad-0001",
+    "type": "number-build",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": ["prefecture:aomori", "theme:ringo"],
+    "payload": {
+      "mode": "keypad",
+      "prompt": "りんごが 7こと 4こ。ぜんぶで なんこ？",
+      "answer": 11,
+      "maxDigits": 2
+    },
+    "explanation": "7 + 4 = 11。ぜんぶで 11こ。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.ringo-numberline-0001",
+    "type": "number-build",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": ["prefecture:aomori", "theme:ringo"],
+    "payload": {
+      "mode": "numberline",
+      "prompt": "すうちょくせんで 8に あわせよう",
+      "answer": 8,
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "tolerance": 0,
+      "labels": ["0", "10"]
+    },
+    "explanation": "8は 10より 2つ ひだりの ばしょ。"
+  }
+]

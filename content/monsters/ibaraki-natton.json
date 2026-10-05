@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ibaraki-natton",
+  "name": "ナットン",
+  "area": "ibaraki",
+  "motifId": "natto",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 45,
+    "mp": 8,
+    "atk": 9,
+    "def": 9,
+    "spd": 5,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": ["sk-suna-kabe", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "ibaraki-natto-no-warazuto",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.ibaraki-natton",
+  "evolution": {
+    "to": "ibaraki-warazuto-musha",
+    "item": "ibaraki-natto-no-warazuto"
+  },
+  "dexBlurb": "わらづとから 顔[かお]を 出[だ]す 納豆[なっとう]の モンスター。納豆[なっとう]は かきまぜるほど 糸[いと]を ひいて、ねばりが 強[つよ]く なる。"
+}

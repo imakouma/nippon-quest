@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-mogikko",
+  "name": "モギッコ",
+  "area": "nagasaki",
+  "motifId": "nagasaki-biwa",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 49,
+    "mp": 12,
+    "atk": 14,
+    "def": 8,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "nagasaki-biwa-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 23,
+  "gold": 15,
+  "spriteKey": "mon.nagasaki-mogikko",
+  "evolution": {
+    "to": "nagasaki-mogi-tawawa",
+    "item": "nagasaki-biwa-no-hana"
+  },
+  "dexBlurb": "長崎[ながさき]の びわの モンスター。「茂木[もぎ]びわ」は、長崎市[ながさきし]の 茂木[もぎ]で 育[そだ]てられて 広[ひろ]まった びわ。"
+}

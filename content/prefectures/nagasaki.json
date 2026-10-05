@@ -1,0 +1,281 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "nagasaki",
+  "name": "長崎県[ながさきけん]",
+  "island": "kyushu-okinawa",
+  "capital": "長崎市[ながさきし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "nagasaki-field",
+    "town": "nagasaki-town",
+    "dungeon": "nagasaki-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "meganebashi",
+      "name": "眼鏡橋[めがねばし]",
+      "kind": "landmark",
+      "imageKey": "motif.nagasaki.meganebashi",
+      "blurb": "川[かわ]に うつった すがたが、めがねのように 見[み]える 石[いし]の 橋[はし]。"
+    },
+    {
+      "id": "unzen",
+      "name": "雲仙[うんぜん]の 湯[ゆ]けむり",
+      "kind": "nature",
+      "imageKey": "motif.nagasaki.unzen",
+      "blurb": "雲仙[うんぜん]の 温泉[おんせん]では、地面[じめん]の あちこちから 白[しろ]い 湯[ゆ]けむりが ふき出[で]る。"
+    },
+    {
+      "id": "kujukushima",
+      "name": "九十九島[くじゅうくしま]",
+      "kind": "nature",
+      "imageKey": "motif.nagasaki.kujukushima",
+      "blurb": "佐世保市[させぼし]の 海[うみ]に、たくさんの 小[ちい]さな 島[しま]が うかぶ。"
+    },
+    {
+      "id": "hirado",
+      "name": "平戸[ひらど]",
+      "kind": "history",
+      "imageKey": "motif.nagasaki.hirado",
+      "blurb": "むかし、外国[がいこく]の 船[ふね]が やって きて 貿易[ぼうえき]を した 港町[みなとまち]。"
+    },
+    {
+      "id": "shimabara-yusui",
+      "name": "島原[しまばら]の わき水[みず]",
+      "kind": "nature",
+      "imageKey": "motif.nagasaki.shimabara-yusui",
+      "blurb": "島原市[しまばらし]は、町[まち]の あちこちで きれいな 水[みず]が わき出[で]る 水[みず]の 町[まち]。"
+    },
+    {
+      "id": "castella",
+      "name": "カステラ",
+      "kind": "food",
+      "imageKey": "motif.nagasaki.castella",
+      "blurb": "たまご・さとう・小麦粉[こむぎこ]で 作[つく]る、ふんわり あまい おかし。むかし ポルトガルから つたわった。"
+    },
+    {
+      "id": "hasamiyaki",
+      "name": "波佐見焼[はさみやき]",
+      "kind": "craft",
+      "imageKey": "motif.nagasaki.hasamiyaki",
+      "blurb": "波佐見町[はさみちょう]で 作[つく]られる、ふだん使[づか]いの やきもの。"
+    },
+    {
+      "id": "nagasaki-biwa",
+      "name": "長崎[ながさき]の びわ",
+      "kind": "food",
+      "imageKey": "motif.nagasaki.nagasaki-biwa",
+      "blurb": "海[うみ]に 面[めん]した だんだん畑[ばたけ]で 作[つく]られる。長崎県[ながさきけん]は びわの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "goto-kyokai",
+      "name": "五島[ごとう]の 教会[きょうかい]",
+      "kind": "landmark",
+      "imageKey": "motif.nagasaki.goto-kyokai",
+      "blurb": "五島列島[ごとうれっとう]には、海[うみ]ぞいに 古[ふる]い 教会[きょうかい]が たくさん 建[た]っている。"
+    },
+    {
+      "id": "goto-takahama",
+      "name": "高浜[たかはま]の 海[うみ]",
+      "kind": "nature",
+      "imageKey": "motif.nagasaki.goto-takahama",
+      "blurb": "五島[ごとう]の 福江島[ふくえじま]に ある、白[しろ]い 砂浜[すなはま]と すきとおった 海[うみ]の 浜[はま]。"
+    },
+    {
+      "id": "onidake",
+      "name": "鬼岳[おにだけ]",
+      "kind": "nature",
+      "imageKey": "motif.nagasaki.onidake",
+      "blurb": "福江島[ふくえじま]に ある、草[くさ]に おおわれた まるい 形[かたち]の 火山[かざん]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "nagasaki-fuwatera",
+          "weight": 35
+        },
+        {
+          "monsterId": "nagasaki-yadoshima",
+          "weight": 25
+        },
+        {
+          "monsterId": "nagasaki-mogikko",
+          "weight": 25
+        },
+        {
+          "monsterId": "nagasaki-kurawanbou",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "nagasaki-mogikko",
+          "weight": 65
+        },
+        {
+          "monsterId": "nagasaki-fuwatera",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "nagasaki-mogikko",
+          "weight": 40
+        },
+        {
+          "monsterId": "nagasaki-yadoshima",
+          "weight": 25
+        },
+        {
+          "monsterId": "nagasaki-kurawanbou",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "nagasaki-yadoshima",
+          "weight": 75
+        },
+        {
+          "monsterId": "nagasaki-mogikko",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "nagasaki-fuwatera",
+          "weight": 30
+        },
+        {
+          "monsterId": "nagasaki-yadoshima",
+          "weight": 25
+        },
+        {
+          "monsterId": "nagasaki-mogikko",
+          "weight": 20
+        },
+        {
+          "monsterId": "nagasaki-kurawanbou",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "nagasaki-boss-unzen-ryu",
+  "midBoss": "nagasaki-midboss-megane-golem",
+  "secret": {
+    "name": "出島[でじま]",
+    "boss": "nagasaki-lastboss-siebold"
+  },
+  "events": [
+    {
+      "id": "ev-nagasaki-kujukushima",
+      "motifId": "kujukushima",
+      "trigger": {
+        "map": "nagasaki-field",
+        "objectName": "event_nagasaki_kujukushima"
+      },
+      "once": true,
+      "cutinImageKey": "motif.nagasaki.kujukushima",
+      "dialogue": [
+        {
+          "speaker": "九十九島[くじゅうくしま]の 船長[せんちょう]さん",
+          "text": "九十九島[くじゅうくしま]には、ほんとうは 200より 多[おお]くの 島[しま]が あるんだ。かずの もんだいに ちょうせんしよう！"
+        }
+      ],
+      "question": {
+        "subject": "sansu",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:nagasaki"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "九十九島[くじゅうくしま]の 船長[せんちょう]さん",
+          "text": "おみごと！ 島[しま]を かぞえるのも、10ずつ まとめると かんたんだね。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "長崎市[ながさきし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-nagasaki-shop",
+        "name": "カステラ屋[や]の おねえさん",
+        "spriteKey": "char.npc-nagasaki-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "ようこそ 長崎[ながさき]へ！ カステラの そこには、ざらめの さとうが ついて いるんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-nagasaki-smith",
+        "name": "波佐見焼[はさみやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-nagasaki-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "波佐見焼[はさみやき]は、毎日[まいにち]の ごはんで つかう じょうぶな 器[うつわ]なんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

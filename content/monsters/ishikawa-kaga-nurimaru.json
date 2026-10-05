@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ishikawa-kaga-nurimaru",
+  "name": "カガヌリマル",
+  "area": "ishikawa",
+  "motifId": "wajimanuri",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 57,
+    "mp": 14,
+    "atk": 16,
+    "def": 12,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-hono-no-mai",
+    "sk-hono-no-uzu"
+  ],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 29,
+  "gold": 21,
+  "spriteKey": "mon.ishikawa-kaga-nurimaru",
+  "dexBlurb": "金[きん]の まき絵[え]を まとった うるしの むしゃ。まき絵[え]は うるしの 上[うえ]に 金粉[きんぷん]を まいて えがく かざり。"
+}

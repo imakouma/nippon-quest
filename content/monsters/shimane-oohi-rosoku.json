@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shimane-oohi-rosoku",
+  "name": "オオヒロウソク",
+  "area": "shimane",
+  "motifId": "rosokujima",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 65,
+    "mp": 17,
+    "atk": 18,
+    "def": 13,
+    "spd": 11,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-hono-no-mai",
+    "sk-hono-no-uzu"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 36,
+  "gold": 26,
+  "spriteKey": "mon.shimane-oohi-rosoku",
+  "dexBlurb": "岩[いわ]の からだに 夕日[ゆうひ]の 火[ひ]を あつめた すがた。海[うみ]の 上[うえ]を 赤[あか]く てらしながら すすむ。"
+}

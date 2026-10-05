@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-yaoki-koboshi",
+  "name": "ヤオキコボシ",
+  "area": "fukushima",
+  "motifId": "okiagari-koboshi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 52,
+    "mp": 14,
+    "atk": 13,
+    "def": 12,
+    "spd": 12,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.4,
+    "atk": 1.4,
+    "def": 1.6,
+    "spd": 1.4,
+    "wis": 1.1
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.fukushima-yaoki-koboshi",
+  "dexBlurb": "コボシが しんかした すがた。なんど たおされても 起[お]き上[あ]がる「七転[ななころ]び八起[やお]き」の こころ。"
+}

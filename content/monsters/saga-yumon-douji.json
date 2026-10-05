@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-yumon-douji",
+  "name": "ユモンドウジ",
+  "area": "saga",
+  "motifId": "takeo-onsen",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 70,
+    "mp": 16,
+    "atk": 21,
+    "def": 12,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-hono-no-mai",
+    "sk-hono-no-uzu"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 39,
+  "gold": 24,
+  "spriteKey": "mon.saga-yumon-douji",
+  "dexBlurb": "ユモンボウが しんかした すがた。二階建[にかいだ]ての 楼門[ろうもん]の ように 大[おお]きく なり、湯[ゆ]けむりが ほのおの ように もえる。"
+}

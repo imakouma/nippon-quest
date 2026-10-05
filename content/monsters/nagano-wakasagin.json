@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagano-wakasagin",
+  "name": "ワカサギン",
+  "area": "nagano",
+  "motifId": "suwako",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 43,
+    "mp": 10,
+    "atk": 11,
+    "def": 7,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.0,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-shizuku"
+  ],
+  "drops": [
+    {
+      "itemId": "nagano-suwa-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 21,
+  "gold": 14,
+  "spriteKey": "mon.nagano-wakasagin",
+  "evolution": {
+    "to": "nagano-koori-wakasagi",
+    "item": "nagano-suwa-no-shizuku"
+  },
+  "dexBlurb": "諏訪湖[すわこ]の わかさぎの モンスター。冬[ふゆ]の 諏訪湖[すわこ]では、こおりに あなを あけて わかさぎを つる。"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-kasaneyakin",
+  "name": "カサネヤキン",
+  "area": "hiroshima",
+  "motifId": "okonomiyaki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 48,
+    "mp": 11,
+    "atk": 16,
+    "def": 7,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.8,
+    "spd": 1,
+    "wis": 0.6
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "hiroshima-tappuri-kyabetsu",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.hiroshima-kasaneyakin",
+  "evolution": {
+    "to": "hiroshima-teppan-double",
+    "item": "hiroshima-tappuri-kyabetsu"
+  },
+  "dexBlurb": "お好[この]み焼[や]きが なんだんにも かさなった モンスター。広島[ひろしま]の お好[この]み焼[や]きは、生地[きじ]・キャベツ・そば・たまごを かさねて やく。"
+}

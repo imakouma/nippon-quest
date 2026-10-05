@@ -1,0 +1,66 @@
+{
+  "$ref": "#/definitions/elements",
+  "definitions": {
+    "elements": {
+      "type": "object",
+      "properties": {
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "hino",
+              "mizu",
+              "mori",
+              "tsuchi",
+              "kaze",
+              "hikari",
+              "yami",
+              "none"
+            ]
+          }
+        },
+        "multipliers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "propertyNames": {
+              "enum": [
+                "hino",
+                "mizu",
+                "mori",
+                "tsuchi",
+                "kaze",
+                "hikari",
+                "yami",
+                "none"
+              ]
+            }
+          },
+          "propertyNames": {
+            "enum": [
+              "hino",
+              "mizu",
+              "mori",
+              "tsuchi",
+              "kaze",
+              "hikari",
+              "yami",
+              "none"
+            ]
+          }
+        }
+      },
+      "required": [
+        "elements",
+        "multipliers"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

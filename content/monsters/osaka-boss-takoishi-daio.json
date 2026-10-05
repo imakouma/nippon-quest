@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-boss-takoishi-daio",
+  "name": "タコイシダイオウ",
+  "area": "osaka",
+  "motifId": "osaka-jo",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 440,
+    "mp": 54,
+    "atk": 23,
+    "def": 18,
+    "spd": 7,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "osaka-takoyaki-no-fune",
+      "rate": 1
+    },
+    {
+      "itemId": "osaka-mizunasu-no-nukazuke",
+      "rate": 1
+    },
+    {
+      "itemId": "osaka-minoo-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "osaka-budo-no-tsuru",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 286,
+  "gold": 335,
+  "spriteKey": "mon.osaka-boss-takoishi-daio",
+  "dexBlurb": "大阪城[おおさかじょう]の 石垣[いしがき]で いちばん 大[おお]きな 石[いし]「蛸石[たこいし]」が、タコの すがたに なった。蛸石[たこいし]は、タコの ような もようが あるので そう よばれる。",
+  "fieldLine": "ゴゴゴ…。大阪城[おおさかじょう]の 石垣[いしがき]を まもる わしに、いどむのは だれや！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "mizu",
+      "skills": [
+        "sk-uzushio",
+        "sk-iwa-otoshi",
+        "sk-kuku-rush"
+      ],
+      "line": "なにわの 石垣[いしがき]、なめたら あかん！ 大阪湾[おおさかわん]の 大波[おおなみ]、いくでー！"
+    }
+  ]
+}

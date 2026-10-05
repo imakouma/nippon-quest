@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-akoyan",
+  "name": "アコヤン",
+  "area": "mie",
+  "motifId": "ago-shinju",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 45,
+    "mp": 9,
+    "atk": 11,
+    "def": 8,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.0,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-kana-barrier",
+    "sk-kazoe-giri"
+  ],
+  "drops": [
+    {
+      "itemId": "mie-akoya-no-shinju",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 13,
+  "spriteKey": "mon.mie-akoyan",
+  "evolution": {
+    "to": "mie-shinju-hime",
+    "item": "mie-akoya-no-shinju"
+  },
+  "dexBlurb": "英虞湾[あごわん]の アコヤ貝[がい]の モンスター。貝[かい]の 中[なか]で こつこつと 真珠[しんじゅ]を そだてる。"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamaguchi-mikan-daimyo",
+  "name": "ミカンダイミョウ",
+  "area": "yamaguchi",
+  "motifId": "hagi",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 65,
+    "mp": 17,
+    "atk": 20,
+    "def": 13,
+    "spd": 12,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 26,
+  "spriteKey": "mon.yamaguchi-mikan-daimyo",
+  "dexBlurb": "ナツミカンブシが しんかした すがた。夏[なつ]みかんは 冬[ふゆ]に 実[み]が 色[いろ]づくが、すっぱさが やわらぐ 春[はる]から 夏[なつ]に 食[た]べる。"
+}

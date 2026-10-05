@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-dogu-jin",
+  "name": "ドグウジン",
+  "area": "aomori",
+  "motifId": "sannai-maruyama",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 52,
+    "mp": 8,
+    "atk": 12,
+    "def": 12,
+    "spd": 5,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 7.2,
+    "mp": 0.6,
+    "atk": 1.3,
+    "def": 1.9,
+    "spd": 0.5,
+    "wis": 1
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.aomori-dogu-jin",
+  "dexBlurb": "ドグウくんが しんかした 大[おお]きな ゴーレム。遮光器土偶[しゃこうきどぐう]の 大[おお]きな 目[め]が とくちょう。"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kumamoto-karuderan",
+  "name": "カルデラン",
+  "area": "kumamoto",
+  "motifId": "asosan",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 52,
+    "mp": 14,
+    "atk": 17,
+    "def": 9,
+    "spd": 9,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.9,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "kumamoto-higotai-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 28,
+  "gold": 18,
+  "spriteKey": "mon.kumamoto-karuderan",
+  "evolution": {
+    "to": "kumamoto-dai-karudera",
+    "item": "kumamoto-higotai-no-hana"
+  },
+  "dexBlurb": "阿蘇山[あそさん]の 火口[かこう]が 頭[あたま]に なった モンスター。阿蘇山[あそさん]の まわりには「カルデラ」と よばれる とても 大[おお]きな くぼ地[ち]が 広[ひろ]がる。"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyazaki-kanjuku-mango",
+  "name": "カンジュクマンゴ",
+  "area": "miyazaki",
+  "motifId": "miyazaki-mango",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 71,
+    "mp": 22,
+    "atk": 20,
+    "def": 14,
+    "spd": 13,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 42,
+  "gold": 31,
+  "spriteKey": "mon.miyazaki-kanjuku-mango",
+  "dexBlurb": "マンゴッチが しんかした すがた。木[き]の 上[うえ]で じっくり じゅくして、金[きん]の 光[ひかり]を まとう。"
+}

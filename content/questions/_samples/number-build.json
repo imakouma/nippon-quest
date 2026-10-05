@@ -1,0 +1,50 @@
+[
+  {
+    "$schema": "../../../schemas/questions/number-build.schema.json",
+    "id": "sample.number-build.blocks.0001",
+    "type": "number-build",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "mode": "blocks",
+      "prompt": "りんごを 23こ ならべよう",
+      "answer": 23,
+      "blocks": [10, 1],
+      "max": 99
+    },
+    "explanation": "10の まとまりを 2つと、1を 3つで 23。"
+  },
+  {
+    "id": "sample.number-build.keypad.0001",
+    "type": "number-build",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.kuku",
+    "payload": {
+      "mode": "keypad",
+      "prompt": "7 × 8 = ?",
+      "answer": 56,
+      "maxDigits": 2
+    },
+    "explanation": "しちは 56。"
+  },
+  {
+    "id": "sample.number-build.numberline.0001",
+    "type": "number-build",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.wariai",
+    "payload": {
+      "mode": "numberline",
+      "prompt": "0.75の ばしょに あわせよう",
+      "answer": 0.75,
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "tolerance": 0.05,
+      "labels": ["0", "1"]
+    },
+    "explanation": "0.75は 0と1の あいだの、4ぶんの3の ばしょ。"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tochigi-midboss-oyaishi-don",
+  "name": "オオヤイシドン",
+  "area": "tochigi",
+  "motifId": "oyaishi",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 112,
+    "mp": 17,
+    "atk": 11,
+    "def": 9,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 8,
+    "mp": 2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.6,
+    "wis": 0.6
+  },
+  "skills": ["sk-iwa-otoshi", "sk-tsuchi-kabe"],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 63,
+  "gold": 74,
+  "spriteKey": "mon.tochigi-midboss-oyaishi-don",
+  "dexBlurb": "大谷石[おおやいし]を つみあげて できた 大男[おおおとこ]。大谷石[おおやいし]は やわらかくて ほりやすく、蔵[くら]や へいに 使[つか]われて きた。",
+  "fieldLine": "ゴゴゴ… 大谷[おおや]の 石[いし]の かべは、そう かんたんには くずれんぞ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "line": "ゴゴゴゴ！ 地下[ちか]の 石[いし]の 力[ちから]を 見[み]よ！"
+    }
+  ]
+}

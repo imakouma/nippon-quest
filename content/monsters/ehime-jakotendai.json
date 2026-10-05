@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ehime-jakotendai",
+  "name": "ジャコテンダイ",
+  "area": "ehime",
+  "motifId": "jakoten",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 71,
+    "mp": 18,
+    "atk": 21,
+    "def": 13,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 30,
+  "spriteKey": "mon.ehime-jakotendai",
+  "dexBlurb": "ジャコテンギョが しんかした すがた。タイのように りっぱな ひれを ひろげる。愛媛[えひめ]の 海[うみ]は タイの 養殖[ようしょく]も さかん。"
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "set-aomori",
+    "name": "青森[あおもり]セット",
+    "pieces": [
+      "aomori-maguro-zutsuki",
+      "aomori-nebuta-no-kabuto",
+      "aomori-ringo-no-yoroi",
+      "aomori-hiba-no-koshiate",
+      "aomori-tsugaru-nuri-boots"
+    ],
+    "bonus": {
+      "description": "ミズ・モリの わざ +20%、たたかいの はじめに かしこさ +2。りんご・ひば・ねぶた・津軽塗[つがるぬり]・マグロ、ぜんぶ 青森[あおもり]の じまん！",
+      "elementBoost": [
+        { "element": "mizu", "multiplier": 1.2 },
+        { "element": "mori", "multiplier": 1.2 }
+      ],
+      "stats": { "wis": 2 }
+    }
+  }
+]

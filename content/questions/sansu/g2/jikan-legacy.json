@@ -1,0 +1,174 @@
+[
+  {
+    "id": "sansu.g2.jikan.legacy-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.jikan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "１時間は、なん分でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "60分"
+        },
+        {
+          "id": "c2",
+          "text": "12分"
+        },
+        {
+          "id": "c3",
+          "text": "24分"
+        },
+        {
+          "id": "c4",
+          "text": "30分"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とけいのちいさな「めもり」は、ぜんぶで 60 ある。つまり、１時間は６０分ってことだね。"
+  },
+  {
+    "id": "sansu.g2.jikan.legacy-0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.jikan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "時計の みじかいはりが １しゅうすると、なん時間 たつでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12時間"
+        },
+        {
+          "id": "c2",
+          "text": "24時間"
+        },
+        {
+          "id": "c3",
+          "text": "60時間"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とけいのすうじは、１から １２まで あるね。このすうじが 時間を さしているので、みじかいはりが １しゅうすると、12時間になるよ。"
+  },
+  {
+    "id": "sansu.g2.jikan.legacy-0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.jikan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "７時の１時間後は、なん時 でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "８時"
+        },
+        {
+          "id": "c2",
+          "text": "９時"
+        },
+        {
+          "id": "c3",
+          "text": "６時"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「１時間後」なので、「時間」のみじかいはりを １すすめて、８時になる。"
+  },
+  {
+    "id": "sansu.g2.jikan.legacy-0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.jikan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "１日は、なん時間でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "24時間"
+        },
+        {
+          "id": "c2",
+          "text": "12時間"
+        },
+        {
+          "id": "c3",
+          "text": "60時間"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とけいのすうじは、１から １２まで あるね。午前で１２時間、午後で１２時間。あわせて、２４時間が１日のながさになる。"
+  },
+  {
+    "id": "sansu.g2.jikan.legacy-0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.jikan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "夜中の０時から、おひるの１２時までを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午前"
+        },
+        {
+          "id": "c2",
+          "text": "午後"
+        },
+        {
+          "id": "c3",
+          "text": "朝"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "夜中の０時から、おひるの１２時までを 午前 というよ。"
+  },
+  {
+    "id": "sansu.g2.jikan.legacy-0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.jikan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "おひるの１２時から、夜中の０時までを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午前"
+        },
+        {
+          "id": "c2",
+          "text": "午後"
+        },
+        {
+          "id": "c3",
+          "text": "昼"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "おひるの１２時から、夜中の０時までを 午後 というよ。"
+  }
+]

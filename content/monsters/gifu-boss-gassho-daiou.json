@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-boss-gassho-daiou",
+  "name": "ガッショウダイオウ",
+  "area": "gifu",
+  "motifId": "shirakawago",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 390,
+    "mp": 48,
+    "atk": 20,
+    "def": 18,
+    "spd": 8,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "gifu-hachiya-hoshigaki",
+      "rate": 1
+    },
+    {
+      "itemId": "gifu-shinoyaki",
+      "rate": 1
+    },
+    {
+      "itemId": "gifu-nagaragawa-ayu",
+      "rate": 1
+    },
+    {
+      "itemId": "gifu-tesuki-washi",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 257,
+  "gold": 305,
+  "spriteKey": "mon.gifu-boss-gassho-daiou",
+  "dexBlurb": "白川郷[しらかわごう]の 合掌造[がっしょうづく]りの 家[いえ]が 目[め]を さました すがた。大[おお]きな かやぶき屋根[やね]は、雪[ゆき]が すべり おちるように 急[きゅう]に なって いる。",
+  "fieldLine": "ゴゴゴ……！ 雪[ゆき]ぶかい 村[むら]を まもる この 屋根[やね]、そなたに やぶれるかな？",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya",
+        "sk-iwa-otoshi"
+      ],
+      "line": "ゴゴゴ……！ 雪[ゆき]の 夜[よる]、まどの 明[あ]かりが もえあがる！ この 屋根[やね]は だれにも やぶらせん！"
+    }
+  ]
+}

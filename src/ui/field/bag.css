@@ -1,0 +1,153 @@
+/*
+ * バッグ（仲間と そうびを 入れる マス）。枠は にほんちずと 同じ（.nq-wmap-box）。文字は 12 / 24 / 36 / 48px だけ。
+ * 2Dバッグ。主人公・仲間・装備を配置し、大型ボスは複数セルを使う。
+ */
+.nq-bag-left {
+  min-height: 0;
+}
+.nq-bag-countbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.nq-bag-count {
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--nq-yellow);
+  white-space: nowrap;
+}
+.nq-bag-over {
+  color: #ff8fb1;
+}
+.nq-bag-next {
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--nq-cloud);
+  white-space: nowrap;
+}
+.nq-bag-hero {
+  flex: none;
+  overflow: visible;
+}
+.nq-bag-grid {
+  display: grid;
+  gap: 6px;
+  justify-content: center;
+  align-content: center;
+  min-height: 252px;
+  padding: 12px;
+  border: 4px solid #31273f;
+  background: #111321;
+  flex: none;
+}
+.nq-bag-cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 4px solid var(--nq-slate);
+  background: #1d2033;
+  font: inherit;
+  color: inherit;
+}
+.nq-bag-item {
+  appearance: none;
+  border-color: var(--nq-white);
+  cursor: pointer;
+}
+.nq-bag-monster {
+  background: #26304a;
+}
+.nq-bag-equip {
+  background: #3a2f22;
+}
+.nq-bag-item.nq-focus {
+  border-color: var(--nq-yellow);
+}
+.nq-bag-item img {
+  width: min(64px, 90%);
+  height: min(64px, 90%);
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+/* あいている マス：点線の わくだけ */
+.nq-bag-empty {
+  border-style: dashed;
+  background: transparent;
+}
+/* まだ ひらいていない マス：くらく、あく レベル */
+.nq-bag-locked {
+  border-color: #2a2c3d;
+  background: #0c0d16;
+  font-size: 12px;
+  line-height: 12px;
+  color: var(--nq-slate);
+}
+.nq-bag-heart {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  font-size: 12px;
+  line-height: 12px;
+}
+.nq-bag-lead {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  color: #1a1428;
+  background: var(--nq-yellow);
+}
+.nq-bag-evo {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #ff8fb1;
+  animation: nq-blink 0.6s steps(2) infinite;
+}
+.nq-bag-sep {
+  margin: 0;
+  flex: none;
+}
+.nq-bag-outside {
+  flex: 1;
+}
+/* つかう マスの数（■）。リストの 右はしと 右の せつめい */
+.nq-bag-pips {
+  display: inline-flex;
+  gap: 2px;
+  flex: none;
+  margin-left: auto;
+}
+.nq-bag-pips i {
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  background: var(--nq-yellow);
+  border: 2px solid #000;
+}
+.nq-bag-costline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--nq-yellow);
+}
+.nq-bag-costline .nq-bag-pips {
+  margin-left: 0;
+}
+.nq-bag-line {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}

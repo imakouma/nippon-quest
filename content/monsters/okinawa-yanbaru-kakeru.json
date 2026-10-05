@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okinawa-yanbaru-kakeru",
+  "name": "ヤンバルカケル",
+  "area": "okinawa",
+  "motifId": "yanbaru",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 72,
+    "mp": 19,
+    "atk": 20,
+    "def": 13,
+    "spd": 14,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.1,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-abc-shout",
+    "sk-habataki"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 41,
+  "gold": 28,
+  "spriteKey": "mon.okinawa-yanbaru-kakeru",
+  "dexBlurb": "ヤンバルトットが しんかした すがた。森[もり]の 木[き]の 間[あいだ]を 風[かぜ]の ように かけぬけ、大[おお]きな 声[こえ]で なかまを よぶ。"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kumamoto-ebi-musha",
+  "name": "エビムシャ",
+  "area": "kumamoto",
+  "motifId": "amakusa-kurumaebi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 68,
+    "mp": 18,
+    "atk": 22,
+    "def": 14,
+    "spd": 14,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.1,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 26,
+  "spriteKey": "mon.kumamoto-ebi-musha",
+  "dexBlurb": "エビグルマが しんかした すがた。長[なが]い ひげを かぶとの かざりの ように なびかせる、海[うみ]の むしゃ。"
+}

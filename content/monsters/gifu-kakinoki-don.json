@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-kakinoki-don",
+  "name": "カキノキドン",
+  "area": "gifu",
+  "motifId": "fuyugaki",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 62,
+    "mp": 16,
+    "atk": 17,
+    "def": 12,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 31,
+  "gold": 22,
+  "spriteKey": "mon.gifu-kakinoki-don",
+  "dexBlurb": "フユウガキッドが しんかした すがた。えだに たくさんの 柿[かき]を みのらせ、秋[あき]には オレンジ色[いろ]に かがやく。"
+}

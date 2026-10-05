@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-ushou-dori",
+  "name": "ウショウドリ",
+  "area": "gifu",
+  "motifId": "nagaragawa-ukai",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 60,
+    "mp": 17,
+    "atk": 17,
+    "def": 10,
+    "spd": 13,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 20,
+  "spriteKey": "mon.gifu-ushou-dori",
+  "dexBlurb": "ウカイドリが しんかした すがた。鵜匠[うしょう]の ように 黒[くろ]い ずきんと こしみのを つけ、かがり火[び]を かかげる。"
+}

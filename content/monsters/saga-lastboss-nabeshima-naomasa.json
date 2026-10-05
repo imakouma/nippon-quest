@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-lastboss-nabeshima-naomasa",
+  "name": "鍋島直正[なべしまなおまさ]",
+  "area": "saga",
+  "motifId": "okawachiyama",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 554,
+    "mp": 74,
+    "atk": 30,
+    "def": 23,
+    "spd": 11,
+    "wis": 21
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hono-no-uzu",
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 480,
+  "gold": 554,
+  "spriteKey": "mon.saga-lastboss-nabeshima-naomasa",
+  "dexBlurb": "江戸時代[えどじだい]の おわりの 佐賀藩[さがはん]の 殿[との]さま（1815〜1871年[ねん]）。西洋[せいよう]の 学問[がくもん]を とり入[い]れ、反射炉[はんしゃろ]で 鉄[てつ]を とかしたり、天然痘[てんねんとう]の 予防[よぼう]せっしゅを 広[ひろ]めたり した。",
+  "fieldLine": "佐賀藩[さがはん]の 鍋島直正[なべしまなおまさ]じゃ。新[あたら]しい 学[まな]びの 力[ちから]、見[み]せて もらおう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya",
+        "sk-hono-no-uzu"
+      ],
+      "line": "反射炉[はんしゃろ]の 火[ひ]と 新[あたら]しい 学[まな]びの 光[ひかり]、まとめて うけて みよ！"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gunma-purukon",
+  "name": "プルコン",
+  "area": "gunma",
+  "motifId": "konnyaku",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 47,
+    "mp": 8,
+    "atk": 9,
+    "def": 9,
+    "spd": 5,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": ["sk-suna-kabe", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "gunma-konnyaku-imo",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.gunma-purukon",
+  "evolution": {
+    "to": "gunma-dosshirikon",
+    "item": "gunma-konnyaku-imo"
+  },
+  "dexBlurb": "ぷるぷるの こんにゃくの モンスター。こんにゃくは ほとんどが 水[みず]で できて いて、カロリーが とても 少[すく]ない。"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-pikka-ika",
+  "name": "ピッカイカ",
+  "area": "toyama",
+  "motifId": "hotaruika",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 35,
+    "mp": 12,
+    "atk": 11,
+    "def": 6,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.1,
+    "wis": 0.9
+  },
+  "skills": ["sk-kazoe-giri", "sk-kana-barrier"],
+  "drops": [
+    {
+      "itemId": "toyama-aoi-hikari-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 14,
+  "spriteKey": "mon.toyama-pikka-ika",
+  "evolution": {
+    "to": "toyama-ginga-ika",
+    "item": "toyama-aoi-hikari-no-shizuku"
+  },
+  "dexBlurb": "富山湾[とやまわん]の ホタルイカの モンスター。ホタルイカは 春[はる]の 夜[よる]、海[うみ]の 中[なか]で 青[あお]く 光[ひか]る。"
+}

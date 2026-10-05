@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hyogo-boss-shirasagi-tenshu",
+  "name": "シラサギテンシュ",
+  "area": "hyogo",
+  "motifId": "himeji-jo",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 408,
+    "mp": 54,
+    "atk": 21,
+    "def": 18,
+    "spd": 7,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "hyogo-akashiyaki-no-dashi",
+      "rate": 1
+    },
+    {
+      "itemId": "hyogo-kuromame-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "hyogo-soroban-no-tama",
+      "rate": 1
+    },
+    {
+      "itemId": "hyogo-tamanegi-no-tane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 277,
+  "gold": 326,
+  "spriteKey": "mon.hyogo-boss-shirasagi-tenshu",
+  "dexBlurb": "姫路城[ひめじじょう]の 天守[てんしゅ]が 目[め]を さました すがた。江戸時代[えどじだい]の はじめに たてられた 天守[てんしゅ]が 今[いま]も のこり、白[しろ]い すがたから「白鷺城[しらさぎじょう]」とも よばれる。",
+  "fieldLine": "ゴゴゴ…。この 天守[てんしゅ]は 400年[ねん]も 立[た]ちつづけて きた。そなたに くずせるかな？",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "白鷺[しらさぎ]の 大天守[だいてんしゅ]、ここに ひらく！ 光[ひかり]に のまれよ！"
+    }
+  ]
+}

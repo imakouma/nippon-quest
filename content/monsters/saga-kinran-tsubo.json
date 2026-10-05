@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-kinran-tsubo",
+  "name": "キンランツボ",
+  "area": "saga",
+  "motifId": "aritayaki",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 74,
+    "mp": 22,
+    "atk": 18,
+    "def": 17,
+    "spd": 10,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 28,
+  "spriteKey": "mon.saga-kinran-tsubo",
+  "dexBlurb": "ソメツボンが しんかした すがた。赤[あか]や 金[きん]で はなやかに 絵[え]つけした 有田焼[ありたやき]は、むかし ヨーロッパにも たくさん 運[はこ]ばれた。"
+}

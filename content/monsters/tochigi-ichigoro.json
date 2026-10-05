@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tochigi-ichigoro",
+  "name": "イチゴロー",
+  "area": "tochigi",
+  "motifId": "tochigi-ichigo",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 38,
+    "mp": 10,
+    "atk": 10,
+    "def": 6,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.1,
+    "wis": 0.9
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "tochigi-ichigo-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 17,
+  "gold": 12,
+  "spriteKey": "mon.tochigi-ichigoro",
+  "evolution": {
+    "to": "tochigi-ichigo-ouji",
+    "item": "tochigi-ichigo-no-hana"
+  },
+  "dexBlurb": "赤[あか]い いちごの モンスター。いちごの 表面[ひょうめん]の つぶつぶは、じつは 1つ 1つが たねの 入[はい]った 実[み]。"
+}

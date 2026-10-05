@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schemas/items.schema.json",
+  "id": "gunma-konnyaku",
+  "name": "こんにゃく",
+  "kind": "consumable",
+  "use": {
+    "heal": 20
+  },
+  "price": 20,
+  "iconKey": "item.gunma-konnyaku",
+  "areaOrigin": "gunma",
+  "blurb": "こんにゃくいもから 作[つく]る 食[た]べもの。こんにゃくいもは ほとんどが 群馬県[ぐんまけん]で 作[つく]られる。 たべると HPが 20 かいふく。"
+}

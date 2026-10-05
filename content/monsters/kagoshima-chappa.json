@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-chappa",
+  "name": "チャッパ",
+  "area": "kagoshima",
+  "motifId": "kagoshima-cha",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 55,
+    "mp": 15,
+    "atk": 13,
+    "def": 10,
+    "spd": 9,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.0,
+    "spd": 0.9,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-shizuku"
+  ],
+  "drops": [
+    {
+      "itemId": "kagoshima-shincha",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 27,
+  "gold": 18,
+  "spriteKey": "mon.kagoshima-chappa",
+  "evolution": {
+    "to": "kagoshima-shincha-dou",
+    "item": "kagoshima-shincha"
+  },
+  "dexBlurb": "お茶[ちゃ]の 葉[は]の 子[こ]。頭[あたま]の きゅうすから あたたかい お茶[ちゃ]を そそぐ。鹿児島[かごしま]は お茶[ちゃ]づくりが とても さかんな 県[けん]。"
+}

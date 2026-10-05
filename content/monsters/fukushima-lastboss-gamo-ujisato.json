@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-lastboss-gamo-ujisato",
+  "name": "蒲生氏郷[がもううじさと]",
+  "area": "fukushima",
+  "motifId": "tsurugajo",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 384,
+    "mp": 48,
+    "atk": 18,
+    "def": 17,
+    "spd": 9,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 14.3,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.8,
+    "spd": 0.9,
+    "wis": 1.3
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-hono-no-uzu"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 312,
+  "gold": 360,
+  "spriteKey": "mon.fukushima-lastboss-gamo-ujisato",
+  "dexBlurb": "会津[あいづ]を おさめた 戦国[せんごく]武将[ぶしょう]（1556〜1595年[ねん]）。お城[しろ]を 七[なな]かいだての 天守[てんしゅ]に きずきなおし、『鶴ヶ城[つるがじょう]』と 名[な]づけた。",
+  "fieldLine": "われは 蒲生氏郷[がもううじさと]。この 鶴ヶ城[つるがじょう]を きずいた ものじゃ。かかって まいれ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-iwa-otoshi",
+        "sk-hikari-no-ya",
+        "sk-hikari-no-hane"
+      ],
+      "line": "鶴[つる]が まう 城[しろ]の ちからを 見[み]よ！ 七重[ななえ]の 天守[てんしゅ]は くずれぬ！"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-lastboss-minamoto-yoshitsune",
+  "name": "源義経[みなもとのよしつね]",
+  "area": "iwate",
+  "motifId": "chusonji",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 336,
+    "mp": 48,
+    "atk": 19,
+    "def": 12,
+    "spd": 15,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 12.1,
+    "mp": 2.2,
+    "atk": 2.0,
+    "def": 1.3,
+    "spd": 1.5,
+    "wis": 1.3
+  },
+  "skills": [
+    "sk-kaikyo-no-kaze",
+    "sk-habataki"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 312,
+  "gold": 360,
+  "spriteKey": "mon.iwate-lastboss-minamoto-yoshitsune",
+  "dexBlurb": "平安[へいあん]時代[じだい]の おわりの 武将[ぶしょう]（1159〜1189年[ねん]）。すばやい うごきで 名[な]を あげ、さいごは 平泉[ひらいずみ]で すごした。けらいの 弁慶[べんけい]と ともに 語[かた]りつがれている。",
+  "fieldLine": "われは 源義経[みなもとのよしつね]。この 平泉[ひらいずみ]で、そなたの うでを ためそう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-kaikyo-no-kaze",
+        "sk-hikari-no-hane"
+      ],
+      "line": "八艘[はっそう]とびを 見[み]せて やろう！ 風[かぜ]より はやく！"
+    }
+  ]
+}

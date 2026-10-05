@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hyogo-sorobanban",
+  "name": "ソロバンバン",
+  "area": "hyogo",
+  "motifId": "banshu-soroban",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 54,
+    "mp": 10,
+    "atk": 11,
+    "def": 11,
+    "spd": 6,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.9
+  },
+  "skills": ["sk-kazoe-giri", "sk-suna-kabe"],
+  "drops": [
+    {
+      "itemId": "hyogo-soroban-no-tama",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 23,
+  "gold": 16,
+  "spriteKey": "mon.hyogo-sorobanban",
+  "evolution": {
+    "to": "hyogo-soroban-shogun",
+    "item": "hyogo-soroban-no-tama"
+  },
+  "dexBlurb": "そろばんの 玉[たま]を パチパチ はじいて 計算[けいさん]する モンスター。小野市[おのし]の 播州[ばんしゅう]そろばんは、国[くに]の 伝統的工芸品[でんとうてきこうげいひん]に なっている。"
+}

@@ -1,0 +1,5261 @@
+[
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.07eb94321124",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図はふつう、どの方角を上にして表すのがきまりですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北"
+        },
+        {
+          "id": "c2",
+          "text": "南"
+        },
+        {
+          "id": "c3",
+          "text": "東"
+        },
+        {
+          "id": "c4",
+          "text": "西"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図は原則として、上の方向を「北」にして描かれます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.08b1cf7ecc80",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔から地域に伝わるお話（民話や伝説）を調べるために、最も適した調べ方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域のお年寄りから話を聞き取る"
+        },
+        {
+          "id": "c2",
+          "text": "インターネットでゲームの裏技を検索する"
+        },
+        {
+          "id": "c3",
+          "text": "デパートに行って買い物をする"
+        },
+        {
+          "id": "c4",
+          "text": "電柱の数を数える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域に伝わる民話や口伝を調べるには、その土地に長く住んでいるお年寄りの方にインタビューをする（聞き取り調査）のが効果的です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.13fd4c7dc71f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横浜市の「中山駅」を通っている、横浜駅と八王子駅を結ぶJR東日本の路線名は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横浜線"
+        },
+        {
+          "id": "c2",
+          "text": "東海道線"
+        },
+        {
+          "id": "c3",
+          "text": "根岸線"
+        },
+        {
+          "id": "c4",
+          "text": "横須賀線"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中山駅を通っているJRの路線は「横浜線」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.193edc441194",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "古くから地域に残るお祭りや行事（伝統行事）は、どのような目的で続けられていることが多いですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域のつながりを深め、安全や豊作を願うため"
+        },
+        {
+          "id": "c2",
+          "text": "外国のお祭りをまねするため"
+        },
+        {
+          "id": "c3",
+          "text": "新しいおもちゃを売るため"
+        },
+        {
+          "id": "c4",
+          "text": "ゲームの時間を増やすため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域の伝統行事やお祭りは、災害から身を守ることや豊かな実りを祈り、人々の連帯感を深めるために受け継がれています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.205f0d28f7ab",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡空港と博多駅、天神などを結び、地下を通って多くの人を運ぶ交通機関は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地下鉄"
+        },
+        {
+          "id": "c2",
+          "text": "モノレール"
+        },
+        {
+          "id": "c3",
+          "text": "新幹線"
+        },
+        {
+          "id": "c4",
+          "text": "高速道路"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "福岡空港から博多駅や天神などの都心部へは、地下鉄が直接結んでいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.22b761f19559",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "実際の距離を地図上に縮めて表した割合を「縮尺（しゅくしゃく）」といいますが、1万分の1の縮尺の地図で、地図上の1cmは実際には何mですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100m"
+        },
+        {
+          "id": "c2",
+          "text": "10m"
+        },
+        {
+          "id": "c3",
+          "text": "1000m"
+        },
+        {
+          "id": "c4",
+          "text": "1m"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1cm の 10000倍は 10000cm。100cm = 1m なので、10000cm = 100m となります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.291a649587ad",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "丸の中に小さな点がある記号（リンゴやナシなどをイメージした記号）は、何を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かじゅ園"
+        },
+        {
+          "id": "c2",
+          "text": "畑"
+        },
+        {
+          "id": "c3",
+          "text": "田"
+        },
+        {
+          "id": "c4",
+          "text": "茶畑"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "果物の形や木の形をデザインした記号は「かじゅ園」を表します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.2c26f6553f25",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "海沿いの工業地域などで、大量の重い原材料や製品を運ぶために、最もよく使われる便利な乗り物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "船（貨物船）"
+        },
+        {
+          "id": "c2",
+          "text": "ひこうき"
+        },
+        {
+          "id": "c3",
+          "text": "バス"
+        },
+        {
+          "id": "c4",
+          "text": "タクシー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "臨海部の工場では、大量で重量のある物資を効率的に運ぶために「船（貨物船）」が広く使われています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.2f3c02205777",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡市のように、政令指定都市などに置かれている、行政の事務を行うための区域を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "区"
+        },
+        {
+          "id": "c2",
+          "text": "市"
+        },
+        {
+          "id": "c3",
+          "text": "町"
+        },
+        {
+          "id": "c4",
+          "text": "村"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "福岡市や横浜市などの大きな市（政令指定都市）は、行政事務を分担するために複数の「区」に分かれています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.3be4ca603a4f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "神奈川県にある「横浜市」の中心的な駅である横浜駅には多くの鉄道が乗り入れていますが、次のうち「新幹線（東海道新幹線）」が止まる駅はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "新横浜駅"
+        },
+        {
+          "id": "c2",
+          "text": "横浜駅"
+        },
+        {
+          "id": "c3",
+          "text": "桜木町駅"
+        },
+        {
+          "id": "c4",
+          "text": "関内駅"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "横浜駅には新幹線は通っておらず、新幹線の乗り入れ駅は「新横浜駅」になります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.3cfe2d4e2ce6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図をかくときに、文字を使わずに「地図記号」を使う理由として、正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どのような建物があるかひと目でわかり、文字を書かずに表せるから"
+        },
+        {
+          "id": "c2",
+          "text": "だれの家があるかわかるようにするため"
+        },
+        {
+          "id": "c3",
+          "text": "住んでいる人の数を表すため"
+        },
+        {
+          "id": "c4",
+          "text": "文字を書くのが面倒だから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図記号を使うことで、限られた地図のスペースにどんな施設があるかをひと目でわかりやすく表すことができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.40da26785a52",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡県にある「福岡市」は、いくつかの「区」に分かれています。福岡市には区がいくつありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "7つ"
+        },
+        {
+          "id": "c2",
+          "text": "5つ"
+        },
+        {
+          "id": "c3",
+          "text": "3つ"
+        },
+        {
+          "id": "c4",
+          "text": "10つ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "福岡市は東区、博多区、中央区、南区、城南区、早良区、西区の7つの行政区からできています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.44333ef233ac",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自分たちの住む市全体の様子を調べる際、高い場所から見渡すのによく使われる、市内にある非常に背の高い建造物や展望台のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "タワーや市役所の展望台"
+        },
+        {
+          "id": "c2",
+          "text": "郵便局"
+        },
+        {
+          "id": "c3",
+          "text": "小学校の体育館"
+        },
+        {
+          "id": "c4",
+          "text": "消防署"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "高いタワーや市役所の展望ロビーなどに登ると、市の全体的な広がりや土地の使われ方を遠くまで見渡すことができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.46ad02633c75",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "古い道具や昔のくらしの様子が展示されており、実際に見学して調べることができる施設を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "郷土資料館（歴史民俗資料館）"
+        },
+        {
+          "id": "c2",
+          "text": "市役所"
+        },
+        {
+          "id": "c3",
+          "text": "消防署"
+        },
+        {
+          "id": "c4",
+          "text": "温水プール"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域に古くから残る道具や生活の歴史を展示し、人々のくらしの移り変わりを学べる場所を「郷土資料館」などと呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.4af2188854f6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「東」と「北」の間の方向を「北東」といいますが、「西」と「北」の間の方向は何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北西"
+        },
+        {
+          "id": "c2",
+          "text": "南東"
+        },
+        {
+          "id": "c3",
+          "text": "南西"
+        },
+        {
+          "id": "c4",
+          "text": "北東"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "北と西の間の方向を「北西」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.51fd5ed2e9d2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "方位じしんを使うとき、色のついた針の先が指ししめすのは、東・西・南・北のどの方位ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北"
+        },
+        {
+          "id": "c2",
+          "text": "南"
+        },
+        {
+          "id": "c3",
+          "text": "東"
+        },
+        {
+          "id": "c4",
+          "text": "西"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位じしんの色のついた針（多くは赤や青）は、地球の磁力によって常に「北」を指すようになっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.5375e3b3eff6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "海沿いの工業地域などで、海岸線が不自然にまっすぐになっている場所があります。これはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "海をうめ立てて作った土地だから"
+        },
+        {
+          "id": "c2",
+          "text": "波が海岸を削ったから"
+        },
+        {
+          "id": "c3",
+          "text": "自然にまっすぐになったから"
+        },
+        {
+          "id": "c4",
+          "text": "川から砂が流れてきたから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "海を人工的にうめ立てて工場用地などを造成したため、海岸線が直線のようになっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.58d1652d94bf",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、古くから残る建造物として正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "昔のくらしを伝える建造物"
+        },
+        {
+          "id": "c2",
+          "text": "今日できたばかりのビル"
+        },
+        {
+          "id": "c3",
+          "text": "遊園地の乗り物"
+        },
+        {
+          "id": "c4",
+          "text": "自動販売機"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/533789e8fd964f3d.png"
+    },
+    "explanation": "古い家や橋など、昔から残る建造物は、その地域の歴史や人々のくらしを教えてくれます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.688c06cbfddc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「古くから残る建造物と地域の特色」の学習で、社会科の調べ方として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地図帳や調査を使って、身近な地域の様子を調べ、まとめる"
+        },
+        {
+          "id": "c2",
+          "text": "調べたことを記録せずに終わる"
+        },
+        {
+          "id": "c3",
+          "text": "地図帳を使わずに位置を決める"
+        },
+        {
+          "id": "c4",
+          "text": "見学や聞き取りのルールを守らない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図帳や調査を使って、身近な地域の様子を調べ、まとめることが、学習指導要領で求められる社会科の調べ方です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.6d0e031ce36a",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の中から「郵便局（〒）」の記号がある場所をクリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "hotspots": [
+        {
+          "x": 45,
+          "y": 70,
+          "label": "郵便局"
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "交番"
+        },
+        {
+          "x": 28,
+          "y": 35,
+          "label": "寺"
+        },
+        {
+          "x": 50,
+          "y": 48,
+          "label": "学校"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "郵便局は「〒」の記号です。地図の下側の道路沿いにあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.724a8d4e1aab",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「古い建造物から読み取ること」の説明として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "なぜその場所に建てられたのか、どんな役割を果たしてきたのかを考えてみましょう。"
+        },
+        {
+          "id": "c2",
+          "text": "中心部と郊外では、建物の様子や交通の便利さがちがう"
+        },
+        {
+          "id": "c3",
+          "text": "海の近く、山の近く、平野など自然条件によってくらし方がちがう"
+        },
+        {
+          "id": "c4",
+          "text": "見学や聞き取りで集めた情報を白地図などにまとめる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「なぜその場所に建てられたのか、どんな役割を果たしてきたのかを考えてみましょう。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.75c3216e20e0",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横浜市の有名な観光地である「中華街」の特色として、最もあてはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "多くの店が集まり、にぎわっている"
+        },
+        {
+          "id": "c2",
+          "text": "田んぼが一面に広がっている"
+        },
+        {
+          "id": "c3",
+          "text": "大きな工場が立ち並んでいる"
+        },
+        {
+          "id": "c4",
+          "text": "人がほとんど住んでいない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "横浜中華街は飲食店や雑貨店など多くの店舗が集まるにぎやかな商業地です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.76859e05e756",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校や公園、図書館など、みんなの生活のために国や地方自治体によってつくられた建物や場所をまとめて何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公共施設（公共しせつ）"
+        },
+        {
+          "id": "c2",
+          "text": "商業施設"
+        },
+        {
+          "id": "c3",
+          "text": "工業施設"
+        },
+        {
+          "id": "c4",
+          "text": "私有地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "みんなのために作られた施設を「公共施設」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.7b6c4853f03d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図中の右上などに「1:10000」や「1:25000」のように書かれている、実際の距離を縮めた割合のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "縮尺（しゅくしゃく）"
+        },
+        {
+          "id": "c2",
+          "text": "方位"
+        },
+        {
+          "id": "c3",
+          "text": "標高"
+        },
+        {
+          "id": "c4",
+          "text": "地図記号"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "実際の距離を地図上に縮めて表した割合を「縮尺」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.81acd887d97b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "市の中心部で、市役所や銀行、デパートなどが多く集まり、たくさんの人が働く場所を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中心業務地区（都心）"
+        },
+        {
+          "id": "c2",
+          "text": "工業地帯"
+        },
+        {
+          "id": "c3",
+          "text": "農村地帯"
+        },
+        {
+          "id": "c4",
+          "text": "住宅地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "市の行政や経済の中心であり、高いビルやデパートが立ち並ぶ場所を「中心業務地区（都心）」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.922823c35ea1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "船がいかりを下ろしているマーク（⚓の形）の地図記号は、何を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おもな港"
+        },
+        {
+          "id": "c2",
+          "text": "空港"
+        },
+        {
+          "id": "c3",
+          "text": "フェリー乗り場"
+        },
+        {
+          "id": "c4",
+          "text": "海水浴場"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "船のいかりのマークは「港（おもな港）」を表す地図記号です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.94fc1dc9ee91",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「古い建造物から読み取ること」について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "神社やお寺、古い家、橋など、昔から残る建造物は、その地域の歴史や人々のくらしを教えてくれます。"
+        },
+        {
+          "id": "c2",
+          "text": "なぜその場所に建てられたのか、どんな役割を果たしてきたのかを考えてみましょう。"
+        },
+        {
+          "id": "c3",
+          "text": "中心部と郊外では、建物の様子や交通の便利さがちがう"
+        },
+        {
+          "id": "c4",
+          "text": "海の近く、山の近く、平野など自然条件によってくらし方がちがう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「神社やお寺、古い家、橋など、昔から残る建造物は、その地域の歴史や人々のくらしを教えてくれます。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.9fb867645f85",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この建造物から読み取れることとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "昔の人々のくらしや交通の様子"
+        },
+        {
+          "id": "c2",
+          "text": "明日の天気"
+        },
+        {
+          "id": "c3",
+          "text": "外国の言葉"
+        },
+        {
+          "id": "c4",
+          "text": "数学の公式"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/708c6eb390697301.png"
+    },
+    "explanation": "古い建造物や橋は、なぜその場所に作られたのか、どんな役割があったのかを考える手がかりになります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.ac17d998e6b9",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の中から「卍（寺）」の記号がある場所をクリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "hotspots": [
+        {
+          "x": 28,
+          "y": 35,
+          "label": "寺"
+        },
+        {
+          "x": 68,
+          "y": 25,
+          "label": "神社"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "label": "郵便局"
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "交番"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "「卍（まんじ）」は寺（仏教の寺院）の地図記号です。地図の左上の位置にあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.ae49967b82b5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、消火栓や消防署など「消防（火事の防止や消火）」に関係する古い地図記号（Yの形に似た記号）が表す建物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消防署"
+        },
+        {
+          "id": "c2",
+          "text": "警察署"
+        },
+        {
+          "id": "c3",
+          "text": "市役所"
+        },
+        {
+          "id": "c4",
+          "text": "郵便局"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "Y字型の記号は、昔の消火道具である「さすまた（刺又）」の形から作られた「消防署」の地図記号です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.b8092513903f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "神社やお寺などの古い建物が、何百年も壊れずに残っている理由として、最も正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域の人々が大切に守り、修理し続けてきたから"
+        },
+        {
+          "id": "c2",
+          "text": "コンクリートだけでできているから"
+        },
+        {
+          "id": "c3",
+          "text": "誰も中に入らなかったから"
+        },
+        {
+          "id": "c4",
+          "text": "魔法がかかっているから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "古い建造物は、雨風で傷むたびに、地域の人々や大工さんが修理し、保護し続けてきたからこそ現代に残っています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.b9604ed1392d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "開いた本の形をした地図記号が表している建物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "図書館"
+        },
+        {
+          "id": "c2",
+          "text": "学校"
+        },
+        {
+          "id": "c3",
+          "text": "交番"
+        },
+        {
+          "id": "c4",
+          "text": "病院"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "開いた本の形をした地図記号は「図書館」を表します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.bf5f6ec14cb7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「二本線の並び（縦の二本線）」で表される地図記号は、何を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "田"
+        },
+        {
+          "id": "c2",
+          "text": "畑"
+        },
+        {
+          "id": "c3",
+          "text": "かじゅ園"
+        },
+        {
+          "id": "c4",
+          "text": "荒地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "稲を刈り取った後の株をデザインした二本線の記号は「田」を表します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.c1086cb2a5dd",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図上で方位を示す「４方向の十字」の記号において、上は北、下は南、右は東ですが、左はどの方位ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西"
+        },
+        {
+          "id": "c2",
+          "text": "東"
+        },
+        {
+          "id": "c3",
+          "text": "南"
+        },
+        {
+          "id": "c4",
+          "text": "北"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位を示す十字の記号では、上が北、下が南、右が東、左が西になります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.c1acc6040580",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "土地の様子（土地利用）において、お店やオフィスビルなどが最も多く並んでいる地域は次のうちどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "商業地"
+        },
+        {
+          "id": "c2",
+          "text": "住宅地"
+        },
+        {
+          "id": "c3",
+          "text": "工業地"
+        },
+        {
+          "id": "c4",
+          "text": "農耕地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "お店や事務所が集まっている地域を「商業地」、家が集まっている地域を「住宅地」、工場が集まっている地域を「工業地」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.c1db6b8cc38e",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の中から「鳥居（神社）」の記号がある場所をクリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "hotspots": [
+        {
+          "x": 68,
+          "y": 25,
+          "label": "神社"
+        },
+        {
+          "x": 28,
+          "y": 35,
+          "label": "寺"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "label": "郵便局"
+        },
+        {
+          "x": 50,
+          "y": 48,
+          "label": "学校"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "鳥居の地図記号は神社を表しています。地図の右上近くにあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.d1af16281b5d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の端に描かれている、地図記号の意味や実際の距離（縮尺）を示すための目盛りのことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "凡例（はんれい）"
+        },
+        {
+          "id": "c2",
+          "text": "索引（さくいん）"
+        },
+        {
+          "id": "c3",
+          "text": "方位記号"
+        },
+        {
+          "id": "c4",
+          "text": "等高線"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図記号の意味を分かりやすくまとめて示した表や部分を「凡例」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.d961cd365b76",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "方位を知るために使う、北が赤い針で示される磁石のついた道具を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "方位じしん"
+        },
+        {
+          "id": "c2",
+          "text": "けんびきょう"
+        },
+        {
+          "id": "c3",
+          "text": "気圧計"
+        },
+        {
+          "id": "c4",
+          "text": "じょうぎ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位を知るために使う道具を「方位じしん（方位磁針）」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.da6b2a11b8a3",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "古い建造物を実際に見学するときに、守るべきマナーとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "案内してくれる人の話をよく聞き、メモを取る"
+        },
+        {
+          "id": "c2",
+          "text": "建物の中を大声で走り回る"
+        },
+        {
+          "id": "c3",
+          "text": "展示物に勝手にさわって遊ぶ"
+        },
+        {
+          "id": "c4",
+          "text": "ゴミをその場に捨てる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "見学の際は、案内人の説明をよく聞いてメモを取り、静かにルールを守って見学することが大切です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.db5a487ebbc9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図帳で「福岡市」の位置を素早く探したいとき、巻末にある五十音順のリストを使ってページや場所を特定する便利な方法を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "索引（さくいん）を使って探す"
+        },
+        {
+          "id": "c2",
+          "text": "最初のページから順番にめくる"
+        },
+        {
+          "id": "c3",
+          "text": "他の人に聞くだけにする"
+        },
+        {
+          "id": "c4",
+          "text": "勘でページを開く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "巻末の「索引」には地名が五十音順に並んでおり、調べたい地名が掲載されているページをすぐに見つけることができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.e2f89bc12f06",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡市の中心部である「福岡市役所」がある「中央区」は、地図のどこですか。クリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l1-region-map.png",
+      "hotspots": [
+        {
+          "x": 48,
+          "y": 56,
+          "label": "中央"
+        },
+        {
+          "x": 62,
+          "y": 64,
+          "label": "博多"
+        },
+        {
+          "x": 68,
+          "y": 38,
+          "label": "東"
+        },
+        {
+          "x": 32,
+          "y": 52,
+          "label": "西"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "福岡市役所がある「中央区」は、博多区の左隣（西側）に位置しています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.e81e99ddbfea",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学校から見て、図書館が「北西」の方向にあるとき、図書館から見た小学校の方向はどの方位ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "南東"
+        },
+        {
+          "id": "c2",
+          "text": "北東"
+        },
+        {
+          "id": "c3",
+          "text": "南西"
+        },
+        {
+          "id": "c4",
+          "text": "北西"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "北西の反対の方角は南東になります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.e9ccefe59be3",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「V」の形に似た草の芽のような地図記号は、何を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "畑"
+        },
+        {
+          "id": "c2",
+          "text": "田"
+        },
+        {
+          "id": "c3",
+          "text": "かじゅ園"
+        },
+        {
+          "id": "c4",
+          "text": "森林"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "双葉の形をデザインした「V」のような記号は「畑」を表します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.f6da3bb41027",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "兵庫県姫路市などの「海ぞい（沿岸部）」の平らな地域に、特に多く集まっている建物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "工場"
+        },
+        {
+          "id": "c2",
+          "text": "田んぼ"
+        },
+        {
+          "id": "c3",
+          "text": "畑"
+        },
+        {
+          "id": "c4",
+          "text": "森林"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "姫路市などの臨海部（海沿い）には、原材料の輸入や製品の出荷に便利なため、多くの「工場（工業地帯）」が集まっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.ffeb4560d45d",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の中から「交番（X）」の記号がある場所をクリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "hotspots": [
+        {
+          "x": 75,
+          "y": 75,
+          "label": "交番"
+        },
+        {
+          "x": 20,
+          "y": 65,
+          "label": "消防署"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "label": "郵便局"
+        },
+        {
+          "x": 28,
+          "y": 35,
+          "label": "寺"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "交番は警棒を交差させた形からできた「X」の記号です。地図の右下近くにあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.0355c8c00401",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この旗について正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本の国旗である"
+        },
+        {
+          "id": "c2",
+          "text": "市の旗である"
+        },
+        {
+          "id": "c3",
+          "text": "学校の旗である"
+        },
+        {
+          "id": "c4",
+          "text": "店の看板である"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/de7c7fddf8c0fb9a.png"
+    },
+    "explanation": "我が国には国旗があります。国旗を尊重する態度を大切にします。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.040fb76445e8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "農家の人たちが、虫の被害を防いだり、野菜が病気になるのを防いだりするために、工夫して使っている安全な肥料や土のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "有機肥料（たいひなど）"
+        },
+        {
+          "id": "c2",
+          "text": "化学物質の原液"
+        },
+        {
+          "id": "c3",
+          "text": "海水"
+        },
+        {
+          "id": "c4",
+          "text": "砂利（じゃり）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "落ち葉や家畜のふんなどを発酵させて作る「たいひ（堆肥）」などの有機肥料は、安全で栄養豊かな土を作るのに使われます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.0fa69fe8f3bb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "農家がやさいを収穫するにあたって、少しずつ長く出荷できるようにするために行う工夫はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時期をずらして少しずつ種をまく"
+        },
+        {
+          "id": "c2",
+          "text": "すべての種を一度にまく"
+        },
+        {
+          "id": "c3",
+          "text": "水をまったくやらない"
+        },
+        {
+          "id": "c4",
+          "text": "農薬を多く使う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "一時期に収穫が集中するのを防ぎ、長期間出荷できるように種まきの時期をずらす工夫が行われます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.139f7dc7dce1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "イチゴ農家などで、収穫したイチゴを傷つけないように、大きさや品質ごとに箱に詰める作業を行う建物のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "出荷場（選果場）"
+        },
+        {
+          "id": "c2",
+          "text": "ビニールハウス"
+        },
+        {
+          "id": "c3",
+          "text": "たいひ小屋"
+        },
+        {
+          "id": "c4",
+          "text": "トラクター倉庫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "収穫した農産物の傷や形、大きさをチェックし、梱包して出荷する施設を「出荷場」や「選果場」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.14aec85a967a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "コンビニやスーパーが、天気の予報や気温の変化、曜日などを考えて、仕入れる商品の数を調節するのはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "売れ残り（食品ロス）を減らし、お客さんが欲しいものを売り切れないようにするため"
+        },
+        {
+          "id": "c2",
+          "text": "お店の倉庫を空っぽにしたいから"
+        },
+        {
+          "id": "c3",
+          "text": "仕入れ先の人とケンカしたから"
+        },
+        {
+          "id": "c4",
+          "text": "特に理由はない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "暑い日には冷たい麺類、寒い日には温かいおでんなどを多めに仕入れるなど、無駄（ロス）をなくし需要に応えるための工夫です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.14b4eef643eb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "買い物をするときに、売上の一部が障害のある人の支援や環境保護活動に使われる商品についているマークや取り組みを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ソーシャル商品（寄付つき商品・フェアトレード）"
+        },
+        {
+          "id": "c2",
+          "text": "バーコード"
+        },
+        {
+          "id": "c3",
+          "text": "値引きシール"
+        },
+        {
+          "id": "c4",
+          "text": "賞味期限"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "買物をすることを通じて、途上国の生産者を支えたり環境保護に貢献したりする「ソーシャルアクション（エシカル消費）」が広がっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.16323347aa52",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自動車工場や食品工場などで、作業を分担して効率よく製品を作るために、ベルトコンベアに乗せて順々に組み立てていく生産方法を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "流れ作業（ライン生産）"
+        },
+        {
+          "id": "c2",
+          "text": "手づくり生産"
+        },
+        {
+          "id": "c3",
+          "text": "注文生産"
+        },
+        {
+          "id": "c4",
+          "text": "自由作業"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "それぞれの人が決まった一部分の作業を順番に行う「流れ作業」により、短時間で大量の製品を作ることができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.1c4bf7184861",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本のスーパーマーケットでは、カボチャやバナナなど、季節や気候の異なる海外からも多くの食品を仕入れています。バナナの主な産地として有名な国はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "フィリピン"
+        },
+        {
+          "id": "c2",
+          "text": "ロシア"
+        },
+        {
+          "id": "c3",
+          "text": "イギリス"
+        },
+        {
+          "id": "c4",
+          "text": "カナダ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本のスーパーで並ぶバナナの多くは、暖かい気候の「フィリピン」から輸入されています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.1ea55028a889",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "イチゴ栽培において、苗の植え付けが行われるのは一般的に何月ごろですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "9月"
+        },
+        {
+          "id": "c2",
+          "text": "1月"
+        },
+        {
+          "id": "c3",
+          "text": "5月"
+        },
+        {
+          "id": "c4",
+          "text": "7月"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "いちごの苗植えは秋の初め（9月ごろ）に行われます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.2152821f1519",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "街のスーパーマーケットが、オンラインで注文を受けて家庭まで商品をトラックで届けるサービスを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ネットスーパー"
+        },
+        {
+          "id": "c2",
+          "text": "無人店舗"
+        },
+        {
+          "id": "c3",
+          "text": "自動販売機"
+        },
+        {
+          "id": "c4",
+          "text": "フリーマーケット"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "スマートフォンなどで注文すると、近くのスーパーから自宅まで食材を運んでくれる「ネットスーパー」が普及しています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.2331f774f5bb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "私たちが日常の買い物で、プラスチックごみを減らすために「レジ袋を買わずに自分の袋を使う」買い物の工夫を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "マイバッグ（エコバッグ）の活用"
+        },
+        {
+          "id": "c2",
+          "text": "まとめ買い"
+        },
+        {
+          "id": "c3",
+          "text": "カード決済"
+        },
+        {
+          "id": "c4",
+          "text": "通販利用"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "マイバッグを持ち歩くことで、使い捨てのレジ袋（プラスチックごみ）を減らし、環境を守る買い物ができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.273d85369446",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生鮮食品（野菜や肉、魚など）を、産地からお店まで冷たい温度のまま凍らせずに運ぶ、便利な運送の仕組みを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コールドチェーン（低温流通体系）"
+        },
+        {
+          "id": "c2",
+          "text": "高速道路網"
+        },
+        {
+          "id": "c3",
+          "text": "新幹線輸送"
+        },
+        {
+          "id": "c4",
+          "text": "ドローン宅配"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生産・収穫から輸送、消費地での店舗保管まで、一貫して低温に保って鮮度を守る流通システムを「コールドチェーン」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.2cef53682a68",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で作った自動車や機械などを、外国に向けて売ることを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輸出（ゆしゅつ）"
+        },
+        {
+          "id": "c2",
+          "text": "輸入（ゆにゅう）"
+        },
+        {
+          "id": "c3",
+          "text": "生産（せいさん）"
+        },
+        {
+          "id": "c4",
+          "text": "仕入れ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自国の製品を海外へ売りに出すことを「輸出」といいます。日本は自動車や精密機械などを多く輸出しています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.2f95c2ee2a0a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットで売られている野菜やくだもの、肉などについて、それらが「つくられた場所（都道府県名や国名）」のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "産地（さんち）"
+        },
+        {
+          "id": "c2",
+          "text": "仕入れ先"
+        },
+        {
+          "id": "c3",
+          "text": "販売店"
+        },
+        {
+          "id": "c4",
+          "text": "消費地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "農産物や水産物などが生産された場所を「産地」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.4db86f5fe44c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「広がるつながり」について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "スーパーには、県外や外国から運ばれてきた商品も並んでいます。"
+        },
+        {
+          "id": "c2",
+          "text": "地図帳を使って、産地や国の名称と位置を調べましょう。"
+        },
+        {
+          "id": "c3",
+          "text": "我が国や外国には国旗があることを理解する"
+        },
+        {
+          "id": "c4",
+          "text": "国旗を尊重する態度を大切にする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「スーパーには、県外や外国から運ばれてきた商品も並んでいます。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.4fab4873e82c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、「24時間あいていて、朝早くや夜遅くでも買い物や公共料金の支払いができる店」はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コンビニエンスストア"
+        },
+        {
+          "id": "c2",
+          "text": "スーパーマーケット"
+        },
+        {
+          "id": "c3",
+          "text": "八百屋"
+        },
+        {
+          "id": "c4",
+          "text": "大型ショッピングモール"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "24時間営業で多機能なのがコンビニエンスストアの大きな特徴です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.50cef253b63c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、他地域や外国とのつながりとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "産地の品が遠くの地域にも運ばれる"
+        },
+        {
+          "id": "c2",
+          "text": "地域の品はその地域だけで消費される"
+        },
+        {
+          "id": "c3",
+          "text": "地図帳は使わない"
+        },
+        {
+          "id": "c4",
+          "text": "国旗は関係ない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d983689fa8a0f1e2.png"
+    },
+    "explanation": "スーパーには県外や外国から運ばれてきた商品も並んでいます。地図帳で産地を調べましょう。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.6055fd13ca0c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横浜の名物「しゅうまい」の原料となるグリーンピースなどの野菜は、日本国内だけでなく、どの国からも仕入れられていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ニュージーランドなどの海外"
+        },
+        {
+          "id": "c2",
+          "text": "日本国内だけ"
+        },
+        {
+          "id": "c3",
+          "text": "北極からだけ"
+        },
+        {
+          "id": "c4",
+          "text": "アフリカの砂漠からだけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "一年を通じて安定して仕入れるため、南半球のニュージーランドなど海外からも輸入されています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.634835dcc2d9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食品工場などで働く人が、衛生管理（せいけつさを保つ）のために、工場に入る前に行うこととして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず手を洗い、風で服についたホコリをはらう"
+        },
+        {
+          "id": "c2",
+          "text": "何もせずに入る"
+        },
+        {
+          "id": "c3",
+          "text": "香水をつける"
+        },
+        {
+          "id": "c4",
+          "text": "靴を履き替えないで入る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "異物混入を防ぐため、粘着ローラーやエアーシャワーでほこりを払い、念入りな手洗いを行います。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.68301bfa64cb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いちごをビニールハウスで栽培するとき、花粉を運んで受粉させる（実を実らせる）ためにハウスに放つ虫は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "みつばち"
+        },
+        {
+          "id": "c2",
+          "text": "てんとうむし"
+        },
+        {
+          "id": "c3",
+          "text": "かまきり"
+        },
+        {
+          "id": "c4",
+          "text": "ちょうちょ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ビニールハウスでの受粉のために「みつばち」が使われます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.6a64636f69a7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットで働く人が、車いすの人や体の不自由な人のために用意している設備はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "幅の広い通路や、専用の駐車場"
+        },
+        {
+          "id": "c2",
+          "text": "エスカレーターだけ"
+        },
+        {
+          "id": "c3",
+          "text": "階段だけの入り口"
+        },
+        {
+          "id": "c4",
+          "text": "高い棚だけの商品棚"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "バリアフリーとして、車いすでも通りやすい広い通路や専用駐車場が整備されています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.7159c4cf3cf6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かまぼこ工場などが、海の近く（港の近く）や駅の近くに建てられてきた歴史的な理由は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "魚などの原材料やできあがった製品の運搬に便利だから"
+        },
+        {
+          "id": "c2",
+          "text": "景色が良いから"
+        },
+        {
+          "id": "c3",
+          "text": "土地が安いから"
+        },
+        {
+          "id": "c4",
+          "text": "水が豊富だから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "海沿いや港・駅の近くは、原材料（魚など）の調達や製品の輸送に有利な立地です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.71fa3a377c30",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットで肉や魚のパックに貼られている「賞味期限（しょうみきげん）」の意味として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "美味しく食べることができる期限（過ぎてもすぐに食べられなくなるわけではない）"
+        },
+        {
+          "id": "c2",
+          "text": "絶対に食べてはいけない期限"
+        },
+        {
+          "id": "c3",
+          "text": "工場で作られた日付"
+        },
+        {
+          "id": "c4",
+          "text": "店に並べられた日付"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「賞味期限」は品質が変わらず美味しく食べられる期限です。「消費期限」は安全に食べられる期限なので区別しましょう。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.93b41eb14518",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "屋根がある道（アーケード）にそって、専門店や色々なお店が集まっている場所を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "商店街（しょうてんがい）"
+        },
+        {
+          "id": "c2",
+          "text": "オフィス街"
+        },
+        {
+          "id": "c3",
+          "text": "工業団地"
+        },
+        {
+          "id": "c4",
+          "text": "住宅地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地元の商店が集まり、アーケードなどを設けて買い物しやすくした通りを商店街といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.9cdcd970a882",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットの店内レイアウトで、牛乳や卵など「毎日多くの人が買うもの」は、なぜ店の奥の方に置かれることが多いですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お客さんが色々な売り場を通ることで、他の商品も目に入るようにするため"
+        },
+        {
+          "id": "c2",
+          "text": "重くて運びにくいから"
+        },
+        {
+          "id": "c3",
+          "text": "冷やす機械が奥にしかないから"
+        },
+        {
+          "id": "c4",
+          "text": "売り場の面積が広いから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "定番の日常食品を奥に配置することで、店内を回遊してもらい、他の商品にも興味を持ってもらう工夫です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.a4bdfb2b7114",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物事を比べるのに適した、データの大きさごとに棒の長さで表すグラフを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "棒グラフ"
+        },
+        {
+          "id": "c2",
+          "text": "折れ線グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "円グラフ"
+        },
+        {
+          "id": "c4",
+          "text": "帯グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "データの大小を比較するのには「棒グラフ」が適しています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.a83c5641c328",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「広がるつながり」の説明として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地図帳を使って、産地や国の名称と位置を調べましょう。"
+        },
+        {
+          "id": "c2",
+          "text": "我が国や外国には国旗があることを理解する"
+        },
+        {
+          "id": "c3",
+          "text": "国旗を尊重する態度を大切にする"
+        },
+        {
+          "id": "c4",
+          "text": "地域の特産品がどこへ運ばれているかを調べる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「地図帳を使って、産地や国の名称と位置を調べましょう。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.aba37ee56337",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットなどで、お客さんが欲しい商品をすぐに見つけられるように、売り場を「野菜」「お肉」「魚」などに分けることを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コーナー分け（部門分け）"
+        },
+        {
+          "id": "c2",
+          "text": "値引きセール"
+        },
+        {
+          "id": "c3",
+          "text": "品出し"
+        },
+        {
+          "id": "c4",
+          "text": "仕入れ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "商品を種類ごとに分類して並べることで、お客さんが買い物をしやすくなるよう配置を工夫しています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.bc0ecca3f13a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本が、外国からたくさんのバナナや小麦、石油などを買うことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輸入（ゆにゅう）"
+        },
+        {
+          "id": "c2",
+          "text": "輸出（ゆしゅつ）"
+        },
+        {
+          "id": "c3",
+          "text": "流通（りゅうつう）"
+        },
+        {
+          "id": "c4",
+          "text": "消費（しょうひ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "外国の製品や資源を自国へ買い入れることを「輸入」、逆に自国の製品を外国へ売ることを「輸出」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.bdead77b274b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "農家が育てた野菜をトラックに乗せて、大量に集めてセリ（競り）を行い、スーパーや八百屋に売り分ける大きな施設を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "卸売市場（おろしうりしじょう）"
+        },
+        {
+          "id": "c2",
+          "text": "清掃工場"
+        },
+        {
+          "id": "c3",
+          "text": "道の駅"
+        },
+        {
+          "id": "c4",
+          "text": "郵便局"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "卸売市場には全国から野菜や魚が集まり、競り売りによって適正な価格が決められて全国の小売店へと出荷されます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.c2693aac636f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お店のレジで商品のバーコードを読み取り、売れた商品の種類や時間を記録して、仕入れや品揃えに役立てる情報システムを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "POS（ポス）システム"
+        },
+        {
+          "id": "c2",
+          "text": "カーナビゲーション"
+        },
+        {
+          "id": "c3",
+          "text": "自動販売機"
+        },
+        {
+          "id": "c4",
+          "text": "ロボット掃除機"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "販売時点の情報管理を行う「POSシステム」により、どの商品が何時にどれだけ売れたかを記録し、品切れないように発注を行います。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.c7f3408388be",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "農家でつくられた野菜が、私たちの家に届くまでの一般的な流通ルートとして、正しい並び順はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "畑 → おろし売り市場 → スーパーや八百屋 → 家"
+        },
+        {
+          "id": "c2",
+          "text": "畑 → 家 → スーパーや八百屋"
+        },
+        {
+          "id": "c3",
+          "text": "おろし売り市場 → 畑 → スーパーや八百屋 → 家"
+        },
+        {
+          "id": "c4",
+          "text": "スーパーや八百屋 → 畑 → おろし売り市場 → 家"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "収穫された野菜は、卸売市場を経由して小売店（スーパー等）に運ばれ、家庭に届きます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.ce4178e93d12",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットが、地元の農家が作った新鮮な野菜を直接仕入れて、専用の棚で売るコーナーのことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "産地直売（地産地消）コーナー"
+        },
+        {
+          "id": "c2",
+          "text": "輸入食品コーナー"
+        },
+        {
+          "id": "c3",
+          "text": "お惣菜コーナー"
+        },
+        {
+          "id": "c4",
+          "text": "日用品コーナー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地元（地域内）で生産されたものを地元で消費する「地産地消」の取り組みとして、直売コーナーがよく設けられています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.d2f75440ba83",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "沖縄のシークワーサーや北海道のじゃがいものように、その土地の気候や自然の特色を生かして作られる特別な農産物や製品のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "特産物（特産品・名産品）"
+        },
+        {
+          "id": "c2",
+          "text": "輸入品"
+        },
+        {
+          "id": "c3",
+          "text": "工業用原料"
+        },
+        {
+          "id": "c4",
+          "text": "加工食品"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "その地域独自の気候や自然条件を利用して作られ、その地域の名物となっている製品を「特産物」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.e9969a2bd37c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "工場で製品をつくる手順（工程）について、お菓子（クッキーやパンなど）ができるまでの正しい流れはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "原料の仕入れ → 生地を混ぜる → 形をつくる → 焼く → つめる → 出荷"
+        },
+        {
+          "id": "c2",
+          "text": "焼く → 生地を混ぜる → 原料の仕入れ → 出荷"
+        },
+        {
+          "id": "c3",
+          "text": "出荷 → 形をつくる → 焼く → 原料の仕入れ"
+        },
+        {
+          "id": "c4",
+          "text": "原料の仕入れ → 焼く → 生地を混ぜる → 出荷"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "原材料を仕入れて混ぜ合わせ、成形して焼き、包装してから出荷します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.eb888d26b8cd",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「他地域や外国との関わり」の学習で、社会科の調べ方として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地図帳や調査を使って、身近な地域の様子を調べ、まとめる"
+        },
+        {
+          "id": "c2",
+          "text": "調べたことを記録せずに終わる"
+        },
+        {
+          "id": "c3",
+          "text": "地図帳を使わずに位置を決める"
+        },
+        {
+          "id": "c4",
+          "text": "見学や聞き取りのルールを守らない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図帳や調査を使って、身近な地域の様子を調べ、まとめることが、学習指導要領で求められる社会科の調べ方です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.f0ec78bc2b4e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡市のおもな野菜や果物の生産において、生産額が最も高い作物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いちご"
+        },
+        {
+          "id": "c2",
+          "text": "キャベツ"
+        },
+        {
+          "id": "c3",
+          "text": "とまと"
+        },
+        {
+          "id": "c4",
+          "text": "ブロッコリー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "福岡市では「博多とよのか」や「あまおう」などで知られる「いちご」の生産額が非常に高くなっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.f92585117e1b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットなどの小売店において、消費者の「少しでも安く買いたい」という願いに応えるための店の工夫はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お買い得品（特売品）のコーナーをつくる"
+        },
+        {
+          "id": "c2",
+          "text": "商品の値段をすべて同じにする"
+        },
+        {
+          "id": "c3",
+          "text": "商品をわざと隠す"
+        },
+        {
+          "id": "c4",
+          "text": "チラシを一切配らない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「特売日」を設けたり、「お買い得コーナー」を作ったりして、安く買いたいという客の要望に応えています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.fb11f1f1ee5b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "工場で働く人々が、衛生面や安全面に気をつけて、帽子やマスク、専用の服（白衣など）を着て作業するのはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "製品にゴミや髪の毛が入るのを防ぐため"
+        },
+        {
+          "id": "c2",
+          "text": "私服が汚れるのが嫌だから"
+        },
+        {
+          "id": "c3",
+          "text": "みんなで同じ服を着て楽しむため"
+        },
+        {
+          "id": "c4",
+          "text": "外がとても寒いから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食品工場などでは、髪の毛やゴミが製品に混ざる（混入する）のを絶対に防ぐため、全身を覆う作業着やマスク、帽子を着用するルールがあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.fc5ba3760b26",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "工場で作られた製品が、お店や消費者に届くまでに、運送トラックや倉庫を経由して運ばれる一連の流れを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "流通（りゅうつう）"
+        },
+        {
+          "id": "c2",
+          "text": "生産（せいさん）"
+        },
+        {
+          "id": "c3",
+          "text": "消費（しょうひ）"
+        },
+        {
+          "id": "c4",
+          "text": "販売（はんばい）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生産者から消費者に品物が運ばれて届くまでの全体の道のりを「流通」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.041d0368e4b9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "通学路の途中にあり、不審者に追いかけられたり困ったりした子どもが逃げ込んで助けを求めることができる、目印の看板がある民家やお店を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こども110番の家"
+        },
+        {
+          "id": "c2",
+          "text": "交番"
+        },
+        {
+          "id": "c3",
+          "text": "児童館"
+        },
+        {
+          "id": "c4",
+          "text": "学習塾"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「こども110番の家」のステッカーが貼ってある家は、子どもが危険な目にあったときに逃げ込める協力者の家です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.0b3df56ec1d8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校や公共の建物、街の中に設置されている「火災をすばやく消すための水」が通っている消火設備を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消火栓（しょうかせん）"
+        },
+        {
+          "id": "c2",
+          "text": "防火水そう"
+        },
+        {
+          "id": "c3",
+          "text": "火災警報器"
+        },
+        {
+          "id": "c4",
+          "text": "避難はしご"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "道路や壁に設置され、消防車に水を供給するための水道設備を「消火栓」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.1dddd5143e05",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地震などの災害で、電気や水道が止まってしまったときのために、家の中に準備しておく水や食料、懐中電灯などをまとめた袋を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "非常用持ち出し袋（防災バッグ）"
+        },
+        {
+          "id": "c2",
+          "text": "ランドセル"
+        },
+        {
+          "id": "c3",
+          "text": "買い物袋"
+        },
+        {
+          "id": "c4",
+          "text": "旅行カバン"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "災害時にすぐに持ち出せるように、非常食、飲料水、懐中電灯、簡易トイレなどをまとめた袋を「非常用持ち出し袋」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.25077a7c6483",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "119番通報をかけたとき、最初につながる場所（通報を受けて消防車や救急車に出動指令を出す場所）を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "通信指令室（つうしんしれいしつ）"
+        },
+        {
+          "id": "c2",
+          "text": "市役所"
+        },
+        {
+          "id": "c3",
+          "text": "警察署"
+        },
+        {
+          "id": "c4",
+          "text": "消防団の詰所"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "119番通報は、消防本部の「通信指令室」につながり、そこから各消防署に出動指令が送られます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.301e159aab60",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "警察官の仕事として、地域を巡回して事件を未然に防いだり、道案内をしたりする活動を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "パトロール"
+        },
+        {
+          "id": "c2",
+          "text": "交通取り締まり"
+        },
+        {
+          "id": "c3",
+          "text": "鑑識活動"
+        },
+        {
+          "id": "c4",
+          "text": "防犯指導"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "街の安全を守り、困っている人を助けるための日常的な巡回活動を「パトロール（巡回連絡）」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.36b39201a1cb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "消防署にある「通信指令室」は、119番通報を受けたときに、どのような指示を出す場所ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "出動する消防車や救急車に、火事や事故の場所を教える"
+        },
+        {
+          "id": "c2",
+          "text": "パトカーを現場に向かわせる"
+        },
+        {
+          "id": "c3",
+          "text": "市役所の仕事を分担する"
+        },
+        {
+          "id": "c4",
+          "text": "新しいニュースを放送する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "通信指令室は、通報者の住所や場所を素早く割り出し、最も早く現場に行ける消防車や救急車に指令を送ります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.399c19579316",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、初期消火（火が小さいうちに消すこと）のために、家庭や学校に備え付けられている最も一般的な道具はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消火器（しょうかき）"
+        },
+        {
+          "id": "c2",
+          "text": "バケツ"
+        },
+        {
+          "id": "c3",
+          "text": "ホース"
+        },
+        {
+          "id": "c4",
+          "text": "うちわ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火災の初期段階で安全かつ迅速に消火活動を行うために「消火器」が設置されています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.406ee263aa17",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、自分たちにできる安全の心がけとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "避難場所や避難経路を確認する"
+        },
+        {
+          "id": "c2",
+          "text": "備えをしない"
+        },
+        {
+          "id": "c3",
+          "text": "家族と話し合わない"
+        },
+        {
+          "id": "c4",
+          "text": "不審なものをそのままにする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c52ff3fb6b49a120.png"
+    },
+    "explanation": "避難場所や避難経路を確認し、家族と話し合っておくことが大切です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.4241324602bb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "子どもが登下校中などに不審者に遭遇した際、駆け込んで助けを求めることができる、地域の家やお店に協力してもらっている避難場所の取り組みを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こども110番の家"
+        },
+        {
+          "id": "c2",
+          "text": "避難所"
+        },
+        {
+          "id": "c3",
+          "text": "交番"
+        },
+        {
+          "id": "c4",
+          "text": "児童館"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "緊急時に子どもが駆け込める場所として、ステッカーが貼られた「こども110番の家」が地域に設けられています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.4570d1336d67",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自分たちの地域で火事が起きたとき、消防署の消防士と協力して消火活動や救助活動を行う、普段は別の仕事を持っている地域の人々で組織された団体を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消防団（しょうぼうだん）"
+        },
+        {
+          "id": "c2",
+          "text": "警察隊"
+        },
+        {
+          "id": "c3",
+          "text": "自衛隊"
+        },
+        {
+          "id": "c4",
+          "text": "こども会"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "消防団員は、本業の仕事をしながら「自分たちの街は自分たちで守る」という志のもと、地域の消防活動に協力するボランティア組織です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.4b74da65b0d0",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "警察署の「通信指令室」に110番通報がかかってきたとき、現場に最も早く到着できるように指示を受けるのはだれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "現場の近くをパトロールしている警察官"
+        },
+        {
+          "id": "c2",
+          "text": "消防署の消防士"
+        },
+        {
+          "id": "c3",
+          "text": "市役所の職員"
+        },
+        {
+          "id": "c4",
+          "text": "小学校の先生"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "110番を受けると、通信指令室から無線で、現場の最も近くを巡回しているパトカーや警察官に急行指令が飛びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.5268421bba1f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火事が起きたときに、天井から自動的に水がスプレーのように出て、初期の消火を行うための設備を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "スプリンクラー"
+        },
+        {
+          "id": "c2",
+          "text": "消火栓"
+        },
+        {
+          "id": "c3",
+          "text": "防火扉"
+        },
+        {
+          "id": "c4",
+          "text": "非常口"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "デパートやホテルの天井にあり、火災の熱を感知して自動で水をまく消火設備を「スプリンクラー」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.711c2ecbdbd6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "普段は別の仕事をしている地域の人々が、火災や災害が発生したときに消火活動や救助活動を行うために組織されている団体を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消防団（しょうぼうだん）"
+        },
+        {
+          "id": "c2",
+          "text": "消防署"
+        },
+        {
+          "id": "c3",
+          "text": "警察署"
+        },
+        {
+          "id": "c4",
+          "text": "自衛隊"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "消防署で働く専業の消防士とは異なり、地域住民によって組織される防災組織を「消防団」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.71503aabc3e5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大雨や台風のときに、川が氾濫（はんらん）したり土砂崩れが起きたりする危険がある場所を示した地図を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ハザードマップ（防災マップ）"
+        },
+        {
+          "id": "c2",
+          "text": "安全マップ"
+        },
+        {
+          "id": "c3",
+          "text": "観光マップ"
+        },
+        {
+          "id": "c4",
+          "text": "路線図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "大雨や地震のときにどんな災害が想定されるかを色分けして示した避難用の地図を「ハザードマップ」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.7d4b1837f778",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "消防署で働く「消防士」などの仕事において、24時間いつでも火事や救急に対応するために行われている勤務の工夫はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交代で勤務し、夜間もだれかが必ず起きている体制をとる"
+        },
+        {
+          "id": "c2",
+          "text": "夜は全員で寝る"
+        },
+        {
+          "id": "c3",
+          "text": "昼間だけ働く"
+        },
+        {
+          "id": "c4",
+          "text": "火事が起きてから消防署に集まる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "消防士は24時間体制を維持するため、交代制（当番と非番など）で勤務し、夜間も常に警戒にあたっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.82ef2498faa2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "災害に備えて、地域の人たちが避難ルートや避難場所（学校の体育館など）をあらかじめ確認しておくために、みんなで行う確認活動は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "防災マップづくり（地域の安全点検）"
+        },
+        {
+          "id": "c2",
+          "text": "お花見"
+        },
+        {
+          "id": "c3",
+          "text": "スタンプラリー"
+        },
+        {
+          "id": "c4",
+          "text": "買い物ツアー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "実際に町を歩いて、倒れやすいブロック塀や危険箇所を確かめ、避難経路を地図にまとめることで防災意識を高めます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.8b15e75b3c4f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "交通事故や、事件・ドロボウなどの被害に遭った（目撃した）とき、警察に通報するための緊急電話番号は何番ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "110番"
+        },
+        {
+          "id": "c2",
+          "text": "119番"
+        },
+        {
+          "id": "c3",
+          "text": "117番"
+        },
+        {
+          "id": "c4",
+          "text": "113番"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "事件や事故の緊急通報は「110番」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.9323494e5738",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、社会生活を営むうえで大切なこととして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "法やきまりを守る"
+        },
+        {
+          "id": "c2",
+          "text": "きまりは不要"
+        },
+        {
+          "id": "c3",
+          "text": "記録しない"
+        },
+        {
+          "id": "c4",
+          "text": "見学のルールを守らない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/250b8c89b8311107.png"
+    },
+    "explanation": "社会生活を営むうえでは、交通ルールなど大切な法やきまりを守ることが求められます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.97ac012af30c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "歩行者が安全に道路を横断できるように、道路上に白い平行な線で描かれている場所を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横断歩道（おうだんほどう）"
+        },
+        {
+          "id": "c2",
+          "text": "歩道"
+        },
+        {
+          "id": "c3",
+          "text": "交差点"
+        },
+        {
+          "id": "c4",
+          "text": "踏切"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "歩行者が安全に渡れるように指定された場所を「横断歩道」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.acf0ef4930d5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、緊急時に使う番号として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "119番や110番"
+        },
+        {
+          "id": "c2",
+          "text": "0120の番号"
+        },
+        {
+          "id": "c3",
+          "text": "学校の内線"
+        },
+        {
+          "id": "c4",
+          "text": "友だちの携帯"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/250b8c89b8311107.png"
+    },
+    "explanation": "火事や救急のときは119番、警察のときは110番に電話します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.b9f1740dcbc7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火事を見つけたり、急な病気やケガで救急車を呼びたいとき、電話でダイヤルする緊急用の番号は何番ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "119番"
+        },
+        {
+          "id": "c2",
+          "text": "110番"
+        },
+        {
+          "id": "c3",
+          "text": "117番"
+        },
+        {
+          "id": "c4",
+          "text": "104番"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火事や救急のときは「119番」、警察（事件や事故）のときは「110番」にかけます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.c18e4c15cbaa",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校や地域で行われる、地震や火事が発生したと想定して、安全な場所に素早く逃げる練習を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "避難訓練（防災訓練）"
+        },
+        {
+          "id": "c2",
+          "text": "体育大会"
+        },
+        {
+          "id": "c3",
+          "text": "授業参観"
+        },
+        {
+          "id": "c4",
+          "text": "林間学校"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "もしもの時に落ち着いて逃げられるよう、避難の経路や約束（「おはしも」など）を確認する練習を「避難訓練」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.c1e7067c39cc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、火災や事故を防ぐために大切なこととして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交通ルールを守る"
+        },
+        {
+          "id": "c2",
+          "text": "ルールを守らない"
+        },
+        {
+          "id": "c3",
+          "text": "火の取り扱いを気にしない"
+        },
+        {
+          "id": "c4",
+          "text": "一人で勝手に行動する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/64279aeb465f9ab7.png"
+    },
+    "explanation": "関係機関は地域の人々と協力して、火災や交通事故などを未然に防ぐ活動を行っています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.d0e284e5de56",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火事のときに、煙や炎が他の部屋や階段に広がるのを防ぎ、安全に逃げる時間を確保するために設置されている、熱を感知して自動的に閉まる重い扉を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "防火扉（ぼうかどびら）"
+        },
+        {
+          "id": "c2",
+          "text": "自動ドア"
+        },
+        {
+          "id": "c3",
+          "text": "障子（しょうじ）"
+        },
+        {
+          "id": "c4",
+          "text": "窓ガラス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "炎や煙を通さない特殊な金属のドア（防火扉）が閉まることで、避難する通路を守ることができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.d341a6e036f7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "乾燥しやすい冬の時期などに、火事を防ぐために「火の用心」と声をかけながら地域の夜回りをすることを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "夜警（よまわり・防火パトロール）"
+        },
+        {
+          "id": "c2",
+          "text": "交通整理"
+        },
+        {
+          "id": "c3",
+          "text": "大掃除"
+        },
+        {
+          "id": "c4",
+          "text": "お祭り"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火事の起こりやすい夜に、火の点検や消火器の場所を確認しながら見回る活動を「夜警」や「防火パトロール」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.d89355ad426b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域のお年寄りや大人が、子どもの登下校の時間帯に通学路に立ち、安全を見守るボランティア活動を行う人々のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見守り隊（みまもりたい）"
+        },
+        {
+          "id": "c2",
+          "text": "消防団"
+        },
+        {
+          "id": "c3",
+          "text": "パトロールカー"
+        },
+        {
+          "id": "c4",
+          "text": "交通指導員"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域の安全や子どもの登下校を見守るボランティアは、一般的に「見守り隊」などと呼ばれます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.da93a7a1b1d3",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "警察署や交番で働く警察官が、地域の安全を守るために、街の中を歩いたり自転車やパトカーで回ったりする活動を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "パトロール（巡回）"
+        },
+        {
+          "id": "c2",
+          "text": "交通整理"
+        },
+        {
+          "id": "c3",
+          "text": "聞き込み捜査"
+        },
+        {
+          "id": "c4",
+          "text": "避難訓練"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "街の中を回って犯罪や事故を防ぎ、不審なものがないか確認する警察官の活動を「パトロール（パトロールパトロール）」や「巡回」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.ec2092275430",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "通学路や遊び場の近くで、交通事故や犯罪が起きやすい危険な場所を調べてまとめた地図を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域安全マップ（安全マップ）"
+        },
+        {
+          "id": "c2",
+          "text": "ハザードマップ"
+        },
+        {
+          "id": "c3",
+          "text": "観光案内図"
+        },
+        {
+          "id": "c4",
+          "text": "路線図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分たちで町を歩き、見通しが悪かったり入り込みやすかったりする危険な場所を記した手作りの地図を「地域安全マップ」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.f1a036b6070e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域で災害が起きたときに、お互いに助け合う「自助・共助・公助」のうち、近所の人たちと協力して助け合うことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "共助（きょうじょ）"
+        },
+        {
+          "id": "c2",
+          "text": "自助（じじょ）"
+        },
+        {
+          "id": "c3",
+          "text": "公助（こうじょ）"
+        },
+        {
+          "id": "c4",
+          "text": "天助（てんじょ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分で自分を守るのが「自助」、近所や地域で助け合うのが「共助」、市役所や自衛隊など公の機関が助けるのを「公助」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.fed5b4d987e6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "交通事故を防ぐために、道路の交差点や通学路の横断歩道などで、警察官や交通安全ボランティアの人が行う誘導活動を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交通整理（交通誘導）"
+        },
+        {
+          "id": "c2",
+          "text": "防火パトロール"
+        },
+        {
+          "id": "c3",
+          "text": "消防訓練"
+        },
+        {
+          "id": "c4",
+          "text": "地域の清掃活動"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "信号機が故障したときや混雑するときに、車や歩行者を安全に誘導し事故を防ぐ活動を「交通整理」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.0547e5f3c29a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "洗濯機が普及する前に、木や金属の板に波状の溝がついた板をタライ（水おけ）に入れてこすり洗いをしていた洗濯道具を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "洗濯板（せんたくいた）"
+        },
+        {
+          "id": "c2",
+          "text": "たらい"
+        },
+        {
+          "id": "c3",
+          "text": "火のし"
+        },
+        {
+          "id": "c4",
+          "text": "羽釜"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電気洗濯機が登場する前は、水を入れた「たらい」に「洗濯板」を入れて、手でこすって洗濯をしていました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.06087c41d958",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「人口の移り変わり」の説明として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "近年は少子高齢化や国際化など、新しい変化も起きています。"
+        },
+        {
+          "id": "c2",
+          "text": "高齢者や子どもが安心して暮らせるまちづくり"
+        },
+        {
+          "id": "c3",
+          "text": "外国人住民との共生"
+        },
+        {
+          "id": "c4",
+          "text": "自分たちにできるまちづくりへの参加"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「近年は少子高齢化や国際化など、新しい変化も起きています。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.0e12b195ae06",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、市の変化として調べるものとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "道路や鉄道など交通の変化"
+        },
+        {
+          "id": "c2",
+          "text": "星座の変化"
+        },
+        {
+          "id": "c3",
+          "text": "動物の名前だけ"
+        },
+        {
+          "id": "c4",
+          "text": "漢字の書き順"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/26a3e2ed763666d4.png"
+    },
+    "explanation": "道路や鉄道、橋など交通の変化は、市の様子の移り変わりを調べる大切な手がかりです。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.0eae001e4f74",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔の移動手段として、煙をもくもくと出しながら石炭を燃やして走っていた、線路の上の古い乗り物は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "蒸気機関車（SL）"
+        },
+        {
+          "id": "c2",
+          "text": "新幹線"
+        },
+        {
+          "id": "c3",
+          "text": "モノレール"
+        },
+        {
+          "id": "c4",
+          "text": "電気自動車"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "昔は石炭を燃料にして走る「蒸気機関車（SL）」が活躍していましたが、現在では電気で走る電車や新幹線が中心になっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.18105acefc9b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔の道具が、現在の電気冷蔵庫や電気炊飯器などの家電製品に進化したことによって、人々の家事の時間はどのように変化しましたか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家事にかかる時間が短くなり、くらしが便利で快適になった"
+        },
+        {
+          "id": "c2",
+          "text": "家事の時間が何倍も長くなった"
+        },
+        {
+          "id": "c3",
+          "text": "特に何も変わらなかった"
+        },
+        {
+          "id": "c4",
+          "text": "家事ができなくなった"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電化製品の登場により、火起こしや井戸汲み、手洗い洗濯といった大変な家事が大幅に短縮され、生活が豊かになりました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.18c55bb21fb6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域の土地利用のうつりかわりにおいて、昔は畑や田んぼ、工場だった場所が、近年多く変化している土地の使われ方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "住宅地（家やマンション）"
+        },
+        {
+          "id": "c2",
+          "text": "山林"
+        },
+        {
+          "id": "c3",
+          "text": "海"
+        },
+        {
+          "id": "c4",
+          "text": "荒地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "人口の増加にともない、昔は田畑や工場だった場所が、新興の住宅地やマンション群へと変化する傾向が多く見られます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.200179ed5459",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "米を粉にしたり、大豆をすりつぶしてきな粉にしたりするために、重い２つの石を重ねて手動で回していた昔の道具を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "石臼（いしうす）"
+        },
+        {
+          "id": "c2",
+          "text": "すり鉢"
+        },
+        {
+          "id": "c3",
+          "text": "かまど"
+        },
+        {
+          "id": "c4",
+          "text": "千歯こき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "上下に重なった平らな石の隙間に穀物を挟み、手で回してすりつぶす道具を「石臼」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.215488f29d8a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、市の人口の変化として考えられるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増えたり減ったりしながら変化する"
+        },
+        {
+          "id": "c2",
+          "text": "必ずずっと同じ"
+        },
+        {
+          "id": "c3",
+          "text": "記録できない"
+        },
+        {
+          "id": "c4",
+          "text": "地図と関係ない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9d50fa19b9b7cb92.png"
+    },
+    "explanation": "市の人口は、増えたり減ったりしながら変化してきました。近年は少子高齢化なども起きています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.2faae7fc6f97",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、市の変化を調べる手がかりとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "古い資料や写真"
+        },
+        {
+          "id": "c2",
+          "text": "今日の天気だけ"
+        },
+        {
+          "id": "c3",
+          "text": "給食のメニュー"
+        },
+        {
+          "id": "c4",
+          "text": "友だちの名前"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c9f7816252130b91.png"
+    },
+    "explanation": "古い写真や絵はがきと今の様子をくらべると、市の変化がわかります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.317c29b9a8d8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "グラフにおいて、子どもの割合が減り、高齢者（お年寄り）の割合が増えていく社会の変化のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "少子高齢化（しょうしこうれいか）"
+        },
+        {
+          "id": "c2",
+          "text": "国際化"
+        },
+        {
+          "id": "c3",
+          "text": "情報化"
+        },
+        {
+          "id": "c4",
+          "text": "過疎化"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生まれる子どもの数が減り（少子化）、お年寄りの割合が高くなる（高齢化）現象を「少子高齢化」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.34bfb30ade0f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "道路の上に線路が敷かれ、街の中をゆっくりと走る、昔から多くの人に利用されてきたチンチン電車とも呼ばれる乗り物は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "路面電車（ちんちんでんしゃ）"
+        },
+        {
+          "id": "c2",
+          "text": "地下鉄"
+        },
+        {
+          "id": "c3",
+          "text": "飛行機"
+        },
+        {
+          "id": "c4",
+          "text": "ロープウェイ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "一般道路の併用軌道を走る「路面電車」は、街の中に溶け込んだ人々の身近な足として古くから親しまれてきました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.35dcbe099aff",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、これからのまちづくりとして大切なことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "高齢者や子どもが安心して暮らせるまち"
+        },
+        {
+          "id": "c2",
+          "text": "誰も住まないまち"
+        },
+        {
+          "id": "c3",
+          "text": "記録を残さない"
+        },
+        {
+          "id": "c4",
+          "text": "外国との交流をしない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c9f7816252130b91.png"
+    },
+    "explanation": "高齢者や子どもが安心して暮らせるまちづくりや、外国人住民との共生などが大切です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.6c7309d0aa1f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電卓（電子計算機）がなかった時代に、木で作られた枠の中にたくさんの黒い玉が並んでおり、指で玉を動かして計算していた道具を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そろばん"
+        },
+        {
+          "id": "c2",
+          "text": "定規"
+        },
+        {
+          "id": "c3",
+          "text": "分度器"
+        },
+        {
+          "id": "c4",
+          "text": "コンパス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「そろばん」は計算を行うための日本古来の道具で、電卓が登場するまでは商店や事務作業で広く使われていました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.78d6ed9a167e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昭和、平成、令和など元号を使った言い表し方の説明として、正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "昭和、平成、令和など元号を使った言い表し方も学びます。"
+        },
+        {
+          "id": "c2",
+          "text": "学校・病院・道路など、市が進めてきた整備を調べる"
+        },
+        {
+          "id": "c3",
+          "text": "租税（税金）の役割に触れる"
+        },
+        {
+          "id": "c4",
+          "text": "整備によって人々の生活がどうよくなったかを考える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「昭和、平成、令和など元号を使った言い表し方も学びます。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.832d00214ad7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔は木造（木）で建てられていた小学校の校舎が、現在では火事や地震に強いどのような材料で建てられるようになりましたか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄筋コンクリート（RC）"
+        },
+        {
+          "id": "c2",
+          "text": "わらと土"
+        },
+        {
+          "id": "c3",
+          "text": "氷と雪"
+        },
+        {
+          "id": "c4",
+          "text": "プラスチック"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "防災や安全対策のため、学校などの公共建築物は燃えにくく頑丈な「鉄筋コンクリート（RC）」で建てられるのが主流になりました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.9055e43a83c5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域の出来事を時間の順（古い順から新しい順）に並べて、歴史の変化をわかりやすくまとめた表を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "年表（ねんぴょう）"
+        },
+        {
+          "id": "c2",
+          "text": "予定表"
+        },
+        {
+          "id": "c3",
+          "text": "棒グラフ"
+        },
+        {
+          "id": "c4",
+          "text": "地図記号"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "歴史の流れや出来事の推移を時間順に整理した表を「年表」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.9913681f989a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "子どもが減り（少子化）、お年寄りが増える（高齢化）現象が同時に進む社会のことを、何社会といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "少子高齢社会（しょうしこうれいしゃかい）"
+        },
+        {
+          "id": "c2",
+          "text": "情報化社会"
+        },
+        {
+          "id": "c3",
+          "text": "国際化社会"
+        },
+        {
+          "id": "c4",
+          "text": "工業化社会"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "子どもの数が減少し、65歳以上の高齢者の割合が高くなった現在の日本のような社会を「少子高齢社会」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.9c667076c4ae",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔、井戸から水を引き上げるために、手でレバーを上下に動かして水を出していた道具を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "手押しポンプ（井戸ポンプ）"
+        },
+        {
+          "id": "c2",
+          "text": "蛇口（じゃぐち）"
+        },
+        {
+          "id": "c3",
+          "text": "電気ポンプ"
+        },
+        {
+          "id": "c4",
+          "text": "バケツ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水道が普及する前は、庭先の井戸に設置された「手押しポンプ」を一生懸命動かして生活に必要な水を確保していました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.a01c7b064a91",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "2019年5月1日に始まった日本の元号（年号）は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "令和（れいわ）"
+        },
+        {
+          "id": "c2",
+          "text": "明治"
+        },
+        {
+          "id": "c3",
+          "text": "大正"
+        },
+        {
+          "id": "c4",
+          "text": "江戸"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "2019年5月1日に「平成」から「令和」へ改元されました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.a537a6c31d54",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人口が減少し、使われなくなった空き家や、誰も作らなくなった畑（休耕地）が増えた地域で、地域の良さを取り戻すために行われる活動を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域活性化（ちいきかっせいか）活動"
+        },
+        {
+          "id": "c2",
+          "text": "工業開発"
+        },
+        {
+          "id": "c3",
+          "text": "海外移住"
+        },
+        {
+          "id": "c4",
+          "text": "都市化の抑制"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "特産物を使ったイベントやお祭りの復活など、地域の良さをアピールして人を呼び戻し元気にする活動を「地域活性化」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.aa93650fb3f4",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔の「三世代（おじいちゃん、おばあちゃん、親、子）」が一緒に暮らす大家族から、現在は親と子だけで暮らす世帯が増えました。このような世帯を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "核家族（かくかぞく）"
+        },
+        {
+          "id": "c2",
+          "text": "単身世帯"
+        },
+        {
+          "id": "c3",
+          "text": "二世帯家族"
+        },
+        {
+          "id": "c4",
+          "text": "共同生活"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "夫婦のみ、または夫婦と未婚の子どものみで構成される家族世帯のことを「核家族」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.aea73505c390",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、年表にまとめるときの考え方として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "出来事を時期の順に並べる"
+        },
+        {
+          "id": "c2",
+          "text": "好きな順に並べる"
+        },
+        {
+          "id": "c3",
+          "text": "記録しない"
+        },
+        {
+          "id": "c4",
+          "text": "地名だけ書く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/426eb76ff2173ffe.png"
+    },
+    "explanation": "年表は、出来事を時期の順に並べて示す表です。昭和・平成・令和なども使います。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.b3865ab0c192",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔のくらしで使われていた道具で、炭火を入れて布のシワをのばすために使われていた、現在のアイロンにあたる古い道具を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "炭火アイロン（火のし）"
+        },
+        {
+          "id": "c2",
+          "text": "たらい"
+        },
+        {
+          "id": "c3",
+          "text": "七輪"
+        },
+        {
+          "id": "c4",
+          "text": "蓄音機"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "現在のアイロンのように衣類のしわを伸ばすため、炭火の熱を利用した「炭火アイロン」や「火のし」が使われていました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.bb0ef1baaefb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "市の人口が増えるにつれて、山を削って作られた新しい住宅地や、海を埋め立てて作られた商業地などの開発地区を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ニュータウン（新興住宅地）"
+        },
+        {
+          "id": "c2",
+          "text": "城下町"
+        },
+        {
+          "id": "c3",
+          "text": "宿場町"
+        },
+        {
+          "id": "c4",
+          "text": "歴史保存地区"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "都市の人口集中に対応するため、計画的に開発された大規模な住宅地区を「ニュータウン（新興住宅地）」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.cc8003aed33b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "高齢者や障害のある人、妊婦さんなど、すべての人が安全で快適にくらせるように、道路の段差をなくしたり駅にエレベーターを作ったりする工夫を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "バリアフリー"
+        },
+        {
+          "id": "c2",
+          "text": "エコロジー"
+        },
+        {
+          "id": "c3",
+          "text": "リサイクル"
+        },
+        {
+          "id": "c4",
+          "text": "シェアリング"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生活するうえで障壁（バリア）となる段差や物理的な障害を取り除いて使いやすくする工夫を「バリアフリー」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.daceeb96d2df",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「人口の移り変わり」について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "市の人口は、増えたり減ったりしながら変化してきました。"
+        },
+        {
+          "id": "c2",
+          "text": "近年は少子高齢化や国際化など、新しい変化も起きています。"
+        },
+        {
+          "id": "c3",
+          "text": "高齢者や子どもが安心して暮らせるまちづくり"
+        },
+        {
+          "id": "c4",
+          "text": "外国人住民との共生"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「市の人口は、増えたり減ったりしながら変化してきました。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.e6ab7e886005",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お年寄りが多く暮らす地域で、日々の買い物や通院が不便にならないように、市や自治体が特別に走らせている小型のバスを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コミュニティバス"
+        },
+        {
+          "id": "c2",
+          "text": "観光バス"
+        },
+        {
+          "id": "c3",
+          "text": "高速バス"
+        },
+        {
+          "id": "c4",
+          "text": "スクールバス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "交通が不便な地域を解消し、お年寄りや住民が移動しやすいように運行される市町村のバスを「コミュニティバス」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.f14e3ef7188f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、市の整備によってよくなったこととして考えられるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "学校や病院などの整備"
+        },
+        {
+          "id": "c2",
+          "text": "記録をしなくなる"
+        },
+        {
+          "id": "c3",
+          "text": "地図がなくなる"
+        },
+        {
+          "id": "c4",
+          "text": "交通がなくなる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9d50fa19b9b7cb92.png"
+    },
+    "explanation": "学校・病院・道路などの整備によって、人々の生活はより便利で安全になります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.f40a1d546236",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気洗濯機が普及する前、たらいの中に水をはり、洗濯物をこすりつけて汚れを落とすために使っていた木の板を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "洗濯板（せんたくいた）"
+        },
+        {
+          "id": "c2",
+          "text": "まな板"
+        },
+        {
+          "id": "c3",
+          "text": "すのこ"
+        },
+        {
+          "id": "c4",
+          "text": "黒板"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "洗濯板のギザギザの部分に衣類をこすりつけて洗うことで、手で洗うよりも効率よく頑固な汚れを落としていました。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-04.f9e4c1602233",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔の住宅にはなく、今の住宅には当たり前に見られる、ボタンひとつでお風呂が沸いたり部屋の温度を調節できたりするエネルギー源は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電気やガス"
+        },
+        {
+          "id": "c2",
+          "text": "薪（まき）"
+        },
+        {
+          "id": "c3",
+          "text": "石炭（せきたん）"
+        },
+        {
+          "id": "c4",
+          "text": "炭（すみ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "昔はかまどでお湯を沸かすのに薪や炭を燃やしていましたが、現在では電気やガスを使ってボタンひとつで便利に行えるようになっています。"
+  }
+]

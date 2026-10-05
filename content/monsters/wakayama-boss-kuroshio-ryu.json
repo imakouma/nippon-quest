@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "wakayama-boss-kuroshio-ryu",
+  "name": "クロシオリュウ",
+  "area": "wakayama",
+  "motifId": "shionomisaki",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 425,
+    "mp": 57,
+    "atk": 22,
+    "def": 16,
+    "spd": 12,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "wakayama-mikan-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "wakayama-ubamegashi-no-tane",
+      "rate": 1
+    },
+    {
+      "itemId": "wakayama-toudai-no-glass",
+      "rate": 1
+    },
+    {
+      "itemId": "wakayama-taki-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 286,
+  "gold": 335,
+  "spriteKey": "mon.wakayama-boss-kuroshio-ryu",
+  "dexBlurb": "潮岬[しおのみさき]の 沖[おき]を ながれる 黒潮[くろしお]の 竜[りゅう]。黒潮[くろしお]は 南[みなみ]から 来[く]る あたたかい 海[うみ]の 流[なが]れで、たくさんの 魚[さかな]を はこんで くる。",
+  "fieldLine": "ゴゴゴ…。本州[ほんしゅう]の いちばん 南[みなみ]の 海[うみ]は、わしの ものだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "kaze",
+      "skills": [
+        "sk-habataki",
+        "sk-kuku-rush"
+      ],
+      "line": "黒潮[くろしお]の 大[おお]うずよ、海[うみ]ごと まきあげろ！"
+    }
+  ]
+}

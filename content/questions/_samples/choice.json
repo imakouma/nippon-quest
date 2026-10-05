@@ -1,0 +1,57 @@
+[
+  {
+    "$schema": "../../../schemas/questions/choice.schema.json",
+    "id": "sample.choice.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "payload": {
+      "prompt": "Which one is an apple?",
+      "promptAudio": "audio/words/apple.mp3",
+      "choices": [
+        { "id": "a", "image": "questions/eigo/apple.png" },
+        { "id": "b", "image": "questions/eigo/grape.png" },
+        { "id": "c", "image": "questions/eigo/peach.png" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "sample.choice.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.kanji",
+    "payload": {
+      "prompt": "「海」の よみかたは？",
+      "choices": [
+        { "id": "a", "text": "うみ" },
+        { "id": "b", "text": "やま" },
+        { "id": "c", "text": "かわ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "海[うみ]。津軽海峡[つがるかいきょう]の「海」。"
+  },
+  {
+    "id": "sample.choice.0003",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.mizu-no-sugata",
+    "payload": {
+      "prompt": "水[みず]を こおらせると 体積[たいせき]は？",
+      "choices": [
+        { "id": "a", "text": "ふえる" },
+        { "id": "b", "text": "へる" },
+        { "id": "c", "text": "かわらない" }
+      ],
+      "answer": "a",
+      "shuffle": false
+    },
+    "explanation": "水[みず]は こおると 少[すこ]し 体積[たいせき]が ふえる。"
+  }
+]

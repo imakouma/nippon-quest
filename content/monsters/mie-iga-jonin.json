@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-iga-jonin",
+  "name": "イガジョウニン",
+  "area": "mie",
+  "motifId": "iga-ninja",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": {
+    "hp": 60,
+    "mp": 17,
+    "atk": 18,
+    "def": 10,
+    "spd": 14,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": ["sk-tashizan-giri", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 20,
+  "spriteKey": "mon.mie-iga-jonin",
+  "dexBlurb": "イガニンが しんかした すがた。忍者[にんじゃ]の 中[なか]で、なかまを まとめる 上[うえ]の 立場[たちば]の 人[ひと]を「上忍[じょうにん]」と いった。"
+}

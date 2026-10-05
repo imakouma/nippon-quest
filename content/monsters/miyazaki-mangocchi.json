@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyazaki-mangocchi",
+  "name": "マンゴッチ",
+  "area": "miyazaki",
+  "motifId": "miyazaki-mango",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 52,
+    "mp": 15,
+    "atk": 14,
+    "def": 9,
+    "spd": 10,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1,
+    "wis": 0.9
+  },
+  "skills": ["sk-kana-barrier", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "miyazaki-mango-no-ami",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 28,
+  "gold": 20,
+  "spriteKey": "mon.miyazaki-mangocchi",
+  "evolution": {
+    "to": "miyazaki-kanjuku-mango",
+    "item": "miyazaki-mango-no-ami"
+  },
+  "dexBlurb": "お日[ひ]さまを たっぷり あびた、まっ赤[か]な マンゴーの 子[こ]。宮崎[みやざき]の マンゴーは、あたたかい 温室[おんしつ]の 中[なか]で 育[そだ]てられる。"
+}

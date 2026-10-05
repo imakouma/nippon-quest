@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "wakayama-toudain",
+  "name": "トウダイン",
+  "area": "wakayama",
+  "motifId": "shionomisaki",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 49,
+    "mp": 14,
+    "atk": 11,
+    "def": 10,
+    "spd": 8,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.1,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.9,
+    "wis": 0.9
+  },
+  "skills": ["sk-kazoe-giri", "sk-kana-barrier"],
+  "drops": [
+    {
+      "itemId": "wakayama-toudai-no-glass",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 23,
+  "gold": 16,
+  "spriteKey": "mon.wakayama-toudain",
+  "evolution": {
+    "to": "wakayama-mamori-toudai",
+    "item": "wakayama-toudai-no-glass"
+  },
+  "dexBlurb": "潮岬[しおのみさき]の 白[しろ]い 灯台[とうだい]の モンスター。夜[よる]の 海[うみ]を てらして、船[ふね]に みさきの 場所[ばしょ]を 知[し]らせる。"
+}

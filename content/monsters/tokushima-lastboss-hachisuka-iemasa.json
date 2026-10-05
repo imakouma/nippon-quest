@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokushima-lastboss-hachisuka-iemasa",
+  "name": "蜂須賀家政[はちすかいえまさ]",
+  "area": "tokushima",
+  "motifId": "awa-odori",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 524,
+    "mp": 66,
+    "atk": 28,
+    "def": 24,
+    "spd": 12,
+    "wis": 20
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 463,
+  "gold": 516,
+  "spriteKey": "mon.tokushima-lastboss-hachisuka-iemasa",
+  "dexBlurb": "安土桃山[あづちももやま]時代[じだい]から 江戸[えど]時代[じだい]の はじめの 大名[だいみょう]（1558〜1639年[ねん]）。徳島城[とくしまじょう]を きずいて 城下町[じょうかまち]を ひらき、阿波[あわ]の 国[くに]（いまの 徳島県[とくしまけん]）を おさめた。",
+  "fieldLine": "われは 蜂須賀家政[はちすかいえまさ]。この 徳島城[とくしまじょう]で、そなたの 力[ちから]を ためそう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "kaze",
+      "skills": [
+        "sk-kaikyo-no-kaze",
+        "sk-habataki",
+        "sk-uzushio"
+      ],
+      "line": "鳴門[なると]の うずよ、まきおこれ！ 阿波[あわ]の 国[くに]は わたさぬ！"
+    }
+  ]
+}

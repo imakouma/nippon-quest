@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukui-lastboss-matsudaira-shungaku",
+  "name": "松平春嶽[まつだいらしゅんがく]",
+  "area": "fukui",
+  "motifId": "maruoka-jo",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 411,
+    "mp": 53,
+    "atk": 21,
+    "def": 19,
+    "spd": 12,
+    "wis": 17
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-kanji-barrier"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 369,
+  "gold": 425,
+  "spriteKey": "mon.fukui-lastboss-matsudaira-shungaku",
+  "dexBlurb": "幕末[ばくまつ]の 福井藩[ふくいはん]の とのさま（1828〜1890年[ねん]）。人[ひと]を そだてる ことを 大切[たいせつ]に し、新[あたら]しい 日本[にほん]の しくみを 考[かんが]えた。",
+  "fieldLine": "松平春嶽[まつだいらしゅんがく]じゃ。この 福井城[ふくいじょう]で、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "新[あたら]しい 世[よ]を てらす 光[ひかり]、うけて みよ！"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyazaki-nanban-ondori",
+  "name": "ナンバンオンドリ",
+  "area": "miyazaki",
+  "motifId": "chicken-nanban",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 68,
+    "mp": 18,
+    "atk": 22,
+    "def": 12,
+    "spd": 15,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 28,
+  "spriteKey": "mon.miyazaki-nanban-ondori",
+  "dexBlurb": "タルタルコッコが しんかした すがた。大[おお]きな とさかと タルタルの マントで、朝[あさ]を よぶ。"
+}

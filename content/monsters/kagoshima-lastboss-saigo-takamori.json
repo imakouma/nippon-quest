@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-lastboss-saigo-takamori",
+  "name": "西郷隆盛[さいごうたかもり]",
+  "area": "kagoshima",
+  "motifId": "kaimondake",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 572,
+    "mp": 71,
+    "atk": 31,
+    "def": 26,
+    "spd": 12,
+    "wis": 19
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.6,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tashizan-giri"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 499,
+  "gold": 572,
+  "spriteKey": "mon.kagoshima-lastboss-saigo-takamori",
+  "dexBlurb": "薩摩藩[さつまはん]の 武士[ぶし]（1828〜1877年[ねん]）。江戸[えど]の 町[まち]を 戦[たたか]わずに あけわたす 話[はな]し合[あ]いを まとめ、新[あたら]しい 時代[じだい]を ひらいた。",
+  "fieldLine": "西郷隆盛[さいごうたかもり]で ごわす。鶴丸城[つるまるじょう]で、おはんを まっちょったど！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-iwa-otoshi",
+        "sk-konjiki-no-kiba"
+      ],
+      "line": "天[てん]を うやまい、人[ひと]を 愛[あい]する！ おいの まことの 力[ちから]、見[み]せもんそ！"
+    }
+  ]
+}

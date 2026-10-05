@@ -1,0 +1,835 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "eigo.g3.alphabet-small.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「A」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "a"
+        },
+        {
+          "id": "b",
+          "text": "o"
+        },
+        {
+          "id": "c",
+          "text": "d"
+        },
+        {
+          "id": "d",
+          "text": "e"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "A の こもじは a。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「B」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "b"
+        },
+        {
+          "id": "b",
+          "text": "d"
+        },
+        {
+          "id": "c",
+          "text": "p"
+        },
+        {
+          "id": "d",
+          "text": "h"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "B の こもじは b。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「C」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "c"
+        },
+        {
+          "id": "b",
+          "text": "e"
+        },
+        {
+          "id": "c",
+          "text": "o"
+        },
+        {
+          "id": "d",
+          "text": "a"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "C の こもじは c。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「D」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "d"
+        },
+        {
+          "id": "b",
+          "text": "b"
+        },
+        {
+          "id": "c",
+          "text": "q"
+        },
+        {
+          "id": "d",
+          "text": "p"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "D の こもじは d。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「E」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "e"
+        },
+        {
+          "id": "b",
+          "text": "c"
+        },
+        {
+          "id": "c",
+          "text": "a"
+        },
+        {
+          "id": "d",
+          "text": "o"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "E の こもじは e。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「F」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "f"
+        },
+        {
+          "id": "b",
+          "text": "t"
+        },
+        {
+          "id": "c",
+          "text": "l"
+        },
+        {
+          "id": "d",
+          "text": "j"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "F の こもじは f。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「G」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "g"
+        },
+        {
+          "id": "b",
+          "text": "q"
+        },
+        {
+          "id": "c",
+          "text": "y"
+        },
+        {
+          "id": "d",
+          "text": "p"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "G の こもじは g。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「H」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "h"
+        },
+        {
+          "id": "b",
+          "text": "n"
+        },
+        {
+          "id": "c",
+          "text": "b"
+        },
+        {
+          "id": "d",
+          "text": "k"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "H の こもじは h。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「I」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "i"
+        },
+        {
+          "id": "b",
+          "text": "j"
+        },
+        {
+          "id": "c",
+          "text": "l"
+        },
+        {
+          "id": "d",
+          "text": "t"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "I の こもじは i。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「J」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "j"
+        },
+        {
+          "id": "b",
+          "text": "i"
+        },
+        {
+          "id": "c",
+          "text": "g"
+        },
+        {
+          "id": "d",
+          "text": "y"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "J の こもじは j。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0011",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「K」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "k"
+        },
+        {
+          "id": "b",
+          "text": "h"
+        },
+        {
+          "id": "c",
+          "text": "x"
+        },
+        {
+          "id": "d",
+          "text": "l"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "K の こもじは k。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0012",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「L」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "l"
+        },
+        {
+          "id": "b",
+          "text": "i"
+        },
+        {
+          "id": "c",
+          "text": "t"
+        },
+        {
+          "id": "d",
+          "text": "j"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "L の こもじは l。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0013",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「M」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "m"
+        },
+        {
+          "id": "b",
+          "text": "n"
+        },
+        {
+          "id": "c",
+          "text": "w"
+        },
+        {
+          "id": "d",
+          "text": "h"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "M の こもじは m。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0014",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「N」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "n"
+        },
+        {
+          "id": "b",
+          "text": "m"
+        },
+        {
+          "id": "c",
+          "text": "h"
+        },
+        {
+          "id": "d",
+          "text": "u"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "N の こもじは n。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0015",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「O」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "o"
+        },
+        {
+          "id": "b",
+          "text": "a"
+        },
+        {
+          "id": "c",
+          "text": "c"
+        },
+        {
+          "id": "d",
+          "text": "e"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "O の こもじは o。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0016",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「P」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "p"
+        },
+        {
+          "id": "b",
+          "text": "q"
+        },
+        {
+          "id": "c",
+          "text": "b"
+        },
+        {
+          "id": "d",
+          "text": "d"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "P の こもじは p。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0017",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「Q」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "q"
+        },
+        {
+          "id": "b",
+          "text": "p"
+        },
+        {
+          "id": "c",
+          "text": "g"
+        },
+        {
+          "id": "d",
+          "text": "d"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Q の こもじは q。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0018",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「R」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "r"
+        },
+        {
+          "id": "b",
+          "text": "n"
+        },
+        {
+          "id": "c",
+          "text": "v"
+        },
+        {
+          "id": "d",
+          "text": "f"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "R の こもじは r。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0019",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「S」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "s"
+        },
+        {
+          "id": "b",
+          "text": "z"
+        },
+        {
+          "id": "c",
+          "text": "c"
+        },
+        {
+          "id": "d",
+          "text": "e"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "S の こもじは s。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0020",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「T」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "t"
+        },
+        {
+          "id": "b",
+          "text": "f"
+        },
+        {
+          "id": "c",
+          "text": "l"
+        },
+        {
+          "id": "d",
+          "text": "i"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "T の こもじは t。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0021",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「U」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "u"
+        },
+        {
+          "id": "b",
+          "text": "n"
+        },
+        {
+          "id": "c",
+          "text": "v"
+        },
+        {
+          "id": "d",
+          "text": "w"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "U の こもじは u。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0022",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「V」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "v"
+        },
+        {
+          "id": "b",
+          "text": "u"
+        },
+        {
+          "id": "c",
+          "text": "w"
+        },
+        {
+          "id": "d",
+          "text": "y"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "V の こもじは v。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0023",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「W」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "w"
+        },
+        {
+          "id": "b",
+          "text": "m"
+        },
+        {
+          "id": "c",
+          "text": "v"
+        },
+        {
+          "id": "d",
+          "text": "u"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "W の こもじは w。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0024",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「X」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "x"
+        },
+        {
+          "id": "b",
+          "text": "k"
+        },
+        {
+          "id": "c",
+          "text": "y"
+        },
+        {
+          "id": "d",
+          "text": "z"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "X の こもじは x。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0025",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「Y」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "y"
+        },
+        {
+          "id": "b",
+          "text": "v"
+        },
+        {
+          "id": "c",
+          "text": "g"
+        },
+        {
+          "id": "d",
+          "text": "j"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Y の こもじは y。"
+  },
+  {
+    "id": "eigo.g3.alphabet-small.0026",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.alphabet-small",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「Z」の こもじは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "z"
+        },
+        {
+          "id": "b",
+          "text": "s"
+        },
+        {
+          "id": "c",
+          "text": "x"
+        },
+        {
+          "id": "d",
+          "text": "n"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Z の こもじは z。"
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ibaraki-boss-tsukuba-gama-o",
+  "name": "ツクバガマオウ",
+  "area": "ibaraki",
+  "motifId": "tsukubasan",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 336,
+    "mp": 48,
+    "atk": 18,
+    "def": 15,
+    "spd": 6,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "ibaraki-natto-no-warazuto",
+      "rate": 1
+    },
+    {
+      "itemId": "ibaraki-hasu-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "ibaraki-kasumigaura-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "ibaraki-nemophila-no-hana",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 222,
+  "gold": 262,
+  "spriteKey": "mon.ibaraki-boss-tsukuba-gama-o",
+  "dexBlurb": "筑波山[つくばさん]に すむ ガマガエルの 王[おう]さま。筑波山[つくばさん]には、ガマの 油[あぶら]を 売[う]る 口上[こうじょう]が 伝[つた]わって いる。",
+  "fieldLine": "さあさ、お立[た]ち会[あ]い！ 筑波山[つくばさん]の ガマの 力[ちから]、とくと 見[み]せて やろう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "mizu",
+      "skills": [
+        "sk-uzushio",
+        "sk-iwa-otoshi"
+      ],
+      "line": "霞ヶ浦[かすみがうら]の 水[みず]よ、筑波[つくば]の 岩[いわ]よ！ わしに 力[ちから]を かせ！"
+    }
+  ]
+}

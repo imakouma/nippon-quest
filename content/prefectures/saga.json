@@ -1,0 +1,267 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "saga",
+  "name": "佐賀県[さがけん]",
+  "island": "kyushu-okinawa",
+  "capital": "佐賀市[さがし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "saga-field",
+    "town": "saga-town",
+    "dungeon": "saga-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "yoshinogari",
+      "name": "吉野ヶ里遺跡[よしのがりいせき]",
+      "kind": "history",
+      "imageKey": "motif.saga.yoshinogari",
+      "blurb": "弥生時代[やよいじだい]の 大[おお]きな むらの あと。まわりを ほりと さくで かこんでいた。"
+    },
+    {
+      "id": "karatsu-kunchi",
+      "name": "唐津[からつ]くんち",
+      "kind": "festival",
+      "imageKey": "motif.saga.karatsu-kunchi",
+      "blurb": "唐津市[からつし]の 秋[あき]の お祭[まつ]り。大[おお]きな「曳山[ひきやま]」を 引[ひ]いて 町[まち]を まわる。"
+    },
+    {
+      "id": "mutsugoro",
+      "name": "有明海[ありあけかい]の ムツゴロウ",
+      "kind": "nature",
+      "imageKey": "motif.saga.mutsugoro",
+      "blurb": "有明海[ありあけかい]の ひがたに すむ 魚[さかな]。どろの 上[うえ]を ぴょんぴょん はねる。"
+    },
+    {
+      "id": "okawachiyama",
+      "name": "伊万里焼[いまりやき]の 里[さと]",
+      "kind": "landmark",
+      "imageKey": "motif.saga.okawachiyama",
+      "blurb": "伊万里市[いまりし]の 大川内山[おおかわちやま]には、やきものの 窯[かま]が あつまる 里[さと]が ある。"
+    },
+    {
+      "id": "takeo-onsen",
+      "name": "武雄温泉[たけおおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.saga.takeo-onsen",
+      "blurb": "竜宮城[りゅうぐうじょう]のような 朱[しゅ]ぬりの 門[もん]が ある 温泉[おんせん]。"
+    },
+    {
+      "id": "aritayaki",
+      "name": "有田焼[ありたやき]",
+      "kind": "craft",
+      "imageKey": "motif.saga.aritayaki",
+      "blurb": "有田町[ありたちょう]で 作[つく]られる、白[しろ]い 地[じ]に あざやかな 絵[え]の やきもの。日本[にほん]で はじめて 磁器[じき]が 作[つく]られた ところ。"
+    },
+    {
+      "id": "yobuko-ika",
+      "name": "呼子[よぶこ]の いか",
+      "kind": "food",
+      "imageKey": "motif.saga.yobuko-ika",
+      "blurb": "呼子[よぶこ]の 港[みなと]では、すきとおった いかを とれたての まま さしみに する。"
+    },
+    {
+      "id": "saga-nori",
+      "name": "有明海[ありあけかい]の のり",
+      "kind": "food",
+      "imageKey": "motif.saga.saga-nori",
+      "blurb": "有明海[ありあけかい]で 育[そだ]てられる のり。佐賀県[さがけん]は のりの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "ureshinocha",
+      "name": "嬉野茶[うれしのちゃ]",
+      "kind": "food",
+      "imageKey": "motif.saga.ureshinocha",
+      "blurb": "嬉野市[うれしのし]で 作[つく]られる、丸[まる]く ころんとした 形[かたち]の お茶[ちゃ]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "saga-pyongoro",
+          "weight": 35
+        },
+        {
+          "monsterId": "saga-sometsubon",
+          "weight": 25
+        },
+        {
+          "monsterId": "saga-chakoron",
+          "weight": 25
+        },
+        {
+          "monsterId": "saga-yumonbou",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "saga-chakoron",
+          "weight": 60
+        },
+        {
+          "monsterId": "saga-pyongoro",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "saga-sometsubon",
+          "weight": 40
+        },
+        {
+          "monsterId": "saga-chakoron",
+          "weight": 30
+        },
+        {
+          "monsterId": "saga-yumonbou",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "saga-pyongoro",
+          "weight": 75
+        },
+        {
+          "monsterId": "saga-sometsubon",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "saga-sometsubon",
+          "weight": 35
+        },
+        {
+          "monsterId": "saga-chakoron",
+          "weight": 25
+        },
+        {
+          "monsterId": "saga-pyongoro",
+          "weight": 15
+        },
+        {
+          "monsterId": "saga-yumonbou",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "saga-boss-akajishi-oh",
+  "midBoss": "saga-midboss-toumeika",
+  "secret": {
+    "name": "佐賀城[さがじょう] 本丸[ほんまる]",
+    "boss": "saga-lastboss-nabeshima-naomasa"
+  },
+  "events": [
+    {
+      "id": "ev-saga-yoshinogari",
+      "motifId": "yoshinogari",
+      "trigger": {
+        "map": "saga-field",
+        "objectName": "event_saga_yoshinogari"
+      },
+      "once": true,
+      "cutinImageKey": "motif.saga.yoshinogari",
+      "dialogue": [
+        {
+          "speaker": "吉野ヶ里[よしのがり]の あんないにん",
+          "text": "ここは 弥生時代[やよいじだい]の むらの あと、吉野ヶ里遺跡[よしのがりいせき]だよ。むかしの くらしを しっているかな？"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:saga"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "吉野ヶ里[よしのがり]の あんないにん",
+          "text": "よく わかったね！ むらの まわりは、ほりと さくで まもられて いたんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "佐賀市[さがし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-saga-shop",
+        "name": "のり屋[や]の おばちゃん",
+        "spriteKey": "char.npc-saga-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "ようこそ 佐賀[さが]へ！ 有明海[ありあけかい]の のりは、寒[さむ]い 冬[ふゆ]の 海[うみ]で 育[そだ]つんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-saga-smith",
+        "name": "有田焼[ありたやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-saga-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "有田焼[ありたやき]は、白[しろ]い 石[いし]を くだいた 土[つち]で 作[つく]る 磁器[じき]なんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

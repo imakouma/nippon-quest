@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-minoribu",
+  "name": "ミノリーブ",
+  "area": "kagawa",
+  "motifId": "shodoshima-olive",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 71,
+    "mp": 18,
+    "atk": 19,
+    "def": 15,
+    "spd": 11,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.3,
+    "spd": 1.1,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 27,
+  "spriteKey": "mon.kagawa-minoribu",
+  "dexBlurb": "コロリーブが しんかした すがた。オリーブの 実[み]は、秋[あき]に じゅくすと みどりから こい むらさきに かわる。"
+}

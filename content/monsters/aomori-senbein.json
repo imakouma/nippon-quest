@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-senbein",
+  "name": "センベイン",
+  "area": "aomori",
+  "motifId": "senbeijiru",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 30,
+    "mp": 7,
+    "atk": 9,
+    "def": 6,
+    "spd": 7,
+    "wis": 4
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.1,
+    "wis": 0.7
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "aomori-senbeijiru",
+      "rate": 0.2
+    }
+  ],
+  "recruitRate": 0.08,
+  "recruitItem": "aomori-senbeijiru",
+  "xp": 14,
+  "gold": 9,
+  "spriteKey": "mon.aomori-senbein",
+  "evolution": {
+    "to": "aomori-nabe-shogun",
+    "item": "aomori-senbeijiru",
+    "count": 3
+  },
+  "dexBlurb": "八戸[はちのへ]の せんべい汁[じる]に 入[い]れる、南部[なんぶ]せんべいの せい。汁に 入れても くずれにくい とくべつな せんべいだよ。"
+}

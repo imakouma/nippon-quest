@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-jet-hotate",
+  "name": "ジェットホタテ",
+  "area": "hokkaido",
+  "motifId": "sarufutsu-hotate",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 49,
+    "mp": 13,
+    "atk": 13,
+    "def": 12,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1.2,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 25,
+  "gold": 19,
+  "spriteKey": "mon.hokkaido-jet-hotate",
+  "dexBlurb": "ホタテンが しんかした すがた。ホタテの 貝[かい]の ふちには、小[ちい]さな 目[め]が たくさん ならんでいる。"
+}

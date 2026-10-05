@@ -1,0 +1,285 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "shizuoka",
+  "name": "静岡県[しずおかけん]",
+  "island": "tokai",
+  "capital": "静岡市[しずおかし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "shizuoka-field",
+    "town": "shizuoka-town",
+    "dungeon": "shizuoka-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "fujisan",
+      "name": "富士山[ふじさん]",
+      "kind": "nature",
+      "imageKey": "motif.shizuoka.fujisan",
+      "blurb": "日本[にほん]で いちばん 高[たか]い 山[やま]（3776メートル）。静岡県[しずおかけん]と 山梨県[やまなしけん]に またがる。"
+    },
+    {
+      "id": "miho-matsubara",
+      "name": "三保松原[みほのまつばら]",
+      "kind": "nature",
+      "imageKey": "motif.shizuoka.miho-matsubara",
+      "blurb": "海[うみ]ぞいに 松[まつ]の 林[はやし]が つづき、海[うみ]の むこうに 富士山[ふじさん]が 見[み]える。"
+    },
+    {
+      "id": "jogasaki",
+      "name": "城ヶ崎海岸[じょうがさきかいがん]",
+      "kind": "nature",
+      "imageKey": "motif.shizuoka.jogasaki",
+      "blurb": "火山[かざん]の 溶岩[ようがん]が 海[うみ]に 流[なが]れこんで できた、ごつごつした 海岸[かいがん]。つり橋[ばし]が ある。"
+    },
+    {
+      "id": "toro-iseki",
+      "name": "登呂遺跡[とろいせき]",
+      "kind": "history",
+      "imageKey": "motif.shizuoka.toro-iseki",
+      "blurb": "弥生時代[やよいじだい]の 村[むら]や 田[た]んぼの あと。高床[たかゆか]の 倉庫[そうこ]が 建[た]てなおされている。"
+    },
+    {
+      "id": "hamamatsu-tako",
+      "name": "浜松[はままつ]まつりの たこあげ",
+      "kind": "festival",
+      "imageKey": "motif.shizuoka.hamamatsu-tako",
+      "blurb": "5月[がつ]の 浜松[はままつ]まつりでは、大[おお]きな たこを 空[そら]高[たか]く あげて きそう。"
+    },
+    {
+      "id": "kawazuzakura",
+      "name": "河津桜[かわづざくら]",
+      "kind": "nature",
+      "imageKey": "motif.shizuoka.kawazuzakura",
+      "blurb": "河津町[かわづちょう]で 2月[がつ]ごろに さく、こい ピンク色[いろ]の 早[はや]ざきの さくら。"
+    },
+    {
+      "id": "shizuoka-cha",
+      "name": "静岡[しずおか]の お茶[ちゃ]",
+      "kind": "food",
+      "imageKey": "motif.shizuoka.shizuoka-cha",
+      "blurb": "牧之原台地[まきのはらだいち]など、静岡県[しずおかけん]は お茶[ちゃ]の 産地[さんち]として とても 有名[ゆうめい]。"
+    },
+    {
+      "id": "hamanako-unagi",
+      "name": "浜名湖[はまなこ]の うなぎ",
+      "kind": "food",
+      "imageKey": "motif.shizuoka.hamanako-unagi",
+      "blurb": "浜名湖[はまなこ]の まわりでは、うなぎを 育[そだ]てる 養殖[ようしょく]が さかん。"
+    },
+    {
+      "id": "amagi-wasabi",
+      "name": "天城[あまぎ]の わさび",
+      "kind": "food",
+      "imageKey": "motif.shizuoka.amagi-wasabi",
+      "blurb": "天城[あまぎ]の 山[やま]の きれいな わき水[みず]で 育[そだ]てる わさび。"
+    },
+    {
+      "id": "yaizu-katsuo",
+      "name": "焼津[やいづ]の かつお",
+      "kind": "food",
+      "imageKey": "motif.shizuoka.yaizu-katsuo",
+      "blurb": "焼津港[やいづこう]には、かつおや まぐろが たくさん 水[みず]あげ される。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "shizuoka-chatsumin",
+          "weight": 40
+        },
+        {
+          "monsterId": "shizuoka-soradako",
+          "weight": 35
+        },
+        {
+          "monsterId": "shizuoka-unanyoro",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "shizuoka-chatsumin",
+          "weight": 70
+        },
+        {
+          "monsterId": "shizuoka-soradako",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "shizuoka-unanyoro",
+          "weight": 30
+        },
+        {
+          "monsterId": "shizuoka-chatsumin",
+          "weight": 50
+        },
+        {
+          "monsterId": "shizuoka-wasabikko",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "shizuoka-chatsumin",
+          "weight": 35
+        },
+        {
+          "monsterId": "shizuoka-soradako",
+          "weight": 40
+        },
+        {
+          "monsterId": "shizuoka-wasabikko",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "shizuoka-unanyoro",
+          "weight": 55
+        },
+        {
+          "monsterId": "shizuoka-soradako",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "shizuoka-unanyoro",
+          "weight": 45
+        },
+        {
+          "monsterId": "shizuoka-chatsumin",
+          "weight": 30
+        },
+        {
+          "monsterId": "shizuoka-soradako",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "shizuoka-boss-fujimine-ou",
+  "midBoss": "shizuoka-midboss-yogan-gani",
+  "secret": {
+    "name": "駿府城[すんぷじょう]",
+    "boss": "shizuoka-lastboss-tokugawa-ieyasu"
+  },
+  "events": [
+    {
+      "id": "ev-shizuoka-fujisan",
+      "motifId": "fujisan",
+      "trigger": {
+        "map": "shizuoka-field",
+        "objectName": "event_shizuoka_fujisan"
+      },
+      "once": true,
+      "cutinImageKey": "motif.shizuoka.fujisan",
+      "dialogue": [
+        {
+          "speaker": "富士山[ふじさん]の 山[やま]の ガイドさん",
+          "text": "富士山[ふじさん]は、むかし 何度[なんど]も 噴火[ふんか]して できた 火山[かざん]なんだよ。クイズに ちょうせん！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:shizuoka"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "富士山[ふじさん]の 山[やま]の ガイドさん",
+          "text": "よく できたね！ 富士山[ふじさん]の 高[たか]さは 3776メートル。日本[にほん]で いちばん 高[たか]い 山[やま]だよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "静岡市[しずおかし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-shizuoka-shop",
+        "name": "お茶屋[ちゃや]の おばあちゃん",
+        "spriteKey": "char.npc-shizuoka-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい。静岡県[しずおかけん]は お茶[ちゃ]づくりが とても さかんなんだよ。あったかい お茶[ちゃ]を どうぞ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-shizuoka-smith",
+        "name": "駿河竹[するがたけ]細工[ざいく]の 職人[しょくにん]",
+        "spriteKey": "char.npc-shizuoka-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "細[ほそ]い 竹[たけ]ひごを くみあわせて、虫[むし]かごや 花[はな]いけを 作[つく]るんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

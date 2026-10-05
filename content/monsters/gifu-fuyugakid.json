@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-fuyugakid",
+  "name": "フユウガキッド",
+  "area": "gifu",
+  "motifId": "fuyugaki",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 47,
+    "mp": 10,
+    "atk": 12,
+    "def": 8,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 1.0,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "gifu-hachiya-hoshigaki",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 21,
+  "gold": 14,
+  "spriteKey": "mon.gifu-fuyugakid",
+  "evolution": {
+    "to": "gifu-kakinoki-don",
+    "item": "gifu-hachiya-hoshigaki"
+  },
+  "dexBlurb": "富有柿[ふゆうがき]の 子[こ]どもの モンスター。富有柿[ふゆうがき]は あまい 柿[かき]で、岐阜県[ぎふけん]の 瑞穂市[みずほし]で 生[う]まれた。"
+}

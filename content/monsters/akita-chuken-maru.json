@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-chuken-maru",
+  "name": "チュウケンマル",
+  "area": "akita",
+  "motifId": "akita-inu",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 50,
+    "mp": 14,
+    "atk": 14,
+    "def": 9,
+    "spd": 12,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.4,
+    "atk": 1.7,
+    "def": 1.1,
+    "spd": 1.6,
+    "wis": 1.2
+  },
+  "skills": ["sk-kanji-barrier", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.akita-chuken-maru",
+  "dexBlurb": "アキタイヌが しんかした すがた。なかまを さいごまで まもる、ちゅうじつな ゆうしゃ。"
+}

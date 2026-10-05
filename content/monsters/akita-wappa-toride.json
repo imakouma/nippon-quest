@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-wappa-toride",
+  "name": "ワッパトリデ",
+  "area": "akita",
+  "motifId": "magewappa",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 50,
+    "mp": 12,
+    "atk": 13,
+    "def": 12,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.7,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.akita-wappa-toride",
+  "dexBlurb": "マゲワッパンが しんかした すがた。曲[ま]げわっぱを かさねた とりでの ような からだ。"
+}

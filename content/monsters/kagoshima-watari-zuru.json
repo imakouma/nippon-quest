@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-watari-zuru",
+  "name": "ワタリヅル",
+  "area": "kagoshima",
+  "motifId": "izumi-tsuru",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 65,
+    "mp": 20,
+    "atk": 22,
+    "def": 12,
+    "spd": 17,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.0,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.6,
+    "wis": 1.0
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 28,
+  "spriteKey": "mon.kagoshima-watari-zuru",
+  "dexBlurb": "ナベヅルンが しんかした すがた。大[おお]きな つばさで、海[うみ]を こえて 遠[とお]くまで とんで いく。"
+}

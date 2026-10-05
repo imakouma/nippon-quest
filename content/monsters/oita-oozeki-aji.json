@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-oozeki-aji",
+  "name": "オオゼキアジ",
+  "area": "oita",
+  "motifId": "seki-aji",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 68,
+    "mp": 18,
+    "atk": 22,
+    "def": 12,
+    "spd": 15,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 28,
+  "spriteKey": "mon.oita-oozeki-aji",
+  "dexBlurb": "セキアジローが しんかした すがた。まわしを しめた 力[ちから]もち。関[せき]あじは 身[み]が しまって、しこしこと した 歯[は]ごたえ。"
+}

@@ -1,0 +1,117 @@
+{
+  "$schema": "../../schemas/world.schema.json",
+  "id": "japan",
+  "name": "日本[にほん]",
+  "islands": [
+    {
+      "id": "tohoku",
+      "name": "東北[とうほく]の島[しま]",
+      "order": 1,
+      "mapKey": "tohoku-island",
+      "areas": ["aomori", "iwate", "miyagi", "akita", "yamagata", "fukushima"],
+      "bossId": "tohoku-boss-rokufuyu",
+      "recommendedGrade": [1, 2],
+      "featuredSubjects": ["kokugo", "seikatsu"],
+      "status": "playable"
+    },
+    {
+      "id": "hokkaido",
+      "name": "北海道[ほっかいどう]の島[しま]",
+      "order": 2,
+      "mapKey": "hokkaido-island",
+      "areas": ["hokkaido"],
+      "bossId": "hokkaido-boss",
+      "recommendedGrade": [1, 6],
+      "featuredSubjects": ["rika"],
+      "status": "stub"
+    },
+    {
+      "id": "kanto",
+      "name": "関東[かんとう]の島[しま]",
+      "order": 3,
+      "mapKey": "kanto-island",
+      "areas": ["ibaraki", "tochigi", "gunma", "saitama", "chiba", "tokyo", "kanagawa"],
+      "bossId": "kanto-boss",
+      "recommendedGrade": [2, 6],
+      "featuredSubjects": ["shakai"],
+      "status": "stub"
+    },
+    {
+      "id": "hokuriku",
+      "name": "北陸[ほくりく]の島[しま]",
+      "order": 4,
+      "mapKey": "hokuriku-island",
+      "areas": ["toyama", "ishikawa", "fukui"],
+      "bossId": "hokuriku-boss",
+      "recommendedGrade": [2, 6],
+      "featuredSubjects": ["rika"],
+      "status": "stub"
+    },
+    {
+      "id": "koshinetsu",
+      "name": "甲信越[こうしんえつ]の島[しま]",
+      "order": 5,
+      "mapKey": "koshinetsu-island",
+      "areas": ["niigata", "yamanashi", "nagano"],
+      "bossId": "koshinetsu-boss",
+      "recommendedGrade": [1, 2],
+      "featuredSubjects": ["sansu"],
+      "status": "playable"
+    },
+    {
+      "id": "tokai",
+      "name": "東海[とうかい]の島[しま]",
+      "order": 6,
+      "mapKey": "tokai-island",
+      "areas": ["gifu", "shizuoka", "aichi", "mie"],
+      "bossId": "tokai-boss",
+      "recommendedGrade": [3, 6],
+      "featuredSubjects": ["seikatsu", "rika"],
+      "status": "stub"
+    },
+    {
+      "id": "kinki",
+      "name": "近畿[きんき]の島[しま]",
+      "order": 7,
+      "mapKey": "kinki-island",
+      "areas": ["shiga", "kyoto", "osaka", "hyogo", "nara", "wakayama"],
+      "bossId": "kinki-boss",
+      "recommendedGrade": [4, 6],
+      "featuredSubjects": ["kokugo"],
+      "status": "stub"
+    },
+    {
+      "id": "chugoku",
+      "name": "中国[ちゅうごく]の島[しま]",
+      "order": 8,
+      "mapKey": "chugoku-island",
+      "areas": ["tottori", "shimane", "okayama", "hiroshima", "yamaguchi"],
+      "bossId": "chugoku-boss",
+      "recommendedGrade": [4, 6],
+      "featuredSubjects": ["shakai"],
+      "status": "stub"
+    },
+    {
+      "id": "shikoku",
+      "name": "四国[しこく]の島[しま]",
+      "order": 9,
+      "mapKey": "shikoku-island",
+      "areas": ["tokushima", "kagawa", "ehime", "kochi"],
+      "bossId": "shikoku-boss",
+      "recommendedGrade": [5, 6],
+      "featuredSubjects": ["kokugo", "seikatsu"],
+      "status": "stub"
+    },
+    {
+      "id": "kyushu-okinawa",
+      "name": "九州[きゅうしゅう]・沖縄[おきなわ]の島[しま]",
+      "order": 10,
+      "mapKey": "kyushu-okinawa-island",
+      "areas": ["fukuoka", "saga", "nagasaki", "kumamoto", "oita", "miyazaki", "kagoshima", "okinawa"],
+      "bossId": "kyushu-okinawa-boss",
+      "recommendedGrade": [5, 6],
+      "featuredSubjects": ["eigo", "shakai"],
+      "status": "stub"
+    }
+  ]
+}

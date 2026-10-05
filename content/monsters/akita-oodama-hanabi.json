@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-oodama-hanabi",
+  "name": "オオダマハナビ",
+  "area": "akita",
+  "motifId": "omagari-hanabi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 44,
+    "mp": 13,
+    "atk": 14,
+    "def": 8,
+    "spd": 13,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.3,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1,
+    "spd": 1.4,
+    "wis": 1
+  },
+  "skills": [
+    "sk-abc-shout",
+    "sk-habataki"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 21,
+  "spriteKey": "mon.akita-oodama-hanabi",
+  "dexBlurb": "ハナビィが しんかした すがた。夜空[よぞら]いっぱいに ひらく 大玉[おおだま]の 花火[はなび]に なった。"
+}

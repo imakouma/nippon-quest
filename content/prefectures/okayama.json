@@ -1,0 +1,267 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "okayama",
+  "name": "岡山県[おかやまけん]",
+  "island": "chugoku",
+  "capital": "岡山市[おかやまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "okayama-field",
+    "town": "okayama-town",
+    "dungeon": "okayama-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "korakuen",
+      "name": "後楽園[こうらくえん]",
+      "kind": "landmark",
+      "imageKey": "motif.okayama.korakuen",
+      "blurb": "岡山市[おかやまし]に ある 大[おお]きな 庭園[ていえん]。広[ひろ]い しばふの むこうに 岡山城[おかやまじょう]が 見[み]える。"
+    },
+    {
+      "id": "kurashiki",
+      "name": "倉敷[くらしき]の 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.okayama.kurashiki",
+      "blurb": "白[しろ]い かべの 蔵[くら]と 柳[やなぎ]の 並木[なみき]が、川[かわ]ぞいに ならぶ 町[まち]なみ。"
+    },
+    {
+      "id": "seto-ohashi",
+      "name": "瀬戸大橋[せとおおはし]",
+      "kind": "landmark",
+      "imageKey": "motif.okayama.seto-ohashi",
+      "blurb": "岡山県[おかやまけん]と 香川県[かがわけん]を むすぶ 長[なが]い 橋[はし]。上[うえ]を 車[くるま]、下[した]を 電車[でんしゃ]が 走[はし]る。"
+    },
+    {
+      "id": "hiruzen",
+      "name": "蒜山高原[ひるぜんこうげん]",
+      "kind": "nature",
+      "imageKey": "motif.okayama.hiruzen",
+      "blurb": "中国山地[ちゅうごくさんち]に 広[ひろ]がる 高原[こうげん]。ジャージー牛[ぎゅう]が のんびり くらす。"
+    },
+    {
+      "id": "bitchu-matsuyama-jo",
+      "name": "備中松山城[びっちゅうまつやまじょう]",
+      "kind": "history",
+      "imageKey": "motif.okayama.bitchu-matsuyama-jo",
+      "blurb": "高[たか]い 山[やま]の 上[うえ]に 立[た]つ、むかしの 天守[てんしゅ]が のこる お城[しろ]。"
+    },
+    {
+      "id": "bizenyaki",
+      "name": "備前焼[びぜんやき]",
+      "kind": "craft",
+      "imageKey": "motif.okayama.bizenyaki",
+      "blurb": "備前市[びぜんし]で 作[つく]られる、うわぐすりを 使[つか]わない 茶色[ちゃいろ]の やきもの。"
+    },
+    {
+      "id": "okayama-hakuto",
+      "name": "岡山[おかやま]の 白桃[はくとう]",
+      "kind": "food",
+      "imageKey": "motif.okayama.okayama-hakuto",
+      "blurb": "岡山[おかやま]で 作[つく]られる 白[しろ]い もも。やさしい あまさで とても 有名[ゆうめい]。"
+    },
+    {
+      "id": "okayama-muscat",
+      "name": "マスカット",
+      "kind": "food",
+      "imageKey": "motif.okayama.okayama-muscat",
+      "blurb": "みどり色[いろ]の つぶの 大[おお]きな ぶどう。岡山[おかやま]では 温室[おんしつ]で 大切[たいせつ]に 育[そだ]てる。"
+    },
+    {
+      "id": "okayama-denim",
+      "name": "岡山[おかやま]の デニム",
+      "kind": "craft",
+      "imageKey": "motif.okayama.okayama-denim",
+      "blurb": "井原市[いばらし]や 倉敷市[くらしきし]では、ジーンズの 布[ぬの]「デニム」作[づく]りが さかん。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "okayama-fukuromomo",
+          "weight": 32
+        },
+        {
+          "monsterId": "okayama-muscatton",
+          "weight": 24
+        },
+        {
+          "monsterId": "okayama-bizentsubon",
+          "weight": 24
+        },
+        {
+          "monsterId": "okayama-aizomen",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "okayama-fukuromomo",
+          "weight": 46
+        },
+        {
+          "monsterId": "okayama-muscatton",
+          "weight": 38
+        },
+        {
+          "monsterId": "okayama-aizomen",
+          "weight": 17
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "okayama-bizentsubon",
+          "weight": 65
+        },
+        {
+          "monsterId": "okayama-fukuromomo",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "okayama-bizentsubon",
+          "weight": 60
+        },
+        {
+          "monsterId": "okayama-muscatton",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "okayama-bizentsubon",
+          "weight": 45
+        },
+        {
+          "monsterId": "okayama-muscatton",
+          "weight": 30
+        },
+        {
+          "monsterId": "okayama-fukuromomo",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "okayama-boss-kibi-no-onio",
+  "midBoss": "okayama-midboss-mouretsu-jersey",
+  "secret": {
+    "name": "閑谷学校[しずたにがっこう]",
+    "boss": "okayama-lastboss-ikeda-mitsumasa"
+  },
+  "events": [
+    {
+      "id": "ev-okayama-seto-ohashi",
+      "motifId": "seto-ohashi",
+      "trigger": {
+        "map": "okayama-field",
+        "objectName": "event_okayama_seto-ohashi"
+      },
+      "once": true,
+      "cutinImageKey": "motif.okayama.seto-ohashi",
+      "dialogue": [
+        {
+          "speaker": "橋[はし]の ガイドさん",
+          "text": "瀬戸大橋[せとおおはし]は、本州[ほんしゅう]の 岡山県[おかやまけん]と 四国[しこく]の 香川県[かがわけん]を むすぶ 橋[はし]だよ。"
+        },
+        {
+          "speaker": "橋[はし]の ガイドさん",
+          "text": "日本[にほん]の 地理[ちり]を しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:okayama"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "橋[はし]の ガイドさん",
+          "text": "よく しらべたね！ 上[うえ]を 車[くるま]、下[した]を 電車[でんしゃ]が 走[はし]る、2だんの 橋[はし]なんだ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "岡山市[おかやまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-okayama-shop",
+        "name": "くだもの屋[や]の おじさん",
+        "spriteKey": "char.npc-okayama-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 岡山[おかやま]は 晴[は]れの 日[ひ]が 多[おお]くて、くだものが よく 育[そだ]つんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-okayama-smith",
+        "name": "備前焼[びぜんやき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-okayama-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "備前焼[びぜんやき]は うわぐすりを 使[つか]わず、かまで 10日[とおか]いじょう じっくり やくんだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

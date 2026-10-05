@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-kakigaran",
+  "name": "カキガラン",
+  "area": "hiroshima",
+  "motifId": "hiroshima-kaki",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 54,
+    "mp": 11,
+    "atk": 11,
+    "def": 11,
+    "spd": 6,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "hiroshima-tanegaki-hotate",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 17,
+  "spriteKey": "mon.hiroshima-kakigaran",
+  "evolution": {
+    "to": "hiroshima-kakigara-don",
+    "item": "hiroshima-tanegaki-hotate"
+  },
+  "dexBlurb": "ごつごつした かきの からに 入[はい]った モンスター。広島湾[ひろしまわん]では、海[うみ]に うかべた いかだから かきを つるして 育[そだ]てる。"
+}

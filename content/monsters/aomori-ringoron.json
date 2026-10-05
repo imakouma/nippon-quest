@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-ringoron",
+  "name": "リンゴロン",
+  "area": "aomori",
+  "motifId": "ringo",
+  "element": "mori",
+  "subjectAffinity": "seikatsu",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 28,
+    "mp": 6,
+    "atk": 7,
+    "def": 5,
+    "spd": 6,
+    "wis": 3
+  },
+  "growth": {
+    "hp": 4,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.8,
+    "wis": 0.6
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "aomori-ringo",
+      "rate": 0.4
+    },
+    {
+      "itemId": "aomori-ringo-no-yoroi",
+      "rate": 0.03
+    },
+    {
+      "itemId": "aomori-ringo-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "recruitItem": "aomori-ringo",
+  "xp": 12,
+  "gold": 8,
+  "spriteKey": "mon.aomori-ringoron",
+  "evolution": {
+    "to": "aomori-ringo-knight",
+    "item": "aomori-ringo-no-hana"
+  },
+  "dexBlurb": "りんごの 妖精[ようせい]。青森[あおもり]の りんごは 100年[ねん]いじょうも 前[まえ]から 作[つく]られているよ。"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-chakoron",
+  "name": "チャコロン",
+  "area": "saga",
+  "motifId": "ureshinocha",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 49,
+    "mp": 12,
+    "atk": 12,
+    "def": 9,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "saga-ureshino-shincha",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 23,
+  "gold": 15,
+  "spriteKey": "mon.saga-chakoron",
+  "evolution": {
+    "to": "saga-chabashira",
+    "item": "saga-ureshino-shincha"
+  },
+  "dexBlurb": "嬉野茶[うれしのちゃ]の 葉[は]っぱが ころころ まるまった モンスター。嬉野茶[うれしのちゃ]は、葉[は]が くるんと まがった「玉緑茶[たまりょくちゃ]」。"
+}

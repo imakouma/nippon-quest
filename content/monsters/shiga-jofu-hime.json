@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shiga-jofu-hime",
+  "name": "ジョウフヒメ",
+  "area": "shiga",
+  "motifId": "omi-jofu",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 60,
+    "mp": 14,
+    "atk": 16,
+    "def": 11,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-kanji-barrier",
+    "sk-tashizan-giri",
+    "sk-hikari-no-ya"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 33,
+  "gold": 21,
+  "spriteKey": "mon.shiga-jofu-hime",
+  "dexBlurb": "アサヌノンが しんかした すがた。さらした 白[しろ]い 布[ぬの]が 日[ひ]の 光[ひかり]を うけて かがやく。"
+}

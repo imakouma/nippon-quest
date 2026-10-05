@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shizuoka-kazekiri-dako",
+  "name": "カゼキリダコ",
+  "area": "shizuoka",
+  "motifId": "hamamatsu-tako",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 57,
+    "mp": 16,
+    "atk": 17,
+    "def": 10,
+    "spd": 14,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 20,
+  "spriteKey": "mon.shizuoka-kazekiri-dako",
+  "dexBlurb": "ソラダコが しんかした すがた。浜松[はままつ]まつりの 大[おお]だこは、たたみ 10まいぶんの 大[おお]きさの ものも ある。"
+}

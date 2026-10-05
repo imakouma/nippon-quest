@@ -1,0 +1,275 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "akita",
+  "name": "秋田県[あきたけん]",
+  "island": "tohoku",
+  "capital": "秋田市[あきたし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "akita-field",
+    "town": "akita-town",
+    "dungeon": "akita-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "namahage",
+      "name": "なまはげ",
+      "kind": "festival",
+      "imageKey": "motif.akita.namahage",
+      "blurb": "大[おお]みそかの 夜[よる]、こわい お面[めん]の なまはげが 家[いえ]を まわる、男鹿[おが]の 行事[ぎょうじ]。"
+    },
+    {
+      "id": "tazawako",
+      "name": "田沢湖[たざわこ]",
+      "kind": "nature",
+      "imageKey": "motif.akita.tazawako",
+      "blurb": "日本[にほん]で いちばん 深[ふか]い 湖[みずうみ]。ふかさは 400メートルいじょう。"
+    },
+    {
+      "id": "kanto-matsuri",
+      "name": "竿燈[かんとう]まつり",
+      "kind": "festival",
+      "imageKey": "motif.akita.kanto-matsuri",
+      "blurb": "たくさんの ちょうちんを つけた 長[なが]い さおを、手[て]のひらや おでこに のせて バランスを とる お祭[まつ]り。"
+    },
+    {
+      "id": "kakunodate",
+      "name": "角館[かくのだて]",
+      "kind": "landmark",
+      "imageKey": "motif.akita.kakunodate",
+      "blurb": "むかしの 武家屋敷[ぶけやしき]が のこる 町[まち]。春[はる]は しだれざくらが きれい。"
+    },
+    {
+      "id": "kiritanpo",
+      "name": "きりたんぽ",
+      "kind": "food",
+      "imageKey": "motif.akita.kiritanpo",
+      "blurb": "つぶした ごはんを 木[き]の ぼうに まいて やいた、秋田[あきた]の 料理[りょうり]。"
+    },
+    {
+      "id": "magewappa",
+      "name": "曲[ま]げわっぱ",
+      "kind": "craft",
+      "imageKey": "motif.akita.magewappa",
+      "blurb": "秋田杉[あきたすぎ]の うすい 板[いた]を まげて 作[つく]る おべんとうばこ。大館[おおだて]の 伝統工芸品[でんとうこうげいひん]。"
+    },
+    {
+      "id": "akita-inu",
+      "name": "秋田犬[あきたいぬ]",
+      "kind": "nature",
+      "imageKey": "motif.akita.akita-inu",
+      "blurb": "大[おお]きくて かしこい 日本[にほん]の 犬[いぬ]。「忠犬[ちゅうけん]ハチ公[こう]」も 秋田犬[あきたいぬ]だった。"
+    },
+    {
+      "id": "inaniwa-udon",
+      "name": "稲庭[いなにわ]うどん",
+      "kind": "food",
+      "imageKey": "motif.akita.inaniwa-udon",
+      "blurb": "湯沢市[ゆざわし]の 稲庭[いなにわ]で 作[つく]られる、細[ほそ]くて つるつるの うどん。手[て]で のばして 作[つく]る。"
+    },
+    {
+      "id": "omagari-hanabi",
+      "name": "大曲[おおまがり]の 花火[はなび]",
+      "kind": "festival",
+      "imageKey": "motif.akita.omagari-hanabi",
+      "blurb": "大仙市[だいせんし]の 大曲[おおまがり]で ひらかれる 花火[はなび]大会[たいかい]。全国[ぜんこく]の 花火師[はなびし]が うでを きそう。"
+    },
+    {
+      "id": "ogata-okome",
+      "name": "大潟村[おおがたむら]の お米[こめ]",
+      "kind": "food",
+      "imageKey": "motif.akita.ogata-okome",
+      "blurb": "八郎潟[はちろうがた]という 湖[みずうみ]を うめたてて できた 村[むら]。広[ひろ]い 田[た]んぼで お米[こめ]が たくさん とれる。"
+    },
+    {
+      "id": "chokaisan",
+      "name": "鳥海山[ちょうかいさん]",
+      "kind": "nature",
+      "imageKey": "motif.akita.chokaisan",
+      "blurb": "秋田県[あきたけん]と 山形県[やまがたけん]の さかいに そびえる 山[やま]。すがたが 富士山[ふじさん]に にていて「出羽富士[でわふじ]」とも よばれる。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "akita-kiritanpon",
+          "weight": 40
+        },
+        {
+          "monsterId": "akita-magewappan",
+          "weight": 31
+        },
+        {
+          "monsterId": "akita-akitainu",
+          "weight": 17
+        },
+        {
+          "monsterId": "akita-hanabii",
+          "weight": 12
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "akita-kiritanpon",
+          "weight": 65
+        },
+        {
+          "monsterId": "akita-akitainu",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "akita-magewappan",
+          "weight": 65
+        },
+        {
+          "monsterId": "akita-akitainu",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "akita-akitainu",
+          "weight": 55
+        },
+        {
+          "monsterId": "akita-magewappan",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "akita-magewappan",
+          "weight": 44
+        },
+        {
+          "monsterId": "akita-kiritanpon",
+          "weight": 31
+        },
+        {
+          "monsterId": "akita-akitainu",
+          "weight": 13
+        },
+        {
+          "monsterId": "akita-hanabii",
+          "weight": 12
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "akita-boss-namahage-ou",
+  "midBoss": "akita-midboss-kanto-man",
+  "secret": {
+    "name": "久保田城[くぼたじょう]",
+    "boss": "akita-lastboss-satake-yoshinobu"
+  },
+  "events": [
+    {
+      "id": "ev-akita-tazawako",
+      "motifId": "tazawako",
+      "trigger": {
+        "map": "akita-field",
+        "objectName": "event_akita_tazawako"
+      },
+      "once": true,
+      "cutinImageKey": "motif.akita.tazawako",
+      "dialogue": [
+        {
+          "speaker": "田沢湖[たざわこ]の ガイドさん",
+          "text": "ここは 日本[にほん]で いちばん 深[ふか]い 湖[みずうみ]だよ。水[みず]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "seikatsu",
+        "gradeRange": [
+          1,
+          2
+        ],
+        "tags": [
+          "prefecture:akita"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "田沢湖[たざわこ]の ガイドさん",
+          "text": "よく しらべたね！ 田沢湖[たざわこ]の 水[みず]は すきとおって きれいでしょう。"
+        }
+      ]
+    }
+  ],
+  "town": {
+    "name": "秋田市[あきたし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-akita-shop",
+        "name": "きりたんぽ屋[や]の おばあちゃん",
+        "spriteKey": "char.npc-akita-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "ようこそ 秋田[あきた]へ！ きりたんぽなべは いかが？"
+          }
+        ]
+      },
+      {
+        "id": "npc-akita-smith",
+        "name": "曲[ま]げわっぱの 職人[しょくにん]",
+        "spriteKey": "char.npc-akita-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "大館[おおだて]の 曲[ま]げわっぱは、秋田[あきた]すぎの いい かおりが する おべんとうばこだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

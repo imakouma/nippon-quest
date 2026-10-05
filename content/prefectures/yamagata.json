@@ -1,0 +1,275 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "yamagata",
+  "name": "山形県[やまがたけん]",
+  "island": "tohoku",
+  "capital": "山形市[やまがたし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "yamagata-field",
+    "town": "yamagata-town",
+    "dungeon": "yamagata-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "zao",
+      "name": "蔵王[ざおう]の 樹氷[じゅひょう]",
+      "kind": "nature",
+      "imageKey": "motif.yamagata.zao",
+      "blurb": "冬[ふゆ]の 蔵王[ざおう]で、雪[ゆき]と 氷[こおり]が 木[き]に くっついて できる。「スノーモンスター」とも よばれる。"
+    },
+    {
+      "id": "sakuranbo",
+      "name": "さくらんぼ",
+      "kind": "food",
+      "imageKey": "motif.yamagata.sakuranbo",
+      "blurb": "山形県[やまがたけん]は さくらんぼの 生産量[せいさんりょう]が 日本[にほん]で いちばん 多[おお]い。"
+    },
+    {
+      "id": "yamadera",
+      "name": "山寺[やまでら]",
+      "kind": "landmark",
+      "imageKey": "motif.yamagata.yamadera",
+      "blurb": "けわしい 山[やま]に 立[た]つ お寺[てら]。1000だんいじょうの 石段[いしだん]を のぼると 町[まち]が 見[み]わたせる。"
+    },
+    {
+      "id": "mogamigawa",
+      "name": "最上川[もがみがわ]",
+      "kind": "nature",
+      "imageKey": "motif.yamagata.mogamigawa",
+      "blurb": "山形県[やまがたけん]を ながれる 大[おお]きな 川[かわ]。ふねに のって 川[かわ]くだりが できる。"
+    },
+    {
+      "id": "shogi-koma",
+      "name": "天童[てんどう]の 将棋駒[しょうぎごま]",
+      "kind": "craft",
+      "imageKey": "motif.yamagata.shogi-koma",
+      "blurb": "天童市[てんどうし]は、将棋[しょうぎ]の こまを 作[つく]る 町[まち]として 有名[ゆうめい]。"
+    },
+    {
+      "id": "imoni",
+      "name": "芋煮[いもに]",
+      "kind": "food",
+      "imageKey": "motif.yamagata.imoni",
+      "blurb": "さといもや 牛肉[ぎゅうにく]を 大[おお]きな なべで にこむ 料理[りょうり]。秋[あき]には 川原[かわら]で「芋煮会[いもにかい]」を ひらく。"
+    },
+    {
+      "id": "ginzan-onsen",
+      "name": "銀山温泉[ぎんざんおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.yamagata.ginzan-onsen",
+      "blurb": "川[かわ]の 両[りょう]がわに 木[き]づくりの 旅館[りょかん]が ならぶ 温泉[おんせん]の 町[まち]。夜[よる]は ガス灯[とう]が ともる。"
+    },
+    {
+      "id": "sankyo-soko",
+      "name": "山居倉庫[さんきょそうこ]",
+      "kind": "history",
+      "imageKey": "motif.yamagata.sankyo-soko",
+      "blurb": "酒田[さかた]の 港町[みなとまち]に ある、むかしの 米[こめ]の 倉庫[そうこ]。うしろの けやき並木[なみき]が きれい。"
+    },
+    {
+      "id": "haguro-gojunoto",
+      "name": "羽黒山[はぐろさん]の 五重塔[ごじゅうのとう]",
+      "kind": "landmark",
+      "imageKey": "motif.yamagata.haguro-gojunoto",
+      "blurb": "出羽三山[でわさんざん]の ひとつ、羽黒山[はぐろさん]の 杉[すぎ]の 森[もり]に 立[た]つ 古[ふる]い 塔[とう]。国宝[こくほう]に なっている。"
+    },
+    {
+      "id": "yonezawa-gyu",
+      "name": "米沢牛[よねざわぎゅう]",
+      "kind": "food",
+      "imageKey": "motif.yamagata.yonezawa-gyu",
+      "blurb": "米沢[よねざわ]の あたりで 育[そだ]てられた 牛[うし]の お肉[にく]。やわらかくて おいしいと 有名[ゆうめい]。"
+    },
+    {
+      "id": "dadachamame",
+      "name": "だだちゃ豆[まめ]",
+      "kind": "food",
+      "imageKey": "motif.yamagata.dadachamame",
+      "blurb": "鶴岡市[つるおかし]で 作[つく]られる えだまめ。かおりが よく、あまみが ある。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 50
+        },
+        {
+          "monsterId": "yamagata-imoni-nabe",
+          "weight": 30
+        },
+        {
+          "monsterId": "yamagata-shogi-commander",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 65
+        },
+        {
+          "monsterId": "yamagata-imoni-nabe",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 55
+        },
+        {
+          "monsterId": "yamagata-shogi-commander",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "yamagata-shogi-commander",
+          "weight": 60
+        },
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 26
+        },
+        {
+          "monsterId": "yamagata-yukemurin",
+          "weight": 14
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "yamagata-shogi-commander",
+          "weight": 48
+        },
+        {
+          "monsterId": "yamagata-imoni-nabe",
+          "weight": 26
+        },
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 13
+        },
+        {
+          "monsterId": "yamagata-yukemurin",
+          "weight": 13
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "yamagata-boss-juhyo-no-kami",
+  "midBoss": "yamagata-midboss-juhyon",
+  "secret": {
+    "name": "山寺[やまでら]の 岩[いわ]の みち",
+    "boss": "yamagata-lastboss-matsuo-basho"
+  },
+  "events": [
+    {
+      "id": "ev-yamagata-zao",
+      "motifId": "zao",
+      "trigger": {
+        "map": "yamagata-field",
+        "objectName": "event_yamagata_zao"
+      },
+      "once": true,
+      "cutinImageKey": "motif.yamagata.zao",
+      "dialogue": [
+        {
+          "speaker": "樹氷[じゅひょう]の ガイドさん",
+          "text": "ようこそ 蔵王[ざおう]へ！ 氷[こおり]と 雪[ゆき]の ふしぎを いっしょに しらべよう。"
+        }
+      ],
+      "question": {
+        "subject": "kokugo",
+        "gradeRange": [
+          1,
+          2
+        ],
+        "tags": [
+          "prefecture:yamagata"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "樹氷[じゅひょう]の ガイドさん",
+          "text": "樹氷[じゅひょう]は 冬[ふゆ]の あいだだけ 見[み]られるんだ。また きてね！"
+        }
+      ]
+    }
+  ],
+  "town": {
+    "name": "山形市[やまがたし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-yamagata-shop",
+        "name": "くだもの屋[や]の おねえさん",
+        "spriteKey": "char.npc-yamagata-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "ようこそ 山形[やまがた]へ！ あまい さくらんぼを 食[た]べてね。"
+          }
+        ]
+      },
+      {
+        "id": "npc-yamagata-smith",
+        "name": "将棋駒[しょうぎごま]の 職人[しょくにん]",
+        "spriteKey": "char.npc-yamagata-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "天童[てんどう]の 将棋駒[しょうぎごま]は、むかしからの わざで 作[つく]られているんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

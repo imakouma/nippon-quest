@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamaguchi-oohashiwatari",
+  "name": "オオハシワタリ",
+  "area": "yamaguchi",
+  "motifId": "tsunoshima-ohashi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 66,
+    "mp": 17,
+    "atk": 18,
+    "def": 12,
+    "spd": 18,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.7,
+    "wis": 1
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "spriteKey": "mon.yamaguchi-oohashiwatari",
+  "xp": 38,
+  "gold": 27,
+  "dexBlurb": "ハシワタリが しんかした すがた。大[おお]きな つばさで 海[うみ]を わたる。角島[つのしま]の まわりの 海[うみ]は、すきとおった みどり色[いろ]に 光[ひか]る。"
+}

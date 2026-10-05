@@ -1,0 +1,263 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "kagawa",
+  "name": "香川県[かがわけん]",
+  "island": "shikoku",
+  "capital": "高松市[たかまつし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "kagawa-field",
+    "town": "kagawa-town",
+    "dungeon": "kagawa-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kotohiragu",
+      "name": "金刀比羅宮[ことひらぐう]",
+      "kind": "landmark",
+      "imageKey": "motif.kagawa.kotohiragu",
+      "blurb": "「こんぴらさん」と よばれる 神社[じんじゃ]。長[なが]い 石段[いしだん]を のぼって おまいりする。"
+    },
+    {
+      "id": "ritsurin",
+      "name": "栗林公園[りつりんこうえん]",
+      "kind": "landmark",
+      "imageKey": "motif.kagawa.ritsurin",
+      "blurb": "高松市[たかまつし]に ある 大[おお]きな 庭園[ていえん]。池[いけ]と 松[まつ]の 木[き]が 美[うつく]しい。"
+    },
+    {
+      "id": "chichibugahama",
+      "name": "父母ヶ浜[ちちぶがはま]",
+      "kind": "nature",
+      "imageKey": "motif.kagawa.chichibugahama",
+      "blurb": "遠浅[とおあさ]の 浜[はま]。夕方[ゆうがた]、水[みず]たまりに 空[そら]が うつって 鏡[かがみ]のように 見[み]える。"
+    },
+    {
+      "id": "yashima",
+      "name": "屋島[やしま]",
+      "kind": "nature",
+      "imageKey": "motif.kagawa.yashima",
+      "blurb": "上[うえ]が 屋根[やね]のように 平[たい]らな 山[やま]。瀬戸内海[せとないかい]を 見[み]わたせる。"
+    },
+    {
+      "id": "zenigata",
+      "name": "銭形砂絵[ぜにがたすなえ]",
+      "kind": "landmark",
+      "imageKey": "motif.kagawa.zenigata",
+      "blurb": "観音寺市[かんおんじし]の 砂浜[すなはま]に えがかれた、大[おお]きな むかしの お金[かね]の 形[かたち]の 絵[え]。"
+    },
+    {
+      "id": "sanuki-udon",
+      "name": "讃岐[さぬき]うどん",
+      "kind": "food",
+      "imageKey": "motif.kagawa.sanuki-udon",
+      "blurb": "コシの 強[つよ]い うどん。香川県[かがわけん]には うどんやさんが とても 多[おお]い。"
+    },
+    {
+      "id": "shodoshima-olive",
+      "name": "小豆島[しょうどしま]の オリーブ",
+      "kind": "food",
+      "imageKey": "motif.kagawa.shodoshima-olive",
+      "blurb": "瀬戸内海[せとないかい]に うかぶ 小豆島[しょうどしま]で 育[そだ]てられる オリーブ。"
+    },
+    {
+      "id": "marugame-uchiwa",
+      "name": "丸亀[まるがめ]うちわ",
+      "kind": "craft",
+      "imageKey": "motif.kagawa.marugame-uchiwa",
+      "blurb": "丸亀市[まるがめし]で 作[つく]られる うちわ。日本[にほん]の うちわの 多[おお]くが ここで 作[つく]られる。"
+    },
+    {
+      "id": "ajiishi",
+      "name": "庵治石[あじいし]",
+      "kind": "craft",
+      "imageKey": "motif.kagawa.ajiishi",
+      "blurb": "高松市[たかまつし]の 庵治[あじ]で とれる、きめの こまかい 美[うつく]しい 石[いし]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "kagawa-aogin",
+          "weight": 45
+        },
+        {
+          "monsterId": "kagawa-kororibu",
+          "weight": 35
+        },
+        {
+          "monsterId": "kagawa-zenigani",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "kagawa-kororibu",
+          "weight": 65
+        },
+        {
+          "monsterId": "kagawa-aogin",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "kagawa-aogin",
+          "weight": 60
+        },
+        {
+          "monsterId": "kagawa-kororibu",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "kagawa-zenigani",
+          "weight": 45
+        },
+        {
+          "monsterId": "kagawa-mizukagami",
+          "weight": 35
+        },
+        {
+          "monsterId": "kagawa-aogin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "kagawa-zenigani",
+          "weight": 30
+        },
+        {
+          "monsterId": "kagawa-mizukagami",
+          "weight": 30
+        },
+        {
+          "monsterId": "kagawa-aogin",
+          "weight": 25
+        },
+        {
+          "monsterId": "kagawa-kororibu",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "kagawa-boss-oudon-ryu",
+  "midBoss": "kagawa-midboss-ritsurin-no-nushi",
+  "secret": {
+    "name": "志度[しど]の 源内[げんない]やしき",
+    "boss": "kagawa-lastboss-hiraga-gennai"
+  },
+  "events": [
+    {
+      "id": "ev-kagawa-chichibugahama",
+      "motifId": "chichibugahama",
+      "trigger": {
+        "map": "kagawa-field",
+        "objectName": "event_kagawa_chichibugahama"
+      },
+      "once": true,
+      "cutinImageKey": "motif.kagawa.chichibugahama",
+      "dialogue": [
+        {
+          "speaker": "父母ヶ浜[ちちぶがはま]の ガイドさん",
+          "text": "しおが ひいた 夕方[ゆうがた]、すなはまの 水[みず]たまりに 空[そら]が うつるんだ。光[ひかり]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:kagawa"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "父母ヶ浜[ちちぶがはま]の ガイドさん",
+          "text": "よく できたね！ 風[かぜ]の ない 日[ひ]ほど、水[みず]たまりは 鏡[かがみ]のように なるよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "高松市[たかまつし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-kagawa-shop",
+        "name": "うどん屋[や]の おじさん",
+        "spriteKey": "char.npc-kagawa-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 香川県[かがわけん]は 日本[にほん]で いちばん 面積[めんせき]が 小[ちい]さい 県[けん]。でも うどん屋[や]さんは とても 多[おお]いぞ！"
+          }
+        ]
+      },
+      {
+        "id": "npc-kagawa-smith",
+        "name": "庵治石[あじいし]の 職人[しょくにん]",
+        "spriteKey": "char.npc-kagawa-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "庵治石[あじいし]は 石[いし]の つぶが とても こまかい。みがくと ぴかぴかに なるぞ。"
+          }
+        ]
+      }
+    ]
+  }
+}

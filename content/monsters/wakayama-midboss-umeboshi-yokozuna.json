@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "wakayama-midboss-umeboshi-yokozuna",
+  "name": "ウメボシヨコヅナ",
+  "area": "wakayama",
+  "motifId": "nanko-ume",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 164,
+    "mp": 21,
+    "atk": 17,
+    "def": 12,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-iwa-otoshi"
+  ],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 94,
+  "gold": 109,
+  "spriteKey": "mon.wakayama-midboss-umeboshi-yokozuna",
+  "dexBlurb": "南高梅[なんこううめ]の 梅[うめ]ぼしの 力[ちから]もち。南高梅[なんこううめ]は 実[み]が 大[おお]きく、皮[かわ]が うすくて やわらかい。",
+  "fieldLine": "すっぱーい！ ここを とおりたければ、わしを おしだしてみよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-iwa-otoshi"
+      ],
+      "line": "すっぱさ ばくはつ！ 土俵[どひょう]ごと おしつぶす！"
+    }
+  ]
+}

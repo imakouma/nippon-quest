@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokushima-midboss-uzushion",
+  "name": "ウズシオン",
+  "area": "tokushima",
+  "motifId": "naruto-uzushio",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 162,
+    "mp": 28,
+    "atk": 17,
+    "def": 11,
+    "spd": 10,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-uzushio"
+  ],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 98,
+  "gold": 112,
+  "spriteKey": "mon.tokushima-midboss-uzushion",
+  "dexBlurb": "鳴門海峡[なるとかいきょう]の うず潮[しお]から 生[う]まれた モンスター。うず潮[しお]は、潮[しお]の 満[み]ちひきで 海[うみ]の 水[みず]が はやく 流[なが]れる ときに できる。",
+  "fieldLine": "ゴオオ…！ この うずを こえて いけるかな？ わたしと しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ],
+      "line": "ゴオオオ…！ うずが 大[おお]きく なる！ のみこまれるなよ！"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagano-lastboss-sanada-yukimura",
+  "name": "真田幸村[さなだゆきむら]",
+  "area": "nagano",
+  "motifId": "matsumoto-jo",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 425,
+    "mp": 56,
+    "atk": 25,
+    "def": 18,
+    "spd": 13,
+    "wis": 17
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hono-no-uzu",
+    "sk-yamadashi-tosshin"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 402,
+  "gold": 453,
+  "spriteKey": "mon.nagano-lastboss-sanada-yukimura",
+  "dexBlurb": "戦国[せんごく]時代[じだい]の 武将[ぶしょう]（1567〜1615年[ねん]）。本当[ほんとう]の 名前[なまえ]は 真田信繁[さなだのぶしげ]。父[ちち]の 真田昌幸[さなだまさゆき]と ともに、上田城[うえだじょう]を まもり ぬいた ことで 知[し]られる。",
+  "fieldLine": "われは 真田幸村[さなだゆきむら]。この 上田城[うえだじょう]で、そなたの 知恵[ちえ]と 勇気[ゆうき]を ためそう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-hono-no-uzu"
+      ],
+      "line": "真田[さなだ]の 赤備[あかぞな]え、とくと 見[み]よ！ 六文銭[ろくもんせん]の 覚悟[かくご]！"
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g1.kanji.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「川」の読み方はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "かわ"
+        },
+        {
+          "id": "b",
+          "text": "やま"
+        },
+        {
+          "id": "c",
+          "text": "うみ"
+        },
+        {
+          "id": "d",
+          "text": "いけ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「川」は「かわ」と読みます。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「山」の漢字の画数はいくつですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2画"
+        },
+        {
+          "id": "b",
+          "text": "3画"
+        },
+        {
+          "id": "c",
+          "text": "4画"
+        },
+        {
+          "id": "d",
+          "text": "5画"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「山」は3画（縦、折れ、縦）で書きます。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「一、二、三」の次にくる「よん」を表す漢字はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "五"
+        },
+        {
+          "id": "b",
+          "text": "六"
+        },
+        {
+          "id": "c",
+          "text": "八"
+        },
+        {
+          "id": "d",
+          "text": "四"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「よん」は「四」と書きます。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「あおい空」の「空」の読み方はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あめ"
+        },
+        {
+          "id": "b",
+          "text": "くも"
+        },
+        {
+          "id": "c",
+          "text": "そら"
+        },
+        {
+          "id": "d",
+          "text": "ほし"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「空」は「そら」と読みます。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「いぬ」を表す漢字はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "大"
+        },
+        {
+          "id": "b",
+          "text": "木"
+        },
+        {
+          "id": "c",
+          "text": "犬"
+        },
+        {
+          "id": "d",
+          "text": "太"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「いぬ」は「犬」と書きます（「猫」はねこです）。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「大」の反対の意味を表す漢字はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "中"
+        },
+        {
+          "id": "b",
+          "text": "小"
+        },
+        {
+          "id": "c",
+          "text": "上"
+        },
+        {
+          "id": "d",
+          "text": "下"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「大（おおきい）」の反対は「小（ちいさい）」です。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0007",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「上」の反対の意味を表す漢字はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "下"
+        },
+        {
+          "id": "b",
+          "text": "左"
+        },
+        {
+          "id": "c",
+          "text": "右"
+        },
+        {
+          "id": "d",
+          "text": "中"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「上（うえ）」の反対は「下（した）」です。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0008",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「森」の読み方はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "はやし"
+        },
+        {
+          "id": "b",
+          "text": "もり"
+        },
+        {
+          "id": "c",
+          "text": "き"
+        },
+        {
+          "id": "d",
+          "text": "やま"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "木が3つで「森（もり）」と読みます。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0009",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「百」の読み方はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゅう"
+        },
+        {
+          "id": "b",
+          "text": "せん"
+        },
+        {
+          "id": "c",
+          "text": "まん"
+        },
+        {
+          "id": "d",
+          "text": "ひゃく"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「百」は「ひゃく」と読みます。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0010",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「口」の読み方（くんよみ）はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "め"
+        },
+        {
+          "id": "b",
+          "text": "みみ"
+        },
+        {
+          "id": "c",
+          "text": "くち"
+        },
+        {
+          "id": "d",
+          "text": "て"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「口」の訓読みは「くち」です。"
+  },
+  {
+    "id": "kokugo.g1.kanji.0011",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "prompt": "「耳」の読み方はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "め"
+        },
+        {
+          "id": "b",
+          "text": "みみ"
+        },
+        {
+          "id": "c",
+          "text": "くち"
+        },
+        {
+          "id": "d",
+          "text": "あし"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「耳」は「みみ」と読みます。"
+  }
+]

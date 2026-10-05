@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-lastboss-uesugi-kenshin",
+  "name": "上杉謙信[うえすぎけんしん]",
+  "area": "niigata",
+  "motifId": "takada-yozakura",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 418,
+    "mp": 53,
+    "atk": 23,
+    "def": 19,
+    "spd": 12,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-kanji-barrier"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 376,
+  "gold": 418,
+  "spriteKey": "mon.niigata-lastboss-uesugi-kenshin",
+  "dexBlurb": "越後[えちご]（いまの 新潟県[にいがたけん]）の 戦国大名[せんごくだいみょう]（1530〜1578年[ねん]）。「越後[えちご]の 龍[りゅう]」と よばれ、甲斐[かい]の 武田信玄[たけだしんげん]と 川中島[かわなかじま]で 何度[なんど]も たたかった。",
+  "fieldLine": "上杉謙信[うえすぎけんしん]じゃ。この 春日山城[かすがやまじょう]で、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-kuku-rush"
+      ],
+      "line": "越後[えちご]の 龍[りゅう]、ここに あり！ 毘[び]の 光[ひかり]を うけよ！"
+    }
+  ]
+}

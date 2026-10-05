@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-funaya-don",
+  "name": "フナヤドン",
+  "area": "kyoto",
+  "motifId": "ine-funaya",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 65,
+    "mp": 16,
+    "atk": 18,
+    "def": 16,
+    "spd": 9,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 27,
+  "spriteKey": "mon.kyoto-funaya-don",
+  "dexBlurb": "フナヤドカリが しんかした すがた。2かいだての 舟屋[ふなや]に 船[ふね]を のせて いる。伊根湾[いねわん]には、およそ 230けんの 舟屋[ふなや]が ならぶ。"
+}

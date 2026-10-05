@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-tsugaru-nurin",
+  "name": "ツガルヌリン",
+  "area": "aomori",
+  "motifId": "tsugaru-nuri",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 36,
+    "mp": 10,
+    "atk": 9,
+    "def": 8,
+    "spd": 6,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.6,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1,
+    "spd": 0.9,
+    "wis": 0.9
+  },
+  "skills": [
+    "sk-kana-barrier",
+    "sk-kazoe-giri"
+  ],
+  "drops": [
+    {
+      "itemId": "aomori-tsugaru-nuri-no-futa",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 13,
+  "spriteKey": "mon.aomori-tsugaru-nurin",
+  "dexBlurb": "津軽塗[つがるぬり]の おわんが うごきだした モンスター。みがくほど つやつやに ひかる。",
+  "evolution": {
+    "to": "aomori-nuri-kagayaki",
+    "item": "aomori-tsugaru-nuri-no-futa"
+  }
+}

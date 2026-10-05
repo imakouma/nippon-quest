@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ishikawa-gosai-musha",
+  "name": "ゴサイムシャ",
+  "area": "ishikawa",
+  "motifId": "kutaniyaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 61,
+    "mp": 13,
+    "atk": 14,
+    "def": 14,
+    "spd": 8,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 1.0
+  },
+  "skills": ["sk-tashizan-giri", "sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 32,
+  "gold": 24,
+  "spriteKey": "mon.ishikawa-gosai-musha",
+  "dexBlurb": "ゴサイボンが しんかした すがた。九谷焼[くたにやき]の 大[おお]ざらを たてに して、なかまを まもる。"
+}

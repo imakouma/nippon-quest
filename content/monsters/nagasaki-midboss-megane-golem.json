@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-midboss-megane-golem",
+  "name": "メガネゴーレム",
+  "area": "nagasaki",
+  "motifId": "meganebashi",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 177,
+    "mp": 25,
+    "atk": 17,
+    "def": 13,
+    "spd": 6,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 98,
+  "gold": 115,
+  "spriteKey": "mon.nagasaki-midboss-megane-golem",
+  "dexBlurb": "眼鏡橋[めがねばし]の 石[いし]が あつまった ゴーレム。眼鏡橋[めがねばし]は、日本[にほん]で いちばん 古[ふる]い アーチ形[がた]の 石[いし]の 橋[はし]と いわれる。",
+  "fieldLine": "この 石[いし]の 橋[はし]を わたりたいか？ ならば、わしの めがねに かなうか 見[み]せて みよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-iwa-otoshi",
+        "sk-kuku-rush"
+      ],
+      "line": "ゴゴゴ……。めがねが 光[ひか]った！ そなたの 手[て]の うち、すべて 見[み]えたぞ！"
+    }
+  ]
+}

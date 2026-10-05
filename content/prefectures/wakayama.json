@@ -1,0 +1,281 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "wakayama",
+  "name": "和歌山県[わかやまけん]",
+  "island": "kinki",
+  "capital": "和歌山市[わかやまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "wakayama-field",
+    "town": "wakayama-town",
+    "dungeon": "wakayama-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kumano-kodo",
+      "name": "熊野古道[くまのこどう]",
+      "kind": "history",
+      "imageKey": "motif.wakayama.kumano-kodo",
+      "blurb": "熊野[くまの]の 神社[じんじゃ]へ むかう、山[やま]の 中[なか]の 古[ふる]い 道[みち]。世界遺産[せかいいさん]。"
+    },
+    {
+      "id": "nachi-no-taki",
+      "name": "那智[なち]の 滝[たき]",
+      "kind": "nature",
+      "imageKey": "motif.wakayama.nachi-no-taki",
+      "blurb": "高[たか]さ 133メートルの 滝[たき]。一[ひと]つの 段[だん]で 落[お]ちる 滝[たき]では、日本[にほん]で いちばん 高[たか]い。"
+    },
+    {
+      "id": "koyasan",
+      "name": "高野山[こうやさん]",
+      "kind": "landmark",
+      "imageKey": "motif.wakayama.koyasan",
+      "blurb": "山[やま]の 上[うえ]に たくさんの お寺[てら]が あつまる 町[まち]。世界遺産[せかいいさん]。"
+    },
+    {
+      "id": "shirarahama",
+      "name": "白良浜[しららはま]",
+      "kind": "nature",
+      "imageKey": "motif.wakayama.shirarahama",
+      "blurb": "白浜町[しらはまちょう]に ある、白[しろ]い 砂[すな]の 浜[はま]。夏[なつ]は 海水浴[かいすいよく]で にぎわう。"
+    },
+    {
+      "id": "shionomisaki",
+      "name": "潮岬[しおのみさき]",
+      "kind": "nature",
+      "imageKey": "motif.wakayama.shionomisaki",
+      "blurb": "本州[ほんしゅう]で いちばん 南[みなみ]に ある みさき。白[しろ]い 灯台[とうだい]が 立[た]つ。"
+    },
+    {
+      "id": "wakayama-jo",
+      "name": "和歌山城[わかやまじょう]",
+      "kind": "history",
+      "imageKey": "motif.wakayama.wakayama-jo",
+      "blurb": "和歌山市[わかやまし]の まん中[なか]の 山[やま]に 立[た]つ、白[しろ]い 天守[てんしゅ]の お城[しろ]。"
+    },
+    {
+      "id": "arida-mikan",
+      "name": "有田[ありだ]みかん",
+      "kind": "food",
+      "imageKey": "motif.wakayama.arida-mikan",
+      "blurb": "有田市[ありだし]など、和歌山県[わかやまけん]は みかんの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "nanko-ume",
+      "name": "南高梅[なんこううめ]",
+      "kind": "food",
+      "imageKey": "motif.wakayama.nanko-ume",
+      "blurb": "みなべ町[ちょう]で 作[つく]られる、大[おお]つぶで やわらかい 梅[うめ]。和歌山県[わかやまけん]は 梅[うめ]の 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "binchotan",
+      "name": "紀州備長炭[きしゅうびんちょうたん]",
+      "kind": "craft",
+      "imageKey": "motif.wakayama.binchotan",
+      "blurb": "とても かたくて、火[ひ]が 長[なが]もちする 炭[すみ]。田辺市[たなべし]や みなべ町[ちょう]で 作[つく]られる。"
+    },
+    {
+      "id": "kishu-shikki",
+      "name": "紀州漆器[きしゅうしっき]",
+      "kind": "craft",
+      "imageKey": "motif.wakayama.kishu-shikki",
+      "blurb": "海南市[かいなんし]の 黒江[くろえ]で 作[つく]られる、うるしの ぬりもの。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "wakayama-koromikan",
+          "weight": 40
+        },
+        {
+          "monsterId": "wakayama-kankantan",
+          "weight": 30
+        },
+        {
+          "monsterId": "wakayama-toudain",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "wakayama-koromikan",
+          "weight": 75
+        },
+        {
+          "monsterId": "wakayama-kankantan",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "wakayama-kankantan",
+          "weight": 54
+        },
+        {
+          "monsterId": "wakayama-koromikan",
+          "weight": 29
+        },
+        {
+          "monsterId": "wakayama-shibukin",
+          "weight": 17
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "wakayama-kankantan",
+          "weight": 42
+        },
+        {
+          "monsterId": "wakayama-koromikan",
+          "weight": 35
+        },
+        {
+          "monsterId": "wakayama-shibukin",
+          "weight": 23
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "wakayama-toudain",
+          "weight": 100
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "wakayama-kankantan",
+          "weight": 40
+        },
+        {
+          "monsterId": "wakayama-toudain",
+          "weight": 35
+        },
+        {
+          "monsterId": "wakayama-koromikan",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "wakayama-boss-kuroshio-ryu",
+  "midBoss": "wakayama-midboss-umeboshi-yokozuna",
+  "secret": {
+    "name": "和歌山城[わかやまじょう]",
+    "boss": "wakayama-lastboss-tokugawa-yoshimune"
+  },
+  "events": [
+    {
+      "id": "ev-wakayama-nachi-no-taki",
+      "motifId": "nachi-no-taki",
+      "trigger": {
+        "map": "wakayama-field",
+        "objectName": "event_wakayama_nachi-no-taki"
+      },
+      "once": true,
+      "cutinImageKey": "motif.wakayama.nachi-no-taki",
+      "dialogue": [
+        {
+          "speaker": "那智[なち]の 滝[たき]の ガイドさん",
+          "text": "この 滝[たき]は 高[たか]さ 133メートル。流[なが]れる 水[みず]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:wakayama"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "那智[なち]の 滝[たき]の ガイドさん",
+          "text": "よく しらべたね！ 流[なが]れる 水[みず]は、土[つち]や 石[いし]を けずったり はこんだり するんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "和歌山市[わかやまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-wakayama-shop",
+        "name": "梅[うめ]ぼし屋[や]の おばちゃん",
+        "spriteKey": "char.npc-wakayama-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 和歌山[わかやま]は 梅[うめ]も みかんも、日本[にほん]で いちばん たくさん とれるんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-wakayama-smith",
+        "name": "紀州漆器[きしゅうしっき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-wakayama-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "黒江[くろえ]の 紀州漆器[きしゅうしっき]は、うるしを 何[なん]ども ぬりかさねて 作[つく]るんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

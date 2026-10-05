@@ -1,0 +1,97 @@
+{
+  "$ref": "#/definitions/rivals",
+  "definitions": {
+    "rivals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*$",
+            "description": "一意なID（小文字英数字・ドット・ハイフン）"
+          },
+          "name": {
+            "type": "string",
+            "description": "RubyText: \"漢字[かんじ]\" 形式"
+          },
+          "face": {
+            "type": "string"
+          },
+          "heroLevel": {
+            "type": "integer",
+            "exclusiveMinimum": 0
+          },
+          "monsters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "monsterId": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                },
+                "level": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [
+                "monsterId",
+                "level"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 3
+          },
+          "equipment": {
+            "type": "object",
+            "properties": {
+              "weapon": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "head": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "chest": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "legs": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              },
+              "feet": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+              }
+            },
+            "additionalProperties": false
+          },
+          "intro": {
+            "type": "string",
+            "description": "RubyText: \"漢字[かんじ]\" 形式"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "heroLevel",
+          "monsters",
+          "equipment",
+          "intro"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

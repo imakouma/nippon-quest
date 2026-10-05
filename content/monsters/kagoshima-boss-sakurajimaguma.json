@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-boss-sakurajimaguma",
+  "name": "サクラジマグマ",
+  "area": "kagoshima",
+  "motifId": "sakurajima",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 490,
+    "mp": 68,
+    "atk": 28,
+    "def": 19,
+    "spd": 10,
+    "wis": 17
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.6,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-hono-no-uzu",
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "kagoshima-shiage-satsumaimo",
+      "rate": 1
+    },
+    {
+      "itemId": "kagoshima-sakurajima-daikon-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "kagoshima-negura-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "kagoshima-shincha",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 324,
+  "gold": 379,
+  "spriteKey": "mon.kagoshima-boss-sakurajimaguma",
+  "dexBlurb": "桜島[さくらじま]の 火山[かざん]の 力[ちから]から 生[う]まれた 巨人[きょじん]。桜島[さくらじま]は いまも けむりを 上[あ]げる 火山[かざん]で、鹿児島[かごしま]の 町[まち]には ときどき 火山灰[かざんばい]が ふる。",
+  "fieldLine": "ゴゴゴ……わしは 桜島[さくらじま]の マグマの ぬし。この 熱[ねつ]に たえられるか！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "tsuchi",
+      "skills": [
+        "sk-iwa-otoshi",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "ドドドーン！ 大[だい]ふん火[か]じゃ！ 灰[はい]も 岩[いわ]も、すべて ふらせて くれる！"
+    }
+  ]
+}

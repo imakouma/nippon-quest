@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tottori-lastboss-otomo-no-yakamochi",
+  "name": "大伴家持[おおとものやかもち]",
+  "area": "tottori",
+  "motifId": "inshu-washi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 494,
+    "mp": 63,
+    "atk": 26,
+    "def": 20,
+    "spd": 13,
+    "wis": 20
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 443,
+  "gold": 511,
+  "spriteKey": "mon.tottori-lastboss-otomo-no-yakamochi",
+  "dexBlurb": "奈良時代[ならじだい]の 歌人[かじん]（718年[ねん]ごろ〜785年[ねん]）。因幡[いなば]の 国[くに]を おさめる 役人[やくにん]として 鳥取[とっとり]に 来[き]て、『万葉集[まんようしゅう]』の いちばん さいごの 歌[うた]を よんだ。",
+  "fieldLine": "大伴家持[おおとものやかもち]じゃ。雪[ゆき]の ふる 因幡[いなば]の 国庁[こくちょう]で、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-uzushio"
+      ],
+      "line": "因幡[いなば]の 雪[ゆき]よ、ふりつもれ！ わが 歌[うた]の 力[ちから]を 見[み]よ！"
+    }
+  ]
+}

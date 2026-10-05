@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kanagawa-piihyoro",
+  "name": "ピーヒョロ",
+  "area": "kanagawa",
+  "motifId": "enoshima",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 36,
+    "mp": 9,
+    "atk": 11,
+    "def": 4,
+    "spd": 12,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 4.2,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-abc-call"],
+  "drops": [
+    {
+      "itemId": "kanagawa-tonbi-no-hane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.kanagawa-piihyoro",
+  "evolution": {
+    "to": "kanagawa-kazakiri-tonbi",
+    "item": "kanagawa-tonbi-no-hane"
+  },
+  "dexBlurb": "江[え]の島[しま]の 空[そら]を「ピーヒョロロ」と なきながら まう トビ。江[え]の島[しま]では、手[て]に もった 食[た]べものを さっと とっていく ことも ある。"
+}

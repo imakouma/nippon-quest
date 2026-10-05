@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-wakamekko",
+  "name": "ワカメッコ",
+  "area": "iwate",
+  "motifId": "sanriku-wakame",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 34,
+    "mp": 8,
+    "atk": 9,
+    "def": 6,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 4.4,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-happa-tobashi"
+  ],
+  "drops": [
+    {
+      "itemId": "iwate-wakame-no-shinme",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.1,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.iwate-wakamekko",
+  "dexBlurb": "三陸[さんりく]の 海[うみ]で そだった わかめの 子[こ]。波[なみ]に あわせて ゆらゆら おどる。",
+  "evolution": {
+    "to": "iwate-wakame-ryu",
+    "item": "iwate-wakame-no-shinme"
+  }
+}

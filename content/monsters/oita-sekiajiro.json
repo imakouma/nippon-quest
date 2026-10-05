@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-sekiajiro",
+  "name": "セキアジロー",
+  "area": "oita",
+  "motifId": "seki-aji",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 49,
+    "mp": 12,
+    "atk": 15,
+    "def": 8,
+    "spd": 13,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "oita-hoyo-kaikyo-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 25,
+  "gold": 18,
+  "spriteKey": "mon.oita-sekiajiro",
+  "evolution": {
+    "to": "oita-oozeki-aji",
+    "item": "oita-hoyo-kaikyo-no-shizuku"
+  },
+  "dexBlurb": "はやい 潮[しお]に もまれて 育[そだ]った、元気[げんき]な あじ。関[せき]あじは、あみを 使[つか]わず 1ぴきずつ つり上[あ]げる「一本釣[いっぽんづ]り」で とる。"
+}

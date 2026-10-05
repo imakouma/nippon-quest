@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-sorautsushi",
+  "name": "ソラウツシ",
+  "area": "kagawa",
+  "motifId": "chichibugahama",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 68,
+    "mp": 19,
+    "atk": 18,
+    "def": 12,
+    "spd": 14,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.4,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.3,
+    "wis": 1.2
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "spriteKey": "mon.kagawa-sorautsushi",
+  "xp": 39,
+  "gold": 29,
+  "dexBlurb": "ミズカガミが しんかした すがた。からだに 夕[ゆう]やけの 空[そら]を うつす。父母ヶ浜[ちちぶがはま]の 夕[ゆう]がたは、空[そら]と 海[うみ]が つながって 見[み]える。"
+}

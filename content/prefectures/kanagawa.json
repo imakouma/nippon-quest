@@ -1,0 +1,265 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "kanagawa",
+  "name": "神奈川県[かながわけん]",
+  "island": "kanto",
+  "capital": "横浜市[よこはまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "kanagawa-field",
+    "town": "kanagawa-town",
+    "dungeon": "kanagawa-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kamakura-daibutsu",
+      "name": "鎌倉[かまくら]の 大仏[だいぶつ]",
+      "kind": "history",
+      "imageKey": "motif.kanagawa.kamakura-daibutsu",
+      "blurb": "鎌倉[かまくら]の お寺[てら]に ある 大[おお]きな 仏像[ぶつぞう]。外[そと]に すわっていて、中[なか]に 入[はい]る ことも できる。"
+    },
+    {
+      "id": "owakudani",
+      "name": "箱根[はこね]の 大涌谷[おおわくだに]",
+      "kind": "nature",
+      "imageKey": "motif.kanagawa.owakudani",
+      "blurb": "箱根[はこね]の 山[やま]の 中[なか]で、地面[じめん]から 白[しろ]い 湯[ゆ]けむりが ふき出[で]る 谷[たに]。"
+    },
+    {
+      "id": "enoshima",
+      "name": "江[え]の島[しま]",
+      "kind": "nature",
+      "imageKey": "motif.kanagawa.enoshima",
+      "blurb": "藤沢市[ふじさわし]の 海[うみ]に うかぶ 小[ちい]さな 島[しま]。長[なが]い 橋[はし]を 歩[ある]いて わたれる。"
+    },
+    {
+      "id": "yokohama-chukagai",
+      "name": "横浜中華街[よこはまちゅうかがい]",
+      "kind": "landmark",
+      "imageKey": "motif.kanagawa.yokohama-chukagai",
+      "blurb": "中国[ちゅうごく]の 料理[りょうり]の お店[みせ]が たくさん ならぶ 町[まち]。はなやかな 門[もん]が 目[め]じるし。"
+    },
+    {
+      "id": "tanzawa",
+      "name": "丹沢[たんざわ]",
+      "kind": "nature",
+      "imageKey": "motif.kanagawa.tanzawa",
+      "blurb": "神奈川県[かながわけん]の 北西[ほくせい]に つらなる 山々[やまやま]。シカなど 生[い]きものが 多[おお]い。"
+    },
+    {
+      "id": "misaki-maguro",
+      "name": "三崎[みさき]の まぐろ",
+      "kind": "food",
+      "imageKey": "motif.kanagawa.misaki-maguro",
+      "blurb": "三浦半島[みうらはんとう]の 三崎港[みさきこう]には、まぐろが たくさん あがる。"
+    },
+    {
+      "id": "odawara-kamaboko",
+      "name": "小田原[おだわら]の かまぼこ",
+      "kind": "food",
+      "imageKey": "motif.kanagawa.odawara-kamaboko",
+      "blurb": "小田原[おだわら]は、魚[さかな]の すり身[み]で 作[つく]る かまぼこの 町[まち]として 有名[ゆうめい]。"
+    },
+    {
+      "id": "shonan-shirasu",
+      "name": "湘南[しょうなん]の しらす",
+      "kind": "food",
+      "imageKey": "motif.kanagawa.shonan-shirasu",
+      "blurb": "いわしの 赤[あか]ちゃん。湘南[しょうなん]の 海[うみ]で とれて、ゆでたり ほしたり して 食[た]べる。"
+    },
+    {
+      "id": "yosegi-zaiku",
+      "name": "箱根寄木細工[はこねよせぎざいく]",
+      "kind": "craft",
+      "imageKey": "motif.kanagawa.yosegi-zaiku",
+      "blurb": "いろいろな 色[いろ]の 木[き]を くみあわせて、もようを 作[つく]る 工芸品[こうげいひん]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "kanagawa-pichirasu",
+          "weight": 35
+        },
+        {
+          "monsterId": "kanagawa-himitsubakon",
+          "weight": 35
+        },
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 60
+        },
+        {
+          "monsterId": "kanagawa-himitsubakon",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "kanagawa-himitsubakon",
+          "weight": 60
+        },
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 70
+        },
+        {
+          "monsterId": "kanagawa-himitsubakon",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "kanagawa-pichirasu",
+          "weight": 70
+        },
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "kanagawa-himitsubakon",
+          "weight": 50
+        },
+        {
+          "monsterId": "kanagawa-pichirasu",
+          "weight": 25
+        },
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "kanagawa-boss-yokohama-shishi-oh",
+  "midBoss": "kanagawa-midboss-kurotamagon",
+  "secret": {
+    "name": "鎌倉[かまくら]の 大倉御所[おおくらごしょ]あと",
+    "boss": "kanagawa-lastboss-minamoto-yoritomo"
+  },
+  "events": [
+    {
+      "id": "ev-kanagawa-owakudani",
+      "motifId": "owakudani",
+      "trigger": {
+        "map": "kanagawa-field",
+        "objectName": "event_kanagawa_owakudani"
+      },
+      "once": true,
+      "cutinImageKey": "motif.kanagawa.owakudani",
+      "dialogue": [
+        {
+          "speaker": "大涌谷[おおわくだに]の ガイドさん",
+          "text": "ここは 箱根[はこね]の 大涌谷[おおわくだに]。地面[じめん]から ゆげが ふきだす 火山[かざん]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:kanagawa"]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "大涌谷[おおわくだに]の ガイドさん",
+          "text": "よく しらべたね！ 温泉[おんせん]の 池[いけ]で ゆでた たまごは、からが 黒[くろ]く なるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "横浜市[よこはまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-kanagawa-shop",
+        "name": "かまぼこ屋[や]の おかみさん",
+        "spriteKey": "char.npc-kanagawa-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 小田原[おだわら]の かまぼこは、魚[さかな]の すり身[み]を 板[いた]に もって、むして 作[つく]るんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-kanagawa-smith",
+        "name": "寄木細工[よせぎざいく]の 職人[しょくにん]",
+        "spriteKey": "char.npc-kanagawa-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "箱根[はこね]の 寄木細工[よせぎざいく]は、色[いろ]の ちがう 木[き]を 組[く]みあわせて、もようを 作[つく]るんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

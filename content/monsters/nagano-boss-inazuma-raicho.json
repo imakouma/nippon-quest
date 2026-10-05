@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagano-boss-inazuma-raicho",
+  "name": "イナズマライチョウ",
+  "area": "nagano",
+  "motifId": "kamikochi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 352,
+    "mp": 53,
+    "atk": 21,
+    "def": 14,
+    "spd": 12,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-habataki",
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "nagano-onsen-towel",
+      "rate": 1
+    },
+    {
+      "itemId": "nagano-retasu-no-tane",
+      "rate": 1
+    },
+    {
+      "itemId": "nagano-soba-ko",
+      "rate": 1
+    },
+    {
+      "itemId": "nagano-suwa-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 256,
+  "gold": 300,
+  "spriteKey": "mon.nagano-boss-inazuma-raicho",
+  "dexBlurb": "北[きた]アルプスの 高[たか]い 山[やま]に すむ ライチョウの 王[おう]。ライチョウは 長野県[ながのけん]の 県[けん]の 鳥[とり]で、冬[ふゆ]には まっ白[しろ]な 羽[はね]に 生[は]えかわる。",
+  "fieldLine": "ピィーッ！ 北[きた]アルプスの 空[そら]を あらす ものは、いなずまで はらって くれる！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "ピシャーン！ いなずまの つばさ、うけて みよ！"
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "fukushima",
+  "name": "福島県[ふくしまけん]",
+  "island": "tohoku",
+  "capital": "福島市[ふくしまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "fukushima-field",
+    "town": "fukushima-town",
+    "dungeon": "fukushima-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "tsurugajo",
+      "name": "鶴ヶ城[つるがじょう]",
+      "kind": "landmark",
+      "imageKey": "motif.fukushima.tsurugajo",
+      "blurb": "会津若松[あいづわかまつ]に ある お城[しろ]。赤[あか]い かわらの 屋根[やね]が めずらしい。"
+    },
+    {
+      "id": "akabeko",
+      "name": "赤[あか]べこ",
+      "kind": "craft",
+      "imageKey": "motif.fukushima.akabeko",
+      "blurb": "会津[あいづ]に つたわる、首[くび]が ゆらゆら ゆれる 赤[あか]い 牛[うし]の おもちゃ。"
+    },
+    {
+      "id": "inawashiroko",
+      "name": "猪苗代湖[いなわしろこ]",
+      "kind": "nature",
+      "imageKey": "motif.fukushima.inawashiroko",
+      "blurb": "日本[にほん]で 4ばんめに 大[おお]きな 湖[みずうみ]。水[みず]が とても きれい。"
+    },
+    {
+      "id": "goshikinuma",
+      "name": "五色沼[ごしきぬま]",
+      "kind": "nature",
+      "imageKey": "motif.fukushima.goshikinuma",
+      "blurb": "磐梯山[ばんだいさん]の ふもとに ある ぬまの あつまり。ぬまごとに 青[あお]や みどりなど 色[いろ]が ちがって 見[み]える。"
+    },
+    {
+      "id": "ouchijuku",
+      "name": "大内宿[おおうちじゅく]",
+      "kind": "landmark",
+      "imageKey": "motif.fukushima.ouchijuku",
+      "blurb": "かやぶき屋根[やね]の 家[いえ]が ならぶ、むかしの 宿場町[しゅくばまち]。"
+    },
+    {
+      "id": "momo",
+      "name": "もも",
+      "kind": "food",
+      "imageKey": "motif.fukushima.momo",
+      "blurb": "福島県[ふくしまけん]は ももの 生産[せいさん]が さかん。あまくて みずみずしい。"
+    },
+    {
+      "id": "okiagari-koboshi",
+      "name": "起[お]き上[あ]がり小法師[こぼし]",
+      "kind": "craft",
+      "imageKey": "motif.fukushima.okiagari-koboshi",
+      "blurb": "たおしても すぐに 起[お]き上[あ]がる 小[ちい]さな 人形[にんぎょう]。会津[あいづ]の えんぎものとして 大切[たいせつ]に されている。"
+    },
+    {
+      "id": "kitakata-ramen",
+      "name": "喜多方[きたかた]ラーメン",
+      "kind": "food",
+      "imageKey": "motif.fukushima.kitakata-ramen",
+      "blurb": "喜多方市[きたかたし]の 名物[めいぶつ]。平[ひら]たくて ちぢれた 太[ふと]い めんが とくちょう。"
+    },
+    {
+      "id": "shioyasaki",
+      "name": "塩屋埼灯台[しおやさきとうだい]",
+      "kind": "landmark",
+      "imageKey": "motif.fukushima.shioyasaki",
+      "blurb": "いわき市[し]の 海[うみ]に つき出[で]た みさきに 立[た]つ、白[しろ]い 灯台[とうだい]。"
+    },
+    {
+      "id": "soma-nomaoi",
+      "name": "相馬野馬追[そうまのまおい]",
+      "kind": "festival",
+      "imageKey": "motif.fukushima.soma-nomaoi",
+      "blurb": "よろいかぶとを つけた 人[ひと]たちが 馬[うま]に のって 走[はし]る、相馬[そうま]の 夏[なつ]の お祭[まつ]り。"
+    },
+    {
+      "id": "shirakawa-daruma",
+      "name": "白河[しらかわ]だるま",
+      "kind": "craft",
+      "imageKey": "motif.fukushima.shirakawa-daruma",
+      "blurb": "白河市[しらかわし]で 作[つく]られる だるま。まゆは 鶴[つる]、ひげは 亀[かめ]の 形[かたち]で えがかれている。"
+    },
+    {
+      "id": "miharu-takizakura",
+      "name": "三春滝桜[みはるたきざくら]",
+      "kind": "nature",
+      "imageKey": "motif.fukushima.miharu-takizakura",
+      "blurb": "三春町[みはるまち]に ある、とても 大[おお]きな しだれざくら。千年[せんねん]より 長[なが]く 生[い]きて いると いわれる。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "fukushima-momorin",
+          "weight": 35
+        },
+        {
+          "monsterId": "fukushima-akabekon",
+          "weight": 31
+        },
+        {
+          "monsterId": "fukushima-koboshi",
+          "weight": 22
+        },
+        {
+          "monsterId": "fukushima-chijiremen",
+          "weight": 12
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "fukushima-momorin",
+          "weight": 70
+        },
+        {
+          "monsterId": "fukushima-akabekon",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "fukushima-akabekon",
+          "weight": 55
+        },
+        {
+          "monsterId": "fukushima-koboshi",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "fukushima-akabekon",
+          "weight": 50
+        },
+        {
+          "monsterId": "fukushima-koboshi",
+          "weight": 50
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "fukushima-koboshi",
+          "weight": 40
+        },
+        {
+          "monsterId": "fukushima-akabekon",
+          "weight": 31
+        },
+        {
+          "monsterId": "fukushima-momorin",
+          "weight": 17
+        },
+        {
+          "monsterId": "fukushima-chijiremen",
+          "weight": 12
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "fukushima-boss-tsurugajo-no-nushi",
+  "midBoss": "fukushima-midboss-goshiki-slime",
+  "secret": {
+    "name": "鶴ヶ城[つるがじょう] 天守閣[てんしゅかく]",
+    "boss": "fukushima-lastboss-gamo-ujisato"
+  },
+  "events": [
+    {
+      "id": "ev-fukushima-tsurugajo",
+      "motifId": "tsurugajo",
+      "trigger": {
+        "map": "fukushima-field",
+        "objectName": "event_fukushima_tsurugajo"
+      },
+      "once": true,
+      "cutinImageKey": "motif.fukushima.tsurugajo",
+      "dialogue": [
+        {
+          "speaker": "会津[あいづ]の おさむらいさん",
+          "text": "ここは 鶴ヶ城[つるがじょう]じゃ。れきしの もんだいに ちょうせんするかな？"
+        }
+      ],
+      "question": {
+        "subject": "seikatsu",
+        "gradeRange": [
+          1,
+          2
+        ],
+        "tags": [
+          "prefecture:fukushima"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "会津[あいづ]の おさむらいさん",
+          "text": "みごとじゃ！ また いつでも 来[く]るがよい。"
+        }
+      ]
+    }
+  ],
+  "town": {
+    "name": "福島市[ふくしまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-fukushima-shop",
+        "name": "もも屋[や]の おじさん",
+        "spriteKey": "char.npc-fukushima-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "ようこそ 福島[ふくしま]へ！ あまい ももは いかが？"
+          }
+        ]
+      },
+      {
+        "id": "npc-fukushima-smith",
+        "name": "赤[あか]べこの 職人[しょくにん]",
+        "spriteKey": "char.npc-fukushima-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "赤[あか]べこは、わるいことから まもってくれる お守[まも]りとして 大切[たいせつ]に されてきたんだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

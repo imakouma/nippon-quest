@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tochigi-gyozan",
+  "name": "ギョウザン",
+  "area": "tochigi",
+  "motifId": "utsunomiya-gyoza",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 40,
+    "mp": 9,
+    "atk": 12,
+    "def": 6,
+    "spd": 7,
+    "wis": 4
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.6,
+    "def": 0.8,
+    "spd": 1,
+    "wis": 0.6
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "tochigi-gyoza-no-kawa",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 18,
+  "gold": 13,
+  "spriteKey": "mon.tochigi-gyozan",
+  "evolution": {
+    "to": "tochigi-gyozamurai",
+    "item": "tochigi-gyoza-no-kawa"
+  },
+  "dexBlurb": "パリッと やけた ぎょうざの モンスター。ぎょうざの ふちの ひだは、皮[かわ]を つまんで とじた あと。"
+}

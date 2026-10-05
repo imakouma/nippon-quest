@@ -1,0 +1,148 @@
+{
+  "$ref": "#/definitions/skills",
+  "definitions": {
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*$",
+            "description": "一意なID（小文字英数字・ドット・ハイフン）"
+          },
+          "name": {
+            "type": "string",
+            "description": "RubyText: \"漢字[かんじ]\" 形式"
+          },
+          "subject": {
+            "type": "string",
+            "enum": [
+              "kokugo",
+              "sansu",
+              "rika",
+              "shakai",
+              "seikatsu",
+              "eigo"
+            ]
+          },
+          "gradeRange": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              {
+                "type": "number",
+                "enum": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ]
+              },
+              {
+                "type": "number",
+                "enum": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ]
+              }
+            ]
+          },
+          "unitHint": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "power": {
+            "type": "number",
+            "minimum": 0,
+            "description": "いりょく（100 = 1 ばい）"
+          },
+          "element": {
+            "type": "string",
+            "enum": [
+              "hino",
+              "mizu",
+              "mori",
+              "tsuchi",
+              "kaze",
+              "hikari",
+              "yami",
+              "none"
+            ]
+          },
+          "mp": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "敵が使うときの MP（味方の必殺技は 教科ゲージを使う）"
+          },
+          "gauge": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3,
+            "default": 1,
+            "description": "必殺技の つよさ（★1〜★3）。★が 多いほど 演出が はでに なる。使う ゲージの量は costGauge"
+          },
+          "costGauge": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "description": "打つのに使う 教科ゲージ（subject の ゲージ）の量。0 は 基本わざ（いつでも打てて、こたえると ゲージが たまる）。上限は settings.subjectGauge.max"
+          },
+          "targetType": {
+            "type": "string",
+            "enum": [
+              "singleEnemy",
+              "allEnemies",
+              "self",
+              "party"
+            ],
+            "description": "だれに 効くか。省略時は effect から決まる（heal・buff → self、ほかは singleEnemy）"
+          },
+          "effect": {
+            "type": "string",
+            "enum": [
+              "damage",
+              "heal",
+              "buff",
+              "debuff",
+              "scan",
+              "status"
+            ],
+            "default": "damage",
+            "description": "status は あいての うごきを おくらせる（つぎの こうげきまでの 時間が のびる）"
+          },
+          "questionTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "flavor": {
+            "type": "string",
+            "description": "説明（description）"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "subject",
+          "gradeRange",
+          "power",
+          "element",
+          "mp"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

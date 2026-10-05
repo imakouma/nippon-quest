@@ -1,0 +1,259 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/picture-word.schema.json",
+    "id": "eigo.g2.animals.0001",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "tags": ["theme:animals"],
+    "payload": {
+      "picture": "dog",
+      "words": [
+        {
+          "id": "dog",
+          "text": "dog"
+        },
+        {
+          "id": "cat",
+          "text": "cat"
+        },
+        {
+          "id": "bird",
+          "text": "bird"
+        },
+        {
+          "id": "elephant",
+          "text": "elephant"
+        }
+      ],
+      "answer": "dog",
+      "shuffle": true
+    },
+    "explanation": "dog（ドッグ）"
+  },
+  {
+    "id": "eigo.g2.animals.0002",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "tags": ["theme:animals"],
+    "payload": {
+      "picture": "cat",
+      "words": [
+        {
+          "id": "cat",
+          "text": "cat"
+        },
+        {
+          "id": "rabbit",
+          "text": "rabbit"
+        },
+        {
+          "id": "pig",
+          "text": "pig"
+        },
+        {
+          "id": "frog",
+          "text": "frog"
+        }
+      ],
+      "answer": "cat",
+      "shuffle": true
+    },
+    "explanation": "cat（キャット）"
+  },
+  {
+    "id": "eigo.g2.animals.0003",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "tags": ["theme:animals"],
+    "payload": {
+      "picture": "rabbit",
+      "words": [
+        {
+          "id": "rabbit",
+          "text": "rabbit"
+        },
+        {
+          "id": "bird",
+          "text": "bird"
+        },
+        {
+          "id": "bear",
+          "text": "bear"
+        },
+        {
+          "id": "dog",
+          "text": "dog"
+        }
+      ],
+      "answer": "rabbit",
+      "shuffle": true
+    },
+    "explanation": "rabbit（ラビット）"
+  },
+  {
+    "id": "eigo.g2.animals.0004",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "tags": ["theme:animals"],
+    "payload": {
+      "picture": "bird",
+      "words": [
+        {
+          "id": "bird",
+          "text": "bird"
+        },
+        {
+          "id": "pig",
+          "text": "pig"
+        },
+        {
+          "id": "elephant",
+          "text": "elephant"
+        },
+        {
+          "id": "cat",
+          "text": "cat"
+        }
+      ],
+      "answer": "bird",
+      "shuffle": true
+    },
+    "explanation": "bird（バード）"
+  },
+  {
+    "id": "eigo.g2.animals.0005",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "tags": ["theme:animals"],
+    "payload": {
+      "picture": "pig",
+      "words": [
+        {
+          "id": "pig",
+          "text": "pig"
+        },
+        {
+          "id": "bear",
+          "text": "bear"
+        },
+        {
+          "id": "frog",
+          "text": "frog"
+        },
+        {
+          "id": "rabbit",
+          "text": "rabbit"
+        }
+      ],
+      "answer": "pig",
+      "shuffle": true
+    },
+    "explanation": "pig（ピッグ）"
+  },
+  {
+    "id": "eigo.g2.animals.0006",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "tags": ["theme:animals"],
+    "payload": {
+      "picture": "bear",
+      "words": [
+        {
+          "id": "bear",
+          "text": "bear"
+        },
+        {
+          "id": "elephant",
+          "text": "elephant"
+        },
+        {
+          "id": "dog",
+          "text": "dog"
+        },
+        {
+          "id": "bird",
+          "text": "bird"
+        }
+      ],
+      "answer": "bear",
+      "shuffle": true
+    },
+    "explanation": "bear（ベア）"
+  },
+  {
+    "id": "eigo.g2.animals.0007",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "tags": ["theme:animals"],
+    "payload": {
+      "picture": "elephant",
+      "words": [
+        {
+          "id": "elephant",
+          "text": "elephant"
+        },
+        {
+          "id": "frog",
+          "text": "frog"
+        },
+        {
+          "id": "cat",
+          "text": "cat"
+        },
+        {
+          "id": "pig",
+          "text": "pig"
+        }
+      ],
+      "answer": "elephant",
+      "shuffle": true
+    },
+    "explanation": "elephant（エレファント）"
+  },
+  {
+    "id": "eigo.g2.animals.0008",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.animals",
+    "tags": ["theme:animals"],
+    "payload": {
+      "picture": "frog",
+      "words": [
+        {
+          "id": "frog",
+          "text": "frog"
+        },
+        {
+          "id": "dog",
+          "text": "dog"
+        },
+        {
+          "id": "rabbit",
+          "text": "rabbit"
+        },
+        {
+          "id": "bear",
+          "text": "bear"
+        }
+      ],
+      "answer": "frog",
+      "shuffle": true
+    },
+    "explanation": "frog（フロッグ）"
+  }
+]

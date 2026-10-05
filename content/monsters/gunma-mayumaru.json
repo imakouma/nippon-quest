@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gunma-mayumaru",
+  "name": "マユマル",
+  "area": "gunma",
+  "motifId": "tomioka-seishijo",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 40,
+    "mp": 11,
+    "atk": 9,
+    "def": 7,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1,
+    "wis": 0.9
+  },
+  "skills": ["sk-kana-barrier", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "gunma-kinu-no-ito",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.gunma-mayumaru",
+  "evolution": {
+    "to": "gunma-kinuhane-hime",
+    "item": "gunma-kinu-no-ito"
+  },
+  "dexBlurb": "白[しろ]い まゆから 顔[かお]を 出[だ]した カイコの モンスター。富岡製糸場[とみおかせいしじょう]では、まゆから 生糸[きいと]を とって いた。"
+}

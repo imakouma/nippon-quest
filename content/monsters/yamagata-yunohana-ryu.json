@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamagata-yunohana-ryu",
+  "name": "ユノハナリュウ",
+  "area": "yamagata",
+  "motifId": "ginzan-onsen",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 50,
+    "mp": 14,
+    "atk": 13,
+    "def": 10,
+    "spd": 9,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.1,
+    "wis": 1.2
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 31,
+  "gold": 22,
+  "spriteKey": "mon.yamagata-yunohana-ryu",
+  "dexBlurb": "ユケムリンが しんかした すがた。湯[ゆ]けむりが 長[なが]い 竜[りゅう]の からだに なった。"
+}

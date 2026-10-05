@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-kororibu",
+  "name": "コロリーブ",
+  "area": "kagawa",
+  "motifId": "shodoshima-olive",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 53,
+    "mp": 12,
+    "atk": 13,
+    "def": 10,
+    "spd": 9,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "kagawa-olive-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 27,
+  "gold": 18,
+  "spriteKey": "mon.kagawa-kororibu",
+  "evolution": {
+    "to": "kagawa-minoribu",
+    "item": "kagawa-olive-no-hana"
+  },
+  "dexBlurb": "小豆島[しょうどしま]の オリーブの 実[み]の モンスター。小豆島[しょうどしま]は、日本[にほん]で はじめて オリーブを うまく そだてた 島[しま]と いわれる。"
+}

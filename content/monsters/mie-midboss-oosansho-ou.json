@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-midboss-oosansho-ou",
+  "name": "オオサンショウオウ",
+  "area": "mie",
+  "motifId": "akame-48taki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 155,
+    "mp": 24,
+    "atk": 15,
+    "def": 11,
+    "spd": 7,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-tashizan-giri"
+  ],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 90,
+  "gold": 105,
+  "spriteKey": "mon.mie-midboss-oosansho-ou",
+  "dexBlurb": "赤目四十八滝[あかめしじゅうはちたき]の 谷[たに]の ぬしの オオサンショウウオ。オオサンショウウオは 国[くに]の 特別天然記念物[とくべつてんねんきねんぶつ]で、「生[い]きた 化石[かせき]」と よばれる。",
+  "fieldLine": "ヌゥ……！ 滝[たき]の おくへ 行[い]きたければ、わしを こえて ゆけ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "mizu",
+      "skills": [
+        "sk-uzushio",
+        "sk-iwa-otoshi"
+      ],
+      "line": "滝[たき]の 水[みず]よ、わしに 力[ちから]を！ 谷[たに]ごと のみこんで くれる！"
+    }
+  ]
+}

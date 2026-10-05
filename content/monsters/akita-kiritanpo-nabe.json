@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-kiritanpo-nabe",
+  "name": "キリタンポナベ",
+  "area": "akita",
+  "motifId": "kiritanpo",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 48,
+    "mp": 12,
+    "atk": 15,
+    "def": 8,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.akita-kiritanpo-nabe",
+  "dexBlurb": "キリタンポンが しんかした すがた。秋田[あきた]では きりたんぽを なべに 入[い]れて 食[た]べる。"
+}

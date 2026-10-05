@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-yubune-don",
+  "name": "ユブネドン",
+  "area": "oita",
+  "motifId": "beppu-onsen",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 71,
+    "mp": 18,
+    "atk": 23,
+    "def": 12,
+    "spd": 11,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.0,
+    "spd": 1.2,
+    "wis": 1.0
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 42,
+  "gold": 28,
+  "spriteKey": "mon.oita-yubune-don",
+  "dexBlurb": "ユケムリンが しんかした すがた。大[おお]きな 湯[ゆ]ぶねを かついで、ぽかぽかの 湯[ゆ]けむりを ふき上[あ]げる。"
+}

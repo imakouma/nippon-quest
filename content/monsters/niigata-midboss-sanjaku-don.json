@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-midboss-sanjaku-don",
+  "name": "サンシャクドン",
+  "area": "niigata",
+  "motifId": "nagaoka-hanabi",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 132,
+    "mp": 21,
+    "atk": 15,
+    "def": 8,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 77,
+  "gold": 91,
+  "spriteKey": "mon.niigata-midboss-sanjaku-don",
+  "dexBlurb": "長岡[ながおか]まつりの 大[おお]きな 花火[はなび]だまの モンスター。いちばん 大[おお]きな「正三尺玉[しょうさんしゃくだま]」は、夜空[よぞら]で ひらくと はばが 600メートルを こえる。",
+  "fieldLine": "ドドーン！ この 道[みち]を とおりたければ、わしと しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "line": "たまやー！ 夜空[よぞら]を こがす 大玉[おおだま]、いくぞ！",
+      "skills": [
+        "sk-yamadashi-tosshin",
+        "sk-hono-no-uzu"
+      ]
+    }
+  ]
+}

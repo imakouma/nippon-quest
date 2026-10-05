@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shiga-naminori-tsuburi",
+  "name": "ナミノリツブリ",
+  "area": "shiga",
+  "motifId": "biwako",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 57,
+    "mp": 16,
+    "atk": 16,
+    "def": 11,
+    "spd": 14,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1,
+    "spd": 1.4,
+    "wis": 1
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 33,
+  "gold": 24,
+  "spriteKey": "mon.shiga-naminori-tsuburi",
+  "dexBlurb": "ツブリンが しんかした すがた。琵琶湖[びわこ]の 波[なみ]に のって、風[かぜ]のように すいすい すすむ。カイツブリは 水[みず]に もぐるのが とても じょうず。"
+}

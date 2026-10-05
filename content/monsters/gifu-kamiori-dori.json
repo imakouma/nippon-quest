@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-kamiori-dori",
+  "name": "カミオリドリ",
+  "area": "gifu",
+  "motifId": "mino-washi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 57,
+    "mp": 13,
+    "atk": 15,
+    "def": 11,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-abc-shout",
+    "sk-habataki"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.gifu-kamiori-dori",
+  "dexBlurb": "ワシガミンが しんかした すがた。1まいの 和紙[わし]が 大[おお]きな 鳥[とり]に おりあげられ、風[かぜ]に のって とぶ。"
+}

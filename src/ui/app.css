@@ -1,0 +1,407 @@
+/*
+ * 全画面で共通の見た目。
+ * 文字はドットフォント PixelMplus12（12px のマス目）。**文字の大きさは 12 / 24 / 36 / 48px だけ** にする。
+ * それ以外の大きさ（14px や 22px など）にすると 1 ドットが 1.2px などになって、ドットではなく「ぼやけた低解像度の字」に見える。
+ */
+@font-face {
+  font-family: 'PixelMplus12';
+  src: url('./fonts/PixelMplus12-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'PixelMplus12';
+  src: url('./fonts/PixelMplus12-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --nq-stage-w: 960px;
+  --nq-stage-h: 540px;
+  --nq-font: 'PixelMplus12', 'Osaka-Mono', 'MS Gothic', monospace;
+  /* NQ-48 から（src/scenes/art/palette.ts） */
+  --nq-ink: #1a1428;
+  --nq-panel: #0a0b1a;
+  --nq-white: #ffffff;
+  --nq-cloud: #d2d7e2;
+  --nq-silver: #a3aabb;
+  --nq-slate: #4a5063;
+  --nq-night: #2e2a45;
+  --nq-yellow: #ffd447;
+  --nq-orange: #f2a93b;
+  --nq-heart: #e5484d;
+  --nq-sky: #80c6ff;
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* キーボード操作では、現在位置を色だけでなく太い枠でも示す。 */
+:where(button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 4px solid var(--nq-yellow);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #111525;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #0b0d16;
+  overflow: hidden;
+}
+#app {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+#game-root,
+#ui-layer {
+  position: absolute;
+}
+#game-root canvas {
+  display: block;
+  image-rendering: pixelated;
+}
+/* ui-layer は JS で canvas と同じ矩形に合わせる。pointer-events は子要素だけ有効にする */
+#ui-layer {
+  pointer-events: none;
+  width: var(--nq-stage-w);
+  height: var(--nq-stage-h);
+  transform-origin: top left;
+  font-family: var(--nq-font);
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--nq-white);
+  /* ドットの字をなめらかにしない（対応ブラウザのみ） */
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  font-synthesis: none;
+  font-kerning: none;
+  text-rendering: optimizeSpeed;
+}
+#ui-layer > * {
+  pointer-events: auto;
+}
+#ui-layer button {
+  font-family: inherit;
+  font-size: inherit;
+  touch-action: manipulation;
+}
+#ui-layer ruby > rt {
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0;
+}
+.nq-picon {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+
+/* ───── ドットの窓（黒＋白い太枠。バトル・会話・メニュー共通） ───── */
+.nq-win {
+  background: var(--nq-panel);
+  color: var(--nq-white);
+  border: 4px solid var(--nq-white);
+  box-shadow:
+    0 0 0 4px #000,
+    6px 6px 0 4px rgba(0, 0, 0, 0.35);
+}
+.nq-heart {
+  display: inline-block;
+  color: var(--nq-heart);
+  line-height: 1;
+  text-shadow: 0 0 6px rgba(229, 72, 77, 0.7);
+  animation: nq-bob 0.8s steps(2) infinite;
+}
+.nq-cur {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+  flex: none;
+}
+.nq-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 4px 12px;
+  background: #0f1226;
+  color: var(--nq-white);
+  border: 4px solid var(--nq-slate);
+  font-size: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+.nq-opt:hover,
+.nq-opt.nq-focus {
+  border-color: var(--nq-yellow);
+  color: var(--nq-yellow);
+}
+.nq-back {
+  margin-left: auto;
+  min-height: 48px;
+  padding: 0 12px;
+  background: var(--nq-night);
+  color: var(--nq-white);
+  border: 4px solid var(--nq-white);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 属性・教科の札（12px の字＋ 16px のアイコン） */
+.nq-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px 0 4px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--nq-white);
+  border: 2px solid #000;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+}
+.nq-el-hino {
+  background: #a8341f;
+}
+.nq-el-mizu {
+  background: #1f4fa3;
+}
+.nq-el-mori {
+  background: #2a7a36;
+}
+.nq-el-tsuchi {
+  background: #7a5230;
+}
+.nq-el-kaze {
+  background: #2c8b80;
+}
+.nq-el-hikari {
+  background: #c79a1a;
+}
+.nq-el-yami {
+  background: #3a2672;
+}
+.nq-el-none {
+  background: #4a5063;
+}
+.nq-subj-sansu {
+  background: #1f4fa3;
+}
+.nq-subj-kokugo {
+  background: #a8341f;
+}
+.nq-subj-rika {
+  background: #2c8b80;
+}
+.nq-subj-shakai {
+  background: #b8741f;
+}
+.nq-subj-seikatsu {
+  background: #2a7a36;
+}
+.nq-subj-eigo {
+  background: #3a2672;
+}
+
+/* ───── 読み込み・エラー ───── */
+.nq-question-root {
+  position: absolute;
+  inset: 0;
+}
+.nq-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  color: var(--nq-white);
+  font-size: 24px;
+}
+.nq-loading-bar {
+  width: 240px;
+  height: 12px;
+  background: var(--nq-night);
+  border: 2px solid var(--nq-white);
+}
+.nq-loading-bar > div {
+  height: 100%;
+  background: #4cbf4c;
+  width: 0;
+  transition: width 0.2s steps(6);
+}
+.nq-error {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  color: #ffb4b4;
+  background: #1a1020;
+  font:
+    14px/1.6 ui-monospace,
+    monospace;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+/* ───── 会話ウィンドウ ───── */
+.nq-dlg {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  cursor: pointer;
+}
+.nq-dlg-box {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 20px;
+  min-height: 132px;
+  padding: 16px 84px 12px 24px;
+}
+.nq-dlg-name {
+  position: absolute;
+  left: 12px;
+  top: -52px;
+  padding: 0 12px;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--nq-yellow);
+}
+.nq-dlg-name rt {
+  color: var(--nq-cloud);
+}
+.nq-dlg-text {
+  margin: 0;
+  font-size: 24px;
+  line-height: 48px;
+  white-space: pre-wrap;
+}
+.nq-dlg-star {
+  margin-right: 12px;
+}
+.nq-dlg-speak {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: var(--nq-night);
+  border: 4px solid var(--nq-white);
+  cursor: pointer;
+}
+.nq-dlg-next {
+  position: absolute;
+  right: 24px;
+  bottom: 8px;
+  font-size: 24px;
+  animation: nq-blink 0.6s steps(2) infinite;
+}
+.nq-dlg-choices {
+  position: absolute;
+  right: 24px;
+  bottom: 176px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 16px 8px 8px;
+}
+.nq-dlg-choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 160px;
+  min-height: 48px;
+  padding: 0 8px;
+  background: transparent;
+  color: var(--nq-white);
+  border: 0;
+  font-size: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+.nq-dlg-choice.nq-focus {
+  color: var(--nq-yellow);
+}
+
+/* ───── 問題の枠（バトルのわざ・名所イベント共通） ───── */
+.nq-bq {
+  position: absolute;
+  inset: 12px;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  background: #0b0d1c;
+  animation: nq-pop-in 0.22s steps(4);
+}
+.nq-bq-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 4px solid var(--nq-white);
+  font-size: 24px;
+}
+.nq-bq-name {
+  color: var(--nq-yellow);
+  line-height: 48px;
+}
+.nq-bq-hint {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--nq-cloud);
+}
+.nq-bq-host {
+  position: relative;
+  flex: 1;
+}
+/* ask() に渡す DOM。レンダラーの .nq-q（inset:0）がこの中いっぱいに広がる */
+.nq-bq-slot {
+  position: absolute;
+  inset: 0;
+}
+
+/* ───── アニメーション（steps() でコマ送り） ───── */
+@keyframes nq-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes nq-bob {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+@keyframes nq-pop-in {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes nq-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #ui-layer *,
+  #ui-layer *::before {
+    animation-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01s !important;
+  }
+}

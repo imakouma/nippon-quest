@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-lastboss-siebold",
+  "name": "シーボルト先生[せんせい]",
+  "area": "nagasaki",
+  "motifId": "meganebashi",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 517,
+    "mp": 82,
+    "atk": 29,
+    "def": 23,
+    "spd": 13,
+    "wis": 23
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-happa-arashi",
+    "sk-happa-cutter"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 480,
+  "gold": 554,
+  "spriteKey": "mon.nagasaki-lastboss-siebold",
+  "dexBlurb": "ドイツ生[う]まれの 医者[いしゃ]（1796〜1866年[ねん]）。出島[でじま]の オランダ商館[しょうかん]の 医者[いしゃ]として 日本[にほん]に 来[き]て、鳴滝塾[なるたきじゅく]で 西洋[せいよう]の 医学[いがく]を 教[おし]えた。日本[にほん]の 植物[しょくぶつ]も たくさん しらべた。",
+  "fieldLine": "わたしは シーボルト。この 出島[でじま]で、きみの 学[まな]びの 力[ちから]を 見[み]せて ください！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "mizu",
+      "skills": [
+        "sk-uzushio",
+        "sk-happa-arashi",
+        "sk-kuku-rush"
+      ],
+      "line": "すばらしい！ では わたしが しらべた 草木[くさき]と 海[うみ]の 力[ちから]、すべて 見[み]せましょう！"
+    }
+  ]
+}

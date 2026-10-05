@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-takoyaki-sencho",
+  "name": "タコヤキセンチョウ",
+  "area": "osaka",
+  "motifId": "takoyaki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 63,
+    "mp": 16,
+    "atk": 19,
+    "def": 12,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.1,
+    "spd": 1.1,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 27,
+  "spriteKey": "mon.osaka-takoyaki-sencho",
+  "dexBlurb": "ハフハフヤキが しんかした すがた。舟[ふね]の 入[い]れものに のって、つまようじの ほばしらを 立[た]てた たこ焼[や]きの 船長[せんちょう]。"
+}

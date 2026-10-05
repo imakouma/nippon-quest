@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamanashi-tawawa-budou",
+  "name": "タワワブドウ",
+  "area": "yamanashi",
+  "motifId": "budou",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 60,
+    "mp": 15,
+    "atk": 16,
+    "def": 11,
+    "spd": 10,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 33,
+  "gold": 22,
+  "spriteKey": "mon.yamanashi-tawawa-budou",
+  "dexBlurb": "ブドーンが しんかした すがた。「たわわ」は、実[み]が たくさん なって えだが しなる ようす。"
+}

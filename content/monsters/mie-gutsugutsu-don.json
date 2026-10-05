@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-gutsugutsu-don",
+  "name": "グツグツドン",
+  "area": "mie",
+  "motifId": "bankoyaki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 62,
+    "mp": 16,
+    "atk": 20,
+    "def": 12,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.9,
+    "def": 1.1,
+    "spd": 1.1,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 34,
+  "gold": 23,
+  "spriteKey": "mon.mie-gutsugutsu-don",
+  "dexBlurb": "ドナベエが しんかした すがた。なべの 中[なか]では、いつも ぐつぐつ あつい スープが にえて いる。"
+}

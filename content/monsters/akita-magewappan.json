@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-magewappan",
+  "name": "マゲワッパン",
+  "area": "akita",
+  "motifId": "magewappa",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 38,
+    "mp": 8,
+    "atk": 9,
+    "def": 9,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.4,
+    "spd": 0.7,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "akita-akitasugi-no-ita",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 14,
+  "spriteKey": "mon.akita-magewappan",
+  "evolution": {
+    "to": "akita-wappa-toride",
+    "item": "akita-akitasugi-no-ita"
+  },
+  "dexBlurb": "曲[ま]げわっぱの おべんとうばこの 兵隊[へいたい]。曲[ま]げわっぱは 秋田杉[あきたすぎ]の うすい 板[いた]を まげて 作[つく]る。"
+}

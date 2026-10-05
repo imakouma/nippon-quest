@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tochigi-gyozamurai",
+  "name": "ギョウザムライ",
+  "area": "tochigi",
+  "motifId": "utsunomiya-gyoza",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 54,
+    "mp": 13,
+    "atk": 17,
+    "def": 9,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.9,
+    "def": 1,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 27,
+  "gold": 20,
+  "spriteKey": "mon.tochigi-gyozamurai",
+  "dexBlurb": "ギョウザンが しんかした すがた。鉄[てつ]の フライパンの たてで、どんな こうげきも パリッと はねかえす。"
+}

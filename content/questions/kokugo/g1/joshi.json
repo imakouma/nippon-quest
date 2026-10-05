@@ -1,0 +1,313 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g1.joshi.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「学校___行く。」の空欄に入る正しい助詞はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "が"
+        },
+        {
+          "id": "c",
+          "text": "へ"
+        },
+        {
+          "id": "d",
+          "text": "は"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "向かう方向を表すときは「へ（え）」を使います。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「私は小学生です」の「は」の正しい発音（読み）はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "わ"
+        },
+        {
+          "id": "b",
+          "text": "は"
+        },
+        {
+          "id": "c",
+          "text": "あ"
+        },
+        {
+          "id": "d",
+          "text": "や"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "助詞の「は」は「わ」と発音します。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「ぼく___いぬが好きだ。」の空欄に入る助詞はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "へ"
+        },
+        {
+          "id": "c",
+          "text": "は"
+        },
+        {
+          "id": "d",
+          "text": "に"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "主語を示す助詞は「は」になります。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「えんぴつ___消しゴムを買う。」の空欄に入る、並べる助詞はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "は"
+        },
+        {
+          "id": "b",
+          "text": "と"
+        },
+        {
+          "id": "c",
+          "text": "が"
+        },
+        {
+          "id": "d",
+          "text": "を"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "物を並べるときは「と」を使います。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「おとうと___走る。」の空欄に入る、主語を表す助詞はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "に"
+        },
+        {
+          "id": "c",
+          "text": "が"
+        },
+        {
+          "id": "d",
+          "text": "へ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「〜が走る」のように「が」を使います。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「こうえん___あそぶ。」の空欄に入る、場所を表す助詞はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "で"
+        },
+        {
+          "id": "b",
+          "text": "を"
+        },
+        {
+          "id": "c",
+          "text": "は"
+        },
+        {
+          "id": "d",
+          "text": "へ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "動作をする場所を表すときは「で」を使います。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0007",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「ともだち___あう。」の空欄に入る助詞はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "へ"
+        },
+        {
+          "id": "c",
+          "text": "に"
+        },
+        {
+          "id": "d",
+          "text": "で"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「会う」あいてを表すときは「に」を使います。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0008",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「あさ7じ___おきる。」の空欄に入る、時こくを表す助詞はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "に"
+        },
+        {
+          "id": "b",
+          "text": "を"
+        },
+        {
+          "id": "c",
+          "text": "が"
+        },
+        {
+          "id": "d",
+          "text": "へ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「〜じに」のように、時こくには「に」を使います。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0009",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "助詞の「へ」（学校へ行く、の「へ」）は、どう発音しますか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "へ"
+        },
+        {
+          "id": "b",
+          "text": "え"
+        },
+        {
+          "id": "c",
+          "text": "べ"
+        },
+        {
+          "id": "d",
+          "text": "ぺ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "向かう方向を表す助詞の「へ」は「え」と発音します。"
+  },
+  {
+    "id": "kokugo.g1.joshi.0010",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.joshi",
+    "payload": {
+      "prompt": "「あめ___ふる。」の空欄に入る、主語を表す助詞はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "が"
+        },
+        {
+          "id": "c",
+          "text": "に"
+        },
+        {
+          "id": "d",
+          "text": "へ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「あめがふる」のように、主語には「が」を使います。"
+  }
+]

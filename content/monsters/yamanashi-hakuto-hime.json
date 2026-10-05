@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamanashi-hakuto-hime",
+  "name": "ハクトウヒメ",
+  "area": "yamanashi",
+  "motifId": "momo",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 58,
+    "mp": 15,
+    "atk": 16,
+    "def": 11,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 30,
+  "gold": 21,
+  "spriteKey": "mon.yamanashi-hakuto-hime",
+  "dexBlurb": "白[しろ]い ももの かんむりを つけた すがた。山梨[やまなし]の ももは、ふくろを かけて 大切[たいせつ]に 育[そだ]てられる。"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-doguukun",
+  "name": "ドグウくん",
+  "area": "aomori",
+  "motifId": "sannai-maruyama",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 40,
+    "mp": 4,
+    "atk": 8,
+    "def": 9,
+    "spd": 3,
+    "wis": 5
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 0.5,
+    "atk": 1.1,
+    "def": 1.6,
+    "spd": 0.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-suna-kabe"],
+  "drops": [
+    {
+      "itemId": "aomori-doki-kakera",
+      "rate": 0.5
+    },
+    {
+      "itemId": "aomori-hisui-no-magatama",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.1,
+  "xp": 20,
+  "gold": 9,
+  "spriteKey": "mon.aomori-doguukun",
+  "evolution": {
+    "to": "aomori-dogu-jin",
+    "item": "aomori-hisui-no-magatama"
+  },
+  "dexBlurb": "土[つち]で できた 人形[にんぎょう]の ゴーレム。縄文時代[じょうもんじだい]の 人[ひと]は 土偶[どぐう]を 作[つく]っていた。"
+}

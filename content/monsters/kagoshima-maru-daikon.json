@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-maru-daikon",
+  "name": "マルダイコン",
+  "area": "kagoshima",
+  "motifId": "sakurajima-daikon",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 59,
+    "mp": 12,
+    "atk": 12,
+    "def": 11,
+    "spd": 8,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.1,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "kagoshima-sakurajima-daikon-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 26,
+  "gold": 17,
+  "spriteKey": "mon.kagoshima-maru-daikon",
+  "evolution": {
+    "to": "kagoshima-daikon-shogun",
+    "item": "kagoshima-sakurajima-daikon-no-hana"
+  },
+  "dexBlurb": "まんまるで 大[おお]きな 大根[だいこん]の 子[こ]。桜島大根[さくらじまだいこん]は、大[おお]きい ものでは 重[おも]さが 10キロを こえる ことも ある。"
+}

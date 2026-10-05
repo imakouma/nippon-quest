@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-oo-masuzushi",
+  "name": "オオマスズシ",
+  "area": "toyama",
+  "motifId": "masuzushi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 53,
+    "mp": 15,
+    "atk": 15,
+    "def": 12,
+    "spd": 10,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1.0
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 28,
+  "gold": 20,
+  "spriteKey": "mon.toyama-oo-masuzushi",
+  "dexBlurb": "何[なん]だんにも かさなった 大[おお]きな ます寿司[ずし]。ますは 神通川[じんづうがわ]で とれた 魚[さかな]だった。"
+}

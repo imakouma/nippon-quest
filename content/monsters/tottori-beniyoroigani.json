@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tottori-beniyoroigani",
+  "name": "ベニヨロイガニ",
+  "area": "tottori",
+  "motifId": "beni-zuwai",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 65,
+    "mp": 17,
+    "atk": 20,
+    "def": 16,
+    "spd": 10,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 38,
+  "gold": 28,
+  "spriteKey": "mon.tottori-beniyoroigani",
+  "dexBlurb": "ベニガニンが しんかした すがた。赤[あか]い こうらの よろいと 大[おお]きな はさみで、深[ふか]い 海[うみ]の そこを のしのし 歩[ある]く。"
+}

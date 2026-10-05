@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shiga-funazushi-maru",
+  "name": "フナズシマル",
+  "area": "shiga",
+  "motifId": "funazushi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 63,
+    "mp": 18,
+    "atk": 18,
+    "def": 12,
+    "spd": 12,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 24,
+  "spriteKey": "mon.shiga-funazushi-maru",
+  "dexBlurb": "ニゴロンが しんかした すがた。ごはんの よろいを まとった ふなずしの さむらい。ふなずしの たまごは、きれいな オレンジ色[いろ]。"
+}

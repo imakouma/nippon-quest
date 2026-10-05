@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hyogo-kuromame-musha",
+  "name": "クロマメムシャ",
+  "area": "hyogo",
+  "motifId": "tanba-kuromame",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 60,
+    "mp": 16,
+    "atk": 16,
+    "def": 12,
+    "spd": 12,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.3,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 33,
+  "gold": 23,
+  "spriteKey": "mon.hyogo-kuromame-musha",
+  "dexBlurb": "クロマメンが しんかした すがた。黒豆[くろまめ]の さやの かぶとと 大[おお]きな 葉[は]の たてで、丹波[たんば]の 畑[はたけ]を まもる 武者[むしゃ]。"
+}

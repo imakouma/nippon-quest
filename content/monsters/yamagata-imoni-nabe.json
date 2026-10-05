@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamagata-imoni-nabe",
+  "name": "イモニナベ",
+  "area": "yamagata",
+  "motifId": "imoni",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 40,
+    "mp": 10,
+    "atk": 11,
+    "def": 7,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.1,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "yamagata-onabe-no-otama",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.06,
+  "xp": 22,
+  "gold": 16,
+  "spriteKey": "mon.yamagata-imoni-nabe",
+  "evolution": {
+    "to": "yamagata-jumbo-imoni",
+    "item": "yamagata-onabe-no-otama"
+  },
+  "dexBlurb": "芋煮[いもに]の 大[おお]なべの モンスター。山形[やまがた]では 秋[あき]に 川原[かわら]で 芋煮会[いもにかい]を ひらく。"
+}

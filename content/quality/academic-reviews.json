@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "policy": {
+    "owner": "教材レビュー担当",
+    "reviewIntervalMonths": 12,
+    "changingFactsRequireCurrentSource": true
+  },
+  "sources": [
+    {
+      "id": "mext-elementary-curriculum-2017",
+      "title": "平成29・30・31年改訂 学習指導要領（本文、解説）",
+      "authority": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/shotou/new-cs/1384661.htm",
+      "subjects": ["kokugo", "sansu", "rika", "shakai", "seikatsu", "eigo"],
+      "checkedAt": "2026-10-03"
+    },
+    {
+      "id": "estat-portal",
+      "title": "政府統計の総合窓口 e-Stat",
+      "authority": "独立行政法人統計センター",
+      "url": "https://www.e-stat.go.jp/",
+      "subjects": ["sansu", "shakai", "rika"],
+      "checkedAt": "2026-10-03"
+    }
+  ],
+  "reviews": []
+}

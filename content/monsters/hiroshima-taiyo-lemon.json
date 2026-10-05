@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-taiyo-lemon",
+  "name": "タイヨウレモン",
+  "area": "hiroshima",
+  "motifId": "setoda-lemon",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 62,
+    "mp": 20,
+    "atk": 18,
+    "def": 11,
+    "spd": 13,
+    "wis": 13
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.3,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 34,
+  "gold": 26,
+  "spriteKey": "mon.hiroshima-taiyo-lemon",
+  "dexBlurb": "セトレモンが しんかした すがた。瀬戸内[せとうち]は 雨[あめ]が 少[すく]なく、晴[は]れの 日[ひ]が 多[おお]いので、レモンが よく 育[そだ]つ。"
+}

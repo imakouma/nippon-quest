@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tochigi-boss-kegon-ryuo",
+  "name": "ケゴンリュウオウ",
+  "area": "tochigi",
+  "motifId": "kegon-no-taki",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 291,
+    "mp": 43,
+    "atk": 17,
+    "def": 12,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 10,
+    "mp": 2,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-uzushio", "sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "tochigi-ichigo-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "tochigi-gyoza-no-kawa",
+      "rate": 1
+    },
+    {
+      "itemId": "tochigi-nasu-no-gyunyu",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 190,
+  "gold": 224,
+  "spriteKey": "mon.tochigi-boss-kegon-ryuo",
+  "dexBlurb": "華厳[けごん]の 滝[たき]に すむ 竜[りゅう]の 王[おう]。華厳[けごん]の 滝[たき]は 高[たか]さ 97メートルの がけを 流[なが]れ落[お]ちる、日本三名瀑[にほんさんめいばく]の ひとつ。",
+  "fieldLine": "中禅寺湖[ちゅうぜんじこ]から 落[お]ちる 水[みず]の いきおい、うけとめて みよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "actionsPerTurn": 2,
+      "skills": ["sk-fubuki", "sk-uzushio"],
+      "line": "滝[たき]よ、こおれ！ 日光[にっこう]の ふぶきを くらえ！"
+    }
+  ]
+}

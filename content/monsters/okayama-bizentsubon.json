@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okayama-bizentsubon",
+  "name": "ビゼンツボン",
+  "area": "okayama",
+  "motifId": "bizenyaki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 48,
+    "mp": 11,
+    "atk": 16,
+    "def": 9,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.6,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.9,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "okayama-akamatsu-no-maki",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 27,
+  "gold": 18,
+  "spriteKey": "mon.okayama-bizentsubon",
+  "evolution": {
+    "to": "okayama-bizen-ootsubo",
+    "item": "okayama-akamatsu-no-maki"
+  },
+  "dexBlurb": "備前焼[びぜんやき]の つぼの モンスター。備前焼[びぜんやき]は うわぐすりを 使[つか]わず、かまの 火[ひ]と 灰[はい]で しぜんな もようが つく。"
+}

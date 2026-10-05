@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagano-zaru-soban",
+  "name": "ザルソバン",
+  "area": "nagano",
+  "motifId": "togakushi-soba",
+  "element": "tsuchi",
+  "subjectAffinity": "sansu",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 50,
+    "mp": 7,
+    "atk": 11,
+    "def": 10,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": ["sk-suna-kabe", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "nagano-soba-ko",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 22,
+  "gold": 15,
+  "spriteKey": "mon.nagano-zaru-soban",
+  "evolution": {
+    "to": "nagano-oomori-soba",
+    "item": "nagano-soba-ko"
+  },
+  "dexBlurb": "ざるに のった そばの モンスター。戸隠[とがくし]そばは「ぼっち盛[も]り」と いって、そばを 小[ちい]さな たばに して ざるに のせる。"
+}

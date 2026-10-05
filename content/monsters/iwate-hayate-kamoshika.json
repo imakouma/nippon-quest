@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-hayate-kamoshika",
+  "name": "ハヤテカモシカ",
+  "area": "iwate",
+  "motifId": "iwate-san",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 50,
+    "mp": 10,
+    "atk": 14,
+    "def": 10,
+    "spd": 12,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5.6,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 1.3,
+    "wis": 0.8
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.iwate-hayate-kamoshika",
+  "dexBlurb": "イワカモシカが しんかした すがた。風[かぜ]のように がけを とびこえる。ニホンカモシカは 国[くに]の 特別天然記念物[とくべつてんねんきねんぶつ]だよ。"
+}

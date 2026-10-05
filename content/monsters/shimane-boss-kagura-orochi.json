@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shimane-boss-kagura-orochi",
+  "name": "カグラオロチ",
+  "area": "shimane",
+  "motifId": "iwami-kagura",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 443,
+    "mp": 59,
+    "atk": 26,
+    "def": 16,
+    "spd": 10,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-hono-no-uzu",
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "shimane-yuhi-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "shimane-soba-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "shimane-tenshu-no-ita",
+      "rate": 1
+    },
+    {
+      "itemId": "shimane-rosoku-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 289,
+  "gold": 341,
+  "spriteKey": "mon.shimane-boss-kagura-orochi",
+  "dexBlurb": "石見神楽[いわみかぐら]の 大蛇[おろち]が 目[め]を さました すがた。神楽[かぐら]の 大蛇[おろち]の 長[なが]い からだは、じょうぶな 石州和紙[せきしゅうわし]で 作[つく]られて いる。",
+  "fieldLine": "シャアアア…！ 神楽[かぐら]の 太鼓[たいこ]が きこえるか。わが 炎[ほのお]を うけて みよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "line": "八[やっ]つの 頭[あたま]が いっせいに ほえる！ 神楽[かぐら]の 炎[ほのお]を 見[み]よ！",
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-hono-no-uzu"
+      ]
+    }
+  ]
+}

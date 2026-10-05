@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamaguchi-lastboss-yoshida-shoin",
+  "name": "吉田松陰[よしだしょういん]",
+  "area": "yamaguchi",
+  "motifId": "hagi",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 478,
+    "mp": 64,
+    "atk": 26,
+    "def": 20,
+    "spd": 12,
+    "wis": 20
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-kanji-barrier"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 435,
+  "gold": 486,
+  "spriteKey": "mon.yamaguchi-lastboss-yoshida-shoin",
+  "dexBlurb": "江戸[えど]時代[じだい]の おわりの 学者[がくしゃ]・先生[せんせい]（1830〜1859年[ねん]）。萩[はぎ]の 松下村塾[しょうかそんじゅく]で、のちに 日本[にほん]を かえる わかものたちを 教[おし]えた。",
+  "fieldLine": "わしは 吉田松陰[よしだしょういん]。この 松下村塾[しょうかそんじゅく]で、きみの 学[まな]ぶ 力[ちから]を 見[み]せて もらおう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-hikari-no-hane",
+        "sk-konjiki-no-kiba"
+      ],
+      "line": "志[こころざし]を 高[たか]く もて！ わしの 学[まな]びの 火[ひ]は まだ きえぬぞ！"
+    }
+  ]
+}

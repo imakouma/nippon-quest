@@ -1,0 +1,193 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "shakai.g4.todofuken.0101",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:iwate"],
+    "payload": {
+      "prompt": "岩手県[いわてけん]の 平泉[ひらいずみ]に ある、金[きん]ぴかの お堂[どう]は？",
+      "choices": [
+        { "id": "a", "text": "中尊寺金色堂[ちゅうそんじこんじきどう]" },
+        { "id": "b", "text": "金閣[きんかく]" },
+        { "id": "c", "text": "姫路城[ひめじじょう]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "中尊寺金色堂[ちゅうそんじこんじきどう]は 900年[ねん]ほど 前[まえ]に 建[た]てられた。金閣[きんかく]は 京都[きょうと]、姫路城[ひめじじょう]は 兵庫県[ひょうごけん]に ある。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0102",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:iwate"],
+    "payload": {
+      "prompt": "岩手県[いわてけん]の 名物[めいぶつ]で、小[ちい]さな おわんで おかわりを くりかえす そばは？",
+      "choices": [
+        { "id": "a", "text": "わんこそば" },
+        { "id": "b", "text": "ざるそば" },
+        { "id": "c", "text": "やきそば" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "わんこそばは、食[た]べおわると すぐに つぎの そばが 入[い]れられる。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0103",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:miyagi"],
+    "payload": {
+      "prompt": "宮城県[みやぎけん]の 県庁所在地[けんちょうしょざいち]は？",
+      "choices": [
+        { "id": "a", "text": "仙台市[せんだいし]" },
+        { "id": "b", "text": "盛岡市[もりおかし]" },
+        { "id": "c", "text": "山形市[やまがたし]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "仙台市[せんだいし]は 東北[とうほく]で いちばん 人[ひと]が 多[おお]い まち。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0104",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:miyagi"],
+    "payload": {
+      "prompt": "日本三景[にほんさんけい]の ひとつで、宮城県[みやぎけん]に ある ところは？",
+      "choices": [
+        { "id": "a", "text": "松島[まつしま]" },
+        { "id": "b", "text": "天橋立[あまのはしだて]" },
+        { "id": "c", "text": "宮島[みやじま]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "日本三景[にほんさんけい]は 松島[まつしま]（宮城県[みやぎけん]）・天橋立[あまのはしだて]（京都府[きょうとふ]）・宮島[みやじま]（広島県[ひろしまけん]）。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0105",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:akita"],
+    "payload": {
+      "prompt": "日本[にほん]で いちばん 深[ふか]い 湖[みずうみ]は？",
+      "choices": [
+        { "id": "a", "text": "田沢湖[たざわこ]" },
+        { "id": "b", "text": "琵琶湖[びわこ]" },
+        { "id": "c", "text": "十和田湖[とわだこ]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "田沢湖[たざわこ]（秋田県[あきたけん]）は ふかさ 400メートルいじょう。いちばん 大[おお]きい 湖[みずうみ]は 琵琶湖[びわこ]。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0106",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:akita"],
+    "payload": {
+      "prompt": "秋田県[あきたけん]の 男鹿[おが]に つたわる、大[おお]みそかの 夜[よる]に 家[いえ]を まわる 行事[ぎょうじ]は？",
+      "choices": [
+        { "id": "a", "text": "なまはげ" },
+        { "id": "b", "text": "ねぶた" },
+        { "id": "c", "text": "七夕[たなばた]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "なまはげは、こわい お面[めん]を つけて 家[いえ]を まわる 男鹿[おが]の 行事[ぎょうじ]。ねぶたは 青森県[あおもりけん]の 夏[なつ]祭[まつ]り。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0107",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:yamagata"],
+    "payload": {
+      "prompt": "山形県[やまがたけん]で とくに たくさん 作[つく]られている くだものは？",
+      "choices": [
+        { "id": "a", "text": "さくらんぼ" },
+        { "id": "b", "text": "みかん" },
+        { "id": "c", "text": "パイナップル" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "山形県[やまがたけん]は さくらんぼの 生産[せいさん]が 日本一[にほんいち]。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0108",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:yamagata"],
+    "payload": {
+      "prompt": "山形県[やまがたけん]を ながれる 大[おお]きな 川[かわ]は？",
+      "choices": [
+        { "id": "a", "text": "最上川[もがみがわ]" },
+        { "id": "b", "text": "信濃川[しなのがわ]" },
+        { "id": "c", "text": "利根川[とねがわ]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "最上川[もがみがわ]は 山形県[やまがたけん]の ほとんどを ながれて 日本海[にほんかい]に 出[で]る。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0109",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:fukushima"],
+    "payload": {
+      "prompt": "福島県[ふくしまけん]の 会津[あいづ]に つたわる、首[くび]が ゆれる 赤[あか]い 牛[うし]の おもちゃは？",
+      "choices": [
+        { "id": "a", "text": "赤[あか]べこ" },
+        { "id": "b", "text": "こけし" },
+        { "id": "c", "text": "だるま" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "赤[あか]べこの「べこ」は、東北[とうほく]の ことばで 牛[うし]の こと。"
+  },
+  {
+    "id": "shakai.g4.todofuken.0110",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.todofuken",
+    "tags": ["prefecture:fukushima"],
+    "payload": {
+      "prompt": "福島県[ふくしまけん]に ある、日本[にほん]で 4ばんめに 大[おお]きな 湖[みずうみ]は？",
+      "choices": [
+        { "id": "a", "text": "猪苗代湖[いなわしろこ]" },
+        { "id": "b", "text": "霞ヶ浦[かすみがうら]" },
+        { "id": "c", "text": "浜名湖[はまなこ]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "猪苗代湖[いなわしろこ]は 水[みず]が きれいで、「天鏡湖[てんきょうこ]」とも よばれる。"
+  }
+]

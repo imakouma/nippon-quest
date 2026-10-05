@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-nebutan",
+  "name": "ネブタン",
+  "area": "aomori",
+  "motifId": "nebuta",
+  "element": "hino",
+  "subjectAffinity": "kokugo",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 32,
+    "mp": 8,
+    "atk": 9,
+    "def": 5,
+    "spd": 7,
+    "wis": 4
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.9,
+    "spd": 1.0,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-hinoko"
+  ],
+  "drops": [
+    {
+      "itemId": "aomori-nebuta-no-akari",
+      "rate": 0.3
+    },
+    {
+      "itemId": "aomori-nebuta-no-omamori",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 15,
+  "gold": 10,
+  "spriteKey": "mon.aomori-nebutan",
+  "evolution": {
+    "to": "aomori-nebuta-musha",
+    "item": "aomori-nebuta-no-omamori"
+  },
+  "dexBlurb": "ねぶたの 灯[あか]りを せおった 小[ちい]さな 武者[むしゃ]。夏[なつ]の 夜[よる]に 元気[げんき]になる。"
+}

@@ -1,0 +1,14 @@
+dist
+node_modules
+pnpm-lock.yaml
+schemas/**/*.json
+content/manifest.json
+content/content-bundle.json
+# Bulk seeded/imported data is schema-validated by validate:content. Formatting
+# it here makes lint slow and creates very large non-functional diffs.
+content/monsters
+content/prefectures
+content/questions/legacy
+imports/legacy-questions/*.json
+docs
+raw

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-akabeko-don",
+  "name": "アカベコドン",
+  "area": "fukushima",
+  "motifId": "akabeko",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 56,
+    "mp": 12,
+    "atk": 14,
+    "def": 13,
+    "spd": 8,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 7.2,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.8,
+    "spd": 0.8,
+    "wis": 1.1
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.fukushima-akabeko-don",
+  "dexBlurb": "アカベコンが しんかした すがた。ゆらゆら ゆれる 首[くび]で、どっしり 強[つよ]く なった。"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-buna-taiju",
+  "name": "ブナタイジュ",
+  "area": "aomori",
+  "motifId": "shirakami",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 52,
+    "mp": 12,
+    "atk": 11,
+    "def": 12,
+    "spd": 6,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.6,
+    "mp": 1.2,
+    "atk": 1.3,
+    "def": 1.4,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.aomori-buna-taiju",
+  "dexBlurb": "ブナッコが しんかした すがた。白神山地[しらかみさんち]は 世界遺産[せかいいさん]。何百年[なんびゃくねん]も 生[い]きる 大[おお]きな ブナが、森[もり]の いきものを まもっている。"
+}

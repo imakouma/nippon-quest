@@ -1,0 +1,44 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shiga-asanunon",
+  "name": "アサヌノン",
+  "area": "shiga",
+  "motifId": "omi-jofu",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 48,
+    "mp": 10,
+    "atk": 12,
+    "def": 8,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.35,
+    "def": 1.0,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-kana-barrier",
+    "sk-kazoe-giri"
+  ],
+  "drops": [
+    {
+      "itemId": "shiga-omi-asa-no-ito",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 22,
+  "gold": 14,
+  "spriteKey": "mon.shiga-asanunon",
+  "evolution": {
+    "to": "shiga-jofu-hime",
+    "item": "shiga-omi-asa-no-ito"
+  },
+  "dexBlurb": "近江上布[おうみじょうふ]の 麻[あさ]の 布[ぬの]の モンスター。麻[あさ]の 布[ぬの]は かるくて 風[かぜ]を とおし、夏[なつ]に すずしい。"
+}

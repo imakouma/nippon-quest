@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okinawa-goyamaru",
+  "name": "ゴーヤマル",
+  "area": "okinawa",
+  "motifId": "goya",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 55,
+    "mp": 12,
+    "atk": 14,
+    "def": 11,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "okinawa-goya-no-tane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 17,
+  "spriteKey": "mon.okinawa-goyamaru",
+  "evolution": {
+    "to": "okinawa-goya-musha",
+    "item": "okinawa-goya-no-tane"
+  },
+  "dexBlurb": "いぼいぼの ゴーヤーの 子[こ]。ゴーヤーは にがみが あるが、あつい 夏[なつ]に 元気[げんき]が 出[で]る 野菜[やさい]として、沖縄[おきなわ]で よく 食[た]べられている。"
+}

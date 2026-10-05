@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tochigi-go-bellmoo",
+  "name": "ゴウベルモー",
+  "area": "tochigi",
+  "motifId": "nasu-kogen",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 63,
+    "mp": 11,
+    "atk": 15,
+    "def": 12,
+    "spd": 7,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 20,
+  "spriteKey": "mon.tochigi-go-bellmoo",
+  "dexBlurb": "ベルモーが しんかした すがた。大[おお]きな カウベルを ならすと、高原[こうげん]じゅうに ひびきわたる。"
+}

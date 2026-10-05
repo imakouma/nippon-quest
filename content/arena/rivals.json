@@ -1,0 +1,39 @@
+[
+  {
+    "id": "rival-kenta",
+    "name": "ケンタ",
+    "heroLevel": 3,
+    "monsters": [{ "monsterId": "aomori-ringoron", "level": 3 }],
+    "equipment": { "weapon": "common-dou-no-ken" },
+    "intro": "ぼくの リンゴロンは さいきょうだぞ！"
+  },
+  {
+    "id": "rival-mio",
+    "name": "ミオ",
+    "heroLevel": 6,
+    "monsters": [
+      { "monsterId": "aomori-nebutan", "level": 5 },
+      { "monsterId": "aomori-magurodo", "level": 5 }
+    ],
+    "equipment": { "weapon": "common-dou-no-ken", "chest": "aomori-ringo-no-yoroi" },
+    "intro": "算数[さんすう]の わざなら まけないよ。"
+  },
+  {
+    "id": "rival-hakase",
+    "name": "はかせ",
+    "heroLevel": 10,
+    "monsters": [
+      { "monsterId": "aomori-doguukun", "level": 9 },
+      { "monsterId": "aomori-itakodori", "level": 8 },
+      { "monsterId": "aomori-magurodo", "level": 9 }
+    ],
+    "equipment": {
+      "weapon": "aomori-maguro-zutsuki",
+      "head": "aomori-nebuta-no-kabuto",
+      "chest": "aomori-ringo-no-yoroi",
+      "legs": "aomori-hiba-no-koshiate",
+      "feet": "aomori-tsugaru-nuri-boots"
+    },
+    "intro": "青森[あおもり]セットの 力[ちから]、見[み]せてあげよう。"
+  }
+]

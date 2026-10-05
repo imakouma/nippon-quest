@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-hanaikada",
+  "name": "ハナイカダ",
+  "area": "aomori",
+  "motifId": "hirosaki-jo",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 40,
+    "mp": 11,
+    "atk": 11,
+    "def": 8,
+    "spd": 13,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.2,
+    "spd": 1.3,
+    "wis": 0.9
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.aomori-hanaikada",
+  "evolution": {
+    "to": "aomori-oka-musha",
+    "item": "aomori-hirosaki-jo-no-kawara",
+    "count": 3
+  },
+  "dexBlurb": "サクラポンが しんかした すがた。お堀[ほり]に ちった 花[はな]びらが つながって、いかだのように ながれる「花筏[はないかだ]」の せい。"
+}

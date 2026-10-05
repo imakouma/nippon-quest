@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nara-somen-tsururi",
+  "name": "ソウメンツルリ",
+  "area": "nara",
+  "motifId": "miwa-somen",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 41,
+    "mp": 12,
+    "atk": 11,
+    "def": 7,
+    "spd": 11,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.2,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "nara-yoshinogawa-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 15,
+  "spriteKey": "mon.nara-somen-tsururi",
+  "evolution": {
+    "to": "nara-uzumaki-somen",
+    "item": "nara-yoshinogawa-no-shizuku"
+  },
+  "dexBlurb": "三輪[みわ]そうめんの モンスター。三輪[みわ]そうめんは、こねた 生地[きじ]を 手[て]で 何[なん]ども 引[ひ]きのばして、糸[いと]のように 細[ほそ]く して 作[つく]る。"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-oriben",
+  "name": "オリベン",
+  "area": "gifu",
+  "motifId": "minoyaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 52,
+    "mp": 9,
+    "atk": 10,
+    "def": 10,
+    "spd": 6,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-suna-kabe", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "gifu-shinoyaki",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.07,
+  "xp": 22,
+  "gold": 16,
+  "spriteKey": "mon.gifu-oriben",
+  "evolution": {
+    "to": "gifu-oribe-musha",
+    "item": "gifu-shinoyaki"
+  },
+  "dexBlurb": "美濃焼[みのやき]の ひとつ、織部[おりべ]の 器[うつわ]の モンスター。織部[おりべ]は こい 緑[みどり]の うわぐすりと、自由[じゆう]な もようが とくちょう。"
+}

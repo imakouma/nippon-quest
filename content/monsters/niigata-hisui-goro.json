@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-hisui-goro",
+  "name": "ヒスイゴロウ",
+  "area": "niigata",
+  "motifId": "itoigawa-hisui",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 59,
+    "mp": 13,
+    "atk": 14,
+    "def": 13,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 0.8
+  },
+  "skills": ["sk-tashizan-giri", "sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 31,
+  "gold": 21,
+  "spriteKey": "mon.niigata-hisui-goro",
+  "dexBlurb": "ヒスイコロが しんかした すがた。ヒスイは とても かたくて われにくいので、むかしの 人[ひと]は かざりや どうぐに した。"
+}

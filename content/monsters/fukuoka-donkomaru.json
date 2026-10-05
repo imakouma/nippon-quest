@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-donkomaru",
+  "name": "ドンコマル",
+  "area": "fukuoka",
+  "motifId": "yanagawa",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 59,
+    "mp": 14,
+    "atk": 14,
+    "def": 11,
+    "spd": 8,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "fukuoka-suiro-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 17,
+  "spriteKey": "mon.fukuoka-donkomaru",
+  "evolution": {
+    "to": "fukuoka-suigo-maru",
+    "item": "fukuoka-suiro-no-shizuku"
+  },
+  "dexBlurb": "柳川[やながわ]の 川下[かわくだ]りの 小舟[こぶね]「どんこ舟[ぶね]」の モンスター。船頭[せんどう]さんは 長[なが]い 竹[たけ]の さおで 舟[ふね]を すすめる。"
+}

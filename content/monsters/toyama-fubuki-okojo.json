@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-fubuki-okojo",
+  "name": "フブキオコジョ",
+  "area": "toyama",
+  "motifId": "tateyama",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 50,
+    "mp": 14,
+    "atk": 17,
+    "def": 9,
+    "spd": 13,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 31,
+  "gold": 21,
+  "spriteKey": "mon.toyama-fubuki-okojo",
+  "dexBlurb": "オコジョンが しんかした すがた。冬[ふゆ]の 白[しろ]い 毛[け]で、しっぽの 先[さき]だけ 黒[くろ]い。"
+}

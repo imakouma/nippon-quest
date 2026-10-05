@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-okawari-bat",
+  "name": "オカワリバット",
+  "area": "iwate",
+  "motifId": "wanko",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 42,
+    "mp": 12,
+    "atk": 13,
+    "def": 7,
+    "spd": 14,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 0.8,
+    "spd": 1.8,
+    "wis": 1
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.iwate-okawari-bat",
+  "dexBlurb": "ワンコソバットが しんかした すがた。「おかわり！」の 声[こえ]で どんどん 強[つよ]く なる。"
+}

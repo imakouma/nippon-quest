@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okayama-bizen-ootsubo",
+  "name": "ビゼンオオツボ",
+  "area": "okayama",
+  "motifId": "bizenyaki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 65,
+    "mp": 17,
+    "atk": 21,
+    "def": 13,
+    "spd": 11,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.1,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 41,
+  "gold": 28,
+  "spriteKey": "mon.okayama-bizen-ootsubo",
+  "dexBlurb": "ビゼンツボンが しんかした すがた。登[のぼ]り窯[がま]の 炎[ほのお]を たくわえた 大[おお]きな つぼで、わらの あとの 赤[あか]い もよう「緋襷[ひだすき]」が うかぶ。"
+}

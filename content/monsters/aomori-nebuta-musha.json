@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-nebuta-musha",
+  "name": "ネブタムシャ",
+  "area": "aomori",
+  "motifId": "nebuta",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": { "hp": 44, "mp": 12, "atk": 13, "def": 8, "spd": 9, "wis": 6 },
+  "growth": { "hp": 5.5, "mp": 1.2, "atk": 1.8, "def": 1.2, "spd": 1.2, "wis": 0.9 },
+  "skills": ["sk-hono-no-mai", "sk-rasseraa-no-hono"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.aomori-nebuta-musha",
+  "evolution": { "to": "aomori-nebuta-taisho", "item": "aomori-nebuta-no-akari", "count": 3 },
+  "dexBlurb": "ネブタンが しんかした すがた。ねぶたの 灯[あか]りを かかげ、「ラッセラー！」と ほのおを はなつ。"
+}

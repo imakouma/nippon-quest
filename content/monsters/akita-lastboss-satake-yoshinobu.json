@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-lastboss-satake-yoshinobu",
+  "name": "佐竹義宣[さたけよしのぶ]",
+  "area": "akita",
+  "motifId": "kakunodate",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 360,
+    "mp": 48,
+    "atk": 18,
+    "def": 16,
+    "spd": 10,
+    "wis": 13
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-fubuki",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 312,
+  "gold": 360,
+  "spriteKey": "mon.akita-lastboss-satake-yoshinobu",
+  "dexBlurb": "秋田[あきた]の 久保田藩[くぼたはん]を ひらいた 大名[だいみょう]（1570〜1633年[ねん]）。久保田城[くぼたじょう]を きずき、いまの 秋田市[あきたし]の もとを つくった。",
+  "fieldLine": "佐竹義宣[さたけよしのぶ]じゃ。雪[ゆき]の 久保田城[くぼたじょう]で、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-uzushio",
+        "sk-fubuki",
+        "sk-kaikyo-no-kaze"
+      ],
+      "line": "秋田[あきた]の ふぶきを うけてみよ！ 久保田城[くぼたじょう]は おとせぬ！"
+    }
+  ]
+}

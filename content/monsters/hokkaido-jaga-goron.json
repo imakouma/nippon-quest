@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-jaga-goron",
+  "name": "ジャガゴロン",
+  "area": "hokkaido",
+  "motifId": "tokachi-jagaimo",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 45,
+    "mp": 6,
+    "atk": 10,
+    "def": 8,
+    "spd": 5,
+    "wis": 4
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.6
+  },
+  "skills": ["sk-suna-kabe", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "hokkaido-jagaimo-taneimo",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 13,
+  "spriteKey": "mon.hokkaido-jaga-goron",
+  "evolution": {
+    "to": "hokkaido-jaga-dodon",
+    "item": "hokkaido-jagaimo-taneimo"
+  },
+  "dexBlurb": "十勝[とかち]の 畑[はたけ]で ごろごろ ころがる じゃがいもの モンスター。じゃがいもは、土[つち]の 中[なか]で くきの 先[さき]が ふくらんで できる。"
+}

@@ -1,0 +1,289 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "ishikawa",
+  "name": "石川県[いしかわけん]",
+  "island": "hokuriku",
+  "capital": "金沢市[かなざわし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "ishikawa-field",
+    "town": "ishikawa-town",
+    "dungeon": "ishikawa-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kenrokuen",
+      "name": "兼六園[けんろくえん]",
+      "kind": "landmark",
+      "imageKey": "motif.ishikawa.kenrokuen",
+      "blurb": "金沢[かなざわ]に ある 大[おお]きな 庭園[ていえん]。冬[ふゆ]は 雪[ゆき]から 木[き]を まもる「雪[ゆき]つり」が 見[み]られる。"
+    },
+    {
+      "id": "shiroyone-senmaida",
+      "name": "白米千枚田[しろよねせんまいだ]",
+      "kind": "nature",
+      "imageKey": "motif.ishikawa.shiroyone-senmaida",
+      "blurb": "輪島市[わじまし]の 海[うみ]ぞいの しゃめんに、小[ちい]さな 田[た]んぼが 1000まい ほど ならぶ。"
+    },
+    {
+      "id": "chirihama",
+      "name": "千里浜[ちりはま]",
+      "kind": "nature",
+      "imageKey": "motif.ishikawa.chirihama",
+      "blurb": "車[くるま]で 走[はし]れる めずらしい 砂浜[すなはま]。すなが こまかくて かたく しまっている。"
+    },
+    {
+      "id": "hakusan",
+      "name": "白山[はくさん]",
+      "kind": "nature",
+      "imageKey": "motif.ishikawa.hakusan",
+      "blurb": "石川県[いしかわけん]と 岐阜県[ぎふけん]の さかいに ある 高[たか]い 山[やま]。夏[なつ]も 雪[ゆき]が のこり、高山植物[こうざんしょくぶつ]が さく。"
+    },
+    {
+      "id": "kiriko-matsuri",
+      "name": "能登[のと]の キリコ祭[まつ]り",
+      "kind": "festival",
+      "imageKey": "motif.ishikawa.kiriko-matsuri",
+      "blurb": "夏[なつ]から 秋[あき]に、大[おお]きな あかりの 山車[だし]「キリコ」を かついで 町[まち]を ねり歩[ある]く お祭[まつ]り。"
+    },
+    {
+      "id": "wajimanuri",
+      "name": "輪島塗[わじまぬり]",
+      "kind": "craft",
+      "imageKey": "motif.ishikawa.wajimanuri",
+      "blurb": "輪島市[わじまし]で 作[つく]られる、何回[なんかい]も うるしを ぬり重[かさ]ねた じょうぶな ぬりもの。"
+    },
+    {
+      "id": "suzu-shio",
+      "name": "珠洲[すず]の 塩[しお]",
+      "kind": "food",
+      "imageKey": "motif.ishikawa.suzu-shio",
+      "blurb": "珠洲市[すずし]では、海[うみ]の 水[みず]を 砂[すな]の 上[うえ]に まいて 塩[しお]を 作[つく]る、むかしながらの 塩[しお]作[づく]りが のこる。"
+    },
+    {
+      "id": "kutaniyaki",
+      "name": "九谷焼[くたにやき]",
+      "kind": "craft",
+      "imageKey": "motif.ishikawa.kutaniyaki",
+      "blurb": "赤[あか]・黄[き]・緑[みどり]・紫[むらさき]・紺青[こんじょう]の あざやかな 色[いろ]で 絵[え]を かいた やきもの。"
+    },
+    {
+      "id": "kanazawa-kinpaku",
+      "name": "金沢[かなざわ]の 金箔[きんぱく]",
+      "kind": "craft",
+      "imageKey": "motif.ishikawa.kanazawa-kinpaku",
+      "blurb": "金[きん]を たたいて、紙[かみ]より うすく のばした もの。金沢[かなざわ]で ほとんどが 作[つく]られる。"
+    },
+    {
+      "id": "kano-gani",
+      "name": "加能[かのう]がに",
+      "kind": "food",
+      "imageKey": "motif.ishikawa.kano-gani",
+      "blurb": "冬[ふゆ]に 石川[いしかわ]の 海[うみ]で とれる、大[おお]きな ずわいがに。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "ishikawa-gosai-bon",
+          "weight": 30
+        },
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 30
+        },
+        {
+          "monsterId": "ishikawa-hamashion",
+          "weight": 25
+        },
+        {
+          "monsterId": "ishikawa-wajimanurin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 60
+        },
+        {
+          "monsterId": "ishikawa-gosai-bon",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 50
+        },
+        {
+          "monsterId": "ishikawa-gosai-bon",
+          "weight": 30
+        },
+        {
+          "monsterId": "ishikawa-wajimanurin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "ishikawa-gosai-bon",
+          "weight": 70
+        },
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "ishikawa-hamashion",
+          "weight": 75
+        },
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "ishikawa-gosai-bon",
+          "weight": 40
+        },
+        {
+          "monsterId": "ishikawa-hamashion",
+          "weight": 25
+        },
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 20
+        },
+        {
+          "monsterId": "ishikawa-wajimanurin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "ishikawa-boss-yukitsuri-oomatsu",
+  "midBoss": "ishikawa-midboss-kiriko-taisho",
+  "secret": {
+    "name": "金沢城[かなざわじょう]",
+    "boss": "ishikawa-lastboss-maeda-toshiie"
+  },
+  "events": [
+    {
+      "id": "ev-ishikawa-kenrokuen",
+      "motifId": "kenrokuen",
+      "trigger": {
+        "map": "ishikawa-field",
+        "objectName": "event_ishikawa_kenrokuen"
+      },
+      "once": true,
+      "cutinImageKey": "motif.ishikawa.kenrokuen",
+      "dialogue": [
+        {
+          "speaker": "兼六園[けんろくえん]の 庭師[にわし]さん",
+          "text": "ここは 兼六園[けんろくえん]。日本[にほん]を 代表[だいひょう]する 庭[にわ]の ひとつだよ。いっしょに しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:ishikawa"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "兼六園[けんろくえん]の 庭師[にわし]さん",
+          "text": "よく できたね！ 冬[ふゆ]の 雪[ゆき]つりは、松[まつ]の えだを 雪[ゆき]の おもさから まもるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "金沢市[かなざわし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-ishikawa-shop",
+        "name": "金箔[きんぱく]屋[や]の おねえさん",
+        "spriteKey": "char.npc-ishikawa-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 日本[にほん]の 金箔[きんぱく]は、ほとんどが ここ 金沢[かなざわ]で 作[つく]られて いるのよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-ishikawa-smith",
+        "name": "輪島塗[わじまぬり]の 職人[しょくにん]",
+        "spriteKey": "char.npc-ishikawa-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "輪島塗[わじまぬり]は、うるしを 何回[なんかい]も ぬり重[かさ]ねるから、とても じょうぶなんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

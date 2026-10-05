@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tottori-boss-sakyu-majin",
+  "name": "サキュウマジン",
+  "area": "tottori",
+  "motifId": "tottori-sakyu",
+  "element": "tsuchi",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 426,
+    "mp": 56,
+    "atk": 24,
+    "def": 18,
+    "spd": 8,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "tottori-nashi-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "tottori-shinkai-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "tottori-shodo-no-fude",
+      "rate": 1
+    },
+    {
+      "itemId": "tottori-rakkyo-no-tane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 281,
+  "gold": 332,
+  "spriteKey": "mon.tottori-boss-sakyu-majin",
+  "dexBlurb": "鳥取砂丘[とっとりさきゅう]の 砂[すな]から 生[う]まれた 大[おお]きな マジン。砂丘[さきゅう]には「馬[うま]の 背[せ]」と よばれる、とても 高[たか]い 砂[すな]の おかが ある。",
+  "fieldLine": "ザザザ…。砂[すな]の 海[うみ]に 足[あし]を ふみいれたのは だれだ！ ためして やろう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "kaze",
+      "skills": [
+        "sk-habataki",
+        "sk-kuku-rush"
+      ],
+      "line": "ビュオオオ！ 砂[すな]の 海[うみ]を まるごと まきあげてやる！"
+    }
+  ]
+}

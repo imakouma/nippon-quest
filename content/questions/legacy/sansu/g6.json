@@ -1,0 +1,5060 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-1.008adb6409d6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の正多角形の中から、点対称な図形の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6つの図形全て"
+        },
+        {
+          "id": "c2",
+          "text": "正四角形、正六角形、正八角形"
+        },
+        {
+          "id": "c3",
+          "text": "正四角形、正六角形、正七角形、正八角形"
+        },
+        {
+          "id": "c4",
+          "text": "正四角形、正五角形、正六角形、正八角形"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/157a69770fb1c7d8.png"
+    },
+    "explanation": "ある点を中心に 180°回転させたとき、ぴったり重なる図形を、「点対称」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.064f0be02d26",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "線対称な図形の性質について、次の文のかっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "垂直・等しく"
+        },
+        {
+          "id": "c2",
+          "text": "こと"
+        },
+        {
+          "id": "c3",
+          "text": "平行"
+        },
+        {
+          "id": "c4",
+          "text": "対称"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "対応する２つの点を結ぶ直線は、対称の軸と （垂直） に交わる。その交わる点から、対応する２つの点までの長さは、（等しく） なる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.146ac196a443",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "線対称な図形で、折り目となる直線のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対称の軸"
+        },
+        {
+          "id": "c2",
+          "text": "対称の線"
+        },
+        {
+          "id": "c3",
+          "text": "対称の点"
+        },
+        {
+          "id": "c4",
+          "text": "対称の中心"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "線対称な図形で、折り目となる直線のことを、「対称の軸じく」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.23d3e3b20e6c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の線対称な図形において、点Bと対応する点をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "点A"
+        },
+        {
+          "id": "c2",
+          "text": "点C"
+        },
+        {
+          "id": "c3",
+          "text": "点D"
+        },
+        {
+          "id": "c4",
+          "text": "点E"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/81fd1efb49cbbf27.png"
+    },
+    "explanation": "「対応する点」とは、対称の軸で折ったときに、ぴったり重なる点のこと。 点Bは、点Eと重なるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.30223149f877",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のアルファベットの中から、点対称な図形の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "S, Z"
+        },
+        {
+          "id": "c2",
+          "text": "E, U"
+        },
+        {
+          "id": "c3",
+          "text": "L, Z"
+        },
+        {
+          "id": "c4",
+          "text": "P, S"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f2f8ea37bc31a996.png"
+    },
+    "explanation": "ある点を中心に 180°回転させたとき、ぴったり重なる図形を、「点対称」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.4098b29b97d3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のアルファベットの中から、点対称な図形の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "N, O"
+        },
+        {
+          "id": "c2",
+          "text": "A, M"
+        },
+        {
+          "id": "c3",
+          "text": "F, R"
+        },
+        {
+          "id": "c4",
+          "text": "M, O"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2e12a9d5d37e3894.png"
+    },
+    "explanation": "ある点を中心に 180°回転させたとき、ぴったり重なる図形を、「点対称」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.475962ee0c94",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の四角形には対称の軸が何本あるでしょう。下の表の□に当てはまる数をうめよう。ただし、線対称でない場合には０を書こう。",
+      "answers": [
+        "0",
+        "2",
+        "2",
+        "4"
+      ],
+      "template": "対称の軸 平行四辺形 {{INPUT}} ひし形 {{INPUT}} 長方形 {{INPUT}} 正方形 {{INPUT}}",
+      "promptImage": "questions/legacy/8874dbfb6ab23db4.png"
+    },
+    "explanation": "線対称な図形で、折り目となる直線のことを、「対称の軸」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.4f049dee0979",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のアルファベットの中から、線対称な図形の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "E, U"
+        },
+        {
+          "id": "c2",
+          "text": "L, S"
+        },
+        {
+          "id": "c3",
+          "text": "L, Z"
+        },
+        {
+          "id": "c4",
+          "text": "E, P"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f2f8ea37bc31a996.png"
+    },
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形を、「線せん対称たいしょう」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.4f3247deb13b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の正多角形には対称の軸が何本あるでしょう。下の表の□に当てはまる数をうめよう。ただし、線対称でない場合には０を書こう。",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "template": "対称の軸 正三角形 {{INPUT}} 正方形 {{INPUT}} 正五角形 {{INPUT}} 正六角形 {{INPUT}}",
+      "promptImage": "questions/legacy/a4d2497d9fa5f326.png"
+    },
+    "explanation": "線対称な図形で、折り目となる直線のことを、「対称の軸」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.5c7bc62997cc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "点対称な図形の性質について、次の文のかっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対称の中心・等しく"
+        },
+        {
+          "id": "c2",
+          "text": "図の中心"
+        },
+        {
+          "id": "c3",
+          "text": "２倍に"
+        },
+        {
+          "id": "c4",
+          "text": "こと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "対応する２つの点を結ぶ直線は、（対称の中心） を通る。そこから、対応する２つの点までの長さは、（等しく） なる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.5de930abf5df",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある点を中心に 180°回転させたとき、ぴったり重なる図形を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "線対称"
+        },
+        {
+          "id": "c2",
+          "text": "点対称"
+        },
+        {
+          "id": "c3",
+          "text": "展開図"
+        },
+        {
+          "id": "c4",
+          "text": "見取図"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ある点を中心に 180°回転させたとき、ぴったり重なる図形を、「点対称」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.628778091ecb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "線対称"
+        },
+        {
+          "id": "c2",
+          "text": "点対称"
+        },
+        {
+          "id": "c3",
+          "text": "展開図"
+        },
+        {
+          "id": "c4",
+          "text": "見取図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形を、「線せん対称たいしょう」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.6452a798c984",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の点対称な図形において、点Aと対応する点をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "点F"
+        },
+        {
+          "id": "c2",
+          "text": "点E"
+        },
+        {
+          "id": "c3",
+          "text": "点B"
+        },
+        {
+          "id": "c4",
+          "text": "点G"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2c933078254927a9.png"
+    },
+    "explanation": "「対応する点」とは、対称の中で回転させたときに、ぴったり重なる点のこと。 点Aは、点Fと重なるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.7b43764bb9a2",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "点対称な図形で、回転の中心となる点のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対称の軸"
+        },
+        {
+          "id": "c2",
+          "text": "対称の線"
+        },
+        {
+          "id": "c3",
+          "text": "対称の点"
+        },
+        {
+          "id": "c4",
+          "text": "対称の中心"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "点対称な図形で、回転の中心となる点のことを、「対称の中心」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.e138da301bd3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のアルファベットの中から、線対称な図形の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A, M, O"
+        },
+        {
+          "id": "c2",
+          "text": "M, N, O"
+        },
+        {
+          "id": "c3",
+          "text": "A, F, R"
+        },
+        {
+          "id": "c4",
+          "text": "F, N, R"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2e12a9d5d37e3894.png"
+    },
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形を、「線せん対称たいしょう」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.e71e9c63b60e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の線対称な図形において、点Bと対応する点をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "点J"
+        },
+        {
+          "id": "c2",
+          "text": "点C"
+        },
+        {
+          "id": "c3",
+          "text": "点I"
+        },
+        {
+          "id": "c4",
+          "text": "点K"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/173127d3dd8de61d.png"
+    },
+    "explanation": "「対応する点」とは、対称の軸で折ったときに、ぴったり重なる点のこと。 点Bは、点Jと重なるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.01fa32a5ca71",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まさしさん、さおりさん、みくさんの３人でチームをつくって、リレーにでます。３人の走る順番は、全部で何通りあるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/3d5a9c9dba9842f3.png"
+    },
+    "explanation": "「１番目が まさしさん、２番目が さおりさん、３番目が…」というように、すべての場合を数えていくと、全部で 6通りになるね。下のような図をかくと、わかりやすい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.0d62b6f25ffb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10円玉を 4回投げて、表が出るか、裏が出るかを調べます。4回の表と裏の出方は、何通りありますか。",
+      "answers": [
+        "16"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/418e4fc84fcf5071.png"
+    },
+    "explanation": "1回ごとに、表が出る場合、と裏が出る場合がある。それを４回くりかえすので、すべての場合は、下の表のようになる。全部で 16通りだね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.15d68311fec9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まさしさん、さおりさん、みくさんの３人から、応援団長と副応援団長をえらびます。えらび方は、全部で何通りあるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "「応援団長が まさしさん、副応援団長が さおりさんのとき」、「応援団長が まさしさん、副応援団長が みくさんのとき」と順番に、すべての場合を考えていこう。 そうすると（応援団長、副団長）の組み合わせは、（まさし、さおり）、（まさし、みく）、（さおり、まさし）、（さおり、みく）、（みく、まさし）、（みく、さおり）の６通り。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.279fa37becfc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0、１、２の数字がかかれた３枚のカードを並びかえて、３けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "０のカードが最初に来てしまうと、たとえば 012 というように、正しい３けたの数をつくることができない。注意しながらすべてを数えると、102, 120, 201, 210 の４つの数になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.2d3b81618e56",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10円玉を 3回投げて、表が出るか、裏が出るかを調べます。3回の表と裏の出方は、何通りありますか。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/a16c3cee97897ed8.png"
+    },
+    "explanation": "1回ごとに、表が出る場合と裏が出る場合がある。それを３回くりかえすので、すべての場合は、下の表のようになる。全部で 8通りだね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.2eae84cc0e0e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "5人の中から、買い物に行く人を3人えらびます。えらび方は、何通りありますか。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "５人を区別できるように、名前をつけてあげよう。アルファベットで、A, B, C, D, E とつけると、そこから ３人のえらび方は、次の１０通り。 （A, B, C）、（A, B, D）、（A, B, E）、（A, C, D）、（A, C, E）、（A, D, E）、（B, C, D）、（B, C, E）、（B, D, E）、（C, D, E）"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.3f15467abb6e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10円玉を 5回投げて、表が出るか、裏が出るかを調べます。5回の表と裏の出方は、何通りありますか。",
+      "answers": [
+        "32"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/f00c6f80df6b8bfd.png"
+    },
+    "explanation": "1回ごとに、表が出る場合、と裏が出る場合がある。それを５回くりかえすので、すべての場合は、下の表のようになる。全部で 32通りだね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.4b5863b0b571",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "０、１、２の数字がかかれた３枚のカードから ２枚をえらんで、２けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "０のカードをえらぶときには、注意が必要。たとえば、０と１のカードをえらぶと、10 という２けたの数はつくれても、01は数にはなっていない。注意しながらすべてを数えると、10, 12, 20, 21 の４つの数になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.50e7977387d5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "班の 6人の中から、ろうかそうじする人を 2人えらびます。えらび方は、何通りありますか。",
+      "answers": [
+        "15"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "６人を区別できるように、名前をつけてあげよう。アルファベットで、A, B, C, D, E, Fとつけると、そこから２人のえらび方は、次の１５通り。 （A, B）、（A, C）、（A, D）、（A, E）、（A, F）、（B, C）、（B, D）、（B, E）、（B, F）、（C, D）、（C, E）、（C, F）、（D, E）、（D, F）、（E, F）"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.5f61c045a6e7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１から６の数字が書かれた 6枚 のカードがあります。この中から3枚をえらぶとき、全部で何通りの組み合わせがありますか。",
+      "answers": [
+        "20"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/b0b396f283f6ee18.png"
+    },
+    "explanation": "１から６の数字を横に並べて、表を書いてみよう。全部で 20通りになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.65033030f83c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0、１、２、３の数字がかかれた４枚のカードを並びかえて、３けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "18"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "０のカードが最初に来てしまうと、たとえば 012 というように、正しい３けたの数をつくることができない。注意しながらすべてを数えると、102, 103, 120, 123, 130, 132, 201, 203, 210, 213, 230, 231, 301, 302, 310, 312, 320, 321 の18この数になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.69d6b8bdb13a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１、２、３の数字がかかれた３枚のカードから ２枚をえらんで、２けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "たとえば、１と２のカードをえらぶと、12 と 21 の２個の数をつくることができる。これをすべて数えると、 12, 13, 21, 23, 31, 32 の６つの数をつくることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.8fdd4aae9d85",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１、２、３の数字がかかれた３枚のカードを並びかえて、３けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "３枚すべてのカードを使う。123, 132, …と小さい方から順番に数えてみよう。 123, 132, 213, 231, 312, 321 と６つの数をつくることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.958a9f8c669a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "４人でチームをつくって、リレーにでます。４人の走る順番は、全部で何通りあるでしょう。",
+      "answers": [
+        "24"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/ec031d6f54122283.png"
+    },
+    "explanation": "４人を区別できるように、A, B, C, Dと名前をつけてあげよう。「１番目が Aさん、２番目が Bさん、３番目が Cさん、４番目が…」というように、すべての場合を数えていくと、全部で 24通りになるね。下のような図をかくと、わかりやすい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.c650311e4bd3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１から６の数字が書かれた 6枚 のカードがあります。この中から2枚をえらぶとき、全部で何通りの組み合わせがありますか。",
+      "answers": [
+        "15"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/ef0302b6666a277d.png"
+    },
+    "explanation": "１から６の数字を横に並べて、表を書いてみよう。全部で 15通りになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.ccbe613d231c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まさしさん、さおりさん、みくさん、ゆうたさんの４人から、図書委員 と 放送委員 と 体育委員をえらびます。えらび方は、全部で何通りあるでしょう。",
+      "answers": [
+        "24"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "「図書委員が まさしさん、放送委員が さおりさん、体育委員がみくさんのとき」、「図書委員が まさしさん、放送委員が さおりさん、体育委員がゆうたさんのとき」と順番に、すべての場合を考えていこう。 そうすると（図書委員、放送委員、体育委員）の組み合わせは、 （まさし、さおり、みく）、（まさし、さおり、ゆうた）、（まさし、みく、さおり）、（まさし、みく、ゆうた）（まさし、ゆうた、みく）、（まさし、ゆうた、みく）、 （さおり、まさし、みく）、（さおり、まさし、ゆうた）、（さおり、みく、まさし）、（さおり、みく、ゆうた）、（さおり、ゆうた、まさし）、（さおり、ゆうた、みく）、 （みく、まさし、さおり）、（みく、まさし、ゆうた）、（みく、さおり、まさし）、（みく、さおり、ゆうた）、（みく、ゆうた、まさし）、（みく、ゆうた、さおり）、 （ゆうた、まさし、さおり）、（ゆうた、まさし、みく）、（ゆうた、さおり、まさし）、（ゆうた、さおり、みく）、（ゆうた、みく、まさし）、（ゆうた、みく、さおり）、 の24通り。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.d168cfd846b3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まさしさん、さおりさん、みくさん、ゆうたさんの４人から、班長 と 副班長 をえらびます。えらび方は、全部で何通りあるでしょう。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "「班長が まさしさん、副班長が さおりさんのとき」、「班長が まさしさん、副班長が ゆうたさんのとき」と順番に、すべての場合を考えていこう。 そうすると（班長、副班長）の組み合わせは、 （まさし、さおり）、（まさし、みく）、（まさし、ゆうた） （さおり、まさし）、（さおり、みく）、（さおり、ゆうた） （みく、まさし）、（みく、さおり）、（みく、ゆうた） （ゆうた、まさし）、（ゆうた、さおり）、（ゆうた、みく） の12通り。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.d5b48ad1615a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "班の 4人の中から、うさぎの世話をする人を 3人えらびます。えらび方は、何通りありますか。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "４人を区別できるように、名前をつけてあげよう。アルファベットで、A, B, C, Dとつけると、そこから ３人のえらび方は、次の４通り。 （A, B, C）、（A, C, D）、（A, B, D）、（B, C, D）"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.d7df9e926bdb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "２人でじゃんけんをするとき、手の出し方は、全部で何通りありますか。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/be43c8cc8a66c915.png"
+    },
+    "explanation": "２人を区別できるように、A, Bと名前をつけてあげよう。「Aさんがグーのとき、Bさんが…」というように、すべての場合を数えていくと、全部で 9 通りになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.fba7c48744f8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "赤、青、緑、黄、桃色のついた 5枚のカードがあります。ここから、3枚のカードをえらぶとき、全部で何通りの組み合わせがありますか。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/dd88f1196019a7cb.png"
+    },
+    "explanation": "５つの色を横に並べて、表を書いてみよう。全部で 10通りになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.07e97bce5691",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つ50円で仕入れたリンゴを、70円で売ります。売る個数をx個、利益をy円として、xとyの関係を表す式をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=70×x-50×x"
+        },
+        {
+          "id": "c2",
+          "text": "y=70×x-50"
+        },
+        {
+          "id": "c3",
+          "text": "y=120×x"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "１つ50円で x個のリンゴを仕入れると、50×x円。これを１つ70円で売ると、売り上げは 70×x円になる。利益は、この２つの差になるので y=70×x-50×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.11262ad23077",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=80×x について、x=10 のときの yの値を求めましょう。",
+      "answers": [
+        "800"
+      ],
+      "template": "y={{INPUT}}"
+    },
+    "explanation": "y=80×x の x に、10をあてはめて計算してみよう。 y=80×10=800"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.1b47a5379c91",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が xcm の正方形があります。このとき、下の式は何を表しているでしょう。次の中からえらぼう。 x×4",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正方形のまわりの長さ"
+        },
+        {
+          "id": "c2",
+          "text": "正方形の面積"
+        },
+        {
+          "id": "c3",
+          "text": "正方形の対角線の長さ"
+        },
+        {
+          "id": "c4",
+          "text": "正方形４つ分の面積"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "実際に正方形をかいて考えてみよう。x×4 は、辺４つ分の長さになるので、正方形のまわりの長さになる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.205f930fa115",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=x×0.8 について、y=1200 のときの xの値を求めましょう。 x=",
+      "answers": [
+        "1500"
+      ],
+      "template": "y=x×0.8 について、y=1200 のときの xの値を求めましょう。 x={{INPUT}}"
+    },
+    "explanation": "y=x×0.8 の y に、1200をあてはめて計算してみよう。 1200=x×0.8 x=1200÷0.8 x=1500"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.28b68745535e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1000円を持って買い物に行き、x円のものを買いました。残ったお金を y円として、xとyの関係を式にしたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=1000-x"
+        },
+        {
+          "id": "c2",
+          "text": "x=y-1000"
+        },
+        {
+          "id": "c3",
+          "text": "y=1000+x"
+        },
+        {
+          "id": "c4",
+          "text": "x=1000+y"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "100円のものを買うと 1000-100、200円のものを買うと 1000-200になる。これと同じように考えて、x円のものを買うと、1000-xになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.504739e422c6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "24個のあめを、x人で分けます。１人分のあめの個数を y個として、xとyの関係を式にしたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=24÷x"
+        },
+        {
+          "id": "c2",
+          "text": "y=24×x"
+        },
+        {
+          "id": "c3",
+          "text": "y=24+x"
+        },
+        {
+          "id": "c4",
+          "text": "x=24-x"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "2人で分けると 24÷2、3人で分けると 24÷3になる。これと同じように考えて、x人で分けると、24÷xになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.76886e123974",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が xcm の正方形があります。このとき、下の式は何を表しているでしょう。次の中からえらぼう。 x×x",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正方形のまわりの長さ"
+        },
+        {
+          "id": "c2",
+          "text": "正方形の面積"
+        },
+        {
+          "id": "c3",
+          "text": "正方形の対角線の長さ"
+        },
+        {
+          "id": "c4",
+          "text": "この中にはない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "実際に正方形をかいて考えてみよう。x×x は、１辺×１辺を表すので、正方形の面積になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.8a233ebb05dc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つ 80円のりんごを、x個買いました。代金を y円として、xとyの関係を式にしたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "x=80×y"
+        },
+        {
+          "id": "c2",
+          "text": "y=80×x"
+        },
+        {
+          "id": "c3",
+          "text": "y=80+y"
+        },
+        {
+          "id": "c4",
+          "text": "x=80-y"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "80円のりんごを2つ買うと 80×2、3つ買うと 80×3になる。これと同じように考えて、80円のりんごをx個買うと、80×xになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.949a471a08b3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=80×x について、x=5 のときの yの値を求めましょう。",
+      "answers": [
+        "400"
+      ],
+      "template": "y={{INPUT}}"
+    },
+    "explanation": "y=80×x の x に、5をあてはめて計算してみよう。 y=80×5=400"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.a429c49d33b0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の台形の面積を、式にしたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(3+a)×4"
+        },
+        {
+          "id": "c2",
+          "text": "(3×a)×8÷2"
+        },
+        {
+          "id": "c3",
+          "text": "(3+a)×8×2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b0fa8dc58ddc716a.png"
+    },
+    "explanation": "台形の面積は、「(上底+下底)×高さ÷2」で求めることができるので、この公式にそのまま数字や文字を当てはめればいい。 (3+a)×8÷2=(3+a)×4"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.ab3414ab62a0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=80×x について、y=1200 のときの xの値を求めましょう。 x=",
+      "answers": [
+        "15"
+      ],
+      "template": "y=80×x について、y=1200 のときの xの値を求めましょう。 x={{INPUT}}"
+    },
+    "explanation": "y=80×x の y に、1200をあてはめて計算してみよう。 1200=80×x x=1200÷80 x=15"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.b1bfa96e3f73",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=70×x-50×x について、x=100 のときの yの値を求めましょう。 y=",
+      "answers": [
+        "2000"
+      ],
+      "template": "y=70×x-50×x について、x=100 のときの yの値を求めましょう。 y={{INPUT}}"
+    },
+    "explanation": "y=70×x-50×x の x に、100をあてはめて計算してみよう。 y=70×100-50×100=7000-5000=2000"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.b8c86c695bd7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の三角形の面積を、式にしましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "a×4"
+        },
+        {
+          "id": "c2",
+          "text": "a×8"
+        },
+        {
+          "id": "c3",
+          "text": "(a+8)÷2"
+        },
+        {
+          "id": "c4",
+          "text": "4"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/694c764c99e62e7c.png"
+    },
+    "explanation": "三角形の面積は、「底辺×高さ÷2」で求めることができるので、この公式にそのまま数字や文字を当てはめればいい。 a×8÷2=a×4"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.dc9abb303caf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "x円で買った服を、買った値段から ２割引いて、インターネットで売ろうと思います。このときの売値を y 円として、xとyの関係を表す式をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=x×0.8"
+        },
+        {
+          "id": "c2",
+          "text": "y=x×8"
+        },
+        {
+          "id": "c3",
+          "text": "y=x×0.2"
+        },
+        {
+          "id": "c4",
+          "text": "y=x×12"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「２割引」で売るとは、全体の８割の値段で売るということなので、0.8を元の値段にかければいい。 y=x×0.8"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.1e40bc4dec54",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/2×1/4 =",
+      "answers": [
+        "1,8"
+      ]
+    },
+    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。 \\dfrac{1}{2}×\\dfrac{1}{4}=\\dfrac{1}{8}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.22ce312d446f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "底辺が 1/3 cm、高さが 2/5 cm の平行四辺形の面積を求めよう。",
+      "answers": [
+        "2,15"
+      ]
+    },
+    "explanation": "平行四辺形の面積は、「底辺×高さ」で求めることができたね。 \\dfrac{1}{3}×\\dfrac{2}{5}=\\dfrac{2}{15}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.2911de821182",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5/6×4 =",
+      "answers": [
+        "10,3"
+      ]
+    },
+    "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{5}{6}×4=\\dfrac{5×\\bcancel{4}2}{\\bcancel{6}3}=\\dfrac{10}{3}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.34776e601258",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "縦が 6/7 cm、横が 2/9 cm の長方形の面積を求めよう。",
+      "answers": [
+        "4,21"
+      ]
+    },
+    "explanation": "長方形の面積は、「縦×横」で求めることができたね。 \\require{cancel} \\dfrac{6}{7}×\\dfrac{2}{9}=\\dfrac{\\bcancel{6}2}{7}×\\dfrac{2}{\\bcancel{9}3}=\\dfrac{4}{21}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.350742bfbbc4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 21/2×13/4 =",
+      "answers": [
+        "35,8"
+      ]
+    },
+    "explanation": "帯分数のままでは、かけ算することができない。仮分数に直してから計算しよう。 \\require{cancel} 2\\dfrac{1}{2}×1\\dfrac{3}{4}=\\dfrac{5}{2}×\\dfrac{7}{4}=\\dfrac{35}{8}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.4b0aeb8bd013",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2/3×4/5 =",
+      "answers": [
+        "8,15"
+      ]
+    },
+    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。 \\dfrac{2}{3}×\\dfrac{4}{5}=\\dfrac{8}{15}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.4f3f00f1f4e1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/2×2/3×6/7 =",
+      "answers": [
+        "2,7"
+      ]
+    },
+    "explanation": "３つ以上をかけるときでも、やり方は変わらない。分母は分母どうし、分子は分子どうしかければいい。 \\require{cancel} \\dfrac{1}{2}×\\dfrac{2}{3}×\\dfrac{6}{7}=\\dfrac{1}{\\bcancel{2}1}×\\dfrac{\\bcancel{2}1}{\\bcancel{3}1}×\\dfrac{\\bcancel{6}2}{7}=\\dfrac{2}{7}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.59343703e0ea",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "縦が 8/3 cm、横が 9/25 cm、高さが 5/16 cm の直方体の体積を求めよう。",
+      "answers": [
+        "3,10"
+      ]
+    },
+    "explanation": "直方体の体積は、「縦×横×高さ」で求めることができたね。 \\require{cancel} \\dfrac{8}{3}×\\dfrac{9}{25}×\\dfrac{5}{16}=\\dfrac{\\bcancel{8}1}{\\bcancel{3}1}×\\dfrac{\\bcancel{9}3}{\\bcancel{25}5}×\\dfrac{\\bcancel{5}1}{\\bcancel{16}2}=\\dfrac{3}{10}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.6a29ee48837e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/3×2 =",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。 \\dfrac{1}{3}×2=\\dfrac{1×2}{3}=\\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.6d8e2bb16cb0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 6/11×11/18 =",
+      "answers": [
+        "1,3"
+      ]
+    },
+    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{6}{11}×\\dfrac{11}{18}=\\dfrac{\\bcancel{6}1×\\bcancel{11}1}{\\bcancel{11}1×\\bcancel{18}3}=\\dfrac{1}{3}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.71796e892f2b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "10"
+      ],
+      "template": "2\\dfrac{4}{5} × 3\\dfrac{4}{7} = {{INPUT}}"
+    },
+    "explanation": "帯分数のままでは、かけ算することができない。仮分数に直してから計算しよう。 \\require{cancel} 2\\dfrac{4}{5}×3\\dfrac{4}{7}=\\dfrac{\\bcancel{14}2}{\\bcancel{5}1}×\\dfrac{\\bcancel{25}5}{\\bcancel{7}1}=\\dfrac{10}{1}=10"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.86fc256feccc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "1"
+      ],
+      "template": "1\\dfrac{1}{4} × 8 × \\dfrac{1}{10} = {{INPUT}}"
+    },
+    "explanation": "３つ以上をかけるときでも、やり方は変わらない。分母は分母どうし、分子は分子どうしかければいい。 \\require{cancel} 1\\dfrac{1}{4}×8×\\dfrac{1}{10}=\\dfrac{5}{4}×\\dfrac{8}{1}×\\dfrac{1}{10}=\\dfrac{\\bcancel{5}1}{\\bcancel{4}1}×\\dfrac{\\bcancel{8}1}{1}×\\dfrac{1}{\\bcancel{10}1}=\\dfrac{1}{1}=1"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.8db0971fa074",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 10/7×7/12 =",
+      "answers": [
+        "5,6"
+      ]
+    },
+    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{10}{7}×\\dfrac{7}{12}=\\dfrac{\\bcancel{10}5}{\\bcancel{7}1}×\\dfrac{\\bcancel{7}1}{\\bcancel{12}6}=\\dfrac{5}{6}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.93498e7e14df",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4/5×1/2 =",
+      "answers": [
+        "2,5"
+      ]
+    },
+    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\dfrac{4}{5}×\\dfrac{1}{2}=\\dfrac{4}{10}=\\dfrac{2}{5}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.9b34c0cc97ee",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1辺が 2/3 cm の立方体の体積を求めよう。",
+      "answers": [
+        "8,27"
+      ]
+    },
+    "explanation": "立方体の体積は、「１辺×１辺×１辺」で求めることができたね。 \\dfrac{2}{3}×\\dfrac{2}{3}×\\dfrac{2}{3}=\\dfrac{8}{27}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.9e50035c8b6d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/2×3 =",
+      "answers": [
+        "3,2"
+      ]
+    },
+    "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。 \\dfrac{1}{2}×3=\\dfrac{3}{2}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.a676bbefc5aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 15/7×14/25 =",
+      "answers": [
+        "6,5"
+      ]
+    },
+    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{15}{7}×\\dfrac{14}{25}=\\dfrac{\\bcancel{15}3×\\bcancel{14}2}{\\bcancel{7}1×\\bcancel{25}5}=\\dfrac{6}{5}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.d88bef6ff10c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3/10×5 =",
+      "answers": [
+        "3,2"
+      ]
+    },
+    "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{3}{10}×5=\\dfrac{3×\\bcancel{5}1}{\\bcancel{10}2}=\\dfrac{3}{2}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.e26c0a21801b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8/9×3/4 =",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{8}{9}×\\dfrac{3}{4}=\\dfrac{\\bcancel{8}2}{\\bcancel{9}3}×\\dfrac{\\bcancel{3}1}{\\bcancel{4}1}=\\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-3.f715fcd54794",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "4"
+      ],
+      "template": "1\\dfrac{3}{7} × \\dfrac{3}{5} × 4\\dfrac{2}{3} = {{INPUT}}"
+    },
+    "explanation": "３つ以上をかけるときでも、やり方は変わらない。分母は分母どうし、分子は分子どうしかければいい。 \\require{cancel} 1\\dfrac{3}{7}×\\dfrac{3}{5}×4\\dfrac{2}{3}=\\dfrac{10}{7}×\\dfrac{3}{5}×\\dfrac{14}{3}=\\dfrac{\\bcancel{10}2}{\\bcancel{7}1}×\\dfrac{\\bcancel{3}1}{\\bcancel{5}1}×\\dfrac{\\bcancel{14}2}{\\bcancel{3}1}=\\dfrac{4}{1}=4"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.05cb6d155eb3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3/8÷3/4 =",
+      "answers": [
+        "1,2"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{3}{8}÷\\dfrac{3}{4}=\\dfrac{\\bcancel{3}1}{\\bcancel{8}2}×\\dfrac{\\bcancel{4}1}{\\bcancel{3}1}=\\dfrac{1}{2}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.16f378313dac",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/2÷2 =",
+      "answers": [
+        "1,4"
+      ]
+    },
+    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。 \\dfrac{1}{2}÷2=\\dfrac{1}{2×2}=\\dfrac{1}{4}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.1d72e231155c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で、正しく表そう。",
+      "answers": [
+        "15"
+      ],
+      "template": "\\dfrac{1}{4} 分（秒） {{INPUT}}秒",
+      "suffix": "秒"
+    },
+    "explanation": "分数で表された「分」を「秒」に直すときは、１分＝６０秒なので、60をかければいい。 \\dfrac{1}{4}×60=15秒 ２分＝60×2=120秒、３分＝60×3=180秒など、整数のときと同じように考えればいい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.1e510081ff3f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7/12÷5 =",
+      "answers": [
+        "7,60"
+      ]
+    },
+    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。 \\dfrac{7}{12}÷5=\\dfrac{7}{12×5}=\\dfrac{7}{60}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.2b4dd3693c57",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で、正しく表そう。",
+      "answers": [
+        "40"
+      ],
+      "template": "\\dfrac{2}{3} 時間（分） {{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "分数で表された「時間」を「分」に直すときは、１時間＝６０分なので、60をかければいい。 \\dfrac{2}{3}×60=40分 ２時間＝60×2=120分、３時間＝60×3=180分など、整数のときと同じように考えればいい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.3f37cc35e0f6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 17/8÷34/7÷7/16 =",
+      "answers": [
+        "6,5"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} 1\\dfrac{7}{8}÷3\\dfrac{4}{7}÷\\dfrac{7}{16}=\\dfrac{\\bcancel{15}3}{\\bcancel{8}1}×\\dfrac{\\bcancel{7}1}{\\bcancel{25}5}×\\dfrac{\\bcancel{16}2}{\\bcancel{7}1}=\\dfrac{6}{5}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.50ef96afb265",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "9"
+      ],
+      "template": "\\dfrac{5}{6} ÷ \\dfrac{2}{9} ÷ \\dfrac{5}{12} = {{INPUT}}"
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{5}{6}÷\\dfrac{2}{9}÷\\dfrac{5}{12}=\\dfrac{\\bcancel{5}1}{\\bcancel{6}1}×\\dfrac{9}{\\bcancel{2}1}×\\dfrac{\\bcancel{12}1}{\\bcancel{5}1}=9"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.60aaa7d61cf6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/6÷1/4 =",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{1}{6}÷\\dfrac{1}{4}=\\dfrac{1}{\\bcancel{6}3}×\\dfrac{\\bcancel{4}2}{1}=\\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.763c0aa897df",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1.1÷11/15×0.6 =",
+      "answers": [
+        "9,10"
+      ]
+    },
+    "explanation": "\\require{cancel} まずは 1.1と0.6を分数にしよう。1.1=1\\dfrac{1}{10}=\\dfrac{11}{10} となる。また、0.6=\\dfrac{6}{10}=\\dfrac{3}{5} になる。 1.1÷\\dfrac{11}{15}×0.6=\\dfrac{11}{10}÷\\dfrac{11}{15}×\\dfrac{3}{5}=\\dfrac{\\bcancel{11}1}{10}×\\dfrac{\\bcancel{15}3}{\\bcancel{11}1}×\\dfrac{3}{\\bcancel{5}1}=\\dfrac{9}{10}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.7af63ede6c3e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "answers": [
+        "1,4"
+      ]
+    },
+    "explanation": "１時間は ６０分なので、これを分母にし、１５分を分子にして分数をつくる。 \\dfrac{15}{60}=\\dfrac{1}{4} 時間"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.7dc9333fa16f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "2"
+      ],
+      "template": "\\dfrac{3}{5} ÷ 0.3 = {{INPUT}}"
+    },
+    "explanation": "\\require{cancel} まずは 0.3を分数にしよう。0.1=\\dfrac{1}{10} なので、0.3=\\dfrac{3}{10} になる。 \\dfrac{3}{5}÷0.3= \\dfrac{3}{5}÷\\dfrac{3}{10}=\\dfrac{\\bcancel{3}1}{\\bcancel{5}1}×\\dfrac{\\bcancel{10}2}{\\bcancel{3}1}=2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.9683fdb57e2f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2/5÷4 =",
+      "answers": [
+        "1,10"
+      ]
+    },
+    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{2}{5}÷4=\\dfrac{\\bcancel{2}1}{5×\\bcancel{4}2}=\\dfrac{1}{10}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.9d3dd713ec78",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3/4÷3 =",
+      "answers": [
+        "1,4"
+      ]
+    },
+    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{3}{4}÷3=\\dfrac{\\bcancel{3}1}{4×\\bcancel{3}1}=\\dfrac{1}{4}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.a67f18d54eb4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で、正しく表そう。",
+      "answers": [
+        "30"
+      ],
+      "template": "\\dfrac{1}{2} 時間（分） {{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "分数で表された「時間」を「分」に直すときは、１時間＝６０分なので、60をかければいい。 \\dfrac{1}{2}×60=30分 ２時間＝60×2=120分、３時間＝60×3=180分など、整数のときと同じように考えればいい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.b1f05e9a9a83",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7/8÷0.4×0.25 =",
+      "answers": [
+        "35,64"
+      ]
+    },
+    "explanation": "まずは 0.4と0.25を分数にしよう。0.1=\\dfrac{1}{10} なので、0.4=\\dfrac{4}{10}=\\dfrac{2}{5} になる。また、0.01=\\dfrac{1}{100}なので、0.25=\\dfrac{25}{100}=\\dfrac{1}{4}になる。 \\dfrac{7}{8}÷0.4×0.25=\\dfrac{7}{8}÷\\dfrac{2}{5}×\\dfrac{1}{4}=\\dfrac{7}{8}×\\dfrac{5}{2}×\\dfrac{1}{4}=\\dfrac{35}{64}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.b46ba27c2b46",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "answers": [
+        "1,6"
+      ]
+    },
+    "explanation": "１時間は ６０分なので、これを分母にし、１０分を分子にして分数をつくる。 \\dfrac{10}{60}=\\dfrac{1}{6} 時間"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.ba6d3d429270",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12/5÷21/10 =",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} 1\\dfrac{2}{5}÷2\\dfrac{1}{10}=\\dfrac{\\bcancel{7}1}{\\bcancel{5}1}×\\dfrac{\\bcancel{10}2}{\\bcancel{21}3}=\\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.c7e70d5bef36",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "answers": [
+        "2,5"
+      ]
+    },
+    "explanation": "１時間は ６０分なので、これを分母にし、２４分を分子にして分数をつくる。 \\dfrac{24}{60}=\\dfrac{2}{5} 時間"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.d7653c3482cc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7/10÷5/14 =",
+      "answers": [
+        "49,25"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{7}{10}÷\\dfrac{5}{14}=\\dfrac{7}{\\bcancel{10}5}×\\dfrac{\\bcancel{14}7}{5}=\\dfrac{49}{25}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.0003f834b146",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比の値を求めよう。",
+      "answers": [
+        "0.05"
+      ]
+    },
+    "explanation": "比の値は、「前の数が後ろの数の何倍になっているか」になる。A : B の比の値は、A÷B で求めることができるので、 0.3÷6=0.05"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.002de885a293",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比を簡単にしたものを書こう。",
+      "answers": [
+        "20",
+        "9"
+      ],
+      "template": "\\dfrac{5}{12} : \\dfrac{3}{16} = {{INPUT}} : {{INPUT}}"
+    },
+    "explanation": "分数の比を簡単にするときは、まず両方の数に 分母の最小公倍数をかけて、整数の比にしてから 簡単にしていく。 \\dfrac{5}{12} : \\dfrac{3}{16} = \\dfrac{5}{12}×48 : \\dfrac{3}{16}×48 = 20 : 9"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.0475b7014f1e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比の値を求めよう。",
+      "answers": [
+        "4"
+      ]
+    },
+    "explanation": "比の値は、「前の数が後ろの数の何倍になっているか」になる。A : B の比の値は、A÷B で求めることができるので、 40÷10=4"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.1578daec4d1a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比の□にあてはまる数を答えよう。",
+      "answers": [
+        "30"
+      ],
+      "template": "5 : 6 = 25 : {{INPUT}}"
+    },
+    "explanation": "5 : 6の 5に5をかけたら、25 : □の 25になるので、同じように 6にも5をかける。 5 : 6 = 5×5 : 5×6 = 25 : 30"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.1858b4ff752a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比の□にあてはまる数を答えよう。",
+      "answers": [
+        "12"
+      ],
+      "template": "3 : 11 = {{INPUT}} : 44",
+      "suffix": ": 44"
+    },
+    "explanation": "3 : 11の 11に4をかけたら、□ : 44の 44になるので、同じように 3にも4をかける。 3 : 11 = 3×4 : 11×4 = 12 : 44"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.2c2ebe308727",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比の値を求めよう。",
+      "answers": [
+        "3"
+      ]
+    },
+    "explanation": "比の値は、「前の数が後ろの数の何倍になっているか」になる。A : B の比の値は、A÷B で求めることができるので、 \\dfrac{1}{3}÷\\dfrac{1}{9}=\\dfrac{1}{3}×\\dfrac{9}{1}=3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.2ea0654cdecb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比を簡単にしたものを書こう。",
+      "answers": [
+        "3",
+        "2"
+      ],
+      "template": "\\dfrac{1}{2} : \\dfrac{1}{3} = {{INPUT}} : {{INPUT}}"
+    },
+    "explanation": "分数の比を簡単にするときは、まず両方の数に 分母の最小公倍数をかけて、整数の比にしてから 簡単にしていく。 \\dfrac{1}{2} : \\dfrac{1}{3} = \\dfrac{1}{2}×6 : \\dfrac{1}{3}×6 = 3 : 2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.4335f38bf005",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比の□にあてはまる数を答えよう。",
+      "answers": [
+        "3"
+      ],
+      "template": "9 : 27 = 1 : {{INPUT}}"
+    },
+    "explanation": "9 : 27の 9を9で割ったら、1 : □の 1になるので、同じように 27も9で割る。 9 : 27 = 9÷9 : 27÷9 = 1 :3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.53b644ac1706",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比の□にあてはまる数を答えよう。",
+      "answers": [
+        "2"
+      ],
+      "template": "14 : 49 = {{INPUT}} : 7",
+      "suffix": ": 7"
+    },
+    "explanation": "14 : 49の 49を7で割ったら、□ : 7の 7になるので、同じように 14も7で割る。 14 : 49 = 14÷2 : 49÷2 = 2 : 7"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.6a2c98a49876",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お母さんが、42このチョコレートを買いました。たくまさんは、弟と4:3の比でこれを分けることにしました。たくまさんはいくつチョコレートをもらうことになるでしょう。",
+      "answers": [
+        "24"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "42こを 4:3 に分けるということは、全体を(4+3)=7つに分けることになる。 そのうちの 4 に当たるのが たくまさんのもらうチョコレートになるので、 42×\\dfrac{4}{7} = 24こ"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.6b550af8178d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比と等しい比をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5 : 7"
+        },
+        {
+          "id": "c2",
+          "text": "3 : 7"
+        },
+        {
+          "id": "c3",
+          "text": "7 : 3"
+        },
+        {
+          "id": "c4",
+          "text": "30 : 63"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "比の数の両方に同じ数をかけたり、同じ数で割ったりしてできる比は、等しい比になる。 15 : 21 = 15÷3 : 21÷3 = 5 : 7"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.758e4869dd6b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比を簡単にしたものを書こう。",
+      "answers": [
+        "1",
+        "2"
+      ],
+      "template": "18 : 36 = {{INPUT}} : {{INPUT}}"
+    },
+    "explanation": "比の両方の数を、できるだけ大きい数（最大公約数）で割ってあげればいい。 18 : 36 = 1 : 2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.769fbfa86ead",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "す が40mL、サラダ油が 50mL あります。す と サラダ油の量の比として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "40 : 50"
+        },
+        {
+          "id": "c2",
+          "text": "40 : 90"
+        },
+        {
+          "id": "c3",
+          "text": "90 : 50"
+        },
+        {
+          "id": "c4",
+          "text": "40 : 10"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.84d190bf58bf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比と等しい比をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4 : 1"
+        },
+        {
+          "id": "c2",
+          "text": "34 : 8"
+        },
+        {
+          "id": "c3",
+          "text": "23 : 6"
+        },
+        {
+          "id": "c4",
+          "text": "7 : 3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "比の数の両方に同じ数をかけたり、同じ数で割ったりしてできる比は、等しい比になる。 68 : 17 = 68÷17 : 17÷17 = 4 : 1"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.94f6f8bbaba2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比を簡単にしたものを書こう。",
+      "answers": [
+        "1",
+        "4"
+      ],
+      "template": "3 : 12 = {{INPUT}} : {{INPUT}}"
+    },
+    "explanation": "比の両方の数を、できるだけ大きい数（最大公約数）で割ってあげればいい。 3 : 12 = 1 : 4"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.97ac545842e7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比と等しい比をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "80 : 100"
+        },
+        {
+          "id": "c2",
+          "text": "2 : 3"
+        },
+        {
+          "id": "c3",
+          "text": "10 : 15"
+        },
+        {
+          "id": "c4",
+          "text": "20 : 30"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "比の数の両方に同じ数をかけたり、同じ数で割ったりしてできる比は、等しい比になる。 40 : 50 = 40×2 : 50×2 = 80 : 100"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.a464db537a47",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たくとさんは、おばあちゃんから 600円のおこづかいをもらいました。たくとさんと弟が、2 : 1 ずつもらうよう分けると、弟のもらうおこづかいはいくらになるでしょう。",
+      "answers": [
+        "200"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "600円を 2:1 に分けるということは、全体を(2+1)=3つに分けることになる。 そのうちの 1 に当たるのが弟のもらうおこづかいになるので、 600×\\dfrac{1}{3} = 200円"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.c610a527fcd1",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比と等しい比をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2 : 5"
+        },
+        {
+          "id": "c2",
+          "text": "8 : 18"
+        },
+        {
+          "id": "c3",
+          "text": "1 : 3"
+        },
+        {
+          "id": "c4",
+          "text": "20 : 55"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "比の数の両方に同じ数をかけたり、同じ数で割ったりしてできる比は、等しい比になる。 4 : 10 = 4÷2 : 10÷2 = 2 : 5"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.cf985ceaff5c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比の□にあてはまる数を答えよう。",
+      "answers": [
+        "39"
+      ],
+      "template": "7 : 3 = 91 : {{INPUT}}"
+    },
+    "explanation": "7 : 3の 7に13をかけたら、91 : □の 91になるので、同じように 3にも13をかける。 7 : 3 = 7×13 : 3×13 = 91 : 39"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.d922419d4b88",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比を簡単にしたものを書こう。",
+      "answers": [
+        "1",
+        "6"
+      ],
+      "template": "0.25 : 1.5 = {{INPUT}} : {{INPUT}}"
+    },
+    "explanation": "小数の比を簡単にするときは、まず両方の数に 10や100 などをかけて、整数の比にしてから 簡単にしていく。 0.25 : 1.5 = 0.25×100 : 1.5×100 = 25 : 150 = 25÷25 : 150÷25 = 1 : 6"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.dba622af1fcf",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比を簡単にしたものを書こう。",
+      "answers": [
+        "35",
+        "6"
+      ],
+      "template": "\\dfrac{7}{8} : \\dfrac{3}{20} = {{INPUT}} : {{INPUT}}"
+    },
+    "explanation": "分数の比を簡単にするときは、まず両方の数に 分母の最小公倍数をかけて、整数の比にしてから 簡単にしていく。 \\dfrac{7}{8} : \\dfrac{3}{20} = \\dfrac{7}{8}×40 : \\dfrac{3}{20}×40 = 35 : 6"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.e87cd8d02e5b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の比を簡単にしたものを書こう。",
+      "answers": [
+        "4",
+        "5"
+      ],
+      "template": "1.2 : 1.5 = {{INPUT}} : {{INPUT}}"
+    },
+    "explanation": "小数の比を簡単にするときは、まず両方の数に 10や100 などをかけて、整数の比にしてから 簡単にしていく。 1.2 : 1.5 = 1.2×10 : 1.5×10 = 12 : 15 = 12÷3 : 15÷3 = 4 : 5"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.fcb5c51f270e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "すとサラダ油との比が、 4 : 5 になるようにドレッシングを作ります。サラダ油が 300mL のとき、すの量はいくらにすればいいでしょう。",
+      "answers": [
+        "240"
+      ],
+      "template": "{{INPUT}}mL",
+      "suffix": "mL"
+    },
+    "explanation": "すとサラダ油の比 4 : 5 と、実際の量の300mLを使って、□の入った 等しい比の式をつくろう。 4 : 5 = □ : 300 左の比に60かければいいので、4×60 : 5×60 = 240 : 300"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-5.fe2efb3616ea",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "サッカーのコートは、縦と横の長さの比が、およそ 4 : 3 になっています。縦の長さが 100m のとき、横の長さはいくらにすればいいでしょう。",
+      "answers": [
+        "75"
+      ],
+      "template": "{{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "縦と横の長さの比 4 : 3 と、実際の長さの100mを使って、□の入った 等しい比の式をつくろう。 4 : 3 = 100 : □ 左の比に25かければいいので、4×25 : 3×25 = 100 : 75"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.049176cc2663",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "２万５千分の１の地図上で 0.5cm の長さは、実際何 m か求めよう。",
+      "answers": [
+        "125"
+      ],
+      "template": "{{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "２万５千分の１の地図上で 0.5cm の長さは、 0.5×25000 = 12500（cm） 12500 cm = 125 m"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.04b5bd0e1887",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対応"
+        },
+        {
+          "id": "c2",
+          "text": "拡大"
+        },
+        {
+          "id": "c3",
+          "text": "合同"
+        },
+        {
+          "id": "c4",
+          "text": "縮小"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e293eefa057f2af3.png"
+    },
+    "explanation": "辺ABと辺DE、角Cと角Fのように、拡大図や縮図をもとの大きさにしたときに、重なる辺や角のことを ①（対応）する辺・① 対応する角といいます。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.1107b475a124",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図のように、形を変えずに小さくすることを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "拡大"
+        },
+        {
+          "id": "c2",
+          "text": "割合"
+        },
+        {
+          "id": "c3",
+          "text": "倍"
+        },
+        {
+          "id": "c4",
+          "text": "縮小"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e293eefa057f2af3.png"
+    },
+    "explanation": "上の図のように、形を変えずに小さくすることを縮小という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.4016f172189d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形EFGHは、四角形ABCDの拡大図です。辺ADの長さを求めよう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "四角形EFGHは、四角形ABCDを２倍に拡大したものであり、辺ADに対応するのは辺EH。辺EHが 8cm なので、辺ADは、 8÷2 = 4（cm）。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.43684db49651",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形EFGHは、四角形ABCDの拡大図です。角Dの角度を求めよう。",
+      "answers": [
+        "84"
+      ],
+      "template": "{{INPUT}}°",
+      "suffix": "°",
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "拡大や縮小をしても、角の大きさは変わらない。角Dは角Hと対応しており、角Hが 84° であることから、角Dも 84° 。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.45ef7b9abd0f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "２万５千分の１の地図上で 0.5cm の長さが、実際何 m かを知るには、どのように計算すればよいでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0.5×25000"
+        },
+        {
+          "id": "c2",
+          "text": "0.5÷25000"
+        },
+        {
+          "id": "c3",
+          "text": "25000÷0.5"
+        },
+        {
+          "id": "c4",
+          "text": "0.5×\\dfrac{1}{25000}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "２万５千分の１の地図は、実際のきょりを２万５千分の１に縮めてかかれている。地図上の長さから実際のきょりを求めるには、地図上の長さを２万５千倍すればよい。よって、２万５千分の１の地図上で 0.5cm の長さが実際何 m あるのかは、 0.5×25000 で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.4672b8714d71",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形EFGHは、四角形ABCDの拡大図です。角Fの角度を求めよう。",
+      "answers": [
+        "68"
+      ],
+      "template": "{{INPUT}}°",
+      "suffix": "°",
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "拡大や縮小をしても、角の大きさは変わらない。角Fは角Bと対応しており、角Bが 68° であることから、角Fも 68° 。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.5a3bb2c7e01a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形EFGHは、四角形ABCDの拡大図です。角Bと対応する角をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角E"
+        },
+        {
+          "id": "c2",
+          "text": "角F"
+        },
+        {
+          "id": "c3",
+          "text": "角G"
+        },
+        {
+          "id": "c4",
+          "text": "角H"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "対応する角とは、大きさを同じにしたときに重なる角なので、角Bに対応するのは、角F。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.5bf3ebc54d9c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "縮図"
+        },
+        {
+          "id": "c2",
+          "text": "拡大図"
+        },
+        {
+          "id": "c3",
+          "text": "縮小"
+        },
+        {
+          "id": "c4",
+          "text": "拡大"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e293eefa057f2af3.png"
+    },
+    "explanation": "三角形DEFは、三角形ABCを\\dfrac{1}{2}にしたものです。三角形DEFは、三角形ABCの（縮図）です。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.63019aa1a803",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図のように、形を変えずに大きくすることを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "拡大"
+        },
+        {
+          "id": "c2",
+          "text": "割合"
+        },
+        {
+          "id": "c3",
+          "text": "倍"
+        },
+        {
+          "id": "c4",
+          "text": "縮小"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cd38068f45a72696.png"
+    },
+    "explanation": "上の図のように、形を変えずに大きくすることを拡大という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.64a31b414e3f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形EFGHは、四角形ABCDの拡大図です。辺BCと対応する辺をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺EF"
+        },
+        {
+          "id": "c2",
+          "text": "辺FG"
+        },
+        {
+          "id": "c3",
+          "text": "辺GH"
+        },
+        {
+          "id": "c4",
+          "text": "辺EH"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "対応する辺とは、大きさを同じにしたときに重なる線なので、辺BCに対応するのは、辺FG。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.8e60c96c86f4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形EFGHは、四角形ABCDの拡大図です。辺ADと対応する辺をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺EH"
+        },
+        {
+          "id": "c2",
+          "text": "辺EF"
+        },
+        {
+          "id": "c3",
+          "text": "辺FG"
+        },
+        {
+          "id": "c4",
+          "text": "辺GH"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "対応する辺とは、大きさを同じにしたときに重なる線なので、辺ADに対応するのは、辺EH。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.b21487bbe77b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "２万５千分の１の地図上で 2cm の長さは、実際何 m か求めよう。",
+      "answers": [
+        "500"
+      ],
+      "template": "{{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "２万５千分の１の地図上で 2cm の長さは、 2×25000 = 50000（cm） 50000cm = 500m"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.b4e7c006fe4f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、縮図を利用して建物の高さを計算します。赤い矢印の部分の長さと、建物の高さを、それぞれ求めよう。",
+      "answers": [
+        "9",
+        "10.4"
+      ],
+      "template": "赤い矢印の部分の長さ：{{INPUT}}m 建物の高さ：{{INPUT}}m",
+      "promptImage": "questions/legacy/96b7d04a8e637e49.png"
+    },
+    "explanation": "赤い矢印の部分は、【ノートに書いた縮図】の 9cm の部分と対応している。よって、 9×100 = 900（cm） 900 cm = 9 m 建物の高さは、 9+1.4 = 10.4（m）"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.da2c9b3e6a47",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "拡大図"
+        },
+        {
+          "id": "c2",
+          "text": "縮図"
+        },
+        {
+          "id": "c3",
+          "text": "縮小"
+        },
+        {
+          "id": "c4",
+          "text": "拡大"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cd38068f45a72696.png"
+    },
+    "explanation": "三角形GHIは、三角形ABCを２倍にしたものです。三角形GHIは、三角形ABCの（拡大図）です。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.e4fe1f583a9a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形EFGHは、四角形ABCDの拡大図です。四角形EFGHは、四角形ABCDを何倍したものか求めよう。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}倍",
+      "suffix": "倍",
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "四角形EFGHは、四角形ABCDの拡大図であり、辺FGに対応するのは辺BC。辺FGの長さが 12cm 、辺BCの長さが 6cm であることから、12÷6 = 2。四角形EFGHは、四角形ABCDを２倍に拡大したもの。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.e913bb695e44",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形EFGHは、四角形ABCDの拡大図です。角Hと対応する角をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角A"
+        },
+        {
+          "id": "c2",
+          "text": "角B"
+        },
+        {
+          "id": "c3",
+          "text": "角C"
+        },
+        {
+          "id": "c4",
+          "text": "角D"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "対応する角とは、大きさを同じにしたときに重なる角なので、角Hに対応するのは、角D。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.ee904343473d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図には「２万５千分の１」のように、どのくらいの割合で小さくしたのかがしめされています。この割合のことを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "縮尺"
+        },
+        {
+          "id": "c2",
+          "text": "縮図"
+        },
+        {
+          "id": "c3",
+          "text": "拡大"
+        },
+        {
+          "id": "c4",
+          "text": "拡大図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図にしめされた「２万５千分の１」のように、実際のきょりをどのくらい小さくしたのかをしめす割合を縮尺という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.02b939b26c8c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角柱の体積を求めよう。",
+      "answers": [
+        "160"
+      ],
+      "template": "底面積が 20cm^2、高さが 8cm の六角柱の体積 {{INPUT}}cm^3",
+      "suffix": "cm^3"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 20×8=160cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.04668d8907ed",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の円の面積を求めよう。",
+      "answers": [
+        "12.56"
+      ],
+      "template": "半径が 2cm の円の面積 {{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "円の面積は「半径 × 半径 × 3.14」で求めることができるので、 2×2×3.14=12.56 cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.1d6063fc7679",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北海道のサロマ湖について、およその面積をもとめるため、下の地図中の長方形の実際の長さをもとめた。サロマ湖のおよその面積をこの長方形の面積として、もとめよう。",
+      "answers": [
+        "170.1"
+      ],
+      "template": "{{INPUT}} km^2",
+      "suffix": "km^2",
+      "promptImage": "questions/legacy/1e6602406f94ea81.png"
+    },
+    "explanation": "地図中の長方形の面積は、27×6.3=170.1km^2 地図などを利用することで、大きく複雑な形の面積についても、およその面積をもとめることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.35928a01856e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形の面積を求めよう。",
+      "answers": [
+        "14.13"
+      ],
+      "template": "直径が 6cm の半円の面積 {{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "円の面積は「半径 × 半径 × 3.14」で求めることができる。直径が 6cm なので、半径は 3cm。半円の面積なので、円の面積を 2 でわればいい。 3×3×3.14÷2=14.13cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.5a221514122d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "円の面積の求め方（公式）として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "半径 × 半径 × 3.14"
+        },
+        {
+          "id": "c2",
+          "text": "直径 × 3.14"
+        },
+        {
+          "id": "c3",
+          "text": "直径 × 直径 × 3.14"
+        },
+        {
+          "id": "c4",
+          "text": "半径 × 3.14"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "円を半径で切ってばらばらにしたものを集めると、長方形のような形になる。これの面積を考えればいい（くわしくは、動画を見てみよう）。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.7229b5c9cf55",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角柱の体積を求めよう。",
+      "answers": [
+        "20"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/77158f155713a4f1.png"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 2×2×5=20cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.755efc4b9f2b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角柱の体積を求めよう。",
+      "answers": [
+        "180"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/a828ca20a0109eb2.png"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 (4+8)×5÷2×6=180cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.77c6510e6886",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形の色をつけた部分の面積を求めよう。",
+      "answers": [
+        "7.74"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/48387dc759c96677.png"
+    },
+    "explanation": "正方形の面積から、円の面積を引くと、色をつけた部分の面積になる。 6×6-3×3×3.14=7.74cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.7ad87c805251",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角柱の体積を求めよう。",
+      "answers": [
+        "42"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/cbb3fbd8872d272c.png"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 3×4÷2×7=42cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.81a708a1f2fc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "300"
+      ],
+      "template": "{{INPUT}} cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/d896c76c3078f0f9.png"
+    },
+    "explanation": "ふくざつな形だけど、底面が八角形の八角柱なので、底面積×高さで 体積を求めることができる。 底面積は、大きな長方形から空いている部分の長方形の面積を引けばいい。 9×10-(9-3-3)×5=90-15=75cm^2 これに高さをかけて、75×4=300cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.857c96a7256b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "1400"
+      ],
+      "template": "{{INPUT}} cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/5a2a5162be65b77f.png"
+    },
+    "explanation": "横向きになっているけど、底面が六角形の六角柱なので、底面積×高さで 体積を求めることができる。 底面積は、２つの長方形の面積の合計なので 7×10+(12-7)×6=70+30=100cm^2 これに高さをかけて、100×14=1400cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.95e14bdf631a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形の面積を求めよう。",
+      "answers": [
+        "6.28"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/df47435e8506b342.png"
+    },
+    "explanation": "円の面積は「半径 × 半径 × 3.14」で求めることができる。求めるのは、円の半分の面積なので、 2×2×3.14÷2=6.28cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.98d084136040",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形の色をつけた部分の面積を求めよう。",
+      "answers": [
+        "20.52"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/e7d779b7e8b789f1.png"
+    },
+    "explanation": "色をつけた部分の「半分の面積」を求めてみよう。おうぎ形から、三角形の面積を引けばいい。 おうぎ形の面積は、6×6×3.14÷4=28.26cm^2 この正方形の半分の直角三角形の面積は、 6×6÷2=18cm^2 色をつけた部分の半分の面積は、28.26-18=10.26cm^2 この２つ分の面積になるので、10.26×2=20.52cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.a2e929d32d94",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の円の面積を求めよう。",
+      "answers": [
+        "78.5"
+      ],
+      "template": "半径が 5cm の円の面積 {{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "円の面積は「半径 × 半径 × 3.14」で求めることができるので、 5×5×3.14=78.5cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.a379e74a3880",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形の面積を求めよう。",
+      "answers": [
+        "19.625"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/61262904d814a6c9.png"
+    },
+    "explanation": "円の面積は「半径 × 半径 × 3.14」で求めることができる。求めるのは、円の\\dfrac{1}{4}の面積なので、 5×5×3.14÷4=19.625cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.b61154d1a9aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の円柱の体積を求めよう。",
+      "answers": [
+        "282.6"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/eed1d86b8c85290e.png"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 3×3×3.14×10=282.6cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.dee58a26fb21",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ボトルに入る水の量を知るため、ボトルの高さと はばを測った。高さが 22cm、底面が１辺10cm の正方形の直方体と考えて、ボトルに入る およその水の量をもとめよう。",
+      "answers": [
+        "2200"
+      ],
+      "template": "{{INPUT}} mL",
+      "suffix": "mL",
+      "promptImage": "questions/legacy/2d57c67d109a36e7.png"
+    },
+    "explanation": "高さが 22cm、底面が１辺10cm の正方形の直方体の体積は、10×10×22=2200cm^3=2200mL およその長さを測ることで、複雑な形の体積についても、およその体積をもとめることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.e5da9f91183c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "角柱の体積の求め方について、下の文のかっこにあてはまる語をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "底面積・高さ"
+        },
+        {
+          "id": "c2",
+          "text": "側面積"
+        },
+        {
+          "id": "c3",
+          "text": "3.14"
+        },
+        {
+          "id": "c4",
+          "text": "選択肢3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "角柱や円柱の体積は、面積が積み上がったものと考えることができるので、「底面積 × 高さ」で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.fdbe4660375b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の円の面積を求めよう。",
+      "answers": [
+        "314"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/82804e8061c7a2ff.png"
+    },
+    "explanation": "円の面積は「半径 × 半径 × 3.14」で求めることができるので、 10×10×3.14=314cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.0e4d9ef5705f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、下図のようになりました。このデータの最頻値（モード）は、いくつになるでしょう。",
+      "answers": [
+        "21"
+      ],
+      "promptImage": "questions/legacy/9419a4d588bd3a52.png"
+    },
+    "explanation": "最頻値（モード）とは、データの中で最もよく出てくる値のこと。21 だけが４回出てきていて、最頻値になっている。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.16f57e3ff4da",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "度数分布表をグラフで表すときによく使われる、下図のようなグラフを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "柱状グラフ"
+        },
+        {
+          "id": "c2",
+          "text": "棒グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "ドットプロット"
+        },
+        {
+          "id": "c4",
+          "text": "折れ線グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4e53d8dced278de1.png"
+    },
+    "explanation": "上図のように、度数分布表をグラフで表すときによく使われるグラフを、柱状グラフ（ヒストグラム）という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.1c29829accf2",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "最頻値（モード）の説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "データの中で最もよく出てくる値のこと。"
+        },
+        {
+          "id": "c2",
+          "text": "データを小さいものから並べたとき、真ん中にくる値のこと。"
+        },
+        {
+          "id": "c3",
+          "text": "データの中で、最も大きい値のこと。"
+        },
+        {
+          "id": "c4",
+          "text": "データの合計をデータの個数で割った値のこと。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "データの中で最もよく出てくる値を、最頻値（モード）という。 ・中央値：データを小さいものから並べたとき、真ん中にくる値のこと。 ・最大値：データの中で、最も大きい値のこと。 ・平均値：データの合計をデータの個数で割った値のこと。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.3c0f38e89803",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、データの特ちょうを表す代表値として、適切でないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "最小値"
+        },
+        {
+          "id": "c2",
+          "text": "平均値"
+        },
+        {
+          "id": "c3",
+          "text": "最頻値（モード）"
+        },
+        {
+          "id": "c4",
+          "text": "中央値（メジアン）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平均値、最頻値（モード）、中央値（メジアン）のように、そのデータの特ちょうを表す値を 代表値という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.594e99c92c46",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、柱状グラフ（ヒストグラム）を使うとわかりやすくなるのは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "東京では、それぞれの月にどれくらいの雨が降るか。"
+        },
+        {
+          "id": "c2",
+          "text": "算数テストのクラスの平均点が、どう変わっていったか。"
+        },
+        {
+          "id": "c3",
+          "text": "空気の中には、どんな気体がふくまれているか。"
+        },
+        {
+          "id": "c4",
+          "text": "クラスにどれくらいの身長の人が、どれくらいいるのか。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "度数分布表をグラフで表すときに よく使われる 柱状グラフ（ヒストグラム）は、数や量のちらばりを表すのに適している。クラスにどれくらいの身長の人が、どれくらいいるのかを調べるためには、適しているといえる。 ・東京では、それぞれの月にどれくらいの雨が降るか。：月ごとの降水量は、比べやすいように 棒グラフ（たて）で表すことが多い。棒グラフと柱状グラフはにているけど、目的がちがう。 ・算数テストのクラスの平均点が、どう変わっていったか。：数や量の変化を知りたいときは、折れ線グラフや棒グラフ（たて）がいい。 ・空気の中には、どんな気体がふくまれているか。：空気の中にふくまれている それぞれの気体の「割合」を表すことになるので、円グラフや帯グラフがむいている。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.5e0c7c3cfdb4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図は、６年１組の上体起こしの結果について、ドットプロットで表したものです。このドットプロットからわかることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "上体起こしを21回できた人が、一番多い。"
+        },
+        {
+          "id": "c2",
+          "text": "25回以上、上体起こしができた人はいない。"
+        },
+        {
+          "id": "c3",
+          "text": "上体起こしを14回できた人は、いない。"
+        },
+        {
+          "id": "c4",
+          "text": "上体起こしの回数の平均は、21回になる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1d5e1175aedc750e.png"
+    },
+    "explanation": "「上体起こしを21回できた人が、一番多い。」が正しい。 ・「25回以上」には、25回もふくまれる。25回上体起こしをできた人が、1人いる。 ・上体起こしを14回できた人は、1人いる。 ・「上体起こしを21回できた人が、一番多い。」が、それが平均になるわけではない。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.70bdd7a4898d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、ドットプロットで表すことが適しているデータは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ある場所の８月の気温の変化"
+        },
+        {
+          "id": "c2",
+          "text": "ある資源の日本の輸入相手国の割合"
+        },
+        {
+          "id": "c3",
+          "text": "コメの都道府県別生産量"
+        },
+        {
+          "id": "c4",
+          "text": "算数の小テストの点数のちらばり"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ドットプロットは、データのちらばりを表すことに適している。算数の小テストの点数のちらばりが、最も適しているといえる。 ・ある場所の８月の気温の変化：時間にあわせた数や量の変化は、折れ線グラフや棒グラフ（たて）で表すといい。 ・ある資源の日本の輸入相手国の割合：割合については、帯グラフや円グラフで表そう。 ・コメの都道府県別生産量：量をくらべたいときは、棒グラフ（横）がよく使われる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.90d63d386b4a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平均値をもとめる式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "（すべてのデータの合計）÷（データの個数）"
+        },
+        {
+          "id": "c2",
+          "text": "（最大値＋最小値）÷２"
+        },
+        {
+          "id": "c3",
+          "text": "（最頻値＋中央値）÷２"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平均値は、（すべてのデータの合計）÷（データの個数）でもとめることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.9197a4c0b137",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "中央値（メジアン）の説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "データの中で最もよく出てくる値のこと。"
+        },
+        {
+          "id": "c2",
+          "text": "データを小さいものから並べたとき、真ん中にくる値のこと。"
+        },
+        {
+          "id": "c3",
+          "text": "データの中で、最も大きい値のこと。"
+        },
+        {
+          "id": "c4",
+          "text": "データの合計をデータの個数で割った値のこと。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "データを小さいものから並べたとき、真ん中にくる値を、中央値（メジアン）という。 ・最頻値：データの中で最もよく出てくる値のこと。 ・最大値：データの中で、最も大きい値のこと。 ・平均値：データの合計をデータの個数で割った値のこと。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.a08cd2930228",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、下図のようになりました。このデータの中央値（メジアン）は、いくつになるでしょう。",
+      "answers": [
+        "19"
+      ],
+      "promptImage": "questions/legacy/9419a4d588bd3a52.png"
+    },
+    "explanation": "中央値（メジアン）とは、データを小さいものから並べたとき、真ん中にくる値のこと。表のデータを、小さい順に並べると、次のようになり、25このデータの真ん中になるのは、13番目の 19 になる。 11, 12, 12, 14, 15, 15, 16, 17, 17, 18, 18, 18, 19, 19, 20, 20, 21, 21, 21, 21, 22, 22, 23, 23, 25"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.a4b45983a0a0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、下図のようになりました。このデータの平均値は、いくつになるでしょう。",
+      "answers": [
+        "18.4"
+      ],
+      "promptImage": "questions/legacy/9419a4d588bd3a52.png"
+    },
+    "explanation": "平均値は、（すべてのデータの合計）÷（データの個数）でもとめることができる。 すべてのデータの合計は 460、これを 25 で割ると、18.4 になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.ec4f8fc2434f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、左図のようになりました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ドットプロット"
+        },
+        {
+          "id": "c2",
+          "text": "ヒストグラム"
+        },
+        {
+          "id": "c3",
+          "text": "度数分布表"
+        },
+        {
+          "id": "c4",
+          "text": "柱状グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/32bd0010849f28fb.png"
+    },
+    "explanation": "右図のように、数直線の上にデータの数だけ点をとったグラフを、ドットプロットという。ドットプロットを使うと、データのちらばりがわかりやすくなる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.ecb89af20936",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、左図のようになりました。このデータについて、度数分布表の①〜③にあてはまる数をこたえよう。",
+      "answers": [
+        "4",
+        "10",
+        "25"
+      ],
+      "template": "① {{INPUT}} ② {{INPUT}} ③ {{INPUT}}",
+      "promptImage": "questions/legacy/c81e6a8aca19464d.png"
+    },
+    "explanation": "① 10回以上 15回未満：4 ② 15回以上 20回未満：10 ③ すべての階級の合計＝データの個数：25"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.fd06ef0bbff8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10以上15未満に当てはまらない数は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "15"
+        },
+        {
+          "id": "c2",
+          "text": "10"
+        },
+        {
+          "id": "c3",
+          "text": "11"
+        },
+        {
+          "id": "c4",
+          "text": "14"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「以上」や「以下」は、その数をふくみ、「未満」はその数をふくまないので、「10以上15未満」には、10はふくまれるけど、15はふくまれない。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.02f38d637e55",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=3×x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e68863e6a720e68e.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=3×x のグラフは、(1, 3)を通るので、②のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.0dea44d82c7a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1m が 2kg の金属のぼうがあります。この ぼうの長さと重さについてまとめた 下の表にあてはまる数をうめよう。",
+      "answers": [
+        "2",
+        "6",
+        "8"
+      ],
+      "template": "ぼうの長さ（m） 1 2 3 4 5 ぼうの重さ（kg） {{INPUT}} 4 {{INPUT}} {{INPUT}} 10"
+    },
+    "explanation": "1m の重さが 2kg なので、＜ぼうの重さ＞＝ 2 × ＜ぼうの長さ＞ で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.1679f1da7f39",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、反比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1分間に 5L ずつ 水そうに水をいれたときの「水をいれた時間」と「水そうの水の量」"
+        },
+        {
+          "id": "c2",
+          "text": "500mLの ジュースを「飲んだ量」と「残りの量」"
+        },
+        {
+          "id": "c3",
+          "text": "20個のあめを分けるときの「分けた人数」と「1人がもらえるあめの数」"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「分けた人数」が 2倍、3倍になれば「１人がもらえるあめの数」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.1a613dba29a9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある数が 2倍、3倍になると、もう一方の数は \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "比例"
+        },
+        {
+          "id": "c2",
+          "text": "反比例"
+        },
+        {
+          "id": "c3",
+          "text": "関数"
+        },
+        {
+          "id": "c4",
+          "text": "文字式"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数は \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係を「反比例」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.2ba316fffe50",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=2×x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e68863e6a720e68e.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=2×x のグラフは、(1, 2)を通るので、①のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.337d7e0826ac",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "比例のグラフの特徴として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(0, 0) を通る"
+        },
+        {
+          "id": "c2",
+          "text": "グラフの式は、y=□÷x の形になる"
+        },
+        {
+          "id": "c3",
+          "text": "右下がりな直線になる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "比例のグラフは、(0, 0) を通る 右上がりの直線になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.35508423c21f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "比例"
+        },
+        {
+          "id": "c2",
+          "text": "反比例"
+        },
+        {
+          "id": "c3",
+          "text": "関数"
+        },
+        {
+          "id": "c4",
+          "text": "文字式"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係を「比例」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.483a67832c0c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=12÷x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4db486000d06007d.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=12÷xのグラフは、(1, 12)を通るので、②のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.5b5250351724",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=2×x"
+        },
+        {
+          "id": "c2",
+          "text": "y=1×x"
+        },
+        {
+          "id": "c3",
+          "text": "y=\\frac{1}{2}×x"
+        },
+        {
+          "id": "c4",
+          "text": "y=2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ぼうの重さは、2kg × ＜ぼうの長さ＞ で求めることができるので、 y=2×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.5d4e0868232a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1分間に 5L ずつ 水そうに水をいれたときの「水をいれた時間」と「水そうの水の量」"
+        },
+        {
+          "id": "c2",
+          "text": "500mLの ジュースを「飲んだ量」と「残りの量」"
+        },
+        {
+          "id": "c3",
+          "text": "20個のあめを分けるときの「分けた人数」と「1人がもらえるあめの数」"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「水をいれた時間」が 2倍、3倍になれば「水そうの水の量」も 2倍、3倍になるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.60f7b24a85f0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の式は、次の２つの数の関係を表したものです。□にあてはまる数を答えましょう。",
+      "answers": [
+        "40"
+      ],
+      "template": "時速 40km の車の「走った時間（x時間）」と「道のり（ykm）」 y= {{INPUT}} × x",
+      "suffix": "× x"
+    },
+    "explanation": "道のりは、40km × ＜走った時間＞ で求めることができるので、 y=40×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.69eb5eda5b64",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の式は、次の２つの数の関係を表したものです。□にあてはまる数を答えましょう。",
+      "answers": [
+        "20"
+      ],
+      "template": "20個 のあめを分けるときの 分けた人数（x 人）と １人がもらえるあめの数（y 個） y= {{INPUT}} ÷ x",
+      "suffix": "÷ x"
+    },
+    "explanation": "は、 20個 ÷ ＜分けた人数＞ で求めることができるので、 y=20÷x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.762f8811fff0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1分間 に 5L ずつ、水を入れます。水を入れた時間と水の量についてまとめた 下の表にあてはまる数をうめよう。",
+      "answers": [
+        "10",
+        "20",
+        "25"
+      ],
+      "template": "時間（分） 1 2 3 4 5 水の量（L） 5 {{INPUT}} 15 {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "1分間 で入れる水の量が 5L なので、＜水の量＞＝ 5 × ＜時間＞ で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.784e2613eb27",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "時速 40km の車の走った時間と道のりについてまとめた 下の表にあてはまる数をうめよう。",
+      "answers": [
+        "40",
+        "160",
+        "200"
+      ],
+      "template": "走った時間（時間） 1 2 3 4 5 道のり（km） {{INPUT}} 80 120 {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "× ＜速さ＞ = なので、＜道のり> ＝ 40 × で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.9dfc941fa652",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横 3cm の長方形の 縦の長さと面積についてまとめた 下の表にあてはまる数をうめよう。",
+      "answers": [
+        "3",
+        "6",
+        "9"
+      ],
+      "template": "縦の長さ（cm） 1 2 3 4 5 面積（cm^2） {{INPUT}} {{INPUT}} {{INPUT}} 12 15"
+    },
+    "explanation": "× ＜横の長さ＞ = なので、＜面積> ＝ 3 × で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.a3176b883657",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "面積が 12cm^2 の長方形について、縦の長さと横の長さを 下の表にまとめました。空らんに あてはまる数をうめよう。 縦の長さ（cm） 1 2 3 4 5 6 横の長さ（cm） 6 4 3",
+      "answers": [
+        "12",
+        "2.4",
+        "2"
+      ],
+      "template": "面積が 12cm^2 の長方形について、縦の長さと横の長さを 下の表にまとめました。空らんに あてはまる数をうめよう。 縦の長さ（cm） 1 2 3 4 5 6 横の長さ（cm） {{INPUT}} 6 4 3 {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "面積が 12cm^2 なので、＜縦の長さ＞ × ＜横の長さ＞＝ 12cm^2 で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.a664393671f4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横3cm の長方形の「縦の長さ」と「面積」"
+        },
+        {
+          "id": "c2",
+          "text": "20L 入る水そうに水を入れるときの「１分間にいれる水の量」と「いっぱいになるのにかかる時間」"
+        },
+        {
+          "id": "c3",
+          "text": "500円の商品を買ったときの「はらうお金」と「おつり」"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「縦の長さ」が 2倍、3倍になれば「面積」も 2倍、3倍になるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.a7a24237e6f2",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=3×x"
+        },
+        {
+          "id": "c2",
+          "text": "y=1×x"
+        },
+        {
+          "id": "c3",
+          "text": "y=\\frac{1}{3}×x"
+        },
+        {
+          "id": "c4",
+          "text": "y=3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "面積は、3cm × ＜縦の長さ＞ で求めることができるので、 y=3×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.aa7dcca63249",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=12÷x"
+        },
+        {
+          "id": "c2",
+          "text": "y=x÷12"
+        },
+        {
+          "id": "c3",
+          "text": "y=12×x"
+        },
+        {
+          "id": "c4",
+          "text": "y=12-x"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "は、 × = より、 12cm^2 ÷ ＜縦の長さ＞ で求めることができるので、 y=12÷x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.b33ab6181153",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=6÷x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4db486000d06007d.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=6÷xのグラフは、(1, 6)を通るので、①のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.c3db4361ca46",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "時速 3km で歩いたときの 歩いた時間を x 時間、進んだ道のりを y km としました。このときの x と y の関係を、グラフにしたものを、えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5617a8c5b35efad6.png"
+    },
+    "explanation": "＜道のり＞ ＝ ＜速さ＞ × ＜時間＞ で求めることができるので、x と y の関係を式で表すと、y=3 × x の比例の関係になる。 y=3 × x のグラフは、(1, 3)を通るので、③のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.c6fd59d350a3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時速40km で走る車の「走った時間」と「道のり」"
+        },
+        {
+          "id": "c2",
+          "text": "面積が 20cm^2の三角形の「底辺」と「高さ」"
+        },
+        {
+          "id": "c3",
+          "text": "全員で 30人のクラスの「男子の人数」と「女子の人数」"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「走った時間」が 2倍、3倍になれば「道のり」も 2倍、3倍になるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.c9c02fee9e72",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の式は、次の２つの数の関係を表したものです。□にあてはまる数を答えましょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "1分間に 5L ずつ、水そうに水を入れたときの 「水を入れた時間（x 分）」と「水そうの水の量（y L）」 y= {{INPUT}} × x",
+      "suffix": "× x"
+    },
+    "explanation": "水そうの水の量は、5L × ＜水を入れた時間＞ で求めることができるので、 y=5×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.ccfaea692963",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=1×x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e68863e6a720e68e.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=1×x のグラフは、(1, 1)を通るので、③のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.cea54380c2ee",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "反比例のグラフの特徴として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(0, 0) を通る"
+        },
+        {
+          "id": "c2",
+          "text": "グラフの式は、y=□×x の形になる"
+        },
+        {
+          "id": "c3",
+          "text": "曲線になる"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "反比例のグラフは、曲線になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.d4f604baf9f3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=30÷x"
+        },
+        {
+          "id": "c2",
+          "text": "y=x÷30"
+        },
+        {
+          "id": "c3",
+          "text": "y=30×x"
+        },
+        {
+          "id": "c4",
+          "text": "y=30-x"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "は、 30km ÷ ＜速さ＞ で求めることができるので、 y=30÷x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.d6897dce29e9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "24L のジュースを何人かで等分した時、人数と1人分の量を 下の表にまとめました。空らんにあてはまる数をうめよう。",
+      "answers": [
+        "12",
+        "4.8",
+        "4"
+      ],
+      "template": "人数（人） 1 2 3 4 5 6 1人分の量（L） 24 {{INPUT}} 8 6 {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "ジュースの量が 24L なので、24L ÷ ＜人数＞ ＝ ＜1人分の量＞ で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.e0bc64e5a688",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、反比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横3cm の長方形の「縦の長さ」と「面積」"
+        },
+        {
+          "id": "c2",
+          "text": "30km の道のりを移動するときの「速さ」と「かかる時間」"
+        },
+        {
+          "id": "c3",
+          "text": "500円の商品を買ったときの「はらうお金」と「おつり」"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「速さ」が 2倍、3倍になれば「かかる時間」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.ff23e6f3babf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、反比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時速 40km で走る車の「走った時間」と「道のり」"
+        },
+        {
+          "id": "c2",
+          "text": "面積が 20cm^2 の平行四辺形の「底辺」と「高さ」"
+        },
+        {
+          "id": "c3",
+          "text": "全員で 30人のクラスの「男子の人数」と「女子の人数」"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「底辺」が 2倍、3倍になれば「高さ」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
+  }
+]

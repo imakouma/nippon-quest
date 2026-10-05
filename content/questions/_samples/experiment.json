@@ -1,0 +1,51 @@
+[
+  {
+    "$schema": "../../../schemas/questions/experiment.schema.json",
+    "id": "sample.experiment.water.0001",
+    "type": "experiment",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.mizu-no-sugata",
+    "payload": {
+      "title": "水[みず]を あたためる じっけん",
+      "predict": {
+        "prompt": "長[なが]く あたためると 水[みず]は どうなる？",
+        "choices": [
+          { "id": "hot", "text": "あつくなる" },
+          { "id": "cold", "text": "つめたくなる" },
+          { "id": "same", "text": "かわらない" }
+        ],
+        "answer": "hot"
+      },
+      "controls": [
+        {
+          "id": "heatSec",
+          "label": "あたためる 時間[じかん]",
+          "type": "slider",
+          "min": 0,
+          "max": 60,
+          "step": 10,
+          "unit": "びょう"
+        },
+        {
+          "id": "water",
+          "label": "水[みず]の りょう",
+          "type": "slider",
+          "min": 100,
+          "max": 500,
+          "step": 100,
+          "unit": "mL"
+        }
+      ],
+      "outcome": {
+        "formula": "20 + heatSec * 1.2 - (water - 100) * 0.05",
+        "label": "水[みず]の 温度[おんど]",
+        "unit": "℃",
+        "visual": "thermometer",
+        "visualRange": [0, 100]
+      },
+      "requiredRuns": 2
+    },
+    "explanation": "あたためる 時間[じかん]が 長[なが]いほど、水[みず]の 温度[おんど]は 高[たか]くなる。"
+  }
+]

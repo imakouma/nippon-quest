@@ -1,0 +1,514 @@
+/*
+ * メニュー（ずかん・どうぐ・そうび）。枠は チーム編成・にほんちずと同じ（.nq-wmap-box）で、上に タブを ならべる。
+ * 文字は 12 / 24 / 36 / 48px だけ。
+ */
+.nq-menu-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 888px;
+  height: 504px;
+  padding: 12px 16px;
+}
+.nq-menu-head {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  gap: 12px;
+}
+.nq-menu-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: var(--nq-yellow);
+}
+.nq-menu-tabs {
+  display: grid;
+  /* 文字数の多い図鑑タブに幅を渡し、短い操作タブは詰める。 */
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: center;
+  gap: 3px;
+  flex: none;
+}
+
+/* 学習ロードマップ：単元を、草原を進む2Dゲームの道として並べる。 */
+.nq-roadmap {
+  --nq-roadmap-subject: #e5484d;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+.nq-roadmap-subject-kokugo {
+  --nq-roadmap-subject: #e5484d;
+}
+.nq-roadmap-subject-sansu {
+  --nq-roadmap-subject: #1f4fa3;
+}
+.nq-roadmap-subject-rika {
+  --nq-roadmap-subject: #2c8b80;
+}
+.nq-roadmap-subject-shakai {
+  --nq-roadmap-subject: #b8741f;
+}
+.nq-roadmap-subject-seikatsu {
+  --nq-roadmap-subject: #2a7a36;
+}
+.nq-roadmap-subject-eigo {
+  --nq-roadmap-subject: #3a2672;
+}
+.nq-roadmap-subject-all {
+  --nq-roadmap-subject: var(--nq-yellow);
+}
+.nq-roadmap-subjects {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nq-roadmap-subject {
+  min-height: 32px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+.nq-roadmap-score {
+  margin-left: auto;
+  color: var(--nq-yellow);
+  font-size: 12px;
+}
+.nq-roadmap-overview {
+  display: grid;
+  flex: 1;
+  min-height: 0;
+  padding: 12px;
+  overflow: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  border: 4px solid #14192d;
+  background: #263759;
+  box-shadow: inset 0 0 0 4px #3e5686;
+}
+.nq-roadmap-summary {
+  --nq-roadmap-card: #e5484d;
+  display: flex;
+  min-height: 72px;
+  padding: 6px 10px;
+  color: #fff;
+  font: inherit;
+  text-align: left;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  border: 3px solid #111525;
+  background: #18223b;
+  box-shadow: 0 4px 0 #0c1020;
+}
+.nq-roadmap-summary:hover,
+.nq-roadmap-summary:focus-visible {
+  outline: 3px solid var(--nq-yellow);
+  outline-offset: -3px;
+}
+.nq-roadmap-summary-sansu {
+  --nq-roadmap-card: #3f7ee8;
+}
+.nq-roadmap-summary-rika {
+  --nq-roadmap-card: #3eb5a7;
+}
+.nq-roadmap-summary-shakai {
+  --nq-roadmap-card: #d89032;
+}
+.nq-roadmap-summary-seikatsu {
+  --nq-roadmap-card: #55a95e;
+}
+.nq-roadmap-summary-eigo {
+  --nq-roadmap-card: #8e71d1;
+}
+.nq-roadmap-summary-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--nq-yellow);
+  font-size: 16px;
+}
+.nq-roadmap-summary-meter {
+  display: block;
+  height: 12px;
+  overflow: hidden;
+  border: 2px solid #0b0e19;
+  background: #303854;
+}
+.nq-roadmap-summary-meter > span {
+  display: block;
+  height: 100%;
+  background: var(--nq-roadmap-card);
+}
+.nq-roadmap-summary-current {
+  display: block;
+  flex: none;
+  overflow: hidden;
+  color: #fff;
+  font-size: 12px;
+  line-height: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.nq-roadmap-map {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  padding: 16px 20px;
+  overflow: auto;
+  border: 4px solid #14192d;
+  background-color: #62a84d;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.06) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.06) 25%, transparent 25%);
+  background-size: 24px 24px;
+  box-shadow: inset 0 0 0 4px #91d36e;
+}
+.nq-roadmap-water {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 132px;
+  height: 64px;
+  padding: 8px;
+  color: #d6f4ff;
+  font-size: 24px;
+  background: #318ac6;
+  border-left: 4px solid #e4d080;
+  border-top: 4px solid #e4d080;
+}
+.nq-roadmap-path {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(96px, 1fr));
+  grid-auto-rows: 112px;
+  gap: 12px 8px;
+  min-width: 720px;
+}
+.nq-roadmap-node {
+  position: relative;
+  display: flex;
+  width: 104px;
+  align-items: center;
+  justify-self: center;
+  flex-direction: column;
+  gap: 3px;
+  color: #fff;
+  text-align: center;
+}
+.nq-roadmap-node::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 27px;
+  left: -60px;
+  width: 120px;
+  height: 12px;
+  background: #d8bd79;
+  box-shadow: 0 4px 0 #9a7747;
+}
+.nq-roadmap-step {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  color: #16213e;
+  font-size: 24px;
+  background: #f4e5a5;
+  border: 4px solid #513b2b;
+  box-shadow: 0 4px 0 #2d211a;
+}
+.nq-roadmap-cleared .nq-roadmap-step {
+  color: #513b00;
+  background: var(--nq-yellow);
+}
+.nq-roadmap-current .nq-roadmap-step {
+  color: #fff;
+  background: var(--nq-roadmap-subject);
+  animation: nq-wmap-blink 1s steps(2) infinite;
+}
+.nq-roadmap-locked {
+  opacity: 0.48;
+  filter: grayscale(0.7);
+}
+.nq-roadmap-node-name {
+  display: -webkit-box;
+  min-height: 24px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 12px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.nq-roadmap-meter {
+  width: 76px;
+  height: 8px;
+  overflow: hidden;
+  background: #20253d;
+  border: 2px solid #111525;
+}
+.nq-roadmap-meter > span {
+  display: block;
+  height: 100%;
+  background: var(--nq-roadmap-subject);
+}
+.nq-roadmap-help {
+  position: static;
+  text-align: center;
+}
+.nq-menu-tab {
+  position: relative;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+  gap: 2px;
+  padding: 0 2px;
+  font-size: 12px !important;
+  white-space: nowrap;
+}
+.nq-menu-tab > span {
+  min-width: 0;
+  overflow: hidden;
+}
+.nq-menu-detail-count {
+  align-self: flex-start;
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--nq-yellow);
+  border: 2px solid var(--nq-slate);
+  background: var(--nq-panel);
+}
+.nq-menu-close {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.nq-parent-open {
+  margin-left: auto;
+  padding: 0 12px;
+  font-size: 12px;
+}
+.nq-parent-box {
+  width: 888px;
+  height: 504px;
+  padding: 12px 16px;
+  overflow: hidden;
+}
+.nq-parent-box h2,
+.nq-parent-box h3,
+.nq-parent-box p {
+  margin: 0;
+}
+.nq-parent-gate {
+  display: grid;
+  width: 420px;
+  margin: 72px auto;
+  gap: 16px;
+  text-align: center;
+  font-size: 24px;
+}
+.nq-parent-gate label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.nq-parent-gate input {
+  width: 96px;
+  padding: 8px;
+  color: #fff;
+  font: inherit;
+  text-align: center;
+  border: 4px solid var(--nq-slate);
+  background: var(--nq-panel);
+}
+.nq-parent-primary {
+  justify-content: center;
+  font-size: 24px;
+}
+.nq-parent-error {
+  color: #ff8a80;
+}
+.nq-parent-content {
+  display: grid;
+  height: 432px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 8px;
+}
+.nq-parent-card {
+  min-height: 0;
+  padding: 8px;
+  border: 3px solid var(--nq-slate);
+  background: #11162a;
+}
+.nq-parent-card h3 {
+  margin-bottom: 6px;
+  color: var(--nq-yellow);
+  font-size: 12px;
+}
+.nq-parent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+}
+.nq-parent-card label {
+  font-size: 12px;
+}
+.nq-parent-card select {
+  margin-left: 6px;
+  font: inherit;
+}
+.nq-parent-sliders {
+  display: grid;
+  gap: 4px;
+}
+.nq-parent-sliders label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nq-parent-sliders input {
+  width: 112px;
+}
+.nq-parent-scroll {
+  overflow: auto;
+}
+.nq-parent-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.nq-parent-mastery {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+.nq-parent-mastery > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nq-parent-mastery i {
+  height: 10px;
+  border: 2px solid #111;
+  background: #303750;
+}
+.nq-parent-mastery b {
+  display: block;
+  height: 100%;
+  background: #6bd968;
+}
+.nq-parent-concept {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto auto;
+  gap: 3px 8px;
+  margin: 6px 0;
+  padding: 6px;
+  border: 1px solid #65708f;
+  font-size: 11px;
+}
+.nq-parent-concept strong,
+.nq-parent-concept small {
+  grid-column: 1 / -1;
+}
+.nq-parent-concept small {
+  color: #c9d3ee;
+}
+.nq-parent-diagnosis {
+  padding: 6px;
+  border: 1px solid #9b7b45;
+  background: #232031;
+  font-size: 11px;
+}
+.nq-parent-diagnosis p {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 8px;
+  margin: 7px 0;
+}
+.nq-parent-diagnosis p small {
+  grid-column: 1 / -1;
+}
+.nq-parent-save {
+  display: flex;
+  flex-direction: column;
+}
+.nq-parent-actions {
+  display: flex;
+  gap: 6px;
+}
+.nq-parent-actions button {
+  min-height: 28px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+.nq-parent-save textarea {
+  flex: 1;
+  min-height: 0;
+  margin-top: 6px;
+  resize: none;
+  color: #dce7ff;
+  font: 12px/1.3 monospace;
+  border: 2px solid var(--nq-slate);
+  background: #090c16;
+}
+.nq-parent-message {
+  color: #9ff49c;
+  font-size: 12px;
+}
+/* タブの下に、左の リストと 右の せつめい */
+.nq-menu-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  gap: 12px;
+}
+.nq-menu-body > .nq-wmap-left,
+.nq-menu-body > .nq-wmap-right {
+  min-height: 0;
+}
+.nq-menu-body > .nq-wmap-left {
+  width: 376px;
+}
+.nq-menu-body > .nq-wmap-right {
+  padding-left: 4px;
+}
+.nq-menu-body .nq-party-list {
+  padding-right: 4px;
+}
+.nq-menu-body .nq-party-list > li {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 52px;
+}
+.nq-menu-body .nq-party-list .nq-opt {
+  min-height: 52px;
+}
+.nq-menu-body .nq-wmap-info {
+  background: #0f1226;
+}
+.nq-menu-summary {
+  margin: 0;
+  font-size: 12px;
+  line-height: 24px;
+  color: var(--nq-cloud);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+/* まだ であっていない・見つけていない：リストは うすく、絵は かげだけ */
+.nq-menu-unknown {
+  opacity: 0.55;
+}
+.nq-menu-unknown .nq-menu-icon,
+.nq-menu-unknown-art img {
+  filter: brightness(0);
+  opacity: 0.6;
+}

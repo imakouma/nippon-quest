@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyazaki-lastboss-komura-jutaro",
+  "name": "小村寿太郎[こむらじゅたろう]",
+  "area": "miyazaki",
+  "motifId": "obi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 527,
+    "mp": 71,
+    "atk": 28,
+    "def": 22,
+    "spd": 15,
+    "wis": 22
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.6,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-habataki",
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 476,
+  "gold": 551,
+  "spriteKey": "mon.miyazaki-lastboss-komura-jutaro",
+  "dexBlurb": "飫肥藩[おびはん]に 生[う]まれた 外交官[がいこうかん]（1855〜1911年[ねん]）。外務大臣[がいむだいじん]として、外国[がいこく]との 条約[じょうやく]を、日本[にほん]に とって 公平[こうへい]な ものに なおした。",
+  "fieldLine": "小村寿太郎[こむらじゅたろう]じゃ。飫肥[おび]の 城[しろ]で、そなたの 知恵[ちえ]と 勇気[ゆうき]を ためそう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-habataki"
+      ],
+      "line": "日本[にほん]の ために、わしは 一歩[いっぽ]も ひかぬ！ この 風[かぜ]、とめられるか！"
+    }
+  ]
+}

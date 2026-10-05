@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-midboss-tetsubin-game",
+  "name": "テツビンガメ",
+  "area": "iwate",
+  "motifId": "nanbu-tekki",
+  "element": "tsuchi",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 98,
+    "mp": 16,
+    "atk": 10,
+    "def": 8,
+    "spd": 3,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2.2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-iwa-otoshi"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1.0
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 52,
+  "gold": 63,
+  "spriteKey": "mon.iwate-midboss-tetsubin-game",
+  "dexBlurb": "南部鉄器[なんぶてっき]の 鉄[てつ]びんを せおった カメ。こうらは とても かたい。",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-iwa-otoshi"
+      ],
+      "line": "シュゴオオ…！ 鉄[てつ]が まっ赤[か]に やけた！"
+    }
+  ],
+  "fieldLine": "ゴ…ゴゴ…。この 道[みち]は 通[とお]さぬ。鉄[てつ]の こうらを くだけるか？"
+}

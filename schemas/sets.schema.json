@@ -1,0 +1,113 @@
+{
+  "$ref": "#/definitions/sets",
+  "definitions": {
+    "sets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*$",
+            "description": "一意なID（小文字英数字・ドット・ハイフン）"
+          },
+          "name": {
+            "type": "string",
+            "description": "RubyText: \"漢字[かんじ]\" 形式"
+          },
+          "pieces": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9.-]*$",
+              "description": "一意なID（小文字英数字・ドット・ハイフン）"
+            },
+            "minItems": 5,
+            "maxItems": 5
+          },
+          "bonus": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "RubyText: \"漢字[かんじ]\" 形式"
+              },
+              "elementBoost": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "element": {
+                      "type": "string",
+                      "enum": [
+                        "hino",
+                        "mizu",
+                        "mori",
+                        "tsuchi",
+                        "kaze",
+                        "hikari",
+                        "yami",
+                        "none"
+                      ]
+                    },
+                    "multiplier": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  },
+                  "required": [
+                    "element",
+                    "multiplier"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "stats": {
+                "type": "object",
+                "properties": {
+                  "hp": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "mp": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "atk": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "def": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "spd": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "wis": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "pieces",
+          "bonus"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,209 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "kochi",
+  "name": "高知県[こうちけん]",
+  "island": "shikoku",
+  "capital": "高知市[こうちし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "kochi-field",
+    "town": "kochi-town",
+    "dungeon": "kochi-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "katsurahama",
+      "name": "桂浜[かつらはま]",
+      "kind": "nature",
+      "imageKey": "motif.kochi.katsurahama",
+      "blurb": "太平洋[たいへいよう]に 面[めん]した、弓[ゆみ]の 形[かたち]の 浜[はま]。月[つき]の 名所[めいしょ]としても 知[し]られる。"
+    },
+    {
+      "id": "shimantogawa",
+      "name": "四万十川[しまんとがわ]",
+      "kind": "nature",
+      "imageKey": "motif.kochi.shimantogawa",
+      "blurb": "とても きれいな 川[かわ]。水[みず]が ふえると しずむ、らんかんの ない「沈下橋[ちんかばし]」が かかる。"
+    },
+    {
+      "id": "murotomisaki",
+      "name": "室戸岬[むろとみさき]",
+      "kind": "nature",
+      "imageKey": "motif.kochi.murotomisaki",
+      "blurb": "太平洋[たいへいよう]に つき出[で]た みさき。はげしい 波[なみ]に けずられた 岩[いわ]が つづく。"
+    },
+    {
+      "id": "ashizurimisaki",
+      "name": "足摺岬[あしずりみさき]",
+      "kind": "nature",
+      "imageKey": "motif.kochi.ashizurimisaki",
+      "blurb": "四国[しこく]の いちばん 南[みなみ]に ある みさき。白[しろ]い 灯台[とうだい]が 立[た]つ。"
+    },
+    {
+      "id": "yosakoi",
+      "name": "よさこい祭[まつ]り",
+      "kind": "festival",
+      "imageKey": "motif.kochi.yosakoi",
+      "blurb": "夏[なつ]の 高知市[こうちし]で、なるこを 手[て]に もって 町[まち]を おどり歩[ある]く お祭[まつ]り。"
+    },
+    {
+      "id": "ryugado",
+      "name": "龍河洞[りゅうがどう]",
+      "kind": "nature",
+      "imageKey": "motif.kochi.ryugado",
+      "blurb": "香美市[かみし]に ある 大[おお]きな しょうにゅうどう。"
+    },
+    {
+      "id": "niyodogawa",
+      "name": "仁淀川[によどがわ]",
+      "kind": "nature",
+      "imageKey": "motif.kochi.niyodogawa",
+      "blurb": "「仁淀[によど]ブルー」と よばれる、とても すきとおった 青[あお]い 川[かわ]。"
+    },
+    {
+      "id": "katsuo-tataki",
+      "name": "かつおの たたき",
+      "kind": "food",
+      "imageKey": "motif.kochi.katsuo-tataki",
+      "blurb": "かつおの まわりを わらの 火[ひ]で あぶって 作[つく]る、高知[こうち]の 名物[めいぶつ]。"
+    },
+    {
+      "id": "kochi-yuzu",
+      "name": "ゆず",
+      "kind": "food",
+      "imageKey": "motif.kochi.kochi-yuzu",
+      "blurb": "馬路村[うまじむら]など、高知県[こうちけん]は ゆずの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
+    },
+    {
+      "id": "tosa-washi",
+      "name": "土佐和紙[とさわし]",
+      "kind": "craft",
+      "imageKey": "motif.kochi.tosa-washi",
+      "blurb": "いの町[ちょう]で 作[つく]られる 和紙[わし]。とても うすくて じょうぶな 紙[かみ]も ある。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        { "monsterId": "kochi-kamiwashi", "weight": 40 },
+        { "monsterId": "kochi-yuzupika", "weight": 35 },
+        { "monsterId": "kochi-aburikatsuo", "weight": 25 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        { "monsterId": "kochi-yuzupika", "weight": 70 },
+        { "monsterId": "kochi-kamiwashi", "weight": 30 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        { "monsterId": "kochi-kamiwashi", "weight": 55 },
+        { "monsterId": "kochi-yuzupika", "weight": 45 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        { "monsterId": "kochi-kamiwashi", "weight": 70 },
+        { "monsterId": "kochi-yuzupika", "weight": 30 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        { "monsterId": "kochi-aburikatsuo", "weight": 75 },
+        { "monsterId": "kochi-kamiwashi", "weight": 25 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        { "monsterId": "kochi-aburikatsuo", "weight": 35 },
+        { "monsterId": "kochi-kamiwashi", "weight": 35 },
+        { "monsterId": "kochi-yuzupika", "weight": 30 }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "kochi-boss-kuroshio-kujira",
+  "midBoss": "kochi-midboss-narukomai",
+  "secret": { "name": "上町[かみまち]の 龍馬[りょうま]の 家[いえ]", "boss": "kochi-lastboss-sakamoto-ryoma" },
+  "events": [
+    {
+      "id": "ev-kochi-shimantogawa",
+      "motifId": "shimantogawa",
+      "trigger": {
+        "map": "kochi-field",
+        "objectName": "event_kochi_shimantogawa"
+      },
+      "once": true,
+      "cutinImageKey": "motif.kochi.shimantogawa",
+      "dialogue": [
+        {
+          "speaker": "沈下橋[ちんかばし]の 船頭[せんどう]さん",
+          "text": "四万十川[しまんとがわ]の 沈下橋[ちんかばし]には らんかんが ないんだ。水[みず]が ふえた とき、川[かわ]の 水[みず]に さからわないように ね。"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:kochi"]
+      },
+      "rewardByScore": [
+        { "min": 1, "reward": { "xp": 40, "gold": 100 } },
+        { "min": 0.5, "reward": { "xp": 20, "gold": 50 } },
+        { "min": 0, "reward": { "xp": 10, "gold": 10 } }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "沈下橋[ちんかばし]の 船頭[せんどう]さん",
+          "text": "よく しらべたね。流[なが]れる 水[みず]の 力[ちから]は すごいんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "高知市[こうちし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-kochi-shop",
+        "name": "ゆず屋[や]の おばちゃん",
+        "spriteKey": "char.npc-kochi-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 高知[こうち]の 日曜市[にちよういち]は、300年[ねん]いじょう つづく 大[おお]きな 朝[あさ]の 市[いち]なんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-kochi-smith",
+        "name": "土佐和紙[とさわし]の 職人[しょくにん]",
+        "spriteKey": "char.npc-kochi-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "土佐和紙[とさわし]は こうぞや みつまたの 皮[かわ]から 作[つく]る。うすくても なかなか やぶれないぞ。"
+          }
+        ]
+      }
+    ]
+  }
+}

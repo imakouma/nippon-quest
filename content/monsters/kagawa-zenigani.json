@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagawa-zenigani",
+  "name": "ゼニガニ",
+  "area": "kagawa",
+  "motifId": "zenigata",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 56,
+    "mp": 9,
+    "atk": 13,
+    "def": 12,
+    "spd": 6,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.6
+  },
+  "skills": ["sk-suna-kabe", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "kagawa-sanuki-no-shio",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 28,
+  "gold": 21,
+  "spriteKey": "mon.kagawa-zenigani",
+  "evolution": {
+    "to": "kagawa-oozenigani",
+    "item": "kagawa-sanuki-no-shio"
+  },
+  "dexBlurb": "銭形砂絵[ぜにがたすなえ]の 砂[すな]から 生[う]まれた カニ。砂絵[すなえ]は はばが 120メートルいじょうも あり、山[やま]の 上[うえ]から 見[み]ると まんまるに 見[み]える。"
+}

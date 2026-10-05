@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-boss-akajishi-oh",
+  "name": "アカジシオウ",
+  "area": "saga",
+  "motifId": "karatsu-kunchi",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 480,
+    "mp": 71,
+    "atk": 29,
+    "def": 20,
+    "spd": 10,
+    "wis": 17
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-namahage-otakebi",
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "saga-shichimenso-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "saga-etsuke-no-fude",
+      "rate": 1
+    },
+    {
+      "itemId": "saga-ureshino-shincha",
+      "rate": 1
+    },
+    {
+      "itemId": "saga-takeo-no-shizuku",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 314,
+  "gold": 370,
+  "spriteKey": "mon.saga-boss-akajishi-oh",
+  "dexBlurb": "唐津[からつ]くんちの 曳山[ひきやま]「赤獅子[あかじし]」が 動[うご]きだした 王[おう]。曳山[ひきやま]は、和紙[わし]を なんまいも はりかさねて 漆[うるし]を ぬって 作[つく]られている。",
+  "fieldLine": "ガオオッ！ わしの 行[ゆ]く手[て]に 立[た]つのは だれじゃ！ エンヤ！ エンヤ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin",
+        "sk-namahage-otakebi"
+      ],
+      "line": "ヨイサ！ ヨイサ！ 曳山[ひきやま]の 火[ひ]よ、もえあがれ！"
+    }
+  ]
+}

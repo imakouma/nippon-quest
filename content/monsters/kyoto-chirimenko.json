@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-chirimenko",
+  "name": "チリメンコ",
+  "area": "kyoto",
+  "motifId": "tango-chirimen",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 48,
+    "mp": 10,
+    "atk": 12,
+    "def": 8,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.35,
+    "def": 1.0,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-abc-call"
+  ],
+  "drops": [
+    {
+      "itemId": "kyoto-kinu-no-ito",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 22,
+  "gold": 14,
+  "spriteKey": "mon.kyoto-chirimenko",
+  "evolution": {
+    "to": "kyoto-chirimen-mai",
+    "item": "kyoto-kinu-no-ito"
+  },
+  "dexBlurb": "丹後[たんご]ちりめんの 絹[きぬ]の 布[ぬの]の モンスター。ふわりと かるく、表面[ひょうめん]に 細[こま]かな しぼ（でこぼこ）が ある。"
+}

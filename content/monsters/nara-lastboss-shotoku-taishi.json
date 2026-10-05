@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nara-lastboss-shotoku-taishi",
+  "name": "聖徳太子[しょうとくたいし]",
+  "area": "nara",
+  "motifId": "ishibutai",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 457,
+    "mp": 59,
+    "atk": 25,
+    "def": 20,
+    "spd": 14,
+    "wis": 20
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-habataki"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 425,
+  "gold": 490,
+  "spriteKey": "mon.nara-lastboss-shotoku-taishi",
+  "dexBlurb": "飛鳥時代[あすかじだい]に 政治[せいじ]を 行[おこな]った 皇子[おうじ]（574〜622年[ねん]）。十七条[じゅうしちじょう]の 憲法[けんぽう]を 定[さだ]め、小野妹子[おののいもこ]を 遣隋使[けんずいし]として 中国[ちゅうごく]へ 送[おく]ったと いわれる。",
+  "fieldLine": "われは 聖徳太子[しょうとくたいし]。十人[じゅうにん]の 話[はなし]も 聞[き]きわける この 耳[みみ]で、そなたの こたえを 聞[き]こう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-habataki"
+      ],
+      "line": "十七条[じゅうしちじょう]の ことば、いま かがやく！"
+    }
+  ]
+}

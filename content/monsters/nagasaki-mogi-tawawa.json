@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-mogi-tawawa",
+  "name": "モギタワワ",
+  "area": "nagasaki",
+  "motifId": "nagasaki-biwa",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 68,
+    "mp": 18,
+    "atk": 20,
+    "def": 12,
+    "spd": 13,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1,
+    "spd": 1.3,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 35,
+  "gold": 23,
+  "spriteKey": "mon.nagasaki-mogi-tawawa",
+  "dexBlurb": "モギッコが しんかした すがた。えだに 実[み]が たわわに なった びわの 木[き]の ように、たくさんの 実[み]を つけた。"
+}

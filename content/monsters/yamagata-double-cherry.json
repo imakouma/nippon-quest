@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamagata-double-cherry",
+  "name": "ダブルチェリー",
+  "area": "yamagata",
+  "motifId": "sakuranbo",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 48,
+    "mp": 12,
+    "atk": 14,
+    "def": 9,
+    "spd": 11,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.1,
+    "spd": 1.4,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.yamagata-double-cherry",
+  "dexBlurb": "サクランボーイが しんかした すがた。ふたつの 頭[あたま]の いきが ぴったり あう。"
+}

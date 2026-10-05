@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-wakame-ryu",
+  "name": "ワカメリュウ",
+  "area": "iwate",
+  "motifId": "sanriku-wakame",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 46,
+    "mp": 12,
+    "atk": 13,
+    "def": 9,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.3,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.1,
+    "spd": 1.2,
+    "wis": 1
+  },
+  "skills": [
+    "sk-happa-cutter",
+    "sk-happa-arashi"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.iwate-wakame-ryu",
+  "dexBlurb": "ワカメッコが しんかした すがた。長[なが]い 葉[は]を 竜[りゅう]の ように うねらせて 海[うみ]を はしる。"
+}

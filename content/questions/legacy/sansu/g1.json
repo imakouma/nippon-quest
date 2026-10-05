@@ -1,0 +1,2827 @@
+[
+  {
+    "id": "legacy.sansu.g1.math-1-1.1af41b0cec87",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "5 をふたつにわけたものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1 と 3"
+        },
+        {
+          "id": "c2",
+          "text": "2 と 3"
+        },
+        {
+          "id": "c3",
+          "text": "3 と 3"
+        },
+        {
+          "id": "c4",
+          "text": "3 と 4"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.1f7c6dd3b91a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "6 をふたつにわけたものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1 と 4"
+        },
+        {
+          "id": "c2",
+          "text": "2 と 3"
+        },
+        {
+          "id": "c3",
+          "text": "3 と 3"
+        },
+        {
+          "id": "c4",
+          "text": "3 と 4"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.1fa82b870bfb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつある でしょう。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/2d45c38e40ad1132.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.27834d1ff3be",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "きいろい ばす は、みぎから なんばんめ でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "7ばんめ"
+        },
+        {
+          "id": "c2",
+          "text": "3ばんめ"
+        },
+        {
+          "id": "c3",
+          "text": "5ばんめ"
+        },
+        {
+          "id": "c4",
+          "text": "1ばんめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/38baa9ec26f3e6f9.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.27fbf3853465",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あかい くるま は、ひだりから なんばんめ でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5ばんめ"
+        },
+        {
+          "id": "c2",
+          "text": "1ばんめ"
+        },
+        {
+          "id": "c3",
+          "text": "2ばんめ"
+        },
+        {
+          "id": "c4",
+          "text": "4ばんめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/80c9091874f53345.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.35ffbbb8abf8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ばなな は、ひだりから なんばんめ でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4ばんめ"
+        },
+        {
+          "id": "c2",
+          "text": "2ばんめ"
+        },
+        {
+          "id": "c3",
+          "text": "3ばんめ"
+        },
+        {
+          "id": "c4",
+          "text": "5ばんめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bc66290f43255dac.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.46333eaf85df",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつある でしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/79b8b1fed2548cba.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.46b4b8263a5d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "4 をふたつにわけたものは、どれでしょう",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1 と 1"
+        },
+        {
+          "id": "c2",
+          "text": "1 と 2"
+        },
+        {
+          "id": "c3",
+          "text": "2 と 2"
+        },
+        {
+          "id": "c4",
+          "text": "2 と 3"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.49a2b5845c29",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつある でしょう。",
+      "answers": [
+        "7"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/abf2ad6a5834321d.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.5ad5d8d0e228",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんご は、みぎから なんばんめ でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1ばんめ"
+        },
+        {
+          "id": "c2",
+          "text": "2ばんめ"
+        },
+        {
+          "id": "c3",
+          "text": "3ばんめ"
+        },
+        {
+          "id": "c4",
+          "text": "4ばんめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6cfe5dd93296fa5f.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.7510c0c387c6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつある でしょう。",
+      "answers": [
+        "3"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/8d035e86898e0ecd.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.8cd9f811aae4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "きいろい ばす は、ひだりから なんばんめ でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6ばんめ"
+        },
+        {
+          "id": "c2",
+          "text": "2ばんめ"
+        },
+        {
+          "id": "c3",
+          "text": "3ばんめ"
+        },
+        {
+          "id": "c4",
+          "text": "5ばんめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8bdd918c4cd8ad42.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.a06214fa3e95",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ばなな は、みぎから なんばんめ でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3ばんめ"
+        },
+        {
+          "id": "c2",
+          "text": "2ばんめ"
+        },
+        {
+          "id": "c3",
+          "text": "4ばんめ"
+        },
+        {
+          "id": "c4",
+          "text": "5ばんめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bc66290f43255dac.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.c4e9cc78ba25",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんご は、ひだりから なんばんめ でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2ばんめ"
+        },
+        {
+          "id": "c2",
+          "text": "1ばんめ"
+        },
+        {
+          "id": "c3",
+          "text": "3ばんめ"
+        },
+        {
+          "id": "c4",
+          "text": "4ばんめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ca1c5af3cd3e4dee.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.d29b83d0c753",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あかい くるま は、みぎから なんばんめ でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2ばんめ"
+        },
+        {
+          "id": "c2",
+          "text": "1ばんめ"
+        },
+        {
+          "id": "c3",
+          "text": "3ばんめ"
+        },
+        {
+          "id": "c4",
+          "text": "4ばんめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/aa97deacdc445c3c.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.ed72da1f9db3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3 をふたつにわけたものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1 と 1"
+        },
+        {
+          "id": "c2",
+          "text": "1 と 2"
+        },
+        {
+          "id": "c3",
+          "text": "1 と 3"
+        },
+        {
+          "id": "c4",
+          "text": "2 と 2"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.ee63affe5648",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "5 をふたつにわけたものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1 と 3"
+        },
+        {
+          "id": "c2",
+          "text": "2 と 2"
+        },
+        {
+          "id": "c3",
+          "text": "1 と 4"
+        },
+        {
+          "id": "c4",
+          "text": "2 と 4"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.f00c1aaeba17",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "4 をふたつにわけたものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1 と 1"
+        },
+        {
+          "id": "c2",
+          "text": "1 と 2"
+        },
+        {
+          "id": "c3",
+          "text": "1 と 3"
+        },
+        {
+          "id": "c4",
+          "text": "2 と 3"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-1.f3f78aa5166c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつある でしょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/936ea75891fe0c22.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.0a4fffa0cf06",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "10"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.3f3907084891",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いぬ と ねこは、あわせて、なんびきでしょう。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}}ひき",
+      "suffix": "ひき",
+      "promptImage": "questions/legacy/af203523a17c1f87.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.477bb611b8fb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くるま と ばすは、あわせて、なんだいでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}}だい",
+      "suffix": "だい",
+      "promptImage": "questions/legacy/86197bfe17a56520.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.4e9ff3694ce4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いぬ と ねこは、あわせて、なんびきでしょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}ひき",
+      "suffix": "ひき",
+      "promptImage": "questions/legacy/be0d25c0182e899c.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.68d9eeada7e3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "7"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.7ae7d695d354",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんご と ばななは、あわせて、いくつでしょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/fb77ef976350a4a5.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.7c0b6d84fba5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "6"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.81d683bc4bd3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "8"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.8934316bf2b9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "3"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.970865a03225",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くるまが ３だい、ばすが １だい、あわせて ４だい になります。あいているところに すうじをいれて、このたしざんの「しき」を つくりましょう。",
+      "answers": [
+        "3",
+        "4"
+      ],
+      "template": "{{INPUT}} + 1 = {{INPUT}}",
+      "promptImage": "questions/legacy/e129e59ab68c4fae.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.b46234534d9d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くるまが ２だい、ばすが ４だい、あわせて ６だい になります。あいているところに すうじをいれて、このたしざんの「しき」を つくりましょう。",
+      "answers": [
+        "4",
+        "6"
+      ],
+      "template": "2 + {{INPUT}} = {{INPUT}}",
+      "promptImage": "questions/legacy/55f5ac09a126f878.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.b5c59541a762",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんご と ばななは、あわせて、いくつでしょう。",
+      "answers": [
+        "3"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/5b93f653170787c0.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.b87cfd2e6ff3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "5"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.c8626ce3711f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごが １つ、ばななが ２ほん、あわせて ３つ になります。あいているところに すうじをいれて、このたしざんの「しき」を つくりましょう。",
+      "answers": [
+        "1",
+        "3"
+      ],
+      "template": "{{INPUT}} + 2 = {{INPUT}}",
+      "promptImage": "questions/legacy/5b93f653170787c0.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.cab18fc902e1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごが ２つ、ばななが ３ほん、あわせて ５つ になります。あいているところに すうじをいれて、このたしざんの「しき」を つくりましょう。",
+      "answers": [
+        "3",
+        "5"
+      ],
+      "template": "2 + {{INPUT}} = {{INPUT}}",
+      "promptImage": "questions/legacy/fb77ef976350a4a5.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.cc8d4eeb4ed4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "9"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.e9f788c88077",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "2"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.f1ef7b73549b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "4"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-2.fc26d7226bfe",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くるま と ばすは、あわせて、なんだいでしょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}だい",
+      "suffix": "だい",
+      "promptImage": "questions/legacy/1e10eee9112a54eb.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.334599058766",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くるまが ８だい ありました。５だい いってしまうと、のこりは ３だいです。このひきざんの「しき」を、つくりましょう。",
+      "answers": [
+        "8",
+        "5",
+        "3"
+      ],
+      "template": "{{INPUT}} - {{INPUT}} = {{INPUT}}"
+    },
+    "explanation": "もとあった 「８だい」から、「５だい」ひくので、8-5=3 に なるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.58b9bb14fbad",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "4"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.617c22787295",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ねこが ５ひき、いぬが ４ひき います。ねこは、なんびき おおいですか。",
+      "answers": [
+        "1"
+      ],
+      "template": "{{INPUT}}ぴき",
+      "suffix": "ぴき",
+      "promptImage": "questions/legacy/4aadffbf102fc6b1.png"
+    },
+    "explanation": "ふたつのかずの「ちがい」は、ひきざんで だすことができるよ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.8266536db113",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "3"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.828be8a15da8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごが ４つ、ばななが ２ほん あります。いくつ、かずは ちがいますか。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/206bf4f5d485c107.png"
+    },
+    "explanation": "ふたつのかずの「ちがい」は、ひきざんで だすことができるよ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.95ee1b626954",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ばすが ６だい とまっていました。４だい でていくと、なんだい のこるでしょう。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}だい",
+      "suffix": "だい",
+      "promptImage": "questions/legacy/640274628e280010.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.97a5435eca00",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くるまが ８だい、ばすが ４だい あります。いくつ、かずは ちがいますか。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}だい",
+      "suffix": "だい",
+      "promptImage": "questions/legacy/515b1a766a5073aa.png"
+    },
+    "explanation": "ふたつのかずの「ちがい」は、ひきざんで だすことができるよ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.a0cc8743250a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ばななが ７ほん、りんごが ３つあります。ばななが ４ほん おおいです。あいているところに すうじをいれて、このひきざんの「しき」を つくりましょう。",
+      "answers": [
+        "7",
+        "3",
+        "4"
+      ],
+      "template": "{{INPUT}} - {{INPUT}} = {{INPUT}}"
+    },
+    "explanation": "どちらが おおいかは、ひきざんで だすことが できるよ。おおきい かずから、ちいさい かずを ひこう。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.a26fac7b675a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "6"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.adb80c3ad7af",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごが ５つ ありました。３つ たべると、のこりは ２つです。あいているところに すうじをいれて、このひきざんの「しき」を つくりましょう。",
+      "answers": [
+        "5",
+        "3",
+        "2"
+      ],
+      "template": "{{INPUT}} - {{INPUT}} = {{INPUT}}"
+    },
+    "explanation": "もとあった 「５つ」から、「３つ」ひくので、5-3=2 に なるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.bc5ddf12769f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いぬが ６ぴき いました。５ひき いなくなると、のこりは なんびきでしょう。",
+      "answers": [
+        "1"
+      ],
+      "template": "{{INPUT}}ぴき",
+      "suffix": "ぴき",
+      "promptImage": "questions/legacy/5031e723c6d0b265.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.e8b22f2abbd7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "1"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.f6cd1c7fd19d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ばななが ７ほん ありました。２ほん たべると、のこりは なんぼんでしょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "{{INPUT}}ほん",
+      "suffix": "ほん",
+      "promptImage": "questions/legacy/122888be41f3a45c.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-4.1cbc2264a1ee",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "13"
+      ]
+    },
+    "explanation": "11 は、10 と 1 にわけられる。この 1 と 2 をあわせて、3。10 と 3 をあわせて、13 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-4.31a736f90b43",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "15"
+      ]
+    },
+    "explanation": "12 は、10 と 2 にわけられる。この 2 と 3 をあわせて、5。10 と 5 をあわせて、15 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-4.6dd4c9af22c3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "14"
+      ]
+    },
+    "explanation": "19 は、10 と 9 にわけられる。この 9 から 5 をひいて、4。10 と 4 をあわせて、4 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-4.90bf0bce1449",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつあるでしょう。",
+      "answers": [
+        "17"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/legacy/79d419626583a6d3.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-4.91bda509042f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "11"
+      ]
+    },
+    "explanation": "18 は、10 と 8 にわけられる。この 8 から 7 をひいて、1。10 と 1 をあわせて、11 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-4.c3f964f63f3a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつあるでしょう。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/legacy/81e747592d8a6225.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-4.e2ac63761c6b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "19"
+      ]
+    },
+    "explanation": "18 は、10 と 8 にわけられる。この 8 と 1 をあわせて、9。10 と 9 をあわせて、19 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-4.fd58036ae425",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "18"
+      ]
+    },
+    "explanation": "15 は、10 と 5 にわけられる。この 5 と 3 をあわせて、8。10 と 8 をあわせて、18 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.18033ca31de5",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "11"
+        },
+        {
+          "id": "c2",
+          "text": "13"
+        },
+        {
+          "id": "c3",
+          "text": "10"
+        },
+        {
+          "id": "c4",
+          "text": "14"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d081309126fab678.png"
+    },
+    "explanation": "4 に 7 のうち 6 をあわせると、10 のまとまりができる。 のこった 1 と 10 で、こたえは、11 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.3b2b1b7ef678",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "5"
+      ]
+    },
+    "explanation": "12 を 10 と 2 にわけて、10 から 7 をひくと、3 になる。 3 と 2 をあわせて、5 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.57580d0cada2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "16"
+      ]
+    },
+    "explanation": "7 に 9 のうち 3 をあわせると、10 のまとまりができる。 のこった 6 と 10 で、こたえは、16 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.97c33ad72178",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "9"
+        },
+        {
+          "id": "c2",
+          "text": "6"
+        },
+        {
+          "id": "c3",
+          "text": "7"
+        },
+        {
+          "id": "c4",
+          "text": "8"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c03cf27e48b1875f.png"
+    },
+    "explanation": "15 を 10 と 5 にわけて、10 から 7 をひくと、3 になる。 3 と 5 をあわせて、8 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.9d2bbdf6748d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6"
+        },
+        {
+          "id": "c2",
+          "text": "7"
+        },
+        {
+          "id": "c3",
+          "text": "8"
+        },
+        {
+          "id": "c4",
+          "text": "9"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/976adb76d6ad39d9.png"
+    },
+    "explanation": "12 を 10 と 2 にわけて、10 から 4 をひくと、6 になる。6 と 2 をあわせて、8 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.9f657e1c2e87",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10"
+        },
+        {
+          "id": "c2",
+          "text": "11"
+        },
+        {
+          "id": "c3",
+          "text": "12"
+        },
+        {
+          "id": "c4",
+          "text": "13"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f31bc2cb443655ab.png"
+    },
+    "explanation": "9 に 3 のうち 1 をあわせると、10 のまとまりができる。 のこった 2 と 10 で、こたえは、12 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.cf075e7e8b74",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12"
+        },
+        {
+          "id": "c2",
+          "text": "14"
+        },
+        {
+          "id": "c3",
+          "text": "10"
+        },
+        {
+          "id": "c4",
+          "text": "16"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1b9f14c1258d6a28.png"
+    },
+    "explanation": "6 に 8 のうち 4 をあわせると、10 のまとまりができる。のこった 4 と 10 で、こたえは、14 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.e5e1ef83fb5f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "11"
+        },
+        {
+          "id": "c2",
+          "text": "10"
+        },
+        {
+          "id": "c3",
+          "text": "8"
+        },
+        {
+          "id": "c4",
+          "text": "9"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6ec35bcc985eed79.png"
+    },
+    "explanation": "18 を 10 と 8 にわけて、10 から 9 をひくと、1 になる。 1 と 8 をあわせて、9 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.0028cd1e9454",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "82"
+      ]
+    },
+    "explanation": "81 のつぎのかずは、81 と 1 で 82 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.0d5b59f1d0b1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "十のくらいが 2 で、一のくらいが 4 のかずは、いくつに なるでしょう。",
+      "answers": [
+        "24"
+      ]
+    },
+    "explanation": "十のくらいが 2 なので、20 になる。20 と 一のくらいの 4 で、あわせて 24 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.256da7111221",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "28 より、2 ちいさいかずは、いくつでしょう。",
+      "answers": [
+        "26"
+      ]
+    },
+    "explanation": "28 から ぎゃくのじゅんばんに 2 かぞえて、26 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.392c6f803a77",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつ あるでしょう。",
+      "answers": [
+        "41"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/legacy/fc0005de2b1ff22e.png"
+    },
+    "explanation": "１れつが 10 に なっているね。４れつと 1 あるので、41 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.4520b07d4ccb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "50 より、10 ちいさいかずは、いくつでしょう。",
+      "answers": [
+        "40"
+      ]
+    },
+    "explanation": "10 ちいさいので、十のくらいを 1 ちいさくして、40 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.4a5ecb6dfb0f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "80 より、10 おおきいかずは、いくつでしょう。",
+      "answers": [
+        "90"
+      ]
+    },
+    "explanation": "10 おおきいので、十のくらいを 1 おおきくして、90 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.4a9fa52b28f3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまるかずは、いくつでしょう。",
+      "answers": [
+        "101"
+      ]
+    },
+    "explanation": "100 から 1 ふえると、100 と 1 で 101 だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.582c47dfbafd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "十のくらいが 3 で、一のくらいが 6 のかずは、いくつに なるでしょう。",
+      "answers": [
+        "36"
+      ]
+    },
+    "explanation": "十のくらいが 3 なので、30 になる。30 と 一のくらいの 6 で、あわせて 36 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.76bdd12e3d89",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまるかずは、いくつでしょう。",
+      "answers": [
+        "123"
+      ]
+    },
+    "explanation": "一のくらいが、じゅんばんにふえているね。122 から 1 ふやして、123 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.77a6f5ef6b43",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "63"
+      ]
+    },
+    "explanation": "64 のまえのかずは、64 から 1 をひいて 63 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.7b588cd0c820",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "30 より、3 おおきいかずは、いくつでしょう。",
+      "answers": [
+        "33"
+      ]
+    },
+    "explanation": "30 から じゅんばんに 3 かぞえて、33 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.9599d1629996",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "70 より、5 ちいさいかずは、いくつでしょう。",
+      "answers": [
+        "65"
+      ]
+    },
+    "explanation": "70 から ぎゃくのじゅんばんに 5 かぞえて、65 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.a382bc3ef2ab",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつ あるでしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/legacy/82a1610dc2891f54.png"
+    },
+    "explanation": "１れつが 10 に なっているね。６れつ あるので、60 だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.b603d681415b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "21"
+      ]
+    },
+    "explanation": "20 のつぎのかずは、20 と 1 で 21 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.be2e2c092c35",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまるかずは、いくつでしょう。",
+      "answers": [
+        "110"
+      ]
+    },
+    "explanation": "109 は、100 と 9 をあわせたかず。9 から 1 ふえると 10 なので、110 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.c7841ad0eb14",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "50 より、8 おおきいかずは、いくつでしょう。",
+      "answers": [
+        "58"
+      ]
+    },
+    "explanation": "50 から じゅんばんに8 かぞえて、58 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.cefe86ef8762",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "49"
+      ]
+    },
+    "explanation": "48 のつぎのかずは、48 と 1 で 49 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.d29acb17630b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "十のくらいが 5 で、一のくらいが 7 のかずは、いくつに なるでしょう。",
+      "answers": [
+        "57"
+      ]
+    },
+    "explanation": "十のくらいが 5 なので、50 になる。50 と 一のくらいの 7 で、あわせて 57 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.e7036378edfa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "100"
+      ]
+    },
+    "explanation": "99 のつぎなので、10 が 10こ あつまるので、100 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.ffb22b7264ce",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつ あるでしょう。",
+      "answers": [
+        "25"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/legacy/a912f4c94ef8e008.png"
+    },
+    "explanation": "１れつが 10 に なっているね。２れつと 5 あるので、25 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.031e107b1bac",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "64"
+      ]
+    },
+    "explanation": "10 を２つたすので、10 のくらいが ２大きくなって、64だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.05cb1911f461",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "40"
+      ]
+    },
+    "explanation": "60 は、10 が ６つ。20 は、10 が ２つ。６から２をひくと、10 は ４つで、40 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.097f78d581ba",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "60"
+      ]
+    },
+    "explanation": "90 は、10 が ９つ。30 は、10 が ３つ。９から３をひくと、10 は ６つで、60 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.37113fa61aae",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "65"
+      ]
+    },
+    "explanation": "10 を３つひくので、10 のくらいが ３小さくなって、65だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.51bcd1362377",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "70"
+      ]
+    },
+    "explanation": "50 は、10 が ５つ。20 は、10 が ２つ。あわせると、10 は ７つで、70 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.64dfc03bf80f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "73"
+      ]
+    },
+    "explanation": "10 を２つたすので、10 のくらいが ２大きくなって、73だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.ab9c77c27df3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "33"
+      ]
+    },
+    "explanation": "10 を６つひくので、10 のくらいが ６つ小さくなって、33だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.aca550ddeaca",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "58"
+      ]
+    },
+    "explanation": "10 を３つひくので、10 のくらいが ３つ小さくなって、58だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.cf4dbfa42bc6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "50"
+      ]
+    },
+    "explanation": "20 は、10 が ２つ。30 は、10 が ３つ。あわせると、10 は ５つで、50 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.e1500ffc6265",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "62"
+      ]
+    },
+    "explanation": "10 を１つたすので、10 のくらいが １大きくなって、62だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.e98db62653aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "30"
+      ]
+    },
+    "explanation": "80 は、10 が ８つ。50 は、10 が ５つ。８から５をひくと、10 は ３つで、30 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-7.ff14c365537b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "74"
+      ]
+    },
+    "explanation": "10 を２つひくので、10 のくらいが ２つ小さくなって、74だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.13b5d9e4304f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アとイのうち、どちらで なんふんかが わかるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f352be15a5a70bb5.png"
+    },
+    "explanation": "ほそくて ながいはり で、なんじかが わかります。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.3c5ad93789a3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "12",
+        "20"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/64316757ca60108f.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.64c4ef4d45b9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "9",
+        "15"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/0a24201dd8eefd99.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.6c2c0a80bec3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "2",
+        "30"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/72374769b78ffba3.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.7b4e7e51b9eb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "とけいでは、ながいはりが １しゅう すると、なんふん すすみますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12ふん"
+        },
+        {
+          "id": "c2",
+          "text": "10ぷん"
+        },
+        {
+          "id": "c3",
+          "text": "60ぷん"
+        },
+        {
+          "id": "c4",
+          "text": "100ぷん"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "とけいで ながいはりが １しゅう すると 60ぷん すすむ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.7bed5fa2e4a0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "7じ"
+        },
+        {
+          "id": "c2",
+          "text": "7じ 12ふん"
+        },
+        {
+          "id": "c3",
+          "text": "12じ"
+        },
+        {
+          "id": "c4",
+          "text": "12じ 7ふん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6a6f0445e8d30b69.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.7f09e0a90aba",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "6",
+        "3"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/164d4c0d1a1cc263.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.bf1c1121fe83",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "4",
+        "33"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/e9d76a6f1ad7375f.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.c6e63b71e522",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アとイのうち、どちらで なんじかが わかるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4f69ec5c6dcba2db.png"
+    },
+    "explanation": "ふとくて みじかいはり で、なんじかが わかります。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.ef8dff9d637a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "9",
+        "47"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/c45ef72b80c7d9f0.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.0ae1b28a84da",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みかさんは 5人 かぞくです。かぞくみんなが、2つずつ パンをもっています。 パンは、ぜんぶで いくつあるでしょう。 こ",
+      "answers": [
+        "10"
+      ],
+      "template": "みかさんは 5人 かぞくです。かぞくみんなが、2つずつ パンをもっています。 パンは、ぜんぶで いくつあるでしょう。 {{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "2 つのパンを もっている人が5 人いるので、2 を 5 かい たしざんしよう。 2+2+2+2+2=10 ぜんぶで、10 このパンがあるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.21c817506842",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こどもが、8人 います。2人 で 1つのはんをつくると、いくつのはんを つくることができるでしょう。 つ",
+      "answers": [
+        "4"
+      ],
+      "template": "こどもが、8人 います。2人 で 1つのはんをつくると、いくつのはんを つくることができるでしょう。 {{INPUT}}つ",
+      "suffix": "つ"
+    },
+    "explanation": "2人で １つのはんを つくるので、たしざんでかんがえよう。 2+2+2+2=8 2 を ４つたしたら、8 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.3e2f1449e1d8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "5人のこどもがいます。15 こ のパンを、みんなで おなじかずずつ わけたとき、1人がもらえるパンは いくつになるでしょう。 こ",
+      "answers": [
+        "3"
+      ],
+      "template": "5人のこどもがいます。15 こ のパンを、みんなで おなじかずずつ わけたとき、1人がもらえるパンは いくつになるでしょう。 {{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "1人が 5 このパンを もらうので、たしざんで かんがえよう。 5+5+5=15 5 を ３つたしたら、15 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.51c44ae28310",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みくさんは、90 えん もっています。いもうとは、30 えん もっています。みくさんは、いくらおおく もっていますか。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}えん",
+      "suffix": "えん"
+    },
+    "explanation": "「いくらおおく…」ときかれているので、ひきざんをしよう。 90-30=60 みくさんは、60 えん おおくもっているね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.696022d14077",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こども 3人 で1つのはんを つくります。ぜんぶで 4 つのはんが できました。 こどもは、なん人いるでしょう。 人",
+      "answers": [
+        "12"
+      ],
+      "template": "こども 3人 で1つのはんを つくります。ぜんぶで 4 つのはんが できました。 こどもは、なん人いるでしょう。 {{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "3 人のはんを、4つ つくるので、3 を 4 かい たしざんしよう。 3+3+3+3=12 ぜんぶで、12 人のこどもが いるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.6c0325c6e9af",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つばささんは、55 えん もっています。30 えん おこづかいを もらいました。 あわせて、いくらになるでしょう。 えん",
+      "answers": [
+        "85"
+      ],
+      "template": "つばささんは、55 えん もっています。30 えん おこづかいを もらいました。 あわせて、いくらになるでしょう。 {{INPUT}}えん",
+      "suffix": "えん"
+    },
+    "explanation": "「あわせて…」ときかれているので、たしざんをしよう。 55+30=85 あわせて、85えん になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.77899e75da75",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１くみは、36 人います。２くみは、30 人います。 １くみは、２くみより なん人 おおいですか。 人",
+      "answers": [
+        "6"
+      ],
+      "template": "１くみは、36 人います。２くみは、30 人います。 １くみは、２くみより なん人 おおいですか。 {{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "「なん人おおい…」ときかれているので、ひきざんをしよう。 36-30=6 １くみは、6人 おおいね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.7cbc728997f0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はるかさんは、えんぴつを 12 ほん もっています。たくまさんが もっている えんぴつは、3 ほん すくないそうです。たくまさんは、えんぴつを なんほんもっていますか。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}}ほん",
+      "suffix": "ほん"
+    },
+    "explanation": "たくまさんは、「3 ほん すくない」ので、はるかさんの もっている ほんすうから、ひきざんしよう。 12-3=9 はるかさんは、9 ほんもっている。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.8aa8ea763eae",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゆいさんは、りんごを 15 こ もっています。りこさんが もっている りんごは、7 こ すくないそうです。りこさんは、りんごを なんこもっていますか。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "りこさんは、「7 こ すくない」ので、ゆいさんの もっている こすうから、ひきざんしよう。 15-7=8 はるかさんは、8 こもっている。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.91fcf0312a4a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たいいくかんに、15 人のこどもがいます。そこに、40 人のこどもが、きました。あわせて、なん人が たいいくかんに いるでしょう。",
+      "answers": [
+        "55"
+      ],
+      "template": "{{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "「あわせて…」ときかれているので、たしざんをしよう。 15+40=55 あわせて、55人 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.a76d953c1d33",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りょうさんは、6 さいです。おにいさんは、りょうさんより、2 さい としうえです。 おにいさんは、なんさいでしょう。 さい",
+      "answers": [
+        "8"
+      ],
+      "template": "りょうさんは、6 さいです。おにいさんは、りょうさんより、2 さい としうえです。 おにいさんは、なんさいでしょう。 {{INPUT}}さい",
+      "suffix": "さい"
+    },
+    "explanation": "おにいさんは、「としうえ」なので、りょうさん のとしに、たしざんしてあげよう。 6+2=8 おにいさんは、8 さいだね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.d3a516ae95c3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こどもが 4人 います。チョコを １人に 2こ ずつ くばります。チョコは、ぜんぶでなんこ いりますか。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "１人に 2こずつ、4人 にくばるので、2 を 4 かい たしざんしよう。 2+2+2+2=8 ぜんぶで、8 こ チョコがいるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.d565d918d645",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゆうとさんは、5 つ あめを もっています。おにいさんは、ゆうとさんより、5 こ おおくあめを もっています。 おにいさんは、いくつ あめをもっていますか。 こ",
+      "answers": [
+        "10"
+      ],
+      "template": "ゆうとさんは、5 つ あめを もっています。おにいさんは、ゆうとさんより、5 こ おおくあめを もっています。 おにいさんは、いくつ あめをもっていますか。 {{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "おにいさんは、ゆうとさんより、5つあめを おおくもっているので、ゆうとさん のもっていた かずに、たしざんしてあげよう。 5+5=10 おにいさんは、10 この あめを もっているね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.e3bac09b0df6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あめが、9こ あります。1人に 3 こずつ くばると、なん人に くばれるでしょう。 人",
+      "answers": [
+        "3"
+      ],
+      "template": "あめが、9こ あります。1人に 3 こずつ くばると、なん人に くばれるでしょう。 {{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "1人に 3 こずつ くばるので、たしざんでかんがえよう。 3+3+3=9 3 を ３つたしたら、9 になるね。"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shizuoka-lastboss-tokugawa-ieyasu",
+  "name": "徳川家康[とくがわいえやす]",
+  "area": "shizuoka",
+  "motifId": "shizuoka-cha",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 484,
+    "mp": 57,
+    "atk": 24,
+    "def": 23,
+    "spd": 10,
+    "wis": 19
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-happa-arashi",
+    "sk-happa-cutter"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 421,
+  "gold": 484,
+  "spriteKey": "mon.shizuoka-lastboss-tokugawa-ieyasu",
+  "dexBlurb": "江戸幕府[えどばくふ]を ひらいた 武将[ぶしょう]（1543〜1616年[ねん]）。子[こ]どもの ころと、年[とし]を とってからを 駿府[すんぷ]（いまの 静岡市[しずおかし]）で すごした。",
+  "fieldLine": "徳川家康[とくがわいえやす]じゃ。この 駿府城[すんぷじょう]で、そなたを まっておった。いざ、まいれ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya",
+        "sk-happa-arashi"
+      ],
+      "line": "しんぼう づよく まった かいが あった。ここからが 天下[てんか]の いくさじゃ！"
+    }
+  ]
+}

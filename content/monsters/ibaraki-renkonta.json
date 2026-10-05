@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ibaraki-renkonta",
+  "name": "レンコンタ",
+  "area": "ibaraki",
+  "motifId": "renkon",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 40,
+    "mp": 9,
+    "atk": 10,
+    "def": 7,
+    "spd": 7,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 1,
+    "spd": 1,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "ibaraki-hasu-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 17,
+  "gold": 11,
+  "spriteKey": "mon.ibaraki-renkonta",
+  "evolution": {
+    "to": "ibaraki-hasu-kabuto",
+    "item": "ibaraki-hasu-no-hana"
+  },
+  "dexBlurb": "あなの あいた れんこんの モンスター。れんこんの あなは、どろの 中[なか]でも 空気[くうき]を とおす ための もの。"
+}

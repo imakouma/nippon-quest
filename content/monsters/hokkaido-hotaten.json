@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-hotaten",
+  "name": "ホタテン",
+  "area": "hokkaido",
+  "motifId": "sarufutsu-hotate",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 36,
+    "mp": 8,
+    "atk": 8,
+    "def": 8,
+    "spd": 7,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 1,
+    "wis": 0.8
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "hokkaido-hotate-no-kaigara",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 17,
+  "gold": 13,
+  "spriteKey": "mon.hokkaido-hotaten",
+  "evolution": {
+    "to": "hokkaido-jet-hotate",
+    "item": "hokkaido-hotate-no-kaigara"
+  },
+  "dexBlurb": "オホーツク海[かい]の ホタテの モンスター。ホタテは 貝[かい]がらを パクパク させて 水[みず]を ふきだし、およぐ ことが できる。"
+}

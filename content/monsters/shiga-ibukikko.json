@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shiga-ibukikko",
+  "name": "イブキッコ",
+  "area": "shiga",
+  "motifId": "ibukiyama",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 52,
+    "mp": 11,
+    "atk": 11,
+    "def": 11,
+    "spd": 7,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.1,
+    "spd": 0.8,
+    "wis": 0.9
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "shiga-ibukiyama-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 18,
+  "spriteKey": "mon.shiga-ibukikko",
+  "evolution": {
+    "to": "shiga-ibuki-no-oyama",
+    "item": "shiga-ibukiyama-no-hana"
+  },
+  "dexBlurb": "伊吹山[いぶきやま]の 小[ちい]さな 山[やま]の せい。伊吹山[いぶきやま]は、むかしから 薬草[やくそう]が たくさん とれる 山[やま]として 知[し]られる。"
+}

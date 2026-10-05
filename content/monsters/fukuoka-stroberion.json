@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-stroberion",
+  "name": "ストロベリオン",
+  "area": "fukuoka",
+  "motifId": "fukuoka-ichigo",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 68,
+    "mp": 18,
+    "atk": 18,
+    "def": 14,
+    "spd": 11,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 23,
+  "spriteKey": "mon.fukuoka-stroberion",
+  "dexBlurb": "ストロベビーが しんかした すがた。へたの 葉[は]っぱが、ライオンの たてがみのように 大[おお]きく 広[ひろ]がった。"
+}

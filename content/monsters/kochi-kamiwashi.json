@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kochi-kamiwashi",
+  "name": "カミワシ",
+  "area": "kochi",
+  "motifId": "tosa-washi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 44,
+    "mp": 12,
+    "atk": 13,
+    "def": 7,
+    "spd": 14,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.4,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.8,
+    "spd": 1.3,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-call"],
+  "drops": [
+    {
+      "itemId": "kochi-kamihoshi-ita",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 16,
+  "spriteKey": "mon.kochi-kamiwashi",
+  "evolution": {
+    "to": "kochi-oowashigami",
+    "item": "kochi-kamihoshi-ita"
+  },
+  "dexBlurb": "1まいの 土佐和紙[とさわし]が おれて、ワシに なった モンスター。土佐和紙[とさわし]には、とても うすくて じょうぶな 紙[かみ]も ある。"
+}

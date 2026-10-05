@@ -1,0 +1,291 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "okinawa",
+  "name": "沖縄県[おきなわけん]",
+  "island": "kyushu-okinawa",
+  "capital": "那覇市[なはし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "okinawa-field",
+    "town": "okinawa-town",
+    "dungeon": "okinawa-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "shurijo",
+      "name": "首里城[しゅりじょう]",
+      "kind": "history",
+      "imageKey": "motif.okinawa.shurijo",
+      "blurb": "琉球王国[りゅうきゅうおうこく]の お城[しろ]。赤[あか]い 建物[たてもの]と、まがりくねった 石垣[いしがき]が とくちょう。"
+    },
+    {
+      "id": "manzamo",
+      "name": "万座毛[まんざもう]",
+      "kind": "nature",
+      "imageKey": "motif.okinawa.manzamo",
+      "blurb": "海[うみ]に つき出[で]た がけの 上[うえ]の 野原[のはら]。象[ぞう]の 鼻[はな]のような 形[かたち]の 岩[いわ]が ある。"
+    },
+    {
+      "id": "kourijima",
+      "name": "古宇利島[こうりじま]",
+      "kind": "nature",
+      "imageKey": "motif.okinawa.kourijima",
+      "blurb": "長[なが]い 橋[はし]で わたれる 島[しま]。まわりの 海[うみ]が エメラルドグリーンに かがやく。"
+    },
+    {
+      "id": "yanbaru",
+      "name": "やんばるの 森[もり]",
+      "kind": "nature",
+      "imageKey": "motif.okinawa.yanbaru",
+      "blurb": "沖縄本島[おきなわほんとう]の 北[きた]に 広[ひろ]がる 森[もり]。ヤンバルクイナなど、ここだけの 生[い]きものが すむ。"
+    },
+    {
+      "id": "sefa-utaki",
+      "name": "斎場御嶽[せーふぁうたき]",
+      "kind": "history",
+      "imageKey": "motif.okinawa.sefa-utaki",
+      "blurb": "琉球[りゅうきゅう]の 大切[たいせつ]な いのりの 場所[ばしょ]。大[おお]きな 岩[いわ]の すきまを 通[とお]って 入[はい]る。"
+    },
+    {
+      "id": "eisa",
+      "name": "エイサー",
+      "kind": "festival",
+      "imageKey": "motif.okinawa.eisa",
+      "blurb": "夏[なつ]の お盆[ぼん]に、たいこを たたきながら 町[まち]を おどり歩[ある]く、沖縄[おきなわ]の おどり。"
+    },
+    {
+      "id": "goya",
+      "name": "ゴーヤー",
+      "kind": "food",
+      "imageKey": "motif.okinawa.goya",
+      "blurb": "にがみの ある、いぼいぼの ついた みどりの 野菜[やさい]。ゴーヤーチャンプルーに 使[つか]う。"
+    },
+    {
+      "id": "okinawa-pineapple",
+      "name": "パイナップル",
+      "kind": "food",
+      "imageKey": "motif.okinawa.okinawa-pineapple",
+      "blurb": "沖縄本島[おきなわほんとう]の 北[きた]の 畑[はたけ]で 作[つく]られる パイナップル。"
+    },
+    {
+      "id": "bingata",
+      "name": "紅型[びんがた]",
+      "kind": "craft",
+      "imageKey": "motif.okinawa.bingata",
+      "blurb": "あざやかな 色[いろ]で もようを そめた、沖縄[おきなわ]の そめもの。"
+    },
+    {
+      "id": "ryukyu-glass",
+      "name": "琉球[りゅうきゅう]ガラス",
+      "kind": "craft",
+      "imageKey": "motif.okinawa.ryukyu-glass",
+      "blurb": "色[いろ]とりどりで、あつみの ある 手[て]づくりの ガラス。"
+    },
+    {
+      "id": "kabirawan",
+      "name": "川平湾[かびらわん]",
+      "kind": "nature",
+      "imageKey": "motif.okinawa.kabirawan",
+      "blurb": "石垣島[いしがきじま]の、エメラルドグリーンの 海[うみ]に 小[ちい]さな 島[しま]が うかぶ 湾[わん]。"
+    },
+    {
+      "id": "ishigaki-gyu",
+      "name": "石垣牛[いしがきぎゅう]",
+      "kind": "food",
+      "imageKey": "motif.okinawa.ishigaki-gyu",
+      "blurb": "石垣島[いしがきじま]で 育[そだ]てられる 黒毛[くろげ]の 牛[うし]。"
+    },
+    {
+      "id": "hirakubozaki",
+      "name": "平久保崎[ひらくぼざき]",
+      "kind": "nature",
+      "imageKey": "motif.okinawa.hirakubozaki",
+      "blurb": "石垣島[いしがきじま]の いちばん 北[きた]の みさき。白[しろ]い 灯台[とうだい]が 立[た]つ。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "okinawa-goyamaru",
+          "weight": 35
+        },
+        {
+          "monsterId": "okinawa-painapon",
+          "weight": 30
+        },
+        {
+          "monsterId": "okinawa-garasu-kurage",
+          "weight": 20
+        },
+        {
+          "monsterId": "okinawa-yanbaru-totto",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "okinawa-painapon",
+          "weight": 45
+        },
+        {
+          "monsterId": "okinawa-goyamaru",
+          "weight": 30
+        },
+        {
+          "monsterId": "okinawa-yanbaru-totto",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "okinawa-garasu-kurage",
+          "weight": 75
+        },
+        {
+          "monsterId": "okinawa-goyamaru",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "okinawa-garasu-kurage",
+          "weight": 35
+        },
+        {
+          "monsterId": "okinawa-goyamaru",
+          "weight": 25
+        },
+        {
+          "monsterId": "okinawa-painapon",
+          "weight": 20
+        },
+        {
+          "monsterId": "okinawa-yanbaru-totto",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "okinawa-boss-dairyuchu",
+  "midBoss": "okinawa-midboss-eisa-daiko",
+  "secret": {
+    "name": "首里城[しゅりじょう]",
+    "boss": "okinawa-lastboss-sho-hashi"
+  },
+  "events": [
+    {
+      "id": "ev-okinawa-yanbaru",
+      "motifId": "yanbaru",
+      "trigger": {
+        "map": "okinawa-field",
+        "objectName": "event_okinawa_yanbaru"
+      },
+      "once": true,
+      "cutinImageKey": "motif.okinawa.yanbaru",
+      "dialogue": [
+        {
+          "speaker": "やんばるの 森[もり]の ガイドさん",
+          "text": "やんばるの 森[もり]には、ここにしか いない 生[い]きものが すんで いるんだよ。生[い]きものの ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:okinawa"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "やんばるの 森[もり]の ガイドさん",
+          "text": "よく しらべたね！ やんばるの 森[もり]は 世界自然遺産[せかいしぜんいさん]に なっているんだ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "那覇市[なはし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-okinawa-shop",
+        "name": "市場[いちば]の おばあ",
+        "spriteKey": "char.npc-okinawa-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ ゴーヤーチャンプルーは、ゴーヤーと とうふを いためた 沖縄[おきなわ]の 料理[りょうり]だよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-okinawa-smith",
+        "name": "琉球[りゅうきゅう]ガラスの 職人[しょくにん]",
+        "spriteKey": "char.npc-okinawa-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "琉球[りゅうきゅう]ガラスは あつみが あって、中[なか]の あわの つぶが きらきら 光[ひか]るんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-okinawa-talk",
+        "name": "紅型[びんがた]の 染[そ]め師[し]",
+        "spriteKey": "char.npc-okinawa-talk",
+        "role": "talk",
+        "dialogue": [
+          {
+            "text": "紅型[びんがた]は、花[はな]や 鳥[とり]の もようを あざやかな 色[いろ]で そめる、沖縄[おきなわ]の そめものだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

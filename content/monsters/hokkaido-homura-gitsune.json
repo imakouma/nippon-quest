@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-homura-gitsune",
+  "name": "ホムラギツネ",
+  "area": "hokkaido",
+  "motifId": "shiretoko",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 47,
+    "mp": 13,
+    "atk": 16,
+    "def": 8,
+    "spd": 12,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 21,
+  "spriteKey": "mon.hokkaido-homura-gitsune",
+  "dexBlurb": "キタコンが しんかした すがた。キタキツネは、雪[ゆき]の 下[した]の ネズミの 音[おと]を 聞[き]きつけて、とびこんで つかまえる。"
+}

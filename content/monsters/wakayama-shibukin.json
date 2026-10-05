@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "wakayama-shibukin",
+  "name": "シブキン",
+  "area": "wakayama",
+  "motifId": "nachi-no-taki",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 47,
+    "mp": 12,
+    "atk": 12,
+    "def": 9,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.6,
+    "def": 1,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-shizuku"
+  ],
+  "drops": [
+    {
+      "itemId": "wakayama-taki-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 23,
+  "gold": 16,
+  "spriteKey": "mon.wakayama-shibukin",
+  "evolution": {
+    "to": "wakayama-ootakimaru",
+    "item": "wakayama-taki-no-shizuku"
+  },
+  "dexBlurb": "那智[なち]の 滝[たき]の しぶきから 生[う]まれた モンスター。きりの ような しぶきは、遠[とお]くからでも 白[しろ]く 見[み]える。"
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okinawa-lastboss-sho-hashi",
+  "name": "尚巴志[しょうはし]",
+  "area": "okinawa",
+  "motifId": "shurijo",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 554,
+    "mp": 71,
+    "atk": 29,
+    "def": 25,
+    "spd": 14,
+    "wis": 22
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.6,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-konjiki-no-kiba"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 490,
+  "gold": 564,
+  "spriteKey": "mon.okinawa-lastboss-sho-hashi",
+  "dexBlurb": "琉球[りゅうきゅう]の 三[みっ]つの 国[くに]を 一[ひと]つに まとめ、琉球王国[りゅうきゅうおうこく]を ひらいた 王[おう]（1372〜1439年[ねん]）。首里城[しゅりじょう]を 王[おう]の 城[しろ]と した。",
+  "fieldLine": "尚巴志[しょうはし]である。首里[しゅり]の 城[しろ]で、そなたの 力[ちから]を 見[み]せて もらおう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "海[うみ]を こえて 国[くに]と 国[くに]を つなぐ 心[こころ]！ それが わしの まことの 力[ちから]よ！"
+    }
+  ]
+}

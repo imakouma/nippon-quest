@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "okinawa-garasu-kurage",
+  "name": "ガラスクラゲ",
+  "area": "okinawa",
+  "motifId": "ryukyu-glass",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 46,
+    "mp": 15,
+    "atk": 15,
+    "def": 8,
+    "spd": 11,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 4.2,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.1,
+    "wis": 0.9
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "okinawa-ryukyu-glass-no-kakera",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.okinawa-garasu-kurage",
+  "evolution": {
+    "to": "okinawa-niji-kurage",
+    "item": "okinawa-ryukyu-glass-no-kakera"
+  },
+  "dexBlurb": "琉球[りゅうきゅう]ガラスから 生[う]まれた クラゲ。中[なか]に 小[ちい]さな あわの つぶが きらきらと 光[ひか]る。"
+}

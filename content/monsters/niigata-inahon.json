@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-inahon",
+  "name": "イナホン",
+  "area": "niigata",
+  "motifId": "uonuma-okome",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 40,
+    "mp": 9,
+    "atk": 9,
+    "def": 7,
+    "spd": 7,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.0,
+    "spd": 0.9,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "niigata-yukidoke-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 13,
+  "spriteKey": "mon.niigata-inahon",
+  "evolution": {
+    "to": "niigata-minori-maru",
+    "item": "niigata-yukidoke-no-shizuku"
+  },
+  "dexBlurb": "つやつやの お米[こめ]の つぶに、稲穂[いなほ]が 生[は]えた モンスター。お米[こめ]は 春[はる]に 田[た]うえを して、秋[あき]に かりとる。"
+}

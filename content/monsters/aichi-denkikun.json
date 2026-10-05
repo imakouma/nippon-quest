@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-denkikun",
+  "name": "デンキクン",
+  "area": "aichi",
+  "motifId": "denshogiku",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 44,
+    "mp": 13,
+    "atk": 10,
+    "def": 8,
+    "spd": 9,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 1.0,
+    "wis": 0.9
+  },
+  "skills": ["sk-kana-barrier", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "aichi-kiku-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 21,
+  "gold": 14,
+  "spriteKey": "mon.aichi-denkikun",
+  "evolution": {
+    "to": "aichi-denkou-giku",
+    "item": "aichi-kiku-no-hana"
+  },
+  "dexBlurb": "夜[よる]に 光[ひか]る 菊[きく]の モンスター。渥美半島[あつみはんとう]では、夜[よる]に 電気[でんき]の あかりを あてて、菊[きく]の さく 時期[じき]を おくらせる。"
+}

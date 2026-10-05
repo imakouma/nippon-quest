@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-lastboss-sassa-narimasa",
+  "name": "佐々成政[さっさなりまさ]",
+  "area": "toyama",
+  "motifId": "tateyama",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 404,
+    "mp": 53,
+    "atk": 23,
+    "def": 17,
+    "spd": 12,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 362,
+  "gold": 418,
+  "spriteKey": "mon.toyama-lastboss-sassa-narimasa",
+  "dexBlurb": "富山城[とやまじょう]を 本[ほん]きょに した 戦国大名[せんごくだいみょう]（1536ごろ〜1588年[ねん]）。冬[ふゆ]の 立山[たてやま]の 山[やま]を こえたと いわれる「さらさら越[ご]え」の 話[はなし]で 知[し]られる。",
+  "fieldLine": "佐々成政[さっさなりまさ]じゃ。この 富山城[とやまじょう]で、そなたを まっておった！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-uzushio",
+        "sk-kuku-rush"
+      ],
+      "line": "雪[ゆき]の 立山[たてやま]を こえた 男[おとこ]の 力[ちから]、見[み]よ！"
+    }
+  ]
+}

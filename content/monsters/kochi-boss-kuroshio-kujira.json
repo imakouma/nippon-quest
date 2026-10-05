@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kochi-boss-kuroshio-kujira",
+  "name": "クロシオクジラ",
+  "area": "kochi",
+  "motifId": "murotomisaki",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 385,
+    "mp": 53,
+    "atk": 22,
+    "def": 16,
+    "spd": 10,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 10,
+    "mp": 2,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-uzushio", "sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "kochi-tairyo-hata",
+      "rate": 1
+    },
+    {
+      "itemId": "kochi-yuzu-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "kochi-kamihoshi-ita",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 259,
+  "gold": 303,
+  "spriteKey": "mon.kochi-boss-kuroshio-kujira",
+  "dexBlurb": "室戸岬[むろとみさき]の 沖[おき]を 流[なが]れる 黒潮[くろしお]に すむ 大[おお]きな クジラ。土佐湾[とさわん]では、船[ふね]から クジラを 見[み]る ことが できる。",
+  "fieldLine": "ゴオオ…。この 海[うみ]は わしの うみ。いどむ 気[き]なら、波[なみ]を こえて こい！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "actionsPerTurn": 2,
+      "line": "ザッパーン！ 黒潮[くろしお]の 波[なみ]が うねるぞ！"
+    }
+  ]
+}

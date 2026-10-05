@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-ryusen-uo",
+  "name": "リュウセンウオ",
+  "area": "iwate",
+  "motifId": "ryusendo",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 32,
+    "mp": 10,
+    "atk": 8,
+    "def": 6,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1.2,
+    "atk": 1.1,
+    "def": 1,
+    "spd": 1,
+    "wis": 1.1
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "iwate-chiteiko-no-shizuku",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.06,
+  "xp": 18,
+  "gold": 12,
+  "spriteKey": "mon.iwate-ryusen-uo",
+  "evolution": {
+    "to": "iwate-dragon-blue",
+    "item": "iwate-chiteiko-no-shizuku"
+  },
+  "dexBlurb": "龍泉洞[りゅうせんどう]の 地底湖[ちていこ]に すむ、すきとおった 魚[さかな]。地底湖[ちていこ]の 水[みず]は とても すんでいて、ふかい 青色[あおいろ]に 見[み]える。"
+}

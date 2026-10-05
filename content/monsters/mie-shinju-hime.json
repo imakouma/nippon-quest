@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "mie-shinju-hime",
+  "name": "シンジュヒメ",
+  "area": "mie",
+  "motifId": "ago-shinju",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 57,
+    "mp": 13,
+    "atk": 15,
+    "def": 11,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.2,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-kanji-barrier",
+    "sk-tashizan-giri",
+    "sk-hikari-no-ya"
+  ],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 30,
+  "gold": 20,
+  "spriteKey": "mon.mie-shinju-hime",
+  "dexBlurb": "アコヤンが しんかした すがた。大[おお]きな 真珠[しんじゅ]を かかげ、海[うみ]の そこを あかるく てらす。"
+}

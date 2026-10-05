@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "chiba-lastboss-ino-tadataka",
+  "name": "伊能忠敬[いのうただたか]",
+  "area": "chiba",
+  "motifId": "sawara",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 325,
+    "mp": 45,
+    "atk": 18,
+    "def": 16,
+    "spd": 10,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 12,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.5,
+    "spd": 0.9,
+    "wis": 1.3
+  },
+  "skills": ["sk-iwa-otoshi", "sk-tsuchi-kabe"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 291,
+  "gold": 336,
+  "spriteKey": "mon.chiba-lastboss-ino-tadataka",
+  "dexBlurb": "江戸時代[えどじだい]の 商人[しょうにん]で 学者[がくしゃ]（1745〜1818年[ねん]）。佐原[さわら]で くらし、55さいから 日本[にほん]じゅうを 歩[ある]いて はかり、正確[せいかく]な 日本[にほん]の 地図[ちず]の もとを 作[つく]った。",
+  "fieldLine": "伊能忠敬[いのうただたか]じゃ。日本[にほん]じゅうを 歩[ある]いた この 足[あし]で、しょうぶ いたそう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": ["sk-hikari-no-ya", "sk-hikari-no-hane"],
+      "line": "星[ほし]の 高[たか]さを はかれば、日本[にほん]の 大[おお]きさも わかるのじゃ！"
+    }
+  ]
+}

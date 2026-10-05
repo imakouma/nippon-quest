@@ -1,0 +1,190 @@
+[
+  {
+    "id": "sansu.g3.warizan.legacy-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.warizan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_10", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "9このりんごが あります、 3人で分けると、どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１人 3つ"
+        },
+        {
+          "id": "c2",
+          "text": "１人 2つで、3こあまる"
+        },
+        {
+          "id": "c3",
+          "text": "１人 4つで、3こあまる"
+        },
+        {
+          "id": "c4",
+          "text": "１人 2つ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "9この りんごを、3人で分けるので、わり算でかんがえられる。 9÷3=3"
+  },
+  {
+    "id": "sansu.g3.warizan.legacy-0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.warizan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_10", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "10このりんごが あります、 3人で分けると、どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１人 3つ"
+        },
+        {
+          "id": "c2",
+          "text": "１人 3つで、1こ あまる"
+        },
+        {
+          "id": "c3",
+          "text": "１人 4つで、2こあまる"
+        },
+        {
+          "id": "c4",
+          "text": "１人 4つ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "10この りんごを、3人で分けるので、わり算でかんがえられる。9こだと、9÷3=3 でぴったり分けられるけど、10こあるので、1つあまってしまうね。"
+  },
+  {
+    "id": "sansu.g3.warizan.legacy-0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.warizan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_10", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "次のわり算の問題を ときました。 69÷9 =7 あまり 6 このわり算の 答えのたしかめ として、正しい式をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "9×7+6"
+        },
+        {
+          "id": "c2",
+          "text": "9×7-6"
+        },
+        {
+          "id": "c3",
+          "text": "7-6×9"
+        },
+        {
+          "id": "c4",
+          "text": "9×7"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "わる数 × こたえ + あまり = わられる数 この式ができれば、あまりのあるわり算の答えは、せいかいだ。ここでは、次の式になる。 9×7+6 = 69"
+  },
+  {
+    "id": "sansu.g3.warizan.legacy-0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.warizan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_10", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "次のわり算の問題を ときました。 22÷4 =5 あまり 2 このわり算の 答えのたしかめ として、正しい式をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4×5+2"
+        },
+        {
+          "id": "c2",
+          "text": "4×5-2"
+        },
+        {
+          "id": "c3",
+          "text": "5-2×4"
+        },
+        {
+          "id": "c4",
+          "text": "4×5"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "わる数 × こたえ + あまり = わられる数 この式ができれば、あまりのあるわり算の 答えは、せいかいだ。ここでは、次の式になる。 4×5+2 = 22"
+  },
+  {
+    "id": "sansu.g3.warizan.legacy-0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.warizan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_10", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "次のわり算の問題を ときました。 19÷3 =6 あまり 1 このわり算の 答えのたしかめ として、正しい式をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3×6+1"
+        },
+        {
+          "id": "c2",
+          "text": "3×6-1"
+        },
+        {
+          "id": "c3",
+          "text": "6-1×3"
+        },
+        {
+          "id": "c4",
+          "text": "3×6"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "わる数 × こたえ + あまり = わられる数 この式ができれば、あまりのあるわり算の答えは、せいかいだ。ここでは、次の式になる。 3×6+1 = 19"
+  },
+  {
+    "id": "sansu.g3.warizan.legacy-0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.warizan",
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_10", "reviewed:2026-09-30"],
+    "payload": {
+      "prompt": "あまりのある わり算について、正しいことを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あまりは、わる数より小さくなる。"
+        },
+        {
+          "id": "c2",
+          "text": "あまりは、こたえより小さくなる。"
+        },
+        {
+          "id": "c3",
+          "text": "あまりは、わられる数より小さくなる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "あまりのあるわり算を おもいうかべてみよう。あまりは、「わる数」より かならず小さくなるんだ。"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "chiba-kujukurin",
+  "name": "クジュクリン",
+  "area": "chiba",
+  "motifId": "kujukurihama",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 38,
+    "mp": 10,
+    "atk": 9,
+    "def": 9,
+    "spd": 6,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "chiba-hamaguri-no-kaigara",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.06,
+  "xp": 17,
+  "gold": 11,
+  "spriteKey": "mon.chiba-kujukurin",
+  "evolution": {
+    "to": "chiba-naminori-gai",
+    "item": "chiba-hamaguri-no-kaigara"
+  },
+  "dexBlurb": "九十九里浜[くじゅうくりはま]の すなに すむ はまぐり。からを ぱかっと あけて 水[みず]を ふきだす。九十九里浜[くじゅうくりはま]は 60キロメートルほど つづく 長[なが]い すなはま。"
+}

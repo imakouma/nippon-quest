@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hyogo-soroban-shogun",
+  "name": "ソロバンショウグン",
+  "area": "hyogo",
+  "motifId": "banshu-soroban",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 71,
+    "mp": 15,
+    "atk": 16,
+    "def": 15,
+    "spd": 8,
+    "wis": 12
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 1.1
+  },
+  "skills": ["sk-tashizan-giri", "sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 35,
+  "gold": 24,
+  "spriteKey": "mon.hyogo-soroban-shogun",
+  "dexBlurb": "ソロバンバンが しんかした すがた。そろばんの よろいを きた 将軍[しょうぐん]で、どんな 計算[けいさん]も あっという間[ま]に こたえる。"
+}

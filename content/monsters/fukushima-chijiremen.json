@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-chijiremen",
+  "name": "チヂレメン",
+  "area": "fukushima",
+  "motifId": "kitakata-ramen",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 40,
+    "mp": 9,
+    "atk": 11,
+    "def": 7,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.9,
+    "spd": 1,
+    "wis": 0.8
+  },
+  "skills": [
+    "sk-hinoko"
+  ],
+  "drops": [
+    {
+      "itemId": "fukushima-kitakata-no-dashi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 22,
+  "gold": 16,
+  "spriteKey": "mon.fukushima-chijiremen",
+  "dexBlurb": "喜多方[きたかた]ラーメンの ちぢれた めんが うごきだした モンスター。ゆげを あげて はしりまわる。",
+  "evolution": {
+    "to": "fukushima-kura-donburi",
+    "item": "fukushima-kitakata-no-dashi"
+  }
+}

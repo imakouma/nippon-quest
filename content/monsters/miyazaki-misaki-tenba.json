@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "miyazaki-misaki-tenba",
+  "name": "ミサキテンバ",
+  "area": "miyazaki",
+  "motifId": "toimisaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 77,
+    "mp": 18,
+    "atk": 20,
+    "def": 17,
+    "spd": 11,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.3,
+    "spd": 1.1,
+    "wis": 0.8
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 42,
+  "gold": 28,
+  "spriteKey": "mon.miyazaki-misaki-tenba",
+  "dexBlurb": "ミサキポニーが しんかした すがた。岬[みさき]の 風[かぜ]に たてがみを なびかせ、草原[そうげん]を かける。"
+}

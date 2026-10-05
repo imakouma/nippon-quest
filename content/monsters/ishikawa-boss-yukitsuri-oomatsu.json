@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "ishikawa-boss-yukitsuri-oomatsu",
+  "name": "ユキツリオオマツ",
+  "area": "ishikawa",
+  "motifId": "kenrokuen",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 355,
+    "mp": 47,
+    "atk": 19,
+    "def": 16,
+    "spd": 9,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-happa-arashi",
+    "sk-happa-cutter"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "ishikawa-etsuke-no-fude",
+      "rate": 1
+    },
+    {
+      "itemId": "ishikawa-hakuuchi-washi",
+      "rate": 1
+    },
+    {
+      "itemId": "ishikawa-umi-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "ishikawa-wajima-nuri-wan",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 237,
+  "gold": 278,
+  "spriteKey": "mon.ishikawa-boss-yukitsuri-oomatsu",
+  "dexBlurb": "兼六園[けんろくえん]の 大[おお]きな 松[まつ]の ぬし。冬[ふゆ]には 雪[ゆき]の おもさで えだが おれないように、なわで えだを つる「雪[ゆき]つり」を する。",
+  "fieldLine": "ざわざわ…。この 庭[にわ]を あらすのは だれじゃ！ しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "金沢[かなざわ]の 金箔[きんぱく]よ、かがやけ！ 庭[にわ]の 松[まつ]は おれぬ！"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-boss-yukemuryu",
+  "name": "ユケムリュウ",
+  "area": "oita",
+  "motifId": "beppu-onsen",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 462,
+    "mp": 63,
+    "atk": 26,
+    "def": 17,
+    "spd": 11,
+    "wis": 17
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.6,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "oita-yu-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "oita-kabosu-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "oita-hoyo-kaikyo-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "oita-shiitake-no-hodagi",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 314,
+  "gold": 370,
+  "spriteKey": "mon.oita-boss-yukemuryu",
+  "dexBlurb": "別府[べっぷ]の 湯[ゆ]けむりから 生[う]まれた 竜[りゅう]。別府[べっぷ]は、わき出[で]る お湯[ゆ]の 量[りょう]が 日本[にほん]で いちばん 多[おお]い 温泉[おんせん]の 町[まち]。",
+  "fieldLine": "わしは 湯[ゆ]けむりの おくに すむ もの。温泉[おんせん]の ねつを、その 身[み]で あじわうが よい！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "湯[ゆ]が にえたぎる！ 地[ち]の そこの ねつを すべて はき出[だ]して くれよう！"
+    }
+  ]
+}

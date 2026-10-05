@@ -1,0 +1,289 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "fukui",
+  "name": "福井県[ふくいけん]",
+  "island": "hokuriku",
+  "capital": "福井市[ふくいし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "fukui-field",
+    "town": "fukui-town",
+    "dungeon": "fukui-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "echizen-suisen",
+      "name": "越前[えちぜん]水仙[すいせん]",
+      "kind": "nature",
+      "imageKey": "motif.fukui.echizen-suisen",
+      "blurb": "冬[ふゆ]、越前海岸[えちぜんかいがん]の がけに 白[しろ]と 黄色[きいろ]の 水仙[すいせん]の 花[はな]が たくさん さく。"
+    },
+    {
+      "id": "katsuyama-kyoryu",
+      "name": "勝山[かつやま]の 恐竜[きょうりゅう]",
+      "kind": "nature",
+      "imageKey": "motif.fukui.katsuyama-kyoryu",
+      "blurb": "勝山市[かつやまし]では、恐竜[きょうりゅう]の 化石[かせき]が たくさん 見[み]つかっている。"
+    },
+    {
+      "id": "eiheiji",
+      "name": "永平寺[えいへいじ]",
+      "kind": "landmark",
+      "imageKey": "motif.fukui.eiheiji",
+      "blurb": "山[やま]の 中[なか]の 大[おお]きな お寺[てら]。たくさんの お坊[ぼう]さんが しゅぎょうを している。"
+    },
+    {
+      "id": "maruoka-jo",
+      "name": "丸岡城[まるおかじょう]",
+      "kind": "history",
+      "imageKey": "motif.fukui.maruoka-jo",
+      "blurb": "むかしの 天守[てんしゅ]が そのまま のこる お城[しろ]の ひとつ。春[はる]は さくらに かこまれる。"
+    },
+    {
+      "id": "mikatagoko",
+      "name": "三方五湖[みかたごこ]",
+      "kind": "nature",
+      "imageKey": "motif.fukui.mikatagoko",
+      "blurb": "若狭[わかさ]に ある 5つの 湖[みずうみ]。それぞれ 水[みず]の 色[いろ]が 少[すこ]しずつ ちがう。"
+    },
+    {
+      "id": "echizen-gani",
+      "name": "越前[えちぜん]がに",
+      "kind": "food",
+      "imageKey": "motif.fukui.echizen-gani",
+      "blurb": "冬[ふゆ]に 福井[ふくい]の 海[うみ]で とれる、大[おお]きな ずわいがに。三国[みくに]の 港[みなと]にも あがる。"
+    },
+    {
+      "id": "echizen-washi",
+      "name": "越前和紙[えちぜんわし]",
+      "kind": "craft",
+      "imageKey": "motif.fukui.echizen-washi",
+      "blurb": "越前市[えちぜんし]で 1500年[ねん]ほど 前[まえ]から 作[つく]られて いると いわれる 和紙[わし]。"
+    },
+    {
+      "id": "sabae-megane",
+      "name": "鯖江[さばえ]の めがね",
+      "kind": "craft",
+      "imageKey": "motif.fukui.sabae-megane",
+      "blurb": "鯖江市[さばえし]は、めがねの わく作[づく]りが とても さかんな 町[まち]。"
+    },
+    {
+      "id": "wakasanuri",
+      "name": "若狭塗[わかさぬり]",
+      "kind": "craft",
+      "imageKey": "motif.fukui.wakasanuri",
+      "blurb": "小浜市[おばまし]で 作[つく]られる、貝[かい]がらなどで もようを つけた ぬりもの。おはしが 有名[ゆうめい]。"
+    },
+    {
+      "id": "oroshisoba",
+      "name": "越前[えちぜん]おろしそば",
+      "kind": "food",
+      "imageKey": "motif.fukui.oroshisoba",
+      "blurb": "大根[だいこん]おろしを のせて 食[た]べる、福井[ふくい]の そば。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "fukui-suisenko",
+          "weight": 35
+        },
+        {
+          "monsterId": "fukui-meganen",
+          "weight": 30
+        },
+        {
+          "monsterId": "fukui-raputorun",
+          "weight": 20
+        },
+        {
+          "monsterId": "fukui-kamisukin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "fukui-suisenko",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukui-meganen",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "fukui-raputorun",
+          "weight": 50
+        },
+        {
+          "monsterId": "fukui-suisenko",
+          "weight": 30
+        },
+        {
+          "monsterId": "fukui-kamisukin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "fukui-raputorun",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukui-meganen",
+          "weight": 25
+        },
+        {
+          "monsterId": "fukui-kamisukin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "fukui-suisenko",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukui-meganen",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "fukui-raputorun",
+          "weight": 50
+        },
+        {
+          "monsterId": "fukui-meganen",
+          "weight": 30
+        },
+        {
+          "monsterId": "fukui-suisenko",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "fukui-boss-echizen-gani-ou",
+  "midBoss": "fukui-midboss-kasumi-maru",
+  "secret": {
+    "name": "福井城[ふくいじょう]",
+    "boss": "fukui-lastboss-matsudaira-shungaku"
+  },
+  "events": [
+    {
+      "id": "ev-fukui-katsuyama-kyoryu",
+      "motifId": "katsuyama-kyoryu",
+      "trigger": {
+        "map": "fukui-field",
+        "objectName": "event_fukui_katsuyama-kyoryu"
+      },
+      "once": true,
+      "cutinImageKey": "motif.fukui.katsuyama-kyoryu",
+      "dialogue": [
+        {
+          "speaker": "恐竜[きょうりゅう]はかせ",
+          "text": "ここは 勝山[かつやま]。恐竜[きょうりゅう]の 化石[かせき]が たくさん 見[み]つかる ところだよ。いっしょに しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:fukui"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "恐竜[きょうりゅう]はかせ",
+          "text": "よく できたね！ 勝山[かつやま]では、フクイラプトルや フクイサウルスの 化石[かせき]が 見[み]つかったんだ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "福井市[ふくいし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-fukui-shop",
+        "name": "おろしそば屋[や]の おじさん",
+        "spriteKey": "char.npc-fukui-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 福井[ふくい]の そばは、大根[だいこん]おろしを のせて 食[た]べるんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-fukui-smith",
+        "name": "越前和紙[えちぜんわし]の 職人[しょくにん]",
+        "spriteKey": "char.npc-fukui-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "越前和紙[えちぜんわし]は、1500年[ねん]ほど 前[まえ]から この 土地[とち]で すかれて いると いわれるんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

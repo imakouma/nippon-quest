@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "osaka-hafuhafu-yaki",
+  "name": "ハフハフヤキ",
+  "area": "osaka",
+  "motifId": "takoyaki",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 46,
+    "mp": 11,
+    "atk": 14,
+    "def": 8,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.9,
+    "spd": 0.9,
+    "wis": 0.6
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "osaka-takoyaki-no-fune",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.12,
+  "xp": 24,
+  "gold": 18,
+  "spriteKey": "mon.osaka-hafuhafu-yaki",
+  "evolution": {
+    "to": "osaka-takoyaki-sencho",
+    "item": "osaka-takoyaki-no-fune"
+  },
+  "dexBlurb": "アツアツの たこ焼[や]きの モンスター。たこ焼[や]きは、昭和[しょうわ]の はじめごろに 大阪[おおさか]で 生[う]まれたと いわれる。"
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-boss-tsugaru-no-nushi",
+  "name": "ツガルのぬし",
+  "area": "aomori",
+  "motifId": "tsugaru-kaikyo",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 216,
+    "mp": 36,
+    "atk": 13,
+    "def": 10,
+    "spd": 6,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "aomori-ringo",
+      "rate": 1
+    },
+    {
+      "itemId": "aomori-ringo-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "aomori-ippon-zuri-no-ito",
+      "rate": 1
+    },
+    {
+      "itemId": "aomori-hisui-no-magatama",
+      "rate": 1
+    },
+    {
+      "itemId": "aomori-kazaguruma",
+      "rate": 1
+    },
+    {
+      "itemId": "aomori-tsugaru-nuri-no-futa",
+      "rate": 1
+    },
+    {
+      "itemId": "aomori-buna-no-mi",
+      "rate": 1
+    },
+    {
+      "itemId": "aomori-nebuta-no-omamori",
+      "rate": 1
+    },
+    {
+      "itemId": "aomori-umineko-no-hane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 144,
+  "gold": 180,
+  "spriteKey": "mon.aomori-boss-tsugaru-no-nushi",
+  "dexBlurb": "十和田湖[とわだこ]と 津軽海峡[つがるかいきょう]を まもる 大[おお]きな 水[みず]の へび。あたまに りんごの かんむり。",
+  "fieldLine": "しおかぜの においが する…。わしの ねむりを さますのは だれだ？",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "kaze",
+      "skills": [
+        "sk-kaikyo-no-kaze",
+        "sk-habataki",
+        "sk-uzushio"
+      ],
+      "line": "海峡[かいきょう]の 風[かぜ]よ、ふけ！ 津軽[つがる]の 波[なみ]を のみこめ！"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kagoshima-roppaku-boo",
+  "name": "ロッパクブー",
+  "area": "kagoshima",
+  "motifId": "kurobuta",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 62,
+    "mp": 11,
+    "atk": 14,
+    "def": 12,
+    "spd": 6,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": ["sk-suna-kabe", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "kagoshima-shiage-satsumaimo",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 28,
+  "gold": 20,
+  "spriteKey": "mon.kagoshima-roppaku-boo",
+  "evolution": {
+    "to": "kagoshima-kurogane-boo",
+    "item": "kagoshima-shiage-satsumaimo"
+  },
+  "dexBlurb": "つやつやの 黒[くろ]い 毛[け]の ぶた。鹿児島[かごしま]の 黒豚[くろぶた]は、4本[ほん]の 足[あし]・鼻[はな]の 先[さき]・しっぽの 先[さき]の 6か所[しょ]が 白[しろ]く、「六白[ろっぱく]」と よばれる。"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shizuoka-unagi-nobori",
+  "name": "ウナギノボリ",
+  "area": "shizuoka",
+  "motifId": "hamanako-unagi",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 60,
+    "mp": 17,
+    "atk": 17,
+    "def": 10,
+    "spd": 13,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 20,
+  "spriteKey": "mon.shizuoka-unagi-nobori",
+  "dexBlurb": "ウナニョロが しんかした すがた。どんどん 上[あ]がる ようすを「うなぎのぼり」と いうのは、うなぎが 川[かわ]を いきおいよく のぼるから と いわれる。"
+}

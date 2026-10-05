@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-kaedama-oh",
+  "name": "カエダマオー",
+  "area": "fukuoka",
+  "motifId": "hakata-ramen",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 71,
+    "mp": 18,
+    "atk": 23,
+    "def": 12,
+    "spd": 13,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.8,
+    "mp": 1.2,
+    "atk": 1.9,
+    "def": 1,
+    "spd": 1.2,
+    "wis": 0.7
+  },
+  "skills": ["sk-hono-no-mai", "sk-hono-no-uzu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 42,
+  "gold": 28,
+  "spriteKey": "mon.fukuoka-kaedama-oh",
+  "dexBlurb": "バリカタンが しんかした すがた。博多[はかた]ラーメンの 店[みせ]では、めんだけを おかわりする「替[か]え玉[だま]」が できる ことが 多[おお]い。"
+}

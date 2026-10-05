@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gifu-oribe-musha",
+  "name": "オリベムシャ",
+  "area": "gifu",
+  "motifId": "minoyaki",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 68,
+    "mp": 14,
+    "atk": 16,
+    "def": 14,
+    "spd": 8,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 1.0
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 34,
+  "gold": 23,
+  "spriteKey": "mon.gifu-oribe-musha",
+  "dexBlurb": "オリベンが しんかした すがた。織部[おりべ]と いう 名前[なまえ]は、茶[ちゃ]の 湯[ゆ]の 名人[めいじん] 古田織部[ふるたおりべ]から ついた。"
+}

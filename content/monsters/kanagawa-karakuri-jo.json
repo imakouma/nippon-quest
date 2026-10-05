@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kanagawa-karakuri-jo",
+  "name": "カラクリジョウ",
+  "area": "kanagawa",
+  "motifId": "yosegi-zaiku",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 58,
+    "mp": 12,
+    "atk": 13,
+    "def": 13,
+    "spd": 7,
+    "wis": 10
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.6,
+    "spd": 1,
+    "wis": 1.1
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 20,
+  "spriteKey": "mon.kanagawa-karakuri-jo",
+  "dexBlurb": "ヒミツバコンが しんかした すがた。寄木[よせぎ]の はこを つみあげた お城[しろ]。色[いろ]の ちがう 木[き]を くみあわせて、もようを 作[つく]る。"
+}

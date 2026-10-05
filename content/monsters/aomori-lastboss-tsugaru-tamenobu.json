@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-lastboss-tsugaru-tamenobu",
+  "name": "津軽為信[つがるためのぶ]",
+  "area": "aomori",
+  "motifId": "hirosaki-jo",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 348,
+    "mp": 48,
+    "atk": 20,
+    "def": 13,
+    "spd": 10,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 2.1,
+    "def": 1.4,
+    "spd": 1.0,
+    "wis": 1.2
+  },
+  "skills": [
+    "sk-hono-no-mai",
+    "sk-yamadashi-tosshin"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 312,
+  "gold": 360,
+  "spriteKey": "mon.aomori-lastboss-tsugaru-tamenobu",
+  "dexBlurb": "津軽[つがる]を ひとつに まとめた 戦国[せんごく]武将[ぶしょう]（1550〜1608年[ねん]）。弘前[ひろさき]の 町[まち]と お城[しろ]の もとを つくった。",
+  "fieldLine": "わしは 津軽為信[つがるためのぶ]。この 津軽[つがる]の 国[くに]を まもる 殿[との]じゃ！ かかって まいれ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-rasseraa-no-hono",
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin"
+      ],
+      "line": "津軽[つがる]の 火[ひ]は きえぬ！ もえつきるまで 戦[たたか]うぞ！"
+    }
+  ]
+}

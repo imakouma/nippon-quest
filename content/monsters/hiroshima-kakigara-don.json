@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hiroshima-kakigara-don",
+  "name": "カキガラドン",
+  "area": "hiroshima",
+  "motifId": "hiroshima-kaki",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 71,
+    "mp": 17,
+    "atk": 17,
+    "def": 16,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 6.2,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 37,
+  "gold": 26,
+  "spriteKey": "mon.hiroshima-kakigara-don",
+  "dexBlurb": "カキガランが しんかした すがた。なんまいも かさなった かきがらの よろいは、波[なみ]にも まけない かたさ。"
+}

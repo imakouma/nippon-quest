@@ -1,0 +1,139 @@
+/* Question Playground：ステージの 下の 問題いちらん（開発用） */
+.pg-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+}
+.pg-main > .pg-stage {
+  flex: none;
+}
+.pg-list {
+  background: #fff;
+  border-radius: 8px;
+  padding: 0 12px 12px;
+  font-size: 13px;
+}
+.pg-filters {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  padding: 10px 0;
+  background: #fff;
+  border-bottom: 1px solid #dde0ea;
+}
+.pg-filters select,
+.pg-filters input[type='search'] {
+  font: inherit;
+  max-width: 260px;
+}
+.pg-filters input[type='search'] {
+  width: 240px;
+}
+.pg-count {
+  color: #555;
+}
+.pg-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.pg-table th {
+  padding: 6px;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+}
+.pg-table td {
+  padding: 4px 6px;
+  border-top: 1px solid #eceef4;
+  vertical-align: top;
+}
+.pg-table tbody tr {
+  cursor: pointer;
+}
+.pg-table tbody tr:hover {
+  background: #f5f7ff;
+}
+.pg-table tr.pg-bad {
+  background: #fff0f0;
+}
+.pg-table tr.pg-sel {
+  background: #fff3c4;
+}
+.pg-table rt {
+  font-size: 9px;
+}
+.pg-mark {
+  width: 16px;
+  color: #3a9d4a;
+}
+.pg-bad .pg-mark,
+.pg-err {
+  color: #c33;
+}
+.pg-err {
+  font-size: 12px;
+}
+.pg-id {
+  font:
+    11px/1.4 ui-monospace,
+    monospace;
+  color: #445;
+  white-space: nowrap;
+}
+.pg-nowrap {
+  white-space: nowrap;
+}
+.pg-sub {
+  font-size: 11px;
+  color: #778;
+}
+.pg-tag {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 4px;
+  border-radius: 3px;
+  background: #eef0fa;
+}
+.pg-thumb {
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  vertical-align: middle;
+  image-rendering: pixelated;
+  background: #f4f1e8;
+}
+.pg-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin: 1px 4px 1px 0;
+  padding: 0 6px;
+  border: 1px solid #ccd;
+  border-radius: 4px;
+}
+.pg-opt .pg-thumb {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+.pg-opt-ok {
+  border-color: #3a9d4a;
+  background: #e6f6e8;
+  font-weight: 700;
+}
+.pg-exp {
+  min-width: 160px;
+  color: #555;
+}
+.pg-empty {
+  padding: 12px;
+  color: #777;
+}

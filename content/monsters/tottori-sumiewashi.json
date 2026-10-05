@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tottori-sumiewashi",
+  "name": "スミエワシ",
+  "area": "tottori",
+  "motifId": "inshu-washi",
+  "element": "kaze",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 60,
+    "mp": 18,
+    "atk": 18,
+    "def": 10,
+    "spd": 15,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5.0,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 1.0
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 34,
+  "gold": 26,
+  "spriteKey": "mon.tottori-sumiewashi",
+  "dexBlurb": "ペラワシが しんかした すがた。筆[ふで]で かいた すみの もようが つばさに うかび、つよい 風[かぜ]を おこす。"
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "toyama-midboss-gabujishi",
+  "name": "ガブジシ",
+  "area": "toyama",
+  "motifId": "inami-chokoku",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 139,
+    "mp": 21,
+    "atk": 15,
+    "def": 9,
+    "spd": 9,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 8.8,
+    "mp": 2,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.7,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-hono-no-mai"
+  ],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 79,
+  "gold": 93,
+  "spriteKey": "mon.toyama-midboss-gabujishi",
+  "dexBlurb": "井波彫刻[いなみちょうこく]の 職人[しょくにん]が ほった 獅子頭[ししがしら]の モンスター。富山県[とやまけん]では、春[はる]や 秋[あき]の 祭[まつ]りで たくさんの 獅子舞[ししまい]が おどられる。",
+  "fieldLine": "カチカチ、ガブッ！ ここを とおりたければ、わしと しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "line": "ガブーッ！ 祭[まつ]りの 火[ひ]が もえあがるぞ！",
+      "skills": [
+        "sk-namahage-otakebi",
+        "sk-hono-no-uzu"
+      ]
+    }
+  ]
+}

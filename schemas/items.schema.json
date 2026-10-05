@@ -1,0 +1,122 @@
+{
+  "$ref": "#/definitions/items",
+  "definitions": {
+    "items": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        },
+        "name": {
+          "type": "string",
+          "description": "RubyText: \"漢字[かんじ]\" 形式"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "weapon",
+            "head",
+            "chest",
+            "legs",
+            "feet",
+            "consumable",
+            "material",
+            "key"
+          ]
+        },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "hp": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "mp": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "atk": {
+              "type": "number",
+              "minimum": 0
+            },
+            "def": {
+              "type": "number",
+              "minimum": 0
+            },
+            "spd": {
+              "type": "number",
+              "minimum": 0
+            },
+            "wis": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "element": {
+          "type": "string",
+          "enum": [
+            "hino",
+            "mizu",
+            "mori",
+            "tsuchi",
+            "kaze",
+            "hikari",
+            "yami",
+            "none"
+          ]
+        },
+        "grantsSkill": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        },
+        "setId": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        },
+        "price": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "use": {
+          "type": "object",
+          "properties": {
+            "heal": {
+              "type": "integer"
+            },
+            "mp": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        },
+        "iconKey": {
+          "type": "string"
+        },
+        "blurb": {
+          "type": "string",
+          "description": "RubyText: \"漢字[かんじ]\" 形式"
+        },
+        "areaOrigin": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "iconKey",
+        "blurb"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

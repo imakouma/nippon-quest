@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamanashi-houtoun",
+  "name": "ホウトウン",
+  "area": "yamanashi",
+  "motifId": "houtou",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 47,
+    "mp": 10,
+    "atk": 14,
+    "def": 7,
+    "spd": 7,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.5,
+    "def": 0.9,
+    "spd": 0.8,
+    "wis": 0.6
+  },
+  "skills": ["sk-hinoko"],
+  "drops": [
+    {
+      "itemId": "yamanashi-houtou-no-kabocha",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 16,
+  "spriteKey": "mon.yamanashi-houtoun",
+  "evolution": {
+    "to": "yamanashi-atsuatsu-houtou",
+    "item": "yamanashi-houtou-no-kabocha"
+  },
+  "dexBlurb": "かぼちゃと ほうとうの めんから 生[う]まれた モンスター。ほうとうは、めんを ゆでずに そのまま なべで にこむので、しるに とろみが つく。"
+}

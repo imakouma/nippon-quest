@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aomori-oka-musha",
+  "name": "オウカムシャ",
+  "area": "aomori",
+  "motifId": "hirosaki-jo",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 54,
+    "mp": 15,
+    "atk": 15,
+    "def": 11,
+    "spd": 14,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 6.5,
+    "mp": 1.5,
+    "atk": 2.1,
+    "def": 1.5,
+    "spd": 1.4,
+    "wis": 1.1
+  },
+  "skills": ["sk-abc-shout", "sk-habataki", "sk-kaikyo-no-kaze"],
+  "drops": [],
+  "recruitRate": 0.0,
+  "xp": 50,
+  "gold": 30,
+  "spriteKey": "mon.aomori-oka-musha",
+  "dexBlurb": "弘前城を まもる さくらの むしゃ。弘前城は 江戸時代[えどじだい]に たてられた 天守[てんしゅ]が いまも のこる お城[しろ]だよ。"
+}

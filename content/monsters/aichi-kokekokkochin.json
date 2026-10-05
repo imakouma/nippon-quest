@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-kokekokkochin",
+  "name": "コケコッコーチン",
+  "area": "aichi",
+  "motifId": "tebasaki",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 57,
+    "mp": 16,
+    "atk": 17,
+    "def": 10,
+    "spd": 14,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.2,
+    "mp": 1.2,
+    "atk": 1.7,
+    "def": 1.0,
+    "spd": 1.4,
+    "wis": 0.8
+  },
+  "skills": ["sk-abc-shout", "sk-habataki"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 20,
+  "spriteKey": "mon.aichi-kokekokkochin",
+  "dexBlurb": "テバサッキーが しんかした すがた。名古屋[なごや]コーチンは、明治時代[めいじじだい]に 愛知県[あいちけん]で 生[う]まれた にわとり。"
+}

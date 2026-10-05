@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "niigata-hisui-koro",
+  "name": "ヒスイコロ",
+  "area": "niigata",
+  "motifId": "itoigawa-hisui",
+  "element": "tsuchi",
+  "subjectAffinity": "sansu",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 45,
+    "mp": 8,
+    "atk": 9,
+    "def": 9,
+    "spd": 5,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.7
+  },
+  "skills": ["sk-kazoe-giri", "sk-suna-kabe"],
+  "drops": [
+    {
+      "itemId": "niigata-hisui-no-genseki",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 14,
+  "spriteKey": "mon.niigata-hisui-koro",
+  "evolution": {
+    "to": "niigata-hisui-goro",
+    "item": "niigata-hisui-no-genseki"
+  },
+  "dexBlurb": "糸魚川[いといがわ]の 海岸[かいがん]を ころがる ヒスイの 石[いし]の モンスター。ヒスイは 日本[にほん]の「国石[こくせき]」に えらばれた 石[いし]。"
+}

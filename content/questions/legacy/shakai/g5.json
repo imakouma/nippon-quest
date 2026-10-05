@@ -1,0 +1,3768 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-1.02a8f9fd7f49",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ロシア連邦との領土をめぐる問題が発生している 以下の地図の地域を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北方領土"
+        },
+        {
+          "id": "c2",
+          "text": "竹島"
+        },
+        {
+          "id": "c3",
+          "text": "尖閣諸島"
+        },
+        {
+          "id": "c4",
+          "text": "樺太"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d611150b0d9336d5.png"
+    },
+    "explanation": "第二次世界大戦後、ソ連が占領した択捉えとろふ島、国後くなしり島、色丹しこたん島、歯舞群島はぼまいぐんとうを、北方領土 という。ソ連がなくなった現在は、ロシア が支配している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.04d970fa769f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国旗についての説明として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本の国旗の赤い丸は、太陽を表している。"
+        },
+        {
+          "id": "c2",
+          "text": "イギリスの国旗は、イギリスをつくる４つの国の旗を合わせて作られた。"
+        },
+        {
+          "id": "c3",
+          "text": "フランスの国旗の３つの色は、自由・平等・友愛を表している。"
+        },
+        {
+          "id": "c4",
+          "text": "国旗は、最初につくられた後は 変えられることはない。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "国旗は、最初につくられた後も、変えられることがある。 例えば、アメリカの国旗は、アメリカの州の数が変わる度に、そのデザインが変わってきた。他にも、政治の体制が変わったりすると、国旗が変更されることがある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.0ae70760ab50",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国連「世界人口推計2024年版」の2024年推計で、人口が多い国の1位と2位の組み合わせを選ぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "インド・中国"
+        },
+        {
+          "id": "c2",
+          "text": "中国・ブラジル"
+        },
+        {
+          "id": "c3",
+          "text": "ブラジル・ロシア"
+        },
+        {
+          "id": "c4",
+          "text": "ロシア・インド"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国連「世界人口推計2024年版」の2024年推計では、人口は1位がインド、2位が中国です。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.26c39e9055eb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の地図を参考にして、日本とほぼ同じ緯度に 位置する国をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c2",
+          "text": "イタリア"
+        },
+        {
+          "id": "c3",
+          "text": "ブラジル"
+        },
+        {
+          "id": "c4",
+          "text": "南アフリカ共和国"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/af98e9a11d4cbfad.png"
+    },
+    "explanation": "「ほぼ同じ緯度」なので、日本と南北の位置が ほぼ同じ国をえらべばいい。ヨーロッパの国イタリアは、この地図では日本のずっと左で、ほぼ同じ緯度にある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.2cac68dd14ba",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "それぞれの国の海岸線から200海里（約370km）まで広がる、その国が 水産しげん や 鉱産しげんの権けん利を持つ、海のはんい を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "排他的経済水域"
+        },
+        {
+          "id": "c2",
+          "text": "大陸棚"
+        },
+        {
+          "id": "c3",
+          "text": "領海"
+        },
+        {
+          "id": "c4",
+          "text": "公海"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "それぞれの国の海岸線から200海里（約370km）まで広がる、その国が 水産しげん や 鉱産しげんの権利を持つ、海のはんい を、排他はいた的経済けいざい水域 という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.2feefc01d43b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の地図中Aにある 尖閣諸島せんかくしょとう は、日本が支配しているが、ある国が自国の領土だと主張している。その国は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "韓国"
+        },
+        {
+          "id": "c2",
+          "text": "北朝鮮"
+        },
+        {
+          "id": "c3",
+          "text": "ロシア"
+        },
+        {
+          "id": "c4",
+          "text": "中国"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/66af21f9eeeba2cb.png"
+    },
+    "explanation": "上の地図中Aにある 尖閣諸島せんかくしょとう は、日本が支配しているが、中国が自国の領土だと主張している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.383e6f68281b",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地球上の位置の表し方について、かっこに当てはまる語をえらぼう。",
+      "answers": [
+        "180度",
+        "経度",
+        "90度",
+        "緯度"
+      ],
+      "template": "地球上の位置は、東西をそれぞれ {{INPUT}} に分けた {{INPUT}} と、南北をそれぞれ {{INPUT}} に分けた {{INPUT}} で表すことができる。"
+    },
+    "explanation": "地球上の位置は、東西をそれぞれ（180度）に分けた（経けい度）と、南北をそれぞれ（90度）に分けた（緯い度）で表すことができる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.4a3ab541e2a0",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の東西南北の はし について、A〜Dに当てはまる島の名前をえらぼう。",
+      "answers": [
+        "択捉島",
+        "沖ノ鳥島",
+        "南鳥島",
+        "与那国島"
+      ],
+      "template": "北のはし（A）： {{INPUT}} 南のはし（B）： {{INPUT}} 東のはし（C）： {{INPUT}} 西のはし（D）： {{INPUT}}",
+      "promptImage": "questions/legacy/ba210c6ac289172a.png"
+    },
+    "explanation": "北のはし（A）：（択捉島） 南のはし（B）：（沖ノ鳥島） 東のはし（C）：（南鳥島） 西のはし（D）：（与那国よなぐに島）"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.4bc13b0ef0e4",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の国旗は、次のうちどの国のものでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イギリス"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c3",
+          "text": "中華人民共和国"
+        },
+        {
+          "id": "c4",
+          "text": "大韓民国"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a6aea6a0f822fa01.png"
+    },
+    "explanation": "中華人民共和国ちゅうかじんみんきょうわこく、中国の国旗。赤色は革命を、黄色は光を表している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.4e94ee1ba0f5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の国の中から、日本と同じぐらいの面積の国をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ドイツ"
+        },
+        {
+          "id": "c2",
+          "text": "中国"
+        },
+        {
+          "id": "c3",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c4",
+          "text": "ブラジル"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "世界地図を思いうかべてみよう。ドイツ以外は、とても大きな国ばかりになっている。中国が世界4位、ブラジルが世界5位、オーストラリアが世界6位、ドイツが世界62位。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.5d49c4e7e06d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の地図中Aの島は、日本の領土だが、1952年から韓国に支配されている。この島を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "択捉島"
+        },
+        {
+          "id": "c2",
+          "text": "尖閣島"
+        },
+        {
+          "id": "c3",
+          "text": "沖ノ鳥島"
+        },
+        {
+          "id": "c4",
+          "text": "竹島"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/eb220de9c70bef1d.png"
+    },
+    "explanation": "地図中Aの竹島は、日本の領土だが、1952年から韓国に支配されている。 ・択捉えとろふ島は、ロシアに支配されている北方領土の島。 ・沖ノ鳥島は、日本の南のはし にある島。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.838105f79b75",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図上の A～F に当てはまる大陸として、正しいものをえらぼう。",
+      "answers": [
+        "ユーラシア",
+        "アフリカ",
+        "オーストラリア",
+        "北アメリカ",
+        "南アメリカ",
+        "南極"
+      ],
+      "template": "A ： {{INPUT}} 大陸 B ： {{INPUT}} 大陸 C ： {{INPUT}} 大陸 D ： {{INPUT}} 大陸 E ： {{INPUT}} 大陸 F ： {{INPUT}} 大陸",
+      "promptImage": "questions/legacy/2ce739ad6f9016a9.png"
+    },
+    "explanation": "A ： （ユーラシア） 大陸 B ： （アフリカ） 大陸 C ： （オーストラリア） 大陸 D ： （北アメリカ） 大陸 E ： （南アメリカ） 大陸 F ： （南極） 大陸"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.9b64d6a89bb6",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国のはんいは、次の文の ①〜③でつくられている。①〜③に当てはまる語をえらぼう。",
+      "answers": [
+        "領土",
+        "領海",
+        "領空"
+      ],
+      "template": "① {{INPUT}} ： 国がもつ陸地や、陸地に囲まれた湖や川 ② {{INPUT}} ： 海岸から12海里（約22km）までの海 ③ {{INPUT}} ： ①と②の上空"
+    },
+    "explanation": "①（領りょう土）： 国がもつ陸地や、陸地に囲まれた湖や川 ②（領海）： 海岸から12海里（約22km）までの海 ③（領空）： ①領土と②領海の上空"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.a4ef1c9b5d5f",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本のまわりにある A〜Dの国について、国名をえらぼう。",
+      "answers": [
+        "大韓民国",
+        "朝鮮民主主義人民共和国",
+        "中華人民共和国",
+        "ロシア連邦"
+      ],
+      "template": "A： {{INPUT}} B： {{INPUT}} C： {{INPUT}} D： {{INPUT}}",
+      "promptImage": "questions/legacy/8cbf3e4bf1f29bf8.png"
+    },
+    "explanation": "A：（大韓かん民国） B：（朝鮮せん民主主義ぎ人民共和国） C：（中華か人民共和国） D：（ロシア連邦ぽう）"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.e4ef63f4d145",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の国旗は、次のうちどの国のものでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イギリス"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c3",
+          "text": "スコットランド"
+        },
+        {
+          "id": "c4",
+          "text": "フランス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/98ab689286996c78.png"
+    },
+    "explanation": "イギリスの正式な名前は、グレートブリテンおよび北部アイルランド連合王国。４つの国がまとまって１つの国になっていて、国旗もそれぞれの国の旗を 合わせて作られた。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.e81892e00195",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図上の A～C に当てはまる海として、正しいものをえらぼう。",
+      "answers": [
+        "太平洋",
+        "大西洋",
+        "インド洋"
+      ],
+      "template": "A ： {{INPUT}} B ： {{INPUT}} C ： {{INPUT}}",
+      "promptImage": "questions/legacy/a55d11a2f339c5af.png"
+    },
+    "explanation": "由来や特ちょうを知っていると、覚えやすい。 A ： 世界で一番大きな大洋。 B ： ヨーロッパの「西」に位置する大洋。 C ： この海の北にある国の名前が、そのまま大洋の名前になっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.f09ffb9e5316",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の三つの海について、面積の大きい順に並べたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太平洋、インド洋、大西洋"
+        },
+        {
+          "id": "c2",
+          "text": "太平洋、大西洋、インド洋"
+        },
+        {
+          "id": "c3",
+          "text": "インド洋、大西洋、太平洋"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/af98e9a11d4cbfad.png"
+    },
+    "explanation": "太平洋：約1億6,525万km²大西洋：約8,244万km²インド洋：約7,344万km²"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.f206f5593367",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の国旗は、次のうちどの国のものでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イギリス"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c3",
+          "text": "中華人民共和国"
+        },
+        {
+          "id": "c4",
+          "text": "アメリカ"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/50c5ee390497729f.jpg"
+    },
+    "explanation": "左上にある50の星は、アメリカの今の州の数を表している。13の赤白のラインは、アメリカが 独どく立したときの 州の数を表している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.f85a64fa8632",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の地図を参考にして、日本とほぼ同じ経度に 位置する国をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c2",
+          "text": "イタリア"
+        },
+        {
+          "id": "c3",
+          "text": "ブラジル"
+        },
+        {
+          "id": "c4",
+          "text": "南アフリカ共和国"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/af98e9a11d4cbfad.png"
+    },
+    "explanation": "「ほぼ同じ経度」なので、日本と東西の位置が ほぼ同じ国をえらべばいい。オーストラリアは、この地図では日本の真下にあるので、ほぼ同じ経度になる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.094cd706a4db",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "本州の中央部には、3000m級の山々が連なる飛騨ひだ山脈みゃく、木曽そ山脈、赤石山脈 が走っている。この３つの山脈を、まとめて何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本アルプス"
+        },
+        {
+          "id": "c2",
+          "text": "太平洋ベルト"
+        },
+        {
+          "id": "c3",
+          "text": "中央高地"
+        },
+        {
+          "id": "c4",
+          "text": "中央アルプス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "本州の中央部にある3000m級の山々が連なる 飛騨山脈、木曽山脈、赤石山脈をまとめて日本アルプスとよぶ。 中央アルプスは、木曽山脈のことをいう。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.268e021514fe",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、東京の雨温図である。これを見ながら、太平洋側の気候について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "太平洋",
+        "日本海",
+        "夏",
+        "冬"
+      ],
+      "template": "季節風は、夏に ①{{INPUT}} 側から ②{{INPUT}} 側に、冬は逆に ②側から①側 にふく。そのため、太平洋側では、{{INPUT}} に雨が多く、{{INPUT}} に雨が少ない。",
+      "promptImage": "questions/legacy/25fb4012d6e2b93c.png"
+    },
+    "explanation": "季節風は、夏に ①（太平洋）側から ②（日本海）側に、冬は逆に ②日本海側 から①太平洋側 にふく。そのため、太平洋側では、（夏）に雨が多く、（冬）に雨が少ない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.29930242eeaf",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "海流",
+        "暖流",
+        "寒流"
+      ],
+      "template": "決まった向きの海水の大きな流れを ① {{INPUT}} という。① には、あたたかい海水を運んでくる {{INPUT}} と、冷たい海水を運んでくる {{INPUT}} がある。"
+    },
+    "explanation": "決まった向きの海水の大きな流れを ①（海流）という。① 海流には、あたたかい海水を運んでくる（暖だん流） と、冷たい海水を運んでくる（寒流）がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.543110c544e6",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の国土について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "火山",
+        "地震",
+        "温泉"
+      ],
+      "template": "日本には、多くの ① {{INPUT}} があり、2011年の 東日本大震災しんさい のような 大きな {{INPUT}} も多く発生する。しかし、①のエネルギーを使った {{INPUT}} にも、めぐまれている。"
+    },
+    "explanation": "日本には、多くの ①（火山）があり、2011年の 東日本大震災 のような 大きな（地震）も多く発生する。しかし、① 火山のエネルギーを使った（温泉）にも、めぐまれている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.5997c65873ba",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図を見ながら、夏の季節風について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "日本海",
+        "太平洋",
+        "日本海",
+        "太平洋"
+      ],
+      "template": "夏には、大陸（{{INPUT}} 側）の空気の方があたたかいため、季節風は、{{INPUT}} 側から {{INPUT}} 側に向かってふく。このとき、日本列島の山地に雲がぶつかって 雨をふらせるため、夏は {{INPUT}} 側に多くの雨をふらせる。",
+      "promptImage": "questions/legacy/6623e4d5cf3b6338.png"
+    },
+    "explanation": "夏には、大陸（日本海側）の空気の方があたたかいため、季節風は、（太平洋）側から（日本海）側に向かってふく。このとき、日本列島の山地に雲がぶつかって 雨をふらせるため、夏は（太平洋）側に多くの雨をふらせる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.59992036714b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で最も大きい平野は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大阪平野"
+        },
+        {
+          "id": "c2",
+          "text": "濃尾平野"
+        },
+        {
+          "id": "c3",
+          "text": "石狩平野"
+        },
+        {
+          "id": "c4",
+          "text": "関東平野"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "関東平野の広さは、約1万7000km²で、四国と同じぐらいの面積がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.6604c1d04f1a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の川の特色として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "川は長く、流れがゆるやかである。"
+        },
+        {
+          "id": "c2",
+          "text": "川は長く、流れが急である。"
+        },
+        {
+          "id": "c3",
+          "text": "川は短く、流れが急である。"
+        },
+        {
+          "id": "c4",
+          "text": "川は短く、流れがゆるやかである。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本の川は短く、流れが急である。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.7f5bf2476dab",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で最も長い川、最も大きな川（流いき面積の大きい川）は、それぞれどれでしょう。その組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "最も長い：信濃川 最も大きい：利根川"
+        },
+        {
+          "id": "c2",
+          "text": "最も長い：利根川 最も大きい：石狩川"
+        },
+        {
+          "id": "c3",
+          "text": "最も長い：北上川 最も大きい：信濃川"
+        },
+        {
+          "id": "c4",
+          "text": "最も長い：石狩川 最も大きい：淀川"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本で最も長い川は、信濃しなの川で 全長367km。最も大きな川は利根とね川で、流いき面積は16840km²。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.88eb2380add1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "季節によって ふく向きが変わる風を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "季節風"
+        },
+        {
+          "id": "c2",
+          "text": "台風"
+        },
+        {
+          "id": "c3",
+          "text": "からっ風"
+        },
+        {
+          "id": "c4",
+          "text": "春一番"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "季節によって ふく向きが変わる風を、季節風 という。冬は 大陸から大洋に、夏は 大洋から大陸に向かって ふく。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.8dd4624f5357",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の季節風について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "太平洋",
+        "日本海",
+        "太平洋",
+        "日本海"
+      ],
+      "template": "冬には、大洋（{{INPUT}} 側）の空気の方があたたかいため、季節風は、{{INPUT}} 側から {{INPUT}} 側に向かってふく。このとき、日本列島の山地に雲がぶつかって 雨をふらせるため、冬は {{INPUT}} 側に多くの雨や雪をふらせる。",
+      "promptImage": "questions/legacy/f38d91f0e6c031fd.png"
+    },
+    "explanation": "冬には、大洋（太平洋側）の空気の方があたたかいため、季節風は、（日本海）側から（太平洋）側に向かってふく。このとき、日本列島の山地に雲がぶつかって 雨をふらせるため、冬は（日本海）側に多くの雨や雪をふらせる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.ac7cfe1083b2",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、東京と新潟の雨温図である。この図の説明について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "左の図",
+        "右の図",
+        "東京",
+        "新潟"
+      ],
+      "template": "{{INPUT}}は、夏に降水量が多く、冬に降水量が少ない。{{INPUT}} は、夏に降水量が少なく、冬に降水量が多くなっている。このことから、左の図が {{INPUT}} で、右の図が {{INPUT}} の雨温図と考えることができる。",
+      "promptImage": "questions/legacy/9347cb4141f590da.png"
+    },
+    "explanation": "（左の図）は、夏に降水量が多く、冬に降水量が少ない。（右の図）は、夏に降水量が少なく、冬に降水量が多くなっている。このことから、左の図が（東京）で、右の図が（新潟）の雨温図と考えることができる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.b1d1b3ff15dc",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の近海には、４つの大きな海流が流れている。以下の地図中のA〜Dに当てはまる海流をえらぼう。",
+      "answers": [
+        "日本海流（黒潮）",
+        "対馬海流",
+        "千島海流（親潮）",
+        "リマン海流"
+      ],
+      "template": "A : {{INPUT}} B : {{INPUT}} C : {{INPUT}} D : {{INPUT}}",
+      "promptImage": "questions/legacy/72d88d671b0c8b8f.png"
+    },
+    "explanation": "A :（日本海流（黒潮しお）） B :（対馬つしま海流） C :（千島ちしま海流（親潮）） D :（リマン海流） 日本海流と対馬海流は 暖流、千島海流とリマン海流は 寒流。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.c0c3324f3799",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で最も大きな湖は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "琵琶湖"
+        },
+        {
+          "id": "c2",
+          "text": "霞ヶ浦"
+        },
+        {
+          "id": "c3",
+          "text": "サロマ湖"
+        },
+        {
+          "id": "c4",
+          "text": "浜名湖"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "滋賀県にある 琵琶びわ湖が、日本で最も大きい。滋賀県の面積の約６分の１が、琵琶湖になっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.c29d4f4d1e5c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の気候について、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "季節の変化がはっきりしている。"
+        },
+        {
+          "id": "c2",
+          "text": "国土が南北に長く、地いき によるちがいがある。"
+        },
+        {
+          "id": "c3",
+          "text": "年間を通して、温かくてすごしやすく、雨が少ない。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本は、年間を通して、温かくてすごしやすく、雨が多い。世界の中で見ると、日本は雨が多い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.e23ce6467169",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、新潟の雨温図である。これを見ながら、日本海側の気候について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "太平洋",
+        "日本海",
+        "冬",
+        "夏"
+      ],
+      "template": "季節風は、夏に ①{{INPUT}} 側から ②{{INPUT}} 側に、冬は逆に ②側から①側 にふく。そのため、日本海側では、{{INPUT}} に雨が多く、{{INPUT}} に雨が少ない。",
+      "promptImage": "questions/legacy/f57f7cb3d2d14f4c.png"
+    },
+    "explanation": "季節風は、夏に ①（太平洋）側から ②（日本海）側に、冬は逆に ②日本海側 から①太平洋側 にふく。そのため、日本海側では、（冬）に雨が多く、（夏）に雨が少ない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.eb69c80f1ccd",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本は、下の地図のA〜Dの４つの海をへだてて、外国につながっている。A〜Dの海の名前をえらぼう。",
+      "answers": [
+        "太平洋",
+        "日本海",
+        "東シナ海",
+        "オホーツク海"
+      ],
+      "template": "A ： {{INPUT}} B ： {{INPUT}} C ： {{INPUT}} D ： {{INPUT}}",
+      "promptImage": "questions/legacy/6ffa339a67838284.png"
+    },
+    "explanation": "A ：（太平洋） B ：（日本海） C ：（東シナ海） D ：（オホーツク海）"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.1abeecae54b8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の図は、北海道の家の写真である。これを見ながら、北海道の家の特ちょうとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "寒さを防ぐため、かべや天井に 断熱材が使われている。"
+        },
+        {
+          "id": "c2",
+          "text": "寒さを防ぐため、かべやまどが 二重になっている。"
+        },
+        {
+          "id": "c3",
+          "text": "積もった雪の重さで つぶれないように、屋根は急になっている。"
+        },
+        {
+          "id": "c4",
+          "text": "雪が積もっても外に出られるよう、玄関が床より高くなっている。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/86b8830d56bbbe96.png"
+    },
+    "explanation": "「雪が積もっても外に出られるよう、玄関が床より高くなっている。」が、正しくない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.5bc9cc0d89aa",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北海道では、それぞれの地いきに合わせた 農業が行われている。次の文のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "石狩平野",
+        "十勝平野",
+        "根釧台地"
+      ],
+      "template": "・{{INPUT}}、上川盆地：寒い地いきでも さいばいできるよう工夫が重ねられ、稲作がさかんになっている。 ・{{INPUT}}：日本最大の 畑作地いき となっており、小麦やじゃがいも、大豆のさいばいが さかん。 ・{{INPUT}}：生乳をバターやチーズに加工して出荷する 酪農がさかんである。",
+      "promptImage": "questions/legacy/7cc002499ce79572.png"
+    },
+    "explanation": "・（石いし狩かり平野）、上川盆地：寒い地いきでも さいばいができるよう工夫が重ねられ、稲作がさかんになっている。 ・（十と勝かち平野）：日本最大の 畑作地いき となっており、小麦やじゃがいも、大豆のさいばいが さかん。 ・（根こん釧せん台地）：生乳をバターやチーズに加工して出荷する 酪農がさかんである。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.68a6189ed7dd",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "嬬恋村の農業について、次の中から正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "他の地域の出荷がへる夏に、大都市に出荷している。"
+        },
+        {
+          "id": "c2",
+          "text": "夜は気温が下がってしまうため、ビニルハウスで温度の調整をしている。"
+        },
+        {
+          "id": "c3",
+          "text": "雨がとても多いため、昔は米作りがさかんだった。"
+        },
+        {
+          "id": "c4",
+          "text": "農業以外にあまりさかんな産業はないため、ほとんどの人が農業を仕事にしている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "すずしい気候を生かして、他の産地の出荷が少ない夏から秋に、キャベツをしゅうかく できるようにしている。 ・昼と夜の気温差は、おいしいキャベツづくり に必要なため、ビニルハウスなどは使っていない。 ・中央高地は、雨があまり多くない。嬬恋村の土は 火山ばい土が多く、米作りにはむかない。 ・嬬恋村には、高原の自然環境や温泉、スキー場などがあり、観光業もさかん。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.7619ee204a95",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "今の北海道から、からふと南部、千島列島には 先住民の人々がおり、狩りの生活をしてきた。しかし、明治時代に北海道がおかれると、日本語による教育や 生活の制限せいげんが行われ、その言語や文化の中には、失われてしまうものもあった。この北海道の先住民の人々を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "エスキモー"
+        },
+        {
+          "id": "c2",
+          "text": "アボリジニ"
+        },
+        {
+          "id": "c3",
+          "text": "イヌイット"
+        },
+        {
+          "id": "c4",
+          "text": "アイヌ"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "今の北海道から、からふと南部、千島列島に 住んでいた先住民を アイヌ という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.81b200433530",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川に囲まれていることから、家や田畑を守るため、周りを てい防で囲んだ土地を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輪中"
+        },
+        {
+          "id": "c2",
+          "text": "扇状地"
+        },
+        {
+          "id": "c3",
+          "text": "三角州"
+        },
+        {
+          "id": "c4",
+          "text": "中州"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3321dc0b0fdb7365.png"
+    },
+    "explanation": "川に囲まれていることから、家や田畑を守るため、周りを てい防で囲んだ土地を 輪中わじゅう という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.87edc2aa9ba8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北海道の農業について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "広い土地を生かして、大規模な農業が行われている。"
+        },
+        {
+          "id": "c2",
+          "text": "寒い気候のため、米作りは行われず、畑作がさかんになっている。"
+        },
+        {
+          "id": "c3",
+          "text": "雪が多いことから、稲作・畑作ができないため、牧畜や酪農だけが 行われている。"
+        },
+        {
+          "id": "c4",
+          "text": "山地や森林が多いため、農業はあまりさかんではない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "広い土地を生かした大規き模ぼな農業が行われている。畑作だけでなく、寒い気候の中でも 工夫を重ね、米作り（稲作）もさかんになっている地域がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.b74be18fe2a5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "嬬恋村では、その気候を生かした農作物のさいばいが行われている。次のうち、嬬恋村でのさいばいが さかんな農作物をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "トマト"
+        },
+        {
+          "id": "c2",
+          "text": "キャベツ"
+        },
+        {
+          "id": "c3",
+          "text": "きゅうり"
+        },
+        {
+          "id": "c4",
+          "text": "白菜"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "嬬恋村では、夏はすずしく 、昼と夜や 夏と冬の気温差が大きい気候を生かして、キャベツの栽培がさかんになっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.b948d10b0847",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、岐阜県、愛知県、三重県の県境の写真である。ここに写る ３つの川の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "木曽川、長良川、揖斐川"
+        },
+        {
+          "id": "c2",
+          "text": "庄内川、長良川、矢作川"
+        },
+        {
+          "id": "c3",
+          "text": "木曽川、庄内川、揖斐川"
+        },
+        {
+          "id": "c4",
+          "text": "木曽川、長良川、矢作川"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3321dc0b0fdb7365.png"
+    },
+    "explanation": "写真右から順番に 木曽きそ川、長良ながら川、揖斐いび川 となっている。この３つの川を、木き曽そ三さん川せんという。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.bc427fe3fcf5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の図は、よく見られる形の沖縄の家の写真である。これを見ながら、今の沖縄の家の特ちょうとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "沖縄では、雪がふらないため、屋根は平らになっている。"
+        },
+        {
+          "id": "c2",
+          "text": "屋根には、水をためる貯水タンクが置かれている。"
+        },
+        {
+          "id": "c3",
+          "text": "部屋の気温が上がらないよう、かべの色には 光を反射する 白が使われている。"
+        },
+        {
+          "id": "c4",
+          "text": "台風による てい電を防ぐため、電線は地下にあり、電柱がない。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fdd7c799af197136.png"
+    },
+    "explanation": "「台風による てい電を防ぐため、電線は地下にあり、電柱がない。」が、正しくない。写真の上の方には、電柱や電線が見える。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.d5ded88c5e49",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "沖縄県では、あたたかい気候を生かした野菜や果物の さいばいがさかんである。その中でも、沖縄の畑の およそ半分で さいばいされている農作物は、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さとうきび"
+        },
+        {
+          "id": "c2",
+          "text": "パイナップル"
+        },
+        {
+          "id": "c3",
+          "text": "マンゴー"
+        },
+        {
+          "id": "c4",
+          "text": "バナナ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "沖縄県では、さとうきびやパイナップルなど、あたたかい気候に合わせた農作物が生産されている。その中でも、さとうの原料になる さとうきびの さいばい はさかんで、沖縄県の畑の半分、農家の約70%で つくられている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.dc1759dd319b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の図は、沖縄の伝統とう的な家の写真である。これを見ながら、沖縄の伝統的な家の特ちょうとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台風の強い風を受けないよう、屋根は低くなっている。"
+        },
+        {
+          "id": "c2",
+          "text": "風や雨から家を守るため、石がきが置かれている。"
+        },
+        {
+          "id": "c3",
+          "text": "気温が高いため、風通しのよい つくりになっている。"
+        },
+        {
+          "id": "c4",
+          "text": "台風の強い風で飛ばされないよう、屋根は コンクリートでできている。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43312cb8d8198e5e.png"
+    },
+    "explanation": "「台風の強い風で飛ばされないよう、屋根は コンクリートでできている。」が、正しくない。屋根は かわらでつくられていて、雨を流しやすいよう、急になっていることが多い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.1f6bb557986a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いろいろな果物の さいばいがさかんで、その中でも全国のさくらんぼの 約70% を生産する県は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山形県"
+        },
+        {
+          "id": "c2",
+          "text": "青森県"
+        },
+        {
+          "id": "c3",
+          "text": "愛媛県"
+        },
+        {
+          "id": "c4",
+          "text": "和歌山県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "山形県は、全国のさくらんぼの 約70% を生産している。そのほかにも、ぶどう、もも、なし などのさいばい がさかん。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.25dd00e5fbd0",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お米（イネ）を育てることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "稲作"
+        },
+        {
+          "id": "c2",
+          "text": "畑作"
+        },
+        {
+          "id": "c3",
+          "text": "麦作"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "イネをさいばいし、米をとることを稲いな作という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.2a63117435c9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "寒さに強いなどの特ちょうを持った農作物を作るために、ちがう品種をかけ合わせて、新しい品種をつくることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "遺伝子改良"
+        },
+        {
+          "id": "c2",
+          "text": "品種改良"
+        },
+        {
+          "id": "c3",
+          "text": "品種組みかえ"
+        },
+        {
+          "id": "c4",
+          "text": "遺伝子組みかえ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ちがう品種をかけあわせて、新しい品種をつくり出すことを品種改良という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.3113fb5b6e85",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本では、北海道や新潟県、東北地方などの寒い地域、特に北日本の日本海側で、稲作がさかんになっている。この理由として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "豊富な雪どけ水を、米作りに利用することができるから。"
+        },
+        {
+          "id": "c2",
+          "text": "寒さに強い品種をつくるため、品種改良を重ねてきたから。"
+        },
+        {
+          "id": "c3",
+          "text": "イネは、もともと寒い地いきで生まれた農作物だから。"
+        },
+        {
+          "id": "c4",
+          "text": "夏は気温が高く、晴れた日が多いなど、イネのさいばいに合った気候だから。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "「イネは、もともと寒い地いきで生まれた農作物だから。」が、正しくない。イネは、もともと赤道に近い、１年を通して暑く、雨の多い地域の植物。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.661afeb79b7f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごのさいばいが さかんな都道府県の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "青森県、長野県"
+        },
+        {
+          "id": "c2",
+          "text": "山形県、山梨県"
+        },
+        {
+          "id": "c3",
+          "text": "山梨県、長野県"
+        },
+        {
+          "id": "c4",
+          "text": "北海道、青森県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "りんごは、すずしい気候での さいばいに 適しており、青森県や長野県での さいばいがさかん。特に、青森県は 全国のりんご生産量の 半分以上をしめる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.66c6a685ead3",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食料と産業について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "農業",
+        "畜産業",
+        "漁業"
+      ],
+      "template": "食料を生産する産業には、農作物を生産する {{INPUT}} 、畜ちく産物を生産する {{INPUT}} 、水産物を生産する {{INPUT}} がある。"
+    },
+    "explanation": "食料を生産する産業には、農作物を生産する（農業）、畜産物を生産する（畜産業）、水産物を生産する（漁業）がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.7e9b57e4e7af",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "関東や関西などの 大都市の周辺では、人口の多い大都市に すぐに出荷ができるため、新せんさが大事になる 野菜や花のさいばいがさかんになっている。このような 大都市周辺で行われる農業を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "園芸農業"
+        },
+        {
+          "id": "c2",
+          "text": "近こう農業"
+        },
+        {
+          "id": "c3",
+          "text": "家庭菜園"
+        },
+        {
+          "id": "c4",
+          "text": "都市さいばい"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "大都市周辺で行われる農業を、近こう農業という。いたみやすいレタスなどの葉物野菜や、花などの さいばいがさかん。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.9b27d522d83d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みかんのさいばいが さかんな都道府県の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和歌山県、愛媛県"
+        },
+        {
+          "id": "c2",
+          "text": "青森県、長野県"
+        },
+        {
+          "id": "c3",
+          "text": "山梨県、山形県"
+        },
+        {
+          "id": "c4",
+          "text": "千葉県、茨城県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "みかんは、温暖な気候での さいばい に適しているため、太平洋側で 暖流の黒潮であたためられた風のふく 和歌山県や愛媛県、静岡県などでの さいばいが さかん。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.daff2e3e5c88",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小麦、じゃがいもなどの さいばいがさかんで、日本最大の畑作地帯となっている北海道の平野を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "十勝平野"
+        },
+        {
+          "id": "c2",
+          "text": "石狩平野"
+        },
+        {
+          "id": "c3",
+          "text": "釧路平野"
+        },
+        {
+          "id": "c4",
+          "text": "天塩平野"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "北海道では、日本海側の石狩平野や上川盆地では 稲作が、太平洋側の十勝平野では 畑作が、さかんになっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.faf7a6626d56",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北日本で夏に気温が上がらず、イネが十分に育たなくなることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冷害"
+        },
+        {
+          "id": "c2",
+          "text": "冷夏"
+        },
+        {
+          "id": "c3",
+          "text": "やませ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "北日本で夏に気温が上がらず、イネが十分に育たなくなることを、冷害 という。 やませ は、北日本の太平洋側で、夏にふく冷たい風のこと。やませで 気温が下がると、冷害になることがある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.0a702a03d140",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食料自給率が低下することでおこる問題として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輸入した食品の安全性をたしかめることが、難しい。"
+        },
+        {
+          "id": "c2",
+          "text": "何かの理由で、外国からの輸入がストップすると、食料不足になるおそれがある。"
+        },
+        {
+          "id": "c3",
+          "text": "日本でつくられた農産物が売れなくなってしまう。"
+        },
+        {
+          "id": "c4",
+          "text": "農業で働く人の高れい化が進む。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "働く人の高れい化は、農業の大きな問題になっている。しかし、食料自給率の低下とは、直接せつ関係がない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.0f6792cb3e62",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食品の安全性について、「トレーサビリティ」という言葉がある。その意味として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地いきで生産したものを、地いきで消費すること。"
+        },
+        {
+          "id": "c2",
+          "text": "食品がどこでどのように生産されたか、分かるようにすること。"
+        },
+        {
+          "id": "c3",
+          "text": "どれくらいの量の食料が、どれくらい運ばれてきたかを表すこと。"
+        },
+        {
+          "id": "c4",
+          "text": "売れ残りや食べ残し、期げんが切れた食品など、食べることができたはずの食料がすてられること。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "食品がどこでどのように生産されたか、分かるようにすることを「トレーサビリティ」という。「トレーサビリティ」は、英語でついせきを意味する trace（トレース）と、能力を意味する ability（アビリティ）をあわせた言葉。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.1c06d9e2dd08",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漁業の種類について、表のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "遠洋漁業",
+        "沖合漁業",
+        "沿岸漁業"
+      ],
+      "template": "種類 漁場 期間 魚の種類 {{INPUT}} 遠い海 数ヶ月〜１年 マグロ、カツオなど {{INPUT}} 日本近海 2, 3日 イワシ、サンマ、サバ など {{INPUT}} 沿えん岸の海 日帰り アジ、タラ、タイなど"
+    },
+    "explanation": "種類 漁場 期間 魚の種類 遠洋漁業 遠い海 数ヶ月〜１年 マグロ、カツオなど 沖合漁業 日本近海 2, 3日 イワシ、サンマ、サバ など 沿岸漁業 沿えん岸の海 日帰り アジ、タラ、タイなど"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.386804aff3a2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の漁業は、水産物を「とる漁業」から「育てる漁業」へと、移うつりかわってきている。この理由として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "魚のとれる量が 減ってきたから。"
+        },
+        {
+          "id": "c2",
+          "text": "養しょくした魚の方が、高く売れるから。"
+        },
+        {
+          "id": "c3",
+          "text": "とる漁業には、若い人がつきたがらず、後つぎがいないから。"
+        },
+        {
+          "id": "c4",
+          "text": "船を海に出すための燃料が、高くなってきたから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "魚の種類によっては、とれる量が 減ってきており、このまま「とる漁業」だけを続けていくことは、難しくなっている。そのため、「とる漁業」から 養しょく業などの「育てる漁業」へかわっていく必要がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.619908e12f51",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "肉牛の飼し育が さかんな都道府県の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北海道、鹿児島県、宮崎県"
+        },
+        {
+          "id": "c2",
+          "text": "鹿児島県、宮崎県、熊本県"
+        },
+        {
+          "id": "c3",
+          "text": "北海道、栃木県、熊本県"
+        },
+        {
+          "id": "c4",
+          "text": "熊本県、岩手県、栃木県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "飼育数が一番多い北海道で、全国の約20%をしめていて、北海道では乳牛の飼育もさかん。鹿児島県、宮崎県も、他の家畜の飼育もさかんな 畜産県 になっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.703e24dd931a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ぶたの飼育が さかんな都道府県の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鹿児島県、宮崎県"
+        },
+        {
+          "id": "c2",
+          "text": "北海道、栃木県"
+        },
+        {
+          "id": "c3",
+          "text": "茨城県、千葉県"
+        },
+        {
+          "id": "c4",
+          "text": "鹿児島県、茨城県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "鹿児島県、宮崎県は、あたたかい気候のため、家畜のえさ が育ちやすい。そのため、ぶた以外の家畜の飼育もさかんに行われている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.7579c793f59d",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漁業の種類について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "養しょく漁業",
+        "さいばい漁業"
+      ],
+      "template": "魚や貝、海そうなどを育てる漁業を、養しょく業 という。養しょく業のうち、たまごからふ化させた魚や貝を 大きくなるまでしせつ内で人工的に育てる漁業を {{INPUT}} といい、少し大きくなるまで育てた後、川や海に放し、成長させてから とる漁業を {{INPUT}} という。"
+    },
+    "explanation": "魚や貝、海そうなどを育てる漁業を、養しょく業 という。養しょく業のうち、たまごからふ化させた魚や貝を 大きくなるまでしせつ内で人工的に育てる漁業を（養しょく漁業）といい、少し大きくなるまで育てた後、川や海に放し、成長させてから とる漁業を（さいばい漁業）という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.ad0ce7090420",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の中から、食料自給率が低下した理由として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本は 米が主食だが、1960年代ごろからは、パン や めん がよく食べられるようになった。"
+        },
+        {
+          "id": "c2",
+          "text": "小麦や大豆について、日本の食料自給率は とても低くなっている。"
+        },
+        {
+          "id": "c3",
+          "text": "日本人は、昔に比べると 肉、たまご、乳製品をよく食べるようになった。"
+        },
+        {
+          "id": "c4",
+          "text": "日本でつくられた食料の多くが、外国に輸出されるようになった。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "日本の食料自給率の低下は、日本人の食生活が変化したことが、大きな理由になっている。1960年代ごろからは、パン や めん がよく食べられるようになったが、その原料になる小麦は、外国からの輸入にたよっている。その他にも、肉や大豆などを日本は輸入にたよっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.bbdf13ddd319",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "世界ではアフリカなどを中心に、食料不足に苦しんでいる。わたしたちのできることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "フードロスを減らす。"
+        },
+        {
+          "id": "c2",
+          "text": "食品の消費期げんが切れても、気にせず食べる。"
+        },
+        {
+          "id": "c3",
+          "text": "国内でつくられたものを、食べるようにする。"
+        },
+        {
+          "id": "c4",
+          "text": "食料不足の国から輸入されたものを、よく食べるようにする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "フードロスとは、売れ残りや食べ残し、期げんが切れた食品など、食べることができたはずの食料がすてられること。これをへらすことは、わたしたちの今の生活の中でも、できることだろう。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.bc1c4e88acb6",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ちく産業について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "BSE",
+        "口ていえき",
+        "鳥インフルエンザ"
+      ],
+      "template": "家ちくの伝せん病には、きょう牛病とよばれる {{INPUT}}、2010年に宮崎県で流行した 牛やぶたがかかる {{INPUT}}、鳥がかかる {{INPUT}} などがある。"
+    },
+    "explanation": "家ちくの伝せん病には、きょう牛病とよばれる（BSE） 、2010年に宮崎県で流行した 牛やぶたがかかる（口ていえき）、鳥がかかる（鳥インフルエンザ）などがある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.0bd9593a067b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "愛知県豊田市・岡崎市、三重県鈴鹿すずか市などでは、機械工業が発達している。次の中から、ここでの製造が特にさかんな工業製品をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家電製品"
+        },
+        {
+          "id": "c2",
+          "text": "コンピューター"
+        },
+        {
+          "id": "c3",
+          "text": "飛行機"
+        },
+        {
+          "id": "c4",
+          "text": "自動車"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "愛知県豊田市・岡崎市、三重県鈴鹿市などでは、自動車の生産がさかんである。 愛知県の豊田市の市の名前は、自動車メーカーのトヨタに由来する。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.11beec90347f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の主な石炭輸入相手国の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オーストラリア、インドネシア"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア、ブラジル"
+        },
+        {
+          "id": "c3",
+          "text": "アメリカ、カタール"
+        },
+        {
+          "id": "c4",
+          "text": "アメリカ、インドネシア"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は、主にオーストラリア、インドネシア、ロシアなどの国から石炭を輸入している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.17b73cab75bb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の主な石油（原油）輸入相手国の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "サウジアラビア、アラブ首長国連邦"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア、ブラジル"
+        },
+        {
+          "id": "c3",
+          "text": "オーストラリア、インドネシア"
+        },
+        {
+          "id": "c4",
+          "text": "アメリカ、カタール"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は、主に中東とよばれる西アジアの国々、サウジアラビア、アラブ首長国連邦れんぽう、カタール、クウェートなどから、石油（原油）を輸入している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.1a789bd01c05",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、工業製品にふくまれないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "カップめん"
+        },
+        {
+          "id": "c2",
+          "text": "パソコン"
+        },
+        {
+          "id": "c3",
+          "text": "毛糸"
+        },
+        {
+          "id": "c4",
+          "text": "牛肉"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "カップめんは食料品工業、パソコンは機械工業、毛糸はせんい工業になる。牛肉は、加工されていないので、農業（ちく産業）になる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.2618028b60ea",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "工業について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "軽工業",
+        "重工業",
+        "重化学工業"
+      ],
+      "template": "せんい工業、製せい紙・印刷工業など、重さの軽いものをつくる工業を {{INPUT}} という。金属ぞくや機械など、重さの重いものをつくる工業を {{INPUT}} といい、これと化学工業をあわせて {{INPUT}} という。"
+    },
+    "explanation": "せんい工業、製紙・印刷工業など、重さの軽いものをつくる工業を（軽工業）という。金属や機械など、重さの重いものをつくる工業を（重工業）といい、これと化学工業をあわせて（重化学工業）という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.273c4138ab81",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ものに道具や機械を使って手を加え、形や性質せいしつを変えたり、組み立てたりして、人の役にたつものをつくる産業のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "農業"
+        },
+        {
+          "id": "c2",
+          "text": "水産業"
+        },
+        {
+          "id": "c3",
+          "text": "林業"
+        },
+        {
+          "id": "c4",
+          "text": "工業"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ものに道具や機械を使って手を加え、形や性質を変えたり、組み立てたりして、人の役にたつものをつくる産業のことを工業という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.27a4c2358cd2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "原料を輸入し、加工した製品を輸出する貿ぼう易えきのことをなんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輸出貿易"
+        },
+        {
+          "id": "c2",
+          "text": "加工貿易"
+        },
+        {
+          "id": "c3",
+          "text": "自動車貿易"
+        },
+        {
+          "id": "c4",
+          "text": "原料輸入貿易"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日本はエネルギー資げんや原料があまりとれないので、外国から輸入している。原料を加工した製品を輸出する貿易を加工貿易という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.32699770777f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "関東から北九州までつづく、太平洋側にそったベルト（帯）状じょうの工業がさかんな地いきのことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "四大工業地帯"
+        },
+        {
+          "id": "c2",
+          "text": "コンビナート"
+        },
+        {
+          "id": "c3",
+          "text": "太平洋ベルト"
+        },
+        {
+          "id": "c4",
+          "text": "工業団地"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "関東から北九州までつづく、太平洋側にそったベルト状の工業がさかんな地いきのことを、太平洋ベルトという。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.40ee58d86b04",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の主な自動車輸出国（輸出額）の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アメリカ、オーストラリア"
+        },
+        {
+          "id": "c2",
+          "text": "アメリカ、インド"
+        },
+        {
+          "id": "c3",
+          "text": "中国、インド"
+        },
+        {
+          "id": "c4",
+          "text": "中国、韓国"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は、世界中に自動車を輸出している。アメリカ、オーストラリア、中国などが特に多い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.4a259057be95",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太平洋ベルトで工業が発達した理由として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "工業に必要な原料や燃料を、船で輸入しやすい。"
+        },
+        {
+          "id": "c2",
+          "text": "海岸をうめたてることで、工業用地を確保できる。"
+        },
+        {
+          "id": "c3",
+          "text": "工業製品を利用する人が多い大都市が近い。"
+        },
+        {
+          "id": "c4",
+          "text": "新幹線にそって工業を発展させることで、人や原料を高速に運ぶことができる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「新幹線にそって工業を発展させることで、人やものを高速に運ぶことができる。」が、正しくない。太平洋ベルトにある工業地帯の発展が始まってから、新幹線はととのえられていった。また、新幹線で、重たい工業の原料を運ぶことはできない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.5514780fd9df",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上のグラフは、日本の工場の事業所数、従業者じゅうぎょうしゃ数、出荷額がくのうち、300人以上の大工場と300人未満の中小工場が、それぞれどれくらいになるかを表している。このグラフからわかることとして、 正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本の工場のほとんどは、中小工場である。"
+        },
+        {
+          "id": "c2",
+          "text": "日本では、大工場で働く人より、中小工場で働く人の方が多い。"
+        },
+        {
+          "id": "c3",
+          "text": "大工場で働く一人当たりの出荷額は、中小工場で働く一人当たりの出荷額より大きい。"
+        },
+        {
+          "id": "c4",
+          "text": "大工場の出荷額が大きいのは、大工場の数が多いからである。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ebca75d68f2ef93a.png"
+    },
+    "explanation": "「大工場の出荷額が大きいのは、大工場の数が多いからである。」が、正しくない。大工場の数は、約0.8%ととても少なくなっている。しかし、１つの大工場での出荷額が大きいため、出荷額全体では、大工場の方が大きくなっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.57a9415add63",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で最大の工業地帯は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中京工業地帯"
+        },
+        {
+          "id": "c2",
+          "text": "京浜工業地帯"
+        },
+        {
+          "id": "c3",
+          "text": "阪神工業地帯"
+        },
+        {
+          "id": "c4",
+          "text": "北九州工業地帯"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本で最大の工業地帯は、中京工業地帯。機械工業の中でも、特に輸送用機械の生産がさかん。部品や材料をつくる工場が、集まっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.6929b4d324e1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の写真は、石油化学に関係する、建物や工場が集まった三重県四日市の工業エリアの写真である。このように、ある工業に関係する原料や燃料の建物や工場が集まったところを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "シリコンアイランド"
+        },
+        {
+          "id": "c2",
+          "text": "太平洋ベルト"
+        },
+        {
+          "id": "c3",
+          "text": "コンビナート"
+        },
+        {
+          "id": "c4",
+          "text": "中京工業地帯"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d68975abb4af132f.png"
+    },
+    "explanation": "ある工業に関係する原料や燃料の建物や工場が集まったところを「コンビナート」という。三重県四日市は、石油化学工業がさかんで、海ぞいに石油化学コンビナートが広がっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.7b385ea8e988",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "産業の空どう化の説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "安い人件費を求めて、国内の工場が外国に移転し、国内の産業がおとろえてしまうこと。"
+        },
+        {
+          "id": "c2",
+          "text": "安い人件費を求めて、工場で外国人ばかりをやとうことで、日本人の仕事がなくなってしまうこと。"
+        },
+        {
+          "id": "c3",
+          "text": "安い人件費を求めて、国内の工場を外国に移転したことで、技術が外国の会社にもれてしまうこと。"
+        },
+        {
+          "id": "c4",
+          "text": "都市部の人件費が高まり、安い人件費を求めて、都市部の工場が地方に移動すること。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "安い人件費を求めて、国内の工場が外国に移転し、国内の産業がおとろえてしまうことを、産業の空どう化という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.7e73c274dc1f",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四大工業地帯ア〜エについて、それぞれ正しいものをえらぼう。",
+      "answers": [
+        "北九州",
+        "阪神",
+        "中京",
+        "京浜"
+      ],
+      "template": "ア： {{INPUT}} 工業地帯 イ： {{INPUT}} 工業地帯 ウ： {{INPUT}} 工業地帯 エ： {{INPUT}} 工業地帯",
+      "promptImage": "questions/legacy/73f8db4a22bf20b8.png"
+    },
+    "explanation": "ア：（北九州）工業地帯…日本で最初に発達した工業地帯。今は他の工業地帯とくらべると、規模が小さくなっている。 イ：（阪神）工業地帯…大阪から神戸にかけて、海ぞいに広がる工業地帯。 ウ：（中京）工業地帯…日本最大の工業地帯。中京とは、東京・京都の２つの「京」の間にあるということ。 エ：（京浜）工業地帯…東京から横浜にかけて、海ぞいに広がる工業地帯。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.86b0e71e36d7",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人やものが移動する手段には、主に鉄道、飛行機、自動車、船の４つがある。それぞれの長所をまとめた以下の表について、かっこに当てはまるものをえらぼう。",
+      "answers": [
+        "自動車",
+        "鉄道",
+        "船",
+        "飛行機"
+      ],
+      "template": "交通手段 長所 {{INPUT}} 小回りがきくため、人やものを目的地まで直接運ぶことができる。 {{INPUT}} おくれが発生しづらいため、たくさんの人を運ぶことに向いている。 {{INPUT}} 時間はかかるが、大きくて重たいものを運ぶことができるので、貿易で活やくする。 {{INPUT}} 短い時間で長いきょりを移動できる。費用が高いので、人や軽くて高価なものの移動に向いている。"
+    },
+    "explanation": "交通手段 長所 自動車 小回りがきくため、人やものを目的地まで直接運ぶことができる。 鉄道 おくれが発生しづらいため、たくさんの人を運ぶことに向いている。 船 時間はかかるが、大きくて重たいものを運ぶことができるので、貿易で活やくする。 飛行機 短い時間で長いきょりを移動できる。費用が高いので、人や軽くて高価なものの移動に向いている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.99c9da06dd9b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1980年代、日本からアメリカ への自動車輸出が多くなり、アメリカ製の自動車はん売にえいきょうした。アメリカでは日本からの自動車の輸入に反対する声がふえ、問題になった。このような輸入国と輸出国の間での 貿易に関する争いのことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "貿易まさつ"
+        },
+        {
+          "id": "c2",
+          "text": "加工貿易"
+        },
+        {
+          "id": "c3",
+          "text": "産業の空洞化"
+        },
+        {
+          "id": "c4",
+          "text": "グローバル化"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "輸入国と輸出国の間での 貿易に関する争いのことを、貿易まさつ、という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.a5491e4a708f",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の工業地域ア〜オについて、それぞれ正しいものをえらぼう。",
+      "answers": [
+        "瀬戸内",
+        "東海",
+        "京葉",
+        "関東内陸",
+        "北陸"
+      ],
+      "template": "ア： {{INPUT}} 工業地域いき イ： {{INPUT}} 工業地域 ウ： {{INPUT}} 工業地域 エ： {{INPUT}} 工業地域 オ： {{INPUT}} 工業地域",
+      "promptImage": "questions/legacy/cce13b9cdd7af494.png"
+    },
+    "explanation": "ア：（瀬戸内）工業地域 イ：（東海）工業地域 ウ：（京葉）工業地域 エ：（関東内陸）工業地域 オ：（北陸）工業地域"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.a8c96b1c1aa6",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、2017年の日本の輸出・輸入製品のわり合を表したグラフである。これを参考にしながら、以下の文のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "石油",
+        "機械類",
+        "自動車"
+      ],
+      "template": "原料や燃料などの資源しげんの少ない日本は、{{INPUT}} や液化ガス、石炭などの資源を輸入している。近年は、コンピューターや電化製品、機械部品などの {{INPUT}} を、アジアを中心とした国々から輸入している。 輸入した資源や部品を元に製品をつくって輸出し、輸出の多くは機械類で、その中でも {{INPUT}} の割合が高い。",
+      "promptImage": "questions/legacy/e7a798c6c963e8cd.png"
+    },
+    "explanation": "原料や燃料などの資源しげんの少ない日本は、（石油）や液化ガス、石炭などの資源を輸入している。近年は、コンピューターや電化製品、機械部品などの（機械類）を、アジアを中心とした国々から輸入している。 輸入した資源や部品を元に製品をつくって輸出し、輸出の多くは機械類で、その中でも（自動車）の割合が高い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.b059945f3dcc",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、1960年と2009年の貨物・旅客輸送について、日本国内の交通手段別のわり合を表している。これを参考にしながら、次の文のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "鉄道",
+        "自動車",
+        "船",
+        "飛行機"
+      ],
+      "template": "1960年の旅客（人）の移動については、{{INPUT}} が主な手段になっていたが、2009年には旅客・貨物（もの）の移動共に、{{INPUT}} がその中心になっている。{{INPUT}} は1960年代から、主に貨物の移動手段として使われている。外国への人の移動は {{INPUT}} が多いが、国内でのわり合は低い。",
+      "promptImage": "questions/legacy/20b4bec078363455.png"
+    },
+    "explanation": "1960年の旅客（人）の移動については、（鉄道）が主な手段になっていたが、2009年には旅客・貨物（もの）の移動共に、（自動車）がその中心になっている。（船）は1960年代から、主に貨物の移動手段として使われている。外国への人の移動は（飛行機）が多いが、国内でのわり合は低い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.e230d0e5d7fb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の主な鉄鉱こう石輸入相手国の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オーストラリア、ブラジル"
+        },
+        {
+          "id": "c2",
+          "text": "アメリカ、カタール"
+        },
+        {
+          "id": "c3",
+          "text": "中国、アメリカ"
+        },
+        {
+          "id": "c4",
+          "text": "ロシア、中国"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は、主にオーストラリア、ブラジル、カナダなどの国から鉄鉱石を輸入している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.ed778057868e",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の工業について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "せんい",
+        "重化学",
+        "機械"
+      ],
+      "template": "日本では、1930年代までは {{INPUT}} 工業 を中心に、軽工業が発展していった。戦争が終わり、1950〜70年代になると日本の工業は急速に成長し、{{INPUT}} 工業がさかんになった。現在も工業の中では、{{INPUT}} 工業 が最もさかんになっている。"
+    },
+    "explanation": "日本では、1930年代までは（せんい）工業 を中心に、軽工業が発展していった。戦争が終わり、1950〜70年代になると日本の工業は急速に成長し、（重化学）工業がさかんになった。現在も工業の中では、（機械）工業 が最もさかんになっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.2cb80e8887d4",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "インターネット上に他人の写真や文章、音楽などを許可なく無断でコピーして掲載したときに侵害してしまう権利は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "著作権（ちょさくけん）"
+        },
+        {
+          "id": "c2",
+          "text": "所有権"
+        },
+        {
+          "id": "c3",
+          "text": "選挙権"
+        },
+        {
+          "id": "c4",
+          "text": "生存権"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "他人が作詞・作曲した音楽や撮影した写真、文章などには「著作権」があり、無断使用は法律で禁止されています。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.7fc4ad1231e8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "コンピューターやインターネットなど、情報のしょ理や伝達に関係する技術のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ICT（情報通信技術）"
+        },
+        {
+          "id": "c2",
+          "text": "AI（人工知能）"
+        },
+        {
+          "id": "c3",
+          "text": "IoT（モノのインターネット）"
+        },
+        {
+          "id": "c4",
+          "text": "スマートデバイス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "コンピューターやインターネットなど、情報のしょ理や伝達に関係する技術のことを、ICT（情報通信技術）という。英語の Information and Communication Technology の略。 ・AI（人工知能）… コンピューターなどを利用した、知能のようなはたらきをするシステムのこと。 ・IoT（モノのインターネット）… パソコンやスマートフォンだけでなく、様々なものが、インターネットにつながること。 ・スマートデバイス … スマートフォンやタブレットをまとめてさす時に使われる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.98f2b889864d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メディアリテラシーの説明として、正しいものを選ぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必要な情報を自分でえらび、内容を確認して、活用する能力や技能のこと。"
+        },
+        {
+          "id": "c2",
+          "text": "自分や自分の生活について、他人に公開されないよう求めること。"
+        },
+        {
+          "id": "c3",
+          "text": "インターネットに、他人がいやがるような内容を書きこんだりしないこと。"
+        },
+        {
+          "id": "c4",
+          "text": "様々なメディアを使って、社会の最新の情報を常に知っていること。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "必要な情報を自分でえらび、内容を確認かくにんして、活用する能力のうりょくや技能ぎのうのことを、メディアリテラシーという。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.9c9ec2b8b781",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "インターネットやスマートフォンを長時間使いすぎたり、やめたくてもやめられなかったりなど「ネットいぞん」が問題になっている。次の中から、ネットいぞんの対さくとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "使ってみないとわからないことが多いので、子どもが使い始めるときは、ルールはもうけない方がよい。"
+        },
+        {
+          "id": "c2",
+          "text": "ネットいぞんの問題について学ぶ。"
+        },
+        {
+          "id": "c3",
+          "text": "インターネットやスマートフォンを、さわらない時間を決める。"
+        },
+        {
+          "id": "c4",
+          "text": "インターネットやスマートフォンを使わないで、楽しくすごせる時間を持てるようにする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「使ってみないとわからないことが多いので、子どもが使い始めるときは、ルールはもうけない方がよい。」が、正しくない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.9ec8c13519d7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "情報社会の問題として、正しくないものを次の中からえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "スマートフォンやインターネットを手放せない、ネットいぞんの人が増えてきている。"
+        },
+        {
+          "id": "c2",
+          "text": "画像を加工する技術などが発達し、フェイクニュースが広まりやすくなっている。"
+        },
+        {
+          "id": "c3",
+          "text": "インターネット上にある個人情報が増えており、個人情報がもれてしまうことがある。"
+        },
+        {
+          "id": "c4",
+          "text": "インターネット上の情報がまちがっていることが多いため、新聞を読む人が増えている。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「インターネット上の情報がまちがっていることが多いため、新聞を読む人が増えている。」が、正しくない。インターネット上の情報だからといって、まちがっているわけではない。また、新聞を読む人は、だんだんと減ってきている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.aa48eb558b84",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "インターネットやSNSで流れてくる大量の情報の中から、嘘や誤解に惑わされず、正しい情報を見極めて安全に活用する力を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "情報メディアリテラシー"
+        },
+        {
+          "id": "c2",
+          "text": "プログラミング"
+        },
+        {
+          "id": "c3",
+          "text": "情報発信"
+        },
+        {
+          "id": "c4",
+          "text": "著作権"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "情報メディアリテラシーとは、情報を鵜呑みにせず、事実かどうか確かめ（ファクトチェック）、正しく読み解き発信できる能力のことです。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.b0f4467ddc1c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "2010年代に入ると、わたし達が生活の中でふれる情報の量は、急速に増えた。その理由として、正しくないものを 次の中からえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "多くの人が、スマートフォンを利用するようになったから。"
+        },
+        {
+          "id": "c2",
+          "text": "動画などの容量の大きい情報が、インターネットでやりとりされるようになったから。"
+        },
+        {
+          "id": "c3",
+          "text": "SNSなどで、情報を受け取るだけでなく、発信する人が増えたから。"
+        },
+        {
+          "id": "c4",
+          "text": "仕事でも、パソコンが使われ始めたから。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「仕事でも、パソコンが使われ始めたから。」が、正しくない。仕事では、2010年よりも前からパソコンがよく使われていた。2010年代からは、多くの人が、スマートフォンを利用するようになり、動画などの容量の大きい情報も、SNSなどでよくやりとりするようになったから。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.dfa771e3023a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "情報社会の発展によって、個人情報がもれてしまうことが、問題となっている。個人情報とは、個人が特定される可能性がある情報をいうが、次のうち、個人情報に当たらないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "知らない人の顔が写っている写真"
+        },
+        {
+          "id": "c2",
+          "text": "レストランの電話番号"
+        },
+        {
+          "id": "c3",
+          "text": "名前が書かれたテストの答案"
+        },
+        {
+          "id": "c4",
+          "text": "インターネットで公開されているアイドルの写真"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "レストランの電話番号は、個人情報には当たらない。公開されているかどうかや、知っている人かどうかは関係なく、その人が特定される可能性がある情報は、個人情報に当たる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.e793396648b7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "様々なものがインターネットにつながり、情報をやりとりするようになることを、アルファベットで何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "IoT"
+        },
+        {
+          "id": "c2",
+          "text": "Wi-Fi"
+        },
+        {
+          "id": "c3",
+          "text": "5G"
+        },
+        {
+          "id": "c4",
+          "text": "AI"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "様々なものがインターネットにつながり、情報をやりとりするようになることを IoT という。Internet of Things の略で、 日本語では「モノのインターネット」言われる。 ・AI（人工知能）… コンピューターなどを利用した、知能のようなはたらきをするシステムのこと。 ・5G … 第5世代移動通信システムのことで、日本では2020年から本格的に使われるようになった、情報通信のしくみ。3G（第3世代）、4G（第4世代）と発展してきた。 ・Wi-Fiワイファイ … ケーブルなどを使わずに情報をやりとりする「無線通信」ネットワークのきまり。様々な場所で、このWi-Fiのきまりを使って、インターネットにつながることができる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.f55f992e21cf",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "社会でやりとりされる情報の量が増え、仕事や生活を進める上で、情報がかかせなくなった社会のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "情報社会"
+        },
+        {
+          "id": "c2",
+          "text": "高れい社会"
+        },
+        {
+          "id": "c3",
+          "text": "工業社会"
+        },
+        {
+          "id": "c4",
+          "text": "ネット社会"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "情報量が一気に増え、仕事や生活を進める上で、情報がかかせなくなった社会のことを、情報社会という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.fcad0691609e",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メディアとその特ちょうについて、表のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "新聞",
+        "雑誌",
+        "ラジオ",
+        "テレビ",
+        "インターネット"
+      ],
+      "template": "メディア いつから 伝え方 特ちょう {{INPUT}} 江戸時代末 主に文字 持ち運びできる。社会全体の情報を、まとめて知ることができる。 {{INPUT}} 江戸時代末 文字、写真、画像 持ち運びできる。決まった分野の情報を知ることができる。 {{INPUT}} 1925年 音声 車の運転など、何かをしながら聞くことができる。 {{INPUT}} 1953年 映像 映像で伝えることができ、わかりやすい。 {{INPUT}} 1989年 文字、画像、映像 ・世界中の情報を、自分で集めることができる。・情報の発信ができる。"
+    },
+    "explanation": "メディア いつから 伝え方 特ちょう 新聞 江戸時代末 主に文字 持ち運びできる。社会全体の情報を、まとめて知ることができる。 雑誌 江戸時代末 文字、写真、画像 持ち運びできる。決まった分野の情報を知ることができる。 ラジオ 1925年 音声 車の運転など、何かをしながら聞くことができる。 テレビ 1953年 映像 映像で伝えることができ、わかりやすい。 インターネット 1989年 文字、画像、映像 ・世界中の情報を、自分で集めることができる。・情報の発信ができる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.0ec3e47c1f9e",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の森林について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "天然林",
+        "人工林",
+        "竹林"
+      ],
+      "template": "日本の森林のうち、約50% が自然に育った {{INPUT}} 、約40% が木材をとるために人が育てた {{INPUT}} 、約10％が {{INPUT}} などである。"
+    },
+    "explanation": "日本の森林のうち、約50% が自然に育った（天然林）、約40% が木材をとるために人が育てた（人工林）、約10%が（竹林）などである。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.214928456fa8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の国土のうち、森林はどれくらいあるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "約４分の３"
+        },
+        {
+          "id": "c2",
+          "text": "約２分の１"
+        },
+        {
+          "id": "c3",
+          "text": "約３分の２"
+        },
+        {
+          "id": "c4",
+          "text": "約３分の１"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本の国土のうち、約３分の２が森林である。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.4642deacf8fd",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "公害に対する国の取り組みについて、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "公害対策基本法",
+        "環境庁",
+        "環境基本法",
+        "環境省"
+      ],
+      "template": "1967年 {{INPUT}} を制定し、公害の種類や守るべき基準などを定める 1971年 ① {{INPUT}} を設置 1993年 {{INPUT}} を制定 2001年 ① が {{INPUT}} となる"
+    },
+    "explanation": "1967年 （公害対策基本法）を制定し、公害の種類や守るべき基準などを定める 1971年 ①（環境庁）を設置 1993年 （環境基本法）を制定 2001年 ① 環境庁が（環境省）となる"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.66a95ebcfbba",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "森林から木を切り出し、木材を生産する産業を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "工業"
+        },
+        {
+          "id": "c2",
+          "text": "農業"
+        },
+        {
+          "id": "c3",
+          "text": "漁業"
+        },
+        {
+          "id": "c4",
+          "text": "林業"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "森林から木を切り出し、木材を生産する産業を林業という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.6d2fde951561",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水鳥が集まるしっ地が失われないよう、その地いきを登録し保ほ護ごすることを目的とした条約を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ラムサール条約"
+        },
+        {
+          "id": "c2",
+          "text": "気候変動枠組み条約"
+        },
+        {
+          "id": "c3",
+          "text": "生物の多様性に関する条約"
+        },
+        {
+          "id": "c4",
+          "text": "ワシントン条約"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水鳥が集まるしっ地が失われないよう、その地いきを登録し保護することを目的とした条約を、ラムサール条約という。日本では、琵琶湖や、釧路湿原くしろしつげんなどが、登録されている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.706a533b7f16",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表は、工業が急速に成長した1950～1960年代を中心に、大きなひ害のあった４つの公害について、まとめたものである。表のかっこに、当てはまる公害をえらぼう。",
+      "answers": [
+        "水俣病",
+        "新潟水俣病",
+        "イタイイタイ病",
+        "四日市ぜんそく"
+      ],
+      "template": "公害 発生した地域 原因物質 人体へのえいきょう {{INPUT}} 熊本県・鹿児島県八代海沿岸 メチル水銀 手足のしびれなど {{INPUT}} 新潟県阿賀野川流域 メチル水銀 手足のしびれなど {{INPUT}} 富山県神通川流域 カドミウム 骨がもろくなる。はげしいいたみ。 {{INPUT}} 三重県四日市市 亜硫酸ありゅうさんガス 息が苦しくなる。ぜんそく。"
+    },
+    "explanation": "公害 発生した地域 原因物質 人体へのえいきょう 水俣病 熊本県・鹿児島県八代海沿岸 メチル水銀 手足のしびれなど 新潟水俣病 新潟県阿賀野川流域 メチル水銀 手足のしびれなど イタイイタイ病 富山県神通川流域 カドミウム 骨がもろくなる。はげしいいたみ。 四日市ぜんそく 三重県四日市市 亜硫酸ありゅうさんガス 息が苦しくなる。ぜんそく。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.78503f4b4e1b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "森林のはたらきとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "生き物のすみかとなる。"
+        },
+        {
+          "id": "c2",
+          "text": "土をとどめ、水をたくわえる。"
+        },
+        {
+          "id": "c3",
+          "text": "風や雪、土砂によるさい害をふせぐ。"
+        },
+        {
+          "id": "c4",
+          "text": "酸素をきゅうしゅうし、二酸化炭素をはい出する。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「酸素をきゅうしゅうし、二酸化炭素をはい出する。」が、正しくない。植物は、二酸化炭素をきゅうしゅうし、酸素をはい出している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.8176d1e2587f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、日本で登録されている世界自然遺い産として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "知床"
+        },
+        {
+          "id": "c2",
+          "text": "白神山地"
+        },
+        {
+          "id": "c3",
+          "text": "小笠原諸島"
+        },
+        {
+          "id": "c4",
+          "text": "富士山"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "世界自然遺産は、世界の中でも特に貴重な自然環境を登録し、保護を進めていく取り組み。日本では、知床しれとこ、白神山地、屋久島、小笠原おがさわら諸島が登録されている。富士山は、世界文化遺産に登録されている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.8d4e2fde2343",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地球温暖化によって、引き起こされる問題として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "海面が上しょうする。"
+        },
+        {
+          "id": "c2",
+          "text": "これまでになかったような大雨がふる。"
+        },
+        {
+          "id": "c3",
+          "text": "生物がくらしてきた範囲が、変わってしまう。"
+        },
+        {
+          "id": "c4",
+          "text": "しがい線が、直せつ地表にふりそそぐ。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「しがい線が、直せつ地表にふりそそぐ。」が、正しくない。これは、フロンガスというガスによって、オゾン層がこわされることで起こる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.a08a61292ca6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "二酸化炭素などの温室効果ガスによって、地球の気温が上がってしまうことをなんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地球温暖化"
+        },
+        {
+          "id": "c2",
+          "text": "気候変動"
+        },
+        {
+          "id": "c3",
+          "text": "ヒートアイランド現象"
+        },
+        {
+          "id": "c4",
+          "text": "エルニーニョ現象"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "二酸化炭素などの温室効果ガスによって、地球の気温が上がってしまうことを、地球温暖おんだん化という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.a50cc9907fff",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の林業の説明として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "林業の国内生産は減少し、輸入が増加している。"
+        },
+        {
+          "id": "c2",
+          "text": "日本産の木材は、外国産の木材にくらべて高い。"
+        },
+        {
+          "id": "c3",
+          "text": "林業ではたらく人の数は減少し、高れい化が進んでいる。"
+        },
+        {
+          "id": "c4",
+          "text": "木材の輸入が増えているのは、外国産の木材の質が高いからである。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「木材の輸入が増えているのは、外国産の木材の質が高いからである。」が、正しくない。木材の輸入が増えている主な理由は、外国産木材の価格が安いから。輸入木材におされて、国内生産は減少し、林業ではたらく人の数も減少している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.b193309d2bda",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の自然災害が多い理由として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "比かく的新しい大地のため、大地の動きがさかんだから。"
+        },
+        {
+          "id": "c2",
+          "text": "山がけわしく、平野が少ないから。"
+        },
+        {
+          "id": "c3",
+          "text": "川が長く、ゆるやかだから。"
+        },
+        {
+          "id": "c4",
+          "text": "年間を通して、雨が多いから。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本はとても自然災害が多い。その理由として、日本は比かく的新しい大地のため、大地の動きがさかんであること、山がけわしく平野が少ないこと、川が短く急なこと、年間を通して雨が多いこと、などがあげられる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.b74b857cde80",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "会社の産業活動によって、自然が破はかいされたり、人々の生活に悪いえいきょうが生まれたりすることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公害"
+        },
+        {
+          "id": "c2",
+          "text": "災害"
+        },
+        {
+          "id": "c3",
+          "text": "環境破壊"
+        },
+        {
+          "id": "c4",
+          "text": "環境問題"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "会社の産業活動によって、自然が破かいされたり、人々の生活に悪いえいきょうが生まれたりすることを、公害という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.bbca6cb0909b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昭和の高度経済成長期に、工場の排煙や汚水によって発生した「四日市ぜんそく」や「水俣病」などの健康被害をまとめて何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公害（こうがい）"
+        },
+        {
+          "id": "c2",
+          "text": "自然災害"
+        },
+        {
+          "id": "c3",
+          "text": "食料危機"
+        },
+        {
+          "id": "c4",
+          "text": "冷害"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "産業の発達にともなって発生した大気汚染や水質汚濁による被害を「公害」といい、現在は工場への環境基準が厳しく定められています。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.d0f71ccb9b3b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自然が破かいされることを防ぐため、お金を出しあって自然を買いとる運動を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "トレーサビリティ"
+        },
+        {
+          "id": "c2",
+          "text": "ナショナルトラスト運動"
+        },
+        {
+          "id": "c3",
+          "text": "エコ・エコノミー"
+        },
+        {
+          "id": "c4",
+          "text": "環境アセスメント"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "自然が破かいされることを防ぐため、お金を出しあって自然を買いとる運動を、ナショナルトラスト運動という。日本では、埼玉県の狭山さやまで、この運動が行われている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.e688d0da836d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国連が定めた「持続可能な開発目標」として、環境問題や貧困、平和など17の目標を定めた世界共通の取り組みを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "SDGs（エス・ディー・ジーズ）"
+        },
+        {
+          "id": "c2",
+          "text": "UNESCO"
+        },
+        {
+          "id": "c3",
+          "text": "PKO"
+        },
+        {
+          "id": "c4",
+          "text": "EEZ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "SDGs（Sustainable Development Goals）は、将来の世代に豊かな地球を残すために、2030年までに達成を目指す17の国際目標です。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.f668b8127cb8",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で起きる自然災害について、下の表のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "津波",
+        "火山のふん火",
+        "台風",
+        "冷害"
+      ],
+      "template": "災害の種類 起こされるひ害 大地のうごきによるもの 地震 建物がたおれる{{INPUT}} や火災が発生 {{INPUT}} 岩石、火山ばい、ガスなどのふん出 火さい流 気候によるもの 雨、風{{INPUT}} やつゆ こう水、土石流、土しゃくずれ、高潮 雪 交通機関がとまる、屋根がくずれる {{INPUT}} 夏の気温が上がらず、農作物の生長がおくれること"
+    },
+    "explanation": "災害の種類 起こされるひ害 大地のうごきによるもの 地震 建物がたおれる津波や火災が発生 火山のふん火 岩石、火山ばい、ガスなどのふん出 火さい流 気候によるもの 雨、風台風やつゆ こう水、土石流、土しゃくずれ、高潮 雪 交通機関がとまる、屋根がくずれる 冷害 夏の気温が上がらず、農作物の生長がおくれること"
+  }
+]

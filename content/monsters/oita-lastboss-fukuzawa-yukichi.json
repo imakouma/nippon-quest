@@ -1,0 +1,56 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "oita-lastboss-fukuzawa-yukichi",
+  "name": "福沢諭吉[ふくざわゆきち]",
+  "area": "oita",
+  "motifId": "yabakei",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 536,
+    "mp": 71,
+    "atk": 28,
+    "def": 22,
+    "spd": 14,
+    "wis": 22
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.6,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-abc-shout"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 480,
+  "gold": 554,
+  "spriteKey": "mon.oita-lastboss-fukuzawa-yukichi",
+  "dexBlurb": "中津藩[なかつはん]の 武士[ぶし]の 家[いえ]に 生[う]まれ、中津[なかつ]で 育[そだ]った 学者[がくしゃ]（1835〜1901年[ねん]）。『学問[がくもん]のすすめ』を 書[か]き、学[まな]ぶ ことの 大切[たいせつ]さを 広[ひろ]めた。",
+  "fieldLine": "福沢諭吉[ふくざわゆきち]じゃ。中津[なかつ]の 家[いえ]で、そなたの 学[まな]ぶ 力[ちから]を ためして やろう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "天[てん]は 人[ひと]の 上[うえ]に 人[ひと]を つくらず！ 学[まな]ぶ 者[もの]の 光[ひかり]、うけて みよ！"
+    }
+  ]
+}

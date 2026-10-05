@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-lastboss-clark",
+  "name": "クラーク博士[はかせ]",
+  "area": "hokkaido",
+  "motifId": "yuki-matsuri",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 368,
+    "mp": 50,
+    "atk": 19,
+    "def": 16,
+    "spd": 10,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 13.2,
+    "mp": 2.2,
+    "atk": 1.9,
+    "def": 1.7,
+    "spd": 1.0,
+    "wis": 1.4
+  },
+  "skills": [
+    "sk-happa-arashi",
+    "sk-happa-cutter"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 331,
+  "gold": 382,
+  "spriteKey": "mon.hokkaido-lastboss-clark",
+  "dexBlurb": "アメリカから 来[き]た 先生[せんせい]（1826〜1886年[ねん]）。札幌農学校[さっぽろのうがっこう]で 教[おし]え、帰[かえ]る ときに「少年[しょうねん]よ、大志[たいし]を いだけ」と いう ことばを のこした。",
+  "fieldLine": "わたしは クラーク。この 札幌[さっぽろ]で、きみの 大志[たいし]を ためさせて もらおう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-hikari-no-hane",
+        "sk-hikari-no-ya",
+        "sk-happa-arashi"
+      ],
+      "line": "少年[しょうねん]よ、大志[たいし]を いだけ！ ここからが 本当[ほんとう]の 学[まな]びだ！"
+    }
+  ]
+}

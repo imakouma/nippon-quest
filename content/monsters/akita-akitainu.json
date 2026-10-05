@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "akita-akitainu",
+  "name": "アキタイヌ",
+  "area": "akita",
+  "motifId": "akita-inu",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 38,
+    "mp": 10,
+    "atk": 10,
+    "def": 6,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 0.9,
+    "spd": 1.3,
+    "wis": 1
+  },
+  "skills": ["sk-kana-barrier"],
+  "drops": [
+    {
+      "itemId": "akita-chuken-no-kubikazari",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.06,
+  "xp": 22,
+  "gold": 15,
+  "spriteKey": "mon.akita-akitainu",
+  "evolution": {
+    "to": "akita-chuken-maru",
+    "item": "akita-chuken-no-kubikazari"
+  },
+  "dexBlurb": "秋田犬[あきたいぬ]の すがたの、とても ちゅうじつな モンスター。秋田犬[あきたいぬ]は 国[くに]の 天然記念物[てんねんきねんぶつ]に なっている。"
+}

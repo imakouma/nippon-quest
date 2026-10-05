@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-dodeka-melon",
+  "name": "ドデカメロン",
+  "area": "hokkaido",
+  "motifId": "yubari-melon",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 53,
+    "mp": 13,
+    "atk": 14,
+    "def": 11,
+    "spd": 8,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.6,
+    "mp": 1.2,
+    "atk": 1.6,
+    "def": 1.3,
+    "spd": 1,
+    "wis": 1
+  },
+  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 29,
+  "gold": 19,
+  "spriteKey": "mon.hokkaido-dodeka-melon",
+  "dexBlurb": "アミメロンが しんかした すがた。夕張[ゆうばり]メロンは 中[なか]が オレンジ色[いろ]で、とても あまい。"
+}

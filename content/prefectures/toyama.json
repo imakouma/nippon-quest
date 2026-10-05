@@ -1,0 +1,270 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "toyama",
+  "name": "富山県[とやまけん]",
+  "island": "hokuriku",
+  "capital": "富山市[とやまし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "toyama-field",
+    "town": "toyama-town",
+    "dungeon": "toyama-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "tateyama",
+      "name": "立山[たてやま]",
+      "kind": "nature",
+      "imageKey": "motif.toyama.tateyama",
+      "blurb": "3000メートル級[きゅう]の 高[たか]い 山々[やまやま]。春[はる]には 雪[ゆき]の かべの 間[あいだ]を 通[とお]る 道[みち]が できる。"
+    },
+    {
+      "id": "kurobe-kyokoku",
+      "name": "黒部峡谷[くろべきょうこく]",
+      "kind": "nature",
+      "imageKey": "motif.toyama.kurobe-kyokoku",
+      "blurb": "深[ふか]い 谷[たに]に そって、小[ちい]さな トロッコ電車[でんしゃ]が 走[はし]る。"
+    },
+    {
+      "id": "gokayama",
+      "name": "五箇山[ごかやま]",
+      "kind": "history",
+      "imageKey": "motif.toyama.gokayama",
+      "blurb": "三角[さんかく]の 大[おお]きな かやぶき屋根[やね]の 家[いえ]「合掌造[がっしょうづく]り」が のこる 村[むら]。世界遺産[せかいいさん]。"
+    },
+    {
+      "id": "shomyodaki",
+      "name": "称名滝[しょうみょうだき]",
+      "kind": "nature",
+      "imageKey": "motif.toyama.shomyodaki",
+      "blurb": "高[たか]さが 350メートル ほどもある、日本[にほん]で いちばん 高[たか]い 滝[たき]。"
+    },
+    {
+      "id": "tonami-tulip",
+      "name": "砺波[となみ]の チューリップ",
+      "kind": "nature",
+      "imageKey": "motif.toyama.tonami-tulip",
+      "blurb": "砺波市[となみし]では、春[はる]に たくさんの チューリップが さく。球根[きゅうこん]作[づく]りも さかん。"
+    },
+    {
+      "id": "takaoka-doki",
+      "name": "高岡[たかおか]の 銅器[どうき]",
+      "kind": "craft",
+      "imageKey": "motif.toyama.takaoka-doki",
+      "blurb": "高岡市[たかおかし]は、銅[どう]で 作[つく]る 花[はな]びんや かねなど、銅器[どうき]作[づく]りが さかん。"
+    },
+    {
+      "id": "hotaruika",
+      "name": "ホタルイカ",
+      "kind": "food",
+      "imageKey": "motif.toyama.hotaruika",
+      "blurb": "春[はる]の 夜[よる]、富山湾[とやまわん]で 青[あお]く 光[ひか]る 小[ちい]さな いか。"
+    },
+    {
+      "id": "himi-buri",
+      "name": "氷見[ひみ]の ぶり",
+      "kind": "food",
+      "imageKey": "motif.toyama.himi-buri",
+      "blurb": "冬[ふゆ]に 氷見[ひみ]の 港[みなと]に あがる、あぶらの のった ぶり。"
+    },
+    {
+      "id": "masuzushi",
+      "name": "ます寿司[ずし]",
+      "kind": "food",
+      "imageKey": "motif.toyama.masuzushi",
+      "blurb": "ますの 身[み]を ごはんの 上[うえ]に のせ、笹[ささ]の 葉[は]で つつんだ 富山[とやま]の おすし。"
+    },
+    {
+      "id": "inami-chokoku",
+      "name": "井波彫刻[いなみちょうこく]",
+      "kind": "craft",
+      "imageKey": "motif.toyama.inami-chokoku",
+      "blurb": "南砺市[なんとし]の 井波[いなみ]で 作[つく]られる、木[き]の ほりもの。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "toyama-tulipon",
+          "weight": 40
+        },
+        {
+          "monsterId": "toyama-okojon",
+          "weight": 30
+        },
+        {
+          "monsterId": "toyama-pikka-ika",
+          "weight": 17
+        },
+        {
+          "monsterId": "toyama-masuzushin",
+          "weight": 13
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "toyama-tulipon",
+          "weight": 70
+        },
+        {
+          "monsterId": "toyama-okojon",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "toyama-okojon",
+          "weight": 65
+        },
+        {
+          "monsterId": "toyama-tulipon",
+          "weight": 35
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "toyama-okojon",
+          "weight": 80
+        },
+        {
+          "monsterId": "toyama-tulipon",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "toyama-pikka-ika",
+          "weight": 45
+        },
+        {
+          "monsterId": "toyama-okojon",
+          "weight": 20
+        },
+        {
+          "monsterId": "toyama-tulipon",
+          "weight": 15
+        },
+        {
+          "monsterId": "toyama-masuzushin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "toyama-boss-tateyama-ou",
+  "midBoss": "toyama-midboss-gabujishi",
+  "secret": {
+    "name": "富山城[とやまじょう]",
+    "boss": "toyama-lastboss-sassa-narimasa"
+  },
+  "events": [
+    {
+      "id": "ev-toyama-gokayama",
+      "motifId": "gokayama",
+      "trigger": {
+        "map": "toyama-field",
+        "objectName": "event_toyama_gokayama"
+      },
+      "once": true,
+      "cutinImageKey": "motif.toyama.gokayama",
+      "dialogue": [
+        {
+          "speaker": "五箇山[ごかやま]の おじいさん",
+          "text": "ここは 五箇山[ごかやま]。合掌造[がっしょうづく]りの 家[いえ]が のこる 村[むら]だよ。むかしの くらしを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:toyama"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "五箇山[ごかやま]の おじいさん",
+          "text": "よく できたね！ 屋根[やね]が 急[きゅう]なのは、つもった 雪[ゆき]が すべりおちやすいように するためだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "富山市[とやまし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-toyama-shop",
+        "name": "ます寿司[ずし]屋[や]の おばあちゃん",
+        "spriteKey": "char.npc-toyama-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 富山[とやま]の ます寿司[ずし]は、ますの おすしを 笹[ささ]の 葉[は]で つつんで あるんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-toyama-smith",
+        "name": "高岡[たかおか]銅器[どうき]の 職人[しょくにん]",
+        "spriteKey": "char.npc-toyama-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "高岡[たかおか]では、とかした 銅[どう]を 型[かた]に ながしこんで、花[はな]びんや 像[ぞう]を 作[つく]るんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

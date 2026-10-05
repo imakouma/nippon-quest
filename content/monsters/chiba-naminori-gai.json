@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "chiba-naminori-gai",
+  "name": "ナミノリガイ",
+  "area": "chiba",
+  "motifId": "kujukurihama",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 52,
+    "mp": 15,
+    "atk": 13,
+    "def": 12,
+    "spd": 8,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 5.4,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.4,
+    "spd": 1,
+    "wis": 1
+  },
+  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 26,
+  "gold": 17,
+  "spriteKey": "mon.chiba-naminori-gai",
+  "dexBlurb": "クジュクリンが しんかした すがた。大[おお]きな 波[なみ]に のって やってくる。九十九里浜[くじゅうくりはま]の 南[みなみ]の 一宮町[いちのみやまち]の 海[うみ]は、サーフィンで 有名[ゆうめい]。"
+}

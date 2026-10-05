@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "chiba-boss-shoyu-ryu",
+  "name": "ショウユリュウ",
+  "area": "chiba",
+  "motifId": "noda-shoyu",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 280,
+    "mp": 40,
+    "atk": 16,
+    "def": 12,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 10,
+    "mp": 2,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-uzushio", "sk-mizu-teppo"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "chiba-rakkasei-no-saya",
+      "rate": 1
+    },
+    {
+      "itemId": "chiba-nashi-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "chiba-hamaguri-no-kaigara",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 185,
+  "gold": 218,
+  "spriteKey": "mon.chiba-boss-shoyu-ryu",
+  "dexBlurb": "しょうゆの 大[おお]だるから あらわれた 竜[りゅう]。野田[のだ]や 銚子[ちょうし]では 江戸時代[えどじだい]から しょうゆを 作[つく]り、川[かわ]の 船[ふね]で 江戸[えど]へ はこんだ。",
+  "fieldLine": "しょうゆの かおりに さそわれて きたか。この 大[おお]だるは、わたさんぞ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "actionsPerTurn": 2,
+      "line": "ぐつぐつ…… しょうゆの うずに のみこまれよ！"
+    }
+  ]
+}

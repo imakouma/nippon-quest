@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukui-meganen",
+  "name": "メガネン",
+  "area": "fukui",
+  "motifId": "sabae-megane",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 35,
+    "mp": 12,
+    "atk": 9,
+    "def": 7,
+    "spd": 9,
+    "wis": 9
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 0.9,
+    "spd": 1.0,
+    "wis": 1.0
+  },
+  "skills": ["sk-kazoe-giri", "sk-kana-barrier"],
+  "drops": [
+    {
+      "itemId": "fukui-titan-megane",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 14,
+  "spriteKey": "mon.fukui-meganen",
+  "evolution": {
+    "to": "fukui-megane-hakase",
+    "item": "fukui-titan-megane"
+  },
+  "dexBlurb": "めがねの わくが モンスターに なった もの。鯖江市[さばえし]は、日本[にほん]の めがねの わくの 多[おお]くを 作[つく]って いる 町[まち]。"
+}

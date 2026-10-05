@@ -1,0 +1,163 @@
+{
+  "$ref": "#/definitions/question.picture-word",
+  "definitions": {
+    "question.picture-word": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*$",
+            "description": "一意なID。例 \"sansu.g1.tashizan.0001\""
+          },
+          "type": {
+            "type": "string",
+            "const": "picture-word"
+          },
+          "subject": {
+            "type": "string",
+            "enum": [
+              "kokugo",
+              "sansu",
+              "rika",
+              "shakai",
+              "seikatsu",
+              "eigo"
+            ]
+          },
+          "grade": {
+            "type": "number",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "pattern": "^(kokugo|sansu|rika|shakai|seikatsu|eigo)\\.g[1-6]\\.[a-z0-9-]+$",
+            "description": "単元コード"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timeLimitSec": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "type": "string",
+                "const": "image-to-word",
+                "default": "image-to-word",
+                "description": "いまは 絵 → 単語 だけ"
+              },
+              "prompt": {
+                "type": "string",
+                "description": "問題文（RubyText）。省略すると「この えに あう えいごは どれ？」"
+              },
+              "picture": {
+                "type": "string",
+                "enum": [
+                  "apple",
+                  "banana",
+                  "grapes",
+                  "orange",
+                  "peach",
+                  "strawberry",
+                  "lemon",
+                  "cherry",
+                  "melon",
+                  "dog",
+                  "cat",
+                  "rabbit",
+                  "bird",
+                  "pig",
+                  "bear",
+                  "elephant",
+                  "frog",
+                  "fish",
+                  "crab",
+                  "octopus",
+                  "whale",
+                  "turtle",
+                  "starfish"
+                ],
+                "description": "レンダラーが 描く 仮の絵（renderers/shared/pictures.ts）"
+              },
+              "image": {
+                "type": "string",
+                "description": "本番の絵。assets/ からの相対パス。例 questions/eigo/apple.png（読めなければ picture を出す）"
+              },
+              "words": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "text": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "英単語（日本語訳は 書かない）"
+                    },
+                    "audio": {
+                      "type": "string",
+                      "description": "単語の音声。assets/ からの相対パス。例 audio/words/apple.mp3"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "text"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 2,
+                "maxItems": 4
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 1,
+                "description": "正解の words[].id"
+              },
+              "shuffle": {
+                "type": "boolean",
+                "default": true
+              }
+            },
+            "required": [
+              "words",
+              "answer"
+            ],
+            "additionalProperties": false
+          },
+          "explanation": {
+            "type": "string",
+            "description": "解説（RubyText）"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "subject",
+          "grade",
+          "unit",
+          "payload"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

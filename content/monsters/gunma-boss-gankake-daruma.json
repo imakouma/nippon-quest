@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "gunma-boss-gankake-daruma",
+  "name": "ガンカケダルマ",
+  "area": "gunma",
+  "motifId": "takasaki-daruma",
+  "element": "hino",
+  "weakness": "mizu",
+  "baseStats": {
+    "hp": 302,
+    "mp": 40,
+    "atk": 17,
+    "def": 13,
+    "spd": 6,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 10,
+    "mp": 2,
+    "atk": 1.5,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 1
+  },
+  "skills": ["sk-hono-no-uzu", "sk-hono-no-mai"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "gunma-kinu-no-ito",
+      "rate": 1
+    },
+    {
+      "itemId": "gunma-konnyaku-imo",
+      "rate": 1
+    },
+    {
+      "itemId": "gunma-kyabetsu-no-tane",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 196,
+  "gold": 230,
+  "spriteKey": "mon.gunma-boss-gankake-daruma",
+  "dexBlurb": "高崎[たかさき]だるまの 大将[たいしょう]。まゆげは 鶴[つる]、ひげは 亀[かめ]の 形[かたち]。ねがいごとを して 片目[かため]を かき、かなったら もう 片方[かたほう]の 目[め]を かき入[い]れる。",
+  "fieldLine": "ころんでも ころんでも おきあがる！ だるまの ねばりを 見[み]せて やろう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "actionsPerTurn": 2,
+      "line": "目[め]が 入[はい]った！ ねがいが かなうまで、なんどでも おきあがるぞ！"
+    }
+  ]
+}

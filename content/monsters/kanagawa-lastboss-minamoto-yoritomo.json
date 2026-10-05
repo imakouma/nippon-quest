@@ -1,0 +1,50 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kanagawa-lastboss-minamoto-yoritomo",
+  "name": "源頼朝[みなもとのよりとも]",
+  "area": "kanagawa",
+  "motifId": "enoshima",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 336,
+    "mp": 45,
+    "atk": 19,
+    "def": 16,
+    "spd": 11,
+    "wis": 13
+  },
+  "growth": {
+    "hp": 12,
+    "mp": 2,
+    "atk": 1.7,
+    "def": 1.5,
+    "spd": 0.9,
+    "wis": 1.3
+  },
+  "skills": ["sk-hikari-no-ya", "sk-kanji-barrier"],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "common-dou-no-ken",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 308,
+  "gold": 353,
+  "spriteKey": "mon.kanagawa-lastboss-minamoto-yoritomo",
+  "dexBlurb": "平安時代[へいあんじだい]の おわりの 武将[ぶしょう]（1147〜1199年[ねん]）。鎌倉[かまくら]に 武士[ぶし]の 政治[せいじ]の しくみ「鎌倉幕府[かまくらばくふ]」を ひらいた。",
+  "fieldLine": "われこそは 源頼朝[みなもとのよりとも]。この 鎌倉[かまくら]で、そなたの 力[ちから]を 見[み]せてもらおう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "skills": ["sk-hikari-no-hane", "sk-konjiki-no-kiba"],
+      "line": "鎌倉[かまくら]の 武士[ぶし]たちよ、いざ 出陣[しゅつじん]じゃ！"
+    }
+  ]
+}

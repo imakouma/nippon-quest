@@ -1,0 +1,195 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/picture-word.schema.json",
+    "id": "eigo.g3.sea.0004",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "picture": "fish",
+      "words": [
+        {
+          "id": "fish",
+          "text": "fish"
+        },
+        {
+          "id": "crab",
+          "text": "crab"
+        },
+        {
+          "id": "octopus",
+          "text": "octopus"
+        },
+        {
+          "id": "turtle",
+          "text": "turtle"
+        }
+      ],
+      "answer": "fish",
+      "shuffle": true
+    },
+    "explanation": "fish（フィッシュ）"
+  },
+  {
+    "id": "eigo.g3.sea.0005",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "picture": "crab",
+      "words": [
+        {
+          "id": "crab",
+          "text": "crab"
+        },
+        {
+          "id": "octopus",
+          "text": "octopus"
+        },
+        {
+          "id": "whale",
+          "text": "whale"
+        },
+        {
+          "id": "starfish",
+          "text": "starfish"
+        }
+      ],
+      "answer": "crab",
+      "shuffle": true
+    },
+    "explanation": "crab（クラブ）"
+  },
+  {
+    "id": "eigo.g3.sea.0006",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "picture": "octopus",
+      "words": [
+        {
+          "id": "octopus",
+          "text": "octopus"
+        },
+        {
+          "id": "whale",
+          "text": "whale"
+        },
+        {
+          "id": "turtle",
+          "text": "turtle"
+        },
+        {
+          "id": "fish",
+          "text": "fish"
+        }
+      ],
+      "answer": "octopus",
+      "shuffle": true
+    },
+    "explanation": "octopus（オクトパス）"
+  },
+  {
+    "id": "eigo.g3.sea.0007",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "picture": "whale",
+      "words": [
+        {
+          "id": "whale",
+          "text": "whale"
+        },
+        {
+          "id": "turtle",
+          "text": "turtle"
+        },
+        {
+          "id": "starfish",
+          "text": "starfish"
+        },
+        {
+          "id": "crab",
+          "text": "crab"
+        }
+      ],
+      "answer": "whale",
+      "shuffle": true
+    },
+    "explanation": "whale（ホエール）"
+  },
+  {
+    "id": "eigo.g3.sea.0008",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "picture": "turtle",
+      "words": [
+        {
+          "id": "turtle",
+          "text": "turtle"
+        },
+        {
+          "id": "starfish",
+          "text": "starfish"
+        },
+        {
+          "id": "fish",
+          "text": "fish"
+        },
+        {
+          "id": "octopus",
+          "text": "octopus"
+        }
+      ],
+      "answer": "turtle",
+      "shuffle": true
+    },
+    "explanation": "turtle（タートル）"
+  },
+  {
+    "id": "eigo.g3.sea.0009",
+    "type": "picture-word",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "tags": ["theme:sea"],
+    "payload": {
+      "picture": "starfish",
+      "words": [
+        {
+          "id": "starfish",
+          "text": "starfish"
+        },
+        {
+          "id": "fish",
+          "text": "fish"
+        },
+        {
+          "id": "crab",
+          "text": "crab"
+        },
+        {
+          "id": "whale",
+          "text": "whale"
+        }
+      ],
+      "answer": "starfish",
+      "shuffle": true
+    },
+    "explanation": "starfish（スターフィッシュ）"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kanagawa-midboss-kurotamagon",
+  "name": "クロタマゴン",
+  "area": "kanagawa",
+  "motifId": "owakudani",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 112,
+    "mp": 18,
+    "atk": 11,
+    "def": 9,
+    "spd": 6,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 8,
+    "mp": 2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.6,
+    "wis": 0.6
+  },
+  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri"],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 65,
+  "gold": 76,
+  "spriteKey": "mon.kanagawa-midboss-kurotamagon",
+  "dexBlurb": "大涌谷[おおわくだに]の 黒[くろ]たまごの 大[おお]きな モンスター。温泉[おんせん]の 池[いけ]で ゆでた たまごは、からが 黒[くろ]く なる。",
+  "fieldLine": "シュー……。この 谷[たに]を とおりたければ、わしを わってみろ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hino",
+      "skills": ["sk-hono-no-mai"],
+      "line": "ボコボコ……！ 地面[じめん]の 熱[ねつ]が あふれだす！"
+    }
+  ]
+}

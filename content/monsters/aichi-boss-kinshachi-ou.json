@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-boss-kinshachi-ou",
+  "name": "キンシャチオウ",
+  "area": "aichi",
+  "motifId": "nagoya-jo",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 406,
+    "mp": 54,
+    "atk": 23,
+    "def": 16,
+    "spd": 9,
+    "wis": 15
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "aichi-kioke-no-ita",
+      "rate": 1
+    },
+    {
+      "itemId": "aichi-kiku-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "aichi-cochin-no-hane",
+      "rate": 1
+    },
+    {
+      "itemId": "aichi-kukuri-no-ito",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 265,
+  "gold": 312,
+  "spriteKey": "mon.aichi-boss-kinshachi-ou",
+  "dexBlurb": "名古屋城[なごやじょう]の 屋根[やね]に のる、金[きん]の しゃちほこの 王[おう]。しゃちほこは、火事[かじ]の とき 水[みず]を ふいて 城[しろ]を まもると いわれた。",
+  "fieldLine": "シャーッ！ 城[しろ]の 屋根[やね]から 見[み]て おったぞ。わしと しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya",
+        "sk-uzushio"
+      ],
+      "line": "金[きん]の うろこが もえるように かがやく！ 名古屋城[なごやじょう]は わしが まもりぬく！"
+    }
+  ]
+}

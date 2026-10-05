@@ -1,0 +1,285 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "miyazaki",
+  "name": "宮崎県[みやざきけん]",
+  "island": "kyushu-okinawa",
+  "capital": "宮崎市[みやざきし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "miyazaki-field",
+    "town": "miyazaki-town",
+    "dungeon": "miyazaki-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "takachiho",
+      "name": "高千穂峡[たかちほきょう]",
+      "kind": "nature",
+      "imageKey": "motif.miyazaki.takachiho",
+      "blurb": "川[かわ]が けずった 深[ふか]い 谷[たに]。真名井[まない]の 滝[たき]が 流[なが]れ落[お]ちる。"
+    },
+    {
+      "id": "aoshima",
+      "name": "青島[あおしま]の 鬼[おに]の 洗濯板[せんたくいた]",
+      "kind": "nature",
+      "imageKey": "motif.miyazaki.aoshima",
+      "blurb": "青島[あおしま]の まわりの 海[うみ]に ある、せんたく板[いた]のような でこぼこの 岩[いわ]。"
+    },
+    {
+      "id": "udo-jingu",
+      "name": "鵜戸神宮[うどじんぐう]",
+      "kind": "landmark",
+      "imageKey": "motif.miyazaki.udo-jingu",
+      "blurb": "海[うみ]ぞいの どうくつの 中[なか]に 建[た]つ 神社[じんじゃ]。"
+    },
+    {
+      "id": "toimisaki",
+      "name": "都井岬[といみさき]の 馬[うま]",
+      "kind": "nature",
+      "imageKey": "motif.miyazaki.toimisaki",
+      "blurb": "都井岬[といみさき]には、むかしから 野生[やせい]の 馬[うま]「御崎馬[みさきうま]」が くらしている。"
+    },
+    {
+      "id": "ebino-kogen",
+      "name": "えびの高原[こうげん]",
+      "kind": "nature",
+      "imageKey": "motif.miyazaki.ebino-kogen",
+      "blurb": "霧島山[きりしまやま]の 中[なか]の 高原[こうげん]。秋[あき]には ススキが えびのような 色[いろ]に なる。"
+    },
+    {
+      "id": "obi",
+      "name": "飫肥[おび]の 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.miyazaki.obi",
+      "blurb": "日南市[にちなんし]の 飫肥[おび]には、石垣[いしがき]と 古[ふる]い 屋敷[やしき]の 町[まち]なみが のこる。"
+    },
+    {
+      "id": "miyazaki-mango",
+      "name": "宮崎[みやざき]の マンゴー",
+      "kind": "food",
+      "imageKey": "motif.miyazaki.miyazaki-mango",
+      "blurb": "あたたかい 宮崎[みやざき]で、温室[おんしつ]の 中[なか]で 育[そだ]てる あまい マンゴー。"
+    },
+    {
+      "id": "chicken-nanban",
+      "name": "チキン南蛮[なんばん]",
+      "kind": "food",
+      "imageKey": "motif.miyazaki.chicken-nanban",
+      "blurb": "あげた とり肉[にく]に、あまずっぱい たれと タルタルソースを かけた 宮崎[みやざき]の 料理[りょうり]。"
+    },
+    {
+      "id": "hyuganatsu",
+      "name": "日向夏[ひゅうがなつ]",
+      "kind": "food",
+      "imageKey": "motif.miyazaki.hyuganatsu",
+      "blurb": "宮崎[みやざき]で 生[う]まれた かんきつ。白[しろ]い わたごと 食[た]べる。"
+    },
+    {
+      "id": "miyakonojo-daikyu",
+      "name": "都城[みやこのじょう]の 大弓[だいきゅう]",
+      "kind": "craft",
+      "imageKey": "motif.miyazaki.miyakonojo-daikyu",
+      "blurb": "都城市[みやこのじょうし]で 作[つく]られる 竹[たけ]の 弓[ゆみ]。弓道[きゅうどう]で 使[つか]う 弓[ゆみ]の 多[おお]くが ここで 作[つく]られる。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "miyazaki-tarutaru-kokko",
+          "weight": 35
+        },
+        {
+          "monsterId": "miyazaki-misaki-pony",
+          "weight": 30
+        },
+        {
+          "monsterId": "miyazaki-mangocchi",
+          "weight": 20
+        },
+        {
+          "monsterId": "miyazaki-hyuganattsu",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "miyazaki-mangocchi",
+          "weight": 40
+        },
+        {
+          "monsterId": "miyazaki-hyuganattsu",
+          "weight": 35
+        },
+        {
+          "monsterId": "miyazaki-tarutaru-kokko",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "miyazaki-tarutaru-kokko",
+          "weight": 55
+        },
+        {
+          "monsterId": "miyazaki-misaki-pony",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "miyazaki-misaki-pony",
+          "weight": 70
+        },
+        {
+          "monsterId": "miyazaki-tarutaru-kokko",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "miyazaki-misaki-pony",
+          "weight": 35
+        },
+        {
+          "monsterId": "miyazaki-tarutaru-kokko",
+          "weight": 30
+        },
+        {
+          "monsterId": "miyazaki-mangocchi",
+          "weight": 20
+        },
+        {
+          "monsterId": "miyazaki-hyuganattsu",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "miyazaki-boss-takachiho-no-nushi",
+  "midBoss": "miyazaki-midboss-sentaku-oni",
+  "secret": {
+    "name": "飫肥城[おびじょう]",
+    "boss": "miyazaki-lastboss-komura-jutaro"
+  },
+  "events": [
+    {
+      "id": "ev-miyazaki-ebino-kogen",
+      "motifId": "ebino-kogen",
+      "trigger": {
+        "map": "miyazaki-field",
+        "objectName": "event_miyazaki_ebino-kogen"
+      },
+      "once": true,
+      "cutinImageKey": "motif.miyazaki.ebino-kogen",
+      "dialogue": [
+        {
+          "speaker": "えびの高原[こうげん]の ガイドさん",
+          "text": "ここは 霧島[きりしま]の 火山[かざん]の 中[なか]に ある 高原[こうげん]だよ。火山[かざん]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:miyazaki"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "えびの高原[こうげん]の ガイドさん",
+          "text": "よく しらべたね！ 火山[かざん]の まわりには、温泉[おんせん]や めずらしい 地形[ちけい]が あるんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "宮崎市[みやざきし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-miyazaki-shop",
+        "name": "チキン南蛮[なんばん]屋[や]の おじさん",
+        "spriteKey": "char.npc-miyazaki-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ チキン南蛮[なんばん]は、延岡[のべおか]で 生[う]まれた 料理[りょうり]なんだよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-miyazaki-smith",
+        "name": "都城[みやこのじょう]の 弓[ゆみ]職人[しょくにん]",
+        "spriteKey": "char.npc-miyazaki-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "都城[みやこのじょう]の 大弓[だいきゅう]は、竹[たけ]と 木[き]を はり合[あ]わせて 作[つく]るんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-miyazaki-inn",
+        "name": "宿[やど]の おかみさん",
+        "spriteKey": "char.npc-miyazaki-inn",
+        "role": "inn",
+        "dialogue": [
+          {
+            "text": "ようこそ。宮崎[みやざき]は 晴[は]れの 日[ひ]が 多[おお]くて、あたたかい ところだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

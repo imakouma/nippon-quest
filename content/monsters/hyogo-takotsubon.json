@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hyogo-takotsubon",
+  "name": "タコツボン",
+  "area": "hyogo",
+  "motifId": "akashi-tako",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 49,
+    "mp": 12,
+    "atk": 12,
+    "def": 10,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.1,
+    "spd": 0.8,
+    "wis": 0.8
+  },
+  "skills": ["sk-shizuku"],
+  "drops": [
+    {
+      "itemId": "hyogo-akashiyaki-no-dashi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 16,
+  "spriteKey": "mon.hyogo-takotsubon",
+  "evolution": {
+    "to": "hyogo-takotsubo-daisho",
+    "item": "hyogo-akashiyaki-no-dashi"
+  },
+  "dexBlurb": "たこつぼから 顔[かお]を 出[だ]す、明石[あかし]の たこの モンスター。明石[あかし]では、つぼを 海[うみ]の そこに しずめて たこを とる 漁[りょう]が むかしから さかん。"
+}

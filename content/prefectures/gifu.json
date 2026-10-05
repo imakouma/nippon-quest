@@ -1,0 +1,270 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "gifu",
+  "name": "岐阜県[ぎふけん]",
+  "island": "tokai",
+  "capital": "岐阜市[ぎふし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "gifu-field",
+    "town": "gifu-town",
+    "dungeon": "gifu-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "shirakawago",
+      "name": "白川郷[しらかわごう]",
+      "kind": "history",
+      "imageKey": "motif.gifu.shirakawago",
+      "blurb": "合掌造[がっしょうづく]りの 家[いえ]が たくさん のこる 村[むら]。世界遺産[せかいいさん]に なっている。"
+    },
+    {
+      "id": "takayama",
+      "name": "高山[たかやま]の 古[ふる]い 町[まち]なみ",
+      "kind": "history",
+      "imageKey": "motif.gifu.takayama",
+      "blurb": "高山市[たかやまし]には、江戸時代[えどじだい]の お店[みせ]や 家[いえ]の 町[まち]なみが のこる。"
+    },
+    {
+      "id": "nagaragawa-ukai",
+      "name": "長良川[ながらがわ]の 鵜飼[うかい]",
+      "kind": "history",
+      "imageKey": "motif.gifu.nagaragawa-ukai",
+      "blurb": "鵜[う]という 鳥[とり]を 使[つか]って あゆを とる、むかしからの 漁[りょう]。夏[なつ]の 夜[よる]、かがり火[び]を たいて おこなう。"
+    },
+    {
+      "id": "gero-onsen",
+      "name": "下呂温泉[げろおんせん]",
+      "kind": "landmark",
+      "imageKey": "motif.gifu.gero-onsen",
+      "blurb": "飛騨川[ひだがわ]ぞいに ある 温泉[おんせん]の 町[まち]。むかしから 名[な]の 知[し]られた 温泉[おんせん]の ひとつ。"
+    },
+    {
+      "id": "gujo-odori",
+      "name": "郡上[ぐじょう]おどり",
+      "kind": "festival",
+      "imageKey": "motif.gifu.gujo-odori",
+      "blurb": "郡上市[ぐじょうし]の 郡上八幡[ぐじょうはちまん]で、夏[なつ]に 町[まち]の みんなで おどる 盆[ぼん]おどり。"
+    },
+    {
+      "id": "magomejuku",
+      "name": "馬籠宿[まごめじゅく]",
+      "kind": "history",
+      "imageKey": "motif.gifu.magomejuku",
+      "blurb": "中山道[なかせんどう]の 宿場町[しゅくばまち]。坂道[さかみち]に そって 古[ふる]い 家[いえ]が ならぶ。"
+    },
+    {
+      "id": "mino-washi",
+      "name": "美濃和紙[みのわし]",
+      "kind": "craft",
+      "imageKey": "motif.gifu.mino-washi",
+      "blurb": "美濃市[みのし]で 作[つく]られる、うすくて じょうぶな 和紙[わし]。その わざは ユネスコの 無形文化遺産[むけいぶんかいさん]に なっている。"
+    },
+    {
+      "id": "hidagyu",
+      "name": "飛騨牛[ひだぎゅう]",
+      "kind": "food",
+      "imageKey": "motif.gifu.hidagyu",
+      "blurb": "飛騨[ひだ]の あたりで 育[そだ]てられた 牛[うし]の お肉[にく]。やわらかくて おいしいと 有名[ゆうめい]。"
+    },
+    {
+      "id": "fuyugaki",
+      "name": "富有柿[ふゆうがき]",
+      "kind": "food",
+      "imageKey": "motif.gifu.fuyugaki",
+      "blurb": "本巣市[もとすし]や 瑞穂市[みずほし]で 作[つく]られる、あまくて 大[おお]きな かき。"
+    },
+    {
+      "id": "minoyaki",
+      "name": "美濃焼[みのやき]",
+      "kind": "craft",
+      "imageKey": "motif.gifu.minoyaki",
+      "blurb": "多治見市[たじみし]など 東濃[とうのう]で 作[つく]られる やきもの。日本[にほん]の 食器[しょっき]の 多[おお]くが ここで 作[つく]られる。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "gifu-fuyugakid",
+          "weight": 20
+        },
+        {
+          "monsterId": "gifu-ukaidori",
+          "weight": 35
+        },
+        {
+          "monsterId": "gifu-oriben",
+          "weight": 25
+        },
+        {
+          "monsterId": "gifu-washigamin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "gifu-fuyugakid",
+          "weight": 70
+        },
+        {
+          "monsterId": "gifu-ukaidori",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "gifu-oriben",
+          "weight": 30
+        },
+        {
+          "monsterId": "gifu-fuyugakid",
+          "weight": 45
+        },
+        {
+          "monsterId": "gifu-washigamin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "gifu-oriben",
+          "weight": 70
+        },
+        {
+          "monsterId": "gifu-ukaidori",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "gifu-oriben",
+          "weight": 50
+        },
+        {
+          "monsterId": "gifu-ukaidori",
+          "weight": 30
+        },
+        {
+          "monsterId": "gifu-fuyugakid",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "gifu-boss-gassho-daiou",
+  "midBoss": "gifu-midboss-karankoron",
+  "secret": {
+    "name": "稲葉山城[いなばやまじょう]",
+    "boss": "gifu-lastboss-saito-dosan"
+  },
+  "events": [
+    {
+      "id": "ev-gifu-shirakawago",
+      "motifId": "shirakawago",
+      "trigger": {
+        "map": "gifu-field",
+        "objectName": "event_gifu_shirakawago"
+      },
+      "once": true,
+      "cutinImageKey": "motif.gifu.shirakawago",
+      "dialogue": [
+        {
+          "speaker": "白川郷[しらかわごう]の 村[むら]の 人[ひと]",
+          "text": "合掌造[がっしょうづく]りの 屋根[やね]は、雪[ゆき]が すべり おちるように 急[きゅう]に なって いるんだよ。クイズに ちょうせん！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:gifu"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "白川郷[しらかわごう]の 村[むら]の 人[ひと]",
+          "text": "よく できたね！ 白川郷[しらかわごう]は 世界遺産[せかいいさん]の 村[むら]なんだ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "岐阜市[ぎふし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-gifu-shop",
+        "name": "くだもの屋[や]の おばさん",
+        "spriteKey": "char.npc-gifu-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 岐阜県[ぎふけん]は 富有柿[ふゆうがき]の ふるさと。あまくて おいしいよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-gifu-smith",
+        "name": "関[せき]の 刀[かたな]かじ",
+        "spriteKey": "char.npc-gifu-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "関市[せきし]は 刃物[はもの]の 町[まち]。むかしから 刀[かたな]を 作[つく]って きたんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

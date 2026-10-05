@@ -1,0 +1,264 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "tokyo",
+  "name": "東京都[とうきょうと]",
+  "island": "kanto",
+  "capital": "東京[とうきょう]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "tokyo-field",
+    "town": "tokyo-town",
+    "dungeon": "tokyo-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "kaminarimon",
+      "name": "浅草[あさくさ]の 雷門[かみなりもん]",
+      "kind": "landmark",
+      "imageKey": "motif.tokyo.kaminarimon",
+      "blurb": "浅草寺[せんそうじ]の 入[い]り口[ぐち]の 門[もん]。大[おお]きな 赤[あか]い ちょうちんが 目[め]じるし。"
+    },
+    {
+      "id": "tokyo-tower",
+      "name": "東京[とうきょう]タワー",
+      "kind": "landmark",
+      "imageKey": "motif.tokyo.tokyo-tower",
+      "blurb": "赤[あか]と 白[しろ]の もようの 電波塔[でんぱとう]。高[たか]さは 333メートル。"
+    },
+    {
+      "id": "takaosan",
+      "name": "高尾山[たかおさん]",
+      "kind": "nature",
+      "imageKey": "motif.tokyo.takaosan",
+      "blurb": "八王子市[はちおうじし]に ある 山[やま]。ケーブルカーも あり、たくさんの 人[ひと]が のぼる。"
+    },
+    {
+      "id": "okutamako",
+      "name": "奥多摩湖[おくたまこ]",
+      "kind": "nature",
+      "imageKey": "motif.tokyo.okutamako",
+      "blurb": "多摩川[たまがわ]を ダムで せきとめて できた 湖[みずうみ]。東京[とうきょう]の 水[みず]がめの ひとつ。"
+    },
+    {
+      "id": "mitakesan",
+      "name": "御岳山[みたけさん]",
+      "kind": "nature",
+      "imageKey": "motif.tokyo.mitakesan",
+      "blurb": "青梅市[おうめし]に ある 山[やま]。森[もり]の 中[なか]に 小[ちい]さな 滝[たき]や 沢[さわ]が あって すずしい。"
+    },
+    {
+      "id": "nerima-daikon",
+      "name": "練馬[ねりま]だいこん",
+      "kind": "food",
+      "imageKey": "motif.tokyo.nerima-daikon",
+      "blurb": "練馬区[ねりまく]で むかしから 作[つく]られてきた、細長[ほそなが]い だいこん。"
+    },
+    {
+      "id": "tokyo-udo",
+      "name": "東京[とうきょう]うど",
+      "kind": "food",
+      "imageKey": "motif.tokyo.tokyo-udo",
+      "blurb": "立川市[たちかわし]などで 作[つく]られる うど。光[ひかり]を あてない あなぐらで、白[しろ]く 育[そだ]てる。"
+    },
+    {
+      "id": "jindaiji-soba",
+      "name": "深大寺[じんだいじ]そば",
+      "kind": "food",
+      "imageKey": "motif.tokyo.jindaiji-soba",
+      "blurb": "調布市[ちょうふし]の 深大寺[じんだいじ]の まわりには、そばやさんが たくさん ある。"
+    },
+    {
+      "id": "edo-kiriko",
+      "name": "江戸切子[えどきりこ]",
+      "kind": "craft",
+      "imageKey": "motif.tokyo.edo-kiriko",
+      "blurb": "ガラスの うつわに、細[こま]かい もようを けずって つけた 工芸品[こうげいひん]。"
+    },
+    {
+      "id": "miharayama",
+      "name": "三原山[みはらやま]",
+      "kind": "nature",
+      "imageKey": "motif.tokyo.miharayama",
+      "blurb": "伊豆大島[いずおおしま]の まん中[なか]に ある 火山[かざん]。まわりに 黒[くろ]い 砂[すな]の さばくが 広[ひろ]がる。"
+    },
+    {
+      "id": "oshima-tsubaki",
+      "name": "大島[おおしま]の つばき",
+      "kind": "nature",
+      "imageKey": "motif.tokyo.oshima-tsubaki",
+      "blurb": "伊豆大島[いずおおしま]には つばきの 木[き]が たくさん あり、冬[ふゆ]から 春[はる]に 赤[あか]い 花[はな]が さく。種[たね]から 油[あぶら]も とる。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "tokyo-nerikon",
+          "weight": 40
+        },
+        {
+          "monsterId": "tokyo-kirariko",
+          "weight": 30
+        },
+        {
+          "monsterId": "tokyo-musasabyun",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "tokyo-nerikon",
+          "weight": 70
+        },
+        {
+          "monsterId": "tokyo-kirariko",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "tokyo-musasabyun",
+          "weight": 60
+        },
+        {
+          "monsterId": "tokyo-nerikon",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "tokyo-musasabyun",
+          "weight": 70
+        },
+        {
+          "monsterId": "tokyo-kirariko",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "tokyo-kirariko",
+          "weight": 45
+        },
+        {
+          "monsterId": "tokyo-musasabyun",
+          "weight": 30
+        },
+        {
+          "monsterId": "tokyo-nerikon",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "tokyo-boss-mihara-no-nushi",
+  "midBoss": "tokyo-midboss-denpa-oh",
+  "secret": {
+    "name": "すみだ 北斎[ほくさい]の 画室[がしつ]",
+    "boss": "tokyo-lastboss-katsushika-hokusai"
+  },
+  "events": [
+    {
+      "id": "ev-tokyo-takaosan",
+      "motifId": "takaosan",
+      "trigger": {
+        "map": "tokyo-field",
+        "objectName": "event_tokyo_takaosan"
+      },
+      "once": true,
+      "cutinImageKey": "motif.tokyo.takaosan",
+      "dialogue": [
+        {
+          "speaker": "高尾山[たかおさん]の 森[もり]の ガイドさん",
+          "text": "高尾山[たかおさん]には、たくさんの 草木[くさき]や 虫[むし]が くらしているよ。自然[しぜん]の ふしぎを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "rika",
+        "gradeRange": [3, 6],
+        "tags": ["prefecture:tokyo"]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "高尾山[たかおさん]の 森[もり]の ガイドさん",
+          "text": "よく しらべたね！ 夜[よる]の 森[もり]では、ムササビが 木[き]から 木[き]へ とぶんだよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "東京[とうきょう]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-tokyo-shop",
+        "name": "そば屋[や]の おじさん",
+        "spriteKey": "char.npc-tokyo-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 調布市[ちょうふし]の 深大寺[じんだいじ]の あたりは わき水[みず]が きれいで、むかしから そばが 名物[めいぶつ]なんだ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-tokyo-smith",
+        "name": "江戸切子[えどきりこ]の 職人[しょくにん]",
+        "spriteKey": "char.npc-tokyo-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "江戸切子[えどきりこ]は、ガラスを 1つずつ 手[て]で けずって もようを つけるんだ。"
+          }
+        ]
+      }
+    ]
+  }
+}

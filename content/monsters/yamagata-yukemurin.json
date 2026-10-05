@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamagata-yukemurin",
+  "name": "ユケムリン",
+  "area": "yamagata",
+  "motifId": "ginzan-onsen",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 38,
+    "mp": 10,
+    "atk": 9,
+    "def": 7,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.6,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 0.9,
+    "spd": 0.9,
+    "wis": 1
+  },
+  "skills": [
+    "sk-shizuku"
+  ],
+  "drops": [
+    {
+      "itemId": "yamagata-ginzan-no-yu-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 21,
+  "gold": 15,
+  "spriteKey": "mon.yamagata-yukemurin",
+  "dexBlurb": "銀山温泉[ぎんざんおんせん]の 湯[ゆ]けむりから 生[う]まれた モンスター。ゆっくり つかると 元気[げんき]が でる。",
+  "evolution": {
+    "to": "yamagata-yunohana-ryu",
+    "item": "yamagata-ginzan-no-yu-no-hana"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "scope": "tohoku-release",
+  "policy": {
+    "unknownRights": "exclude",
+    "releaseRequiresAllDistributedMediaApproved": true
+  },
+  "groups": [
+    {
+      "id": "pixel-mplus-fonts",
+      "paths": ["src/ui/fonts/PixelMplus12-Bold.woff2", "src/ui/fonts/PixelMplus12-Regular.woff2"],
+      "status": "approved",
+      "origin": "M+ FONTS PROJECT",
+      "author": "M+ FONTS PROJECT",
+      "source": "http://mplus-fonts.sourceforge.jp/mplus-outline-fonts/",
+      "license": "M+ FONTS LICENSE_E",
+      "licenseEvidence": "src/ui/fonts/LICENSE-PixelMplus.txt",
+      "modificationAllowed": true,
+      "redistributionAllowed": true,
+      "creditRequired": false,
+      "sha256": {
+        "src/ui/fonts/PixelMplus12-Bold.woff2": "4723a0768f6778484c64e6fc8d46e227fea29ac5510cc77af21f1719c99dcd96",
+        "src/ui/fonts/PixelMplus12-Regular.woff2": "189fc63d9e4016b09ff609d18144ac2dd75e0b0b218dfc35d17db370bfe2a8cd"
+      }
+    },
+    {
+      "id": "procedurally-exported-tohoku-art",
+      "pathPrefixes": [
+        "assets/motifs/aomori/",
+        "assets/motifs/iwate/",
+        "assets/motifs/miyagi/",
+        "assets/motifs/akita/",
+        "assets/motifs/yamagata/",
+        "assets/motifs/fukushima/",
+        "assets/sprites/characters/npc-aomori-",
+        "assets/sprites/characters/npc-iwate-",
+        "assets/sprites/characters/npc-miyagi-",
+        "assets/sprites/characters/npc-akita-",
+        "assets/sprites/characters/npc-yamagata-",
+        "assets/sprites/characters/npc-fukushima-",
+        "assets/portraits/npc-aomori-",
+        "assets/portraits/npc-iwate-",
+        "assets/portraits/npc-miyagi-",
+        "assets/portraits/npc-akita-",
+        "assets/portraits/npc-yamagata-",
+        "assets/portraits/npc-fukushima-"
+      ],
+      "status": "hold",
+      "origin": "プロジェクト内TypeScriptから決定的に生成",
+      "author": "nihonquest contributors（個人・権利帰属の確認待ち）",
+      "source": "scripts/export-tohoku-assets.ts および content/quality/media-rights.json",
+      "license": "project-ownedとの自己申告。権利帰属証跡は未確認",
+      "licenseEvidence": "content/quality/media-rights.json",
+      "modificationAllowed": true,
+      "redistributionAllowed": null,
+      "creditRequired": false,
+      "releaseAction": "生成元コードの著作者・プロジェクトへの権利帰属を人間が確認し、再配布可を明記する"
+    },
+    {
+      "id": "legacy-question-images",
+      "pathPrefix": "assets/questions/legacy/",
+      "status": "hold",
+      "origin": "autonomy-gameからローカル化",
+      "author": "未確認",
+      "source": "scripts/localize-legacy-images.ts（個別の原典・権利記録なし）",
+      "license": "未確認",
+      "licenseEvidence": null,
+      "modificationAllowed": null,
+      "redistributionAllowed": null,
+      "creditRequired": null,
+      "releaseAction": "公開ビルドから除外するか、全ファイルの原典・権利を個別確認する"
+    },
+    {
+      "id": "sample-english-images",
+      "pathPrefix": "assets/questions/eigo/",
+      "status": "hold",
+      "origin": "初回コミット",
+      "author": "未確認",
+      "source": "Git履歴以外の制作・入手記録なし",
+      "license": "未確認",
+      "licenseEvidence": null,
+      "modificationAllowed": null,
+      "redistributionAllowed": null,
+      "creditRequired": null,
+      "releaseAction": "公開ビルドから除外するか、制作者による権利表明を記録する"
+    },
+    {
+      "id": "favicon",
+      "paths": ["public/favicon.svg"],
+      "status": "hold",
+      "origin": "初回コミット",
+      "author": "未確認",
+      "source": "Git履歴以外の制作・入手記録なし",
+      "license": "未確認",
+      "licenseEvidence": null,
+      "modificationAllowed": null,
+      "redistributionAllowed": null,
+      "creditRequired": null,
+      "releaseAction": "制作者による権利表明を記録するか、権利確認済み素材へ差し替える"
+    }
+  ]
+}

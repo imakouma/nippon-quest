@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "aichi-shiborin",
+  "name": "シボリン",
+  "area": "aichi",
+  "motifId": "arimatsu-shibori",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 45,
+    "mp": 9,
+    "atk": 11,
+    "def": 8,
+    "spd": 8,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.0,
+    "spd": 0.9,
+    "wis": 0.7
+  },
+  "skills": [
+    "sk-shizuku"
+  ],
+  "drops": [
+    {
+      "itemId": "aichi-kukuri-no-ito",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 20,
+  "gold": 13,
+  "spriteKey": "mon.aichi-shiborin",
+  "evolution": {
+    "to": "aichi-arimatsu-zome",
+    "item": "aichi-kukuri-no-ito"
+  },
+  "dexBlurb": "有松絞[ありまつしぼ]りの 布[ぬの]の モンスター。糸[いと]で くくった ところが 白[しろ]く のこり、まるい もようが できる。"
+}

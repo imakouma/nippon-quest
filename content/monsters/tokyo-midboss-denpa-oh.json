@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokyo-midboss-denpa-oh",
+  "name": "デンパオー",
+  "area": "tokyo",
+  "motifId": "tokyo-tower",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 112,
+    "mp": 18,
+    "atk": 11,
+    "def": 8,
+    "spd": 8,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 8,
+    "mp": 2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 0.6,
+    "wis": 0.6
+  },
+  "skills": ["sk-abc-shout", "sk-tashizan-giri"],
+  "drops": [
+  ],
+  "recruitRate": 0,
+  "xp": 65,
+  "gold": 76,
+  "spriteKey": "mon.tokyo-midboss-denpa-oh",
+  "dexBlurb": "東京[とうきょう]タワーの 鉄骨[てっこつ]で できた 大[おお]きな ロボット。東京[とうきょう]タワーは 1958年[ねん]に できた、高[たか]さ 333メートルの 電波塔[でんぱとう]。",
+  "fieldLine": "ビビビ……！ ここを とおりたければ、わしの 電波[でんぱ]を うけてみよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": ["sk-hikari-no-ya"],
+      "line": "ライトアップ！ 333メートルの 光[ひかり]を 見[み]よ！"
+    }
+  ]
+}

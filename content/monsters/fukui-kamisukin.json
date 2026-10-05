@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukui-kamisukin",
+  "name": "カミスキン",
+  "area": "fukui",
+  "motifId": "echizen-washi",
+  "element": "kaze",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 37,
+    "mp": 11,
+    "atk": 10,
+    "def": 6,
+    "spd": 10,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.8,
+    "spd": 1.2,
+    "wis": 0.9
+  },
+  "skills": [
+    "sk-abc-call"
+  ],
+  "drops": [
+    {
+      "itemId": "fukui-kamisuki-washi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 19,
+  "gold": 13,
+  "spriteKey": "mon.fukui-kamisukin",
+  "evolution": {
+    "to": "fukui-kami-fubuki",
+    "item": "fukui-kamisuki-washi"
+  },
+  "dexBlurb": "すいたばかりの 越前和紙[えちぜんわし]が 風[かぜ]に のって まう モンスター。紙[かみ]は こうぞなどの 木[き]の かわから 作[つく]る。"
+}

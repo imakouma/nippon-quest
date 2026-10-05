@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokyo-kirariko",
+  "name": "キラリコ",
+  "area": "tokyo",
+  "motifId": "edo-kiriko",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 38,
+    "mp": 11,
+    "atk": 9,
+    "def": 8,
+    "spd": 7,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 4.5,
+    "mp": 1.2,
+    "atk": 1.2,
+    "def": 1,
+    "spd": 1,
+    "wis": 1
+  },
+  "skills": ["sk-kana-barrier", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "tokyo-kiriko-kobachi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.06,
+  "xp": 18,
+  "gold": 13,
+  "spriteKey": "mon.tokyo-kirariko",
+  "evolution": {
+    "to": "tokyo-kagayakiriko",
+    "item": "tokyo-kiriko-kobachi"
+  },
+  "dexBlurb": "江戸切子[えどきりこ]の グラスの モンスター。光[ひかり]が あたると、ガラスを けずった もようが きらきら かがやく。"
+}

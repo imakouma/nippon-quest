@@ -1,0 +1,311 @@
+{
+  "$schema": "../../schemas/prefectures.schema.json",
+  "id": "shimane",
+  "name": "島根県[しまねけん]",
+  "island": "chugoku",
+  "capital": "松江市[まつえし]",
+  "status": "playable",
+  "mapKeys": {
+    "field": "shimane-field",
+    "town": "shimane-town",
+    "dungeon": "shimane-dungeon"
+  },
+  "motifs": [
+    {
+      "id": "izumo-taisha",
+      "name": "出雲大社[いずもたいしゃ]",
+      "kind": "landmark",
+      "imageKey": "motif.shimane.izumo-taisha",
+      "blurb": "縁結[えんむす]びの 神様[かみさま]で 有名[ゆうめい]な 神社[じんじゃ]。とても 大[おお]きな しめなわが ある。"
+    },
+    {
+      "id": "matsue-jo",
+      "name": "松江城[まつえじょう]",
+      "kind": "history",
+      "imageKey": "motif.shimane.matsue-jo",
+      "blurb": "むかしの 天守[てんしゅ]が のこる お城[しろ]。国宝[こくほう]に なっている。まわりの ほりを 舟[ふね]で めぐれる。"
+    },
+    {
+      "id": "iwami-ginzan",
+      "name": "石見銀山[いわみぎんざん]",
+      "kind": "history",
+      "imageKey": "motif.shimane.iwami-ginzan",
+      "blurb": "むかし 銀[ぎん]を ほった 鉱山[こうざん]の あと。世界遺産[せかいいさん]に なっている。"
+    },
+    {
+      "id": "iwami-kagura",
+      "name": "石見神楽[いわみかぐら]",
+      "kind": "festival",
+      "imageKey": "motif.shimane.iwami-kagura",
+      "blurb": "神話[しんわ]を もとにした、はでな 衣装[いしょう]の おどり。大[おお]きな 大蛇[おろち]が 出[で]てくる 演目[えんもく]が 有名[ゆうめい]。"
+    },
+    {
+      "id": "tsuwano",
+      "name": "津和野[つわの]",
+      "kind": "history",
+      "imageKey": "motif.shimane.tsuwano",
+      "blurb": "山[やま]あいの 古[ふる]い 城下町[じょうかまち]。道[みち]ぞいの 水路[すいろ]に こいが およぐ。"
+    },
+    {
+      "id": "sanbesan",
+      "name": "三瓶山[さんべさん]",
+      "kind": "nature",
+      "imageKey": "motif.shimane.sanbesan",
+      "blurb": "なだらかな 草原[そうげん]が 広[ひろ]がる 火山[かざん]。"
+    },
+    {
+      "id": "shinjiko-shijimi",
+      "name": "宍道湖[しんじこ]の しじみ",
+      "kind": "food",
+      "imageKey": "motif.shimane.shinjiko-shijimi",
+      "blurb": "宍道湖[しんじこ]で とれる しじみ。夕日[ゆうひ]が きれいな 湖[みずうみ]としても 有名[ゆうめい]。"
+    },
+    {
+      "id": "warigo-soba",
+      "name": "出雲[いずも]そば",
+      "kind": "food",
+      "imageKey": "motif.shimane.warigo-soba",
+      "blurb": "奥出雲[おくいずも]など 出雲[いずも]の そば。丸[まる]い うつわを かさねた「割子[わりご]そば」が 有名[ゆうめい]。"
+    },
+    {
+      "id": "sekishu-washi",
+      "name": "石州和紙[せきしゅうわし]",
+      "kind": "craft",
+      "imageKey": "motif.shimane.sekishu-washi",
+      "blurb": "浜田市[はまだし]の 三隅[みすみ]で 作[つく]られる、じょうぶな 和紙[わし]。その わざは ユネスコの 無形文化遺産[むけいぶんかいさん]に なっている。"
+    },
+    {
+      "id": "oki-iwagaki",
+      "name": "隠岐[おき]の 岩[いわ]がき",
+      "kind": "food",
+      "imageKey": "motif.shimane.oki-iwagaki",
+      "blurb": "隠岐[おき]の 海[うみ]で 育[そだ]つ 大[おお]きな かき。夏[なつ]に 食[た]べる。"
+    },
+    {
+      "id": "rosokujima",
+      "name": "ローソク島[じま]",
+      "kind": "nature",
+      "imageKey": "motif.shimane.rosokujima",
+      "blurb": "夕日[ゆうひ]が 岩[いわ]の 先[さき]に かさなると、ろうそくに 火[ひ]が ともったように 見[み]える 島[しま]。"
+    }
+  ],
+  "encounters": [
+    {
+      "zone": "field",
+      "table": [
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 33
+        },
+        {
+          "monsterId": "shimane-warigon",
+          "weight": 29
+        },
+        {
+          "monsterId": "shimane-shijimin",
+          "weight": 21
+        },
+        {
+          "monsterId": "shimane-rosokun",
+          "weight": 17
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        {
+          "monsterId": "shimane-warigon",
+          "weight": 60
+        },
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "forest",
+      "table": [
+        {
+          "monsterId": "shimane-warigon",
+          "weight": 55
+        },
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 55
+        },
+        {
+          "monsterId": "shimane-warigon",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "beach",
+      "table": [
+        {
+          "monsterId": "shimane-shijimin",
+          "weight": 46
+        },
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 31
+        },
+        {
+          "monsterId": "shimane-rosokun",
+          "weight": 23
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "shore",
+      "table": [
+        {
+          "monsterId": "shimane-shijimin",
+          "weight": 70
+        },
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "dungeon",
+      "table": [
+        {
+          "monsterId": "shimane-shijimin",
+          "weight": 40
+        },
+        {
+          "monsterId": "shimane-warigon",
+          "weight": 30
+        },
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 30
+        }
+      ],
+      "stepsPerCheck": 8,
+      "rate": 0.35
+    }
+  ],
+  "boss": "shimane-boss-kagura-orochi",
+  "midBoss": "shimane-midboss-shirogane-mogura",
+  "secret": {
+    "name": "小泉八雲[こいずみやくも]の やしき",
+    "boss": "shimane-lastboss-koizumi-yakumo"
+  },
+  "events": [
+    {
+      "id": "ev-shimane-matsue-jo",
+      "motifId": "matsue-jo",
+      "trigger": {
+        "map": "shimane-field",
+        "objectName": "event_shimane_matsue-jo"
+      },
+      "once": true,
+      "cutinImageKey": "motif.shimane.matsue-jo",
+      "dialogue": [
+        {
+          "speaker": "お城[しろ]の ガイドさん",
+          "text": "ここは 松江城[まつえじょう]。400年[ねん]いじょう 前[まえ]に 建[た]てられた 天守[てんしゅ]が、いまも のこって いるんだ。"
+        },
+        {
+          "speaker": "お城[しろ]の ガイドさん",
+          "text": "むかしの くらしや お城[しろ]の ことを しらべよう！"
+        }
+      ],
+      "question": {
+        "subject": "shakai",
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:shimane"
+        ]
+      },
+      "rewardByScore": [
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "お城[しろ]の ガイドさん",
+          "text": "よく しらべたね！ 松江城[まつえじょう]の 天守[てんしゅ]は、国宝[こくほう]に なって いるよ。"
+        }
+      ]
+    }
+  ],
+  "shop": [],
+  "missions": [],
+  "town": {
+    "name": "松江市[まつえし]の 町[まち]",
+    "npcs": [
+      {
+        "id": "npc-shimane-shop",
+        "name": "しじみ屋[や]の おかみさん",
+        "spriteKey": "char.npc-shimane-shop",
+        "role": "shop",
+        "dialogue": [
+          {
+            "text": "いらっしゃい！ 宍道湖[しんじこ]の しじみは、みそしるに すると とっても おいしいのよ。"
+          }
+        ]
+      },
+      {
+        "id": "npc-shimane-smith",
+        "name": "石州和紙[せきしゅうわし]の 職人[しょくにん]",
+        "spriteKey": "char.npc-shimane-smith",
+        "role": "smith",
+        "dialogue": [
+          {
+            "text": "石州和紙[せきしゅうわし]は とても じょうぶな 紙[かみ]。石見神楽[いわみかぐら]の 大蛇[おろち]の からだも、この 紙[かみ]で 作[つく]るんだよ。"
+          }
+        ]
+      }
+    ]
+  }
+}

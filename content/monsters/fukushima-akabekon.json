@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukushima-akabekon",
+  "name": "アカベコン",
+  "area": "fukushima",
+  "motifId": "akabeko",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 44,
+    "mp": 8,
+    "atk": 10,
+    "def": 10,
+    "spd": 6,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1,
+    "atk": 1.3,
+    "def": 1.5,
+    "spd": 0.7,
+    "wis": 0.9
+  },
+  "skills": ["sk-suna-kabe"],
+  "drops": [
+    {
+      "itemId": "fukushima-hariko-no-washi",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.1,
+  "xp": 24,
+  "gold": 17,
+  "spriteKey": "mon.fukushima-akabekon",
+  "evolution": {
+    "to": "fukushima-akabeko-don",
+    "item": "fukushima-hariko-no-washi"
+  },
+  "dexBlurb": "赤[あか]べこの モンスター。首[くび]が ゆらゆら ゆれる。赤[あか]べこは 会津[あいづ]に つたわる、赤[あか]い 牛[うし]の おもちゃ。"
+}

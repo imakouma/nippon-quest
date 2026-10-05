@@ -1,0 +1,490 @@
+/* 問題UI共通スタイル。基準解像度 960x540 の DOM オーバーレイ内で使う。
+ * 文字はドットフォント（PixelMplus12）なので、大きさは 12 / 24 / 36 / 48px だけにする（ほかはにじむ） */
+.nq-q {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  background: rgba(20, 24, 40, 0.92);
+  color: #fff;
+  font-family: var(--nq-font, 'PixelMplus12', monospace);
+  font-size: 24px;
+}
+.nq-q ruby > rt {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.nq-timer {
+  height: 12px;
+  background: #2a2f4a;
+  border: 2px solid #fff;
+  overflow: hidden;
+}
+.nq-timer-fill {
+  height: 100%;
+  background: #6cc070;
+  transition: width 0.1s linear;
+}
+.nq-timer-fill.nq-timer-low {
+  background: #f0a24b;
+}
+.nq-q-prompt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+}
+.nq-q-prompt p {
+  margin: 0;
+  flex: 1;
+  line-height: 1.6;
+}
+.nq-q-prompt-img {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+}
+.nq-btn {
+  min-width: 48px;
+  min-height: 48px;
+  border: 4px solid #f6e7c1;
+  border-radius: 0;
+  background: #f4a53a;
+  color: #2a1a05;
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.nq-btn:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 2px;
+}
+.nq-btn:active {
+  transform: translateY(2px);
+}
+.nq-btn-speak {
+  width: 56px;
+  background: #6aa9ff;
+}
+.nq-q-choices {
+  display: grid;
+  gap: 12px;
+  flex: 1;
+  grid-template-columns: repeat(2, 1fr);
+}
+.nq-q-choices-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.nq-q-choices-5,
+.nq-q-choices-6 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.nq-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  font-size: 24px;
+  position: relative;
+}
+.nq-choice img {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+}
+.nq-choice-key {
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+.nq-choice-correct {
+  background: #6cc070;
+  border-color: #fff;
+}
+.nq-choice-chosen {
+  background: #f0a24b;
+}
+.nq-choice-dim {
+  opacity: 0.45;
+}
+/* アルファベット 1 もじの 選択肢は 大きく */
+.nq-q-choices-big .nq-choice {
+  font-size: 48px;
+}
+.nq-input-template {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  line-height: 48px;
+}
+.nq-input-template span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nq-input-template input {
+  width: 120px;
+  min-height: 48px;
+  box-sizing: border-box;
+  border: 4px solid #f6e7c1;
+  background: #090d1d;
+  color: #ffd866;
+  font: inherit;
+  text-align: center;
+}
+.nq-input-submit {
+  align-self: center;
+  min-width: 240px;
+}
+.nq-input-suffix {
+  text-align: center;
+}
+.nq-map-tap {
+  position: relative;
+  align-self: center;
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+  border: 4px solid #f6e7c1;
+  background: #111;
+  cursor: crosshair;
+}
+.nq-map-tap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.nq-map-pick {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: #e5484d;
+  font-size: 48px;
+  text-shadow: 2px 2px #fff;
+}
+
+/* picture-word：上に 絵と 答えの わく、下に 英単語の カード */
+.nq-pw-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.nq-pw-frame {
+  width: 176px;
+  height: 176px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f1e8;
+  border: 4px solid #f6e7c1;
+  box-shadow: 0 4px 0 #000;
+}
+.nq-pw-picture {
+  width: 160px;
+  height: 160px;
+  image-rendering: pixelated;
+}
+.nq-pw-slot {
+  min-width: 240px;
+  min-height: 48px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px dashed #a3aabb;
+  font-size: 36px;
+}
+.nq-pw-slot-empty {
+  color: #a3aabb;
+}
+.nq-pw-slot-correct {
+  border-style: solid;
+  border-color: #fff;
+  background: #6cc070;
+  color: #10240f;
+}
+.nq-pw-slot-miss {
+  border-style: solid;
+  background: #f0a24b;
+  color: #2a1a05;
+  animation: nq-shake 0.3s;
+}
+.nq-pw-slot-reveal {
+  border-style: solid;
+  border-color: #6cc070;
+  color: #6cc070;
+}
+.nq-pw-words {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.nq-pw-words-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.nq-pw-words-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.nq-pw-card {
+  position: relative;
+  min-height: 72px;
+  font-size: 36px;
+}
+.nq-pw-card-miss {
+  opacity: 0.35;
+}
+.nq-pw-card-correct {
+  background: #6cc070;
+  border-color: #fff;
+}
+.nq-pw-card-dim {
+  opacity: 0.45;
+}
+
+/* number-build：数ブロック・テンキー・数直線 */
+.nq-nb-value {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #f6e7c1;
+  background: #090d1d;
+  color: #ffd866;
+  font-size: 48px;
+}
+.nq-nb-blocks {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  justify-content: center;
+  gap: 24px;
+}
+.nq-nb-block-row {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  gap: 12px;
+}
+.nq-nb-block {
+  min-width: 144px;
+  min-height: 96px;
+  font-size: 36px;
+  background: #6aa9ff;
+}
+.nq-nb-minus {
+  background: #f6e7c1;
+}
+.nq-nb-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(72px, 120px));
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+.nq-nb-keypad .nq-btn {
+  font-size: 36px;
+}
+.nq-nb-keypad .nq-btn:nth-child(10) {
+  grid-column: 2;
+}
+.nq-nb-clear {
+  grid-column: 3;
+  font-size: 24px !important;
+}
+.nq-nb-numberline {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 48px;
+}
+.nq-nb-numberline input[type='range'] {
+  width: 100%;
+  min-height: 64px;
+  accent-color: #ffd866;
+  cursor: pointer;
+}
+.nq-nb-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+}
+.nq-nb-submit {
+  align-self: center;
+  min-width: 240px;
+  background: #6cc070;
+}
+
+/* experiment：予想 → 操作 → 結果 */
+.nq-exp-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.nq-exp-panel p {
+  margin: 0;
+}
+.nq-exp-step {
+  align-self: flex-start;
+  color: #ffd866;
+  font-size: 24px;
+}
+.nq-exp-choices {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.nq-exp-choices .nq-btn {
+  padding: 12px;
+}
+.nq-exp-selected {
+  background: #6aa9ff;
+  border-color: #fff;
+}
+.nq-exp-next {
+  min-width: 240px;
+  background: #6cc070;
+}
+.nq-exp-controls {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+}
+.nq-exp-control {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 3fr 120px;
+  align-items: center;
+  gap: 16px;
+}
+.nq-exp-control input[type='range'] {
+  width: 100%;
+  min-height: 48px;
+  accent-color: #ffd866;
+}
+.nq-exp-control output {
+  color: #ffd866;
+  font-size: 36px;
+}
+.nq-exp-toggle {
+  grid-column: 2 / 4;
+}
+.nq-exp-toggle-on {
+  background: #6cc070;
+}
+.nq-exp-visual {
+  width: 120px;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 4px solid #f6e7c1;
+  background: #090d1d;
+}
+.nq-exp-visual > span {
+  width: 100%;
+  min-height: 4px;
+  background: #6aa9ff;
+  transition: height 0.4s;
+}
+.nq-exp-thermometer {
+  width: 64px;
+  border-radius: 32px;
+}
+.nq-exp-thermometer > span {
+  background: #f06a5b;
+  border-radius: 24px;
+}
+.nq-exp-outcome {
+  color: #ffd866;
+  font-size: 48px;
+}
+@keyframes nq-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+.nq-feedback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.nq-sort-cards {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+}
+.nq-sort-vertical {
+  flex-direction: column;
+}
+.nq-sort-card {
+  min-width: 150px;
+  padding: 12px;
+  border: 4px solid #f6e7c1;
+  background: #172448;
+  display: grid;
+  gap: 8px;
+  text-align: center;
+}
+.nq-sort-card img {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+  margin: auto;
+}
+.nq-sort-card span {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.nq-sort-card .nq-btn {
+  min-width: 48px;
+  min-height: 48px;
+}
+.nq-feedback-text {
+  font-size: 48px;
+  font-weight: normal;
+  color: #fff;
+  text-shadow: 0 4px 0 #000;
+  animation: nq-pop 0.35s ease-out;
+}
+.nq-feedback-correct .nq-feedback-text {
+  color: #ffe66d;
+}
+@keyframes nq-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

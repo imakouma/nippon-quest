@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nagasaki-castel-knight",
+  "name": "カステルナイト",
+  "area": "nagasaki",
+  "motifId": "castella",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 74,
+    "mp": 22,
+    "atk": 18,
+    "def": 15,
+    "spd": 10,
+    "wis": 14
+  },
+  "growth": {
+    "hp": 6,
+    "mp": 1.2,
+    "atk": 1.4,
+    "def": 1.3,
+    "spd": 1,
+    "wis": 1.1
+  },
+  "skills": ["sk-kanji-barrier", "sk-tashizan-giri", "sk-hikari-no-ya"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 40,
+  "gold": 31,
+  "spriteKey": "mon.nagasaki-castel-knight",
+  "dexBlurb": "フワテラが しんかした すがた。カステラの よろいを まとった 騎士[きし]。長崎[ながさき]の カステラの そこには、ざらめの さとうが ついて いる ことが 多[おお]い。"
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyoto-boss-amano-hiryu",
+  "name": "アマノヒリュウ",
+  "area": "kyoto",
+  "motifId": "amanohashidate",
+  "element": "mizu",
+  "weakness": "mori",
+  "baseStats": {
+    "hp": 425,
+    "mp": 57,
+    "atk": 23,
+    "def": 16,
+    "spd": 12,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "kyoto-ichibancha",
+      "rate": 1
+    },
+    {
+      "itemId": "kyoto-funaya-no-ita",
+      "rate": 1
+    },
+    {
+      "itemId": "kyoto-manganji-no-tane",
+      "rate": 1
+    },
+    {
+      "itemId": "kyoto-kinu-no-ito",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 277,
+  "gold": 326,
+  "spriteKey": "mon.kyoto-boss-amano-hiryu",
+  "dexBlurb": "天橋立[あまのはしだて]の 松[まつ]の 道[みち]が 竜[りゅう]に なった すがた。天橋立[あまのはしだて]を また の 下[した]から さかさまに 見[み]ると、竜[りゅう]が 天[てん]に のぼる ように 見[み]えると いわれる。",
+  "fieldLine": "われは 天橋立[あまのはしだて]の 竜[りゅう]。海[うみ]の 道[みち]を まもる ため、そなたと しょうぶじゃ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "kaze",
+      "skills": [
+        "sk-habataki",
+        "sk-uzushio",
+        "sk-abc-shout"
+      ],
+      "line": "天[てん]に のぼる 竜[りゅう]の 大風[おおかぜ]、うけて みよ！"
+    }
+  ]
+}

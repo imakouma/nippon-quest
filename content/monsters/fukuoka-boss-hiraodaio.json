@@ -1,0 +1,70 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukuoka-boss-hiraodaio",
+  "name": "ヒラオダイオウ",
+  "area": "fukuoka",
+  "motifId": "hiraodai",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 462,
+    "mp": 66,
+    "atk": 26,
+    "def": 21,
+    "spd": 8,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "fukuoka-tonkotsu-no-dashi",
+      "rate": 1
+    },
+    {
+      "itemId": "fukuoka-ichigo-no-hana",
+      "rate": 1
+    },
+    {
+      "itemId": "fukuoka-suiro-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "fukuoka-koishiwara-yaki",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 305,
+  "gold": 360,
+  "spriteKey": "mon.fukuoka-boss-hiraodaio",
+  "dexBlurb": "平尾台[ひらおだい]の 白[しろ]い 岩[いわ]の むれを たばねる、ひつじの 王[おう]。平尾台[ひらおだい]の 地下[ちか]には、雨水[あまみず]が 石灰岩[せっかいがん]を とかして できた しょうにゅうどうが ある。",
+  "fieldLine": "メェェェ…！ この 白[しろ]い 台地[だいち]を あらす ものは だれじゃ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "element": "hikari",
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya",
+        "sk-iwa-otoshi"
+      ],
+      "line": "メェェェ……！ 地[ち]の そこの しょうにゅうどうよ、白[しろ]き 光[ひかり]を 見[み]せよ！"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "fukui-fukui-raptor",
+  "name": "フクイラプトル",
+  "area": "fukui",
+  "motifId": "katsuyama-kyoryu",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": {
+    "hp": 57,
+    "mp": 13,
+    "atk": 17,
+    "def": 12,
+    "spd": 11,
+    "wis": 8
+  },
+  "growth": {
+    "hp": 6.0,
+    "mp": 1.2,
+    "atk": 1.8,
+    "def": 1.2,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-tashizan-giri", "sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 32,
+  "gold": 24,
+  "spriteKey": "mon.fukui-fukui-raptor",
+  "dexBlurb": "ラプトルンが しんかした すがた。勝山市[かつやまし]で 化石[かせき]が 見[み]つかった 恐竜[きょうりゅう]には、「フクイラプトル」という 名前[なまえ]が つけられた。"
+}

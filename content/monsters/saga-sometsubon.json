@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "saga-sometsubon",
+  "name": "ソメツボン",
+  "area": "saga",
+  "motifId": "aritayaki",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 55,
+    "mp": 15,
+    "atk": 12,
+    "def": 12,
+    "spd": 8,
+    "wis": 11
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.2,
+    "def": 1.2,
+    "spd": 0.8,
+    "wis": 0.9
+  },
+  "skills": ["sk-kana-barrier", "sk-kazoe-giri"],
+  "drops": [
+    {
+      "itemId": "saga-etsuke-no-fude",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 26,
+  "gold": 18,
+  "spriteKey": "mon.saga-sometsubon",
+  "evolution": {
+    "to": "saga-kinran-tsubo",
+    "item": "saga-etsuke-no-fude"
+  },
+  "dexBlurb": "有田焼[ありたやき]の つぼの モンスター。白[しろ]い はだに 青[あお]い もようを えがく やき方[かた]を「染付[そめつけ]」と いう。"
+}

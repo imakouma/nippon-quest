@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamagata-sakuranboy",
+  "name": "サクランボーイ",
+  "area": "yamagata",
+  "motifId": "sakuranbo",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 36,
+    "mp": 8,
+    "atk": 10,
+    "def": 6,
+    "spd": 9,
+    "wis": 6
+  },
+  "growth": {
+    "hp": 5,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.9,
+    "spd": 1.2,
+    "wis": 0.8
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "yamagata-benibana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.1,
+  "xp": 20,
+  "gold": 15,
+  "spriteKey": "mon.yamagata-sakuranboy",
+  "evolution": {
+    "to": "yamagata-double-cherry",
+    "item": "yamagata-benibana"
+  },
+  "dexBlurb": "ふたごの さくらんぼの モンスター。ふたつの 頭[あたま]で なかよく しゃべる。山形県[やまがたけん]は さくらんぼの 生産[せいさん]が とても 多[おお]い。"
+}

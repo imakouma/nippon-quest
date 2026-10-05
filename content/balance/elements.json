@@ -1,0 +1,86 @@
+{
+  "$schema": "../../schemas/elements.schema.json",
+  "elements": ["hino", "mizu", "mori", "tsuchi", "kaze", "hikari", "yami", "none"],
+  "multipliers": {
+    "hino": {
+      "hino": 0.5,
+      "mizu": 0.5,
+      "mori": 2.0,
+      "tsuchi": 1.0,
+      "kaze": 1.0,
+      "hikari": 1.0,
+      "yami": 1.0,
+      "none": 1.0
+    },
+    "mizu": {
+      "hino": 2.0,
+      "mizu": 0.5,
+      "mori": 0.5,
+      "tsuchi": 1.0,
+      "kaze": 1.0,
+      "hikari": 1.0,
+      "yami": 1.0,
+      "none": 1.0
+    },
+    "mori": {
+      "hino": 0.5,
+      "mizu": 2.0,
+      "mori": 0.5,
+      "tsuchi": 1.0,
+      "kaze": 1.0,
+      "hikari": 1.0,
+      "yami": 1.0,
+      "none": 1.0
+    },
+    "tsuchi": {
+      "hino": 1.0,
+      "mizu": 1.0,
+      "mori": 1.0,
+      "tsuchi": 0.5,
+      "kaze": 2.0,
+      "hikari": 1.0,
+      "yami": 1.0,
+      "none": 1.0
+    },
+    "kaze": {
+      "hino": 1.0,
+      "mizu": 1.0,
+      "mori": 1.0,
+      "tsuchi": 0.5,
+      "kaze": 0.5,
+      "hikari": 1.0,
+      "yami": 1.0,
+      "none": 1.0
+    },
+    "hikari": {
+      "hino": 1.0,
+      "mizu": 1.0,
+      "mori": 1.0,
+      "tsuchi": 1.0,
+      "kaze": 1.0,
+      "hikari": 0.5,
+      "yami": 2.0,
+      "none": 1.0
+    },
+    "yami": {
+      "hino": 1.0,
+      "mizu": 1.0,
+      "mori": 1.0,
+      "tsuchi": 1.0,
+      "kaze": 1.0,
+      "hikari": 2.0,
+      "yami": 0.5,
+      "none": 1.0
+    },
+    "none": {
+      "hino": 1.0,
+      "mizu": 1.0,
+      "mori": 1.0,
+      "tsuchi": 1.0,
+      "kaze": 1.0,
+      "hikari": 1.0,
+      "yami": 1.0,
+      "none": 1.0
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "nara-boss-shika-daio",
+  "name": "シカダイオウ",
+  "area": "nara",
+  "motifId": "nara-shika",
+  "element": "hikari",
+  "weakness": "yami",
+  "baseStats": {
+    "hp": 391,
+    "mp": 54,
+    "atk": 21,
+    "def": 16,
+    "spd": 13,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 11.0,
+    "mp": 2.2,
+    "atk": 1.7,
+    "def": 1.3,
+    "spd": 0.9,
+    "wis": 1.1
+  },
+  "skills": [
+    "sk-hikari-no-ya",
+    "sk-kanji-barrier"
+  ],
+  "drops": [
+    {
+      "itemId": "common-tetsu",
+      "rate": 1
+    },
+    {
+      "itemId": "nara-gojo-gaki",
+      "rate": 1
+    },
+    {
+      "itemId": "nara-narafude",
+      "rate": 1
+    },
+    {
+      "itemId": "nara-yoshinogawa-no-shizuku",
+      "rate": 1
+    },
+    {
+      "itemId": "nara-chasen-no-ho",
+      "rate": 1
+    }
+  ],
+  "recruitRate": 0,
+  "xp": 269,
+  "gold": 318,
+  "spriteKey": "mon.nara-boss-shika-daio",
+  "dexBlurb": "奈良公園[ならこうえん]の シカたちの 王[おう]さま。奈良[なら]の シカは 国[くに]の 天然記念物[てんねんきねんぶつ]で、せんべいを もらう とき おじぎを する ことが ある。",
+  "fieldLine": "ぺこり。…あいさつは すんだ。さあ、しょうぶだ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.4,
+      "skills": [
+        "sk-konjiki-no-kiba",
+        "sk-hikari-no-ya"
+      ],
+      "line": "金[きん]の ツノよ、天[てん]を つらぬけ！"
+    }
+  ]
+}

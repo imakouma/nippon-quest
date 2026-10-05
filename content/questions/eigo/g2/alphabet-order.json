@@ -1,0 +1,671 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "eigo.g2.alphabet-order.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「A」「B」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "C"
+        },
+        {
+          "id": "b",
+          "text": "G"
+        },
+        {
+          "id": "c",
+          "text": "E"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "A B C の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「B」と「D」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "C"
+        },
+        {
+          "id": "b",
+          "text": "G"
+        },
+        {
+          "id": "c",
+          "text": "E"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "B C D の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「C」「D」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "E"
+        },
+        {
+          "id": "b",
+          "text": "F"
+        },
+        {
+          "id": "c",
+          "text": "G"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "C D E の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「D」と「F」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "E"
+        },
+        {
+          "id": "b",
+          "text": "G"
+        },
+        {
+          "id": "c",
+          "text": "C"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "D E F の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「E」「F」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "G"
+        },
+        {
+          "id": "b",
+          "text": "C"
+        },
+        {
+          "id": "c",
+          "text": "I"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "E F G の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「F」と「H」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "G"
+        },
+        {
+          "id": "b",
+          "text": "C"
+        },
+        {
+          "id": "c",
+          "text": "I"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "F G H の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「G」「H」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I"
+        },
+        {
+          "id": "b",
+          "text": "J"
+        },
+        {
+          "id": "c",
+          "text": "K"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "G H I の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「H」と「J」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I"
+        },
+        {
+          "id": "b",
+          "text": "K"
+        },
+        {
+          "id": "c",
+          "text": "G"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "H I J の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「I」「J」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "K"
+        },
+        {
+          "id": "b",
+          "text": "X"
+        },
+        {
+          "id": "c",
+          "text": "M"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "I J K の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「J」と「L」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "K"
+        },
+        {
+          "id": "b",
+          "text": "X"
+        },
+        {
+          "id": "c",
+          "text": "M"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "J K L の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0011",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「K」「L」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "M"
+        },
+        {
+          "id": "b",
+          "text": "N"
+        },
+        {
+          "id": "c",
+          "text": "O"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "K L M の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0012",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「L」と「N」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "M"
+        },
+        {
+          "id": "b",
+          "text": "O"
+        },
+        {
+          "id": "c",
+          "text": "K"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "L M N の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0013",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「M」「N」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "O"
+        },
+        {
+          "id": "b",
+          "text": "Q"
+        },
+        {
+          "id": "c",
+          "text": "C"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "M N O の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0014",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「N」と「P」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "O"
+        },
+        {
+          "id": "b",
+          "text": "Q"
+        },
+        {
+          "id": "c",
+          "text": "M"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "N O P の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0015",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「O」「P」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Q"
+        },
+        {
+          "id": "b",
+          "text": "S"
+        },
+        {
+          "id": "c",
+          "text": "G"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "O P Q の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0016",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「P」と「R」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Q"
+        },
+        {
+          "id": "b",
+          "text": "O"
+        },
+        {
+          "id": "c",
+          "text": "S"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "P Q R の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0017",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「Q」「R」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "S"
+        },
+        {
+          "id": "b",
+          "text": "Z"
+        },
+        {
+          "id": "c",
+          "text": "U"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Q R S の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0018",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「R」と「T」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "S"
+        },
+        {
+          "id": "b",
+          "text": "Z"
+        },
+        {
+          "id": "c",
+          "text": "U"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "R S T の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0019",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「S」「T」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "U"
+        },
+        {
+          "id": "b",
+          "text": "V"
+        },
+        {
+          "id": "c",
+          "text": "W"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "S T U の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0020",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「T」と「V」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "U"
+        },
+        {
+          "id": "b",
+          "text": "W"
+        },
+        {
+          "id": "c",
+          "text": "S"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "T U V の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0021",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「U」「V」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "W"
+        },
+        {
+          "id": "b",
+          "text": "M"
+        },
+        {
+          "id": "c",
+          "text": "Y"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "U V W の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0022",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「V」と「X」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "W"
+        },
+        {
+          "id": "b",
+          "text": "M"
+        },
+        {
+          "id": "c",
+          "text": "Y"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "V W X の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0023",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「W」「X」の つぎは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Y"
+        },
+        {
+          "id": "b",
+          "text": "V"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "W X Y の じゅんばん だよ。"
+  },
+  {
+    "id": "eigo.g2.alphabet-order.0024",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 2,
+    "unit": "eigo.g2.alphabet-order",
+    "tags": ["theme:alphabet"],
+    "payload": {
+      "prompt": "「X」と「Z」の あいだは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Y"
+        },
+        {
+          "id": "b",
+          "text": "V"
+        },
+        {
+          "id": "c",
+          "text": "W"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "X Y Z の じゅんばん だよ。"
+  }
+]

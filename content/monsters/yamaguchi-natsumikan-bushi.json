@@ -1,0 +1,41 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "yamaguchi-natsumikan-bushi",
+  "name": "ナツミカンブシ",
+  "area": "yamaguchi",
+  "motifId": "hagi",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 48,
+    "mp": 11,
+    "atk": 14,
+    "def": 9,
+    "spd": 10,
+    "wis": 7
+  },
+  "growth": {
+    "hp": 4.8,
+    "mp": 1,
+    "atk": 1.4,
+    "def": 0.9,
+    "spd": 1,
+    "wis": 0.7
+  },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [
+    {
+      "itemId": "yamaguchi-natsumikan-no-hana",
+      "rate": 0.08
+    }
+  ],
+  "recruitRate": 0.08,
+  "xp": 24,
+  "gold": 17,
+  "spriteKey": "mon.yamaguchi-natsumikan-bushi",
+  "evolution": {
+    "to": "yamaguchi-mikan-daimyo",
+    "item": "yamaguchi-natsumikan-no-hana"
+  },
+  "dexBlurb": "ちょんまげの ある 夏[なつ]みかんの さむらい。萩[はぎ]の 城下町[じょうかまち]では、武家屋敷[ぶけやしき]の にわで 夏[なつ]みかんが 育[そだ]てられた。"
+}
