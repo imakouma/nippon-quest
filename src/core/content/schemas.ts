@@ -46,6 +46,11 @@ export const islandSchema = z.object({
   areas: z.array(idSchema).min(1),
   bossId: idSchema,
   recommendedGrade: gradeRangeSchema,
+  featuredSubjects: z
+    .array(subjectSchema)
+    .min(1)
+    .default(['shakai'])
+    .describe('この地方で主に出題し、限定モンスターが得意とする教科'),
   status: z.enum(['playable', 'stub']).default('stub').describe('stub = シルエット表示のみ'),
 });
 
@@ -212,6 +217,9 @@ export const monsterSchema = z.object({
   area: idSchema,
   motifId: idSchema,
   element: elementSchema,
+  subjectAffinity: subjectSchema
+    .optional()
+    .describe('このモンスターが得意な教科。仲間にすると対応する教科ゲージをためやすい'),
   weakness: elementSchema.optional().describe('「しらべる」で判明するじゃくてん'),
   baseStats: statsSchema,
   growth: z.object({

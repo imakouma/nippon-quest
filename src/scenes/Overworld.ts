@@ -139,6 +139,7 @@ import { bagMenu, equipmentMenu, menuTabs, mistakeMenu } from './overworld/menuE
 import { buildReviewQueue } from './overworld/reviewQueue';
 import { buildStructureArt, structureKey, type StructureKind } from './overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
+import { scopeQueryToGrade } from '../questions/engine/gradeScope';
 
 const TILE = 16;
 const STEP_MS = 160;
@@ -1641,7 +1642,7 @@ export class OverworldScene extends Phaser.Scene {
     });
     let score: number | null = null;
     try {
-      score = await askFirst(env, relaxedQueries(ev.question));
+      score = await askFirst(env, relaxedQueries(scopeQueryToGrade(ev.question, gs.learning.grade)));
     } finally {
       render(null, root);
     }

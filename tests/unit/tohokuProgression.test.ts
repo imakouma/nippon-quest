@@ -26,13 +26,14 @@ const prop = (object: MapObject, name: string): unknown =>
   object.properties?.find((candidate) => candidate.name === name)?.value;
 
 describe('東北章の進行契約', () => {
-  it('新規ゲームは青森入口から始まり、東北だけが公開対象になっている', async () => {
+  it('新規ゲームは青森入口から始まり、限定テスト対象だけが公開されている', async () => {
     const c = await content();
     const gs = createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 }, 0);
     const tohoku = c.world.islands.find((island) => island.id === 'tohoku');
 
     expect(tohoku?.areas).toEqual(TOHOKU);
     expect(tohoku?.status).toBe('playable');
+    expect(c.world.islands.find((island) => island.id === 'koshinetsu')?.status).toBe('playable');
     expect(c.world.islands.find((island) => island.id === 'hokkaido')?.status).toBe('stub');
     expect(gs.progress).toMatchObject({
       currentIsland: 'tohoku',

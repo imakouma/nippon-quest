@@ -122,7 +122,7 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
     void save(activeSlot, next).catch((error) => console.error('[save] はじめのセーブに失敗しました', error));
     hideLoading();
     game.scene.stop('Title');
-    game.scene.start('Overworld', { mapKey: 'aomori-field', spawnName: 'spawn', debugBattle });
+    game.scene.start('Overworld', { mapKey: next.progress.currentMap, spawnName: 'spawn', debugBattle });
   } catch (error) {
     game.events.emit('boot:error', error);
   }

@@ -97,7 +97,7 @@ describe('名所イベントの報酬（GDD §7）', () => {
         xp: 10,
         gold: 5,
         items: [{ itemId: 'aomori-ringo', n: 3 }],
-        skills: ['sk-shiraberu', 'sk-tashizan-giri'],
+        skills: ['sk-shiraberu', 'sk-hinoko'],
         recipes: ['rc-maguro-zutsuki'],
       },
       1,
@@ -106,7 +106,7 @@ describe('名所イベントの報酬（GDD §7）', () => {
     expect(state.player.gold).toBe(105);
     expect(state.inventory['aomori-ringo']).toBe(3);
     expect(state.dex.items).toContain('aomori-ringo');
-    expect(state.player.skills.filter((s) => s === 'sk-tashizan-giri')).toHaveLength(1);
+    expect(state.player.skills.filter((s) => s === 'sk-hinoko')).toHaveLength(1);
     expect(state.player.skills).toContain('sk-shiraberu');
     expect(state.progress.unlockedRecipes).toContain('rc-maguro-zutsuki');
     // もう持っている わざ は「おぼえた」と言わない

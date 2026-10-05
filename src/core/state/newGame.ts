@@ -1,4 +1,5 @@
 import type { Grade } from '../content/schemas';
+import { mvpRegion, type MvpRegionId } from '../regions/mvp';
 import { freshSeed } from '../rng';
 import { SCHEMA_VERSION, type GameState } from './schema';
 
@@ -7,9 +8,11 @@ export interface NewGameOptions {
   appearance?: { hair: number; skin: number; cloth: number };
   starterMonsterId: string;
   grade: Grade;
+  startRegion?: MvpRegionId;
 }
 
 export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
+  const region = mvpRegion(o.startRegion);
   return {
     schemaVersion: SCHEMA_VERSION,
     createdAt: now,
@@ -23,7 +26,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       gold: 100,
       baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
       bonusWis: 0,
-      skills: ['sk-tashizan-giri'],
+      skills: [region.initialSkill],
       equipment: {},
       hp: 40,
       mp: 10,
@@ -40,9 +43,9 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
     },
     inventory: {},
     progress: {
-      currentIsland: 'tohoku',
-      currentArea: 'aomori',
-      currentMap: 'aomori-field',
+      currentIsland: region.id,
+      currentArea: region.startArea,
+      currentMap: region.startMap,
       position: { x: 160, y: 160 },
       lastInn: null,
       areaSigns: [],

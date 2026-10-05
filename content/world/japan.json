@@ -10,7 +10,8 @@
       "mapKey": "tohoku-island",
       "areas": ["aomori", "iwate", "miyagi", "akita", "yamagata", "fukushima"],
       "bossId": "tohoku-boss-rokufuyu",
-      "recommendedGrade": [1, 6],
+      "recommendedGrade": [1, 2],
+      "featuredSubjects": ["kokugo", "seikatsu"],
       "status": "playable"
     },
     {
@@ -21,6 +22,7 @@
       "areas": ["hokkaido"],
       "bossId": "hokkaido-boss",
       "recommendedGrade": [1, 6],
+      "featuredSubjects": ["rika"],
       "status": "stub"
     },
     {
@@ -31,6 +33,7 @@
       "areas": ["ibaraki", "tochigi", "gunma", "saitama", "chiba", "tokyo", "kanagawa"],
       "bossId": "kanto-boss",
       "recommendedGrade": [2, 6],
+      "featuredSubjects": ["shakai"],
       "status": "stub"
     },
     {
@@ -38,20 +41,22 @@
       "name": "北陸[ほくりく]の島[しま]",
       "order": 4,
       "mapKey": "hokuriku-island",
-      "areas": ["niigata", "toyama", "ishikawa", "fukui"],
+      "areas": ["toyama", "ishikawa", "fukui"],
       "bossId": "hokuriku-boss",
       "recommendedGrade": [2, 6],
+      "featuredSubjects": ["rika"],
       "status": "stub"
     },
     {
       "id": "koshinetsu",
-      "name": "甲信[こうしん]の島[しま]",
+      "name": "甲信越[こうしんえつ]の島[しま]",
       "order": 5,
       "mapKey": "koshinetsu-island",
-      "areas": ["yamanashi", "nagano"],
+      "areas": ["niigata", "yamanashi", "nagano"],
       "bossId": "koshinetsu-boss",
-      "recommendedGrade": [3, 6],
-      "status": "stub"
+      "recommendedGrade": [1, 2],
+      "featuredSubjects": ["sansu"],
+      "status": "playable"
     },
     {
       "id": "tokai",
@@ -61,6 +66,7 @@
       "areas": ["gifu", "shizuoka", "aichi", "mie"],
       "bossId": "tokai-boss",
       "recommendedGrade": [3, 6],
+      "featuredSubjects": ["seikatsu", "rika"],
       "status": "stub"
     },
     {
@@ -71,6 +77,7 @@
       "areas": ["shiga", "kyoto", "osaka", "hyogo", "nara", "wakayama"],
       "bossId": "kinki-boss",
       "recommendedGrade": [4, 6],
+      "featuredSubjects": ["kokugo"],
       "status": "stub"
     },
     {
@@ -81,6 +88,7 @@
       "areas": ["tottori", "shimane", "okayama", "hiroshima", "yamaguchi"],
       "bossId": "chugoku-boss",
       "recommendedGrade": [4, 6],
+      "featuredSubjects": ["shakai"],
       "status": "stub"
     },
     {
@@ -91,6 +99,7 @@
       "areas": ["tokushima", "kagawa", "ehime", "kochi"],
       "bossId": "shikoku-boss",
       "recommendedGrade": [5, 6],
+      "featuredSubjects": ["kokugo", "seikatsu"],
       "status": "stub"
     },
     {
@@ -101,6 +110,7 @@
       "areas": ["fukuoka", "saga", "nagasaki", "kumamoto", "oita", "miyazaki", "kagoshima", "okinawa"],
       "bossId": "kyushu-okinawa-boss",
       "recommendedGrade": [5, 6],
+      "featuredSubjects": ["eigo", "shakai"],
       "status": "stub"
     }
   ]

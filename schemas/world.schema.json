@@ -77,6 +77,25 @@
                   }
                 ]
               },
+              "featuredSubjects": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "kokugo",
+                    "sansu",
+                    "rika",
+                    "shakai",
+                    "seikatsu",
+                    "eigo"
+                  ]
+                },
+                "minItems": 1,
+                "default": [
+                  "shakai"
+                ],
+                "description": "この地方で主に出題し、限定モンスターが得意とする教科"
+              },
               "status": {
                 "type": "string",
                 "enum": [

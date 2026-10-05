@@ -98,6 +98,7 @@ export function makeMonster(def: Monster, level: number, instanceId = `${def.id}
     isHero: false,
     level,
     element: def.element,
+    subjectAffinity: def.subjectAffinity,
     weakness: def.weakness,
     weaknessRevealed: false,
     stats,

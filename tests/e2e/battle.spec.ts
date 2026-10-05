@@ -7,10 +7,14 @@ import { expect, test, type Page } from '@playwright/test';
  */
 async function start(page: Page, lv: number): Promise<void> {
   await page.goto(`/?debug=battle&enemy=aomori-ringoron&lv=${lv}`);
-  // 登場メッセージ（タップ待ち）→ コマンド。1 文字ずつ出し終わって ▼ が出てからタップする
-  await expect(page.locator('.nq-box-text')).toContainText('リンゴロン', { timeout: 30_000 });
-  await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 10_000 });
-  await page.locator('.nq-box').click();
+  // 文字送り速度や端末負荷に依存せず、登場メッセージをタップで最後まで送る。
+  const attack = page.locator('.nq-cmd[data-cmd="attack"]:not([disabled])');
+  for (let step = 0; step < 100 && !(await attack.isVisible()); step += 1) {
+    const box = page.locator('.nq-box');
+    if (await box.isVisible()) await box.click();
+    await page.waitForTimeout(100);
+  }
+  await expect(attack).toBeVisible({ timeout: 10_000 });
 }
 
 /** 単元には複数の問題形式が混ざり得るため、表示された形式に依存せず1回答する。 */
@@ -41,12 +45,8 @@ test('バトル：たたかう を続けると決着がつき、フィールド�
   const deadline = Date.now() + 90_000;
   while (Date.now() < deadline && !(await page.locator('.nq-result').isVisible())) {
     // 自分の ターンが 来たら たたかう。タップ待ちの 文は すすめる
-    if (await attack.isVisible()) await attack.click({ timeout: 2_000 }).catch(() => undefined);
-    else if (await page.locator('.nq-box-next').isVisible())
-      await page
-        .locator('.nq-box')
-        .click({ timeout: 1_000 })
-        .catch(() => undefined);
+    if (await attack.isVisible()) await attack.first().click({ force: true });
+    else if (await page.locator('.nq-box').isVisible()) await page.locator('.nq-box').click({ force: true });
     await page.waitForTimeout(250);
   }
   await expect(page.locator('.nq-result')).toBeVisible();
@@ -77,7 +77,7 @@ test('バトル：必殺技を えらぶと 問題が出て、答えると採点
   test.setTimeout(90_000);
   await start(page, 8);
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
-  await page.locator('[data-skill="sk-tashizan-giri"]').click();
+  await page.locator('[data-skill="sk-hinoko"]').first().click();
   await expect(page.locator('.nq-bq')).toBeVisible({ timeout: 20_000 });
   await answerCurrentQuestion(page);
   // 不正解ならゲージ加算が0になるのが仕様。問題を閉じてターンを完走することを確認する。

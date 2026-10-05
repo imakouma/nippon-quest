@@ -41,7 +41,9 @@ import { bagCapacity, bagContext, evolutionStage, stowNewMonster } from '../core
 import { specialtyIndex, withSpecialtyDrops } from '../core/progression/specialty';
 import { createRng, freshSeed } from '../core/rng';
 import type { GameState } from '../core/state/schema';
-import { scoreBand, type Grade, type QuestionQuery } from '../questions/contracts';
+import { scoreBand, type QuestionQuery } from '../questions/contracts';
+import { battleQuestionQuery } from './battle/questionQuery';
+import { tweenPromise } from './battle/tweenPromise';
 import { ask, filterCandidates, MasteryStore, NoQuestionError, type QuestionBank } from '../questions/engine';
 import { BattleHud } from '../ui/battle/BattleHud';
 import {
@@ -599,17 +601,7 @@ export class BattleScene extends Phaser.Scene {
 
   /** 問題の 問い合わせ。教科の 固有スキルは プレイヤーの 学年（と ひとつ下）から。無ければ だんだん ひろげる */
   private queryFor(sk: Skill): QuestionQuery {
-    if (!this.isUnique(sk)) return { subject: sk.subject, gradeRange: sk.gradeRange, tags: sk.questionTags };
-    const g = this.gs.learning.grade;
-    const ranges: [Grade, Grade][] = [
-      [Math.max(1, g - 1) as Grade, g],
-      [1, g],
-      [1, 6],
-    ];
-    const gradeRange =
-      ranges.find((r) => filterCandidates(this.bank, { subject: sk.subject, gradeRange: r }).length > 0) ??
-      ranges[2]!;
-    return { subject: sk.subject, gradeRange, tags: sk.questionTags };
+    return battleQuestionQuery(sk, this.isUnique(sk), this.gs.learning.grade, this.bank);
   }
 
   private hasQuestion(sk: Skill): boolean {
@@ -987,7 +979,9 @@ export class BattleScene extends Phaser.Scene {
     const ctx = this.narrateCtx();
     for (let i = 0; i < events.length; i++) {
       const e = events[i]!;
-      const lines = narrate(e, ctx, events[i - 1]);
+      // オトモの自動行動は毎ターン発生するため、文字送りを重ねず動きとダメージ表示だけにする。
+      // 低性能端末でログ描画が戦闘進行を塞ぐことも防ぐ。
+      const lines = e.t === 'act' && e.auto ? [] : narrate(e, ctx, events[i - 1]);
       const talk = async () => {
         if (!lines.length) return;
         // 決着・ボスの セリフは 読んでから すすむ
@@ -1118,16 +1112,21 @@ export class BattleScene extends Phaser.Scene {
           void this.fx.guardRing(this.anchorOf(e.actorId), 0x80c6ff);
           await this.flash(sp, 0x80c6ff, 2);
         } else if (e.command === 'skill') {
-          await this.skillMotion(
-            heroTurn ? s.ally.hero.id : e.actorId,
-            e.side === 'enemy',
-            heroTurn ? this.heroSprite : sp,
-            sk?.gauge ?? 1,
-            targetId,
-            sk,
-            this.tierOf(def),
-            this.lastMotif,
-          );
+          const tier = this.tierOf(def);
+          // 未進化のオトモが毎ターン使う自動技は、重い必殺技演出を重ねず体当たりで表す。
+          // ダメージ・属性・教科ゲージの計算は engine の skill のまま変えない。
+          if (e.auto && e.side === 'ally' && tier === 1) await this.partnerTackle(sp);
+          else
+            await this.skillMotion(
+              heroTurn ? s.ally.hero.id : e.actorId,
+              e.side === 'enemy',
+              heroTurn ? this.heroSprite : sp,
+              sk?.gauge ?? 1,
+              targetId,
+              sk,
+              tier,
+              this.lastMotif,
+            );
         } else if (e.command === 'scan') {
           playSfx('scan');
           const a = this.anchorOf(s.enemy.id);
@@ -1651,7 +1650,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private tweenP(cfg: Phaser.Types.Tweens.TweenBuilderConfig): Promise<void> {
-    return new Promise((resolve) => this.tweens.add({ ...cfg, onComplete: () => resolve() }));
+    return tweenPromise(this.tweens, cfg);
   }
 
   /**

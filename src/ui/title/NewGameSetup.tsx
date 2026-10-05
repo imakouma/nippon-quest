@@ -1,14 +1,9 @@
 import { useEffect, useState } from 'preact/hooks';
 import type { Grade } from '../../questions/contracts';
 import type { NewGameOptions } from '../../core/state/newGame';
+import { MVP_REGIONS, mvpRegion, type MvpRegionId } from '../../core/regions/mvp';
 import { t } from '../i18n';
 import './title.css';
-
-const STARTERS = [
-  { id: 'aomori-nebutan', name: 'ネブタン', element: 'hino', mark: '炎' },
-  { id: 'aomori-magurodo', name: 'マグロード', element: 'mizu', mark: '波' },
-  { id: 'aomori-ringoron', name: 'リンゴロン', element: 'mori', mark: '葉' },
-] as const;
 
 type Appearance = NonNullable<NewGameOptions['appearance']>;
 type LookPart = keyof Appearance;
@@ -22,8 +17,16 @@ export function NewGameSetup({
 }) {
   const [name, setName] = useState('ハル');
   const [grade, setGrade] = useState<Grade>(1);
+  const [startRegion, setStartRegion] = useState<MvpRegionId>('tohoku');
   const [appearance, setAppearance] = useState<Appearance>({ hair: 0, skin: 0, cloth: 0 });
-  const [starter, setStarter] = useState<(typeof STARTERS)[number]['id']>('aomori-nebutan');
+  const region = mvpRegion(startRegion);
+  const [starter, setStarter] = useState(region.starters[0]!.id);
+
+  const chooseRegion = (id: MvpRegionId) => {
+    const next = mvpRegion(id);
+    setStartRegion(id);
+    setStarter(next.starters[0]!.id);
+  };
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -42,7 +45,7 @@ export function NewGameSetup({
     event.preventDefault();
     const cleanName = name.trim();
     if (!cleanName) return;
-    onStart({ name: cleanName, grade, appearance, starterMonsterId: starter });
+    onStart({ name: cleanName, grade, appearance, starterMonsterId: starter, startRegion });
   };
 
   return (
@@ -66,12 +69,30 @@ export function NewGameSetup({
             value={grade}
             onChange={(event) => setGrade(Number((event.target as HTMLSelectElement).value) as Grade)}
           >
-            {[1, 2, 3, 4, 5, 6].map((value) => (
+            {[1, 2].map((value) => (
               <option value={value}>{t('newGame.gradeValue', { n: value })}</option>
             ))}
           </select>
         </label>
       </div>
+
+      <section class="nq-new-game-regions" aria-label={t('newGame.region')}>
+        <h3>{t('newGame.region')}</h3>
+        <div>
+          {MVP_REGIONS.map((entry) => (
+            <button
+              type="button"
+              class={startRegion === entry.id ? 'nq-region-selected' : ''}
+              aria-pressed={startRegion === entry.id}
+              onClick={() => chooseRegion(entry.id)}
+            >
+              <strong>{entry.shortName}</strong>
+              <span>{entry.subjects.map((subject) => t(`subjects.${subject}`)).join('・')}</span>
+              <small>{entry.description}</small>
+            </button>
+          ))}
+        </div>
+      </section>
 
       <section class="nq-new-game-look">
         <h3>{t('newGame.look')}</h3>
@@ -110,7 +131,7 @@ export function NewGameSetup({
       <section class="nq-new-game-starters">
         <h3>{t('newGame.starter')}</h3>
         <div>
-          {STARTERS.map((monster) => (
+          {region.starters.map((monster) => (
             <button
               type="button"
               class={`nq-starter nq-starter-${monster.element}${starter === monster.id ? ' nq-starter-selected' : ''}`}
@@ -120,6 +141,7 @@ export function NewGameSetup({
               <span class="nq-starter-mark">{monster.mark}</span>
               <strong>{monster.name}</strong>
               <small>{t(`elements.${monster.element}`)}</small>
+              <em>{t(`subjects.${monster.subject}`)}</em>
             </button>
           ))}
         </div>
