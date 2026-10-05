@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { finishHeroIntroduction } from './helpers/onboarding';
 
 const TOHOKU_SIGNS = ['aomori', 'iwate', 'miyagi', 'akita', 'yamagata', 'fukushima'];
 
@@ -57,7 +58,7 @@ test('東北6県のしるしが1つでも欠けると地方ボスへ挑戦でき
   await page.getByRole('button', { name: /スロット 3/ }).click();
   await page.getByRole('button', { name: 'はじめる' }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
-  await clickThroughDialogue(page);
+  await finishHeroIntroduction(page);
 
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
@@ -107,7 +108,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.getByRole('button', { name: /スロット 3/ }).click();
   await page.getByRole('button', { name: 'はじめる' }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
-  await clickThroughDialogue(page);
+  await finishHeroIntroduction(page);
 
   // ゲーム画面を終了してオートセーブの発生源を止めてから、E2E用の進行状態を直接注入する。
   // プレイ中に注入すると、先に作られた古いスナップショットが後着して上書きし得る。

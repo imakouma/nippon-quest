@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { finishHeroIntroduction } from './helpers/onboarding';
 
 test('タイトル画面が立ち上がり、コンテンツが読み込まれる', async ({ page }) => {
   const errors: string[] = [];
@@ -44,6 +45,7 @@ test('問題データはタイトルでは取得せず、ゲーム開始時に�
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await page.getByRole('button', { name: 'はじめる' }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  await finishHeroIntroduction(page);
   await expect(page.locator('.nq-loading')).toHaveCount(0);
   expect(requests.filter((path) => path === '/content/questions-bundle.json')).toHaveLength(1);
 });
@@ -54,6 +56,7 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await page.getByRole('button', { name: 'はじめる' }).click();
+  await finishHeroIntroduction(page);
   await page.getByRole('button', { name: 'メニュー' }).click({ timeout: 30_000 });
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');

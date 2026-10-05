@@ -4,22 +4,25 @@ import { freshSeed } from '../rng';
 import { SCHEMA_VERSION, type GameState } from './schema';
 
 export interface NewGameOptions {
-  name: string;
+  name?: string;
   appearance?: { hair: number; skin: number; cloth: number };
-  starterMonsterId: string;
+  starterMonsterId?: string;
   grade: Grade;
   startRegion?: MvpRegionId;
 }
 
 export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
   const region = mvpRegion(o.startRegion);
+  const starter = o.starterMonsterId
+    ? [{ uid: 'starter', monsterId: o.starterMonsterId, level: 1, xp: 0 }]
+    : [];
   return {
     schemaVersion: SCHEMA_VERSION,
     createdAt: now,
     updatedAt: now,
     seed: freshSeed(),
     player: {
-      name: o.name,
+      name: o.name ?? '？？？',
       appearance: o.appearance ?? { hair: 0, skin: 0, cloth: 0 },
       level: 1,
       xp: 0,
@@ -32,13 +35,13 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       mp: 10,
     },
     party: {
-      owned: [{ uid: 'starter', monsterId: o.starterMonsterId, level: 1, xp: 0 }],
-      activeUid: 'starter',
-      team: ['starter'],
+      owned: starter,
+      activeUid: starter.length ? 'starter' : null,
+      team: starter.length ? ['starter'] : [],
       reserve: [],
       bagPlacements: {
         hero: { x: 0, y: 0, rotated: false },
-        'mon:starter': { x: 1, y: 0, rotated: false },
+        ...(starter.length ? { 'mon:starter': { x: 1, y: 0, rotated: false } } : {}),
       },
     },
     inventory: {},

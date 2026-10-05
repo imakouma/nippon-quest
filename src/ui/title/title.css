@@ -374,3 +374,73 @@
 .nq-new-game-actions button[type='submit'] {
   background: #6cc070;
 }
+
+.nq-new-game-simple {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: min(520px, 100%);
+  justify-self: center;
+}
+.nq-new-game-subjects {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  width: min(760px, 100%);
+  justify-self: center;
+}
+
+.nq-identity-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+}
+.nq-identity {
+  width: min(560px, calc(100% - 40px));
+  padding: 16px 24px 20px;
+  color: #fff;
+}
+.nq-identity-fairy {
+  margin: 0 0 12px;
+  color: var(--nq-yellow);
+  text-align: center;
+  font-size: 24px;
+}
+.nq-identity-name {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.nq-identity input,
+.nq-identity button {
+  min-height: 48px;
+  border: 3px solid #f6e7c1;
+  border-radius: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+.nq-identity input {
+  width: 100%;
+  padding: 4px 8px;
+  background: #fff;
+  color: #1a1428;
+}
+.nq-identity-look {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.nq-identity > button {
+  display: block;
+  min-width: 200px;
+  margin: 0 auto;
+  background: #6cc070;
+}
+.nq-identity > button:disabled {
+  background: #6b6f80;
+}

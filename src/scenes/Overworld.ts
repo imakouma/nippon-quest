@@ -85,6 +85,7 @@ import type { GameState } from '../core/state/schema';
 import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
 import { ENCLAVES } from '../../scripts/data/prefectures';
 import { DialogueOverlay, type DialogueLine } from '../ui/dialogue';
+import { HeroIdentitySetup, type HeroIdentity } from '../ui/title/HeroIdentitySetup';
 import {
   AreaMapOverlay,
   type AreaMark,
@@ -2750,40 +2751,61 @@ export class OverworldScene extends Phaser.Scene {
     return this.choose(lines).then(() => undefined);
   }
 
-  /** 新しい旅の最初だけ、世界の異変・妖精・旅の目的を短く伝える。 */
   private async showPrologue(): Promise<void> {
     const gs = this.gs();
-    if (
-      this.busy ||
-      this.inBattle ||
-      this.mapKey !== 'aomori-field' ||
-      gs?.progress.counters[PROLOGUE_COUNTER] !== 0
-    )
+    if (this.inBattle || gs?.progress.counters[PROLOGUE_COUNTER] !== 0) return;
+    if (this.busy) {
+      this.time.delayedCall(500, () => void this.showPrologue());
       return;
+    }
 
     this.busy = true;
     this.standStill();
-    this.setGame({
+    await this.talk([
+      { speaker: t('field.prologueNarrator'), text: t('field.prologueWake') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueFairyArrives') },
+      { speaker: t('field.prologueFairy'), text: t('field.prologueAskIdentity') },
+    ]);
+    const identity = await this.askHeroIdentity(gs.player.appearance);
+    const named = {
       ...gs,
       updatedAt: Date.now(),
+      player: { ...gs.player, name: identity.name, appearance: identity.appearance },
       progress: {
         ...gs.progress,
         counters: { ...gs.progress.counters, [PROLOGUE_COUNTER]: 1 },
       },
-    });
+    };
+    this.setGame(named);
     await this.talk([
-      { speaker: t('field.prologueNarrator'), text: t('field.prologueWake') },
-      { speaker: gs.player.name, text: t('field.prologueLost') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueFairyArrives') },
+      { speaker: identity.name, text: t('field.prologueLost') },
       { speaker: t('field.prologueFairy'), text: t('field.prologueKnowledge') },
       { speaker: t('field.prologueFairy'), text: t('field.prologueNoema') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueQuest') },
+      {
+        speaker: t('field.prologueFairy'),
+        text: t('field.prologueQuest', { area: this.currentArea()?.name ?? '' }),
+      },
       { text: t('field.prologueStart') },
     ]);
     this.busy = false;
   }
 
-  /** 会話を出す。choices があれば最後の行で選ばせて、その番号を返す（選択肢なしは -1） */
+  private askHeroIdentity(appearance: GameState['player']['appearance']): Promise<HeroIdentity> {
+    return new Promise((resolve) => {
+      const root = this.root('dialogue');
+      render(
+        h(HeroIdentitySetup, {
+          initialAppearance: appearance,
+          onComplete: (identity: HeroIdentity) => {
+            render(null, root);
+            resolve(identity);
+          },
+        }),
+        root,
+      );
+    });
+  }
+
   private choose(lines: DialogueLine[], choices?: string[]): Promise<number> {
     return new Promise((resolve) => {
       const root = this.root('dialogue');
@@ -3951,7 +3973,6 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   // ───────────────────────── 小道具 ─────────────────────────
-
   private content(): ContentIndex | undefined {
     return this.registry.get('content') as ContentIndex | undefined;
   }
