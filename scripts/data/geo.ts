@@ -130,8 +130,8 @@ export const DUNGEON_SPOTS: Record<string, LonLat> = {
 
 /** content/prefectures/*.json の events[].trigger.objectName → 実際の場所 */
 /**
- * 名所エリアの たね（content/prefectures/<県>.json の regions の id → 緯度経度。1 つ目の 場所の そばに エリアの ぬしが 立つ）。
- * scaffold-maps が この たねから 陸を 歩いて ちかい じゅんに エリアを わけ、さかいを 山なみで かこむ
+ * 名所エリアの たね（content/prefectures/<県>.json の regions の id → 緯度経度）。
+ * scaffold-maps が この たねから エリアを わけ、ぬしは開始地点から遠い広場へ別に置く。
  */
 export const REGION_SEEDS: Record<string, Record<string, LonLat[]>> = {
   // 1 名所 1 エリア（2026-09-30）。近すぎる 名所（ねぶたと 三内丸山は どちらも 青森市）は、ゲームの 中では すこし はなして おく

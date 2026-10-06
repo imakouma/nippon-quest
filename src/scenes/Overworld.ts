@@ -1368,7 +1368,7 @@ export class OverworldScene extends Phaser.Scene {
     this.busy = false;
   }
 
-  /** エリアの ぬし：名所の そばに「？」マーク（たおしたら 出ない） */
+  /** エリアのぬし：正体を隠したボス影（たおしたら出ない） */
   private addRegionBoss(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const regionId = String(prop(obj, 'region') ?? '');
     const region = area?.regions.find((r) => r.id === regionId);
@@ -1462,7 +1462,7 @@ export class OverworldScene extends Phaser.Scene {
     this.areaBoss = this.bossMarker(tx, ty, def);
   }
 
-  /** ボスの「？」マーク（光のわっか・足もとの光る輪・立ちのぼる光のつぶ）を出して、そのマスを 通れなくする */
+  /** ボス影（光のわっか・足もとの光る輪・立ちのぼる光のつぶ）を出して、そのマスを通れなくする */
   private bossMarker(tx: number, ty: number, def: Monster): MidBoss {
     const x = tx * TILE + 8;
     const y = ty * TILE + 8;
@@ -1490,7 +1490,7 @@ export class OverworldScene extends Phaser.Scene {
       easeParams: [3],
     });
     const halo = this.add.image(x, y - 1, 'fld.boss.halo').setDepth(y - 1);
-    const mark = this.add.image(x, y - 1, 'fld.boss.q').setDepth(y);
+    const mark = this.add.image(x, y - 5, 'fld.boss.silhouette').setDepth(y);
     this.tweens.add({
       targets: [mark, halo, glow],
       y: y - 3,
