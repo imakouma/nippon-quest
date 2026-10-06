@@ -128,6 +128,7 @@ import { addSheet } from './art/sheet';
 import type { BattleEndPayload, BattleSceneData } from './Battle';
 import { buildFieldTextures, WARP_FRAMES } from './overworld/fieldArt';
 import { overworldView } from './overworld/overworldView';
+import { startWaterAnimation } from './overworld/waterAnimation';
 import { buildViewTexture } from './overworld/viewTiles';
 import { buildEntranceIcons } from './overworld/entranceIcons';
 import { GEOGRAPHIC_AREA_ORDER } from './overworld/geography';
@@ -854,7 +855,6 @@ export class OverworldScene extends Phaser.Scene {
     if (target.endsWith('-secret')) return 'fld.icon.castle';
     return 'fld.icon.port';
   }
-
   private addViewLayer(): void {
     buildViewTexture(this);
     buildEntranceIcons(this);
@@ -875,9 +875,9 @@ export class OverworldScene extends Phaser.Scene {
     const rows: number[][] = [];
     for (let y = 0; y < h; y++) rows.push(ids.slice(y * w, (y + 1) * w));
     layer.putTilesAt(rows, 0, 0);
+    startWaterAnimation(this, layer);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => vmap.destroy());
   }
-
   // ───────────────────────── マップの物体 ─────────────────────────
 
   private setupObjects(layer: Phaser.Tilemaps.ObjectLayer | null): void {
