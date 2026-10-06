@@ -429,6 +429,30 @@ class Placer {
     return this.put(target, ok, true, true);
   }
 
+  /** 通路を分断しない候補のうち、指定した歩行距離が最も長い場所へボスを置く。 */
+  farBlocker(ok: (i: number) => boolean, distance: Int32Array): Pt {
+    const { w, cells } = this.land;
+    let hit = -1;
+    for (let i = 0; i < cells.length; i++) {
+      const x = i % w;
+      const y = Math.floor(i / w);
+      if (
+        this.land.walk(i) &&
+        ok(i) &&
+        distance[i]! >= 0 &&
+        this.free(x, y, true) &&
+        this.keepsLandConnected(i) &&
+        (hit < 0 || distance[i]! > distance[hit]!)
+      )
+        hit = i;
+    }
+    if (hit < 0) throw new Error(`${this.land.key}: 遠いボス広場が見つかりません`);
+    const at: Pt = [hit % w, Math.floor(hit / w)];
+    this.taken.push({ at, labeled: true });
+    this.gates.add(hit);
+    return at;
+  }
+
   /** at のすぐ南（ふさがっていれば近く）の、同じ陸続きの空きマス。行き先から戻ってきたときに立つ場所 */
   beside(at: Pt): Pt {
     const comp = this.land.compOf(at);
@@ -653,8 +677,6 @@ interface RegionPartition {
   region: Int32Array;
   /** 関所（エリアの さかいの 通れる 1 マス） */
   gates: { i: number; between: [string, string]; openedBy: string }[];
-  /** エリアの ぬしが 立つ 目じるし（たねの 1 つ目） */
-  bossAt: Map<string, Pt>;
 }
 
 /**
@@ -788,12 +810,7 @@ function regionPartition(land: Land, prefId: string): RegionPartition | null {
   }
   // かべの マスは エリアの 外（-1）に して、地形を 'W' に
   for (let i = 0; i < n; i++) if (wall[i]) region[i] = -1;
-  const bossAt = new Map<string, Pt>();
-  ids.forEach((id, r) => {
-    const s = seedIdx[r]![0]!;
-    bossAt.set(id, [(s % land.w) + 0.5, Math.floor(s / land.w) + 0.5]);
-  });
-  return { ids, region, gates, bossAt };
+  return { ids, region, gates };
 }
 
 /** エリアの さかいの かべ（'W'）を 入れた 地形 */
@@ -942,14 +959,14 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
         properties: [str('between', g.between.join(',')), str('openedBy', g.openedBy)],
       });
     part.ids.forEach((id, r) => {
-      const at = part.bossAt.get(id)!;
-      // まわり 4 マスが おなじ エリアの 広い ところ（ぬしが 道を ふさがないように）
+      // 町・開始地点から十分に探索した先の広場へ置く。名所の種のそばへ置くと、
+      // 最初のぬしが開始地点のすぐ横に出てしまうため、同じエリア内の最遠地点を使う。
       const roomy = (i: number) =>
         part.region[i] === r && around4(land, i).every((j) => part.region[j] === r);
       defs.push({
         name: `regionboss_${id}`,
         type: 'regionBoss',
-        at: place.gate(at, (i) => inMain(i) && roomy(i)),
+        at: place.farBlocker((i) => inMain(i) && roomy(i), fromTown),
         properties: [str('region', id)],
       });
     });
@@ -1012,13 +1029,30 @@ function villages(
   const out: ObjDef[] = [];
   const taken = new Set(defs.map((d) => land.idx([Math.floor(d.at[0]), Math.floor(d.at[1])])));
   const used = new Set<number>();
+  // 削除した巨大ねぶたの跡地。飾りの再配置で当たり判定が復活しないよう空けておく。
+  const reserved = new Set<number>();
+  if (prefId === 'aomori')
+    for (const [x0, y0] of [
+      [63, 68],
+      [68, 64],
+      [71, 54],
+      [71, 60],
+    ] as const)
+      for (let y = y0; y < y0 + 2; y++) for (let x = x0; x < x0 + 3; x++) reserved.add(y * land.w + x);
   const inside = (x: number, y: number) => x >= 0 && y >= 0 && x < land.w && y < land.h;
   const fits = (x0: number, y0: number, w: number, h: number, r: number) => {
     for (let y = y0 - 1; y <= y0 + h; y++)
       for (let x = x0 - 1; x <= x0 + w; x++) {
         if (!inside(x, y)) return false;
         const i = y * land.w + x;
-        if (!land.walk(i) || part.region[i] !== r || col[i] === BLOCK || taken.has(i) || used.has(i))
+        if (
+          !land.walk(i) ||
+          part.region[i] !== r ||
+          col[i] === BLOCK ||
+          taken.has(i) ||
+          used.has(i) ||
+          reserved.has(i)
+        )
           return false;
       }
     return true;

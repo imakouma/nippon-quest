@@ -887,25 +887,38 @@ const ALERT = [
   '.....o....',
 ];
 
-/** フィールドの中ボス：だれがいるかは戦うまでのお楽しみの「？」（1 マス 16×16）。ぶつかると「たたかう？」 */
-const BOSS_Q = [
-  '................',
-  '.....oooooo.....',
-  '...ooVVVVVVoo...',
-  '..oVVVWWWWVVVo..',
-  '.oVVVWWVVWWVVVo.',
-  '.oVVVVVVVWWVVVo.',
-  '.oVVVVVVWWVVVVo.',
-  '.oVVVVVWWVVVVVo.',
-  '.oVVVVVWWVVVVVo.',
-  '.oVVVVVVVVVVVVo.',
-  '.oVVVVVWWVVVVVo.',
-  '..oVVVVWWVVVVo..',
-  '...ooVVVVVVoo...',
-  '.....oooooo.....',
-  '................',
-  '................',
-];
+/** 正体は隠しつつ、ひと目で強敵と分かる角・王冠・赤い目のボス影。 */
+function bossSilhouetteCanvas(): HTMLCanvasElement {
+  const g = makeGrid(28, 28);
+  // 王冠
+  paint(g, ['G...G...G', 'GG.GGG.GG', '.GGGGGGG.', '.GGGGGGG.'], { G: NQ.gold }, 9, 1);
+  // 角と頭部
+  paint(
+    g,
+    [
+      'VV..............VV',
+      'VVV............VVV',
+      '.VVV..........VVV.',
+      '..VVVV......VVVV..',
+      '...KKKKKKKKKKKK...',
+      '..KKKKKKKKKKKKKK..',
+      '.KKKKKKKKKKKKKKKK.',
+      '.KKKKKKKKKKKKKKKK.',
+      '.KKKKRRKKKKRRKKKK.',
+      '.KKKKRRKKKKRRKKKK.',
+      '.KKKKKKKKKKKKKKKK.',
+      '..KKKKKKKKKKKKKK..',
+      '...KKKKKKKKKKKK...',
+      '....KKK....KKK....',
+      '...KKK......KKK...',
+    ],
+    { K: NQ.night, V: NQ.violet, R: NQ.red },
+    5,
+    7,
+  );
+  outline(g, NQ.ink);
+  return toCanvas(g);
+}
 
 const SHADOW = ['..oooooooo..', 'oooooooooooo', 'oooooooooooo', '..oooooooo..'];
 
@@ -1014,7 +1027,7 @@ export function buildFieldTextures(scene: Phaser.Scene): void {
   addImage(tx, 'fld.boss.glow', glowCanvas());
   addImage(tx, 'fld.boss.spark', gridCanvas(SPARK, { W: NQ.white, L: NQ.lavender }));
   addImage(tx, 'fld.alert', gridCanvas(ALERT, { W: NQ.white, R: NQ.red }));
-  addImage(tx, 'fld.boss.q', gridCanvas(BOSS_Q, { V: NQ.violet, W: NQ.white }));
+  addImage(tx, 'fld.boss.silhouette', bossSilhouetteCanvas());
   addImage(tx, 'fld.shadow', gridCanvas(SHADOW, {}));
   addImage(tx, 'fld.plate', gridCanvas(PLATE, { B: NQ.sand }));
 }

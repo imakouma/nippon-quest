@@ -43,6 +43,26 @@ const objectsOf = (m: TiledMap) => m.layers.find((l) => l.name === 'objects')?.o
 const prop = (o: Obj, name: string) => o.properties?.find((p) => p.name === name)?.value;
 const tileIndex = (m: TiledMap, o: Obj) => Math.floor(o.y / 16) * m.width + Math.floor(o.x / 16);
 
+function walkingDistance(m: TiledMap, from: Obj, to: Obj): number {
+  const col = m.layers.find((l) => l.name === 'collision')?.data ?? [];
+  const start = tileIndex(m, from);
+  const goal = tileIndex(m, to);
+  const distance = new Int32Array(m.width * m.height).fill(-1);
+  distance[start] = 0;
+  const queue = [start];
+  for (let head = 0; head < queue.length; head++) {
+    const i = queue[head]!;
+    if (i === goal) return distance[i]!;
+    const x = i % m.width;
+    for (const j of [x > 0 ? i - 1 : -1, x < m.width - 1 ? i + 1 : -1, i - m.width, i + m.width]) {
+      if (j < 0 || j >= distance.length || distance[j]! >= 0 || col[j] === 3) continue;
+      distance[j] = distance[i]! + 1;
+      queue.push(j);
+    }
+  }
+  return -1;
+}
+
 /** 'spawn' から4方向に歩いて届くマス。遷移のマスには乗れるが、その先へは歩けない（乗った瞬間に移動するため） */
 function reachable(key: string, m: TiledMap): Set<number> {
   const col = m.layers.find((l) => l.name === 'collision')?.data ?? [];
@@ -100,6 +120,16 @@ describe('マップ', () => {
         for (let dx = 0; dx < 3; dx++) expect(collision[(y + dy) * aomori.width + x + dx]).toBe(0);
     const morioka = objectsOf(maps.get('iwate-field')!).find((o) => o.name === 'to_town');
     expect(prop(morioka!, 'iconScale')).toBe(2);
+  });
+
+  it('青森のエリアのぬしは、県の開始地点から十分に探索した先にいる', () => {
+    const aomori = maps.get('aomori-field')!;
+    const objects = objectsOf(aomori);
+    const spawn = objects.find((o) => o.name === 'spawn')!;
+    const bosses = objects.filter((o) => o.type === 'regionBoss');
+    expect(bosses).toHaveLength(10);
+    for (const boss of bosses)
+      expect(walkingDistance(aomori, spawn, boss), boss.name).toBeGreaterThanOrEqual(20);
   });
 
   it.each([...maps.keys()])('%s: 遷移先があり、すべての物体に歩いて行ける', (key) => {
