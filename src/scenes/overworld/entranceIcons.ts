@@ -10,6 +10,12 @@ import { addImage } from '../art/sheet';
 
 type Rect = (x: number, y: number, w: number, h: number, col: string) => void;
 
+/** 県フィールドの町は、1マスの入口を保ったまま見た目だけ2×2マス相当にする。 */
+export const entranceIconScale = (target: string, configured?: unknown): number => {
+  const scale = Number(configured ?? (target.endsWith('-town') ? 2 : 1));
+  return Number.isFinite(scale) && scale > 0 ? scale : 1;
+};
+
 const ICONS: Record<string, (r: Rect) => void> = {
   'fld.icon.town': (r) => {
     // うしろの 家（青い 屋根）
