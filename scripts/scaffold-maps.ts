@@ -718,39 +718,38 @@ function regionPartition(land: Land, prefId: string): RegionPartition | null {
     });
     region[i] = best;
   }
-  // さかいの 山なみ：となりが ちがう エリアの マスは りょうがわ とも かべ（2 マスの 山なみ。1 マスだと ななめに すきまが 見える）
+  // さかいの 山なみ：番号が大きい側だけを壁にして、見た目も当たり判定も 1 マス幅にする。
   const wall = new Uint8Array(n);
   for (let i = 0; i < n; i++) {
     const r = region[i]!;
     if (r < 0) continue;
-    if (around(i).some((j) => region[j]! >= 0 && region[j] !== r)) wall[i] = 1;
+    if (around(i).some((j) => region[j]! >= 0 && region[j]! < r)) wall[i] = 1;
   }
-  // 関所：その 2 つの エリアの さかいで となりあう かべ 2 マス（a がわ i・b がわ j）。どちらも 自分の エリアの
-  // かべで ない マスに つながる ところのうち、2 つの たねから 歩いて いちばん ちかい ところ。i に 門を おく
+  // 関所：1 マス幅の山なみから、その両側へ歩いてつながる壁を 1 マスだけ門にする。
   const gates: RegionPartition['gates'] = [];
   for (const g of data.regionGates ?? []) {
     const [a, b] = g.between.map((id) => ids.indexOf(id));
     if (a! < 0 || b! < 0)
       throw new Error(`${prefId}: 関所の エリア ${g.between.join('・')} が regions に ありません`);
-    const reach = (k: number, r: number) => around(k).some((m) => region[m] === r && !wall[m]);
-    let best: [number, number] | null = null;
+    const reach = (k: number, r: number) =>
+      (!wall[k] && region[k] === r) || around(k).some((m) => region[m] === r && !wall[m]);
+    let best: [number, number, number] | null = null;
     let bs = Infinity;
     for (let i = 0; i < n; i++) {
-      if (!wall[i] || region[i] !== a || !reach(i, a!)) continue;
+      if (region[i] !== a || !reach(i, a!)) continue;
       for (const j of around(i)) {
-        if (!wall[j] || region[j] !== b || !reach(j, b!)) continue;
+        if (region[j] !== b || !reach(j, b!) || wall[i] === wall[j]) continue;
         const sc = dist[a!]![i]! + dist[b!]![j]!;
         if (sc < bs) {
           bs = sc;
-          best = [i, j];
+          best = [i, j, wall[i] ? i : j];
         }
       }
     }
     if (!best)
       throw new Error(`${prefId}: ${g.between.join('・')} は となりあって いないので 関所を おけません`);
-    wall[best[0]] = 0;
-    wall[best[1]] = 0;
-    gates.push({ i: best[0], between: g.between, openedBy: g.openedBy });
+    wall[best[2]] = 0;
+    gates.push({ i: best[2], between: g.between, openedBy: g.openedBy });
   }
   // かべの マスは エリアの 外（-1）に して、地形を 'W' に
   for (let i = 0; i < n; i++) if (wall[i]) region[i] = -1;
