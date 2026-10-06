@@ -104,6 +104,7 @@ import { t } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { QuestionFrame } from '../ui/QuestionFrame';
 import { stripRuby } from '../ui/ruby';
+import { regionMapTile } from '../shared/regionVisibility';
 import { playSfx } from '../ui/sfx';
 import {
   CHAR_H,
@@ -1225,13 +1226,12 @@ export class OverworldScene extends Phaser.Scene {
     return false;
   }
 
-  /** 地図に 出す タイル：ひらいて いない エリアは 海（3）に して 見せない */
   private visibleTiles(base: BaseMap): { tiles: number[]; sig: string } {
     if (!base.regions) return { tiles: base.tiles, sig: '' };
     const open = this.unlockedRegions();
     const sig = [...open].sort().join(',');
     const tiles = base.tiles.map((t, i) =>
-      this.hiddenIn(base.regions, open, i % base.width, Math.floor(i / base.width)) ? 3 : t,
+      regionMapTile(t, this.hiddenIn(base.regions, open, i % base.width, Math.floor(i / base.width))),
     );
     return { tiles, sig };
   }

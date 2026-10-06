@@ -9,6 +9,7 @@
  */
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { NQ } from '../../scenes/art/palette';
+import { LOCKED_REGION_TILE } from '../../shared/regionVisibility';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
@@ -60,6 +61,7 @@ export interface PlaceOption {
 
 /** タイル番号 → 地図の色（フィールドの 見た目 src/scenes/overworld/viewTiles.ts と 同じ 色み。ほかは 草の 色） */
 const TILE_COLOR: Record<number, string> = {
+  [LOCKED_REGION_TILE]: NQ.slate,
   2: NQ.sand,
   3: NQ.azure,
   4: NQ.green,
@@ -132,7 +134,8 @@ function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
     for (let x = 0; x < map.width; x++) {
       const tile = map.tiles[y * map.width + x] ?? 0;
       if (tile === 3) continue;
-      ctx.fillStyle = TILE_COLOR[tile] ?? NQ.leaf;
+      ctx.fillStyle =
+        tile === LOCKED_REGION_TILE && (x * 5 + y * 3) % 7 === 0 ? NQ.night : (TILE_COLOR[tile] ?? NQ.leaf);
       ctx.fillRect(x, y, 1, 1);
     }
 }
