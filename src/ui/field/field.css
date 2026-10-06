@@ -24,15 +24,6 @@
   padding: 4px 12px 12px;
   font-size: 24px;
   line-height: 36px;
-  transition: opacity 0.2s steps(4);
-}
-/* 歩いているあいだは場所名だけをかくす。ミニマップは常に見える・開ける状態にする。 */
-.nq-fhud-away {
-  opacity: 0;
-}
-.nq-fhud-away,
-.nq-fhud-away * {
-  pointer-events: none !important;
 }
 /* 場所の名前・種類・スタンプ。地図（144px）の幅で折り返して、窓を地図の幅に そろえる（右に黒い すきまを作らない） */
 .nq-fhud-row {

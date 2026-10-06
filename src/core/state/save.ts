@@ -14,6 +14,7 @@ const key = (slot: SlotId) => `save:${slot}`;
 const backupKey = (slot: SlotId) => `backup:${slot}`;
 const saveQueues = new Map<SlotId, Promise<void>>();
 const STARTUP_RETRY_KEY = 'nq:retry-title-action';
+const STALE_CHUNK_RELOAD_KEY = 'nq:stale-chunk-reload';
 
 /** ページ再読込をまたぐ起動再試行だけに使う、一回限りの一時データ。 */
 export function storeStartupRetryAction(action: unknown): void {
@@ -25,6 +26,20 @@ export function takeStartupRetryAction(): unknown {
   if (!serialized) return undefined;
   sessionStorage.removeItem(STARTUP_RETRY_KEY);
   return JSON.parse(serialized) as unknown;
+}
+
+/** 古いチャンクを検出したときの再読込を、同じタブで一度だけ許可する。 */
+export function takeStaleChunkReloadChance(): boolean {
+  if (sessionStorage.getItem(STALE_CHUNK_RELOAD_KEY)) {
+    sessionStorage.removeItem(STALE_CHUNK_RELOAD_KEY);
+    return false;
+  }
+  sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, '1');
+  return true;
+}
+
+export function clearStaleChunkReloadChance(): void {
+  sessionStorage.removeItem(STALE_CHUNK_RELOAD_KEY);
 }
 
 async function enqueueSlot<T>(slot: SlotId, operation: () => Promise<T>): Promise<T> {

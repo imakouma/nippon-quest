@@ -84,7 +84,8 @@ import type { GameState } from '../core/state/schema';
 import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
 import { ENCLAVES } from '../../scripts/data/prefectures';
 import type { DialogueLine } from '../ui/dialogue';
-import { AreaMapOverlay, type AreaMapView, type RegionMiniView } from '../ui/field/AreaMap';
+import { AreaMapOverlay, type AreaMapView } from '../ui/field/AreaMap';
+import type { RegionMiniView } from '../ui/field/RegionMiniMap';
 import { AreaTitle, FieldHud, LandmarkCutin } from '../ui/field/FieldUi';
 import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
 import { bagCells } from '../ui/field/bagLayout';
@@ -146,14 +147,13 @@ import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 import { mapArrivalStory, runCompanionRite } from './overworld/storyFlow';
 import { presentDialogue } from './overworld/dialogueFlow';
 import { currentMichiruGuideKey, type MichiruGuideKey } from './overworld/michiruGuide';
+import { createMichiruFollower, positionMichiruFollower } from './overworld/michiruFollower';
 import { fieldPlaceName } from './overworld/placeName';
 
 const TILE = 16;
 const STEP_MS = 160;
 /** 3 倍（1 マス 48px。見える はんいを しぼって、ドラクエのように 1 つ 1 つを 大きく） */
 const ZOOM = 3;
-/** 止まってから 左上の 窓（場所の名前・★・小さな地図）が 出るまで */
-const HUD_IDLE_MS = 700;
 /** 人物の絵（16×24）の中で、マスの中心にあたる高さ（足もとがマスの下のふちに来る） */
 const FEET_ORIGIN_Y = 16 / CHAR_H;
 const DELTA: Record<Dir, [number, number]> = { down: [0, 1], left: [-1, 0], right: [1, 0], up: [0, -1] };
@@ -331,9 +331,6 @@ export class OverworldScene extends Phaser.Scene {
   private pendingRegionBoss: RegionBoss | null = null;
   private pendingIslandBoss: string | null = null;
   /** ダンジョンの おくに いる 県ボス（中ボスと同じ「？」マーク） */
-  /** 止まっているか（左上の 窓を 出す）。歩きだすと かくし、HUD_IDLE_MS 止まると 出す */
-  private hudIdle = true;
-  private hudIdleTimer: Phaser.Time.TimerEvent | null = null;
   /** 裏ステージの ラスボス（歴史上の 人物） */
   private lastBoss: MidBoss | null = null;
   private pendingLastBoss = false;
@@ -528,18 +525,10 @@ export class OverworldScene extends Phaser.Scene {
     this.player.setDepth(y);
   }
 
-  /** ミチルはHUDではなく、主人公のすぐそばを浮遊してついてくる。タップすると次の案内を話す。 */
   private createMichiru(): void {
-    this.michiru = this.add
-      .sprite(this.player.x - 12, this.player.y - 14, 'fld.michiru')
-      .setInteractive({ useHandCursor: true });
-    this.michiru.on(
-      'pointerdown',
-      (_pointer: Phaser.Input.Pointer, _x: number, _y: number, event: Phaser.Types.Input.EventData) => {
-        event.stopPropagation();
-        void this.openMichiruGuide(this.michiruGuideKey());
-      },
-    );
+    this.michiru = createMichiruFollower(this, this.player, () => {
+      void this.openMichiruGuide(this.michiruGuideKey());
+    });
   }
 
   /**
@@ -624,16 +613,7 @@ export class OverworldScene extends Phaser.Scene {
     if (!this.player?.active) return;
     this.player.setDepth(this.player.y);
     this.shadow.setPosition(this.player.x, this.player.y + 6);
-    if (this.michiru?.active) {
-      const side = this.facing === 'left' ? 12 : -12;
-      const targetX = this.player.x + side;
-      const targetY = this.player.y - 14 + Math.sin(time / 180) * 2;
-      this.michiru.setPosition(
-        Phaser.Math.Linear(this.michiru.x, targetX, 0.2),
-        Phaser.Math.Linear(this.michiru.y, targetY, 0.2),
-      );
-      this.michiru.setDepth(this.player.y + 1);
-    }
+    if (this.michiru?.active) positionMichiruFollower(this.michiru, this.player, this.facing, time);
     if (this.inBattle || this.busy || this.moving) return;
     const dir = this.readDir();
     if (this.waitRelease) {
@@ -696,17 +676,6 @@ export class OverworldScene extends Phaser.Scene {
 
   private walkTo(nx: number, ny: number): void {
     this.moving = true;
-    // 歩いている あいだは 左上の 窓を かくす（止まると 出る。ドラクエの 窓のように）
-    this.hudIdleTimer?.remove();
-    if (this.hudIdle) {
-      this.hudIdle = false;
-      this.renderHud();
-    }
-    this.hudIdleTimer = this.time.delayedCall(HUD_IDLE_MS, () => {
-      if (this.moving) return;
-      this.hudIdle = true;
-      this.renderHud();
-    });
     this.player.anims.play(`${this.heroTex}:${this.facing}`, true);
     this.tweens.add({
       targets: this.player,
@@ -2609,7 +2578,6 @@ export class OverworldScene extends Phaser.Scene {
         onAreaMap: () => this.openAreaMap(),
         menuLabel: t('field.menu'),
         onMenu: () => this.openMenu(),
-        idle: this.hudIdle,
         dev: this.devAvailable()
           ? {
               label: t(this.devAll() ? 'field.devOn' : 'field.devLabel'),

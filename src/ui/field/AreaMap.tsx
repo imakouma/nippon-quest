@@ -7,13 +7,15 @@
  * ロジックは持たない（何を描くか・どこへ行けるかは Overworld が計算して渡す）。
  * 操作：↑↓ えらぶ / Z・Enter ワープ / X・Esc・M とじる。地図のしるしをタップしても選べる。
  */
-import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { NQ } from '../../rendering/palette';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { playSfx } from '../sfx';
-import { areaAt, type RegionGrid } from './WorldMapOverlay';
+import { areaAt } from './WorldMapOverlay';
+import { areaMapTerrainColor } from './areaMapTerrain';
+import type { RegionMiniView } from './RegionMiniMap';
 import './field.css';
 
 export type AreaMarkKind =
@@ -58,65 +60,6 @@ export interface PlaceOption {
   at: [number, number] | null;
 }
 
-/** タイル番号 → 地図の色（フィールドの 見た目 src/rendering/overworld/viewTiles.ts と 同じ 色み。ほかは 草の 色） */
-const TILE_COLOR: Record<number, string> = {
-  2: NQ.sand,
-  3: NQ.azure,
-  4: NQ.green,
-  5: NQ.beige,
-  11: NQ.forest,
-  12: NQ.tan,
-  // 地面の 性質（src/core/world/ground.ts）：すなはま・もり・やま・みずべ・たはた・果樹園
-  147: NQ.beige,
-  148: NQ.beige,
-  149: NQ.forest,
-  150: NQ.forest,
-  151: NQ.tan,
-  152: NQ.tan,
-  153: NQ.aqua,
-  154: NQ.aqua,
-  155: NQ.lime,
-  156: NQ.sprout,
-  157: NQ.green,
-  158: NQ.green,
-  // 都会の 町（src/rendering/overworld/townTiles.ts の 161〜220）：道路は 灰、歩道・ビルは うすい 灰、広場は 石の 色
-  161: NQ.slate,
-  162: NQ.slate,
-  163: NQ.slate,
-  164: NQ.slate,
-  165: NQ.slate,
-  166: NQ.gray,
-  167: NQ.gray,
-  168: NQ.beige,
-  169: NQ.beige,
-  181: NQ.slate,
-  182: NQ.slate,
-  183: NQ.silver,
-  216: NQ.gray,
-  217: NQ.silver,
-  218: NQ.slate,
-  219: NQ.leaf,
-  // ダンジョンの テーマの 床（src/rendering/overworld/dungeonTiles.ts）：鍾乳洞・鉱山・火口・渓谷・お城・やしき・竹林・海の 洞くつ
-  221: NQ.beige,
-  222: NQ.sky,
-  225: NQ.bark,
-  226: NQ.silver,
-  229: NQ.night,
-  230: NQ.vermilion,
-  233: NQ.slate,
-  234: NQ.azure,
-  237: NQ.sand,
-  238: NQ.sprout,
-  241: NQ.sprout,
-  242: NQ.brown,
-  245: NQ.tan,
-  246: NQ.tan,
-  249: NQ.teal,
-  250: NQ.aqua,
-};
-
-/** 左上の小さな地図（地方）の 1 マスの最小（px）。ふつうは いまいる県が入る大きさに拡大する */
-const MINI = 2;
 /** 大きな地図の枠の内側（.nq-wmap-view と同じ 400px） */
 /** 県マップは見出しと操作バーを含めて540pxの画面内に収める。 */
 const AREA_VIEW = 344;
@@ -133,7 +76,7 @@ function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
     for (let x = 0; x < map.width; x++) {
       const tile = map.tiles[y * map.width + x] ?? 0;
       if (tile === 3) continue;
-      ctx.fillStyle = TILE_COLOR[tile] ?? NQ.leaf;
+      ctx.fillStyle = areaMapTerrainColor(tile);
       ctx.fillRect(x, y, 1, 1);
     }
 }
@@ -166,151 +109,6 @@ function useTerrain(map: AreaMapView) {
     if (ref.current) drawTerrain(ref.current, map);
   }, [map.key]);
   return ref;
-}
-
-/** 左上の小さな地図の中身：いまいる地方（島）の県。行ったことのある県だけ かく（未踏の県は 海と おなじ） */
-export interface RegionMiniView extends RegionGrid {
-  /** 地方の id（地形をかき直すかどうかの目じるし） */
-  id: string;
-  /** areas[i] の県に行ったことがあるか（ロック解除） */
-  visited: boolean[];
-  /** いまいる県の番号（-1 なら無し） */
-  here: number;
-  /** 主人公の位置（マス単位・小数）。地図はここを まん中にする */
-  hero: [number, number] | null;
-  /** いまいる県のマスの範囲 [x0, y0, x1, y1]。この県が ちょうど入る大きさに拡大する */
-  focus: [number, number, number, number] | null;
-  /**
-   * いまいる県を、フィールドの細かい地形で かく（拡大すると地方のマスはカクカクなので）。
-   * land は フィールドの陸のタイルの範囲 [x0, y0, x1, y1]。これを focus の範囲に のばして重ねる
-   */
-  detail: {
-    key: string;
-    tiles: readonly number[];
-    width: number;
-    land: [number, number, number, number];
-  } | null;
-}
-
-/** 拡大の倍率：いまいる県が ちょうど入る大きさの 2 倍（県の半分くらいが見える） */
-const MINI_ZOOM = 2;
-
-/** いまいる県の細かい地形（陸だけ。海は透明）。1 タイル = 1 ドットで かいて、CSS で focus の範囲に のばす */
-function drawDetail(canvas: HTMLCanvasElement, d: NonNullable<RegionMiniView['detail']>): void {
-  const [x0, y0, x1, y1] = d.land;
-  canvas.width = x1 - x0 + 1;
-  canvas.height = y1 - y0 + 1;
-  const ctx = canvas.getContext('2d')!;
-  for (let y = y0; y <= y1; y++)
-    for (let x = x0; x <= x1; x++) {
-      const tile = d.tiles[y * d.width + x] ?? 3;
-      if (tile === 3) continue;
-      ctx.fillStyle = TILE_COLOR[tile] ?? NQ.leaf;
-      ctx.fillRect(x - x0, y - y0, 1, 1);
-    }
-}
-
-/** はっきりの層：行ったことのある県だけ。いまいる県は明るく、県境と海岸線も */
-function drawVisited(canvas: HTMLCanvasElement, r: RegionMiniView, cell: number): void {
-  canvas.width = r.width * cell;
-  canvas.height = r.height * cell;
-  const ctx = canvas.getContext('2d')!;
-  const px = (x: number, y: number, w: number, h: number, col: string) => {
-    ctx.fillStyle = col;
-    ctx.fillRect(x, y, w, h);
-  };
-  // いまいる県は細かい地形（detail）で かくので、ここでは かかない
-  const open = (k: number) => k >= 0 && !!r.visited[k] && !(r.detail && k === r.here);
-  /** 県境・海岸線の太さ（拡大しているときは 2px） */
-  const t = cell >= 8 ? 2 : 1;
-  for (let y = 0; y < r.height; y++)
-    for (let x = 0; x < r.width; x++) {
-      const k = areaAt(r, x, y);
-      if (!open(k)) continue;
-      const X = x * cell;
-      const Y = y * cell;
-      px(X, Y, cell, cell, k === r.here ? NQ.lime : NQ.leaf);
-      const right = areaAt(r, x + 1, y);
-      const down = areaAt(r, x, y + 1);
-      if (right >= 0 && right !== k) px(X + cell - t, Y, t, cell, NQ.forest);
-      if (down >= 0 && down !== k) px(X, Y + cell - t, cell, t, NQ.forest);
-      if (areaAt(r, x - 1, y) < 0) px(X, Y, t, cell, NQ.ink);
-      if (right < 0) px(X + cell - t, Y, t, cell, NQ.ink);
-      if (areaAt(r, x, y - 1) < 0) px(X, Y, cell, t, NQ.ink);
-      if (down < 0) px(X, Y + cell - t, cell, t, NQ.ink);
-    }
-}
-
-/** 拡大しすぎない（1 マスの最大 px）。地図は場所の窓の幅いっぱいの正方形（CSS の aspect-ratio） */
-const MINI_MAX_CELL = 24;
-
-/** 左上の小さな地図：主人公を まん中に、いまいる県が ちょうど入るくらいに拡大。タップで県の大きな地図をひらく */
-export function RegionMiniMap({
-  region,
-  label,
-  onOpen,
-}: {
-  region: RegionMiniView;
-  label: string;
-  onOpen: () => void;
-}) {
-  const box = useRef<HTMLButtonElement>(null);
-  const clear = useRef<HTMLCanvasElement>(null);
-  const det = useRef<HTMLCanvasElement>(null);
-  // 窓の幅いっぱいの正方形。主人公を まん中に置くため、実際の幅・高さを測る
-  const [[vw, vh], setSize] = useState<[number, number]>([216, 216]);
-  useLayoutEffect(() => {
-    const w = box.current?.clientWidth;
-    const h = box.current?.clientHeight;
-    if (w && h && (w !== vw || h !== vh)) setSize([w, h]);
-  });
-  const f = region.focus;
-  const cell = f
-    ? Math.max(
-        MINI,
-        Math.min(
-          MINI_MAX_CELL,
-          Math.floor(MINI_ZOOM * Math.min(vw / (f[2] - f[0] + 3), vh / (f[3] - f[1] + 3))),
-        ),
-      )
-    : MINI;
-  const opened = region.visited.map((v) => (v ? 1 : 0)).join('');
-  const detailKey = region.detail?.key ?? '';
-  useEffect(() => {
-    if (clear.current) drawVisited(clear.current, region, cell);
-  }, [region.id, opened, region.here, detailKey, cell]);
-  useEffect(() => {
-    if (det.current && region.detail) drawDetail(det.current, region.detail);
-  }, [detailKey]);
-  const [cx, cy] = region.hero ?? (f ? [(f[0] + f[2] + 1) / 2, (f[1] + f[3] + 1) / 2] : [0, 0]);
-  return (
-    <button ref={box} type="button" class="nq-mini" aria-label={label} title={label} onClick={onOpen}>
-      <div
-        class="nq-mini-map"
-        style={{
-          width: region.width * cell,
-          height: region.height * cell,
-          left: Math.round(vw / 2 - cx * cell),
-          top: Math.round(vh / 2 - cy * cell),
-        }}
-      >
-        <canvas ref={clear} />
-        {region.detail && f && (
-          <canvas
-            ref={det}
-            class="nq-mini-detail"
-            style={{
-              left: f[0] * cell,
-              top: f[1] * cell,
-              width: (f[2] - f[0] + 1) * cell,
-              height: (f[3] - f[1] + 1) * cell,
-            }}
-          />
-        )}
-      </div>
-      {region.hero && <span class="nq-mini-hero" style={{ left: vw / 2, top: vh / 2 }} />}
-    </button>
-  );
 }
 
 function MarkIcon({ kind }: { kind: AreaMarkKind }) {

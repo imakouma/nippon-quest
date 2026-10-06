@@ -3,7 +3,7 @@ import type { Area } from '../../core/content/schemas';
 import { canChallengeIslandBoss } from '../../core/progression/island';
 import { midBossFlag, motifStamp } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
-import type { RegionMiniView } from '../../ui/field/AreaMap';
+import type { RegionMiniView } from '../../ui/field/RegionMiniMap';
 import type { AreaMark, AreaMapView, PlaceOption } from '../../ui/field/AreaMap';
 import type { MapAreaInfo, MapRegionInfo, WorldMapData } from '../../ui/field/WorldMapOverlay';
 import { isSpecialtyMotif } from './catalogs';

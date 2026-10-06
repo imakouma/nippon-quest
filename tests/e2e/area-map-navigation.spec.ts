@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
-test('歩行中もミニマップが残り、県マップを拡大してドラッグ移動できる', async ({ page }) => {
+test('歩行中も場所名とミニマップが残り、県マップを拡大してドラッグ移動できる', async ({ page }) => {
   test.setTimeout(90_000);
   await page.goto('/?resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
@@ -16,8 +16,13 @@ test('歩行中もミニマップが残り、県マップを拡大してドラ�
   }
   await expect(page.locator('.nq-dlg')).toHaveCount(0);
 
+  const place = page.locator('.nq-fhud-row');
+  await expect(place).toContainText(/青森/);
   await page.keyboard.down('ArrowRight');
   await page.waitForTimeout(80);
+  await expect(place).toBeVisible();
+  await expect(place).toHaveCSS('opacity', '1');
+  await expect(place).toContainText(/青森/);
   await expect(miniMap).toBeVisible();
   await page.keyboard.up('ArrowRight');
 

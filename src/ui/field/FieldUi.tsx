@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
-import { RegionMiniMap, type RegionMiniView } from './AreaMap';
+import { RegionMiniMap, type RegionMiniView } from './RegionMiniMap';
 import './field.css';
 
 export interface FieldHudProps {
@@ -22,8 +22,6 @@ export interface FieldHudProps {
   onMenu: () => void;
   /** 開発者モード（ぜんぶの 場所へ ワープ）。開発サーバーか ?dev のときだけ ボタンを出す */
   dev?: { label: string; on: boolean; onToggle: () => void };
-  /** 止まっている（場所名の窓を出す）。ミニマップは歩行中も表示する。 */
-  idle?: boolean;
 }
 
 export function FieldHud({
@@ -37,12 +35,11 @@ export function FieldHud({
   menuLabel,
   onMenu,
   dev,
-  idle = true,
 }: FieldHudProps) {
   return (
     <div class="nq-fhud">
       <div class="nq-win nq-fhud-loc">
-        <div class={`nq-fhud-row ${idle ? '' : 'nq-fhud-away'}`}>
+        <div class="nq-fhud-row">
           <RubyLabel text={title} class="nq-fhud-title" />
           <RubyLabel text={sub} class="nq-fhud-sub" />
           {stamps && (

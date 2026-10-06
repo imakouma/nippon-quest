@@ -5,7 +5,15 @@ import { TitleScene } from './scenes/entries/title';
 import { ensureGameplayScenes } from './scenes/gameplayLoader';
 import { attachOverlay, STAGE_H, STAGE_W } from './ui/overlay';
 import { createNewGame, type NewGameOptions } from './core/state/newGame';
-import { load, save, storeStartupRetryAction, takeStartupRetryAction, type SlotId } from './core/state/save';
+import {
+  clearStaleChunkReloadChance,
+  load,
+  save,
+  storeStartupRetryAction,
+  takeStaleChunkReloadChance,
+  takeStartupRetryAction,
+  type SlotId,
+} from './core/state/save';
 import { AutosaveCoordinator } from './core/state/autosave';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
@@ -47,7 +55,6 @@ const gameRoot = document.getElementById('game-root')!;
 const uiLayer = document.getElementById('ui-layer')!;
 type RetryAction =
   { type: 'start'; options?: NewGameOptions; slot: SlotId } | { type: 'continue'; slot: SlotId };
-const STALE_CHUNK_RELOAD_KEY = 'nq:stale-chunk-reload';
 
 function reloadForRetry(action: RetryAction): void {
   storeStartupRetryAction(action);
@@ -62,11 +69,7 @@ function reloadStaleChunkOnce(error: unknown, retry: () => void): boolean {
     /Importing a module script failed/i.test(message) ||
     /ChunkLoadError/i.test(message);
   if (!staleChunk) return false;
-  if (sessionStorage.getItem(STALE_CHUNK_RELOAD_KEY)) {
-    sessionStorage.removeItem(STALE_CHUNK_RELOAD_KEY);
-    return false;
-  }
-  sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, '1');
+  if (!takeStaleChunkReloadChance()) return false;
   retry();
   return true;
 }
@@ -170,6 +173,8 @@ function ensureQuestionBank(): Promise<QuestionBank> {
     const files = game.registry.get('questionFiles') as string[];
     const { bank, report } = await QuestionBank.load(files, read);
     if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
+    if (report.omitted)
+      console.warn(`[questions] 表示材料が足りない旧問題を ${report.omitted} 件 除外しました`);
     game.registry.set('bank', bank);
     return bank;
   })().catch((error) => {
@@ -186,7 +191,7 @@ function runTitleAction(label: string, action: () => Promise<void>, retry: () =>
   clearError();
   showLoading(label);
   titleAction = action()
-    .then(() => sessionStorage.removeItem(STALE_CHUNK_RELOAD_KEY))
+    .then(clearStaleChunkReloadChance)
     .catch((error) => {
       if (!reloadStaleChunkOnce(error, retry)) showError(error, retry);
     })
