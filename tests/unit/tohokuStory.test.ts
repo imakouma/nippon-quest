@@ -28,9 +28,8 @@ describe('東北編の節目会話', () => {
     expect(lookup(ja, `field.lastBossAfter.${areaId}`)).toEqual(expect.any(String));
   });
 
-  it('序章で主人公・相棒・ミチルの役割を提示する台詞がそろっている', () => {
+  it('序章で主人公とミチルの役割を提示する台詞がそろっている', () => {
     for (const key of [
-      'field.prologueCompanion.default',
       'field.prologueFairyName',
       'field.prologueKnowledge',
       'field.prologueQuest',
@@ -40,10 +39,10 @@ describe('東北編の節目会話', () => {
     }
   });
 
-  it.each(['aomori-nebutan', 'aomori-maguroad', 'aomori-ringoron'])(
-    '%s に序章と東北終幕の性格別リアクションがある',
+  it.each(['iwate-kagurabi', 'iwate-izumiko', 'iwate-kodamaru'])(
+    '%s に加入時と東北終幕の性格別リアクションがある',
     (monsterId) => {
-      expect(lookup(ja, `field.prologueCompanion.${monsterId}`)).toEqual(expect.any(String));
+      expect(lookup(ja, `field.companionVoice.${monsterId}`)).toEqual(expect.any(String));
       expect(lookup(ja, `field.islandCompanion.${monsterId}`)).toEqual(expect.any(String));
     },
   );

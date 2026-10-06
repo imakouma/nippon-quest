@@ -59,7 +59,7 @@ export function victoryResultView(
     xpFrom: from.ratio,
     xpTo: to.ratio,
     needNext: to.need,
-    recruitName: victory?.recruitOffer ? enemyName : undefined,
+    recruitName: victory?.recruitOffer && game.party.owned.length > 0 ? enemyName : undefined,
     goldLost: 0,
     bonus: victory?.bonus ?? 1,
     maxCombo: victory?.maxCombo ?? 0,

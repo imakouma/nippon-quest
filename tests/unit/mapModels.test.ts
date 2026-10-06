@@ -15,7 +15,7 @@ import type { WorldMapData } from '../../src/ui/field/WorldMapOverlay';
 import { stripRuby } from '../../src/ui/ruby';
 import { content } from './helpers';
 
-const game = () => createNewGame({ name: 'ハル', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1_000);
+const game = () => createNewGame({ name: 'ハル', grade: 3 }, 1_000);
 
 describe('地図表示モデル', () => {
   it('regions プロパティは壊れていても例外にせず、正しい文字列配列だけ受け取る', () => {

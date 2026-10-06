@@ -993,6 +993,26 @@ function glowCanvas(): HTMLCanvasElement {
 /** 中ボスのまわりに立ちのぼる光のつぶ */
 const SPARK = ['.W.', 'WLW', '.W.'];
 
+/** 主人公のそばを飛ぶ妖精ミチル（16×16）。枠を持たず、フィールド上の同行者として描く。 */
+const MICHIRU = [
+  '......Y.........',
+  '.....YYY........',
+  '..C..VVV..C.....',
+  '.CCC.VVV.CCC....',
+  '..CCVVVVVCC.....',
+  '...VSSSSSV......',
+  '...VSNSNSV......',
+  '..CVSSSSSVC.....',
+  '.CCC.VVV.CCC....',
+  '..C..VVV..C.....',
+  '.....VVV........',
+  '....V.V.V.......',
+  '...V...V.V......',
+  '................',
+  '................',
+  '................',
+];
+
 /** フィールドで使うテクスチャをまとめて用意する（何度呼んでもよい） */
 export function buildFieldTextures(scene: Phaser.Scene): void {
   const tx = scene.textures;
@@ -1014,6 +1034,11 @@ export function buildFieldTextures(scene: Phaser.Scene): void {
   addImage(tx, 'fld.boss.glow', glowCanvas());
   addImage(tx, 'fld.boss.spark', gridCanvas(SPARK, { W: NQ.white, L: NQ.lavender }));
   addImage(tx, 'fld.alert', gridCanvas(ALERT, { W: NQ.white, R: NQ.red }));
+  addImage(
+    tx,
+    'fld.michiru',
+    gridCanvas(MICHIRU, { Y: NQ.gold, C: NQ.sky, V: NQ.violet, S: NQ.skinLight, N: NQ.night }),
+  );
   addImage(tx, 'fld.boss.q', gridCanvas(BOSS_Q, { V: NQ.violet, W: NQ.white }));
   addImage(tx, 'fld.shadow', gridCanvas(SHADOW, {}));
   addImage(tx, 'fld.plate', gridCanvas(PLATE, { B: NQ.sand }));

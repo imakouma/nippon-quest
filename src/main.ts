@@ -13,7 +13,7 @@ import { bundledFetchReader } from './core/content/loader';
 import { QuestionBank } from './questions/engine/bank';
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
-const DEV_NEW_GAME = { name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 } as const;
+const DEV_NEW_GAME = { name: 'ハル', grade: 1 } as const;
 const PLAY_DATE_FORMATTER = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Asia/Tokyo',
   year: 'numeric',
@@ -47,10 +47,28 @@ const gameRoot = document.getElementById('game-root')!;
 const uiLayer = document.getElementById('ui-layer')!;
 type RetryAction =
   { type: 'start'; options?: NewGameOptions; slot: SlotId } | { type: 'continue'; slot: SlotId };
+const STALE_CHUNK_RELOAD_KEY = 'nq:stale-chunk-reload';
 
 function reloadForRetry(action: RetryAction): void {
   storeStartupRetryAction(action);
   location.reload();
+}
+
+/** 再ビルドで古いハッシュ付き JS が消えた場合だけ、一度だけ最新版へ自動更新する。 */
+function reloadStaleChunkOnce(error: unknown, retry: () => void): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  const staleChunk =
+    /Failed to fetch dynamically imported module/i.test(message) ||
+    /Importing a module script failed/i.test(message) ||
+    /ChunkLoadError/i.test(message);
+  if (!staleChunk) return false;
+  if (sessionStorage.getItem(STALE_CHUNK_RELOAD_KEY)) {
+    sessionStorage.removeItem(STALE_CHUNK_RELOAD_KEY);
+    return false;
+  }
+  sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, '1');
+  retry();
+  return true;
 }
 
 const loading = document.createElement('div');
@@ -168,7 +186,10 @@ function runTitleAction(label: string, action: () => Promise<void>, retry: () =>
   clearError();
   showLoading(label);
   titleAction = action()
-    .catch((error) => showError(error, retry))
+    .then(() => sessionStorage.removeItem(STALE_CHUNK_RELOAD_KEY))
+    .catch((error) => {
+      if (!reloadStaleChunkOnce(error, retry)) showError(error, retry);
+    })
     .finally(() => {
       titleAction = null;
     });

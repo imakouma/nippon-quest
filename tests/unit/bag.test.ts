@@ -17,6 +17,7 @@ import {
   toggleBagMonster,
 } from '../../src/core/progression/bag';
 import { createNewGame } from '../../src/core/state/newGame';
+import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
 import type { GameState } from '../../src/core/state/schema';
 import { bagCells } from '../../src/ui/field/bagLayout';
 import { content } from './helpers';
@@ -25,7 +26,7 @@ let c: ContentIndex;
 beforeAll(async () => {
   c = await content();
 });
-const fresh = () => createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
+const fresh = () => chooseStoryCompanion(createNewGame({ name: 'テスト', grade: 3 }, 1000), 'iwate-kagurabi');
 const own = (s: GameState, uid: string, monsterId = 'aomori-ringoron') => {
   s.party.owned.push({ uid, monsterId, level: 1, xp: 0 });
   return s;
@@ -43,19 +44,19 @@ describe('2Dバッグ', () => {
     expect(bagDimensions(s)).toEqual({ w: 4, h: 3 });
   });
 
-  it('主人公とスターターが初期グリッドに入り、空きは2マス', () => {
+  it('主人公と物語で選んだ相棒がグリッドに入り、空きは2マス', () => {
     const s = fresh();
     expect(s.party.bagPlacements.hero).toMatchObject({ x: 0, y: 0 });
-    expect(s.party.bagPlacements['mon:starter']).toMatchObject({ x: 1, y: 0 });
+    expect(s.party.bagPlacements['mon:story-companion']).toMatchObject({ x: 1, y: 0 });
     expect(bagUsage(s, bagContext(s, c))).toMatchObject({ used: 2, capacity: 4, free: 2 });
   });
 
   it('ドラッグ相当の移動は衝突と境界を検査する', () => {
     const s = fresh();
     const ctx = bagContext(s, c);
-    expect(moveBagThing(s, 'mon:starter', { x: 0, y: 0 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'mon:story-companion', { x: 0, y: 0 }, ctx)).toBeNull();
     expect(
-      moveBagThing(s, 'mon:starter', { x: 1, y: 1 }, ctx)?.party.bagPlacements['mon:starter'],
+      moveBagThing(s, 'mon:story-companion', { x: 1, y: 1 }, ctx)?.party.bagPlacements['mon:story-companion'],
     ).toMatchObject({ x: 1, y: 1 });
   });
 
@@ -64,13 +65,13 @@ describe('2Dバッグ', () => {
     own(s, 'outside');
     const ctx = bagContext(s, c);
 
-    expect(moveBagThing(s, 'mon:starter', { x: Number.NaN, y: 1 }, ctx)).toBeNull();
-    expect(moveBagThing(s, 'mon:starter', { x: 0.5, y: 1 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'mon:story-companion', { x: Number.NaN, y: 1 }, ctx)).toBeNull();
+    expect(moveBagThing(s, 'mon:story-companion', { x: 0.5, y: 1 }, ctx)).toBeNull();
     expect(moveBagThing(s, 'eq:not-a-slot', { x: 0, y: 1 }, ctx)).toBeNull();
     expect(moveBagThing(s, 'mon:outside', { x: 0, y: 1 }, ctx)).toBeNull();
     expect(s.party.bagPlacements).toEqual({
       hero: { x: 0, y: 0, rotated: false },
-      'mon:starter': { x: 1, y: 0, rotated: false },
+      'mon:story-companion': { x: 1, y: 0, rotated: false },
     });
   });
 
@@ -83,17 +84,17 @@ describe('2Dバッグ', () => {
 describe('バッグ内と控え', () => {
   it('バッグから出すと控えになり、戦闘ロスターには残る', () => {
     const s = fresh();
-    const out = toggleBagMonster(s, 'starter', bagContext(s, c));
+    const out = toggleBagMonster(s, 'story-companion', bagContext(s, c));
     expect(out.result).toBe('removed');
     expect(bagMonsterUids(out.state)).toEqual([]);
-    expect(reserveMonsterUids(out.state)).toEqual(['starter']);
-    expect(battleRosterUids(out.state)).toEqual(['starter']);
-    expect(partyFromGameState(out.state, c).monsters.map((m) => m.id)).toEqual(['starter']);
+    expect(reserveMonsterUids(out.state)).toEqual(['story-companion']);
+    expect(battleRosterUids(out.state)).toEqual(['story-companion']);
+    expect(partyFromGameState(out.state, c).monsters.map((m) => m.id)).toEqual(['story-companion']);
   });
 
   it('主人公を含め最大8体（仲間7体）まで編成する', () => {
     let s = fresh();
-    s = toggleBagMonster(s, 'starter', bagContext(s, c)).state;
+    s = toggleBagMonster(s, 'story-companion', bagContext(s, c)).state;
     for (let i = 1; i <= MAX_COMPANIONS; i++) {
       own(s, `m${i}`);
       const stowed = stowNewMonster(s, `m${i}`, bagContext(s, c));
@@ -107,10 +108,10 @@ describe('バッグ内と控え', () => {
 
   it('同じ仲間の再収納は配置を変えず、存在しないUIDを控えへ追加しない', () => {
     const s = fresh();
-    const same = stowNewMonster(s, 'starter', bagContext(s, c));
+    const same = stowNewMonster(s, 'story-companion', bagContext(s, c));
     expect(same.state).toBe(s);
     expect(same.inBag).toBe(true);
-    expect(same.state.party.team).toEqual(['starter']);
+    expect(same.state.party.team).toEqual(['story-companion']);
 
     const missing = stowNewMonster(s, 'missing', bagContext(s, c));
     expect(missing.state).toBe(s);

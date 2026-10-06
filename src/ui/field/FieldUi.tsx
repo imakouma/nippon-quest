@@ -17,9 +17,6 @@ export interface FieldHudProps {
   map: RegionMiniView | null;
   mapLabel: string;
   onAreaMap: () => void;
-  /** チーム編成（なかま）の画面をひらく */
-  partyLabel: string;
-  onParty: () => void;
   /** メニュー（ずかん・どうぐ・そうび）を ひらく */
   menuLabel: string;
   onMenu: () => void;
@@ -37,8 +34,6 @@ export function FieldHud({
   map,
   mapLabel,
   onAreaMap,
-  partyLabel,
-  onParty,
   menuLabel,
   onMenu,
   dev,
@@ -74,10 +69,6 @@ export function FieldHud({
         <button type="button" class="nq-win nq-fhud-btn" onClick={onMenu}>
           <PixelIcon name="role-shop" scale={3} />
           {menuLabel}
-        </button>
-        <button type="button" class="nq-win nq-fhud-btn" onClick={onParty}>
-          <PixelIcon name="cmd-item" scale={3} />
-          {partyLabel}
         </button>
         {/* にほんちずは 左上の地図（ひらいた地図の「にほんちず」ボタン）から */}
       </div>

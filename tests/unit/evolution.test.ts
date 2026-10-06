@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { evolutionOf, evolve } from '../../src/core/progression/evolution';
 import { createNewGame } from '../../src/core/state/newGame';
+import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
 
 describe('しんか', () => {
   it('ネブタイショウは しんかの お守りを かならず おとす', async () => {
@@ -14,7 +15,8 @@ describe('しんか', () => {
 
   it('お守りがあると ネブタンが ネブタムシャに しんかし、お守りが 1 つ へる', async () => {
     const c = await content();
-    const gs = createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 });
+    const gs = chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 1 }), 'iwate-kagurabi');
+    gs.party.owned[0]!.monsterId = 'aomori-nebutan';
     const owned = gs.party.owned[0]!;
     expect(owned.monsterId).toBe('aomori-nebutan');
     // お守りが無いうちは しんかできない
@@ -36,7 +38,8 @@ describe('しんか', () => {
 
   it('ネブタムシャは ねぶたの灯りを 3 こ つかって ネブタイショウに しんかする（2 こでは できない）', async () => {
     const c = await content();
-    const gs = createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 });
+    const gs = chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 1 }), 'iwate-kagurabi');
+    gs.party.owned[0]!.monsterId = 'aomori-nebutan';
     const owned = { ...gs.party.owned[0]!, monsterId: 'aomori-nebuta-musha' };
     const base = { ...gs, party: { ...gs.party, owned: [owned] } };
     const two = { ...base, inventory: { ...base.inventory, 'aomori-nebuta-no-akari': 2 } };
@@ -56,7 +59,8 @@ describe('しんか', () => {
 
   it('しんかしないモンスターは null', async () => {
     const c = await content();
-    const gs = createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 });
+    const gs = chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 1 }), 'iwate-kagurabi');
+    gs.party.owned[0]!.monsterId = 'aomori-nebutan';
     // しんかの さいごの すがた（リンゴロンなど 東北の 通常モンスターは みんな しんかする）
     const owned = { ...gs.party.owned[0]!, monsterId: 'aomori-nebuta-taisho' };
     expect(evolutionOf(gs, owned, c.monsters)).toBeNull();

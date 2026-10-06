@@ -8,7 +8,7 @@
 import Phaser from 'phaser';
 import { h, render } from 'preact';
 import { createRng } from '../core/rng';
-import { SLOTS, summaries, type SlotId, type SlotSummary } from '../core/state/save';
+import { remove, SLOTS, summaries, type SlotId, type SlotSummary } from '../core/state/save';
 import type { GameState } from '../core/state/schema';
 import { PIXEL_FONT, PIXEL_FONT_NAME } from '../ui/fonts';
 import { t } from '../ui/i18n';
@@ -267,6 +267,16 @@ export class TitleScene extends Phaser.Scene {
 
   private async checkSave(): Promise<void> {
     try {
+      const params = new URLSearchParams(location.search);
+      if (import.meta.env.DEV && params.has('resetSaves')) {
+        await Promise.all(SLOTS.map((slot) => remove(slot)));
+        params.delete('resetSaves');
+        history.replaceState(
+          null,
+          '',
+          `${location.pathname}${params.size ? `?${params}` : ''}${location.hash}`,
+        );
+      }
       this.slots = await summaries();
       this.hasSave = this.slots.some((slot) => slot.exists);
     } catch (error) {

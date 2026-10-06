@@ -57,7 +57,7 @@
 
 | id | 名前 | 教科 | 学年 | power | 属性 | 入手 |
 |---|---|---|---|---|---|---|
-| `sk-tashizan-giri` | たしざんぎり | sansu | 1〜1 | 120 | none | 初期（スターター） |
+| `sk-tashizan-giri` | たしざんぎり | sansu | 1〜1 | 120 | none | 主人公の初期技 |
 | `sk-happa-cutter` | はっぱカッター | seikatsu | 1〜2 | 110 | mori | リンゴロン仲間 |
 | `sk-abc-shout` | ABCシャウト | eigo | 1〜3 | 115 | kaze | 津軽海峡イベント |
 | `sk-shiraberu` | しらべる | rika | 3〜6 | 0 | none（effect: scan） | 十和田湖イベント |

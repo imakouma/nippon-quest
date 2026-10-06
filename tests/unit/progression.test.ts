@@ -8,7 +8,7 @@ import { midBossFlag, motifStamp, nextStop } from '../../src/core/progression/ro
 import { canChallengeIslandBoss, completeIsland, hasAllAreaSigns } from '../../src/core/progression/island';
 import { applyReward, markDone, pickReward } from '../../src/core/progression/eventReward';
 
-const newGame = () => createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 }, 0);
+const newGame = () => createNewGame({ name: 'ハル', grade: 1 }, 0);
 
 describe('中ボスを倒したあとのワープ先', () => {
   it('同じ島の次の県のフィールドへ（順番は world/japan.json）', async () => {

@@ -45,7 +45,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeVisible({ timeout: 20_000 });
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await expect(page.getByRole('button', { name: /スロット 3 テスト/ })).toBeVisible();
-  await page.getByRole('button', { name: /スロット 3 テスト/ }).click();
+  await expect(page.getByRole('button', { name: /スロット 3 Lv/ })).toBeVisible();
+  await page.getByRole('button', { name: /スロット 3 Lv/ }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 20_000 });
 });

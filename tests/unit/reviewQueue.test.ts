@@ -11,7 +11,7 @@ const bank = {
 
 describe('宿屋の復習キュー', () => {
   it('直近の誤答の後に、原因を切り分ける別問題を入れる', () => {
-    const game = createNewGame({ name: 'テスト', starterMonsterId: 'aomori-ringoron', grade: 1 });
+    const game = createNewGame({ name: 'テスト', grade: 1 });
     game.learning.mistakes = ['sansu.g1.tashizan.0002'];
     game.learning.attempts.push({
       id: 'attempt-1',
@@ -37,7 +37,7 @@ describe('宿屋の復習キュー', () => {
   });
 
   it('問題バンクに無い候補を出さない', () => {
-    const game = createNewGame({ name: 'テスト', starterMonsterId: 'aomori-ringoron', grade: 1 });
+    const game = createNewGame({ name: 'テスト', grade: 1 });
     game.learning.mistakes = ['missing'];
     expect(buildReviewQueue(game, bank, 2)).toEqual([]);
   });

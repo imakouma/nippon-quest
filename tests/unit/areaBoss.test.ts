@@ -5,6 +5,7 @@ import { loadContent, type ContentIndex } from '../../src/core/content/loader';
 import { earnAreaSign } from '../../src/core/progression/eventReward';
 import { areaBossFlag } from '../../src/core/progression/route';
 import { createNewGame } from '../../src/core/state/newGame';
+import { STORY_COMPANION_IDS } from '../../src/core/progression/storyCompanion';
 import { act, createBattle } from '../../src/core/battle/engine';
 import { makeHero, makeMonster, makeParty } from '../../src/core/battle/factory';
 import { content, deps, read } from './helpers';
@@ -26,7 +27,7 @@ beforeAll(async () => {
 
 describe('県ボス（ダンジョンの おく）', () => {
   it('倒すと 県のしるし と ボスの しるし が つく（2 回目は ふえない。元の GameState は 書きかえない）', () => {
-    const gs = createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 3 });
+    const gs = createNewGame({ name: 'ハル', grade: 3 });
     const once = earnAreaSign(gs, 'aomori');
     const twice = earnAreaSign(once, 'aomori');
     expect(once.progress.areaSigns).toEqual(['aomori']);
@@ -62,6 +63,7 @@ describe('しんか', () => {
     );
     for (const m of c.monsters.values()) {
       if (!c.areas.has(m.area) || m.isBoss) continue;
+      if (STORY_COMPANION_IDS.includes(m.id as (typeof STORY_COMPANION_IDS)[number])) continue;
       if (evolved.has(m.id)) expect(encountered.has(m.id), m.id).toBe(false);
       else expect(m.evolution, m.id).toBeDefined();
     }

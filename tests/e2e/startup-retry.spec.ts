@@ -27,7 +27,13 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
   await expect(retry).toHaveCount(0);
 });
 
-test('ゲームSceneの初回読込に失敗しても、入力を保って再試行できる', async ({ page }) => {
+test('再ビルドで古いゲームSceneが消えても、続きからを保って自動復帰できる', async ({ page }) => {
+  await page.goto('/?resetSaves=1');
+  await page.getByRole('menuitem', { name: /はじめから/ }).click();
+  await page.getByRole('button', { name: /スロット 2/ }).click();
+  await completeNewGameSetup(page, 'リトライ');
+  await expect(page.getByRole('button', { name: /ちずを ひらく/ })).toBeVisible({ timeout: 30_000 });
+
   let failedOnce = false;
   await page.route(/\/assets\/(?:overworld|battle)-.+\.js$/i, async (route) => {
     if (!failedOnce) {
@@ -37,16 +43,11 @@ test('ゲームSceneの初回読込に失敗しても、入力を保って再試
     }
     await route.continue();
   });
-
-  await page.goto('/');
-  await page.getByRole('menuitem', { name: /はじめから/ }).click();
-  await page.getByRole('button', { name: /スロット 2/ }).click();
-  await completeNewGameSetup(page, 'リトライ');
+  await page.reload();
+  await page.getByRole('menuitem', { name: /つづきから/ }).click();
+  await page.getByRole('button', { name: /スロット 2 Lv/ }).click();
 
   const retry = page.getByRole('button', { name: 'もういちど' });
-  await expect(retry).toBeVisible({ timeout: 20_000 });
-  await retry.click();
-
   await expect(page.getByRole('button', { name: /ちずを ひらく/ })).toBeVisible({ timeout: 30_000 });
   await expect(retry).toHaveCount(0);
 });

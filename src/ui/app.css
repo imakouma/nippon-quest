@@ -275,6 +275,8 @@ body {
   inset: 0;
   z-index: 100;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .nq-dlg-box {
   position: absolute;

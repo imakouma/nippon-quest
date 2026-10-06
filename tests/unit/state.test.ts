@@ -4,7 +4,7 @@ import { migrate } from '../../src/core/state/migrations';
 import { SCHEMA_VERSION, gameStateSchema } from '../../src/core/state/schema';
 import { exportJson, importJson, summarizeSlot } from '../../src/core/state/save';
 
-const fresh = () => createNewGame({ name: 'ハル', starterMonsterId: 'aomori-ringoron', grade: 3 });
+const fresh = () => createNewGame({ name: 'ハル', grade: 3 });
 
 describe('GameState', () => {
   it('新規ゲームがスキーマを満たす', () => {

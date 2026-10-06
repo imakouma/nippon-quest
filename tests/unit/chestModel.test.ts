@@ -6,7 +6,7 @@ import { content } from './helpers';
 describe('宝箱表示モデル', () => {
   it('通常宝箱は content のアイテム名とセーブ済みの開封状態を使う', async () => {
     const c = await content();
-    const game = createNewGame({ name: 'ハル', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1);
+    const game = createNewGame({ name: 'ハル', grade: 3 }, 1);
     game.progress.chestsOpened.push('aomori-town:chest_1');
     const chest = chestModel({
       mapKey: 'aomori-town',
@@ -30,7 +30,7 @@ describe('宝箱表示モデル', () => {
   it('特産品宝箱は図鑑スタンプを開封状態として使う', async () => {
     const c = await content();
     const area = c.areas.get('aomori')!;
-    const game = createNewGame({ name: 'ハル', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1);
+    const game = createNewGame({ name: 'ハル', grade: 3 }, 1);
     game.dex.motifs.push('aomori.ringo');
     const chest = specialtyChestModel({
       mapKey: 'aomori-field',

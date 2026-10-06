@@ -5,7 +5,7 @@ import type { GameState } from '../../src/core/state/schema';
 import type { SlotId } from '../../src/core/state/slots';
 
 const state = (gold: number) => {
-  const value = createNewGame({ name: 'ハル', starterMonsterId: 'aomori-ringoron', grade: 3 });
+  const value = createNewGame({ name: 'ハル', grade: 3 });
   value.player.gold = gold;
   return value;
 };

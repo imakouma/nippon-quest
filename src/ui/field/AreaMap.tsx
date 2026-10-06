@@ -118,7 +118,8 @@ const TILE_COLOR: Record<number, string> = {
 /** 左上の小さな地図（地方）の 1 マスの最小（px）。ふつうは いまいる県が入る大きさに拡大する */
 const MINI = 2;
 /** 大きな地図の枠の内側（.nq-wmap-view と同じ 400px） */
-const VIEW = 400;
+/** 県マップは見出しと操作バーを含めて540pxの画面内に収める。 */
+const AREA_VIEW = 344;
 
 /**
  * 地形を 1 マス = 1 ドットでかく（CSS で整数倍に広げる）。
@@ -355,10 +356,66 @@ export function AreaMapOverlay({
   onWorldMap,
   onClose,
 }: AreaMapOverlayProps) {
-  const cell = Math.max(2, Math.floor(Math.min(VIEW / map.width, VIEW / map.height)));
+  const cell = Math.max(2, Math.floor(Math.min(AREA_VIEW / map.width, AREA_VIEW / map.height)));
+  const mapWidth = map.width * cell;
+  const mapHeight = map.height * cell;
   const ref = useTerrain(map);
   const [sel, setSel] = useState(0);
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
   const place = places[sel];
+  const drag = useRef({ pointerId: -1, x: 0, y: 0, panX: 0, panY: 0, moved: false });
+  const view = useRef({ zoom, pan });
+  view.current = { zoom, pan };
+  const gesture = useRef({
+    pointers: new Map<number, { x: number; y: number }>(),
+    distance: 0,
+    zoom: 1,
+    centerX: 0,
+    centerY: 0,
+    panX: 0,
+    panY: 0,
+  });
+
+  const clampPan = (next: { x: number; y: number }, atZoom = zoom) => {
+    const maxX = Math.max(0, (mapWidth * atZoom - AREA_VIEW) / 2);
+    const maxY = Math.max(0, (mapHeight * atZoom - AREA_VIEW) / 2);
+    return {
+      x: Math.max(-maxX, Math.min(maxX, next.x)),
+      y: Math.max(-maxY, Math.min(maxY, next.y)),
+    };
+  };
+  const changeZoom = (next: number) => {
+    const level = Math.max(1, Math.min(3, next));
+    playSfx('move');
+    setZoom(level);
+    setPan((current) => clampPan(current, level));
+  };
+  const zoomAt = (next: number, x: number, y: number) => {
+    const current = view.current;
+    const level = Math.max(1, Math.min(3, next));
+    if (level === current.zoom) return;
+    const ratio = level / current.zoom;
+    const focused = {
+      x: x - AREA_VIEW / 2,
+      y: y - AREA_VIEW / 2,
+    };
+    const nextPan = clampPan(
+      {
+        x: focused.x - (focused.x - current.pan.x) * ratio,
+        y: focused.y - (focused.y - current.pan.y) * ratio,
+      },
+      level,
+    );
+    view.current = { zoom: level, pan: nextPan };
+    setZoom(level);
+    setPan(nextPan);
+  };
+  const resetView = () => {
+    playSfx('move');
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  };
 
   // 県のまわりの地方の地図：いまいる県の範囲（地方のマス focus）が、フィールドの陸の範囲（land）に重なるように のばす
   const regionRef = useRef<HTMLCanvasElement>(null);
@@ -429,6 +486,10 @@ export function AreaMapOverlay({
 
   /** 地図をタップ：いちばん近い場所（2 マス以内）をえらぶ。#ui-layer は拡大縮小されているので見た目の大きさで割りもどす */
   const onMapClick = (e: MouseEvent) => {
+    if (drag.current.moved) {
+      drag.current.moved = false;
+      return;
+    }
     const el = e.currentTarget as HTMLElement;
     const box = el.getBoundingClientRect();
     const x = ((e.clientX - box.left) * el.offsetWidth) / box.width / cell;
@@ -446,6 +507,115 @@ export function AreaMapOverlay({
     if (best >= 0) pick(best);
   };
 
+  const onMapPointerDown = (e: PointerEvent) => {
+    if (e.button !== 0) return;
+    const el = e.currentTarget as HTMLElement;
+    el.setPointerCapture(e.pointerId);
+    const points = gesture.current.pointers;
+    points.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (points.size === 2) {
+      const [a, b] = [...points.values()];
+      if (!a || !b) return;
+      gesture.current.distance = Math.hypot(a.x - b.x, a.y - b.y);
+      gesture.current.zoom = view.current.zoom;
+      gesture.current.centerX = (a.x + b.x) / 2;
+      gesture.current.centerY = (a.y + b.y) / 2;
+      gesture.current.panX = view.current.pan.x;
+      gesture.current.panY = view.current.pan.y;
+      drag.current.moved = true;
+      return;
+    }
+    drag.current = {
+      pointerId: e.pointerId,
+      x: e.clientX,
+      y: e.clientY,
+      panX: pan.x,
+      panY: pan.y,
+      moved: false,
+    };
+  };
+  const onMapPointerMove = (e: PointerEvent) => {
+    const points = gesture.current.pointers;
+    if (!points.has(e.pointerId)) return;
+    points.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (points.size >= 2) {
+      const [a, b] = [...points.values()];
+      if (!a || !b || gesture.current.distance <= 0) return;
+      const el = e.currentTarget as HTMLElement;
+      const box = el.getBoundingClientRect();
+      const scaleX = el.offsetWidth / box.width;
+      const scaleY = el.offsetHeight / box.height;
+      const centerX = (a.x + b.x) / 2;
+      const centerY = (a.y + b.y) / 2;
+      const level = Math.max(
+        1,
+        Math.min(3, gesture.current.zoom * (Math.hypot(a.x - b.x, a.y - b.y) / gesture.current.distance)),
+      );
+      const nextPan = clampPan(
+        {
+          x: gesture.current.panX + (centerX - gesture.current.centerX) * scaleX,
+          y: gesture.current.panY + (centerY - gesture.current.centerY) * scaleY,
+        },
+        level,
+      );
+      view.current = { zoom: level, pan: nextPan };
+      setZoom(level);
+      setPan(nextPan);
+      drag.current.moved = true;
+      return;
+    }
+    const start = drag.current;
+    if (start.pointerId !== e.pointerId) return;
+    const el = e.currentTarget as HTMLElement;
+    const box = el.getBoundingClientRect();
+    const scaleX = el.offsetWidth / box.width;
+    const scaleY = el.offsetHeight / box.height;
+    const dx = (e.clientX - start.x) * scaleX;
+    const dy = (e.clientY - start.y) * scaleY;
+    if (Math.abs(dx) + Math.abs(dy) > 4) start.moved = true;
+    setPan(clampPan({ x: start.panX + dx, y: start.panY + dy }));
+  };
+  const onMapPointerUp = (e: PointerEvent) => {
+    const points = gesture.current.pointers;
+    points.delete(e.pointerId);
+    if (points.size === 1) {
+      const [pointerId, point] = [...points.entries()][0] ?? [];
+      if (pointerId !== undefined && point) {
+        drag.current = {
+          pointerId,
+          x: point.x,
+          y: point.y,
+          panX: view.current.pan.x,
+          panY: view.current.pan.y,
+          moved: true,
+        };
+      }
+      return;
+    }
+    if (drag.current.pointerId === e.pointerId || points.size === 0) drag.current.pointerId = -1;
+  };
+  const onMapWheel = (e: WheelEvent) => {
+    e.preventDefault();
+    const el = e.currentTarget as HTMLElement;
+    const box = el.getBoundingClientRect();
+    const scaleX = el.offsetWidth / box.width;
+    const scaleY = el.offsetHeight / box.height;
+    const isPinch = e.ctrlKey || e.metaKey;
+    const isMouseWheel = !isPinch && Math.abs(e.deltaX) < 1 && Math.abs(e.deltaY) >= 50;
+    if (isPinch || isMouseWheel) {
+      const amount = isPinch ? -e.deltaY * 0.005 : e.deltaY < 0 ? 0.5 : -0.5;
+      zoomAt(view.current.zoom + amount, (e.clientX - box.left) * scaleX, (e.clientY - box.top) * scaleY);
+      return;
+    }
+    const nextPan = clampPan({
+      x: view.current.pan.x - e.deltaX * scaleX,
+      y: view.current.pan.y - e.deltaY * scaleY,
+    });
+    view.current = { zoom: view.current.zoom, pan: nextPan };
+    setPan(nextPan);
+    drag.current.moved = true;
+  };
+
   return (
     <div class="nq-wmap" onClick={onClose}>
       <div class="nq-win nq-wmap-box" onClick={(e) => e.stopPropagation()}>
@@ -457,11 +627,50 @@ export function AreaMapOverlay({
               {worldLabel}
             </button>
           </div>
-          {regionBox && <span class="nq-amap-legend">{t('field.areaMapLegend')}</span>}
-          <div class="nq-wmap-view nq-amap-view">
+          <div class="nq-amap-tools">
+            <div class="nq-amap-zoom-group">
+              <button
+                type="button"
+                class="nq-wmap-arrow"
+                aria-label={t('field.areaMapZoomOut')}
+                disabled={zoom === 1}
+                onClick={() => changeZoom(zoom - 0.5)}
+              >
+                −
+              </button>
+              <span class="nq-amap-zoom-value" aria-live="polite">
+                {Math.round(zoom * 100)}%
+              </span>
+              <button
+                type="button"
+                class="nq-wmap-arrow"
+                aria-label={t('field.areaMapZoomIn')}
+                disabled={zoom === 3}
+                onClick={() => changeZoom(zoom + 0.5)}
+              >
+                ＋
+              </button>
+              <button type="button" class="nq-opt nq-amap-reset" onClick={resetView}>
+                {t('field.areaMapReset')}
+              </button>
+            </div>
+            {regionBox && <span class="nq-amap-legend">{t('field.areaMapLegend')}</span>}
+          </div>
+          <div
+            class={`nq-wmap-view nq-amap-view ${zoom > 1 ? 'nq-amap-pannable' : ''}`}
+            onPointerDown={onMapPointerDown}
+            onPointerMove={onMapPointerMove}
+            onPointerUp={onMapPointerUp}
+            onPointerCancel={onMapPointerUp}
+            onWheel={onMapWheel}
+          >
             <div
               class="nq-wmap-canvas"
-              style={{ width: map.width * cell, height: map.height * cell }}
+              style={{
+                width: mapWidth,
+                height: mapHeight,
+                transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+              }}
               onClick={onMapClick}
             >
               {regionBox && <canvas ref={regionRef} class="nq-amap-region" style={regionBox} />}
@@ -479,6 +688,7 @@ export function AreaMapOverlay({
               )}
             </div>
           </div>
+          {zoom > 1 && <span class="nq-amap-pan-hint">{t('field.areaMapPanHint')}</span>}
         </div>
 
         <div class="nq-wmap-right">

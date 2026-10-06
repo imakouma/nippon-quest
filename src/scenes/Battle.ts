@@ -598,6 +598,7 @@ export class BattleScene extends Phaser.Scene {
   private canRecruit(): boolean {
     const s = this.state;
     return (
+      this.gs.party.owned.length > 0 &&
       !s.isBossBattle &&
       this.enemyDef.recruitRate > 0 &&
       s.enemy.hp > 0 &&
@@ -1669,7 +1670,10 @@ export class BattleScene extends Phaser.Scene {
 
   private async finish(): Promise<void> {
     const s = this.state;
-    const v = this.victory;
+    const v =
+      this.gs.party.owned.length === 0 && this.victory
+        ? { ...this.victory, recruitOffer: false }
+        : this.victory;
     const summary = battleSummary(s, v, this.perfectBySubject);
     const outcome = summary.outcome;
 

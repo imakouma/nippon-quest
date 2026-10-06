@@ -9,8 +9,8 @@
   },
   "packageManager": "pnpm@10.28.0",
   "scripts": {
-    "predev": "pnpm gen:manifest",
-    "dev": "vite",
+    "dev": "pnpm build && vite preview --host 127.0.0.1 --port 5173 --strictPort",
+    "dev:hmr": "pnpm gen:manifest && vite --host 127.0.0.1 --port 5173 --strictPort",
     "nrd": "npm run dev",
     "prebuild": "pnpm gen:manifest && pnpm gen:schemas && pnpm validate:content",
     "build": "tsc --noEmit && vite build",

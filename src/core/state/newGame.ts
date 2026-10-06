@@ -5,7 +5,6 @@ import { SCHEMA_VERSION, type GameState } from './schema';
 export interface NewGameOptions {
   name: string;
   appearance?: { hair: number; skin: number; cloth: number };
-  starterMonsterId: string;
   grade: Grade;
 }
 
@@ -29,13 +28,12 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       mp: 10,
     },
     party: {
-      owned: [{ uid: 'starter', monsterId: o.starterMonsterId, level: 1, xp: 0 }],
-      activeUid: 'starter',
-      team: ['starter'],
+      owned: [],
+      activeUid: null,
+      team: [],
       reserve: [],
       bagPlacements: {
         hero: { x: 0, y: 0, rotated: false },
-        'mon:starter': { x: 1, y: 0, rotated: false },
       },
     },
     inventory: {},

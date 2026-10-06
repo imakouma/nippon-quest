@@ -10,7 +10,7 @@ import { battleFrames, heroCostumeIds, heroKey, heroLook, walkFrames } from '../
 import { COSTUME_ART, HERO_FRAME } from '../../src/rendering/costumes';
 import { NQ48 } from '../../src/rendering/palette';
 
-const fresh = () => createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
+const fresh = () => createNewGame({ name: 'テスト', grade: 3 }, 1000);
 const MELON = 'hokkaido-meisan-yubari-melon';
 
 /** にほんちずの ★（public/worldmap.json と 同じ 数え方） */

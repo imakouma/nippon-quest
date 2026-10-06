@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { applyBattleResult, type BattleSummary } from '../../src/core/progression/battleResult';
 import { settleBattleBag } from '../../src/core/progression/battleSettlement';
 import { createNewGame } from '../../src/core/state/newGame';
+import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
 import { content } from './helpers';
 
 const summary = (overrides: Partial<BattleSummary> = {}): BattleSummary => ({
@@ -24,7 +25,7 @@ const summary = (overrides: Partial<BattleSummary> = {}): BattleSummary => ({
 describe('バトル後のバッグ編成', () => {
   it('経験値後のレベルと、仲間になったモンスターの配置を純粋に決める', async () => {
     const c = await content();
-    const before = createNewGame({ name: 'ハル', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1_000);
+    const before = chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 3 }, 1_000), 'iwate-kagurabi');
     const applied = applyBattleResult(before, summary({ outcome: 'recruited' }), c.settings, 2_000);
     const settled = settleBattleBag(before, applied, c);
     expect(settled.level).toMatchObject({ before: 1, after: 1, bagGrew: false });

@@ -5,7 +5,7 @@
  */
 import { Component } from 'preact';
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
-import type { MenuEntry, MenuTab, RoadmapNode } from '../../shared/menuModel';
+import type { MenuEntry, MenuHomeKey, MenuTab, RoadmapNode } from '../../shared/menuModel';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
@@ -18,7 +18,7 @@ export type { MenuEntry, MenuTab, RoadmapNode } from '../../shared/menuModel';
 export interface MenuOverlayProps {
   tab: MenuTab;
   /** group があると、その なかまの さいしょの タブの 前に 小さな 見出し（「ずかん」）を出す */
-  tabs: { key: MenuTab; label: string; icon: string; count?: string; group?: string }[];
+  tabs: { key: MenuHomeKey; label: string; icon: string; count?: string; group?: string }[];
   entries: MenuEntry[];
   roadmap?: RoadmapNode[];
   /** リストの上に出す 行（そうびの タブの ステータス など） */
@@ -28,6 +28,7 @@ export interface MenuOverlayProps {
   focusKey?: string;
   keys: string;
   onTab: (tab: MenuTab) => void;
+  onBag: () => void;
   onAct: (key: string) => void;
   onParent: () => void;
   onClose: () => void;
@@ -83,6 +84,7 @@ export function MenuOverlay({
   focusKey,
   keys,
   onTab,
+  onBag,
   onAct,
   onParent,
   onClose,
@@ -136,6 +138,10 @@ export function MenuOverlay({
     if (!next) return;
     playSfx('select');
     setHomeSel(index);
+    if (next.key === 'party') {
+      onBag();
+      return;
+    }
     setHome(false);
     if (next.key !== tab) onTab(next.key);
   };

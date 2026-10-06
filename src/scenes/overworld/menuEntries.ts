@@ -3,7 +3,7 @@ import type { Item, Monster, Motif } from '../../core/content/schemas';
 import { canUse, EQUIP_SLOTS, isEquip } from '../../core/progression/inventory';
 import type { GameState } from '../../core/state/schema';
 import type { QuestionBank } from '../../questions/engine';
-import type { MenuEntry, MenuTab } from '../../shared/menuModel';
+import type { MenuEntry, MenuHomeKey, MenuTab } from '../../shared/menuModel';
 import { t } from '../../ui/i18n';
 import { itemIconUrl } from '../../rendering/itemIcons';
 import { stripRuby } from '../../ui/ruby';
@@ -52,7 +52,7 @@ const LOOK_PARTS: readonly { part: keyof HeroLook; key: string }[] = [
 ];
 
 export function menuTabs(mistakeCount: number): {
-  key: MenuTab;
+  key: MenuHomeKey;
   label: string;
   icon: string;
   count?: string;
@@ -68,6 +68,7 @@ export function menuTabs(mistakeCount: number): {
     },
     { key: 'monsters', label: t('field.tabMonsters'), group: t('field.dexGroup'), icon: 'boss' },
     { key: 'specialties', label: t('field.tabSpecialties'), group: t('field.dexGroup'), icon: 'star' },
+    { key: 'party', label: t('field.party'), icon: 'cmd-item' },
     { key: 'bag', label: t('field.tabBag'), icon: 'role-shop' },
     { key: 'equip', label: t('field.tabEquip'), icon: 'role-smith' },
     { key: 'look', label: t('field.tabLook'), icon: 'hero' },

@@ -83,7 +83,7 @@ import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
 import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
 import { ENCLAVES } from '../../scripts/data/prefectures';
-import { DialogueOverlay, type DialogueLine } from '../ui/dialogue';
+import type { DialogueLine } from '../ui/dialogue';
 import { AreaMapOverlay, type AreaMapView, type RegionMiniView } from '../ui/field/AreaMap';
 import { AreaTitle, FieldHud, LandmarkCutin } from '../ui/field/FieldUi';
 import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
@@ -143,6 +143,10 @@ import { chestModel, specialtyChestModel } from './overworld/chestModel';
 import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
+import { mapArrivalStory, runCompanionRite } from './overworld/storyFlow';
+import { presentDialogue } from './overworld/dialogueFlow';
+import { currentMichiruGuideKey, type MichiruGuideKey } from './overworld/michiruGuide';
+import { fieldPlaceName } from './overworld/placeName';
 
 const TILE = 16;
 const STEP_MS = 160;
@@ -153,16 +157,11 @@ const HUD_IDLE_MS = 700;
 /** 人物の絵（16×24）の中で、マスの中心にあたる高さ（足もとがマスの下のふちに来る） */
 const FEET_ORIGIN_Y = 16 / CHAR_H;
 const DELTA: Record<Dir, [number, number]> = { down: [0, 1], left: [-1, 0], right: [1, 0], up: [0, -1] };
-/** collision レイヤーでこの番号のマスは通れない（scripts/scaffold-maps.ts） */
 const BLOCK_TILE = 3;
-/** background の 水（海・湖）の タイル */
 const WATER_TILE = 3;
-/** 名所に「着いた」とみなす範囲（まわり 1 マス） */
 const TRIGGER_RADIUS = 1;
 /** にほんちずの地図データ（scripts/scaffold-maps.ts が public/worldmap.json に作る）の cache キー */
 const WORLD_MAP_KEY = 'worldmap';
-/** 新しく始めたデータだけで青森の導入を一度表示する。既存セーブへ突然割り込ませない。 */
-const PROLOGUE_COUNTER = 'story.prologue';
 /** 特産品（イベントの無い たべもの・こうげいひん）は ★ 看板ではなく宝箱（scripts/scaffold-maps.ts） */
 /** みため タブの 部位（GameState.player.appearance の キー と 文言の キー） */
 type HeroLookIndex = GameState['player']['appearance'];
@@ -295,6 +294,7 @@ export class OverworldScene extends Phaser.Scene {
   private colLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   private player!: Phaser.GameObjects.Sprite;
   private shadow!: Phaser.GameObjects.Image;
+  private michiru!: Phaser.GameObjects.Sprite;
   private heroTex = '';
   private facing: Dir = 'down';
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -405,6 +405,7 @@ export class OverworldScene extends Phaser.Scene {
     const objects = this.map.getObjectLayer('objects');
     const [sx, sy] = this.findSpawn(objects);
     this.createHero(sx, sy);
+    this.createMichiru();
     this.setupObjects(objects);
     // はじめに いる 名所エリア（名前は 出さない。HUD の 場所の 窓に 出る）
     this.enterRegion(sx, sy);
@@ -527,6 +528,20 @@ export class OverworldScene extends Phaser.Scene {
     this.player.setDepth(y);
   }
 
+  /** ミチルはHUDではなく、主人公のすぐそばを浮遊してついてくる。タップすると次の案内を話す。 */
+  private createMichiru(): void {
+    this.michiru = this.add
+      .sprite(this.player.x - 12, this.player.y - 14, 'fld.michiru')
+      .setInteractive({ useHandCursor: true });
+    this.michiru.on(
+      'pointerdown',
+      (_pointer: Phaser.Input.Pointer, _x: number, _y: number, event: Phaser.Types.Input.EventData) => {
+        event.stopPropagation();
+        void this.openMichiruGuide(this.michiruGuideKey());
+      },
+    );
+  }
+
   /**
    * 主人公の 歩行シート（見た目 と 着ている めいさんひんの そうびで きまる）を 用意して キーを かえす。
    * ap を わたすと その 見た目の 見本（みため タブ）
@@ -577,8 +592,6 @@ export class OverworldScene extends Phaser.Scene {
       this.wasd = kb.addKeys('W,A,S,D') as Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
       for (const ev of ['keydown-SPACE', 'keydown-ENTER', 'keydown-Z']) kb.on(ev, () => this.interact());
       kb.on('keydown-M', () => this.openAreaMap());
-      kb.on('keydown-P', () => this.openBag());
-      kb.on('keydown-B', () => this.openBag());
       kb.on('keydown-I', () => this.openMenu());
     }
     // タップ：主人公のすぐ近くなら「しらべる」。はなれた所をおしっぱなしにすると、その方向へ歩く（update）
@@ -607,10 +620,20 @@ export class OverworldScene extends Phaser.Scene {
     return null;
   }
 
-  override update(): void {
+  override update(time: number): void {
     if (!this.player?.active) return;
     this.player.setDepth(this.player.y);
     this.shadow.setPosition(this.player.x, this.player.y + 6);
+    if (this.michiru?.active) {
+      const side = this.facing === 'left' ? 12 : -12;
+      const targetX = this.player.x + side;
+      const targetY = this.player.y - 14 + Math.sin(time / 180) * 2;
+      this.michiru.setPosition(
+        Phaser.Math.Linear(this.michiru.x, targetX, 0.2),
+        Phaser.Math.Linear(this.michiru.y, targetY, 0.2),
+      );
+      this.michiru.setDepth(this.player.y + 1);
+    }
     if (this.inBattle || this.busy || this.moving) return;
     const dir = this.readDir();
     if (this.waitRelease) {
@@ -856,7 +879,12 @@ export class OverworldScene extends Phaser.Scene {
       this.transitions.set(i, { map: target, spawn });
       if (typeof lock === 'string') this.lockedGates.set(i, lock);
       const icon = this.gateIcon(target);
-      const pad = this.add.image((tx + k) * TILE + 8, ty * TILE + 8, icon).setDepth(ty * TILE);
+      const isTown = icon === 'fld.icon.town';
+      const pad = this.add
+        .image((tx + k) * TILE + 8, (ty + 1) * TILE, icon)
+        .setOrigin(0.5, isTown ? 1 : 0.5)
+        .setDepth(isTown ? (ty + 1) * TILE - 1 : ty * TILE);
+      if (isTown) pad.setDisplaySize(TILE * 3, TILE * 3);
       // まだ ひらかない 入口（裏ステージ）は くらく、光らせない
       if (this.isLocked(i)) {
         pad.setTint(0x555566);
@@ -1810,6 +1838,27 @@ export class OverworldScene extends Phaser.Scene {
       Math.abs(px - nx) > Math.abs(py - ny) ? (px < nx ? 'left' : 'right') : py < ny ? 'up' : 'down';
     npc.sprite.setFrame(walkFrame(toward, 1));
     const lines = npc.lines.map((l) => ({ ...l, speaker: l.speaker ?? npc.name }));
+    if (npc.key === 'npc-iwate-musubi' && (this.gs()?.party.owned.length ?? 0) === 0) {
+      await this.talk(lines);
+      const game = this.gs();
+      const content = this.content();
+      if (game && content) {
+        await runCompanionRite({
+          game,
+          content,
+          root: this.root('travel'),
+          talk: (storyLines) => this.talk(storyLines),
+          save: (state) => this.setGame(state),
+          afterOverlay: () => {
+            this.inputLockUntil = this.time.now + 250;
+            this.waitRelease = true;
+          },
+        });
+      }
+      npc.sprite.setFrame(walkFrame('down', 1));
+      this.busy = false;
+      return;
+    }
     // しごとの ある人は、あいさつの あとに しごとを してくれる
     switch (npc.role) {
       case 'shop':
@@ -2522,63 +2571,23 @@ export class OverworldScene extends Phaser.Scene {
     return this.choose(lines).then(() => undefined);
   }
 
-  /** 新しい旅の最初だけ、世界の異変・妖精・旅の目的を短く伝える。 */
   private async showPrologue(): Promise<void> {
     const gs = this.gs();
-    if (
-      this.busy ||
-      this.inBattle ||
-      this.mapKey !== 'aomori-field' ||
-      gs?.progress.counters[PROLOGUE_COUNTER] !== 0
-    )
-      return;
-
+    if (this.busy || this.inBattle || !gs) return;
+    const story = mapArrivalStory(this.mapKey, gs);
+    if (!story) return;
     this.busy = true;
     this.standStill();
-    this.setGame({
-      ...gs,
-      updatedAt: Date.now(),
-      progress: {
-        ...gs.progress,
-        counters: { ...gs.progress.counters, [PROLOGUE_COUNTER]: 1 },
-      },
-    });
-    const starter = gs.party.owned.find((monster) => monster.uid === gs.party.activeUid);
-    const starterName = this.content()?.monsters.get(starter?.monsterId ?? '')?.name;
-    const starterLine =
-      tOpt(`field.prologueCompanion.${starter?.monsterId ?? ''}`) ?? tOpt('field.prologueCompanion.default');
-    await this.talk([
-      { speaker: t('field.prologueNarrator'), text: t('field.prologueWake') },
-      { speaker: gs.player.name, text: t('field.prologueLost') },
-      ...(starterName && starterLine ? [{ speaker: starterName, text: starterLine }] : []),
-      { speaker: t('field.prologueFairy'), text: t('field.prologueFairyArrives') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueFairyName') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueKnowledge') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueNoema') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueQuest') },
-      { speaker: gs.player.name, text: t('field.prologueResolve') },
-      { text: t('field.prologueStart') },
-    ]);
+    this.setGame(story.state);
+    await this.talk(story.lines);
     this.busy = false;
   }
 
   /** 会話を出す。choices があれば最後の行で選ばせて、その番号を返す（選択肢なしは -1） */
   private choose(lines: DialogueLine[], choices?: string[]): Promise<number> {
-    return new Promise((resolve) => {
-      const root = this.root('dialogue');
-      render(
-        h(DialogueOverlay, {
-          lines,
-          choices,
-          onComplete: (c: number) => {
-            render(null, root);
-            this.inputLockUntil = this.time.now + 250;
-            this.waitRelease = true;
-            resolve(c);
-          },
-        }),
-        root,
-      );
+    return presentDialogue(this.root('dialogue'), lines, choices, () => {
+      this.inputLockUntil = this.time.now + 250;
+      this.waitRelease = true;
     });
   }
 
@@ -2598,8 +2607,6 @@ export class OverworldScene extends Phaser.Scene {
         map: this.regionMiniView(),
         mapLabel: t('field.areaMapOpen'),
         onAreaMap: () => this.openAreaMap(),
-        partyLabel: t('field.party'),
-        onParty: () => this.openBag(),
         menuLabel: t('field.menu'),
         onMenu: () => this.openMenu(),
         idle: this.hudIdle,
@@ -2615,7 +2622,17 @@ export class OverworldScene extends Phaser.Scene {
     );
   }
 
-  // ───────────────────────── 開発者モード ─────────────────────────
+  private michiruGuideKey(): MichiruGuideKey {
+    return currentMichiruGuideKey([this.gs(), this.kind(), this.currentArea()?.id, this.content()?.world]);
+  }
+
+  private async openMichiruGuide(key: MichiruGuideKey): Promise<void> {
+    if (this.busy || this.inBattle || this.moving) return;
+    this.busy = true;
+    this.standStill();
+    await this.talk([{ speaker: t('field.prologueFairy'), text: t(`field.michiruGuide.${key}.text`) }]);
+    this.busy = false;
+  }
 
   /** 開発者モードの ボタンを 出すか（開発サーバー、または URL に ?dev） */
   private devAvailable(): boolean {
@@ -2648,12 +2665,12 @@ export class OverworldScene extends Phaser.Scene {
   // ───────────────────────── メニュー（ずかん・どうぐ・そうび・みため） ─────────────────────────
 
   /** メニュー：モンスターずかん・とくさんひんずかん・どうぐ（バッグ）・そうび・みため。つかう・そうびの あとは 同じ タブで 作りなおす */
-  private openMenu(): void {
+  private openMenu(playOpenSfx = true): void {
     const c = this.content();
     if (!c || this.inBattle || this.busy || this.moving) return;
     this.busy = true;
     this.standStill();
-    playSfx('select');
+    if (playOpenSfx) playSfx('select');
     const root = this.root('travel');
     const draw = (tab: MenuTab, focusKey?: string, message: string | null = null) => {
       const view = this.menuView(tab);
@@ -2669,6 +2686,11 @@ export class OverworldScene extends Phaser.Scene {
           focusKey,
           keys: t('field.menuKeys'),
           onTab: (next: MenuTab) => draw(next),
+          onBag: () => {
+            render(null, root);
+            this.busy = false;
+            this.openBag(undefined, null, undefined, true);
+          },
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
           onParent: () => {
             const game = this.gs()!;
@@ -2806,7 +2828,12 @@ export class OverworldScene extends Phaser.Scene {
    * そのあとは 同じ ものを えらんだまま ひらき直す（message に ひとこと）。
    * key は 'hero' / 'mon:<uid>' / 'eq:<部位>'（バッグの そうび）/ 'inv:<itemId>'（あずけている そうび）
    */
-  private openBag(focusKey?: string, message: string | null = null, flashKey?: string): void {
+  private openBag(
+    focusKey?: string,
+    message: string | null = null,
+    flashKey?: string,
+    returnToMenu = false,
+  ): void {
     const c = this.content();
     const gs = this.gs();
     if (!c || !gs || this.inBattle) return;
@@ -2819,12 +2846,17 @@ export class OverworldScene extends Phaser.Scene {
     const close = () => {
       render(null, root);
       this.busy = false;
+      if (returnToMenu) {
+        this.openMenu(false);
+        return;
+      }
       this.inputLockUntil = this.time.now + 250;
       this.waitRelease = true;
     };
     const view = this.bagView(gs);
     const nameOf = (key: string) => view.all.get(key)?.name ?? '';
-    const again = (key: string, msg: string | null, flash?: string) => this.openBag(key, msg, flash);
+    const again = (key: string, msg: string | null, flash?: string) =>
+      this.openBag(key, msg, flash, returnToMenu);
     render(
       h(BagOverlay, {
         ...view.props,
@@ -3223,27 +3255,12 @@ export class OverworldScene extends Phaser.Scene {
 
   /** いまいる場所の名前（RubyText）と種類。HUD の窓と、移動したときの場所の名前で使う */
   private placeName(): { title: string; sub: string } {
-    const kind = this.kind();
-    const area = this.currentArea();
-    const enclave = kind === 'enclave' ? ENCLAVES.find((e) => e.enclaveId === this.mapKey) : undefined;
-    const title =
-      enclave?.name ??
-      (kind === 'town' ? area?.town?.name : kind === 'secret' ? area?.secret?.name : undefined) ??
-      area?.name ??
-      this.mapKey;
-    const region = kind === 'field' ? this.regionDef(this.currentRegion) : undefined;
-    // 左上の 窓は せまいので、エリアの 名前は かなで（ふりがなを 字の 上に のせると 行が こわれる）
-    if (region) return { title, sub: kana(region.name) };
-    const sub = t(
-      {
-        field: 'field.kindField',
-        town: 'field.kindTown',
-        dungeon: 'field.kindDungeon',
-        enclave: 'field.kindEnclave',
-        secret: 'field.kindSecret',
-      }[kind],
+    return fieldPlaceName(
+      this.kind(),
+      this.currentArea(),
+      this.mapKey,
+      this.kind() === 'field' ? this.regionDef(this.currentRegion)?.name : undefined,
     );
-    return { title, sub };
   }
 
   /**

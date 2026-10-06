@@ -37,7 +37,7 @@ import { load, remove, save, summaries } from '../../src/core/state/save';
 import type { GameState } from '../../src/core/state/schema';
 
 const fresh = (gold: number) => {
-  const state = createNewGame({ name: 'ハル', starterMonsterId: 'aomori-ringoron', grade: 3 });
+  const state = createNewGame({ name: 'ハル', grade: 3 });
   state.player.gold = gold;
   return state;
 };

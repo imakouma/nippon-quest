@@ -1038,7 +1038,14 @@ function roads(land: Land, defs: ObjDef[], col: number[], bg: number[]): void {
       (j) => j >= 0 && j < n,
     );
   };
-  const road = new Set<number>([idxOf(town)]);
+  const townIndex = idxOf(town);
+  const townX = townIndex % land.w;
+  // 町の絵は3×3マス。道路は建物の下へ敷かず、入口の1マス下から伸ばす。
+  const townRoad =
+    [townIndex + land.w, townX < land.w - 1 ? townIndex + 1 : -1, townX > 0 ? townIndex - 1 : -1]
+      .filter((i) => i >= 0 && i < bg.length)
+      .find(open) ?? townIndex;
+  const road = new Set<number>([townRoad]);
   const goalOf = (d: ObjDef): Set<number> => {
     const i = idxOf(d);
     return passThrough.has(d.type) ? new Set([i]) : new Set(nb(i).filter(open));
@@ -1046,7 +1053,7 @@ function roads(land: Land, defs: ObjDef[], col: number[], bg: number[]): void {
   // ちかい じゅん（町からの 歩く きょり）
   const fromTown = new Int32Array(n).fill(-1);
   {
-    const q = [idxOf(town)];
+    const q = [townRoad];
     fromTown[q[0]!] = 0;
     for (let h = 0; h < q.length; h++)
       for (const j of nb(q[h]!))
@@ -1092,6 +1099,10 @@ function roads(land: Land, defs: ObjDef[], col: number[], bg: number[]): void {
     );
     if (side !== undefined) wide.add(side);
   }
+  // 入口中央だけを道につなぐ。左右の家の下には道路を敷かない。
+  wide.add(townIndex);
+  wide.delete(townIndex - 1);
+  wide.delete(townIndex + 1);
   for (const i of wide) if (col[i] !== BLOCK && land.walk(i)) bg[i] = ROAD_TILE;
 }
 

@@ -4,7 +4,7 @@ import { partyFromGameState } from '../../src/core/battle/setup';
 import { canUse, equipItem, unequip, useItem } from '../../src/core/progression/inventory';
 import { createNewGame } from '../../src/core/state/newGame';
 
-const fresh = () => createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
+const fresh = () => createNewGame({ name: 'テスト', grade: 3 }, 1000);
 
 describe('バッグ・そうび', () => {
   it('りんごは HP が へっているときだけ つかえて、1 つ へる', async () => {

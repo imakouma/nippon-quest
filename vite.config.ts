@@ -53,6 +53,8 @@ export default defineConfig({
   resolve: { alias: { '@': resolve(root, 'src') } },
   build: {
     target: 'es2022',
+    // Phaser は専用vendorチャンクへ分離済み（約1.48MB）。ゲーム側チャンクの肥大化とは区別する。
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
