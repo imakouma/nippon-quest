@@ -86,8 +86,18 @@ describe('マップ', () => {
     }
   });
 
-  it('青森の巨大ねぶたを置かず、盛岡の町を 2×2 マス相当で表示する', () => {
-    expect(objectsOf(maps.get('aomori-field')!).some((o) => prop(o, 'kind') === 'nebutaFloat')).toBe(false);
+  it('青森の巨大ねぶたと当たり判定を置かず、盛岡の町を 2×2 マス相当で表示する', () => {
+    const aomori = maps.get('aomori-field')!;
+    expect(objectsOf(aomori).some((o) => prop(o, 'kind') === 'nebutaFloat')).toBe(false);
+    const collision = aomori.layers.find((layer) => layer.name === 'collision')!.data!;
+    for (const [x, y] of [
+      [63, 68],
+      [68, 64],
+      [71, 54],
+      [71, 60],
+    ] as const)
+      for (let dy = 0; dy < 2; dy++)
+        for (let dx = 0; dx < 3; dx++) expect(collision[(y + dy) * aomori.width + x + dx]).toBe(0);
     const morioka = objectsOf(maps.get('iwate-field')!).find((o) => o.name === 'to_town');
     expect(prop(morioka!, 'iconScale')).toBe(2);
   });
