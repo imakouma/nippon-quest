@@ -130,7 +130,7 @@ import { buildFieldTextures, WARP_FRAMES } from './overworld/fieldArt';
 import { overworldView } from './overworld/overworldView';
 import { startWaterAnimation } from './overworld/waterAnimation';
 import { buildViewTexture } from './overworld/viewTiles';
-import { buildEntranceIcons } from './overworld/entranceIcons';
+import { buildEntranceIcons, entranceIconScale } from './overworld/entranceIcons';
 import { GEOGRAPHIC_AREA_ORDER } from './overworld/geography';
 import { buildRoadmapNodes } from './overworld/roadmap';
 import { bagMenu, equipmentMenu, menuTabs, mistakeMenu } from './overworld/menuEntries';
@@ -943,7 +943,7 @@ export class OverworldScene extends Phaser.Scene {
       if (typeof lock === 'string') this.lockedGates.set(i, lock);
       const icon = this.gateIcon(target);
       const pad = this.add.image((tx + k) * TILE + 8, ty * TILE + 8, icon).setDepth(ty * TILE);
-      const iconScale = Number(prop(obj, 'iconScale') ?? 1);
+      const iconScale = entranceIconScale(target, prop(obj, 'iconScale'));
       if (iconScale > 1) pad.setScale(iconScale).setOrigin(0.5, 0.75);
       // まだ ひらかない 入口（裏ステージ）は くらく、光らせない
       if (this.isLocked(i)) {
