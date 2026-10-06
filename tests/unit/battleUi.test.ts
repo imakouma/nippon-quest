@@ -252,7 +252,7 @@ describe('メッセージ（narrate）', () => {
 
   it('ボス戦で逃げられないときの文', () => {
     expect(narrate({ t: 'fleeAttempt', success: false, chance: 0 }, { ...ctx, isBossBattle: true })).toEqual([
-      'ボスからは にげられない！',
+      '強[つよ]い ワスレモノからは にげられない！',
     ]);
   });
 
