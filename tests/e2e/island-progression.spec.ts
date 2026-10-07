@@ -9,7 +9,7 @@ async function clickThroughDialogue(page: Page, stopWhen?: () => Promise<boolean
     const dialogue = page.locator('.nq-dlg');
     if (!(await dialogue.isVisible())) return;
     await dialogue.click({ position: { x: 420, y: 410 } });
-    await page.waitForTimeout(80);
+    await page.waitForTimeout(20);
   }
   throw new Error('会話をタップだけで最後まで進められませんでした');
 }
@@ -116,7 +116,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
         .locator('.nq-box')
         .click()
         .catch(() => undefined);
-    await page.waitForTimeout(150);
+    await page.waitForTimeout(30);
   }
   await expect(page.locator('.nq-result')).toContainText(/しょうり|勝利/);
   await page.locator('[data-result-close]').click();
@@ -124,7 +124,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   for (let step = 0; step < 40 && (await page.locator('.nq-battle').isVisible()); step += 1) {
     const message = page.locator('.nq-box');
     if (await message.isVisible()) await message.click();
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(30);
   }
   await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 20_000 });
 
@@ -132,6 +132,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.locator('.nq-dlg').click({ position: { x: 420, y: 410 } });
   await expect(page.locator('.nq-dlg')).toContainText('なぜ おまえが');
   await clickThroughDialogue(page);
+  await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: 'バッグ' }).click();
   await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-columns', '76px 76px 76px');
   await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-rows', '76px 76px');

@@ -113,7 +113,7 @@ export function MenuOverlay({
   const e = entries[Math.min(sel, entries.length - 1)];
   const listRef = useRef<HTMLUListElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  useModalFocus(dialogRef, '[role="tab"][aria-selected="true"]');
+  useModalFocus(dialogRef, '.nq-menu-card');
 
   const pick = useCallback<MenuPick>(
     (k, ensureVisible = false) => {

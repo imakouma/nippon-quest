@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
+import { finishHeroIntroduction } from './helpers/onboarding';
 
 async function putPlayerInIwateTown(page: Page): Promise<void> {
   await page.evaluate(async () => {
@@ -65,6 +66,7 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await page.getByRole('button', { name: /スロット 2/ }).click();
   await completeNewGameSetup(page);
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  await finishHeroIntroduction(page);
 
   // 稼働中のオートセーブを止めてから、青森を終えて岩手の町へ着いた状態を作る。
   await page.reload();
@@ -85,10 +87,10 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
 
   // 入口のすぐ北にある、むすびの社の守り人へ自分で歩いて話しかける。
   await page.waitForTimeout(300);
-  await page.keyboard.down('ArrowUp');
-  await page.waitForTimeout(250);
-  await page.keyboard.up('ArrowUp');
-  await page.waitForTimeout(250);
+  await page.keyboard.press('ArrowUp');
+  await page.waitForTimeout(220);
+  await page.keyboard.press('ArrowUp');
+  await page.waitForTimeout(220);
   await page.keyboard.press('z');
   await expect(dialogue).toContainText(/むすびの.*やしろ/, { timeout: 10_000 });
   const kagurabi = page.getByRole('button', { name: /カグラビ/ });
@@ -116,6 +118,7 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
     await page.waitForTimeout(120);
   }
   await expect(dialogue).toHaveCount(0);
+  await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: 'バッグ' }).click();
   await expect(page.getByRole('listitem', { name: 'カグラビ' })).toBeVisible();
 });

@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
+import { finishHeroIntroduction } from './helpers/onboarding';
 
 test('タイトル画面が立ち上がり、コンテンツが読み込まれる', async ({ page }) => {
   const errors: string[] = [];
@@ -55,6 +56,7 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'テスト');
+  await finishHeroIntroduction(page, 'テスト');
   await page.getByRole('button', { name: 'メニュー' }).click({ timeout: 30_000 });
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');

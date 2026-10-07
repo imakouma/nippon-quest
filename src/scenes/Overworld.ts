@@ -146,6 +146,7 @@ import { buildStructureArt, structureKey, type StructureKind } from '../renderin
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 import { mapArrivalStory, runCompanionRite } from './overworld/storyFlow';
 import { presentDialogue } from './overworld/dialogueFlow';
+import { HeroIdentitySetup, type HeroIdentity } from '../ui/title/HeroIdentitySetup';
 import { currentMichiruGuideKey, type MichiruGuideKey } from './overworld/michiruGuide';
 import { createMichiruFollower, positionMichiruFollower } from './overworld/michiruFollower';
 import { fieldPlaceName } from './overworld/placeName';
@@ -2542,13 +2543,43 @@ export class OverworldScene extends Phaser.Scene {
 
   private async showPrologue(): Promise<void> {
     const gs = this.gs();
-    if (this.busy || this.inBattle || !gs) return;
+    if (this.inBattle) return;
+    if (!gs || this.busy) {
+      this.time.delayedCall(250, () => void this.showPrologue());
+      return;
+    }
     const story = mapArrivalStory(this.mapKey, gs);
     if (!story) return;
     this.busy = true;
     this.standStill();
     this.setGame(story.state);
-    await this.talk(story.lines);
+    // 名前と見た目はタイトルで先に決めず、妖精と出会った物語の中で初めて決める。
+    const oldName = story.state.player.name;
+    await this.talk(story.lines.slice(0, 4));
+    const identity = await new Promise<HeroIdentity>((resolve) => {
+      const root = this.root('title');
+      render(
+        h(HeroIdentitySetup, {
+          initialAppearance: story.state.player.appearance,
+          onComplete: (selected) => {
+            render(null, root);
+            resolve(selected);
+          },
+        }),
+        root,
+      );
+    });
+    const namedState = structuredClone(story.state);
+    namedState.player.name = identity.name;
+    namedState.player.appearance = identity.appearance;
+    namedState.updatedAt = Date.now();
+    this.setGame(namedState);
+    await this.talk(
+      story.lines.slice(4).map((line) => ({
+        ...line,
+        speaker: line.speaker === oldName ? identity.name : line.speaker,
+      })),
+    );
     this.busy = false;
   }
 

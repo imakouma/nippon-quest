@@ -10,7 +10,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
 
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 40_000 });
   await page.getByRole('button', { name: 'メニュー' }).click();
-  const menuHome = page.getByLabel('メニュー');
+  const menuHome = page.locator('.nq-menu-home');
   await expect(menuHome).toBeVisible();
   for (const label of ['がくしゅう', 'まちがい', 'モンスター', 'とくさん', 'どうぐ', 'そうび', 'みため']) {
     await expect(menuHome.getByRole('button', { name: new RegExp(label) })).toBeVisible();

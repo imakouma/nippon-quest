@@ -1,12 +1,21 @@
 import { expect, test } from '@playwright/test';
 
-test('主人公の見た目が枠内に収まり、髪・肌・服の変更が反映される', async ({ page }) => {
+test('物語で初めて名前と見た目を決め、選択が反映される', async ({ page }) => {
   await page.goto('/?resetSaves=1');
   await page.getByRole('menuitem', { name: '♥ はじめから' }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
+  await page.getByRole('button', { name: 'はじめる' }).click();
 
-  const preview = page.locator('.nq-look-preview');
-  const avatar = page.locator('.nq-avatar-preview');
+  const dialogue = page.locator('.nq-dlg');
+  const identity = page.getByRole('form', { name: 'ようせいとの であい' });
+  await expect(dialogue.or(identity)).toBeVisible({ timeout: 30_000 });
+  for (let step = 0; step < 20 && !(await identity.isVisible()); step += 1) {
+    await dialogue.click();
+  }
+
+  await expect(identity).toBeVisible();
+  const preview = page.locator('.nq-avatar-stage');
+  const avatar = page.getByRole('img', { name: 'しゅじんこうの みため' });
   await expect(avatar).toBeVisible();
 
   const bounds = await Promise.all([preview.boundingBox(), avatar.boundingBox()]);
@@ -17,17 +26,17 @@ test('主人公の見た目が枠内に収まり、髪・肌・服の変更が�
   expect(bounds[1]!.x + bounds[1]!.width).toBeLessThanOrEqual(bounds[0]!.x + bounds[0]!.width);
   expect(bounds[1]!.y + bounds[1]!.height).toBeLessThanOrEqual(bounds[0]!.y + bounds[0]!.height);
 
-  const image = () => avatar.evaluate((canvas) => (canvas as HTMLCanvasElement).toDataURL());
-  const initial = await image();
+  const classes = () => avatar.getAttribute('class');
+  const initial = await classes();
 
-  await page.getByRole('button', { name: 'かみを ひとつ すすめる' }).click();
-  await expect.poll(image).not.toBe(initial);
-  const hairChanged = await image();
+  await page.getByRole('button', { name: 'かみ 2' }).click();
+  await expect.poll(classes).not.toBe(initial);
+  const hairChanged = await classes();
 
-  await page.getByRole('button', { name: 'はだを ひとつ すすめる' }).click();
-  await expect.poll(image).not.toBe(hairChanged);
-  const skinChanged = await image();
+  await page.getByRole('button', { name: 'はだ 2' }).click();
+  await expect.poll(classes).not.toBe(hairChanged);
+  const skinChanged = await classes();
 
-  await page.getByRole('button', { name: 'ふくを ひとつ すすめる' }).click();
-  await expect.poll(image).not.toBe(skinChanged);
+  await page.getByRole('button', { name: 'ふく 2' }).click();
+  await expect.poll(classes).not.toBe(skinChanged);
 });

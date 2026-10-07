@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test';
-import { finishHeroIntroduction } from './helpers/onboarding';
 
 interface SavedMvpState {
   progress: { currentIsland: string; currentArea: string; currentMap: string };
@@ -29,7 +28,6 @@ test('説明なしで甲信越・小2を選び、算数の冒険を新潟から�
   await page.getByLabel('がくねん').selectOption('2');
   await page.getByRole('button', { name: 'はじめる' }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
-  await finishHeroIntroduction(page, 'ミライ');
 
   const saved = await page.evaluate(async () => {
     const database = await new Promise<IDBDatabase>((resolve, reject) => {
