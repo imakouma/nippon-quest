@@ -1,9 +1,9 @@
 /**
  * バトル画面の DOM オーバーレイ（リアルタイム・コマンドゲージバトル）。サイドビュー（敵が左・味方が右）の SFC 風 RPG：
- *  - 上：左に「てき」、右に「なかま」の窓（名前・Lv・HP ゲージ。味方は その下に 時間の ゲージ）
+ *  - 上：左に敵、右に仲間の窓（名前・Lv・HP ゲージ。味方は その下に時間のゲージ）
  *  - 敵の 足もと：こうげきタイマー（たまると こうげきして くる。もうすぐなら 赤く 点めつ）
  *  - 右：教科ゲージ（こたえると たまり、ゲージを 使う 必殺技で へる）
- *  - 下：メッセージ窓、コマンドは下の左に 3 列 × 2 段（上の 段に コマンドゲージ）。わざ・どうぐ・いれかえは下から大きな窓
+ *  - 下：メッセージ窓、コマンドは下の左に 2 列 × 2 段。わざ・どうぐ・いれかえは下から大きな窓
  *  - 問題の あいだは 問題の 枠の 見出しに 敵の こうげきタイマーと HP（問題中も 敵は うごく）
  * 窓は黒＋白い太枠、文字は PixelMplus12（12 / 24 / 36 / 48px）。
  * ロジックは持たない。HudStore を読んで描き、操作は store.dispatch() で Battle シーンへ返す。
@@ -75,26 +75,30 @@ function TurnBadge({ turn, class: cls }: { turn: number; class: string }) {
   return <span class={`nq-turn ${cls}`}>{t('battle.turn', { n: turn })}</span>;
 }
 
-// ───────────────────────── 上の窓：てき・なかま ─────────────────────────
+// ───────────────────────── 上の窓：敵・仲間 ─────────────────────────
 
 function EnemyWindow({ e }: { e: EnemyView }) {
   return (
     <div class={`nq-win nq-foe ${e.isBoss ? 'nq-foe-boss' : ''}`}>
-      <div class="nq-foe-row">
-        <span class="nq-tag">{t('battle.enemies')}</span>
+      <div class="nq-foe-heading">
+        <RubyLabel text={e.name} class="nq-foe-name" />
+        <span class="nq-foe-level">
+          {t('battle.lv')} {e.level}
+        </span>
         {e.isBoss && (
           <span class="nq-boss-tag">
             <PixelIcon name="boss" scale={2} />
             {t('battle.boss')}
           </span>
         )}
-        <span class="nq-lv">
-          {t('battle.lv')}
-          {e.level}
+      </div>
+      <div class="nq-foe-hp">
+        <span class="nq-lbl">{t('battle.hp')}</span>
+        <Bar value={e.hp} max={e.maxHp} kind="hp" />
+        <span class="nq-foe-hp-num">
+          {e.hp}/{e.maxHp}
         </span>
       </div>
-      <RubyLabel text={e.name} class="nq-foe-name" />
-      <Bar value={e.hp} max={e.maxHp} kind="hp" />
       <div class="nq-foe-row">
         <ElementChip el={e.element} />
         {e.weakness && e.weaknessRevealed ? (
@@ -201,7 +205,7 @@ function Cursor({ on }: { on: boolean }) {
   return <span class="nq-cur">{on ? <Heart /> : null}</span>;
 }
 
-/** コマンド窓（3 列 × 2 段）。下のメッセージ窓の左に出る */
+/** コマンド窓（2 列 × 2 段）。下のメッセージ窓の左に出る */
 function CommandWindow({ s, store }: { s: HudState; store: HudStore }) {
   return (
     <div class="nq-win nq-cmdwin" role="menu">

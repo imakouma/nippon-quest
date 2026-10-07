@@ -15,6 +15,14 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   for (const label of ['がくしゅう', 'まちがい', 'ずかん', 'もちもの・へんせい', 'みため']) {
     await expect(menuHome.getByRole('button', { name: new RegExp(label) })).toBeVisible();
   }
+  for (const card of await menuHome.locator('.nq-menu-card').all()) {
+    const cardBox = await card.boundingBox();
+    const labelBox = await card.locator('.nq-menu-card-label').boundingBox();
+    expect(cardBox).not.toBeNull();
+    expect(labelBox).not.toBeNull();
+    expect(labelBox!.x).toBeGreaterThanOrEqual(cardBox!.x);
+    expect(labelBox!.x + labelBox!.width).toBeLessThanOrEqual(cardBox!.x + cardBox!.width);
+  }
   await expect(page.getByRole('button', { name: /セーブ/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /ほごしゃ/ })).toBeVisible();
   await page.getByRole('button', { name: /セーブ/ }).click();

@@ -78,8 +78,14 @@ test('バトル画面は狭い表示でもステージ内に収まる', async ({
   await expect(enemyWindow.getByText('てき', { exact: true })).toHaveCount(0);
   await expect(enemyWindow.locator('.nq-foe-level')).toHaveText('Lv 8');
   expect(
-    Number.parseFloat(await enemyWindow.locator('.nq-foe-level').evaluate((node) => getComputedStyle(node).fontSize)),
+    Number.parseFloat(
+      await enemyWindow.locator('.nq-foe-level').evaluate((node) => getComputedStyle(node).fontSize),
+    ),
   ).toBeGreaterThanOrEqual(20);
+  await expect(enemyWindow.locator('.nq-foe-hp-num')).toContainText('/');
+  const commands = page.locator('.nq-cmdwin [data-cmd]');
+  await expect(commands).toHaveCount(4);
+  await expect(page.locator('[data-cmd="attack"]')).toHaveCount(0);
   const battleBox = await page.locator('.nq-battle').boundingBox();
   expect(battleBox).not.toBeNull();
   expect(battleBox!.x).toBeGreaterThanOrEqual(0);

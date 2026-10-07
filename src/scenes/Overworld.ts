@@ -3432,7 +3432,8 @@ export class OverworldScene extends Phaser.Scene {
       gs.progress.position.y === y * TILE
     )
       return;
-    this.setGame({
+    // 位置だけの更新で歩行スプライトを再生成しない。setGame は見た目・装備変更時に使う。
+    this.registry.set('game', {
       ...gs,
       progress: {
         ...gs.progress,

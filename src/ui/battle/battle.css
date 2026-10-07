@@ -34,7 +34,7 @@
 /* コマンドの窓が出ているあいだは、その右に「◯◯は どうする？」。
  * 幅がせまいので行を詰めて、「HPが へった いまが チャンス！」まで 3 行を窓に収める */
 .nq-box-cmd {
-  left: 504px;
+  left: 444px;
 }
 .nq-box-cmd .nq-box-text {
   line-height: 32px;
@@ -88,7 +88,7 @@
   color: var(--nq-silver);
 }
 
-/* ───── 上：てき・なかま（HP ゲージ） ───── */
+/* ───── 上：敵・仲間（HP ゲージ） ───── */
 .nq-panel {
   position: absolute;
   left: 12px;
@@ -114,9 +114,11 @@
   gap: 8px;
   min-height: 24px;
 }
-.nq-tag {
-  font-size: 12px;
-  color: var(--nq-silver);
+.nq-foe-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
 }
 .nq-boss-tag {
   display: inline-flex;
@@ -128,18 +130,35 @@
   background: #a8341f;
   border: 2px solid var(--nq-yellow);
 }
-.nq-lv,
 .nq-ally-lv {
   font-size: 12px;
   color: var(--nq-yellow);
 }
-.nq-lv {
-  margin-left: auto;
+.nq-foe-level {
+  flex: none;
+  font-size: 20px;
+  line-height: 36px;
+  color: var(--nq-cream);
 }
 .nq-foe .nq-bar {
+  min-width: 96px;
+}
+.nq-foe-hp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 20px;
+}
+.nq-foe-hp-num {
   flex: none;
+  min-width: 72px;
+  font-size: 16px;
+  text-align: right;
 }
 .nq-foe-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 24px;
   line-height: 36px;
   white-space: nowrap;
@@ -165,7 +184,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 48px;
+  height: 44px;
   font-size: 24px;
 }
 .nq-ally-cur {
@@ -398,18 +417,16 @@
   color: var(--nq-sky);
 }
 
-/* ───── コマンド窓（下の左・3 列 × 2 段） ───── */
+/* ───── コマンド窓（下の左・2 列 × 2 段） ───── */
 .nq-cmdwin {
   position: absolute;
   left: 12px;
   bottom: 12px;
-  width: 480px;
+  width: 420px;
   height: 120px;
   z-index: 5;
   display: grid;
-  /* 列の幅は中身に合わせて、あまりを すきまに（1fr だと「ひっさつわざ」の列が広がって、3 列目が窓の外へ おし出されていた） */
-  grid-template-columns: repeat(3, auto);
-  justify-content: space-between;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: center;
   gap: 0 4px;
   padding: 8px 6px;
@@ -440,12 +457,12 @@
   vertical-align: middle;
   image-rendering: pixelated;
 }
-/* コマンド窓は上にコマンドゲージの段があるので、行を少しつめる。
- * 1 年生の設定だと「必殺技」が「ひっさつわざ」（6 文字）になるので、♥・アイコン・余白も つめて 3 列が窓に入るように */
+/* 1 年生の設定だと「必殺技」が「ひっさつわざ」（6 文字）になるので、
+ * ♥・アイコン・余白を調整して 2 列のボタン内に収める。 */
 .nq-cmdwin .nq-cmd {
-  min-height: 40px;
-  gap: 2px;
-  padding: 0 2px;
+  min-height: 44px;
+  gap: 4px;
+  padding: 0 6px;
 }
 .nq-cmdwin .nq-cur {
   width: 18px;
