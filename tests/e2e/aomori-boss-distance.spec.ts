@@ -1,13 +1,26 @@
 import { expect, test, type Page } from '@playwright/test';
 
-const STEP_MS = 160;
-
-async function walk(page: Page, key: 'ArrowRight' | 'ArrowUp', tiles: number): Promise<void> {
+async function walk(
+  page: Page,
+  key: 'ArrowRight' | 'ArrowUp',
+  tiles: number,
+  expected: 'move' | 'regionBoss' = 'move',
+): Promise<void> {
   for (let tile = 0; tile < tiles; tile += 1) {
-    await page.keyboard.down(key);
-    await page.waitForTimeout(40);
-    await page.keyboard.up(key);
-    await page.waitForTimeout(STEP_MS + 25);
+    const player = page.locator('canvas[data-player-tile]');
+    const before = await player.getAttribute('data-player-tile');
+    let decision: string | null = null;
+    for (let attempt = 0; attempt < 10 && decision !== expected; attempt += 1) {
+      await player.evaluate((canvas) => delete (canvas as HTMLElement).dataset.lastMovement);
+      await page.keyboard.down(key);
+      await page.waitForTimeout(60);
+      await page.keyboard.up(key);
+      await page.waitForTimeout(120);
+      decision = await player.getAttribute('data-last-movement');
+    }
+    expect(decision, `移動判定 ${expected}（${before} から ${key}）`).toBe(expected);
+    if (expected === 'move')
+      await expect.poll(() => player.getAttribute('data-player-tile')).not.toBe(before);
   }
 }
 
@@ -62,6 +75,8 @@ test('青森の最初のぬしは開始地点から離れた奥地にいて、�
     await page.waitForTimeout(100);
   }
   await expect(page.locator('.nq-dlg')).toHaveCount(0);
+  await expect(page.locator('canvas[data-player-tile]')).toHaveAttribute('data-input-ready', 'true');
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
 
   await walk(page, 'ArrowRight', 7);
   await walk(page, 'ArrowUp', 1);
@@ -73,7 +88,7 @@ test('青森の最初のぬしは開始地点から離れた奥地にいて、�
   await walk(page, 'ArrowUp', 7);
 
   await page.screenshot({ path: 'test-results/aomori-remote-boss.png' });
-  await walk(page, 'ArrowUp', 1);
+  await walk(page, 'ArrowUp', 1, 'regionBoss');
   await expect(page.locator('.nq-dlg')).toContainText('ねぶたまつりエリアの ぬし');
   for (
     let step = 0;

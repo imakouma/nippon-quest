@@ -11,9 +11,11 @@ import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { playSfx } from '../sfx';
-import { JapanMapOverview } from './JapanMapOverview';
+import { JAPAN_GENERAL_REGIONS, JapanMapOverview } from './JapanMapOverview';
 import { areaAt, type MapRegionInfo, type RegionGrid } from './worldMapModel';
 import './field.css';
+
+export type { MapRegionInfo, WorldMapData } from './worldMapModel';
 
 export interface WorldMapOverlayProps {
   regions: MapRegionInfo[];
@@ -421,16 +423,24 @@ export function WorldMapOverlay(props: WorldMapOverlayProps) {
     0,
     props.regions.findIndex((region) => region.areas.some((area) => area.id === props.here?.areaId)),
   );
+  const homeGroup = Math.max(
+    0,
+    JAPAN_GENERAL_REGIONS.findIndex((group) => group.sourceIds.some((id) => id === props.regions[home]?.id)),
+  );
   const [overview, setOverview] = useState(true);
   const [selectedRegion, setSelectedRegion] = useState(home);
+  const [selectedGroup, setSelectedGroup] = useState(homeGroup);
   if (overview)
     return (
       <JapanMapOverview
         regions={props.regions}
         hereAreaId={props.here?.areaId}
-        selected={selectedRegion}
-        onSelect={setSelectedRegion}
-        onOpen={() => setOverview(false)}
+        selectedGroup={selectedGroup}
+        onSelectGroup={setSelectedGroup}
+        onOpen={(regionIndex) => {
+          setSelectedRegion(regionIndex);
+          setOverview(false);
+        }}
         onClose={props.onClose}
       />
     );

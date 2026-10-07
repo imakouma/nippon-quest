@@ -1,15 +1,23 @@
 import { describe, expect, it } from 'vitest';
-import { JAPAN_REGION_LAYOUT, nationalRegionAt } from '../../src/ui/field/JapanMapOverview';
-import type { MapRegionInfo } from '../../src/ui/field/worldMapModel';
-
-const regions = Object.keys(JAPAN_REGION_LAYOUT).map((id) => ({ id })) as MapRegionInfo[];
+import {
+  JAPAN_GENERAL_REGIONS,
+  JAPAN_REGION_LAYOUT,
+  nationalRegionAt,
+} from '../../src/ui/field/JapanMapOverview';
 
 describe('全国地図', () => {
-  it('10地方すべてに重ならない選択位置がある', () => {
-    expect(Object.keys(JAPAN_REGION_LAYOUT)).toHaveLength(10);
-    regions.forEach((region, index) => {
-      const box = JAPAN_REGION_LAYOUT[region.id]!;
-      expect(nationalRegionAt(regions, box.x + box.w / 2, box.y + box.h / 2)).toBe(index);
+  it('一般的な8地方で全都道府県グループを選べる', () => {
+    expect(JAPAN_GENERAL_REGIONS).toHaveLength(8);
+    expect(JAPAN_GENERAL_REGIONS.find((region) => region.id === 'chubu')?.sourceIds).toEqual([
+      'hokuriku',
+      'koshinetsu',
+      'tokai',
+    ]);
+    JAPAN_GENERAL_REGIONS.forEach((region, index) => {
+      region.sourceIds.forEach((sourceId) => {
+        const box = JAPAN_REGION_LAYOUT[sourceId]!;
+        expect(nationalRegionAt(box.x + box.w / 2, box.y + box.h / 2)).toBe(index);
+      });
     });
   });
 });

@@ -83,8 +83,7 @@ import { bagCells } from '../ui/field/bagLayout';
 import { TownOverlay, type TownOverlayProps, type TownRow } from '../ui/field/TownOverlay';
 import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
-import { WorldMapOverlay } from '../ui/field/WorldMapOverlay';
-import type { MapRegionInfo, WorldMapData } from '../ui/field/worldMapModel';
+import { WorldMapOverlay, type MapRegionInfo, type WorldMapData } from '../ui/field/WorldMapOverlay';
 import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { QuestionFrame } from '../ui/QuestionFrame';
@@ -626,6 +625,7 @@ export class OverworldScene extends Phaser.Scene {
       // 会話を閉じたキーをおしたままでも、すぐに次の会話が始まらないように、いちど はなすまで待つ
       if (dir) return;
       this.waitRelease = false;
+      this.game.canvas.dataset.inputReady = 'true';
     }
     if (!dir) {
       this.standStill();
@@ -645,6 +645,7 @@ export class OverworldScene extends Phaser.Scene {
       lastBossTile: this.lastBoss?.tile ?? null,
       blocked: (x, y) => this.isBlocked(x, y),
     });
+    this.game.canvas.dataset.lastMovement = decision.kind;
     switch (decision.kind) {
       case 'stand':
         this.standStill();
@@ -691,6 +692,7 @@ export class OverworldScene extends Phaser.Scene {
       onComplete: () => {
         this.moving = false;
         this.stepCount++;
+        this.rememberLocation(nx, ny);
         this.renderHud(); // 左上の地図の主人公を動かす
         this.arrive(nx, ny);
       },
@@ -2436,10 +2438,7 @@ export class OverworldScene extends Phaser.Scene {
 
   // ───────────────────────── バトル ─────────────────────────
 
-  /**
-   * 歩数エンカウント。出現表・歩数・確率は content/prefectures/<県>.json の encounters に従う。
-   * フィールドでは 立っている 地面（すなはま・もり・やま …）の 出現表を つかう（src/core/world/ground.ts）
-   */
+  /** 歩数エンカウント。フィールドでは現在の地面に対応する出現表を使う。 */
   private checkRandomEncounter(): void {
     // 開発者モード中は ふつうの モンスターと 出会わない（中ボス・県ボス・ラスボスは そのまま）
     if (this.devAll()) return;
@@ -2598,6 +2597,7 @@ export class OverworldScene extends Phaser.Scene {
     return presentDialogue(this.root('dialogue'), lines, choices, () => {
       this.inputLockUntil = this.time.now + 250;
       this.waitRelease = true;
+      this.game.canvas.dataset.inputReady = 'false';
     });
   }
 

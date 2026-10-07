@@ -25,11 +25,32 @@ export const JAPAN_REGION_LAYOUT: Readonly<Record<string, { x: number; y: number
   'kyushu-okinawa': { x: 3, y: 149, w: 40, h: 48 },
 };
 
-export function nationalRegionAt(regions: readonly MapRegionInfo[], x: number, y: number): number {
-  return regions.findIndex((region) => {
-    const box = JAPAN_REGION_LAYOUT[region.id];
-    return box && x >= box.x && y >= box.y && x < box.x + box.w && y < box.y + box.h;
-  });
+export const JAPAN_GENERAL_REGIONS = [
+  { id: 'hokkaido', nameKey: 'field.mapRegionHokkaido', sourceIds: ['hokkaido'] },
+  { id: 'tohoku', nameKey: 'field.mapRegionTohoku', sourceIds: ['tohoku'] },
+  { id: 'kanto', nameKey: 'field.mapRegionKanto', sourceIds: ['kanto'] },
+  {
+    id: 'chubu',
+    nameKey: 'field.mapRegionChubu',
+    sourceIds: ['hokuriku', 'koshinetsu', 'tokai'],
+  },
+  { id: 'kinki', nameKey: 'field.mapRegionKinki', sourceIds: ['kinki'] },
+  { id: 'chugoku', nameKey: 'field.mapRegionChugoku', sourceIds: ['chugoku'] },
+  { id: 'shikoku', nameKey: 'field.mapRegionShikoku', sourceIds: ['shikoku'] },
+  {
+    id: 'kyushu-okinawa',
+    nameKey: 'field.mapRegionKyushuOkinawa',
+    sourceIds: ['kyushu-okinawa'],
+  },
+] as const;
+
+export function nationalRegionAt(x: number, y: number): number {
+  return JAPAN_GENERAL_REGIONS.findIndex((generalRegion) =>
+    generalRegion.sourceIds.some((sourceId) => {
+      const box = JAPAN_REGION_LAYOUT[sourceId];
+      return box && x >= box.x && y >= box.y && x < box.x + box.w && y < box.y + box.h;
+    }),
+  );
 }
 
 function regionImage(region: MapRegionInfo, hereAreaId: string | undefined): HTMLCanvasElement {
@@ -59,7 +80,7 @@ function regionImage(region: MapRegionInfo, hereAreaId: string | undefined): HTM
 function drawJapan(
   canvas: HTMLCanvasElement,
   regions: readonly MapRegionInfo[],
-  selected: number,
+  selectedGroup: number,
   hereAreaId: string | undefined,
 ): void {
   canvas.width = SIZE;
@@ -67,50 +88,73 @@ function drawJapan(
   const ctx = canvas.getContext('2d')!;
   ctx.imageSmoothingEnabled = false;
   ctx.clearRect(0, 0, SIZE, SIZE);
-  regions.forEach((region, index) => {
+  regions.forEach((region) => {
     const box = JAPAN_REGION_LAYOUT[region.id];
     if (!box) return;
     ctx.drawImage(regionImage(region, hereAreaId), box.x, box.y, box.w, box.h);
-    if (index === selected) {
-      ctx.strokeStyle = NQ.yellow;
-      ctx.lineWidth = 2;
-      ctx.strokeRect(box.x - 1, box.y - 1, box.w + 2, box.h + 2);
-    }
   });
+  const boxes = JAPAN_GENERAL_REGIONS[selectedGroup]?.sourceIds
+    .map((id) => JAPAN_REGION_LAYOUT[id])
+    .filter((box): box is { x: number; y: number; w: number; h: number } => Boolean(box));
+  if (!boxes?.length) return;
+  const x = Math.min(...boxes.map((box) => box.x));
+  const y = Math.min(...boxes.map((box) => box.y));
+  const right = Math.max(...boxes.map((box) => box.x + box.w));
+  const bottom = Math.max(...boxes.map((box) => box.y + box.h));
+  ctx.strokeStyle = NQ.yellow;
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x - 1, y - 1, right - x + 2, bottom - y + 2);
 }
 
 export interface JapanMapOverviewProps {
   regions: MapRegionInfo[];
   hereAreaId?: string;
-  selected: number;
-  onSelect: (index: number) => void;
-  onOpen: () => void;
+  selectedGroup: number;
+  onSelectGroup: (index: number) => void;
+  onOpen: (sourceRegionIndex: number) => void;
   onClose: () => void;
 }
 
 export function JapanMapOverview({
   regions,
   hereAreaId,
-  selected,
-  onSelect,
+  selectedGroup,
+  onSelectGroup,
   onOpen,
   onClose,
 }: JapanMapOverviewProps) {
   const canvas = useRef<HTMLCanvasElement>(null);
-  const region = regions[selected];
-  const visited = region?.areas.filter((area) => area.visited).length ?? 0;
+  const generalRegion = JAPAN_GENERAL_REGIONS[selectedGroup];
+  const sourceRegions = generalRegion?.sourceIds
+    .map((id) => regions.find((region) => region.id === id))
+    .filter((region): region is MapRegionInfo => Boolean(region));
+  const visited = sourceRegions?.flatMap((region) => region.areas).filter((area) => area.visited).length ?? 0;
+  const total = sourceRegions?.reduce((sum, region) => sum + region.areas.length, 0) ?? 0;
 
   useEffect(() => {
-    if (canvas.current) drawJapan(canvas.current, regions, selected, hereAreaId);
-  }, [regions, selected, hereAreaId]);
+    if (canvas.current) drawJapan(canvas.current, regions, selectedGroup, hereAreaId);
+  }, [regions, selectedGroup, hereAreaId]);
 
   const pick = (index: number) => {
-    if (!regions[index] || index === selected) return;
+    if (!JAPAN_GENERAL_REGIONS[index] || index === selectedGroup) return;
     playSfx('move');
-    onSelect(index);
+    onSelectGroup(index);
   };
-  const live = useRef({ selected, count: regions.length, pick, onOpen, onClose });
-  live.current = { selected, count: regions.length, pick, onOpen, onClose };
+  const openDefault = () => {
+    const source =
+      sourceRegions?.find((region) => region.areas.some((area) => area.id === hereAreaId)) ??
+      sourceRegions?.[0];
+    const index = source ? regions.indexOf(source) : -1;
+    if (index >= 0) onOpen(index);
+  };
+  const live = useRef({
+    selected: selectedGroup,
+    count: JAPAN_GENERAL_REGIONS.length,
+    pick,
+    openDefault,
+    onClose,
+  });
+  live.current = { selected: selectedGroup, count: JAPAN_GENERAL_REGIONS.length, pick, openDefault, onClose };
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       const state = live.current;
@@ -118,7 +162,7 @@ export function JapanMapOverview({
         state.pick((state.selected - 1 + state.count) % state.count);
       else if (event.key === 'ArrowRight' || event.key === 'ArrowDown')
         state.pick((state.selected + 1) % state.count);
-      else if (['Enter', ' ', 'z', 'Z'].includes(event.key)) state.onOpen();
+      else if (['Enter', ' ', 'z', 'Z'].includes(event.key)) state.openDefault();
       else if (['Escape', 'x', 'X'].includes(event.key)) state.onClose();
       else return;
       event.preventDefault();
@@ -131,12 +175,11 @@ export function JapanMapOverview({
     const element = event.currentTarget as HTMLCanvasElement;
     const box = element.getBoundingClientRect();
     const index = nationalRegionAt(
-      regions,
       ((event.clientX - box.left) / box.width) * SIZE,
       ((event.clientY - box.top) / box.height) * SIZE,
     );
     if (index < 0) return;
-    if (index === selected) onOpen();
+    if (index === selectedGroup) openDefault();
     else pick(index);
   };
 
@@ -162,26 +205,39 @@ export function JapanMapOverview({
             </button>
           </div>
           <div class="nq-wmap-info nq-japan-info">
-            <RubyLabel text={region?.name ?? ''} class="nq-wmap-aname" />
-            <p>{t('field.mapNationPrefectures', { visited, total: region?.areas.length ?? 0 })}</p>
+            <RubyLabel text={generalRegion ? t(generalRegion.nameKey) : ''} class="nq-wmap-aname" />
+            <p>{t('field.mapNationPrefectures', { visited, total })}</p>
             <div class="nq-japan-region-list">
-              {regions.map((candidate, index) => (
+              {JAPAN_GENERAL_REGIONS.map((candidate, index) => (
                 <button
                   key={candidate.id}
                   type="button"
-                  class={`nq-opt ${index === selected ? 'nq-focus' : ''}`}
+                  class={`nq-opt ${index === selectedGroup ? 'nq-focus' : ''}`}
                   onClick={() => pick(index)}
                 >
-                  <RubyLabel text={candidate.name} />
+                  <RubyLabel text={t(candidate.nameKey)} />
                 </button>
               ))}
             </div>
           </div>
           <div class="nq-wmap-foot">
-            <button type="button" class="nq-opt nq-wmap-go" onClick={onOpen}>
-              <PixelIcon name="map" scale={3} />
-              {t('field.mapNationOpenRegion')}
-            </button>
+            <div class="nq-japan-detail-buttons">
+              {sourceRegions?.map((source) => (
+                <button
+                  key={source.id}
+                  type="button"
+                  class="nq-opt nq-wmap-go"
+                  onClick={() => onOpen(regions.indexOf(source))}
+                >
+                  <PixelIcon name="map" scale={2} />
+                  {sourceRegions.length > 1 ? (
+                    <RubyLabel text={source.name} />
+                  ) : (
+                    t('field.mapNationOpenRegion')
+                  )}
+                </button>
+              ))}
+            </div>
             <span class="nq-wmap-keys">{t('field.mapNationKeys')}</span>
           </div>
         </div>

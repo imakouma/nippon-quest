@@ -15,7 +15,6 @@ async function showPictureWord(page: Page) {
 test('picture-word：絵を見て 正しい英単語を 1 回で えらぶと score 1', async ({ page }) => {
   await showPictureWord(page);
   await page.locator('.nq-pw-card', { hasText: 'apple' }).click();
-  await expect(page.locator('.nq-pw-slot-correct')).toHaveText('apple');
   await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
 });
 

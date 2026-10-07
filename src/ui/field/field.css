@@ -786,6 +786,15 @@
 .nq-japan-region-list .nq-opt rt {
   font-size: 9px;
 }
+.nq-japan-detail-buttons {
+  display: flex;
+  gap: 6px;
+}
+.nq-japan-detail-buttons .nq-wmap-go {
+  min-width: 0;
+  padding-inline: 8px;
+  font-size: 15px;
+}
 .nq-wmap-national-back {
   flex: none;
 }

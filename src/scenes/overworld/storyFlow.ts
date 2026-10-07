@@ -10,6 +10,7 @@ import type { GameState } from '../../core/state/schema';
 import type { DialogueLine } from '../../ui/dialogue';
 import type { CutsceneKind } from '../../ui/cutscene/CutsceneOverlay';
 import { StoryCompanionChoice } from '../../ui/field/StoryCompanionChoice';
+import { HeroIdentitySetup, type HeroIdentity } from '../../ui/title/HeroIdentitySetup';
 import { t } from '../../ui/i18n';
 import { playSfx } from '../../ui/sfx';
 import { monsterMenuArtUrl } from '../../rendering/menuArt';
@@ -96,6 +97,32 @@ export interface MapStory {
   state: GameState;
   lines: DialogueLine[];
   presentation: CutsceneKind;
+}
+
+export function requestHeroIdentity(
+  root: HTMLElement,
+  initialAppearance: HeroIdentity['appearance'],
+): Promise<HeroIdentity> {
+  return new Promise((resolve) => {
+    render(
+      h(HeroIdentitySetup, {
+        initialAppearance,
+        onComplete: (identity) => {
+          render(null, root);
+          resolve(identity);
+        },
+      }),
+      root,
+    );
+  });
+}
+
+export function applyHeroIdentity(game: GameState, identity: HeroIdentity, now = Date.now()): GameState {
+  const state = structuredClone(game);
+  state.player.name = identity.name;
+  state.player.appearance = { ...state.player.appearance, ...identity.appearance };
+  state.updatedAt = now;
+  return state;
 }
 
 /** マップへ入った直後に一度だけ始まる物語と、その記録を返す。 */
@@ -218,6 +245,37 @@ export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now(
   state.progress.counters[IWATE_ARRIVAL_COUNTER] = 1;
   state.updatedAt = now;
   return { state, lines: iwateArrivalLines(), presentation: 'arrival' };
+}
+
+interface ArrivalStoryOptions {
+  mapKey: string;
+  game: GameState;
+  root: HTMLElement;
+  talk(lines: DialogueLine[]): Promise<void>;
+  save(state: GameState): void;
+}
+
+/** 到着物語を進め、青森の導入だけは主人公設定を物語の途中に挟む。 */
+export async function runArrivalStory(options: ArrivalStoryOptions): Promise<boolean> {
+  const { mapKey, game, root, talk, save } = options;
+  const story = mapArrivalStory(mapKey, game);
+  if (!story) return false;
+  save(story.state);
+  if (mapKey !== 'aomori-field') {
+    await talk(story.lines);
+    return true;
+  }
+  const oldName = story.state.player.name;
+  await talk(story.lines.slice(0, 4));
+  const identity = await requestHeroIdentity(root, story.state.player.appearance);
+  save(applyHeroIdentity(story.state, identity));
+  await talk(
+    story.lines.slice(4).map((line) => ({
+      ...line,
+      speaker: line.speaker === oldName ? identity.name : line.speaker,
+    })),
+  );
+  return true;
 }
 
 interface CompanionRiteOptions {
