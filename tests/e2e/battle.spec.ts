@@ -3,18 +3,17 @@ import { expect, test, type Page } from '@playwright/test';
 /**
  * docs/02 Step 6 の E2E（ターン制バトル）：デバッグ URL で強制エンカウント。
  * 1 ターンに 主人公 → オトモ → てき が 1 回ずつ 動く。
- * 問題の中身には なるべく依存しない（たたかう は問題なしで撃てる：GDD §4.1）。
+ * 問題の中身には なるべく依存せず、表示された問題形式に合わせて回答する。
  */
 async function start(page: Page, lv: number): Promise<void> {
   await page.goto(`/?debug=battle&enemy=aomori-ringoron&lv=${lv}`);
   // 文字送り速度や端末負荷に依存せず、登場メッセージをタップで最後まで送る。
-  const attack = page.locator('.nq-cmd[data-cmd="attack"]:not([disabled])');
-  for (let step = 0; step < 100 && !(await attack.isVisible()); step += 1) {
-    const box = page.locator('.nq-box');
-    if (await box.isVisible()) await box.click();
+  const skill = page.locator('.nq-cmd[data-cmd="skill"]:not([disabled])');
+  for (let step = 0; step < 100 && !(await skill.isVisible()); step += 1) {
+    if (await page.locator('.nq-box').isVisible()) await page.keyboard.press('Enter');
     await page.waitForTimeout(100);
   }
-  await expect(attack).toBeVisible({ timeout: 10_000 });
+  await expect(skill).toBeVisible({ timeout: 10_000 });
 }
 
 /** 単元には複数の問題形式が混ざり得るため、表示された形式に依存せず1回答する。 */
@@ -34,18 +33,23 @@ async function answerCurrentQuestion(page: Page): Promise<void> {
   await page.locator('.nq-map-tap').click({ position: { x: 20, y: 20 } });
 }
 
-test('バトル：たたかう を続けると決着がつき、フィールドに戻る', async ({ page }) => {
+async function useFirstSkill(page: Page): Promise<void> {
+  await page.locator('.nq-cmd[data-cmd="skill"]:not([disabled])').click();
+  await page.locator('[data-skill]:not([disabled])').first().click();
+  await answerCurrentQuestion(page);
+}
+
+test('バトル：必殺技を続けると決着がつき、フィールドに戻る', async ({ page }) => {
   test.setTimeout(120_000);
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(String(e)));
   await start(page, 1);
-  const attack = page.locator('.nq-cmd[data-cmd="attack"]:not([disabled])');
-  await expect(attack).toBeVisible({ timeout: 20_000 });
+  const skill = page.locator('.nq-cmd[data-cmd="skill"]:not([disabled])');
+  await expect(skill).toBeVisible({ timeout: 20_000 });
 
   const deadline = Date.now() + 90_000;
   while (Date.now() < deadline && !(await page.locator('.nq-result').isVisible())) {
-    // 自分の ターンが 来たら たたかう。タップ待ちの 文は すすめる
-    if (await attack.isVisible()) await attack.first().click({ force: true });
+    if (await skill.isVisible()) await useFirstSkill(page);
     else if (await page.locator('.nq-box').isVisible()) await page.keyboard.press('Enter');
     await page.waitForTimeout(250);
   }
@@ -59,14 +63,15 @@ test('バトル：たたかう を続けると決着がつき、フィールド�
   expect(errors).toEqual([]);
 });
 
-test('バトル：こちらが 動くと 敵の行動も解決し、次のターンへ進む', async ({ page }) => {
+test('バトル：新UIから必殺技を使うと、敵の行動も解決して次のターンへ進む', async ({ page }) => {
   test.setTimeout(60_000);
   await start(page, 8);
   await expect(page.locator('.nq-turn-stage')).toContainText('ターン', { timeout: 10_000 });
   await expect(page.locator('.nq-sgauge')).toBeVisible();
-  const attack = page.locator('.nq-cmd[data-cmd="attack"]:not([disabled])');
-  await expect(attack).toBeVisible({ timeout: 20_000 });
-  await attack.click();
+  await expect(page.locator('.nq-foe-heading')).toContainText('リンゴロン');
+  await expect(page.locator('.nq-foe-hp-num')).toBeVisible();
+  await page.screenshot({ path: 'test-results/battle-ui.png' });
+  await useFirstSkill(page);
   // 敵の攻撃は命中・回避の両方が正常系。敵行動が解決しなければターン2には進まない。
   await expect(page.locator('.nq-turn-stage')).toContainText('ターン 2', { timeout: 30_000 });
 });

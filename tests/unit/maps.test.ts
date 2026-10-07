@@ -124,6 +124,27 @@ describe('マップ', () => {
       expect(walkingDistance(aomori, spawn, boss), boss.name).toBeGreaterThanOrEqual(20);
   });
 
+  it('青森のエリア境界の山なみは 1 マス幅で、2×2 の壁を作らない', () => {
+    const aomori = maps.get('aomori-field')!;
+    const background = aomori.layers.find((layer) => layer.name === 'background')!.data!;
+    const boundaryMountain = 160;
+    let blocks = 0;
+    for (let y = 0; y < aomori.height - 1; y++)
+      for (let x = 0; x < aomori.width - 1; x++) {
+        const i = y * aomori.width + x;
+        if (
+          [
+            background[i],
+            background[i + 1],
+            background[i + aomori.width],
+            background[i + aomori.width + 1],
+          ].every((tile) => tile === boundaryMountain)
+        )
+          blocks++;
+      }
+    expect(blocks).toBe(0);
+  });
+
   it.each([...maps.keys()])('%s: 遷移先があり、すべての物体に歩いて行ける', (key) => {
     const m = maps.get(key)!;
     const objs = objectsOf(m);

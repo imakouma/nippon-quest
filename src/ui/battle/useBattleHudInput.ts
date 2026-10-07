@@ -3,7 +3,7 @@ import { playSfx } from '../sfx';
 import type { HudState, HudStore } from './store';
 
 const COLS = 2;
-const CMD_COLS = 3;
+const CMD_COLS = 2;
 const KEY_DIR: Record<string, [number, number]> = {
   ArrowLeft: [-1, 0],
   ArrowRight: [1, 0],

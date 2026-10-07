@@ -158,7 +158,6 @@ export function buildCommandOptions(input: {
     ({ skill }) => skill.costGauge > 0 && canAfford(state, skill) && input.hasQuestion(skill),
   );
   const list: CommandOption[] = [
-    { kind: 'attack', disabled: false },
     { kind: 'skill', disabled: skills.length === 0, glow: special },
     { kind: 'item', disabled: input.itemCount === 0 },
     {
@@ -167,8 +166,9 @@ export function buildCommandOptions(input: {
         (monster, index) => index !== state.ally.activeMonsterIndex && monster.hp > 0,
       ),
     },
-    { kind: 'flee', disabled: false },
+    input.canRecruit
+      ? { kind: 'recruit', disabled: false, glow: true }
+      : { kind: 'flee', disabled: state.isBossBattle },
   ];
-  if (input.canRecruit) list.push({ kind: 'recruit', disabled: false, glow: true });
   return list;
 }
