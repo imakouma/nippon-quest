@@ -4,7 +4,7 @@ async function walk(
   page: Page,
   key: 'ArrowRight' | 'ArrowUp',
   tiles: number,
-  expected: 'move' | 'midboss' = 'move',
+  expected: 'move' | 'regionBoss' = 'move',
 ): Promise<void> {
   for (let tile = 0; tile < tiles; tile += 1) {
     const player = page.locator('canvas[data-player-tile]');
@@ -88,7 +88,7 @@ test('青森の最初のぬしは開始地点から離れた奥地にいて、�
   await walk(page, 'ArrowUp', 7);
 
   await page.screenshot({ path: 'test-results/aomori-remote-boss.png' });
-  await walk(page, 'ArrowUp', 1, 'midboss');
+  await walk(page, 'ArrowUp', 1, 'regionBoss');
   await expect(page.locator('.nq-dlg')).toContainText('ねぶたまつりエリアの ぬし');
   for (
     let step = 0;
