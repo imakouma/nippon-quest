@@ -6,7 +6,7 @@ import type { GameState } from '../../core/state/schema';
 import { regionMapTile } from '../../shared/regionVisibility';
 import type { RegionMiniView } from '../../ui/field/RegionMiniMap';
 import type { AreaMark, AreaMapView, PlaceOption } from '../../ui/field/AreaMap';
-import type { MapAreaInfo, MapRegionInfo, WorldMapData } from '../../ui/field/WorldMapOverlay';
+import type { MapAreaInfo, MapRegionInfo, WorldMapData } from '../../ui/field/worldMapModel';
 import { isSpecialtyMotif } from './catalogs';
 
 const TILE = 16;

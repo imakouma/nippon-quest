@@ -756,6 +756,39 @@
   background: #3d8ef0;
   border: 4px solid #000;
 }
+.nq-japan-heading {
+  justify-content: center;
+}
+.nq-japan-view canvas {
+  width: 400px;
+  height: 400px;
+  image-rendering: pixelated;
+  cursor: pointer;
+}
+.nq-japan-info > p {
+  margin: 0;
+}
+.nq-japan-region-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 8px;
+  overflow-y: auto;
+}
+.nq-japan-region-list .nq-opt {
+  min-height: 34px;
+  padding: 0 8px;
+  overflow: hidden;
+  font-size: 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.nq-japan-region-list .nq-opt rt {
+  font-size: 9px;
+}
+.nq-wmap-national-back {
+  flex: none;
+}
 .nq-wmap-canvas {
   position: relative;
   cursor: pointer;

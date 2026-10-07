@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
-import type { RegionGrid } from './WorldMapOverlay';
+import type { RegionGrid } from './worldMapModel';
 import { areaMapTerrainColor } from './areaMapTerrain';
 import { drawRegionContext } from './regionContext';
 

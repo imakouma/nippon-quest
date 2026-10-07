@@ -3,7 +3,7 @@ import type { Area, Motif } from '../../core/content/schemas';
 import { canChallengeIslandBoss } from '../../core/progression/island';
 import { midBossFlag, motifStamp } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
-import type { MapAreaInfo, MapRegionInfo, WorldMapData } from '../../ui/field/WorldMapOverlay';
+import type { MapAreaInfo, MapRegionInfo, WorldMapData } from '../../ui/field/worldMapModel';
 import { stripRuby } from '../../ui/ruby';
 
 const SPECIALTY_KINDS: ReadonlySet<Motif['kind']> = new Set(['food', 'craft']);

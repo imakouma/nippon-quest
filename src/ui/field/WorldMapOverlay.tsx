@@ -11,51 +11,9 @@ import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { playSfx } from '../sfx';
+import { JapanMapOverview } from './JapanMapOverview';
+import { areaAt, type MapRegionInfo, type RegionGrid } from './worldMapModel';
 import './field.css';
-
-/** public/worldmap.json の形 */
-export interface WorldMapData {
-  regions: {
-    id: string;
-    width: number;
-    height: number;
-    /** '.' は海、'a' + i は areas[i] の県 */
-    rows: string[];
-    areas: { id: string; capital: [number, number]; stamps: string[] }[];
-  }[];
-}
-
-export interface MapAreaInfo {
-  id: string;
-  /** 県名（RubyText） */
-  name: string;
-  /** 県庁所在地のマス */
-  capital: [number, number];
-  /** フィールドの名所（★ 看板）と 特産品（宝箱）。見つけたものは名前（かな）、まだのものは null */
-  stamps: { name: string | null; box: boolean }[];
-  /** 中ボス：たおした / まだ / いない */
-  boss: 'done' | 'yet' | 'none';
-  /** 行ったことがある（ロック解除）。まだの県は灰色で、ワープできない */
-  visited: boolean;
-}
-
-export interface MapRegionInfo {
-  id: string;
-  /** 地方（島）の名前（RubyText） */
-  name: string;
-  width: number;
-  height: number;
-  rows: string[];
-  areas: MapAreaInfo[];
-  /** stub の地方は結界だけを表示し、県へ移動できない。 */
-  status: 'playable' | 'stub';
-  islandBoss: {
-    name: string;
-    state: 'locked' | 'ready' | 'done';
-    foundSigns: number;
-    requiredSigns: number;
-  };
-}
 
 export interface WorldMapOverlayProps {
   regions: MapRegionInfo[];
@@ -74,21 +32,6 @@ const MAP_INNER = 400;
 /** 高解像度の地方図も 400px の枠へ整数倍で収め、ドット絵をぼかさない。 */
 export const regionDisplayCell = (r: Pick<RegionGrid, 'width' | 'height'>): number =>
   Math.max(1, Math.min(CELL, Math.floor(MAP_INNER / Math.max(r.width, r.height))));
-
-/** 地方の地図のマス目（にほんちず・左上の小さな地図で共通） */
-export interface RegionGrid {
-  width: number;
-  height: number;
-  /** '.' は海、'a' + i は areas[i] の県 */
-  rows: string[];
-  areas: { capital: [number, number] }[];
-}
-
-/** rows の 1 文字 → 県の番号（海は -1） */
-export function areaAt(r: RegionGrid, x: number, y: number): number {
-  const c = r.rows[y]?.[x];
-  return c && c !== '.' ? c.charCodeAt(0) - 97 : -1;
-}
 
 function cellsOf(r: RegionGrid, k: number): [number, number][] {
   const out: [number, number][] = [];
@@ -193,17 +136,16 @@ export function islandBossCell(r: RegionGrid): [number, number] {
   }, cells[0]!);
 }
 
-export function WorldMapOverlay({
+function RegionWorldMapOverlay({
   regions,
   here,
   onGo,
   onChallengeIslandBoss,
   onClose,
-}: WorldMapOverlayProps) {
-  const home = Math.max(
-    0,
-    regions.findIndex((r) => r.areas.some((a) => a.id === here?.areaId)),
-  );
+  initialRegion,
+  onBack,
+}: WorldMapOverlayProps & { initialRegion: number; onBack: () => void }) {
+  const home = Math.max(0, initialRegion);
   const [ri, setRi] = useState(home);
   const [ai, setAi] = useState(() =>
     Math.max(0, regions[home]?.areas.findIndex((a) => a.id === here?.areaId) ?? 0),
@@ -261,8 +203,8 @@ export function WorldMapOverlay({
     else go();
   };
 
-  const live = useRef({ pickRegion, pickArea, activate, onClose, ai, n: 0 });
-  live.current = { pickRegion, pickArea, activate, onClose, ai, n: region?.areas.length ?? 0 };
+  const live = useRef({ pickRegion, pickArea, activate, onBack, ai, n: 0 });
+  live.current = { pickRegion, pickArea, activate, onBack, ai, n: region?.areas.length ?? 0 };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const L = live.current;
@@ -288,7 +230,7 @@ export function WorldMapOverlay({
         case 'Escape':
         case 'x':
         case 'X':
-          L.onClose();
+          L.onBack();
           break;
         default:
           return;
@@ -378,6 +320,9 @@ export function WorldMapOverlay({
 
         <div class="nq-wmap-right">
           <div class="nq-wmap-head">
+            <button type="button" class="nq-back nq-wmap-national-back" onClick={onBack}>
+              ← {t('field.mapNationBack')}
+            </button>
             <span class="nq-wmap-title">
               <PixelIcon name="map" scale={3} />
               {t('field.worldMap')}
@@ -469,4 +414,25 @@ export function WorldMapOverlay({
       </div>
     </div>
   );
+}
+
+export function WorldMapOverlay(props: WorldMapOverlayProps) {
+  const home = Math.max(
+    0,
+    props.regions.findIndex((region) => region.areas.some((area) => area.id === props.here?.areaId)),
+  );
+  const [overview, setOverview] = useState(true);
+  const [selectedRegion, setSelectedRegion] = useState(home);
+  if (overview)
+    return (
+      <JapanMapOverview
+        regions={props.regions}
+        hereAreaId={props.here?.areaId}
+        selected={selectedRegion}
+        onSelect={setSelectedRegion}
+        onOpen={() => setOverview(false)}
+        onClose={props.onClose}
+      />
+    );
+  return <RegionWorldMapOverlay {...props} initialRegion={selectedRegion} onBack={() => setOverview(true)} />;
 }

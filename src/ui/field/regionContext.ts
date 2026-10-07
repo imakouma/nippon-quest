@@ -1,5 +1,5 @@
 import { NQ } from '../../rendering/palette';
-import { areaAt, type RegionGrid } from './WorldMapOverlay';
+import { areaAt, type RegionGrid } from './worldMapModel';
 
 /** 現在県以外を暗いシルエットと県境で描き、県同士の位置関係を残す。 */
 export function drawRegionContext(

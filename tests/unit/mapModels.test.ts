@@ -11,7 +11,7 @@ import {
   worldMapRegionViews,
   type MapBase,
 } from '../../src/scenes/overworld/mapModels';
-import type { WorldMapData } from '../../src/ui/field/WorldMapOverlay';
+import type { WorldMapData } from '../../src/ui/field/worldMapModel';
 import { stripRuby } from '../../src/ui/ruby';
 import { content } from './helpers';
 
