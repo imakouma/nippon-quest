@@ -10,6 +10,7 @@ const roleNameKeys: Record<string, string> = {
   dex: 'field.roleDex',
   arena: 'field.roleArena',
   ferry: 'field.roleFerry',
+  barber: 'field.roleBarber',
 };
 
 const jobNameKeys: Record<Motif['kind'], string> = {

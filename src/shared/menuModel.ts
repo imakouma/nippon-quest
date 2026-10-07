@@ -2,7 +2,7 @@
  * フィールドメニューの表示契約。
  * Scene が表示データを作り、UI が描画するための中立な境界に置く。
  */
-export type MenuTab = 'roadmap' | 'mistakes' | 'monsters' | 'specialties' | 'bag' | 'equip' | 'look';
+export type MenuTab = 'roadmap' | 'mistakes' | 'monsters' | 'specialties' | 'bag' | 'equip';
 export type MenuHomeKey = MenuTab | 'party';
 
 export interface RoadmapNode {

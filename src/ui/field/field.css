@@ -567,6 +567,127 @@
   overflow-wrap: anywhere;
 }
 
+/* ───── 床屋：主人公を見ながら、5部位だけを横に選ぶ ───── */
+.nq-barber {
+  display: grid;
+  width: 912px;
+  height: 516px;
+  padding: 12px 16px;
+  grid-template-rows: 48px minmax(0, 1fr) 52px;
+  gap: 8px;
+}
+.nq-barber-head,
+.nq-barber-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nq-barber-head .nq-back {
+  margin-left: auto;
+}
+.nq-barber-main {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 16px;
+}
+.nq-barber-preview {
+  display: flex;
+  min-width: 0;
+  padding: 12px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  border: 4px solid #31273f;
+  background: repeating-conic-gradient(#171b2d 0 25%, #202943 0 50%) 0 / 24px 24px;
+}
+.nq-barber-preview > img {
+  width: 128px;
+  height: 160px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.nq-barber-preview p {
+  margin: 0;
+  color: var(--nq-cloud);
+  font-size: 12px;
+  text-align: center;
+}
+.nq-barber-name {
+  color: var(--nq-yellow);
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+}
+.nq-barber-controls {
+  display: grid;
+  min-width: 0;
+  align-content: center;
+  gap: 6px;
+}
+.nq-barber-controls fieldset {
+  display: grid;
+  min-width: 0;
+  min-height: 54px;
+  margin: 0;
+  padding: 4px 8px;
+  grid-template-columns: 84px minmax(0, 1fr);
+  align-items: center;
+  border: 3px solid var(--nq-slate);
+}
+.nq-barber-controls legend {
+  display: contents;
+  color: var(--nq-cream);
+  font-size: 24px;
+}
+.nq-barber-options {
+  display: flex;
+  min-width: 0;
+  justify-content: center;
+  gap: 4px;
+}
+.nq-barber-choice {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  place-items: center;
+  border: 3px solid var(--nq-slate);
+  background: #18203a;
+  cursor: pointer;
+}
+.nq-barber-choice > img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.nq-barber-choice > span {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  color: #1a1428;
+  background: var(--nq-yellow);
+  font-size: 12px;
+}
+.nq-barber-choice[aria-pressed='true'] {
+  border-color: var(--nq-yellow);
+}
+.nq-barber-choice.nq-focus,
+.nq-barber-choice:focus-visible {
+  outline: 3px solid var(--nq-white);
+  outline-offset: 1px;
+}
+.nq-barber-foot .nq-wmap-keys {
+  flex: 1;
+}
+.nq-barber-apply {
+  min-width: 220px;
+  min-height: 44px;
+}
+
 /* ───── 場所の名前（移動したとき、画面のまん中に） ───── */
 .nq-atitle {
   position: absolute;

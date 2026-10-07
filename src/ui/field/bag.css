@@ -70,6 +70,17 @@
   border-style: dashed;
   background: transparent;
 }
+.nq-bag-drop-ok {
+  border-color: var(--nq-yellow);
+  background: rgba(255, 211, 61, 0.14);
+  animation: nq-blink 0.6s steps(2) infinite;
+}
+.nq-bag-outside [draggable='true'] {
+  cursor: grab;
+}
+.nq-bag-outside [draggable='true']:active {
+  cursor: grabbing;
+}
 /* まだ ひらいていない マス：くらく、あく レベル */
 .nq-bag-locked {
   border-color: #2a2c3d;

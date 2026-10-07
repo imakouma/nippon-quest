@@ -13,6 +13,7 @@ function equipmentThing(it: Item, key: string, count?: number): BagThing {
   return {
     key,
     kind: 'equip',
+    equipSlot: it.kind,
     name: it.name,
     icon: itemIconUrl(it),
     art: itemIconUrl(it),

@@ -193,6 +193,18 @@ describe('町とダンジョン', () => {
     }
   });
 
+  it('47都道府県すべての町に歩いて行ける床屋がいる', () => {
+    const towns = [...maps].filter(([key]) => key.endsWith('-town'));
+    expect(towns).toHaveLength(47);
+    for (const [key, map] of towns) {
+      const barber = objectsOf(map).find(
+        (object) => object.type === 'npc' && prop(object, 'role') === 'barber',
+      );
+      expect(barber, `${key} の床屋`).toBeDefined();
+      expect(reachable(key, map).has(tileIndex(map, barber!)), `${key} の床屋に行ける`).toBe(true);
+    }
+  });
+
   it('どの県にも 町の テーマ（scripts/data/towns.ts）が あり、理由（note）が 書いてある', () => {
     for (const f of jsonFiles(PREFECTURES)) {
       const id = f.slice(0, -5);

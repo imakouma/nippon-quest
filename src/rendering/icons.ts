@@ -245,6 +245,10 @@ export const ICONS: Readonly<Record<string, IconDef>> = {
     },
   ),
   // ── 町の人の役割
+  'role-barber': icon(
+    ['o......o', '.o....o.', '..o..o..', '...oo...', '..o..o..', '.o.oo.o.', 'o..oo..o', '........'],
+    { o: NQ.silver },
+  ),
   'role-shop': BAG,
   'role-smith': icon(
     ['.ooooo..', 'oSSSSSo.', 'oSSSSSo.', '.oooBo..', '...oBo..', '...oBo..', '...oBo..', '...ooo..'],

@@ -4,6 +4,7 @@
  *   pnpm scaffold:maps --force  (既存マップを上書き)
  *   pnpm scaffold:maps --force --only=aomori  (その県の フィールドだけ 作りなおす。ほかの マップ・にほんちずは さわらない)
  *   pnpm scaffold:maps --force --worldmap-only  (にほんちずだけ作りなおす)
+ *   pnpm scaffold:maps --towns-only  (全県の町マップだけ作りなおす)
  *
  * フィールド・離島・にほんちずの地形は scripts/data/terrain.json（pnpm gen:terrain が実在の地理から作る）を使う。
  * 町（県庁所在地）・ダンジョン・名所・港も、実際の場所に置く（位置は scripts/data/geo.ts）。
@@ -56,6 +57,7 @@ const MAPS_DIR = `${ROOT}maps/`;
 
 const args = process.argv.slice(2);
 const force = args.includes('--force');
+const townsOnly = args.includes('--towns-only');
 const only = args.find((a) => a.startsWith('--only='))?.slice('--only='.length);
 const worldMapOnly = args.includes('--worldmap-only');
 
@@ -155,10 +157,10 @@ let createdCount = 0;
 /** pnpm lint（prettier --check）がそのまま通るよう、Prettier で整形してから書き出す */
 const PRETTIER = { ...((await resolveConfig(`${ROOT}maps/map.json`)) ?? {}), parser: 'json' };
 
-async function saveMap(filename: string, content: object) {
+async function saveMap(filename: string, content: object, replace = force) {
   const jsonStr = await format(JSON.stringify(content), PRETTIER);
   const filePath = `${MAPS_DIR}${filename}`;
-  if (!existsSync(filePath) || force) {
+  if (!existsSync(filePath) || replace) {
     writeFileSync(filePath, jsonStr, 'utf8');
     createdCount++;
   }
@@ -1676,12 +1678,13 @@ const SECRETS = new Set(
     return existsSync(file) && !!(JSON.parse(readFileSync(file, 'utf8')) as { secret?: unknown }).secret;
   }).map((p) => p.id),
 );
-const DEFAULT_ROLES = ['shop', 'inn', 'smith', 'board'];
+const DEFAULT_ROLES = ['shop', 'inn', 'smith', 'barber', 'board'];
 /** 建物に入る お店（目立つ場所から順に）と、屋根の色 */
 const SHOP_ROOF: Record<string, number> = {
   shop: T.roofRed,
   inn: T.roofBlue,
   smith: T.roofBrown,
+  barber: T.roofGreen,
   dex: T.roofGreen,
   arena: T.roofRed,
 };
@@ -2556,6 +2559,10 @@ for (const pref of PREFECTURES) {
     fieldMap(pref, events);
     continue;
   }
+  if (townsOnly) {
+    await saveMap(`${pref.id}-town.json`, townMap(pref.id), true);
+    continue;
+  }
   if (only) {
     if (pref.id === only) await saveMap(`${pref.id}-field.json`, fieldMap(pref, events));
     continue;
@@ -2566,14 +2573,14 @@ for (const pref of PREFECTURES) {
   await saveMap(`${pref.id}-dungeon.json`, dungeonMap(pref.id, inDungeon));
   if (SECRETS.has(pref.id)) await saveMap(`${pref.id}-secret.json`, dungeonMap(pref.id, [], 'secret'));
 }
-if (!only) {
+if (!only && !townsOnly) {
   for (const enc of ENCLAVES) {
     const map = enclaveMap(enc);
     if (!worldMapOnly) await saveMap(`${enc.enclaveId}.json`, map);
   }
   await saveWorldMap(worldMap(triggers));
 }
-for (const [prefId, spots] of Object.entries(only || worldMapOnly ? {} : LANDMARK_SPOTS))
+for (const [prefId, spots] of Object.entries(only || worldMapOnly || townsOnly ? {} : LANDMARK_SPOTS))
   for (const motifId of Object.keys(spots))
     if (!placedLandmarks.get(prefId)?.includes(motifId))
       console.warn(

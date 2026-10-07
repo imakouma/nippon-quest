@@ -1,12 +1,14 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
-test('装備の詳細を閉じても崩れず、武器を空きマスへ動かせる', async ({ page }, testInfo) => {
+test('装備の詳細を閉じても崩れず、武器をドラッグして装備・移動できる', async ({ page }, testInfo) => {
   test.setTimeout(60_000);
   await page.goto('/');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'テスト');
+  const storySkip = page.getByRole('button', { name: 'スキップ' });
+  if (await storySkip.isVisible()) await storySkip.click();
 
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: /もちもの・へんせい/ }).click();
@@ -20,8 +22,9 @@ test('装備の詳細を閉じても崩れず、武器を空きマスへ動か�
   await expect.poll(() => bagWindow.evaluate((el) => el.getBoundingClientRect().width)).toBe(openWidth);
   await page.screenshot({ path: testInfo.outputPath('details-closed.png') });
 
-  await page.locator('.nq-bag-outside .nq-opt').filter({ hasText: 'れんしゅうの ぼう' }).click();
-  await page.getByRole('button', { name: 'いれる' }).click();
+  const storedWeapon = page.locator('.nq-bag-outside .nq-opt').filter({ hasText: 'れんしゅうの ぼう' });
+  const weaponSlot = page.locator('.nq-bag-empty[data-drop-slot="weapon"]');
+  await storedWeapon.dragTo(weaponSlot);
   const weapon = page.getByRole('listitem', { name: 'れんしゅうの ぼう' });
   await page.locator('.nq-bag-empty').first().click();
   await expect(weapon).toHaveCSS('grid-column-start', '1');

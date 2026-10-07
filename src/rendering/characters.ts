@@ -239,6 +239,16 @@ export function heroLook(a: HeroAppearance, equipment: HeroEquipment = {}): Look
 
 /** 町の人（NPC の役割ごとの服の色）。本番のドット絵ができるまでの見分け用 */
 export const NPC_LOOKS: Readonly<Record<string, Look>> = {
+  barber: {
+    hair: NQ.hairBlack,
+    skin: NQ.skinLight,
+    cap: null,
+    top: NQ.violet,
+    scarf: NQ.white,
+    pack: null,
+    pants: NQ.ink,
+    shoes: NQ.ink,
+  },
   shop: {
     hair: NQ.hairBlack,
     skin: NQ.skinLight,

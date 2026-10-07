@@ -86,9 +86,11 @@ export function TownOverlay({
       const L = live.current;
       switch (e.key) {
         case 'ArrowUp':
+        case 'ArrowLeft':
           if (L.n) L.pick((L.sel - 1 + L.n) % L.n);
           break;
         case 'ArrowDown':
+        case 'ArrowRight':
           if (L.n) L.pick((L.sel + 1) % L.n);
           break;
         case 'Enter':
@@ -110,6 +112,81 @@ export function TownOverlay({
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+
+  if (icon === 'role-barber') {
+    const groups = Object.values(
+      rows.reduce<Record<string, TownRow[]>>((all, option) => {
+        const part = option.key.split(':')[1] ?? option.key;
+        (all[part] ??= []).push(option);
+        return all;
+      }, {}),
+    );
+    return (
+      <div class="nq-wmap" onClick={onClose}>
+        <div class="nq-win nq-barber" onClick={(e) => e.stopPropagation()}>
+          <header class="nq-barber-head">
+            <span class="nq-wmap-title">
+              <PixelIcon name={icon} scale={3} />
+              <RubyLabel text={title} />
+            </span>
+            <span class="nq-town-gold">{t('field.townGold', { n: gold })}</span>
+            <button type="button" class="nq-back" onClick={onClose}>
+              × {t('ui.close')}
+            </button>
+          </header>
+          <div class="nq-barber-main">
+            <div class="nq-barber-preview">
+              {row?.icon && <img src={row.icon} alt={t('newGame.lookPreview')} />}
+              {row && <RubyLabel text={row.name} class="nq-barber-name" />}
+              {row?.lines.map((line, index) => (
+                <RubyLabel key={index} text={line} as="p" />
+              ))}
+            </div>
+            <div class="nq-barber-controls">
+              {groups.map((options) => (
+                <fieldset key={options[0]!.key.split(':')[1]}>
+                  <legend>{options[0]!.name.split('：')[0]}</legend>
+                  <div class="nq-barber-options">
+                    {options.map((option) => {
+                      const index = rows.indexOf(option);
+                      return (
+                        <button
+                          key={option.key}
+                          type="button"
+                          class={`nq-barber-choice ${index === sel ? 'nq-focus' : ''}`}
+                          aria-label={option.name.replace(/\[[^\]]*\]/g, '')}
+                          aria-pressed={!!option.tag}
+                          onPointerEnter={() => pick(index)}
+                          onClick={() => pick(index)}
+                        >
+                          {option.icon && <img src={option.icon} alt="" />}
+                          {option.tag && <span>✓</span>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </fieldset>
+              ))}
+            </div>
+          </div>
+          <footer class="nq-barber-foot">
+            {message && <RubyLabel text={message} class="nq-party-msg" />}
+            <RubyLabel class="nq-wmap-keys" text={keys} />
+            {row?.action && (
+              <button
+                type="button"
+                class={`nq-opt nq-barber-apply ${row.action.ok ? 'nq-party-evolve-ok' : ''}`}
+                disabled={!row.action.ok}
+                onClick={act}
+              >
+                <RubyLabel text={row.action.label} />
+              </button>
+            )}
+          </footer>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div class="nq-wmap" onClick={onClose}>

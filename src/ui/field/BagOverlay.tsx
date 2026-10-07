@@ -6,7 +6,7 @@
  * 操作：↑↓←→ えらぶ / Z・Enter いれる・だす / X・Esc とじる。
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
-import type { Element, Stats } from '../../core/content/schemas';
+import type { Element, Item, Stats } from '../../core/content/schemas';
 import { ElementChip } from '../chips';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
@@ -20,6 +20,8 @@ export interface BagThing {
   /** 'hero' / 'mon:<uid>' / 'eq:<部位>'（バッグの そうび）/ 'inv:<itemId>'（あずけている そうび） */
   key: string;
   kind: 'hero' | 'monster' | 'equip' | 'item';
+  /** 装備なら、主人公のまわりの決められた装備位置。 */
+  equipSlot?: Item['kind'];
   /** 名前（RubyText） */
   name: string;
   /** マス・リストの 小さな 絵（data URL） */
@@ -67,6 +69,7 @@ export interface BagOverlayProps {
   cells: BagCell[];
   cols: number;
   rows: number;
+  dropSlots: Partial<Record<Item['kind'], { x: number; y: number }>>;
   used: number;
   capacity: number;
   /** マスより 多く 入っている（マスが できる前の セーブ） */
@@ -123,6 +126,7 @@ export function BagOverlay({
   cells,
   cols,
   rows,
+  dropSlots,
   focusKey,
   message,
   flashKey,
@@ -143,6 +147,7 @@ export function BagOverlay({
     );
   const [sel, setSel] = useState(() => indexOf(focusKey));
   const [detailsOpen, setDetailsOpen] = useState(true);
+  const [dragKey, setDragKey] = useState<string | null>(null);
   const sig = order.map((x) => x.key).join(',');
   useEffect(() => setSel(indexOf(focusKey)), [focusKey, sig]);
   const m = order[Math.min(sel, order.length - 1)]!;
@@ -230,6 +235,12 @@ export function BagOverlay({
         type="button"
         data-bag-key={x.key}
         class={`nq-opt ${x.key === m.key ? 'nq-focus' : ''}`}
+        draggable={x.kind === 'equip'}
+        onDragStart={(e) => {
+          e.dataTransfer?.setData('text/plain', x.key);
+          setDragKey(x.key);
+        }}
+        onDragEnd={() => setDragKey(null)}
         onClick={() => activateKey(x.key)}
       >
         <span class="nq-amap-cur">{heart(x)}</span>
@@ -281,24 +292,38 @@ export function BagOverlay({
             }}
           >
             {cells.map((c, i) => {
-              if (c.kind === 'empty')
+              if (c.kind === 'empty') {
+                const slot = Object.entries(dropSlots).find(
+                  ([, pos]) => pos?.x === c.x && pos.y === c.y,
+                )?.[0];
+                const dragged = dragKey ? byKey.get(dragKey) : undefined;
+                const canDrop =
+                  !dragged || dragged.inBag || (dragged.equipSlot === slot && dragged.kind === 'equip');
                 return (
                   <div
                     key={`e${i}`}
-                    class="nq-bag-cell nq-bag-empty"
+                    class={`nq-bag-cell nq-bag-empty ${dragKey && canDrop ? 'nq-bag-drop-ok' : ''}`}
+                    data-drop-slot={slot}
                     style={{ gridColumn: c.x + 1, gridRow: c.y + 1 }}
                     aria-label={t('field.bagEmptyCell')}
                     onClick={() => {
                       if (m.kind !== 'hero' && m.inBag) onMove(m.key, c.x, c.y);
                     }}
-                    onDragOver={(e) => e.preventDefault()}
+                    onDragOver={(e) => {
+                      if (canDrop) e.preventDefault();
+                    }}
                     onDrop={(e) => {
                       e.preventDefault();
                       const key = e.dataTransfer?.getData('text/plain');
-                      if (key) onMove(key, c.x, c.y);
+                      const thing = key ? byKey.get(key) : undefined;
+                      if (!thing || (!thing.inBag && thing.equipSlot !== slot)) return;
+                      if (thing.inBag) onMove(key!, c.x, c.y);
+                      else onToggle(key!);
+                      setDragKey(null);
                     }}
                   />
                 );
+              }
               const x = byKey.get(c.key);
               if (!x) return null;
               return (
@@ -310,7 +335,11 @@ export function BagOverlay({
                   class={`nq-bag-cell nq-bag-item nq-bag-${x.kind} ${x.key === m.key ? 'nq-focus' : ''}`}
                   style={{ gridColumn: `${c.x + 1} / span ${c.w}`, gridRow: `${c.y + 1} / span ${c.h}` }}
                   draggable={x.kind !== 'hero'}
-                  onDragStart={(e) => e.dataTransfer?.setData('text/plain', x.key)}
+                  onDragStart={(e) => {
+                    e.dataTransfer?.setData('text/plain', x.key);
+                    setDragKey(x.key);
+                  }}
+                  onDragEnd={() => setDragKey(null)}
                   aria-label={x.name.replace(/\[[^\]]*\]/g, '')}
                   onClick={() => activateKey(x.key)}
                 >
