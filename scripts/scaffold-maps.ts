@@ -3,6 +3,7 @@
  *   pnpm scaffold:maps          (未作成のみ)
  *   pnpm scaffold:maps --force  (既存マップを上書き)
  *   pnpm scaffold:maps --force --only=aomori  (その県の フィールドだけ 作りなおす。ほかの マップ・にほんちずは さわらない)
+ *   pnpm scaffold:maps --force --worldmap-only  (にほんちずだけ作りなおす)
  *
  * フィールド・離島・にほんちずの地形は scripts/data/terrain.json（pnpm gen:terrain が実在の地理から作る）を使う。
  * 町（県庁所在地）・ダンジョン・名所・港も、実際の場所に置く（位置は scripts/data/geo.ts）。
@@ -56,6 +57,7 @@ const MAPS_DIR = `${ROOT}maps/`;
 const args = process.argv.slice(2);
 const force = args.includes('--force');
 const only = args.find((a) => a.startsWith('--only='))?.slice('--only='.length);
+const worldMapOnly = args.includes('--worldmap-only');
 
 if (!existsSync(MAPS_DIR)) mkdirSync(MAPS_DIR, { recursive: true });
 
@@ -2549,6 +2551,11 @@ function dungeonMap(prefId: string, eventNames: string[], kind: 'dungeon' | 'sec
 const triggers = eventTriggers();
 for (const pref of PREFECTURES) {
   const events = (triggers.get(`${pref.id}-field`) ?? []).map((e) => e.name);
+  // にほんちずの名所一覧は fieldMap が確定した配置を使う。ファイルは書かず配置計算だけ行う。
+  if (worldMapOnly) {
+    fieldMap(pref, events);
+    continue;
+  }
   if (only) {
     if (pref.id === only) await saveMap(`${pref.id}-field.json`, fieldMap(pref, events));
     continue;
@@ -2560,10 +2567,13 @@ for (const pref of PREFECTURES) {
   if (SECRETS.has(pref.id)) await saveMap(`${pref.id}-secret.json`, dungeonMap(pref.id, [], 'secret'));
 }
 if (!only) {
-  for (const enc of ENCLAVES) await saveMap(`${enc.enclaveId}.json`, enclaveMap(enc));
+  for (const enc of ENCLAVES) {
+    const map = enclaveMap(enc);
+    if (!worldMapOnly) await saveMap(`${enc.enclaveId}.json`, map);
+  }
   await saveWorldMap(worldMap(triggers));
 }
-for (const [prefId, spots] of Object.entries(only ? {} : LANDMARK_SPOTS))
+for (const [prefId, spots] of Object.entries(only || worldMapOnly ? {} : LANDMARK_SPOTS))
   for (const motifId of Object.keys(spots))
     if (!placedLandmarks.get(prefId)?.includes(motifId))
       console.warn(

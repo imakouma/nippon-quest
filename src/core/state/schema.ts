@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { gradeSchema, idSchema, statsSchema } from '../content/schemas';
 import { attemptEventSchema, conceptStateSchema } from '../learning/state';
 
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 6;
 
 export const equipmentSchema = z
   .object({ weapon: idSchema, head: idSchema, chest: idSchema, legs: idSchema, feet: idSchema })
@@ -40,9 +40,11 @@ export const gameStateSchema = z.object({
   player: z.object({
     name: z.string().min(1).max(6),
     appearance: z.object({
-      hair: z.number().int().min(0).max(2),
-      skin: z.number().int().min(0).max(2),
-      cloth: z.number().int().min(0).max(2),
+      hair: z.number().int().min(0).max(7),
+      skin: z.number().int().min(0).max(6),
+      cloth: z.number().int().min(0).max(9),
+      hairStyle: z.number().int().min(0).max(3).default(0),
+      eyes: z.number().int().min(0).max(2).default(0),
     }),
     level: z.number().int().positive(),
     xp: z.number().int().nonnegative(),
@@ -65,7 +67,7 @@ export const gameStateSchema = z.object({
       .describe('編成中だがバッグ外にいる控え。team と合わせて最大7体'),
     bagPlacements: z
       .record(z.string(), bagPlacementSchema)
-      .default({ hero: { x: 0, y: 0, rotated: false } })
+      .default({ hero: { x: 1, y: 1, rotated: false } })
       .describe('2Dバッグ上の配置。キーは hero / mon:<uid> / eq:<slot>'),
   }),
   inventory: z.record(idSchema, z.number().int().nonnegative()),

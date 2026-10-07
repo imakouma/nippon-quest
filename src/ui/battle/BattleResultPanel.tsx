@@ -39,6 +39,48 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
         : r.kind === 'fled'
           ? t('battle.resultFled')
           : t('battle.resultRecruited');
+  if (r.recruitPhase && r.recruitName) {
+    return (
+      <div class="nq-result-wrap nq-recruit-wrap">
+        <div class="nq-win nq-recruit-scene" role="dialog" aria-label={t('battle.recruitSceneTitle')}>
+          <h2 class="nq-recruit-title">
+            <PixelIcon name="star" scale={3} />
+            {t('battle.recruitSceneTitle')}
+            <PixelIcon name="star" scale={3} />
+          </h2>
+          <div class="nq-recruit-stage" aria-hidden="true">
+            <i class="nq-recruit-glow" />
+            <i class="nq-recruit-spark nq-recruit-spark-a">✦</i>
+            <i class="nq-recruit-spark nq-recruit-spark-b">◆</i>
+            <i class="nq-recruit-spark nq-recruit-spark-c">✦</i>
+            {r.recruitArt && <img src={r.recruitArt} alt="" />}
+          </div>
+          <p class="nq-recruit-message">
+            <RubyLabel text={t('battle.recruitOffer', { name: r.recruitName })} />
+            <br />
+            {t('battle.recruitAsk')}
+          </p>
+          <div class="nq-result-btns">
+            {[true, false].map((yes, index) => (
+              <button
+                key={String(yes)}
+                type="button"
+                class={`nq-cmd ${cursor === index ? 'nq-focus' : ''}`}
+                onPointerEnter={() => store.set({ cursor: index })}
+                onClick={() => {
+                  playSfx('select');
+                  store.dispatch({ t: 'recruitAnswer', yes });
+                }}
+              >
+                <Cursor on={cursor === index} />
+                {t(yes ? 'battle.yes' : 'battle.no')}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div class="nq-result-wrap">
       <div class={`nq-win nq-result nq-result-${r.kind}`} role="dialog" aria-label={title}>
@@ -100,47 +142,20 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
             {t('battle.restAtInn')}
           </p>
         )}
-        {r.recruitName ? (
-          <div class="nq-result-recruit">
-            <p>
-              <RubyLabel text={t('battle.recruitOffer', { name: r.recruitName })} />
-              <br />
-              {t('battle.recruitAsk')}
-            </p>
-            <div class="nq-result-btns">
-              {[true, false].map((yes, index) => (
-                <button
-                  key={String(yes)}
-                  type="button"
-                  class={`nq-cmd ${cursor === index ? 'nq-focus' : ''}`}
-                  onPointerEnter={() => store.set({ cursor: index })}
-                  onClick={() => {
-                    playSfx('select');
-                    store.dispatch({ t: 'recruitAnswer', yes });
-                  }}
-                >
-                  <Cursor on={cursor === index} />
-                  {t(yes ? 'battle.yes' : 'battle.no')}
-                </button>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div class="nq-result-btns">
-            <button
-              type="button"
-              class="nq-cmd nq-focus"
-              data-result-close
-              onClick={() => {
-                playSfx('select');
-                store.dispatch({ t: 'resultClose' });
-              }}
-            >
-              <Cursor on />
-              {t('battle.continue')}
-            </button>
-          </div>
-        )}
+        <div class="nq-result-btns">
+          <button
+            type="button"
+            class="nq-cmd nq-focus"
+            data-result-close
+            onClick={() => {
+              playSfx('select');
+              store.dispatch({ t: 'resultClose' });
+            }}
+          >
+            <Cursor on />
+            {t('battle.continue')}
+          </button>
+        </div>
       </div>
     </div>
   );

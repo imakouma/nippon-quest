@@ -14,6 +14,9 @@ test('タイトル画面が立ち上がり、コンテンツが読み込まれ�
   // Boot が終わるとローディングが消える
   await expect(page.locator('.nq-loading')).toHaveCount(0, { timeout: 15_000 });
   await expect(page.locator('.nq-error')).toHaveCount(0);
+  await expect
+    .poll(() => page.evaluate(() => Boolean((window as unknown as { __nq?: unknown }).__nq)))
+    .toBe(true);
   expect(errors.filter((e) => !e.includes('favicon'))).toEqual([]);
   expect(contentRequests).toEqual(['/content/content-bundle.json']);
 });

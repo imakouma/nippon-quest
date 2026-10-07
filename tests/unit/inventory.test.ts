@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { partyFromGameState } from '../../src/core/battle/setup';
+import { bagContext, putEquip } from '../../src/core/progression/bag';
 import { canUse, equipItem, unequip, useItem } from '../../src/core/progression/inventory';
 import { createNewGame } from '../../src/core/state/newGame';
 
@@ -24,9 +25,10 @@ describe('バッグ・そうび', () => {
     const c = await content();
     const sword = c.items.get('common-dou-no-ken')!;
     let gs = fresh();
+    gs.progress.islandsCleared = ['tohoku'];
     gs.inventory[sword.id] = 1;
     const before = partyFromGameState(gs, c).hero.stats.atk;
-    gs = equipItem(gs, sword)!;
+    gs = putEquip(gs, sword, bagContext(gs, c)).state;
     expect(gs.player.equipment.weapon).toBe(sword.id);
     expect(gs.inventory[sword.id]).toBe(0);
     expect(partyFromGameState(gs, c).hero.stats.atk).toBeGreaterThan(before);

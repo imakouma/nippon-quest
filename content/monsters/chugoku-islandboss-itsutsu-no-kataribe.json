@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "chugoku-islandboss-itsutsu-no-kataribe",
+  "name": "イツツノカタリベ",
+  "area": "chugoku",
+  "motifId": "five-testimonies",
+  "element": "kaze",
+  "weakness": "hikari",
+  "baseStats": { "hp": 1280, "mp": 174, "atk": 35, "def": 28, "spd": 22, "wis": 35 },
+  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
+  "skills": ["sk-kaikyo-no-kaze", "sk-yami-no-uta", "sk-shiraberu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 1820,
+  "gold": 2020,
+  "spriteKey": "mon.chugoku-islandboss-itsutsu-no-kataribe",
+  "dexBlurb": "同[おな]じ 出来事[できごと]の 五[いつ]つの 証言[しょうげん]を 混[ま]ぜ、食[く]いちがいを うそに 見[み]せる ワスレモノ。時刻[じこく]と 場所[ばしょ]を 消[け]して 疑[うたが]いを 育[そだ]てる。",
+  "fieldLine": "証言[しょうげん]が ちがうなら、全員[ぜんいん]が うそつきだ！ 名前[なまえ]だけを 見[み]て、犯人[はんにん]を 決[き]めるがいい！",
+  "isBoss": true,
+  "bossPhases": [
+    { "hpBelow": 0.66, "element": "yami", "skills": ["sk-yami-no-uta", "sk-kanji-barrier", "sk-burst-kokugo"], "line": "見[み]た 場所[ばしょ]も 時刻[じこく]も 消[け]せば、証言[しょうげん]は ぶつかりあう！" },
+    { "hpBelow": 0.25, "element": "kaze", "skills": ["sk-kaikyo-no-kaze", "sk-shiraberu", "sk-burst-shakai"], "line": "五[いつ]つの 声[こえ]を 混[ま]ぜろ！ 順番[じゅんばん]など 思[おも]い出[だ]させるな！" }
+  ]
+}

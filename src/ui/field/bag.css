@@ -5,19 +5,8 @@
 .nq-bag-left {
   min-height: 0;
 }
-.nq-bag-countbox {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.nq-bag-count {
-  font-size: 24px;
-  line-height: 24px;
-  color: var(--nq-yellow);
-  white-space: nowrap;
-}
-.nq-bag-over {
-  color: #ff8fb1;
+.nq-bag-details-closed .nq-party-msg {
+  visibility: hidden;
 }
 .nq-bag-next {
   font-size: 12px;
@@ -72,6 +61,9 @@
   height: min(64px, 90%);
   object-fit: contain;
   image-rendering: pixelated;
+}
+.nq-bag-hero img {
+  transform: translateY(-8px);
 }
 /* あいている マス：点線の わくだけ */
 .nq-bag-empty {

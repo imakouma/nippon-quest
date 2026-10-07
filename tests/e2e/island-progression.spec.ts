@@ -64,7 +64,7 @@ async function savedTohokuClear(page: Page): Promise<boolean> {
   });
 }
 
-test('タップだけで東北地方ボスを倒し、再読込後もバッグ拡張と北海道の結界が残る', async ({ page }) => {
+test('タップだけで東北地方ボスを倒し、再読込後もバッグ拡張と北海道解放が残る', async ({ page }) => {
   test.setTimeout(240_000);
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(String(error)));
@@ -93,7 +93,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
 
   await expect(page.locator('.nq-wmap-island-boss')).toContainText('お城');
   await expect(page.locator('.nq-wmap-island-boss')).toContainText('ひらいた');
-  const challenge = page.getByRole('button', { name: /地方.*ボスに いどむ/ });
+  const challenge = page.locator('.nq-wmap-foot .nq-wmap-go');
   await expect(challenge).toBeVisible();
   await challenge.click();
 
@@ -132,9 +132,13 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.locator('.nq-dlg').click({ position: { x: 420, y: 410 } });
   await expect(page.locator('.nq-dlg')).toContainText('なぜ おまえが');
   await clickThroughDialogue(page);
-  await page.getByRole('button', { name: 'バッグ' }).click();
-  await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-columns', '76px 76px 76px');
-  await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-rows', '76px 76px');
+  await page.getByRole('button', { name: 'メニュー' }).click();
+  await page
+    .getByLabel('メニュー')
+    .getByRole('button', { name: /もちもの・へんせい/ })
+    .click();
+  await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-columns', '76px 76px 76px 76px');
+  await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-rows', '76px 76px 76px');
   await page.getByRole('button', { name: /とじる/ }).click();
   await expect.poll(() => savedTohokuClear(page), { timeout: 20_000 }).toBe(true);
 
@@ -148,8 +152,9 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.getByRole('button', { name: 'にほんちず' }).click();
   await expect(page.getByRole('button', { name: /浄化.*ずみ/ })).toBeDisabled();
   await page.locator('.nq-wmap-arrow').filter({ hasText: '▶' }).click();
-  await expect(page.locator('.nq-wmap-barrier')).toContainText('結界');
-  await expect(page.locator('.nq-wmap-barrier')).toContainText('上陸');
-  await expect(page.getByRole('button', { name: /いく/ })).toBeDisabled();
+  await expect(page.locator('.nq-wmap-aname')).toContainText('北海道');
+  await expect(page.locator('.nq-wmap-island-boss')).toHaveCount(0);
+  await expect(page.locator('.nq-wmap-castle')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /ここへ.*いく/ })).toBeEnabled();
   expect(errors).toEqual([]);
 });

@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "tokai-islandboss-nagaretae",
+  "name": "ナガレタエノミコト",
+  "area": "tokai",
+  "motifId": "watershed",
+  "element": "mizu",
+  "weakness": "kaze",
+  "baseStats": { "hp": 1080, "mp": 148, "atk": 31, "def": 25, "spd": 16, "wis": 30 },
+  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
+  "skills": ["sk-uzushio", "sk-kana-barrier", "sk-shiraberu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 1490,
+  "gold": 1660,
+  "spriteKey": "mon.tokai-islandboss-nagaretae",
+  "dexBlurb": "山[やま]・川[かわ]・町[まち]・海[うみ]を 結[むす]ぶ 流[なが]れを 切[き]り、目[め]の 前[まえ]の 結果[けっか]だけを 見[み]せる ワスレモノ。原因[げんいん]を たどれなくして 力[ちから]を 得[え]る。",
+  "fieldLine": "上流[じょうりゅう]も 下流[かりゅう]も 忘[わす]れよ！ 目[め]の 前[まえ]に 流[なが]れ着[つ]いた 結果[けっか]だけが 真実[しんじつ]だ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.66,
+      "element": "tsuchi",
+      "skills": ["sk-tsuchi-kabe", "sk-kana-barrier", "sk-burst-sansu"],
+      "line": "流[なが]れを せき止[と]めれば、原因[げんいん]と 結果[けっか]は 永遠[えいえん]に 出会[であ]わぬ！"
+    },
+    {
+      "hpBelow": 0.25,
+      "element": "yami",
+      "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-rika"],
+      "line": "つながりを 見[み]るな！ 一[ひと]つずつ 切[き]り離[はな]せば、仕組[しく]みなど 誰[だれ]にも わからぬ！"
+    }
+  ]
+}

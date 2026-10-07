@@ -1,0 +1,417 @@
+.nq-cutscene {
+  position: absolute;
+  inset: 0;
+  z-index: 140;
+  overflow: hidden;
+  color: #fff;
+  background: #050713;
+  user-select: none;
+  animation: nq-cutscene-in 0.8s steps(8);
+}
+.nq-cutscene-sky {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(#071027 0 58%, #18334a 58% 70%, #10182b 70%);
+  transition:
+    filter 1s,
+    background 1.4s;
+}
+.nq-cutscene-sky::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.75;
+  background-image: radial-gradient(circle, #fff 0 1px, transparent 2px);
+  background-size: 71px 53px;
+  animation: nq-stars 8s linear infinite;
+}
+.nq-cutscene-moon {
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  right: 118px;
+  top: 68px;
+  border-radius: 50%;
+  background: #fff3bd;
+  box-shadow:
+    0 0 0 8px #c9def2,
+    0 0 48px #80c6ff;
+  transition:
+    transform 1.2s,
+    opacity 1s;
+}
+.nq-cutscene-ground {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: -60px;
+  height: 220px;
+  background: #173626;
+  clip-path: polygon(
+    0 46%,
+    10% 32%,
+    20% 40%,
+    30% 22%,
+    42% 38%,
+    56% 18%,
+    68% 35%,
+    80% 24%,
+    90% 42%,
+    100% 30%,
+    100% 100%,
+    0 100%
+  );
+  box-shadow: inset 0 18px #244f32;
+  transition: transform 1.2s;
+}
+.nq-cutscene-island {
+  position: absolute;
+  width: 170px;
+  height: 58px;
+  top: 210px;
+  background: #213c35;
+  border-top: 8px solid #41634a;
+  clip-path: polygon(8% 50%, 18% 20%, 50% 0, 86% 24%, 100% 64%, 78% 88%, 28% 100%, 0 72%);
+  opacity: 0;
+  filter: drop-shadow(0 18px 0 #050713);
+}
+.nq-cutscene-island-a {
+  left: 100px;
+  transform: rotate(-8deg);
+}
+.nq-cutscene-island-b {
+  left: 390px;
+  top: 178px;
+  transform: rotate(5deg);
+}
+.nq-cutscene-island-c {
+  right: 92px;
+  top: 245px;
+  transform: rotate(-4deg);
+}
+.nq-cutscene-shards {
+  position: absolute;
+  inset: 80px 0 auto;
+  text-align: center;
+  color: #80c6ff;
+  font-size: 36px;
+  letter-spacing: 30px;
+  opacity: 0;
+  text-shadow: 0 0 16px #80c6ff;
+  animation: nq-shards 4s ease-in-out infinite;
+}
+.nq-cutscene-character {
+  position: absolute;
+  z-index: 5;
+  width: 210px;
+  height: 260px;
+  transition:
+    opacity 0.8s,
+    transform 0.8s,
+    filter 0.3s;
+}
+.nq-cutscene-character-light {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  width: 170px;
+  height: 52px;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(128, 198, 255, 0.55), transparent 70%);
+  filter: blur(4px);
+}
+.nq-cutscene-hero {
+  left: 245px;
+  bottom: 132px;
+}
+.nq-cutscene-hero-sprite {
+  content: '';
+  position: absolute;
+  left: 9px;
+  bottom: 22px;
+  width: 192px;
+  height: 256px;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 300% 400%;
+  image-rendering: pixelated;
+  filter: drop-shadow(10px 12px 0 rgba(0, 0, 0, 0.4));
+}
+.nq-cutscene-fairy {
+  right: 220px;
+  bottom: 176px;
+  opacity: 0;
+  animation: nq-fairy 1.6s steps(4) infinite;
+}
+.nq-cutscene-fairy img {
+  position: absolute;
+  left: 25px;
+  bottom: 28px;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 20px #80c6ff);
+}
+.nq-cutscene .is-speaking {
+  filter: brightness(1.35);
+  transform: translateY(-6px) scale(1.06);
+}
+.nq-cutscene-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse, transparent 35%, rgba(0, 0, 0, 0.62) 100%);
+  pointer-events: none;
+}
+.nq-cutscene-opening.nq-cutscene-phase-0 .nq-cutscene-sky {
+  filter: brightness(0.38) saturate(0.5);
+}
+.nq-cutscene-opening.nq-cutscene-phase-0 .nq-cutscene-hero {
+  opacity: 0.15;
+  transform: translateY(38px) rotate(-12deg);
+}
+.nq-cutscene-phase-1 .nq-cutscene-island,
+.nq-cutscene-phase-2 .nq-cutscene-island {
+  opacity: 1;
+  animation: nq-island-drift 3s ease-in-out infinite alternate;
+}
+.nq-cutscene-phase-1 .nq-cutscene-shards,
+.nq-cutscene-phase-2 .nq-cutscene-shards {
+  opacity: 1;
+}
+.nq-cutscene-phase-0 .nq-cutscene-fairy,
+.nq-cutscene-phase-1 .nq-cutscene-fairy {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.nq-cutscene-phase-1 .nq-cutscene-fairy.is-speaking {
+  opacity: 1;
+  transform: translateY(-6px) scale(1.06);
+}
+.nq-cutscene-phase-2 .nq-cutscene-fairy,
+.nq-cutscene-phase-3 .nq-cutscene-fairy,
+.nq-cutscene-phase-4 .nq-cutscene-fairy,
+.nq-cutscene-phase-5 .nq-cutscene-fairy {
+  opacity: 1;
+}
+.nq-cutscene-phase-4 .nq-cutscene-sky,
+.nq-cutscene-phase-5 .nq-cutscene-sky {
+  background: linear-gradient(#132952 0 48%, #d47a55 48% 62%, #244f55 62% 70%, #173626 70%);
+}
+.nq-cutscene-phase-5 .nq-cutscene-moon {
+  opacity: 0;
+  transform: translateY(-70px);
+}
+.nq-cutscene-chapter .nq-cutscene-island,
+.nq-cutscene-arrival .nq-cutscene-island {
+  opacity: 0.75;
+}
+.nq-cutscene-chapter .nq-cutscene-shards {
+  opacity: 0.8;
+}
+.nq-cutscene-arrival .nq-cutscene-sky {
+  background: linear-gradient(#315f8b 0 55%, #e3a85b 55% 61%, #254e3a 61%);
+}
+.nq-cutscene-arrival .nq-cutscene-moon {
+  opacity: 0.45;
+}
+.nq-cutscene-arrival .nq-cutscene-fairy,
+.nq-cutscene-chapter .nq-cutscene-fairy {
+  opacity: 1;
+}
+.nq-cutscene-topbar {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  top: 18px;
+  left: 24px;
+  right: 24px;
+}
+.nq-cutscene-topbar button {
+  min-height: 42px;
+  padding: 4px 14px;
+  border: 3px solid #fff;
+  color: #fff;
+  background: rgba(5, 7, 19, 0.8);
+  font-size: 12px !important;
+  cursor: pointer;
+}
+.nq-cutscene-progress {
+  display: flex;
+  flex: 1;
+  gap: 5px;
+}
+.nq-cutscene-progress i {
+  height: 4px;
+  flex: 1;
+  max-width: 42px;
+  background: #4a5063;
+}
+.nq-cutscene-progress i.is-on {
+  background: #ffd447;
+  box-shadow: 0 0 8px #ffd447;
+}
+.nq-cutscene-advance {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.nq-cutscene-dialogue {
+  position: absolute;
+  z-index: 30;
+  left: 54px;
+  right: 54px;
+  bottom: 28px;
+  min-height: 144px;
+  padding: 36px 50px 24px;
+  color: #fff;
+  background: linear-gradient(90deg, rgba(5, 7, 19, 0.97), rgba(16, 24, 48, 0.94));
+  border: 4px solid #fff;
+  box-shadow:
+    0 0 0 5px #050713,
+    10px 10px 0 rgba(0, 0, 0, 0.42);
+  pointer-events: none;
+}
+.nq-cutscene-dialogue.is-narration {
+  left: 138px;
+  right: 138px;
+  text-align: center;
+  background: rgba(5, 7, 19, 0.88);
+}
+.nq-cutscene-dialogue p {
+  margin: 0;
+  font-size: 24px;
+  line-height: 48px;
+  white-space: pre-wrap;
+}
+.nq-cutscene-name {
+  position: absolute;
+  left: 18px;
+  top: -34px;
+  min-width: 160px;
+  padding: 2px 18px;
+  color: #ffd447;
+  background: #070918;
+  border: 3px solid #fff;
+  font-size: 24px;
+  text-align: center;
+}
+.nq-cutscene-mode {
+  position: absolute;
+  left: 12px;
+  bottom: 4px;
+  color: #a3aabb;
+  font-size: 12px;
+}
+.nq-cutscene-next {
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+  color: #ffd447;
+  font-size: 24px;
+  animation: nq-cutscene-next 0.7s steps(2) infinite;
+}
+@keyframes nq-cutscene-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes nq-stars {
+  to {
+    background-position: 71px 53px;
+  }
+}
+@keyframes nq-shards {
+  50% {
+    transform: translateY(35px);
+    opacity: 0.45;
+  }
+}
+@keyframes nq-island-drift {
+  to {
+    translate: 0 10px;
+  }
+}
+@keyframes nq-fairy {
+  50% {
+    translate: 0 -8px;
+  }
+}
+@keyframes nq-cutscene-next {
+  50% {
+    opacity: 0.2;
+    transform: translateY(4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nq-cutscene,
+  .nq-cutscene * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.nq-story-name {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 10, 20, 0.78);
+}
+.nq-story-name-box {
+  width: min(680px, calc(100% - 32px));
+  padding: 20px 28px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.nq-story-name-speaker,
+.nq-story-name-question {
+  grid-column: 1 / -1;
+}
+.nq-story-name-speaker {
+  color: var(--nq-yellow);
+  font-size: 24px;
+}
+.nq-story-name-question {
+  margin: 0;
+  font-size: 24px;
+  line-height: 36px;
+}
+.nq-story-name input,
+.nq-story-name button {
+  min-height: 52px;
+  box-sizing: border-box;
+  border: 3px solid var(--nq-cream);
+  border-radius: 0;
+  font: inherit;
+}
+.nq-story-name input {
+  width: min(360px, 100%);
+  justify-self: center;
+  padding: 6px 10px;
+  color: #1a1428;
+  background: #fff;
+}
+.nq-story-name button {
+  width: 220px;
+  justify-self: center;
+  padding: 4px 16px;
+  color: #1a1428;
+  background: var(--nq-yellow);
+}
+.nq-story-name button:disabled {
+  opacity: 0.45;
+}

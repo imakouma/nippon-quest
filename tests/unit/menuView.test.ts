@@ -38,7 +38,7 @@ describe('フィールドメニューの表示モデル', () => {
     expect(view.entries.some((entry) => !entry.known)).toBe(true);
   });
 
-  it('見た目タブを3部位×3候補の表示データへ変換する', async () => {
+  it('見た目タブを5部位の表示データへ変換する', async () => {
     const c = await content();
     const view = buildMenuView({
       content: c,
@@ -49,7 +49,7 @@ describe('フィールドメニューの表示モデル', () => {
       heroArt: (look) => `${look.hair}-${look.skin}-${look.cloth}`,
       monsterArt: () => '',
     });
-    expect(view.entries).toHaveLength(9);
-    expect(view.entries.filter((entry) => entry.tag)).toHaveLength(3);
+    expect(view.entries).toHaveLength(32);
+    expect(view.entries.filter((entry) => entry.tag)).toHaveLength(5);
   });
 });

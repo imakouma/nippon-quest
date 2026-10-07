@@ -1,7 +1,6 @@
 /**
  * 地図の部品。左上の小さな地図（HUD の場所の窓の中）と、ひらいたときの県の大きな地図。
- *  - 小さな地図：いまいる地方（島）を、主人公を まん中に いまいる県が ちょうど入るくらいに拡大して。
- *    行ったことのある県だけ はっきり、ほかの県は ぼかす
+ *  - 小さな地図：現在県の詳細地形と、周辺県の暗いシルエットを位置関係どおりに表示する
  *  - 大きな地図：県のフィールドの全体（入口・★ 看板・中ボスは「？」）と、「いったことの ある ばしょ」
  *    （町・ダンジョン・島・見つけた名所）。えらんでワープできる
  * ロジックは持たない（何を描くか・どこへ行けるかは Overworld が計算して渡す）。
@@ -9,13 +8,14 @@
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { NQ } from '../../rendering/palette';
+import { LOCKED_REGION_TILE } from '../../shared/regionVisibility';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { playSfx } from '../sfx';
-import { areaAt } from './WorldMapOverlay';
 import { areaMapTerrainColor } from './areaMapTerrain';
 import type { RegionMiniView } from './RegionMiniMap';
+import { drawRegionContext } from './regionContext';
 import './field.css';
 
 export type AreaMarkKind =
@@ -47,7 +47,7 @@ export interface AreaMapView {
   marks: AreaMark[];
   /** 主人公のマス（町・ダンジョンの中にいるときは、その入口） */
   hero: [number, number] | null;
-  /** 県のまわりの地方の地図（行ったことのある県は緑、未踏の県は灰色）。県のフィールドの地形の下に かさねる */
+  /** 周辺県を暗いシルエットで描き、現在県の位置関係を示す地方地図。 */
   region: RegionMiniView | null;
 }
 
@@ -76,24 +76,8 @@ function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
     for (let x = 0; x < map.width; x++) {
       const tile = map.tiles[y * map.width + x] ?? 0;
       if (tile === 3) continue;
-      ctx.fillStyle = areaMapTerrainColor(tile);
-      ctx.fillRect(x, y, 1, 1);
-    }
-}
-
-/**
- * ひらいた地図の、県のまわりの地方の地図（1 マス = 1 ドット。CSS で県の範囲に合わせて のばす）。
- * 行ったことのある県だけ緑で かく（未踏の県は かかず、海と おなじに 見える）。いまいる県は フィールドの地形で かくので かかない
- */
-function drawRegionGray(canvas: HTMLCanvasElement, r: RegionMiniView): void {
-  canvas.width = r.width;
-  canvas.height = r.height;
-  const ctx = canvas.getContext('2d')!;
-  for (let y = 0; y < r.height; y++)
-    for (let x = 0; x < r.width; x++) {
-      const k = areaAt(r, x, y);
-      if (k < 0 || k === r.here || !r.visited[k]) continue;
-      ctx.fillStyle = NQ.leaf;
+      ctx.fillStyle =
+        tile === LOCKED_REGION_TILE && (x * 5 + y * 3) % 7 === 0 ? NQ.night : areaMapTerrainColor(tile);
       ctx.fillRect(x, y, 1, 1);
     }
 }
@@ -215,27 +199,28 @@ export function AreaMapOverlay({
     setPan({ x: 0, y: 0 });
   };
 
-  // 県のまわりの地方の地図：いまいる県の範囲（地方のマス focus）が、フィールドの陸の範囲（land）に重なるように のばす
+  // 地方地図の現在県の範囲を、詳細地形の陸地の範囲へ合わせる。
+  // 周辺県はこの変換を共有するため、県同士の位置関係を保った暗いシルエットになる。
   const regionRef = useRef<HTMLCanvasElement>(null);
-  const r = map.region;
-  const f = r?.focus;
-  const land = r?.detail?.land;
+  const region = map.region;
+  const focus = region?.focus;
+  const land = region?.detail?.land;
   const regionBox =
-    r && f && land
+    region && focus && land
       ? (() => {
-          const sx = (land[2] - land[0] + 1) / (f[2] - f[0] + 1);
-          const sy = (land[3] - land[1] + 1) / (f[3] - f[1] + 1);
+          const scaleX = (land[2] - land[0] + 1) / (focus[2] - focus[0] + 1);
+          const scaleY = (land[3] - land[1] + 1) / (focus[3] - focus[1] + 1);
           return {
-            left: (land[0] - f[0] * sx) * cell,
-            top: (land[1] - f[1] * sy) * cell,
-            width: r.width * sx * cell,
-            height: r.height * sy * cell,
+            left: (land[0] - focus[0] * scaleX) * cell,
+            top: (land[1] - focus[1] * scaleY) * cell,
+            width: region.width * scaleX * cell,
+            height: region.height * scaleY * cell,
           };
         })()
       : null;
   useEffect(() => {
-    if (regionRef.current && r) drawRegionGray(regionRef.current, r);
-  }, [r?.id]);
+    if (regionRef.current && region) drawRegionContext(regionRef.current, region, 4);
+  }, [region?.id, region?.here]);
 
   const pick = (k: number) => {
     if (k === sel || !places[k]) return;
@@ -452,7 +437,6 @@ export function AreaMapOverlay({
                 {t('field.areaMapReset')}
               </button>
             </div>
-            {regionBox && <span class="nq-amap-legend">{t('field.areaMapLegend')}</span>}
           </div>
           <div
             class={`nq-wmap-view nq-amap-view ${zoom > 1 ? 'nq-amap-pannable' : ''}`}
@@ -471,7 +455,7 @@ export function AreaMapOverlay({
               }}
               onClick={onMapClick}
             >
-              {regionBox && <canvas ref={regionRef} class="nq-amap-region" style={regionBox} />}
+              {regionBox && <canvas ref={regionRef} class="nq-amap-region-context" style={regionBox} />}
               <canvas ref={ref} />
               {map.marks.map((m, i) => (
                 <span key={i} class="nq-amap-pin" style={cellCenter(m.x, m.y, cell)}>
@@ -518,7 +502,12 @@ export function AreaMapOverlay({
                 ))}
               </ul>
             ) : (
-              <p class="nq-amap-empty">{t('field.placesEmpty')}</p>
+              <div class="nq-amap-empty">
+                <span class="nq-amap-empty-icon" aria-hidden="true">
+                  <PixelIcon name="warp" scale={4} />
+                </span>
+                <p>{t('field.placesEmpty')}</p>
+              </div>
             )}
           </div>
           <div class="nq-wmap-foot">

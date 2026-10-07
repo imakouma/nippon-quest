@@ -19,6 +19,7 @@ import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
 import { bundledFetchReader } from './core/content/loader';
 import { QuestionBank } from './questions/engine/bank';
+import { isLocalDevelopmentUrl } from './core/localDevelopment';
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', grade: 1 } as const;
@@ -48,6 +49,7 @@ const debugBattle =
         level: Math.max(1, Number(params.get('lv')) || 1),
         zone: params.get('zone') === 'dungeon' ? ('dungeon' as const) : undefined,
         ground: GROUNDS.find((g) => g === params.get('ground')),
+        forceRecruitOffer: params.get('recruit') === '1',
       }
     : null;
 
@@ -278,7 +280,10 @@ setInterval(() => {
   });
 }, 60_000);
 
-// 開発中だけ、ブラウザのコンソールや E2E からゲームの中を見られるようにする（本番ビルドには入らない）
-if (import.meta.env.DEV) (window as unknown as { __nq?: Phaser.Game }).__nq = game;
+// 開発サーバーとローカル preview だけ、コンソールや E2E からゲーム内部を確認できるようにする。
+// 公開サイトでは本番ビルドかどうかにかかわらず露出させない。
+if (isLocalDevelopmentUrl(new URL(location.href), import.meta.env.DEV)) {
+  (window as unknown as { __nq?: Phaser.Game }).__nq = game;
+}
 
 export { game };

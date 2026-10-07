@@ -4,7 +4,7 @@
  */
 import type { ContentIndex } from '../content/loader';
 import type { Area } from '../content/schemas';
-import { adjacencyBonus, bagContext, battleRosterUids } from '../progression/bag';
+import { activeEquipment, adjacencyBonus, bagContext, battleRosterUids } from '../progression/bag';
 import { heroLevel } from '../progression/battleResult';
 import type { Rng } from '../rng';
 import type { GameState } from '../state/schema';
@@ -31,7 +31,7 @@ export function partyFromGameState(
       baseStats: p.baseStats,
       growth: NO_GROWTH,
       skills: p.skills,
-      equipment: p.equipment,
+      equipment: activeEquipment(gs),
       bonusWis: p.bonusWis,
     },
     c.items,

@@ -159,6 +159,8 @@ export interface ResultView {
   needNext: number;
   /** 勝利後の仲間化オファー（はい/いいえ） */
   recruitName?: string;
+  recruitArt?: string;
+  recruitPhase?: boolean;
   goldLost: number;
   /** れんぞく せいかいの ボーナス（けいけんち・おかねの 倍率）と いちばん 長かった コンボ */
   bonus: number;

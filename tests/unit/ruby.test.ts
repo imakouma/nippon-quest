@@ -14,6 +14,13 @@ const readJson = <T>(path: string): T =>
   JSON.parse(readFileSync(new URL(`../../content/i18n/${path}`, import.meta.url), 'utf8')) as T;
 const grades = readJson<{ byGrade: Record<string, string> }>('kanji-grades.json').byGrade;
 const properNouns = readJson<{ names: string[] }>('proper-nouns.json').names;
+const ja = readJson<Record<string, unknown>>('ja.json');
+
+function collectStrings(value: unknown, path: string[] = []): Array<{ path: string; text: string }> {
+  if (typeof value === 'string') return [{ path: path.join('.'), text: value }];
+  if (!value || typeof value !== 'object') return [];
+  return Object.entries(value).flatMap(([key, child]) => collectStrings(child, [...path, key]));
+}
 
 describe('漢字表示レベル（まだ習っていない漢字の ことばは、ルビではなく ひらがなで出す）', () => {
   const table = kanjiGradeTable(grades);
@@ -65,6 +72,14 @@ describe('漢字表示レベル（まだ習っていない漢字の ことばは
 });
 
 describe('RubyText', () => {
+  it('ゲーム画面の共通文言は、漢字を読みなしで残さない', () => {
+    const bare = collectStrings(ja.field, ['field']).filter(({ text }) => {
+      const rest = text.replace(/[一-鿿々〆ヶ]+\[[ぁ-ゖァ-ヺー]+\]/g, '');
+      return /[一-鿿々〆ヶ]|[[\]]/.test(rest);
+    });
+    expect(bare).toEqual([]);
+  });
+
   it('漢字[よみ] を分解する', () => {
     expect(parseRuby('青森[あおもり]の りんご')).toEqual([
       { base: '青森', ruby: 'あおもり' },

@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
-test('歩行中も場所名とミニマップが残り、県マップを拡大してドラッグ移動できる', async ({ page }) => {
-  test.setTimeout(90_000);
+test('歩行中も場所名とミニマップが残り、県マップを拡大してドラッグ移動できる', async ({ page }, testInfo) => {
+  test.setTimeout(150_000);
   await page.goto('/?resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
@@ -10,6 +10,9 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
 
   const miniMap = page.getByRole('button', { name: 'ちずを ひらく（M）' });
   await expect(miniMap).toBeVisible({ timeout: 40_000 });
+  await expect(page.getByRole('button', { name: 'かいはつしゃ' })).toBeVisible();
+  const skip = page.getByRole('button', { name: 'スキップ', exact: true });
+  if (await skip.isVisible()) await skip.click();
   for (let i = 0; i < 24 && (await page.locator('.nq-dlg').count()); i++) {
     await page.locator('.nq-dlg').click();
     await page.waitForTimeout(40);
@@ -25,6 +28,17 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await expect(place).toContainText(/青森/);
   await expect(miniMap).toBeVisible();
   await page.keyboard.up('ArrowRight');
+  const surroundingPixels = await page
+    .locator('.nq-mini-map > canvas:not(.nq-mini-detail)')
+    .evaluate((canvas) => {
+      const context = (canvas as HTMLCanvasElement).getContext('2d');
+      return context
+        ? context
+            .getImageData(0, 0, context.canvas.width, context.canvas.height)
+            .data.some((v, i) => i % 4 === 3 && v > 0)
+        : false;
+    });
+  expect(surroundingPixels).toBe(true);
 
   await miniMap.click();
   const mapView = page.locator('.nq-amap-view');
@@ -57,4 +71,61 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await page.getByRole('button', { name: 'もどす', exact: true }).click();
   await expect(page.getByText('100%', { exact: true })).toBeVisible();
   await expect(mapCanvas).toHaveCSS('transform', /matrix\(1, 0, 0, 1, 0, 0\)/);
+
+  // 県のしるしがそろうまでは、地方ボスの存在・名前・城を先に見せない。
+  await page.getByRole('button', { name: 'にほんちず' }).click();
+  await expect(page.locator('.nq-wmap-island-boss')).toHaveCount(0);
+  await expect(page.locator('.nq-wmap-castle')).toHaveCount(0);
+  await page.screenshot({ path: testInfo.outputPath('locked-island-boss-hidden.png'), fullPage: true });
+});
+
+test('鳥取県の大きな地図で現在県だけを詳しく、周辺県を暗く表示する', async ({ page }, testInfo) => {
+  test.setTimeout(90_000);
+  await page.goto('/');
+  await page.getByRole('menuitem', { name: /はじめから/ }).click();
+  await page.getByRole('button', { name: /スロット 1/ }).click();
+  await completeNewGameSetup(page, 'ちず');
+  await expect(page.getByRole('region', { name: 'ものがたりの シーン' })).toBeVisible({ timeout: 40_000 });
+  await page.getByRole('button', { name: 'スキップ' }).click();
+  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible();
+
+  await page.reload();
+  await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
+  await page.evaluate(async () => {
+    const database = await new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open('nihonquest');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => resolve(request.result);
+    });
+    await new Promise<void>((resolve, reject) => {
+      const transaction = database.transaction('saves', 'readwrite');
+      const store = transaction.objectStore('saves');
+      const request = store.get('save:1');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const state = request.result;
+        state.progress.currentArea = 'tottori';
+        state.progress.currentMap = 'tottori-field';
+        state.progress.position = { x: 1328, y: 224 };
+        state.progress.counters['story.chapter.chugoku'] = 1;
+        for (const area of ['shimane', 'okayama', 'hiroshima', 'yamaguchi']) {
+          state.progress.counters[`visit:${area}-field`] = 1;
+        }
+        store.put(state, 'save:1');
+      };
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error);
+      transaction.onabort = () => reject(transaction.error);
+    });
+    database.close();
+  });
+  await page.getByRole('menuitem', { name: 'つづきから' }).click();
+  await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
+
+  const miniMap = page.getByRole('button', { name: 'ちずを ひらく（M）' });
+  await expect(miniMap).toBeVisible({ timeout: 40_000 });
+  await miniMap.click();
+  await expect(page.locator('.nq-amap-view')).toBeVisible();
+  await expect(page.locator('.nq-amap-region-context')).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath('tottori-area-map.png'), fullPage: true });
 });

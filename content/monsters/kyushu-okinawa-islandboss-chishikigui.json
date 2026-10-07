@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kyushu-okinawa-islandboss-chishikigui",
+  "name": "チシキグイノマオウ",
+  "area": "kyushu-okinawa",
+  "motifId": "knowledge-vessel",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": { "hp": 1760, "mp": 240, "atk": 42, "def": 36, "spd": 22, "wis": 44 },
+  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
+  "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-shakai"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 2600,
+  "gold": 3000,
+  "spriteKey": "mon.kyushu-okinawa-islandboss-chishikigui",
+  "dexBlurb": "知識[ちしき]を 分[わ]ければ 減[へ]ると 恐[おそ]れ、壺[つぼ]へ 閉[と]じこめて 独[ひと]り占[じ]めした 魔王[まおう]。学[まな]びが 人[ひと]から 人[ひと]へ 渡[わた]るほど 増[ふ]えることを 忘[わす]れている。",
+  "fieldLine": "知識[ちしき]は 力[ちから]だ！ 力[ちから]は ひとりの 王[おう]が 持[も]てばよい！ おまえたちの 八[やっ]つの 鍵[かぎ]も 壺[つぼ]も、すべて わたしのものだ！",
+  "isBoss": true,
+  "bossPhases": [
+    { "hpBelow": 0.7, "element": "hikari", "skills": ["sk-hikari-no-ya", "sk-kanji-barrier", "sk-burst-kokugo"], "line": "正[ただ]しい 答[こた]えは ひとつでよい！ ほかの 声[こえ]は 消[け]してしまえ！" },
+    { "hpBelow": 0.35, "element": "yami", "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-sansu"], "line": "なぜだ……分[わ]けた 知識[ちしき]が、消[き]えずに 大[おお]きくなる！？" }
+  ]
+}

@@ -8,6 +8,7 @@ import { AICHI } from './aichi';
 import { AKITA } from './akita';
 import { AOMORI } from './aomori';
 import { CHIBA } from './chiba';
+import { CHUGOKU } from './chugoku';
 import { designGrid, type MonsterDesign } from './design';
 import { EHIME } from './ehime';
 import { FUKUI } from './fukui';
@@ -17,6 +18,7 @@ import { GIFU } from './gifu';
 import { GUNMA } from './gunma';
 import { HIROSHIMA } from './hiroshima';
 import { HOKKAIDO } from './hokkaido';
+import { HOKURIKU } from './hokuriku';
 import { HYOGO } from './hyogo';
 import { IBARAKI } from './ibaraki';
 import { ISHIKAWA } from './ishikawa';
@@ -24,9 +26,12 @@ import { IWATE } from './iwate';
 import { KAGAWA } from './kagawa';
 import { KAGOSHIMA } from './kagoshima';
 import { KANAGAWA } from './kanagawa';
+import { KINKI } from './kinki';
 import { KOCHI } from './kochi';
+import { KOSHINETSU } from './koshinetsu';
 import { KUMAMOTO } from './kumamoto';
 import { KYOTO } from './kyoto';
+import { KYUSHU_OKINAWA } from './kyushuOkinawa';
 import { LAST_BOSSES } from './lastbosses';
 import { MIE } from './mie';
 import { MIYAGI } from './miyagi';
@@ -43,11 +48,13 @@ import { SAGA } from './saga';
 import { SAITAMA } from './saitama';
 import { SHIGA } from './shiga';
 import { SHIMANE } from './shimane';
+import { SHIKOKU } from './shikoku';
 import { SHIZUOKA } from './shizuoka';
 import { TOCHIGI } from './tochigi';
 import { TOHOKU } from './tohoku';
 import { TOKUSHIMA } from './tokushima';
 import { TOKYO } from './tokyo';
+import { TOKAI } from './tokai';
 import { TOTTORI } from './tottori';
 import { TOYAMA } from './toyama';
 import { WAKAYAMA } from './wakayama';
@@ -75,19 +82,23 @@ export const MONSTER_DESIGNS: Readonly<Record<string, MonsterDesign>> = {
   ...TOKYO,
   ...KANAGAWA,
   // 北陸
+  ...HOKURIKU,
   ...NIIGATA,
   ...TOYAMA,
   ...ISHIKAWA,
   ...FUKUI,
   // 甲信
+  ...KOSHINETSU,
   ...YAMANASHI,
   ...NAGANO,
   // 東海
+  ...TOKAI,
   ...GIFU,
   ...SHIZUOKA,
   ...AICHI,
   ...MIE,
   // 近畿
+  ...KINKI,
   ...SHIGA,
   ...KYOTO,
   ...OSAKA,
@@ -95,17 +106,20 @@ export const MONSTER_DESIGNS: Readonly<Record<string, MonsterDesign>> = {
   ...NARA,
   ...WAKAYAMA,
   // 中国
+  ...CHUGOKU,
   ...TOTTORI,
   ...SHIMANE,
   ...OKAYAMA,
   ...HIROSHIMA,
   ...YAMAGUCHI,
   // 四国
+  ...SHIKOKU,
   ...TOKUSHIMA,
   ...KAGAWA,
   ...EHIME,
   ...KOCHI,
   // 九州
+  ...KYUSHU_OKINAWA,
   ...FUKUOKA,
   ...SAGA,
   ...NAGASAKI,

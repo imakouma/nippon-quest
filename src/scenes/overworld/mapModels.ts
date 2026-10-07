@@ -1,8 +1,9 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Area } from '../../core/content/schemas';
 import { canChallengeIslandBoss } from '../../core/progression/island';
-import { midBossFlag, motifStamp } from '../../core/progression/route';
+import { midBossFlag, motifStamp, regionBossFlag } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
+import { regionMapTile } from '../../shared/regionVisibility';
 import type { RegionMiniView } from '../../ui/field/RegionMiniMap';
 import type { AreaMark, AreaMapView, PlaceOption } from '../../ui/field/AreaMap';
 import type { MapAreaInfo, MapRegionInfo, WorldMapData } from '../../ui/field/WorldMapOverlay';
@@ -25,6 +26,7 @@ export interface MapBaseDetail {
   height: number;
   tiles: readonly number[];
   land: [number, number, number, number] | null;
+  regions?: RegionPartition | null;
 }
 
 export interface MapBase extends MapBaseDetail {
@@ -36,6 +38,7 @@ export interface TiledMapSource<T extends MapObject = MapObject> {
   width: number;
   height: number;
   layers: readonly { name: string; data?: number[]; objects?: T[] }[];
+  properties?: readonly { name: string; value: unknown }[];
 }
 
 export interface RegionPartition {
@@ -84,6 +87,42 @@ export function mapBaseFromTiled<T extends MapObject>(
     tiles,
     objects: [...(source.layers.find((layer) => layer.name === 'objects')?.objects ?? [])],
     land,
+    regions: parseRegionPartition(source.properties?.find((property) => property.name === 'regions')?.value),
+  };
+}
+
+function visibleRegionTiles(
+  base: MapBaseDetail,
+  area: Area | undefined,
+  game: GameState | undefined,
+  revealAll: boolean,
+): { tiles: readonly number[]; signature: string; hidden: (x: number, y: number) => boolean } {
+  const grid = base.regions;
+  if (!grid || !area?.regions.length) return { tiles: base.tiles, signature: '', hidden: () => false };
+  const open = new Set(area.regions.filter((region) => revealAll || region.start).map((region) => region.id));
+  if (!revealAll)
+    for (const gate of area.regionGates)
+      if (game?.progress.eventsDone.includes(regionBossFlag(area.id, gate.openedBy)))
+        gate.between.forEach((id) => open.add(id));
+  const idAt = (x: number, y: number) => {
+    const cell = grid.rows[y]?.[x];
+    return cell && cell !== '.' ? (grid.ids[cell.charCodeAt(0) - 97] ?? null) : null;
+  };
+  const hidden = (x: number, y: number) => {
+    const id = idAt(x, y);
+    if (id) return !open.has(id);
+    if (!grid.rows[y]?.[x]) return false;
+    for (let dy = -1; dy <= 1; dy++)
+      for (let dx = -1; dx <= 1; dx++) if (open.has(idAt(x + dx, y + dy) ?? '')) return false;
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (idAt(x + dx, y + dy)) return true;
+    return false;
+  };
+  return {
+    tiles: base.tiles.map((tile, index) =>
+      regionMapTile(tile, hidden(index % base.width, Math.floor(index / base.width))),
+    ),
+    signature: [...open].sort().join(','),
+    hidden,
   };
 }
 
@@ -141,14 +180,17 @@ export function areaMapView(input: {
   currentMapKey: string;
   heroTile: [number, number] | null;
   region: RegionMiniView | null;
+  revealAll?: boolean;
 }): AreaMapView | null {
-  const { base, area, game, currentMapKey, heroTile, region } = input;
+  const { base, area, game, currentMapKey, heroTile, region, revealAll = false } = input;
   if (!base) return null;
+  const visible = visibleRegionTiles(base, area, game, revealAll);
   const onBase = base.key === currentMapKey;
   let hero = onBase ? heroTile : null;
   const marks: AreaMark[] = [];
   for (const object of base.objects) {
     const [x, y] = objectTile(object);
+    if (visible.hidden(x, y)) continue;
     if (object.type === 'transition') {
       const target = String(objectProp(object, 'targetMap') ?? '');
       const kind = target.endsWith('-town') ? 'town' : target.endsWith('-dungeon') ? 'dungeon' : 'ship';
@@ -165,7 +207,15 @@ export function areaMapView(input: {
       if (box) marks.push({ x, y, kind: box.opened ? 'box-open' : 'box' });
     }
   }
-  return { key: base.key, width: base.width, height: base.height, tiles: base.tiles, marks, hero, region };
+  return {
+    key: `${base.key}#${visible.signature}`,
+    width: base.width,
+    height: base.height,
+    tiles: visible.tiles,
+    marks,
+    hero,
+    region,
+  };
 }
 
 /** 地図からワープできる訪問済みの場所・発見済みの名所を抽出する。 */
@@ -253,6 +303,9 @@ export function regionMiniMapView(input: {
   base: MapBaseDetail | null;
   heroOnBase: [number, number] | null;
   fallbackAt?: [number, number];
+  area?: Area;
+  game?: GameState;
+  revealAll?: boolean;
 }): RegionMiniView | null {
   const region = input.data?.regions.find((candidate) =>
     candidate.areas.some((area) => area.id === input.areaId),
@@ -270,6 +323,9 @@ export function regionMiniMapView(input: {
     }),
   );
   const land = input.base?.land ?? null;
+  const visible = input.base
+    ? visibleRegionTiles(input.base, input.area, input.game, input.revealAll ?? false)
+    : null;
   const at: [number, number] | undefined =
     land && input.heroOnBase
       ? [
@@ -296,7 +352,12 @@ export function regionMiniMapView(input: {
     focus,
     detail:
       input.base && land
-        ? { key: input.base.key, tiles: input.base.tiles, width: input.base.width, land }
+        ? {
+            key: `${input.base.key}#${visible?.signature ?? ''}`,
+            tiles: visible?.tiles ?? input.base.tiles,
+            width: input.base.width,
+            land,
+          }
         : null,
   };
 }

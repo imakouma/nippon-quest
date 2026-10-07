@@ -1,12 +1,15 @@
 import type { Grade } from '../content/schemas';
 import { freshSeed } from '../rng';
 import { SCHEMA_VERSION, type GameState } from './schema';
+import { STARTER_EQUIPMENT_ID } from './starter';
 
 export interface NewGameOptions {
   name: string;
-  appearance?: { hair: number; skin: number; cloth: number };
+  appearance?: { hair: number; skin: number; cloth: number; hairStyle?: number; eyes?: number };
   grade: Grade;
 }
+
+export const UNNAMED_HERO = '？？？';
 
 export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
   return {
@@ -16,7 +19,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
     seed: freshSeed(),
     player: {
       name: o.name,
-      appearance: o.appearance ?? { hair: 0, skin: 0, cloth: 0 },
+      appearance: { hair: 0, skin: 0, cloth: 0, hairStyle: 0, eyes: 0, ...o.appearance },
       level: 1,
       xp: 0,
       gold: 100,
@@ -33,10 +36,10 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       team: [],
       reserve: [],
       bagPlacements: {
-        hero: { x: 0, y: 0, rotated: false },
+        hero: { x: 1, y: 1, rotated: false },
       },
     },
-    inventory: {},
+    inventory: { [STARTER_EQUIPMENT_ID]: 1 },
     progress: {
       currentIsland: 'tohoku',
       currentArea: 'aomori',

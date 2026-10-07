@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Grade } from '../../questions/contracts';
 import type { NewGameOptions } from '../../core/state/newGame';
+import { UNNAMED_HERO } from '../../core/state/newGame';
 import {
   HERO_CLOTH,
   HERO_H,
   HERO_HAIR,
+  HERO_HAIR_STYLES,
+  HERO_EYE_STYLES,
   HERO_SKIN,
   HERO_W,
   heroLook,
@@ -18,6 +21,11 @@ type Appearance = NonNullable<NewGameOptions['appearance']>;
 type LookPart = keyof Appearance;
 
 const LOOK_COLORS = { hair: HERO_HAIR, skin: HERO_SKIN, cloth: HERO_CLOTH } as const;
+const COLOR_PARTS = ['hair', 'skin', 'cloth'] as const;
+const SHAPE_PARTS = [
+  { part: 'hairStyle', count: HERO_HAIR_STYLES },
+  { part: 'eyes', count: HERO_EYE_STYLES },
+] as const;
 
 function AvatarPreview({ appearance }: { appearance: Appearance }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -42,7 +50,7 @@ function AvatarPreview({ appearance }: { appearance: Appearance }) {
       HERO_W,
       HERO_H,
     );
-  }, [appearance.hair, appearance.skin, appearance.cloth]);
+  }, [appearance.hair, appearance.skin, appearance.cloth, appearance.hairStyle, appearance.eyes]);
 
   return (
     <canvas
@@ -62,10 +70,14 @@ export function NewGameSetup({
   onCancel: () => void;
   onStart: (options: NewGameOptions) => void;
 }) {
-  // 保存前のプレイヤー情報に見えないよう、名前・学年は未選択で始める。
-  const [name, setName] = useState('');
   const [grade, setGrade] = useState<Grade | undefined>();
-  const [appearance, setAppearance] = useState<Appearance>({ hair: 0, skin: 0, cloth: 0 });
+  const [appearance, setAppearance] = useState<Appearance>({
+    hair: 0,
+    skin: 0,
+    cloth: 0,
+    hairStyle: 0,
+    eyes: 0,
+  });
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -77,34 +89,26 @@ export function NewGameSetup({
     return () => window.removeEventListener('keydown', onKey);
   }, [onCancel]);
 
+  const optionCount = (part: LookPart) =>
+    part === 'hairStyle' ? HERO_HAIR_STYLES : part === 'eyes' ? HERO_EYE_STYLES : LOOK_COLORS[part].length;
   const cycle = (part: LookPart, direction: number) =>
     setAppearance((current) => ({
       ...current,
-      [part]: (current[part] + direction + 3) % 3,
+      [part]: ((current[part] ?? 0) + direction + optionCount(part)) % optionCount(part),
     }));
+  const choose = (part: LookPart, value: number) =>
+    setAppearance((current) => ({ ...current, [part]: value }));
 
   const submit = (event: Event) => {
     event.preventDefault();
-    const cleanName = name.trim();
-    if (!cleanName || !grade) return;
-    onStart({ name: cleanName, grade, appearance });
+    if (!grade) return;
+    onStart({ name: UNNAMED_HERO, grade, appearance });
   };
 
   return (
     <form class="nq-win nq-new-game" onSubmit={submit}>
       <h2>{t('newGame.title')}</h2>
       <div class="nq-new-game-top">
-        <label>
-          <span>{t('newGame.name')}</span>
-          <input
-            aria-label={t('newGame.name')}
-            autofocus
-            value={name}
-            maxlength={6}
-            placeholder={t('newGame.namePlaceholder')}
-            onInput={(event) => setName((event.target as HTMLInputElement).value)}
-          />
-        </label>
         <label>
           <span>{t('newGame.grade')}</span>
           <select
@@ -130,7 +134,7 @@ export function NewGameSetup({
           <AvatarPreview appearance={appearance} />
         </div>
         <div class="nq-look-controls">
-          {(['hair', 'skin', 'cloth'] as const).map((part) => (
+          {COLOR_PARTS.map((part) => (
             <div key={part}>
               <span>{t(`newGame.${part}`)}</span>
               <div class="nq-look-picker">
@@ -140,12 +144,17 @@ export function NewGameSetup({
                   aria-label={t('newGame.previous', { part: t(`newGame.${part}`) })}
                   onClick={() => cycle(part, -1)}
                 />
-                <span class="nq-look-dots" aria-hidden="true">
-                  {[0, 1, 2].map((value) => (
-                    <i
+                <span class="nq-look-options">
+                  {LOOK_COLORS[part].map((color, value) => (
+                    <button
+                      type="button"
                       key={value}
-                      class={appearance[part] === value ? 'nq-look-dot nq-look-dot-active' : 'nq-look-dot'}
-                      style={{ backgroundColor: LOOK_COLORS[part][value] }}
+                      class={
+                        appearance[part] === value ? 'nq-look-choice nq-look-choice-active' : 'nq-look-choice'
+                      }
+                      style={{ backgroundColor: color }}
+                      aria-label={t('newGame.option', { part: t(`newGame.${part}`), n: value + 1 })}
+                      onClick={() => choose(part, value)}
                     />
                   ))}
                 </span>
@@ -158,6 +167,44 @@ export function NewGameSetup({
               </div>
             </div>
           ))}
+          <div class="nq-look-shapes">
+            {SHAPE_PARTS.map(({ part, count }) => (
+              <div key={part}>
+                <span>{t(`newGame.${part}`)}</span>
+                <div class="nq-look-picker">
+                  <button
+                    type="button"
+                    class="nq-look-arrow nq-look-arrow-prev"
+                    aria-label={t('newGame.previous', { part: t(`newGame.${part}`) })}
+                    onClick={() => cycle(part, -1)}
+                  />
+                  <span class="nq-look-options">
+                    {Array.from({ length: count }, (_, value) => (
+                      <button
+                        type="button"
+                        key={value}
+                        class={
+                          (appearance[part] ?? 0) === value
+                            ? 'nq-look-shape nq-look-choice-active'
+                            : 'nq-look-shape'
+                        }
+                        aria-label={t('newGame.option', { part: t(`newGame.${part}`), n: value + 1 })}
+                        onClick={() => choose(part, value)}
+                      >
+                        {value + 1}
+                      </button>
+                    ))}
+                  </span>
+                  <button
+                    type="button"
+                    class="nq-look-arrow nq-look-arrow-next"
+                    aria-label={t('newGame.next', { part: t(`newGame.${part}`) })}
+                    onClick={() => cycle(part, 1)}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -165,7 +212,7 @@ export function NewGameSetup({
         <button type="button" onClick={onCancel}>
           {t('ui.back')}
         </button>
-        <button type="submit" disabled={!name.trim() || !grade}>
+        <button type="submit" disabled={!grade}>
           {t('ui.start')}
         </button>
       </div>

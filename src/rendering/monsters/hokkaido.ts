@@ -1083,6 +1083,55 @@ const murasakiKazedori: MonsterDesign = {
   ],
 };
 
+/** シロガネオオワシ（地方ボス）：北の空を閉ざす、流氷の翼をもつ白銀の大鷲（カゼ） */
+const shiroganeOowashi: MonsterDesign = {
+  size: 48,
+  colors: {
+    W: NQ.white,
+    I: NQ.ice,
+    S: NQ.sky,
+    s: NQ.silver,
+    G: NQ.gold,
+    Q: NQ.ochre,
+    R: NQ.red,
+    Y: NQ.yellow,
+  },
+  rim: { [NQ.white]: NQ.ice, [NQ.ice]: NQ.sky, [NQ.silver]: NQ.gray },
+  rimDepth: 2,
+  layers: [
+    // 王冠。北の空を支配する地方ボスのしるし
+    {
+      x: 17,
+      y: 2,
+      rows: ['G...G...G...G', 'GG.GGG.GGG.GG', '.GGGGGGGGGGG.', '.GGRGGGRGGG.', '.QQQQQQQQQQ.'],
+    },
+    // 空いっぱいに広がる翼。先端ほど銀色、内側ほど流氷色になる
+    {
+      rows: blob(
+        48,
+        47,
+        [
+          [10, 25, 10, 17],
+          [38, 25, 10, 17],
+          [16, 29, 11, 13],
+          [32, 29, 11, 13],
+        ],
+        (x, y) => (x < 6 || x > 41 ? 's' : y < 21 ? 'W' : (x + y) % 5 < 2 ? 'S' : 'I'),
+      ),
+    },
+    // 胸と頭。白銀の胸羽を重ねて大鷲らしい厚みを出す
+    { rows: blob(48, 47, [[24, 29, 10, 16]], (x, y) => (y < 22 ? 'W' : (x + y) % 4 === 0 ? 'I' : 's')) },
+    { rows: blob(48, 47, [[24, 14, 8, 7]], 'W') },
+    // 鋭い目、金のくちばし、胸羽の切れ込み
+    { mirror: true, x: 18, y: 13, rows: ['WW', 'Wo', '.o'] },
+    { x: 21, y: 17, rows: ['.YYYY.', 'YYYYYY', '.QQQQ.'] },
+    { mirror: true, x: 20, y: 24, rows: ['I...', '.I..', '..I.', '...I'] },
+    // 尾羽と鉤爪。足もとは規格どおり下端まで届かせる
+    { mirror: true, x: 18, y: 39, rows: ['sWWW', '.sWW', '..sW', '...s'] },
+    { mirror: true, x: 16, y: 43, rows: ['..QQ', '..QQ', '.QQQ', 'QQQQ'] },
+  ],
+};
+
 export const HOKKAIDO: Readonly<Record<string, MonsterDesign>> = {
   'hokkaido-lavendori': lavendori,
   'hokkaido-murasaki-kazedori': murasakiKazedori,
@@ -1101,4 +1150,5 @@ export const HOKKAIDO: Readonly<Record<string, MonsterDesign>> = {
   'hokkaido-boss-higuma-daio': higumaDaio,
   'hokkaido-boss-higuma-daio.p0': higumaDaioP0,
   'hokkaido-lastboss-clark': clark,
+  'hokkaido-islandboss-shirogane-oowashi': shiroganeOowashi,
 };

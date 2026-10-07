@@ -1013,6 +1013,11 @@ const MICHIRU = [
   '................',
 ];
 
+/** UI のイベントシーンでもフィールドと同じミチルを使う。 */
+export function michiruCanvas(): HTMLCanvasElement {
+  return gridCanvas(MICHIRU, { Y: NQ.gold, C: NQ.sky, V: NQ.violet, S: NQ.skinLight, N: NQ.night });
+}
+
 /** フィールドで使うテクスチャをまとめて用意する（何度呼んでもよい） */
 export function buildFieldTextures(scene: Phaser.Scene): void {
   const tx = scene.textures;
@@ -1034,11 +1039,7 @@ export function buildFieldTextures(scene: Phaser.Scene): void {
   addImage(tx, 'fld.boss.glow', glowCanvas());
   addImage(tx, 'fld.boss.spark', gridCanvas(SPARK, { W: NQ.white, L: NQ.lavender }));
   addImage(tx, 'fld.alert', gridCanvas(ALERT, { W: NQ.white, R: NQ.red }));
-  addImage(
-    tx,
-    'fld.michiru',
-    gridCanvas(MICHIRU, { Y: NQ.gold, C: NQ.sky, V: NQ.violet, S: NQ.skinLight, N: NQ.night }),
-  );
+  addImage(tx, 'fld.michiru', michiruCanvas());
   addImage(tx, 'fld.boss.q', gridCanvas(BOSS_Q, { V: NQ.violet, W: NQ.white }));
   addImage(tx, 'fld.shadow', gridCanvas(SHADOW, {}));
   addImage(tx, 'fld.plate', gridCanvas(PLATE, { B: NQ.sand }));

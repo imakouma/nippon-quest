@@ -3,7 +3,15 @@ import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { zoneForGround } from '../../src/core/battle/setup';
 import { loadContent, type ContentIndex } from '../../src/core/content/loader';
-import { GROUND_TILES, GROUNDS, groundOfTile, RIDGE_TILE, type Ground } from '../../src/core/world/ground';
+import {
+  GROUND_TILES,
+  GROUNDS,
+  groundOfTile,
+  isRoadTile,
+  RIDGE_TILE,
+  ROAD_TILE,
+  type Ground,
+} from '../../src/core/world/ground';
 import { read } from './helpers';
 
 const MAPS = fileURLToPath(new URL('../../maps/', import.meta.url));
@@ -27,6 +35,14 @@ describe('フィールドの 地面の 性質（docs/00 §2.2）', () => {
     expect(groundOfTile(3)).toBeNull();
     expect(groundOfTile(5)).toBeNull();
     expect(groundOfTile(undefined)).toBeNull();
+  });
+
+  it('土の道だけを安全な道路として判定する', () => {
+    expect(isRoadTile(ROAD_TILE)).toBe(true);
+    expect(isRoadTile(1)).toBe(false);
+    expect(isRoadTile(161)).toBe(false);
+    expect(isRoadTile(undefined)).toBe(false);
+    expect(groundOfTile(ROAD_TILE)).toBe('grass');
   });
 
   it('フィールドでは 地面の 出現表。くさはら・表の 無い 地面は field、ダンジョンは そのまま', () => {

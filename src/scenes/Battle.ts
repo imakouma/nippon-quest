@@ -1,16 +1,4 @@
-/**
- * バトル画面（GDD §4・§8 / docs/02 Step 6）。サイドビュー：敵が左、主人公と相棒が右（SFC 風 RPG）。
- * ターン制バトル：
- *  - 1 ターンに 主人公 → オトモ（前に 立つ 仲間）→ てき が 1 回ずつ 動く。時間では すすまない
- *  - 主人公が コマンドを えらぶ → core の act() が 1 ターンぶんを 解決 → 返ってきた BattleEvent[] を 順に 再生
- *  - コマンドが 成立しない とき（教科ゲージが たりない など）は ターンが すすまず、えらび直せる
- *  - 主人公が たおれて いる ターンは えらべないので、wait で オトモ → てき だけ すすめる
- *  - 絵と演出（背景・スプライト・揺れ・パーティクル・カメラ）は Phaser、文字・コマンド・問題は DOM オーバーレイ（BattleHud）
- *  - 計算は src/core/battle の act() に任せる（シーンは 演出だけ）
- *  - わざ → ask() → QuestionResult.score だけを Command に渡す（問題タイプは知らない。かかった 時間は シーンが はかる）
- * 1 ドット = 4px（背景 240×135 と同じ倍率）。人物 16×24、モンスター 32 / 40 / 48 / 56（docs/06）。
- * Overworld から `scene.launch('Battle', data)` で重ねて起動し、終わると 'battle:end' を投げて自分を止める。
- */
+/** ターン制バトルの Scene。計算は core、文字と操作は DOM、Scene は演出と進行を担当する。 */
 import Phaser from 'phaser';
 import { h, render } from 'preact';
 import type { ContentIndex } from '../core/content/loader';
@@ -64,7 +52,6 @@ import { motifArtGrid } from '../rendering/motifArt';
 import { skillLook } from '../rendering/battle/skillLook';
 import { narrate, normalizeEvents, type NarrateCtx } from './battle/narrate';
 import {
-  BACKDROP_SCALE,
   ELEMENT_FX,
   MONSTER_SIZE,
   backdropArt,
@@ -87,6 +74,23 @@ import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 import { battleSummary, defeatResultView, victoryResultView } from './battle/resultView';
 import { questionQueryForSkill, recruitQuestionQuery } from './battle/questionQueries';
 import { runBattleQuestion } from './battle/questionFlow';
+import { hasStoryCompanion } from '../core/progression/storyCompanion';
+import { monsterMenuArtUrl } from '../rendering/menuArt';
+import {
+  BATTLE_SCALE as S,
+  BOSS_MAX_H,
+  ENEMY_X,
+  ENEMY_Y,
+  HERO_X,
+  HERO_Y,
+  LOG_BASE_MS,
+  LOG_CHAR_MS,
+  LOG_MAX_MS,
+  OFF_RIGHT,
+  PAL_X,
+  PAL_Y,
+  READY_STEP,
+} from './battle/layout';
 
 export type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 
@@ -105,21 +109,6 @@ type MenuAction = Extract<UiAction, { t: 'command' | 'skill' | 'item' | 'swap' |
 
 type Sprite = Phaser.GameObjects.Image;
 
-const S = BACKDROP_SCALE;
-/** 足もとの位置（画面 px）。背景の道の帯（ドット 82〜97 → 328〜388px）の上に立つ */
-const ENEMY_X = 250;
-const ENEMY_Y = 380;
-/** ボスの絵の高さの上限（足もと ENEMY_Y から上の窓の下 140px まで） */
-const BOSS_MAX_H = ENEMY_Y - 140;
-const HERO_X = 690;
-const HERO_Y = 388;
-const PAL_X = 820;
-const PAL_Y = 356;
-/** 動けるとき（コマンドゲージが たまって いる）、一歩前に出る */
-const READY_STEP = 24;
-/** 画面の外（味方が右から歩いて入ってくる／にげる） */
-const OFF_RIGHT = 1080;
-
 const BAND_TEXT = {
   perfect: 'battle.bandPerfect',
   good: 'battle.bandGood',
@@ -129,11 +118,6 @@ const BAND_TEXT = {
 
 /** セリフを先に出してから動く（「ハルの こうげき！」→ 走って斬る）イベント */
 const TALK_FIRST = new Set<BattleEvent['t']>(['act', 'swap', 'recruitAttempt']);
-/** たたかいの ようすの 文を 読む 時間 */
-const LOG_BASE_MS = 350;
-const LOG_CHAR_MS = 30;
-const LOG_MAX_MS = 1300;
-
 export class BattleScene extends Phaser.Scene {
   private content!: ContentIndex;
   private bank!: QuestionBank;
@@ -267,6 +251,7 @@ export class BattleScene extends Phaser.Scene {
       },
       this.deps,
     );
+    if (this.opts.forceRecruitOffer) this.state.enemy.hp = 1;
 
     this.cameras.main.setBackgroundColor('#000000');
     this.fx = new Motions(this, (x, y, tint, texture, count, gravityY) =>
@@ -598,7 +583,7 @@ export class BattleScene extends Phaser.Scene {
   private canRecruit(): boolean {
     const s = this.state;
     return (
-      this.gs.party.owned.length > 0 &&
+      hasStoryCompanion(this.gs) &&
       !s.isBossBattle &&
       this.enemyDef.recruitRate > 0 &&
       s.enemy.hp > 0 &&
@@ -1670,8 +1655,9 @@ export class BattleScene extends Phaser.Scene {
 
   private async finish(): Promise<void> {
     const s = this.state;
-    const v =
-      this.gs.party.owned.length === 0 && this.victory
+    const v = this.opts.forceRecruitOffer
+      ? this.victory && { ...this.victory, recruitOffer: true }
+      : this.gs.party.owned.length === 0 && this.victory
         ? { ...this.victory, recruitOffer: false }
         : this.victory;
     const summary = battleSummary(s, v, this.perfectBySubject);
@@ -1690,13 +1676,26 @@ export class BattleScene extends Phaser.Scene {
         await this.say(t('battle.specialtyGet', { item: sp.item.name }), 'wait');
         await this.say(sp.motif.blurb, 'wait');
       }
+      const result = victoryResultView(
+        summary,
+        v,
+        s.enemy.name,
+        this.gs,
+        this.content,
+        itemIconUrl,
+        monsterMenuArtUrl(this.enemyDef),
+        this.opts.forceRecruitOffer,
+      );
       this.hud.set({
         menu: 'none',
         message: null,
         cursor: 0,
-        result: victoryResultView(summary, v, s.enemy.name, this.gs, this.content, itemIconUrl),
+        result: { ...result, recruitName: undefined, recruitArt: undefined },
       });
-      if (v?.recruitOffer) {
+      await this.waitFor((x) => x.t === 'resultClose');
+      if (result.recruitName) {
+        playSfx('discover');
+        this.hud.set({ cursor: 0, result: { ...result, recruitPhase: true } });
         const a = await this.waitFor((x) => x.t === 'recruitAnswer');
         summary.recruitAccepted = a.t === 'recruitAnswer' && a.yes;
         if (summary.recruitAccepted) {
@@ -1704,7 +1703,7 @@ export class BattleScene extends Phaser.Scene {
           this.hud.set({ result: null });
           await this.say(t('battle.recruitSuccess', { name: s.enemy.name }), 'wait');
         }
-      } else await this.waitFor((x) => x.t === 'resultClose');
+      }
     } else if (outcome === 'defeat') {
       const { goldLost } = applyBattleResult(this.gs, summary, this.content.settings);
       this.hud.set({

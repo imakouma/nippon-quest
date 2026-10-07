@@ -830,6 +830,108 @@ const katsushikaHokusai: MonsterDesign = {
   ],
 };
 
+/** ナナツカゲノミコト（関東地方ボス）：情報の黒い糸を七つの尾で操る巨大な影狐（ヤミ） */
+const NANATSU_TAILS = [
+  [
+    [27, 41],
+    [16, 35],
+    [4, 23],
+  ],
+  [
+    [27, 42],
+    [13, 42],
+    [3, 37],
+  ],
+  [
+    [27, 43],
+    [15, 49],
+    [6, 52],
+  ],
+  [
+    [28, 41],
+    [28, 30],
+    [28, 18],
+  ],
+  [
+    [28, 41],
+    [40, 35],
+    [52, 23],
+  ],
+  [
+    [28, 42],
+    [43, 42],
+    [53, 37],
+  ],
+  [
+    [28, 43],
+    [41, 49],
+    [50, 52],
+  ],
+] as const;
+const nanatsuTail = (x: number, y: number) =>
+  Math.max(...NANATSU_TAILS.map((points) => tube(points, 4.8, 2.2)(x, y)));
+const nanatsuKage: MonsterDesign = {
+  size: 56,
+  colors: {
+    K: NQ.night,
+    N: NQ.navy,
+    I: NQ.indigo,
+    V: NQ.violet,
+    L: NQ.lavender,
+    W: NQ.white,
+    A: NQ.aqua,
+    G: NQ.gold,
+    R: NQ.red,
+  },
+  rim: { [NQ.night]: NQ.ink, [NQ.indigo]: NQ.navy, [NQ.violet]: NQ.indigo },
+  rimDepth: 2,
+  layers: [
+    // 七県から集めた声を運ぶ尾。一本ずつ違う方向へ伸びる
+    {
+      rows: plot(56, 56, (x, y) => {
+        const tail = nanatsuTail(x, y);
+        if (tail < 0) return '.';
+        return (x * 3 + y * 5) % 11 < 3 ? 'V' : tail > 0.65 ? 'I' : 'N';
+      }),
+    },
+    // 巨大な狐の胴と頭
+    {
+      rows: plot(56, 56, (x, y) => {
+        const body = inEll(x, y, 27.5, 39, 12, 15);
+        const head = inEll(x, y, 27.5, 22, 11, 10);
+        if (!body && !head) return '.';
+        if ((x + y) % 13 === 0) return 'V';
+        return x < 24 && y < 35 ? 'I' : 'K';
+      }),
+    },
+    // 耳と、情報を結ぶ金の輪
+    {
+      mirror: true,
+      x: 16,
+      y: 7,
+      rows: [
+        'K...........',
+        'KK..........',
+        'KIK.........',
+        'KIIL........',
+        'KIIIL.......',
+        'KIIIIL......',
+        'KIIIIIL.....',
+        'KKKKKKKK....',
+      ],
+    },
+    { x: 20, y: 5, rows: ['..GGGGGGGGGG..', '.GG........GG.', 'GG..........GG', '.GGGGGGGGGGGG.'] },
+    // 目は左右で違う情報を映し、額の赤い印だけが中央を見る
+    { mirror: true, x: 20, y: 20, rows: ['WWW', 'WAR', 'WoR'] },
+    { x: 26, y: 15, rows: ['.RR.', 'RGGR', '.RR.'] },
+    { x: 25, y: 27, rows: ['.NNNN.', 'NNooNN', '.NNNN.'] },
+    // 胸を走る七本の情報線
+    { x: 22, y: 32, rows: ['A.A.A.A.A.A.A', '.A.A.A.A.A.A.', 'A.A.A.A.A.A.A', '.A.A.A.A.A.A.'] },
+    // 足もとは地面へ接続する黒い端末のような爪
+    { mirror: true, x: 17, y: 49, rows: ['KKKKK', 'KKKKK', '.KKKK', '.KKKK', 'NNNNN', 'NNNNN', 'ooooo'] },
+  ],
+};
+
 export const TOKYO: Readonly<Record<string, MonsterDesign>> = {
   'tokyo-nerikon': nerikon,
   'tokyo-daikon-zamurai': daikonZamurai,
@@ -842,4 +944,5 @@ export const TOKYO: Readonly<Record<string, MonsterDesign>> = {
   'tokyo-boss-mihara-no-nushi': miharaNoNushi,
   'tokyo-boss-mihara-no-nushi.p0': miharaNoNushiP0,
   'tokyo-lastboss-katsushika-hokusai': katsushikaHokusai,
+  'kanto-islandboss-nanatsu-kage': nanatsuKage,
 };

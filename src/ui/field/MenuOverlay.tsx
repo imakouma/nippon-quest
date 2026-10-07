@@ -10,6 +10,7 @@ import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { playSfx } from '../sfx';
+import { MenuCategoryIcon } from './MenuCategoryIcon';
 import './field.css';
 import './menu.css';
 
@@ -30,6 +31,7 @@ export interface MenuOverlayProps {
   onTab: (tab: MenuTab) => void;
   onBag: () => void;
   onAct: (key: string) => void;
+  onSave: () => void;
   onParent: () => void;
   onClose: () => void;
 }
@@ -86,6 +88,7 @@ export function MenuOverlay({
   onTab,
   onBag,
   onAct,
+  onSave,
   onParent,
   onClose,
 }: MenuOverlayProps) {
@@ -96,6 +99,7 @@ export function MenuOverlay({
     );
   const [sel, setSel] = useState(find);
   const [home, setHome] = useState(true);
+  const [saved, setSaved] = useState(false);
   const [homeSel, setHomeSel] = useState(() =>
     Math.max(
       0,
@@ -132,7 +136,7 @@ export function MenuOverlay({
     }
     onAct(e.key);
   };
-  const tabIdx = tabs.findIndex((x) => x.key === tab);
+  const tabIdx = tabs.findIndex((x) => x.key === (tab === 'specialties' ? 'monsters' : tab));
   const openTab = (index: number) => {
     const next = tabs[index];
     if (!next) return;
@@ -166,7 +170,7 @@ export function MenuOverlay({
     const onKey = (ev: KeyboardEvent) => {
       const L = live.current;
       if (L.home) {
-        const columns = 3;
+        const columns = 5;
         switch (ev.key) {
           case 'ArrowLeft':
             setHomeSel((current) => (current - 1 + tabs.length) % tabs.length);
@@ -252,9 +256,6 @@ export function MenuOverlay({
               <RubyLabel text={tabs[tabIdx]?.label ?? ''} />
             </span>
           )}
-          <button type="button" class="nq-opt nq-parent-open" onClick={onParent}>
-            ⚙ {t('menu.parent')}
-          </button>
           {!home && (
             <button type="button" class="nq-back nq-menu-back" onClick={backToHome}>
               ← {t('ui.back')}
@@ -265,79 +266,117 @@ export function MenuOverlay({
           </button>
         </div>
         {home ? (
-          <div class="nq-menu-home" aria-label={t('field.menu')}>
-            {tabs.map((x, index) => (
+          <>
+            <div class="nq-menu-home" aria-label={t('field.menu')}>
+              {tabs.map((x, index) => (
+                <button
+                  key={x.key}
+                  type="button"
+                  class={`nq-menu-card nq-menu-card-${x.key} ${index === homeSel ? 'nq-focus' : ''}`}
+                  onPointerEnter={() => setHomeSel(index)}
+                  onClick={() => openTab(index)}
+                >
+                  <span class="nq-menu-card-icon">
+                    <MenuCategoryIcon name={x.key} />
+                  </span>
+                  <RubyLabel text={x.label} class="nq-menu-card-label" />
+                  {x.count && Number(x.count) > 0 && <span class="nq-menu-card-count">{x.count}</span>}
+                </button>
+              ))}
+            </div>
+            <div class="nq-menu-footer">
               <button
-                key={x.key}
                 type="button"
-                class={`nq-menu-card nq-menu-card-${x.key} ${index === homeSel ? 'nq-focus' : ''}`}
-                onPointerEnter={() => setHomeSel(index)}
-                onClick={() => openTab(index)}
+                class="nq-opt nq-menu-save"
+                onClick={() => {
+                  onSave();
+                  setSaved(true);
+                }}
               >
-                <span class="nq-menu-card-icon">
-                  <PixelIcon name={x.icon} scale={3} />
-                </span>
-                <RubyLabel text={x.label} class="nq-menu-card-label" />
-                {x.count && Number(x.count) > 0 && <span class="nq-menu-card-count">{x.count}</span>}
+                <PixelIcon name="star" scale={2} /> {t('menu.save')}
               </button>
-            ))}
-          </div>
+              {saved && <span class="nq-menu-saved">{t('field.saveDone')}</span>}
+              <button type="button" class="nq-opt nq-parent-open" onClick={onParent}>
+                ⚙ {t('menu.parent')}
+              </button>
+            </div>
+          </>
         ) : tab === 'roadmap' ? (
           <RoadmapView nodes={roadmap} />
         ) : (
-          <div class="nq-menu-body">
-            <div class="nq-wmap-left">
-              {summary && <RubyLabel text={summary} class="nq-menu-summary" as="p" />}
-              {entries.length ? (
-                <ul class="nq-party-list nq-town-list" ref={listRef}>
-                  {entries.map((x, k) => (
-                    <MenuListRow key={x.key} entry={x} index={k} selected={k === sel} onPick={pick} />
-                  ))}
-                </ul>
-              ) : (
-                <RubyLabel text={empty} class="nq-town-empty" as="p" />
-              )}
-            </div>
-
-            <div class="nq-wmap-right">
-              {message && <RubyLabel text={message} class="nq-party-msg" as="p" />}
-              {e && (
-                <div class="nq-wmap-info nq-party-info">
-                  <div class="nq-party-head">
-                    <div class={`nq-party-art ${e.known ? '' : 'nq-menu-unknown-art'}`}>
-                      {pic ? <img src={pic} alt="" /> : <PixelIcon name="star-off" scale={6} />}
-                    </div>
-                    <div class="nq-party-who">
-                      <RubyLabel text={e.name} class="nq-party-name" />
-                      {e.detailIndex && <span class="nq-menu-detail-count">{e.detailIndex}</span>}
-                      {e.sub && <RubyLabel text={e.sub} class="nq-party-sub" />}
-                    </div>
-                  </div>
-                  <ul class="nq-town-lines">
-                    {e.lines.map((l, i) => (
-                      <li key={i}>
-                        <RubyLabel text={l} />
-                      </li>
+          <>
+            {(tab === 'monsters' || tab === 'specialties') && (
+              <div class="nq-menu-subtabs" aria-label={t('field.dexGroup')}>
+                <button
+                  type="button"
+                  class={`nq-opt ${tab === 'monsters' ? 'nq-focus' : ''}`}
+                  onClick={() => onTab('monsters')}
+                >
+                  {t('field.tabMonsters')}
+                </button>
+                <button
+                  type="button"
+                  class={`nq-opt ${tab === 'specialties' ? 'nq-focus' : ''}`}
+                  onClick={() => onTab('specialties')}
+                >
+                  {t('field.tabSpecialties')}
+                </button>
+              </div>
+            )}
+            <div class="nq-menu-body">
+              <div class="nq-wmap-left">
+                {summary && <RubyLabel text={summary} class="nq-menu-summary" as="p" />}
+                {entries.length ? (
+                  <ul class="nq-party-list nq-town-list" ref={listRef}>
+                    {entries.map((x, k) => (
+                      <MenuListRow key={x.key} entry={x} index={k} selected={k === sel} onPick={pick} />
                     ))}
                   </ul>
-                  {e.blurb && <RubyLabel text={e.blurb} class="nq-party-blurb" as="p" />}
-                </div>
-              )}
-              {e?.action && (
-                <div class="nq-wmap-foot nq-party-foot">
-                  <button
-                    type="button"
-                    class={`nq-opt nq-wmap-go ${e.action.ok ? 'nq-party-evolve-ok' : ''}`}
-                    disabled={!e.action.ok}
-                    onClick={act}
-                  >
-                    <RubyLabel text={e.action.label} />
-                  </button>
-                </div>
-              )}
-              <RubyLabel class="nq-wmap-keys" text={keys} />
+                ) : (
+                  <RubyLabel text={empty} class="nq-town-empty" as="p" />
+                )}
+              </div>
+
+              <div class="nq-wmap-right">
+                {message && <RubyLabel text={message} class="nq-party-msg" as="p" />}
+                {e && (
+                  <div class="nq-wmap-info nq-party-info">
+                    <div class="nq-party-head">
+                      <div class={`nq-party-art ${e.known ? '' : 'nq-menu-unknown-art'}`}>
+                        {pic ? <img src={pic} alt="" /> : <PixelIcon name="star-off" scale={6} />}
+                      </div>
+                      <div class="nq-party-who">
+                        <RubyLabel text={e.name} class="nq-party-name" />
+                        {e.detailIndex && <span class="nq-menu-detail-count">{e.detailIndex}</span>}
+                        {e.sub && <RubyLabel text={e.sub} class="nq-party-sub" />}
+                      </div>
+                    </div>
+                    <ul class="nq-town-lines">
+                      {e.lines.map((l, i) => (
+                        <li key={i}>
+                          <RubyLabel text={l} />
+                        </li>
+                      ))}
+                    </ul>
+                    {e.blurb && <RubyLabel text={e.blurb} class="nq-party-blurb" as="p" />}
+                  </div>
+                )}
+                {e?.action && (
+                  <div class="nq-wmap-foot nq-party-foot">
+                    <button
+                      type="button"
+                      class={`nq-opt nq-wmap-go ${e.action.ok ? 'nq-party-evolve-ok' : ''}`}
+                      disabled={!e.action.ok}
+                      onClick={act}
+                    >
+                      <RubyLabel text={e.action.label} />
+                    </button>
+                  </div>
+                )}
+                <RubyLabel class="nq-wmap-keys" text={keys} />
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>

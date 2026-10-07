@@ -45,10 +45,12 @@ export function itemKindLabel(item: Item): string {
   return t('field.itemKindEquip', { slot: t(`slots.${item.kind}`) });
 }
 
-const LOOK_PARTS: readonly { part: keyof HeroLook; key: string }[] = [
+export const LOOK_PARTS: readonly { part: keyof HeroLook; key: string }[] = [
   { part: 'hair', key: 'lookHair' },
   { part: 'skin', key: 'lookSkin' },
   { part: 'cloth', key: 'lookCloth' },
+  { part: 'hairStyle', key: 'lookHairStyle' },
+  { part: 'eyes', key: 'lookEyes' },
 ];
 
 export function menuTabs(mistakeCount: number): {
@@ -66,11 +68,8 @@ export function menuTabs(mistakeCount: number): {
       icon: 'cmd-scan',
       count: String(mistakeCount),
     },
-    { key: 'monsters', label: t('field.tabMonsters'), group: t('field.dexGroup'), icon: 'boss' },
-    { key: 'specialties', label: t('field.tabSpecialties'), group: t('field.dexGroup'), icon: 'star' },
-    { key: 'party', label: t('field.party'), icon: 'cmd-item' },
-    { key: 'bag', label: t('field.tabBag'), icon: 'role-shop' },
-    { key: 'equip', label: t('field.tabEquip'), icon: 'role-smith' },
+    { key: 'monsters', label: t('field.dexGroup'), icon: 'boss' },
+    { key: 'party', label: t('field.bagTitle'), icon: 'cmd-item' },
     { key: 'look', label: t('field.tabLook'), icon: 'hero' },
   ];
 }

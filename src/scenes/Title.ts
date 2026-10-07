@@ -9,6 +9,7 @@ import Phaser from 'phaser';
 import { h, render } from 'preact';
 import { createRng } from '../core/rng';
 import { remove, SLOTS, summaries, type SlotId, type SlotSummary } from '../core/state/save';
+import { shouldResetLocalSaves } from '../core/localDevelopment';
 import type { GameState } from '../core/state/schema';
 import { PIXEL_FONT, PIXEL_FONT_NAME } from '../ui/fonts';
 import { t } from '../ui/i18n';
@@ -267,8 +268,9 @@ export class TitleScene extends Phaser.Scene {
 
   private async checkSave(): Promise<void> {
     try {
-      const params = new URLSearchParams(location.search);
-      if (import.meta.env.DEV && params.has('resetSaves')) {
+      const url = new URL(location.href);
+      const params = url.searchParams;
+      if (shouldResetLocalSaves(url, import.meta.env.DEV)) {
         await Promise.all(SLOTS.map((slot) => remove(slot)));
         params.delete('resetSaves');
         history.replaceState(

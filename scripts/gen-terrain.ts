@@ -64,8 +64,12 @@ const FIELD = {
  * 2026-09-30 に 青森を 名所エリアに 分けたとき「島を 広くしても かまわない」と 言われた
  */
 const FIELD_EXTRA_SCALE: Readonly<Record<string, number>> = { aomori: 1.5 };
-/** にほんちずの地方の図（見るだけの地図）は、広げない */
-const ISLAND = { margin: 2, maxW: 44, maxH: 46 };
+/**
+ * にほんちずの地方の図（見るだけの地図）。
+ * 旧 44x46 では、小さい県の半島・湾・くびれが数マスにつぶれていた。
+ * 表示サイズは UI 側で 400px に収めるため、地理データだけを高解像度に保つ。
+ */
+const ISLAND = { margin: 6, maxW: 176, maxH: 182 };
 const ENCLAVE = { margin: 2, maxW: Math.round(44 * WALK_SCALE), maxH: Math.round(34 * WALK_SCALE) };
 
 /** マスの何割がその県なら、その県の陸にするか */

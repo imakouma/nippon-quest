@@ -51,10 +51,15 @@
 }
 .nq-title-hint {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 476px;
+  left: 50%;
+  top: 468px;
+  width: max-content;
+  max-width: calc(100% - 48px);
+  padding: 4px 16px;
   margin: 0;
+  transform: translateX(-50%);
+  border: 2px solid rgba(255, 243, 163, 0.45);
+  background: rgba(11, 13, 22, 0.82);
   text-align: center;
   font-size: 24px;
   color: #fff3a3;
@@ -75,12 +80,12 @@
   right: 0;
   bottom: 0;
   margin: 0;
-  padding: 4px 0;
-  background: rgba(26, 20, 40, 0.75);
+  padding: 6px 12px;
+  background: rgba(11, 13, 22, 0.92);
   text-align: center;
   font-size: 12px;
-  line-height: 12px;
-  color: #a3aabb;
+  line-height: 18px;
+  color: #d7dbea;
 }
 
 .nq-save-slots {
@@ -141,12 +146,12 @@
   position: absolute;
   inset: 20px 44px;
   z-index: 10;
-  padding: 12px 24px;
+  padding: 6px 24px;
   pointer-events: auto;
   color: #fff;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 24px;
+  gap: 4px 24px;
   overflow: auto;
 }
 .nq-new-game h2,
@@ -158,10 +163,10 @@
 .nq-new-game h2 {
   grid-column: 1 / -1;
   text-align: center;
-  font-size: 36px;
+  font-size: 30px;
 }
 .nq-new-game h3 {
-  font-size: 24px;
+  font-size: 20px;
 }
 .nq-new-game button,
 .nq-new-game input,
@@ -193,12 +198,13 @@
   color: #1a1428;
 }
 .nq-new-game-look {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 172px 1fr;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(320px, 1.2fr);
   gap: 12px 20px;
   align-items: center;
-  min-height: 218px;
-  padding: 12px;
+  min-height: 300px;
+  padding: 8px 12px;
   border: 3px solid #3b4767;
   background: linear-gradient(135deg, #18203a 0 50%, #202b4a 50% 100%);
   box-shadow: inset 0 0 0 3px #0b0d16;
@@ -211,10 +217,10 @@
 }
 .nq-new-game-look h3::before {
   content: '';
+  flex: 0 0 12px;
   width: 12px;
   height: 12px;
   background: var(--nq-yellow);
-  box-shadow: 12px 0 0 #f4a53a;
 }
 .nq-look-preview {
   min-height: 154px;
@@ -235,16 +241,34 @@
 }
 .nq-look-controls {
   display: grid;
-  gap: 10px;
+  gap: 4px;
   align-self: stretch;
   align-content: center;
 }
 .nq-look-controls > div {
   display: grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: 72px minmax(220px, 1fr);
   align-items: center;
   gap: 10px;
   color: var(--nq-cream);
+}
+.nq-look-controls > .nq-look-shapes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.nq-look-shapes > div {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+  gap: 4px;
+}
+.nq-look-shapes .nq-look-picker {
+  grid-template-columns: 32px 1fr 32px;
+  gap: 3px;
+}
+.nq-look-shapes .nq-look-arrow {
+  min-width: 32px;
 }
 .nq-look-picker {
   display: grid;
@@ -254,8 +278,8 @@
 }
 .nq-look-arrow {
   position: relative;
-  min-width: 44px;
-  min-height: 44px !important;
+  min-width: 38px;
+  min-height: 38px !important;
   padding: 0;
   border-color: #f6e7c1 !important;
   background: #314469 !important;
@@ -263,7 +287,7 @@
 .nq-look-arrow::before {
   content: '';
   position: absolute;
-  top: 12px;
+  top: 9px;
   width: 0;
   height: 0;
   border-top: 8px solid transparent;
@@ -283,19 +307,26 @@
   outline: 3px solid var(--nq-yellow);
   outline-offset: 2px;
 }
-.nq-look-dots {
+.nq-look-options {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
 }
-.nq-look-dot {
-  width: 14px;
-  height: 14px;
+.nq-look-choice,
+.nq-look-shape {
+  min-width: 28px !important;
+  min-height: 28px !important;
+  padding: 0 !important;
   border: 3px solid #0b0d16;
 }
-.nq-look-dot-active {
-  background: var(--nq-yellow);
+.nq-look-shape {
+  background: #314469 !important;
+  color: #fff;
+}
+.nq-look-choice-active {
   box-shadow: 0 0 0 2px #f6e7c1;
+  outline: 3px solid var(--nq-yellow);
 }
 .nq-new-game-actions {
   grid-column: 1 / -1;

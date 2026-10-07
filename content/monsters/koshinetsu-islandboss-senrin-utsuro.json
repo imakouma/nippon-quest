@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "koshinetsu-islandboss-senrin-utsuro",
+  "name": "センリンウツロ",
+  "area": "koshinetsu",
+  "motifId": "mountain-survey",
+  "element": "kaze",
+  "weakness": "hikari",
+  "baseStats": { "hp": 980, "mp": 136, "atk": 29, "def": 23, "spd": 18, "wis": 28 },
+  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
+  "skills": ["sk-kaikyo-no-kaze", "sk-kana-barrier", "sk-shiraberu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 1320,
+  "gold": 1480,
+  "spriteKey": "mon.koshinetsu-islandboss-senrin-utsuro",
+  "dexBlurb": "山[やま]を 千通[せんとお]りの 線[せん]へ 分[わ]け、都合[つごう]のよい 景色[けしき]だけを 地図[ちず]にする ワスレモノ。ひとつの 視点[してん]を 全体[ぜんたい]だと 思[おも]わせる。",
+  "fieldLine": "おまえの 見[み]た 景色[けしき]こそ 世界[せかい]の すべて。ほかの 視点[してん]など、霧[きり]へ 捨[す]てよ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.66,
+      "element": "tsuchi",
+      "skills": ["sk-tsuchi-kabe", "sk-kana-barrier", "sk-burst-shakai"],
+      "line": "近[ちか]くを 見[み]れば 山[やま]、遠[とお]くを 見[み]れば 点[てん]。どちらか 一方[いっぽう]だけを 選[えら]べ！"
+    },
+    {
+      "hpBelow": 0.25,
+      "element": "yami",
+      "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-rika"],
+      "line": "縮尺[しゅくしゃく]も 視点[してん]も 変[か]えるな！ わが 地図[ちず]の 外[そと]を 見[み]るな！"
+    }
+  ]
+}

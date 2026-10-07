@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { partyFromGameState } from '../../src/core/battle/setup';
+import { bagContext, putEquip } from '../../src/core/progression/bag';
 import { equipItem } from '../../src/core/progression/inventory';
 import { giveMeisan, isMeisanGear, meisanEarned } from '../../src/core/progression/meisan';
 import { motifStamp } from '../../src/core/progression/route';
@@ -59,9 +60,13 @@ describe('めいさんひんの そうび', () => {
   it('頭・体・足・くつを いっしょに そうびでき、HP も ぼうぎょも あがる', async () => {
     const c = await content();
     let gs = fresh();
+    gs.progress.islandsCleared = ['tohoku'];
     const base = partyFromGameState(gs, c).hero.stats;
     const ids = [MELON, 'aomori-meisan-ringo', 'akita-meisan-magewappa', 'iwate-meisan-nanbu-tekki'];
-    for (const id of ids) gs = equipItem(giveMeisan(gs, c.items.get(id)!), c.items.get(id)!)!;
+    for (const id of ids) {
+      gs = giveMeisan(gs, c.items.get(id)!);
+      gs = putEquip(gs, c.items.get(id)!, bagContext(gs, c)).state;
+    }
     const up = partyFromGameState(gs, c).hero.stats;
     const sum = (k: 'hp' | 'def') => ids.reduce((a, id) => a + (c.items.get(id)!.stats?.[k] ?? 0), 0);
     expect(up.hp - base.hp).toBe(sum('hp'));

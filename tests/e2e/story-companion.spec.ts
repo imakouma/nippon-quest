@@ -73,15 +73,15 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
   await page.getByRole('button', { name: /スロット 2 Lv/ }).click();
 
-  const dialogue = page.locator('.nq-dlg');
-  await expect(dialogue).toBeVisible({ timeout: 30_000 });
-  await expect.poll(() => dialogue.evaluate((element) => getComputedStyle(element).userSelect)).toBe('none');
+  const arrival = page.locator('.nq-cutscene-arrival');
+  await expect(arrival).toBeVisible({ timeout: 30_000 });
+  await expect.poll(() => arrival.evaluate((element) => getComputedStyle(element).userSelect)).toBe('none');
   await page.screenshot({ path: testInfo.outputPath('dialogue-no-selection.png'), fullPage: true });
-  for (let step = 0; step < 10 && (await dialogue.isVisible()); step += 1) {
-    await dialogue.click({ position: { x: 420, y: 410 } });
+  for (let step = 0; step < 10 && (await arrival.isVisible()); step += 1) {
+    await page.locator('.nq-cutscene-advance').click();
     await page.waitForTimeout(120);
   }
-  await expect(dialogue).toHaveCount(0);
+  await expect(arrival).toHaveCount(0);
 
   // 入口のすぐ北にある、むすびの社の守り人へ自分で歩いて話しかける。
   await page.waitForTimeout(300);
@@ -90,6 +90,7 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await page.keyboard.up('ArrowUp');
   await page.waitForTimeout(250);
   await page.keyboard.press('z');
+  const dialogue = page.locator('.nq-dlg');
   await expect(dialogue).toContainText(/むすびの.*やしろ/, { timeout: 10_000 });
   const kagurabi = page.getByRole('button', { name: /カグラビ/ });
   for (let step = 0; step < 24 && !(await kagurabi.isVisible()); step += 1) {
@@ -111,11 +112,15 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(dialogue).toContainText('カグラビ');
 
   await expect.poll(() => savedCompanion(page), { timeout: 20_000 }).toBe('iwate-kagurabi');
-  for (let step = 0; step < 10 && (await dialogue.isVisible()); step += 1) {
+  for (let step = 0; step < 40 && (await dialogue.isVisible()); step += 1) {
     await dialogue.click({ position: { x: 420, y: 410 } });
     await page.waitForTimeout(120);
   }
   await expect(dialogue).toHaveCount(0);
-  await page.getByRole('button', { name: 'バッグ' }).click();
+  await page.getByRole('button', { name: 'メニュー' }).click();
+  await page
+    .getByLabel('メニュー')
+    .getByRole('button', { name: /もちもの・へんせい/ })
+    .click();
   await expect(page.getByRole('listitem', { name: 'カグラビ' })).toBeVisible();
 });

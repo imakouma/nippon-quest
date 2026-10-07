@@ -69,8 +69,8 @@ describe('content loader', () => {
     expect(errors).toContain(`area "aomori": boss "${aomori.boss}" の area が "iwate" です`);
     expect(errors).toContain('area "aomori": midBoss "missing-midboss" が存在しません');
     expect(errors).toContain('area "aomori": regions の start はちょうど1つ必要です');
-    expect(errors).toContain('area "aomori": region "sannai" の motif "missing-motif" が存在しません');
-    expect(errors).toContain('area "aomori": region "sannai" の boss "missing-region-boss" が存在しません');
+    expect(errors).toContain('area "aomori": region "nebuta" の motif "missing-motif" が存在しません');
+    expect(errors).toContain('area "aomori": region "nebuta" の boss "missing-region-boss" が存在しません');
     expect(errors).toContain('area "aomori": regionGate の openedBy "missing-region" が存在しません');
     expect(errors).toContain('area "aomori": encounter の region "missing-region" が存在しません');
   });

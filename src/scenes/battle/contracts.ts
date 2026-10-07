@@ -13,6 +13,8 @@ export interface BattleSceneData {
   isBoss?: boolean;
   /** 開発者モードではボス戦からも離脱できる。 */
   devMode?: boolean;
+  /** E2Eで報酬画面と仲間加入演出を確実に確認する。 */
+  forceRecruitOffer?: boolean;
 }
 
 /** Battle Scene が終了時に通知する最小限の結果。 */

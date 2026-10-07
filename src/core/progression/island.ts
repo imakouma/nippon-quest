@@ -19,8 +19,12 @@ export function canChallengeIslandBoss(
   progress: Pick<GameState['progress'], 'areaSigns' | 'islandsCleared'>,
 ): boolean {
   const island = world.islands.find((candidate) => candidate.id === islandId);
+  const earlierPlayableIslands = world.islands.filter(
+    (candidate) => candidate.status === 'playable' && candidate.order < (island?.order ?? 0),
+  );
   return (
     island?.status === 'playable' &&
+    earlierPlayableIslands.every((candidate) => progress.islandsCleared.includes(candidate.id)) &&
     !progress.islandsCleared.includes(islandId) &&
     hasAllAreaSigns(world, islandId, progress.areaSigns)
   );
@@ -32,12 +36,18 @@ export function canChallengeIslandBoss(
  */
 export function completeIsland(prev: GameState, world: World, islandId: string, now = Date.now()): GameState {
   if (!canChallengeIslandBoss(world, islandId, prev.progress)) return prev;
+  const islandIndex = world.islands.findIndex((island) => island.id === islandId);
+  const nextIsland = world.islands[islandIndex + 1];
+  const nextArea = nextIsland?.status === 'playable' ? nextIsland.areas[0] : undefined;
   return {
     ...prev,
     updatedAt: now,
     progress: {
       ...prev.progress,
       islandsCleared: [...prev.progress.islandsCleared, islandId],
+      counters: nextArea
+        ? { ...prev.progress.counters, [`visit:${nextArea}-field`]: 1 }
+        : prev.progress.counters,
     },
   };
 }

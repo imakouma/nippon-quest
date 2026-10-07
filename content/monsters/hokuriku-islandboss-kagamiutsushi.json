@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokuriku-islandboss-kagamiutsushi",
+  "name": "カガミウツシノミコト",
+  "area": "hokuriku",
+  "motifId": "mizukagami",
+  "element": "mizu",
+  "weakness": "tsuchi",
+  "baseStats": {
+    "hp": 890,
+    "mp": 124,
+    "atk": 27,
+    "def": 22,
+    "spd": 14,
+    "wis": 25
+  },
+  "growth": {
+    "hp": 0,
+    "mp": 0,
+    "atk": 0,
+    "def": 0,
+    "spd": 0,
+    "wis": 0
+  },
+  "skills": ["sk-uzushio", "sk-kana-barrier", "sk-shiraberu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 1160,
+  "gold": 1320,
+  "spriteKey": "mon.hokuriku-islandboss-kagamiutsushi",
+  "dexBlurb": "北陸[ほくりく]の 水[みず]と 雪[ゆき]に 残[のこ]る 記録[きろく]から 生[う]まれた 巨大[きょだい]な ワスレモノ。欠[か]けた 部分[ぶぶん]へ 人々[ひとびと]が 望[のぞ]む 答[こた]えを 映[うつ]し、予想[よそう]を 本物[ほんもの]の 記憶[きおく]に 変[か]えてしまう。",
+  "fieldLine": "空白[くうはく]も 迷[まよ]いも、すべて わが 水面[みなも]へ 捨[す]てよ。完全[かんぜん]な 物語[ものがたり]だけを 映[うつ]してやろう！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.66,
+      "element": "hikari",
+      "skills": ["sk-hikari-no-ya", "sk-kana-barrier", "sk-burst-rika"],
+      "line": "見[み]たい 答[こた]えを 見[み]せてやる。疑問[ぎもん]など 光[ひかり]で 塗[ぬ]りつぶせ！"
+    },
+    {
+      "hpBelow": 0.25,
+      "element": "none",
+      "skills": ["sk-tsuchi-kabe", "sk-shiraberu", "sk-burst-shakai"],
+      "line": "鏡[かがみ]が 割[わ]れても、空白[くうはく]は のこる……。なぜ おまえたちは、それを 恐[おそ]れぬ！"
+    }
+  ]
+}

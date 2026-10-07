@@ -8,7 +8,9 @@ const fresh = () => createNewGame({ name: 'ハル', grade: 3 });
 
 describe('GameState', () => {
   it('新規ゲームがスキーマを満たす', () => {
-    expect(gameStateSchema.safeParse(fresh()).success).toBe(true);
+    const state = fresh();
+    expect(gameStateSchema.safeParse(state).success).toBe(true);
+    expect(state.inventory['common-renshu-no-bou']).toBe(1);
   });
   it('個人情報を持たない（名前は6文字までのニックネームのみ）', () => {
     const s = fresh();
@@ -44,6 +46,26 @@ describe('GameState', () => {
     expect(migrated.migratedFrom).toBe(2);
     expect(migrated.state.learning.attempts).toEqual([]);
     expect(migrated.state.learning.conceptStates).toEqual({});
+  });
+  it('v3 の序盤セーブは主人公を3x3中央へ移し、未解放の装備を所持品へ戻す', () => {
+    const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
+    legacy.schemaVersion = 3;
+    legacy.party.bagPlacements.hero = { x: 0, y: 0, rotated: false };
+    legacy.party.bagPlacements['eq:weapon'] = { x: 1, y: 0, rotated: false };
+    legacy.player.equipment.weapon = 'aomori-nebuta-sword';
+    const migrated = migrate(legacy).state;
+    expect(migrated.party.bagPlacements.hero).toMatchObject({ x: 1, y: 1 });
+    expect(migrated.party.bagPlacements['eq:weapon']).toBeUndefined();
+    expect(migrated.player.equipment.weapon).toBeUndefined();
+    expect(migrated.inventory['aomori-nebuta-sword']).toBe(1);
+    expect(migrated.inventory['common-renshu-no-bou']).toBe(1);
+  });
+  it('v4 の序盤セーブに入門装備を1回だけ追加する', () => {
+    const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
+    legacy.schemaVersion = 4;
+    delete legacy.inventory['common-renshu-no-bou'];
+    const migrated = migrate(legacy).state;
+    expect(migrated.inventory['common-renshu-no-bou']).toBe(1);
   });
   it('新しすぎるセーブは拒否する', () => {
     expect(() => migrate({ ...fresh(), schemaVersion: SCHEMA_VERSION + 5 })).toThrow(/新しすぎる/);

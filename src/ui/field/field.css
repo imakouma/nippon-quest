@@ -164,15 +164,6 @@
   background: rgba(11, 13, 22, 0.82);
   pointer-events: none;
 }
-.nq-amap-legend {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 12px;
-  line-height: 24px;
-  color: var(--nq-silver);
-  white-space: nowrap;
-}
 /* ひらいた地図の 見出しの右：にほんちず（ほかの県へ）を ひらく */
 .nq-amap-world {
   flex: none;
@@ -181,12 +172,6 @@
   padding: 0 8px;
   font-size: 24px;
   white-space: nowrap;
-}
-/* 県のまわりの地方の地図（行ったことのある県は緑、未踏の県は灰色）。県のフィールドの地形の下に のばして かさねる */
-.nq-wmap-canvas .nq-amap-region {
-  inset: auto;
-  width: auto;
-  height: auto;
 }
 /* 見出しと「とじる」は 1 行のまま（右の列がせまいと語の途中で折り返していた） */
 .nq-wmap-title {
@@ -235,12 +220,38 @@
   flex: none;
 }
 .nq-amap-empty {
+  display: grid;
+  flex: 1;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
   margin: 0;
+  padding: 24px;
+  text-align: center;
   /* 分かち書きのすきまで折り返す（「ま／ちや」のように語の途中で切らない） */
   word-break: keep-all;
   overflow-wrap: anywhere;
   line-height: 36px;
   color: var(--nq-cloud);
+}
+.nq-amap-empty p {
+  max-width: 300px;
+  margin: 0;
+}
+.nq-amap-empty-icon {
+  display: grid;
+  width: 88px;
+  height: 88px;
+  place-items: center;
+  border: 4px dashed var(--nq-slate);
+  color: var(--nq-silver);
+  background: rgba(38, 55, 89, 0.35);
+  filter: grayscale(1);
+  opacity: 0.72;
+}
+.nq-amap-empty-icon .nq-picon {
+  width: 48px;
+  height: 48px;
 }
 .nq-fhud-title {
   color: var(--nq-yellow);
@@ -1084,4 +1095,11 @@
   .nq-musubi-card strong {
     font-size: 16px;
   }
+}
+.nq-wmap-canvas .nq-amap-region-context {
+  inset: auto;
+  width: auto;
+  height: auto;
+  opacity: 0.92;
+  image-rendering: pixelated;
 }

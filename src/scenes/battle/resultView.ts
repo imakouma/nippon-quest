@@ -7,6 +7,7 @@ import {
   type BattleSummary,
 } from '../../core/progression/battleResult';
 import type { GameState } from '../../core/state/schema';
+import { hasStoryCompanion } from '../../core/progression/storyCompanion';
 import type { ResultView } from '../../ui/battle/store';
 
 type VictoryEvent = Extract<BattleEvent, { t: 'victory' }>;
@@ -40,6 +41,8 @@ export function victoryResultView(
   game: GameState,
   content: ContentIndex,
   iconUrl: (item: ContentIndex['items'] extends Map<string, infer Item> ? Item : never) => string,
+  recruitArt?: string,
+  forceRecruitOffer = false,
 ): ResultView {
   const table = content.xp.hero;
   const { xp } = game.player;
@@ -47,6 +50,7 @@ export function victoryResultView(
   const toLevel = Math.max(game.player.level, levelForXp(table, xp + summary.xp));
   const to = xpToNextLevel(table, toLevel, xp + summary.xp);
   const counts = new Map<string, number>();
+  const showRecruitOffer = Boolean(victory?.recruitOffer && (hasStoryCompanion(game) || forceRecruitOffer));
   for (const id of summary.drops) counts.set(id, (counts.get(id) ?? 0) + 1);
   return {
     kind: 'victory',
@@ -59,7 +63,8 @@ export function victoryResultView(
     xpFrom: from.ratio,
     xpTo: to.ratio,
     needNext: to.need,
-    recruitName: victory?.recruitOffer && game.party.owned.length > 0 ? enemyName : undefined,
+    recruitName: showRecruitOffer ? enemyName : undefined,
+    recruitArt: showRecruitOffer ? recruitArt : undefined,
     goldLost: 0,
     bonus: victory?.bonus ?? 1,
     maxCombo: victory?.maxCombo ?? 0,

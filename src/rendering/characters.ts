@@ -42,6 +42,8 @@ export interface Look {
   pack: string | null;
   pants: string;
   shoes: string;
+  hairStyle?: number;
+  eyes?: number;
   /** 着ている めいさんひんの そうび（描く じゅん） */
   costumes?: readonly CostumeArt[];
 }
@@ -163,16 +165,48 @@ export const CHAR_MAPS = {
 
 // ───────────────────────── 見た目 ─────────────────────────
 
-/** 主人公の見た目（GameState.player.appearance の番号 → 色）。GDD §2.3 の 3×3×3 */
-export const HERO_HAIR = [NQ.hairBrown, NQ.hairBlack, NQ.hairBlond] as const;
-export const HERO_SKIN = [NQ.skinLight, NQ.skinMid, NQ.skinDark] as const;
-export const HERO_CLOTH = [NQ.red, NQ.azure, NQ.leaf] as const;
+/** 主人公の見た目（NQ-48 の範囲で、明暗と色相が見分けやすい順）。 */
+export const HERO_HAIR = [
+  NQ.hairBrown,
+  NQ.hairBlack,
+  NQ.hairBlond,
+  NQ.bark,
+  NQ.tan,
+  NQ.silver,
+  NQ.berry,
+  NQ.indigo,
+] as const;
+export const HERO_SKIN = [
+  NQ.cream,
+  NQ.skinLight,
+  NQ.beige,
+  NQ.sand,
+  NQ.skinMid,
+  NQ.tan,
+  NQ.skinDark,
+] as const;
+export const HERO_CLOTH = [
+  NQ.red,
+  NQ.vermilion,
+  NQ.orange,
+  NQ.gold,
+  NQ.leaf,
+  NQ.teal,
+  NQ.azure,
+  NQ.navy,
+  NQ.violet,
+  NQ.berry,
+] as const;
+export const HERO_HAIR_STYLES = 4;
+export const HERO_EYE_STYLES = 3;
 
 /** GameState.player.appearance */
 export interface HeroAppearance {
   hair: number;
   skin: number;
   cloth: number;
+  hairStyle?: number;
+  eyes?: number;
 }
 
 /** GameState.player.equipment（部位 → どうぐの id） */
@@ -192,13 +226,14 @@ export function heroLook(a: HeroAppearance, equipment: HeroEquipment = {}): Look
     costumes,
     hair: HERO_HAIR[a.hair] ?? NQ.hairBrown,
     skin: HERO_SKIN[a.skin] ?? NQ.skinLight,
-    // 頭の そうびを かぶったら ぼうしは ぬぐ
-    cap: costumes.some((c) => c.slot === 'head') ? null : cloth,
+    cap: costumes.some((c) => c.slot === 'head') || (a.hairStyle ?? 0) > 0 ? null : cloth,
     top: NQ.paper,
     scarf: cloth,
     pack: NQ.orange,
     pants: NQ.denim,
     shoes: NQ.bark,
+    hairStyle: a.hairStyle ?? 0,
+    eyes: a.eyes ?? 0,
   };
 }
 
@@ -365,12 +400,35 @@ function frame(top: Rows, legs: Rows, l: Look, colors: Record<string, string>, o
 const VIEW: Record<Dir, CostumeView> = { down: 'front', up: 'back', left: 'side', right: 'side' };
 
 function tops(l: Look): Record<Dir, string[]> {
-  const side = capped(SIDE_TOP, l, true);
+  const style = l.hairStyle ?? 0;
+  const eyes = l.eyes ?? 0;
+  const customize = (rows: string[], side: boolean) => {
+    const out = [...rows];
+    if (style === 1) out[3] = side ? '..HHHHHHHHHHHH.' : '.HHHHHHHHHHHH.';
+    if (style === 2) {
+      out[0] = side ? '....H.HHH.HH...' : '...H.HHHH.H...';
+      out[3] = side ? '..HHHHHHHHHHHH.' : '.HHHHHHHHHHHH.';
+    }
+    if (style === 3) {
+      out[3] = side ? '..HHHHHHHHHHHH.' : '.HHHHHHHHHHHH.';
+      out[8] = side ? '..HSSSSSSHHHHH.' : '.HSSSSSSSSSSH.';
+      out[9] = side ? '..H.SSSSSS.HH..' : '.H.SSSSSSSS.H.';
+    }
+    if (eyes === 1) {
+      out[5] = out[5]!.replaceAll('e', 'o');
+      out[6] = out[6]!.replaceAll('e', 'S');
+    } else if (eyes === 2) {
+      out[5] = out[5]!.replaceAll('e', 'S');
+      out[6] = out[6]!.replaceAll('e', 'o');
+    }
+    return out;
+  };
+  const side = customize(capped(SIDE_TOP, l, true), true);
   return {
-    down: capped(FRONT_TOP, l, false),
+    down: customize(capped(FRONT_TOP, l, false), false),
     left: side,
     right: side,
-    up: capped(BACK_TOP, l, false),
+    up: customize(capped(BACK_TOP, l, false), false),
   };
 }
 
@@ -433,5 +491,5 @@ export const HERO_FEET_ORIGIN_Y = (HERO_FRAME.oy - 1 + 16) / HERO_FRAME.h;
 /** テクスチャのキー（見た目・着ている めいさんひんの そうびごとに別キー。本番 PNG は char.hero / char.hero.battle） */
 export const heroKey = (a: HeroAppearance, equipment: HeroEquipment = {}, battle = false): string => {
   const wear = heroCostumeIds(equipment);
-  return `char.hero.${a.hair}${a.skin}${a.cloth}${wear.length ? `.${wear.join('+')}` : ''}${battle ? '.battle' : ''}`;
+  return `char.hero.${a.hair}.${a.skin}.${a.cloth}.${a.hairStyle ?? 0}.${a.eyes ?? 0}${wear.length ? `.${wear.join('+')}` : ''}${battle ? '.battle' : ''}`;
 };

@@ -831,10 +831,82 @@
   text-align: center;
   line-height: 48px;
 }
-.nq-result-recruit p {
-  margin: 8px 0 12px;
-  line-height: 48px;
+.nq-recruit-wrap {
+  background: radial-gradient(circle at 50% 42%, rgba(74, 143, 215, 0.34), rgba(0, 0, 0, 0.76) 62%);
+}
+.nq-recruit-scene {
+  width: 560px;
+  padding: 20px 28px 24px;
   text-align: center;
+  overflow: hidden;
+  animation: nq-pop-in 0.3s steps(5);
+}
+.nq-recruit-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  color: var(--nq-yellow);
+  font-size: 36px;
+  line-height: 48px;
+}
+.nq-recruit-stage {
+  position: relative;
+  height: 210px;
+  margin: 4px auto 0;
+}
+.nq-recruit-stage img {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 18px;
+  width: 160px;
+  height: 160px;
+  translate: -50% 0;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 8px 0 rgba(0, 0, 0, 0.38));
+  animation: nq-recruit-hop 1.1s steps(6) infinite;
+}
+.nq-recruit-glow {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 260px;
+  height: 90px;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(128, 220, 255, 0.72), transparent 68%);
+  animation: nq-recruit-glow 0.8s steps(4) infinite alternate;
+}
+.nq-recruit-spark {
+  position: absolute;
+  z-index: 3;
+  color: var(--nq-yellow);
+  font-size: 24px;
+  font-style: normal;
+  animation: nq-recruit-spark 1.2s steps(4) infinite;
+}
+.nq-recruit-spark-a {
+  left: 27%;
+  top: 35%;
+}
+.nq-recruit-spark-b {
+  right: 27%;
+  top: 18%;
+  animation-delay: -0.4s;
+}
+.nq-recruit-spark-c {
+  right: 22%;
+  bottom: 26%;
+  animation-delay: -0.8s;
+}
+.nq-recruit-message {
+  margin: 0 0 16px;
+  color: var(--nq-cloud);
+  font-size: 24px;
+  line-height: 36px;
 }
 .nq-result-btns {
   display: flex;
@@ -858,6 +930,40 @@
 }
 .nq-heart-broken {
   animation: nq-heart-break 1.2s steps(6) forwards;
+}
+
+@keyframes nq-recruit-hop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  45% {
+    transform: translateY(-22px) scale(1.04);
+  }
+  65% {
+    transform: translateY(-10px) scale(0.98);
+  }
+}
+@keyframes nq-recruit-glow {
+  from {
+    opacity: 0.45;
+    transform: scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+@keyframes nq-recruit-spark {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7) rotate(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25) rotate(45deg);
+  }
 }
 
 /* ───── アニメーション ───── */

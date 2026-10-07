@@ -2,27 +2,105 @@ import { h, render } from 'preact';
 import type { ContentIndex } from '../../core/content/loader';
 import {
   chooseStoryCompanion,
+  hasStoryCompanion,
   IWATE_ARRIVAL_COUNTER,
   STORY_COMPANION_IDS,
 } from '../../core/progression/storyCompanion';
 import type { GameState } from '../../core/state/schema';
 import type { DialogueLine } from '../../ui/dialogue';
+import type { CutsceneKind } from '../../ui/cutscene/CutsceneOverlay';
 import { StoryCompanionChoice } from '../../ui/field/StoryCompanionChoice';
 import { t } from '../../ui/i18n';
 import { playSfx } from '../../ui/sfx';
 import { monsterMenuArtUrl } from '../../rendering/menuArt';
-import { companionChoiceLines, companionJoinedLines, iwateArrivalLines, prologueLines } from './storyScenes';
+import {
+  companionChoiceLines,
+  companionJoinedLines,
+  hokkaidoChapterArrivalLines,
+  hokurikuChapterArrivalLines,
+  koshinetsuChapterArrivalLines,
+  tokaiChapterArrivalLines,
+  kinkiChapterArrivalLines,
+  chugokuChapterArrivalLines,
+  shikokuChapterArrivalLines,
+  kyushuOkinawaChapterArrivalLines,
+  iwateArrivalLines,
+  kantoChapterArrivalLines,
+  prologueLines,
+  tohokuTownArrivalLines,
+  type StoryTownArea,
+} from './storyScenes';
 
 export const PROLOGUE_COUNTER = 'story.prologue';
+export const HOKKAIDO_CHAPTER_COUNTER = 'story.chapter.hokkaido';
+export const KANTO_CHAPTER_COUNTER = 'story.chapter.kanto';
+export const HOKURIKU_CHAPTER_COUNTER = 'story.chapter.hokuriku';
+export const KOSHINETSU_CHAPTER_COUNTER = 'story.chapter.koshinetsu';
+export const TOKAI_CHAPTER_COUNTER = 'story.chapter.tokai';
+export const KINKI_CHAPTER_COUNTER = 'story.chapter.kinki';
+export const CHUGOKU_CHAPTER_COUNTER = 'story.chapter.chugoku';
+export const SHIKOKU_CHAPTER_COUNTER = 'story.chapter.shikoku';
+export const KYUSHU_OKINAWA_CHAPTER_COUNTER = 'story.chapter.kyushu-okinawa';
+export const townStoryCounter = (area: StoryTownArea) => `story.town.${area}`;
+
+const TOWN_STORIES: Partial<Record<string, StoryTownArea>> = {
+  'aomori-town': 'aomori',
+  'miyagi-town': 'miyagi',
+  'akita-town': 'akita',
+  'yamagata-town': 'yamagata',
+  'fukushima-town': 'fukushima',
+  'hokkaido-town': 'hokkaido',
+  'ibaraki-town': 'ibaraki',
+  'tochigi-town': 'tochigi',
+  'gunma-town': 'gunma',
+  'saitama-town': 'saitama',
+  'chiba-town': 'chiba',
+  'tokyo-town': 'tokyo',
+  'kanagawa-town': 'kanagawa',
+  'niigata-town': 'niigata',
+  'toyama-town': 'toyama',
+  'ishikawa-town': 'ishikawa',
+  'fukui-town': 'fukui',
+  'yamanashi-town': 'yamanashi',
+  'nagano-town': 'nagano',
+  'gifu-town': 'gifu',
+  'shizuoka-town': 'shizuoka',
+  'aichi-town': 'aichi',
+  'mie-town': 'mie',
+  'shiga-town': 'shiga',
+  'kyoto-town': 'kyoto',
+  'osaka-town': 'osaka',
+  'hyogo-town': 'hyogo',
+  'nara-town': 'nara',
+  'wakayama-town': 'wakayama',
+  'tottori-town': 'tottori',
+  'shimane-town': 'shimane',
+  'okayama-town': 'okayama',
+  'hiroshima-town': 'hiroshima',
+  'yamaguchi-town': 'yamaguchi',
+  'tokushima-town': 'tokushima',
+  'kagawa-town': 'kagawa',
+  'ehime-town': 'ehime',
+  'kochi-town': 'kochi',
+  'fukuoka-town': 'fukuoka',
+  'saga-town': 'saga',
+  'nagasaki-town': 'nagasaki',
+  'kumamoto-town': 'kumamoto',
+  'oita-town': 'oita',
+  'miyazaki-town': 'miyazaki',
+  'kagoshima-town': 'kagoshima',
+  'okinawa-town': 'okinawa',
+};
 
 export interface MapStory {
   state: GameState;
   lines: DialogueLine[];
+  presentation: CutsceneKind;
 }
 
 /** マップへ入った直後に一度だけ始まる物語と、その記録を返す。 */
 export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now()): MapStory | null {
-  if (mapKey === 'aomori-field' && game.progress.counters[PROLOGUE_COUNTER] === 0) {
+  if (mapKey === 'aomori-field' && !game.progress.counters[PROLOGUE_COUNTER]) {
     return {
       state: {
         ...game,
@@ -33,19 +111,113 @@ export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now(
         },
       },
       lines: prologueLines(game),
+      presentation: 'opening',
     };
   }
   if (
-    mapKey !== 'iwate-town' ||
-    game.party.owned.length > 0 ||
-    game.progress.counters[IWATE_ARRIVAL_COUNTER]
+    mapKey === 'hokkaido-field' &&
+    game.progress.islandsCleared.includes('tohoku') &&
+    !game.progress.counters[HOKKAIDO_CHAPTER_COUNTER]
   ) {
+    const state = structuredClone(game);
+    state.progress.counters[HOKKAIDO_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: hokkaidoChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  if (
+    mapKey === 'ibaraki-field' &&
+    game.progress.islandsCleared.includes('hokkaido') &&
+    !game.progress.counters[KANTO_CHAPTER_COUNTER]
+  ) {
+    const state = structuredClone(game);
+    state.progress.counters[KANTO_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: kantoChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  if (
+    mapKey === 'niigata-field' &&
+    game.progress.islandsCleared.includes('kanto') &&
+    !game.progress.counters[HOKURIKU_CHAPTER_COUNTER]
+  ) {
+    const state = structuredClone(game);
+    state.progress.counters[HOKURIKU_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: hokurikuChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  if (
+    mapKey === 'yamanashi-field' &&
+    game.progress.islandsCleared.includes('hokuriku') &&
+    !game.progress.counters[KOSHINETSU_CHAPTER_COUNTER]
+  ) {
+    const state = structuredClone(game);
+    state.progress.counters[KOSHINETSU_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: koshinetsuChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  if (
+    mapKey === 'gifu-field' &&
+    game.progress.islandsCleared.includes('koshinetsu') &&
+    !game.progress.counters[TOKAI_CHAPTER_COUNTER]
+  ) {
+    const state = structuredClone(game);
+    state.progress.counters[TOKAI_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: tokaiChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  if (
+    mapKey === 'shiga-field' &&
+    game.progress.islandsCleared.includes('tokai') &&
+    !game.progress.counters[KINKI_CHAPTER_COUNTER]
+  ) {
+    const state = structuredClone(game);
+    state.progress.counters[KINKI_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: kinkiChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  if (
+    mapKey === 'tottori-field' &&
+    game.progress.islandsCleared.includes('kinki') &&
+    !game.progress.counters[CHUGOKU_CHAPTER_COUNTER]
+  ) {
+    const state = structuredClone(game);
+    state.progress.counters[CHUGOKU_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: chugokuChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  if (
+    mapKey === 'tokushima-field' &&
+    game.progress.islandsCleared.includes('chugoku') &&
+    !game.progress.counters[SHIKOKU_CHAPTER_COUNTER]
+  ) {
+    const state = structuredClone(game);
+    state.progress.counters[SHIKOKU_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: shikokuChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  if (
+    mapKey === 'fukuoka-field' &&
+    game.progress.islandsCleared.includes('shikoku') &&
+    !game.progress.counters[KYUSHU_OKINAWA_CHAPTER_COUNTER]
+  ) {
+    const state = structuredClone(game);
+    state.progress.counters[KYUSHU_OKINAWA_CHAPTER_COUNTER] = 1;
+    state.updatedAt = now;
+    return { state, lines: kyushuOkinawaChapterArrivalLines(game), presentation: 'chapter' };
+  }
+  const townArea = TOWN_STORIES[mapKey];
+  if (townArea && !game.progress.counters[townStoryCounter(townArea)]) {
+    const state = structuredClone(game);
+    state.progress.counters[townStoryCounter(townArea)] = 1;
+    state.updatedAt = now;
+    return { state, lines: tohokuTownArrivalLines(townArea, game), presentation: 'arrival' };
+  }
+  if (mapKey !== 'iwate-town' || hasStoryCompanion(game) || game.progress.counters[IWATE_ARRIVAL_COUNTER]) {
     return null;
   }
   const state = structuredClone(game);
   state.progress.counters[IWATE_ARRIVAL_COUNTER] = 1;
   state.updatedAt = now;
-  return { state, lines: iwateArrivalLines() };
+  return { state, lines: iwateArrivalLines(), presentation: 'arrival' };
 }
 
 interface CompanionRiteOptions {
@@ -60,7 +232,7 @@ interface CompanionRiteOptions {
 /** むすびの社で、説明から「むすび玉」による相棒加入までを進める。 */
 export async function runCompanionRite(options: CompanionRiteOptions): Promise<void> {
   const { game, content, root, talk, save, afterOverlay } = options;
-  if (game.party.owned.length > 0) return;
+  if (hasStoryCompanion(game)) return;
   await talk(companionChoiceLines());
   const choices = STORY_COMPANION_IDS.flatMap((id) => {
     const monster = content.monsters.get(id);

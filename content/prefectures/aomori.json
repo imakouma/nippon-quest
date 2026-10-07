@@ -156,6 +156,43 @@
       "rate": 0.35
     },
     {
+      "zone": "forest",
+      "table": [
+        { "monsterId": "aomori-bunakko", "weight": 55 },
+        { "monsterId": "aomori-kokeppi", "weight": 45 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "mountain",
+      "table": [
+        { "monsterId": "aomori-itakodori", "weight": 55 },
+        { "monsterId": "aomori-doguukun", "weight": 45 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "farm",
+      "table": [
+        { "monsterId": "aomori-ringoron", "weight": 60 },
+        { "monsterId": "aomori-sakurapon", "weight": 40 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "nebuta",
+      "table": [
+        { "monsterId": "aomori-nebutan", "weight": 55 },
+        { "monsterId": "aomori-ringoron", "weight": 45 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
       "zone": "field",
       "region": "sannai",
       "table": [
@@ -181,6 +218,16 @@
     },
     {
       "zone": "field",
+      "region": "tsugaru",
+      "table": [
+        { "monsterId": "aomori-umi-nyan", "weight": 60 },
+        { "monsterId": "aomori-magurodo", "weight": 40 }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
       "region": "hirosaki",
       "table": [
         {
@@ -199,6 +246,16 @@
           "monsterId": "aomori-bunakko",
           "weight": 30
         }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "oirase",
+      "table": [
+        { "monsterId": "aomori-kokeppi", "weight": 55 },
+        { "monsterId": "aomori-himemassu", "weight": 45 }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -273,7 +330,7 @@
     },
     {
       "zone": "field",
-      "region": "shimokita",
+      "region": "osorezan",
       "table": [
         {
           "monsterId": "aomori-itakodori",
@@ -291,6 +348,16 @@
           "monsterId": "aomori-magurodo",
           "weight": 60
         }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "oma",
+      "table": [
+        { "monsterId": "aomori-magurodo", "weight": 55 },
+        { "monsterId": "aomori-umi-nyan", "weight": 45 }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -316,7 +383,11 @@
         {
           "speaker": "りんご屋[や]の おばあちゃん",
           "face": "face.npc-aomori-shop",
-          "text": "りんごの しゅうかくを 手伝[てつだ]って くれるかい？"
+          "text": "りんごの 数[かず]と、どの 木[き]から とったのかを みんな 忘[わす]れてしまってね。しゅうかくを 手伝[てつだ]って くれるかい？"
+        },
+        {
+          "speaker": "ミチル",
+          "text": "数[かず]を 取[と]りもどせば、りんごを 待[ま]つ 人[ひと]へ きちんと 分[わ]けられるよ。木[き]の 名前[なまえ]も いっしょに たしかめよう。"
         }
       ],
       "question": {
@@ -366,7 +437,11 @@
       "afterDialogue": [
         {
           "speaker": "りんご屋[や]の おばあちゃん",
-          "text": "ありがとうねえ。これは おれいだよ。"
+          "text": "ありがとうねえ。数[かず]も 木[き]の 名前[なまえ]も もどったから、だれの りんごか まちがえずに とどけられるよ。"
+        },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "最初[さいしょ]の ページに 書[か]くよ。『名前[なまえ]と 数[かず]が もどると、町[まち]の 仕事[しごと]が また 動[うご]きだした』って。"
         }
       ]
     },
@@ -387,6 +462,10 @@
         {
           "speaker": "はっくつ隊長[たいちょう]",
           "text": "土[つち]の 中[なか]から 出[で]てきたものを 古[ふる]い じゅんに ならべて くれるかい？"
+        },
+        {
+          "speaker": "ミチル",
+          "text": "名前[なまえ]を もどすだけじゃ、昔[むかし]の 暮[く]らしは わからない。見[み]つかった 場所[ばしょ]と 順番[じゅんばん]も いっしょに 考[かんが]えよう。"
         }
       ],
       "question": {
@@ -432,6 +511,16 @@
             "xp": 10
           }
         }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "はっくつ隊長[たいちょう]",
+          "text": "道具[どうぐ]が 使[つか]われた 順番[じゅんばん]から、村[むら]の 人[ひと]たちの 一日[いちにち]が 見[み]えてきたよ！"
+        },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "昔[むかし]の 人[ひと]の 名前[なまえ]は わからなくても、のこしたものから 暮[く]らしを おぼえていられるんだね。"
+        }
       ]
     },
     {
@@ -446,7 +535,11 @@
       "dialogue": [
         {
           "speaker": "船長[せんちょう]",
-          "text": "海[うみ]の 生[い]きものの 名前[なまえ]、英語[えいご]で 言[い]えるかい？"
+          "text": "外国[がいこく]の 船[ふね]から 合図[あいず]が 来[き]たんだが、海[うみ]の 生[い]きものの 名前[なまえ]を 英語[えいご]で 思[おも]い出[だ]せないんだ。"
+        },
+        {
+          "speaker": "ミチル",
+          "text": "同[おな]じ 生[い]きものにも、ことばが 変[か]われば ちがう 名前[なまえ]が ある。絵[え]を 見[み]ながら 声[こえ]に 出[だ]してみよう。"
         }
       ],
       "question": {
@@ -477,6 +570,16 @@
             "xp": 5
           }
         }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "船長[せんちょう]",
+          "text": "合図[あいず]が 通[つう]じたぞ！ 名前[なまえ]を 分[わ]けあえば、遠[とお]い 海[うみ]の 人[ひと]とも 助[たす]けあえるんだな。"
+        },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "見聞帳[けんぶんちょう]に 日本語[にほんご]と 英語[えいご]を 並[なら]べて 書[か]こう。どちらも 消[け]さずに のこせるよ。"
+        }
       ]
     },
     {
@@ -491,7 +594,11 @@
       "dialogue": [
         {
           "speaker": "湖[みずうみ]の はかせ",
-          "text": "この 湖[みずうみ]の 水[みず]の 温度[おんど]を いっしょに 調[しら]べよう。"
+          "text": "この 湖[みずうみ]の 水[みず]の 記録[きろく]から、温度[おんど]を はかった 場所[ばしょ]と 時間[じかん]が 消[き]えてしまったんだ。"
+        },
+        {
+          "speaker": "ミチル",
+          "text": "数字[すうじ]だけを おぼえても、どこで はかったかが ちがえば くらべられない。条件[じょうけん]を そろえて 調[しら]べよう。"
         }
       ],
       "question": {
@@ -527,6 +634,16 @@
             "xp": 5
           }
         }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "湖[みずうみ]の はかせ",
+          "text": "場所[ばしょ]と 時間[じかん]を 書[か]きなおしたら、水[みず]の 変化[へんか]が わかったよ。これなら 湖[みずうみ]を 守[まも]れる。"
+        },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "答[こた]えだけじゃなく、どう 調[しら]べたかも 書[か]くんだね。次[つぎ]の 人[ひと]が たしかめられるように。"
+        }
       ]
     },
     {
@@ -542,6 +659,10 @@
         {
           "speaker": "石碑[せきひ]",
           "text": "……風車[かざぐるま]が 回[まわ]っている。石[いし]に ほられた 字[じ]を なぞると 何[なに]かが 起[お]きそうだ。"
+        },
+        {
+          "speaker": "ミチル",
+          "text": "消[き]えかけた 字[じ]を、形[かたち]と 読[よ]みかたの 両方[りょうほう]から 思[おも]い出[だ]そう。ここには だれかが のこした 願[ねが]いが ある。"
         }
       ],
       "question": {
@@ -571,6 +692,16 @@
           "reward": {
             "xp": 5
           }
+        }
+      ],
+      "afterDialogue": [
+        {
+          "speaker": "石碑[せきひ]",
+          "text": "なぞった 字[じ]が 淡[あわ]く 光[ひか]り、風車[かざぐるま]の 音[おと]に まじって『おぼえていて』という 声[こえ]が 聞[き]こえた。"
+        },
+        {
+          "speaker": "ミチル",
+          "text": "文字[もじ]は、もう 会[あ]えない 人[ひと]の 思[おも]いも 運[はこ]べるんだね。……わたしは、何[なに]を のこしたかったんだろう。"
         }
       ]
     }
@@ -716,12 +847,12 @@
       },
       {
         "id": "npc-aomori-haru",
-        "name": "見聞帳[けんぶんちょう]の ハル",
+        "name": "見聞帳[けんぶんちょう]の シオリ",
         "spriteKey": "char.npc-aomori-dex",
         "role": "talk",
         "dialogue": [
           {
-            "text": "ぼくは ハル。この 白紙[はくし]の 見聞帳[けんぶんちょう]に、取[と]りもどした 土地[とち]の ことを 書[か]くんだ。ひとりで おぼえきれなくても、みんなで のこせるから。"
+            "text": "ぼくは シオリ。この 白紙[はくし]の 見聞帳[けんぶんちょう]に、取[と]りもどした 土地[とち]の ことを 書[か]くんだ。ひとりで おぼえきれなくても、みんなで のこせるから。"
           }
         ]
       }
@@ -729,15 +860,27 @@
   },
   "regions": [
     {
+      "id": "nebuta",
+      "name": "ねぶた祭[まつり]エリア",
+      "motifs": ["nebuta"],
+      "start": true,
+      "boss": { "monsterId": "aomori-nebuta-musha", "level": 3, "line": "ラッセラー！ ねぶたの まちを とおりたければ、わしと おどって みせろ！" }
+    },
+    {
       "id": "sannai",
       "name": "三内丸山遺跡[さんないまるやまいせき]エリア",
-      "motifs": ["sannai-maruyama", "nebuta"],
-      "start": true,
+      "motifs": ["sannai-maruyama"],
       "boss": {
         "monsterId": "aomori-dogu-jin",
-        "level": 3,
-        "line": "ここは じょうもんの むらじゃ。わしに かてたら、弘前[ひろさき]への 関所[せきしょ]を あけて やろう！"
+        "level": 4,
+        "line": "ここは じょうもんの むらじゃ。わしに かてたら、この さきの 関所[せきしょ]を あけて やろう！"
       }
+    },
+    {
+      "id": "tsugaru",
+      "name": "津軽海峡[つがるかいきょう]エリア",
+      "motifs": ["tsugaru-kaikyo"],
+      "boss": { "monsterId": "aomori-umineko-taicho", "level": 6, "line": "龍飛崎[たっぴざき]の 風[かぜ]は つよいぞ！ ふきとばされるなよ！" }
     },
     {
       "id": "hirosaki",
@@ -745,7 +888,7 @@
       "motifs": ["hirosaki-jo", "ringo", "tsugaru-nuri"],
       "boss": {
         "monsterId": "aomori-oka-musha",
-        "level": 5,
+        "level": 7,
         "line": "さくらの 城[しろ]を まもる むしゃとは わたしの こと。いざ、しょうぶ！"
       }
     },
@@ -755,19 +898,25 @@
       "motifs": ["shirakami"],
       "boss": {
         "monsterId": "aomori-buna-taiju",
-        "level": 7,
+        "level": 8,
         "line": "ブナの 森[もり]は 8000年[ねん]も つづいて きた。森を あらす ものは ゆるさん！"
       }
     },
     {
       "id": "towada",
-      "name": "十和田湖[とわだこ]・奥入瀬[おいらせ]エリア",
-      "motifs": ["towada-ko", "oirase"],
+      "name": "十和田湖[とわだこ]エリア",
+      "motifs": ["towada-ko"],
       "boss": {
         "monsterId": "aomori-hachiro-ryu",
-        "level": 9,
+        "level": 10,
         "line": "わしは 八郎太郎[はちろうたろう]。この 湖[みずうみ]の ぬしじゃ。ためして やろう！"
       }
+    },
+    {
+      "id": "oirase",
+      "name": "奥入瀬渓流[おいらせけいりゅう]エリア",
+      "motifs": ["oirase"],
+      "boss": { "monsterId": "aomori-oirase-kokejin", "level": 11, "line": "ながれの 音[おと]を きいて 何百年[なんびゃくねん]…。わしの こけは ふかふかだぞ！" }
     },
     {
       "id": "hachinohe",
@@ -775,26 +924,34 @@
       "motifs": ["senbeijiru"],
       "boss": {
         "monsterId": "aomori-nabe-shogun",
-        "level": 11,
+        "level": 12,
         "line": "あつあつの せんべい汁[じる]を くらえ！ ここを とおりたければ わしに かて！"
       }
     },
     {
-      "id": "shimokita",
-      "name": "下北[しもきた]・恐山[おそれざん]エリア",
-      "motifs": ["oma-maguro", "osorezan", "tsugaru-kaikyo"],
+      "id": "osorezan",
+      "name": "恐山[おそれざん]エリア",
+      "motifs": ["osorezan"],
       "boss": {
-        "monsterId": "aomori-kuro-magurodo",
+        "monsterId": "aomori-kaza-mimizuku",
         "level": 13,
-        "line": "大間[おおま]の 海[うみ]の ぬし、クロマグロードだ！ 一本[いっぽん]づりで つれるかな？"
+        "line": "ホウ…。この 山[やま]の 風車[かざぐるま]の 音[おと]が きこえるか？"
       }
+    },
+    {
+      "id": "oma",
+      "name": "大間[おおま]エリア",
+      "motifs": ["oma-maguro"],
+      "boss": { "monsterId": "aomori-kuro-magurodo", "level": 14, "line": "大間[おおま]の 海[うみ]の ぬし、クロマグロードだ！ 一本[いっぽん]づりで つれるかな？" }
     }
   ],
   "regionGates": [
+    { "between": ["nebuta", "sannai"], "openedBy": "nebuta" },
     {
-      "between": ["sannai", "hirosaki"],
+      "between": ["sannai", "tsugaru"],
       "openedBy": "sannai"
     },
+    { "between": ["sannai", "hirosaki"], "openedBy": "tsugaru" },
     {
       "between": ["hirosaki", "shirakami"],
       "openedBy": "hirosaki"
@@ -804,12 +961,17 @@
       "openedBy": "shirakami"
     },
     {
-      "between": ["towada", "hachinohe"],
+      "between": ["towada", "oirase"],
       "openedBy": "towada"
     },
     {
-      "between": ["hachinohe", "shimokita"],
+      "between": ["oirase", "hachinohe"],
+      "openedBy": "oirase"
+    },
+    {
+      "between": ["hachinohe", "osorezan"],
       "openedBy": "hachinohe"
-    }
+    },
+    { "between": ["osorezan", "oma"], "openedBy": "osorezan" }
   ]
 }

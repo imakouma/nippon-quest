@@ -22,6 +22,10 @@ export const GROUND_TILES: Record<Ground, readonly number[]> = {
 
 /** 名所エリアの さかいの 山なみ（通れない。地面では ない） */
 export const RIDGE_TILE = 159;
+/** フィールドの土の道。歩けるが、ランダムエンカウントは起きない。 */
+export const ROAD_TILE = 163;
+
+export const isRoadTile = (tile: number | undefined): boolean => tile === ROAD_TILE;
 
 /** 地面の 性質が できる前の 丘（11）・高い山（12）の タイルも 地面に 数える */
 const TILE_GROUND = new Map<number, Ground>([
@@ -31,7 +35,7 @@ const TILE_GROUND = new Map<number, Ground>([
   // 名所エリアの 見た目：さくらの 木（草原）・恐山の 砂地と ゆけむり（やま）
   [160, 'grass'],
   // 道（草原の 上の 土の 道）
-  [163, 'grass'],
+  [ROAD_TILE, 'grass'],
   [161, 'mountain'],
   [162, 'mountain'],
 ]);

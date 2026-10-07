@@ -19,7 +19,7 @@ import './bag.css';
 export interface BagThing {
   /** 'hero' / 'mon:<uid>' / 'eq:<部位>'（バッグの そうび）/ 'inv:<itemId>'（あずけている そうび） */
   key: string;
-  kind: 'hero' | 'monster' | 'equip';
+  kind: 'hero' | 'monster' | 'equip' | 'item';
   /** 名前（RubyText） */
   name: string;
   /** マス・リストの 小さな 絵（data URL） */
@@ -45,6 +45,7 @@ export interface BagThing {
   lines?: string[];
   skills?: { name: string; gauge: number; scan: boolean }[];
   blurb?: string;
+  action?: 'use';
   /** しんかできる仲間なら、しんか先と条件。room＝バッグに 入りきるか（extra マス ふえる） */
   evolve?: {
     toName: string;
@@ -122,9 +123,6 @@ export function BagOverlay({
   cells,
   cols,
   rows,
-  used,
-  capacity,
-  over,
   focusKey,
   message,
   flashKey,
@@ -144,6 +142,7 @@ export function BagOverlay({
       order.findIndex((x) => x.key === key),
     );
   const [sel, setSel] = useState(() => indexOf(focusKey));
+  const [detailsOpen, setDetailsOpen] = useState(true);
   const sig = order.map((x) => x.key).join(',');
   useEffect(() => setSel(indexOf(focusKey)), [focusKey, sig]);
   const m = order[Math.min(sel, order.length - 1)]!;
@@ -153,10 +152,19 @@ export function BagOverlay({
     if (k === sel || !order[k]) return;
     playSfx('move');
     setSel(k);
+    setDetailsOpen(true);
     const el = boxRef.current?.querySelector(`[data-bag-key="${CSS.escape(order[k]!.key)}"]`);
     el?.scrollIntoView({ block: 'nearest' });
   };
-  const pickKey = (key: string) => pick(indexOf(key));
+  const activateKey = (key: string) => {
+    const next = indexOf(key);
+    if (next === sel) {
+      playSfx('back');
+      setDetailsOpen((open) => !open);
+      return;
+    }
+    pick(next);
+  };
   const toggle = () => {
     if (m.kind === 'hero') {
       playSfx('miss');
@@ -222,11 +230,10 @@ export function BagOverlay({
         type="button"
         data-bag-key={x.key}
         class={`nq-opt ${x.key === m.key ? 'nq-focus' : ''}`}
-        onPointerEnter={() => pickKey(x.key)}
-        onClick={() => pickKey(x.key)}
+        onClick={() => activateKey(x.key)}
       >
         <span class="nq-amap-cur">{heart(x)}</span>
-        {x.kind === 'equip' ? (
+        {x.kind === 'equip' || x.kind === 'item' ? (
           <img class="nq-item-icon nq-town-icon" src={x.icon ?? ''} alt="" />
         ) : (
           <PixelIcon name={x.kind === 'hero' ? 'hero' : `el-${x.element ?? 'none'}`} scale={2} />
@@ -252,17 +259,16 @@ export function BagOverlay({
   const monsInBag = inBag.some((x) => x.kind === 'monster');
   return (
     <div class="nq-wmap" onClick={onClose}>
-      <div class="nq-win nq-wmap-box" ref={boxRef} onClick={(e) => e.stopPropagation()}>
+      <div
+        class={`nq-win nq-wmap-box ${detailsOpen ? '' : 'nq-bag-details-closed'}`}
+        ref={boxRef}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div class="nq-wmap-left nq-bag-left">
           <div class="nq-wmap-region">
             <span class="nq-wmap-title">
               <PixelIcon name="cmd-item" scale={3} />
               {t('field.bagTitle')}
-            </span>
-            <span class="nq-bag-countbox">
-              <span class={`nq-bag-count ${over ? 'nq-bag-over' : ''}`}>
-                {t('field.bagSlots', { used, max: capacity })}
-              </span>
             </span>
           </div>
           <div
@@ -306,8 +312,7 @@ export function BagOverlay({
                   draggable={x.kind !== 'hero'}
                   onDragStart={(e) => e.dataTransfer?.setData('text/plain', x.key)}
                   aria-label={x.name.replace(/\[[^\]]*\]/g, '')}
-                  onPointerEnter={() => pickKey(x.key)}
-                  onClick={() => pickKey(x.key)}
+                  onClick={() => activateKey(x.key)}
                 >
                   <Pic x={x} size={2} />
                   {x.key === m.key && <span class="nq-heart nq-bag-heart">♥</span>}
@@ -334,69 +339,71 @@ export function BagOverlay({
               × {t('ui.close')}
             </button>
           </div>
-          <div class="nq-wmap-info nq-party-info">
-            <div class="nq-party-head">
-              <div class={`nq-party-art ${flashKey === m.key ? 'nq-party-evolved' : ''}`}>
-                <Pic x={m} size={6} />
-              </div>
-              <div class="nq-party-who">
-                <RubyLabel text={m.name} class="nq-party-name" />
-                <span class="nq-party-sub">
-                  {m.level !== undefined && (
-                    <>
-                      {t('battle.lv')}
-                      {m.level}
-                    </>
-                  )}
-                  {m.kind === 'monster' && m.element && <ElementChip el={m.element} />}
-                  {m.sub && <RubyLabel text={m.sub} />}
-                  {m.cost > 0 && (
-                    <span class="nq-bag-costline">
-                      <Pips n={m.cost} />
-                      {t('field.bagCost', { n: m.cost })}
-                    </span>
-                  )}
-                </span>
-              </div>
-            </div>
-            {m.stats && (
-              <div class="nq-party-stats">
-                {STATS.map(([k, key]) => (
-                  <span key={k}>
-                    <small>{t(key)}</small>
-                    {Math.round(m.stats![k])}
+          {detailsOpen && (
+            <div class="nq-wmap-info nq-party-info">
+              <div class="nq-party-head">
+                <div class={`nq-party-art ${flashKey === m.key ? 'nq-party-evolved' : ''}`}>
+                  <Pic x={m} size={6} />
+                </div>
+                <div class="nq-party-who">
+                  <RubyLabel text={m.name} class="nq-party-name" />
+                  <span class="nq-party-sub">
+                    {m.level !== undefined && (
+                      <>
+                        {t('battle.lv')}
+                        {m.level}
+                      </>
+                    )}
+                    {m.kind === 'monster' && m.element && <ElementChip el={m.element} />}
+                    {m.sub && <RubyLabel text={m.sub} />}
+                    {m.cost > 0 && (
+                      <span class="nq-bag-costline">
+                        <Pips n={m.cost} />
+                        {t('field.bagCost', { n: m.cost })}
+                      </span>
+                    )}
                   </span>
-                ))}
+                </div>
               </div>
-            )}
-            {m.lines?.map((l, i) => (
-              <RubyLabel key={i} text={l} class="nq-bag-line" as="p" />
-            ))}
-            {!!m.skills?.length && (
-              <>
-                <p class="nq-party-label">
-                  <RubyLabel text={t('cmd.skill')} />
-                </p>
-                <ul class="nq-party-skills">
-                  {m.skills.map((s, i) => (
-                    <li key={i}>
-                      <RubyLabel text={s.name} />
-                      <span class="nq-party-star">{s.scan ? '' : '★'.repeat(s.gauge)}</span>
-                    </li>
+              {m.stats && (
+                <div class="nq-party-stats">
+                  {STATS.map(([k, key]) => (
+                    <span key={k}>
+                      <small>{t(key)}</small>
+                      {Math.round(m.stats![k])}
+                    </span>
                   ))}
-                </ul>
-              </>
-            )}
-            {m.kind === 'hero' && !monsInBag && (
-              <RubyLabel text={t('field.bagNoMonster')} class="nq-party-hint" as="p" />
-            )}
-            {m.blurb && <RubyLabel text={m.blurb} class="nq-party-blurb" as="p" />}
-          </div>
-          {m.kind !== 'hero' && (
+                </div>
+              )}
+              {m.lines?.map((l, i) => (
+                <RubyLabel key={i} text={l} class="nq-bag-line" as="p" />
+              ))}
+              {!!m.skills?.length && (
+                <>
+                  <p class="nq-party-label">
+                    <RubyLabel text={t('cmd.skill')} />
+                  </p>
+                  <ul class="nq-party-skills">
+                    {m.skills.map((s, i) => (
+                      <li key={i}>
+                        <RubyLabel text={s.name} />
+                        <span class="nq-party-star">{s.scan ? '' : '★'.repeat(s.gauge)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {m.kind === 'hero' && !monsInBag && (
+                <RubyLabel text={t('field.bagNoMonster')} class="nq-party-hint" as="p" />
+              )}
+              {m.blurb && <RubyLabel text={m.blurb} class="nq-party-blurb" as="p" />}
+            </div>
+          )}
+          {detailsOpen && m.kind !== 'hero' && (m.kind !== 'item' || m.action) && (
             <div class="nq-wmap-foot nq-party-foot">
               <button type="button" class="nq-opt nq-wmap-go" onClick={toggle}>
                 <PixelIcon name="cmd-item" scale={3} />
-                {t(m.inBag ? 'field.bagOut' : 'field.bagIn')}
+                {t(m.kind === 'item' ? 'field.bagUse' : m.inBag ? 'field.bagOut' : 'field.bagIn')}
               </button>
               {m.kind === 'monster' && m.inBag && !m.leader && (
                 <button type="button" class="nq-opt nq-wmap-go" onClick={leader}>
@@ -423,11 +430,11 @@ export function BagOverlay({
               )}
             </div>
           )}
-          <RubyLabel
-            class="nq-wmap-keys"
-            text={
-              m.evolve
-                ? m.evolve.ok && !m.evolve.room
+          {detailsOpen && m.evolve && (
+            <RubyLabel
+              class="nq-wmap-keys"
+              text={
+                m.evolve.ok && !m.evolve.room
                   ? t('field.bagEvolveNoRoom', { n: m.evolve.extra })
                   : t(m.evolve.ok ? 'field.partyEvolveNeed' : 'field.partyEvolveNo', {
                       item: m.evolve.itemName,
@@ -435,9 +442,9 @@ export function BagOverlay({
                       need: m.evolve.need,
                       n: m.evolve.have,
                     })
-                : t('field.bagKeys')
-            }
-          />
+              }
+            />
+          )}
         </div>
       </div>
     </div>

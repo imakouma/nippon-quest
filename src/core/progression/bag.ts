@@ -5,6 +5,7 @@
 import type { ContentIndex } from '../content/loader';
 import type { Item, Monster, Settings, Stats } from '../content/schemas';
 import type { GameState } from '../state/schema';
+import { STARTER_EQUIPMENT_ID } from '../state/starter';
 import { EQUIP_SLOTS, equipItem, isEquip } from './inventory';
 
 export type BagSettings = Settings['bag'];
@@ -27,14 +28,15 @@ export interface BagContext {
 export const MAX_FORMATION_CHARACTERS = 8;
 export const MAX_COMPANIONS = MAX_FORMATION_CHARACTERS - 1;
 
-/** 島のクリア数で 2x2 → 3x2 → 3x3 → 4x3。 */
+/** 最初から 3x3。東北クリア後は装備の置き場も含めて 4x3 へ広がる。 */
 export function bagDimensions(gs: Pick<GameState, 'progress'>): BagSize {
   const n = gs.progress.islandsCleared.length;
-  if (n >= 4) return { w: 4, h: 3 };
-  if (n >= 2) return { w: 3, h: 3 };
-  if (n >= 1) return { w: 3, h: 2 };
-  return { w: 2, h: 2 };
+  return n >= 1 ? { w: 4, h: 3 } : { w: 3, h: 3 };
 }
+
+/** 第一章を終えるまでは、主人公とマナビモノの配置だけを覚える。 */
+export const equipmentUnlocked = (gs: Pick<GameState, 'progress'>): boolean =>
+  gs.progress.islandsCleared.includes('tohoku');
 
 /** 旧API互換。レベルではなくストーリー進行へ移行したため設定上の最大値だけを返す。 */
 export function bagCapacity(_level: number, cfg: BagSettings): number {
@@ -85,6 +87,33 @@ export function monsterCost(monsterId: string, monsters: ReadonlyMap<string, Mon
 const monKey = (uid: string) => `mon:${uid}`;
 const equipKey = (kind: string) => `eq:${kind}`;
 
+const EQUIP_OFFSET: Readonly<Record<(typeof EQUIP_SLOTS)[number], readonly [number, number]>> = {
+  head: [0, -1],
+  weapon: [1, 0],
+  chest: [-1, 0],
+  legs: [-1, 1],
+  feet: [1, 1],
+};
+
+export function equipPosition(gs: GameState, kind: (typeof EQUIP_SLOTS)[number]): BagPos {
+  const hero = gs.party.bagPlacements.hero ?? { x: 1, y: 1 };
+  const [dx, dy] = EQUIP_OFFSET[kind];
+  return { x: hero.x + dx, y: hero.y + dy, rotated: false };
+}
+
+/** 解放済みで、決められた隣接マスに置かれている装備だけを能力と見た目へ反映する。 */
+export function activeEquipment(gs: GameState): GameState['player']['equipment'] {
+  const result: GameState['player']['equipment'] = {};
+  for (const kind of EQUIP_SLOTS) {
+    const id = gs.player.equipment[kind];
+    if (!equipmentUnlocked(gs) && id !== STARTER_EQUIPMENT_ID) continue;
+    const at = gs.party.bagPlacements[equipKey(kind)];
+    const expected = equipPosition(gs, kind);
+    if (id && at?.x === expected.x && at.y === expected.y) result[kind] = id;
+  }
+  return result;
+}
+
 export function bagMonsterUids(gs: GameState): string[] {
   const owned = new Set(gs.party.owned.map((o) => o.uid));
   const placed = gs.party.team.filter((uid) => owned.has(uid) && !!gs.party.bagPlacements[monKey(uid)]);
@@ -123,6 +152,11 @@ export function canPlace(gs: GameState, key: string, pos: BagPos, ctx: BagContex
   if (!Number.isSafeInteger(pos.x) || !Number.isSafeInteger(pos.y)) return false;
   const size = thingSize(gs, key, ctx);
   if (!size) return false;
+  if (key.startsWith('eq:')) {
+    const kind = key.slice(3) as (typeof EQUIP_SLOTS)[number];
+    const starter = gs.player.equipment[kind] === STARTER_EQUIPMENT_ID;
+    if ((!equipmentUnlocked(gs) && !starter) || !EQUIP_SLOTS.includes(kind)) return false;
+  }
   const mine = cellsAt(pos, size);
   if (
     mine.some((c) => {
@@ -241,13 +275,18 @@ export function putEquip(
   ctx: BagContext,
   now = Date.now(),
 ): { state: GameState; result: BagMove; old?: string } {
-  if (!isEquip(it) || (prev.inventory[it.id] ?? 0) <= 0) return { state: prev, result: 'none' };
+  if (
+    (!equipmentUnlocked(prev) && it.id !== STARTER_EQUIPMENT_ID) ||
+    !isEquip(it) ||
+    (prev.inventory[it.id] ?? 0) <= 0
+  )
+    return { state: prev, result: 'none' };
   const old = prev.player.equipment[it.kind];
   const key = equipKey(it.kind);
-  const at = prev.party.bagPlacements[key] ?? firstFreePosition(prev, key, ctx);
-  if (!at) return { state: prev, result: 'full' };
+  const at = equipPosition(prev, it.kind);
   const next = equipItem(prev, it, now);
   if (!next) return { state: prev, result: 'none' };
+  if (!canPlace(next, key, at, ctx)) return { state: prev, result: 'full' };
   next.party.bagPlacements[key] = { ...at, rotated: !!at.rotated };
   return old ? { state: next, result: 'swapped', old } : { state: next, result: 'added' };
 }
@@ -283,7 +322,7 @@ export interface AdjacencyBonus {
 }
 /** 主人公に上下左右で隣接した仲間が、属性ごとに5%の支援効果を与える。 */
 export function adjacencyBonus(gs: GameState, ctx: BagContext, base: Stats): AdjacencyBonus {
-  const hero = gs.party.bagPlacements.hero ?? { x: 0, y: 0 };
+  const hero = gs.party.bagPlacements.hero ?? { x: 1, y: 1 };
   const stats: Partial<Stats> = {};
   const labels: string[] = [];
   const map: Record<string, keyof Stats> = {

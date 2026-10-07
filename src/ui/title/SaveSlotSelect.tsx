@@ -29,6 +29,7 @@ export function SaveSlotSelect({
       <div>
         {slots.map((slot) => (
           <button
+            key={slot.slot}
             type="button"
             disabled={mode === 'continue' && !slot.exists}
             onClick={() => onPick(slot.slot)}

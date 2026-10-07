@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto';
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { format } from 'prettier';
 import { academicReviewLedgerSchema } from '../src/questions/academicReview';
 import { questionBaseSchema, type QuestionBase, type Subject } from '../src/questions/contracts';
 
@@ -83,7 +84,15 @@ const report = {
   files: queue,
 };
 
-await writeFile(resolve(ROOT, 'imports/academic-review-queue.json'), `${JSON.stringify(report, null, 2)}\n`);
+await writeFile(
+  resolve(ROOT, 'imports/academic-review-queue.json'),
+  await format(JSON.stringify(report), { parser: 'json' }),
+);
 console.log(
   `academic review: ${report.summary.pendingFiles} files / ${report.summary.pendingQuestions} questions pending`,
 );
+if (process.argv.includes('--strict') && report.summary.pendingFiles > 0) {
+  throw new Error(
+    `人による学術レビューが ${report.summary.pendingFiles} ファイル（${report.summary.pendingQuestions} 問）残っています`,
+  );
+}

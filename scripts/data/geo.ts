@@ -135,24 +135,19 @@ export const DUNGEON_SPOTS: Record<string, LonLat> = {
  */
 export const REGION_SEEDS: Record<string, Record<string, LonLat[]>> = {
   aomori: {
-    sannai: [
-      [140.697, 40.811], // 三内丸山遺跡
-      [140.738, 40.831], // 青森市（ねぶたの家）
-    ],
+    nebuta: [[140.8, 40.83]],
+    sannai: [[140.52, 40.8]],
+    tsugaru: [[140.343, 41.2]],
     hirosaki: [
       [140.4645, 40.6075], // 弘前城
       [140.44, 40.59], // りんご公園
     ],
     shirakami: [[140.15, 40.47]], // 白神山地
-    towada: [
-      [140.9, 40.5], // 十和田湖
-      [141.03, 40.56], // 奥入瀬
-    ],
+    towada: [[140.9, 40.46]],
+    oirase: [[141.08, 40.6]],
     hachinohe: [[141.49, 40.51]], // 八戸
-    shimokita: [
-      [140.95, 41.5], // 大間
-      [141.09, 41.325], // 恐山
-    ],
+    osorezan: [[141.09, 41.325]],
+    oma: [[140.95, 41.5]],
   },
 };
 
@@ -166,11 +161,16 @@ export const REGION_LOOKS: Record<
   Record<string, { kind: 'forest' | 'sakura' | 'ash'; seed?: number; radius?: number }>
 > = {
   // 2026-09-30「一旦 地面は エリアの 境界以外は 全部 草原に」→ 青森は FIELD_ALL_GRASS に して 見た目は つかわない
-  aomori: {},
+  aomori: {
+    shirakami: { kind: 'forest' },
+    oirase: { kind: 'forest' },
+    hirosaki: { kind: 'sakura' },
+    osorezan: { kind: 'ash', seed: 0, radius: 8 },
+  },
 };
 
 /** フィールドの 地面を ぜんぶ 草原に する 県（エリアの さかいの 山なみ・道・建物・海・湖は べつ） */
-export const FIELD_ALL_GRASS: ReadonlySet<string> = new Set(['aomori']);
+export const FIELD_ALL_GRASS: ReadonlySet<string> = new Set<string>([]);
 
 /** 名所エリアの 建物（通れない）。大きさは マスで［よこ, たて］ */
 export type StructureKind =

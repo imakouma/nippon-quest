@@ -3,6 +3,7 @@
  * 仕様変更でスキーマを変えるときは、必ずここに v(n) → v(n+1) を足す。子どものセーブを壊さない。
  */
 import { SCHEMA_VERSION, gameStateSchema, type GameState } from './schema';
+import { STARTER_EQUIPMENT_ID } from './starter';
 
 type Migration = (s: Record<string, unknown>) => Record<string, unknown>;
 
@@ -47,6 +48,50 @@ const migrations: Record<number, Migration> = {
         conceptStates:
           learning.conceptStates && typeof learning.conceptStates === 'object' ? learning.conceptStates : {},
       },
+    };
+  },
+  3: (s) => {
+    const progress = (s.progress ?? {}) as Record<string, unknown>;
+    const party = (s.party ?? {}) as Record<string, unknown>;
+    const player = (s.player ?? {}) as Record<string, unknown>;
+    const placements = { ...((party.bagPlacements ?? {}) as Record<string, unknown>) };
+    placements.hero = { x: 1, y: 1, rotated: false };
+    const cleared = Array.isArray(progress.islandsCleared) && progress.islandsCleared.includes('tohoku');
+    const equipment = { ...((player.equipment ?? {}) as Record<string, string>) };
+    const inventory = { ...((s.inventory ?? {}) as Record<string, number>) };
+    if (!cleared) {
+      for (const [slot, id] of Object.entries(equipment)) {
+        inventory[id] = (inventory[id] ?? 0) + 1;
+        delete placements[`eq:${slot}`];
+      }
+      for (const slot of Object.keys(equipment)) delete equipment[slot];
+    }
+    return {
+      ...s,
+      schemaVersion: 4,
+      inventory,
+      player: { ...player, equipment },
+      party: { ...party, bagPlacements: placements },
+    };
+  },
+  4: (s) => {
+    const progress = (s.progress ?? {}) as Record<string, unknown>;
+    const player = (s.player ?? {}) as Record<string, unknown>;
+    const equipment = (player.equipment ?? {}) as Record<string, string>;
+    const inventory = { ...((s.inventory ?? {}) as Record<string, number>) };
+    const cleared = Array.isArray(progress.islandsCleared) && progress.islandsCleared.includes('tohoku');
+    if (!cleared && equipment.weapon !== STARTER_EQUIPMENT_ID && !inventory[STARTER_EQUIPMENT_ID]) {
+      inventory[STARTER_EQUIPMENT_ID] = 1;
+    }
+    return { ...s, schemaVersion: 5, inventory };
+  },
+  5: (s) => {
+    const player = (s.player ?? {}) as Record<string, unknown>;
+    const appearance = (player.appearance ?? {}) as Record<string, unknown>;
+    return {
+      ...s,
+      schemaVersion: 6,
+      player: { ...player, appearance: { hairStyle: 0, eyes: 0, ...appearance } },
     };
   },
 };

@@ -40,8 +40,8 @@ describe('GameState → Party', () => {
     expect(party.hero.hp).toBe(12);
     expect(party.hero.stats.hp).toBe(40);
     expect(party.monsters.map((m) => m.refId)).toEqual(['iwate-kagurabi']);
-    // さいしょは どうぐを もっていない（やくそうは なくした）
-    expect(party.items).toEqual({});
+    // 入門装備は持っているが、回復道具ではないのでバトルの「どうぐ」候補には出ない。
+    expect(party.items).toEqual({ 'common-renshu-no-bou': 1 });
   });
 
   it('HP 0 のセーブでも 1 で始まる（いきなり負けない）', async () => {

@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "kanto-islandboss-nanatsu-kage",
+  "name": "ナナツカゲノミコト",
+  "area": "kanto",
+  "motifId": "information-network",
+  "element": "yami",
+  "weakness": "hikari",
+  "baseStats": {
+    "hp": 760,
+    "mp": 108,
+    "atk": 25,
+    "def": 19,
+    "spd": 17,
+    "wis": 21
+  },
+  "growth": {
+    "hp": 0,
+    "mp": 0,
+    "atk": 0,
+    "def": 0,
+    "spd": 0,
+    "wis": 0
+  },
+  "skills": ["sk-yami-no-uta", "sk-kana-barrier", "sk-kuku-rush"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 940,
+  "gold": 1080,
+  "spriteKey": "mon.kanto-islandboss-nanatsu-kage",
+  "dexBlurb": "関東[かんとう]を 走[はし]る たくさんの 情報[じょうほう]から 生[う]まれた、七[なな]つの 尾[お]をもつ 巨大[きょだい]な ワスレモノ。速[はや]く 広[ひろ]がる 声[こえ]だけを 本当[ほんとう]だと 思[おも]いこみ、町[まち]と 町[まち]の つながりを 黒[くろ]い 糸[いと]で あやつる。",
+  "fieldLine": "七[なな]つの 町[まち]、七[なな]つの 声[こえ]。もっとも 速[はや]く 広[ひろ]がった ひとつだけが、真実[しんじつ]となる！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.66,
+      "element": "kaze",
+      "skills": ["sk-habataki", "sk-yami-no-uta", "sk-burst-kokugo"],
+      "line": "黒[くろ]い 糸[いと]よ、すべての 声[こえ]を 同[おな]じ 噂[うわさ]へ つなげ！"
+    },
+    {
+      "hpBelow": 0.25,
+      "element": "hikari",
+      "skills": ["sk-hikari-no-ya", "sk-shiraberu", "sk-burst-shakai"],
+      "line": "なぜだ……。ちがう 声[こえ]を たしかめるたび、切[き]れたはずの 道[みち]が 光[ひか]っていく……！"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import type { GameState } from '../core/state/schema';
 import { setDictionary, type I18nDict } from '../ui/i18n';
 import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
 import { setAssetCatalog, type AssetCatalog } from '../rendering/assetCatalog';
+import { preloadMenuArt } from '../rendering/preloadMenuArt';
 
 /** ドットフォント（PixelMplus12）を先に読んでおく。Canvas の文字が代替フォントで描かれないように */
 async function waitForFont(): Promise<void> {
@@ -63,7 +64,10 @@ export class BootScene extends Phaser.Scene {
       );
       this.registry.set('content', content);
       this.registry.set('questionFiles', content.questionFiles);
-      this.game.events.emit('boot:progress', 0.9);
+      this.game.events.emit('boot:stage', 'ずかんを よみこんでいるよ…');
+      await preloadMenuArt(content, (progress) =>
+        this.game.events.emit('boot:progress', 0.88 + progress * 0.1),
+      );
       this.game.events.emit('boot:stage', 'もうすぐ はじまるよ…');
       await waitForFont();
       this.game.events.emit('boot:progress', 1);

@@ -1,0 +1,48 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "hokkaido-islandboss-shirogane-oowashi",
+  "name": "シロガネオオワシ",
+  "area": "hokkaido",
+  "motifId": "ryuhyo",
+  "element": "kaze",
+  "weakness": "hino",
+  "baseStats": {
+    "hp": 620,
+    "mp": 86,
+    "atk": 22,
+    "def": 17,
+    "spd": 14,
+    "wis": 16
+  },
+  "growth": {
+    "hp": 0,
+    "mp": 0,
+    "atk": 0,
+    "def": 0,
+    "spd": 0,
+    "wis": 0
+  },
+  "skills": ["sk-fubuki", "sk-happa-arashi", "sk-kuku-rush"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 760,
+  "gold": 840,
+  "spriteKey": "mon.hokkaido-islandboss-shirogane-oowashi",
+  "dexBlurb": "流氷[りゅうひょう]の 海[うみ]と 広[ひろ]い 大地[だいち]の 記憶[きおく]から 生[う]まれた 巨大[きょだい]な ワスレモノ。距離[きょり]と 季節[きせつ]の めぐりを 忘[わす]れ、北海道[ほっかいどう]を 終[お]わらない 吹雪[ふぶき]で 閉[と]ざしている。",
+  "fieldLine": "この 大地[だいち]は 広[ひろ]すぎる。名[な]も 道[みち]も すべて 白[しろ]く 消[け]してしまえば、だれも 迷[まよ]わぬ！",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.66,
+      "element": "mizu",
+      "skills": ["sk-fubuki", "sk-uzushio", "sk-tsuchi-kabe"],
+      "line": "流氷[りゅうひょう]よ、道[みち]を 閉[と]ざせ！ 春[はる]など ここへは 来[こ]ない！"
+    },
+    {
+      "hpBelow": 0.25,
+      "element": "hikari",
+      "skills": ["sk-happa-arashi", "sk-kuku-rush", "sk-shiraberu"],
+      "line": "雲[くも]の 上[うえ]に 光[ひかり]が……。わしは、季節[きせつ]を 運[はこ]ぶ 道[みち]まで 忘[わす]れていたのか。"
+    }
+  ]
+}

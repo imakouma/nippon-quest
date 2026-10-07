@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "shikoku-islandboss-yotsu-no-tenbin",
+  "name": "ヨツノテンビン",
+  "area": "shikoku",
+  "motifId": "four-scales",
+  "element": "tsuchi",
+  "weakness": "kaze",
+  "baseStats": { "hp": 1370, "mp": 188, "atk": 37, "def": 31, "spd": 19, "wis": 37 },
+  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
+  "skills": ["sk-tsuchi-kabe", "sk-iwa-otoshi", "sk-shiraberu"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 1960,
+  "gold": 2180,
+  "spriteKey": "mon.shikoku-islandboss-yotsu-no-tenbin",
+  "dexBlurb": "目的[もくてき]だけを 重[おも]くし、手段[しゅだん]・予測[よそく]・責任[せきにん]を 空[から]にする 四[よっ]つの 天秤[てんびん]の ワスレモノ。善意[ぜんい]を 免罪符[めんざいふ]へ 変[か]える。",
+  "fieldLine": "守[まも]りたいと 願[ねが]ったなら、どんな 手段[しゅだん]も 正[ただ]しい！ 結果[けっか]の 責任[せきにん]など 捨[す]ててしまえ！",
+  "isBoss": true,
+  "bossPhases": [
+    { "hpBelow": 0.66, "element": "hikari", "skills": ["sk-hikari-no-ya", "sk-kanji-barrier", "sk-burst-sansu"], "line": "善[よ]い 目的[もくてき]だけを はかれ！ 代償[だいしょう]など 見[み]るな！" },
+    { "hpBelow": 0.25, "element": "yami", "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-shakai"], "line": "起[お]きた 結果[けっか]は 運命[うんめい]だ！ 選[えら]んだ 者[もの]に 責任[せきにん]など ない！" }
+  ]
+}

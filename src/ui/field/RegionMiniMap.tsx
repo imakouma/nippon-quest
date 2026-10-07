@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
-import { NQ } from '../../rendering/palette';
-import { areaAt, type RegionGrid } from './WorldMapOverlay';
+import type { RegionGrid } from './WorldMapOverlay';
 import { areaMapTerrainColor } from './areaMapTerrain';
+import { drawRegionContext } from './regionContext';
 
 export interface RegionMiniView extends RegionGrid {
   id: string;
@@ -18,7 +18,8 @@ export interface RegionMiniView extends RegionGrid {
 }
 
 const MINI = 2;
-const MINI_ZOOM = 2;
+// 現在県だけで窓を埋めず、隣接県の暗いシルエットまで見せる。
+const MINI_ZOOM = 1;
 const MINI_MAX_CELL = 24;
 
 function drawDetail(canvas: HTMLCanvasElement, detail: NonNullable<RegionMiniView['detail']>): void {
@@ -32,35 +33,6 @@ function drawDetail(canvas: HTMLCanvasElement, detail: NonNullable<RegionMiniVie
       if (tile === 3) continue;
       ctx.fillStyle = areaMapTerrainColor(tile);
       ctx.fillRect(x - x0, y - y0, 1, 1);
-    }
-}
-
-function drawVisited(canvas: HTMLCanvasElement, region: RegionMiniView, cell: number): void {
-  canvas.width = region.width * cell;
-  canvas.height = region.height * cell;
-  const ctx = canvas.getContext('2d')!;
-  const fill = (x: number, y: number, width: number, height: number, color: string) => {
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, width, height);
-  };
-  const open = (index: number) =>
-    index >= 0 && !!region.visited[index] && !(region.detail && index === region.here);
-  const edge = cell >= 8 ? 2 : 1;
-  for (let y = 0; y < region.height; y++)
-    for (let x = 0; x < region.width; x++) {
-      const index = areaAt(region, x, y);
-      if (!open(index)) continue;
-      const left = x * cell;
-      const top = y * cell;
-      fill(left, top, cell, cell, index === region.here ? NQ.lime : NQ.leaf);
-      const right = areaAt(region, x + 1, y);
-      const down = areaAt(region, x, y + 1);
-      if (right >= 0 && right !== index) fill(left + cell - edge, top, edge, cell, NQ.forest);
-      if (down >= 0 && down !== index) fill(left, top + cell - edge, cell, edge, NQ.forest);
-      if (areaAt(region, x - 1, y) < 0) fill(left, top, edge, cell, NQ.ink);
-      if (right < 0) fill(left + cell - edge, top, edge, cell, NQ.ink);
-      if (areaAt(region, x, y - 1) < 0) fill(left, top, cell, edge, NQ.ink);
-      if (down < 0) fill(left, top + cell - edge, cell, edge, NQ.ink);
     }
 }
 
@@ -96,11 +68,10 @@ export function RegionMiniMap({
         ),
       )
     : MINI;
-  const opened = region.visited.map((visited) => (visited ? 1 : 0)).join('');
   const detailKey = region.detail?.key ?? '';
   useEffect(() => {
-    if (clear.current) drawVisited(clear.current, region, cell);
-  }, [region.id, opened, region.here, detailKey, cell]);
+    if (clear.current) drawRegionContext(clear.current, region, cell);
+  }, [region.id, region.here, cell]);
   useEffect(() => {
     if (detail.current && region.detail) drawDetail(detail.current, region.detail);
   }, [detailKey]);

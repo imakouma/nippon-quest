@@ -20,7 +20,8 @@ export default defineConfig({
   webServer: {
     command: `pnpm build && pnpm exec vite preview --host 127.0.0.1 --port ${port} --strictPort`,
     port,
-    reuseExistingServer: false,
+    // 通常は検査ごとに本番previewを作り直す。手元で既に最新版を起動済みの場合だけ明示的に再利用する。
+    reuseExistingServer: process.env.E2E_REUSE_SERVER === '1',
     // Full content validation, typechecking, and the production bundle can take
     // more than two minutes on a cold start as the content set grows.
     timeout: 240_000,

@@ -69,9 +69,13 @@ describe('モンスターの モチーフの こうげき', () => {
     const { motifArtGrid } = await import('../../src/rendering/motifArt');
     const c = await content();
     const none: string[] = [];
+    const checked = new Set<string>();
     for (const m of c.monsters.values()) {
       // 地方ボス（県で ない）は モチーフの 絵なし（ボスなので ほかの 演出は ぜんぶ 出る）
       if (!c.areas.has(m.area)) continue;
+      const key = `${m.area}:${m.motifId}`;
+      if (checked.has(key)) continue;
+      checked.add(key);
       const motif = c.areas.get(m.area)?.motifs.find((x) => x.id === m.motifId);
       const ok = !!motif && (c.items.has(`${m.area}-${m.motifId}`) || !!motifArtGrid(m.area, motif));
       if (!ok) none.push(`${m.id}(${m.motifId})`);
