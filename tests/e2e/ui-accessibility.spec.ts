@@ -36,6 +36,30 @@ for (const width of [640, 960]) {
   });
 }
 
+test('たびのじゅんびは狭い表示でも収まり、地方を明確に選べる', async ({ page }) => {
+  await page.setViewportSize({ width: 640, height: 540 });
+  await page.goto('/?resetSaves=1');
+  await page.getByRole('menuitem', { name: /はじめから/ }).click();
+  await page.getByRole('button', { name: /スロット 1/ }).click();
+
+  const setup = page.getByRole('heading', { name: 'たびの じゅんび' }).locator('..');
+  await expect(setup).toBeVisible();
+  const box = await setup.boundingBox();
+  expect(box).not.toBeNull();
+  expect(box!.x).toBeGreaterThanOrEqual(0);
+  expect(box!.y).toBeGreaterThanOrEqual(0);
+  expect(box!.x + box!.width).toBeLessThanOrEqual(641);
+  expect(box!.y + box!.height).toBeLessThanOrEqual(541);
+
+  const tohoku = page.getByRole('button', { name: /とうほく/ });
+  const koshinetsu = page.getByRole('button', { name: /こうしんえつ/ });
+  await expect(tohoku).toHaveAttribute('aria-pressed', 'true');
+  await koshinetsu.click();
+  await expect(koshinetsu).toHaveAttribute('aria-pressed', 'true');
+  await expect(tohoku).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.getByRole('button', { name: 'はじめる' })).toBeVisible();
+});
+
 test('メニューと保護者画面はモーダルとしてフォーカスを管理する', async ({ page }) => {
   test.setTimeout(90_000);
   await startGame(page);

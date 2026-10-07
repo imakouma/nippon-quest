@@ -134,15 +134,19 @@
 
 .nq-new-game {
   position: absolute;
-  inset: 20px 44px;
+  top: 50%;
+  left: 50%;
   z-index: 10;
-  padding: 12px 24px;
+  width: min(780px, calc(100% - 48px));
+  max-height: calc(100% - 48px);
+  padding: 20px 28px 24px;
+  transform: translate(-50%, -50%);
   pointer-events: auto;
   color: #fff;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto 1fr auto;
-  gap: 6px 24px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 16px;
   overflow: auto;
 }
 .nq-new-game h2,
@@ -154,10 +158,11 @@
 .nq-new-game h2 {
   grid-column: 1 / -1;
   text-align: center;
-  font-size: 30px;
+  font-size: 36px;
+  line-height: 48px;
 }
 .nq-new-game h3 {
-  font-size: 20px;
+  font-size: 24px;
 }
 .nq-new-game button,
 .nq-new-game input,
@@ -180,8 +185,9 @@
 }
 .nq-new-game-top label {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 144px 1fr;
   align-items: center;
+  font-size: 24px;
 }
 .nq-new-game-top input,
 .nq-new-game-top select {
@@ -400,34 +406,61 @@
 .nq-new-game-regions > div {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 6px;
+  gap: 16px;
+  margin-top: 8px;
 }
 .nq-new-game-regions button {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2px 8px;
-  min-height: 112px;
-  padding: 6px 10px;
+  grid-template-columns: 1fr 36px;
+  grid-template-rows: auto auto 1fr;
+  gap: 8px;
+  min-height: 144px;
+  padding: 12px 16px;
   color: #1a1428;
   text-align: left;
+  box-shadow: 0 6px 0 #4a435d;
 }
 .nq-new-game-regions strong {
-  font-size: 20px;
+  font-size: 24px;
 }
-.nq-new-game-regions span {
-  color: #3a2672;
-  font-size: 14px;
+.nq-new-game-regions .nq-region-check {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  color: transparent;
+  border: 3px solid #6b6f80;
+  background: #fff;
+  font-size: 24px;
+  line-height: 24px;
+}
+.nq-new-game-regions .nq-region-subjects {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .nq-new-game-regions small {
   grid-column: 1 / -1;
-  font-size: 11px;
-  line-height: 1.35;
+  align-self: end;
+  font-size: 12px;
+  line-height: 24px;
 }
 .nq-new-game-regions .nq-region-selected {
   outline: 4px solid #ffd866;
   outline-offset: -4px;
   background: #6cc070;
+  box-shadow: 0 6px 0 #2a7a36;
+}
+.nq-new-game-regions .nq-region-selected .nq-region-check {
+  color: #1a1428;
+  border-color: #1a1428;
+  background: var(--nq-yellow);
+}
+.nq-new-game-regions button:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 3px;
 }
 .nq-new-game-starters > div {
   display: grid;
@@ -484,24 +517,28 @@
   display: flex;
   justify-content: center;
   gap: 24px;
+  padding-top: 4px;
 }
 .nq-new-game-actions button {
   min-width: 180px;
+  color: #fff;
+  background: #29263a;
 }
 .nq-new-game-actions button[type='submit'] {
+  color: #1a1428;
   background: #6cc070;
 }
 
 .nq-new-game-simple {
   grid-column: 1 / -1;
   grid-row: 2;
-  width: min(520px, 100%);
+  width: min(560px, 100%);
   justify-self: center;
 }
 .nq-new-game-subjects {
   grid-column: 1 / -1;
   grid-row: 3;
-  width: min(760px, 100%);
+  width: 100%;
   justify-self: center;
 }
 
