@@ -10,7 +10,7 @@ test('物語で初めて名前と見た目を決め、選択が反映される',
   const identity = page.getByRole('form', { name: 'ようせいとの であい' });
   await expect(dialogue.or(identity)).toBeVisible({ timeout: 30_000 });
   for (let step = 0; step < 20 && !(await identity.isVisible()); step += 1) {
-    await dialogue.click();
+    await page.keyboard.press('Enter');
   }
 
   await expect(identity).toBeVisible();
@@ -39,4 +39,18 @@ test('物語で初めて名前と見た目を決め、選択が反映される',
 
   await page.getByRole('button', { name: 'ふく 2' }).click();
   await expect.poll(classes).not.toBe(skinChanged);
+
+  await page.getByRole('textbox', { name: 'なまえ' }).fill('ハル');
+  await page.getByRole('button', { name: 'これが わたし' }).click();
+
+  let introducedAomori = false;
+  for (let step = 0; step < 20 && (await dialogue.isVisible()); step += 1) {
+    await expect(dialogue).not.toContainText('{area}');
+    if ((await dialogue.textContent())?.includes('青森県')) {
+      introducedAomori = true;
+      break;
+    }
+    await page.keyboard.press('Enter');
+  }
+  expect(introducedAomori).toBe(true);
 });

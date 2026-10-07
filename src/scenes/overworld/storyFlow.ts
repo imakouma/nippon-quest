@@ -48,7 +48,12 @@ export function applyHeroIdentity(game: GameState, identity: HeroIdentity, now =
 }
 
 /** マップへ入った直後に一度だけ始まる物語と、その記録を返す。 */
-export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now()): MapStory | null {
+export function mapArrivalStory(
+  mapKey: string,
+  game: GameState,
+  now = Date.now(),
+  areaName = '',
+): MapStory | null {
   if (mapKey === 'aomori-field' && game.progress.counters[PROLOGUE_COUNTER] === 0) {
     return {
       state: {
@@ -59,7 +64,7 @@ export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now(
           counters: { ...game.progress.counters, [PROLOGUE_COUNTER]: 1 },
         },
       },
-      lines: prologueLines(game),
+      lines: prologueLines(game, areaName),
     };
   }
   if (
@@ -78,6 +83,7 @@ export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now(
 interface ArrivalStoryOptions {
   mapKey: string;
   game: GameState;
+  areaName: string;
   root: HTMLElement;
   talk(lines: DialogueLine[]): Promise<void>;
   save(state: GameState): void;
@@ -85,8 +91,8 @@ interface ArrivalStoryOptions {
 
 /** 到着物語を進め、青森の導入だけは主人公設定を物語の途中に挟む。 */
 export async function runArrivalStory(options: ArrivalStoryOptions): Promise<boolean> {
-  const { mapKey, game, root, talk, save } = options;
-  const story = mapArrivalStory(mapKey, game);
+  const { mapKey, game, areaName, root, talk, save } = options;
+  const story = mapArrivalStory(mapKey, game, Date.now(), areaName);
   if (!story) return false;
   save(story.state);
   if (mapKey !== 'aomori-field') {

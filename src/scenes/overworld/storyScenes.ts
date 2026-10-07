@@ -3,7 +3,7 @@ import type { StoryCompanionId } from '../../core/progression/storyCompanion';
 import type { DialogueLine } from '../../ui/dialogue';
 import { t } from '../../ui/i18n';
 
-export function prologueLines(game: GameState): DialogueLine[] {
+export function prologueLines(game: GameState, areaName: string): DialogueLine[] {
   return [
     { speaker: t('field.prologueNarrator'), text: t('field.prologueWake') },
     { speaker: game.player.name, text: t('field.prologueLost') },
@@ -11,7 +11,7 @@ export function prologueLines(game: GameState): DialogueLine[] {
     { speaker: t('field.prologueFairy'), text: t('field.prologueFairyName') },
     { speaker: t('field.prologueFairy'), text: t('field.prologueKnowledge') },
     { speaker: t('field.prologueFairy'), text: t('field.prologueWasuremono') },
-    { speaker: t('field.prologueFairy'), text: t('field.prologueQuest') },
+    { speaker: t('field.prologueFairy'), text: t('field.prologueQuest', { area: areaName }) },
     { speaker: game.player.name, text: t('field.prologueResolve') },
     { text: t('field.prologueStart') },
   ];

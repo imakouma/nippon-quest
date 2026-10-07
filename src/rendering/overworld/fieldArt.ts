@@ -922,6 +922,22 @@ function bossSilhouetteCanvas(): HTMLCanvasElement {
 
 const SHADOW = ['..oooooooo..', 'oooooooooooo', 'oooooooooooo', '..oooooooo..'];
 
+/** 主人公のそばを飛ぶ案内妖精ミチル。 */
+const MICHIRU = [
+  '.....WW.....',
+  '..W..WW..W..',
+  '.WWWLLLLWWW.',
+  '..WLLLLLLW..',
+  '...LWWWWL...',
+  '..LLKLLKLL..',
+  '..LLLLLLLL..',
+  '...LLRRLL...',
+  '....LLLL....',
+  '...VLLLLV...',
+  '..VV....VV..',
+  '............',
+];
+
 /** 町の お店の 看板（くさりで つるした 木の板。まん中に お店の アイコン 8×8 を のせる） */
 const PLATE = [
   '..o......o..',
@@ -1029,5 +1045,10 @@ export function buildFieldTextures(scene: Phaser.Scene): void {
   addImage(tx, 'fld.alert', gridCanvas(ALERT, { W: NQ.white, R: NQ.red }));
   addImage(tx, 'fld.boss.silhouette', bossSilhouetteCanvas());
   addImage(tx, 'fld.shadow', gridCanvas(SHADOW, {}));
+  addImage(
+    tx,
+    'fld.michiru',
+    gridCanvas(MICHIRU, { W: NQ.white, L: NQ.lavender, K: NQ.ink, R: NQ.red, V: NQ.violet }),
+  );
   addImage(tx, 'fld.plate', gridCanvas(PLATE, { B: NQ.sand }));
 }

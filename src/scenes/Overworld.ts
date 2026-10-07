@@ -121,7 +121,8 @@ import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 import { buildFieldTextures, WARP_FRAMES } from '../rendering/overworld/fieldArt';
 import { overworldView } from '../rendering/overworld/overworldView';
 import { buildViewTexture } from '../rendering/overworld/viewTiles';
-import { buildEntranceIcons } from '../rendering/overworld/entranceIcons';
+import { buildEntranceIcons, entranceIconScale } from '../rendering/overworld/entranceIcons';
+import { createBossMarkerArt, createBossSpark } from './overworld/bossMarkerArt';
 import {
   areaMapView,
   mapPlaces,
@@ -856,7 +857,10 @@ export class OverworldScene extends Phaser.Scene {
         .image((tx + k) * TILE + 8, (ty + 1) * TILE, icon)
         .setOrigin(0.5, isTown ? 1 : 0.5)
         .setDepth(isTown ? (ty + 1) * TILE - 1 : ty * TILE);
-      if (isTown) pad.setDisplaySize(TILE * 3, TILE * 3);
+      if (isTown) {
+        const size = TILE * entranceIconScale(target, prop(obj, 'iconScale'));
+        pad.setDisplaySize(size, size);
+      }
       // まだ ひらかない 入口（裏ステージ）は くらく、光らせない
       if (this.isLocked(i)) {
         pad.setTint(0x555566);
@@ -1231,7 +1235,7 @@ export class OverworldScene extends Phaser.Scene {
   private bossMarker(tx: number, ty: number, def: Monster): MidBoss {
     const x = tx * TILE + 8;
     const y = ty * TILE + 8;
-    const aura = this.add.image(x, y + 5, 'fld.boss.aura').setDepth(2);
+    const { aura, glow, halo, mark } = createBossMarkerArt(this, x, y);
     this.tweens.add({
       targets: aura,
       alpha: 0.35,
@@ -1241,10 +1245,6 @@ export class OverworldScene extends Phaser.Scene {
       ease: 'Stepped',
       easeParams: [2],
     });
-    const glow = this.add
-      .image(x, y - 1, 'fld.boss.glow')
-      .setAlpha(0.45)
-      .setDepth(y - 2);
     this.tweens.add({
       targets: glow,
       alpha: 0.2,
@@ -1254,8 +1254,6 @@ export class OverworldScene extends Phaser.Scene {
       ease: 'Stepped',
       easeParams: [3],
     });
-    const halo = this.add.image(x, y - 1, 'fld.boss.halo').setDepth(y - 1);
-    const mark = this.add.image(x, y - 5, 'fld.boss.silhouette').setDepth(y);
     this.tweens.add({
       targets: [mark, halo, glow],
       y: y - 3,
@@ -1279,9 +1277,7 @@ export class OverworldScene extends Phaser.Scene {
       delay: 260,
       loop: true,
       callback: () => {
-        const s = this.add
-          .image(x + this.rng.int(-9, 9), y + this.rng.int(-2, 5), 'fld.boss.spark')
-          .setDepth(y + 1);
+        const s = createBossSpark(this, x + this.rng.int(-9, 9), y + this.rng.int(-2, 5)).setDepth(y + 1);
         this.tweens.add({
           targets: s,
           y: s.y - 16,
@@ -2555,6 +2551,7 @@ export class OverworldScene extends Phaser.Scene {
     await runArrivalStory({
       mapKey: this.mapKey,
       game: gs,
+      areaName: this.currentArea()?.name ?? '',
       root: this.root('title'),
       talk: (lines) => this.talk(lines),
       save: (state) => this.setGame(state),
