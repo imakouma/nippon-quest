@@ -8,6 +8,7 @@ import {
 import type { GameState } from '../../core/state/schema';
 import type { DialogueLine } from '../../ui/dialogue';
 import { StoryCompanionChoice } from '../../ui/field/StoryCompanionChoice';
+import { HeroIdentitySetup, type HeroIdentity } from '../../ui/title/HeroIdentitySetup';
 import { t } from '../../ui/i18n';
 import { playSfx } from '../../ui/sfx';
 import { monsterMenuArtUrl } from '../../rendering/menuArt';
@@ -18,6 +19,24 @@ export const PROLOGUE_COUNTER = 'story.prologue';
 export interface MapStory {
   state: GameState;
   lines: DialogueLine[];
+}
+
+export function requestHeroIdentity(
+  root: HTMLElement,
+  initialAppearance: HeroIdentity['appearance'],
+): Promise<HeroIdentity> {
+  return new Promise((resolve) => {
+    render(
+      h(HeroIdentitySetup, {
+        initialAppearance,
+        onComplete: (identity) => {
+          render(null, root);
+          resolve(identity);
+        },
+      }),
+      root,
+    );
+  });
 }
 
 /** マップへ入った直後に一度だけ始まる物語と、その記録を返す。 */

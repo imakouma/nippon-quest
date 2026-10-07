@@ -144,9 +144,8 @@ import { chestModel, specialtyChestModel } from './overworld/chestModel';
 import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
-import { mapArrivalStory, runCompanionRite } from './overworld/storyFlow';
+import { mapArrivalStory, requestHeroIdentity, runCompanionRite } from './overworld/storyFlow';
 import { presentDialogue } from './overworld/dialogueFlow';
-import { HeroIdentitySetup, type HeroIdentity } from '../ui/title/HeroIdentitySetup';
 import { currentMichiruGuideKey, type MichiruGuideKey } from './overworld/michiruGuide';
 import { createMichiruFollower, positionMichiruFollower } from './overworld/michiruFollower';
 import { fieldPlaceName } from './overworld/placeName';
@@ -2540,7 +2539,6 @@ export class OverworldScene extends Phaser.Scene {
   private talk(lines: DialogueLine[]): Promise<void> {
     return this.choose(lines).then(() => undefined);
   }
-
   private async showPrologue(): Promise<void> {
     const gs = this.gs();
     if (this.inBattle) return;
@@ -2552,23 +2550,10 @@ export class OverworldScene extends Phaser.Scene {
     if (!story) return;
     this.busy = true;
     this.standStill();
-    this.setGame(story.state);
-    // 名前と見た目はタイトルで先に決めず、妖精と出会った物語の中で初めて決める。
+    this.setGame(story.state); // 名前と見た目は妖精と出会った物語の中で初めて決める。
     const oldName = story.state.player.name;
     await this.talk(story.lines.slice(0, 4));
-    const identity = await new Promise<HeroIdentity>((resolve) => {
-      const root = this.root('title');
-      render(
-        h(HeroIdentitySetup, {
-          initialAppearance: story.state.player.appearance,
-          onComplete: (selected) => {
-            render(null, root);
-            resolve(selected);
-          },
-        }),
-        root,
-      );
-    });
+    const identity = await requestHeroIdentity(this.root('title'), story.state.player.appearance);
     const namedState = structuredClone(story.state);
     namedState.player.name = identity.name;
     namedState.player.appearance = identity.appearance;
