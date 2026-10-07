@@ -2,7 +2,11 @@ import { defineConfig } from '@playwright/test';
 import { existsSync } from 'node:fs';
 
 // CI/コンテナに同梱済みの Chromium があればそれを使う（playwright install 不要）
-const preinstalled = ['/opt/pw-browsers/chromium-1194/chrome-linux/chrome'].find((p) => existsSync(p));
+const preinstalled = [
+  '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium',
+].find((p) => existsSync(p));
 // 開発用 preview と共有すると、別タスクの終了・再ビルドでE2E中に接続が切れる。
 const port = Number(process.env.E2E_PORT ?? 4174);
 

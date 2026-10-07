@@ -1,7 +1,11 @@
 import { defineConfig } from '@playwright/test';
 import { existsSync } from 'node:fs';
 
-const preinstalled = ['/opt/pw-browsers/chromium-1194/chrome-linux/chrome'].find((path) => existsSync(path));
+const preinstalled = [
+  '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium',
+].find((path) => existsSync(path));
 
 export default defineConfig({
   testDir: '.',
