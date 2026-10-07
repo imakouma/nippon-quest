@@ -620,6 +620,7 @@ export class OverworldScene extends Phaser.Scene {
       // 会話を閉じたキーをおしたままでも、すぐに次の会話が始まらないように、いちど はなすまで待つ
       if (dir) return;
       this.waitRelease = false;
+      this.game.canvas.dataset.inputReady = 'true';
     }
     if (!dir) {
       this.standStill();
@@ -639,6 +640,7 @@ export class OverworldScene extends Phaser.Scene {
       lastBossTile: this.lastBoss?.tile ?? null,
       blocked: (x, y) => this.isBlocked(x, y),
     });
+    this.game.canvas.dataset.lastMovement = decision.kind;
     switch (decision.kind) {
       case 'stand':
         this.standStill();
@@ -685,6 +687,7 @@ export class OverworldScene extends Phaser.Scene {
       onComplete: () => {
         this.moving = false;
         this.stepCount++;
+        this.rememberLocation(nx, ny);
         this.renderHud(); // 左上の地図の主人公を動かす
         this.arrive(nx, ny);
       },
@@ -2564,6 +2567,7 @@ export class OverworldScene extends Phaser.Scene {
     return presentDialogue(this.root('dialogue'), lines, choices, () => {
       this.inputLockUntil = this.time.now + 250;
       this.waitRelease = true;
+      this.game.canvas.dataset.inputReady = 'false';
     });
   }
 
