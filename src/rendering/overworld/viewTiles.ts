@@ -23,8 +23,13 @@ const grassAt = (x: number, y: number, v: number): string => {
   if (k === 0 || (k === 1 && (y + v) % 2 === 0)) return NQ.green;
   return NQ.leaf;
 };
-const waterAt = (x: number, y: number, glint: boolean): string => {
-  if ((y === 4 && x >= 2 && x <= 5) || (y === 11 && x >= 9 && x <= 12)) return NQ.sky;
+const waterAt = (x: number, y: number, glint: boolean, flow = 0): string => {
+  const upperY = 4 + flow;
+  const upperX = 2 + flow * 2;
+  const lowerY = 11 + flow;
+  const lowerX = 9 - flow * 2;
+  if ((y === upperY && x >= upperX && x <= upperX + 3) || (y === lowerY && x >= lowerX && x <= lowerX + 3))
+    return NQ.sky;
   if (glint && y === 8 && x >= 5 && x <= 6) return NQ.ice;
   return NQ.azure;
 };
@@ -153,6 +158,11 @@ function drawView(px: (n: number) => Px): void {
         p(x, y, edge === 0 ? NQ.white : edge <= 2 ? NQ.sky : waterAt(x, y, mask === 16));
       }
   }
+  // 沖の通常の波線も固定画ではなく流れるよう、位置をずらした2フレームを用意する。
+  [VIEW.WATER_FLOW_1, VIEW.WATER_FLOW_2].forEach((tile, i) => {
+    const p = px(tile);
+    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, waterAt(x, y, false, i + 1));
+  });
   // 草原（ふつう・草・花）
   [0, 1, 2].forEach((v) => {
     const p = px(VIEW.GRASS + v);

@@ -22,7 +22,7 @@ export const ISLANDS: IslandMaster[] = [
   { id: 'hokkaido', name: '北海道[ほっかいどう]の島[しま]', order: 2, recommendedGrade: [1, 6] },
   { id: 'kanto', name: '関東[かんとう]の島[しま]', order: 3, recommendedGrade: [2, 6] },
   { id: 'hokuriku', name: '北陸[ほくりく]の島[しま]', order: 4, recommendedGrade: [2, 6] },
-  { id: 'koshinetsu', name: '甲信[こうしん]の島[しま]', order: 5, recommendedGrade: [3, 6] },
+  { id: 'koshinetsu', name: '甲信越[こうしんえつ]の島[しま]', order: 5, recommendedGrade: [1, 2] },
   { id: 'tokai', name: '東海[とうかい]の島[しま]', order: 6, recommendedGrade: [3, 6] },
   { id: 'kinki', name: '近畿[きんき]の島[しま]', order: 7, recommendedGrade: [4, 6] },
   { id: 'chugoku', name: '中国[ちゅうごく]の島[しま]', order: 8, recommendedGrade: [4, 6] },
@@ -161,7 +161,7 @@ export const PREFECTURES: PrefectureMaster[] = [
     id: 'niigata',
     name: '新潟県[にいがたけん]',
     capital: '新潟市[にいがたし]',
-    island: 'hokuriku',
+    island: 'koshinetsu',
   },
   { code: '16', id: 'toyama', name: '富山県[とやまけん]', capital: '富山市[とやまし]', island: 'hokuriku' },
   {

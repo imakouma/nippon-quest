@@ -157,23 +157,59 @@
     },
     {
       "zone": "field",
+      "region": "nebuta",
+      "table": [
+        {
+          "monsterId": "aomori-nebutan",
+          "weight": 45
+        },
+        {
+          "monsterId": "aomori-ringoron",
+          "weight": 30
+        },
+        {
+          "monsterId": "aomori-umi-nyan",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
       "region": "sannai",
       "table": [
         {
           "monsterId": "aomori-doguukun",
-          "weight": 40
+          "weight": 50
         },
         {
           "monsterId": "aomori-nebutan",
-          "weight": 35
+          "weight": 25
         },
         {
           "monsterId": "aomori-ringoron",
           "weight": 25
-        },
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "tsugaru",
+      "table": [
         {
           "monsterId": "aomori-umi-nyan",
-          "weight": 60
+          "weight": 50
+        },
+        {
+          "monsterId": "aomori-magurodo",
+          "weight": 25
+        },
+        {
+          "monsterId": "aomori-bunakko",
+          "weight": 25
         }
       ],
       "stepsPerCheck": 12,
@@ -185,7 +221,7 @@
       "table": [
         {
           "monsterId": "aomori-ringoron",
-          "weight": 40
+          "weight": 35
         },
         {
           "monsterId": "aomori-sakurapon",
@@ -193,10 +229,6 @@
         },
         {
           "monsterId": "aomori-tsugaru-nurin",
-          "weight": 25
-        },
-        {
-          "monsterId": "aomori-bunakko",
           "weight": 30
         }
       ],
@@ -228,20 +260,36 @@
       "region": "towada",
       "table": [
         {
+          "monsterId": "aomori-himemassu",
+          "weight": 55
+        },
+        {
           "monsterId": "aomori-kokeppi",
-          "weight": 45
-        },
-        {
-          "monsterId": "aomori-ringoron",
-          "weight": 30
-        },
-        {
-          "monsterId": "aomori-bunakko",
           "weight": 25
         },
         {
+          "monsterId": "aomori-bunakko",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "oirase",
+      "table": [
+        {
+          "monsterId": "aomori-kokeppi",
+          "weight": 55
+        },
+        {
           "monsterId": "aomori-himemassu",
-          "weight": 70
+          "weight": 25
+        },
+        {
+          "monsterId": "aomori-bunakko",
+          "weight": 20
         }
       ],
       "stepsPerCheck": 12,
@@ -256,16 +304,12 @@
           "weight": 50
         },
         {
-          "monsterId": "aomori-doguukun",
-          "weight": 25
-        },
-        {
           "monsterId": "aomori-umi-nyan",
           "weight": 25
         },
         {
-          "monsterId": "aomori-magurodo",
-          "weight": 30
+          "monsterId": "aomori-doguukun",
+          "weight": 25
         }
       ],
       "stepsPerCheck": 12,
@@ -273,23 +317,35 @@
     },
     {
       "zone": "field",
-      "region": "shimokita",
+      "region": "osorezan",
       "table": [
         {
           "monsterId": "aomori-itakodori",
-          "weight": 50
-        },
-        {
-          "monsterId": "aomori-umi-nyan",
-          "weight": 30
+          "weight": 60
         },
         {
           "monsterId": "aomori-doguukun",
           "weight": 20
         },
         {
+          "monsterId": "aomori-umi-nyan",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "oma",
+      "table": [
+        {
           "monsterId": "aomori-magurodo",
-          "weight": 60
+          "weight": 55
+        },
+        {
+          "monsterId": "aomori-umi-nyan",
+          "weight": 45
         }
       ],
       "stepsPerCheck": 12,
@@ -729,14 +785,34 @@
   },
   "regions": [
     {
-      "id": "sannai",
-      "name": "三内丸山遺跡[さんないまるやまいせき]エリア",
-      "motifs": ["sannai-maruyama", "nebuta"],
+      "id": "nebuta",
+      "name": "ねぶた祭[まつり]エリア",
+      "motifs": ["nebuta"],
       "start": true,
       "boss": {
-        "monsterId": "aomori-dogu-jin",
+        "monsterId": "aomori-nebuta-musha",
         "level": 3,
-        "line": "ここは じょうもんの むらじゃ。わしに かてたら、弘前[ひろさき]への 関所[せきしょ]を あけて やろう！"
+        "line": "ラッセラー！ ねぶたの まちを とおりたければ、わしと おどって みせろ！"
+      }
+    },
+    {
+      "id": "sannai",
+      "name": "三内丸山遺跡[さんないまるやまいせき]エリア",
+      "motifs": ["sannai-maruyama"],
+      "boss": {
+        "monsterId": "aomori-dogu-jin",
+        "level": 4,
+        "line": "ここは じょうもんの むらじゃ。わしに かてたら、この さきの 関所[せきしょ]を あけて やろう！"
+      }
+    },
+    {
+      "id": "tsugaru",
+      "name": "津軽海峡[つがるかいきょう]エリア",
+      "motifs": ["tsugaru-kaikyo"],
+      "boss": {
+        "monsterId": "aomori-umineko-taicho",
+        "level": 6,
+        "line": "龍飛崎[たっぴざき]の 風[かぜ]は つよいぞ！ ふきとばされるなよ！"
       }
     },
     {
@@ -745,7 +821,7 @@
       "motifs": ["hirosaki-jo", "ringo", "tsugaru-nuri"],
       "boss": {
         "monsterId": "aomori-oka-musha",
-        "level": 5,
+        "level": 7,
         "line": "さくらの 城[しろ]を まもる むしゃとは わたしの こと。いざ、しょうぶ！"
       }
     },
@@ -755,18 +831,28 @@
       "motifs": ["shirakami"],
       "boss": {
         "monsterId": "aomori-buna-taiju",
-        "level": 7,
+        "level": 8,
         "line": "ブナの 森[もり]は 8000年[ねん]も つづいて きた。森を あらす ものは ゆるさん！"
       }
     },
     {
       "id": "towada",
-      "name": "十和田湖[とわだこ]・奥入瀬[おいらせ]エリア",
-      "motifs": ["towada-ko", "oirase"],
+      "name": "十和田湖[とわだこ]エリア",
+      "motifs": ["towada-ko"],
       "boss": {
         "monsterId": "aomori-hachiro-ryu",
-        "level": 9,
+        "level": 10,
         "line": "わしは 八郎太郎[はちろうたろう]。この 湖[みずうみ]の ぬしじゃ。ためして やろう！"
+      }
+    },
+    {
+      "id": "oirase",
+      "name": "奥入瀬渓流[おいらせけいりゅう]エリア",
+      "motifs": ["oirase"],
+      "boss": {
+        "monsterId": "aomori-oirase-kokejin",
+        "level": 11,
+        "line": "ながれの 音[おと]を きいて 何百年[なんびゃくねん]…。わしの こけは ふかふかだぞ！"
       }
     },
     {
@@ -775,25 +861,43 @@
       "motifs": ["senbeijiru"],
       "boss": {
         "monsterId": "aomori-nabe-shogun",
-        "level": 11,
+        "level": 12,
         "line": "あつあつの せんべい汁[じる]を くらえ！ ここを とおりたければ わしに かて！"
       }
     },
     {
-      "id": "shimokita",
-      "name": "下北[しもきた]・恐山[おそれざん]エリア",
-      "motifs": ["oma-maguro", "osorezan", "tsugaru-kaikyo"],
+      "id": "osorezan",
+      "name": "恐山[おそれざん]エリア",
+      "motifs": ["osorezan"],
+      "boss": {
+        "monsterId": "aomori-kaza-mimizuku",
+        "level": 13,
+        "line": "ホウ…。この 山[やま]の 風車[かざぐるま]の 音[おと]が きこえるか？"
+      }
+    },
+    {
+      "id": "oma",
+      "name": "大間[おおま]エリア",
+      "motifs": ["oma-maguro"],
       "boss": {
         "monsterId": "aomori-kuro-magurodo",
-        "level": 13,
+        "level": 14,
         "line": "大間[おおま]の 海[うみ]の ぬし、クロマグロードだ！ 一本[いっぽん]づりで つれるかな？"
       }
     }
   ],
   "regionGates": [
     {
-      "between": ["sannai", "hirosaki"],
+      "between": ["nebuta", "sannai"],
+      "openedBy": "nebuta"
+    },
+    {
+      "between": ["sannai", "tsugaru"],
       "openedBy": "sannai"
+    },
+    {
+      "between": ["sannai", "hirosaki"],
+      "openedBy": "tsugaru"
     },
     {
       "between": ["hirosaki", "shirakami"],
@@ -804,12 +908,20 @@
       "openedBy": "shirakami"
     },
     {
-      "between": ["towada", "hachinohe"],
+      "between": ["towada", "oirase"],
       "openedBy": "towada"
     },
     {
-      "between": ["hachinohe", "shimokita"],
+      "between": ["oirase", "hachinohe"],
+      "openedBy": "oirase"
+    },
+    {
+      "between": ["hachinohe", "osorezan"],
       "openedBy": "hachinohe"
+    },
+    {
+      "between": ["osorezan", "oma"],
+      "openedBy": "osorezan"
     }
   ]
 }

@@ -1,7 +1,9 @@
 import { NQ } from '../../rendering/palette';
+import { LOCKED_REGION_TILE } from '../../shared/regionVisibility';
 
 /** フィールドのタイル番号を地図上の色へ変換する。 */
 const TILE_COLOR: Record<number, string> = {
+  [LOCKED_REGION_TILE]: NQ.slate,
   2: NQ.sand,
   3: NQ.azure,
   4: NQ.green,

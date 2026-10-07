@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import {
   conceptsById,
   curriculumGraph,
@@ -11,6 +11,7 @@ import { exportGameJson, importGameJson } from '../../core/state/serialization';
 import type { RoadmapNode } from '../../shared/menuModel';
 import { t } from '../i18n';
 import { playSfx } from '../sfx';
+import { useModalFocus } from '../useModalFocus';
 
 export interface ParentOverlayProps {
   game: GameState;
@@ -24,6 +25,8 @@ const percent = (value: number) => `${Math.round(value * 100)}%`;
 const DAY = 86_400_000;
 
 export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: ParentOverlayProps) {
+  const dialogRef = useRef<HTMLElement>(null);
+  useModalFocus(dialogRef, 'input');
   const [unlocked, setUnlocked] = useState(false);
   const [answer, setAnswer] = useState('');
   const [gateError, setGateError] = useState(false);
@@ -98,12 +101,18 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
   return (
     <div class="nq-wmap" onClick={onClose}>
       <section
+        ref={dialogRef}
         class="nq-win nq-parent-box"
-        aria-label={t('parent.title')}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nq-parent-title"
+        tabIndex={-1}
         onClick={(ev) => ev.stopPropagation()}
       >
         <header class="nq-menu-head">
-          <h2 class="nq-menu-title">⚙ {t('parent.title')}</h2>
+          <h2 id="nq-parent-title" class="nq-menu-title">
+            ⚙ {t('parent.title')}
+          </h2>
           <button type="button" class="nq-back nq-menu-close" onClick={onClose}>
             × {t('ui.close')}
           </button>

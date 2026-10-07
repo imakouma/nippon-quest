@@ -17,7 +17,7 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const CONTENT = `${ROOT}content/`;
 
 // manifest が古いと検証がすり抜けるので、必ず作り直す
-execSync('pnpm -s gen:manifest', { cwd: ROOT, stdio: 'inherit' });
+execSync('pnpm gen:manifest', { cwd: ROOT, stdio: 'inherit' });
 
 const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, 'utf8'));
 const errors: string[] = [];

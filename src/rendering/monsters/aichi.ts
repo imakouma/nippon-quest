@@ -1,6 +1,7 @@
 /** 愛知県の モンスター（手描き。docs/06 §4・§6.3〜6.5 の 規格）。下書きは 図形で かいて 1 ドットずつ 手で なおした */
 import { NQ } from '../palette';
 import type { MonsterDesign } from './design';
+import { BEARD_FACE, HELMET, lord } from './lastbosses';
 
 /** ハッチョン：八丁味噌の 木おけ。ふたの 上に 石を 山もりに つみ、たがの 間に 顔（ツチ） */
 const hatchon: MonsterDesign = {
@@ -682,9 +683,20 @@ const kinshachiOuP0: MonsterDesign = {
   ],
 };
 
-const odaNobunaga: MonsterDesign = {
-  size: 48,
-  colors: {
+const odaNobunaga = lord(
+  [
+    '.......................G',
+    '.....................GGG',
+    '....................GGGR',
+    '....................GGRR',
+    '...................GGRRR',
+    '....................GGRR',
+    '....................GGGG',
+    '....................NGGG',
+    ...HELMET,
+    ...BEARD_FACE,
+  ],
+  {
     N: NQ.night,
     L: NQ.slate,
     G: NQ.gold,
@@ -695,74 +707,10 @@ const odaNobunaga: MonsterDesign = {
     T: NQ.night,
     H: NQ.slate,
     C: NQ.brick,
-    F: NQ.skinLight,
-    f: NQ.skinMid,
-    W: NQ.white,
     M: NQ.hairBlack,
   },
-  rim: {
-    [NQ.gray]: NQ.slate,
-    [NQ.silver]: NQ.gray,
-    [NQ.skinLight]: NQ.skinMid,
-    [NQ.gold]: NQ.ochre,
-    [NQ.brick]: NQ.ink,
-  },
-  rimDepth: 2,
-  layers: [
-    {
-      rows: [
-        '',
-        '.......................GG',
-        '.....................GGGGGG',
-        '....................GGGRRGGG',
-        '....................GGRRRRGG',
-        '...................GGRRRRRRGG',
-        '....................GGRRRRGG',
-        '....................GGGGGGGG',
-        '....................NGGGGGGN',
-        '.................NNNNLGGGGLNNNN',
-        '................NNLLLLGGGGLLLLNN',
-        '...............NNLLLLLLLLLLLLLLNN',
-        '...............NNNLLLLLLLLLLLLNNN',
-        '..............NNNNNNNLNNNNLNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '................NNNNNNNNNNNNNNNN',
-        '........GGG..GGGGGGGGGGGGGGGGGGGGGG..GGG',
-        '........GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '........GGGGG.YYYFFFFFFFFFFFFFFYYY.GGGGG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG.oooooooFFFFFFooooooo.GRRRG',
-        '.......GGGGRG..ooWWWoFFFFFFoWWWoo..GRGGGG',
-        '.........GGGG..ooWWWFFFFFFFFWWWoo..GGGG',
-        '...........GG..ooWWWFFFFFFFFWWWoo..GG',
-        '.................FFFFFFFFFFFFFF',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '...........CKKKKKKFFoooFFoooFFKKKKKKC',
-        '.....KSKKKKKKKKKKKCFFFFFFFFFFCKKKKKKKKKKKSK',
-        '...SSSSKKKKKKKKKKKCKKFFFFFFKKCKKKKKKKKKKKSSSS',
-        '...SSSSKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKSSSS',
-        '...SGGGGGGGKKKKKKKCGGGGGGGGGGCKKKKKKKGGGGGGGS',
-        '...SSSSKKKKKKKKKKKCKKKKRRKKKKCKKKKKKKKKKKSSSS',
-        '...SSSSSKKKKKKKKKKCKKKRKKRKKKCKKKKKKKKKKSSSSS',
-        '...SSKKKKKKGGGGGGGCKKRKKKKRKKCGGGGGGGKKKKKKSS',
-        '...CGGGGGGGKKKKKKKCKRKKKKKKRKCKKKKKKKGGGGGGGC',
-        '...CNKKKKKKKKKKKKKCRKKKKKKKKRCKKKKKKKKKKKKKNC',
-        '...NNKKKKKKKKKKKKKCGGGGGGGGGGCKKKKKKKKKKKKKNN',
-        '...CKKKKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKKKKC',
-        '...CGGGGGGGKKKKKKKCKKKKKKKKKKCKKKKKKKGGGGGGGC',
-        '..CCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKCC',
-        '..CCKKKKKKGGGGGGGGGGGGGGGGGGGGGGGGGGGGKKKKKKCC',
-        '..CCCCCCCCTGTTTGTTTGTTTGGTTTGTTTGTTTGTCCCCCCCC',
-        '..CCCCCCCCTGHHHHHHTGTTTGGTTTGTHHHHHHGTCCCCCCCC',
-        '..........TGHHHHHHTGTTTGGTTTGTHHHHHHGT',
-        '',
-      ],
-    },
-  ],
-};
+  { [NQ.gray]: NQ.slate, [NQ.silver]: NQ.gray, [NQ.brick]: NQ.ink },
+);
 
 export const AICHI: Readonly<Record<string, MonsterDesign>> = {
   'aichi-hatchon': hatchon,

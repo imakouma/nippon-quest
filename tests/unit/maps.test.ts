@@ -4,7 +4,7 @@ import { TOWN_THEMES } from '../../scripts/data/towns';
 
 /**
  * scaffold:maps が作ったマップが「遊べる」ことを機械的に確かめる。
- *  - maps/ を唯一のマップソースとして検証する
+ *  - maps/ と public/maps/（ゲームが読む方）が同じ
  *  - 遷移先のマップとスポーン地点が存在する
  *  - スタート地点から、そのマップの物体すべてに歩いて（または同じマップの中の船で）行ける
  *  - content の events が使う物体が、マップにちゃんと置かれている
@@ -25,6 +25,7 @@ interface TiledMap {
 }
 
 const MAPS = new URL('../../maps/', import.meta.url);
+const PUBLIC_MAPS = new URL('../../public/maps/', import.meta.url);
 const PREFECTURES = new URL('../../content/prefectures/', import.meta.url);
 const WORLD_MAP = new URL('../../public/worldmap.json', import.meta.url);
 const WORLD = new URL('../../content/world/japan.json', import.meta.url);
@@ -41,6 +42,26 @@ const maps = new Map<string, TiledMap>(
 const objectsOf = (m: TiledMap) => m.layers.find((l) => l.name === 'objects')?.objects ?? [];
 const prop = (o: Obj, name: string) => o.properties?.find((p) => p.name === name)?.value;
 const tileIndex = (m: TiledMap, o: Obj) => Math.floor(o.y / 16) * m.width + Math.floor(o.x / 16);
+
+function walkingDistance(m: TiledMap, from: Obj, to: Obj): number {
+  const col = m.layers.find((l) => l.name === 'collision')?.data ?? [];
+  const start = tileIndex(m, from);
+  const goal = tileIndex(m, to);
+  const distance = new Int32Array(m.width * m.height).fill(-1);
+  distance[start] = 0;
+  const queue = [start];
+  for (let head = 0; head < queue.length; head++) {
+    const i = queue[head]!;
+    if (i === goal) return distance[i]!;
+    const x = i % m.width;
+    for (const j of [x > 0 ? i - 1 : -1, x < m.width - 1 ? i + 1 : -1, i - m.width, i + m.width]) {
+      if (j < 0 || j >= distance.length || distance[j]! >= 0 || col[j] === 3) continue;
+      distance[j] = distance[i]! + 1;
+      queue.push(j);
+    }
+  }
+  return -1;
+}
 
 /** 'spawn' から4方向に歩いて届くマス。遷移のマスには乗れるが、その先へは歩けない（乗った瞬間に移動するため） */
 function reachable(key: string, m: TiledMap): Set<number> {
@@ -78,6 +99,39 @@ function reachable(key: string, m: TiledMap): Set<number> {
 }
 
 describe('マップ', () => {
+  it('maps/ と public/maps/ の中身が同じ', () => {
+    expect(jsonFiles(PUBLIC_MAPS).sort()).toEqual(jsonFiles(MAPS).sort());
+    for (const f of jsonFiles(MAPS)) {
+      expect(readFileSync(new URL(f, PUBLIC_MAPS), 'utf8'), f).toBe(readFileSync(new URL(f, MAPS), 'utf8'));
+    }
+  });
+
+  it('青森の巨大ねぶたと当たり判定を置かず、盛岡の町を 2×2 マス相当で表示する', () => {
+    const aomori = maps.get('aomori-field')!;
+    expect(objectsOf(aomori).some((o) => prop(o, 'kind') === 'nebutaFloat')).toBe(false);
+    const collision = aomori.layers.find((layer) => layer.name === 'collision')!.data!;
+    for (const [x, y] of [
+      [63, 68],
+      [68, 64],
+      [71, 54],
+      [71, 60],
+    ] as const)
+      for (let dy = 0; dy < 2; dy++)
+        for (let dx = 0; dx < 3; dx++) expect(collision[(y + dy) * aomori.width + x + dx]).toBe(0);
+    const morioka = objectsOf(maps.get('iwate-field')!).find((o) => o.name === 'to_town');
+    expect(prop(morioka!, 'iconScale')).toBe(2);
+  });
+
+  it('青森のエリアのぬしは、県の開始地点から十分に探索した先にいる', () => {
+    const aomori = maps.get('aomori-field')!;
+    const objects = objectsOf(aomori);
+    const spawn = objects.find((o) => o.name === 'spawn')!;
+    const bosses = objects.filter((o) => o.type === 'regionBoss');
+    expect(bosses).toHaveLength(10);
+    for (const boss of bosses)
+      expect(walkingDistance(aomori, spawn, boss), boss.name).toBeGreaterThanOrEqual(20);
+  });
+
   it.each([...maps.keys()])('%s: 遷移先があり、すべての物体に歩いて行ける', (key) => {
     const m = maps.get(key)!;
     const objs = objectsOf(m);
@@ -313,7 +367,7 @@ describe('宝箱の 中身', () => {
     const items = new Set(
       readdirSync(new URL('../../content/items/', import.meta.url)).map((f) => f.replace(/\.json$/, '')),
     );
-    const dir = MAPS;
+    const dir = new URL('../../public/maps/', import.meta.url);
     const bad: string[] = [];
     for (const f of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
       const m = JSON.parse(readFileSync(new URL(f, dir), 'utf8')) as { layers: { objects?: Obj[] }[] };

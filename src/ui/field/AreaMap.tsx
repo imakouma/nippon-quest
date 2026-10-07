@@ -9,6 +9,7 @@
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { NQ } from '../../rendering/palette';
+import { LOCKED_REGION_TILE } from '../../shared/regionVisibility';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
@@ -76,7 +77,10 @@ function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
     for (let x = 0; x < map.width; x++) {
       const tile = map.tiles[y * map.width + x] ?? 0;
       if (tile === 3) continue;
-      ctx.fillStyle = areaMapTerrainColor(tile);
+      ctx.fillStyle =
+        tile === LOCKED_REGION_TILE && (x * 5 + y * 3) % 7 === 0
+          ? NQ.night
+          : areaMapTerrainColor(tile);
       ctx.fillRect(x, y, 1, 1);
     }
 }

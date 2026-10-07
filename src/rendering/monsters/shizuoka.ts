@@ -1,6 +1,7 @@
 /** 静岡県の モンスター（手描き。docs/06 §4・§6.3〜6.5 の 規格）。下書きは 図形で かいて 1 ドットずつ 手で なおした */
 import { NQ } from '../palette';
 import type { MonsterDesign } from './design';
+import { BEARD_FACE, HELMET, lord } from './lastbosses';
 
 /** チャツミン：お茶の 若葉の 子。頭に「一芯二葉（めと 2 まいの 葉）」、手に 茶つみの かご（モリ） */
 const chatsumin: MonsterDesign = {
@@ -663,9 +664,20 @@ const fujimineOuP0: MonsterDesign = {
   ],
 };
 
-const tokugawaIeyasu: MonsterDesign = {
-  size: 48,
-  colors: {
+const tokugawaIeyasu = lord(
+  [
+    '......................GG',
+    '......................GG',
+    '......................GG',
+    '...................GG.GG',
+    '....................GGGG',
+    '.....................GGG',
+    '......................GG',
+    '....................GNGG',
+    ...HELMET,
+    ...BEARD_FACE,
+  ],
+  {
     N: NQ.night,
     L: NQ.slate,
     G: NQ.gold,
@@ -676,74 +688,10 @@ const tokugawaIeyasu: MonsterDesign = {
     T: NQ.bark,
     H: NQ.slate,
     C: NQ.forest,
-    F: NQ.skinLight,
-    f: NQ.skinMid,
-    W: NQ.white,
     M: NQ.hairBlack,
   },
-  rim: {
-    [NQ.night]: NQ.ink,
-    [NQ.slate]: NQ.night,
-    [NQ.skinLight]: NQ.skinMid,
-    [NQ.gold]: NQ.ochre,
-    [NQ.forest]: NQ.ink,
-  },
-  rimDepth: 2,
-  layers: [
-    {
-      rows: [
-        '',
-        '......................GGGG',
-        '......................GGGG',
-        '......................GGGG',
-        '...................GG.GGGG.GG',
-        '....................GGGGGGGG',
-        '.....................GGGGGG',
-        '......................GGGG',
-        '....................GNGGGGNG',
-        '.................NNNNGGGGGGNNNN',
-        '................NNLLLLGGGGLLLLNN',
-        '...............NNLLLLLLLLLLLLLLNN',
-        '...............NNNLLLLLLLLLLLLNNN',
-        '..............NNNNNNNLNNNNLNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '...............NNNNNNNNNNNNNNNNNN',
-        '................NNNNNNNNNNNNNNNN',
-        '........GGG..GGGGGGGGGGGGGGGGGGGGGG..GGG',
-        '........GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-        '........GGGGG.YYYFFFFFFFFFFFFFFYYY.GGGGG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG....FFFFFFFFFFFFFF....GRRRG',
-        '........GRRRG.oooooooFFFFFFooooooo.GRRRG',
-        '.......GGGGRG..ooWWWoFFFFFFoWWWoo..GRGGGG',
-        '.........GGGG..ooWWWFFFFFFFFWWWoo..GGGG',
-        '...........GG..ooWWWFFFFFFFFWWWoo..GG',
-        '.................FFFFFFFFFFFFFF',
-        '............CCCCCFFFFFFFFFFFFFFCCCCC',
-        '............CCCCCFFooooooooooFFCCCCC',
-        '...........CKKKKMMMMMMMMMMMMMMMMKKKKC',
-        '.....KSKKKKKKKKKMMMMMMMMMMMMMMMMKKKKKKKKKSK',
-        '...SSSSKKKKKKKKKMMMMMMMMMMMMMMMMKKKKKKKKKSSSS',
-        '...SSSSKKKKGGGGGMMMMMMMMMMMMMMMMGGGGGKKKKSSSS',
-        '...SGGGGGGGKKKKKKKCGGGGGGGGGGCKKKKKKKGGGGGGGS',
-        '...SSSSKKKKKKKKKKKCKKKKRRKKKKCKKKKKKKKKKKSSSS',
-        '...SSSSSKKKKKKKKKKCKKKRKKRKKKCKKKKKKKKKKSSSSS',
-        '...SSKKKKKKGGGGGGGCKKRKKKKRKKCGGGGGGGKKKKKKSS',
-        '...CGGGGGGGKKKKKKKCKRKKKKKKRKCKKKKKKKGGGGGGGC',
-        '...CNKKKKKKKKKKKKKCRKKKKKKKKRCKKKKKKKKKKKKKNC',
-        '...NNKKKKKKKKKKKKKCGGGGGGGGGGCKKKKKKKKKKKKKNN',
-        '...CKKKKKKKGGGGGGGCKKKKKKKKKKCGGGGGGGKKKKKKKC',
-        '...CGGGGGGGKKKKKKKCKKKKKKKKKKCKKKKKKKGGGGGGGC',
-        '..CCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKCC',
-        '..CCKKKKKKGGGGGGGGGGGGGGGGGGGGGGGGGGGGKKKKKKCC',
-        '..CCCCCCCCTGTTTGTTTGTTTGGTTTGTTTGTTTGTCCCCCCCC',
-        '..CCCCCCCCTGHHHHHHTGTTTGGTTTGTHHHHHHGTCCCCCCCC',
-        '..........TGHHHHHHTGTTTGGTTTGTHHHHHHGT',
-        '',
-      ],
-    },
-  ],
-};
+  { [NQ.night]: NQ.ink, [NQ.slate]: NQ.night, [NQ.forest]: NQ.ink },
+);
 
 export const SHIZUOKA: Readonly<Record<string, MonsterDesign>> = {
   'shizuoka-chatsumin': chatsumin,

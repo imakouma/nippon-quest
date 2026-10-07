@@ -953,38 +953,10 @@ const tokugawaYoshimune = lord(
   },
   { [NQ.green]: NQ.forest },
   [
-    // 大きな 肩の よろい（そで）
-    {
-      mirror: true,
-      x: 1,
-      y: 24,
-      rows: [
-        '.GGGGGGGGG',
-        'SKKKKKKKKS',
-        'SKKKKKKKKS',
-        'GGGGGGGGGG',
-        'SKKKKKKKKS',
-        'SKKKKKKKKS',
-        'GGGGGGGGGG',
-        'SKKKKKKKKS',
-        'SKKKKKKKKS',
-        'GGGGGGGGGG',
-        '.SKKKKKKKS',
-        '.SKKKKKKKS',
-        '.GGGGGGGGG',
-        '..SKKKKKKS',
-        '..GGGGGGGG',
-      ],
-    },
-    // 陣羽織
-    {
-      mirror: true,
-      x: 1,
-      y: 39,
-      rows: ['.NNNNNNNN', '.NNNNNNNN', 'NNNNNNNNN', 'NNNNNNNNN', '.NNNNNNN', '..NNNNN', '...NNN'],
-    },
+    // 陣羽織（よろいの 上に はおる 黒い ベスト。むねの まえが あく）
+    { mirror: true, x: 16, y: 22, rows: ['NNN', 'NNN', 'NNN', 'NNN', 'NNN', 'NNN', 'NNN', 'NN.', 'NN.'] },
     // するどい まゆ
-    { mirror: true, x: 12, y: 15, rows: ['oooo'] },
+    { mirror: true, x: 18, y: 15, rows: ['o..', 'Foo', 'FWo'] },
     // まわりの 金の 光
     { x: 2, y: 8, rows: ['GC', 'CG'] },
     { x: 43, y: 6, rows: ['CG', 'GC'] },
