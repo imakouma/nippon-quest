@@ -78,9 +78,7 @@ function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
       const tile = map.tiles[y * map.width + x] ?? 0;
       if (tile === 3) continue;
       ctx.fillStyle =
-        tile === LOCKED_REGION_TILE && (x * 5 + y * 3) % 7 === 0
-          ? NQ.night
-          : areaMapTerrainColor(tile);
+        tile === LOCKED_REGION_TILE && (x * 5 + y * 3) % 7 === 0 ? NQ.night : areaMapTerrainColor(tile);
       ctx.fillRect(x, y, 1, 1);
     }
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { entranceIconScale } from '../../src/scenes/overworld/entranceIcons';
+import { entranceIconScale } from '../../src/rendering/overworld/entranceIcons';
 
 describe('フィールド入口の大きさ', () => {
   it('すべての町を2×2マス相当で表示する', () => {

@@ -7,7 +7,7 @@ import { areaBossFlag, midBossFlag, nextStop } from '../../src/core/progression/
 import { content } from './helpers';
 
 const TOHOKU = ['aomori', 'iwate', 'miyagi', 'akita', 'yamagata', 'fukushima'] as const;
-const MAPS = new URL('../../public/maps/', import.meta.url);
+const MAPS = new URL('../../maps/', import.meta.url);
 
 interface MapObject {
   name: string;
