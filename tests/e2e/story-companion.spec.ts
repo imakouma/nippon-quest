@@ -18,7 +18,7 @@ async function putPlayerInIwateTown(page: Page): Promise<void> {
         const state = get.result;
         state.progress.currentArea = 'iwate';
         state.progress.currentMap = 'iwate-town';
-        state.progress.position = { x: 400, y: 560 };
+        state.progress.position = { x: 400, y: 544 };
         state.progress.counters['story.prologue'] = 1;
         state.party = {
           owned: [],
@@ -87,8 +87,6 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
 
   // 入口のすぐ北にある、むすびの社の守り人へ自分で歩いて話しかける。
   await page.waitForTimeout(300);
-  await page.keyboard.press('ArrowUp');
-  await page.waitForTimeout(220);
   await page.keyboard.press('ArrowUp');
   await page.waitForTimeout(220);
   await page.keyboard.press('z');

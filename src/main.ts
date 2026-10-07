@@ -22,6 +22,7 @@ import { QuestionBank } from './questions/engine/bank';
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', grade: 1 } as const;
+const TILE_SIZE = 16;
 const PLAY_DATE_FORMATTER = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Asia/Tokyo',
   year: 'numeric',
@@ -240,7 +241,15 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
       game.registry.set('game', saved);
       hideLoading();
       game.scene.stop('Title');
-      game.scene.start('Overworld', { mapKey: saved.progress.currentMap, spawnName: 'spawn' });
+      game.scene.start('Overworld', {
+        mapKey: saved.progress.currentMap,
+        spawnName: 'spawn',
+        spawnTile: [
+          Math.floor(saved.progress.position.x / TILE_SIZE),
+          Math.floor(saved.progress.position.y / TILE_SIZE),
+        ],
+        exactSpawn: true,
+      });
     },
     retry,
   );

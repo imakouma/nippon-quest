@@ -144,7 +144,7 @@ import { chestModel, specialtyChestModel } from './overworld/chestModel';
 import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
-import { mapArrivalStory, requestHeroIdentity, runCompanionRite } from './overworld/storyFlow';
+import { runArrivalStory, runCompanionRite } from './overworld/storyFlow';
 import { presentDialogue } from './overworld/dialogueFlow';
 import { currentMichiruGuideKey, type MichiruGuideKey } from './overworld/michiruGuide';
 import { createMichiruFollower, positionMichiruFollower } from './overworld/michiruFollower';
@@ -2546,25 +2546,16 @@ export class OverworldScene extends Phaser.Scene {
       this.time.delayedCall(250, () => void this.showPrologue());
       return;
     }
-    const story = mapArrivalStory(this.mapKey, gs);
-    if (!story) return;
+    if (gs.progress.counters['story.prologue'] && this.mapKey === 'aomori-field') return;
     this.busy = true;
     this.standStill();
-    this.setGame(story.state); // 名前と見た目は妖精と出会った物語の中で初めて決める。
-    const oldName = story.state.player.name;
-    await this.talk(story.lines.slice(0, 4));
-    const identity = await requestHeroIdentity(this.root('title'), story.state.player.appearance);
-    const namedState = structuredClone(story.state);
-    namedState.player.name = identity.name;
-    namedState.player.appearance = identity.appearance;
-    namedState.updatedAt = Date.now();
-    this.setGame(namedState);
-    await this.talk(
-      story.lines.slice(4).map((line) => ({
-        ...line,
-        speaker: line.speaker === oldName ? identity.name : line.speaker,
-      })),
-    );
+    await runArrivalStory({
+      mapKey: this.mapKey,
+      game: gs,
+      root: this.root('title'),
+      talk: (lines) => this.talk(lines),
+      save: (state) => this.setGame(state),
+    });
     this.busy = false;
   }
 
