@@ -36,6 +36,18 @@
             "none"
           ]
         },
+        "subjectAffinity": {
+          "type": "string",
+          "enum": [
+            "kokugo",
+            "sansu",
+            "rika",
+            "shakai",
+            "seikatsu",
+            "eigo"
+          ],
+          "description": "このモンスターが得意な教科。仲間にすると対応する教科ゲージをためやすい"
+        },
         "weakness": {
           "type": "string",
           "enum": [

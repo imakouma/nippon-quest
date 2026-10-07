@@ -104,7 +104,7 @@ export function makeCompanion(
   const active = skills
     .filter((sk) => sk.effect === 'damage' && sk.costGauge === 0)
     .reduce<Skill | null>((best, sk) => (!best || sk.power > best.power ? sk : best), null);
-  const subject = (active ?? skills[0])?.subject;
+  const subject = m.subjectAffinity ?? (active ?? skills[0])?.subject;
   return {
     id: m.id,
     name: m.name,

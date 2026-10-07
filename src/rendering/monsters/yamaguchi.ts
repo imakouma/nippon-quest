@@ -604,28 +604,18 @@ const akiyoshiDaiouP0: MonsterDesign = {
 /** 吉田松陰：まげを ゆった 若い 先生。こん色の きもの、灰色の はかま、金の ふちの 本を もつ（ヒカリ） */
 const yoshidaShoin = lord(
   [
-    '........................',
-    '........................',
-    '........................',
-    '........................',
-    '........................',
-    '........................',
     '......................NN',
     '.....................NNN',
     '......................WW',
-    '..................NNNNNN',
+    '................NNNNNNNN',
+    '...............NFFFFFFFF',
+    '...............NFFFFFFFF',
     '...............NNFFFFFFF',
-    '.............NNFFFFFFFFF',
-    '............NNFFFFFFFFFF',
-    '...........NNFFFFFFFFFFF',
-    '..........NNFFFFFFFFFFFF',
-    '.........NNFFoooFFFFFFFF',
-    '.........NFFFFWoFFFFFFFF',
-    '.........NFFFFFFFFFFFFFF',
-    '.........NFFFFFFFFFFfFFF',
-    '..........fFFFFFFFFFFFoo',
-    '..........ffFFFFFFFFFFFF',
-    '............ffffffffffff',
+    '...............NNFoooFFF',
+    '...............NNFFWoFFF',
+    '...............NFFFFFFFF',
+    '................FfFFFFoo',
+    '................ffffffff',
   ],
   {
     N: NQ.hairBlack,
@@ -641,21 +631,6 @@ const yoshidaShoin = lord(
   },
   { [NQ.denim]: NQ.navy },
   [
-    // 大きな かたの ころも（金の ふち）
-    {
-      mirror: true,
-      y: 24,
-      rows: [
-        '.YYYYYYYY...............',
-        '.SSSSSSSSS..............',
-        '.SHHSSSHSS..............',
-        '.SSSSSSSSS..............',
-        '.YYYYYYYYY..............',
-        '..SSSSSSSS..............',
-        '...SSSSSSS..............',
-        '....SSSSSS..............',
-      ],
-    },
     // 金の ふちの 本（ひらいて もつ）
     ...inked(
       ['YYYYYYYYY', 'YPPPPYPPY', 'YPoPPYPoY', 'YPPPPYPPY', 'YPoPPYPoY', 'YYYYRYYYY', '....R....'],

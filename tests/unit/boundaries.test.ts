@@ -87,7 +87,7 @@ describe('境界3: ゲーム本体は問題タイプを知らない', () => {
 describe('境界4: 乱数はシード付きのみ', () => {
   it('Math.random を使っていない', () => {
     const bad = readAll('src')
-      .filter((s) => !s.file.endsWith('src/core/rng.ts') && /Math\.random/.test(s.src))
+      .filter((s) => !/(^|[\\/])src[\\/]core[\\/]rng\.ts$/.test(s.file) && /Math\.random/.test(s.src))
       .map((s) => s.file);
     expect(bad).toEqual([]);
   });

@@ -44,6 +44,9 @@ export const VIEW = {
   ASH: 67,
   ASH2: 68,
   STEAM: 69,
+  /** 沖の水面アニメーション（通常の波線そのものを移動する追加フレーム） */
+  WATER_FLOW_1: 70,
+  WATER_FLOW_2: 71,
   /** + 道の しるし（となりが 道の がわ。北 1・東 2・南 4・西 8） */
   ROAD: 72,
 } as const;

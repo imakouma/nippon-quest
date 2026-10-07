@@ -966,7 +966,7 @@ const takedaShingen = lord(
   },
   { [NQ.denim]: NQ.navy, [NQ.paper]: NQ.cloud },
   [
-    { mirror: true, x: 1, y: 12, rows: SHINGEN_MANE },
+    { mirror: true, x: 6, y: 12, rows: SHINGEN_MANE },
     { x: 36, y: 14, rows: ring(GUNBAI) },
     { x: 37, y: 15, rows: GUNBAI },
   ],

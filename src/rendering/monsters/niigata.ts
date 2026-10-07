@@ -1081,28 +1081,18 @@ const KENSHIN_BANNER = [
 /** 上杉謙信：白い 頭巾（行人包み）と むらさきの よろい。頭巾の はしが 風に なびき、うしろに 紺地 日の丸の 旗（ヒカリ） */
 const kenshinBody = lord(
   [
-    '........................',
-    '........................',
     '................PPPPPPPP',
+    '..............PPPPPPPPPP',
     '.............PPPPPPPPPPP',
+    '.............PPcPPPPPPPP',
+    '............PPcPPPPPPPPP',
+    '............PPPPPPFFFFFF',
+    '............PPPPPPoooFFF',
+    '............PPPPPPFWoFFF',
+    '............PPPPPPFFFFFF',
+    '............PPPPPPfFFFoo',
+    '............PPPPPPPPPPPP',
     '...........PPPPPPPPPPPPP',
-    '..........PPPPPPPPPPPPPP',
-    '.........PPPPPPPPPPPPPPP',
-    '.........PPPPPPPPPPPPPPP',
-    '........PPPPPPPPPPPPPPPP',
-    '........PPPcPPPPPPPPPPPP',
-    '........PPcPPPPPPPPPPPPP',
-    '........PPPPPPFFFFFFFFFF',
-    '........PPPPPFFoooFFFFFF',
-    '........PPPPPFFFWoFFFFFF',
-    '........PPPPPFFFWoFFFFFF',
-    '........PPPPPFFFFFFFFfFF',
-    '........PPPPPfFFFFFFFFoo',
-    '........PPPPPPffFFFFFFFF',
-    '........PPPPPPPPPPPPPPPP',
-    '.......PPPPPPPPPPPPPPPPP',
-    '......PPPcPPPPPPPPPPPPPP',
-    '.....PPPPPPPPPPPPPPPPPPP',
   ],
   {
     P: NQ.paper,
@@ -1118,9 +1108,9 @@ const kenshinBody = lord(
   { [NQ.paper]: NQ.cloud, [NQ.violet]: NQ.indigo },
   [
     // 首も 頭巾で つつむ
-    { mirror: true, y: 23, rows: ['.................PPPPPPP'] },
+    { mirror: true, y: 21, rows: ['.................PPPPPPP'] },
     // 風に なびく 頭巾の はし（右）
-    { x: 40, y: 9, rows: ['PP.....', 'PPP....', '.PPPP..', '..PPcP.', '...PPPP', '....PPc', '.....PP'] },
+    { x: 34, y: 12, rows: ['PP.....', 'PPP....', '.PPPP..', '..PPcP.', '...PPPP', '....PPc', '.....PP'] },
   ],
 );
 

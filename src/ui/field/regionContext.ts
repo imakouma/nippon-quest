@@ -13,7 +13,9 @@ export function drawRegionContext(
   for (let y = 0; y < region.height; y++)
     for (let x = 0; x < region.width; x++) {
       const area = areaAt(region, x, y);
-      if (area < 0) continue;
+      // 現在県は上に重ねる詳細地図へ任せる。ここでも描くと、解像度差で海岸から
+      // 暗いシルエットがはみ出し、県の端が黒く欠けて見える。
+      if (area < 0 || area === region.here) continue;
       const left = x * cell;
       const top = y * cell;
       ctx.fillStyle = NQ.night;

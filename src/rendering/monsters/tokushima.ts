@@ -684,21 +684,6 @@ const hachisukaIemasa = lord(
   },
   { [NQ.denim]: NQ.navy },
   [
-    // 大きな かたの よろい（そで）
-    {
-      mirror: true,
-      y: 24,
-      rows: [
-        '.GGGGGGGG...............',
-        '.SSSSSSSSS..............',
-        '.SNNSSSNSS..............',
-        '.SSSSSSSSS..............',
-        '.GGGGGGGGG..............',
-        '..SSSSSSSS..............',
-        '...SSSSSSS..............',
-        '....SSSSSS..............',
-      ],
-    },
     // 高く かかげた 軍配（ぐんばい）
     ...inked(
       [

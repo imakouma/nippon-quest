@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "koshinetsu-boss",
+  "name": "数[かず]の 山[やま] カズノオオヤマ",
+  "area": "koshinetsu",
+  "motifId": "kazunooyama",
+  "element": "tsuchi",
+  "subjectAffinity": "sansu",
+  "weakness": "mori",
+  "baseStats": { "hp": 220, "mp": 30, "atk": 24, "def": 22, "spd": 12, "wis": 22 },
+  "growth": { "hp": 14, "mp": 3, "atk": 2, "def": 2, "spd": 1, "wis": 2 },
+  "skills": ["sk-kazoe-giri", "sk-tashizan-giri", "sk-kuku-rush"],
+  "drops": [{ "itemId": "common-tetsu", "rate": 1 }],
+  "recruitRate": 0,
+  "xp": 500,
+  "gold": 500,
+  "spriteKey": "mon.koshinetsu-boss",
+  "isBoss": true,
+  "bossPhases": [
+    {
+      "hpBelow": 0.5,
+      "line": "一[ひと]つずつ 数[かぞ]えれば、山[やま]だって こえられるぞ！",
+      "statMultiplier": 1.15,
+      "addSkills": ["sk-tashizan-giri"]
+    }
+  ],
+  "dexBlurb": "新潟[にいがた]・山梨[やまなし]・長野[ながの]の 数[かず]を あつめた 甲信越[こうしんえつ]の ぬし。"
+}
