@@ -1,13 +1,12 @@
 import { expect, test, type Page } from '@playwright/test';
-import { finishHeroIntroduction } from './helpers/onboarding';
+import { completeNewGameSetup } from './newGame';
 
 async function startGame(page: Page) {
   await page.goto('/');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
+  await completeNewGameSetup(page);
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 40_000 });
-  await finishHeroIntroduction(page);
 }
 
 for (const width of [640, 960]) {
@@ -83,6 +82,7 @@ test('バトル画面は狭い表示でもステージ内に収まる', async ({
     ),
   ).toBeGreaterThanOrEqual(20);
   await expect(enemyWindow.locator('.nq-foe-hp-num')).toContainText('/');
+  await page.locator('.nq-dlg').click({ position: { x: 420, y: 410 }, force: true });
   const commands = page.locator('.nq-cmdwin [data-cmd]');
   await expect(commands).toHaveCount(4);
   await expect(page.locator('[data-cmd="attack"]')).toHaveCount(0);

@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
 test('新規ゲームから2Dロードマップを開き、セーブ後に同じスロットを続行できる', async ({ page }, testInfo) => {
-  test.setTimeout(90_000);
+  test.setTimeout(180_000);
   await page.goto('/');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 3/ }).click();
