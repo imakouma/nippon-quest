@@ -22,7 +22,7 @@
   --nq-stage-w: 960px;
   --nq-stage-h: 540px;
   --nq-font: 'PixelMplus12', 'Osaka-Mono', 'MS Gothic', monospace;
-  /* NQ-48 から（src/scenes/art/palette.ts） */
+  /* NQ-48 から（src/rendering/palette.ts） */
   --nq-ink: #1a1428;
   --nq-panel: #0a0b1a;
   --nq-white: #ffffff;
@@ -241,6 +241,7 @@ body {
 .nq-error {
   position: absolute;
   inset: 0;
+  z-index: 1000;
   padding: 24px;
   color: #ffb4b4;
   background: #1a1020;
@@ -250,6 +251,23 @@ body {
   white-space: pre-wrap;
   overflow: auto;
 }
+.nq-error p {
+  margin: 0 0 20px;
+  white-space: pre-wrap;
+}
+.nq-error-retry {
+  min-width: 160px;
+  padding: 10px 18px;
+  color: var(--nq-white);
+  background: #34203d;
+  border: 2px solid var(--nq-white);
+  font: inherit;
+  cursor: pointer;
+}
+.nq-error-retry:focus-visible {
+  outline: 3px solid var(--nq-yellow);
+  outline-offset: 3px;
+}
 
 /* ───── 会話ウィンドウ ───── */
 .nq-dlg {
@@ -257,6 +275,8 @@ body {
   inset: 0;
   z-index: 100;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .nq-dlg-box {
   position: absolute;

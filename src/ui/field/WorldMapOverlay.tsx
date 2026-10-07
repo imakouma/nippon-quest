@@ -6,7 +6,7 @@
  * ロジックは持たない（進みぐあいは Overworld が計算して渡す）。見つけていない名所の名前は出さない。
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { NQ } from '../../scenes/art/palette';
+import { NQ } from '../../rendering/palette';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
@@ -247,9 +247,13 @@ export function WorldMapOverlay({
     playSfx('select');
     onChallengeIslandBoss(region.id);
   };
+  const activate = () => {
+    if (region?.islandBoss.state === 'ready') challengeIslandBoss();
+    else go();
+  };
 
-  const live = useRef({ pickRegion, pickArea, go, onClose, ai, n: 0 });
-  live.current = { pickRegion, pickArea, go, onClose, ai, n: region?.areas.length ?? 0 };
+  const live = useRef({ pickRegion, pickArea, activate, onClose, ai, n: 0 });
+  live.current = { pickRegion, pickArea, activate, onClose, ai, n: region?.areas.length ?? 0 };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const L = live.current;
@@ -270,7 +274,7 @@ export function WorldMapOverlay({
         case ' ':
         case 'z':
         case 'Z':
-          L.go();
+          L.activate();
           break;
         case 'Escape':
         case 'x':

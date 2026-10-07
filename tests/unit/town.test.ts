@@ -31,8 +31,7 @@ beforeAll(async () => {
   c = await content();
 });
 
-const fresh = (): GameState =>
-  createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
+const fresh = (): GameState => createNewGame({ name: 'テスト', grade: 3 }, 1000);
 
 describe('おみせ・やどや・かじや', () => {
   it('青森の おみせは content の品ぞろえ、無い県は その県の どうぐ', () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { VIEW } from '../../src/scenes/overworld/overworldView';
+import { VIEW } from '../../src/rendering/overworld/overworldView';
 import { waterTileForFrame } from '../../src/scenes/overworld/waterAnimation';
 
 describe('海のアニメーション', () => {

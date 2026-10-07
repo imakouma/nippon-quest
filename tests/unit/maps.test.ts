@@ -25,7 +25,6 @@ interface TiledMap {
 }
 
 const MAPS = new URL('../../maps/', import.meta.url);
-const PUBLIC_MAPS = new URL('../../public/maps/', import.meta.url);
 const PREFECTURES = new URL('../../content/prefectures/', import.meta.url);
 const WORLD_MAP = new URL('../../public/worldmap.json', import.meta.url);
 const WORLD = new URL('../../content/world/japan.json', import.meta.url);
@@ -99,13 +98,6 @@ function reachable(key: string, m: TiledMap): Set<number> {
 }
 
 describe('マップ', () => {
-  it('maps/ と public/maps/ の中身が同じ', () => {
-    expect(jsonFiles(PUBLIC_MAPS).sort()).toEqual(jsonFiles(MAPS).sort());
-    for (const f of jsonFiles(MAPS)) {
-      expect(readFileSync(new URL(f, PUBLIC_MAPS), 'utf8'), f).toBe(readFileSync(new URL(f, MAPS), 'utf8'));
-    }
-  });
-
   it('青森の巨大ねぶたと当たり判定を置かず、盛岡の町を 2×2 マス相当で表示する', () => {
     const aomori = maps.get('aomori-field')!;
     expect(objectsOf(aomori).some((o) => prop(o, 'kind') === 'nebutaFloat')).toBe(false);
@@ -367,7 +359,7 @@ describe('宝箱の 中身', () => {
     const items = new Set(
       readdirSync(new URL('../../content/items/', import.meta.url)).map((f) => f.replace(/\.json$/, '')),
     );
-    const dir = new URL('../../public/maps/', import.meta.url);
+    const dir = MAPS;
     const bad: string[] = [];
     for (const f of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
       const m = JSON.parse(readFileSync(new URL(f, dir), 'utf8')) as { layers: { objects?: Obj[] }[] };

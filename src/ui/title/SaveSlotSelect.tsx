@@ -38,7 +38,7 @@ export function SaveSlotSelect({
               <span>{t('saveSlots.corrupted')}</span>
             ) : slot.exists ? (
               <span>
-                {slot.name} ・ Lv{slot.level} ・ ★{slot.signs ?? 0}
+                Lv{slot.level} ・ ★{slot.signs ?? 0}
               </span>
             ) : (
               <span>{t('saveSlots.empty')}</span>

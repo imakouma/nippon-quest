@@ -8,7 +8,7 @@ import { midBossFlag, motifStamp, nextStop } from '../../src/core/progression/ro
 import { canChallengeIslandBoss, completeIsland, hasAllAreaSigns } from '../../src/core/progression/island';
 import { applyReward, markDone, pickReward } from '../../src/core/progression/eventReward';
 
-const newGame = () => createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 }, 0);
+const newGame = () => createNewGame({ name: 'ハル', grade: 1 }, 0);
 
 describe('中ボスを倒したあとのワープ先', () => {
   it('同じ島の次の県のフィールドへ（順番は world/japan.json）', async () => {
@@ -60,6 +60,9 @@ describe('地方ボスと島クリア', () => {
     expect(canChallengeIslandBoss(c.world, 'tohoku', gs.progress)).toBe(true);
     gs.progress.islandsCleared.push('tohoku');
     expect(canChallengeIslandBoss(c.world, 'tohoku', gs.progress)).toBe(false);
+
+    gs.progress.areaSigns = ['hokkaido'];
+    expect(canChallengeIslandBoss(c.world, 'hokkaido', gs.progress)).toBe(false);
   });
 
   it('勝利処理は東北を一度だけ記録し、しるし不足では状態を変えない', async () => {

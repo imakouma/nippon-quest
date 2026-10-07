@@ -6,11 +6,11 @@ import { equipItem } from '../../src/core/progression/inventory';
 import { giveMeisan, isMeisanGear, meisanEarned } from '../../src/core/progression/meisan';
 import { motifStamp } from '../../src/core/progression/route';
 import { createNewGame } from '../../src/core/state/newGame';
-import { battleFrames, heroCostumeIds, heroKey, heroLook, walkFrames } from '../../src/scenes/art/characters';
-import { COSTUME_ART, HERO_FRAME } from '../../src/scenes/art/costumes';
-import { NQ48 } from '../../src/scenes/art/palette';
+import { battleFrames, heroCostumeIds, heroKey, heroLook, walkFrames } from '../../src/rendering/characters';
+import { COSTUME_ART, HERO_FRAME } from '../../src/rendering/costumes';
+import { NQ48 } from '../../src/rendering/palette';
 
-const fresh = () => createNewGame({ name: 'テスト', grade: 3, starterMonsterId: 'aomori-nebutan' }, 1000);
+const fresh = () => createNewGame({ name: 'テスト', grade: 3 }, 1000);
 const MELON = 'hokkaido-meisan-yubari-melon';
 
 /** にほんちずの ★（public/worldmap.json と 同じ 数え方） */
@@ -88,17 +88,17 @@ describe('めいさんひんの そうび', () => {
 describe('めいさんひんの そうびの 絵', () => {
   const ap = { hair: 0, skin: 0, cloth: 0 };
   const palette = new Set<string>(NQ48);
+  const plain = [...walkFrames(heroLook(ap), true), ...battleFrames(heroLook(ap))];
   for (const id of Object.keys(COSTUME_ART)) {
     it(`${id}：色は NQ-48 だけ・着ると 絵が かわる・いつもの 絵から はみ出さない 大きさ`, () => {
       const eq = { [COSTUME_ART[id]!.slot]: id };
-      const plain = [...walkFrames(heroLook(ap), true), ...battleFrames(heroLook(ap))];
       const worn = [...walkFrames(heroLook(ap, eq), true), ...battleFrames(heroLook(ap, eq))];
       for (const f of worn) {
         expect(f).toHaveLength(HERO_FRAME.h);
-        for (const row of f) {
-          expect(row).toHaveLength(HERO_FRAME.w);
-          for (const c of row) if (c) expect(palette.has(c), c).toBe(true);
-        }
+        expect(f.every((row) => row.length === HERO_FRAME.w)).toBe(true);
+        expect([
+          ...new Set(f.flat().filter((color): color is string => !!color && !palette.has(color))),
+        ]).toEqual([]);
       }
       // どの コマも いつもの 絵と ちがう（見て わかるほど：10 ドット いじょう）
       worn.forEach((f, k) => {

@@ -4,7 +4,7 @@
 >
 > - 作業の流れ（AI で大きく生成 → 縮小・減色 → Aseprite で手直し）、ChatGPT での差分編集、後処理スクリプトの依頼文は **`03_IMAGE_PROMPTS.md`** に残しています。
 > - **`03` とこのファイルの数値がちがうときは、このファイルが正** です（`03` §1 の「キャラ 32×32」「モンスター 64×64」「アイテム 24×24」「顔グラ 96×96」「名所 320×180」「パレットは k-means で作る」は旧規格）。
-> - 数値はコードと一致しています：パレット `src/scenes/art/palette.ts`、人物の仮素材 `src/scenes/art/characters.ts`。規格を変えるときは **コード・このファイル・`assets/palette/nq48.*` を同時に** 直してください。
+> - 数値はコードと一致しています：パレット `src/rendering/palette.ts`、人物の仮素材 `src/rendering/characters.ts`。規格を変えるときは **コード・このファイル・`assets/palette/nq48.*` を同時に** 直してください。
 
 ---
 
@@ -51,12 +51,12 @@
 | 中ボス | **40×40** | 待機 2 コマ（80×40） | ×4（160px） | `mon.<id>` | 同上 |
 | 県ボス | **48×48** | 待機 2 コマ（96×48）＋フェーズ差分 | ×4（192px） | `mon.<id>` | 同上 |
 | 地方ボス | **56×56** | 待機 2 コマ（112×56）＋フェーズ差分 | ×4（224px） | `mon.<id>` | 同上 |
-| フィールドの中ボスの「？」マーク | **16×16** | 1 枚（violet の丸に白い「？」。姿はバトルまで見せない） | ×3（48px＝1 タイル） | `fld.boss.q` | （仮素材 `src/scenes/overworld/fieldArt.ts`） |
+| フィールドの中ボスの「？」マーク | **16×16** | 1 枚（violet の丸に白い「？」。姿はバトルまで見せない） | ×3（48px＝1 タイル） | `fld.boss.q` | （仮素材 `src/rendering/overworld/fieldArt.ts`） |
 | アイテム・装備アイコン | **16×16** | 1 枚 1 アイコン | メニュー ×3（48px）／フィールド ×3 | `item.<id>` | `assets/items/<id>.png` |
 | 顔グラ（会話） | **48×48** | 表情ごとに別ファイル | ×2（96px） | `face.<id>` | `assets/portraits/<id>.png` |
 | 名所イラスト | **240×135** | 1 枚絵 | カットイン ×2（480×270）／バトル背景 ×4 | `motif.<area>.<motifId>` | `assets/motifs/<area>/<motifId>.png` |
 | バトル背景 | **240×135** | 1 枚絵（サイドビュー。地平線は上から 64 ドット、みんなが立つ道の帯は 82〜97 ドット） | ×4 | `bt.bg.<kind>`（現行コードのキー。`field` / `dungeon` / `boss`） | `assets/backdrops/<kind>.png`（予定） |
-| UI アイコン（属性・教科・コマンド・看板） | **8×8** | 1 枚 1 アイコン（仮素材は `src/scenes/art/icons.ts`） | 窓の中 ×2〜×3、フィールドの看板 ×1（カメラで ×3） | `ui.<name>` | `assets/ui/<name>.png` |
+| UI アイコン（属性・教科・コマンド・看板） | **8×8** | 1 枚 1 アイコン（仮素材は `src/rendering/icons.ts`） | 窓の中 ×2〜×3、フィールドの看板 ×1（カメラで ×3） | `ui.<name>` | `assets/ui/<name>.png` |
 
 補足：
 
@@ -88,7 +88,7 @@
 
 ## 3. パレット NQ-48
 
-### 3.1 48 色の表（`src/scenes/art/palette.ts` と同じ順番）
+### 3.1 48 色の表（`src/rendering/palette.ts` と同じ順番）
 
 | # | 名前 | hex | 主な用途 |
 |---|---|---|---|
@@ -242,7 +242,7 @@ hairBrown → bark   hairBlack → ink     hairBlond → amber
 
 ### 4.4 属性の「かたちの言葉」
 
-§3.2 の表のとおり。コードの仮モンスター（`src/scenes/battle/pixelArt.ts`）も同じ決まりで自動生成しているので、本番の絵もこれに合わせると **仮素材からの差し替えで印象が変わりにくい**。
+§3.2 の表のとおり。コードの仮モンスター（`src/rendering/battle/pixelArt.ts`）も同じ決まりで自動生成しているので、本番の絵もこれに合わせると **仮素材からの差し替えで印象が変わりにくい**。
 
 - ヒノ：たて長。頭のてっぺんに 3 本の炎（先が cream/gold）。
 - ミズ：まるい。頭にひれ、体の横に小さなひれ。
@@ -467,7 +467,7 @@ Use only: #1a1428 #ffffff #ff8fb1 #e5484d #a8341f #ff9e5e #3a2a22 #2a7a36 #4cbf4
 ```
 （リンゴロン。`mon.aomori-ringoron`）
 
-ほかのモンスターは Concept と色だけ差し替える（東北の通常モンスター 23 体。手描きの仮素材 `src/scenes/art/monsters/<県>.ts` と同じ設計なので、仮素材を参照画像に添付すると早い）：
+ほかのモンスターは Concept と色だけ差し替える（東北の通常モンスター 23 体。手描きの仮素材 `src/rendering/monsters/<県>.ts` と同じ設計なので、仮素材を参照画像に添付すると早い）：
 
 | モンスター | Concept（英語で差し替える部分） | Use only |
 |---|---|---|
@@ -772,9 +772,9 @@ Max 24 colors. PALETTE: {NQ-48 から}
 | 157〜158 | 果樹園（157 りんご・さくらんぼ、158 もも） | ○ | lime の 地に leaf の 木、red / blush の 実 |
 | 159〜160 | 空き（あとで追加）。県の外の陸地は 3 の海で描く（県はそれぞれ海にかこまれた島） | | |
 
-町とダンジョンは `scripts/scaffold-maps.ts` がシード付き乱数で組み立てます（町は 52×40、ダンジョンは部屋と通路の迷路）。ダンジョンの見た目は県ごとに `DUNGEON_THEMES` で決めます（書いていない県は どうくつ）。町の見た目（地面・木・屋根・広場の名所・畑・街灯・海ぞい・小物）は県ごとに `scripts/data/towns.ts` の `TOWN_THEMES` で決めます（その土地の名所・特産品・気候から。`note` に理由）。61〜146 の絵は `src/scenes/overworld/townTiles.ts`。147〜158 の 地面の 絵は `fieldArt.ts`、フィールドの どこに どの 地面を 置くかは `scaffold-maps.ts` の `groundTiles`（海・湖・丘からの きょり。docs/00 §2.2、`src/core/world/ground.ts`）。フィールドと 離島では、その上に 見た目だけの 別の タイル `overworld-view` を かさねる（`src/scenes/overworld/viewTiles.ts` が 描く 8 列の テクスチャ。どの マスに どれを 使うかは `overworldView.ts`：海の 白い 波・森と すなはまの まるい ふち（となり 4 方向の しるし）・山・田んぼの なえの 列・果樹園の 木）。地面の 判定・エンカウントは 下の background の まま。入口の しるし（家・どうくつ・お城・船）は `entranceIcons.ts`。
+町とダンジョンは `scripts/scaffold-maps.ts` がシード付き乱数で組み立てます（町は 52×40、ダンジョンは部屋と通路の迷路）。ダンジョンの見た目は県ごとに `DUNGEON_THEMES` で決めます（書いていない県は どうくつ）。町の見た目（地面・木・屋根・広場の名所・畑・街灯・海ぞい・小物）は県ごとに `scripts/data/towns.ts` の `TOWN_THEMES` で決めます（その土地の名所・特産品・気候から。`note` に理由）。61〜146 の絵は `src/rendering/overworld/townTiles.ts`。147〜158 の 地面の 絵は `fieldArt.ts`、フィールドの どこに どの 地面を 置くかは `scaffold-maps.ts` の `groundTiles`（海・湖・丘からの きょり。docs/00 §2.2、`src/core/world/ground.ts`）。フィールドと 離島では、その上に 見た目だけの 別の タイル `overworld-view` を かさねる（`src/rendering/overworld/viewTiles.ts` が 描く 8 列の テクスチャ。どの マスに どれを 使うかは `overworldView.ts`：海の 白い 波・森と すなはまの まるい ふち（となり 4 方向の しるし）・山・田んぼの なえの 列・果樹園の 木）。地面の 判定・エンカウントは 下の background の まま。入口の しるし（家・どうくつ・お城・船）は `entranceIcons.ts`。
 
-> コードの仮タイル（`src/scenes/overworld/fieldArt.ts`）も上の NQ-48 の色で描いてあります。本番のタイルは同じ色の割り当てで。
+> コードの仮タイル（`src/rendering/overworld/fieldArt.ts`）も上の NQ-48 の色で描いてあります。本番のタイルは同じ色の割り当てで。
 
 ```
 [STYLE]
@@ -879,19 +879,19 @@ AI の出力は「ドット絵っぽい大きな画像」です。**必ず縮小
 
 ## 8. コードの仮素材との関係
 
-本番の絵が揃うまで、コードが **同じ規格の仮のドット絵** を自動で描いています。**同じキーで PNG を先に読み込めば、そちらが優先** されます（仮素材は「そのキーがまだ無いとき」だけ作られる：`src/scenes/art/sheet.ts` の `addSheet` / `addImage`、バトルの `monsterTexture`）。
+本番の絵が揃うまで、コードが **同じ規格の仮のドット絵** を自動で描いています。**同じキーで PNG を先に読み込めば、そちらが優先** されます（仮素材は「そのキーがまだ無いとき」だけ作られる：`src/rendering/sheet.ts` の `addSheet` / `addImage`、バトルの `monsterTexture`）。
 
 | キー | 仮素材を描いているところ | 本番の PNG |
 |---|---|---|
-| `char.hero.<かみ><はだ><服>` / `….battle` | `src/scenes/art/characters.ts`（見た目ごとに 1 枚） | `char.hero` / `char.hero.battle`（見た目 0-0-0）＋スワップ |
+| `char.hero.<かみ><はだ><服>` / `….battle` | `src/rendering/characters.ts`（見た目ごとに 1 枚） | `char.hero` / `char.hero.battle`（見た目 0-0-0）＋スワップ |
 | `char.<npcId>` | `characters.ts` の `NPC_LOOKS`（役割の色） | NPC ごとに `assets/sprites/characters/<id>.png` |
-| `mon.<id>`（と `.p<番号>`・`.field`） | **手描き** `src/scenes/art/monsters/<県>.ts`（東北の モンスター ぜんぶ。しんか後・地面の モンスターも。中ボスは `.field` の 32×32 も）→ そこに無いモンスターは `src/scenes/battle/pixelArt.ts` の `monsterArt`（id をシードに属性の形で自動生成） | `assets/sprites/monsters/<id>.png`（`.field` は `<id>-field.png`） |
-| `bt.fx.<種類>`（火の玉・しずく・葉っぱ・岩・やみの玉・土けむり・風の刃・光の柱・光の わ・星／こうげきの 形：ひっかき・かみつき・つき・ななめ切り・×・回転切り・地ひびき／属性の かけら：火の粉・あわ・葉・小石・風・きらめき・やみの ほのお。1 まい 6 色まで） | `src/scenes/battle/fxArt.ts`（×4 表示。動きは `battle/motions.ts`。色と 形は `tests/unit/fxArt.test.ts`） | `assets/fx/<種類>.png`（予定） |
+| `mon.<id>`（と `.p<番号>`・`.field`） | **手描き** `src/rendering/monsters/<県>.ts`（東北の モンスター ぜんぶ。しんか後・地面の モンスターも。中ボスは `.field` の 32×32 も）→ そこに無いモンスターは `src/rendering/battle/pixelArt.ts` の `monsterArt`（id をシードに属性の形で自動生成） | `assets/sprites/monsters/<id>.png`（`.field` は `<id>-field.png`） |
+| `bt.fx.<種類>`（火の玉・しずく・葉っぱ・岩・やみの玉・土けむり・風の刃・光の柱・光の わ・星／こうげきの 形：ひっかき・かみつき・つき・ななめ切り・×・回転切り・地ひびき／属性の かけら：火の粉・あわ・葉・小石・風・きらめき・やみの ほのお。1 まい 6 色まで） | `src/rendering/battle/fxArt.ts`（×4 表示。動きは `battle/motions.ts`。色と 形は `tests/unit/fxArt.test.ts`） | `assets/fx/<種類>.png`（予定） |
 | `bt.bg.field` / `dungeon` / `boss`、地面ごとの `forest` / `mountain` / `beach` / `shore` / `farm` | `pixelArt.ts` の `backdropArt` | `assets/backdrops/<kind>.png`（予定） |
 | `overworld-tiles` | Overworld シーンのプレースホルダ生成 | `assets/tilesets/overworld-tiles.png` |
 
 - 仮素材も NQ-48・同じ寸法・同じ「かたちの言葉」で描いているので、差し替えても画面の倍率や足元の位置は変わりません。
-- **手描きの仮モンスター**（`src/scenes/art/monsters/`）は、1 文字＝1 ドットの地図で描く（`design.ts`）。外周の ink は自動、`mirror: true` のレイヤーは左半分だけ書いて左右反転、`rim` は右と下のふちを かげ色にする（光は左上）。ボスのフェーズ差分（`.p<番号>`）が無ければ、ふだんの絵のまま。規格（大きさ・NQ-48・色数・王冠の金と赤・足もと・外周の輪郭）は `tests/unit/monsterArt.test.ts` が見張る。本番の PNG を AI で作るときは、この仮素材を参照画像に添付してよい（形と色の割り当てが規格どおりなので、差し替えても印象が変わりにくい）。
+- **手描きの仮モンスター**（`src/rendering/monsters/`）は、1 文字＝1 ドットの地図で描く（`design.ts`）。外周の ink は自動、`mirror: true` のレイヤーは左半分だけ書いて左右反転、`rim` は右と下のふちを かげ色にする（光は左上）。ボスのフェーズ差分（`.p<番号>`）が無ければ、ふだんの絵のまま。規格（大きさ・NQ-48・色数・王冠の金と赤・足もと・外周の輪郭）は `tests/unit/monsterArt.test.ts` が見張る。本番の PNG を AI で作るときは、この仮素材を参照画像に添付してよい（形と色の割り当てが規格どおりなので、差し替えても印象が変わりにくい）。
 - `pnpm validate:content` は、`content` に書かれたキー（`char` / `mon` / `face` / `item` / `motif`）の PNG が無いと warning を出します。どれがまだ無いかの一覧として使ってください。
 - 本番 PNG の読み込み（Boot シーンの preload）は、素材が揃った段階で追加します。キー名さえこの表と `03` §1 に合わせておけば、コード側の変更は読み込みの数行で済みます。
 

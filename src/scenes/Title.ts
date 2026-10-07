@@ -8,7 +8,7 @@
 import Phaser from 'phaser';
 import { h, render } from 'preact';
 import { createRng } from '../core/rng';
-import { SLOTS, summaries, type SlotId, type SlotSummary } from '../core/state/save';
+import { remove, SLOTS, summaries, type SlotId, type SlotSummary } from '../core/state/save';
 import type { GameState } from '../core/state/schema';
 import { PIXEL_FONT, PIXEL_FONT_NAME } from '../ui/fonts';
 import { t } from '../ui/i18n';
@@ -17,9 +17,9 @@ import { TitleMenu } from '../ui/title/TitleMenu';
 import { NewGameSetup } from '../ui/title/NewGameSetup';
 import { SaveSlotSelect } from '../ui/title/SaveSlotSelect';
 import type { NewGameOptions } from '../core/state/newGame';
-import { HERO_H, HERO_W, heroKey, heroLook, walkFrame, walkSheet } from './art/characters';
-import { NQ } from './art/palette';
-import { addImage, addSheet } from './art/sheet';
+import { HERO_H, HERO_W, heroKey, heroLook, walkFrame, walkSheet } from '../rendering/characters';
+import { NQ } from '../rendering/palette';
+import { addImage, addSheet } from '../rendering/sheet';
 import {
   CLIFF_TOP,
   HERO_SPOT,
@@ -31,7 +31,7 @@ import {
   pixelsArt,
   textLogo,
   titleBackdrop,
-} from './title/titleArt';
+} from '../rendering/title/titleArt';
 
 const S = 4;
 const LOGO_SCALE = 8;
@@ -68,25 +68,6 @@ export class TitleScene extends Phaser.Scene {
     // ?debug=battle のときはタイトルを飛ばす（main.ts 参照）
     if (new URLSearchParams(location.search).get('debug') === 'battle')
       this.time.delayedCall(50, () => this.game.events.emit('title:start'));
-
-    if (import.meta.env.DEV) {
-      const content = this.registry.get('content') as { areas: Map<string, unknown> } | undefined;
-      const bank = this.registry.get('bank') as { size: number } | undefined;
-      const questionFiles = this.registry.get('questionFiles') as string[] | undefined;
-      this.add
-        .text(
-          8,
-          8,
-          `dev: ${content?.areas.size ?? 0} areas / ${bank ? `${bank.size} questions` : `${questionFiles?.length ?? 0} question files (lazy)`}`,
-          {
-            fontFamily: PIXEL_FONT,
-            fontSize: '12px',
-            color: NQ.silver,
-          },
-        )
-        .setAlpha(0.6)
-        .setDepth(50);
-    }
   }
 
   /** 夜空の星（1 ドットと十字の 2 種類）。ゆっくり またたく */
@@ -286,6 +267,16 @@ export class TitleScene extends Phaser.Scene {
 
   private async checkSave(): Promise<void> {
     try {
+      const params = new URLSearchParams(location.search);
+      if (import.meta.env.DEV && params.has('resetSaves')) {
+        await Promise.all(SLOTS.map((slot) => remove(slot)));
+        params.delete('resetSaves');
+        history.replaceState(
+          null,
+          '',
+          `${location.pathname}${params.size ? `?${params}` : ''}${location.hash}`,
+        );
+      }
       this.slots = await summaries();
       this.hasSave = this.slots.some((slot) => slot.exists);
     } catch (error) {
@@ -298,13 +289,20 @@ export class TitleScene extends Phaser.Scene {
   }
 
   private continueGame(slot: SlotId): void {
-    if (this.starting) return;
+    // UI 側の disabled だけに任せず、セーブのないスロットからは続行しない。
+    // 非同期のセーブ確認中や、古い UI イベントが残った場合にも新規ゲーム扱いで
+    // 読み込み処理へ進ませないための最後のガード。
+    if (this.starting || !this.slots.some((summary) => summary.slot === slot && summary.exists)) return;
     this.starting = true;
     this.game.events.emit('title:continue', slot);
   }
 
   private mountSlotPicker(mode: 'new' | 'continue'): void {
     if (!this.menuRoot) return;
+    if (mode === 'continue' && !this.hasSave) {
+      this.mountMenu();
+      return;
+    }
     this.menuView = 'slots';
     render(
       h(SaveSlotSelect, {

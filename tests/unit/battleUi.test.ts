@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { createNewGame } from '../../src/core/state/newGame';
+import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
 import { encounterLevel, partyFromGameState, pickEncounter, zoneForMap } from '../../src/core/battle/setup';
 import {
   applyBattleResult,
@@ -27,7 +28,7 @@ const ja = JSON.parse(readFileSync(join(ROOT, 'content/i18n/ja.json'), 'utf8')) 
 
 beforeAll(() => setDictionary(ja));
 
-const newGame = () => createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 }, 0);
+const newGame = () => chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 1 }, 0), 'iwate-kagurabi');
 
 describe('GameState → Party', () => {
   it('主人公と相棒が入り、今の HP/MP から始まる', async () => {
@@ -38,7 +39,7 @@ describe('GameState → Party', () => {
     expect(party.hero.name).toBe('ハル');
     expect(party.hero.hp).toBe(12);
     expect(party.hero.stats.hp).toBe(40);
-    expect(party.monsters.map((m) => m.refId)).toEqual(['aomori-nebutan']);
+    expect(party.monsters.map((m) => m.refId)).toEqual(['iwate-kagurabi']);
     // さいしょは どうぐを もっていない（やくそうは なくした）
     expect(party.items).toEqual({});
   });

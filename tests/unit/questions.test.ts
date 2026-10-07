@@ -8,8 +8,9 @@ import { createRng } from '../../src/core/rng';
 import type { QuestionBase, QuestionQuery } from '../../src/questions/contracts';
 import { MAX_MISSES, pictureWordScore } from '../../src/questions/renderers/picture-word/schema';
 import { PICTURES, PICTURE_KEYS, pictureSvg } from '../../src/questions/renderers/shared/pictures';
-import { NQ48 } from '../../src/scenes/art/palette';
+import { NQ48 } from '../../src/rendering/palette';
 import { speechLang } from '../../src/ui/overlay';
+import { questionHasAnswerContext } from '../../src/questions/engine/questionQuality';
 import { read } from './helpers';
 
 function q(id: string, over: Partial<QuestionBase> = {}): QuestionBase {
@@ -59,6 +60,24 @@ describe('QuestionBank', () => {
     const manifest = (await read('manifest.json')) as { questions: string[] };
     const { bank, report } = await QuestionBank.load(manifest.questions, read);
     expect(bank.size).toBeGreaterThan(0);
+    expect(report.omitted).toBeGreaterThan(0);
+    expect(report.skipped).toEqual([]);
+  });
+
+  it('式も図もない旧入力問題を出題候補へ入れない', async () => {
+    const broken = q('broken.0001', {
+      type: 'text-input',
+      payload: { prompt: 'つぎの けいさんを しましょう。', answers: ['10'] },
+    });
+    const playable = q('playable.0001', {
+      type: 'text-input',
+      payload: { prompt: 'つぎの けいさんを しましょう。', template: '3 + 7 = {{INPUT}}', answers: ['10'] },
+    });
+    expect(questionHasAnswerContext(broken)).toBe(false);
+    expect(questionHasAnswerContext(playable)).toBe(true);
+    const { bank, report } = await QuestionBank.load(['legacy.json'], async () => [broken, playable]);
+    expect(bank.all().map((question) => question.id)).toEqual(['playable.0001']);
+    expect(report.omitted).toBe(1);
     expect(report.skipped).toEqual([]);
   });
 

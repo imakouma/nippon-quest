@@ -19,32 +19,22 @@ import { comboBonus } from '../core/battle/damage';
 import {
   act,
   battleSkills,
-  canAfford,
   createBattle,
   isHeroReady,
-  makeCompanion,
   type BattleDeps,
   type BattleSkill,
 } from '../core/battle/engine';
 import { makeMonster } from '../core/battle/factory';
 import { partyFromGameState } from '../core/battle/setup';
 import type { ActionResult, BattleEvent, BattleState, Command } from '../core/battle/types';
-import {
-  applyBattleResult,
-  heroLevel,
-  levelForXp,
-  xpToNextLevel,
-  type AppliedBattle,
-  type BattleSummary,
-} from '../core/progression/battleResult';
-import { bagCapacity, bagContext, evolutionStage, stowNewMonster } from '../core/progression/bag';
+import { applyBattleResult, type AppliedBattle } from '../core/progression/battleResult';
+import { evolutionStage } from '../core/progression/bag';
+import { settleBattleBag } from '../core/progression/battleSettlement';
 import { specialtyIndex, withSpecialtyDrops } from '../core/progression/specialty';
 import { createRng, freshSeed } from '../core/rng';
 import type { GameState } from '../core/state/schema';
 import { scoreBand, type QuestionQuery } from '../questions/contracts';
-import { battleQuestionQuery } from './battle/questionQuery';
-import { tweenPromise } from './battle/tweenPromise';
-import { ask, filterCandidates, MasteryStore, NoQuestionError, type QuestionBank } from '../questions/engine';
+import { filterCandidates, MasteryStore, type QuestionBank } from '../questions/engine';
 import { BattleHud } from '../ui/battle/BattleHud';
 import {
   HudStore,
@@ -64,14 +54,14 @@ import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { displayText } from '../ui/ruby';
 import { isSfxMuted, playSfx, setSfxMuted, setSfxVolume } from '../ui/sfx';
-import { BATTLE_POSE, battleSheet, HERO_H, HERO_W, heroKey, heroLook } from './art/characters';
-import { itemIconGrid, itemIconUrl } from './art/itemIcons';
-import { designedMonsterArt } from './art/monsters';
-import { addImage, addSheet } from './art/sheet';
+import { BATTLE_POSE, battleSheet, HERO_H, HERO_W, heroKey, heroLook } from '../rendering/characters';
+import { itemIconGrid, itemIconUrl } from '../rendering/itemIcons';
+import { designedMonsterArt } from '../rendering/monsters';
+import { addImage, addSheet } from '../rendering/sheet';
 import { Motions, type EnemyStyle, type MotifFx, type SwingKind } from './battle/motions';
-import { toCanvas } from './art/grid';
-import { motifArtGrid } from './art/motifArt';
-import { skillLook } from './battle/skillLook';
+import { toCanvas } from '../rendering/grid';
+import { motifArtGrid } from '../rendering/motifArt';
+import { skillLook } from '../rendering/battle/skillLook';
 import { narrate, normalizeEvents, type NarrateCtx } from './battle/narrate';
 import {
   BACKDROP_SCALE,
@@ -83,28 +73,22 @@ import {
   shadowArt,
   slashSheet,
   type BackdropKind,
-} from './battle/pixelArt';
-import type { EncounterZone } from '../core/battle/setup';
-import type { Ground } from '../core/world/ground';
-import { buildAskEnv } from './shared/askEnv';
-import { buildAllyViews, buildEnemyView, buildGaugeViews } from './battle/hudViews';
+} from '../rendering/battle/pixelArt';
+import {
+  buildAllyViews,
+  buildCommandOptions,
+  buildEnemyView,
+  buildGaugeViews,
+  buildItemOptions,
+  buildSkillOptions,
+  buildSwapOptions,
+} from './battle/hudViews';
+import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
+import { battleSummary, defeatResultView, victoryResultView } from './battle/resultView';
+import { questionQueryForSkill, recruitQuestionQuery } from './battle/questionQueries';
+import { runBattleQuestion } from './battle/questionFlow';
 
-export interface BattleSceneData {
-  enemyId: string;
-  level: number;
-  zone: EncounterZone;
-  /** フィールドの 地面（すなはま・もり …）。バトルの 背景が かわる */
-  ground?: Ground;
-  /** 中ボス・県ボス・地方ボス戦（にげられない）。省略時はモンスター定義の isBoss */
-  isBoss?: boolean;
-  /** 開発者モード：ボス戦でも にげられる（ふつうの モンスターとは そもそも 出会わない） */
-  devMode?: boolean;
-}
-
-export interface BattleEndPayload {
-  outcome: BattleSummary['outcome'];
-  goldLost: number;
-}
+export type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 
 type Intent =
   | { kind: 'attack' }
@@ -208,6 +192,8 @@ export class BattleScene extends Phaser.Scene {
   private cmdCursor = 0;
   /** シーンが おわった あと（もう さわらない） */
   private stopped = false;
+  /** 例外後の終了処理を一度だけ行う。 */
+  private recovering = false;
 
   constructor() {
     super('Battle');
@@ -242,6 +228,7 @@ export class BattleScene extends Phaser.Scene {
     this.stepped = false;
     this.cmdCursor = 0;
     this.stopped = false;
+    this.recovering = false;
   }
 
   create(): void {
@@ -292,8 +279,7 @@ export class BattleScene extends Phaser.Scene {
     window.addEventListener('focus', this.onVisible);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.teardown());
     void this.run().catch((e: unknown) => {
-      console.error('[battle] 進行中にエラー', e);
-      void this.leave('fled', 0);
+      void this.recoverFromError('進行中', e);
     });
   }
 
@@ -595,13 +581,14 @@ export class BattleScene extends Phaser.Scene {
     this.hud.set((s) => ({ enemy: s.enemy ? { ...s.enemy, ...patch } : s.enemy }));
   }
 
-  private isUnique(sk: Skill): boolean {
-    return Object.values(this.content.settings.subjectGauge.uniqueSkills).includes(sk.id);
-  }
-
   /** 問題の 問い合わせ。教科の 固有スキルは プレイヤーの 学年（と ひとつ下）から。無ければ だんだん ひろげる */
   private queryFor(sk: Skill): QuestionQuery {
-    return battleQuestionQuery(sk, this.isUnique(sk), this.gs.learning.grade, this.bank);
+    return questionQueryForSkill({
+      skill: sk,
+      grade: this.gs.learning.grade,
+      uniqueSkillIds: Object.values(this.content.settings.subjectGauge.uniqueSkills),
+      hasCandidate: (query) => filterCandidates(this.bank, query).length > 0,
+    });
   }
 
   private hasQuestion(sk: Skill): boolean {
@@ -611,6 +598,7 @@ export class BattleScene extends Phaser.Scene {
   private canRecruit(): boolean {
     const s = this.state;
     return (
+      this.gs.party.owned.length > 0 &&
       !s.isBossBattle &&
       this.enemyDef.recruitRate > 0 &&
       s.enemy.hp > 0 &&
@@ -619,72 +607,33 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private itemOptions(): ItemOption[] {
-    return Object.entries(this.state.ally.items).flatMap(([id, n]) => {
-      const it = this.content.items.get(id);
-      if (!it || n <= 0 || it.kind !== 'consumable' || !it.use) return [];
-      return [{ id, name: it.name, count: n, blurb: it.blurb, icon: itemIconUrl(it) }];
-    });
+    return buildItemOptions(this.state, this.content);
   }
 
   private swapOptions(): SwapOption[] {
-    const a = this.state.ally;
-    return a.monsters.map((m, i) => ({
-      index: i,
-      name: m.name,
-      level: m.level,
-      hp: m.hp,
-      maxHp: m.stats.hp,
-      element: m.element,
-      passive: makeCompanion(m, this.deps)?.passiveSkill?.subject,
-      disabled: i === a.activeMonsterIndex || m.hp <= 0,
-      active: i === a.activeMonsterIndex,
-    }));
+    return buildSwapOptions(this.state, this.deps);
   }
 
   /** 必殺技の一覧（主人公・オトモの わざ・教科の 固有スキル）。教科ゲージが たりない 必殺技は 打てない */
   private skillOptions(): SkillOption[] {
-    const s = this.state;
-    return battleSkills(s, this.deps).map(({ skill: sk, actorId }) => {
-      const noQuestion = !this.hasQuestion(sk);
-      return {
-        key: `${actorId}:${sk.id}`,
-        id: sk.id,
-        actorId,
-        by: actorId === s.ally.hero.id ? undefined : this.nameOf(actorId),
-        name: sk.name,
-        subject: sk.subject,
-        gradeRange: this.queryFor(sk).gradeRange,
-        element: sk.element,
-        stars: sk.gauge,
-        cost: sk.costGauge,
-        have: s.player.subjectGauges[sk.subject],
-        effect: sk.effect,
-        flavor: sk.flavor,
-        disabled: noQuestion || !canAfford(s, sk),
-        reason: noQuestion ? t('battle.preparing') : undefined,
-      };
+    return buildSkillOptions({
+      state: this.state,
+      deps: this.deps,
+      queryFor: (skill) => this.queryFor(skill),
+      hasQuestion: (skill) => this.hasQuestion(skill),
+      nameOf: (id) => this.nameOf(id),
+      preparingLabel: t('battle.preparing'),
     });
   }
 
   private commandOptions(): CommandOption[] {
-    const s = this.state;
-    const skills = battleSkills(s, this.deps);
-    // ゲージを 使う 必殺技が 打てるように なったら、必殺技の コマンドを 光らせる
-    const special = skills.some(
-      ({ skill: sk }) => sk.costGauge > 0 && canAfford(s, sk) && this.hasQuestion(sk),
-    );
-    const list: CommandOption[] = [
-      { kind: 'attack', disabled: false },
-      { kind: 'skill', disabled: skills.length === 0, glow: special },
-      { kind: 'item', disabled: this.itemOptions().length === 0 },
-      {
-        kind: 'swap',
-        disabled: !s.ally.monsters.some((m, i) => i !== s.ally.activeMonsterIndex && m.hp > 0),
-      },
-      { kind: 'flee', disabled: false },
-    ];
-    if (this.canRecruit()) list.push({ kind: 'recruit', disabled: false, glow: true });
-    return list;
+    return buildCommandOptions({
+      state: this.state,
+      deps: this.deps,
+      hasQuestion: (skill) => this.hasQuestion(skill),
+      itemCount: this.itemOptions().length,
+      canRecruit: this.canRecruit(),
+    });
   }
 
   private nameOf(id: string): string {
@@ -831,7 +780,7 @@ export class BattleScene extends Phaser.Scene {
       this.state = state;
       await this.enqueue(events);
     } catch (e) {
-      console.error('[battle] ターンの すすめかたで エラー', e);
+      await this.recoverFromError('ターンの すすめかた', e);
     } finally {
       this.busy = false;
       this.showCommands();
@@ -905,7 +854,7 @@ export class BattleScene extends Phaser.Scene {
     try {
       await this.execute(intent);
     } catch (e) {
-      console.error('[battle] 行動中に エラー', e);
+      await this.recoverFromError('行動中', e);
     } finally {
       this.busy = false;
       this.showCommands();
@@ -979,9 +928,7 @@ export class BattleScene extends Phaser.Scene {
     const ctx = this.narrateCtx();
     for (let i = 0; i < events.length; i++) {
       const e = events[i]!;
-      // オトモの自動行動は毎ターン発生するため、文字送りを重ねず動きとダメージ表示だけにする。
-      // 低性能端末でログ描画が戦闘進行を塞ぐことも防ぐ。
-      const lines = e.t === 'act' && e.auto ? [] : narrate(e, ctx, events[i - 1]);
+      const lines = narrate(e, ctx, events[i - 1]);
       const talk = async () => {
         if (!lines.length) return;
         // 決着・ボスの セリフは 読んでから すすむ
@@ -1019,39 +966,39 @@ export class BattleScene extends Phaser.Scene {
     subject: string,
     hint: string,
   ): Promise<ActionResult> {
-    const host = document.createElement('div');
-    host.className = 'nq-bq-slot';
-    const abort = new AbortController();
-    this.abort = abort;
     this.phase = 'question';
-    this.hud.set({
-      menu: 'none',
-      message: null,
-      stripPops: [],
-      shake: 0,
-      question: { host, skillName: title, subject, hint },
-    });
-    const env = buildAskEnv({
-      host,
-      gs: this.gs,
-      content: this.content,
-      bank: this.bank,
-      mastery: this.mastery,
-      rng: this.qRng,
-      speak: this.speak,
-      reason: 'battle',
-    });
-    const t0 = this.time.now;
     try {
-      const r = await ask(env, query, abort.signal);
-      return { score: r.score, timeMs: Math.round(this.time.now - t0), attempts: 1 };
-    } catch (e) {
-      if (e instanceof NoQuestionError) return { score: 0, timeMs: 0, attempts: 0 };
-      throw e;
+      return await runBattleQuestion({
+        query,
+        title,
+        subject,
+        hint,
+        game: this.gs,
+        content: this.content,
+        bank: this.bank,
+        mastery: this.mastery,
+        rng: this.qRng,
+        speak: this.speak,
+        now: () => this.time.now,
+        port: {
+          show: ({ host, skillName, subject: questionSubject, hint: questionHint, abort }) => {
+            this.abort = abort;
+            this.hud.set({
+              menu: 'none',
+              message: null,
+              stripPops: [],
+              shake: 0,
+              question: { host, skillName, subject: questionSubject, hint: questionHint },
+            });
+          },
+          hide: () => {
+            this.abort = null;
+            this.hud.set({ question: null, stripPops: [] });
+          },
+        },
+      });
     } finally {
-      this.abort = null;
       this.phase = 'command';
-      this.hud.set({ question: null, stripPops: [] });
       this.syncViews();
     }
   }
@@ -1070,7 +1017,7 @@ export class BattleScene extends Phaser.Scene {
       .find((x): x is Skill => !!x && this.hasQuestion(x));
     if (!sk) return { score: 0, timeMs: 0, attempts: 0 };
     return this.runQuestion(
-      { subject: sk.subject, gradeRange: sk.gradeRange, tags: [`prefecture:${this.enemyDef.area}`] },
+      recruitQuestionQuery(sk, this.enemyDef.area),
       t('cmd.recruit'),
       sk.subject,
       t('battle.recruitQuestionHint'),
@@ -1112,21 +1059,16 @@ export class BattleScene extends Phaser.Scene {
           void this.fx.guardRing(this.anchorOf(e.actorId), 0x80c6ff);
           await this.flash(sp, 0x80c6ff, 2);
         } else if (e.command === 'skill') {
-          const tier = this.tierOf(def);
-          // 未進化のオトモが毎ターン使う自動技は、重い必殺技演出を重ねず体当たりで表す。
-          // ダメージ・属性・教科ゲージの計算は engine の skill のまま変えない。
-          if (e.auto && e.side === 'ally' && tier === 1) await this.partnerTackle(sp);
-          else
-            await this.skillMotion(
-              heroTurn ? s.ally.hero.id : e.actorId,
-              e.side === 'enemy',
-              heroTurn ? this.heroSprite : sp,
-              sk?.gauge ?? 1,
-              targetId,
-              sk,
-              tier,
-              this.lastMotif,
-            );
+          await this.skillMotion(
+            heroTurn ? s.ally.hero.id : e.actorId,
+            e.side === 'enemy',
+            heroTurn ? this.heroSprite : sp,
+            sk?.gauge ?? 1,
+            targetId,
+            sk,
+            this.tierOf(def),
+            this.lastMotif,
+          );
         } else if (e.command === 'scan') {
           playSfx('scan');
           const a = this.anchorOf(s.enemy.id);
@@ -1650,7 +1592,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private tweenP(cfg: Phaser.Types.Tweens.TweenBuilderConfig): Promise<void> {
-    return tweenPromise(this.tweens, cfg);
+    return new Promise((resolve) => this.tweens.add({ ...cfg, onComplete: () => resolve() }));
   }
 
   /**
@@ -1706,26 +1648,34 @@ export class BattleScene extends Phaser.Scene {
 
   // ───────────────────────── 終了 ─────────────────────────
 
+  /** 途中まで進んだ状態で操作へ戻さず、安全にフィールドへ退避する。 */
+  private async recoverFromError(context: string, error: unknown): Promise<void> {
+    console.error(`[battle] ${context}で エラー`, error);
+    if (this.recovering || this.stopped) return;
+    this.recovering = true;
+    this.phase = 'over';
+    this.busy = true;
+    this.abort?.abort();
+    this.hud.set({ result: null, message: null, menu: 'none', question: null, turn: null });
+    try {
+      await this.leave('fled', 0);
+    } catch (leaveError) {
+      console.error('[battle] エラーから戻れませんでした', leaveError);
+      if (!this.stopped) {
+        this.scene.stop();
+        this.game.events.emit('battle:end', { outcome: 'fled', goldLost: 0 } satisfies BattleEndPayload);
+      }
+    }
+  }
+
   private async finish(): Promise<void> {
     const s = this.state;
-    const outcome = s.outcome as BattleSummary['outcome'];
-    const v = this.victory;
-    const summary: BattleSummary = {
-      outcome,
-      enemyRefId: s.enemy.refId,
-      enemyLevel: s.enemy.level,
-      heroHp: s.ally.hero.hp,
-      heroMp: s.ally.hero.mp,
-      heroMaxHp: s.ally.hero.stats.hp,
-      heroMaxMp: s.ally.hero.stats.mp,
-      // けいけんち・おかねは れんぞく せいかいの ボーナス込み（エンジンの victory）
-      xp: v?.xp ?? 0,
-      gold: v?.gold ?? 0,
-      drops: v?.drops ?? [],
-      items: { ...s.ally.items },
-      recruitAccepted: false,
-      perfectBySubject: this.perfectBySubject,
-    };
+    const v =
+      this.gs.party.owned.length === 0 && this.victory
+        ? { ...this.victory, recruitOffer: false }
+        : this.victory;
+    const summary = battleSummary(s, v, this.perfectBySubject);
+    const outcome = summary.outcome;
 
     if (outcome === 'victory') {
       playSfx('victory');
@@ -1740,33 +1690,11 @@ export class BattleScene extends Phaser.Scene {
         await this.say(t('battle.specialtyGet', { item: sp.item.name }), 'wait');
         await this.say(sp.motif.blurb, 'wait');
       }
-      const table = this.content.xp.hero;
-      const { xp } = this.gs.player;
-      const from = xpToNextLevel(table, heroLevel(this.gs, table), xp);
-      const toLevel = Math.max(this.gs.player.level, levelForXp(table, xp + summary.xp));
-      const to = xpToNextLevel(table, toLevel, xp + summary.xp);
-      const counts = new Map<string, number>();
-      for (const id of summary.drops) counts.set(id, (counts.get(id) ?? 0) + 1);
       this.hud.set({
         menu: 'none',
         message: null,
         cursor: 0,
-        result: {
-          kind: 'victory',
-          xp: summary.xp,
-          gold: summary.gold,
-          drops: [...counts].map(([id, count]) => {
-            const it = this.content.items.get(id);
-            return { name: it?.name ?? id, count, icon: it ? itemIconUrl(it) : undefined };
-          }),
-          xpFrom: from.ratio,
-          xpTo: to.ratio,
-          needNext: to.need,
-          recruitName: v?.recruitOffer ? s.enemy.name : undefined,
-          goldLost: 0,
-          bonus: v?.bonus ?? 1,
-          maxCombo: v?.maxCombo ?? 0,
-        },
+        result: victoryResultView(summary, v, s.enemy.name, this.gs, this.content, itemIconUrl),
       });
       if (v?.recruitOffer) {
         const a = await this.waitFor((x) => x.t === 'recruitAnswer');
@@ -1782,18 +1710,7 @@ export class BattleScene extends Phaser.Scene {
       this.hud.set({
         menu: 'none',
         message: null,
-        result: {
-          kind: 'defeat',
-          xp: 0,
-          gold: 0,
-          drops: [],
-          xpFrom: 0,
-          xpTo: 0,
-          needNext: 0,
-          goldLost,
-          bonus: 1,
-          maxCombo: 0,
-        },
+        result: defeatResultView(goldLost),
       });
       await this.waitFor((x) => x.t === 'resultClose');
     }
@@ -1807,28 +1724,19 @@ export class BattleScene extends Phaser.Scene {
    * バトルの あとの バッグ：レベルが 上がった・マスが ふえた を しらせる。
    * 仲間に なった モンスターは マスが あいていれば バッグへ、たりなければ あずけて しらせる
    */
-  private async settleBag(applied: AppliedBattle): Promise<AppliedBattle['state']> {
-    const table = this.content.xp.hero;
-    const cfg = this.content.settings.bag;
+  private async settleBag(applied: AppliedBattle) {
+    const settled = settleBattleBag(this.gs, applied, this.content);
     const say = async (text: string) => {
       this.hud.set({ result: null });
       await this.say(text, 'wait');
     };
-    let gs = applied.state;
-    const before = heroLevel(this.gs, table);
-    const after = heroLevel(gs, table);
-    if (after > before) {
+    if (settled.level.after > settled.level.before) {
       playSfx('discover');
-      await say(t('battle.levelUp', { name: gs.player.name, lv: after }));
-      const cap = bagCapacity(after, cfg);
-      if (cap > bagCapacity(before, cfg)) await say(t('battle.bagGrew', { n: cap }));
+      await say(t('battle.levelUp', { name: settled.state.player.name, lv: settled.level.after }));
+      if (settled.level.bagGrew) await say(t('battle.bagGrew', { n: settled.level.bagCapacity }));
     }
-    if (applied.newMonsterUid) {
-      const stow = stowNewMonster(gs, applied.newMonsterUid, bagContext(gs, this.content));
-      gs = stow.state;
-      if (!stow.inBag) await say(t('battle.recruitStored', { name: this.state.enemy.name }));
-    }
-    return gs;
+    if (settled.recruitStored) await say(t('battle.recruitStored', { name: this.state.enemy.name }));
+    return settled.state;
   }
 
   private async leave(outcome: BattleEndPayload['outcome'], goldLost: number): Promise<void> {

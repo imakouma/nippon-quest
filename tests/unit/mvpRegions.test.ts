@@ -11,6 +11,7 @@ describe('小1・小2 地方別MVP', () => {
     expect(game.player.name).toBe('？？？');
     expect(game.party).toMatchObject({ owned: [], activeUid: null, team: [], reserve: [] });
     expect(game.party.bagPlacements).toEqual({ hero: { x: 0, y: 0, rotated: false } });
+    expect(game.progress.position).toEqual({ x: 976, y: 1104 });
   });
 
   it('東北は国語・生活科、甲信越は算数として公開される', async () => {
@@ -35,6 +36,7 @@ describe('小1・小2 地方別MVP', () => {
       currentIsland: 'koshinetsu',
       currentArea: 'niigata',
       currentMap: 'niigata-field',
+      position: { x: 880, y: 560 },
     });
     expect(game.player.skills).toEqual(['sk-kazoe-giri']);
     expect(game.learning.grade).toBe(2);

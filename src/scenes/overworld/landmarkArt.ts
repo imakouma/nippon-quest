@@ -12,8 +12,8 @@
  *  恐山：sanmon 山門（3×1、48×44）・jizo お地蔵さま（1×1、16×20）・kazaguruma 風車（1×1、16×24）・tsumi 積み石（1×1、16×16）
  *  大間：maguroZo マグロの 像（3×2、48×40）・saihokutan 本州最北端の 碑（2×1、32×32）
  */
-import { makeGrid, outline, put, toCanvas, type Grid } from '../art/grid';
-import { NQ } from '../art/palette';
+import { makeGrid, outline, put, toCanvas, type Grid } from '../../rendering/grid';
+import { NQ } from '../../rendering/palette';
 
 type Rect = (x: number, y: number, w: number, h: number, col: string) => void;
 

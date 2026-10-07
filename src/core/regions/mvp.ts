@@ -18,6 +18,7 @@ export interface MvpRegion {
   subjects: Subject[];
   startArea: string;
   startMap: string;
+  startPosition: { x: number; y: number };
   initialSkill: string;
   starters: MvpStarter[];
 }
@@ -31,6 +32,7 @@ export const MVP_REGIONS: readonly MvpRegion[] = [
     subjects: ['kokugo', 'seikatsu'],
     startArea: 'aomori',
     startMap: 'aomori-field',
+    startPosition: { x: 976, y: 1104 },
     initialSkill: 'sk-hinoko',
     starters: [
       { id: 'aomori-nebutan', name: 'ネブタン', element: 'hino', mark: '炎', subject: 'kokugo' },
@@ -46,6 +48,7 @@ export const MVP_REGIONS: readonly MvpRegion[] = [
     subjects: ['sansu'],
     startArea: 'niigata',
     startMap: 'niigata-field',
+    startPosition: { x: 880, y: 560 },
     initialSkill: 'sk-kazoe-giri',
     starters: [
       { id: 'niigata-hisui-koro', name: 'ヒスイコロ', element: 'tsuchi', mark: '数', subject: 'sansu' },

@@ -21,11 +21,11 @@
  */
 import type Phaser from 'phaser';
 import type { Element } from '../../core/content/schemas';
-import { addImage } from '../art/sheet';
+import { addImage } from '../../rendering/sheet';
 import { PIXEL_FONT } from '../../ui/fonts';
-import { fxArt, type FxKind } from './fxArt';
-import type { SkillLook } from './skillLook';
-import { BACKDROP_SCALE, ELEMENT_FX } from './pixelArt';
+import { fxArt, type FxKind } from '../../rendering/battle/fxArt';
+import type { SkillLook } from '../../rendering/battle/skillLook';
+import { BACKDROP_SCALE, ELEMENT_FX } from '../../rendering/battle/pixelArt';
 
 const S = BACKDROP_SCALE;
 /** '#rrggbb' → 0xrrggbb */

@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { lookup, type I18nDict } from '../../src/ui/i18n';
-import { skillLook, subjectFxKey, unitFxKey } from '../../src/scenes/battle/skillLook';
+import { skillLook, subjectFxKey, unitFxKey } from '../../src/rendering/battle/skillLook';
 
 const ja = JSON.parse(
   readFileSync(new URL('../../content/i18n/ja.json', import.meta.url), 'utf8'),
@@ -66,7 +66,7 @@ describe('技の 名前に あう 字', () => {
 
 describe('モンスターの モチーフの こうげき', () => {
   it('どの モンスターも、モチーフの 絵（名産の アイコン か 名所の 絵）が 出せる', async () => {
-    const { motifArtGrid } = await import('../../src/scenes/art/motifArt');
+    const { motifArtGrid } = await import('../../src/rendering/motifArt');
     const c = await content();
     const none: string[] = [];
     for (const m of c.monsters.values()) {

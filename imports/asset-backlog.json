@@ -1,17 +1,17 @@
 {
-  "total": 601,
+  "total": 607,
   "byKind": {
     "motif": 498,
-    "character": 102,
+    "character": 108,
     "portrait": 1
   },
   "byArea": {
-    "aomori": 19,
-    "iwate": 14,
-    "miyagi": 13,
-    "akita": 13,
-    "yamagata": 13,
-    "fukushima": 14,
+    "aomori": 20,
+    "iwate": 15,
+    "miyagi": 14,
+    "akita": 14,
+    "yamagata": 14,
+    "fukushima": 15,
     "hokkaido": 20,
     "ibaraki": 12,
     "tochigi": 12,
@@ -65,6 +65,13 @@
     {
       "key": "char.npc-aomori-board",
       "path": "assets/sprites/characters/npc-aomori-board.png",
+      "kind": "character",
+      "area": "aomori",
+      "priority": 1
+    },
+    {
+      "key": "char.npc-aomori-dex",
+      "path": "assets/sprites/characters/npc-aomori-dex.png",
       "kind": "character",
       "area": "aomori",
       "priority": 1
@@ -212,6 +219,13 @@
       "priority": 1
     },
     {
+      "key": "char.npc-aomori-dex",
+      "path": "assets/sprites/characters/npc-aomori-dex.png",
+      "kind": "character",
+      "area": "aomori",
+      "priority": 1
+    },
+    {
       "key": "char.npc-aomori-inn",
       "path": "assets/sprites/characters/npc-aomori-inn.png",
       "kind": "character",
@@ -324,6 +338,13 @@
       "priority": 1
     },
     {
+      "key": "char.npc-aomori-dex",
+      "path": "assets/sprites/characters/npc-aomori-dex.png",
+      "kind": "character",
+      "area": "iwate",
+      "priority": 2
+    },
+    {
       "key": "char.npc-iwate-shop",
       "path": "assets/sprites/characters/npc-iwate-shop.png",
       "kind": "character",
@@ -419,6 +440,13 @@
       "path": "assets/motifs/iwate/wanko.png",
       "kind": "motif",
       "area": "iwate",
+      "priority": 2
+    },
+    {
+      "key": "char.npc-aomori-dex",
+      "path": "assets/sprites/characters/npc-aomori-dex.png",
+      "kind": "character",
+      "area": "miyagi",
       "priority": 2
     },
     {
@@ -527,6 +555,13 @@
       "priority": 2
     },
     {
+      "key": "char.npc-aomori-dex",
+      "path": "assets/sprites/characters/npc-aomori-dex.png",
+      "kind": "character",
+      "area": "akita",
+      "priority": 2
+    },
+    {
       "key": "motif.akita.akita-inu",
       "path": "assets/motifs/akita/akita-inu.png",
       "kind": "motif",
@@ -601,6 +636,13 @@
       "path": "assets/motifs/akita/tazawako.png",
       "kind": "motif",
       "area": "akita",
+      "priority": 2
+    },
+    {
+      "key": "char.npc-aomori-dex",
+      "path": "assets/sprites/characters/npc-aomori-dex.png",
+      "kind": "character",
+      "area": "yamagata",
       "priority": 2
     },
     {
@@ -692,6 +734,13 @@
       "path": "assets/motifs/yamagata/zao.png",
       "kind": "motif",
       "area": "yamagata",
+      "priority": 2
+    },
+    {
+      "key": "char.npc-aomori-dex",
+      "path": "assets/sprites/characters/npc-aomori-dex.png",
+      "kind": "character",
+      "area": "fukushima",
       "priority": 2
     },
     {

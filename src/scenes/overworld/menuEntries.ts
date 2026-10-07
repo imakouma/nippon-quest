@@ -1,17 +1,58 @@
 import type { ContentIndex } from '../../core/content/loader';
-import type { Item } from '../../core/content/schemas';
+import type { Item, Monster, Motif } from '../../core/content/schemas';
 import { canUse, EQUIP_SLOTS, isEquip } from '../../core/progression/inventory';
 import type { GameState } from '../../core/state/schema';
 import type { QuestionBank } from '../../questions/engine';
-import type { MenuEntry, MenuTab } from '../../shared/menuModel';
+import type { MenuEntry, MenuHomeKey, MenuTab } from '../../shared/menuModel';
 import { t } from '../../ui/i18n';
-import { itemIconUrl } from '../art/itemIcons';
+import { itemIconUrl } from '../../rendering/itemIcons';
+import { stripRuby } from '../../ui/ruby';
+import { monsterCatalog, specialtyCatalog } from './catalogs';
 
 type HeroStats = { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
 type MenuView = { entries: MenuEntry[]; summary?: string; empty: string };
+type HeroLook = GameState['player']['appearance'];
+
+const MOTIF_KIND_KEY: Record<Motif['kind'], string> = {
+  landmark: 'field.motifLandmark',
+  food: 'field.motifFood',
+  craft: 'field.motifCraft',
+  nature: 'field.motifNature',
+  festival: 'field.motifFestival',
+  history: 'field.motifHistory',
+};
+
+export const motifKindLabelKey = (kind: Motif['kind']): string => MOTIF_KIND_KEY[kind];
+
+const STAT_LABELS: Readonly<Record<string, string>> = {
+  hp: 'field.statHp',
+  atk: 'field.statAtk',
+  def: 'field.statDef',
+  spd: 'field.statSpd',
+  wis: 'field.statWis',
+};
+
+export function itemStatText(item: Item): string {
+  return Object.entries(item.stats ?? {})
+    .map(([key, value]) => `${STAT_LABELS[key] ? t(STAT_LABELS[key]) : key.toUpperCase()}+${value}`)
+    .join('　');
+}
+
+export function itemKindLabel(item: Item): string {
+  if (item.kind === 'consumable') return t('field.itemKindTool');
+  if (item.kind === 'material') return t('field.itemKindMaterial');
+  if (item.kind === 'key') return t('field.itemKindKey');
+  return t('field.itemKindEquip', { slot: t(`slots.${item.kind}`) });
+}
+
+const LOOK_PARTS: readonly { part: keyof HeroLook; key: string }[] = [
+  { part: 'hair', key: 'lookHair' },
+  { part: 'skin', key: 'lookSkin' },
+  { part: 'cloth', key: 'lookCloth' },
+];
 
 export function menuTabs(mistakeCount: number): {
-  key: MenuTab;
+  key: MenuHomeKey;
   label: string;
   icon: string;
   count?: string;
@@ -27,6 +68,7 @@ export function menuTabs(mistakeCount: number): {
     },
     { key: 'monsters', label: t('field.tabMonsters'), group: t('field.dexGroup'), icon: 'boss' },
     { key: 'specialties', label: t('field.tabSpecialties'), group: t('field.dexGroup'), icon: 'star' },
+    { key: 'party', label: t('field.party'), icon: 'cmd-item' },
     { key: 'bag', label: t('field.tabBag'), icon: 'role-shop' },
     { key: 'equip', label: t('field.tabEquip'), icon: 'role-smith' },
     { key: 'look', label: t('field.tabLook'), icon: 'hero' },
@@ -134,4 +176,108 @@ export function equipmentMenu(
     }),
     empty: t('field.dexEmpty'),
   };
+}
+
+export interface MenuViewInput {
+  content: ContentIndex;
+  game: GameState;
+  tab: MenuTab;
+  stats: HeroStats;
+  revealAll: boolean;
+  bank?: QuestionBank;
+  heroArt: (look: HeroLook) => string;
+  monsterArt: (monster: Monster) => string;
+}
+
+/** Scene状態を参照せず、フィールドメニューの表示モデルを組み立てる。 */
+export function buildMenuView(input: MenuViewInput): MenuView {
+  const { content, game, tab, stats } = input;
+  const unknown = t('field.dexUnknown');
+  const areaName = (id: string) => content.areas.get(id)?.name ?? unknown;
+
+  if (tab === 'roadmap') return { entries: [], empty: '' };
+  if (tab === 'mistakes') return mistakeMenu(content, game, input.bank);
+
+  if (tab === 'monsters') {
+    const owned = new Set(game.party.owned.map((entry) => entry.monsterId));
+    const monsters = monsterCatalog(content, game, input.revealAll);
+    const entries = monsters.map(({ m, known }, index): MenuEntry => {
+      const art = input.monsterArt(m);
+      const area = t('field.dexArea', { area: areaName(m.area) });
+      return {
+        key: m.id,
+        name: known ? m.name : unknown,
+        icon: art,
+        art,
+        known,
+        right: t('field.dexNo', { n: String(index + 1).padStart(3, '0') }),
+        detailIndex: `${index + 1}/${monsters.length}`,
+        tag: owned.has(m.id) ? t('field.dexOwned') : undefined,
+        sub: known ? t(`elements.${m.element}`) : undefined,
+        lines: known
+          ? [
+              area,
+              m.weakness
+                ? t('field.dexWeak', { el: t(`elements.${m.weakness}`) })
+                : t('battle.weaknessUnknown'),
+            ]
+          : [area, t('field.dexNotSeen')],
+        blurb: known ? m.dexBlurb : undefined,
+        action: null,
+      };
+    });
+    return { entries, empty: t('field.dexEmpty') };
+  }
+
+  if (tab === 'specialties') {
+    const specialties = specialtyCatalog(content, game, input.revealAll);
+    const entries = specialties.map(({ area, motif, itemId, item, known }, index): MenuEntry => ({
+      key: itemId,
+      name: known ? motif.name : unknown,
+      icon: item ? itemIconUrl(item) : undefined,
+      known,
+      right: stripRuby(area.name, 'kana'),
+      detailIndex: `${index + 1}/${specialties.length}`,
+      sub: t(motifKindLabelKey(motif.kind)),
+      lines: known
+        ? [
+            t('field.dexFrom', { area: area.name }),
+            ...(item?.use?.heal ? [t('field.bagHeal', { n: item.use.heal })] : []),
+            t('field.townHave', { n: game.inventory[itemId] ?? 0 }),
+          ]
+        : [t('field.dexFrom', { area: area.name }), t('field.dexNotFound')],
+      blurb: known ? motif.blurb : undefined,
+      action: null,
+    }));
+    return { entries, empty: t('field.dexEmpty') };
+  }
+
+  if (tab === 'bag') return bagMenu(content, game, stats, itemStatText, itemKindLabel);
+
+  if (tab === 'look') {
+    const appearance = game.player.appearance;
+    const entries = LOOK_PARTS.flatMap(({ part, key }) =>
+      t(`field.${key}Names`)
+        .split(',')
+        .map((name, index): MenuEntry => {
+          const look = { ...appearance, [part]: index };
+          const selected = appearance[part] === index;
+          const art = input.heroArt(look);
+          return {
+            key: `look:${part}:${index}`,
+            name: t('field.lookName', { part: t(`field.${key}`), name }),
+            icon: art,
+            art,
+            known: true,
+            tag: selected ? t('field.lookNow') : undefined,
+            sub: t('field.lookSub', { part: t(`field.${key}`) }),
+            lines: [],
+            action: { label: t('field.lookPick'), ok: !selected },
+          };
+        }),
+    );
+    return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
+  }
+
+  return equipmentMenu(content, game, stats, itemStatText);
 }

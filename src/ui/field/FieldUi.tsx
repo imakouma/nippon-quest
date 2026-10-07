@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
-import { RegionMiniMap, type RegionMiniView } from './AreaMap';
+import { RegionMiniMap, type RegionMiniView } from './RegionMiniMap';
 import './field.css';
 
 export interface FieldHudProps {
@@ -17,16 +17,11 @@ export interface FieldHudProps {
   map: RegionMiniView | null;
   mapLabel: string;
   onAreaMap: () => void;
-  /** チーム編成（なかま）の画面をひらく */
-  partyLabel: string;
-  onParty: () => void;
   /** メニュー（ずかん・どうぐ・そうび）を ひらく */
   menuLabel: string;
   onMenu: () => void;
   /** 開発者モード（ぜんぶの 場所へ ワープ）。開発サーバーか ?dev のときだけ ボタンを出す */
   dev?: { label: string; on: boolean; onToggle: () => void };
-  /** 止まっている（左上の 窓を 出す）。歩いている あいだは かくして、地図を 広く 見せる */
-  idle?: boolean;
 }
 
 export function FieldHud({
@@ -37,16 +32,13 @@ export function FieldHud({
   map,
   mapLabel,
   onAreaMap,
-  partyLabel,
-  onParty,
   menuLabel,
   onMenu,
   dev,
-  idle = true,
 }: FieldHudProps) {
   return (
     <div class="nq-fhud">
-      <div class={`nq-win nq-fhud-loc ${idle ? '' : 'nq-fhud-away'}`}>
+      <div class="nq-win nq-fhud-loc">
         <div class="nq-fhud-row">
           <RubyLabel text={title} class="nq-fhud-title" />
           <RubyLabel text={sub} class="nq-fhud-sub" />
@@ -74,10 +66,6 @@ export function FieldHud({
         <button type="button" class="nq-win nq-fhud-btn" onClick={onMenu}>
           <PixelIcon name="role-shop" scale={3} />
           {menuLabel}
-        </button>
-        <button type="button" class="nq-win nq-fhud-btn" onClick={onParty}>
-          <PixelIcon name="cmd-item" scale={3} />
-          {partyLabel}
         </button>
         {/* にほんちずは 左上の地図（ひらいた地図の「にほんちず」ボタン）から */}
       </div>

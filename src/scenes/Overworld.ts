@@ -60,7 +60,6 @@ import {
   shopStock,
   buyItem,
   villagerGift,
-  villagerMotif,
   type MissionStatus,
 } from '../core/progression/town';
 import {
@@ -84,15 +83,9 @@ import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
 import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
 import { ENCLAVES } from '../../scripts/data/prefectures';
-import { DialogueOverlay, type DialogueLine } from '../ui/dialogue';
-import { HeroIdentitySetup, type HeroIdentity } from '../ui/title/HeroIdentitySetup';
-import {
-  AreaMapOverlay,
-  type AreaMark,
-  type AreaMapView,
-  type PlaceOption,
-  type RegionMiniView,
-} from '../ui/field/AreaMap';
+import type { DialogueLine } from '../ui/dialogue';
+import { AreaMapOverlay, type AreaMapView } from '../ui/field/AreaMap';
+import type { RegionMiniView } from '../ui/field/RegionMiniMap';
 import { AreaTitle, FieldHud, LandmarkCutin } from '../ui/field/FieldUi';
 import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
 import { bagCells } from '../ui/field/bagLayout';
@@ -100,11 +93,10 @@ import { TownOverlay, type TownOverlayProps, type TownRow } from '../ui/field/To
 import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
 import { WorldMapOverlay, type MapRegionInfo, type WorldMapData } from '../ui/field/WorldMapOverlay';
-import { t } from '../ui/i18n';
+import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { QuestionFrame } from '../ui/QuestionFrame';
 import { stripRuby } from '../ui/ruby';
-import { regionMapTile } from '../shared/regionVisibility';
 import { playSfx } from '../ui/sfx';
 import {
   CHAR_H,
@@ -119,47 +111,57 @@ import {
   walkFrame,
   walkSheet,
   type Dir,
-} from './art/characters';
-import { itemIconUrl } from './art/itemIcons';
+} from '../rendering/characters';
+import { itemIconUrl } from '../rendering/itemIcons';
 import { giveMeisan, meisanEarned } from '../core/progression/meisan';
-import { motifArtUrl } from './art/motifArt';
-import { monsterMenuArtUrl } from './art/menuArt';
-import { NQ } from './art/palette';
-import { addSheet } from './art/sheet';
-import type { BattleEndPayload, BattleSceneData } from './Battle';
-import { buildFieldTextures, WARP_FRAMES } from './overworld/fieldArt';
-import { overworldView } from './overworld/overworldView';
-import { startWaterAnimation } from './overworld/waterAnimation';
-import { buildViewTexture } from './overworld/viewTiles';
-import { buildEntranceIcons, entranceIconScale } from './overworld/entranceIcons';
-import { GEOGRAPHIC_AREA_ORDER } from './overworld/geography';
+import { motifArtUrl } from '../rendering/motifArt';
+import { monsterMenuArtUrl } from '../rendering/menuArt';
+import { addSheet } from '../rendering/sheet';
+import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
+import { buildFieldTextures, WARP_FRAMES } from '../rendering/overworld/fieldArt';
+import { overworldView } from '../rendering/overworld/overworldView';
+import { buildViewTexture } from '../rendering/overworld/viewTiles';
+import { buildEntranceIcons } from '../rendering/overworld/entranceIcons';
+import {
+  areaMapView,
+  mapPlaces,
+  mapBaseFromTiled,
+  parseRegionPartition,
+  regionMiniMapView,
+  visitedAreaIds,
+  worldMapRegionViews,
+  type MapBase,
+  type MapPlace,
+  type TiledMapSource,
+} from './overworld/mapModels';
 import { buildRoadmapNodes } from './overworld/roadmap';
-import { bagMenu, equipmentMenu, menuTabs, mistakeMenu } from './overworld/menuEntries';
+import { buildMenuView, itemStatText, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
+import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { buildReviewQueue } from './overworld/reviewQueue';
-import { buildWorldMapRegions } from './overworld/worldMapRegions';
-import { buildStructureArt, structureKey, type StructureKind } from './overworld/structureArt';
+import { dispatchMapObjects } from './overworld/objectDispatch';
+import { npcModel } from './overworld/npcModel';
+import { chestModel, specialtyChestModel } from './overworld/chestModel';
+import { movementDecision } from './overworld/movementDecision';
+import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
-import { scopeQueryToGrade } from '../questions/engine/gradeScope';
+import { runArrivalStory, runCompanionRite } from './overworld/storyFlow';
+import { presentDialogue } from './overworld/dialogueFlow';
+import { currentMichiruGuideKey, type MichiruGuideKey } from './overworld/michiruGuide';
+import { createMichiruFollower, positionMichiruFollower } from './overworld/michiruFollower';
+import { fieldPlaceName } from './overworld/placeName';
 
 const TILE = 16;
 const STEP_MS = 160;
 /** 3 倍（1 マス 48px。見える はんいを しぼって、ドラクエのように 1 つ 1 つを 大きく） */
 const ZOOM = 3;
-/** 止まってから 左上の 窓（場所の名前・★・小さな地図）が 出るまで */
-const HUD_IDLE_MS = 700;
 /** 人物の絵（16×24）の中で、マスの中心にあたる高さ（足もとがマスの下のふちに来る） */
 const FEET_ORIGIN_Y = 16 / CHAR_H;
 const DELTA: Record<Dir, [number, number]> = { down: [0, 1], left: [-1, 0], right: [1, 0], up: [0, -1] };
-/** collision レイヤーでこの番号のマスは通れない（scripts/scaffold-maps.ts） */
 const BLOCK_TILE = 3;
-/** background の 水（海・湖）の タイル */
 const WATER_TILE = 3;
-/** 名所に「着いた」とみなす範囲（まわり 1 マス） */
 const TRIGGER_RADIUS = 1;
 /** にほんちずの地図データ（scripts/scaffold-maps.ts が public/worldmap.json に作る）の cache キー */
 const WORLD_MAP_KEY = 'worldmap';
-/** 新しく始めたデータだけで青森の導入を一度表示する。既存セーブへ突然割り込ませない。 */
-const PROLOGUE_COUNTER = 'story.prologue';
 /** 特産品（イベントの無い たべもの・こうげいひん）は ★ 看板ではなく宝箱（scripts/scaffold-maps.ts） */
 /** みため タブの 部位（GameState.player.appearance の キー と 文言の キー） */
 type HeroLookIndex = GameState['player']['appearance'];
@@ -168,16 +170,6 @@ const LOOK_PARTS: readonly { part: 'hair' | 'skin' | 'cloth'; key: string }[] = 
   { part: 'skin', key: 'lookSkin' },
   { part: 'cloth', key: 'lookCloth' },
 ];
-
-const SPECIALTY_KINDS: ReadonlySet<Motif['kind']> = new Set(['food', 'craft']);
-const MOTIF_KIND_KEY: Record<Motif['kind'], string> = {
-  landmark: 'field.motifLandmark',
-  food: 'field.motifFood',
-  craft: 'field.motifCraft',
-  nature: 'field.motifNature',
-  festival: 'field.motifFestival',
-  history: 'field.motifHistory',
-};
 
 interface DebugBattle {
   enemyId: string;
@@ -204,48 +196,16 @@ interface TiledProperty {
 
 type TiledObject = Phaser.Types.Tilemaps.TiledObject;
 
-/** cache に入っている Tiled JSON のうち、地図に使うところ */
-interface RawTiledMap {
-  width: number;
-  height: number;
-  layers: { name: string; data?: number[]; objects?: TiledObject[] }[];
-  properties?: { name: string; value: unknown }[];
-}
-
-/** 名所エリア（マップの regions プロパティ）：エリアの id と マスごとの 文字（a, b, …。'.' は 海・さかい） */
-interface RegionGrid {
-  ids: string[];
-  rows: string[];
-}
-
-const regionGridOf = (props: unknown): RegionGrid | null => {
-  if (!Array.isArray(props)) return null;
-  const raw = (props as { name: string; value: unknown }[]).find((p) => p.name === 'regions')?.value;
-  return typeof raw === 'string' ? (JSON.parse(raw) as RegionGrid) : null;
-};
-
 /** 地図に出すマップ（県のフィールド。島にいるときは その島） */
-interface BaseMap {
+interface BaseMap extends MapBase {
   key: string;
   /** 地図の名前（RubyText） */
   name: string;
   width: number;
   height: number;
-  tiles: number[];
+  tiles: readonly number[];
   objects: TiledObject[];
-  /** 名所エリア（ある マップだけ） */
-  regions: RegionGrid | null;
-  /** 陸（海以外）のタイルの範囲 [x0, y0, x1, y1] */
-  land: [number, number, number, number] | null;
 }
-
-/** ワープ先。PlaceOption（画面に出す分）＋ 行き先 */
-interface Place extends PlaceOption {
-  map: string;
-  spawn: string;
-  tile?: [number, number];
-}
-type MapKind = 'field' | 'town' | 'dungeon' | 'enclave' | 'secret';
 type RootName = 'hud' | 'title' | 'fx' | 'dialogue' | 'travel';
 
 interface FieldTrigger {
@@ -315,26 +275,6 @@ interface Sign {
   refresh: () => void;
 }
 
-/** content に 名前の無い お店の人は、役わりの名前で よぶ */
-const ROLE_NAME_KEYS: Record<string, string> = {
-  shop: 'field.roleShop',
-  inn: 'field.roleInn',
-  smith: 'field.roleSmith',
-  board: 'field.roleBoard',
-  dex: 'field.roleDex',
-  arena: 'field.roleArena',
-  ferry: 'field.roleFerry',
-};
-
-/** 町の人（talk）の しごとの名前。はなす モチーフの しゅるいで きまる */
-const JOB_NAME_KEYS: Record<Motif['kind'], string> = {
-  food: 'field.jobFood',
-  craft: 'field.jobCraft',
-  landmark: 'field.jobLandmark',
-  nature: 'field.jobNature',
-  festival: 'field.jobFestival',
-  history: 'field.jobHistory',
-};
 /** 開発者モード（ぜんぶの 場所へ ワープ）の しるし。セーブの progress.counters に 1 */
 const DEV_ALL_KEY = 'dev:all';
 /** たいせんじょうで かったときの しょうきん（ふつうの ごほうびの ほかに） */
@@ -354,6 +294,7 @@ export class OverworldScene extends Phaser.Scene {
   private colLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   private player!: Phaser.GameObjects.Sprite;
   private shadow!: Phaser.GameObjects.Image;
+  private michiru!: Phaser.GameObjects.Sprite;
   private heroTex = '';
   private facing: Dir = 'down';
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -390,9 +331,6 @@ export class OverworldScene extends Phaser.Scene {
   private pendingRegionBoss: RegionBoss | null = null;
   private pendingIslandBoss: string | null = null;
   /** ダンジョンの おくに いる 県ボス（中ボスと同じ「？」マーク） */
-  /** 止まっているか（左上の 窓を 出す）。歩きだすと かくし、HUD_IDLE_MS 止まると 出す */
-  private hudIdle = true;
-  private hudIdleTimer: Phaser.Time.TimerEvent | null = null;
   /** 裏ステージの ラスボス（歴史上の 人物） */
   private lastBoss: MidBoss | null = null;
   private pendingLastBoss = false;
@@ -464,10 +402,10 @@ export class OverworldScene extends Phaser.Scene {
     const objects = this.map.getObjectLayer('objects');
     const [sx, sy] = this.findSpawn(objects);
     this.createHero(sx, sy);
+    this.createMichiru();
     this.setupObjects(objects);
     // はじめに いる 名所エリア（名前は 出さない。HUD の 場所の 窓に 出る）
     this.enterRegion(sx, sy);
-    this.buildFog();
     this.insideTrigger = this.triggers.get(this.idx(sx, sy))?.id ?? null;
 
     const cam = this.cameras.main;
@@ -587,6 +525,12 @@ export class OverworldScene extends Phaser.Scene {
     this.player.setDepth(y);
   }
 
+  private createMichiru(): void {
+    this.michiru = createMichiruFollower(this, this.player, () => {
+      void this.openMichiruGuide(this.michiruGuideKey());
+    });
+  }
+
   /**
    * 主人公の 歩行シート（見た目 と 着ている めいさんひんの そうびで きまる）を 用意して キーを かえす。
    * ap を わたすと その 見た目の 見本（みため タブ）
@@ -637,8 +581,6 @@ export class OverworldScene extends Phaser.Scene {
       this.wasd = kb.addKeys('W,A,S,D') as Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
       for (const ev of ['keydown-SPACE', 'keydown-ENTER', 'keydown-Z']) kb.on(ev, () => this.interact());
       kb.on('keydown-M', () => this.openAreaMap());
-      kb.on('keydown-P', () => this.openBag());
-      kb.on('keydown-B', () => this.openBag());
       kb.on('keydown-I', () => this.openMenu());
     }
     // タップ：主人公のすぐ近くなら「しらべる」。はなれた所をおしっぱなしにすると、その方向へ歩く（update）
@@ -667,79 +609,75 @@ export class OverworldScene extends Phaser.Scene {
     return null;
   }
 
-  override update(): void {
+  override update(time: number): void {
     if (!this.player?.active) return;
     this.player.setDepth(this.player.y);
     this.shadow.setPosition(this.player.x, this.player.y + 6);
+    if (this.michiru?.active) positionMichiruFollower(this.michiru, this.player, this.facing, time);
     if (this.inBattle || this.busy || this.moving) return;
     const dir = this.readDir();
     if (this.waitRelease) {
       // 会話を閉じたキーをおしたままでも、すぐに次の会話が始まらないように、いちど はなすまで待つ
       if (dir) return;
       this.waitRelease = false;
+      this.game.canvas.dataset.inputReady = 'true';
     }
     if (!dir) {
       this.standStill();
       return;
     }
     this.face(dir);
-    const [x, y] = this.playerTile();
-    const nx = x + DELTA[dir][0];
-    const ny = y + DELTA[dir][1];
-    if (!this.inside(nx, ny)) {
-      this.standStill();
-      return;
+    const decision = movementDecision({
+      from: this.playerTile(),
+      delta: DELTA[dir],
+      inside: (x, y) => this.inside(x, y),
+      indexOf: (x, y) => this.idx(x, y),
+      midBossTile: this.midBoss?.tile ?? null,
+      regionBossAt: (index) => this.regionBosses.get(index),
+      gateAt: (index) => this.regionGates.get(index),
+      gateOpen: (gate) => this.gateOpen(gate),
+      areaBossTile: this.areaBoss?.tile ?? null,
+      lastBossTile: this.lastBoss?.tile ?? null,
+      blocked: (x, y) => this.isBlocked(x, y),
+    });
+    this.game.canvas.dataset.lastMovement = decision.kind;
+    switch (decision.kind) {
+      case 'stand':
+        this.standStill();
+        return;
+      case 'midboss':
+        this.standStill();
+        void this.confrontMidBoss();
+        return;
+      case 'regionBoss':
+        this.standStill();
+        void this.confrontRegionBoss(decision.boss);
+        return;
+      case 'lockedGate':
+        void this.talkGateLocked(decision.gate);
+        return;
+      case 'areaBoss':
+        this.standStill();
+        void this.confrontAreaBoss();
+        return;
+      case 'lastBoss':
+        this.standStill();
+        void this.confrontLastBoss();
+        return;
+      case 'blocked':
+        this.standStill();
+        if (this.time.now - this.lastBump > 300) {
+          this.lastBump = this.time.now;
+          playSfx('bump');
+        }
+        return;
+      case 'move':
+        this.walkTo(decision.x, decision.y);
     }
-    if (this.midBoss && this.idx(nx, ny) === this.midBoss.tile) {
-      this.standStill();
-      void this.confrontMidBoss();
-      return;
-    }
-    const rb = this.regionBosses.get(this.idx(nx, ny));
-    if (rb) {
-      this.standStill();
-      void this.confrontRegionBoss(rb);
-      return;
-    }
-    const gate = this.regionGates.get(this.idx(nx, ny));
-    if (gate && !this.gateOpen(gate)) {
-      void this.talkGateLocked(gate);
-      return;
-    }
-    if (this.areaBoss && this.idx(nx, ny) === this.areaBoss.tile) {
-      this.standStill();
-      void this.confrontAreaBoss();
-      return;
-    }
-    if (this.lastBoss && this.idx(nx, ny) === this.lastBoss.tile) {
-      this.standStill();
-      void this.confrontLastBoss();
-      return;
-    }
-    if (this.isBlocked(nx, ny)) {
-      this.standStill();
-      if (this.time.now - this.lastBump > 300) {
-        this.lastBump = this.time.now;
-        playSfx('bump');
-      }
-      return;
-    }
-    this.walkTo(nx, ny);
   }
 
   private walkTo(nx: number, ny: number): void {
     this.moving = true;
-    // 歩いている あいだは 左上の 窓を かくす（止まると 出る。ドラクエの 窓のように）
-    this.hudIdleTimer?.remove();
-    if (this.hudIdle) {
-      this.hudIdle = false;
-      this.renderHud();
-    }
-    this.hudIdleTimer = this.time.delayedCall(HUD_IDLE_MS, () => {
-      if (this.moving) return;
-      this.hudIdle = true;
-      this.renderHud();
-    });
     this.player.anims.play(`${this.heroTex}:${this.facing}`, true);
     this.tweens.add({
       targets: this.player,
@@ -749,6 +687,7 @@ export class OverworldScene extends Phaser.Scene {
       onComplete: () => {
         this.moving = false;
         this.stepCount++;
+        this.rememberLocation(nx, ny);
         this.renderHud(); // 左上の地図の主人公を動かす
         this.arrive(nx, ny);
       },
@@ -844,10 +783,6 @@ export class OverworldScene extends Phaser.Scene {
     }
   }
 
-  /**
-   * フィールド・離島の 見た目（ドラクエのような すっきりした 地図）：background の 上に 見た目だけの レイヤーを しく。
-   * 海の 波・ひとかたまりの 森・山なみ・つなぎめの ない 草原や 田んぼ（overworld/overworldView.ts・viewTiles.ts）
-   */
   /** 入口の しるし：フィールドでは 行き先の 絵（町・どうくつ・お城・港）、町・ダンジョンの 中の 出口は 光る 床 */
   private gateIcon(target: string): string {
     if (this.kind() !== 'field' && this.kind() !== 'enclave') return 'fld.gate';
@@ -876,57 +811,30 @@ export class OverworldScene extends Phaser.Scene {
     const rows: number[][] = [];
     for (let y = 0; y < h; y++) rows.push(ids.slice(y * w, (y + 1) * w));
     layer.putTilesAt(rows, 0, 0);
-    startWaterAnimation(this, layer);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => vmap.destroy());
   }
+
   // ───────────────────────── マップの物体 ─────────────────────────
 
   private setupObjects(layer: Phaser.Tilemaps.ObjectLayer | null): void {
     const area = this.currentArea();
-    this.readRegions();
-    for (const obj of layer?.objects ?? []) {
-      const tx = Math.floor((obj.x ?? 0) / TILE);
-      const ty = Math.floor((obj.y ?? 0) / TILE);
-      switch (obj.type) {
-        case 'transition':
-          this.addTransition(obj, tx, ty);
-          break;
-        case 'npc':
-          this.addNpc(obj, tx, ty, area);
-          break;
-        case 'chest':
-          this.addChest(obj, tx, ty);
-          break;
-        case 'midboss':
-          this.addMidBoss(tx, ty, area);
-          break;
-        case 'regionGate':
-          this.addRegionGate(obj, tx, ty);
-          break;
-        case 'structure':
-          this.addStructure(obj, tx, ty);
-          break;
-        case 'regionBoss':
-          this.addRegionBoss(obj, tx, ty, area);
-          break;
-        case 'boss':
-          this.addAreaBoss(tx, ty, area);
-          break;
-        case 'lastboss':
-          this.addLastBoss(tx, ty, area);
-          break;
-        case 'event':
-          this.addEvent(obj, tx, ty, area);
-          break;
-        case 'landmark':
-          this.addLandmark(obj, tx, ty, area);
-          break;
-        case 'specialty':
-          this.addSpecialty(obj, tx, ty, area);
-          break;
-      }
-    }
+    dispatchMapObjects(layer?.objects ?? [], {
+      beforeAll: () => this.readRegions(),
+      transition: (object, x, y) => this.addTransition(object, x, y),
+      npc: (object, x, y) => this.addNpc(object, x, y, area),
+      chest: (object, x, y) => this.addChest(object, x, y),
+      midboss: (_object, x, y) => this.addMidBoss(x, y, area),
+      regionGate: (object, x, y) => this.addRegionGate(object, x, y),
+      structure: (object, x, y) => this.addStructure(object, x, y),
+      regionBoss: (object, x, y) => this.addRegionBoss(object, x, y, area),
+      boss: (_object, x, y) => this.addAreaBoss(x, y, area),
+      lastboss: (_object, x, y) => this.addLastBoss(x, y, area),
+      event: (object, x, y) => this.addEvent(object, x, y, area),
+      landmark: (object, x, y) => this.addLandmark(object, x, y, area),
+      specialty: (object, x, y) => this.addSpecialty(object, x, y, area),
+    });
   }
+
   private addTransition(obj: TiledObject, tx: number, ty: number): void {
     const target = prop(obj, 'targetMap');
     if (typeof target !== 'string') return;
@@ -943,9 +851,12 @@ export class OverworldScene extends Phaser.Scene {
       this.transitions.set(i, { map: target, spawn });
       if (typeof lock === 'string') this.lockedGates.set(i, lock);
       const icon = this.gateIcon(target);
-      const pad = this.add.image((tx + k) * TILE + 8, ty * TILE + 8, icon).setDepth(ty * TILE);
-      const iconScale = entranceIconScale(target, prop(obj, 'iconScale'));
-      if (iconScale > 1) pad.setScale(iconScale).setOrigin(0.5, 0.75);
+      const isTown = icon === 'fld.icon.town';
+      const pad = this.add
+        .image((tx + k) * TILE + 8, (ty + 1) * TILE, icon)
+        .setOrigin(0.5, isTown ? 1 : 0.5)
+        .setDepth(isTown ? (ty + 1) * TILE - 1 : ty * TILE);
+      if (isTown) pad.setDisplaySize(TILE * 3, TILE * 3);
       // まだ ひらかない 入口（裏ステージ）は くらく、光らせない
       if (this.isLocked(i)) {
         pad.setTint(0x555566);
@@ -964,6 +875,7 @@ export class OverworldScene extends Phaser.Scene {
       });
     }
   }
+
   /** 県の フィールド → 離島、離島 → 県の フィールド の 入口か（離島の 中の 船は ちがう） */
   private isHarborGate(target: string): boolean {
     const k = this.kind();
@@ -1061,13 +973,8 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private addNpc(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
-    const role = String(prop(obj, 'role') ?? obj.name.replace(/^npc_/, ''));
-    const npcs = area?.town?.npcs ?? [];
-    // 町の人（talk）は 名前で、お店の人は 役わりでも さがす
-    const info =
-      npcs.find((n) => n.id === obj.name) ??
-      (role === 'talk' ? undefined : npcs.find((n) => n.role === role));
-    const r = info?.role ?? role;
+    const model = npcModel({ area, objectName: obj.name, objectRole: prop(obj, 'role'), text: t });
+    const r = model.role;
     const tex = `char.npc.${NPC_LOOKS[r] ? r : 'talk'}`;
     addSheet(this.textures, tex, walkSheet(NPC_LOOKS[r] ?? NPC_LOOKS.talk!), CHAR_W, CHAR_H);
     const x = tx * TILE + 8;
@@ -1082,10 +989,8 @@ export class OverworldScene extends Phaser.Scene {
     this.npcs.set(i, {
       key: obj.name,
       role: r,
-      name:
-        info?.name ??
-        (r === 'talk' ? this.villagerJob(area, obj.name) : t(ROLE_NAME_KEYS[r] ?? 'field.npcDefault')),
-      lines: info?.dialogue ?? this.villagerLines(area, obj.name),
+      name: model.name,
+      lines: model.lines,
       sprite,
     });
     // お店の かべの 看板（木の板に お店の アイコン）
@@ -1099,36 +1004,23 @@ export class OverworldScene extends Phaser.Scene {
     }
   }
 
-  /** content に せりふの無い 町の人：この県の 名所・特産品を ひとつ 教えてくれる（どれかは 名前の番号で決まる） */
-  private villagerLines(area: Area | undefined, name: string): DialogueLine[] {
-    const motif = villagerMotif(area, name);
-    if (!motif) return [{ text: t('field.villagerHello', { town: area?.town?.name ?? area?.name ?? '' }) }];
-    return [{ text: t('field.villagerTip', { name: motif.name }) }, { text: motif.blurb }];
-  }
-
-  /** 町の人の しごと（はなす 名所・特産品の しゅるいで きまる）。名前の かわりに よぶ */
-  private villagerJob(area: Area | undefined, name: string): string {
-    const kind = villagerMotif(area, name)?.kind;
-    return t(kind ? JOB_NAME_KEYS[kind] : 'field.npcDefault');
-  }
-
   private addChest(obj: TiledObject, tx: number, ty: number): void {
-    const key = `${this.mapKey}:${obj.name}`;
-    const opened = this.gs()?.progress.chestsOpened.includes(key) ?? false;
+    const model = chestModel({
+      mapKey: this.mapKey,
+      objectName: obj.name,
+      itemId: prop(obj, 'itemId'),
+      itemName: prop(obj, 'itemName'),
+      count: prop(obj, 'count'),
+      game: this.gs(),
+      items: this.content()?.items ?? new Map(),
+      fallbackName: t('field.chest'),
+    });
     const x = tx * TILE + 8;
     const y = ty * TILE + 8;
-    const sprite = this.add.image(x, y, opened ? 'fld.chest.open' : 'fld.chest').setDepth(y);
+    const sprite = this.add.image(x, y, model.opened ? 'fld.chest.open' : 'fld.chest').setDepth(y);
     const i = this.idx(tx, ty);
     this.blocked.add(i);
-    const itemId = String(prop(obj, 'itemId') ?? '');
-    this.chests.set(i, {
-      key,
-      itemId,
-      // 名前は content のアイテム（無ければ マップに書いた名前）
-      itemName: this.content()?.items.get(itemId)?.name ?? String(prop(obj, 'itemName') ?? t('field.chest')),
-      count: typeof prop(obj, 'count') === 'number' ? (prop(obj, 'count') as number) : 1,
-      sprite,
-    });
+    this.chests.set(i, { ...model, sprite });
   }
 
   /**
@@ -1136,25 +1028,22 @@ export class OverworldScene extends Phaser.Scene {
    * あけた特産品は 名所と同じく 図鑑（dex.motifs）にのり、にほんちずの数にも入る
    */
   private addSpecialty(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
-    const motif = area?.motifs.find((m) => m.id === prop(obj, 'motifId'));
-    if (!area || !motif) return;
-    const stamp = motifStamp(area.id, motif.id);
-    const opened = this.gs()?.dex.motifs.includes(stamp) ?? false;
+    const model = specialtyChestModel({
+      mapKey: this.mapKey,
+      objectName: obj.name,
+      motifId: prop(obj, 'motifId'),
+      area,
+      game: this.gs(),
+      items: this.content()?.items ?? new Map(),
+    });
+    if (!model) return;
     const x = tx * TILE + 8;
     const y = ty * TILE + 8;
-    const sprite = this.add.image(x, y, opened ? 'fld.chest.open' : 'fld.chest').setDepth(y);
+    const sprite = this.add.image(x, y, model.opened ? 'fld.chest.open' : 'fld.chest').setDepth(y);
     const i = this.idx(tx, ty);
     this.blocked.add(i);
-    const itemId = `${area.id}-${motif.id}`;
-    this.chests.set(i, {
-      key: `${this.mapKey}:${obj.name}`,
-      itemId,
-      itemName: this.content()?.items.get(itemId)?.name ?? motif.name,
-      count: 1,
-      sprite,
-      specialty: { area, motif, stamp },
-    });
-    this.stampIds.push(stamp);
+    this.chests.set(i, { ...model, sprite });
+    this.stampIds.push(model.specialty!.stamp);
   }
 
   /**
@@ -1174,142 +1063,21 @@ export class OverworldScene extends Phaser.Scene {
     buildStructureArt(this);
     if (!this.textures.exists(structureKey(kind))) return;
     const bottom = (ty + h) * TILE;
-    const img = this.add
+    this.add
       .image(tx * TILE, bottom, structureKey(kind))
       .setOrigin(0, 1)
       .setDepth(bottom);
-    // ひらいて いない エリアの 物は 見せない（海の 上の 船や、きりより 上に はみだす 高い 建物も）
-    const region = String(prop(obj, 'region') ?? '');
-    if (region) this.regionStructures.push({ img, region });
-  }
-
-  /** 名所エリアの 物（エリアが ひらくまで かくす） */
-  private regionStructures: { img: Phaser.GameObjects.Image; region: string }[] = [];
-
-  /** 行ける（ひらいた）名所エリア：さいしょの エリアと、ぬしを たおして ひらいた 関所の 両がわ。開発者モードは ぜんぶ */
-  private unlockedRegions(): Set<string> {
-    const area = this.currentArea();
-    const gs = this.gs();
-    const out = new Set<string>();
-    if (!area?.regions.length) return out;
-    if (this.devAll()) {
-      for (const r of area.regions) out.add(r.id);
-      return out;
-    }
-    for (const r of area.regions) if (r.start) out.add(r.id);
-    for (const g of area.regionGates)
-      if (gs?.progress.eventsDone.includes(regionBossFlag(area.id, g.openedBy)))
-        for (const id of g.between) out.add(id);
-    return out;
-  }
-
-  /**
-   * まだ ひらいて いない エリアの マス（画面でも 地図でも 見せない）。さかいの 山なみは、となりに ひらいた エリアが
-   * あれば 見せる（ひらいた エリアの ふちが わかるように）
-   */
-  private hiddenIn(grid: RegionGrid | null, open: Set<string>, x: number, y: number): boolean {
-    if (!grid) return false;
-    const idOf = (xx: number, yy: number) => {
-      const ch = grid.rows[yy]?.[xx];
-      return ch && ch !== '.' ? (grid.ids[ch.charCodeAt(0) - 97] ?? null) : null;
-    };
-    const id = idOf(x, y);
-    if (id) return !open.has(id);
-    if (!grid.rows[y]?.[x]) return false;
-    for (let dy = -1; dy <= 1; dy++)
-      for (let dx = -1; dx <= 1; dx++) {
-        const n = idOf(x + dx, y + dy);
-        if (n && open.has(n)) return false;
-      }
-    // まわりに エリアの 無い 海は かくさない（となりに 何か エリアが ある さかい だけ かくす）
-    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (idOf(x + dx, y + dy)) return true;
-    return false;
-  }
-
-  private visibleTiles(base: BaseMap): { tiles: number[]; sig: string } {
-    if (!base.regions) return { tiles: base.tiles, sig: '' };
-    const open = this.unlockedRegions();
-    const sig = [...open].sort().join(',');
-    const tiles = base.tiles.map((t, i) =>
-      regionMapTile(t, this.hiddenIn(base.regions, open, i % base.width, Math.floor(i / base.width))),
-    );
-    return { tiles, sig };
-  }
-
-  private fogLayer: Phaser.Tilemaps.TilemapLayer | null = null;
-
-  /** フィールドの きり：ひらいて いない エリアを くらい 雲で かくす（物・ボスも 見えない） */
-  private buildFog(): void {
-    this.fogLayer = null;
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => (this.regionStructures = []));
-    if (!this.regionRows.length) return;
-    if (!this.textures.exists('fld.fog')) {
-      const c = document.createElement('canvas');
-      c.width = 16;
-      c.height = 16;
-      const ctx = c.getContext('2d')!;
-      for (let y = 0; y < 16; y++)
-        for (let x = 0; x < 16; x++) {
-          const h = (x * 7 + y * 13) % 17;
-          ctx.fillStyle = h === 0 ? NQ.slate : h < 3 ? NQ.night : NQ.ink;
-          ctx.fillRect(x, y, 1, 1);
-        }
-      this.textures.addCanvas('fld.fog', c);
-    }
-    const w = this.map.width;
-    const h = this.map.height;
-    const fmap = this.make.tilemap({ tileWidth: TILE, tileHeight: TILE, width: w, height: h });
-    const ts = fmap.addTilesetImage('fld.fog', 'fld.fog', TILE, TILE, 0, 0, 0);
-    const layer = ts ? fmap.createBlankLayer('fog', ts, 0, 0) : null;
-    if (!layer) return;
-    layer.setDepth(9000);
-    this.fogLayer = layer;
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => fmap.destroy());
-    this.refreshFog(false);
-  }
-
-  /** きりを いまの ようすに。reveal＝ひらいた エリアの きりが すっと きえる */
-  private refreshFog(reveal: boolean): void {
-    const layer = this.fogLayer;
-    if (!layer) return;
-    const open = this.unlockedRegions();
-    for (const { img, region } of this.regionStructures) {
-      const show = open.has(region);
-      if (show && !img.visible && reveal) {
-        img.setVisible(true).setAlpha(0);
-        this.tweens.add({ targets: img, alpha: 1, duration: 900 });
-      } else img.setVisible(show);
-    }
-    const grid: RegionGrid = { ids: this.regionIds, rows: this.regionRows };
-    for (let y = 0; y < this.map.height; y++)
-      for (let x = 0; x < this.map.width; x++) {
-        const hide = this.hiddenIn(grid, open, x, y);
-        const has = layer.hasTileAt(x, y);
-        if (hide && !has) layer.putTileAt(0, x, y);
-        else if (!hide && has) {
-          if (!reveal) layer.removeTileAt(x, y);
-          else {
-            const tile = layer.getTileAt(x, y);
-            if (tile)
-              this.tweens.addCounter({
-                from: 1,
-                to: 0,
-                duration: 900,
-                onUpdate: (tw) => (tile.alpha = tw.getValue() ?? 0),
-                onComplete: () => layer.removeTileAt(x, y),
-              });
-          }
-        }
-      }
   }
 
   /** マップの regions（scaffold-maps の regionPartition）を よむ */
   private readRegions(): void {
     // Tiled の プロパティが 無い マップ（町・ダンジョン・ほかの 県）は Phaser が {}（配列で ない）に する
-    const data = regionGridOf(this.map.properties);
-    if (!data) return;
-    this.regionIds = data.ids;
-    this.regionRows = data.rows;
+    const props = this.map.properties;
+    if (!Array.isArray(props)) return;
+    const raw = (props as { name: string; value: unknown }[]).find((p) => p.name === 'regions')?.value;
+    const data = parseRegionPartition(raw);
+    this.regionIds = data?.ids ?? [];
+    this.regionRows = data?.rows ?? [];
   }
 
   /** その マスの 名所エリア（かべ・海・エリアの 無い マップは null） */
@@ -1368,7 +1136,7 @@ export class OverworldScene extends Phaser.Scene {
     this.busy = false;
   }
 
-  /** エリアのぬし：正体を隠したボス影（たおしたら出ない） */
+  /** エリアの ぬし：名所の そばに「？」マーク（たおしたら 出ない） */
   private addRegionBoss(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const regionId = String(prop(obj, 'region') ?? '');
     const region = area?.regions.find((r) => r.id === regionId);
@@ -1415,9 +1183,6 @@ export class OverworldScene extends Phaser.Scene {
     this.dismissBoss(rb.boss);
     const opened = [...this.regionGates.values()].filter((g) => g.openedBy === rb.regionId);
     for (const g of opened) this.syncGate(g);
-    this.refreshFog(true);
-    // 左上の 地図にも ひらいた エリアを 出す
-    this.renderHud();
     await this.wait(650);
     playSfx('victory');
     const lines = [{ text: t('field.regionBossDown', { region: rb.region.name }) }];
@@ -1780,7 +1545,7 @@ export class OverworldScene extends Phaser.Scene {
     });
     let score: number | null = null;
     try {
-      score = await askFirst(env, relaxedQueries(scopeQueryToGrade(ev.question, gs.learning.grade)));
+      score = await askFirst(env, relaxedQueries(ev.question));
     } finally {
       render(null, root);
     }
@@ -1808,7 +1573,7 @@ export class OverworldScene extends Phaser.Scene {
         title,
         name: motif.name,
         kind: motif.kind,
-        kindLabel: t(MOTIF_KIND_KEY[motif.kind]),
+        kindLabel: t(motifKindLabelKey(motif.kind)),
         image:
           image ??
           (item ? itemIconUrl(item) : undefined) ??
@@ -1931,7 +1696,11 @@ export class OverworldScene extends Phaser.Scene {
     this.dismissBoss(ab);
     await this.wait(650);
     playSfx('victory');
-    await this.talk([{ text: t('field.areaSign', { name: area.name }) }]);
+    const epilogue = tOpt(`field.areaBossAfter.${area.id}`);
+    await this.talk([
+      ...(epilogue ? [{ speaker: ab.def.name, text: epilogue }] : []),
+      { text: t('field.areaSign', { name: area.name }) },
+    ]);
     this.busy = false;
   }
 
@@ -1974,7 +1743,9 @@ export class OverworldScene extends Phaser.Scene {
     this.dismissBoss(lb);
     await this.wait(650);
     playSfx('victory');
+    const epilogue = tOpt(`field.lastBossAfter.${area.id}`);
     await this.talk([
+      ...(epilogue ? [{ speaker: lb.def.name, text: epilogue }] : []),
       { text: t('field.lastBossDown', { name: lb.def.name, stage: area.secret?.name ?? area.name }) },
     ]);
     this.busy = false;
@@ -2039,6 +1810,27 @@ export class OverworldScene extends Phaser.Scene {
       Math.abs(px - nx) > Math.abs(py - ny) ? (px < nx ? 'left' : 'right') : py < ny ? 'up' : 'down';
     npc.sprite.setFrame(walkFrame(toward, 1));
     const lines = npc.lines.map((l) => ({ ...l, speaker: l.speaker ?? npc.name }));
+    if (npc.key === 'npc-iwate-musubi' && (this.gs()?.party.owned.length ?? 0) === 0) {
+      await this.talk(lines);
+      const game = this.gs();
+      const content = this.content();
+      if (game && content) {
+        await runCompanionRite({
+          game,
+          content,
+          root: this.root('travel'),
+          talk: (storyLines) => this.talk(storyLines),
+          save: (state) => this.setGame(state),
+          afterOverlay: () => {
+            this.inputLockUntil = this.time.now + 250;
+            this.waitRelease = true;
+          },
+        });
+      }
+      npc.sprite.setFrame(walkFrame('down', 1));
+      this.busy = false;
+      return;
+    }
     // しごとの ある人は、あいさつの あとに しごとを してくれる
     switch (npc.role) {
       case 'shop':
@@ -2750,78 +2542,32 @@ export class OverworldScene extends Phaser.Scene {
   private talk(lines: DialogueLine[]): Promise<void> {
     return this.choose(lines).then(() => undefined);
   }
-
   private async showPrologue(): Promise<void> {
     const gs = this.gs();
-    if (this.inBattle || gs?.progress.counters[PROLOGUE_COUNTER] !== 0) return;
-    if (this.busy) {
-      this.time.delayedCall(500, () => void this.showPrologue());
+    if (this.inBattle) return;
+    if (!gs || this.busy) {
+      this.time.delayedCall(250, () => void this.showPrologue());
       return;
     }
-
+    if (gs.progress.counters['story.prologue'] && this.mapKey === 'aomori-field') return;
     this.busy = true;
     this.standStill();
-    await this.talk([
-      { speaker: t('field.prologueNarrator'), text: t('field.prologueWake') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueFairyArrives') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueAskIdentity') },
-    ]);
-    const identity = await this.askHeroIdentity(gs.player.appearance);
-    const named = {
-      ...gs,
-      updatedAt: Date.now(),
-      player: { ...gs.player, name: identity.name, appearance: identity.appearance },
-      progress: {
-        ...gs.progress,
-        counters: { ...gs.progress.counters, [PROLOGUE_COUNTER]: 1 },
-      },
-    };
-    this.setGame(named);
-    await this.talk([
-      { speaker: identity.name, text: t('field.prologueLost') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueKnowledge') },
-      { speaker: t('field.prologueFairy'), text: t('field.prologueNoema') },
-      {
-        speaker: t('field.prologueFairy'),
-        text: t('field.prologueQuest', { area: this.currentArea()?.name ?? '' }),
-      },
-      { text: t('field.prologueStart') },
-    ]);
+    await runArrivalStory({
+      mapKey: this.mapKey,
+      game: gs,
+      root: this.root('title'),
+      talk: (lines) => this.talk(lines),
+      save: (state) => this.setGame(state),
+    });
     this.busy = false;
   }
 
-  private askHeroIdentity(appearance: GameState['player']['appearance']): Promise<HeroIdentity> {
-    return new Promise((resolve) => {
-      const root = this.root('dialogue');
-      render(
-        h(HeroIdentitySetup, {
-          initialAppearance: appearance,
-          onComplete: (identity: HeroIdentity) => {
-            render(null, root);
-            resolve(identity);
-          },
-        }),
-        root,
-      );
-    });
-  }
-
+  /** 会話を出す。choices があれば最後の行で選ばせて、その番号を返す（選択肢なしは -1） */
   private choose(lines: DialogueLine[], choices?: string[]): Promise<number> {
-    return new Promise((resolve) => {
-      const root = this.root('dialogue');
-      render(
-        h(DialogueOverlay, {
-          lines,
-          choices,
-          onComplete: (c: number) => {
-            render(null, root);
-            this.inputLockUntil = this.time.now + 250;
-            this.waitRelease = true;
-            resolve(c);
-          },
-        }),
-        root,
-      );
+    return presentDialogue(this.root('dialogue'), lines, choices, () => {
+      this.inputLockUntil = this.time.now + 250;
+      this.waitRelease = true;
+      this.game.canvas.dataset.inputReady = 'false';
     });
   }
 
@@ -2841,11 +2587,8 @@ export class OverworldScene extends Phaser.Scene {
         map: this.regionMiniView(),
         mapLabel: t('field.areaMapOpen'),
         onAreaMap: () => this.openAreaMap(),
-        partyLabel: t('field.party'),
-        onParty: () => this.openBag(),
         menuLabel: t('field.menu'),
         onMenu: () => this.openMenu(),
-        idle: this.hudIdle,
         dev: this.devAvailable()
           ? {
               label: t(this.devAll() ? 'field.devOn' : 'field.devLabel'),
@@ -2858,7 +2601,17 @@ export class OverworldScene extends Phaser.Scene {
     );
   }
 
-  // ───────────────────────── 開発者モード ─────────────────────────
+  private michiruGuideKey(): MichiruGuideKey {
+    return currentMichiruGuideKey([this.gs(), this.kind(), this.currentArea()?.id, this.content()?.world]);
+  }
+
+  private async openMichiruGuide(key: MichiruGuideKey): Promise<void> {
+    if (this.busy || this.inBattle || this.moving) return;
+    this.busy = true;
+    this.standStill();
+    await this.talk([{ speaker: t('field.prologueFairy'), text: t(`field.michiruGuide.${key}.text`) }]);
+    this.busy = false;
+  }
 
   /** 開発者モードの ボタンを 出すか（開発サーバー、または URL に ?dev） */
   private devAvailable(): boolean {
@@ -2891,12 +2644,12 @@ export class OverworldScene extends Phaser.Scene {
   // ───────────────────────── メニュー（ずかん・どうぐ・そうび・みため） ─────────────────────────
 
   /** メニュー：モンスターずかん・とくさんひんずかん・どうぐ（バッグ）・そうび・みため。つかう・そうびの あとは 同じ タブで 作りなおす */
-  private openMenu(): void {
+  private openMenu(playOpenSfx = true): void {
     const c = this.content();
     if (!c || this.inBattle || this.busy || this.moving) return;
     this.busy = true;
     this.standStill();
-    playSfx('select');
+    if (playOpenSfx) playSfx('select');
     const root = this.root('travel');
     const draw = (tab: MenuTab, focusKey?: string, message: string | null = null) => {
       const view = this.menuView(tab);
@@ -2912,6 +2665,11 @@ export class OverworldScene extends Phaser.Scene {
           focusKey,
           keys: t('field.menuKeys'),
           onTab: (next: MenuTab) => draw(next),
+          onBag: () => {
+            render(null, root);
+            this.busy = false;
+            this.openBag(undefined, null, undefined, true);
+          },
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
           onParent: () => {
             const game = this.gs()!;
@@ -2972,170 +2730,20 @@ export class OverworldScene extends Phaser.Scene {
     return partyFromGameState(gs, this.content()!).hero.stats;
   }
 
-  /** 図鑑の県順。ストーリー順ではなく、北海道から沖縄へ北→南。 */
-  private areaOrder(): string[] {
-    return [...new Set([...GEOGRAPHIC_AREA_ORDER, ...(this.content()?.areas.keys() ?? [])])];
-  }
-
-  /** 特産品（たべもの・こうげいひん の モチーフ）ぜんぶ。見つけた＝スタンプ か どうぐを 手に入れたことがある */
-  private specialtyList(gs: GameState) {
-    const c = this.content()!;
-    const revealAll = this.devAll();
-    const out: { area: Area; motif: Motif; itemId: string; item?: Item; known: boolean }[] = [];
-    const areas = this.areaOrder().flatMap((id) => c.areas.get(id) ?? []);
-    for (const area of areas)
-      for (const motif of area.motifs) {
-        if (!SPECIALTY_KINDS.has(motif.kind)) continue;
-        const itemId = `${area.id}-${motif.id}`;
-        const known =
-          revealAll ||
-          gs.dex.motifs.includes(motifStamp(area.id, motif.id)) ||
-          gs.dex.items.includes(itemId) ||
-          (gs.inventory[itemId] ?? 0) > 0;
-        out.push({ area, motif, itemId, item: c.items.get(itemId), known });
-      }
-    return out;
-  }
-
-  /** モンスター（県の じゅん、ボスは さいご）。であった＝図鑑にのった か 仲間 */
-  private monsterList(gs: GameState) {
-    const c = this.content()!;
-    const revealAll = this.devAll();
-    const order = this.areaOrder();
-    const rank = (m: Monster) => (order.includes(m.area) ? order.indexOf(m.area) : order.length);
-    const seen = new Set([...gs.dex.monsters, ...gs.party.owned.map((o) => o.monsterId)]);
-    return [...c.monsters.values()]
-      .sort((a, b) => rank(a) - rank(b) || Number(a.isBoss) - Number(b.isBoss))
-      .map((m) => ({ m, known: revealAll || seen.has(m.id) }));
-  }
-
-  /** そうびの ステータス（こうげき+3 ぼうぎょ+2） */
-  private statText(it: Item): string {
-    const KEY: Record<string, string> = {
-      hp: 'field.statHp',
-      atk: 'field.statAtk',
-      def: 'field.statDef',
-      spd: 'field.statSpd',
-      wis: 'field.statWis',
-    };
-    return Object.entries(it.stats ?? {})
-      .map(([k, v]) => `${KEY[k] ? t(KEY[k]) : k.toUpperCase()}+${v}`)
-      .join('　');
-  }
-
-  private kindLabel(it: Item): string {
-    if (it.kind === 'consumable') return t('field.itemKindTool');
-    if (it.kind === 'material') return t('field.itemKindMaterial');
-    if (it.kind === 'key') return t('field.itemKindKey');
-    return t('field.itemKindEquip', { slot: t(`slots.${it.kind}`) });
-  }
-
   /** タブの 中身 */
   private menuView(tab: MenuTab): { entries: MenuEntry[]; summary?: string; empty: string } {
     const c = this.content()!;
     const gs = this.gs()!;
-    const unknown = t('field.dexUnknown');
-    const areaName = (id: string) => c.areas.get(id)?.name ?? unknown;
-    const stats = this.heroStats(gs);
-
-    if (tab === 'roadmap') return { entries: [], empty: '' };
-
-    if (tab === 'mistakes') {
-      const bank = this.registry.get('bank') as QuestionBank | undefined;
-      return mistakeMenu(c, gs, bank);
-    }
-
-    if (tab === 'monsters') {
-      const owned = new Set(gs.party.owned.map((o) => o.monsterId));
-      const monsters = this.monsterList(gs);
-      const entries = monsters.map(({ m, known }, i): MenuEntry => {
-        const art = this.monsterArtUrl(m);
-        const area = t('field.dexArea', { area: areaName(m.area) });
-        return {
-          key: m.id,
-          name: known ? m.name : unknown,
-          icon: art,
-          art,
-          known,
-          right: t('field.dexNo', { n: String(i + 1).padStart(3, '0') }),
-          detailIndex: `${i + 1}/${monsters.length}`,
-          tag: owned.has(m.id) ? t('field.dexOwned') : undefined,
-          sub: known ? t(`elements.${m.element}`) : undefined,
-          lines: known
-            ? [
-                area,
-                m.weakness
-                  ? t('field.dexWeak', { el: t(`elements.${m.weakness}`) })
-                  : t('battle.weaknessUnknown'),
-              ]
-            : [area, t('field.dexNotSeen')],
-          blurb: known ? m.dexBlurb : undefined,
-          action: null,
-        };
-      });
-      return { entries, empty: t('field.dexEmpty') };
-    }
-
-    if (tab === 'specialties') {
-      const specialties = this.specialtyList(gs);
-      const entries = specialties.map(({ area, motif, itemId, item, known }, i): MenuEntry => ({
-        key: itemId,
-        name: known ? motif.name : unknown,
-        icon: item ? itemIconUrl(item) : undefined,
-        known,
-        // リストの 右はしは 小さいので ふりがなを つけず かなで
-        right: kana(area.name),
-        detailIndex: `${i + 1}/${specialties.length}`,
-        sub: t(MOTIF_KIND_KEY[motif.kind]),
-        lines: known
-          ? [
-              t('field.dexFrom', { area: area.name }),
-              ...(item?.use?.heal ? [t('field.bagHeal', { n: item.use.heal })] : []),
-              t('field.townHave', { n: gs.inventory[itemId] ?? 0 }),
-            ]
-          : [t('field.dexFrom', { area: area.name }), t('field.dexNotFound')],
-        blurb: known ? motif.blurb : undefined,
-        action: null,
-      }));
-      return { entries, empty: t('field.dexEmpty') };
-    }
-
-    if (tab === 'bag') {
-      return bagMenu(
-        c,
-        gs,
-        stats,
-        (item) => this.statText(item),
-        (item) => this.kindLabel(item),
-      );
-    }
-
-    if (tab === 'look') {
-      const ap = gs.player.appearance;
-      const entries = LOOK_PARTS.flatMap(({ part, key }) =>
-        t(`field.${key}Names`)
-          .split(',')
-          .map((name, i): MenuEntry => {
-            const look = { ...ap, [part]: i };
-            const now = ap[part] === i;
-            const art = this.heroFrameUrl(look);
-            return {
-              key: `look:${part}:${i}`,
-              name: t('field.lookName', { part: t(`field.${key}`), name }),
-              icon: art,
-              art,
-              known: true,
-              tag: now ? t('field.lookNow') : undefined,
-              sub: t('field.lookSub', { part: t(`field.${key}`) }),
-              lines: [],
-              action: { label: t('field.lookPick'), ok: !now },
-            };
-          }),
-      );
-      return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
-    }
-
-    return equipmentMenu(c, gs, stats, (item) => this.statText(item));
+    return buildMenuView({
+      content: c,
+      game: gs,
+      tab,
+      stats: this.heroStats(gs),
+      revealAll: this.devAll(),
+      bank: this.registry.get('bank') as QuestionBank | undefined,
+      heroArt: (look) => this.heroFrameUrl(look),
+      monsterArt: (monster) => this.monsterArtUrl(monster),
+    });
   }
 
   /** 単元習熟度を唯一の進捗源として、ロードマップ表示用へ変換する。 */
@@ -3199,7 +2807,12 @@ export class OverworldScene extends Phaser.Scene {
    * そのあとは 同じ ものを えらんだまま ひらき直す（message に ひとこと）。
    * key は 'hero' / 'mon:<uid>' / 'eq:<部位>'（バッグの そうび）/ 'inv:<itemId>'（あずけている そうび）
    */
-  private openBag(focusKey?: string, message: string | null = null, flashKey?: string): void {
+  private openBag(
+    focusKey?: string,
+    message: string | null = null,
+    flashKey?: string,
+    returnToMenu = false,
+  ): void {
     const c = this.content();
     const gs = this.gs();
     if (!c || !gs || this.inBattle) return;
@@ -3212,12 +2825,17 @@ export class OverworldScene extends Phaser.Scene {
     const close = () => {
       render(null, root);
       this.busy = false;
+      if (returnToMenu) {
+        this.openMenu(false);
+        return;
+      }
       this.inputLockUntil = this.time.now + 250;
       this.waitRelease = true;
     };
     const view = this.bagView(gs);
     const nameOf = (key: string) => view.all.get(key)?.name ?? '';
-    const again = (key: string, msg: string | null, flash?: string) => this.openBag(key, msg, flash);
+    const again = (key: string, msg: string | null, flash?: string) =>
+      this.openBag(key, msg, flash, returnToMenu);
     render(
       h(BagOverlay, {
         ...view.props,
@@ -3410,9 +3028,7 @@ export class OverworldScene extends Phaser.Scene {
       inBag: key.startsWith('eq:'),
       count,
       sub: t('field.equipSlot', { slot: t(`slots.${it.kind}`) }),
-      lines: [this.statText(it), count === undefined ? '' : t('field.townHave', { n: count })].filter(
-        Boolean,
-      ),
+      lines: [itemStatText(it), count === undefined ? '' : t('field.townHave', { n: count })].filter(Boolean),
       blurb: it.blurb,
     });
     const owned = new Map(gs.party.owned.map((o) => [o.uid, o]));
@@ -3492,71 +3108,20 @@ export class OverworldScene extends Phaser.Scene {
 
   /** 左上の小さな地図：いまいる地方（島）の県。行ったことのある県（visit:<県>-… がある）だけ はっきり */
   private regionMiniView(): RegionMiniView | null {
-    const data = this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined;
-    const areaId = this.areaId();
-    const region = data?.regions.find((r) => r.areas.some((a) => a.id === areaId));
-    if (!region) return null;
-    const been = this.visitedAreas();
-    const here = region.areas.findIndex((a) => a.id === areaId);
-    // いまいる県のマスの範囲。主人公は その中の だいたいの位置（フィールドでの位置の割合）に、小数のまま置く
-    const letter = String.fromCharCode(97 + here);
-    let focus: [number, number, number, number] | null = null;
-    region.rows.forEach((row, y) =>
-      [...row].forEach((c, x) => {
-        if (c !== letter) return;
-        focus = focus
-          ? [Math.min(focus[0], x), Math.min(focus[1], y), Math.max(focus[2], x), Math.max(focus[3], y)]
-          : [x, y, x, y];
-      }),
-    );
-    const f = focus as [number, number, number, number] | null;
-    // いまいる県は、フィールドの細かい地形（陸の範囲 land）を focus の範囲に のばして重ねる。
-    // 主人公の位置も land の中の割合で出す（町・ダンジョンの中なら、その入口）
     const base = this.baseMap?.key.endsWith('-field') ? this.baseMap : null;
-    const land = base?.land ?? null;
-    const ht = this.heroOnBase();
-    const at: [number, number] | undefined =
-      land && ht
-        ? [
-            (ht[0] - land[0] + 0.5) / (land[2] - land[0] + 1),
-            (ht[1] - land[1] + 0.5) / (land[3] - land[1] + 1),
-          ]
-        : this.whereAmI()?.at;
-    const cap = here >= 0 ? region.areas[here]!.capital : null;
-    const hero: [number, number] | null =
-      f && at
-        ? [f[0] + at[0] * (f[2] - f[0] + 1), f[1] + at[1] * (f[3] - f[1] + 1)]
-        : cap
-          ? [cap[0] + 0.5, cap[1] + 0.5]
-          : null;
-    return {
-      id: region.id,
-      width: region.width,
-      height: region.height,
-      rows: region.rows,
-      areas: region.areas,
-      visited: region.areas.map((a) => been.has(a.id)),
-      here,
-      hero,
-      focus: f,
-      detail:
-        base && land
-          ? (() => {
-              const vis = this.visibleTiles(base);
-              return { key: `${base.key}#${vis.sig}`, tiles: vis.tiles, width: base.width, land };
-            })()
-          : null,
-    };
+    return regionMiniMapView({
+      data: this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined,
+      areaId: this.areaId(),
+      visited: this.visitedAreas(),
+      base,
+      heroOnBase: this.heroOnBase(),
+      fallbackAt: this.whereAmI()?.at,
+    });
   }
 
   /** 行ったことのある（ロック解除された）県：セーブの counters に visit:<県>-… がある県と、いまいる県 */
   private visitedAreas(): Set<string> {
-    const been = new Set([this.areaId()]);
-    // 開発者モードは ぜんぶの 県
-    if (this.devAll()) for (const id of this.content()?.areas.keys() ?? []) been.add(id);
-    for (const [k, n] of Object.entries(this.gs()?.progress.counters ?? {}))
-      if (k.startsWith('visit:') && n > 0) been.add(k.slice('visit:'.length).split('-')[0] ?? '');
-    return been;
+    return visitedAreaIds(this.areaId(), this.gs(), this.content(), this.devAll());
   }
 
   /** 地図に出すマップの上の主人公のマス（町・ダンジョンの中なら、その入口） */
@@ -3577,29 +3142,13 @@ export class OverworldScene extends Phaser.Scene {
 
   private readBaseMap(): BaseMap | null {
     const key = this.baseKey();
-    const json = this.cache.tilemap.get(key)?.data as RawTiledMap | undefined;
-    const tiles = json?.layers.find((l) => l.name === 'background')?.data;
-    if (!json || !tiles) return null;
+    const json = this.cache.tilemap.get(key)?.data as TiledMapSource<TiledObject> | undefined;
+    const map = mapBaseFromTiled(key, json);
+    if (!map) return null;
     const enclave = ENCLAVES.find((e) => e.enclaveId === key);
-    // 陸（海＝3 以外）のタイルの範囲
-    let land: [number, number, number, number] | null = null;
-    for (let i = 0; i < tiles.length; i++) {
-      if (tiles[i] === 3) continue;
-      const x = i % json.width;
-      const y = Math.floor(i / json.width);
-      land = land
-        ? [Math.min(land[0], x), Math.min(land[1], y), Math.max(land[2], x), Math.max(land[3], y)]
-        : [x, y, x, y];
-    }
     return {
-      key,
       name: enclave?.name ?? this.currentArea()?.name ?? key,
-      width: json.width,
-      height: json.height,
-      tiles,
-      objects: json.layers.find((l) => l.name === 'objects')?.objects ?? [],
-      regions: regionGridOf(json.properties),
-      land,
+      ...map,
     };
   }
 
@@ -3613,144 +3162,29 @@ export class OverworldScene extends Phaser.Scene {
     this.setGame(next);
   }
 
-  /** 地図の ★ 看板：どの名所か と、灰（まだ見つけていない）/ 白（チャレンジがまだ）/ 金（ぜんぶ終わった） */
-  private signOf(
-    o: TiledObject,
-    mapKey: string,
-  ): { motif: Motif; stamp: string; kind: 'sign-off' | 'sign-todo' | 'sign-done' } | null {
-    const area = this.currentArea();
-    if (!area) return null;
-    const ev =
-      o.type === 'event'
-        ? area.events.find((e) => e.trigger.map === mapKey && e.trigger.objectName === o.name)
-        : undefined;
-    const motifId = o.type === 'landmark' ? prop(o, 'motifId') : ev?.motifId;
-    const motif = area.motifs.find((m) => m.id === motifId);
-    if (!motif) return null;
-    const gs = this.gs();
-    const stamp = motifStamp(area.id, motif.id);
-    const found = gs?.dex.motifs.includes(stamp) ?? false;
-    const done = !ev || (gs?.progress.eventsDone.includes(ev.id) ?? false);
-    return { motif, stamp, kind: !found ? 'sign-off' : done ? 'sign-done' : 'sign-todo' };
-  }
-
-  /** 地図の 特産品の宝箱：どの特産品か と、あけたか */
-  private boxOf(o: TiledObject): { motif: Motif; stamp: string; opened: boolean } | null {
-    const area = this.currentArea();
-    const motif = area?.motifs.find((m) => m.id === prop(o, 'motifId'));
-    if (!area || !motif) return null;
-    const stamp = motifStamp(area.id, motif.id);
-    return { motif, stamp, opened: this.gs()?.dex.motifs.includes(stamp) ?? false };
-  }
-
   /** 左上の地図・ひらいた地図の中身：地形と、入口・中ボス（ワープホール）・★ 看板・特産品の宝箱・主人公 */
   private areaMapView(): AreaMapView | null {
     const base = this.baseMap;
-    if (!base) return null;
-    const area = this.currentArea();
-    const onBase = base.key === this.mapKey;
-    let hero: [number, number] | null = onBase && this.player?.active ? this.playerTile() : null;
-    const marks: AreaMark[] = [];
-    const vis = this.visibleTiles(base);
-    const open = this.unlockedRegions();
-    for (const o of base.objects) {
-      const x = Math.floor((o.x ?? 0) / TILE);
-      const y = Math.floor((o.y ?? 0) / TILE);
-      // ひらいて いない エリアの しるしは 出さない
-      if (this.hiddenIn(base.regions, open, x, y)) continue;
-      if (o.type === 'transition') {
-        const target = String(prop(o, 'targetMap') ?? '');
-        const kind = target.endsWith('-town') ? 'town' : target.endsWith('-dungeon') ? 'dungeon' : 'ship';
-        marks.push({ x, y, kind });
-        // 町・ダンジョンの中にいるときは、その入口に主人公を出す
-        if (!onBase && target === this.mapKey) hero = [x, y];
-      } else if (o.type === 'midboss' && area?.midBoss) {
-        const beaten = this.gs()?.progress.eventsDone.includes(midBossFlag(area.id)) ?? false;
-        marks.push({ x, y, kind: beaten ? 'warp' : 'boss' });
-      } else if (o.type === 'event' || o.type === 'landmark') {
-        const sign = this.signOf(o, base.key);
-        if (sign) marks.push({ x, y, kind: sign.kind });
-      } else if (o.type === 'specialty') {
-        const box = this.boxOf(o);
-        if (box) marks.push({ x, y, kind: box.opened ? 'box-open' : 'box' });
-      }
-    }
-    // 県のまわりの地方の地図（行ったことのある県は緑、未踏の県は灰色）。県のフィールドのときだけ
-    const region = base.key.endsWith('-field') ? this.regionMiniView() : null;
-    return {
-      key: `${base.key}#${vis.sig}`,
-      width: base.width,
-      height: base.height,
-      tiles: vis.tiles,
-      marks,
-      hero,
-      region,
-    };
+    return areaMapView({
+      base,
+      area: this.currentArea(),
+      game: this.gs(),
+      currentMapKey: this.mapKey,
+      heroTile: this.player?.active ? this.playerTile() : null,
+      region: base?.key.endsWith('-field') ? this.regionMiniView() : null,
+    });
   }
 
   /** ワープできる「いったことの ある ばしょ」：入ったことのある町・ダンジョン・島と、見つけた名所 */
-  private places(): Place[] {
-    const base = this.baseMap;
-    const gs = this.gs();
-    const area = this.currentArea();
-    if (!base || !gs || !area) return [];
-    // 開発者モードは まだ 行っていない 町・ダンジョン・島、見つけていない 名所へも ワープできる
-    const dev = this.devAll();
-    const been = (k: string) => dev || (gs.progress.counters[`visit:${k}`] ?? 0) > 0;
-    const maps: Place[] = [];
-    const signs: Place[] = [];
-    const open = this.unlockedRegions();
-    for (const o of base.objects) {
-      const at: [number, number] = [Math.floor((o.x ?? 0) / TILE), Math.floor((o.y ?? 0) / TILE)];
-      // ひらいて いない エリアへは ワープできない（地図にも 出ない）
-      if (this.hiddenIn(base.regions, open, at[0], at[1])) continue;
-      if (o.type === 'transition') {
-        const target = String(prop(o, 'targetMap') ?? '');
-        // 同じマップの中の船は、行き先ではない
-        if (target === base.key || !been(target) || maps.some((p) => p.map === target)) continue;
-        const enc = ENCLAVES.find((e) => e.enclaveId === target);
-        const town = target.endsWith('-town');
-        const dungeon = target.endsWith('-dungeon');
-        maps.push({
-          id: `map:${target}`,
-          name: town
-            ? (area.town?.name ?? t('field.kindTown'))
-            : dungeon
-              ? t('field.toDungeon')
-              : (enc?.name ?? area.name),
-          icon: town ? 'town' : dungeon ? 'dungeon' : enc ? 'ship' : 'field',
-          at,
-          map: target,
-          spawn: 'spawn',
-        });
-      } else if (o.type === 'event' || o.type === 'landmark') {
-        const sign = this.signOf(o, base.key);
-        if (!sign || (sign.kind === 'sign-off' && !dev)) continue;
-        signs.push({
-          id: `sign:${sign.stamp}`,
-          name: sign.motif.name,
-          icon: 'star',
-          at,
-          map: base.key,
-          spawn: 'spawn',
-          tile: at,
-        });
-      } else if (o.type === 'specialty') {
-        // あけた特産品の宝箱も、いったことの ある ばしょ
-        const box = this.boxOf(o);
-        if (!box?.opened) continue;
-        signs.push({
-          id: `box:${box.stamp}`,
-          name: box.motif.name,
-          icon: 'chest',
-          at,
-          map: base.key,
-          spawn: 'spawn',
-          tile: at,
-        });
-      }
-    }
-    return [...maps, ...signs];
+  private places(): MapPlace[] {
+    return mapPlaces({
+      base: this.baseMap,
+      area: this.currentArea(),
+      game: this.gs(),
+      revealAll: this.devAll(),
+      enclaves: ENCLAVES,
+      labels: { town: t('field.kindTown'), dungeon: t('field.toDungeon') },
+    });
   }
 
   /** ひらいた地図：県の全体を見て、いったことの ある ばしょ へワープする */
@@ -3800,27 +3234,12 @@ export class OverworldScene extends Phaser.Scene {
 
   /** いまいる場所の名前（RubyText）と種類。HUD の窓と、移動したときの場所の名前で使う */
   private placeName(): { title: string; sub: string } {
-    const kind = this.kind();
-    const area = this.currentArea();
-    const enclave = kind === 'enclave' ? ENCLAVES.find((e) => e.enclaveId === this.mapKey) : undefined;
-    const title =
-      enclave?.name ??
-      (kind === 'town' ? area?.town?.name : kind === 'secret' ? area?.secret?.name : undefined) ??
-      area?.name ??
-      this.mapKey;
-    const region = kind === 'field' ? this.regionDef(this.currentRegion) : undefined;
-    // 左上の 窓は せまいので、エリアの 名前は かなで（ふりがなを 字の 上に のせると 行が こわれる）
-    if (region) return { title, sub: kana(region.name) };
-    const sub = t(
-      {
-        field: 'field.kindField',
-        town: 'field.kindTown',
-        dungeon: 'field.kindDungeon',
-        enclave: 'field.kindEnclave',
-        secret: 'field.kindSecret',
-      }[kind],
+    return fieldPlaceName(
+      this.kind(),
+      this.currentArea(),
+      this.mapKey,
+      this.kind() === 'field' ? this.regionDef(this.currentRegion)?.name : undefined,
     );
-    return { title, sub };
   }
 
   /**
@@ -3879,6 +3298,7 @@ export class OverworldScene extends Phaser.Scene {
         { speaker: t('field.prologueFairy'), text: t('field.islandBossAsk') },
         { speaker: t('field.prologueFairy'), text: t('field.islandBossIntroFairy') },
         { speaker: boss.name, text: t('field.islandBossRoar') },
+        { speaker: gs.player.name, text: t('field.islandBossHeroQuestion') },
       ],
       [t('ui.yes'), t('ui.no')],
     );
@@ -3890,7 +3310,6 @@ export class OverworldScene extends Phaser.Scene {
     this.busy = false;
     this.startBattle({ enemyId: boss.id, level: Math.max(1, this.heroLevel()), zone: 'field', isBoss: true });
   }
-
   /** 地方ボス勝利時だけ島クリアを記録する。バッグ寸法は islandsCleared に連動して広がる。 */
   private async islandBossDefeated(islandId: string): Promise<void> {
     const content = this.content();
@@ -3904,23 +3323,34 @@ export class OverworldScene extends Phaser.Scene {
     playSfx('victory');
     const island = content.world.islands.find((candidate) => candidate.id === islandId);
     const bossName = content.monsters.get(island?.bossId ?? '')?.name;
+    const starter = gs.party.owned.find((monster) => monster.uid === gs.party.activeUid);
+    const starterDef = content.monsters.get(starter?.monsterId ?? '');
+    const companionLine =
+      tOpt(`field.islandCompanion.${starter?.monsterId ?? ''}`) ?? tOpt('field.islandCompanion.default');
     await this.talk([
       { speaker: bossName, text: t('field.islandBossSecret') },
+      { speaker: bossName, text: t('field.islandBossWarning') },
       { speaker: t('field.prologueFairy'), text: t('field.islandFairyDeflect') },
+      { speaker: gs.player.name, text: t('field.islandHeroDoubt') },
+      { speaker: t('field.prologueFairy'), text: t('field.islandFairyMemory') },
       { text: t('field.islandBossCleared') },
+      { text: t('field.islandPeopleReturn') },
+      ...(starterDef && companionLine ? [{ speaker: starterDef.name, text: companionLine }] : []),
       { text: t('field.islandBagGrew') },
       { speaker: t('field.prologueFairy'), text: t('field.islandFairyNext') },
       { text: t('field.islandChapterEnd') },
     ]);
     this.busy = false;
   }
-
   /** にほんちずの地方と県。地図は public/worldmap.json、名前は content、進みぐあいはセーブから */
   private worldMapRegions(): MapRegionInfo[] {
-    const data = this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined;
-    const content = this.content();
-    if (!data || !content) return [];
-    return buildWorldMapRegions(data, content, this.gs(), this.visitedAreas());
+    return worldMapRegionViews({
+      data: this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined,
+      content: this.content(),
+      game: this.gs(),
+      visited: this.visitedAreas(),
+      kana,
+    });
   }
 
   /** にほんちずの「いま いる ところ」。フィールドなら、県の陸地の中でのだいたいの位置（左上 0 〜 右下 1）も */
@@ -3973,6 +3403,7 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   // ───────────────────────── 小道具 ─────────────────────────
+
   private content(): ContentIndex | undefined {
     return this.registry.get('content') as ContentIndex | undefined;
   }
@@ -3988,6 +3419,7 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private rememberLocation(x: number, y: number): void {
+    this.game.canvas.dataset.playerTile = `${x},${y}`;
     const gs = this.gs();
     if (!gs) return;
     const areaId = this.areaId();
@@ -4015,16 +3447,11 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private kind(): MapKind {
-    const k = this.mapKey;
-    if (k.endsWith('-town')) return 'town';
-    if (k.endsWith('-dungeon')) return 'dungeon';
-    if (k.endsWith('-secret')) return 'secret';
-    if (k.endsWith('-enclave')) return 'enclave';
-    return 'field';
+    return mapKind(this.mapKey);
   }
 
   private areaId(): string {
-    return this.mapKey.split('-')[0] ?? '';
+    return areaIdFromMapKey(this.mapKey);
   }
 
   /** このマップの県（content/prefectures） */

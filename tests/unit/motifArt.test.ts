@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
-import { MOTIF_SCENES, SCENES, motifArtGrid, motifScene } from '../../src/scenes/art/motifArt';
-import { MA } from '../../src/scenes/art/motifArt/kit';
-import { NQ, NQ48 } from '../../src/scenes/art/palette';
+import { MOTIF_SCENES, SCENES, motifArtGrid, motifScene } from '../../src/rendering/motifArt';
+import { MA } from '../../src/rendering/motifArt/kit';
+import { NQ, NQ48 } from '../../src/rendering/palette';
 
 const SPECIALTY = new Set(['food', 'craft']);
 
@@ -22,16 +22,22 @@ describe('名所の絵（えはがき）', () => {
 
   it('32×32・色は NQ-48 だけ・わくは ink・からっぽでない', async () => {
     const c = await content();
+    const palette = new Set<string>(NQ48);
     for (const a of c.areas.values())
       for (const m of a.motifs) {
         if (SPECIALTY.has(m.kind)) continue;
         const g = motifArtGrid(a.id, m)!;
         expect(g.length).toBe(MA);
-        for (let i = 0; i < MA; i++)
-          for (const col of [g[0]![i], g[MA - 1]![i], g[i]![0], g[i]![MA - 1]]) expect(col).toBe(NQ.ink);
+        const invalidEdge = Array.from({ length: MA }, (_, i) => [
+          g[0]![i],
+          g[MA - 1]![i],
+          g[i]![0],
+          g[i]![MA - 1],
+        ]).flatMap((colors, i) => colors.filter((color) => color !== NQ.ink).map(() => i));
+        expect(invalidEdge, m.id).toEqual([]);
         const cells = g.flat().filter((x): x is string => !!x);
         expect(cells.length, m.id).toBe(MA * MA);
-        for (const col of cells) expect(NQ48, `${m.id}: ${col}`).toContain(col);
+        expect([...new Set(cells.filter((color) => !palette.has(color)))], m.id).toEqual([]);
       }
   });
 });

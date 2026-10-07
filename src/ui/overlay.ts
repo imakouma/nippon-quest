@@ -6,26 +6,31 @@ export const STAGE_W = 960;
 export const STAGE_H = 540;
 
 export function attachOverlay(gameRoot: HTMLElement, layer: HTMLElement): () => void {
-  const sync = () => {
-    const canvas = gameRoot.querySelector('canvas');
-    if (!canvas) return;
+  let canvas: HTMLCanvasElement | null = null;
+  const sync = (): boolean => {
+    canvas ??= gameRoot.querySelector('canvas');
+    if (!canvas) return false;
     const r = canvas.getBoundingClientRect();
     const scale = r.width / STAGE_W;
     layer.style.left = `${r.left}px`;
     layer.style.top = `${r.top}px`;
     layer.style.transform = `scale(${scale})`;
+    return true;
   };
   const ro = new ResizeObserver(sync);
   ro.observe(gameRoot);
   window.addEventListener('resize', sync);
   window.addEventListener('orientationchange', sync);
-  const id = setInterval(sync, 500); // canvas 生成直後の取りこぼし対策
-  sync();
+  // Phaser の canvas が非同期で追加される場合だけ DOM の変更を監視し、発見後すぐ停止する。
+  const observer = new MutationObserver(() => {
+    if (sync()) observer.disconnect();
+  });
+  if (!sync()) observer.observe(gameRoot, { childList: true, subtree: true });
   return () => {
+    observer.disconnect();
     ro.disconnect();
     window.removeEventListener('resize', sync);
     window.removeEventListener('orientationchange', sync);
-    clearInterval(id);
   };
 }
 

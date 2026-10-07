@@ -1,7 +1,7 @@
 /**
  * 町の見た目（県ごとの特ちょう）。scripts/scaffold-maps.ts の townMap が使う。
  * 名所・特産品・気候（雪・南の島）から、地面・木・屋根・広場のまん中・畑・海ぞい・小物 を えらぶ。
- * note は「なぜ その見た目か」（実在の名所・特産品）。タイルは src/scenes/overworld/townTiles.ts。
+ * note は「なぜ その見た目か」（実在の名所・特産品）。タイルは src/rendering/overworld/townTiles.ts。
  */
 
 export type TownGround = 'grass' | 'snow' | 'sand';

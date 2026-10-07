@@ -1,4 +1,4 @@
-import { iconUrl } from '../scenes/art/icons';
+import { iconUrl } from '../rendering/icons';
 
 /** 8×8 のドットアイコンを整数倍で表示する（絵文字の代わり） */
 export function PixelIcon({ name, scale = 3, class: cls }: { name: string; scale?: number; class?: string }) {

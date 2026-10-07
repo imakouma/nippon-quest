@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { overworldView, VIEW, VIEW_COUNT, viewTileAt } from '../../src/scenes/overworld/overworldView';
+import { overworldView, VIEW, VIEW_COUNT, viewTileAt } from '../../src/rendering/overworld/overworldView';
 
 const MAPS = new URL('../../maps/', import.meta.url);
 const grid = (rows: number[][]) => rows.flat();

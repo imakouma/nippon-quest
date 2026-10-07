@@ -53,6 +53,8 @@ export default defineConfig({
   resolve: { alias: { '@': resolve(root, 'src') } },
   build: {
     target: 'es2022',
+    // Phaser は専用vendorチャンクへ分離済み（約1.48MB）。ゲーム側チャンクの肥大化とは区別する。
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
@@ -63,6 +65,19 @@ export default defineConfig({
         // Phaser は大きく更新頻度が低い。ゲーム本体と分離して、更新時にブラウザキャッシュを再利用する。
         manualChunks(id) {
           if (id.includes('/node_modules/.pnpm/phaser@')) return 'phaser';
+          // 手描きドット絵は TypeScript の宣言データが大きい。機能コードと分離し、
+          // 県の絵を直しただけでゲーム進行コードのキャッシュを無効にしない。
+          const monster = id.match(/\/src\/rendering\/monsters\/([^/]+)\.ts$/)?.[1];
+          if (monster && monster !== 'index' && monster !== 'design') {
+            const first = monster[0] ?? 'z';
+            const bucket = first <= 'f' ? 'af' : first <= 'l' ? 'gl' : first <= 'r' ? 'mr' : 'sz';
+            return `art-monsters-${bucket}`;
+          }
+          if (id.includes('/src/rendering/motifArt/buildings.ts')) return 'art-motifs-buildings';
+          if (id.includes('/src/rendering/motifArt/nature.ts')) return 'art-motifs-nature';
+          if (id.includes('/src/rendering/motifArt/events.ts')) return 'art-motifs-events';
+          if (id.includes('/src/rendering/itemIcons.ts') || id.includes('/src/rendering/costumes.ts'))
+            return 'art-items';
         },
       },
     },
@@ -73,6 +88,14 @@ export default defineConfig({
     // 初回の「はじめから／つづきから」で大きい Scene を変換すると、
     // 低速環境では dynamic import がタイムアウトする。サーバー起動時に
     // 変換を済ませ、タイトルからの遷移を安定させる。
-    warmup: { clientFiles: ['./src/scenes/Overworld.ts', './src/scenes/Battle.ts'] },
+    warmup: {
+      clientFiles: [
+        './src/scenes/gameplayLoader.ts',
+        './src/scenes/entries/overworld.ts',
+        './src/scenes/entries/battle.ts',
+        './src/scenes/Overworld.ts',
+        './src/scenes/Battle.ts',
+      ],
+    },
   },
 });

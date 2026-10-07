@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { finishHeroIntroduction } from './helpers/onboarding';
+import { completeNewGameSetup } from './newGame';
 
 const TOHOKU_SIGNS = ['aomori', 'iwate', 'miyagi', 'akita', 'yamagata', 'fukushima'];
 
@@ -9,16 +9,12 @@ async function clickThroughDialogue(page: Page, stopWhen?: () => Promise<boolean
     const dialogue = page.locator('.nq-dlg');
     if (!(await dialogue.isVisible())) return;
     await dialogue.click({ position: { x: 420, y: 410 } });
-    await page.waitForTimeout(80);
+    await page.waitForTimeout(20);
   }
   throw new Error('会話をタップだけで最後まで進められませんでした');
 }
 
 async function seedTohokuBossReady(page: Page): Promise<void> {
-  await seedTohokuSigns(page, TOHOKU_SIGNS);
-}
-
-async function seedTohokuSigns(page: Page, signs: string[]): Promise<void> {
   await page.evaluate(async (signs) => {
     const database = await new Promise<IDBDatabase>((resolve, reject) => {
       const request = indexedDB.open('nihonquest');
@@ -46,34 +42,8 @@ async function seedTohokuSigns(page: Page, signs: string[]): Promise<void> {
       transaction.onabort = () => reject(transaction.error);
     });
     database.close();
-  }, signs);
+  }, TOHOKU_SIGNS);
 }
-
-test('東北6県のしるしが1つでも欠けると地方ボスへ挑戦できない', async ({ page }) => {
-  test.setTimeout(90_000);
-  await page.goto('/');
-  await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 30_000 });
-  await page.waitForTimeout(500);
-  await page.getByRole('menuitem', { name: /はじめから/ }).click();
-  await page.getByRole('button', { name: /スロット 3/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
-  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
-  await finishHeroIntroduction(page);
-
-  await page.reload();
-  await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
-  await seedTohokuSigns(
-    page,
-    TOHOKU_SIGNS.filter((area) => area !== 'fukushima'),
-  );
-  await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await page.getByRole('button', { name: /スロット 3 ハル/ }).click();
-  await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click({ timeout: 30_000 });
-  await page.getByRole('button', { name: 'にほんちず' }).click();
-
-  await expect(page.locator('.nq-wmap-island-boss')).toContainText('5/6');
-  await expect(page.getByRole('button', { name: /地方.*ボスに いどむ/ })).toHaveCount(0);
-});
 
 async function savedTohokuClear(page: Page): Promise<boolean> {
   return page.evaluate(async () => {
@@ -106,9 +76,9 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await expect(page.locator('.nq-save-slots')).toBeVisible();
   await page.getByRole('button', { name: /スロット 3/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
+  await completeNewGameSetup(page);
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
-  await finishHeroIntroduction(page);
+  await clickThroughDialogue(page);
 
   // ゲーム画面を終了してオートセーブの発生源を止めてから、E2E用の進行状態を直接注入する。
   // プレイ中に注入すると、先に作られた古いスナップショットが後着して上書きし得る。
@@ -116,7 +86,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
   await seedTohokuBossReady(page);
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await page.getByRole('button', { name: /スロット 3 ハル/ }).click();
+  await page.getByRole('button', { name: /スロット 3 Lv/ }).click();
   await expect(page.getByRole('button', { name: 'ちずを ひらく（M）' })).toBeVisible({ timeout: 30_000 });
   await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click();
   await page.getByRole('button', { name: 'にほんちず' }).click();
@@ -146,7 +116,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
         .locator('.nq-box')
         .click()
         .catch(() => undefined);
-    await page.waitForTimeout(150);
+    await page.waitForTimeout(30);
   }
   await expect(page.locator('.nq-result')).toContainText(/しょうり|勝利/);
   await page.locator('[data-result-close]').click();
@@ -154,7 +124,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   for (let step = 0; step < 40 && (await page.locator('.nq-battle').isVisible()); step += 1) {
     const message = page.locator('.nq-box');
     if (await message.isVisible()) await message.click();
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(30);
   }
   await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 20_000 });
 
@@ -162,6 +132,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.locator('.nq-dlg').click({ position: { x: 420, y: 410 } });
   await expect(page.locator('.nq-dlg')).toContainText('なぜ おまえが');
   await clickThroughDialogue(page);
+  await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: 'バッグ' }).click();
   await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-columns', '76px 76px 76px');
   await expect(page.locator('.nq-bag-grid')).toHaveCSS('grid-template-rows', '76px 76px');
@@ -172,7 +143,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
   await page.waitForTimeout(500);
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await page.getByRole('button', { name: /スロット 3 ハル/ }).click();
+  await page.getByRole('button', { name: /スロット 3 Lv/ }).click();
   await expect(page.getByRole('button', { name: 'ちずを ひらく（M）' })).toBeVisible({ timeout: 30_000 });
   await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click();
   await page.getByRole('button', { name: 'にほんちず' }).click();

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/monsters.schema.json",
+  "id": "iwate-kodamaru",
+  "name": "コダマル",
+  "area": "iwate",
+  "motifId": "chusonji",
+  "element": "mori",
+  "weakness": "hino",
+  "baseStats": { "hp": 38, "mp": 7, "atk": 7, "def": 8, "spd": 5, "wis": 6 },
+  "growth": { "hp": 5, "mp": 1, "atk": 1.1, "def": 1.3, "spd": 0.8, "wis": 0.9 },
+  "skills": ["sk-happa-tobashi"],
+  "drops": [],
+  "recruitRate": 0,
+  "xp": 0,
+  "gold": 0,
+  "spriteKey": "mon.iwate-kodamaru",
+  "dexBlurb": "古[ふる]い 森[もり]の 祈[いの]りから 生[う]まれた、めずらしい 守[まも]り手[て]。木々[きぎ]の 小[ちい]さな 声[こえ]を きく。"
+}

@@ -1,5 +1,5 @@
 import type Phaser from 'phaser';
-import { VIEW } from './overworldView';
+import { VIEW } from '../../rendering/overworld/overworldView';
 
 const WATER_FRAMES = [VIEW.WATER, VIEW.WATER_FLOW_1, VIEW.WATER_FLOW_2] as const;
 const WATER_TILES = new Set<number>([...WATER_FRAMES, VIEW.WATER_GLINT]);

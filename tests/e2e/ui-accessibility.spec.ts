@@ -20,8 +20,9 @@ for (const width of [640, 960]) {
     await expect(page.getByRole('menuitem')).toHaveCount(2);
     await expect(page.getByRole('menuitem', { name: /もんだいいちらん/ })).toHaveCount(0);
     await expect(first).toBeFocused();
+    await expect(page.getByRole('menuitem').nth(1)).toBeDisabled();
     await page.keyboard.press('ArrowDown');
-    await expect(page.getByRole('menuitem').nth(1)).toBeFocused();
+    await expect(first).toBeFocused();
     await expect(page.locator('.nq-title-menu')).toHaveCSS('opacity', '1', { timeout: 5_000 });
 
     const layer = page.locator('#ui-layer');
@@ -45,7 +46,7 @@ test('メニューと保護者画面はモーダルとしてフォーカスを�
   const menu = page.getByRole('dialog', { name: 'メニュー' });
   await expect(menu).toBeVisible();
   await expect(menu).toHaveAttribute('aria-modal', 'true');
-  await expect(page.getByRole('tab', { selected: true })).toBeFocused();
+  await expect(menu.getByRole('button', { name: 'がくしゅう' })).toBeFocused();
   await page.screenshot({ path: '/tmp/nihonquest-roadmap-960x540.png' });
 
   await page.getByRole('button', { name: /ほごしゃ/ }).click();

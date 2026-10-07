@@ -49,7 +49,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       currentIsland: region.id,
       currentArea: region.startArea,
       currentMap: region.startMap,
-      position: { x: 160, y: 160 },
+      position: { ...region.startPosition },
       lastInn: null,
       areaSigns: [],
       islandsCleared: [],

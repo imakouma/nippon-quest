@@ -2,7 +2,7 @@
  * 問題用の 絵（16×16 の ドット絵）。英単語の picture-word などで使う。
  * 本番の絵（assets/questions/eigo/<word>.png）が できるまでの 仮の絵で、レンダラーが SVG にして 描く。
  *
- * 色は NQ-48 パレット（src/scenes/art/palette.ts）と同じ値。レンダラーは scenes を import できないので、
+ * 色は NQ-48 パレット（src/rendering/palette.ts）と同じ値。レンダラーは scenes を import できないので、
  * 使う色だけ ここに 写している（テストで パレットの中の色か 確かめる）。
  * 1 文字が 1 ドット。'.' は すけ、'k' は 輪郭（ink）。ほかの文字の 色は 絵ごとに 決める。
  */
