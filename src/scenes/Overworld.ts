@@ -3415,6 +3415,7 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private rememberLocation(x: number, y: number): void {
+    this.game.canvas.dataset.playerTile = `${x},${y}`;
     const gs = this.gs();
     if (!gs) return;
     const areaId = this.areaId();

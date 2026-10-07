@@ -1,13 +1,15 @@
 import { expect, test, type Page } from '@playwright/test';
 
-const STEP_MS = 160;
-
 async function walk(page: Page, key: 'ArrowRight' | 'ArrowUp', tiles: number): Promise<void> {
   for (let tile = 0; tile < tiles; tile += 1) {
+    const player = page.locator('canvas[data-player-tile]');
+    const before = await player.getAttribute('data-player-tile');
     await page.keyboard.down(key);
-    await page.waitForTimeout(40);
-    await page.keyboard.up(key);
-    await page.waitForTimeout(STEP_MS + 25);
+    try {
+      await expect.poll(() => player.getAttribute('data-player-tile')).not.toBe(before);
+    } finally {
+      await page.keyboard.up(key);
+    }
   }
 }
 
