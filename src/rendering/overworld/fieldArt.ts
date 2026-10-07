@@ -4,10 +4,10 @@
  * 規格は docs/06_ART_BIBLE.md（タイル 16×16、ワープホール 32×32×4 コマ）。
  */
 import type Phaser from 'phaser';
-import { makeGrid, outline, paint, put, sheetCanvas, toCanvas, type Grid } from '../art/grid';
-import { ICONS, iconCanvas } from '../art/icons';
-import { NQ } from '../art/palette';
-import { addImage, addSheet } from '../art/sheet';
+import { makeGrid, outline, paint, put, sheetCanvas, toCanvas, type Grid } from '../grid';
+import { ICONS, iconCanvas } from '../icons';
+import { NQ } from '../palette';
+import { addImage, addSheet } from '../sheet';
 import { drawDungeonTiles } from './dungeonTiles';
 import { drawTownTiles } from './townTiles';
 
