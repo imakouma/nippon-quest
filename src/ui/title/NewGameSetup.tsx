@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import type { Grade } from '../../questions/contracts';
 import type { NewGameOptions } from '../../core/state/newGame';
 import { MVP_REGIONS, type MvpRegionId } from '../../core/regions/mvp';
+import { SubjectChip } from '../chips';
 import { t } from '../i18n';
 import './title.css';
 
@@ -60,7 +61,14 @@ export function NewGameSetup({
               onClick={() => setStartRegion(entry.id)}
             >
               <strong>{entry.shortName}</strong>
-              <span>{entry.subjects.map((subject) => t(`subjects.${subject}`)).join('・')}</span>
+              <span class="nq-region-check" aria-hidden="true">
+                ✓
+              </span>
+              <span class="nq-region-subjects">
+                {entry.subjects.map((subject) => (
+                  <SubjectChip key={subject} subject={subject} />
+                ))}
+              </span>
               <small>{entry.description}</small>
             </button>
           ))}
