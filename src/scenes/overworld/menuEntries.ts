@@ -70,7 +70,6 @@ export function menuTabs(mistakeCount: number): {
     },
     { key: 'monsters', label: t('field.dexGroup'), icon: 'boss' },
     { key: 'party', label: t('field.bagTitle'), icon: 'cmd-item' },
-    { key: 'look', label: t('field.tabLook'), icon: 'hero' },
   ];
 }
 
@@ -188,6 +187,37 @@ export interface MenuViewInput {
   monsterArt: (monster: Monster) => string;
 }
 
+/** 床屋で選べる見た目。選択中は無料表示、変更候補は料金と所持金で可否を示す。 */
+export function barberRows(
+  game: GameState,
+  heroArt: (look: HeroLook) => string,
+  price: number,
+): Array<MenuEntry & { action: { label: string; ok: boolean } | null }> {
+  const appearance = game.player.appearance;
+  return LOOK_PARTS.flatMap(({ part, key }) =>
+    t(`field.${key}Names`)
+      .split(',')
+      .map((name, index): MenuEntry & { action: { label: string; ok: boolean } | null } => {
+        const look = { ...appearance, [part]: index };
+        const selected = appearance[part] === index;
+        const affordable = game.player.gold >= price;
+        const art = heroArt(look);
+        return {
+          key: `look:${part}:${index}`,
+          name: t('field.lookName', { part: t(`field.${key}`), name }),
+          icon: art,
+          art,
+          known: true,
+          tag: selected ? t('field.lookNow') : undefined,
+          right: selected ? undefined : t('field.townPrice', { n: price }),
+          sub: t('field.lookSub', { part: t(`field.${key}`) }),
+          lines: selected ? [t('field.barberCurrent')] : [t('field.barberPrice', { n: price })],
+          action: selected ? null : { label: t('field.barberChange', { n: price }), ok: affordable },
+        };
+      }),
+  );
+}
+
 /** Scene状態を参照せず、フィールドメニューの表示モデルを組み立てる。 */
 export function buildMenuView(input: MenuViewInput): MenuView {
   const { content, game, tab, stats } = input;
@@ -252,31 +282,6 @@ export function buildMenuView(input: MenuViewInput): MenuView {
   }
 
   if (tab === 'bag') return bagMenu(content, game, stats, itemStatText, itemKindLabel);
-
-  if (tab === 'look') {
-    const appearance = game.player.appearance;
-    const entries = LOOK_PARTS.flatMap(({ part, key }) =>
-      t(`field.${key}Names`)
-        .split(',')
-        .map((name, index): MenuEntry => {
-          const look = { ...appearance, [part]: index };
-          const selected = appearance[part] === index;
-          const art = input.heroArt(look);
-          return {
-            key: `look:${part}:${index}`,
-            name: t('field.lookName', { part: t(`field.${key}`), name }),
-            icon: art,
-            art,
-            known: true,
-            tag: selected ? t('field.lookNow') : undefined,
-            sub: t('field.lookSub', { part: t(`field.${key}`) }),
-            lines: [],
-            action: { label: t('field.lookPick'), ok: !selected },
-          };
-        }),
-    );
-    return { entries, summary: t('field.lookSummary'), empty: t('field.dexEmpty') };
-  }
 
   return equipmentMenu(content, game, stats, itemStatText);
 }

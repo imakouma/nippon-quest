@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 import { isLocalDevelopmentUrl } from '../core/localDevelopment';
 import { h, render, type ComponentChild } from 'preact';
 import type { ContentIndex } from '../core/content/loader';
-import type { Area, AreaEvent, Item, Monster, Motif, Region, Reward } from '../core/content/schemas';
+import type { Area, AreaEvent, Item, Monster, Motif, Region } from '../core/content/schemas';
 import { makeMonster } from '../core/battle/factory';
 import {
   encounterLevel,
@@ -22,6 +22,7 @@ import {
   bagUsage,
   evolveRoom,
   equipmentUnlocked,
+  equipPosition,
   moveBagThing,
   monsterCost,
   monsterSize,
@@ -35,7 +36,6 @@ import { heroLevel } from '../core/progression/battleResult';
 import { EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
 import {
   acceptMission,
-  canCraft,
   claimDexReward,
   completeMission,
   craft,
@@ -45,13 +45,11 @@ import {
   INN_PRICE,
   innRest,
   knownRecipes,
-  missionProgress,
   missionsFor,
   missionStatus,
   shopStock,
   buyItem,
   villagerGift,
-  type MissionStatus,
 } from '../core/progression/town';
 import {
   applyReward,
@@ -80,7 +78,6 @@ import type { RegionMiniView } from '../ui/field/RegionMiniMap';
 import { AreaTitle, FieldHud, LandmarkCutin } from '../ui/field/FieldUi';
 import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
 import { bagCells } from '../ui/field/bagLayout';
-import { TownOverlay, type TownOverlayProps, type TownRow } from '../ui/field/TownOverlay';
 import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
 import { WorldMapOverlay, type MapRegionInfo, type WorldMapData } from '../ui/field/WorldMapOverlay';
@@ -126,7 +123,10 @@ import {
   type TiledMapSource,
 } from './overworld/mapModels';
 import { buildRoadmapNodes } from './overworld/roadmap';
-import { buildMenuView, LOOK_PARTS, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
+import { buildMenuView, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
+import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
+import { presentTownMenu, type TownMenuAction, type TownMenuViewFactory } from './overworld/townMenuFlow';
+import { openBarberFlow } from './overworld/barberFlow';
 import { equippedBagThings, storedBagThings } from './overworld/bagItems';
 import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { buildReviewQueue } from './overworld/reviewQueue';
@@ -152,6 +152,7 @@ import { currentMichiruGuideKey, type MichiruGuideKey } from './overworld/michir
 import { createMichiruFollower, positionMichiruFollower } from './overworld/michiruFollower';
 import { fieldPlaceName } from './overworld/placeName';
 import { haruDialogue } from './overworld/haruDialogue';
+import { advanceWanderingNpcs, type WanderingNpc as Npc } from './overworld/npcWander';
 
 const TILE = 16;
 const STEP_MS = 160;
@@ -210,18 +211,6 @@ interface FieldTrigger {
   /** 近づいただけで始めるか（once のイベント・取ったスタンプは false） */
   auto: () => boolean;
   run: () => Promise<void>;
-}
-
-interface Npc {
-  /** マップの物体の名前（npc_talk_1 など。おみやげを もらったかの しるしに使う） */
-  key: string;
-  /** しごと（shop / inn / smith / board / dex / arena / talk） */
-  role: string;
-  name: string;
-  lines: DialogueLine[];
-  sprite: Phaser.GameObjects.Sprite;
-  /** 港の せんどうさん：のせてくれる 船の 行き先（place は 行き先の 名前） */
-  ferry?: { map: string; spawn: string; place: string; back: boolean };
 }
 
 interface Chest {
@@ -620,6 +609,7 @@ export class OverworldScene extends Phaser.Scene {
     this.shadow.setPosition(this.player.x, this.player.y + 6);
     if (this.michiru?.active) positionMichiruFollower(this.michiru, this.player, this.facing, time);
     if (this.inBattle || this.busy || this.moving) return;
+    this.updateWanderingNpcs(time);
     const dir = this.readDir();
     if (this.waitRelease) {
       // 会話を閉じたキーをおしたままでも、すぐに次の会話が始まらないように、いちど はなすまで待つ
@@ -941,7 +931,7 @@ export class OverworldScene extends Phaser.Scene {
     addSheet(this.textures, tex, walkSheet(NPC_LOOKS.ferry!), CHAR_W, CHAR_H);
     const x = tx * TILE + 8;
     const y = ty * TILE + 8;
-    this.add
+    const shadow = this.add
       .image(x, y + 6, 'fld.shadow')
       .setAlpha(0.3)
       .setDepth(1);
@@ -955,6 +945,10 @@ export class OverworldScene extends Phaser.Scene {
       name: t('field.roleFerry'),
       lines: [],
       sprite,
+      shadow,
+      home: [tx, ty],
+      moving: false,
+      nextMoveAt: Number.POSITIVE_INFINITY,
       ferry: { map: target, spawn, place, back },
     });
   }
@@ -984,7 +978,7 @@ export class OverworldScene extends Phaser.Scene {
     addSheet(this.textures, tex, walkSheet(NPC_LOOKS[r] ?? NPC_LOOKS.talk!), CHAR_W, CHAR_H);
     const x = tx * TILE + 8;
     const y = ty * TILE + 8;
-    this.add
+    const shadow = this.add
       .image(x, y + 6, 'fld.shadow')
       .setAlpha(0.3)
       .setDepth(1);
@@ -997,6 +991,10 @@ export class OverworldScene extends Phaser.Scene {
       name: model.name,
       lines: model.lines,
       sprite,
+      shadow,
+      home: [tx, ty],
+      moving: false,
+      nextMoveAt: this.time.now + this.rng.int(600, 1800),
     });
     // お店の かべの 看板（木の板に お店の アイコン）
     const sx = prop(obj, 'signX');
@@ -1860,6 +1858,10 @@ export class OverworldScene extends Phaser.Scene {
         if (equipmentUnlocked(this.gs()!)) await this.openSmith(npc.name);
         else await this.talk([{ speaker: npc.name, text: t('field.equipLocked') }]);
         break;
+      case 'barber':
+        await this.talk(lines);
+        await this.openBarber(npc.name);
+        break;
       case 'board':
         await this.talk(lines);
         await this.openBoard(npc.name);
@@ -1884,6 +1886,27 @@ export class OverworldScene extends Phaser.Scene {
     }
     npc.sprite.setFrame(walkFrame('down', 1));
     this.busy = false;
+  }
+
+  /** 一般の町人だけが、壁や出入口を避けて初期位置の近くをゆっくり歩く。 */
+  private updateWanderingNpcs(time: number): void {
+    if (this.kind() !== 'town') return;
+    advanceWanderingNpcs({
+      time,
+      npcs: this.npcs,
+      blocked: this.blocked,
+      player: this.playerTile(),
+      tileSize: TILE,
+      stepMs: STEP_MS,
+      inside: (x, y) => this.inside(x, y),
+      indexOf: (x, y) => this.idx(x, y),
+      isBlocked: (x, y) => this.isBlocked(x, y),
+      isTransition: (index) => this.transitions.has(index),
+      randomInt: (min, max) => this.rng.int(min, max),
+      frame: walkFrame,
+      tweens: this.tweens,
+      now: () => this.time.now,
+    });
   }
 
   /** 町の人（talk）：はじめて 話したときだけ、しごとに おうじた おみやげを くれる（カットイン → 説明 → もらった！） */
@@ -1913,30 +1936,15 @@ export class OverworldScene extends Phaser.Scene {
    * 町の人の しごとの画面（おみせ・かじや・けいじばん）を出して、とじるまで待つ。
    * act が 中身を かえたら（かった・つくった）同じ画面を 作りなおし、act の ひとことを 出す
    */
-  private townMenu(
-    make: () => Omit<TownOverlayProps, 'message' | 'focusKey' | 'onAct' | 'onClose'>,
-    act: (key: string) => string | null,
-  ): Promise<void> {
-    return new Promise((resolve) => {
-      const root = this.root('travel');
-      const draw = (message: string | null, focusKey?: string) =>
-        render(
-          h(TownOverlay, {
-            ...make(),
-            message,
-            focusKey,
-            onAct: (k: string) => draw(act(k), k),
-            onClose: () => {
-              playSfx('back');
-              render(null, root);
-              this.inputLockUntil = this.time.now + 250;
-              this.waitRelease = true;
-              resolve();
-            },
-          }),
-          root,
-        );
-      draw(null);
+  private townMenu(make: TownMenuViewFactory, act: TownMenuAction): Promise<void> {
+    return presentTownMenu({
+      root: this.root('travel'),
+      makeView: make,
+      act,
+      onClose: () => {
+        this.inputLockUntil = this.time.now + 250;
+        this.waitRelease = true;
+      },
     });
   }
 
@@ -1949,25 +1957,7 @@ export class OverworldScene extends Phaser.Scene {
     await this.townMenu(
       () => {
         const gs = this.gs()!;
-        const rows: TownRow[] = stock.flatMap((e) => {
-          const it = c.items.get(e.itemId);
-          if (!it) return [];
-          const ok = gs.player.gold >= e.price;
-          const lines = [t('field.townHave', { n: gs.inventory[it.id] ?? 0 })];
-          if (!ok) lines.push(t('field.townPoor'));
-          return [
-            {
-              key: it.id,
-              name: it.name,
-              icon: itemIconUrl(it),
-              right: t('field.townPrice', { n: e.price }),
-              dim: !ok,
-              lines,
-              blurb: it.blurb,
-              action: { label: t('field.townBuy', { n: e.price }), ok },
-            },
-          ];
-        });
+        const rows = shopRows(stock, c.items, gs);
         return {
           title: t('field.roleShop'),
           icon: 'role-shop',
@@ -1993,6 +1983,17 @@ export class OverworldScene extends Phaser.Scene {
     await this.talk([{ speaker, text: t('field.townShopBye') }]);
   }
 
+  private async openBarber(speaker: string): Promise<void> {
+    await openBarberFlow({
+      speaker,
+      getGame: () => this.gs()!,
+      setGame: (game) => this.setGame(game),
+      heroArt: (look) => this.heroFrameUrl(look),
+      townMenu: (make, act) => this.townMenu(make, act),
+      talk: (lines) => this.talk(lines),
+    });
+  }
+
   /** かじや：レシピと ざいりょうで そうびを つくる */
   private async openSmith(speaker: string): Promise<void> {
     const c = this.content();
@@ -2000,35 +2001,7 @@ export class OverworldScene extends Phaser.Scene {
     await this.townMenu(
       () => {
         const gs = this.gs()!;
-        const rows: TownRow[] = knownRecipes(c.recipes.values(), gs).flatMap((r) => {
-          const it = c.items.get(r.result.itemId);
-          if (!it) return [];
-          const ok = canCraft(gs, r);
-          const lines = [
-            t('field.townNeed'),
-            ...r.materials.map((m) =>
-              t('field.townNeedLine', {
-                item: c.items.get(m.itemId)?.name ?? m.itemId,
-                have: gs.inventory[m.itemId] ?? 0,
-                n: m.n,
-              }),
-            ),
-          ];
-          if (r.gold) lines.push(t('field.townCraftGold', { n: r.gold }));
-          if (!ok) lines.push(t('field.townCantCraft'));
-          return [
-            {
-              key: r.id,
-              name: it.name,
-              icon: itemIconUrl(it),
-              tag: ok ? t('field.townCraft') : undefined,
-              dim: !ok,
-              lines,
-              blurb: it.blurb,
-              action: { label: t('field.townCraft'), ok },
-            },
-          ];
-        });
+        const rows = smithRows(knownRecipes(c.recipes.values(), gs), c.items, gs);
         return {
           title: t('field.roleSmith'),
           icon: 'role-smith',
@@ -2064,39 +2037,11 @@ export class OverworldScene extends Phaser.Scene {
       defeat: (name, n) => t('field.missionDefeat', { name, n }),
       collect: (item, n) => t('field.missionCollect', { item, n }),
     });
-    const STATUS: Record<MissionStatus, string> = {
-      new: 'field.missionNew',
-      accepted: 'field.missionAccepted',
-      ready: 'field.missionReady',
-      done: 'field.missionDone',
-    };
     const rewards: DialogueLine[] = [];
     await this.townMenu(
       () => {
         const gs = this.gs()!;
-        const rows: TownRow[] = missions.map((m) => {
-          const st = missionStatus(gs, m);
-          const p = missionProgress(gs, m);
-          const lines = [];
-          if (m.hint) lines.push(m.hint);
-          if (st === 'accepted' || st === 'ready')
-            lines.push(t('field.townProgress', { n: p.have, need: p.need }));
-          lines.push(t('field.townRewardLabel', { list: this.rewardSummary(m.reward) }));
-          return {
-            key: m.id,
-            name: m.title,
-            tag: st === 'ready' ? t(STATUS[st]) : undefined,
-            sub: t(STATUS[st]),
-            dim: st === 'done',
-            lines,
-            action:
-              st === 'done'
-                ? null
-                : st === 'new'
-                  ? { label: t('field.townAccept'), ok: true }
-                  : { label: t('field.townReport'), ok: st === 'ready' },
-          };
-        });
+        const rows = missionRows(missions, c, gs);
         return {
           title: t('field.roleBoard'),
           icon: 'role-board',
@@ -2130,22 +2075,6 @@ export class OverworldScene extends Phaser.Scene {
     );
     this.renderHud();
     await this.talk([...rewards, { speaker, text: t('field.townLater') }]);
-  }
-
-  /** ごほうびを 1 行に（けいじばんの せつめい用）：50G・けいけんち 20・りんご×3 */
-  private rewardSummary(r: Reward): string {
-    const c = this.content();
-    const parts: string[] = [];
-    if (r.gold) parts.push(t('field.townRewardGold', { n: r.gold }));
-    if (r.xp) parts.push(t('field.townRewardXp', { n: r.xp }));
-    for (const it of r.items ?? [])
-      parts.push(
-        t('field.townRewardItem', { item: c?.items.get(it.itemId)?.name ?? it.itemId, n: it.n ?? 1 }),
-      );
-    for (const s of r.skills ?? []) parts.push(c?.skills.get(s)?.name ?? s);
-    if (r.recipes?.length) parts.push(t('field.townRewardRecipe'));
-    if (r.title) parts.push(t('field.townRewardTitle'));
-    return parts.join('・');
   }
 
   /** やどや：とまると HP・MP が ぜんかい。負けたら ここに もどる */
@@ -2672,9 +2601,6 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  // ───────────────────────── メニュー（ずかん・どうぐ・そうび・みため） ─────────────────────────
-
-  /** メニュー：モンスターずかん・とくさんひんずかん・どうぐ（バッグ）・そうび・みため。つかう・そうびの あとは 同じ タブで 作りなおす */
   private openMenu(playOpenSfx = true): void {
     const c = this.content();
     if (!c || this.inBattle || this.busy || this.moving) return;
@@ -2761,7 +2687,6 @@ export class OverworldScene extends Phaser.Scene {
     this.switchMap(next.progress.currentMap, 'spawn', [Math.floor(x / TILE), Math.floor(y / TILE)], true);
   }
 
-  /** 主人公の いまの ステータス（そうび こみ） */
   private heroStats(gs: GameState) {
     return partyFromGameState(gs, this.content()!).hero.stats;
   }
@@ -2800,19 +2725,6 @@ export class OverworldScene extends Phaser.Scene {
     const c = this.content()!;
     const gs = this.gs()!;
     const max = this.heroStats(gs);
-    if (tab === 'look') {
-      const [, part, n] = key.split(':');
-      const lp = LOOK_PARTS.find((x) => x.part === part);
-      const i = Number(n);
-      if (!lp || gs.player.appearance[lp.part] === i) return null;
-      const appearance = { ...gs.player.appearance, [lp.part]: i };
-      this.setGame({ ...gs, player: { ...gs.player, appearance } });
-      playSfx('select');
-      return t('field.lookPicked', {
-        part: t(`field.${lp.key}`),
-        name: t(`field.${lp.key}Names`).split(',')[i] ?? '',
-      });
-    }
     if (tab === 'equip') {
       const slot = EQUIP_SLOTS.find((s) => `slot:${s}` === key);
       const id = slot && gs.player.equipment[slot];
@@ -3083,6 +2995,7 @@ export class OverworldScene extends Phaser.Scene {
         ),
         cols: ctx.cols,
         rows: ctx.rows,
+        dropSlots: Object.fromEntries(EQUIP_SLOTS.map((slot) => [slot, equipPosition(gs, slot)])),
         used: usage.used,
         capacity: usage.capacity,
         over: usage.over,

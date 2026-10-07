@@ -374,6 +374,20 @@
           "height": 16,
           "properties": [{ "name": "role", "type": "string", "value": "talk" }]
         },
+        {
+          "id": 14,
+          "name": "npc_barber",
+          "type": "npc",
+          "x": 592,
+          "y": 480,
+          "width": 16,
+          "height": 16,
+          "properties": [
+            { "name": "role", "type": "string", "value": "barber" },
+            { "name": "signX", "type": "int", "value": 38 },
+            { "name": "signY", "type": "int", "value": 28 }
+          ]
+        },
         { "id": 11, "name": "spawn", "type": "spawn", "x": 400, "y": 560, "width": 16, "height": 16 },
         { "id": 12, "name": "from_field", "type": "spawn", "x": 400, "y": 560, "width": 16, "height": 16 },
         {
@@ -393,7 +407,7 @@
     }
   ],
   "nextlayerid": 5,
-  "nextobjectid": 14,
+  "nextobjectid": 15,
   "tilesets": [
     {
       "firstgid": 1,

@@ -115,6 +115,11 @@ export function MenuOverlay({
   }
   const e = entries[Math.min(sel, entries.length - 1)];
   const listRef = useRef<HTMLUListElement>(null);
+  const homeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (home) homeButtonRef.current?.focus();
+  }, [home, homeSel]);
 
   const pick = useCallback<MenuPick>(
     (k, ensureVisible = false) => {
@@ -244,7 +249,13 @@ export function MenuOverlay({
   const pic = e?.art ?? e?.icon;
   return (
     <div class="nq-wmap" onClick={onClose}>
-      <div class="nq-win nq-wmap-box nq-menu-box" onClick={(ev) => ev.stopPropagation()}>
+      <div
+        class="nq-win nq-wmap-box nq-menu-box"
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('field.menu')}
+        onClick={(ev) => ev.stopPropagation()}
+      >
         <div class="nq-menu-head">
           <span class="nq-menu-title">
             <PixelIcon name="cmd-item" scale={2} />
@@ -271,6 +282,7 @@ export function MenuOverlay({
               {tabs.map((x, index) => (
                 <button
                   key={x.key}
+                  ref={index === homeSel ? homeButtonRef : undefined}
                   type="button"
                   class={`nq-menu-card nq-menu-card-${x.key} ${index === homeSel ? 'nq-focus' : ''}`}
                   onPointerEnter={() => setHomeSel(index)}

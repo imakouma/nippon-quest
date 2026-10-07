@@ -86,19 +86,6 @@ const ICONS: Readonly<Record<MenuHomeKey, readonly Shape[]>> = {
     [8, 10, 7, 2, NQ.ink],
     [11, 11, 2, 4, NQ.brown],
   ],
-  look: [
-    [4, 1, 8, 5, NQ.ink],
-    [5, 2, 6, 4, NQ.red],
-    [4, 5, 8, 6, NQ.ink],
-    [5, 6, 6, 4, NQ.skinLight],
-    [6, 7, 1, 2, NQ.ink],
-    [9, 7, 1, 2, NQ.ink],
-    [2, 11, 12, 4, NQ.ink],
-    [3, 12, 10, 3, NQ.azure],
-    [13, 2, 2, 2, NQ.gold],
-    [14, 1, 1, 4, NQ.gold],
-    [12, 3, 4, 1, NQ.gold],
-  ],
 };
 
 export function MenuCategoryIcon({ name }: { name: MenuHomeKey }) {

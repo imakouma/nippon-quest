@@ -2,7 +2,8 @@ import { readFileSync } from 'node:fs';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { createNewGame } from '../../src/core/state/newGame';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
-import { buildMenuView, menuTabs } from '../../src/scenes/overworld/menuEntries';
+import { barberRows, buildMenuView, menuTabs } from '../../src/scenes/overworld/menuEntries';
+import { shopItemLines } from '../../src/scenes/overworld/townMenuViews';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
 import { content } from './helpers';
 
@@ -16,8 +17,18 @@ beforeAll(() => {
 });
 
 describe('フィールドメニューの表示モデル', () => {
+  it('店の武器には購入前に装備部位と性能を表示する', async () => {
+    const c = await content();
+    const weapon = c.items.get('common-dou-no-ken')!;
+    const lines = shopItemLines(weapon, 0, true).join(' ');
+    expect(lines).toContain('ぶき');
+    expect(lines).toMatch(/こうげき\+\d+/);
+    expect(lines).toContain('もっている：0こ');
+  });
+
   it('バッグをフィールドメニューの入口として表示する', () => {
     expect(menuTabs(0).map((entry) => entry.key)).toContain('party');
+    expect(menuTabs(0).map((entry) => entry.key)).not.toContain('look');
   });
 
   it('仲間のモンスターだけを発見済みとして図鑑へ出す', async () => {
@@ -38,18 +49,10 @@ describe('フィールドメニューの表示モデル', () => {
     expect(view.entries.some((entry) => !entry.known)).toBe(true);
   });
 
-  it('見た目タブを5部位の表示データへ変換する', async () => {
-    const c = await content();
-    const view = buildMenuView({
-      content: c,
-      game: game(),
-      tab: 'look',
-      stats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
-      revealAll: false,
-      heroArt: (look) => `${look.hair}-${look.skin}-${look.cloth}`,
-      monsterArt: () => '',
-    });
-    expect(view.entries).toHaveLength(32);
-    expect(view.entries.filter((entry) => entry.tag)).toHaveLength(5);
+  it('床屋を5部位の有料選択肢へ変換する', () => {
+    const rows = barberRows(game(), (look) => `${look.hair}-${look.skin}-${look.cloth}`, 30);
+    expect(rows).toHaveLength(32);
+    expect(rows.filter((entry) => entry.tag)).toHaveLength(5);
+    expect(rows.filter((entry) => entry.action?.ok).length).toBeGreaterThan(0);
   });
 });
