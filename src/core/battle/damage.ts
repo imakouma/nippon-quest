@@ -88,13 +88,14 @@ export function computeDamage(input: DamageInput): DamageOutput {
     defender.weaknessRevealed && defender.weakness !== undefined && defender.weakness === element;
   const weakMult = weaknessHit ? settings.weaknessMultiplier : 1;
   const setBoost = attacker.elementBoost?.[element] ?? 1;
+  const resistance = defender.elementResists?.includes(element) ? settings.equipmentElementResistance : 1;
 
   const critical = input.canCrit && rng.chance(critChance(input.combo, settings));
   const critMult = critical ? settings.combo.critMultiplier : 1;
 
   const amount = Math.max(
     1,
-    Math.round(base * scoreMult * comboMult * elementMult * weakMult * setBoost * critMult),
+    Math.round(base * scoreMult * comboMult * elementMult * weakMult * setBoost * resistance * critMult),
   );
   return { amount, critical, elementMult, weaknessHit, band, scoreMult, comboMult };
 }

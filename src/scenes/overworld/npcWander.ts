@@ -45,7 +45,7 @@ export interface WanderingNpc {
   ferry?: { map: string; spawn: string; place: string; back: boolean };
 }
 
-/** 町人の予約マスを先に更新してから、スプライトと影を同時に1マス動かす。 */
+/** 到着マスを予約し、見た目の歩行に合わせて当たり判定も1マス動かす。 */
 export function advanceWanderingNpcs<T extends WanderingNpc>(input: {
   time: number;
   npcs: Map<number, T>;

@@ -38,6 +38,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       bagPlacements: {
         hero: { x: 1, y: 1, rotated: false },
       },
+      bagItems: [],
     },
     inventory: { [STARTER_EQUIPMENT_ID]: 1 },
     progress: {
@@ -51,6 +52,8 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       eventsDone: [],
       chestsOpened: [],
       unlockedRecipes: ['rc-nebuta-no-kabuto', 'rc-hiba-no-koshiate'],
+      unlockedMonsters: [],
+      titles: [],
       missions: {},
       counters: { 'story.prologue': 0 },
     },

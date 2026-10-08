@@ -10,7 +10,9 @@ import { NQ } from '../../rendering/palette';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
+import { useModalFocus } from '../useModalFocus';
 import { JAPAN_GENERAL_REGIONS, JapanMapOverview } from './JapanMapOverview';
 import { areaAt, type MapRegionInfo, type RegionGrid } from './worldMapModel';
 import './field.css';
@@ -157,6 +159,8 @@ function RegionWorldMapOverlay({
   const area = region?.areas[ai];
   const base = useRef<HTMLCanvasElement>(null);
   const sel = useRef<HTMLCanvasElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, '.nq-back');
 
   useEffect(() => {
     if (base.current && region) drawRegion(base.current, region);
@@ -209,6 +213,10 @@ function RegionWorldMapOverlay({
   live.current = { pickRegion, pickArea, activate, onBack, ai, n: region?.areas.length ?? 0 };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      const inControl =
+        e.target instanceof HTMLElement &&
+        e.target.closest('button, input, select, textarea, [contenteditable="true"]');
+      if (inControl && (e.key === 'Enter' || e.key === ' ')) return;
       const L = live.current;
       switch (e.key) {
         case 'ArrowLeft':
@@ -256,15 +264,32 @@ function RegionWorldMapOverlay({
   const found = area ? area.stamps.filter((s) => s.name !== null).length : 0;
 
   return (
-    <div class="nq-wmap" onClick={onClose}>
+    <div
+      ref={dialogRef}
+      class="nq-wmap"
+      role="dialog"
+      aria-modal="true"
+      aria-label={displayText(t('field.worldMap'))}
+      onClick={onClose}
+    >
       <div class="nq-win nq-wmap-box" onClick={(e) => e.stopPropagation()}>
         <div class="nq-wmap-left">
           <div class="nq-wmap-region">
-            <button type="button" class="nq-wmap-arrow" onClick={() => pickRegion(-1)}>
+            <button
+              type="button"
+              class="nq-wmap-arrow"
+              aria-label={t('field.mapPreviousRegion')}
+              onClick={() => pickRegion(-1)}
+            >
               ◀
             </button>
             <RubyLabel text={region?.name ?? ''} class="nq-wmap-rname" />
-            <button type="button" class="nq-wmap-arrow" onClick={() => pickRegion(1)}>
+            <button
+              type="button"
+              class="nq-wmap-arrow"
+              aria-label={t('field.mapNextRegion')}
+              onClick={() => pickRegion(1)}
+            >
               ▶
             </button>
           </div>
@@ -341,7 +366,7 @@ function RegionWorldMapOverlay({
             </div>
           ) : area ? (
             <div class="nq-wmap-info">
-              <div class="nq-wmap-aname-row">
+              <div class="nq-wmap-aname-row" role="status" aria-live="polite">
                 <RubyLabel text={area.visited ? area.name : t('field.dexUnknown')} class="nq-wmap-aname" />
                 {area.id === here?.areaId && (
                   <span class="nq-wmap-here">

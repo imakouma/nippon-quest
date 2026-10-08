@@ -7,8 +7,32 @@ import { createNewGame } from '../../src/core/state/newGame';
 import { midBossFlag, motifStamp, nextStop } from '../../src/core/progression/route';
 import { canChallengeIslandBoss, completeIsland, hasAllAreaSigns } from '../../src/core/progression/island';
 import { applyReward, markDone, pickReward } from '../../src/core/progression/eventReward';
+import { applyArenaVictory, markMapVisited } from '../../src/core/progression/arena';
 
 const newGame = () => createNewGame({ name: 'ハル', grade: 1 }, 0);
+
+describe('闘技場と訪問記録', () => {
+  it('勝利報酬とバッジを加算し、更新時刻を進める', () => {
+    const gs = newGame();
+    const rewarded = applyArenaVictory(gs, 60, 10);
+
+    expect(rewarded.player.gold).toBe(gs.player.gold + 60);
+    expect(rewarded.arena.badges).toBe(gs.arena.badges + 1);
+    expect(rewarded.updatedAt).toBe(10);
+    expect(gs.player.gold).toBe(100);
+    expect(gs.arena.badges).toBe(0);
+  });
+
+  it('初回訪問だけを記録し、更新時刻を進める', () => {
+    const gs = newGame();
+    const visited = markMapVisited(gs, 'aomori-town', 10);
+
+    expect(visited.progress.counters['visit:aomori-town']).toBe(1);
+    expect(visited.updatedAt).toBe(10);
+    expect(gs.progress.counters['visit:aomori-town']).toBeUndefined();
+    expect(markMapVisited(visited, 'aomori-town', 20)).toBe(visited);
+  });
+});
 
 describe('中ボスを倒したあとのワープ先', () => {
   it('同じ島の次の県のフィールドへ（順番は world/japan.json）', async () => {
@@ -187,7 +211,7 @@ describe('名所イベントの報酬（GDD §7）', () => {
     expect(pickReward(tiers, 0)).toEqual({ xp: 5 });
   });
 
-  it('経験値・おかね・どうぐ・わざ・レシピを反映し、元の GameState は書き換えない', () => {
+  it('経験値・おかね・どうぐ・わざ・レシピ・モンスター解放を反映し、元の GameState は書き換えない', () => {
     const gs = newGame();
     const { state, lines } = applyReward(
       gs,
@@ -197,6 +221,8 @@ describe('名所イベントの報酬（GDD §7）', () => {
         items: [{ itemId: 'aomori-ringo', n: 3 }],
         skills: ['sk-shiraberu', 'sk-hinoko'],
         recipes: ['rc-maguro-zutsuki'],
+        unlockMonsters: ['aomori-itakodori'],
+        title: 'ねぶた見習[みなら]い',
       },
       1,
     );
@@ -207,8 +233,21 @@ describe('名所イベントの報酬（GDD §7）', () => {
     expect(state.player.skills.filter((s) => s === 'sk-hinoko')).toHaveLength(1);
     expect(state.player.skills).toContain('sk-shiraberu');
     expect(state.progress.unlockedRecipes).toContain('rc-maguro-zutsuki');
-    expect(lines.map((l) => l.kind)).toEqual(['xp', 'gold', 'item', 'skill', 'skill', 'recipe']);
+    expect(state.progress.unlockedMonsters).toEqual(['aomori-itakodori']);
+    expect(state.progress.titles).toEqual(['ねぶた見習[みなら]い']);
+    expect(lines.map((l) => l.kind)).toEqual([
+      'xp',
+      'gold',
+      'item',
+      'skill',
+      'skill',
+      'recipe',
+      'monster',
+      'title',
+    ]);
     expect(gs.player.xp).toBe(0);
+    expect(gs.progress.unlockedMonsters).toEqual([]);
+    expect(gs.progress.titles).toEqual([]);
   });
 
   it('イベント・スタンプ・しるしは何回つけても 1 つだけ', () => {
@@ -233,6 +272,28 @@ describe('名所エリア（青森）', () => {
     expect(ids(encounterTable(aomori, 'field', 'shore', 'hirosaki'))).toContain('aomori-sakurapon');
     // エリアの 外（ダンジョン）は ふつうの 表
     expect(encounterTable(aomori, 'dungeon', null, null)?.region).toBeUndefined();
+  });
+
+  it('イベント報酬で解放されるモンスターは、解放前の抽選候補から除く', async () => {
+    const { encounterTable, pickFromTable } = await import('../../src/core/battle/setup');
+    const { createRng } = await import('../../src/core/rng');
+    const { content } = await import('./helpers');
+    const c = await content();
+    const table = encounterTable(c.areas.get('aomori')!, 'dungeon', null, null)!;
+    const gated = new Set(['aomori-itakodori']);
+
+    const locked = Array.from({ length: 100 }, (_, index) =>
+      pickFromTable(table, createRng(`locked-${index}`), { gated, unlocked: [] }),
+    );
+    const unlocked = Array.from({ length: 100 }, (_, index) =>
+      pickFromTable(table, createRng(`unlocked-${index}`), {
+        gated,
+        unlocked: ['aomori-itakodori'],
+      }),
+    );
+
+    expect(locked).not.toContain('aomori-itakodori');
+    expect(unlocked).toContain('aomori-itakodori');
   });
 
   it('関所で すべての エリアが つながり、さいしょの エリアから じゅんばんに ひらける', async () => {

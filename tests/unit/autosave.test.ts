@@ -22,6 +22,20 @@ describe('AutosaveCoordinator', () => {
     expect(calls[0]?.[1].player.gold).toBe(20);
   });
 
+  it('要求後に呼び出し元が状態を変更しても、要求時点の内容を保存する', async () => {
+    const calls: GameState[] = [];
+    const autosave = new AutosaveCoordinator(async (_slot, value) => {
+      calls.push(value);
+    });
+    const requested = state(10);
+
+    const pending = autosave.request(1, requested);
+    requested.player.gold = 999;
+    await pending;
+
+    expect(calls[0]?.player.gold).toBe(10);
+  });
+
   it('書き込み中の要求を後続の最新状態へまとめる', async () => {
     let release = () => {};
     const gate = new Promise<void>((resolve) => {

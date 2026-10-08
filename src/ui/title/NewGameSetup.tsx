@@ -15,6 +15,7 @@ import {
   walkSheet,
 } from '../../rendering/characters';
 import { t } from '../i18n';
+import { useModalFocus } from '../useModalFocus';
 import './title.css';
 
 type Appearance = NonNullable<NewGameOptions['appearance']>;
@@ -58,6 +59,7 @@ function AvatarPreview({ appearance }: { appearance: Appearance }) {
       class="nq-avatar-preview"
       width={HERO_W}
       height={HERO_H}
+      role="img"
       aria-label={t('newGame.lookPreview')}
     />
   );
@@ -70,7 +72,7 @@ export function NewGameSetup({
   onCancel: () => void;
   onStart: (options: NewGameOptions) => void;
 }) {
-  const [grade, setGrade] = useState<Grade | undefined>();
+  const [grade, setGrade] = useState<Grade>(1);
   const [appearance, setAppearance] = useState<Appearance>({
     hair: 0,
     skin: 0,
@@ -78,6 +80,8 @@ export function NewGameSetup({
     hairStyle: 0,
     eyes: 0,
   });
+  const dialogRef = useRef<HTMLFormElement>(null);
+  useModalFocus(dialogRef, 'select');
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -101,24 +105,27 @@ export function NewGameSetup({
 
   const submit = (event: Event) => {
     event.preventDefault();
-    if (!grade) return;
     onStart({ name: UNNAMED_HERO, grade, appearance });
   };
 
   return (
-    <form class="nq-win nq-new-game" onSubmit={submit}>
-      <h2>{t('newGame.title')}</h2>
+    <form
+      ref={dialogRef}
+      class="nq-win nq-new-game"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="nq-new-game-title"
+      onSubmit={submit}
+    >
+      <h2 id="nq-new-game-title">{t('newGame.title')}</h2>
       <div class="nq-new-game-top">
         <label>
           <span>{t('newGame.grade')}</span>
           <select
             aria-label={t('newGame.grade')}
-            value={grade ?? ''}
+            value={grade}
             onChange={(event) => setGrade(Number((event.target as HTMLSelectElement).value) as Grade)}
           >
-            <option value="" disabled>
-              {t('newGame.gradePlaceholder')}
-            </option>
             {[1, 2, 3, 4, 5, 6].map((value) => (
               <option key={value} value={value}>
                 {t('newGame.gradeValue', { n: value })}
@@ -154,6 +161,7 @@ export function NewGameSetup({
                       }
                       style={{ backgroundColor: color }}
                       aria-label={t('newGame.option', { part: t(`newGame.${part}`), n: value + 1 })}
+                      aria-pressed={appearance[part] === value}
                       onClick={() => choose(part, value)}
                     />
                   ))}
@@ -189,6 +197,7 @@ export function NewGameSetup({
                             : 'nq-look-shape'
                         }
                         aria-label={t('newGame.option', { part: t(`newGame.${part}`), n: value + 1 })}
+                        aria-pressed={(appearance[part] ?? 0) === value}
                         onClick={() => choose(part, value)}
                       >
                         {value + 1}
@@ -212,9 +221,7 @@ export function NewGameSetup({
         <button type="button" onClick={onCancel}>
           {t('ui.back')}
         </button>
-        <button type="submit" disabled={!grade}>
-          {t('ui.start')}
-        </button>
+        <button type="submit">{t('ui.start')}</button>
       </div>
     </form>
   );

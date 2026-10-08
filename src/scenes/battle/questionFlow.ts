@@ -31,6 +31,7 @@ export async function runBattleQuestion(input: {
   speak: (text: string) => void;
   now: () => number;
   port: BattleQuestionPort;
+  getGame?: () => GameState;
 }): Promise<ActionResult> {
   const host = document.createElement('div');
   host.className = 'nq-bq-slot';
@@ -45,6 +46,7 @@ export async function runBattleQuestion(input: {
     rng: input.rng,
     speak: input.speak,
     reason: 'battle',
+    getGame: input.getGame,
   });
   const startedAt = input.now();
   try {

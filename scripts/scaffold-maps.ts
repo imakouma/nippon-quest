@@ -903,14 +903,26 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
         properties: [str('between', g.between.join(',')), str('openedBy', g.openedBy)],
       });
     part.ids.forEach((id, r) => {
-      const at = part.bossAt.get(id)!;
       // まわり 4 マスが おなじ エリアの 広い ところ（ぬしが 道を ふさがないように）
       const roomy = (i: number) =>
         part.region[i] === r && around4(land, i).every((j) => part.region[j] === r);
+      const awayFromStart = (i: number) =>
+        Math.abs((i % land.w) - Math.floor(spawn[0])) +
+          Math.abs(Math.floor(i / land.w) - Math.floor(spawn[1])) >=
+        16;
+      // 最初のエリアのぬしは、ゲーム開始直後に見えない距離まで町から離す。
+      // 遠すぎて迷わないよう、歩行距離20マス前後の広い場所を選ぶ。
+      const at =
+        r === 0
+          ? land.best(
+              (i) => inMain(i) && roomy(i),
+              (i) => Math.abs(fromTown[i]! - 20),
+            )
+          : part.bossAt.get(id)!;
       defs.push({
         name: `regionboss_${id}`,
         type: 'regionBoss',
-        at: place.gate(at, (i) => inMain(i) && roomy(i)),
+        at: place.gate(at, (i) => inMain(i) && roomy(i) && awayFromStart(i)),
         properties: [str('region', id)],
       });
     });

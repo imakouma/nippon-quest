@@ -9,6 +9,7 @@ import {
   bagMonsterUids,
   bagUsage,
   battleRosterUids,
+  evolveRoom,
   MAX_COMPANIONS,
   monsterSize,
   moveBagThing,
@@ -76,9 +77,33 @@ describe('2Dバッグ', () => {
     });
   });
 
-  it('通常キャラは1x1、ボスは2x2', () => {
+  it('通常キャラは進化段階ぶんのマス、ボスは2x2を使う', () => {
     expect(monsterSize('aomori-nebutan', c.monsters)).toEqual({ w: 1, h: 1 });
+    expect(monsterSize('aomori-nebuta-musha', c.monsters)).toEqual({ w: 2, h: 1 });
+    expect(monsterSize('aomori-nebuta-taisho', c.monsters)).toEqual({ w: 3, h: 1 });
     expect(monsterSize('tohoku-boss-rokufuyu', c.monsters)).toEqual({ w: 2, h: 2 });
+  });
+
+  it('バッグ内の進化後サイズが境界や他の仲間と重なる場合は進化できない', () => {
+    const s = fresh();
+    own(s, 'evolving', 'aomori-nebutan');
+    s.party.team.push('evolving');
+    s.party.bagPlacements['mon:evolving'] = { x: 2, y: 2, rotated: false };
+
+    expect(evolveRoom(s, 'evolving', bagContext(s, c))).toEqual({ extra: 1, ok: false });
+    s.party.bagPlacements['mon:evolving'] = { x: 0, y: 2, rotated: false };
+    expect(evolveRoom(s, 'evolving', bagContext(s, c))).toEqual({ extra: 1, ok: true });
+  });
+
+  it('合計マス数が容量内でも、重なりや枠外配置を不正として検出する', () => {
+    const s = fresh();
+    own(s, 'wide', 'aomori-nebuta-musha');
+    s.party.team.push('wide');
+    s.party.bagPlacements['mon:wide'] = { x: 0, y: 0, rotated: false };
+    expect(bagUsage(s, bagContext(s, c))).toMatchObject({ used: 4, capacity: 9, over: true });
+
+    s.party.bagPlacements['mon:wide'] = { x: 2, y: 2, rotated: false };
+    expect(bagUsage(s, bagContext(s, c)).over).toBe(true);
   });
 });
 
@@ -105,6 +130,26 @@ describe('バッグ内と控え', () => {
     own(s, 'extra');
     expect(stowNewMonster(s, 'extra', bagContext(s, c)).inBag).toBe(false);
     expect(battleRosterUids(s)).toHaveLength(MAX_COMPANIONS);
+  });
+
+  it('バッグが満杯で新しい仲間を控えへ送ったときも更新日時を進める', () => {
+    const s = fresh();
+    s.party.bagPlacements.hero = { x: 0, y: 0, rotated: false };
+    s.party.bagPlacements['mon:story-companion'] = { x: 1, y: 0, rotated: false };
+    own(s, 'boss', 'tohoku-boss-rokufuyu');
+    s.party.team.push('boss');
+    s.party.bagPlacements['mon:boss'] = { x: 0, y: 1, rotated: false };
+    for (let y = 0; y < 3; y++) {
+      own(s, `right-${y}`);
+      s.party.team.push(`right-${y}`);
+      s.party.bagPlacements[`mon:right-${y}`] = { x: 2, y, rotated: false };
+    }
+    own(s, 'new-reserve');
+
+    const stowed = stowNewMonster(s, 'new-reserve', bagContext(s, c), s.updatedAt + 1);
+
+    expect(stowed.state.party.reserve).toContain('new-reserve');
+    expect(stowed.state.updatedAt).toBeGreaterThan(s.updatedAt);
   });
 
   it('同じ仲間の再収納は配置を変えず、存在しないUIDを控えへ追加しない', () => {
@@ -161,6 +206,22 @@ describe('装備・隣接効果・描画セル', () => {
   it('主人公に隣接した仲間が属性に応じた5%支援を与える', () => {
     const s = fresh();
     const bonus = adjacencyBonus(s, bagContext(s, c), s.player.baseStats);
+    expect(bonus.labels).toHaveLength(1);
+    expect(Object.values(bonus.stats).some((v) => (v ?? 0) > 0)).toBe(true);
+  });
+
+  it('複数マスの仲間は、占有セルのどれかが主人公に隣接すれば支援する', () => {
+    const s = fresh();
+    s.party.team = [];
+    s.party.activeUid = null;
+    delete s.party.bagPlacements['mon:story-companion'];
+    own(s, 'wide', 'aomori-nebuta-musha');
+    s.party.team = ['wide'];
+    s.party.activeUid = 'wide';
+    s.party.bagPlacements['mon:wide'] = { x: 0, y: 0, rotated: false };
+
+    const bonus = adjacencyBonus(s, bagContext(s, c), s.player.baseStats);
+
     expect(bonus.labels).toHaveLength(1);
     expect(Object.values(bonus.stats).some((v) => (v ?? 0) > 0)).toBe(true);
   });

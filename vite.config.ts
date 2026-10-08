@@ -59,6 +59,7 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         playground: resolve(root, 'playground.html'),
+        battleQuestionAudit: resolve(root, 'battle-question-audit.html'),
         editor: resolve(root, 'editor.html'),
       },
       output: {

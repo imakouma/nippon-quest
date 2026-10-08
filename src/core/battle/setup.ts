@@ -12,24 +12,17 @@ import type { Ground } from '../world/ground';
 import { makeHero, makeMonster, makeParty } from './factory';
 import type { Party } from './types';
 
-/**
- * GameState.player.baseStats は「そのレベルでの素のステータス」として扱う。
- * レベルアップでの伸び（growth）は progression（Step 7）が baseStats に書き戻すので、ここでは 0。
- */
-const NO_GROWTH = { hp: 0, mp: 0, atk: 0, def: 0, spd: 0, wis: 0 };
-
 export function partyFromGameState(
   gs: GameState,
-  c: Pick<ContentIndex, 'items' | 'sets' | 'monsters' | 'xp'>,
+  c: Pick<ContentIndex, 'items' | 'sets' | 'monsters' | 'xp' | 'settings'>,
 ): Party {
   const p = gs.player;
   const hero = makeHero(
     {
       name: p.name,
-      // 見せる レベル（けいけんち から）。のびは 0 なので ステータスは かわらない
       level: heroLevel(gs, c.xp.hero),
       baseStats: p.baseStats,
-      growth: NO_GROWTH,
+      growth: c.settings.heroGrowth,
       skills: p.skills,
       equipment: activeEquipment(gs),
       bonusWis: p.bonusWis,
@@ -57,7 +50,11 @@ export function partyFromGameState(
   });
   // content に 無い どうぐ（なくした やくそう など、前の セーブに のこっている もの）は もちこまない
   const items = Object.fromEntries(
-    Object.entries(gs.inventory).filter(([id, n]) => n > 0 && c.items.has(id)),
+    gs.party.bagItems.flatMap((id) => {
+      const item = c.items.get(id);
+      const count = gs.inventory[id] ?? 0;
+      return item?.kind === 'consumable' && item.use && count > 0 ? [[id, count]] : [];
+    }),
   );
   const party = makeParty(hero, monsters, items);
   const active = owned.findIndex((o) => o.uid === gs.party.activeUid);
@@ -97,6 +94,11 @@ export function pickEncounter(area: Pick<Area, 'encounters'>, zone: EncounterZon
 
 type EncounterTable = Area['encounters'][number];
 
+export interface EncounterUnlocks {
+  gated: ReadonlySet<string>;
+  unlocked: readonly string[];
+}
+
 /**
  * いま つかう 出現表。名所エリア（region）の ある フィールドでは、その エリアの 表（地面の 表 → エリアの field の 表）。
  * エリアの 表が 無ければ ふつうの 表（地面 → field）
@@ -120,10 +122,14 @@ export function encounterTable(
   return area.encounters.find((e) => !e.region && e.zone === z) ?? null;
 }
 
-/** 表から 1 体 */
-export function pickFromTable(table: EncounterTable, rng: Rng): string | null {
-  if (!table.table.length) return null;
-  return rng.weighted(table.table.map((t) => ({ item: t.monsterId, weight: t.weight })));
+/** 表から 1 体。報酬で解放されるモンスターは、解放済みになるまで候補から除く。 */
+export function pickFromTable(table: EncounterTable, rng: Rng, unlocks?: EncounterUnlocks): string | null {
+  const unlocked = unlocks ? new Set(unlocks.unlocked) : null;
+  const candidates = unlocks
+    ? table.table.filter((entry) => !unlocks.gated.has(entry.monsterId) || unlocked!.has(entry.monsterId))
+    : table.table;
+  if (!candidates.length) return null;
+  return rng.weighted(candidates.map((entry) => ({ item: entry.monsterId, weight: entry.weight })));
 }
 
 /**

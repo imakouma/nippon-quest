@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { curriculumGraph } from '../../src/core/learning';
 import { createNewGame } from '../../src/core/state/newGame';
+import { innRest } from '../../src/core/progression/town';
 import type { QuestionBank } from '../../src/questions/engine';
-import { buildReviewQueue } from '../../src/scenes/overworld/reviewQueue';
+import { buildReviewQueue, clearReviewedMistake } from '../../src/scenes/overworld/reviewQueue';
 
 const knownIds = new Set(curriculumGraph.questionLinks.map((link) => link.questionId));
 const bank = {
@@ -10,6 +11,28 @@ const bank = {
 } as unknown as QuestionBank;
 
 describe('宿屋の復習キュー', () => {
+  it('正解した問題をまちがいから外し、更新時刻を進める', () => {
+    const game = createNewGame({ name: 'テスト', grade: 1 }, 100);
+    game.learning.mistakes = ['first', 'second'];
+
+    const next = clearReviewedMistake(game, 'first', 200);
+
+    expect(next.learning.mistakes).toEqual(['second']);
+    expect(next.updatedAt).toBe(200);
+    expect(game.learning.mistakes).toEqual(['first', 'second']);
+  });
+
+  it('復習後に宿泊しても、解消したまちがいを戻さない', () => {
+    const game = createNewGame({ name: 'テスト', grade: 1 }, 100);
+    game.learning.mistakes = ['first'];
+    const reviewed = clearReviewedMistake(game, 'first', 200);
+
+    const rested = innRest(reviewed, { hp: 40, mp: 10 }, { map: 'aomori-town', x: 8, y: 8 }, 0, 300);
+
+    expect(rested.state.learning.mistakes).toEqual([]);
+    expect(rested.state.updatedAt).toBe(300);
+  });
+
   it('直近の誤答の後に、原因を切り分ける別問題を入れる', () => {
     const game = createNewGame({ name: 'テスト', grade: 1 });
     game.learning.mistakes = ['sansu.g1.tashizan.0002'];

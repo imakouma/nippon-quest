@@ -12,7 +12,9 @@ import { LOCKED_REGION_TILE } from '../../shared/regionVisibility';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
+import { useModalFocus } from '../useModalFocus';
 import { areaMapTerrainColor } from './areaMapTerrain';
 import type { RegionMiniView } from './RegionMiniMap';
 import { drawRegionContext } from './regionContext';
@@ -146,6 +148,8 @@ export function AreaMapOverlay({
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const place = places[sel];
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, '.nq-amap-list .nq-focus');
   const drag = useRef({ pointerId: -1, x: 0, y: 0, panX: 0, panY: 0, moved: false });
   const view = useRef({ zoom, pan });
   view.current = { zoom, pan };
@@ -221,6 +225,12 @@ export function AreaMapOverlay({
   useEffect(() => {
     if (regionRef.current && region) drawRegionContext(regionRef.current, region, 4);
   }, [region?.id, region?.here]);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      dialogRef.current?.querySelector<HTMLElement>('.nq-amap-list .nq-focus')?.focus();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [sel]);
 
   const pick = (k: number) => {
     if (k === sel || !places[k]) return;
@@ -237,6 +247,10 @@ export function AreaMapOverlay({
   live.current = { pick, go, onClose, sel, n: places.length };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      const inControl =
+        e.target instanceof HTMLElement &&
+        e.target.closest('button, input, select, textarea, [contenteditable="true"]');
+      if (inControl && (e.key === 'Enter' || e.key === ' ')) return;
       const L = live.current;
       switch (e.key) {
         case 'ArrowUp':
@@ -400,7 +414,14 @@ export function AreaMapOverlay({
   };
 
   return (
-    <div class="nq-wmap" onClick={onClose}>
+    <div
+      ref={dialogRef}
+      class="nq-wmap"
+      role="dialog"
+      aria-modal="true"
+      aria-label={displayText(title)}
+      onClick={onClose}
+    >
       <div class="nq-win nq-wmap-box" onClick={(e) => e.stopPropagation()}>
         <div class="nq-wmap-left">
           <div class="nq-wmap-region">
@@ -491,6 +512,7 @@ export function AreaMapOverlay({
                     <button
                       type="button"
                       class={`nq-opt ${k === sel ? 'nq-focus' : ''}`}
+                      aria-pressed={k === sel}
                       onPointerEnter={() => pick(k)}
                       onClick={() => (k === sel ? go() : pick(k))}
                     >
@@ -502,7 +524,7 @@ export function AreaMapOverlay({
                 ))}
               </ul>
             ) : (
-              <div class="nq-amap-empty">
+              <div id="nq-amap-warp-unavailable" class="nq-amap-empty" role="status">
                 <span class="nq-amap-empty-icon" aria-hidden="true">
                   <PixelIcon name="warp" scale={4} />
                 </span>
@@ -511,9 +533,15 @@ export function AreaMapOverlay({
             )}
           </div>
           <div class="nq-wmap-foot">
-            <button type="button" class="nq-opt nq-wmap-go" disabled={!place} onClick={go}>
+            <button
+              type="button"
+              class="nq-opt nq-wmap-go"
+              disabled={!place}
+              aria-describedby={!place ? 'nq-amap-warp-unavailable' : undefined}
+              onClick={go}
+            >
               <PixelIcon name="warp" scale={3} />
-              {t('field.placeGo')}
+              <RubyLabel text={t(place ? 'field.placeGo' : 'field.placeGoUnavailable')} />
             </button>
             <span class="nq-wmap-keys">{t('field.areaMapKeys')}</span>
           </div>

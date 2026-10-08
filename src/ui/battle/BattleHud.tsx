@@ -1,40 +1,35 @@
 /**
  * バトル画面の DOM オーバーレイ（リアルタイム・コマンドゲージバトル）。サイドビュー（敵が左・味方が右）の SFC 風 RPG：
- *  - 上：左に敵、右に仲間の窓（名前・Lv・HP ゲージ。味方は その下に時間のゲージ）
+ *  - 上：左に敵、右にメッセージ。下：左にコマンド、右に仲間の窓（名前・Lv・HP ゲージ）
  *  - 敵の 足もと：こうげきタイマー（たまると こうげきして くる。もうすぐなら 赤く 点めつ）
- *  - 右：教科ゲージ（こたえると たまり、ゲージを 使う 必殺技で へる）
+ *  - 下：コマンドの右、味方ステータスの左に教科ゲージ（こたえると たまり、必殺技で へる）
  *  - 下：メッセージ窓、コマンドは下の左に 2 列 × 2 段。わざ・どうぐ・いれかえは下から大きな窓
  *  - 問題の あいだは 問題の 枠の 見出しに 敵の こうげきタイマーと HP（問題中も 敵は うごく）
  * 窓は黒＋白い太枠、文字は PixelMplus12（12 / 24 / 36 / 48px）。
  * ロジックは持たない。HudStore を読んで描き、操作は store.dispatch() で Battle シーンへ返す。
  */
 import type { JSX } from 'preact';
-import { useEffect } from 'preact/hooks';
-import { ElementChip, SubjectChip } from '../chips';
+import { useEffect, useRef } from 'preact/hooks';
+import { SubjectChip } from '../chips';
 import { t } from '../i18n';
-import { createSpeaker } from '../overlay';
 import { PixelIcon } from '../PixelIcon';
 import { QuestionFrame } from '../QuestionFrame';
 import { RubyLabel } from '../RubyLabel';
-import { stripRuby } from '../ruby';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { TypedText, useTypewriter } from '../typewriter';
 import {
   useHud,
-  type AllyView,
   type BannerView,
-  type EnemyView,
   type HudState,
   type HudStore,
   type PopupView,
   type SkillOption,
-  type SubjectGaugeView,
 } from './store';
 import { BattleResultPanel } from './BattleResultPanel';
+import { AllyRow, Bar, ComboBadge, EnemyWindow, GaugeColumn, TurnBadge } from './BattleStatus';
 import { pickBattleHudOption, useBattleHudInput } from './useBattleHudInput';
 import './battle.css';
-
-const speak = createSpeaker();
 
 /** auto メッセージを読み終えてから次へ進むまで */
 const AUTO_ADVANCE_MS = 1100;
@@ -50,152 +45,11 @@ const EFFECT_HINT = {
 
 // ───────────────────────── 小さな部品 ─────────────────────────
 
-type BarKind = 'hp' | 'mp' | 'xp' | 'cmd' | 'time';
-
-function Bar({ value, max, kind }: { value: number; max: number; kind: BarKind }) {
-  const r = max > 0 ? Math.max(0, Math.min(1, value / max)) : 0;
-  const tone = kind !== 'hp' ? kind : r > 0.5 ? 'hp' : r > 0.2 ? 'hp-mid' : 'hp-low';
-  return (
-    <div class={`nq-bar nq-bar-${kind}`} role="meter" aria-valuenow={value} aria-valuemax={max}>
-      <i class={`nq-fill-${tone}`} style={{ width: `${r * 100}%` }} />
-    </div>
-  );
-}
-
 function Heart({ broken = false }: { broken?: boolean }) {
   return (
     <span class={`nq-heart ${broken ? 'nq-heart-broken' : ''}`} aria-hidden="true">
       ♥
     </span>
-  );
-}
-
-/** いまの ターン（ターン制の 目じるし） */
-function TurnBadge({ turn, class: cls }: { turn: number; class: string }) {
-  return <span class={`nq-turn ${cls}`}>{t('battle.turn', { n: turn })}</span>;
-}
-
-// ───────────────────────── 上の窓：敵・仲間 ─────────────────────────
-
-function EnemyWindow({ e }: { e: EnemyView }) {
-  return (
-    <div class={`nq-win nq-foe ${e.isBoss ? 'nq-foe-boss' : ''}`}>
-      <div class="nq-foe-heading">
-        <RubyLabel text={e.name} class="nq-foe-name" />
-        <span class="nq-foe-level">
-          {t('battle.lv')} {e.level}
-        </span>
-        {e.isBoss && (
-          <span class="nq-boss-tag">
-            <PixelIcon name="boss" scale={2} />
-            {t('battle.boss')}
-          </span>
-        )}
-      </div>
-      <div class="nq-foe-hp">
-        <span class="nq-lbl">{t('battle.hp')}</span>
-        <Bar value={e.hp} max={e.maxHp} kind="hp" />
-        <span class="nq-foe-hp-num">
-          {e.hp}/{e.maxHp}
-        </span>
-      </div>
-      <div class="nq-foe-row">
-        <ElementChip el={e.element} />
-        {e.weakness && e.weaknessRevealed ? (
-          <span class={`nq-chip nq-el-${e.weakness} nq-weak-open`}>
-            {t('battle.weakness')}
-            <PixelIcon name={`el-${e.weakness}`} scale={2} />
-            {t(`elements.${e.weakness}`)}
-          </span>
-        ) : (
-          <span class="nq-chip nq-weak">{t('battle.weaknessUnknown')}</span>
-        )}
-        {e.defMult !== 1 && (
-          <span class="nq-chip nq-def">
-            {t('battle.defMark')}
-            {e.defMult > 1 ? '▲' : '▼'}
-          </span>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
-  const down = a.hp <= 0;
-  return (
-    <div class={`nq-ally ${active ? 'nq-ally-active' : ''} ${down ? 'nq-ally-down' : ''}`}>
-      <span class="nq-ally-cur" aria-hidden="true">
-        {active ? '▶' : ''}
-      </span>
-      <PixelIcon name={a.isHero ? 'hero' : `el-${a.element}`} scale={2} />
-      <RubyLabel text={a.name} class="nq-ally-name" />
-      <span class="nq-ally-lv">
-        {t('battle.lv')}
-        {a.level}
-      </span>
-      {down ? (
-        <span class="nq-down">{t('battle.fainted')}</span>
-      ) : (
-        <>
-          <span class="nq-lbl">{t('battle.hp')}</span>
-          <span class="nq-ally-bars">
-            <Bar value={a.hp} max={a.maxHp} kind="hp" />
-          </span>
-        </>
-      )}
-      <span class="nq-num">
-        {a.hp}/{a.maxHp}
-      </span>
-      {a.passive && (
-        <span class="nq-ally-passive">
-          <PixelIcon name={`subj-${a.passive}`} scale={2} />
-        </span>
-      )}
-      {a.defMult > 1 && <span class="nq-chip nq-def">{t('battle.defMark')}▲</span>}
-    </div>
-  );
-}
-
-/** 教科ゲージ（右の 窓）。こたえると たまり、目もりまで たまると ゲージを 使う 必殺技が 打てる */
-function GaugeColumn({ list }: { list: SubjectGaugeView[] }) {
-  return (
-    <div class="nq-win nq-sgauge">
-      <span class="nq-sgauge-title">{t('battle.gauge')}</span>
-      {list.map((g) => (
-        <div
-          key={g.subject}
-          class={`nq-sg ${g.value >= g.max ? 'nq-sg-full' : ''} ${g.boosted ? 'nq-sg-boost' : ''}`}
-          role="meter"
-          aria-label={t(`subjects.${g.subject}`)}
-          aria-valuenow={g.value}
-          aria-valuemax={g.max}
-        >
-          <PixelIcon name={`subj-${g.subject}`} scale={2} />
-          <span class="nq-sg-bar">
-            <i class={`nq-subj-${g.subject}`} style={{ width: `${(g.value / g.max) * 100}%` }} />
-            {g.marks.map((m) => (
-              <b key={m} class="nq-sg-mark" style={{ left: `${(m / g.max) * 100}%` }} />
-            ))}
-          </span>
-          {g.gain && (
-            <span key={g.gain.id} class="nq-sg-gain">
-              +{g.gain.amount}
-            </span>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/** れんぞく せいかい（2 いじょう）。いりょくの 上乗せも 出す */
-function ComboBadge({ c }: { c: HudState['combo'] }) {
-  return (
-    <div key={c.count} class="nq-combo">
-      <span class="nq-combo-n">{t('battle.comboBadge', { n: c.count })}</span>
-      <span class="nq-combo-p">{t('battle.comboPower', { p: c.percent })}</span>
-    </div>
   );
 }
 
@@ -208,7 +62,7 @@ function Cursor({ on }: { on: boolean }) {
 /** コマンド窓（2 列 × 2 段）。下のメッセージ窓の左に出る */
 function CommandWindow({ s, store }: { s: HudState; store: HudStore }) {
   return (
-    <div class="nq-win nq-cmdwin" role="menu">
+    <div class="nq-win nq-cmdwin" role="menu" aria-label={t('battle.commandMenu')}>
       {s.commands.map((c, i) => {
         const focused = s.cursor === i;
         return (
@@ -217,6 +71,7 @@ function CommandWindow({ s, store }: { s: HudState; store: HudStore }) {
             type="button"
             role="menuitem"
             class={`nq-cmd ${focused ? 'nq-focus' : ''} ${c.glow ? 'nq-cmd-glow' : ''}`}
+            aria-current={focused ? 'true' : undefined}
             aria-disabled={c.disabled}
             data-cmd={c.kind}
             onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
@@ -225,6 +80,10 @@ function CommandWindow({ s, store }: { s: HudState; store: HudStore }) {
                 key: c.kind,
                 disabled: c.disabled,
                 action: () => store.dispatch({ t: 'command', kind: c.kind }),
+                onDisabled:
+                  c.kind === 'item' || c.kind === 'swap'
+                    ? () => store.dispatch({ t: 'command', kind: c.kind })
+                    : undefined,
               })
             }
           >
@@ -274,11 +133,16 @@ function MenuHead({
 function GaugeCost({ k }: { k: SkillOption }) {
   const r = Math.min(1, k.have / k.cost);
   return (
-    <span class={`nq-opt-cost ${r >= 1 ? 'nq-opt-cost-ok' : ''}`}>
+    <span
+      class={`nq-opt-cost ${r >= 1 ? 'nq-opt-cost-ok' : ''}`}
+      aria-label={t('battle.gaugeCostStatus', { have: k.have, cost: k.cost })}
+    >
       <span class="nq-opt-costbar">
         <i class={`nq-subj-${k.subject}`} style={{ width: `${r * 100}%` }} />
       </span>
-      {k.cost}
+      <span class="nq-opt-cost-value" aria-hidden="true">
+        {k.have}/{k.cost}
+      </span>
     </span>
   );
 }
@@ -294,12 +158,14 @@ function SkillList({ s, store }: { s: HudState; store: HudStore }) {
         store={store}
         extra={s.turn ? <TurnBadge turn={s.turn} class="nq-turn-head" /> : undefined}
       />
-      <div class="nq-menu-grid">
+      <div class="nq-menu-grid" role="group" aria-label={t('cmd.skill')}>
         {s.skills.map((k, i) => (
           <button
             key={k.key}
             type="button"
             class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''} ${k.disabled ? 'nq-opt-off' : ''}`}
+            aria-current={s.cursor === i ? 'true' : undefined}
+            aria-disabled={k.disabled}
             data-skill={k.id}
             data-actor={k.actorId}
             onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
@@ -362,12 +228,14 @@ function ItemList({ s, store }: { s: HudState; store: HudStore }) {
       {s.items.length === 0 ? (
         <p class="nq-menu-empty">{t('battle.noItems')}</p>
       ) : (
-        <div class="nq-menu-grid">
+        <div class="nq-menu-grid" role="group" aria-label={t('cmd.item')}>
           {s.items.map((it, i) => (
             <button
               key={it.id}
               type="button"
               class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''}`}
+              aria-current={s.cursor === i ? 'true' : undefined}
+              aria-disabled={it.count <= 0}
               data-item={it.id}
               onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
               onClick={() =>
@@ -402,12 +270,14 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
       {s.swaps.length === 0 ? (
         <p class="nq-menu-empty">{t('battle.noPartner')}</p>
       ) : (
-        <div class="nq-menu-grid">
+        <div class="nq-menu-grid" role="group" aria-label={t('cmd.swap')}>
           {s.swaps.map((w, i) => (
             <button
               key={w.index}
               type="button"
               class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''} ${w.disabled ? 'nq-opt-off' : ''}`}
+              aria-current={s.cursor === i ? 'true' : undefined}
+              aria-disabled={w.disabled}
               onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
               onClick={() =>
                 pickBattleHudOption({
@@ -426,7 +296,12 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
                   {t('battle.lv')}
                   {w.level}
                 </span>
-                <Bar value={w.hp} max={w.maxHp} kind="hp" />
+                <Bar
+                  value={w.hp}
+                  max={w.maxHp}
+                  kind="hp"
+                  label={`${displayText(w.name)} ${t('battle.hp')}`}
+                />
                 {w.active ? (
                   <span class="nq-opt-reason">{t('battle.active')}</span>
                 ) : w.hp <= 0 ? (
@@ -459,7 +334,13 @@ function Banner({ b }: { b: BannerView }) {
       </div>
     );
   return (
-    <div key={b.id} class={`nq-banner nq-band nq-band-${b.kind}`}>
+    <div
+      key={b.id}
+      class={`nq-banner nq-band nq-band-${b.kind}`}
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
       <div class="nq-band-text">
         {b.kind === 'perfect' && <PixelIcon name="star" scale={4} />}
         <RubyLabel text={b.text} />
@@ -478,7 +359,14 @@ function Popups({ list }: { list: PopupView[] }) {
   return (
     <>
       {list.map((p) => (
-        <div key={p.id} class={`nq-pop nq-pop-${p.kind}`} style={{ left: `${p.x}px`, top: `${p.y}px` }}>
+        <div
+          key={p.id}
+          class={`nq-pop nq-pop-${p.kind}`}
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          style={{ left: `${p.x}px`, top: `${p.y}px` }}
+        >
           {p.text}
         </div>
       ))}
@@ -494,14 +382,24 @@ function QuestionStrip({ s }: { s: HudState }) {
       {s.enemy && (
         <span class="nq-qs-unit">
           <span class="nq-qs-lbl">{t('battle.enemies')}</span>
-          <Bar value={s.enemy.hp} max={s.enemy.maxHp} kind="hp" />
+          <Bar
+            value={s.enemy.hp}
+            max={s.enemy.maxHp}
+            kind="hp"
+            label={`${displayText(s.enemy.name)} ${t('battle.hp')}`}
+          />
         </span>
       )}
       {s.turn && <TurnBadge turn={s.turn} class="nq-turn-strip" />}
       {front && (
         <span class="nq-qs-unit">
           <PixelIcon name={front.isHero ? 'hero' : `el-${front.element}`} scale={2} />
-          <Bar value={front.hp} max={front.maxHp} kind="hp" />
+          <Bar
+            value={front.hp}
+            max={front.maxHp}
+            kind="hp"
+            label={`${displayText(front.name)} ${t('battle.hp')}`}
+          />
           <span class="nq-qs-num">{front.hp}</span>
         </span>
       )}
@@ -518,6 +416,7 @@ function QuestionStrip({ s }: { s: HudState }) {
 
 export function BattleHud({ store }: { store: HudStore }) {
   const s = useHud(store);
+  const battleRef = useRef<HTMLDivElement>(null);
   const tw = useTypewriter(s.message ? s.message.id : null, s.message?.text ?? '');
   const menuOpen = s.menu !== 'none';
   const waits = (m: HudState['message']) => !!m && m.mode !== 'prompt' && m.mode !== 'log';
@@ -542,6 +441,16 @@ export function BattleHud({ store }: { store: HudStore }) {
 
   useBattleHudInput(store, advance);
 
+  // 見た目のカーソルだけでなく実フォーカスも同期し、矢印操作中の選択位置を
+  // キーボード利用者と読み上げソフトへ確実に伝える。
+  useEffect(() => {
+    if (s.menu === 'none' || s.question || s.result) return;
+    const frame = requestAnimationFrame(() => {
+      battleRef.current?.querySelector<HTMLElement>('button.nq-focus')?.focus();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [s.cursor, s.menu, s.question, s.result]);
+
   const onStageClick = (e: JSX.TargetedMouseEvent<HTMLDivElement>) => {
     if (e.target !== e.currentTarget) return;
     if (!menuOpen && !s.result && !s.question) advance();
@@ -550,7 +459,7 @@ export function BattleHud({ store }: { store: HudStore }) {
   const bigMenu = s.menu === 'skills' || s.menu === 'items' || s.menu === 'swap';
 
   return (
-    <div class="nq-battle" onClick={onStageClick}>
+    <div ref={battleRef} class="nq-battle" onClick={onStageClick}>
       {s.message && (
         <div
           class={`nq-win nq-box ${s.menu === 'commands' ? 'nq-box-cmd' : ''}`}
@@ -562,17 +471,6 @@ export function BattleHud({ store }: { store: HudStore }) {
             </span>
             <TypedText text={s.message.text} n={tw.n} />
           </p>
-          <button
-            type="button"
-            class="nq-box-speak"
-            aria-label={t('ui.speak')}
-            onClick={(e) => {
-              e.stopPropagation();
-              speak(stripRuby(s.message!.text, 'kana'));
-            }}
-          >
-            <PixelIcon name="speaker" scale={3} />
-          </button>
           {tw.done && waits(s.message) && (
             <span class="nq-box-next" aria-label={t('battle.tapToAdvance')}>
               ▼
@@ -588,30 +486,17 @@ export function BattleHud({ store }: { store: HudStore }) {
       <Popups list={s.popups} />
       {s.banner && <Banner b={s.banner} />}
 
-      <div class="nq-panel">
-        {s.enemy && <EnemyWindow e={s.enemy} />}
-        <div class="nq-win nq-party">
-          {s.allies.map((a) => (
-            <AllyRow key={a.id} a={a} active={s.actorId === a.id && menuOpen} />
-          ))}
-        </div>
+      <div class="nq-panel">{s.enemy && <EnemyWindow e={s.enemy} />}</div>
+      <div class="nq-win nq-party">
+        {s.allies.map((a) => (
+          <AllyRow key={a.id} a={a} active={s.actorId === a.id && menuOpen} />
+        ))}
       </div>
 
       {s.menu === 'commands' && <CommandWindow s={s} store={store} />}
       {s.menu === 'skills' && <SkillList s={s} store={store} />}
       {s.menu === 'items' && <ItemList s={s} store={store} />}
       {s.menu === 'swap' && <SwapList s={s} store={store} />}
-
-      <button
-        type="button"
-        class={`nq-win nq-sound ${s.muted ? 'nq-sound-off' : ''}`}
-        aria-label={t('battle.sound')}
-        onClick={() => store.dispatch({ t: 'toggleSound' })}
-      >
-        <span class="nq-sound-glyph" aria-hidden="true">
-          {s.muted ? '×' : '♪'}
-        </span>
-      </button>
 
       {s.question && (
         <QuestionFrame
@@ -623,7 +508,14 @@ export function BattleHud({ store }: { store: HudStore }) {
         />
       )}
       {s.question && s.shake > 0 && <div key={s.shake} class="nq-hitflash" aria-hidden="true" />}
-      {s.result && <BattleResultPanel r={s.result} cursor={s.cursor} store={store} />}
+      {s.result && (
+        <BattleResultPanel
+          key={`${s.result.kind}-${s.result.recruitPhase ? 'recruit' : 'summary'}`}
+          r={s.result}
+          cursor={s.cursor}
+          store={store}
+        />
+      )}
     </div>
   );
 }

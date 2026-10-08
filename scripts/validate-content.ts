@@ -23,6 +23,23 @@ const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, '
 const errors: string[] = [];
 const warnings: string[] = [];
 const information: string[] = [];
+const assetFields = new Set(['image', 'promptImage', 'audio', 'promptAudio']);
+
+interface AssetReference {
+  path: string;
+  optional: boolean;
+}
+
+function referencedAssets(value: unknown): AssetReference[] {
+  if (!value || typeof value !== 'object') return [];
+  const record = value as Record<string, unknown>;
+  return Object.entries(record).flatMap(([key, child]) => {
+    if (!assetFields.has(key) || typeof child !== 'string') return referencedAssets(child);
+    const optional =
+      key === 'audio' || key === 'promptAudio' || (key === 'image' && typeof record.picture === 'string');
+    return [{ path: child, optional }];
+  });
+}
 
 const content = await loadContent(read, {
   onDuplicate: (id, file) => errors.push(`${file}: id "${id}" が重複しています`),
@@ -36,6 +53,7 @@ if (content) {
 
   // 問題 JSON
   const seen = new Map<string, string>();
+  let optionalQuestionAssetsMissing = 0;
   for (const file of content.questionFiles) {
     const raw = JSON.parse(readFileSync(CONTENT + file, 'utf8'));
     if (!Array.isArray(raw)) {
@@ -61,12 +79,23 @@ if (content) {
         return;
       }
       const p = r.schema.safeParse(payload);
-      if (!p.success)
+      if (!p.success) {
         errors.push(
           `${file}[${i}] (${id}): payload が ${type} のスキーマに合いません: ${p.error.issues.map((x) => `${x.path.join('.')}: ${x.message}`).join('; ')}`,
         );
+        return;
+      }
+      for (const asset of referencedAssets(p.data)) {
+        if (existsSync(`${ROOT}assets/${asset.path}`)) continue;
+        if (asset.optional) optionalQuestionAssetsMissing += 1;
+        else errors.push(`${file}[${i}] (${id}): assets/${asset.path} がありません`);
+      }
     });
   }
+  if (optionalQuestionAssetsMissing > 0)
+    information.push(
+      `問題の任意アセット: ${optionalQuestionAssetsMissing} 件は未配置（読み上げ・生成絵へフォールバック）`,
+    );
 
   // 人間が承認した教材とその根拠を固定する。承認後の無審査変更はエラーにする。
   const ledgerPath = `${CONTENT}quality/academic-reviews.json`;

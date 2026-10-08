@@ -25,6 +25,7 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
   const [note, setNote] = useState<string | null>(null);
   const [chosen, setChosen] = useState<number | null>(null);
   const buttons = useRef<Array<HTMLButtonElement | null>>([]);
+  const hasDisabledItem = items.some((item) => item.disabled);
 
   const choose = (i: number) => {
     if (chosen !== null) return;
@@ -104,6 +105,7 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
             role="menuitem"
             disabled={it.disabled}
             aria-disabled={it.disabled}
+            aria-describedby={it.disabled ? 'nq-title-disabled-note' : undefined}
             class={`nq-title-opt ${cursor === i ? 'nq-focus' : ''} ${it.disabled ? 'nq-off' : ''} ${chosen === i ? 'nq-chosen' : ''}`}
             onPointerEnter={() => !it.disabled && cursor !== i && setCursor(i)}
             onClick={() => {
@@ -116,6 +118,11 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
             {it.label}
           </button>
         ))}
+        {hasDisabledItem ? (
+          <p id="nq-title-disabled-note" class="nq-title-disabled-note">
+            {disabledNote}
+          </p>
+        ) : null}
       </div>
       <p class={`nq-title-hint ${note ? 'nq-title-note' : ''}`} aria-live="polite">
         {note ?? hint}

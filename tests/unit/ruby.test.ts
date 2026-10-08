@@ -45,8 +45,9 @@ describe('漢字表示レベル（まだ習っていない漢字の ことばは
   });
 
   it('地名・名前（proper-nouns.json・〇〇市 など）は 習っていなくても 漢字＋ルビのまま', () => {
-    setKanjiLevel({ grade: 1, table, names: new Set(['十和田湖']) });
+    setKanjiLevel({ grade: 1, table, names: new Set(properNouns) });
     expect(displayRuby('十和田湖[とわだこ]')).toEqual([{ base: '十和田湖', ruby: 'とわだこ' }]);
+    expect(displayRuby('中部[ちゅうぶ]')).toEqual([{ base: '中部', ruby: 'ちゅうぶ' }]);
     expect(displayRuby('夕張市[ゆうばりし]')).toEqual([{ base: '夕張市', ruby: 'ゆうばりし' }]);
     expect(displayText('城下町[じょうかまち]')).toBe('じょうかまち');
   });

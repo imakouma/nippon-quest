@@ -87,10 +87,12 @@
           "type": "object",
           "properties": {
             "heal": {
-              "type": "integer"
+              "type": "integer",
+              "exclusiveMinimum": 0
             },
             "mp": {
-              "type": "integer"
+              "type": "integer",
+              "exclusiveMinimum": 0
             }
           },
           "additionalProperties": false

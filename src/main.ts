@@ -13,6 +13,7 @@ import {
   takeStaleChunkReloadChance,
   takeStartupRetryAction,
   type SlotId,
+  type StartupRetryAction,
 } from './core/state/save';
 import { AutosaveCoordinator } from './core/state/autosave';
 import { GROUNDS } from './core/world/ground';
@@ -20,6 +21,8 @@ import { setSfxVolume } from './ui/sfx';
 import { bundledFetchReader } from './core/content/loader';
 import { QuestionBank } from './questions/engine/bank';
 import { isLocalDevelopmentUrl } from './core/localDevelopment';
+import { t } from './ui/i18n';
+import { recordPlayDuration } from './core/state/playTime';
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', grade: 1 } as const;
@@ -56,10 +59,7 @@ const debugBattle =
 
 const gameRoot = document.getElementById('game-root')!;
 const uiLayer = document.getElementById('ui-layer')!;
-type RetryAction =
-  { type: 'start'; options?: NewGameOptions; slot: SlotId } | { type: 'continue'; slot: SlotId };
-
-function reloadForRetry(action: RetryAction): void {
+function reloadForRetry(action: StartupRetryAction): void {
   storeStartupRetryAction(action);
   location.reload();
 }
@@ -93,6 +93,23 @@ function showLoading(label: string): void {
 
 function hideLoading(): void {
   loading.remove();
+}
+
+function showOrientationNotice(): void {
+  const notice = document.createElement('aside');
+  notice.id = 'nq-orientation-notice';
+  notice.setAttribute('role', 'status');
+  notice.setAttribute('aria-label', t('ui.turnScreen'));
+
+  const icon = document.createElement('span');
+  icon.className = 'nq-orientation-icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.textContent = '↻ ▭';
+
+  const message = document.createElement('p');
+  message.textContent = t('ui.turnScreen');
+  notice.append(icon, message);
+  document.body.append(notice);
 }
 
 let errorBox: HTMLElement | null = null;
@@ -147,8 +164,9 @@ game.events.on('boot:stage', (text: string) => {
 });
 game.events.on('boot:done', () => {
   hideLoading();
+  showOrientationNotice();
   try {
-    const action = takeStartupRetryAction() as RetryAction | undefined;
+    const action = takeStartupRetryAction();
     if (!action) return;
     // BootScene がこのイベントの直後に TitleScene を開始するため、次のタスクで再開する。
     setTimeout(() => {
@@ -204,13 +222,14 @@ function runTitleAction(label: string, action: () => Promise<void>, retry: () =>
 }
 
 game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1) => {
-  const retry = () => reloadForRetry({ type: 'start', options, slot });
+  const selectedOptions = options ?? { ...DEV_NEW_GAME, grade };
+  const retry = () => reloadForRetry({ type: 'start', options: selectedOptions, slot });
   runTitleAction(
     'もんだいを よみこんでいるよ…',
     async () => {
       await Promise.all([ensureGameplayScenes(game), ensureQuestionBank()]);
       activeSlot = slot;
-      const next = createNewGame(options ?? { ...DEV_NEW_GAME, grade });
+      const next = createNewGame(selectedOptions);
       setSfxVolume(next.settings.seVolume);
       game.registry.set('game', next);
       void autosave
@@ -275,23 +294,30 @@ window.addEventListener('nq:learning-changed', (event) => {
     .catch((error) => console.error('[save] 学習履歴の保存に失敗しました', error));
 });
 
-// 表示中のプレイ時間を1分単位で日別に記録する。
-setInterval(() => {
-  if (document.visibilityState !== 'visible') return;
+// 実際に表示していた時間を日別に記録する。非表示中の時間は数えない。
+let visiblePlayStartedAt: number | null = null;
+game.registry.events.on('setdata', (_parent: unknown, key: string) => {
+  if (key === 'game' && document.visibilityState === 'visible') visiblePlayStartedAt ??= Date.now();
+});
+const flushVisiblePlayTime = () => {
+  if (visiblePlayStartedAt === null) return;
+  const now = Date.now();
+  const seconds = Math.floor((now - visiblePlayStartedAt) / 1_000);
+  if (seconds <= 0) return;
+  visiblePlayStartedAt += seconds * 1_000;
   const current = game.registry.get('game') as Parameters<typeof save>[1] | undefined;
   if (!current) return;
-  const date = PLAY_DATE_FORMATTER.format(new Date());
-  game.registry.set('game', {
-    ...current,
-    learning: {
-      ...current.learning,
-      playSecondsByDate: {
-        ...current.learning.playSecondsByDate,
-        [date]: (current.learning.playSecondsByDate[date] ?? 0) + 60,
-      },
-    },
-  });
-}, 60_000);
+  const date = PLAY_DATE_FORMATTER.format(new Date(now));
+  game.registry.set('game', recordPlayDuration(current, date, seconds, now));
+};
+setInterval(flushVisiblePlayTime, 60_000);
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') visiblePlayStartedAt = Date.now();
+  else {
+    flushVisiblePlayTime();
+    visiblePlayStartedAt = null;
+  }
+});
 
 // 開発サーバーとローカル preview だけ、コンソールや E2E からゲーム内部を確認できるようにする。
 // 公開サイトでは本番ビルドかどうかにかかわらず露出させない。

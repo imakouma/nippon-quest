@@ -4,7 +4,7 @@ import type { Page } from '@playwright/test';
 export async function completeNewGameSetup(page: Page, name = 'ハル'): Promise<void> {
   await page.getByRole('combobox', { name: /がくねん/ }).selectOption('1');
   await page.getByRole('button', { name: 'はじめる' }).click();
-  const opening = page.getByRole('region', { name: 'ものがたりの シーン' });
+  const opening = page.getByRole('dialog', { name: 'ものがたりの シーン' });
   await opening.getByRole('button', { name: 'スキップ' }).click();
   await page.getByRole('textbox', { name: 'なまえ' }).fill(name);
   await page.getByRole('button', { name: 'これで けってい' }).click();

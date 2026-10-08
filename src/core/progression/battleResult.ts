@@ -24,6 +24,8 @@ export interface BattleSummary {
   items: Record<string, number>;
   /** 勝利後の「なかまにする？」で はい を選んだか */
   recruitAccepted: boolean;
+  /** この戦闘へ出撃した仲間。勝利経験値の付与先。 */
+  participantMonsterUids?: string[];
   /** 教科ごとの「かんぺき」回数（ミッション perfect:<subject>:<n> 用） */
   perfectBySubject: Record<string, number>;
 }
@@ -65,8 +67,15 @@ export function applyBattleResult(
 
   if (r.outcome === 'victory') {
     gs.player.xp += r.xp;
+    const participants = new Set(r.participantMonsterUids ?? []);
+    for (const monster of gs.party.owned) {
+      if (participants.has(monster.uid)) monster.xp += r.xp;
+    }
     gs.player.gold += r.gold;
-    for (const id of r.drops) bump(gs.inventory, id);
+    for (const id of r.drops) {
+      bump(gs.inventory, id);
+      if (!gs.dex.items.includes(id)) gs.dex.items.push(id);
+    }
     bump(gs.progress.counters, `defeat:${r.enemyRefId}`);
   }
 

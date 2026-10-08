@@ -39,6 +39,8 @@ export interface Combatant {
   actionsPerTurn: number;
   /** 属性わざ倍率（セット装備ボーナス）。key = element */
   elementBoost?: Partial<Record<Element, number>>;
+  /** 装備で軽減できる属性。 */
+  elementResists?: Element[];
 }
 
 /** 敵ユニット */
@@ -92,7 +94,7 @@ export type Command =
   | { kind: 'skill'; skillId: string; result: ActionResult; actorId?: string }
   | { kind: 'item'; itemId: string }
   | { kind: 'swap'; monsterIndex: number }
-  | { kind: 'recruit'; result: ActionResult }
+  | { kind: 'recruit'; result: ActionResult; itemId?: string }
   | { kind: 'flee' }
   /** 主人公が たおれて いる ときなど、主人公は 動かずに ターンを すすめる */
   | { kind: 'wait' };
@@ -166,6 +168,7 @@ export type BattleEvent =
   /** 教科ゲージが たりなくて 打てない（ターンは すすまない） */
   | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
   | { t: 'itemUsed'; itemId: string; targetId: string }
+  | { t: 'recruitGift'; itemId: string; targetId: string }
   /** auto = オトモが たおれて、次の 仲間が 自動で 前に 出た */
   | { t: 'swap'; from: string; to: string; auto?: boolean }
   | { t: 'recruitAttempt'; targetId: string; success: boolean; chance: number }

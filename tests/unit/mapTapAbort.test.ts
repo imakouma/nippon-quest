@@ -1,9 +1,10 @@
 // @vitest-environment jsdom
 
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act } from 'preact/test-utils';
 import type { RendererContext } from '../../src/questions/contracts';
 import { mapTapRenderer } from '../../src/questions/renderers/map-tap';
+import { setDictionary } from '../../src/ui/i18n';
 
 const question = {
   id: 'shakai.g3.map.0001',
@@ -36,12 +37,25 @@ function context(container: HTMLElement, signal: AbortSignal): RendererContext {
 }
 
 describe('map-tap renderer cancellation', () => {
+  beforeEach(() => {
+    setDictionary({
+      question: {
+        remainingTime: 'のこり {n} びょう',
+        mapTapMap: 'ちず',
+        mapTapInstruction: 'やじるしキーで うごかして、Enterで こたえる',
+        mapTapPosition: 'いまの ばしょ：よこ {x}%　たて {y}%',
+      },
+    });
+  });
+
   afterEach(() => {
     vi.useRealTimers();
+    vi.restoreAllMocks();
     document.body.replaceChildren();
   });
 
-  it('中断済みの signal でも 0 点で完了する', async () => {
+  it('中断済みの signal を演出待ちなしで 0 点完了する', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
     vi.useFakeTimers();
     const container = document.createElement('div');
     document.body.append(container);
@@ -52,19 +66,25 @@ describe('map-tap renderer cancellation', () => {
     act(() => {
       resultPromise = mapTapRenderer.mount(context(container, controller.signal));
     });
+    let settled = false;
+    void resultPromise.then(() => {
+      settled = true;
+    });
     await act(async () => {
-      await vi.advanceTimersByTimeAsync(900);
+      await Promise.resolve();
     });
 
+    expect(settled).toBe(true);
     await expect(resultPromise).resolves.toMatchObject({
       questionId: question.id,
       score: 0,
       attempts: 0,
       timedOut: true,
     });
+    expect(warn).not.toHaveBeenCalled();
   });
 
-  it('表示中の中断でも 0 点で一度だけ完了する', async () => {
+  it('表示中の中断も演出待ちなしで 0 点を一度だけ返す', async () => {
     vi.useFakeTimers();
     const container = document.createElement('div');
     document.body.append(container);
@@ -78,10 +98,15 @@ describe('map-tap renderer cancellation', () => {
       controller.abort();
       controller.abort();
     });
+    let settled = false;
+    void resultPromise.then(() => {
+      settled = true;
+    });
     await act(async () => {
-      await vi.advanceTimersByTimeAsync(900);
+      await Promise.resolve();
     });
 
+    expect(settled).toBe(true);
     await expect(resultPromise).resolves.toMatchObject({ score: 0, attempts: 0, timedOut: true });
   });
 });

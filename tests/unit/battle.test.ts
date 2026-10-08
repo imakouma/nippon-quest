@@ -598,6 +598,27 @@ describe('コマンド', () => {
 });
 
 describe('仲間化（GDD §4.6）', () => {
+  it('指定された特産品をあげると 1こ消費して必ず仲間になる', async () => {
+    const { state } = await setup({ seed: 'recruit-gift' });
+    const result = act(state, { kind: 'recruit', result: R(0), itemId: 'aomori-ringo' }, D);
+
+    expect(result.state.outcome).toBe('recruited');
+    expect(result.state.ally.items['aomori-ringo']).toBe(1);
+    expect(result.events).toContainEqual({
+      t: 'recruitGift',
+      targetId: state.enemy.id,
+      itemId: 'aomori-ringo',
+    });
+  });
+
+  it('指定と違うどうぐは仲間化に使わず消費しない', async () => {
+    const { state } = await setup({ seed: 'wrong-recruit-gift' });
+    const result = act(state, { kind: 'recruit', result: R(0), itemId: 'not-the-gift' }, D);
+
+    expect(result.state.ally.items['aomori-ringo']).toBe(2);
+    expect(result.events.some((event) => event.t === 'recruitGift')).toBe(false);
+  });
+
   it('HP が高いうちは 0%', () => {
     expect(recruitChance({ isBoss: false } as never, 0.5, 0.9, 1, D.settings)).toBe(0);
   });
@@ -667,6 +688,46 @@ describe('装備とセットボーナス', () => {
     const bare = makeHero(spec, c.items, c.sets);
     const armed = makeHero({ ...spec, equipment: { chest: 'aomori-ringo-no-yoroi' } }, c.items, c.sets);
     expect(armed.stats.def).toBeGreaterThan(bare.stats.def);
+  });
+
+  it('属性武器は主人公の通常攻撃に属性を付与する', async () => {
+    const c = await content();
+    const hero = makeHero(
+      {
+        name: 'ハル',
+        level: 1,
+        baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+        growth: { hp: 0, mp: 0, atk: 0, def: 0, spd: 0, wis: 0 },
+        skills: [],
+        equipment: { weapon: 'aomori-maguro-zutsuki' },
+      },
+      c.items,
+      c.sets,
+    );
+    expect(hero.element).toBe('mizu');
+  });
+
+  it('属性防具は同じ属性のダメージを軽減する', async () => {
+    const c = await content();
+    const { state } = await setup();
+    const armor = c.items.get('aomori-nebuta-no-kabuto')!;
+    const defended = {
+      ...state.ally.hero,
+      elementResists: [armor.element!],
+    };
+    const attacker = { ...state.enemy, element: armor.element! };
+    const baseInput = {
+      attacker,
+      skill: null,
+      score: null,
+      combo: 0,
+      canCrit: false,
+      settings: c.settings,
+      elements: c.elements,
+    };
+    const normal = computeDamage({ ...baseInput, defender: state.ally.hero, rng: createRng('normal') });
+    const resisted = computeDamage({ ...baseInput, defender: defended, rng: createRng('resisted') });
+    expect(resisted.amount).toBeLessThan(normal.amount);
   });
 
   it('5点そろうとセットボーナス（属性倍率）がつく', async () => {

@@ -64,6 +64,37 @@ async function savedTohokuClear(page: Page): Promise<boolean> {
   });
 }
 
+async function useFirstSkill(page: Page): Promise<void> {
+  await page.locator('.nq-cmd[data-cmd="skill"]').click({ timeout: 1_000 });
+  await page.locator('[data-skill]:not(.nq-opt-off)').first().click({ timeout: 2_000 });
+  await expect(page.locator('.nq-bq')).toBeVisible({ timeout: 20_000 });
+  const choices = page.locator('.nq-choice');
+  if (await choices.first().isVisible()) {
+    for (
+      let index = 0;
+      index < (await choices.count()) && (await page.locator('.nq-bq').isVisible());
+      index += 1
+    )
+      await choices
+        .nth(index)
+        .click({ timeout: 1_000 })
+        .catch(() => undefined);
+    return;
+  }
+  const inputs = page.locator('.nq-q-input input');
+  if (await inputs.first().isVisible()) {
+    for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
+    await page.getByRole('button', { name: 'こたえる' }).click();
+    return;
+  }
+  const map = page.locator('.nq-map-tap');
+  if (await map.isVisible()) {
+    await map.click({ position: { x: 20, y: 20 } });
+    return;
+  }
+  throw new Error('地方ボス戦で回答できない問題形式が表示されました');
+}
+
 test('タップだけで東北地方ボスを倒し、再読込後もバッグ拡張と北海道解放が残る', async ({ page }) => {
   test.setTimeout(240_000);
   const errors: string[] = [];
@@ -90,6 +121,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.getByRole('button', { name: 'ちずを ひらく（M）' })).toBeVisible({ timeout: 30_000 });
   await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click();
   await page.getByRole('button', { name: 'にほんちず' }).click();
+  await page.getByRole('button', { name: /この ちほうを くわしく みる/ }).click();
 
   await expect(page.locator('.nq-wmap-island-boss')).toContainText('お城');
   await expect(page.locator('.nq-wmap-island-boss')).toContainText('ひらいた');
@@ -107,14 +139,14 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.locator('.nq-box-text')).toContainText('ロクフユノオウ');
   await expect(page.locator('.nq-box-next')).toBeVisible();
   await page.locator('.nq-box').click();
-  const attack = page.locator('.nq-cmd[data-cmd="attack"]:not([disabled])');
-  const battleDeadline = Date.now() + 60_000;
+  const skill = page.locator('.nq-cmd[data-cmd="skill"]');
+  const battleDeadline = Date.now() + 90_000;
   while (Date.now() < battleDeadline && !(await page.locator('.nq-result').isVisible())) {
-    if (await attack.isVisible()) await attack.click().catch(() => undefined);
+    if (await skill.isVisible()) await useFirstSkill(page).catch(() => undefined);
     else if (await page.locator('.nq-box-next').isVisible())
       await page
         .locator('.nq-box')
-        .click()
+        .click({ timeout: 1_000 })
         .catch(() => undefined);
     await page.waitForTimeout(150);
   }
@@ -150,6 +182,7 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.getByRole('button', { name: 'ちずを ひらく（M）' })).toBeVisible({ timeout: 30_000 });
   await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click();
   await page.getByRole('button', { name: 'にほんちず' }).click();
+  await page.getByRole('button', { name: /この ちほうを くわしく みる/ }).click();
   await expect(page.getByRole('button', { name: /浄化.*ずみ/ })).toBeDisabled();
   await page.locator('.nq-wmap-arrow').filter({ hasText: '▶' }).click();
   await expect(page.locator('.nq-wmap-aname')).toContainText('北海道');

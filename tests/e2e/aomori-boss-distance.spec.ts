@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { completeNewGameSetup } from './newGame';
 
 async function walk(
   page: Page,
@@ -58,7 +59,7 @@ test('青森の最初のぬしは開始地点から離れた奥地にいて、�
   await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 30_000 });
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
+  await completeNewGameSetup(page);
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
@@ -78,14 +79,8 @@ test('青森の最初のぬしは開始地点から離れた奥地にいて、�
   await expect(page.locator('canvas[data-player-tile]')).toHaveAttribute('data-input-ready', 'true');
   await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
 
-  await walk(page, 'ArrowRight', 7);
-  await walk(page, 'ArrowUp', 1);
-  await walk(page, 'ArrowRight', 13);
-  await walk(page, 'ArrowUp', 1);
-  await walk(page, 'ArrowRight', 2);
-  await walk(page, 'ArrowUp', 1);
   await walk(page, 'ArrowRight', 10);
-  await walk(page, 'ArrowUp', 7);
+  await walk(page, 'ArrowUp', 11);
 
   await page.screenshot({ path: 'test-results/aomori-remote-boss.png' });
   await walk(page, 'ArrowUp', 1, 'regionBoss');

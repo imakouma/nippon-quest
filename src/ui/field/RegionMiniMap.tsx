@@ -78,7 +78,15 @@ export function RegionMiniMap({
   const [centerX, centerY] =
     region.hero ?? (focus ? [(focus[0] + focus[2] + 1) / 2, (focus[1] + focus[3] + 1) / 2] : [0, 0]);
   return (
-    <button ref={box} type="button" class="nq-mini" aria-label={label} title={label} onClick={onOpen}>
+    <button
+      ref={box}
+      type="button"
+      class="nq-mini"
+      aria-label={label}
+      aria-keyshortcuts="M"
+      title={label}
+      onClick={onOpen}
+    >
       <div
         class="nq-mini-map"
         style={{
@@ -103,6 +111,9 @@ export function RegionMiniMap({
         )}
       </div>
       {region.hero && <span class="nq-mini-hero" style={{ left: viewWidth / 2, top: viewHeight / 2 }} />}
+      <span class="nq-mini-open" aria-hidden="true">
+        {label}
+      </span>
     </button>
   );
 }

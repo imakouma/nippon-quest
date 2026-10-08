@@ -19,22 +19,17 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ───── 下：メッセージ窓 ───── */
+/* ───── 右上：メッセージ窓（味方ステータスと位置を入れかえ） ───── */
 .nq-box {
   position: absolute;
-  left: 12px;
-  right: 88px;
-  bottom: 12px;
-  /* 下にそろえたまま、文が長いときは上へのびる（下の行が窓の外に切れない） */
-  min-height: 120px;
-  padding: 8px 60px 8px 16px;
+  left: 368px;
+  right: 12px;
+  top: 12px;
+  box-sizing: border-box;
+  height: 120px;
+  padding: 8px 16px;
   cursor: pointer;
   animation: nq-fade-in 0.1s steps(2);
-}
-/* コマンドの窓が出ているあいだは、その右に「◯◯は どうする？」。
- * 幅がせまいので行を詰めて、「HPが へった いまが チャンス！」まで 3 行を窓に収める */
-.nq-box-cmd {
-  left: 444px;
 }
 .nq-box-cmd .nq-box-text {
   line-height: 32px;
@@ -48,19 +43,6 @@
 .nq-box-star {
   margin-right: 12px;
 }
-.nq-box-speak {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  background: var(--nq-night);
-  border: 4px solid #fff;
-  cursor: pointer;
-}
 .nq-box-next {
   position: absolute;
   right: 20px;
@@ -68,38 +50,19 @@
   font-size: 24px;
   animation: nq-blink 0.6s steps(2) infinite;
 }
-.nq-sound {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  display: grid;
-  place-items: center;
-  width: 64px;
-  height: 120px;
-  padding: 0;
-  cursor: pointer;
-}
-.nq-sound-glyph {
-  font-size: 36px;
-  line-height: 1;
-  color: var(--nq-yellow);
-}
-.nq-sound-off .nq-sound-glyph {
-  color: var(--nq-silver);
-}
 
-/* ───── 上：敵・仲間（HP ゲージ） ───── */
+/* ───── 左上：敵（HP ゲージ） ───── */
 .nq-panel {
   position: absolute;
   left: 12px;
-  right: 12px;
   top: 12px;
+  width: 340px;
   height: 120px;
   display: flex;
-  gap: 16px;
 }
 .nq-foe {
-  width: 340px;
+  box-sizing: border-box;
+  width: 100%;
   padding: 2px 12px 6px;
   display: flex;
   flex-direction: column;
@@ -125,13 +88,13 @@
   align-items: center;
   gap: 4px;
   padding: 0 6px 0 4px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 20px;
   background: #a8341f;
   border: 2px solid var(--nq-yellow);
 }
 .nq-ally-lv {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--nq-yellow);
 }
 .nq-foe-level {
@@ -174,21 +137,32 @@
   background: #1f4fa3;
 }
 .nq-party {
-  flex: 1;
+  position: absolute;
+  right: 12px;
+  width: 340px;
+  bottom: 12px;
+  box-sizing: border-box;
+  height: 120px;
   padding: 4px 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .nq-ally {
+  min-width: 0;
+  height: 52px;
+  font-size: 20px;
+}
+.nq-ally-heading,
+.nq-ally-hp {
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 44px;
-  font-size: 24px;
+  min-width: 0;
+  height: 26px;
 }
 .nq-ally-cur {
-  width: 24px;
+  width: 16px;
   color: var(--nq-yellow);
   flex: none;
 }
@@ -199,29 +173,27 @@
   color: var(--nq-yellow);
 }
 .nq-ally-name {
-  width: 132px;
+  flex: 1;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
-  line-height: 36px;
+  text-overflow: ellipsis;
+  line-height: 24px;
 }
 .nq-ally-lv {
-  width: 36px;
+  flex: none;
+  font-size: 16px;
+  color: var(--nq-cream);
 }
 .nq-lbl {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--nq-yellow);
 }
-.nq-ally .nq-bar {
-  width: 120px;
-  flex: none;
+.nq-ally-hp {
+  padding-left: 56px;
 }
-/* HP の 下に 時間の ゲージ（主人公＝コマンドゲージ、オトモ＝自動わざまで） */
-.nq-ally-bars {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 120px;
-  flex: none;
+.nq-ally-hp .nq-bar {
+  min-width: 96px;
 }
 .nq-ally-passive {
   display: inline-flex;
@@ -229,14 +201,16 @@
 }
 .nq-num {
   min-width: 72px;
+  flex: none;
+  font-size: 16px;
   text-align: right;
 }
 .nq-ally-down {
   color: var(--nq-silver);
 }
 .nq-down {
-  width: 144px;
-  font-size: 24px;
+  flex: 1;
+  font-size: 16px;
   color: #ff8fb1;
 }
 
@@ -291,8 +265,8 @@
 .nq-turn {
   display: inline-flex;
   align-items: center;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 16px;
+  line-height: 20px;
   white-space: nowrap;
   color: var(--nq-yellow);
   pointer-events: none;
@@ -313,12 +287,13 @@
   margin-left: auto;
 }
 
-/* ───── 右：教科ゲージ ───── */
+/* ───── 下：コマンドと主人公ステータスのあいだの教科ゲージ ───── */
 .nq-sgauge {
   position: absolute;
-  right: 12px;
-  top: 144px;
-  width: 76px;
+  left: 444px;
+  bottom: 12px;
+  width: 120px;
+  height: 120px;
   box-sizing: border-box;
   padding: 2px 4px 6px;
   display: flex;
@@ -328,8 +303,8 @@
   pointer-events: none;
 }
 .nq-sgauge-title {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 20px;
   color: var(--nq-yellow);
   text-align: center;
 }
@@ -338,12 +313,12 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  height: 20px;
+  height: 24px;
 }
 .nq-sg-bar {
   position: relative;
   flex: 1;
-  height: 12px;
+  height: 16px;
   background: #2e2a45;
   border: 2px solid #000;
   box-shadow: 0 0 0 2px #fff;
@@ -376,7 +351,7 @@
   position: absolute;
   right: 64px;
   top: 0;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 20px;
   color: var(--nq-yellow);
   white-space: nowrap;
@@ -412,8 +387,8 @@
   color: var(--nq-yellow);
 }
 .nq-combo-p {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 20px;
   color: var(--nq-sky);
 }
 
@@ -460,7 +435,7 @@
 /* 1 年生の設定だと「必殺技」が「ひっさつわざ」（6 文字）になるので、
  * ♥・アイコン・余白を調整して 2 列のボタン内に収める。 */
 .nq-cmdwin .nq-cmd {
-  min-height: 44px;
+  min-height: 48px;
   gap: 4px;
   padding: 0 6px;
 }
@@ -469,7 +444,7 @@
   flex: none;
 }
 .nq-cmd .nq-off {
-  color: #6b6f80;
+  color: #a3aabb;
 }
 .nq-cmd-glow {
   animation: nq-glow 0.9s steps(3) infinite alternate;
@@ -515,7 +490,8 @@
   color: var(--nq-silver);
 }
 .nq-opt-off {
-  color: #6b6f80;
+  /* 使えない技も「次に何をためればよいか」を読める明るさに保つ。 */
+  color: #a3aabb;
 }
 .nq-opt-off .nq-chip {
   filter: grayscale(0.8);
@@ -529,7 +505,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 16px;
 }
 .nq-opt-swap {
   width: 188px;
@@ -540,6 +516,16 @@
   align-items: center;
   gap: 4px;
   color: var(--nq-silver);
+  white-space: nowrap;
+}
+.nq-opt-cost-value {
+  min-width: 40px;
+  color: inherit;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.nq-opt-off .nq-opt-cost {
+  color: #ffd28a;
 }
 .nq-opt-cost-ok {
   color: var(--nq-yellow);
@@ -562,7 +548,7 @@
 }
 .nq-opt-reason {
   padding: 0 6px;
-  font-size: 12px;
+  font-size: 16px;
   color: var(--nq-silver);
   border: 2px solid #4a5063;
 }
@@ -587,19 +573,19 @@
   gap: 12px;
 }
 .nq-menu-cost {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 20px;
   color: var(--nq-sky);
 }
 .nq-opt-by {
   flex: none;
-  font-size: 12px;
+  font-size: 16px;
   color: var(--nq-yellow);
   white-space: nowrap;
 }
 .nq-menu-grade {
   margin-left: auto;
-  font-size: 12px;
+  font-size: 16px;
   color: var(--nq-silver);
   white-space: nowrap;
 }
@@ -720,8 +706,8 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 16px;
+  line-height: 20px;
   white-space: nowrap;
 }
 .nq-qstrip-hit {
@@ -863,7 +849,7 @@
   transition: width 1.2s steps(20);
 }
 .nq-result-need {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--nq-cloud);
   white-space: nowrap;
 }

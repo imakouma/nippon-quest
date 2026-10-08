@@ -12,7 +12,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await page.getByRole('button', { name: 'メニュー' }).click();
   const menuHome = page.locator('.nq-menu-home');
   await expect(menuHome).toBeVisible();
-  for (const label of ['がくしゅう', 'まちがい', 'ずかん', 'もちもの・へんせい', 'みため']) {
+  for (const label of ['がくしゅう', 'まちがい', 'ずかん', 'もちもの・へんせい']) {
     await expect(menuHome.getByRole('button', { name: new RegExp(label) })).toBeVisible();
   }
   for (const card of await menuHome.locator('.nq-menu-card').all()) {
@@ -23,6 +23,13 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
     expect(labelBox!.x).toBeGreaterThanOrEqual(cardBox!.x);
     expect(labelBox!.x + labelBox!.width).toBeLessThanOrEqual(cardBox!.x + cardBox!.width);
   }
+  const bagLabel = menuHome.locator('.nq-menu-card-party .nq-menu-card-label');
+  const bagLabelBox = await bagLabel.boundingBox();
+  expect(bagLabelBox).not.toBeNull();
+  expect(bagLabelBox!.height).toBeLessThanOrEqual(40);
+  await menuHome.getByRole('button', { name: /もちもの・へんせい/ }).focus();
+  await page.keyboard.press('ArrowUp');
+  await expect(menuHome.getByRole('button', { name: /もちもの・へんせい/ })).toBeFocused();
   await expect(page.getByRole('button', { name: /セーブ/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /ほごしゃ/ })).toBeVisible();
   await page.getByRole('button', { name: /セーブ/ }).click();
@@ -51,6 +58,21 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await menuHome.getByRole('button', { name: /ずかん/ }).click();
   await expect(page.getByRole('button', { name: 'マナビモノ' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'とくさん' })).toBeVisible();
+  const dexRegions = page.getByLabel('地方ごとの ずかん');
+  await expect(dexRegions.getByRole('button')).toHaveCount(8);
+  const regionBox = await dexRegions.boundingBox();
+  expect(regionBox).not.toBeNull();
+  expect(regionBox!.height).toBeLessThanOrEqual(36);
+  await expect(page.locator('.nq-dex-grid')).toBeVisible();
+  const dexCard = page.locator('.nq-dex-grid .nq-opt').first();
+  const dexCardBox = await dexCard.boundingBox();
+  const dexArtBox = await dexCard.locator('.nq-menu-icon').boundingBox();
+  expect(dexCardBox).not.toBeNull();
+  expect(dexArtBox).not.toBeNull();
+  expect(dexCardBox!.width).toBeGreaterThanOrEqual(210);
+  expect(dexArtBox!.height).toBeGreaterThanOrEqual(48);
+  await dexRegions.getByRole('button', { name: /東北/ }).click();
+  await expect(dexRegions.getByRole('button', { name: /東北/ })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'とくさん' }).click();
   await expect(page.getByRole('button', { name: /もどる/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /とじる/ })).toBeVisible();
@@ -58,7 +80,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(menuHome).toBeVisible();
   await menuHome.getByRole('button', { name: /もちもの・へんせい/ }).click();
   await expect(page.locator('.nq-bag-grid .nq-bag-cell')).toHaveCount(9);
-  const heroCell = page.getByRole('listitem', { name: 'テスト' });
+  const heroCell = page.getByRole('button', { name: 'テスト' });
   const bagWindow = page.locator('.nq-wmap-box');
   const openWidth = await bagWindow.evaluate((el) => el.getBoundingClientRect().width);
   await expect(page.locator('.nq-party-info')).toBeVisible();
@@ -69,9 +91,10 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await page.screenshot({ path: testInfo.outputPath('bag-details-closed.png') });
   await heroCell.click();
   await expect(page.locator('.nq-party-info')).toBeVisible();
-  await page.locator('.nq-bag-outside .nq-opt').filter({ hasText: 'れんしゅうの ぼう' }).click();
-  await page.getByRole('button', { name: 'いれる' }).click();
-  const starterWeapon = page.getByRole('listitem', { name: 'れんしゅうの ぼう' });
+  const storedWeapon = page.locator('.nq-bag-reserve-tile').filter({ hasText: 'れんしゅうの ぼう' });
+  await storedWeapon.click();
+  await storedWeapon.dragTo(page.locator('.nq-bag-empty[data-drop-slot="weapon"]'));
+  const starterWeapon = page.getByRole('button', { name: 'れんしゅうの ぼう' });
   await expect(starterWeapon).toBeVisible();
   await page.locator('.nq-bag-empty').first().click();
   await expect(starterWeapon).toHaveCSS('grid-column-start', '1');

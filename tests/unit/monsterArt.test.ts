@@ -18,8 +18,12 @@ const grids = new Map(entries.map(([key, design]) => [key, designGrid(design)]))
 const palette = new Set<string>(NQ48);
 
 let c: ContentIndex;
+let midBossIds: ReadonlySet<string>;
+let islandOnlyAreaIds: ReadonlySet<string>;
 beforeAll(async () => {
   c = await loadContent(read);
+  midBossIds = new Set([...c.areas.values()].flatMap((area) => (area.midBoss ? [area.midBoss] : [])));
+  islandOnlyAreaIds = new Set(c.world.islands.map((island) => island.id).filter((id) => !c.areas.has(id)));
 });
 
 /** docs/06 §2.2 の規格：地方ボス 56 / 中ボス 40（フィールドの版は 32）/ 県ボス 48 / 通常 32 */
@@ -28,8 +32,8 @@ function expectedSize(key: string): number {
   const m = c.monsters.get(id)!;
   if (key.endsWith('.field')) return 32;
   // 北海道は 県 id と 島 id が 同じ。地方ボスは 島 id だけの モンスター
-  if (!c.areas.has(m.area) && c.world.islands.some((i) => i.id === m.area)) return MONSTER_SIZE.islandBoss;
-  if ([...c.areas.values()].some((a) => a.midBoss === id)) return MONSTER_SIZE.midBoss;
+  if (islandOnlyAreaIds.has(m.area)) return MONSTER_SIZE.islandBoss;
+  if (midBossIds.has(id)) return MONSTER_SIZE.midBoss;
   return m.isBoss ? MONSTER_SIZE.boss : MONSTER_SIZE.normal;
 }
 
@@ -42,8 +46,7 @@ describe('手描きモンスター（docs/06 の規格）', () => {
     for (const m of c.monsters.values()) {
       if (STORY_COMPANION_IDS.includes(m.id as (typeof STORY_COMPANION_IDS)[number])) continue;
       expect(MONSTER_DESIGNS[m.id], m.id).toBeDefined();
-      if ([...c.areas.values()].some((a) => a.midBoss === m.id))
-        expect(MONSTER_DESIGNS[`${m.id}.field`], `${m.id}.field`).toBeDefined();
+      if (midBossIds.has(m.id)) expect(MONSTER_DESIGNS[`${m.id}.field`], `${m.id}.field`).toBeDefined();
       if ([...c.areas.values()].some((a) => a.boss === m.id))
         expect(MONSTER_DESIGNS[`${m.id}.p0`], `${m.id}.p0`).toBeDefined();
     }

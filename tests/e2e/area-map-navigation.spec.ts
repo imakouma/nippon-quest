@@ -10,6 +10,9 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
 
   const miniMap = page.getByRole('button', { name: 'ちずを ひらく（M）' });
   await expect(miniMap).toBeVisible({ timeout: 40_000 });
+  await expect(miniMap).toHaveAttribute('aria-keyshortcuts', 'M');
+  await expect(page.getByRole('button', { name: 'メニュー' })).toHaveAttribute('aria-keyshortcuts', 'I');
+  await expect(miniMap.locator('.nq-mini-open')).toContainText('ちずを ひらく（M）');
   await expect(page.getByRole('button', { name: 'かいはつしゃ' })).toBeVisible();
   const skip = page.getByRole('button', { name: 'スキップ', exact: true });
   if (await skip.isVisible()) await skip.click();
@@ -20,6 +23,8 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await expect(page.locator('.nq-dlg')).toHaveCount(0);
 
   const place = page.locator('.nq-fhud-row');
+  const player = page.locator('canvas[data-player-tile]');
+  const tileBeforeWalking = await player.getAttribute('data-player-tile');
   await expect(place).toContainText(/青森/);
   await page.keyboard.down('ArrowRight');
   await page.waitForTimeout(80);
@@ -28,6 +33,7 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await expect(place).toContainText(/青森/);
   await expect(miniMap).toBeVisible();
   await page.keyboard.up('ArrowRight');
+  await expect.poll(() => player.getAttribute('data-player-tile')).not.toBe(tileBeforeWalking);
   const surroundingPixels = await page
     .locator('.nq-mini-map > canvas:not(.nq-mini-detail)')
     .evaluate((canvas) => {
@@ -43,7 +49,16 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await miniMap.click();
   const mapView = page.locator('.nq-amap-view');
   const mapCanvas = page.locator('.nq-amap-view .nq-wmap-canvas');
+  const areaMapDialog = page.getByRole('dialog');
   await expect(mapView).toBeVisible();
+  await expect(areaMapDialog).toBeVisible();
+  await expect(areaMapDialog.getByText(/まだ ワープできる ばしょが ない/)).toBeVisible();
+  await expect(areaMapDialog.getByRole('button', { name: 'ワープ先を さがそう' })).toBeDisabled();
+  await expect(areaMapDialog.getByRole('button', { name: 'ワープ先を さがそう' })).toHaveAttribute(
+    'aria-describedby',
+    'nq-amap-warp-unavailable',
+  );
+  await expect(areaMapDialog.getByRole('button', { name: 'にほんちず' })).toBeFocused();
   await expect(page.getByText('100%', { exact: true })).toBeVisible();
 
   const box = await mapView.boundingBox();
@@ -76,7 +91,23 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await page.getByRole('button', { name: 'にほんちず' }).click();
   await expect(page.locator('.nq-wmap-island-boss')).toHaveCount(0);
   await expect(page.locator('.nq-wmap-castle')).toHaveCount(0);
+  const selectedJapanRegion = page.locator('.nq-japan-region-list .nq-focus');
+  await expect(selectedJapanRegion).toBeFocused();
+  await expect(selectedJapanRegion).toHaveAttribute('aria-pressed', 'true');
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('.nq-japan-region-list .nq-focus')).toBeFocused();
   await page.screenshot({ path: testInfo.outputPath('locked-island-boss-hidden.png'), fullPage: true });
+
+  await page.getByRole('button', { name: /この ちほうを くわしく みる/ }).click();
+  await expect(page.getByRole('button', { name: 'まえの ちほう' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'つぎの ちほう' })).toBeVisible();
+  await page.getByRole('button', { name: /ぜんこく/ }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: /とじる/ })
+    .click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(miniMap).toBeFocused();
 });
 
 test('鳥取県の大きな地図で現在県だけを詳しく、周辺県を暗く表示する', async ({ page }, testInfo) => {
@@ -85,7 +116,7 @@ test('鳥取県の大きな地図で現在県だけを詳しく、周辺県を�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'ちず');
-  await expect(page.getByRole('region', { name: 'ものがたりの シーン' })).toBeVisible({ timeout: 40_000 });
+  await expect(page.getByRole('dialog', { name: 'ものがたりの シーン' })).toBeVisible({ timeout: 40_000 });
   await page.getByRole('button', { name: 'スキップ' }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible();
 

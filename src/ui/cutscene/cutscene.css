@@ -232,12 +232,12 @@
   right: 24px;
 }
 .nq-cutscene-topbar button {
-  min-height: 42px;
+  min-height: 48px;
   padding: 4px 14px;
   border: 3px solid #fff;
   color: #fff;
   background: rgba(5, 7, 19, 0.8);
-  font-size: 12px !important;
+  font-size: 18px !important;
   cursor: pointer;
 }
 .nq-cutscene-progress {
@@ -309,7 +309,7 @@
   left: 12px;
   bottom: 4px;
   color: #a3aabb;
-  font-size: 12px;
+  font-size: 16px;
 }
 .nq-cutscene-next {
   position: absolute;
@@ -405,6 +405,13 @@
   color: #1a1428;
   background: #fff;
 }
+.nq-story-name-hint {
+  justify-self: center;
+  margin: -6px 0 0;
+  color: #ffd28a;
+  font-size: 16px;
+  line-height: 20px;
+}
 .nq-story-name button {
   width: 220px;
   justify-self: center;
@@ -413,5 +420,9 @@
   background: var(--nq-yellow);
 }
 .nq-story-name button:disabled {
-  opacity: 0.45;
+  border-color: #b9c1d2;
+  color: #f3f6ff;
+  background: #626b82;
+  cursor: not-allowed;
+  opacity: 1;
 }

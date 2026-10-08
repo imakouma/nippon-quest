@@ -15,9 +15,9 @@ import {
 import { makeMonster } from '../core/battle/factory';
 import { partyFromGameState } from '../core/battle/setup';
 import type { ActionResult, BattleEvent, BattleState, Command } from '../core/battle/types';
-import { applyBattleResult, type AppliedBattle } from '../core/progression/battleResult';
+import { applyBattleResult } from '../core/progression/battleResult';
 import { evolutionStage } from '../core/progression/bag';
-import { settleBattleBag } from '../core/progression/battleSettlement';
+import { settleBattleBag, type BattleSettlement } from '../core/progression/battleSettlement';
 import { specialtyIndex, withSpecialtyDrops } from '../core/progression/specialty';
 import { createRng, freshSeed } from '../core/rng';
 import type { GameState } from '../core/state/schema';
@@ -41,7 +41,7 @@ import {
 import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { displayText } from '../ui/ruby';
-import { isSfxMuted, playSfx, setSfxMuted, setSfxVolume } from '../ui/sfx';
+import { playSfx, setSfxVolume } from '../ui/sfx';
 import { BATTLE_POSE, battleSheet, HERO_H, HERO_W, heroKey, heroLook } from '../rendering/characters';
 import { itemIconGrid, itemIconUrl } from '../rendering/itemIcons';
 import { designedMonsterArt } from '../rendering/monsters';
@@ -74,8 +74,9 @@ import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 import { battleSummary, defeatResultView, victoryResultView } from './battle/resultView';
 import { questionQueryForSkill, recruitQuestionQuery } from './battle/questionQueries';
 import { runBattleQuestion } from './battle/questionFlow';
+import { BattleHudFlow } from './battle/hudFlow';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
-import { monsterMenuArtUrl } from '../rendering/menuArt';
+import { monsterDisplaySize, monsterMenuArtUrl } from '../rendering/menuArt';
 import {
   BATTLE_SCALE as S,
   BOSS_MAX_H,
@@ -117,7 +118,7 @@ const BAND_TEXT = {
 } as const;
 
 /** セリフを先に出してから動く（「ハルの こうげき！」→ 走って斬る）イベント */
-const TALK_FIRST = new Set<BattleEvent['t']>(['act', 'swap', 'recruitAttempt']);
+const TALK_FIRST = new Set<BattleEvent['t']>(['act', 'swap', 'recruitGift', 'recruitAttempt']);
 export class BattleScene extends Phaser.Scene {
   private content!: ContentIndex;
   private bank!: QuestionBank;
@@ -131,14 +132,8 @@ export class BattleScene extends Phaser.Scene {
 
   // ↓ シーンのインスタンスは使い回されるので、1 戦ごとに init() で作り直す
   private hud = new HudStore();
+  private hudFlow!: BattleHudFlow;
   private hudRoot: HTMLDivElement | null = null;
-  private msgId = 0;
-  private bannerId = 0;
-  private popupId = 0;
-  private stripId = 0;
-  private gainId = 0;
-  private msgWaiters = new Map<number, () => void>();
-  private actionWaiter: ((a: UiAction) => void) | null = null;
   private enemySprite!: Sprite;
   private heroSprite!: Sprite;
   private palSprite: Sprite | null = null;
@@ -186,14 +181,12 @@ export class BattleScene extends Phaser.Scene {
   init(data: BattleSceneData): void {
     this.opts = data;
     this.hud = new HudStore();
+    this.hudFlow = new BattleHudFlow(
+      this.hud,
+      (ms) => this.wait(ms),
+      (ms, done) => void this.time.delayedCall(ms, done),
+    );
     this.hudRoot = null;
-    this.msgId = 0;
-    this.bannerId = 0;
-    this.popupId = 0;
-    this.stripId = 0;
-    this.gainId = 0;
-    this.msgWaiters = new Map();
-    this.actionWaiter = null;
     this.palSprite = null;
     this.shadows = new Map();
     this.bobs = new Map();
@@ -323,10 +316,8 @@ export class BattleScene extends Phaser.Scene {
    * 同じ ところが あるので、県に ある id は 県あつかい）
    */
   private sizeOf(def: Monster, isBoss: boolean): number {
-    if (!this.content.areas.has(def.area) && this.content.world.islands.some((i) => i.id === def.area))
-      return MONSTER_SIZE.islandBoss;
-    if ([...this.content.areas.values()].some((a) => a.midBoss === def.id)) return MONSTER_SIZE.midBoss;
-    return isBoss ? MONSTER_SIZE.boss : MONSTER_SIZE.normal;
+    const size = monsterDisplaySize(def, this.content);
+    return size === MONSTER_SIZE.normal && isBoss ? MONSTER_SIZE.boss : size;
   }
 
   /**
@@ -425,7 +416,6 @@ export class BattleScene extends Phaser.Scene {
     this.hudRoot = document.createElement('div');
     this.hudRoot.className = 'nq-battle-root';
     layer.appendChild(this.hudRoot);
-    this.hud.set({ muted: isSfxMuted() });
     this.hud.onAction = (a) => this.onUi(a);
     render(h(BattleHud, { store: this.hud }), this.hudRoot);
   }
@@ -436,8 +426,7 @@ export class BattleScene extends Phaser.Scene {
     window.removeEventListener('focus', this.onVisible);
     this.abort?.abort();
     this.hud.onAction = null;
-    this.msgWaiters.clear();
-    this.actionWaiter = null;
+    this.hudFlow.dispose();
     this.overResolve = null;
     if (this.hudRoot) {
       render(null, this.hudRoot);
@@ -447,45 +436,24 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private onUi(a: UiAction): void {
-    if (a.t === 'advance') {
-      const done = this.msgWaiters.get(a.messageId);
-      if (done) {
-        this.msgWaiters.delete(a.messageId);
-        done();
-      }
-      return;
-    }
-    if (a.t === 'toggleSound') {
-      setSfxMuted(!isSfxMuted());
-      this.hud.set({ muted: isSfxMuted() });
-      return;
-    }
     if (a.t === 'command' || a.t === 'skill' || a.t === 'item' || a.t === 'swap' || a.t === 'back') {
       if (this.phase === 'command' && !this.busy) this.onMenu(a);
       return;
     }
-    this.actionWaiter?.(a);
+    this.hudFlow.receive(a);
   }
 
   private waitFor(pred: (a: UiAction) => boolean): Promise<UiAction> {
-    return new Promise((resolve) => {
-      this.actionWaiter = (a) => {
-        if (!pred(a)) return;
-        this.actionWaiter = null;
-        resolve(a);
-      };
-    });
+    return this.hudFlow.waitFor(pred);
   }
 
   private say(text: string, mode: 'auto' | 'wait' = 'auto'): Promise<void> {
-    const id = ++this.msgId;
-    this.hud.set({ message: { id, text, mode }, menu: 'none' });
-    return new Promise((resolve) => this.msgWaiters.set(id, resolve));
+    return this.hudFlow.say(text, mode);
   }
 
   /** たたかいの ようす（待たない。次の 文が きたら 入れかわる） */
   private log(text: string): void {
-    this.hud.set({ message: { id: ++this.msgId, text, mode: 'log' } });
+    this.hudFlow.log(text);
   }
 
   private async showBanner(
@@ -495,25 +463,16 @@ export class BattleScene extends Phaser.Scene {
     subject?: string,
     ms = 1000,
   ): Promise<void> {
-    const id = ++this.bannerId;
-    this.hud.set({ banner: { id, kind, text, sub, subject } });
-    await this.wait(ms);
-    if (this.hud.get().banner?.id === id) this.hud.set({ banner: null });
+    await this.hudFlow.showBanner(kind, text, sub, subject, ms);
   }
 
   private popup(x: number, y: number, text: string, kind: PopupView['kind']): void {
-    const id = ++this.popupId;
-    this.hud.set((s) => ({ popups: [...s.popups, { id, x, y, text, kind }] }));
-    this.time.delayedCall(1300, () => this.hud.set((s) => ({ popups: s.popups.filter((p) => p.id !== id) })));
+    this.hudFlow.popup(x, y, text, kind);
   }
 
   /** 問題の 枠の 見出しの 帯に「-12」など */
   private stripPop(text: string, kind: StripPopView['kind']): void {
-    const id = ++this.stripId;
-    this.hud.set((s) => ({ stripPops: [...s.stripPops.slice(-2), { id, text, kind }] }));
-    this.time.delayedCall(1200, () =>
-      this.hud.set((s) => ({ stripPops: s.stripPops.filter((p) => p.id !== id) })),
-    );
+    this.hudFlow.stripPop(text, kind);
   }
 
   // ───────────────────────── 表示用の状態 ─────────────────────────
@@ -536,7 +495,7 @@ export class BattleScene extends Phaser.Scene {
     this.hud.set((s) => ({
       gauges: s.gauges.map((g) =>
         g.subject === subject
-          ? { ...g, value, gain: gain ? { id: ++this.gainId, amount: gain } : g.gain }
+          ? { ...g, value, gain: gain ? { id: this.hudFlow.nextGainId(), amount: gain } : g.gain }
           : g,
       ),
     }));
@@ -582,13 +541,19 @@ export class BattleScene extends Phaser.Scene {
 
   private canRecruit(): boolean {
     const s = this.state;
+    const hasGift = Boolean(this.recruitGiftId());
     return (
       hasStoryCompanion(this.gs) &&
       !s.isBossBattle &&
       this.enemyDef.recruitRate > 0 &&
       s.enemy.hp > 0 &&
-      s.enemy.hp / s.enemy.stats.hp <= this.content.settings.recruitHpThreshold
+      (hasGift || s.enemy.hp / s.enemy.stats.hp <= this.content.settings.recruitHpThreshold)
     );
+  }
+
+  private recruitGiftId(): string | undefined {
+    const gift = this.enemyDef.recruitItem;
+    return gift && (this.state.ally.items[gift] ?? 0) > 0 ? gift : undefined;
   }
 
   private itemOptions(): ItemOption[] {
@@ -782,13 +747,15 @@ export class BattleScene extends Phaser.Scene {
     this.setStep(ready);
     this.hud.set({ actorId: ready ? hero.id : null, commands: this.commandOptions() });
     if (this.playing > 0) return;
+    const giftId = this.recruitGiftId();
+    const recruitHint = giftId
+      ? t('battle.recruitGiftHint', { item: this.content.items.get(giftId)?.name ?? giftId })
+      : t('battle.recruitHint');
     const text = ready
-      ? t('battle.whatWillDo', { name: hero.name }) +
-        (this.canRecruit() ? `\n${t('battle.recruitHint')}` : '')
+      ? t('battle.whatWillDo', { name: hero.name }) + (this.canRecruit() ? `\n${recruitHint}` : '')
       : null;
     const cur = this.hud.get().message;
-    if (text && !(cur?.mode === 'prompt' && cur.text === text))
-      this.hud.set({ message: { id: ++this.msgId, text, mode: 'prompt' } });
+    if (text && !(cur?.mode === 'prompt' && cur.text === text)) this.hudFlow.prompt(text);
   }
 
   /** 動ける ときは 主人公が 一歩 前に 出る（SFC の RPG のように） */
@@ -811,9 +778,15 @@ export class BattleScene extends Phaser.Scene {
       case 'command':
         this.cmdCursor = this.hud.get().cursor;
         if (a.kind === 'skill') this.hud.set({ menu: 'skills', cursor: 0, skills: this.skillOptions() });
-        else if (a.kind === 'item') this.hud.set({ menu: 'items', cursor: 0, items: this.itemOptions() });
-        else if (a.kind === 'swap') this.hud.set({ menu: 'swap', cursor: 0, swaps: this.swapOptions() });
-        else void this.runIntent({ kind: a.kind });
+        else if (a.kind === 'item') {
+          const items = this.itemOptions();
+          if (items.length === 0) this.hudFlow.prompt(t('battle.noItems'));
+          else this.hud.set({ menu: 'items', cursor: 0, items });
+        } else if (a.kind === 'swap') {
+          const swaps = this.swapOptions();
+          if (!swaps.some((option) => !option.disabled)) this.hudFlow.prompt(t('battle.noPartner'));
+          else this.hud.set({ menu: 'swap', cursor: 0, swaps });
+        } else void this.runIntent({ kind: a.kind });
         return;
       case 'skill': {
         const entry = battleSkills(this.state, this.deps).find((b) => `${b.actorId}:${b.skill.id}` === a.key);
@@ -867,9 +840,10 @@ export class BattleScene extends Phaser.Scene {
         cmd = { kind: 'swap', monsterIndex: intent.index };
         break;
       case 'recruit': {
-        const result = await this.askRecruit();
+        const itemId = this.recruitGiftId();
+        const result = itemId ? { score: 1, timeMs: 0, attempts: 0 } : await this.askRecruit();
         if (this.state.outcome !== 'ongoing') return;
-        cmd = { kind: 'recruit', result };
+        cmd = { kind: 'recruit', result, itemId };
         break;
       }
       case 'skill': {
@@ -952,6 +926,7 @@ export class BattleScene extends Phaser.Scene {
     hint: string,
   ): Promise<ActionResult> {
     this.phase = 'question';
+    this.syncGame();
     try {
       return await runBattleQuestion({
         query,
@@ -965,6 +940,7 @@ export class BattleScene extends Phaser.Scene {
         rng: this.qRng,
         speak: this.speak,
         now: () => this.time.now,
+        getGame: () => this.syncGame(),
         port: {
           show: ({ host, skillName, subject: questionSubject, hint: questionHint, abort }) => {
             this.abort = abort;
@@ -1173,6 +1149,9 @@ export class BattleScene extends Phaser.Scene {
         this.patchGauge(e.subject, e.value);
         return;
       case 'itemUsed':
+        playSfx('select');
+        return;
+      case 'recruitGift':
         playSfx('select');
         return;
       case 'swap': {
@@ -1654,6 +1633,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private async finish(): Promise<void> {
+    this.syncGame();
     const s = this.state;
     const v = this.opts.forceRecruitOffer
       ? this.victory && { ...this.victory, recruitOffer: true }
@@ -1680,7 +1660,7 @@ export class BattleScene extends Phaser.Scene {
         summary,
         v,
         s.enemy.name,
-        this.gs,
+        this.syncGame(),
         this.content,
         itemIconUrl,
         monsterMenuArtUrl(this.enemyDef),
@@ -1705,7 +1685,7 @@ export class BattleScene extends Phaser.Scene {
         }
       }
     } else if (outcome === 'defeat') {
-      const { goldLost } = applyBattleResult(this.gs, summary, this.content.settings);
+      const { goldLost } = applyBattleResult(this.syncGame(), summary, this.content.settings);
       this.hud.set({
         menu: 'none',
         message: null,
@@ -1714,8 +1694,12 @@ export class BattleScene extends Phaser.Scene {
       await this.waitFor((x) => x.t === 'resultClose');
     }
 
-    const applied = applyBattleResult(this.gs, summary, this.content.settings);
-    this.registry.set('game', await this.settleBag(applied));
+    const previous = this.syncGame();
+    const applied = applyBattleResult(previous, summary, this.content.settings);
+    const settled = settleBattleBag(previous, applied, this.content);
+    this.gs = settled.state;
+    this.registry.set('game', settled.state);
+    await this.announceSettlement(settled);
     await this.leave(outcome, applied.goldLost);
   }
 
@@ -1723,8 +1707,7 @@ export class BattleScene extends Phaser.Scene {
    * バトルの あとの バッグ：レベルが 上がった・マスが ふえた を しらせる。
    * 仲間に なった モンスターは マスが あいていれば バッグへ、たりなければ あずけて しらせる
    */
-  private async settleBag(applied: AppliedBattle) {
-    const settled = settleBattleBag(this.gs, applied, this.content);
+  private async announceSettlement(settled: BattleSettlement): Promise<void> {
     const say = async (text: string) => {
       this.hud.set({ result: null });
       await this.say(text, 'wait');
@@ -1734,8 +1717,20 @@ export class BattleScene extends Phaser.Scene {
       await say(t('battle.levelUp', { name: settled.state.player.name, lv: settled.level.after }));
       if (settled.level.bagGrew) await say(t('battle.bagGrew', { n: settled.level.bagCapacity }));
     }
+    for (const levelUp of settled.monsterLevelUps) {
+      const owned = settled.state.party.owned.find((monster) => monster.uid === levelUp.uid);
+      const name = owned
+        ? (this.content.monsters.get(owned.monsterId)?.name ?? owned.monsterId)
+        : levelUp.uid;
+      await say(t('battle.monsterLevelUp', { name, lv: levelUp.after }));
+    }
     if (settled.recruitStored) await say(t('battle.recruitStored', { name: this.state.enemy.name }));
-    return settled.state;
+  }
+
+  /** 長い戦闘中にタイマーなどが更新した最新の GameState を取り込む。 */
+  private syncGame(): GameState {
+    this.gs = (this.registry.get('game') as GameState | undefined) ?? this.gs;
+    return this.gs;
   }
 
   private async leave(outcome: BattleEndPayload['outcome'], goldLost: number): Promise<void> {

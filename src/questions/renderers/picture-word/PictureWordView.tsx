@@ -57,6 +57,14 @@ export function PictureWordView({ ctx, payload, order, onDone }: PictureWordView
     );
   };
 
+  const cancel = () => {
+    doneRef.current = true;
+    timers.current.forEach((id) => clearTimeout(id));
+    timers.current = [];
+    const all = picksRef.current;
+    onDone({ score: 0, attempts: all.length, timedOut: true, picks: all });
+  };
+
   const pick = (id: string) => {
     if (doneRef.current || phase !== 'answering' || picksRef.current.includes(id)) return;
     const all = [...picksRef.current, id];
@@ -84,7 +92,7 @@ export function PictureWordView({ ctx, payload, order, onDone }: PictureWordView
   });
 
   useEffect(() => {
-    const onAbort = () => finish(0, true, 'timeout');
+    const onAbort = () => cancel();
     ctx.signal?.addEventListener('abort', onAbort);
     if (ctx.signal?.aborted) onAbort();
     return () => ctx.signal?.removeEventListener('abort', onAbort);
@@ -105,7 +113,7 @@ export function PictureWordView({ ctx, payload, order, onDone }: PictureWordView
         running={phase !== 'done'}
         onTimeout={() => finish(0, true, 'timeout')}
       />
-      <div class="nq-q-prompt">
+      <div id="nq-question-prompt" class="nq-q-prompt">
         <RubyLabel text={prompt} grade={ctx.grade} as="p" />
         <button
           type="button"
@@ -125,7 +133,7 @@ export function PictureWordView({ ctx, payload, order, onDone }: PictureWordView
             onError={() => payload.picture && setSrc(pictureUrl(payload.picture))}
           />
         </div>
-        <div class={`nq-pw-slot nq-pw-slot-${slot.state}`} lang="en">
+        <div class={`nq-pw-slot nq-pw-slot-${slot.state}`} lang="en" role="status" aria-live="polite">
           {slot.text}
         </div>
       </div>
@@ -144,6 +152,7 @@ export function PictureWordView({ ctx, payload, order, onDone }: PictureWordView
               key={w.id}
               type="button"
               class={`nq-btn nq-pw-card nq-pw-card-${state}`}
+              aria-describedby="nq-question-prompt"
               disabled={phase !== 'answering' || picks.includes(w.id)}
               onClick={() => pick(w.id)}
             >

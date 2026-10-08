@@ -1,14 +1,22 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { playSfx } from '../sfx';
+import { useModalFocus } from '../useModalFocus';
 import type { HudStore, ResultView } from './store';
 
-function Bar({ value, max }: { value: number; max: number }) {
+function Bar({ value, max, label }: { value: number; max: number; label: string }) {
   const ratio = max > 0 ? Math.max(0, Math.min(1, value / max)) : 0;
   return (
-    <div class="nq-bar nq-bar-xp" role="meter" aria-valuenow={value} aria-valuemax={max}>
+    <div
+      class="nq-bar nq-bar-xp"
+      role="meter"
+      aria-label={label}
+      aria-valuemin={0}
+      aria-valuenow={value}
+      aria-valuemax={max}
+    >
       <i class="nq-fill-xp" style={{ width: `${ratio * 100}%` }} />
     </div>
   );
@@ -27,10 +35,19 @@ function Cursor({ on }: { on: boolean }) {
 /** 勝敗・報酬・仲間化の結果画面。入力は HudStore の action のみで返す。 */
 export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor: number; store: HudStore }) {
   const [xpW, setXpW] = useState(r.xpFrom);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, 'button');
   useEffect(() => {
     const id = setTimeout(() => setXpW(r.xpTo), 350);
     return () => clearTimeout(id);
   }, [r]);
+  useEffect(() => {
+    if (!r.recruitPhase || !r.recruitName) return;
+    const frame = requestAnimationFrame(() => {
+      dialogRef.current?.querySelector<HTMLElement>('button.nq-focus')?.focus();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [cursor, r.recruitName, r.recruitPhase]);
   const title =
     r.kind === 'victory'
       ? t('battle.resultWin')
@@ -42,7 +59,13 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
   if (r.recruitPhase && r.recruitName) {
     return (
       <div class="nq-result-wrap nq-recruit-wrap">
-        <div class="nq-win nq-recruit-scene" role="dialog" aria-label={t('battle.recruitSceneTitle')}>
+        <div
+          ref={dialogRef}
+          class="nq-win nq-recruit-scene"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('battle.recruitSceneTitle')}
+        >
           <h2 class="nq-recruit-title">
             <PixelIcon name="star" scale={3} />
             {t('battle.recruitSceneTitle')}
@@ -83,7 +106,13 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
   }
   return (
     <div class="nq-result-wrap">
-      <div class={`nq-win nq-result nq-result-${r.kind}`} role="dialog" aria-label={title}>
+      <div
+        ref={dialogRef}
+        class={`nq-win nq-result nq-result-${r.kind}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+      >
         {r.kind === 'defeat' ? (
           <div class="nq-result-heart">
             <span class="nq-heart nq-heart-broken">♥</span>
@@ -107,7 +136,7 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
             </dt>
             <dd>+{r.xp}</dd>
             <dt class="nq-result-xpbar">
-              <Bar value={xpW} max={1} />
+              <Bar value={xpW} max={1} label={t('battle.gotXp')} />
             </dt>
             <dd class="nq-result-need">{t('battle.nextLevel', { n: r.needNext })}</dd>
             <dt>

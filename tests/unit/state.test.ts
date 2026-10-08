@@ -3,10 +3,31 @@ import { createNewGame } from '../../src/core/state/newGame';
 import { migrate } from '../../src/core/state/migrations';
 import { SCHEMA_VERSION, gameStateSchema } from '../../src/core/state/schema';
 import { exportJson, importJson, summarizeSlot } from '../../src/core/state/save';
+import { recordPlayDuration, recordPlayMinute } from '../../src/core/state/playTime';
 
 const fresh = () => createNewGame({ name: 'ハル', grade: 3 });
 
 describe('GameState', () => {
+  it('プレイ時間を加算し、変更日時を更新する', () => {
+    const state = fresh();
+    state.learning.playSecondsByDate['2026-10-08'] = 120;
+
+    const next = recordPlayMinute(state, '2026-10-08', 5_000);
+
+    expect(next.learning.playSecondsByDate['2026-10-08']).toBe(180);
+    expect(next.updatedAt).toBe(5_000);
+    expect(state.learning.playSecondsByDate['2026-10-08']).toBe(120);
+  });
+
+  it('画面を表示していた秒数だけを加算する', () => {
+    const state = fresh();
+
+    const next = recordPlayDuration(state, '2026-10-08', 17, 5_000);
+
+    expect(next.learning.playSecondsByDate['2026-10-08']).toBe(17);
+    expect(next.updatedAt).toBe(5_000);
+  });
+
   it('新規ゲームがスキーマを満たす', () => {
     const state = fresh();
     expect(gameStateSchema.safeParse(state).success).toBe(true);
@@ -27,6 +48,32 @@ describe('GameState', () => {
     const r = migrate(fresh());
     expect(r.migratedFrom).toBeNull();
     expect(r.state.schemaVersion).toBe(SCHEMA_VERSION);
+  });
+  it('v6 のセーブにバトル持ち込み用の空バッグを追加する', () => {
+    const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
+    legacy.schemaVersion = 6;
+    delete (legacy.party as Partial<typeof legacy.party>).bagItems;
+    const migrated = migrate(legacy);
+    expect(migrated.migratedFrom).toBe(6);
+    expect(migrated.state.party.bagItems).toEqual([]);
+    expect(migrated.state.progress.unlockedMonsters).toEqual(['aomori-itakodori']);
+  });
+  it('v7 のセーブでは旧版で出現済みだったモンスターを解放したまま移行する', () => {
+    const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
+    legacy.schemaVersion = 7;
+    delete (legacy.progress as Partial<typeof legacy.progress>).unlockedMonsters;
+    const migrated = migrate(legacy);
+    expect(migrated.migratedFrom).toBe(7);
+    expect(migrated.state.progress.unlockedMonsters).toEqual(['aomori-itakodori']);
+  });
+  it('v8 の達成済み称号ミッションから称号を復元する', () => {
+    const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
+    legacy.schemaVersion = 8;
+    legacy.progress.missions['aomori-ms-04'] = { status: 'done', progress: 0 };
+    delete (legacy.progress as Partial<typeof legacy.progress>).titles;
+    const migrated = migrate(legacy);
+    expect(migrated.migratedFrom).toBe(8);
+    expect(migrated.state.progress.titles).toEqual(['ねぶた見習[みなら]い']);
   });
   it('v2 の学習データへ履歴と概念状態を追加して移行する', () => {
     const current = fresh();

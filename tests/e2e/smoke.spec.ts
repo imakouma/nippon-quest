@@ -23,6 +23,10 @@ test('タイトル画面が立ち上がり、コンテンツが読み込まれ�
 
 test('Playground で choice 問題を解くと QuestionResult が返る', async ({ page }) => {
   await page.goto('/playground.html');
+  await expect(page.getByLabel('学年', { exact: true })).toBeVisible();
+  await expect(page.getByLabel('制限(秒)', { exact: true })).toBeVisible();
+  await expect(page.getByLabel('問題ファイル', { exact: true })).toBeVisible();
+  await expect(page.getByLabel('問題 JSON（直接編集して試せます）', { exact: true })).toBeVisible();
   // 問題ファイルを選ぶ → 最初の問題が JSON 欄に入る
   await page.locator('select#pg-file').selectOption({ index: 1 });
   await expect(page.locator('textarea#pg-json')).not.toBeEmpty({ timeout: 10_000 });
@@ -30,6 +34,25 @@ test('Playground で choice 問題を解くと QuestionResult が返る', async 
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 10_000 });
   await page.locator('.nq-choice').first().click();
   await expect(page.locator('.pg-result')).toContainText('"score"', { timeout: 10_000 });
+});
+
+test('問題Webエディタの主要入力と選択肢操作に名前がある', async ({ page }) => {
+  await page.goto('/editor.html');
+  for (const label of [
+    '問題 ID',
+    '問題タイプ (type)',
+    '教科 (subject)',
+    '学年 (grade)',
+    '単元コード (unit)',
+    '制限時間 (秒)',
+    '解説文 (RubyText)',
+    '問題文 (prompt)',
+    '選択肢 1',
+    '選択肢 1を正解にする',
+  ]) {
+    await expect(page.getByLabel(label, { exact: true })).toBeVisible();
+  }
+  await expect(page.getByRole('button', { name: '選択肢 1を削除' })).toBeVisible();
 });
 
 test('問題データはタイトルでは取得せず、ゲーム開始時に一度だけ取得する', async ({ page }) => {
@@ -58,6 +81,9 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'テスト');
+  const story = page.getByRole('dialog', { name: 'ものがたりの シーン' });
+  await expect(story).toBeVisible({ timeout: 30_000 });
+  await story.getByRole('button', { name: 'スキップ' }).click();
   await page.getByRole('button', { name: 'メニュー' }).click({ timeout: 30_000 });
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');
@@ -71,11 +97,28 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   await page.getByRole('button', { name: 'JSONを表示' }).click();
   const jsonBox = page.getByLabel('セーブデータJSON');
   const state = JSON.parse(await jsonBox.inputValue()) as {
+    progress: { currentMap: string; lastInn: { map: string; x: number; y: number } | null };
     learning: {
       attempts: Record<string, unknown>[];
       conceptStates: Record<string, Record<string, unknown>>;
     };
   };
+  const currentMap = state.progress.currentMap;
+  state.progress.currentMap = 'missing-map';
+  await jsonBox.fill(JSON.stringify(state));
+  await page.getByRole('button', { name: 'JSONを読みこむ' }).click();
+  await expect(page.getByText('JSONを読みこめませんでした')).toBeVisible();
+  await page.getByRole('button', { name: 'JSONを表示' }).click();
+  const unchanged = JSON.parse(await jsonBox.inputValue()) as { progress: { currentMap: string } };
+  expect(unchanged.progress.currentMap).toBe(currentMap);
+
+  state.progress.currentMap = currentMap;
+  state.progress.lastInn = { map: 'missing-map', x: 0, y: 0 };
+  await jsonBox.fill(JSON.stringify(state));
+  await page.getByRole('button', { name: 'JSONを読みこむ' }).click();
+  await expect(page.getByText('JSONを読みこめませんでした')).toBeVisible();
+
+  state.progress.lastInn = null;
   const now = Date.now();
   state.learning.conceptStates['sansu.g1.addition.single-digit'] = {
     understanding: 0.6,

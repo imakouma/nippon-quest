@@ -16,7 +16,7 @@ export class AutosaveCoordinator {
   constructor(private readonly persist: PersistGame) {}
 
   request(slot: SlotId, state: GameState): Promise<void> {
-    this.pending.set(slot, state);
+    this.pending.set(slot, structuredClone(state));
     const result = new Promise<void>((resolve, reject) => {
       const list = this.waiters.get(slot) ?? [];
       list.push({ resolve, reject });

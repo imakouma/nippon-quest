@@ -8,6 +8,19 @@ import {
 import type { GameState } from '../../core/state/schema';
 import type { QuestionBank } from '../../questions/engine';
 
+/** 復習で正解した問題を、保存可能な新しい状態としてまちがい一覧から外す。 */
+export function clearReviewedMistake(prev: GameState, questionId: string, now = Date.now()): GameState {
+  if (!prev.learning.mistakes.includes(questionId)) return prev;
+  return {
+    ...prev,
+    updatedAt: now,
+    learning: {
+      ...prev.learning,
+      mistakes: prev.learning.mistakes.filter((id) => id !== questionId),
+    },
+  };
+}
+
 /** 誤答、切り分け問題、期限到来問題を重複なく組み合わせる。 */
 export function buildReviewQueue(gs: GameState, bank: QuestionBank | undefined, now: number): string[] {
   if (!bank) return [];

@@ -3,10 +3,10 @@
  * 個人情報は一切入れない（GDD §8：ログイン不要・端末内保存）。
  */
 import { z } from 'zod';
-import { gradeSchema, idSchema, statsSchema } from '../content/schemas';
+import { gradeSchema, idSchema, rubyTextSchema, statsSchema } from '../content/schemas';
 import { attemptEventSchema, conceptStateSchema } from '../learning/state';
 
-export const SCHEMA_VERSION = 6;
+export const SCHEMA_VERSION = 9;
 
 export const equipmentSchema = z
   .object({ weapon: idSchema, head: idSchema, chest: idSchema, legs: idSchema, feet: idSchema })
@@ -69,6 +69,7 @@ export const gameStateSchema = z.object({
       .record(z.string(), bagPlacementSchema)
       .default({ hero: { x: 1, y: 1, rotated: false } })
       .describe('2Dバッグ上の配置。キーは hero / mon:<uid> / eq:<slot>'),
+    bagItems: z.array(idSchema).default([]).describe('バトルへ持ち込む消耗品のID（個数はinventoryで管理）'),
   }),
   inventory: z.record(idSchema, z.number().int().nonnegative()),
   progress: z.object({
@@ -82,6 +83,8 @@ export const gameStateSchema = z.object({
     eventsDone: z.array(idSchema),
     chestsOpened: z.array(z.string()),
     unlockedRecipes: z.array(idSchema),
+    unlockedMonsters: z.array(idSchema),
+    titles: z.array(rubyTextSchema),
     missions: z.record(
       idSchema,
       z.object({ status: z.enum(['accepted', 'done']), progress: z.number().int().nonnegative() }),

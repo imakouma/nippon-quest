@@ -6,16 +6,17 @@ export interface RubyLabelProps {
   /** 学年を決めて出すとき（table とセット）。ふだんは いまの漢字表示レベル（setKanjiLevel）で出す */
   grade?: number;
   table?: KanjiGradeTable;
+  id?: string;
   class?: string;
   as?: keyof JSX.IntrinsicElements;
 }
 
 /** "漢字[かんじ]" → <ruby>漢字<rt>かんじ</rt></ruby>。まだ習っていない漢字の ことばは ひらがなで出す */
-export function RubyLabel({ text, grade, table, class: cls, as: Tag = 'span' }: RubyLabelProps) {
+export function RubyLabel({ text, grade, table, id, class: cls, as: Tag = 'span' }: RubyLabelProps) {
   const segs = table ? openKanjiAboveGrade(parseRuby(text), grade ?? 6, table) : displayRuby(text);
   const T = Tag as 'span';
   return (
-    <T class={cls}>
+    <T id={id} class={cls}>
       {segs.map((s, i) =>
         s.ruby ? (
           <ruby key={i}>
