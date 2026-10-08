@@ -376,6 +376,7 @@ const bandNumbers = (n: z.ZodNumber) => z.object({ perfect: n, good: n, weak: n,
 
 export const settingsSchema = z.object({
   timeLimitSecByGrade: z.record(z.string(), z.number().positive()),
+  heroGrowth: statsSchema.describe('主人公が 1 レベル上がるごとの ステータス成長量'),
   scoreMultipliers: bandNumbers(z.number().positive())
     .refine(
       ({ perfect, good, weak, miss }) => perfect >= good && good >= weak && weak >= miss,

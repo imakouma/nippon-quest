@@ -12,24 +12,17 @@ import type { Ground } from '../world/ground';
 import { makeHero, makeMonster, makeParty } from './factory';
 import type { Party } from './types';
 
-/**
- * GameState.player.baseStats は「そのレベルでの素のステータス」として扱う。
- * レベルアップでの伸び（growth）は progression（Step 7）が baseStats に書き戻すので、ここでは 0。
- */
-const NO_GROWTH = { hp: 0, mp: 0, atk: 0, def: 0, spd: 0, wis: 0 };
-
 export function partyFromGameState(
   gs: GameState,
-  c: Pick<ContentIndex, 'items' | 'sets' | 'monsters' | 'xp'>,
+  c: Pick<ContentIndex, 'items' | 'sets' | 'monsters' | 'xp' | 'settings'>,
 ): Party {
   const p = gs.player;
   const hero = makeHero(
     {
       name: p.name,
-      // 見せる レベル（けいけんち から）。のびは 0 なので ステータスは かわらない
       level: heroLevel(gs, c.xp.hero),
       baseStats: p.baseStats,
-      growth: NO_GROWTH,
+      growth: c.settings.heroGrowth,
       skills: p.skills,
       equipment: activeEquipment(gs),
       bonusWis: p.bonusWis,
