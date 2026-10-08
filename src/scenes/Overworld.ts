@@ -3415,7 +3415,9 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private heroLevel(): number {
-    return this.gs()?.player.level ?? 1;
+    const gs = this.gs();
+    const xp = this.content()?.xp.hero;
+    return gs && xp ? heroLevel(gs, xp) : (gs?.player.level ?? 1);
   }
 
   private kind(): MapKind {

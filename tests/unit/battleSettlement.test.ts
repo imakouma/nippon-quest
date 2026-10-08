@@ -46,4 +46,19 @@ describe('バトル後のバッグ編成', () => {
     expect(settled.state.learning.playSecondsByDate['2026-10-08']).toBe(75);
     expect(settled.state.player.gold).toBe(started.player.gold + 10);
   });
+
+  it('経験値で到達したレベルをセーブ状態にも反映する', async () => {
+    const c = await content();
+    const before = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    const applied = applyBattleResult(
+      before,
+      summary({ xp: c.xp.hero[1]! }),
+      c.settings,
+      2_000,
+    );
+
+    const settled = settleBattleBag(before, applied, c);
+    expect(settled.level.after).toBe(2);
+    expect(settled.state.player.level).toBe(2);
+  });
 });

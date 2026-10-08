@@ -23,6 +23,9 @@ export function settleBattleBag(
     state = stow.state;
     recruitStored = !stow.inBag;
   }
+  if (state.player.level !== after) {
+    state = { ...state, player: { ...state.player, level: after } };
+  }
   const capacity = bagCapacity(after, content.settings.bag);
   return {
     state,
