@@ -51,6 +51,19 @@ describe('GameState → Party', () => {
     expect(partyFromGameState(gs, c).hero.hp).toBe(1);
   });
 
+  it('経験値でレベルが上がると主人公の戦闘ステータスも成長する', async () => {
+    const c = await content();
+    const level1 = newGame();
+    const level2 = newGame();
+    level2.player.xp = c.xp.hero[1]!;
+
+    const before = partyFromGameState(level1, c).hero;
+    const after = partyFromGameState(level2, c).hero;
+    expect(after.level).toBe(2);
+    expect(after.stats.hp).toBeGreaterThan(before.stats.hp);
+    expect(after.stats.atk).toBeGreaterThan(before.stats.atk);
+  });
+
   it('content に無いモンスターは連れていかない', async () => {
     const c = await content();
     const gs = newGame();
