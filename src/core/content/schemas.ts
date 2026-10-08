@@ -384,6 +384,16 @@ export const settingsSchema = z.object({
     )
     .describe('問題の できばえ → いりょくの倍率。不正解でも前進できるよう miss も正の値にする'),
   weaknessMultiplier: z.number().positive(),
+  equipmentElementResistance: z
+    .number()
+    .positive()
+    .max(1)
+    .describe('同じ属性の防具を装備したときに受ける属性ダメージの倍率'),
+  learningWisdom: z.object({
+    minScore: z.number().min(0).max(1).describe('かしこさが上がる最低スコア'),
+    perCorrect: z.number().positive().describe('条件を満たす回答 1 回で増えるかしこさ'),
+    maxBonus: z.number().positive().describe('学習で増えるかしこさの上限'),
+  }),
   defeatGoldLossRate: z.number().min(0).max(1),
   recruitHpThreshold: z.number().min(0).max(1),
   recentQuestionWindow: z.number().int().positive(),

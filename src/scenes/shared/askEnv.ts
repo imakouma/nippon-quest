@@ -3,6 +3,7 @@
  * ゲーム本体は問題タイプを知らない（docs/01 §3.3）。ここも score しか見ない。
  */
 import type { ContentIndex } from '../../core/content/loader';
+import type { Settings } from '../../core/content/schemas';
 import type { GameState } from '../../core/state/schema';
 import {
   applyAttemptToConcepts,
@@ -40,6 +41,7 @@ export function recordLearningResult(
   presentedAt: number,
   answeredAt: number,
   reason: AttemptEvent['reason'] = 'unknown',
+  wisdom?: Settings['learningWisdom'],
 ): AttemptEvent {
   const event = createAttemptEvent({
     questionId: question.id,
@@ -53,6 +55,12 @@ export function recordLearningResult(
   gs.learning.attempts.push(event);
   const link = questionLinksById.get(question.id);
   if (link) gs.learning.conceptStates = applyAttemptToConcepts(gs.learning.conceptStates, event, link);
+  if (wisdom && result.score >= wisdom.minScore) {
+    gs.player.bonusWis = Math.min(
+      wisdom.maxBonus,
+      Math.round((gs.player.bonusWis + wisdom.perCorrect) * 100) / 100,
+    );
+  }
   gs.updatedAt = answeredAt;
   return event;
 }
@@ -79,7 +87,7 @@ export function buildAskEnv(o: AskEnvOptions): AskEnv {
     onResult: (question, result, presentedAt) => {
       const answeredAt = Date.now();
       const game = o.getGame?.() ?? o.gs;
-      recordLearningResult(game, question, result, presentedAt, answeredAt, o.reason);
+      recordLearningResult(game, question, result, presentedAt, answeredAt, o.reason, st.learningWisdom);
       window.dispatchEvent(new CustomEvent('nq:learning-changed', { detail: game }));
     },
   };

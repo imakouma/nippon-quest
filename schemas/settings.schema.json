@@ -11,6 +11,45 @@
             "exclusiveMinimum": 0
           }
         },
+        "heroGrowth": {
+          "type": "object",
+          "properties": {
+            "hp": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "mp": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "atk": {
+              "type": "number",
+              "minimum": 0
+            },
+            "def": {
+              "type": "number",
+              "minimum": 0
+            },
+            "spd": {
+              "type": "number",
+              "minimum": 0
+            },
+            "wis": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "hp",
+            "mp",
+            "atk",
+            "def",
+            "spd",
+            "wis"
+          ],
+          "additionalProperties": false,
+          "description": "主人公が 1 レベル上がるごとの ステータス成長量"
+        },
         "scoreMultipliers": {
           "type": "object",
           "properties": {
@@ -43,6 +82,39 @@
         "weaknessMultiplier": {
           "type": "number",
           "exclusiveMinimum": 0
+        },
+        "equipmentElementResistance": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "description": "同じ属性の防具を装備したときに受ける属性ダメージの倍率"
+        },
+        "learningWisdom": {
+          "type": "object",
+          "properties": {
+            "minScore": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "かしこさが上がる最低スコア"
+            },
+            "perCorrect": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "条件を満たす回答 1 回で増えるかしこさ"
+            },
+            "maxBonus": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "学習で増えるかしこさの上限"
+            }
+          },
+          "required": [
+            "minScore",
+            "perCorrect",
+            "maxBonus"
+          ],
+          "additionalProperties": false
         },
         "defeatGoldLossRate": {
           "type": "number",
@@ -292,8 +364,11 @@
       },
       "required": [
         "timeLimitSecByGrade",
+        "heroGrowth",
         "scoreMultipliers",
         "weaknessMultiplier",
+        "equipmentElementResistance",
+        "learningWisdom",
         "defeatGoldLossRate",
         "recruitHpThreshold",
         "recentQuestionWindow",

@@ -30,6 +30,7 @@ export function battleSummary(
     drops: victory?.drops ?? [],
     items: { ...state.ally.items },
     recruitAccepted: false,
+    participantMonsterUids: state.ally.monsters.map((monster) => monster.id),
     perfectBySubject: { ...perfectBySubject },
   };
 }

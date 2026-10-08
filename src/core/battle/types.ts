@@ -39,6 +39,8 @@ export interface Combatant {
   actionsPerTurn: number;
   /** 属性わざ倍率（セット装備ボーナス）。key = element */
   elementBoost?: Partial<Record<Element, number>>;
+  /** 装備で軽減できる属性。 */
+  elementResists?: Element[];
 }
 
 /** 敵ユニット */

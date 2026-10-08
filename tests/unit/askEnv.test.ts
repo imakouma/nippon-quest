@@ -30,6 +30,33 @@ describe('問題結果の学習状態への記録', () => {
     expect(game.updatedAt).toBe(1_000);
   });
 
+  it('正答すると設定量だけかしこさが成長し、上限を超えない', () => {
+    const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
+    game.player.bonusWis = 1.95;
+    const question: QuestionBase = {
+      id: 'sansu.g1.tashizan.0001',
+      type: 'choice',
+      subject: 'sansu',
+      grade: 1,
+      unit: 'sansu.g1.tashizan',
+      payload: {},
+    };
+    const result: QuestionResult = {
+      questionId: question.id,
+      score: 1,
+      timeMs: 800,
+      attempts: 1,
+    };
+
+    recordLearningResult(game, question, result, 900, 1_000, 'battle', {
+      minScore: 0.8,
+      perCorrect: 0.1,
+      maxBonus: 2,
+    });
+
+    expect(game.player.bonusWis).toBe(2);
+  });
+
   it('長い問題の途中で状態が差し替わっても、回答を最新版へ記録する', () => {
     const stale = createNewGame({ name: 'ハル', grade: 1 }, 100);
     const latest = structuredClone(stale);

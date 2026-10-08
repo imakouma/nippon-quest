@@ -1717,6 +1717,13 @@ export class BattleScene extends Phaser.Scene {
       await say(t('battle.levelUp', { name: settled.state.player.name, lv: settled.level.after }));
       if (settled.level.bagGrew) await say(t('battle.bagGrew', { n: settled.level.bagCapacity }));
     }
+    for (const levelUp of settled.monsterLevelUps) {
+      const owned = settled.state.party.owned.find((monster) => monster.uid === levelUp.uid);
+      const name = owned
+        ? (this.content.monsters.get(owned.monsterId)?.name ?? owned.monsterId)
+        : levelUp.uid;
+      await say(t('battle.monsterLevelUp', { name, lv: levelUp.after }));
+    }
     if (settled.recruitStored) await say(t('battle.recruitStored', { name: this.state.enemy.name }));
   }
 

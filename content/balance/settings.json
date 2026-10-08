@@ -4,6 +4,8 @@
   "heroGrowth": { "hp": 4, "mp": 1, "atk": 1, "def": 0.8, "spd": 0.6, "wis": 0 },
   "scoreMultipliers": { "perfect": 2.0, "good": 1.2, "weak": 0.8, "miss": 0.5 },
   "weaknessMultiplier": 1.5,
+  "equipmentElementResistance": 0.8,
+  "learningWisdom": { "minScore": 0.8, "perCorrect": 0.1, "maxBonus": 50 },
   "defeatGoldLossRate": 0.1,
   "recruitHpThreshold": 0.2,
   "recentQuestionWindow": 20,
