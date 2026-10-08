@@ -1,6 +1,7 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Item, Monster, Motif } from '../../core/content/schemas';
 import { canUse, EQUIP_SLOTS, isEquip } from '../../core/progression/inventory';
+import { monsterSize } from '../../core/progression/bag';
 import type { GameState } from '../../core/state/schema';
 import type { QuestionBank } from '../../questions/engine';
 import type { MenuEntry, MenuHomeKey, MenuTab } from '../../shared/menuModel';
@@ -8,6 +9,7 @@ import { t } from '../../ui/i18n';
 import { itemIconUrl } from '../../rendering/itemIcons';
 import { stripRuby } from '../../ui/ruby';
 import { monsterCatalog, specialtyCatalog } from './catalogs';
+import { dexRegionOf } from './geography';
 
 type HeroStats = { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
 type MenuView = { entries: MenuEntry[]; summary?: string; empty: string };
@@ -233,11 +235,15 @@ export function buildMenuView(input: MenuViewInput): MenuView {
     const entries = monsters.map(({ m, known }, index): MenuEntry => {
       const art = input.monsterArt(m);
       const area = t('field.dexArea', { area: areaName(m.area) });
+      const region = dexRegionOf(m.area);
       return {
         key: m.id,
         name: known ? m.name : unknown,
+        group: region.id,
+        groupLabel: t(region.nameKey),
         icon: art,
         art,
+        bagSize: monsterSize(m.id, content.monsters),
         known,
         right: t('field.dexNo', { n: String(index + 1).padStart(3, '0') }),
         detailIndex: `${index + 1}/${monsters.length}`,
@@ -260,24 +266,29 @@ export function buildMenuView(input: MenuViewInput): MenuView {
 
   if (tab === 'specialties') {
     const specialties = specialtyCatalog(content, game, input.revealAll);
-    const entries = specialties.map(({ area, motif, itemId, item, known }, index): MenuEntry => ({
-      key: itemId,
-      name: known ? motif.name : unknown,
-      icon: item ? itemIconUrl(item) : undefined,
-      known,
-      right: stripRuby(area.name, 'kana'),
-      detailIndex: `${index + 1}/${specialties.length}`,
-      sub: t(motifKindLabelKey(motif.kind)),
-      lines: known
-        ? [
-            t('field.dexFrom', { area: area.name }),
-            ...(item?.use?.heal ? [t('field.bagHeal', { n: item.use.heal })] : []),
-            t('field.townHave', { n: game.inventory[itemId] ?? 0 }),
-          ]
-        : [t('field.dexFrom', { area: area.name }), t('field.dexNotFound')],
-      blurb: known ? motif.blurb : undefined,
-      action: null,
-    }));
+    const entries = specialties.map(({ area, motif, itemId, item, known }, index): MenuEntry => {
+      const region = dexRegionOf(area.id);
+      return {
+        key: itemId,
+        name: known ? motif.name : unknown,
+        group: region.id,
+        groupLabel: t(region.nameKey),
+        icon: item ? itemIconUrl(item) : undefined,
+        known,
+        right: stripRuby(area.name, 'kana'),
+        detailIndex: `${index + 1}/${specialties.length}`,
+        sub: t(motifKindLabelKey(motif.kind)),
+        lines: known
+          ? [
+              t('field.dexFrom', { area: area.name }),
+              ...(item?.use?.heal ? [t('field.bagHeal', { n: item.use.heal })] : []),
+              t('field.townHave', { n: game.inventory[itemId] ?? 0 }),
+            ]
+          : [t('field.dexFrom', { area: area.name }), t('field.dexNotFound')],
+        blurb: known ? motif.blurb : undefined,
+        action: null,
+      };
+    });
     return { entries, empty: t('field.dexEmpty') };
   }
 

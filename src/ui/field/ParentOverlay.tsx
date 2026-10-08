@@ -15,6 +15,7 @@ import { useModalFocus } from '../useModalFocus';
 
 export interface ParentOverlayProps {
   game: GameState;
+  getGame?: () => GameState;
   mastery: RoadmapNode[];
   onChange: (game: GameState) => void;
   onImport: (game: GameState) => void;
@@ -24,10 +25,10 @@ export interface ParentOverlayProps {
 const percent = (value: number) => `${Math.round(value * 100)}%`;
 const DAY = 86_400_000;
 
-export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: ParentOverlayProps) {
+export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onClose }: ParentOverlayProps) {
   const dialogRef = useRef<HTMLElement>(null);
-  useModalFocus(dialogRef, 'input');
   const [unlocked, setUnlocked] = useState(false);
+  useModalFocus(dialogRef, unlocked ? 'select' : 'input');
   const [answer, setAnswer] = useState('');
   const [gateError, setGateError] = useState(false);
   const [json, setJson] = useState('');
@@ -73,10 +74,15 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  const patchLearning = (learning: Partial<GameState['learning']>) =>
-    onChange({ ...game, learning: { ...game.learning, ...learning } });
-  const patchSettings = (settings: Partial<GameState['settings']>) =>
-    onChange({ ...game, settings: { ...game.settings, ...settings } });
+  const currentGame = () => getGame?.() ?? game;
+  const patchLearning = (learning: Partial<GameState['learning']>) => {
+    const current = currentGame();
+    onChange({ ...current, updatedAt: Date.now(), learning: { ...current.learning, ...learning } });
+  };
+  const patchSettings = (settings: Partial<GameState['settings']>) => {
+    const current = currentGame();
+    onChange({ ...current, updatedAt: Date.now(), settings: { ...current.settings, ...settings } });
+  };
   const unlock = () => {
     if (answer.trim() === '12') {
       playSfx('select');
@@ -113,7 +119,7 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
           <h2 id="nq-parent-title" class="nq-menu-title">
             ⚙ {t('parent.title')}
           </h2>
-          <button type="button" class="nq-back nq-menu-close" onClick={onClose}>
+          <button type="button" class="nq-back nq-menu-close" aria-keyshortcuts="Escape" onClick={onClose}>
             × {t('ui.close')}
           </button>
         </header>
@@ -130,7 +136,7 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
                 autofocus
               />
             </label>
-            <button type="submit" class="nq-opt nq-parent-primary">
+            <button type="submit" class="nq-opt nq-parent-primary" aria-keyshortcuts="Enter">
               {t('parent.open')}
             </button>
             {gateError && (
@@ -256,7 +262,16 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
               {!Object.keys(game.learning.playSecondsByDate).length && <p>{t('parent.noRecord')}</p>}
               <h3>{t('parent.mastery')}</h3>
               {rows.map((row) => (
-                <div class="nq-parent-mastery" title={`${row.name} ${percent(row.mastery)}`}>
+                <div
+                  class="nq-parent-mastery"
+                  role="meter"
+                  aria-label={row.name}
+                  aria-valuemin={0}
+                  aria-valuenow={Math.round(row.mastery * 100)}
+                  aria-valuemax={100}
+                  aria-valuetext={percent(row.mastery)}
+                  title={`${row.name} ${percent(row.mastery)}`}
+                >
                   <span>{row.name}</span>
                   <i>
                     <b style={{ width: percent(row.mastery) }} />
@@ -267,8 +282,11 @@ export function ParentOverlay({ game, mastery, onChange, onImport, onClose }: Pa
               {!rows.length && <p>{t('parent.noMastery')}</p>}
               <h3>{t('parent.concepts')}</h3>
               {conceptRows.map(({ concept, state }) => (
-                <div class="nq-parent-concept" title={concept?.description}>
+                <div class="nq-parent-concept">
                   <strong>{concept?.name}</strong>
+                  {concept?.description && (
+                    <small class="nq-parent-concept-description">{concept.description}</small>
+                  )}
                   <span>
                     {t('parent.understanding')} {percent(state.understanding)}
                   </span>

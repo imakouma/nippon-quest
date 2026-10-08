@@ -135,6 +135,18 @@ describe('マップ', () => {
     }
   });
 
+  it('ゲーム開始地点の近くにボスを置かない', () => {
+    const aomori = maps.get('aomori-field')!;
+    const objects = objectsOf(aomori);
+    const spawn = objects.find((o) => o.type === 'spawn' && o.name === 'spawn')!;
+    const sx = Math.floor(spawn.x / 16);
+    const sy = Math.floor(spawn.y / 16);
+    for (const boss of objects.filter((o) => o.type === 'midboss' || o.type === 'regionBoss')) {
+      const distance = Math.abs(Math.floor(boss.x / 16) - sx) + Math.abs(Math.floor(boss.y / 16) - sy);
+      expect(distance, `${boss.name} が開始地点に近すぎる`).toBeGreaterThanOrEqual(16);
+    }
+  });
+
   it('裏ステージ（secret）の ある 県は、フィールドに 入口が あり、<県>-secret の おくに ラスボスが いる', () => {
     for (const f of jsonFiles(PREFECTURES)) {
       const area = JSON.parse(readFileSync(new URL(f, PREFECTURES), 'utf8')) as {

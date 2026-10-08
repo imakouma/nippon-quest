@@ -3,7 +3,9 @@ import { NQ } from '../../rendering/palette';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
+import { useModalFocus } from '../useModalFocus';
 import type { MapRegionInfo } from './worldMapModel';
 
 const SIZE = 200;
@@ -124,6 +126,8 @@ export function JapanMapOverview({
   onClose,
 }: JapanMapOverviewProps) {
   const canvas = useRef<HTMLCanvasElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, '.nq-japan-region-list .nq-focus');
   const generalRegion = JAPAN_GENERAL_REGIONS[selectedGroup];
   const sourceRegions = generalRegion?.sourceIds
     .map((id) => regions.find((region) => region.id === id))
@@ -134,6 +138,12 @@ export function JapanMapOverview({
   useEffect(() => {
     if (canvas.current) drawJapan(canvas.current, regions, selectedGroup, hereAreaId);
   }, [regions, selectedGroup, hereAreaId]);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      dialogRef.current?.querySelector<HTMLElement>('.nq-japan-region-list .nq-focus')?.focus();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [selectedGroup]);
 
   const pick = (index: number) => {
     if (!JAPAN_GENERAL_REGIONS[index] || index === selectedGroup) return;
@@ -157,6 +167,10 @@ export function JapanMapOverview({
   live.current = { selected: selectedGroup, count: JAPAN_GENERAL_REGIONS.length, pick, openDefault, onClose };
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
+      const inControl =
+        event.target instanceof HTMLElement &&
+        event.target.closest('button, input, select, textarea, [contenteditable="true"]');
+      if (inControl && (event.key === 'Enter' || event.key === ' ')) return;
       const state = live.current;
       if (event.key === 'ArrowLeft' || event.key === 'ArrowUp')
         state.pick((state.selected - 1 + state.count) % state.count);
@@ -184,14 +198,21 @@ export function JapanMapOverview({
   };
 
   return (
-    <div class="nq-wmap" onClick={onClose}>
+    <div
+      ref={dialogRef}
+      class="nq-wmap"
+      role="dialog"
+      aria-modal="true"
+      aria-label={displayText(t('field.mapNationTitle'))}
+      onClick={onClose}
+    >
       <div class="nq-win nq-wmap-box" onClick={(event) => event.stopPropagation()}>
         <div class="nq-wmap-left">
           <div class="nq-wmap-region nq-japan-heading">
             <RubyLabel text={t('field.mapNationTitle')} class="nq-wmap-rname" />
           </div>
           <div class="nq-wmap-view nq-japan-view">
-            <canvas ref={canvas} onClick={onMapClick} aria-label={t('field.mapNationTitle')} />
+            <canvas ref={canvas} onClick={onMapClick} aria-hidden="true" />
           </div>
         </div>
         <div class="nq-wmap-right">
@@ -213,14 +234,15 @@ export function JapanMapOverview({
                   key={candidate.id}
                   type="button"
                   class={`nq-opt ${index === selectedGroup ? 'nq-focus' : ''}`}
-                  onClick={() => pick(index)}
+                  aria-pressed={index === selectedGroup}
+                  onClick={() => (index === selectedGroup ? openDefault() : pick(index))}
                 >
                   <RubyLabel text={t(candidate.nameKey)} />
                 </button>
               ))}
             </div>
           </div>
-          <div class="nq-wmap-foot">
+          <div class="nq-wmap-foot nq-japan-foot">
             <div class="nq-japan-detail-buttons">
               {sourceRegions?.map((source) => (
                 <button

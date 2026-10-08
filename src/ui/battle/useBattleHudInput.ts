@@ -15,6 +15,7 @@ interface Option {
   key?: string;
   disabled: boolean;
   action(): void;
+  onDisabled?(): void;
 }
 
 function menuOptions(state: HudState, store: HudStore): Option[] {
@@ -23,6 +24,10 @@ function menuOptions(state: HudState, store: HudStore): Option[] {
       return state.commands.map((command) => ({
         disabled: command.disabled,
         action: () => store.dispatch({ t: 'command', kind: command.kind }),
+        onDisabled:
+          command.kind === 'item' || command.kind === 'swap'
+            ? () => store.dispatch({ t: 'command', kind: command.kind })
+            : undefined,
       }));
     case 'skills':
       return state.skills.map((skill) => ({
@@ -46,7 +51,11 @@ function menuOptions(state: HudState, store: HudStore): Option[] {
 
 export function pickBattleHudOption(option: Option | undefined): void {
   if (!option) return;
-  if (option.disabled) return void playSfx('miss');
+  if (option.disabled) {
+    playSfx('miss');
+    option.onDisabled?.();
+    return;
+  }
   playSfx('select');
   option.action();
 }
@@ -64,6 +73,12 @@ export function useBattleHudInput(store: HudStore, advance: () => void): void {
       const back = key === 'Escape' || key === 'x' || key === 'X' || key === 'Backspace';
       const direction = KEY_DIR[key];
       if (!ok && !back && !direction) return;
+      if (
+        (key === 'Enter' || key === ' ') &&
+        event.target instanceof HTMLElement &&
+        event.target.closest('button, input, select, textarea, [contenteditable="true"]')
+      )
+        return;
       event.preventDefault();
       if (state.result) {
         if (state.result.recruitName) {

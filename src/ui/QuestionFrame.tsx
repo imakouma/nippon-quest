@@ -8,6 +8,7 @@ import { useLayoutEffect, useRef } from 'preact/hooks';
 import { SubjectChip } from './chips';
 import { RubyLabel } from './RubyLabel';
 import { displayText } from './ruby';
+import { useModalFocus } from './useModalFocus';
 
 export interface QuestionFrameProps {
   host: HTMLElement;
@@ -20,6 +21,8 @@ export interface QuestionFrameProps {
 
 export function QuestionFrame({ host, title, subject, hint, aside, class: cls }: QuestionFrameProps) {
   const slot = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, '.nq-choice, .nq-q-input input, .nq-map-tap, .nq-btn');
   // ask() は host へ直ちに問題を描画する。通常 effect まで待つと、重いCanvas描画中に
   // 問題が画面へ差し込まれないまま制限時間だけ進むため、DOM確定直後に同期して接続する。
   useLayoutEffect(() => {
@@ -27,7 +30,14 @@ export function QuestionFrame({ host, title, subject, hint, aside, class: cls }:
     return () => host.remove();
   }, [host]);
   return (
-    <div class={`nq-win nq-bq ${cls ?? ''}`} role="dialog" aria-label={displayText(title)}>
+    <div
+      ref={dialogRef}
+      class={`nq-win nq-bq ${cls ?? ''}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label={displayText(title)}
+      tabindex={-1}
+    >
       <div class="nq-bq-head">
         <SubjectChip subject={subject} />
         <RubyLabel text={title} class="nq-bq-name" />

@@ -19,8 +19,12 @@ export interface RoadmapNode {
 export interface MenuEntry {
   key: string;
   name: string;
+  group?: string;
+  groupLabel?: string;
   icon?: string;
   art?: string;
+  /** バッグ内で占有するマスの形。 */
+  bagSize?: { w: number; h: number };
   known: boolean;
   right?: string;
   detailIndex?: string;

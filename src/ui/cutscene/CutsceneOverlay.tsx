@@ -3,6 +3,7 @@ import type { DialogueLine } from '../dialogue';
 import { t } from '../i18n';
 import { RubyLabel } from '../RubyLabel';
 import { TypedText, useTypewriter } from '../typewriter';
+import { useModalFocus } from '../useModalFocus';
 import { cutsceneAutoWaitMs } from './timing';
 import './cutscene.css';
 
@@ -29,6 +30,7 @@ export function CutsceneOverlay({
 }: CutsceneOverlayProps) {
   const [index, setIndex] = useState(0);
   const [auto, setAuto] = useState(true);
+  const cutsceneRef = useRef<HTMLElement>(null);
   const doneRef = useRef(false);
   const line = lines[Math.min(index, lines.length - 1)];
   const lineText = line?.text ?? '';
@@ -62,6 +64,9 @@ export function CutsceneOverlay({
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
+      const isNativeControl =
+        event.target instanceof HTMLElement && event.target.closest('button, input, select, textarea');
+      if (isNativeControl && (event.key === 'Enter' || event.key === ' ')) return;
       if (event.key === 'Enter' || event.key === ' ' || event.key.toLowerCase() === 'z') {
         live.current.advance();
         event.preventDefault();
@@ -75,12 +80,19 @@ export function CutsceneOverlay({
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
+  useModalFocus(cutsceneRef, ':scope');
+
   if (!line) return null;
   const phase = Math.min(5, Math.floor((index / Math.max(1, lines.length - 1)) * 6));
   return (
     <section
+      ref={cutsceneRef}
       class={`nq-cutscene nq-cutscene-${kind} nq-cutscene-phase-${phase}`}
+      role="dialog"
+      aria-modal="true"
       aria-label={t('cutscene.sceneLabel')}
+      aria-describedby="nq-cutscene-dialogue"
+      tabIndex={-1}
       data-cutscene-kind={kind}
       data-scene-index={index}
     >
@@ -105,13 +117,17 @@ export function CutsceneOverlay({
       <div class="nq-cutscene-topbar">
         <span
           class="nq-cutscene-progress"
+          role="progressbar"
           aria-label={t('cutscene.progress', { now: index + 1, total: lines.length })}
+          aria-valuemin={1}
+          aria-valuemax={lines.length}
+          aria-valuenow={index + 1}
         >
           {Array.from({ length: lines.length }, (_, i) => (
             <i key={i} class={i <= index ? 'is-on' : ''} />
           ))}
         </span>
-        <button type="button" onClick={() => setAuto((value) => !value)}>
+        <button type="button" aria-pressed={auto} onClick={() => setAuto((value) => !value)}>
           {t(auto ? 'cutscene.autoOn' : 'cutscene.autoOff')}
         </button>
         <button type="button" onClick={finish}>
@@ -125,13 +141,13 @@ export function CutsceneOverlay({
         aria-label={t('cutscene.advance')}
         onClick={advance}
       />
-      <div class={`nq-cutscene-dialogue ${!line.speaker ? 'is-narration' : ''}`}>
+      <div id="nq-cutscene-dialogue" class={`nq-cutscene-dialogue ${!line.speaker ? 'is-narration' : ''}`}>
         {line.speaker && (
           <div class="nq-cutscene-name">
             <RubyLabel text={line.speaker} />
           </div>
         )}
-        <p>
+        <p aria-live={tw.done ? 'polite' : 'off'}>
           <TypedText text={line.text} n={tw.n} />
         </p>
         <span class="nq-cutscene-mode">{auto ? t('cutscene.auto') : t('cutscene.manual')}</span>

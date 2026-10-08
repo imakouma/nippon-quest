@@ -1,8 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { createNewGame } from '../../src/core/state/newGame';
+import { createNewGame, UNNAMED_HERO } from '../../src/core/state/newGame';
 import {
   HOKKAIDO_CHAPTER_COUNTER,
+  HERO_IDENTITY_COUNTER,
   HOKURIKU_CHAPTER_COUNTER,
   KOSHINETSU_CHAPTER_COUNTER,
   TOKAI_CHAPTER_COUNTER,
@@ -32,6 +33,20 @@ describe('物語のマップ導入', () => {
     expect(story?.lines.length).toBeGreaterThan(1);
     expect(story?.presentation).toBe('opening');
     expect(mapArrivalStory('aomori-field', story!.state, 300)).toBeNull();
+  });
+
+  it('名前入力前に終了したセーブでは青森の導入を再開する', () => {
+    const game = createNewGame({ name: UNNAMED_HERO, grade: 1 }, 100);
+    game.progress.counters[PROLOGUE_COUNTER] = 1;
+
+    const story = mapArrivalStory('aomori-field', game, 200);
+
+    expect(story).not.toBeNull();
+    expect(story?.state.player.name).toBe(UNNAMED_HERO);
+    expect(story?.state.updatedAt).toBe(200);
+
+    game.progress.counters[HERO_IDENTITY_COUNTER] = 1;
+    expect(mapArrivalStory('aomori-field', game, 300)).toBeNull();
   });
 
   it('岩手では相棒を渡さず、社へ案内する導入だけを一度表示する', () => {

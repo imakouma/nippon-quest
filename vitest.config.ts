@@ -6,9 +6,5 @@ export default defineConfig({
   test: {
     include: ['tests/unit/**/*.test.ts', 'src/**/*.test.ts'],
     environment: 'node',
-    environmentMatchGlobs: [
-      ['src/questions/renderers/**', 'jsdom'],
-      ['tests/unit/renderers/**', 'jsdom'],
-    ],
   },
 });

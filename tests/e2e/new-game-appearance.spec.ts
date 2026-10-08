@@ -1,42 +1,42 @@
 import { expect, test } from '@playwright/test';
 
-test('物語で初めて名前と見た目を決め、選択が反映される', async ({ page }) => {
-  await page.goto('/?resetSaves=1');
-  await page.getByRole('menuitem', { name: '♥ はじめから' }).click();
+test('旅立ち前に見た目を選び、物語の中で名前を決められる', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
 
-  const dialogue = page.locator('.nq-dlg');
-  const identity = page.getByRole('form', { name: 'ようせいとの であい' });
-  await expect(dialogue.or(identity)).toBeVisible({ timeout: 30_000 });
-  for (let step = 0; step < 20 && !(await identity.isVisible()); step += 1) {
-    await dialogue.click();
+  const setup = page.getByRole('dialog', { name: 'たびの じゅんび' });
+  const avatar = setup.getByRole('img', { name: 'しゅじんこうの みため' });
+  await expect(avatar).toBeVisible();
+  const start = setup.getByRole('button', { name: 'はじめる' });
+  await expect(setup.getByRole('combobox', { name: /がくねん/ })).toHaveValue('1');
+  await expect(start).toBeEnabled();
+  await expect(setup.getByText('えらんでね')).toHaveCount(0);
+  for (const label of ['かみ 2', 'はだ 2', 'ふく 2', 'かみがた 2', 'め 2']) {
+    const choice = setup.getByRole('button', { name: label });
+    await choice.click();
+    await expect(choice).toHaveAttribute('aria-pressed', 'true');
   }
 
-  await expect(identity).toBeVisible();
-  const preview = page.locator('.nq-avatar-stage');
-  const avatar = page.getByRole('img', { name: 'しゅじんこうの みため' });
-  await expect(avatar).toBeVisible();
+  await start.click();
+  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  await expect(page.locator('.nq-fhud-controls')).toHaveCount(0);
+  await page
+    .getByRole('dialog', { name: 'ものがたりの シーン' })
+    .getByRole('button', { name: 'スキップ' })
+    .click();
 
-  const bounds = await Promise.all([preview.boundingBox(), avatar.boundingBox()]);
-  expect(bounds[0]).not.toBeNull();
-  expect(bounds[1]).not.toBeNull();
-  expect(bounds[1]!.x).toBeGreaterThanOrEqual(bounds[0]!.x);
-  expect(bounds[1]!.y).toBeGreaterThanOrEqual(bounds[0]!.y);
-  expect(bounds[1]!.x + bounds[1]!.width).toBeLessThanOrEqual(bounds[0]!.x + bounds[0]!.width);
-  expect(bounds[1]!.y + bounds[1]!.height).toBeLessThanOrEqual(bounds[0]!.y + bounds[0]!.height);
-
-  const classes = () => avatar.getAttribute('class');
-  const initial = await classes();
-
-  await page.getByRole('button', { name: 'かみ 2' }).click();
-  await expect.poll(classes).not.toBe(initial);
-  const hairChanged = await classes();
-
-  await page.getByRole('button', { name: 'はだ 2' }).click();
-  await expect.poll(classes).not.toBe(hairChanged);
-  const skinChanged = await classes();
-
-  await page.getByRole('button', { name: 'ふく 2' }).click();
-  await expect.poll(classes).not.toBe(skinChanged);
+  const namePrompt = page.getByRole('dialog', { name: /ものがたり.*名前/ });
+  await expect(namePrompt).toBeVisible({ timeout: 30_000 });
+  await expect(namePrompt).toHaveAttribute('aria-modal', 'true');
+  const name = namePrompt.getByRole('textbox', { name: 'なまえ' });
+  await expect(name).toBeFocused();
+  const decide = namePrompt.getByRole('button', { name: 'これで けってい' });
+  await expect(decide).toBeDisabled();
+  await expect(namePrompt.locator('.nq-story-name-hint')).toContainText('なまえを いれると');
+  await name.fill('ハル');
+  await expect(decide).toBeEnabled();
+  await expect(namePrompt.locator('.nq-story-name-hint')).toHaveCount(0);
+  await decide.click();
+  await expect(page.getByRole('dialog', { name: 'ものがたりの シーン' })).toContainText('ハル');
 });

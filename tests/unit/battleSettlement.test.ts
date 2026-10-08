@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { applyBattleResult, type BattleSummary } from '../../src/core/progression/battleResult';
 import { settleBattleBag } from '../../src/core/progression/battleSettlement';
 import { createNewGame } from '../../src/core/state/newGame';
+import { recordPlayDuration } from '../../src/core/state/playTime';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
 import { content } from './helpers';
 
@@ -32,5 +33,17 @@ describe('バトル後のバッグ編成', () => {
     expect(settled.state.party.owned.some((monster) => monster.uid === applied.newMonsterUid)).toBe(true);
     expect(settled.recruitStored).toBe(false);
     expect(before.party.owned).toHaveLength(1);
+  });
+
+  it('戦闘中に記録されたプレイ時間を結果反映後も保持する', async () => {
+    const c = await content();
+    const started = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    const latest = recordPlayDuration(started, '2026-10-08', 75, 2_000);
+
+    const applied = applyBattleResult(latest, summary({ gold: 10 }), c.settings, 3_000);
+    const settled = settleBattleBag(latest, applied, c);
+
+    expect(settled.state.learning.playSecondsByDate['2026-10-08']).toBe(75);
+    expect(settled.state.player.gold).toBe(started.player.gold + 10);
   });
 });

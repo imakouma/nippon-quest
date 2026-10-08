@@ -10,6 +10,7 @@ import { RubyLabel } from './RubyLabel';
 import { stripRuby } from './ruby';
 import { playSfx } from './sfx';
 import { TypedText, useTypewriter } from './typewriter';
+import { useModalFocus } from './useModalFocus';
 
 export interface DialogueLine {
   speaker?: string;
@@ -35,6 +36,16 @@ export function DialogueOverlay({ lines, choices, onComplete }: DialogueProps) {
   const last = index >= lines.length - 1;
   const asking = last && !!choices?.length && tw.done;
   const doneRef = useRef(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalFocus(dialogRef, ':scope');
+
+  // はい／いいえの仮想カーソルを実ボタンのフォーカスにも反映する。
+  useEffect(() => {
+    if (!asking) return;
+    dialogRef.current
+      ?.querySelector<HTMLButtonElement>('[data-dialogue-choice].nq-focus')
+      ?.focus({ preventScroll: true });
+  }, [asking, cursor]);
 
   const finish = (c: number) => {
     if (doneRef.current) return;
@@ -63,6 +74,12 @@ export function DialogueOverlay({ lines, choices, onComplete }: DialogueProps) {
       const k = e.key;
       const ok = k === 'Enter' || k === ' ' || k === 'z' || k === 'Z';
       const back = k === 'Escape' || k === 'x' || k === 'X';
+      if (
+        (k === 'Enter' || k === ' ') &&
+        e.target instanceof HTMLElement &&
+        e.target.closest('button, input, select, textarea, [contenteditable="true"]')
+      )
+        return;
       if (r.asking && choices?.length) {
         if (k === 'ArrowUp' || k === 'ArrowLeft') {
           playSfx('move');
@@ -83,15 +100,30 @@ export function DialogueOverlay({ lines, choices, onComplete }: DialogueProps) {
 
   if (!line) return null;
   return (
-    <div class="nq-dlg" onClick={advance}>
+    <div
+      ref={dialogRef}
+      class="nq-dlg"
+      role="dialog"
+      aria-modal="true"
+      aria-label={t('ui.dialogue')}
+      tabindex={-1}
+      onClick={advance}
+    >
       {asking && choices && (
-        <div class="nq-win nq-dlg-choices" role="menu" onClick={(e) => e.stopPropagation()}>
+        <div
+          class="nq-win nq-dlg-choices"
+          role="menu"
+          aria-label={t('ui.dialogueChoices')}
+          onClick={(e) => e.stopPropagation()}
+        >
           {choices.map((c, i) => (
             <button
               key={c}
               type="button"
+              data-dialogue-choice
               role="menuitem"
               class={`nq-dlg-choice ${cursor === i ? 'nq-focus' : ''}`}
+              aria-current={cursor === i ? 'true' : undefined}
               onPointerEnter={() => setCursor(i)}
               onClick={() => pick(i)}
             >
@@ -107,7 +139,7 @@ export function DialogueOverlay({ lines, choices, onComplete }: DialogueProps) {
             <RubyLabel text={line.speaker} />
           </div>
         )}
-        <p class="nq-dlg-text">
+        <p class="nq-dlg-text" aria-live={tw.done ? 'polite' : 'off'}>
           {!line.speaker && (
             <span class="nq-dlg-star" aria-hidden="true">
               ＊

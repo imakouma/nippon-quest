@@ -684,12 +684,14 @@
           "min": 0.5,
           "reward": {
             "skills": ["sk-kanji-barrier"],
+            "unlockMonsters": ["aomori-itakodori"],
             "xp": 15
           }
         },
         {
           "min": 0,
           "reward": {
+            "unlockMonsters": ["aomori-itakodori"],
             "xp": 5
           }
         }

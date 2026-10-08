@@ -52,10 +52,16 @@ export function presentStoryNamePrompt(root: HTMLElement): Promise<string> {
   });
 }
 
+/** 入力待ち中の別更新を保ったまま、主人公名だけを確定する。 */
+export function applyOpeningHeroName(game: GameState, name: string, now = Date.now()): GameState {
+  return { ...game, updatedAt: now, player: { ...game.player, name } };
+}
+
 export async function askOpeningHeroName(
   mapKey: string,
   game: GameState,
   root: HTMLElement,
+  getGame: () => GameState = () => game,
 ): Promise<GameState> {
   if (
     mapKey !== 'aomori-field' ||
@@ -72,5 +78,5 @@ export async function askOpeningHeroName(
     afterClose: () => undefined,
   });
   const name = await presentStoryNamePrompt(root);
-  return { ...game, updatedAt: Date.now(), player: { ...game.player, name } };
+  return applyOpeningHeroName(getGame(), name);
 }

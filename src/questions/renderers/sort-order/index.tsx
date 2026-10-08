@@ -1,6 +1,8 @@
 import { render } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
+import { t } from '../../../ui/i18n';
 import { RubyLabel } from '../../../ui/RubyLabel';
+import { displayText } from '../../../ui/ruby';
 import type { QuestionRenderer } from '../../contracts';
 import { Feedback } from '../shared/Feedback';
 import { TimerBar } from '../shared/TimerBar';
@@ -19,19 +21,32 @@ function View({
   const [done, setDone] = useState(false);
   const [score, setScore] = useState(0);
   const ended = useRef(false);
+  const timer = useRef<number | null>(null);
   const complete = (timedOut: boolean) => {
     if (ended.current) return;
     ended.current = true;
     const next = timedOut ? 0 : sortOrderScore(order, payload.answer);
     setScore(next);
     setDone(true);
-    window.setTimeout(() => finish(next, timedOut, order), 900);
+    timer.current = window.setTimeout(() => {
+      timer.current = null;
+      finish(next, timedOut, order);
+    }, 900);
   };
   useEffect(() => {
-    const abort = () => complete(true);
+    const abort = () => {
+      if (timer.current !== null) window.clearTimeout(timer.current);
+      else if (ended.current) return;
+      ended.current = true;
+      timer.current = null;
+      finish(0, true, order);
+    };
     ctx.signal?.addEventListener('abort', abort);
     if (ctx.signal?.aborted) abort();
-    return () => ctx.signal?.removeEventListener('abort', abort);
+    return () => {
+      ctx.signal?.removeEventListener('abort', abort);
+      if (timer.current !== null) window.clearTimeout(timer.current);
+    };
   });
   const move = (index: number, delta: number) => {
     const target = index + delta;
@@ -45,18 +60,29 @@ function View({
   return (
     <div class="nq-q nq-q-sort-order">
       <TimerBar ms={ctx.timeLimitMs} running={!done} onTimeout={() => complete(true)} />
-      <RubyLabel class="nq-q-prompt" text={payload.prompt} grade={ctx.grade} as="p" />
-      <div class={`nq-sort-cards nq-sort-${payload.direction}`}>
+      <RubyLabel id="nq-question-prompt" class="nq-q-prompt" text={payload.prompt} grade={ctx.grade} as="p" />
+      <div
+        class={`nq-sort-cards nq-sort-${payload.direction}`}
+        role="list"
+        aria-describedby="nq-question-prompt"
+      >
         {order.map((id, index) => {
           const card = payload.cards.find((item) => item.id === id)!;
           return (
-            <div class="nq-sort-card" key={id}>
+            <div
+              class="nq-sort-card"
+              key={id}
+              role="listitem"
+              aria-posinset={index + 1}
+              aria-setsize={order.length}
+            >
               {card.image && <img src={ctx.assets.image(card.image)} alt="" />}
               <RubyLabel text={card.text} grade={ctx.grade} />
               <span>
                 <button
                   type="button"
                   class="nq-btn"
+                  aria-label={t('question.sortMoveEarlier', { name: displayText(card.text) })}
                   disabled={done || index === 0}
                   onClick={() => move(index, -1)}
                 >
@@ -65,6 +91,7 @@ function View({
                 <button
                   type="button"
                   class="nq-btn"
+                  aria-label={t('question.sortMoveLater', { name: displayText(card.text) })}
                   disabled={done || index === order.length - 1}
                   onClick={() => move(index, 1)}
                 >

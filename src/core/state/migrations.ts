@@ -7,6 +7,11 @@ import { STARTER_EQUIPMENT_ID } from './starter';
 
 type Migration = (s: Record<string, unknown>) => Record<string, unknown>;
 
+// v7 までは解放条件を抽選へ反映しておらず、イタコドリは最初から出現していた。
+// アップデートで既存プレイヤーの出現候補を減らさないため、旧セーブでは解放済みとして引き継ぐ。
+const LEGACY_UNLOCKED_MONSTERS = ['aomori-itakodori'];
+const NEBUTA_APPRENTICE_TITLE = 'ねぶた見習[みなら]い';
+
 /** index = 移行元バージョン。migrations[1] は v1 → v2 */
 const migrations: Record<number, Migration> = {
   1: (s) => {
@@ -93,6 +98,24 @@ const migrations: Record<number, Migration> = {
       schemaVersion: 6,
       player: { ...player, appearance: { hairStyle: 0, eyes: 0, ...appearance } },
     };
+  },
+  6: (s) => {
+    const party = (s.party ?? {}) as Record<string, unknown>;
+    return { ...s, schemaVersion: 7, party: { ...party, bagItems: [] } };
+  },
+  7: (s) => {
+    const progress = (s.progress ?? {}) as Record<string, unknown>;
+    return {
+      ...s,
+      schemaVersion: 8,
+      progress: { ...progress, unlockedMonsters: LEGACY_UNLOCKED_MONSTERS },
+    };
+  },
+  8: (s) => {
+    const progress = (s.progress ?? {}) as Record<string, unknown>;
+    const missions = (progress.missions ?? {}) as Record<string, { status?: unknown }>;
+    const titles = missions['aomori-ms-04']?.status === 'done' ? [NEBUTA_APPRENTICE_TITLE] : [];
+    return { ...s, schemaVersion: 9, progress: { ...progress, titles } };
   },
 };
 

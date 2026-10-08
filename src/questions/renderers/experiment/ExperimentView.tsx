@@ -45,6 +45,13 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
     );
   };
 
+  const cancel = () => {
+    doneRef.current = true;
+    timers.current.forEach((timer) => clearTimeout(timer));
+    timers.current = [];
+    onDone({ score: 0, timedOut: true, prediction, runs: runsRef.current.length });
+  };
+
   const run = () => {
     let result: number;
     try {
@@ -62,7 +69,7 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
   };
 
   useEffect(() => {
-    const onAbort = () => finish(true);
+    const onAbort = () => cancel();
     ctx.signal?.addEventListener('abort', onAbort);
     if (ctx.signal?.aborted) onAbort();
     return () => ctx.signal?.removeEventListener('abort', onAbort);
@@ -77,7 +84,7 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
   return (
     <div class="nq-q nq-q-experiment">
       <TimerBar ms={ctx.timeLimitMs} running={phase !== 'done'} onTimeout={() => finish(true)} />
-      <div class="nq-q-prompt">
+      <div id="nq-question-prompt" class="nq-q-prompt">
         <RubyLabel text={payload.title} grade={ctx.grade} as="p" />
         <button
           type="button"
@@ -90,14 +97,18 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
       </div>
 
       {phase === 'predict' && (
-        <section class="nq-exp-panel">
-          <span class="nq-exp-step">1/3 {t('question.experimentPredict')}</span>
-          <RubyLabel text={payload.predict.prompt} grade={ctx.grade} as="p" />
+        <section class="nq-exp-panel" aria-labelledby="nq-exp-step">
+          <span id="nq-exp-step" class="nq-exp-step">
+            1/3 {t('question.experimentPredict')}
+          </span>
+          <RubyLabel id="nq-exp-predict-prompt" text={payload.predict.prompt} grade={ctx.grade} as="p" />
           <div class="nq-exp-choices">
             {payload.predict.choices.map((choice) => (
               <button
                 type="button"
                 class={`nq-btn${prediction === choice.id ? ' nq-exp-selected' : ''}`}
+                aria-pressed={prediction === choice.id}
+                aria-describedby="nq-exp-predict-prompt"
                 onClick={() => setPrediction(choice.id)}
               >
                 <RubyLabel text={choice.text} grade={ctx.grade} />
@@ -116,8 +127,10 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
       )}
 
       {phase === 'operate' && (
-        <section class="nq-exp-panel">
-          <span class="nq-exp-step">2/3 {t('question.experimentOperate')}</span>
+        <section class="nq-exp-panel" aria-labelledby="nq-exp-step">
+          <span id="nq-exp-step" class="nq-exp-step">
+            2/3 {t('question.experimentOperate')}
+          </span>
           <div class="nq-exp-controls">
             {payload.controls.map((control) => (
               <label class="nq-exp-control">
@@ -127,6 +140,7 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
                     <input
                       type="range"
                       aria-label={stripRuby(control.label, 'kana')}
+                      aria-describedby="nq-question-prompt"
                       min={control.min}
                       max={control.max}
                       step={control.step}
@@ -138,7 +152,10 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
                         })
                       }
                     />
-                    <output>
+                    <output
+                      aria-live="polite"
+                      aria-label={`${stripRuby(control.label, 'kana')} ${values[control.id]}${control.unit ?? ''}`}
+                    >
                       {values[control.id]}
                       {control.unit ?? ''}
                     </output>
@@ -147,6 +164,8 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
                   <button
                     type="button"
                     class={`nq-btn nq-exp-toggle${values[control.id] ? ' nq-exp-toggle-on' : ''}`}
+                    aria-pressed={Boolean(values[control.id])}
+                    aria-describedby="nq-question-prompt"
                     onClick={() => setValues({ ...values, [control.id]: values[control.id] ? 0 : 1 })}
                   >
                     {values[control.id]
@@ -164,13 +183,20 @@ export function ExperimentView({ ctx, payload, onDone }: Props) {
       )}
 
       {(phase === 'result' || phase === 'done') && outcome !== undefined && (
-        <section class="nq-exp-panel">
-          <span class="nq-exp-step">3/3 {t('question.experimentResult')}</span>
+        <section class="nq-exp-panel" aria-labelledby="nq-exp-step">
+          <span id="nq-exp-step" class="nq-exp-step">
+            3/3 {t('question.experimentResult')}
+          </span>
           <div class={`nq-exp-visual nq-exp-${payload.outcome.visual}`} aria-hidden="true">
             <span style={{ height: `${visualPercent}%` }} />
           </div>
           <RubyLabel text={payload.outcome.label} grade={ctx.grade} as="p" />
-          <output class="nq-exp-outcome">
+          <output
+            class="nq-exp-outcome"
+            role="status"
+            aria-live="polite"
+            aria-label={`${stripRuby(payload.outcome.label, 'kana')} ${outcome}${payload.outcome.unit}`}
+          >
             {outcome}
             {payload.outcome.unit}
           </output>

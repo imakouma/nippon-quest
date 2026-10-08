@@ -223,12 +223,12 @@ export const monsterSchema = z.object({
   weakness: elementSchema.optional().describe('「しらべる」で判明するじゃくてん'),
   baseStats: statsSchema,
   growth: z.object({
-    hp: z.number(),
-    mp: z.number(),
-    atk: z.number(),
-    def: z.number(),
-    spd: z.number(),
-    wis: z.number(),
+    hp: z.number().nonnegative(),
+    mp: z.number().nonnegative(),
+    atk: z.number().nonnegative(),
+    def: z.number().nonnegative(),
+    spd: z.number().nonnegative(),
+    wis: z.number().nonnegative(),
   }),
   skills: z.array(idSchema).default([]),
   drops: z.array(z.object({ itemId: idSchema, rate: z.number().min(0).max(1) })).default([]),
@@ -284,7 +284,13 @@ export const itemSchema = z.object({
   grantsSkill: idSchema.optional(),
   setId: idSchema.optional(),
   price: z.number().int().nonnegative().optional(),
-  use: z.object({ heal: z.number().int().optional(), mp: z.number().int().optional() }).optional(),
+  use: z
+    .object({
+      heal: z.number().int().positive().optional(),
+      mp: z.number().int().positive().optional(),
+    })
+    .refine((use) => use.heal !== undefined || use.mp !== undefined, 'heal または mp が必要です')
+    .optional(),
   iconKey: z.string(),
   blurb: rubyTextSchema,
   areaOrigin: idSchema.optional(),
@@ -347,9 +353,18 @@ export const skillSchema = z.object({
 });
 
 // ───────────────────────── Balance ─────────────────────────
+const cumulativeXpSchema = z
+  .array(z.number().int().nonnegative())
+  .min(2)
+  .refine((table) => table[0] === 0, 'Lv1 の累積XPは 0 が必要です')
+  .refine(
+    (table) => table.every((xp, index) => index === 0 || xp > table[index - 1]!),
+    '累積XPはレベルごとに増える必要があります',
+  );
+
 export const xpTableSchema = z.object({
-  hero: z.array(z.number().int().nonnegative()).min(2).describe('index = Lv, 値 = そのLvに必要な累積XP'),
-  monster: z.array(z.number().int().nonnegative()).min(2),
+  hero: cumulativeXpSchema.describe('index = Lv, 値 = そのLvに必要な累積XP'),
+  monster: cumulativeXpSchema,
 });
 
 export const elementTableSchema = z.object({
@@ -361,9 +376,12 @@ const bandNumbers = (n: z.ZodNumber) => z.object({ perfect: n, good: n, weak: n,
 
 export const settingsSchema = z.object({
   timeLimitSecByGrade: z.record(z.string(), z.number().positive()),
-  scoreMultipliers: bandNumbers(z.number()).describe(
-    '問題の できばえ → いりょくの 倍率（perfect=1.0 / good=0.5〜0.99 / weak=0.01〜0.49 / miss=0）',
-  ),
+  scoreMultipliers: bandNumbers(z.number().positive())
+    .refine(
+      ({ perfect, good, weak, miss }) => perfect >= good && good >= weak && weak >= miss,
+      '倍率は perfect >= good >= weak >= miss の順が必要です',
+    )
+    .describe('問題の できばえ → いりょくの倍率。不正解でも前進できるよう miss も正の値にする'),
   weaknessMultiplier: z.number().positive(),
   defeatGoldLossRate: z.number().min(0).max(1),
   recruitHpThreshold: z.number().min(0).max(1),

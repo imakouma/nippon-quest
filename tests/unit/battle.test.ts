@@ -598,6 +598,27 @@ describe('コマンド', () => {
 });
 
 describe('仲間化（GDD §4.6）', () => {
+  it('指定された特産品をあげると 1こ消費して必ず仲間になる', async () => {
+    const { state } = await setup({ seed: 'recruit-gift' });
+    const result = act(state, { kind: 'recruit', result: R(0), itemId: 'aomori-ringo' }, D);
+
+    expect(result.state.outcome).toBe('recruited');
+    expect(result.state.ally.items['aomori-ringo']).toBe(1);
+    expect(result.events).toContainEqual({
+      t: 'recruitGift',
+      targetId: state.enemy.id,
+      itemId: 'aomori-ringo',
+    });
+  });
+
+  it('指定と違うどうぐは仲間化に使わず消費しない', async () => {
+    const { state } = await setup({ seed: 'wrong-recruit-gift' });
+    const result = act(state, { kind: 'recruit', result: R(0), itemId: 'not-the-gift' }, D);
+
+    expect(result.state.ally.items['aomori-ringo']).toBe(2);
+    expect(result.events.some((event) => event.t === 'recruitGift')).toBe(false);
+  });
+
   it('HP が高いうちは 0%', () => {
     expect(recruitChance({ isBoss: false } as never, 0.5, 0.9, 1, D.settings)).toBe(0);
   });

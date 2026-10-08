@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { partyFromGameState } from '../../src/core/battle/setup';
-import { bagContext, putEquip } from '../../src/core/progression/bag';
+import { bagContext, putEquip, toggleBattleItem } from '../../src/core/progression/bag';
 import { canUse, equipItem, unequip, useItem } from '../../src/core/progression/inventory';
 import { createNewGame } from '../../src/core/state/newGame';
 
@@ -19,6 +19,22 @@ describe('バッグ・そうび', () => {
     expect(r.state.player.hp).toBe(40);
     expect(r.healed).toBe(15);
     expect(r.state.inventory['aomori-ringo']).toBe(2);
+  });
+
+  it('バッグに入れた消耗品だけをバトルへ持ち込む', async () => {
+    const c = await content();
+    const apple = c.items.get('aomori-ringo')!;
+    const gs = fresh();
+    gs.inventory[apple.id] = 3;
+
+    expect(partyFromGameState(gs, c).items).toEqual({});
+    const packed = toggleBattleItem(gs, apple);
+    expect(packed.party.bagItems).toEqual([apple.id]);
+    expect(partyFromGameState(packed, c).items).toEqual({ [apple.id]: 3 });
+
+    const unpacked = toggleBattleItem(packed, apple);
+    expect(unpacked.party.bagItems).toEqual([]);
+    expect(partyFromGameState(unpacked, c).items).toEqual({});
   });
 
   it('そうびすると ステータスが あがり、前の そうびは バッグに もどる', async () => {

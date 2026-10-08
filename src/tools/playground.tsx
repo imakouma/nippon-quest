@@ -12,8 +12,7 @@ import {
   type QuestionResult,
 } from '../questions/contracts';
 import { allRenderers, getRenderer } from '../questions/renderers/registry';
-import { fetchReader } from '../core/content/loader';
-import type { ContentManifest } from '../core/content/loader';
+import { fetchReader, parseContentManifest } from '../core/content/loader';
 import { setDictionary, t, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
@@ -84,7 +83,7 @@ function App() {
 
   const loadAll = async () => {
     try {
-      const m = (await read('manifest.json')) as ContentManifest;
+      const m = parseContentManifest(await read('manifest.json'));
       setFiles(m.questions);
       const requestedId = new URLSearchParams(location.search).get('q');
       const directFile = requestedId ? m.questionIndex?.[requestedId] : undefined;
@@ -229,8 +228,9 @@ function App() {
           </div>
         </div>
         <div class="pg-row">
-          <label>学年</label>
+          <label for="pg-grade">学年</label>
           <select
+            id="pg-grade"
             value={grade}
             onChange={(e) => setGrade(Number((e.target as HTMLSelectElement).value) as Grade)}
           >
@@ -238,8 +238,9 @@ function App() {
               <option value={g}>小{g}</option>
             ))}
           </select>
-          <label>制限(秒)</label>
+          <label for="pg-time-limit">制限(秒)</label>
           <input
+            id="pg-time-limit"
             type="number"
             value={timeLimit}
             min={3}
@@ -247,7 +248,7 @@ function App() {
             onInput={(e) => setTimeLimit(Number((e.target as HTMLInputElement).value))}
           />
         </div>
-        <label>問題ファイル</label>
+        <label for="pg-file">問題ファイル</label>
         <select id="pg-file" value={file} onChange={(e) => setFile((e.target as HTMLSelectElement).value)}>
           <option value="">-- content/questions から選ぶ --</option>
           {files.map((f) => (
@@ -256,6 +257,8 @@ function App() {
         </select>
         {items.length > 0 && (
           <select
+            id="pg-question"
+            aria-label="このファイルの 問題"
             onChange={(e) =>
               setJson(JSON.stringify(items[Number((e.target as HTMLSelectElement).value)], null, 2))
             }
@@ -267,7 +270,7 @@ function App() {
             ))}
           </select>
         )}
-        <label>問題 JSON（直接編集して試せます）</label>
+        <label for="pg-json">問題 JSON（直接編集して試せます）</label>
         <textarea
           id="pg-json"
           value={json}
@@ -275,10 +278,10 @@ function App() {
           spellcheck={false}
         />
         <div class="pg-row">
-          <button class="pg-run" onClick={() => void run()} disabled={running}>
+          <button type="button" class="pg-run" onClick={() => void run()} disabled={running}>
             ▶ 表示
           </button>
-          <button onClick={() => abort.current?.abort()} disabled={!running}>
+          <button type="button" onClick={() => abort.current?.abort()} disabled={!running}>
             中断
           </button>
           <span style="font-size:12px">

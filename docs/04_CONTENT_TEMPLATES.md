@@ -103,6 +103,8 @@
 }
 ```
 
+`recruitItem` がある敵は、そのアイテムを戦闘バッグに入れて「さそう」と 1 こ消費して確実に仲間になる。
+
 属性 `element`：`hino / mizu / mori / tsuchi / kaze / hikari / yami`。ボスは `"isBoss": true` と `"bossPhases": [{ "hpBelow": 0.5, "skills": [...], "spriteKey": "..." }]` を追加。
 
 ### 2.4 アイテム（`content/items/aomori-ringo-no-yoroi.json`）

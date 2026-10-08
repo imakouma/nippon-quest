@@ -7,6 +7,7 @@ import {
   STORY_COMPANION_IDS,
 } from '../../core/progression/storyCompanion';
 import type { GameState } from '../../core/state/schema';
+import { UNNAMED_HERO } from '../../core/state/newGame';
 import type { DialogueLine } from '../../ui/dialogue';
 import type { CutsceneKind } from '../../ui/cutscene/CutsceneOverlay';
 import { StoryCompanionChoice } from '../../ui/field/StoryCompanionChoice';
@@ -33,6 +34,7 @@ import {
 } from './storyScenes';
 
 export const PROLOGUE_COUNTER = 'story.prologue';
+export const HERO_IDENTITY_COUNTER = 'story.hero-identity';
 export const HOKKAIDO_CHAPTER_COUNTER = 'story.chapter.hokkaido';
 export const KANTO_CHAPTER_COUNTER = 'story.chapter.kanto';
 export const HOKURIKU_CHAPTER_COUNTER = 'story.chapter.hokuriku';
@@ -121,13 +123,16 @@ export function applyHeroIdentity(game: GameState, identity: HeroIdentity, now =
   const state = structuredClone(game);
   state.player.name = identity.name;
   state.player.appearance = { ...state.player.appearance, ...identity.appearance };
+  state.progress.counters[HERO_IDENTITY_COUNTER] = 1;
   state.updatedAt = now;
   return state;
 }
 
 /** マップへ入った直後に一度だけ始まる物語と、その記録を返す。 */
 export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now()): MapStory | null {
-  if (mapKey === 'aomori-field' && !game.progress.counters[PROLOGUE_COUNTER]) {
+  const identityInterrupted =
+    game.player.name === UNNAMED_HERO && !game.progress.counters[HERO_IDENTITY_COUNTER];
+  if (mapKey === 'aomori-field' && (!game.progress.counters[PROLOGUE_COUNTER] || identityInterrupted)) {
     return {
       state: {
         ...game,
@@ -253,6 +258,7 @@ interface ArrivalStoryOptions {
   root: HTMLElement;
   talk(lines: DialogueLine[]): Promise<void>;
   save(state: GameState): void;
+  getGame?: () => GameState;
 }
 
 /** 到着物語を進め、青森の導入だけは主人公設定を物語の途中に挟む。 */
@@ -268,7 +274,7 @@ export async function runArrivalStory(options: ArrivalStoryOptions): Promise<boo
   const oldName = story.state.player.name;
   await talk(story.lines.slice(0, 4));
   const identity = await requestHeroIdentity(root, story.state.player.appearance);
-  save(applyHeroIdentity(story.state, identity));
+  save(applyHeroIdentity(options.getGame?.() ?? story.state, identity));
   await talk(
     story.lines.slice(4).map((line) => ({
       ...line,
@@ -284,6 +290,7 @@ interface CompanionRiteOptions {
   root: HTMLElement;
   talk(lines: DialogueLine[]): Promise<void>;
   save(state: GameState): void;
+  getGame?: () => GameState;
   afterOverlay(): void;
 }
 
@@ -318,7 +325,7 @@ export async function runCompanionRite(options: CompanionRiteOptions): Promise<v
     await talk([{ speaker: t('field.musubiKeeper'), text: t('field.musubiLater') }]);
     return;
   }
-  save(chooseStoryCompanion(game, monsterId));
+  save(chooseStoryCompanion(options.getGame?.() ?? game, monsterId));
   const name = content.monsters.get(monsterId)?.name ?? monsterId;
   playSfx('recruit');
   await talk(companionJoinedLines(monsterId, name));

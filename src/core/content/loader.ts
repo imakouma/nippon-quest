@@ -2,7 +2,7 @@
  * content/ の読み込み・検証・索引。ブラウザ（fetch）と Node（fs）の両方から使える。
  * 実ファイル一覧は content/manifest.json（`pnpm gen:manifest` が生成）に従う。
  */
-import type { ZodTypeAny } from 'zod';
+import { z, type ZodTypeAny } from 'zod';
 import {
   contentKinds,
   type Area,
@@ -26,6 +26,17 @@ export interface ContentManifest {
   questions: string[];
   /** Playground の ?q= 直リンクで全問題を読み込まず、該当ファイルだけ取得する索引。 */
   questionIndex?: Record<string, string>;
+}
+
+const contentManifestSchema = z.object({
+  generatedAt: z.string(),
+  files: z.record(z.array(z.string().min(1))),
+  questions: z.array(z.string().min(1)),
+  questionIndex: z.record(z.string().min(1)).optional(),
+});
+
+export function parseContentManifest(data: unknown): ContentManifest {
+  return parseWith<ContentManifest>(contentManifestSchema, data, 'manifest.json');
 }
 
 export type FileReader = (relPath: string) => Promise<unknown>;
@@ -53,6 +64,8 @@ export interface ContentIndex {
   xp: XpTable;
   elements: ElementTable;
   settings: Settings;
+  /** 報酬を受け取るまで通常エンカウントから除外するモンスター。 */
+  unlockableMonsters: ReadonlySet<string>;
   /** area id → その県のモンスター一覧（索引） */
   monstersByArea: Map<string, Monster[]>;
   questionFiles: string[];
@@ -122,6 +135,8 @@ async function loadSingle<T>(kind: ContentKind, manifest: ContentManifest, read:
   const files = manifest.files[kind] ?? [];
   const file = files[0];
   if (!file) throw new ContentError(contentKinds[kind].glob, `必須ファイルがありません（${kind}）`);
+  if (files.length > 1)
+    throw new ContentError('manifest.json', `${kind} は1ファイルだけ指定してください（${files.length}件）`);
   return parseWith<T>(contentKinds[kind].schema, await read(file), file);
 }
 
@@ -131,8 +146,7 @@ export interface LoadOptions {
 }
 
 export async function loadContent(read: FileReader, opts: LoadOptions = {}): Promise<ContentIndex> {
-  const manifest = (await read('manifest.json')) as ContentManifest;
-  if (!manifest?.files) throw new ContentError('manifest.json', '`pnpm gen:manifest` を実行してください');
+  const manifest = parseContentManifest(await read('manifest.json'));
   const dup =
     opts.onDuplicate ??
     ((id: string, file: string) => {
@@ -162,6 +176,14 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
     list.push(m);
     monstersByArea.set(m.area, list);
   }
+  const unlockableMonsters = new Set<string>();
+  for (const area of areas.values()) {
+    for (const event of area.events)
+      for (const tier of event.rewardByScore)
+        for (const monsterId of tier.reward.unlockMonsters ?? []) unlockableMonsters.add(monsterId);
+    for (const mission of area.missions)
+      for (const monsterId of mission.reward.unlockMonsters ?? []) unlockableMonsters.add(monsterId);
+  }
 
   return {
     world,
@@ -176,6 +198,7 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
     xp,
     elements,
     settings,
+    unlockableMonsters,
     monstersByArea,
     questionFiles: manifest.questions ?? [],
   };
@@ -356,6 +379,28 @@ export function findBrokenReferences(c: ContentIndex): string[] {
       errs.push(`monster "${m.id}": evolution.to "${m.evolution.to}" が存在しません`);
     if (m.evolution && !c.items.has(m.evolution.item))
       errs.push(`monster "${m.id}": evolution.item "${m.evolution.item}" が存在しません`);
+  }
+  const checkedEvolutions = new Set<string>();
+  for (const start of c.monsters.keys()) {
+    if (checkedEvolutions.has(start)) continue;
+    const path: string[] = [];
+    const positions = new Map<string, number>();
+    let current = start;
+    while (true) {
+      const cycleStart = positions.get(current);
+      if (cycleStart !== undefined) {
+        const cycle = [...path.slice(cycleStart), current];
+        errs.push(`monster evolution: ${cycle.join(' -> ')} の循環があります`);
+        break;
+      }
+      if (checkedEvolutions.has(current)) break;
+      positions.set(current, path.length);
+      path.push(current);
+      const next = c.monsters.get(current)?.evolution?.to;
+      if (!next || !c.monsters.has(next)) break;
+      current = next;
+    }
+    for (const id of path) checkedEvolutions.add(id);
   }
   for (const it of c.items.values()) {
     if (!has(c.skills, it.grantsSkill))

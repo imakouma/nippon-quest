@@ -3,15 +3,18 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const storage = vi.hoisted(() => new Map<string, unknown>());
 const controls = vi.hoisted(() => ({
   getGate: null as Promise<void> | null,
+  getFailureKey: null as string | null,
   gatedGets: 0,
   removeGate: null as Promise<void> | null,
   removeCalls: 0,
+  setFailureKey: null as string | null,
 }));
 
 vi.mock('localforage', () => ({
   default: {
     createInstance: () => ({
       getItem: async (key: string) => {
+        if (controls.getFailureKey === key || controls.getFailureKey === '*') throw new Error('read failed');
         const value = storage.get(key) ?? null;
         if (controls.getGate && controls.gatedGets < 2) {
           controls.gatedGets += 1;
@@ -20,6 +23,7 @@ vi.mock('localforage', () => ({
         return structuredClone(value);
       },
       setItem: async (key: string, value: unknown) => {
+        if (controls.setFailureKey === key) throw new Error('storage full');
         storage.set(key, structuredClone(value));
         return value;
       },
@@ -45,9 +49,11 @@ const fresh = (gold: number) => {
 beforeEach(() => {
   storage.clear();
   controls.getGate = null;
+  controls.getFailureKey = null;
   controls.gatedGets = 0;
   controls.removeGate = null;
   controls.removeCalls = 0;
+  controls.setFailureKey = null;
 });
 
 describe('セーブ永続化', () => {
@@ -81,6 +87,37 @@ describe('セーブ永続化', () => {
     });
   });
 
+  it('バックアップを読めたら、自己修復の書き込み失敗でもゲームを続けられる', async () => {
+    await save(2, fresh(10));
+    await save(2, fresh(20));
+    storage.set('save:2', { broken: true });
+    controls.setFailureKey = 'save:2';
+
+    await expect(load(2)).resolves.toMatchObject({ player: { gold: 10 } });
+    expect(storage.get('save:2')).toEqual({ broken: true });
+  });
+
+  it('バックアップの読み込みだけが失敗しても、正常な主データで続けられる', async () => {
+    await save(2, fresh(10));
+    controls.getFailureKey = 'backup:2';
+
+    await expect(load(2)).resolves.toMatchObject({ player: { gold: 10 } });
+  });
+
+  it('主データの読み込みだけが失敗しても、正常なバックアップで復旧できる', async () => {
+    await save(2, fresh(10));
+    await save(2, fresh(20));
+    controls.getFailureKey = 'save:2';
+
+    await expect(load(2)).resolves.toMatchObject({ player: { gold: 10 } });
+  });
+
+  it('主データとバックアップの両方を読めない場合は、空スロット扱いにしない', async () => {
+    controls.getFailureKey = '*';
+
+    await expect(load(2)).rejects.toThrow('read failed');
+  });
+
   it('バックアップ復旧中の新しい保存を、古い状態で上書きしない', async () => {
     await save(2, fresh(10));
     await save(2, fresh(20));
@@ -105,6 +142,15 @@ describe('セーブ永続化', () => {
     await expect(save(3, invalid)).rejects.toThrow();
     expect((storage.get('save:3') as GameState).player.gold).toBe(10);
     expect(storage.has('backup:3')).toBe(false);
+  });
+
+  it('書き込み失敗は呼び出し元へ返し、キューを詰まらせず次の保存を再試行できる', async () => {
+    controls.setFailureKey = 'save:3';
+    await expect(save(3, fresh(10))).rejects.toThrow('storage full');
+
+    controls.setFailureKey = null;
+    await expect(save(3, fresh(20))).resolves.toBeUndefined();
+    expect((storage.get('save:3') as GameState).player.gold).toBe(20);
   });
 
   it('スロット削除時は主データとバックアップを両方消す', async () => {

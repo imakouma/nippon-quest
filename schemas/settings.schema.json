@@ -15,16 +15,20 @@
           "type": "object",
           "properties": {
             "perfect": {
-              "type": "number"
+              "type": "number",
+              "exclusiveMinimum": 0
             },
             "good": {
-              "type": "number"
+              "type": "number",
+              "exclusiveMinimum": 0
             },
             "weak": {
-              "type": "number"
+              "type": "number",
+              "exclusiveMinimum": 0
             },
             "miss": {
-              "type": "number"
+              "type": "number",
+              "exclusiveMinimum": 0
             }
           },
           "required": [
@@ -34,7 +38,7 @@
             "miss"
           ],
           "additionalProperties": false,
-          "description": "問題の できばえ → いりょくの 倍率（perfect=1.0 / good=0.5〜0.99 / weak=0.01〜0.49 / miss=0）"
+          "description": "問題の できばえ → いりょくの倍率。不正解でも前進できるよう miss も正の値にする"
         },
         "weaknessMultiplier": {
           "type": "number",

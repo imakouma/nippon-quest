@@ -5,19 +5,14 @@
  */
 import { render } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
-import {
-  questionBaseSchema,
-  type Grade,
-  type QuestionBase,
-  type QuestionResult,
-  type Subject,
-} from '../questions/contracts';
-import { allRenderers, getRenderer } from '../questions/renderers/registry';
+import { questionBaseSchema, type QuestionBase, type QuestionResult } from '../questions/contracts';
+import { getRenderer } from '../questions/renderers/registry';
 import { fetchReader } from '../core/content/loader';
 import { setDictionary, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel } from '../ui/ruby';
 import { CollaborationRoom, generateRoomId, type Collaborator } from './collaboration';
+import { EditorQuestionForm } from './editorQuestionForm';
 import { isEditorQuestionDraft, SAMPLE_QUESTIONS, validateEditorQuestion } from './editorSamples';
 import { buildShareUrl, copyToClipboard, parseUrlState } from './urlShare';
 import '../questions/renderers/shared/questions.css';
@@ -282,14 +277,6 @@ function App() {
     reader.readAsText(file);
   };
 
-  const rawChoices = (question.payload as Record<string, unknown>)?.choices;
-  const choices = Array.isArray(rawChoices)
-    ? rawChoices.filter(
-        (choice): choice is { id: string; text?: string; image?: string; audio?: string } =>
-          !!choice && typeof choice === 'object' && typeof (choice as { id?: unknown }).id === 'string',
-      )
-    : [];
-
   return (
     <div class="ed-container">
       {/* Header Bar */}
@@ -327,13 +314,13 @@ function App() {
 
         {/* Actions */}
         <div class="ed-actions">
-          <button class="ed-btn ed-btn-success" onClick={handleCopyShareUrl}>
+          <button type="button" class="ed-btn ed-btn-success" onClick={handleCopyShareUrl}>
             🔗 共有URLをコピー
           </button>
-          <button class="ed-btn" onClick={handleCopyRoomId}>
+          <button type="button" class="ed-btn" onClick={handleCopyRoomId}>
             📋 ルームIDコピー
           </button>
-          <button class="ed-btn" onClick={handleExportJson}>
+          <button type="button" class="ed-btn" onClick={handleExportJson}>
             💾 JSON保存
           </button>
           <label class="ed-btn">
@@ -351,10 +338,18 @@ function App() {
         {/* Left: Form & JSON Editor */}
         <div class="ed-panel">
           <div class="ed-tabs">
-            <button class={`ed-tab ${tab === 'form' ? 'active' : ''}`} onClick={() => setTab('form')}>
+            <button
+              type="button"
+              class={`ed-tab ${tab === 'form' ? 'active' : ''}`}
+              onClick={() => setTab('form')}
+            >
               📝 ビジュアルフォーム
             </button>
-            <button class={`ed-tab ${tab === 'json' ? 'active' : ''}`} onClick={() => setTab('json')}>
+            <button
+              type="button"
+              class={`ed-tab ${tab === 'json' ? 'active' : ''}`}
+              onClick={() => setTab('json')}
+            >
               💻 生JSON編集
             </button>
           </div>
@@ -366,230 +361,35 @@ function App() {
                 <span>サンプルテンプレート</span>
               </div>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <button class="ed-btn" onClick={() => updateQuestionState(SAMPLE_QUESTIONS[0]!)}>
+                <button
+                  type="button"
+                  class="ed-btn"
+                  onClick={() => updateQuestionState(SAMPLE_QUESTIONS[0]!)}
+                >
                   算数（選択肢）
                 </button>
-                <button class="ed-btn" onClick={() => updateQuestionState(SAMPLE_QUESTIONS[1]!)}>
+                <button
+                  type="button"
+                  class="ed-btn"
+                  onClick={() => updateQuestionState(SAMPLE_QUESTIONS[1]!)}
+                >
                   英語（絵と単語）
                 </button>
               </div>
             </div>
 
             {tab === 'form' ? (
-              <>
-                {/* Meta Settings */}
-                <div class="ed-group">
-                  <div class="ed-group-title">基本メタデータ</div>
-                  <div class="ed-field">
-                    <label class="ed-label">問題 ID</label>
-                    <input
-                      class="ed-input"
-                      value={question.id}
-                      onInput={(e) => handleFieldChange('id', (e.target as HTMLInputElement).value)}
-                    />
-                  </div>
-                  <div class="ed-field">
-                    <label class="ed-label">問題タイプ (type)</label>
-                    <select
-                      class="ed-select"
-                      value={question.type}
-                      onChange={(e) => {
-                        const newType = (e.target as HTMLSelectElement).value;
-                        let defaultPayload: unknown = {};
-                        if (newType === 'choice') {
-                          defaultPayload = {
-                            prompt: '問題文',
-                            choices: [
-                              { id: 'choice-1', text: '選択肢1' },
-                              { id: 'choice-2', text: '選択肢2' },
-                            ],
-                            answer: 'choice-1',
-                          };
-                        } else if (newType === 'picture-word') {
-                          defaultPayload = {
-                            image: 'questions/eigo/apple.png',
-                            words: [
-                              { id: 'apple', text: 'apple' },
-                              { id: 'banana', text: 'banana' },
-                            ],
-                            answer: 'apple',
-                          };
-                        }
-                        updateQuestionState({ ...question, type: newType, payload: defaultPayload });
-                      }}
-                    >
-                      {allRenderers().map((r) => (
-                        <option key={r.type} value={r.type}>
-                          {r.type}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-                    <div class="ed-field">
-                      <label class="ed-label">教科 (subject)</label>
-                      <select
-                        class="ed-select"
-                        value={question.subject}
-                        onChange={(e) =>
-                          handleFieldChange('subject', (e.target as HTMLSelectElement).value as Subject)
-                        }
-                      >
-                        <option value="sansu">算数 (sansu)</option>
-                        <option value="kokugo">国語 (kokugo)</option>
-                        <option value="rika">理科 (rika)</option>
-                        <option value="shakai">社会 (shakai)</option>
-                        <option value="seikatsu">生活 (seikatsu)</option>
-                        <option value="eigo">英語 (eigo)</option>
-                      </select>
-                    </div>
-                    <div class="ed-field">
-                      <label class="ed-label">学年 (grade)</label>
-                      <select
-                        class="ed-select"
-                        value={question.grade}
-                        onChange={(e) =>
-                          handleFieldChange('grade', Number((e.target as HTMLSelectElement).value) as Grade)
-                        }
-                      >
-                        {[1, 2, 3, 4, 5, 6].map((g) => (
-                          <option key={g} value={g}>
-                            小{g}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div class="ed-field">
-                    <label class="ed-label">単元コード (unit)</label>
-                    <input
-                      class="ed-input"
-                      value={question.unit}
-                      onInput={(e) => handleFieldChange('unit', (e.target as HTMLInputElement).value)}
-                    />
-                  </div>
-                  <div class="ed-field">
-                    <label class="ed-label">制限時間 (秒)</label>
-                    <input
-                      type="number"
-                      class="ed-input"
-                      value={question.timeLimitSec ?? 20}
-                      onInput={(e) =>
-                        handleFieldChange('timeLimitSec', Number((e.target as HTMLInputElement).value))
-                      }
-                    />
-                  </div>
-                  <div class="ed-field">
-                    <label class="ed-label">解説文 (RubyText)</label>
-                    <textarea
-                      class="ed-textarea"
-                      value={question.explanation ?? ''}
-                      onInput={(e) => handleFieldChange('explanation', (e.target as HTMLInputElement).value)}
-                    />
-                  </div>
-                </div>
-
-                {/* Renderer Payload Form */}
-                <div class="ed-group">
-                  <div class="ed-group-title">問題のコンテンツ ({question.type})</div>
-                  {question.type === 'choice' && (
-                    <>
-                      <div class="ed-field">
-                        <label class="ed-label">問題文 (prompt)</label>
-                        <textarea
-                          class="ed-textarea"
-                          value={((question.payload as Record<string, unknown>)?.prompt as string) ?? ''}
-                          onInput={(e) => handlePayloadChange('prompt', (e.target as HTMLInputElement).value)}
-                        />
-                      </div>
-                      <div class="ed-field">
-                        <label class="ed-label">選択肢一覧</label>
-                        {choices.map((choice, i) => (
-                          <div key={choice.id} class="ed-choice-row">
-                            <input
-                              type="radio"
-                              name="correct"
-                              class="ed-radio"
-                              checked={
-                                ((question.payload as Record<string, unknown>)?.answer as string) ===
-                                choice.id
-                              }
-                              onChange={() => handlePayloadChange('answer', choice.id)}
-                              title="正解の選択肢として指定"
-                            />
-                            <input
-                              class="ed-input"
-                              value={choice.text ?? ''}
-                              onInput={(e) => {
-                                const newChoices = [...choices];
-                                newChoices[i] = {
-                                  ...choice,
-                                  text: (e.target as HTMLInputElement).value,
-                                };
-                                handlePayloadChange('choices', newChoices);
-                              }}
-                            />
-                            <button
-                              class="ed-btn"
-                              onClick={() => {
-                                const newChoices = choices.filter((_, idx) => idx !== i);
-                                handlePayloadChange('choices', newChoices);
-                              }}
-                            >
-                              ❌
-                            </button>
-                          </div>
-                        ))}
-                        <button
-                          class="ed-btn"
-                          style={{ marginTop: '6px' }}
-                          onClick={() => {
-                            let number = choices.length + 1;
-                            while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;
-                            handlePayloadChange('choices', [
-                              ...choices,
-                              { id: `choice-${number}`, text: `選択肢${number}` },
-                            ]);
-                          }}
-                        >
-                          ➕ 選択肢を追加
-                        </button>
-                      </div>
-                    </>
-                  )}
-
-                  {question.type === 'picture-word' && (
-                    <>
-                      <div class="ed-field">
-                        <label class="ed-label">画像パス (image)</label>
-                        <input
-                          class="ed-input"
-                          value={((question.payload as Record<string, unknown>)?.image as string) ?? ''}
-                          onInput={(e) => handlePayloadChange('image', (e.target as HTMLInputElement).value)}
-                        />
-                      </div>
-                      <div class="ed-field">
-                        <label class="ed-label">正解の単語ID (answer)</label>
-                        <input
-                          class="ed-input"
-                          value={((question.payload as Record<string, unknown>)?.answer as string) ?? ''}
-                          onInput={(e) => handlePayloadChange('answer', (e.target as HTMLInputElement).value)}
-                        />
-                      </div>
-                    </>
-                  )}
-
-                  {question.type !== 'choice' && question.type !== 'picture-word' && (
-                    <div style={{ color: '#94a3b8', fontSize: '12px' }}>
-                      このタイプは「生JSON編集」タブからペイロードを編集できます。
-                    </div>
-                  )}
-                </div>
-              </>
+              <EditorQuestionForm
+                question={question}
+                onQuestionChange={updateQuestionState}
+                onFieldChange={handleFieldChange}
+                onPayloadChange={handlePayloadChange}
+              />
             ) : (
               <div class="ed-group">
                 <div class="ed-group-title">JSONデータ</div>
                 <textarea
+                  aria-label="JSONデータ"
                   class="ed-input ed-json-textarea"
                   value={jsonText}
                   onInput={(e) => handleJsonChange((e.target as HTMLTextAreaElement).value)}
@@ -603,7 +403,7 @@ function App() {
         <div class="ed-stage-panel">
           <div class="ed-stage-header">
             <span class="ed-stage-title">リアルタイムプレビュー & 解答テスト</span>
-            <button class="ed-btn ed-btn-primary" onClick={renderPreview}>
+            <button type="button" class="ed-btn ed-btn-primary" onClick={renderPreview}>
               🔄 再レンダリング
             </button>
           </div>

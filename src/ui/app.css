@@ -87,6 +87,35 @@ body {
 #ui-layer > * {
   pointer-events: auto;
 }
+#nq-orientation-notice {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  place-items: center;
+  align-content: center;
+  gap: 24px;
+  padding: 24px;
+  background: var(--nq-panel);
+  color: var(--nq-white);
+  font-family: var(--nq-font);
+  text-align: center;
+}
+#nq-orientation-notice p {
+  margin: 0;
+  font-size: 36px;
+  line-height: 48px;
+}
+.nq-orientation-icon {
+  color: var(--nq-yellow);
+  font-size: 48px;
+  line-height: 48px;
+}
+@media (orientation: portrait) and (max-width: 720px) {
+  #nq-orientation-notice {
+    display: grid;
+  }
+}
 #ui-layer button {
   font-family: inherit;
   font-size: inherit;
@@ -161,8 +190,8 @@ body {
   align-items: center;
   gap: 4px;
   padding: 0 6px 0 4px;
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   color: var(--nq-white);
   border: 2px solid #000;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);

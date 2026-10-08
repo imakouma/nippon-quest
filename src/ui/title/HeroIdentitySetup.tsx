@@ -1,5 +1,6 @@
-import { useState } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
 import { t } from '../i18n';
+import { useModalFocus } from '../useModalFocus';
 import './title.css';
 
 export interface HeroIdentity {
@@ -16,6 +17,8 @@ export function HeroIdentitySetup({
 }) {
   const [name, setName] = useState('');
   const [appearance, setAppearance] = useState(initialAppearance);
+  const dialogRef = useRef<HTMLFormElement>(null);
+  useModalFocus(dialogRef, 'input');
   const submit = (event: Event) => {
     event.preventDefault();
     const cleanName = name.trim();
@@ -24,12 +27,18 @@ export function HeroIdentitySetup({
 
   return (
     <div class="nq-identity-backdrop">
-      <form class="nq-win nq-identity" aria-label={t('newGame.identityTitle')} onSubmit={submit}>
+      <form
+        ref={dialogRef}
+        class="nq-win nq-identity"
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('newGame.identityTitle')}
+        onSubmit={submit}
+      >
         <p class="nq-identity-fairy">{t('newGame.identityAsk')}</p>
         <label class="nq-identity-name">
           <span>{t('newGame.name')}</span>
           <input
-            autofocus
             aria-label={t('newGame.name')}
             value={name}
             maxlength={6}
@@ -65,7 +74,7 @@ export function HeroIdentitySetup({
                   <button
                     type="button"
                     class={`nq-look-choice nq-look-${part}-${value}`}
-                    aria-label={`${t(`newGame.${part}`)} ${value + 1}`}
+                    aria-label={t('newGame.option', { part: t(`newGame.${part}`), n: value + 1 })}
                     aria-pressed={appearance[part] === value}
                     onClick={() => setAppearance({ ...appearance, [part]: value })}
                   >

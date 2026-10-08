@@ -54,9 +54,17 @@ export function applyReward(
     gs.progress.unlockedRecipes.push(rc);
     lines.push({ kind: 'recipe', id: rc });
   }
-  // 出現の解放そのものはエンカウント表の担当（Step 7）。ここでは知らせるだけ
-  if (r.unlockMonsters?.length) lines.push({ kind: 'monster' });
-  if (r.title) lines.push({ kind: 'title', id: r.title });
+  let unlockedMonster = false;
+  for (const monsterId of r.unlockMonsters ?? []) {
+    if (gs.progress.unlockedMonsters.includes(monsterId)) continue;
+    gs.progress.unlockedMonsters.push(monsterId);
+    unlockedMonster = true;
+  }
+  if (unlockedMonster) lines.push({ kind: 'monster' });
+  if (r.title && !gs.progress.titles.includes(r.title)) {
+    gs.progress.titles.push(r.title);
+    lines.push({ kind: 'title', id: r.title });
+  }
   gs.updatedAt = now;
   return { state: gs, lines };
 }

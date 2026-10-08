@@ -66,7 +66,10 @@ export function applyBattleResult(
   if (r.outcome === 'victory') {
     gs.player.xp += r.xp;
     gs.player.gold += r.gold;
-    for (const id of r.drops) bump(gs.inventory, id);
+    for (const id of r.drops) {
+      bump(gs.inventory, id);
+      if (!gs.dex.items.includes(id)) gs.dex.items.push(id);
+    }
     bump(gs.progress.counters, `defeat:${r.enemyRefId}`);
   }
 

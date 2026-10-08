@@ -530,6 +530,12 @@ function heroCommand(
     }
     case 'recruit': {
       const m = def.monsters.get(s.enemy.refId);
+      const gift = m?.recruitItem;
+      const usedGift = Boolean(gift && command.itemId === gift && (s.ally.items[gift] ?? 0) > 0);
+      if (usedGift && gift) {
+        s.ally.items[gift]!--;
+        ev.push({ t: 'recruitGift', targetId: s.enemy.id, itemId: gift });
+      }
       const chance = recruitChance(
         s.enemy,
         m?.recruitRate ?? 0,
@@ -537,8 +543,8 @@ function heroCommand(
         command.result.score,
         def.settings,
       );
-      const success = chance > 0 && rng.chance(chance);
-      ev.push({ t: 'recruitAttempt', targetId: s.enemy.id, success, chance });
+      const success = usedGift || (chance > 0 && rng.chance(chance));
+      ev.push({ t: 'recruitAttempt', targetId: s.enemy.id, success, chance: usedGift ? 1 : chance });
       if (success) {
         s.outcome = 'recruited';
         ev.push({ t: 'recruited', monsterId: s.enemy.refId });

@@ -15,10 +15,26 @@
 }
 .nq-q ruby > rt {
   font-size: 12px;
-  opacity: 0.85;
+  opacity: 1;
+}
+.nq-timer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nq-timer-label {
+  min-width: 112px;
+  color: #e9eefb;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: right;
+}
+.nq-timer-label-low {
+  color: #ffd28a;
 }
 .nq-timer {
-  height: 12px;
+  flex: 1;
+  height: 16px;
   background: #2a2f4a;
   border: 2px solid #fff;
   overflow: hidden;
@@ -100,9 +116,17 @@
 .nq-choice-key {
   position: absolute;
   left: 8px;
-  top: 6px;
-  font-size: 12px;
-  opacity: 0.6;
+  top: 8px;
+  display: grid;
+  min-width: 28px;
+  min-height: 28px;
+  place-items: center;
+  box-sizing: border-box;
+  background: #101327;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 16px;
+  opacity: 1;
 }
 .nq-choice-correct {
   background: #6cc070;
@@ -125,6 +149,8 @@
   justify-content: center;
   gap: 8px;
   flex: 1;
+  min-height: 0;
+  overflow-y: auto;
   line-height: 48px;
 }
 .nq-input-template span {
@@ -145,6 +171,31 @@
 .nq-input-submit {
   align-self: center;
   min-width: 240px;
+}
+.nq-input-submit:disabled {
+  border-color: #b9c1d2;
+  background: #626b82;
+  color: #f3f6ff;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.nq-input-key-hint {
+  align-self: center;
+  margin: -4px 0 0;
+  color: #e9eefb;
+  font-size: 12px;
+  line-height: 16px;
+}
+.nq-input-key-hint kbd {
+  display: inline-block;
+  min-width: 28px;
+  padding: 0 4px;
+  border: 1px solid #fff;
+  background: #101327;
+  color: #fff;
+  font: inherit;
+  line-height: 16px;
+  text-align: center;
 }
 .nq-input-suffix {
   text-align: center;
@@ -172,17 +223,38 @@
   font-size: 48px;
   text-shadow: 2px 2px #fff;
 }
+.nq-map-cursor {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+  border: 3px solid #ffd866;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #111;
+  pointer-events: none;
+}
+.nq-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* picture-word：上に 絵と 答えの わく、下に 英単語の カード */
 .nq-pw-stage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 .nq-pw-frame {
-  width: 176px;
-  height: 176px;
+  width: 144px;
+  height: 144px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,8 +263,8 @@
   box-shadow: 0 4px 0 #000;
 }
 .nq-pw-picture {
-  width: 160px;
-  height: 160px;
+  width: 128px;
+  height: 128px;
   image-rendering: pixelated;
 }
 .nq-pw-slot {
@@ -239,7 +311,7 @@
 }
 .nq-pw-card {
   position: relative;
-  min-height: 72px;
+  min-height: 60px;
   font-size: 36px;
 }
 .nq-pw-card-miss {
@@ -290,8 +362,18 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(72px, 120px));
   justify-content: center;
-  gap: 8px;
+  gap: 4px 8px;
   flex: 1;
+}
+.nq-q-number-build:has(.nq-nb-keypad) {
+  gap: 8px;
+}
+.nq-q-number-build:has(.nq-nb-keypad) .nq-q-prompt,
+.nq-q-number-build:has(.nq-nb-keypad) .nq-nb-value {
+  min-height: 48px;
+}
+.nq-q-number-build:has(.nq-nb-keypad) .nq-nb-value {
+  font-size: 36px;
 }
 .nq-nb-keypad .nq-btn {
   font-size: 36px;

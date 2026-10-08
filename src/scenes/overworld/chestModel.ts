@@ -1,4 +1,5 @@
 import type { Area, Item, Motif } from '../../core/content/schemas';
+import { applyReward } from '../../core/progression/eventReward';
 import { motifStamp } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
 
@@ -9,6 +10,23 @@ export interface ChestModel {
   count: number;
   opened: boolean;
   specialty?: { area: Area; motif: Motif; stamp: string };
+}
+
+/** 宝箱の中身と発見履歴を、取得元によらず同時にセーブへ反映する。 */
+export function applyChestReward(
+  prev: GameState,
+  chest: Pick<ChestModel, 'key' | 'count' | 'specialty'>,
+  item: Item | undefined,
+  now = Date.now(),
+): GameState {
+  const state = item
+    ? applyReward(prev, { items: [{ itemId: item.id, n: chest.count }] }, now).state
+    : structuredClone(prev);
+  if (!state.progress.chestsOpened.includes(chest.key)) state.progress.chestsOpened.push(chest.key);
+  const stamp = chest.specialty?.stamp;
+  if (stamp && !state.dex.motifs.includes(stamp)) state.dex.motifs.push(stamp);
+  state.updatedAt = now;
+  return state;
 }
 
 /** 通常宝箱の内容と開封済み状態を決める。 */
@@ -28,7 +46,10 @@ export function chestModel(input: {
     key,
     itemId,
     itemName: input.items.get(itemId)?.name ?? String(input.itemName ?? input.fallbackName),
-    count: typeof input.count === 'number' ? input.count : 1,
+    count:
+      typeof input.count === 'number' && Number.isSafeInteger(input.count) && input.count > 0
+        ? input.count
+        : 1,
     opened: input.game?.progress.chestsOpened.includes(key) ?? false,
   };
 }

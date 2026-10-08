@@ -40,8 +40,8 @@ describe('GameState → Party', () => {
     expect(party.hero.hp).toBe(12);
     expect(party.hero.stats.hp).toBe(40);
     expect(party.monsters.map((m) => m.refId)).toEqual(['iwate-kagurabi']);
-    // 入門装備は持っているが、回復道具ではないのでバトルの「どうぐ」候補には出ない。
-    expect(party.items).toEqual({ 'common-renshu-no-bou': 1 });
+    // 入門装備は所持していても、バトルへ持ち込む消耗品ではない。
+    expect(party.items).toEqual({});
   });
 
   it('HP 0 のセーブでも 1 で始まる（いきなり負けない）', async () => {
@@ -112,6 +112,7 @@ describe('バトル結果の反映（GDD §4.5〜4.6）', () => {
     expect(state.player.gold).toBe(108);
     expect(state.player.hp).toBe(20);
     expect(state.inventory['aomori-ringo']).toBe(1);
+    expect(state.dex.items).toContain('aomori-ringo');
     expect(state.inventory['akita-kiritanpo']).toBe(2);
     expect(state.dex.monsters).toContain('aomori-ringoron');
     expect(state.progress.counters['defeat:aomori-ringoron']).toBe(1);
@@ -286,6 +287,7 @@ describe('メッセージ（narrate）', () => {
       { t: 'gaugeUse', subject: 'kokugo', amount: 50, value: 50 },
       { t: 'gaugeShort', subject: 'rika', need: 100, have: 0 },
       { t: 'itemUsed', itemId: 'aomori-ringo', targetId: 'pal' },
+      { t: 'recruitGift', itemId: 'aomori-ringo', targetId: 'enemy' },
       { t: 'swap', from: 'pal', to: 'hero' },
       { t: 'recruitAttempt', targetId: 'enemy', success: false, chance: 0.1 },
       { t: 'recruited', monsterId: 'x' },
@@ -301,6 +303,11 @@ describe('メッセージ（narrate）', () => {
 });
 
 describe('文言キー（content/i18n/ja.json）', () => {
+  it('空のどうぐ・いれかえを押したときの案内がある', () => {
+    expect(lookup(ja, 'battle.noItems')).toBe('どうぐが ないよ');
+    expect(lookup(ja, 'battle.noPartner')).toBe('いれかえられる なかまが いないよ');
+  });
+
   it('format は {name} を埋め、知らない {x} は残す', () => {
     expect(format('{a}と{b}', { a: 1 })).toBe('1と{b}');
   });
@@ -318,7 +325,7 @@ describe('文言キー（content/i18n/ja.json）', () => {
     const keys = new Set<string>();
     for (const f of files)
       for (const m of readFileSync(f, 'utf8').matchAll(
-        /['"]((?:battle|cmd|ui|elements|subjects|feedback|field)\.[A-Za-z]+)['"]/g,
+        /['"]((?:battle|cmd|ui|elements|subjects|feedback|field|question)\.[A-Za-z]+)['"]/g,
       ))
         keys.add(m[1]!);
     expect(keys.size).toBeGreaterThan(20);
@@ -332,6 +339,7 @@ describe('前の セーブの どうぐ', () => {
     const c = await content();
     const gs = newGame();
     gs.inventory = { 'common-yakusou': 3, 'aomori-ringo': 1 };
+    gs.party.bagItems = ['common-yakusou', 'aomori-ringo'];
     expect(partyFromGameState(gs, c).items).toEqual({ 'aomori-ringo': 1 });
   });
 });

@@ -92,6 +92,8 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await page.keyboard.press('z');
   const dialogue = page.locator('.nq-dlg');
   await expect(dialogue).toContainText(/むすびの.*やしろ/, { timeout: 10_000 });
+  await expect(dialogue).toBeFocused();
+  await expect(dialogue.locator('.nq-dlg-text')).toHaveAttribute('aria-live', 'polite');
   const kagurabi = page.getByRole('button', { name: /カグラビ/ });
   for (let step = 0; step < 24 && !(await kagurabi.isVisible()); step += 1) {
     if (await dialogue.isVisible()) await dialogue.click({ position: { x: 420, y: 410 } });
@@ -101,6 +103,10 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(kagurabi).toBeVisible();
   await expect(page.getByRole('button', { name: /イズミコ/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /コダマル/ })).toBeVisible();
+  const companionChoice = page.getByRole('dialog', { name: /むすび/ });
+  await expect(companionChoice.getByRole('group')).toBeVisible();
+  await expect(companionChoice).toHaveAttribute('aria-modal', 'true');
+  await expect(kagurabi).toBeFocused();
   await page.screenshot({ path: testInfo.outputPath('musubi-tama-choice.png'), fullPage: true });
   await page.setViewportSize({ width: 480, height: 720 });
   await expect(kagurabi).toBeVisible();
@@ -122,5 +128,7 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
     .getByLabel('メニュー')
     .getByRole('button', { name: /もちもの・へんせい/ })
     .click();
-  await expect(page.getByRole('listitem', { name: 'カグラビ' })).toBeVisible();
+  await expect(
+    page.getByRole('dialog', { name: 'もちもの・へんせい' }).getByRole('button', { name: 'カグラビ' }),
+  ).toBeVisible();
 });

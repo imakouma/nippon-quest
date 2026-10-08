@@ -1,18 +1,18 @@
 {
-  "total": 607,
+  "total": 609,
   "byKind": {
     "motif": 498,
-    "character": 108,
+    "character": 110,
     "portrait": 1
   },
   "byArea": {
     "aomori": 20,
-    "iwate": 15,
+    "iwate": 16,
     "miyagi": 14,
     "akita": 14,
     "yamagata": 14,
     "fukushima": 15,
-    "hokkaido": 20,
+    "hokkaido": 21,
     "ibaraki": 12,
     "tochigi": 12,
     "gunma": 12,
@@ -340,6 +340,13 @@
     {
       "key": "char.npc-aomori-dex",
       "path": "assets/sprites/characters/npc-aomori-dex.png",
+      "kind": "character",
+      "area": "iwate",
+      "priority": 2
+    },
+    {
+      "key": "char.npc-iwate-musubi",
+      "path": "assets/sprites/characters/npc-iwate-musubi.png",
       "kind": "character",
       "area": "iwate",
       "priority": 2
@@ -839,6 +846,13 @@
       "path": "assets/motifs/fukushima/tsurugajo.png",
       "kind": "motif",
       "area": "fukushima",
+      "priority": 2
+    },
+    {
+      "key": "char.npc-aomori-dex",
+      "path": "assets/sprites/characters/npc-aomori-dex.png",
+      "kind": "character",
+      "area": "hokkaido",
       "priority": 2
     },
     {

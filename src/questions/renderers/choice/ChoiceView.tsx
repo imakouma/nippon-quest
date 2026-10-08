@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { RendererContext } from '../../contracts';
+import { t } from '../../../ui/i18n';
 import { RubyLabel } from '../../../ui/RubyLabel';
 import { stripRuby } from '../../../ui/ruby';
 import { TimerBar } from '../shared/TimerBar';
@@ -18,6 +19,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
   const [chosen, setChosen] = useState<string | null>(null);
   const [phase, setPhase] = useState<'answering' | 'feedback'>('answering');
   const doneRef = useRef(false);
+  const completionTimer = useRef<number | null>(null);
   const choices = useMemo(
     () => order.map((id) => payload.choices.find((c) => c.id === id)!),
     [order, payload.choices],
@@ -30,7 +32,18 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
     setPhase('feedback');
     const score = id === payload.answer ? 1 : 0;
     // 演出を見せてから閉じる（「おしい！」を読む時間）
-    setTimeout(() => onDone({ score, attempts: 1, timedOut, chosen: id }), 900);
+    completionTimer.current = window.setTimeout(() => {
+      completionTimer.current = null;
+      onDone({ score, attempts: 1, timedOut, chosen: id });
+    }, 900);
+  };
+
+  const cancel = () => {
+    if (completionTimer.current !== null) window.clearTimeout(completionTimer.current);
+    else if (doneRef.current) return;
+    doneRef.current = true;
+    completionTimer.current = null;
+    onDone({ score: 0, attempts: 1, timedOut: true, chosen: null });
   };
 
   // キーボード 1〜4
@@ -45,7 +58,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
   });
 
   useEffect(() => {
-    const onAbort = () => finish(null, true);
+    const onAbort = () => cancel();
     ctx.signal?.addEventListener('abort', onAbort);
     if (ctx.signal?.aborted) onAbort();
     return () => ctx.signal?.removeEventListener('abort', onAbort);
@@ -58,7 +71,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
   return (
     <div class="nq-q nq-q-choice">
       <TimerBar ms={ctx.timeLimitMs} running={phase === 'answering'} onTimeout={() => finish(null, true)} />
-      <div class="nq-q-prompt">
+      <div id="nq-question-prompt" class="nq-q-prompt">
         {payload.promptImage && (
           <img class="nq-q-prompt-img" src={ctx.assets.image(payload.promptImage)} alt="" />
         )}
@@ -66,7 +79,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
         <button
           type="button"
           class="nq-btn nq-btn-speak"
-          aria-label="よみあげ"
+          aria-label={t('question.speak')}
           onClick={() => {
             if (payload.promptAudio)
               new Audio(ctx.assets.audio(payload.promptAudio))
@@ -93,6 +106,9 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
               key={c.id}
               type="button"
               class={`nq-btn nq-choice nq-choice-${state}`}
+              aria-label={!c.text ? t('question.choiceNumber', { n: i + 1 }) : undefined}
+              aria-keyshortcuts={String(i + 1)}
+              aria-describedby="nq-question-prompt"
               disabled={phase !== 'answering'}
               onClick={() => finish(c.id, false)}
             >

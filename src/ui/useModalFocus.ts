@@ -16,7 +16,11 @@ export function useModalFocus(root: RefObject<HTMLElement>, initialSelector?: st
     const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const frame = requestAnimationFrame(() => {
       const target =
-        (initialSelector ? root.current?.querySelector<HTMLElement>(initialSelector) : null) ??
+        (initialSelector === ':scope'
+          ? root.current
+          : initialSelector
+            ? root.current?.querySelector<HTMLElement>(initialSelector)
+            : null) ??
         root.current?.querySelector<HTMLElement>(FOCUSABLE) ??
         root.current;
       target?.focus();

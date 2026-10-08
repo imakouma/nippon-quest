@@ -161,7 +161,7 @@ export const PREFECTURES: PrefectureMaster[] = [
     id: 'niigata',
     name: '新潟県[にいがたけん]',
     capital: '新潟市[にいがたし]',
-    island: 'koshinetsu',
+    island: 'hokuriku',
   },
   { code: '16', id: 'toyama', name: '富山県[とやまけん]', capital: '富山市[とやまし]', island: 'hokuriku' },
   {

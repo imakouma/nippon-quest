@@ -7,7 +7,13 @@ import {
   loadContent,
   type FileReader,
 } from '../../src/core/content/loader';
-import { missionConditionSchema } from '../../src/core/content/schemas';
+import {
+  itemSchema,
+  missionConditionSchema,
+  monsterSchema,
+  settingsSchema,
+  xpTableSchema,
+} from '../../src/core/content/schemas';
 
 const CONTENT = fileURLToPath(new URL('../../content/', import.meta.url));
 const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, 'utf8'));
@@ -75,6 +81,21 @@ describe('content loader', () => {
     expect(errors).toContain('area "aomori": encounter の region "missing-region" が存在しません');
   });
 
+  it('モンスターの循環進化を検出する', async () => {
+    const c = await loadContent(read);
+    const monsters = new Map(c.monsters);
+    const [first, second] = [...monsters.values()].slice(0, 2).map((monster) => structuredClone(monster));
+    const itemId = c.items.keys().next().value!;
+    first!.evolution = { to: second!.id, item: itemId };
+    second!.evolution = { to: first!.id, item: itemId };
+    monsters.set(first!.id, first!);
+    monsters.set(second!.id, second!);
+
+    expect(findBrokenReferences({ ...c, monsters })).toContain(
+      `monster evolution: ${first!.id} -> ${second!.id} -> ${first!.id} の循環があります`,
+    );
+  });
+
   it('県内の名所・イベント・依頼・NPC・出現表の重複を検出する', async () => {
     const c = await loadContent(read);
     const areas = new Map(c.areas);
@@ -104,6 +125,14 @@ describe('content loader', () => {
     expect(aomori.boss).toBe('aomori-boss-tsugaru-no-nushi');
     expect(aomori.events.length).toBeGreaterThanOrEqual(4);
     expect(aomori.town?.npcs.length).toBeGreaterThanOrEqual(5);
+  });
+
+  it('恐山イベント後は成績にかかわらずイタコドリが出現する', async () => {
+    const c = await loadContent(read);
+    const event = c.areas.get('aomori')!.events.find((entry) => entry.id === 'aomori-ev-osorezan')!;
+
+    for (const tier of event.rewardByScore)
+      expect(tier.reward.unlockMonsters, `score ${tier.min}`).toContain('aomori-itakodori');
   });
 
   it('47 都道府県 すべて playable で、中ボス・県ボス・裏ステージ・イベント・町の人（お店の人を ふくむ 2 人 以上）が そろっている', async () => {
@@ -137,6 +166,40 @@ describe('content loader', () => {
     expect(missionConditionSchema.safeParse('perfect:sansu:0').success).toBe(false);
   });
 
+  it('回復アイテムは正の回復量を1つ以上必要とする', () => {
+    const base = {
+      id: 'test-item',
+      name: 'テスト',
+      kind: 'consumable',
+      iconKey: 'test-item',
+      blurb: 'テスト',
+    };
+
+    expect(itemSchema.safeParse({ ...base, use: { heal: 1 } }).success).toBe(true);
+    expect(itemSchema.safeParse({ ...base, use: { mp: 1 } }).success).toBe(true);
+    expect(itemSchema.safeParse({ ...base, use: {} }).success).toBe(false);
+    expect(itemSchema.safeParse({ ...base, use: { heal: 0 } }).success).toBe(false);
+    expect(itemSchema.safeParse({ ...base, use: { mp: -1 } }).success).toBe(false);
+  });
+
+  it('累積XP表は0から始まり、レベルごとに必ず増える', () => {
+    expect(xpTableSchema.safeParse({ hero: [0, 20, 50], monster: [0, 10, 30] }).success).toBe(true);
+    expect(xpTableSchema.safeParse({ hero: [1, 20], monster: [0, 10] }).success).toBe(false);
+    expect(xpTableSchema.safeParse({ hero: [0, 20, 20], monster: [0, 10] }).success).toBe(false);
+    expect(xpTableSchema.safeParse({ hero: [0, 20], monster: [0, 10, 5] }).success).toBe(false);
+  });
+
+  it('成長値は減少せず、問題の好成績ほど攻撃倍率が下がらない', async () => {
+    const c = await loadContent(read);
+    const monster = structuredClone(c.monsters.values().next().value!);
+    monster.growth.hp = -1;
+    expect(monsterSchema.safeParse(monster).success).toBe(false);
+
+    const settings = structuredClone(c.settings);
+    settings.scoreMultipliers.good = settings.scoreMultipliers.perfect + 1;
+    expect(settingsSchema.safeParse(settings).success).toBe(false);
+  });
+
   it('名所・特産品の名前と説明は、漢字にすべて ひらがなのルビがある（フィールドや地図では読みを出すため）', async () => {
     const c = await loadContent(read);
     const bare: string[] = [];
@@ -165,6 +228,28 @@ describe('content loader', () => {
   it('壊れたスキーマはファイル名つきで落ちる', async () => {
     const fake: FileReader = async (rel) => (rel === 'balance/settings.json' ? { nope: true } : read(rel));
     await expect(loadContent(fake)).rejects.toThrow(/settings\.json/);
+  });
+
+  it('壊れた manifest は配下の処理へ渡さず、manifest の診断として落ちる', async () => {
+    const fake: FileReader = async (rel) =>
+      rel === 'manifest.json'
+        ? { generatedAt: 'broken', files: { items: 'items/not-an-array.json' }, questions: [] }
+        : read(rel);
+
+    await expect(loadContent(fake)).rejects.toThrow(/manifest\.json: スキーマ違反/);
+  });
+
+  it('単一ファイルの種別が複数指定された manifest を黙って部分読込しない', async () => {
+    const fake: FileReader = async (rel) => {
+      if (rel !== 'manifest.json') return read(rel);
+      const manifest = (await read(rel)) as { files: Record<string, string[]> };
+      return {
+        ...manifest,
+        files: { ...manifest.files, settings: [...manifest.files.settings!, manifest.files.settings![0]!] },
+      };
+    };
+
+    await expect(loadContent(fake)).rejects.toThrow(/settings.*1ファイル/);
   });
 
   it('本番用 reader は bundle を一度だけ取得して、複数ファイルを読む', async () => {

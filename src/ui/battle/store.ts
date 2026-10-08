@@ -190,7 +190,6 @@ export interface HudState {
   /** 問題の あいだに うけた こうげきの 回数（ふえるたびに 帯を ゆらして 赤く 光る） */
   shake: number;
   result: ResultView | null;
-  muted: boolean;
 }
 
 export type UiAction =
@@ -201,8 +200,7 @@ export type UiAction =
   | { t: 'back' }
   | { t: 'advance'; messageId: number }
   | { t: 'recruitAnswer'; yes: boolean }
-  | { t: 'resultClose' }
-  | { t: 'toggleSound' };
+  | { t: 'resultClose' };
 
 export const initialHudState = (): HudState => ({
   enemy: null,
@@ -224,7 +222,6 @@ export const initialHudState = (): HudState => ({
   stripPops: [],
   shake: 0,
   result: null,
-  muted: false,
 });
 
 export class HudStore {

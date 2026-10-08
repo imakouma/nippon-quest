@@ -52,7 +52,7 @@ export function storedBagThings(gs: GameState, content: ContentIndex): BagThing[
         icon: itemIconUrl(item),
         art: itemIconUrl(item),
         cost: 0,
-        inBag: false,
+        inBag: gs.party.bagItems.includes(item.id),
         count,
         sub: t(
           item.kind === 'consumable'
@@ -63,7 +63,7 @@ export function storedBagThings(gs: GameState, content: ContentIndex): BagThing[
         ),
         lines: [item.use?.heal ? t('field.bagHeal', { n: item.use.heal }) : ''].filter(Boolean),
         blurb: item.blurb,
-        action: item.kind === 'consumable' && !!item.use ? 'use' : undefined,
+        action: item.kind === 'consumable' && !!item.use ? 'pack' : undefined,
       },
     ];
   });

@@ -3,8 +3,10 @@
  * ロジックは持たない。Overworld シーンが props を渡して render する。
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
+import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
+import { displayText } from '../ruby';
 import { RegionMiniMap, type RegionMiniView } from './RegionMiniMap';
 import './field.css';
 
@@ -63,7 +65,7 @@ export function FieldHud({
             {dev.label}
           </button>
         )}
-        <button type="button" class="nq-win nq-fhud-btn" onClick={onMenu}>
+        <button type="button" class="nq-win nq-fhud-btn" aria-keyshortcuts="I" onClick={onMenu}>
           <PixelIcon name="role-shop" scale={3} />
           {menuLabel}
         </button>
@@ -90,7 +92,13 @@ export function AreaTitle({ name, sub, onDone }: { name: string; sub: string; on
     return () => clearTimeout(id);
   }, []);
   return (
-    <div class="nq-atitle" aria-live="polite">
+    <div
+      class="nq-atitle"
+      role="status"
+      aria-label={`${displayText(name)} ${displayText(sub)}`}
+      aria-live="polite"
+      aria-atomic="true"
+    >
       <div class="nq-win nq-atitle-box">
         <RubyLabel text={name} class="nq-atitle-name" />
         <RubyLabel text={sub} class="nq-atitle-sub" />
@@ -115,12 +123,20 @@ export interface LandmarkCutinProps {
 export function LandmarkCutin({ title, name, kind, kindLabel, image, icon, onDone }: LandmarkCutinProps) {
   const [imgOk, setImgOk] = useState(!!image);
   const done = useOnce(onDone);
+  const announcement = [title, name, kindLabel].map(displayText).join(' ');
   useEffect(() => {
     const id = setTimeout(done, 2200);
     return () => clearTimeout(id);
   }, []);
   return (
-    <div class="nq-cutin" onClick={done}>
+    <button
+      type="button"
+      class="nq-cutin"
+      aria-label={`${announcement} ${t('ui.dismissCutin')}`}
+      aria-live="polite"
+      aria-atomic="true"
+      onClick={done}
+    >
       <div class="nq-cutin-band">
         <div class="nq-win nq-cutin-card">
           <div class="nq-cutin-pic">
@@ -140,6 +156,6 @@ export function LandmarkCutin({ title, name, kind, kindLabel, image, icon, onDon
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 }

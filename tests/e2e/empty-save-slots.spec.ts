@@ -24,12 +24,30 @@ test('ローカル確認URLで古いセーブを消し、3枠とも新規作成�
   });
 
   await page.goto('/?resetSaves=1');
-  await page.getByRole('menuitem', { name: /はじめから/ }).click();
+  const newGame = page.getByRole('menuitem', { name: /はじめから/ });
+  await newGame.click();
+  const slotDialog = page.getByRole('dialog', { name: /セーブ/ });
+  await expect(slotDialog).toHaveAttribute('aria-modal', 'true');
   const slots = page.locator('.nq-save-slots > div > button');
   await expect(slots).toHaveCount(3);
+  await expect(slots.first()).toBeFocused();
+  await expect(slotDialog.locator('.nq-save-slots-hint')).toContainText('↑↓で えらぶ');
+  await page.keyboard.press('ArrowDown');
+  await expect(slots.nth(1)).toBeFocused();
+  await page.keyboard.press('End');
+  await expect(slotDialog.getByRole('button', { name: 'もどる' })).toBeFocused();
+  await page.keyboard.press('Home');
+  await expect(slots.first()).toBeFocused();
+  await expect(slotDialog.getByRole('button', { name: 'もどる' })).toHaveCSS(
+    'background-color',
+    'rgb(49, 92, 148)',
+  );
   for (let index = 0; index < 3; index += 1) {
     await expect(slots.nth(index)).toContainText('あたらしく はじめる');
     await expect(slots.nth(index)).not.toContainText(/Lv|★|うわがき/);
   }
   await page.screenshot({ path: testInfo.outputPath('empty-save-slots.png'), fullPage: true });
+  await page.keyboard.press('Escape');
+  await expect(slotDialog).toHaveCount(0);
+  await expect(newGame).toBeFocused();
 });

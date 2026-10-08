@@ -1,0 +1,46 @@
+:root {
+  background: #090d1d;
+  color: #fff;
+}
+body {
+  margin: 0;
+  min-width: 1000px;
+  font-family: var(--nq-font, monospace);
+}
+.nq-audit {
+  width: 960px;
+  margin: 16px auto 32px;
+}
+.nq-audit h1 {
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+.nq-audit-progress,
+.nq-audit-result {
+  font-size: 16px;
+  min-height: 24px;
+  margin: 8px 0;
+}
+.nq-audit-result-complete {
+  color: #6cc070;
+}
+.nq-audit-result-failed {
+  color: #ff7b7b;
+}
+.nq-audit-stage {
+  position: relative;
+  width: 960px;
+  height: 540px;
+  overflow: hidden;
+  background: #18213b;
+}
+.nq-audit-stage .nq-bq {
+  inset: 12px;
+}
+.nq-audit-failures {
+  margin: 12px 0;
+  padding-left: 24px;
+  color: #ffb4b4;
+  font-size: 14px;
+  line-height: 1.6;
+}

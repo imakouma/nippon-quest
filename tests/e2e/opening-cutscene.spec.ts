@@ -11,8 +11,8 @@ test('新規ゲームのオープニングが自動進行し、停止・手動�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await expect(page.getByRole('textbox', { name: 'なまえ' })).toHaveCount(0);
-  const lookRows = page.locator('.nq-look-controls > div');
-  await expect(lookRows).toHaveCount(3);
+  const lookRows = page.locator('.nq-look-controls > div:not(.nq-look-shapes), .nq-look-shapes > div');
+  await expect(lookRows).toHaveCount(5);
   for (const row of await lookRows.all()) {
     const labelRight = await row.locator(':scope > span').evaluate((el) => el.getBoundingClientRect().right);
     const pickerLeft = await row.locator('.nq-look-picker').evaluate((el) => el.getBoundingClientRect().left);
@@ -25,11 +25,11 @@ test('新規ゲームのオープニングが自動進行し、停止・手動�
   await page.keyboard.down('ArrowRight');
   await page.waitForTimeout(1_000);
   await page.keyboard.up('ArrowRight');
-  const scene = page.getByRole('region', { name: 'ものがたりの シーン' });
+  const scene = page.getByRole('dialog', { name: 'ものがたりの シーン' });
   await expect(scene).toBeVisible({ timeout: 30_000 });
   await expect(scene).toContainText(/かぜ|風/);
   await scene.getByRole('button', { name: 'スキップ' }).click();
-  const namePrompt = page.getByRole('region', { name: /ものがたり.*名前/ });
+  const namePrompt = page.getByRole('dialog', { name: /ものがたり.*名前/ });
   await namePrompt.getByRole('textbox', { name: 'なまえ' }).fill('ハル');
   await namePrompt.getByRole('button', { name: 'これで けってい' }).click();
 

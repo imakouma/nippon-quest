@@ -75,9 +75,9 @@ export function evolutionStage(monsterId: string, monsters: ReadonlyMap<string, 
   return memo.get(monsterId) ?? 1;
 }
 
-/** 通常キャラは1x1、仲間になったボスは2x2。 */
+/** 通常キャラは進化段階ぶん横に使い、仲間になったボスは2x2。 */
 export function monsterSize(monsterId: string, monsters: ReadonlyMap<string, Monster>): BagSize {
-  return monsters.get(monsterId)?.isBoss ? { w: 2, h: 2 } : { w: 1, h: 1 };
+  return monsters.get(monsterId)?.isBoss ? { w: 2, h: 2 } : { w: evolutionStage(monsterId, monsters), h: 1 };
 }
 export function monsterCost(monsterId: string, monsters: ReadonlyMap<string, Monster>): number {
   const s = monsterSize(monsterId, monsters);
@@ -200,11 +200,24 @@ export interface BagUsage {
 }
 export function bagUsage(gs: GameState, ctx: BagContext): BagUsage {
   let used = 0;
-  for (const key of Object.keys(gs.party.bagPlacements)) {
+  let invalid = false;
+  const occupied = new Set<string>();
+  for (const [key, pos] of Object.entries(gs.party.bagPlacements)) {
     const s = thingSize(gs, key, ctx);
-    if (s) used += s.w * s.h;
+    if (!s) continue;
+    used += s.w * s.h;
+    for (const cell of cellsAt(pos, s)) {
+      const [x, y] = cell.split(',').map(Number);
+      if (x! < 0 || y! < 0 || x! >= ctx.cols || y! >= ctx.rows || occupied.has(cell)) invalid = true;
+      occupied.add(cell);
+    }
   }
-  return { used, capacity: ctx.capacity, free: Math.max(0, ctx.capacity - used), over: used > ctx.capacity };
+  return {
+    used,
+    capacity: ctx.capacity,
+    free: Math.max(0, ctx.capacity - used),
+    over: invalid || used > ctx.capacity,
+  };
 }
 
 export type BagMove = 'added' | 'removed' | 'benched' | 'swapped' | 'full' | 'roster-full' | 'none';
@@ -269,6 +282,17 @@ export function setLeader(prev: GameState, uid: string, now = Date.now()): GameS
   return gs;
 }
 
+/** 消耗品をバトルへ持ち込むバッグに入れる／出す。個数は inventory 側で管理する。 */
+export function toggleBattleItem(prev: GameState, item: Item, now = Date.now()): GameState {
+  if (item.kind !== 'consumable' || !item.use || (prev.inventory[item.id] ?? 0) <= 0) return prev;
+  const gs = structuredClone(prev);
+  gs.party.bagItems = gs.party.bagItems.includes(item.id)
+    ? gs.party.bagItems.filter((id) => id !== item.id)
+    : [...gs.party.bagItems, item.id];
+  gs.updatedAt = now;
+  return gs;
+}
+
 export function putEquip(
   prev: GameState,
   it: Item,
@@ -291,15 +315,24 @@ export function putEquip(
   return old ? { state: next, result: 'swapped', old } : { state: next, result: 'added' };
 }
 
-export function evolveRoom(gs: GameState, uid: string, _ctx: BagContext): { extra: number; ok: boolean } {
-  // 通常進化ではサイズ不変。ボスなどサイズが変わる進化を追加したらここで再配置判定する。
-  return { extra: 0, ok: !!gs.party.owned.find((x) => x.uid === uid) };
+export function evolveRoom(gs: GameState, uid: string, ctx: BagContext): { extra: number; ok: boolean } {
+  const owned = gs.party.owned.find((monster) => monster.uid === uid);
+  const nextId = owned && ctx.monsters.get(owned.monsterId)?.evolution?.to;
+  if (!owned || !nextId || !ctx.monsters.has(nextId)) return { extra: 0, ok: false };
+  const extra = Math.max(0, monsterCost(nextId, ctx.monsters) - monsterCost(owned.monsterId, ctx.monsters));
+  const key = monKey(uid);
+  const at = gs.party.bagPlacements[key];
+  if (!at) return { extra, ok: true };
+  const evolved = structuredClone(gs);
+  evolved.party.owned.find((monster) => monster.uid === uid)!.monsterId = nextId;
+  return { extra, ok: canPlace(evolved, key, at, ctx) };
 }
 
 export function stowNewMonster(
   prev: GameState,
   uid: string,
   ctx: BagContext,
+  now = Date.now(),
 ): { state: GameState; inBag: boolean } {
   if (!prev.party.owned.some((monster) => monster.uid === uid)) return { state: prev, inBag: false };
   if (battleRosterUids(prev).includes(uid))
@@ -308,11 +341,12 @@ export function stowNewMonster(
       inBag: prev.party.team.includes(uid) && !!prev.party.bagPlacements[monKey(uid)],
     };
   if (battleRosterUids(prev).length >= MAX_COMPANIONS) return { state: prev, inBag: false };
-  const placed = toggleBagMonster(prev, uid, ctx);
+  const placed = toggleBagMonster(prev, uid, ctx, now);
   if (placed.result === 'added') return { state: placed.state, inBag: true };
   const gs = structuredClone(prev);
   if (!gs.party.reserve.includes(uid)) gs.party.reserve.push(uid);
   fixLead(gs);
+  gs.updatedAt = now;
   return { state: gs, inBag: false };
 }
 
@@ -339,7 +373,12 @@ export function adjacencyBonus(gs: GameState, ctx: BagContext, base: Stats): Adj
     const p = gs.party.bagPlacements[monKey(uid)];
     const o = gs.party.owned.find((x) => x.uid === uid);
     const def = o && ctx.monsters.get(o.monsterId);
-    if (!p || !def || Math.abs(p.x - hero.x) + Math.abs(p.y - hero.y) !== 1) continue;
+    if (!p || !def) continue;
+    const adjacent = cellsAt(p, monsterSize(def.id, ctx.monsters)).some((cell) => {
+      const [x, y] = cell.split(',').map(Number);
+      return Math.abs(x! - hero.x) + Math.abs(y! - hero.y) === 1;
+    });
+    if (!adjacent) continue;
     const stat = map[def.element]!;
     stats[stat] = (stats[stat] ?? 0) + Math.max(1, Math.round(base[stat] * 0.05));
     labels.push(`${def.name} → ${stat.toUpperCase()} +5%`);

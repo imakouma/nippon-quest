@@ -104,22 +104,28 @@
           "type": "object",
           "properties": {
             "hp": {
-              "type": "number"
+              "type": "number",
+              "minimum": 0
             },
             "mp": {
-              "type": "number"
+              "type": "number",
+              "minimum": 0
             },
             "atk": {
-              "type": "number"
+              "type": "number",
+              "minimum": 0
             },
             "def": {
-              "type": "number"
+              "type": "number",
+              "minimum": 0
             },
             "spd": {
-              "type": "number"
+              "type": "number",
+              "minimum": 0
             },
             "wis": {
-              "type": "number"
+              "type": "number",
+              "minimum": 0
             }
           },
           "required": [

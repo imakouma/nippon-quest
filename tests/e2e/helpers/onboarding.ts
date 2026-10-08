@@ -2,7 +2,7 @@ import { expect, type Page } from '@playwright/test';
 
 export async function finishHeroIntroduction(page: Page, name = 'ハル'): Promise<void> {
   const dialogue = page.locator('.nq-dlg');
-  const identity = page.getByRole('form', { name: 'ようせいとの であい' });
+  const identity = page.getByRole('dialog', { name: 'ようせいとの であい' });
   await expect(dialogue.or(identity)).toBeVisible({ timeout: 30_000 });
 
   for (let step = 0; step < 20 && (await dialogue.isVisible()); step += 1) {

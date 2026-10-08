@@ -86,6 +86,8 @@ export function narrate(e: BattleEvent, ctx: NarrateCtx, prev?: BattleEvent): st
       return [t('battle.gaugeShort', { subject: ctx.subjectName(e.subject), n: e.need - e.have })];
     case 'itemUsed':
       return [t('battle.itemUsed', { name: ctx.nameOf(e.targetId), item: ctx.itemName(e.itemId) })];
+    case 'recruitGift':
+      return [t('battle.recruitGift', { name: ctx.enemyName, item: ctx.itemName(e.itemId) })];
     case 'swap':
       return e.auto
         ? [t('battle.swapAuto', { to: ctx.nameOf(e.to) })]
