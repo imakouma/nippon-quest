@@ -883,6 +883,127 @@
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+
+/* まちがいノート：問題文を主役にし、教科・学年を補助情報として揃える。 */
+.nq-mistake-menu {
+  gap: 8px;
+}
+.nq-menu-body.nq-mistake-menu > .nq-wmap-left {
+  width: 420px;
+}
+.nq-menu-body.nq-mistake-menu > .nq-wmap-right {
+  flex: 1;
+  padding-left: 0;
+}
+.nq-mistake-list {
+  gap: 6px;
+  padding: 4px 6px 4px 4px !important;
+  border: 3px solid #263759;
+  background: #0b0e1c;
+}
+.nq-menu-body .nq-mistake-list > li {
+  contain-intrinsic-size: auto 68px;
+}
+.nq-mistake-list .nq-opt {
+  position: relative;
+  display: grid;
+  min-height: 68px !important;
+  padding: 6px 10px 6px 34px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  border: 3px solid #425173;
+  background: #141b31;
+}
+.nq-mistake-list .nq-opt:hover,
+.nq-mistake-list .nq-opt:focus-visible,
+.nq-mistake-list .nq-opt.nq-focus {
+  color: #fff;
+  border-color: var(--nq-yellow);
+  outline: none;
+  background: #25385b;
+  box-shadow: inset 5px 0 0 var(--nq-yellow);
+  transform: none;
+}
+.nq-mistake-list .nq-amap-cur {
+  top: 22px;
+  left: 10px;
+}
+.nq-mistake-row-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+.nq-mistake-list .nq-opt-name {
+  display: block;
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nq-mistake-row-meta {
+  color: #9dd8ff;
+  font-size: 14px;
+  line-height: 16px;
+}
+.nq-mistake-list .nq-town-right {
+  align-self: start;
+  margin: 0;
+  padding: 1px 5px;
+  color: #17223d;
+  font-size: 14px;
+  border: 2px solid #f4e5a5;
+  background: #f4e5a5;
+}
+.nq-mistake-info {
+  min-height: 0;
+  padding: 18px 20px;
+  gap: 12px;
+  border: 4px solid #52658d;
+  background: #10162a !important;
+  box-shadow: inset 0 0 0 4px #18233e;
+}
+.nq-mistake-info .nq-party-art {
+  display: none;
+}
+.nq-mistake-info .nq-party-head {
+  min-height: 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #344466;
+}
+.nq-mistake-info .nq-party-name {
+  display: block;
+  max-height: 96px;
+  overflow: auto;
+  color: #fff;
+  font-size: 24px;
+  line-height: 32px;
+}
+.nq-mistake-info .nq-party-sub {
+  width: max-content;
+  padding: 1px 6px;
+  color: #d6f1ff;
+  font-size: 16px;
+  background: #275478;
+}
+.nq-mistake-info .nq-town-lines {
+  gap: 6px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #c8d5ef;
+}
+.nq-mistake-info .nq-party-blurb {
+  margin-top: 4px;
+  padding: 10px 12px;
+  color: #fff1a8;
+  font-size: 18px;
+  line-height: 26px;
+  border-left: 5px solid var(--nq-yellow);
+  background: #1a223a;
+}
 /* まだ であっていない・見つけていない：リストは うすく、絵は かげだけ */
 .nq-menu-unknown {
   opacity: 0.7;

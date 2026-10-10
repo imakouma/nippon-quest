@@ -48,6 +48,7 @@ interface MenuListRowProps {
   entry: MenuEntry;
   index: number;
   selected: boolean;
+  compactMeta?: boolean;
   onPick: MenuPick;
 }
 
@@ -56,11 +57,12 @@ class MenuListRow extends Component<MenuListRowProps> {
     return (
       next.entry !== this.props.entry ||
       next.selected !== this.props.selected ||
+      next.compactMeta !== this.props.compactMeta ||
       next.onPick !== this.props.onPick
     );
   }
 
-  override render({ entry, index, selected, onPick }: MenuListRowProps) {
+  override render({ entry, index, selected, compactMeta = false, onPick }: MenuListRowProps) {
     return (
       <li>
         <button
@@ -73,7 +75,10 @@ class MenuListRow extends Component<MenuListRowProps> {
         >
           <span class="nq-amap-cur">{selected && <span class="nq-heart">♥</span>}</span>
           {entry.icon && <img class="nq-item-icon nq-town-icon nq-menu-icon" src={entry.icon} alt="" />}
-          <RubyLabel text={entry.name} class="nq-opt-name" />
+          <span class={compactMeta ? 'nq-mistake-row-copy' : undefined}>
+            <RubyLabel text={entry.name} class="nq-opt-name" />
+            {compactMeta && entry.sub && <RubyLabel text={entry.sub} class="nq-mistake-row-meta" />}
+          </span>
           {entry.tag && <span class="nq-party-tag">{entry.tag}</span>}
           {entry.right && <RubyLabel text={entry.right} class="nq-town-right" />}
         </button>
@@ -124,6 +129,7 @@ export function MenuOverlay({
     if (k !== sel) setSel(k);
   }
   const isDex = tab === 'monsters' || tab === 'specialties';
+  const isMistakes = tab === 'mistakes';
   const groups = isDex
     ? [
         ...new Map(
@@ -442,15 +448,25 @@ export function MenuOverlay({
                 ))}
               </div>
             )}
-            <div class="nq-menu-body">
+            <div class={`nq-menu-body ${isMistakes ? 'nq-mistake-menu' : ''}`}>
               <div class="nq-wmap-left">
                 {summary && <RubyLabel text={summary} class="nq-menu-summary" as="p" />}
                 {entries.length ? (
-                  <ul class={`nq-party-list nq-town-list ${isDex ? 'nq-dex-grid' : ''}`} ref={listRef}>
+                  <ul
+                    class={`nq-party-list nq-town-list ${isDex ? 'nq-dex-grid' : ''} ${isMistakes ? 'nq-mistake-list' : ''}`}
+                    ref={listRef}
+                  >
                     {visibleEntries.map((x) => {
                       const k = entries.indexOf(x);
                       return (
-                        <MenuListRow key={x.key} entry={x} index={k} selected={k === sel} onPick={pick} />
+                        <MenuListRow
+                          key={x.key}
+                          entry={x}
+                          index={k}
+                          selected={k === sel}
+                          compactMeta={isMistakes}
+                          onPick={pick}
+                        />
                       );
                     })}
                   </ul>
@@ -462,7 +478,9 @@ export function MenuOverlay({
               <div class="nq-wmap-right">
                 {message && <RubyLabel text={message} class="nq-party-msg" as="p" />}
                 {e && (
-                  <div class={`nq-wmap-info nq-party-info ${isDex ? 'nq-dex-info' : ''}`}>
+                  <div
+                    class={`nq-wmap-info nq-party-info ${isDex ? 'nq-dex-info' : ''} ${isMistakes ? 'nq-mistake-info' : ''}`}
+                  >
                     <div class="nq-party-head">
                       <div class={`nq-party-art ${e.known ? '' : 'nq-menu-unknown-art'}`}>
                         {pic ? <img src={pic} alt="" /> : <PixelIcon name="star-off" scale={6} />}
