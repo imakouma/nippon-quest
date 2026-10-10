@@ -6,9 +6,53 @@
   "motifId": "watershed",
   "element": "mizu",
   "weakness": "kaze",
-  "baseStats": { "hp": 1080, "mp": 148, "atk": 31, "def": 25, "spd": 16, "wis": 30 },
-  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
-  "skills": ["sk-uzushio", "sk-kana-barrier", "sk-shiraberu"],
+  "baseStats": {
+    "hp": 648,
+    "mp": 88.8,
+    "spd": 11.4,
+    "wis": 18,
+    "scienceAtk": 19.4,
+    "humanitiesAtk": 19.4,
+    "scienceDef": 16.7,
+    "humanitiesDef": 16.7
+  },
+  "growth": {
+    "base": {
+      "hp": 0,
+      "mp": 0,
+      "spd": 0,
+      "wis": 0,
+      "scienceAtk": 0,
+      "humanitiesAtk": 0,
+      "scienceDef": 0,
+      "humanitiesDef": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
+  },
+  "skills": [
+    "sk-uzushio",
+    "sk-kana-barrier",
+    "sk-shiraberu"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 1490,
@@ -21,13 +65,21 @@
     {
       "hpBelow": 0.66,
       "element": "tsuchi",
-      "skills": ["sk-tsuchi-kabe", "sk-kana-barrier", "sk-burst-sansu"],
+      "skills": [
+        "sk-tsuchi-kabe",
+        "sk-kana-barrier",
+        "sk-burst-sansu"
+      ],
       "line": "流[なが]れを せき止[と]めれば、原因[げんいん]と 結果[けっか]は 永遠[えいえん]に 出会[であ]わぬ！"
     },
     {
       "hpBelow": 0.25,
       "element": "yami",
-      "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-rika"],
+      "skills": [
+        "sk-yami-no-uta",
+        "sk-shiraberu",
+        "sk-burst-rika"
+      ],
       "line": "つながりを 見[み]るな！ 一[ひと]つずつ 切[き]り離[はな]せば、仕組[しく]みなど 誰[だれ]にも わからぬ！"
     }
   ]

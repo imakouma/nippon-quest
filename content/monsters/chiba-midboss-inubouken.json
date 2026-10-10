@@ -7,24 +7,52 @@
   "element": "hikari",
   "weakness": "yami",
   "baseStats": {
-    "hp": 106,
-    "mp": 18,
-    "atk": 11,
-    "def": 8,
-    "spd": 7,
-    "wis": 7
+    "hp": 63.6,
+    "mp": 10.8,
+    "spd": 5,
+    "wis": 4.2,
+    "scienceAtk": 6.9,
+    "humanitiesAtk": 6.9,
+    "scienceDef": 5.3,
+    "humanitiesDef": 5.3
   },
   "growth": {
-    "hp": 8,
-    "mp": 2,
-    "atk": 1.2,
-    "def": 1,
-    "spd": 0.6,
-    "wis": 0.6
+    "base": {
+      "hp": 4.8,
+      "mp": 1.2,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-tashizan-giri", "sk-kanji-barrier"],
-  "drops": [
+  "skills": [
+    "sk-tashizan-giri",
+    "sk-kanji-barrier"
   ],
+  "drops": [],
   "recruitRate": 0,
   "xp": 62,
   "gold": 73,
@@ -35,7 +63,9 @@
   "bossPhases": [
     {
       "hpBelow": 0.5,
-      "skills": ["sk-hikari-no-ya"],
+      "skills": [
+        "sk-hikari-no-ya"
+      ],
       "line": "灯台[とうだい]の 光[ひかり]よ、てらせー！"
     }
   ]

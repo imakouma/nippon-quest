@@ -7,22 +7,50 @@
   "element": "hino",
   "weakness": "mizu",
   "baseStats": {
-    "hp": 34,
-    "mp": 8,
-    "atk": 12,
-    "def": 5,
-    "spd": 10,
-    "wis": 5
+    "hp": 20.4,
+    "mp": 4.8,
+    "spd": 7.1,
+    "wis": 3,
+    "scienceAtk": 7.5,
+    "humanitiesAtk": 7.5,
+    "scienceDef": 3.3,
+    "humanitiesDef": 3.3
   },
   "growth": {
-    "hp": 4.5,
-    "mp": 1,
-    "atk": 1.5,
-    "def": 0.8,
-    "spd": 1.2,
-    "wis": 0.7
+    "base": {
+      "hp": 2.7,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-hinoko"],
+  "skills": [
+    "sk-hinoko"
+  ],
   "drops": [
     {
       "itemId": "hokkaido-hamanasu-no-hana",

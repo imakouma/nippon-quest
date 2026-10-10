@@ -41,8 +41,8 @@ describe('特産品の お宝ボーナス', () => {
     const powered = partyFromGameState(gs, c).hero.stats;
 
     expect(powered.hp).toBeGreaterThan(base.hp);
-    expect(powered.atk).toBeGreaterThan(base.atk);
-    expect(powered.def).toBeGreaterThan(base.def);
+    expect(powered.scienceAtk).toBeGreaterThan(base.scienceAtk);
+    expect(powered.scienceDef).toBeGreaterThan(base.scienceDef);
     expect(specialtyTreasureBonus(gs, c.areas, c.items).found).toBe(1);
   });
 

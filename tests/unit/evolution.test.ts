@@ -52,7 +52,7 @@ describe('しんか', () => {
     expect(next.party.owned[0]!.monsterId).toBe('aomori-nebuta-taisho');
     expect(next.inventory['aomori-nebuta-no-akari']).toBe(0);
     // しんかするたびに強くなる（こうげき）
-    const atk = (id: string) => c.monsters.get(id)!.baseStats.atk;
+    const atk = (id: string) => c.monsters.get(id)!.baseStats.scienceAtk;
     expect(atk('aomori-nebuta-musha')).toBeGreaterThan(atk('aomori-nebutan'));
     expect(atk('aomori-nebuta-taisho')).toBeGreaterThan(atk('aomori-nebuta-musha'));
   });

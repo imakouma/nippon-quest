@@ -7,22 +7,51 @@
   "element": "hikari",
   "weakness": "yami",
   "baseStats": {
-    "hp": 35,
-    "mp": 12,
-    "atk": 9,
-    "def": 6,
-    "spd": 11,
-    "wis": 8
+    "hp": 21,
+    "mp": 7.2,
+    "spd": 7.9,
+    "wis": 4.8,
+    "scienceAtk": 5.6,
+    "humanitiesAtk": 5.6,
+    "scienceDef": 4,
+    "humanitiesDef": 4
   },
   "growth": {
-    "hp": 4.5,
-    "mp": 1,
-    "atk": 1.3,
-    "def": 0.8,
-    "spd": 1.2,
-    "wis": 0.9
+    "base": {
+      "hp": 2.7,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-kazoe-giri", "sk-kana-barrier"],
+  "skills": [
+    "sk-kazoe-giri",
+    "sk-kana-barrier"
+  ],
   "drops": [
     {
       "itemId": "ishikawa-hakuuchi-washi",

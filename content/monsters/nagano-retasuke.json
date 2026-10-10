@@ -7,22 +7,50 @@
   "element": "mori",
   "weakness": "hino",
   "baseStats": {
-    "hp": 47,
-    "mp": 10,
-    "atk": 10,
-    "def": 10,
-    "spd": 7,
-    "wis": 7
+    "hp": 28.2,
+    "mp": 6,
+    "spd": 5,
+    "wis": 4.2,
+    "scienceAtk": 6.3,
+    "humanitiesAtk": 6.3,
+    "scienceDef": 6.7,
+    "humanitiesDef": 6.7
   },
   "growth": {
-    "hp": 5.5,
-    "mp": 1,
-    "atk": 1.2,
-    "def": 1.1,
-    "spd": 0.8,
-    "wis": 0.8
+    "base": {
+      "hp": 3.3,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-happa-tobashi"],
+  "skills": [
+    "sk-happa-tobashi"
+  ],
   "drops": [
     {
       "itemId": "nagano-retasu-no-tane",

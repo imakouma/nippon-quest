@@ -46,7 +46,16 @@ async function setup(
     {
       name: 'ハル',
       level: opts.level ?? 5,
-      baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+      baseStats: {
+        hp: 40,
+        mp: 10,
+        scienceAtk: 8,
+        humanitiesAtk: 8,
+        scienceDef: 6,
+        humanitiesDef: 6,
+        spd: 7,
+        wis: 5,
+      },
       growth: { hp: 6, mp: 2, atk: 1.5, def: 1.2, spd: 1.0, wis: 1.0 },
       skills: opts.skills ?? ['sk-tashizan-giri', 'sk-shiraberu', 'sk-kanji-barrier'],
       equipment: {},
@@ -115,11 +124,11 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
     }
   });
 
-  it('式どおり：こうげき × いりょく ÷ ぼうぎょ × 係数 × できばえ（かしこさ で 必殺技の いりょく アップ）', async () => {
+  it('ポケモン型基礎式へ教材倍率と乱数を掛け、かしこさも必殺技へ反映する', async () => {
     const { state } = await setup();
     const sk = D.skills.get('sk-tashizan-giri')!; // power 120 / むぞくせい
-    const attacker = { ...state.ally.hero, stats: { ...state.ally.hero.stats, atk: 10, wis: 5 } };
-    const defender = { ...state.enemy, stats: { ...state.enemy.stats, def: 5 } };
+    const attacker = { ...state.ally.hero, stats: { ...state.ally.hero.stats, scienceAtk: 10, wis: 5 } };
+    const defender = { ...state.enemy, stats: { ...state.enemy.stats, scienceDef: 5 } };
     const d = computeDamage({
       attacker,
       defender,
@@ -131,8 +140,7 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
       elements: D.elements,
       rng: createRng('x'),
     });
-    const base = ((10 * 1.2 * 1.05) / 5) * D.settings.damageScale;
-    expect(d.amount).toBe(Math.round(base * 2));
+    expect(d.amount).toBe(45);
     expect(d.band).toBe('perfect');
   });
 
@@ -234,7 +242,7 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
   });
 });
 
-describe('ターンの すすみかた（主人公 → オトモ → てき）', () => {
+  describe('ターンの すすみかた（優先度 → すばやさ → 同速抽選）', () => {
   it('はじめは ターン 1 で、主人公は すぐ 動ける', async () => {
     const { state } = await setup();
     expect(state.turn).toBe(1);
@@ -261,6 +269,13 @@ describe('ターンの すすみかた（主人公 → オトモ → てき）',
     const { state } = await setup({ level: 40, enemyId: 'iwate-boss-konjiki-no-tora', enemyLevel: 5 });
     const half: BattleState = {
       ...tough(state),
+      ally: {
+        ...state.ally,
+        hero: {
+          ...tough(state).ally.hero,
+          stats: { ...state.ally.hero.stats, scienceAtk: 1, humanitiesAtk: 1, spd: 999 },
+        },
+      },
       enemy: { ...toughen(state.enemy), hp: Math.floor(state.enemy.stats.hp * 0.45) },
     };
     const r = act(half, { kind: 'attack' }, D);
@@ -742,14 +757,23 @@ describe('装備とセットボーナス', () => {
     const spec = {
       name: 'ハル',
       level: 5,
-      baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+      baseStats: {
+        hp: 40,
+        mp: 10,
+        scienceAtk: 8,
+        humanitiesAtk: 8,
+        scienceDef: 6,
+        humanitiesDef: 6,
+        spd: 7,
+        wis: 5,
+      },
       growth: { hp: 6, mp: 2, atk: 1.5, def: 1.2, spd: 1, wis: 1 },
       skills: [],
       equipment: {},
     };
     const bare = makeHero(spec, c.items, c.sets);
     const armed = makeHero({ ...spec, equipment: { chest: 'aomori-ringo-no-yoroi' } }, c.items, c.sets);
-    expect(armed.stats.def).toBeGreaterThan(bare.stats.def);
+    expect(armed.stats.scienceDef).toBeGreaterThan(bare.stats.scienceDef);
   });
 
   it('壊れたセーブ由来のスロット違い装備は能力へ反映しない', async () => {
@@ -757,7 +781,16 @@ describe('装備とセットボーナス', () => {
     const spec = {
       name: 'ハル',
       level: 5,
-      baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+      baseStats: {
+        hp: 40,
+        mp: 10,
+        scienceAtk: 8,
+        humanitiesAtk: 8,
+        scienceDef: 6,
+        humanitiesDef: 6,
+        spd: 7,
+        wis: 5,
+      },
       growth: { hp: 6, mp: 2, atk: 1.5, def: 1.2, spd: 1, wis: 1 },
       skills: [],
       equipment: {},
@@ -775,7 +808,16 @@ describe('装備とセットボーナス', () => {
       {
         name: 'ハル',
         level: 1,
-        baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+        baseStats: {
+          hp: 40,
+          mp: 10,
+          scienceAtk: 8,
+          humanitiesAtk: 8,
+          scienceDef: 6,
+          humanitiesDef: 6,
+          spd: 7,
+          wis: 5,
+        },
         growth: { hp: 0, mp: 0, atk: 0, def: 0, spd: 0, wis: 0 },
         skills: [],
         equipment: { weapon: 'aomori-maguro-zutsuki' },
@@ -823,7 +865,16 @@ describe('装備とセットボーナス', () => {
       {
         name: 'ハル',
         level: 5,
-        baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+        baseStats: {
+          hp: 40,
+          mp: 10,
+          scienceAtk: 8,
+          humanitiesAtk: 8,
+          scienceDef: 6,
+          humanitiesDef: 6,
+          spd: 7,
+          wis: 5,
+        },
         growth: { hp: 6, mp: 2, atk: 1.5, def: 1.2, spd: 1, wis: 1 },
         skills: [],
         equipment,

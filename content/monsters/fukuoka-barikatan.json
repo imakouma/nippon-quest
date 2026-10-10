@@ -7,22 +7,50 @@
   "element": "hino",
   "weakness": "mizu",
   "baseStats": {
-    "hp": 52,
-    "mp": 12,
-    "atk": 17,
-    "def": 8,
-    "spd": 10,
-    "wis": 8
+    "hp": 31.2,
+    "mp": 7.2,
+    "spd": 7.1,
+    "wis": 4.8,
+    "scienceAtk": 10.6,
+    "humanitiesAtk": 10.6,
+    "scienceDef": 5.3,
+    "humanitiesDef": 5.3
   },
   "growth": {
-    "hp": 4.8,
-    "mp": 1,
-    "atk": 1.6,
-    "def": 0.8,
-    "spd": 1,
-    "wis": 0.6
+    "base": {
+      "hp": 2.9,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-hinoko"],
+  "skills": [
+    "sk-hinoko"
+  ],
   "drops": [
     {
       "itemId": "fukuoka-tonkotsu-no-dashi",

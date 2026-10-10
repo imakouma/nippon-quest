@@ -6,9 +6,53 @@
   "motifId": "mountain-survey",
   "element": "kaze",
   "weakness": "hikari",
-  "baseStats": { "hp": 980, "mp": 136, "atk": 29, "def": 23, "spd": 18, "wis": 28 },
-  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
-  "skills": ["sk-kaikyo-no-kaze", "sk-kana-barrier", "sk-shiraberu"],
+  "baseStats": {
+    "hp": 588,
+    "mp": 81.6,
+    "spd": 12.9,
+    "wis": 16.8,
+    "scienceAtk": 18.1,
+    "humanitiesAtk": 18.1,
+    "scienceDef": 15.3,
+    "humanitiesDef": 15.3
+  },
+  "growth": {
+    "base": {
+      "hp": 0,
+      "mp": 0,
+      "spd": 0,
+      "wis": 0,
+      "scienceAtk": 0,
+      "humanitiesAtk": 0,
+      "scienceDef": 0,
+      "humanitiesDef": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
+  },
+  "skills": [
+    "sk-kaikyo-no-kaze",
+    "sk-kana-barrier",
+    "sk-shiraberu"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 1320,
@@ -21,13 +65,21 @@
     {
       "hpBelow": 0.66,
       "element": "tsuchi",
-      "skills": ["sk-tsuchi-kabe", "sk-kana-barrier", "sk-burst-shakai"],
+      "skills": [
+        "sk-tsuchi-kabe",
+        "sk-kana-barrier",
+        "sk-burst-shakai"
+      ],
       "line": "近[ちか]くを 見[み]れば 山[やま]、遠[とお]くを 見[み]れば 点[てん]。どちらか 一方[いっぽう]だけを 選[えら]べ！"
     },
     {
       "hpBelow": 0.25,
       "element": "yami",
-      "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-rika"],
+      "skills": [
+        "sk-yami-no-uta",
+        "sk-shiraberu",
+        "sk-burst-rika"
+      ],
       "line": "縮尺[しゅくしゃく]も 視点[してん]も 変[か]えるな！ わが 地図[ちず]の 外[そと]を 見[み]るな！"
     }
   ]

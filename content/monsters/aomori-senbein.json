@@ -7,22 +7,50 @@
   "element": "hino",
   "weakness": "mizu",
   "baseStats": {
-    "hp": 30,
-    "mp": 7,
-    "atk": 9,
-    "def": 6,
-    "spd": 7,
-    "wis": 4
+    "hp": 18,
+    "mp": 4.2,
+    "spd": 5,
+    "wis": 2.4,
+    "scienceAtk": 5.6,
+    "humanitiesAtk": 5.6,
+    "scienceDef": 4,
+    "humanitiesDef": 4
   },
   "growth": {
-    "hp": 4.5,
-    "mp": 1,
-    "atk": 1.3,
-    "def": 0.9,
-    "spd": 1.1,
-    "wis": 0.7
+    "base": {
+      "hp": 2.7,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-hinoko"],
+  "skills": [
+    "sk-hinoko"
+  ],
   "drops": [
     {
       "itemId": "aomori-senbeijiru",

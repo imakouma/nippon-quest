@@ -7,22 +7,51 @@
   "element": "tsuchi",
   "weakness": "mizu",
   "baseStats": {
-    "hp": 377,
-    "mp": 50,
-    "atk": 22,
-    "def": 18,
-    "spd": 9,
-    "wis": 13
+    "hp": 226.2,
+    "mp": 30,
+    "spd": 6.4,
+    "wis": 7.8,
+    "scienceAtk": 13.8,
+    "humanitiesAtk": 13.8,
+    "scienceDef": 12,
+    "humanitiesDef": 12
   },
   "growth": {
-    "hp": 10,
-    "mp": 2,
-    "atk": 1.5,
-    "def": 1.2,
-    "spd": 0.8,
-    "wis": 1
+    "base": {
+      "hp": 6,
+      "mp": 1.2,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-iwa-otoshi", "sk-tsuchi-kabe"],
+  "skills": [
+    "sk-iwa-otoshi",
+    "sk-tsuchi-kabe"
+  ],
   "drops": [
     {
       "itemId": "common-tetsu",
@@ -52,7 +81,10 @@
     {
       "hpBelow": 0.5,
       "element": "hino",
-      "skills": ["sk-hono-no-uzu", "sk-yamadashi-tosshin"],
+      "skills": [
+        "sk-hono-no-uzu",
+        "sk-yamadashi-tosshin"
+      ],
       "line": "ゴゴゴ…！ 体[からだ]の 銅[どう]が 赤[あか]く もえだしたぞ！"
     }
   ]

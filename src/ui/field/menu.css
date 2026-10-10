@@ -313,6 +313,19 @@
   color: var(--nq-yellow);
   font-size: 16px;
 }
+.nq-roadmap-summary-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nq-roadmap-summary-extra {
+  padding: 0 4px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  border: 2px solid #28586e;
+  background: #26778e;
+}
 .nq-roadmap-summary-meter {
   display: block;
   height: 12px;

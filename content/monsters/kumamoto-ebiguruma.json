@@ -7,22 +7,50 @@
   "element": "mizu",
   "weakness": "mori",
   "baseStats": {
-    "hp": 49,
-    "mp": 12,
-    "atk": 15,
-    "def": 9,
-    "spd": 11,
-    "wis": 8
+    "hp": 29.4,
+    "mp": 7.2,
+    "spd": 7.9,
+    "wis": 4.8,
+    "scienceAtk": 9.4,
+    "humanitiesAtk": 9.4,
+    "scienceDef": 6,
+    "humanitiesDef": 6
   },
   "growth": {
-    "hp": 4.6,
-    "mp": 1,
-    "atk": 1.4,
-    "def": 0.9,
-    "spd": 1.2,
-    "wis": 0.7
+    "base": {
+      "hp": 2.8,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-shizuku"],
+  "skills": [
+    "sk-shizuku"
+  ],
   "drops": [
     {
       "itemId": "kumamoto-tairyo-hata",

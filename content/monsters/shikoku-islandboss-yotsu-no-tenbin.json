@@ -6,9 +6,53 @@
   "motifId": "four-scales",
   "element": "tsuchi",
   "weakness": "kaze",
-  "baseStats": { "hp": 1370, "mp": 188, "atk": 37, "def": 31, "spd": 19, "wis": 37 },
-  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
-  "skills": ["sk-tsuchi-kabe", "sk-iwa-otoshi", "sk-shiraberu"],
+  "baseStats": {
+    "hp": 822,
+    "mp": 112.8,
+    "spd": 13.6,
+    "wis": 22.2,
+    "scienceAtk": 23.1,
+    "humanitiesAtk": 23.1,
+    "scienceDef": 20.7,
+    "humanitiesDef": 20.7
+  },
+  "growth": {
+    "base": {
+      "hp": 0,
+      "mp": 0,
+      "spd": 0,
+      "wis": 0,
+      "scienceAtk": 0,
+      "humanitiesAtk": 0,
+      "scienceDef": 0,
+      "humanitiesDef": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
+  },
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-iwa-otoshi",
+    "sk-shiraberu"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 1960,
@@ -18,7 +62,25 @@
   "fieldLine": "守[まも]りたいと 願[ねが]ったなら、どんな 手段[しゅだん]も 正[ただ]しい！ 結果[けっか]の 責任[せきにん]など 捨[す]ててしまえ！",
   "isBoss": true,
   "bossPhases": [
-    { "hpBelow": 0.66, "element": "hikari", "skills": ["sk-hikari-no-ya", "sk-kanji-barrier", "sk-burst-sansu"], "line": "善[よ]い 目的[もくてき]だけを はかれ！ 代償[だいしょう]など 見[み]るな！" },
-    { "hpBelow": 0.25, "element": "yami", "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-shakai"], "line": "起[お]きた 結果[けっか]は 運命[うんめい]だ！ 選[えら]んだ 者[もの]に 責任[せきにん]など ない！" }
+    {
+      "hpBelow": 0.66,
+      "element": "hikari",
+      "skills": [
+        "sk-hikari-no-ya",
+        "sk-kanji-barrier",
+        "sk-burst-sansu"
+      ],
+      "line": "善[よ]い 目的[もくてき]だけを はかれ！ 代償[だいしょう]など 見[み]るな！"
+    },
+    {
+      "hpBelow": 0.25,
+      "element": "yami",
+      "skills": [
+        "sk-yami-no-uta",
+        "sk-shiraberu",
+        "sk-burst-shakai"
+      ],
+      "line": "起[お]きた 結果[けっか]は 運命[うんめい]だ！ 選[えら]んだ 者[もの]に 責任[せきにん]など ない！"
+    }
   ]
 }

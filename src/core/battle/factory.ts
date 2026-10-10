@@ -8,7 +8,7 @@ import type { Combatant, Party } from './types';
 export interface HeroSpec {
   name: string;
   level: number;
-  baseStats: Stats;
+  baseStats: Stats | LegacyStats;
   growth: GrowthCurve | LegacyGrowth;
   skills: string[];
   equipment: Partial<Record<'weapon' | 'head' | 'chest' | 'legs' | 'feet', string>>;
@@ -17,6 +17,7 @@ export interface HeroSpec {
 }
 
 type LegacyGrowth = { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
+type LegacyStats = { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
 
 const STAT_KEYS = [
   'hp',
@@ -45,15 +46,31 @@ function normalizedGrowth(growth: GrowthCurve | LegacyGrowth): GrowthCurve {
   return { base, every5: zero, every10: zero };
 }
 
-export function statsAtLevel(base: Stats, growthInput: HeroSpec['growth'], level: number): Stats {
+export function statsAtLevel(base: Stats | LegacyStats, growthInput: HeroSpec['growth'], level: number): Stats {
   const growth = normalizedGrowth(growthInput);
+  const legacy = base as Stats & Partial<LegacyStats>;
+  const normalizedBase: Stats =
+    legacy.scienceAtk === undefined
+      ? {
+          hp: legacy.hp,
+          mp: legacy.mp,
+          scienceAtk: legacy.atk ?? 0,
+          humanitiesAtk: legacy.atk ?? 0,
+          scienceDef: legacy.def ?? 0,
+          humanitiesDef: legacy.def ?? 0,
+          spd: legacy.spd,
+          wis: legacy.wis,
+        }
+      : (base as Stats);
   const n = Math.max(0, level - 1);
   const minor = Math.floor(level / 5);
   const major = Math.floor(level / 10);
   return Object.fromEntries(
     STAT_KEYS.map((key) => [
       key,
-      Math.floor(base[key] + growth.base[key] * n + growth.every5[key] * minor + growth.every10[key] * major),
+      Math.floor(
+        normalizedBase[key] + growth.base[key] * n + growth.every5[key] * minor + growth.every10[key] * major,
+      ),
     ]),
   ) as Stats;
 }

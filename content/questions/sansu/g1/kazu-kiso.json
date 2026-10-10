@@ -160,5 +160,55 @@
       "shuffle": true
     },
     "explanation": "8と 2を あわせると 10に なります。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.place-value-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "34は、10の まとまりが いくつと、ばらが いくつ？",
+      "choices": [
+        { "id": "a", "text": "10の まとまりが 3つ、ばらが 4つ" },
+        { "id": "b", "text": "10の まとまりが 4つ、ばらが 3つ" },
+        { "id": "c", "text": "10の まとまりが 3つ、ばらが 3つ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "34は、10が 3つで 30、ばらが 4つです。30と 4を あわせて 34です。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.place-value-0002",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "10の まとまりが 5つ、ばらが 2つ。いくつに なる？",
+      "template": "50 と 2 で □",
+      "answers": ["52"]
+    },
+    "explanation": "10が 5つで 50。50と 2を あわせると 52です。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.place-value-0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "67の「6」は、いくつを あらわしている？",
+      "choices": [
+        { "id": "a", "text": "6" },
+        { "id": "b", "text": "60" },
+        { "id": "c", "text": "7" },
+        { "id": "d", "text": "70" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "67の「6」は 10の まとまりが 6つあることを あらわすので、60です。"
   }
 ]

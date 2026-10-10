@@ -7,22 +7,50 @@
   "element": "mizu",
   "weakness": "mori",
   "baseStats": {
-    "hp": 34,
-    "mp": 10,
-    "atk": 8,
-    "def": 6,
-    "spd": 8,
-    "wis": 8
+    "hp": 20.4,
+    "mp": 6,
+    "spd": 5.7,
+    "wis": 4.8,
+    "scienceAtk": 5,
+    "humanitiesAtk": 5,
+    "scienceDef": 4,
+    "humanitiesDef": 4
   },
   "growth": {
-    "hp": 4.6,
-    "mp": 1.2,
-    "atk": 1.1,
-    "def": 1,
-    "spd": 1,
-    "wis": 1
+    "base": {
+      "hp": 2.8,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-shizuku"],
+  "skills": [
+    "sk-shizuku"
+  ],
   "drops": [
     {
       "itemId": "miyagi-hakucho-no-hane",

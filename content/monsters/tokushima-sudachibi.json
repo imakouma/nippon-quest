@@ -7,22 +7,50 @@
   "element": "mori",
   "weakness": "hino",
   "baseStats": {
-    "hp": 47,
-    "mp": 13,
-    "atk": 13,
-    "def": 7,
-    "spd": 11,
-    "wis": 9
+    "hp": 28.2,
+    "mp": 7.8,
+    "spd": 7.9,
+    "wis": 5.4,
+    "scienceAtk": 8.1,
+    "humanitiesAtk": 8.1,
+    "scienceDef": 4.7,
+    "humanitiesDef": 4.7
   },
   "growth": {
-    "hp": 4.6,
-    "mp": 1,
-    "atk": 1.3,
-    "def": 0.8,
-    "spd": 1.2,
-    "wis": 0.8
+    "base": {
+      "hp": 2.8,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-happa-tobashi"],
+  "skills": [
+    "sk-happa-tobashi"
+  ],
   "drops": [
     {
       "itemId": "tokushima-sudachi-no-hana",

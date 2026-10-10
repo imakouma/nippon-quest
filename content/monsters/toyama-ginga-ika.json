@@ -7,22 +7,52 @@
   "element": "hikari",
   "weakness": "yami",
   "baseStats": {
-    "hp": 50,
-    "mp": 17,
-    "atk": 15,
-    "def": 9,
-    "spd": 12,
-    "wis": 11
+    "hp": 30,
+    "mp": 10.2,
+    "spd": 8.6,
+    "wis": 6.6,
+    "scienceAtk": 9.4,
+    "humanitiesAtk": 9.4,
+    "scienceDef": 6,
+    "humanitiesDef": 6
   },
   "growth": {
-    "hp": 5.4,
-    "mp": 1.2,
-    "atk": 1.7,
-    "def": 1.0,
-    "spd": 1.3,
-    "wis": 1.1
+    "base": {
+      "hp": 3.2,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1.1,
+      "humanitiesAtk": 1.1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-tashizan-giri", "sk-kanji-barrier", "sk-hikari-no-ya"],
+  "skills": [
+    "sk-tashizan-giri",
+    "sk-kanji-barrier",
+    "sk-hikari-no-ya"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 28,

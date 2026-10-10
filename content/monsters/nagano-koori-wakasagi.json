@@ -7,27 +7,53 @@
   "element": "mizu",
   "weakness": "mori",
   "baseStats": {
-    "hp": 57,
-    "mp": 15,
-    "atk": 16,
-    "def": 11,
-    "spd": 12,
-    "wis": 9
+    "hp": 34.2,
+    "mp": 9,
+    "spd": 8.6,
+    "wis": 5.4,
+    "scienceAtk": 10,
+    "humanitiesAtk": 10,
+    "scienceDef": 7.3,
+    "humanitiesDef": 7.3
   },
   "growth": {
-    "hp": 6.0,
-    "mp": 1.2,
-    "atk": 1.6,
-    "def": 1.2,
-    "spd": 1.2,
-    "wis": 1.0
+    "base": {
+      "hp": 3.6,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-mizu-teppo",
     "sk-uzushio"
   ],
   "drops": [],
-  "recruitRate": 0.0,
+  "recruitRate": 0,
   "xp": 30,
   "gold": 21,
   "spriteKey": "mon.nagano-koori-wakasagi",

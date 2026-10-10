@@ -7,20 +7,46 @@
   "element": "tsuchi",
   "weakness": "kaze",
   "baseStats": {
-    "hp": 75,
-    "mp": 19,
-    "atk": 18,
-    "def": 17,
-    "spd": 9,
-    "wis": 12
+    "hp": 45,
+    "mp": 11.4,
+    "spd": 6.4,
+    "wis": 7.2,
+    "scienceAtk": 11.3,
+    "humanitiesAtk": 11.3,
+    "scienceDef": 11.3,
+    "humanitiesDef": 11.3
   },
   "growth": {
-    "hp": 6.2,
-    "mp": 1.2,
-    "atk": 1.4,
-    "def": 1.4,
-    "spd": 1.0,
-    "wis": 1.0
+    "base": {
+      "hp": 3.7,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-tsuchi-kabe",

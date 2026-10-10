@@ -10,6 +10,8 @@ import type { ElementTable, Item, Monster, Settings, Skill } from '../content/sc
 import { createRng, type Rng } from '../rng';
 import { addProgressValue } from '../../shared/safeInteger';
 import { comboBonus, computeDamage, fleeChance, recruitChance, scoreBand, scoreMultiplier } from './damage';
+import { commandPriority, initiativeOrder } from './initiative';
+import { clampBattleValue, cloneBattleValue, emptyGauges } from './utils';
 import type {
   BattleEvent,
   BattleState,
@@ -19,7 +21,6 @@ import type {
   EnemyUnit,
   Party,
   Side,
-  SubjectGauges,
   TargetType,
 } from './types';
 
@@ -57,17 +58,7 @@ const ENEMY_HEAL_RATIO = 0.25;
 const ENEMY_GUARD_MULT = 1.5;
 const ENEMY_GUARD_TURNS = 1;
 
-function clone<T>(x: T): T {
-  return structuredClone(x);
-}
-
-function clamp(x: number, lo: number, hi: number): number {
-  return Math.min(hi, Math.max(lo, x));
-}
-
-export function emptyGauges(): SubjectGauges {
-  return { kokugo: 0, sansu: 0, rika: 0, shakai: 0, seikatsu: 0, eigo: 0 };
-}
+export { emptyGauges } from './utils';
 
 /** 必殺技の 対象。targetType を 省略したら effect から（かいふく・まもりは 自分、ほかは 敵） */
 export function skillTarget(sk: Pick<Skill, 'targetType' | 'effect'>): TargetType {
@@ -152,11 +143,11 @@ export function createBattle(
   },
   def: BattleDeps,
 ): BattleState {
-  const ally = clone(opts.ally);
+  const ally = cloneBattleValue(opts.ally);
   const alive = ally.monsters.findIndex((m) => m.hp > 0);
   if ((ally.monsters[ally.activeMonsterIndex]?.hp ?? 0) <= 0 && alive >= 0) ally.activeMonsterIndex = alive;
 
-  const enemy: EnemyUnit = { ...clone(opts.enemy), skipTurns: 0 };
+  const enemy: EnemyUnit = { ...cloneBattleValue(opts.enemy), skipTurns: 0 };
 
   return {
     turn: 1,
@@ -429,7 +420,7 @@ function useSkill(
     ev.push({ t: 'gaugeUse', subject: sk.subject, amount: sk.costGauge, value: p.subjectGauges[sk.subject] });
   }
 
-  const score = clamp(Number.isFinite(command.result.score) ? command.result.score : 0, 0, 1);
+  const score = clampBattleValue(Number.isFinite(command.result.score) ? command.result.score : 0, 0, 1);
   const band = scoreBand(score);
   const mult = scoreMultiplier(score, st);
   // コンボ（Streak）：GREAT 以上なら +1、GOOD・MISS なら 0 に もどる
@@ -578,29 +569,60 @@ function heroCommand(
   }
 }
 
-/**
- * 1 ターンを すすめる：主人公の コマンド → オトモ → てき。
- * コマンドが 成立しなかった ときは ターンが すすまず、events だけ（gaugeShort など）を かえす
- */
+function invalidCommandEvents(s: BattleState, command: Command, def: BattleDeps): BattleEvent[] | null {
+  if (command.kind === 'skill') {
+    const entry = battleSkills(s, def).find(
+      (candidate) =>
+        candidate.skill.id === command.skillId && candidate.actorId === (command.actorId ?? s.ally.hero.id),
+    );
+    if (!entry) throw new Error(`skill "${command.skillId}" は いま つかえません`);
+    const have = s.player.subjectGauges[entry.skill.subject];
+    if (have < entry.skill.costGauge)
+      return [{ t: 'gaugeShort', subject: entry.skill.subject, need: entry.skill.costGauge, have }];
+  }
+  if (command.kind === 'item') {
+    const item = def.items.get(command.itemId);
+    if (!item || (s.ally.items[command.itemId] ?? 0) <= 0 || !canUseBattleItem(s, item)) return [];
+  }
+  if (command.kind === 'swap') {
+    const target = s.ally.monsters[command.monsterIndex];
+    if (!target || target.hp <= 0 || command.monsterIndex === s.ally.activeMonsterIndex) return [];
+  }
+  if (command.kind === 'flee' && s.isBossBattle && !s.canFleeBoss)
+    return [{ t: 'fleeAttempt', success: false, chance: 0 }];
+  return null;
+}
+
+/** 1ターンを優先度→素早さ→シード付き同速抽選の順で解決する。 */
 export function act(prev: BattleState, command: Command, def: BattleDeps): StepOutput {
-  const s = clone(prev);
+  const s = cloneBattleValue(prev);
   const ev: BattleEvent[] = [];
   // たおれた 主人公は コマンドを 出せない（wait なら ターンだけ すすむ）
   if (s.outcome !== 'ongoing' || (s.ally.hero.hp <= 0 && command.kind !== 'wait')) return done(s, null, ev);
   const rng = rngFor(s);
 
-  ev.push({ t: 'turnStart', turn: s.turn });
-  const used = heroCommand(s, command, def, rng, ev);
-  finishIfOver(s, def, rng, ev);
-  if (!used) {
-    // ターンは すすまない（turnStart は 出したままに しない）
-    const idx = ev.findIndex((e) => e.t === 'turnStart');
-    if (idx >= 0) ev.splice(idx, 1);
-    return done(s, rng, ev);
-  }
+  const invalid = invalidCommandEvents(s, command, def);
+  if (invalid) return done(s, rng, invalid);
 
-  if (s.outcome === 'ongoing') companionAction(s, def, rng, ev);
-  if (s.outcome === 'ongoing') enemyTurn(s, def, rng, ev);
+  ev.push({ t: 'turnStart', turn: s.turn });
+  const companion = s.ally.monsters[s.ally.activeMonsterIndex];
+  const order = initiativeOrder(
+    [
+      { actor: 'hero', speed: s.ally.hero.stats.spd, priority: commandPriority(command) },
+      ...(companion && companion.hp > 0
+        ? ([{ actor: 'companion', speed: companion.stats.spd, priority: 0 }] as const)
+        : []),
+      { actor: 'enemy', speed: s.enemy.stats.spd, priority: 0 },
+    ],
+    rng,
+  );
+  for (const actor of order) {
+    if (s.outcome !== 'ongoing') break;
+    if (actor === 'hero') heroCommand(s, command, def, rng, ev);
+    else if (actor === 'companion') companionAction(s, def, rng, ev);
+    else enemyTurn(s, def, rng, ev);
+    finishIfOver(s, def, rng, ev);
+  }
   if (s.outcome === 'ongoing') {
     for (const c of [s.ally.hero, ...s.ally.monsters, s.enemy]) decayBuffs(c);
     s.turn += 1;

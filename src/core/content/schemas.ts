@@ -31,8 +31,10 @@ export const gradeRangeSchema = z
 export const elementSchema = z.enum(['hino', 'mizu', 'mori', 'tsuchi', 'kaze', 'hikari', 'yami', 'none']);
 
 const academicStatsObjectSchema = z.object({
-  hp: safeNonnegativeIntegerSchema,
-  mp: safeNonnegativeIntegerSchema,
+  // 成長曲線との整合のため、基礎値は小数を許可する。実際の戦闘値は
+  // statsAtLevel() で切り捨てられるため、HP/MP はゲーム中では整数のままになる。
+  hp: z.number().nonnegative(),
+  mp: z.number().nonnegative(),
   scienceAtk: z.number().nonnegative(),
   humanitiesAtk: z.number().nonnegative(),
   scienceDef: z.number().nonnegative(),
@@ -68,10 +70,30 @@ const zeroStats = {
   wis: 0,
 };
 
-export const growthCurveSchema = z.preprocess((value) => {
-  if (!value || typeof value !== 'object' || 'base' in value) return value;
-  return { base: value, every5: zeroStats, every10: zeroStats };
-}, z.object({ base: statsSchema, every5: statsSchema, every10: statsSchema }));
+const growthValuesSchema = z.object({
+  hp: z.number().nonnegative(),
+  mp: z.number().nonnegative(),
+  scienceAtk: z.number().nonnegative(),
+  humanitiesAtk: z.number().nonnegative(),
+  scienceDef: z.number().nonnegative(),
+  humanitiesDef: z.number().nonnegative(),
+  spd: z.number().nonnegative(),
+  wis: z.number().nonnegative(),
+});
+
+const normalizeLegacyGrowthValues = (value: unknown): unknown => normalizeLegacyStats(value);
+
+export const growthCurveSchema = z.preprocess(
+  (value) => {
+    if (!value || typeof value !== 'object' || 'base' in value) return value;
+    return { base: value, every5: zeroStats, every10: zeroStats };
+  },
+  z.object({
+    base: z.preprocess(normalizeLegacyGrowthValues, growthValuesSchema),
+    every5: z.preprocess(normalizeLegacyGrowthValues, growthValuesSchema),
+    every10: z.preprocess(normalizeLegacyGrowthValues, growthValuesSchema),
+  }),
+);
 
 // ───────────────────────── World / Island ─────────────────────────
 export const islandSchema = z.object({
@@ -353,6 +375,7 @@ export const skillSchema = z.object({
   id: idSchema,
   name: rubyTextSchema,
   subject: subjectSchema,
+  attackClass: z.enum(['science', 'humanities', 'balanced']).optional(),
   gradeRange: gradeRangeSchema,
   unitHint: z.array(z.string()).optional(),
   power: z.number().nonnegative().describe('いりょく（100 = 1 ばい）'),

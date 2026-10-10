@@ -7,22 +7,51 @@
   "element": "hino",
   "weakness": "mizu",
   "baseStats": {
-    "hp": 302,
-    "mp": 43,
-    "atk": 18,
-    "def": 12,
-    "spd": 10,
-    "wis": 11
+    "hp": 181.2,
+    "mp": 25.8,
+    "spd": 7.1,
+    "wis": 6.6,
+    "scienceAtk": 11.3,
+    "humanitiesAtk": 11.3,
+    "scienceDef": 8,
+    "humanitiesDef": 8
   },
   "growth": {
-    "hp": 10,
-    "mp": 2,
-    "atk": 1.5,
-    "def": 1.2,
-    "spd": 0.8,
-    "wis": 1
+    "base": {
+      "hp": 6,
+      "mp": 1.2,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-hono-no-uzu", "sk-hono-no-mai"],
+  "skills": [
+    "sk-hono-no-uzu",
+    "sk-hono-no-mai"
+  ],
   "drops": [
     {
       "itemId": "common-tetsu",

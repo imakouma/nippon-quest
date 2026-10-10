@@ -207,13 +207,13 @@ describe('装備・隣接効果・描画セル', () => {
 
   it('序盤はれんしゅうのぼうだけを主人公の右に装備できる', () => {
     const s = fresh();
-    const beforeAtk = partyFromGameState(s, c).hero.stats.atk;
+    const beforeAtk = partyFromGameState(s, c).hero.stats.scienceAtk;
     const starter = c.items.get('common-renshu-no-bou')!;
     const placed = putEquip(s, starter, bagContext(s, c));
     expect(placed.result).toBe('added');
     expect(placed.state.party.bagPlacements['eq:weapon']).toMatchObject({ x: 2, y: 1 });
     expect(activeEquipment(placed.state).weapon).toBe(starter.id);
-    expect(partyFromGameState(placed.state, c).hero.stats.atk).toBe(beforeAtk + 1);
+    expect(partyFromGameState(placed.state, c).hero.stats.scienceAtk).toBe(beforeAtk + 1);
   });
 
   it('主人公に隣接した仲間が属性に応じた5%支援を与える', () => {

@@ -257,7 +257,7 @@ describe('content loader', () => {
     const use = consumable.use!;
     delete consumable.use;
     equipment.use = use;
-    consumable.stats = { atk: 1 };
+    consumable.stats = { scienceAtk: 1 };
     consumable.element = 'hino';
     consumable.grantsSkill = c.skills.keys().next().value!;
     consumable.setId = c.sets.keys().next().value!;
@@ -578,7 +578,7 @@ describe('content loader', () => {
   it('成長値は減少せず、問題の好成績ほど攻撃倍率が下がらない', async () => {
     const c = await loadContent(read);
     const monster = structuredClone(c.monsters.values().next().value!);
-    monster.growth.hp = -1;
+    monster.growth.base.hp = -1;
     expect(monsterSchema.safeParse(monster).success).toBe(false);
 
     const settings = structuredClone(c.settings);

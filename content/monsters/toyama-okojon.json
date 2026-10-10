@@ -7,22 +7,50 @@
   "element": "kaze",
   "weakness": "tsuchi",
   "baseStats": {
-    "hp": 35,
-    "mp": 9,
-    "atk": 12,
-    "def": 6,
-    "spd": 11,
-    "wis": 6
+    "hp": 21,
+    "mp": 5.4,
+    "spd": 7.9,
+    "wis": 3.6,
+    "scienceAtk": 7.5,
+    "humanitiesAtk": 7.5,
+    "scienceDef": 4,
+    "humanitiesDef": 4
   },
   "growth": {
-    "hp": 4.5,
-    "mp": 1,
-    "atk": 1.5,
-    "def": 0.8,
-    "spd": 1.2,
-    "wis": 0.7
+    "base": {
+      "hp": 2.7,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-abc-call"],
+  "skills": [
+    "sk-abc-call"
+  ],
   "drops": [
     {
       "itemId": "toyama-haimatsu-no-tane",

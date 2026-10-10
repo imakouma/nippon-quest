@@ -14,43 +14,158 @@
         "heroGrowth": {
           "type": "object",
           "properties": {
-            "hp": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 9007199254740991
+            "base": {
+              "type": "object",
+              "properties": {
+                "hp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "mp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "scienceAtk": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "humanitiesAtk": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "scienceDef": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "humanitiesDef": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "spd": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "wis": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "hp",
+                "mp",
+                "scienceAtk",
+                "humanitiesAtk",
+                "scienceDef",
+                "humanitiesDef",
+                "spd",
+                "wis"
+              ],
+              "additionalProperties": false
             },
-            "mp": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 9007199254740991
+            "every5": {
+              "type": "object",
+              "properties": {
+                "hp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "mp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "scienceAtk": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "humanitiesAtk": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "scienceDef": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "humanitiesDef": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "spd": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "wis": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "hp",
+                "mp",
+                "scienceAtk",
+                "humanitiesAtk",
+                "scienceDef",
+                "humanitiesDef",
+                "spd",
+                "wis"
+              ],
+              "additionalProperties": false
             },
-            "atk": {
-              "type": "number",
-              "minimum": 0
-            },
-            "def": {
-              "type": "number",
-              "minimum": 0
-            },
-            "spd": {
-              "type": "number",
-              "minimum": 0
-            },
-            "wis": {
-              "type": "number",
-              "minimum": 0
+            "every10": {
+              "type": "object",
+              "properties": {
+                "hp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "mp": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "scienceAtk": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "humanitiesAtk": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "scienceDef": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "humanitiesDef": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "spd": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "wis": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "hp",
+                "mp",
+                "scienceAtk",
+                "humanitiesAtk",
+                "scienceDef",
+                "humanitiesDef",
+                "spd",
+                "wis"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
-            "hp",
-            "mp",
-            "atk",
-            "def",
-            "spd",
-            "wis"
+            "base",
+            "every5",
+            "every10"
           ],
           "additionalProperties": false,
-          "description": "主人公が 1 レベル上がるごとの ステータス成長量"
+          "description": "主人公の基礎成長と5・10レベルごとの節目成長"
         },
         "scoreMultipliers": {
           "type": "object",

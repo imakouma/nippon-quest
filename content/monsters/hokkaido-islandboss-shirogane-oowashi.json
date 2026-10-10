@@ -7,22 +7,52 @@
   "element": "kaze",
   "weakness": "hino",
   "baseStats": {
-    "hp": 620,
-    "mp": 86,
-    "atk": 22,
-    "def": 17,
-    "spd": 14,
-    "wis": 16
+    "hp": 372,
+    "mp": 51.6,
+    "spd": 10,
+    "wis": 9.6,
+    "scienceAtk": 13.8,
+    "humanitiesAtk": 13.8,
+    "scienceDef": 11.3,
+    "humanitiesDef": 11.3
   },
   "growth": {
-    "hp": 0,
-    "mp": 0,
-    "atk": 0,
-    "def": 0,
-    "spd": 0,
-    "wis": 0
+    "base": {
+      "hp": 0,
+      "mp": 0,
+      "spd": 0,
+      "wis": 0,
+      "scienceAtk": 0,
+      "humanitiesAtk": 0,
+      "scienceDef": 0,
+      "humanitiesDef": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-fubuki", "sk-happa-arashi", "sk-kuku-rush"],
+  "skills": [
+    "sk-fubuki",
+    "sk-happa-arashi",
+    "sk-kuku-rush"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 760,
@@ -35,13 +65,21 @@
     {
       "hpBelow": 0.66,
       "element": "mizu",
-      "skills": ["sk-fubuki", "sk-uzushio", "sk-tsuchi-kabe"],
+      "skills": [
+        "sk-fubuki",
+        "sk-uzushio",
+        "sk-tsuchi-kabe"
+      ],
       "line": "流氷[りゅうひょう]よ、道[みち]を 閉[と]ざせ！ 春[はる]など ここへは 来[こ]ない！"
     },
     {
       "hpBelow": 0.25,
       "element": "hikari",
-      "skills": ["sk-happa-arashi", "sk-kuku-rush", "sk-shiraberu"],
+      "skills": [
+        "sk-happa-arashi",
+        "sk-kuku-rush",
+        "sk-shiraberu"
+      ],
       "line": "雲[くも]の 上[うえ]に 光[ひかり]が……。わしは、季節[きせつ]を 運[はこ]ぶ 道[みち]まで 忘[わす]れていたのか。"
     }
   ]

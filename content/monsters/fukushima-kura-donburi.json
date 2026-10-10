@@ -7,20 +7,46 @@
   "element": "hino",
   "weakness": "mizu",
   "baseStats": {
-    "hp": 52,
-    "mp": 13,
-    "atk": 15,
-    "def": 10,
-    "spd": 10,
-    "wis": 8
+    "hp": 31.2,
+    "mp": 7.8,
+    "spd": 7.1,
+    "wis": 4.8,
+    "scienceAtk": 9.4,
+    "humanitiesAtk": 9.4,
+    "scienceDef": 6.7,
+    "humanitiesDef": 6.7
   },
   "growth": {
-    "hp": 5.7,
-    "mp": 1.2,
-    "atk": 1.8,
-    "def": 1.1,
-    "spd": 1.2,
-    "wis": 1
+    "base": {
+      "hp": 3.4,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1.1,
+      "humanitiesAtk": 1.1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-hono-no-mai",

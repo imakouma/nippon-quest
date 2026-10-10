@@ -7,22 +7,50 @@
   "element": "mizu",
   "weakness": "mori",
   "baseStats": {
-    "hp": 54,
-    "mp": 11,
-    "atk": 11,
-    "def": 11,
-    "spd": 6,
-    "wis": 9
+    "hp": 32.4,
+    "mp": 6.6,
+    "spd": 4.3,
+    "wis": 5.4,
+    "scienceAtk": 6.9,
+    "humanitiesAtk": 6.9,
+    "scienceDef": 7.3,
+    "humanitiesDef": 7.3
   },
   "growth": {
-    "hp": 5.2,
-    "mp": 1,
-    "atk": 1.2,
-    "def": 1.2,
-    "spd": 0.8,
-    "wis": 0.8
+    "base": {
+      "hp": 3.1,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-shizuku"],
+  "skills": [
+    "sk-shizuku"
+  ],
   "drops": [
     {
       "itemId": "hiroshima-tanegaki-hotate",

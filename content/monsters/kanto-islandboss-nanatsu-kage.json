@@ -7,22 +7,52 @@
   "element": "yami",
   "weakness": "hikari",
   "baseStats": {
-    "hp": 760,
-    "mp": 108,
-    "atk": 25,
-    "def": 19,
-    "spd": 17,
-    "wis": 21
+    "hp": 456,
+    "mp": 64.8,
+    "spd": 12.1,
+    "wis": 12.6,
+    "scienceAtk": 15.6,
+    "humanitiesAtk": 15.6,
+    "scienceDef": 12.7,
+    "humanitiesDef": 12.7
   },
   "growth": {
-    "hp": 0,
-    "mp": 0,
-    "atk": 0,
-    "def": 0,
-    "spd": 0,
-    "wis": 0
+    "base": {
+      "hp": 0,
+      "mp": 0,
+      "spd": 0,
+      "wis": 0,
+      "scienceAtk": 0,
+      "humanitiesAtk": 0,
+      "scienceDef": 0,
+      "humanitiesDef": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-yami-no-uta", "sk-kana-barrier", "sk-kuku-rush"],
+  "skills": [
+    "sk-yami-no-uta",
+    "sk-kana-barrier",
+    "sk-kuku-rush"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 940,
@@ -35,13 +65,21 @@
     {
       "hpBelow": 0.66,
       "element": "kaze",
-      "skills": ["sk-habataki", "sk-yami-no-uta", "sk-burst-kokugo"],
+      "skills": [
+        "sk-habataki",
+        "sk-yami-no-uta",
+        "sk-burst-kokugo"
+      ],
       "line": "黒[くろ]い 糸[いと]よ、すべての 声[こえ]を 同[おな]じ 噂[うわさ]へ つなげ！"
     },
     {
       "hpBelow": 0.25,
       "element": "hikari",
-      "skills": ["sk-hikari-no-ya", "sk-shiraberu", "sk-burst-shakai"],
+      "skills": [
+        "sk-hikari-no-ya",
+        "sk-shiraberu",
+        "sk-burst-shakai"
+      ],
       "line": "なぜだ……。ちがう 声[こえ]を たしかめるたび、切[き]れたはずの 道[みち]が 光[ひか]っていく……！"
     }
   ]

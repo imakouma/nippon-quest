@@ -11,7 +11,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "flavor": "かずを かぞえて きりつける。しんかすると「たしざんぎり」に なる"
+    "flavor": "かずを かぞえて きりつける。しんかすると「たしざんぎり」に なる",
+    "attackClass": "science"
   },
   {
     "id": "sk-tashizan-giri",
@@ -25,7 +26,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "flavor": "たしざんを といて きりつける！"
+    "flavor": "たしざんを といて きりつける！",
+    "attackClass": "science"
   },
   {
     "id": "sk-happa-tobashi",
@@ -39,7 +41,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "flavor": "はっぱを 1まい とばす。しんかすると「はっぱカッター」に なる"
+    "flavor": "はっぱを 1まい とばす。しんかすると「はっぱカッター」に なる",
+    "attackClass": "balanced"
   },
   {
     "id": "sk-happa-cutter",
@@ -52,7 +55,8 @@
     "mp": 3,
     "gauge": 1,
     "costGauge": 0,
-    "effect": "damage"
+    "effect": "damage",
+    "attackClass": "balanced"
   },
   {
     "id": "sk-abc-call",
@@ -66,7 +70,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "flavor": "ABCを 小[ちい]さな こえで よぶ。しんかすると「ABCシャウト」に なる"
+    "flavor": "ABCを 小[ちい]さな こえで よぶ。しんかすると「ABCシャウト」に なる",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-abc-shout",
@@ -86,7 +91,8 @@
     "mp": 4,
     "gauge": 1,
     "costGauge": 0,
-    "effect": "damage"
+    "effect": "damage",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-shiraberu",
@@ -100,7 +106,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "scan",
-    "flavor": "じっけんで じゃくてんを 見[み]つける"
+    "flavor": "じっけんで じゃくてんを 見[み]つける",
+    "attackClass": "science"
   },
   {
     "id": "sk-kana-barrier",
@@ -115,7 +122,8 @@
     "costGauge": 0,
     "targetType": "self",
     "effect": "buff",
-    "flavor": "ひらがなの かべで じぶんだけ まもる。しんかすると「かんじバリア」（みんなを まもる）に なる"
+    "flavor": "ひらがなの かべで じぶんだけ まもる。しんかすると「かんじバリア」（みんなを まもる）に なる",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-kanji-barrier",
@@ -129,7 +137,8 @@
     "gauge": 1,
     "costGauge": 0,
     "targetType": "party",
-    "effect": "buff"
+    "effect": "buff",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-kuku-rush",
@@ -142,7 +151,8 @@
     "mp": 5,
     "gauge": 2,
     "costGauge": 50,
-    "effect": "damage"
+    "effect": "damage",
+    "attackClass": "science"
   },
   {
     "id": "sk-hinoko",
@@ -156,7 +166,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "flavor": "ちいさな 火[ひ]の粉[こ]を とばす。しんかすると「ほのおのまい」に なる"
+    "flavor": "ちいさな 火[ひ]の粉[こ]を とばす。しんかすると「ほのおのまい」に なる",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-hono-no-mai",
@@ -175,7 +186,8 @@
     "mp": 3,
     "gauge": 1,
     "costGauge": 0,
-    "effect": "damage"
+    "effect": "damage",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-rasseraa-no-hono",
@@ -189,7 +201,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "「ラッセラー！」 ねぶたの ほのおの うずで つつみこむ！"
+    "flavor": "「ラッセラー！」 ねぶたの ほのおの うずで つつみこむ！",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-yamadashi-tosshin",
@@ -203,7 +216,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "ねぶたの 山車[だし]で ドーンと とっしん！"
+    "flavor": "ねぶたの 山車[だし]で ドーンと とっしん！",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-shizuku",
@@ -217,7 +231,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "flavor": "水[みず]の しずくを ぽたっと おとす。しんかすると「みずてっぽう」に なる"
+    "flavor": "水[みず]の しずくを ぽたっと おとす。しんかすると「みずてっぽう」に なる",
+    "attackClass": "science"
   },
   {
     "id": "sk-mizu-teppo",
@@ -230,7 +245,8 @@
     "mp": 3,
     "gauge": 1,
     "costGauge": 0,
-    "effect": "damage"
+    "effect": "damage",
+    "attackClass": "science"
   },
   {
     "id": "sk-suna-kabe",
@@ -245,7 +261,8 @@
     "costGauge": 0,
     "targetType": "self",
     "effect": "buff",
-    "flavor": "すなを もりあげて じぶんだけ まもる。しんかすると「つちのかべ」（みんなを まもる）に なる"
+    "flavor": "すなを もりあげて じぶんだけ まもる。しんかすると「つちのかべ」（みんなを まもる）に なる",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-tsuchi-kabe",
@@ -259,7 +276,8 @@
     "gauge": 1,
     "costGauge": 0,
     "targetType": "party",
-    "effect": "buff"
+    "effect": "buff",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-kaikyo-no-kaze",
@@ -272,7 +290,8 @@
     "mp": 6,
     "gauge": 3,
     "costGauge": 100,
-    "effect": "damage"
+    "effect": "damage",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-yami-no-uta",
@@ -285,7 +304,8 @@
     "mp": 5,
     "gauge": 2,
     "costGauge": 50,
-    "effect": "damage"
+    "effect": "damage",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-fubuki",
@@ -298,7 +318,8 @@
     "mp": 8,
     "gauge": 3,
     "costGauge": 100,
-    "effect": "damage"
+    "effect": "damage",
+    "attackClass": "science"
   },
   {
     "id": "sk-konjiki-no-kiba",
@@ -312,7 +333,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "金色[こんじき]の 光[ひかり]で かみつく！"
+    "flavor": "金色[こんじき]の 光[ひかり]で かみつく！",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-mikazuki-giri",
@@ -326,7 +348,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "三日月[みかづき]の 形[かたち]に きりさく！"
+    "flavor": "三日月[みかづき]の 形[かたち]に きりさく！",
+    "attackClass": "science"
   },
   {
     "id": "sk-namahage-otakebi",
@@ -340,7 +363,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "「なまけものは いねがー！」"
+    "flavor": "「なまけものは いねがー！」",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-habataki",
@@ -354,7 +378,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "大[おお]きな つばさで 風[かぜ]を おこす！"
+    "flavor": "大[おお]きな つばさで 風[かぜ]を おこす！",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-hikari-no-hane",
@@ -368,7 +393,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "光[ひかり]の はねが ふりそそぐ！"
+    "flavor": "光[ひかり]の はねが ふりそそぐ！",
+    "attackClass": "science"
   },
   {
     "id": "sk-happa-arashi",
@@ -382,7 +408,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "はっぱの あらしで つつみこむ！"
+    "flavor": "はっぱの あらしで つつみこむ！",
+    "attackClass": "balanced"
   },
   {
     "id": "sk-uzushio",
@@ -396,7 +423,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "うずまく しおで まきこむ！"
+    "flavor": "うずまく しおで まきこむ！",
+    "attackClass": "science"
   },
   {
     "id": "sk-iwa-otoshi",
@@ -410,7 +438,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "大[おお]きな いわを ドスンと おとす！"
+    "flavor": "大[おお]きな いわを ドスンと おとす！",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-hono-no-uzu",
@@ -424,7 +453,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "ぐるぐる まわる ほのおで こうげき！"
+    "flavor": "ぐるぐる まわる ほのおで こうげき！",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-hikari-no-ya",
@@ -438,7 +468,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "flavor": "光[ひかり]の やを はなつ！"
+    "flavor": "光[ひかり]の やを はなつ！",
+    "attackClass": "science"
   },
   {
     "id": "sk-burst-kokugo",
@@ -451,7 +482,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "ためた こくごの ちからを いっきに はなつ！"
+    "flavor": "ためた こくごの ちからを いっきに はなつ！",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-burst-sansu",
@@ -464,7 +496,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "ためた さんすうの ちからを いっきに はなつ！"
+    "flavor": "ためた さんすうの ちからを いっきに はなつ！",
+    "attackClass": "science"
   },
   {
     "id": "sk-burst-rika",
@@ -477,7 +510,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "ためた りかの ちからを いっきに はなつ！"
+    "flavor": "ためた りかの ちからを いっきに はなつ！",
+    "attackClass": "science"
   },
   {
     "id": "sk-burst-shakai",
@@ -490,7 +524,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "ためた しゃかいの ちからを いっきに はなつ！"
+    "flavor": "ためた しゃかいの ちからを いっきに はなつ！",
+    "attackClass": "humanities"
   },
   {
     "id": "sk-burst-seikatsu",
@@ -503,7 +538,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "ためた せいかつの ちからを いっきに はなつ！"
+    "flavor": "ためた せいかつの ちからを いっきに はなつ！",
+    "attackClass": "balanced"
   },
   {
     "id": "sk-burst-eigo",
@@ -516,6 +552,7 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "flavor": "ためた えいごの ちからを いっきに はなつ！"
+    "flavor": "ためた えいごの ちからを いっきに はなつ！",
+    "attackClass": "humanities"
   }
 ]

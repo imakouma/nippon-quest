@@ -7,22 +7,51 @@
   "element": "mizu",
   "weakness": "mori",
   "baseStats": {
-    "hp": 52,
-    "mp": 15,
-    "atk": 13,
-    "def": 12,
-    "spd": 8,
-    "wis": 9
+    "hp": 31.2,
+    "mp": 9,
+    "spd": 5.7,
+    "wis": 5.4,
+    "scienceAtk": 8.1,
+    "humanitiesAtk": 8.1,
+    "scienceDef": 8,
+    "humanitiesDef": 8
   },
   "growth": {
-    "hp": 5.4,
-    "mp": 1.2,
-    "atk": 1.4,
-    "def": 1.4,
-    "spd": 1,
-    "wis": 1
+    "base": {
+      "hp": 3.2,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-mizu-teppo", "sk-uzushio"],
+  "skills": [
+    "sk-mizu-teppo",
+    "sk-uzushio"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 26,

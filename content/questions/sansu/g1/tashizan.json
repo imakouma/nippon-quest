@@ -132,5 +132,18 @@
       "shuffle": true
     },
     "explanation": "2こ ふえるので、5に 2を たす「5 + 2」にします。"
+  },
+  {
+    "id": "sansu.g1.tashizan.0008",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "8 + 7 = ？　10の まとまりを つくって こたえよう。",
+      "template": "8 + 7 = □",
+      "answers": ["15"]
+    },
+    "explanation": "7を 2と 5に わけます。8に 2を たして 10、のこりの 5を たして 15です。"
   }
 ]

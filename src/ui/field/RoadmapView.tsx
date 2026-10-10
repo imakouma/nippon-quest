@@ -10,7 +10,7 @@ type RoadmapTerm = 'all' | 1 | 2 | 3;
 function isNodeInTerm(node: RoadmapNode, term: RoadmapTerm): boolean {
   if (term === 'all') return true;
   const terms = node.recommendedTerms;
-  return !terms?.length || terms.includes('variable') || terms.includes(term);
+  return Boolean(terms?.includes('variable') || terms?.includes(term));
 }
 
 function roadmapTermLabel(node: RoadmapNode): string {
@@ -27,18 +27,22 @@ export function RoadmapView({
   nodes: RoadmapNode[];
   onSelect: (unitId: string) => void;
 }) {
-  const subjects = [...new Map(nodes.map((node) => [node.subject, node.subjectLabel])).entries()];
   const grades = [...new Set(nodes.map((node) => node.grade))].sort((a, b) => a - b);
   const [subject, setSubject] = useState('all');
   const [grade, setGrade] = useState<number | 'all'>('all');
   const [term, setTerm] = useState<RoadmapTerm>('all');
   const gradeNodes = grade === 'all' ? nodes : nodes.filter((node) => node.grade === grade);
   const termNodes = gradeNodes.filter((node) => isNodeInTerm(node, term));
-  const shown = subject === 'all' ? termNodes : termNodes.filter((node) => node.subject === subject);
-  const completed = shown.filter((node) => node.state === 'cleared').length;
+  const subjects = [...new Map(termNodes.map((node) => [node.subject, node.subjectLabel])).entries()];
+  const activeSubject = subjects.some(([key]) => key === subject) ? subject : 'all';
+  const shown =
+    activeSubject === 'all' ? termNodes : termNodes.filter((node) => node.subject === activeSubject);
+  const progressNodes =
+    activeSubject === 'all' ? shown.filter((node) => node.courseKind !== 'supplementary') : shown;
+  const completed = progressNodes.filter((node) => node.state === 'cleared').length;
 
   return (
-    <section class={`nq-roadmap nq-roadmap-subject-${subject}`} aria-label="がくしゅうロードマップ">
+    <section class={`nq-roadmap nq-roadmap-subject-${activeSubject}`} aria-label="がくしゅうロードマップ">
       <div class="nq-roadmap-grade-row">
         <RubyLabel class="nq-roadmap-filter-title" text={t('field.roadmapGrade')} />
         <div class="nq-roadmap-grades" role="group" aria-label={displayText(t('field.roadmapGradeFilter'))}>
@@ -77,8 +81,8 @@ export function RoadmapView({
       <div class="nq-roadmap-subjects" role="group" aria-label={displayText(t('field.roadmapSubjectFilter'))}>
         <button
           type="button"
-          class={`nq-opt nq-roadmap-subject ${subject === 'all' ? 'nq-focus' : ''}`}
-          aria-pressed={subject === 'all'}
+          class={`nq-opt nq-roadmap-subject ${activeSubject === 'all' ? 'nq-focus' : ''}`}
+          aria-pressed={activeSubject === 'all'}
           onClick={() => (playSfx('move'), setSubject('all'))}
         >
           <RubyLabel text={t('field.roadmapAllSubjects')} />
@@ -87,18 +91,18 @@ export function RoadmapView({
           <button
             key={key}
             type="button"
-            class={`nq-opt nq-roadmap-subject ${key === subject ? 'nq-focus' : ''}`}
-            aria-pressed={key === subject}
+            class={`nq-opt nq-roadmap-subject ${key === activeSubject ? 'nq-focus' : ''}`}
+            aria-pressed={key === activeSubject}
             onClick={() => (playSfx('move'), setSubject(key))}
           >
             <RubyLabel text={label} />
           </button>
         ))}
         <span class="nq-roadmap-score" role="status" aria-live="polite">
-          ★ {completed}/{shown.length}
+          ★ {completed}/{progressNodes.length}
         </span>
       </div>
-      {subject === 'all' ? (
+      {activeSubject === 'all' ? (
         <div class="nq-roadmap-overview" role="group" aria-label={displayText(t('field.roadmapAllOverview'))}>
           {subjects.map(([key, label]) => {
             const subjectNodes = termNodes.filter((node) => node.subject === key);
@@ -118,7 +122,12 @@ export function RoadmapView({
                 onClick={() => (playSfx('move'), setSubject(key))}
               >
                 <span class="nq-roadmap-summary-head">
-                  <RubyLabel text={label} />
+                  <span class="nq-roadmap-summary-label">
+                    <RubyLabel text={label} />
+                    {subjectNodes.every((node) => node.courseKind === 'supplementary') && (
+                      <RubyLabel text="おまけ" class="nq-roadmap-summary-extra" />
+                    )}
+                  </span>
                   <span>
                     ★ {subjectCompleted}/{subjectNodes.length}
                   </span>

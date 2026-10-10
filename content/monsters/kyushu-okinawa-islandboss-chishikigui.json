@@ -6,9 +6,53 @@
   "motifId": "knowledge-vessel",
   "element": "yami",
   "weakness": "hikari",
-  "baseStats": { "hp": 1760, "mp": 240, "atk": 42, "def": 36, "spd": 22, "wis": 44 },
-  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
-  "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-shakai"],
+  "baseStats": {
+    "hp": 1056,
+    "mp": 144,
+    "spd": 15.7,
+    "wis": 26.4,
+    "scienceAtk": 26.3,
+    "humanitiesAtk": 26.3,
+    "scienceDef": 24,
+    "humanitiesDef": 24
+  },
+  "growth": {
+    "base": {
+      "hp": 0,
+      "mp": 0,
+      "spd": 0,
+      "wis": 0,
+      "scienceAtk": 0,
+      "humanitiesAtk": 0,
+      "scienceDef": 0,
+      "humanitiesDef": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
+  },
+  "skills": [
+    "sk-yami-no-uta",
+    "sk-shiraberu",
+    "sk-burst-shakai"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 2600,
@@ -18,7 +62,25 @@
   "fieldLine": "知識[ちしき]は 力[ちから]だ！ 力[ちから]は ひとりの 王[おう]が 持[も]てばよい！ おまえたちの 八[やっ]つの 鍵[かぎ]も 壺[つぼ]も、すべて わたしのものだ！",
   "isBoss": true,
   "bossPhases": [
-    { "hpBelow": 0.7, "element": "hikari", "skills": ["sk-hikari-no-ya", "sk-kanji-barrier", "sk-burst-kokugo"], "line": "正[ただ]しい 答[こた]えは ひとつでよい！ ほかの 声[こえ]は 消[け]してしまえ！" },
-    { "hpBelow": 0.35, "element": "yami", "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-sansu"], "line": "なぜだ……分[わ]けた 知識[ちしき]が、消[き]えずに 大[おお]きくなる！？" }
+    {
+      "hpBelow": 0.7,
+      "element": "hikari",
+      "skills": [
+        "sk-hikari-no-ya",
+        "sk-kanji-barrier",
+        "sk-burst-kokugo"
+      ],
+      "line": "正[ただ]しい 答[こた]えは ひとつでよい！ ほかの 声[こえ]は 消[け]してしまえ！"
+    },
+    {
+      "hpBelow": 0.35,
+      "element": "yami",
+      "skills": [
+        "sk-yami-no-uta",
+        "sk-shiraberu",
+        "sk-burst-sansu"
+      ],
+      "line": "なぜだ……分[わ]けた 知識[ちしき]が、消[き]えずに 大[おお]きくなる！？"
+    }
   ]
 }

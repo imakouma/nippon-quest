@@ -7,22 +7,51 @@
   "element": "hikari",
   "weakness": "yami",
   "baseStats": {
-    "hp": 35,
-    "mp": 12,
-    "atk": 9,
-    "def": 7,
-    "spd": 9,
-    "wis": 9
+    "hp": 21,
+    "mp": 7.2,
+    "spd": 6.4,
+    "wis": 5.4,
+    "scienceAtk": 5.6,
+    "humanitiesAtk": 5.6,
+    "scienceDef": 4.7,
+    "humanitiesDef": 4.7
   },
   "growth": {
-    "hp": 4.5,
-    "mp": 1,
-    "atk": 1.2,
-    "def": 0.9,
-    "spd": 1.0,
-    "wis": 1.0
+    "base": {
+      "hp": 2.7,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-kazoe-giri", "sk-kana-barrier"],
+  "skills": [
+    "sk-kazoe-giri",
+    "sk-kana-barrier"
+  ],
   "drops": [
     {
       "itemId": "fukui-titan-megane",

@@ -7,22 +7,51 @@
   "element": "mori",
   "weakness": "hino",
   "baseStats": {
-    "hp": 54,
-    "mp": 13,
-    "atk": 15,
-    "def": 10,
-    "spd": 10,
-    "wis": 9
+    "hp": 32.4,
+    "mp": 7.8,
+    "spd": 7.1,
+    "wis": 5.4,
+    "scienceAtk": 9.4,
+    "humanitiesAtk": 9.4,
+    "scienceDef": 6.7,
+    "humanitiesDef": 6.7
   },
   "growth": {
-    "hp": 6,
-    "mp": 1.2,
-    "atk": 1.7,
-    "def": 1.2,
-    "spd": 1.2,
-    "wis": 1
+    "base": {
+      "hp": 3.6,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1.1,
+      "humanitiesAtk": 1.1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-happa-cutter", "sk-happa-arashi"],
+  "skills": [
+    "sk-happa-cutter",
+    "sk-happa-arashi"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 26,

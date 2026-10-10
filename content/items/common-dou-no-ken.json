@@ -3,7 +3,10 @@
   "id": "common-dou-no-ken",
   "name": "どうのけん",
   "kind": "weapon",
-  "stats": { "atk": 4 },
+  "stats": {
+    "scienceAtk": 2.5,
+    "humanitiesAtk": 2.5
+  },
   "price": 200,
   "iconKey": "item.common-dou-no-ken",
   "blurb": "どうで できた かるい けん。"

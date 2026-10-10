@@ -685,6 +685,37 @@
       "diagnosticValue": 0.8,
       "reviewStatus": "source-checked",
       "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.place-value-0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.two-digit-place-value", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.place-value-0002",
+      "concepts": [{ "conceptId": "sansu.g1.number.two-digit-place-value", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.place-value-0003",
+      "concepts": [{ "conceptId": "sansu.g1.number.two-digit-place-value", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tashizan.0008",
+      "concepts": [
+        { "conceptId": "sansu.g1.addition.single-digit", "weight": 0.7, "role": "primary" },
+        { "conceptId": "sansu.g1.number.make-ten", "weight": 0.3, "role": "supporting" }
+      ],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
     }
   ]
 }

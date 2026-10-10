@@ -7,20 +7,46 @@
   "element": "hino",
   "weakness": "mizu",
   "baseStats": {
-    "hp": 92,
-    "mp": 18,
-    "atk": 10,
-    "def": 6,
-    "spd": 6,
-    "wis": 6
+    "hp": 55.2,
+    "mp": 10.8,
+    "spd": 4.3,
+    "wis": 3.6,
+    "scienceAtk": 6.3,
+    "humanitiesAtk": 6.3,
+    "scienceDef": 4,
+    "humanitiesDef": 4
   },
   "growth": {
-    "hp": 8.8,
-    "mp": 2.2,
-    "atk": 1.3,
-    "def": 1.1,
-    "spd": 0.7,
-    "wis": 0.7
+    "base": {
+      "hp": 5.3,
+      "mp": 1.3,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-hono-no-mai"
@@ -28,11 +54,11 @@
   "drops": [
     {
       "itemId": "aomori-nebuta-no-omamori",
-      "rate": 1.0
+      "rate": 1
     },
     {
       "itemId": "aomori-nebuta-no-akari",
-      "rate": 1.0
+      "rate": 1
     }
   ],
   "recruitRate": 0,

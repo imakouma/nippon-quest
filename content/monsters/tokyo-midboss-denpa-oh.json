@@ -7,24 +7,52 @@
   "element": "kaze",
   "weakness": "tsuchi",
   "baseStats": {
-    "hp": 112,
-    "mp": 18,
-    "atk": 11,
-    "def": 8,
-    "spd": 8,
-    "wis": 7
+    "hp": 67.2,
+    "mp": 10.8,
+    "spd": 5.7,
+    "wis": 4.2,
+    "scienceAtk": 6.9,
+    "humanitiesAtk": 6.9,
+    "scienceDef": 5.3,
+    "humanitiesDef": 5.3
   },
   "growth": {
-    "hp": 8,
-    "mp": 2,
-    "atk": 1.2,
-    "def": 1,
-    "spd": 0.6,
-    "wis": 0.6
+    "base": {
+      "hp": 4.8,
+      "mp": 1.2,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-abc-shout", "sk-tashizan-giri"],
-  "drops": [
+  "skills": [
+    "sk-abc-shout",
+    "sk-tashizan-giri"
   ],
+  "drops": [],
   "recruitRate": 0,
   "xp": 65,
   "gold": 76,
@@ -36,7 +64,9 @@
     {
       "hpBelow": 0.5,
       "element": "hikari",
-      "skills": ["sk-hikari-no-ya"],
+      "skills": [
+        "sk-hikari-no-ya"
+      ],
       "line": "ライトアップ！ 333メートルの 光[ひかり]を 見[み]よ！"
     }
   ]

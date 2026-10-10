@@ -45,6 +45,28 @@ const nodes: RoadmapNode[] = [
     attempts: 0,
     state: 'locked',
   },
+  {
+    id: 'sansu.g1.legacy',
+    name: 'じき未設定[みせってい]の単元[たんげん]',
+    subject: 'sansu',
+    subjectLabel: '算数[さんすう]',
+    grade: 1,
+    mastery: 0,
+    attempts: 0,
+    state: 'open',
+  },
+  {
+    id: 'eigo.g1.alphabet',
+    name: 'アルファベット',
+    subject: 'eigo',
+    subjectLabel: '英語[えいご]',
+    grade: 1,
+    recommendedTerms: ['variable'],
+    courseKind: 'supplementary',
+    mastery: 0,
+    attempts: 0,
+    state: 'open',
+  },
 ];
 
 async function showRoadmap(
@@ -130,7 +152,20 @@ describe('学習ロードマップの単元選択', () => {
 
     expect(container.textContent).toContain('10までのかず');
     expect(container.textContent).not.toContain('かけ算');
+    expect(container.textContent).not.toContain('じき未設定');
     expect(container.querySelector('[data-grade="1"]')?.getAttribute('aria-pressed')).toBe('true');
     expect(container.querySelector('[data-term="1"]')?.getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('補助教材をおまけと表示し、必修の全体進捗には含めない', async () => {
+    const container = await showRoadmap(vi.fn());
+
+    await act(async () => {
+      container.querySelector<HTMLButtonElement>('[data-grade="1"]')!.click();
+      container.querySelector<HTMLButtonElement>('[data-term="1"]')!.click();
+    });
+
+    expect(container.textContent).toContain('おまけ');
+    expect(container.querySelector('.nq-roadmap-score')?.textContent).toContain('0/1');
   });
 });

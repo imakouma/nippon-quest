@@ -6,9 +6,53 @@
   "motifId": "six-archives",
   "element": "hikari",
   "weakness": "yami",
-  "baseStats": { "hp": 1190, "mp": 162, "atk": 33, "def": 27, "spd": 17, "wis": 33 },
-  "growth": { "hp": 0, "mp": 0, "atk": 0, "def": 0, "spd": 0, "wis": 0 },
-  "skills": ["sk-hikari-no-hane", "sk-kanji-barrier", "sk-shiraberu"],
+  "baseStats": {
+    "hp": 714,
+    "mp": 97.2,
+    "spd": 12.1,
+    "wis": 19.8,
+    "scienceAtk": 20.6,
+    "humanitiesAtk": 20.6,
+    "scienceDef": 18,
+    "humanitiesDef": 18
+  },
+  "growth": {
+    "base": {
+      "hp": 0,
+      "mp": 0,
+      "spd": 0,
+      "wis": 0,
+      "scienceAtk": 0,
+      "humanitiesAtk": 0,
+      "scienceDef": 0,
+      "humanitiesDef": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
+  },
+  "skills": [
+    "sk-hikari-no-hane",
+    "sk-kanji-barrier",
+    "sk-shiraberu"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 1690,
@@ -18,7 +62,25 @@
   "fieldLine": "すべての 記録[きろく]は、ただ 一[ひと]つの 箱[はこ]へ 入[はい]れ！ 境界[きょうかい]を またぐ 関係[かんけい]など 消[け]してくれる！",
   "isBoss": true,
   "bossPhases": [
-    { "hpBelow": 0.66, "element": "tsuchi", "skills": ["sk-tsuchi-kabe", "sk-kanji-barrier", "sk-burst-kokugo"], "line": "名前[なまえ]を つけたなら、その 箱[はこ]から 二度[にど]と 出[だ]すな！" },
-    { "hpBelow": 0.25, "element": "yami", "skills": ["sk-yami-no-uta", "sk-shiraberu", "sk-burst-shakai"], "line": "つながりを 書[か]くな！ 六[むっ]つの 鍵[かぎ]で、記録[きろく]を 永遠[えいえん]に 分[わ]けよ！" }
+    {
+      "hpBelow": 0.66,
+      "element": "tsuchi",
+      "skills": [
+        "sk-tsuchi-kabe",
+        "sk-kanji-barrier",
+        "sk-burst-kokugo"
+      ],
+      "line": "名前[なまえ]を つけたなら、その 箱[はこ]から 二度[にど]と 出[だ]すな！"
+    },
+    {
+      "hpBelow": 0.25,
+      "element": "yami",
+      "skills": [
+        "sk-yami-no-uta",
+        "sk-shiraberu",
+        "sk-burst-shakai"
+      ],
+      "line": "つながりを 書[か]くな！ 六[むっ]つの 鍵[かぎ]で、記録[きろく]を 永遠[えいえん]に 分[わ]けよ！"
+    }
   ]
 }

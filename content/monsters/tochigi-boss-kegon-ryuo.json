@@ -7,22 +7,51 @@
   "element": "mizu",
   "weakness": "mori",
   "baseStats": {
-    "hp": 291,
-    "mp": 43,
-    "atk": 17,
-    "def": 12,
-    "spd": 8,
-    "wis": 11
+    "hp": 174.6,
+    "mp": 25.8,
+    "spd": 5.7,
+    "wis": 6.6,
+    "scienceAtk": 10.6,
+    "humanitiesAtk": 10.6,
+    "scienceDef": 8,
+    "humanitiesDef": 8
   },
   "growth": {
-    "hp": 10,
-    "mp": 2,
-    "atk": 1.5,
-    "def": 1.2,
-    "spd": 0.8,
-    "wis": 1
+    "base": {
+      "hp": 6,
+      "mp": 1.2,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-uzushio", "sk-mizu-teppo"],
+  "skills": [
+    "sk-uzushio",
+    "sk-mizu-teppo"
+  ],
   "drops": [
     {
       "itemId": "common-tetsu",
@@ -52,7 +81,10 @@
     {
       "hpBelow": 0.4,
       "actionsPerTurn": 2,
-      "skills": ["sk-fubuki", "sk-uzushio"],
+      "skills": [
+        "sk-fubuki",
+        "sk-uzushio"
+      ],
       "line": "滝[たき]よ、こおれ！ 日光[にっこう]の ふぶきを くらえ！"
     }
   ]

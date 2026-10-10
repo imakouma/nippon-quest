@@ -26,6 +26,14 @@
               "eigo"
             ]
           },
+          "attackClass": {
+            "type": "string",
+            "enum": [
+              "science",
+              "humanities",
+              "balanced"
+            ]
+          },
           "gradeRange": {
             "type": "array",
             "minItems": 2,

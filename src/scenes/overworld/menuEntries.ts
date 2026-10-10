@@ -12,7 +12,16 @@ import { stripRuby } from '../../ui/ruby';
 import { monsterCatalog, specialtyCatalog } from './catalogs';
 import { dexRegionOf } from './geography';
 
-type HeroStats = { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
+type HeroStats = {
+  hp: number;
+  mp: number;
+  scienceAtk: number;
+  humanitiesAtk: number;
+  scienceDef: number;
+  humanitiesDef: number;
+  spd: number;
+  wis: number;
+};
 type MenuView = { entries: MenuEntry[]; summary?: string; empty: string };
 type HeroLook = GameState['player']['appearance'];
 
@@ -29,8 +38,10 @@ export const motifKindLabelKey = (kind: Motif['kind']): string => MOTIF_KIND_KEY
 
 const STAT_LABELS: Readonly<Record<string, string>> = {
   hp: 'field.statHp',
-  atk: 'field.statAtk',
-  def: 'field.statDef',
+  scienceAtk: 'field.statScienceAtk',
+  humanitiesAtk: 'field.statHumanitiesAtk',
+  scienceDef: 'field.statScienceDef',
+  humanitiesDef: 'field.statHumanitiesDef',
   spd: 'field.statSpd',
   wis: 'field.statWis',
 };
@@ -170,8 +181,10 @@ export function equipmentMenu(
     summary: t('field.equipStats', {
       hp: gs.player.hp,
       max: stats.hp,
-      atk: stats.atk,
-      def: stats.def,
+      scienceAtk: stats.scienceAtk,
+      humanitiesAtk: stats.humanitiesAtk,
+      scienceDef: stats.scienceDef,
+      humanitiesDef: stats.humanitiesDef,
       spd: stats.spd,
       wis: stats.wis,
     }),

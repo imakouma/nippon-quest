@@ -368,13 +368,13 @@ export function adjacencyBonus(gs: GameState, ctx: BagContext, base: Stats): Adj
   const stats: Partial<Stats> = {};
   const labels: string[] = [];
   const map: Record<string, keyof Stats> = {
-    hino: 'atk',
-    mizu: 'def',
+    hino: 'scienceAtk',
+    mizu: 'scienceDef',
     mori: 'hp',
-    tsuchi: 'def',
+    tsuchi: 'humanitiesDef',
     kaze: 'spd',
     hikari: 'wis',
-    yami: 'atk',
+    yami: 'humanitiesAtk',
     none: 'hp',
   };
   for (const uid of bagMonsterUids(gs)) {

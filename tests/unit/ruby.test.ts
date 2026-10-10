@@ -16,6 +16,7 @@ const readJson = <T>(path: string): T =>
 const grades = readJson<{ byGrade: Record<string, string> }>('kanji-grades.json').byGrade;
 const properNouns = readJson<{ names: string[] }>('proper-nouns.json').names;
 const ja = readJson<Record<string, unknown>>('ja.json');
+const bootstrapJa = readJson<{ ui: { loadError: string; retry: string } }>('bootstrap-ja.json');
 
 function collectStrings(value: unknown, path: string[] = []): Array<{ path: string; text: string }> {
   if (typeof value === 'string') return [{ path: path.join('.'), text: value }];
@@ -129,6 +130,11 @@ describe('漢字表示レベル（まだ習っていない漢字の ことばは
 });
 
 describe('RubyText', () => {
+  it('起動失敗用の最小辞書を通常辞書と同期する', () => {
+    const ui = (ja as { ui: { loadError: string; retry: string } }).ui;
+    expect(bootstrapJa.ui).toEqual({ loadError: ui.loadError, retry: ui.retry });
+  });
+
   it('通常画面の操作案内にPCキー名を常設しない', () => {
     const dictionary = ja as {
       saveSlots: { keyboardHint: string };

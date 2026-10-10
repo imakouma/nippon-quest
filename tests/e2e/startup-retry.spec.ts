@@ -10,7 +10,13 @@ test('タイトル画面で問題バンクを先読みしない', async ({ page 
 });
 
 test('起動コンテンツの初回読込に失敗しても、画面から再試行できる', async ({ page }) => {
+  test.setTimeout(90_000);
   let bundleAttempts = 0;
+  let manifestFailed = false;
+  const pageErrors: string[] = [];
+  const consoleMessages: string[] = [];
+  page.on('pageerror', (error) => pageErrors.push(error.message));
+  page.on('console', (message) => consoleMessages.push(message.text()));
   await page.route('**/*', async (route) => {
     const pathname = new URL(route.request().url()).pathname;
     if (pathname.endsWith('/content/content-bundle.json')) {
@@ -19,7 +25,19 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
         await route.fulfill({ status: 503, contentType: 'text/plain', body: 'temporary failure' });
         return;
       }
-    } else if (bundleAttempts === 1 && pathname.includes('/content/')) {
+    } else if (
+      bundleAttempts === 0 &&
+      !manifestFailed &&
+      pathname.endsWith('/content/manifest.json')
+    ) {
+      manifestFailed = true;
+      await route.fulfill({ status: 503, contentType: 'text/plain', body: 'temporary failure' });
+      return;
+    } else if (
+      bundleAttempts === 1 &&
+      pathname.includes('/content/') &&
+      !pathname.endsWith('/content/i18n/bootstrap-ja.json')
+    ) {
       await route.fulfill({ status: 503, contentType: 'text/plain', body: 'temporary failure' });
       return;
     }
@@ -27,8 +45,11 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
   });
 
   await page.goto('/');
+  await page.waitForTimeout(1_000);
+  console.log({ bundleAttempts, manifestFailed, pageErrors, consoleMessages });
+  expect(pageErrors).toEqual([]);
   const retry = page.getByRole('button', { name: 'もういちど' });
-  await expect(retry).toBeVisible({ timeout: 20_000 });
+  await expect(retry).toBeVisible({ timeout: 60_000 });
   await expect(page.locator('.nq-error')).toContainText('よみこみに しっぱいしました');
   await expect(page.locator('.nq-error')).not.toContainText('503');
   await expect(page.locator('.nq-error')).not.toContainText('temporary failure');

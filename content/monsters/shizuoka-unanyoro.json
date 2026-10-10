@@ -7,22 +7,50 @@
   "element": "mizu",
   "weakness": "mori",
   "baseStats": {
-    "hp": 44,
-    "mp": 12,
-    "atk": 12,
-    "def": 6,
-    "spd": 10,
-    "wis": 8
+    "hp": 26.4,
+    "mp": 7.2,
+    "spd": 7.1,
+    "wis": 4.8,
+    "scienceAtk": 7.5,
+    "humanitiesAtk": 7.5,
+    "scienceDef": 4,
+    "humanitiesDef": 4
   },
   "growth": {
-    "hp": 4.5,
-    "mp": 1,
-    "atk": 1.4,
-    "def": 0.8,
-    "spd": 1.2,
-    "wis": 0.8
+    "base": {
+      "hp": 2.7,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-shizuku"],
+  "skills": [
+    "sk-shizuku"
+  ],
   "drops": [
     {
       "itemId": "shizuoka-tenryu-no-shizuku",

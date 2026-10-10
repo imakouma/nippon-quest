@@ -7,22 +7,51 @@
   "element": "tsuchi",
   "weakness": "kaze",
   "baseStats": {
-    "hp": 42,
-    "mp": 8,
-    "atk": 12,
-    "def": 8,
-    "spd": 9,
-    "wis": 6
+    "hp": 25.2,
+    "mp": 4.8,
+    "spd": 6.4,
+    "wis": 3.6,
+    "scienceAtk": 7.5,
+    "humanitiesAtk": 7.5,
+    "scienceDef": 5.3,
+    "humanitiesDef": 5.3
   },
   "growth": {
-    "hp": 5,
-    "mp": 1,
-    "atk": 1.5,
-    "def": 1.0,
-    "spd": 1.0,
-    "wis": 0.7
+    "base": {
+      "hp": 3,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-kazoe-giri", "sk-suna-kabe"],
+  "skills": [
+    "sk-kazoe-giri",
+    "sk-suna-kabe"
+  ],
   "drops": [
     {
       "itemId": "fukui-kyoryu-no-kiba",

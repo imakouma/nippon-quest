@@ -124,15 +124,17 @@ export function specialtyTreasureGain(
 
 /** 戦闘用能力へ、お宝パワーをまとめて反映する。 */
 export function applySpecialtyTreasureBonus(stats: Stats, bonus: SpecialtyTreasureBonus): Stats {
-  const multiply = (value: number, integer = false) => {
+  const multiply = (value: number) => {
     const powered = value * (1 + bonus.rate);
-    return integer ? Math.round(powered) : Math.round(powered * 10) / 10;
+    return bonus.rate > 0 ? Math.max(value + 1, Math.round(powered)) : value;
   };
   return {
-    hp: multiply(stats.hp, true),
-    mp: multiply(stats.mp, true),
-    atk: multiply(stats.atk),
-    def: multiply(stats.def),
+    hp: multiply(stats.hp),
+    mp: multiply(stats.mp),
+    scienceAtk: multiply(stats.scienceAtk),
+    humanitiesAtk: multiply(stats.humanitiesAtk),
+    scienceDef: multiply(stats.scienceDef),
+    humanitiesDef: multiply(stats.humanitiesDef),
     spd: multiply(stats.spd),
     wis: multiply(stats.wis),
   };

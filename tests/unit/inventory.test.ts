@@ -13,11 +13,11 @@ describe('バッグ・そうび', () => {
     const herb = c.items.get('aomori-ringo')!;
     const gs = fresh();
     gs.inventory['aomori-ringo'] = 3;
-    expect(canUse(gs, herb, { hp: 40, mp: 10 })).toBe(false);
-    const hurt = { ...gs, player: { ...gs.player, hp: 25 } };
-    const r = useItem(hurt, herb, { hp: 40, mp: 10 })!;
-    expect(r.state.player.hp).toBe(40);
-    expect(r.healed).toBe(15);
+    expect(canUse(gs, herb, { hp: 24, mp: 6 })).toBe(false);
+    const hurt = { ...gs, player: { ...gs.player, hp: 12 } };
+    const r = useItem(hurt, herb, { hp: 24, mp: 6 })!;
+    expect(r.state.player.hp).toBe(24);
+    expect(r.healed).toBe(12);
     expect(r.state.inventory['aomori-ringo']).toBe(2);
   });
 
@@ -43,11 +43,11 @@ describe('バッグ・そうび', () => {
     let gs = fresh();
     gs.progress.islandsCleared = ['tohoku'];
     gs.inventory[sword.id] = 1;
-    const before = partyFromGameState(gs, c).hero.stats.atk;
+    const before = partyFromGameState(gs, c).hero.stats.scienceAtk;
     gs = putEquip(gs, sword, bagContext(gs, c)).state;
     expect(gs.player.equipment.weapon).toBe(sword.id);
     expect(gs.inventory[sword.id]).toBe(0);
-    expect(partyFromGameState(gs, c).hero.stats.atk).toBeGreaterThan(before);
+    expect(partyFromGameState(gs, c).hero.stats.scienceAtk).toBeGreaterThan(before);
     expect(equipItem(gs, sword)).toBeNull(); // もう バッグに ない
     const off = unequip(gs, 'weapon')!;
     expect(off.player.equipment.weapon).toBeUndefined();

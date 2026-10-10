@@ -7,22 +7,51 @@
   "element": "kaze",
   "weakness": "tsuchi",
   "baseStats": {
-    "hp": 66,
-    "mp": 17,
-    "atk": 18,
-    "def": 12,
-    "spd": 18,
-    "wis": 12
+    "hp": 39.6,
+    "mp": 10.2,
+    "spd": 12.9,
+    "wis": 7.2,
+    "scienceAtk": 11.3,
+    "humanitiesAtk": 11.3,
+    "scienceDef": 8,
+    "humanitiesDef": 8
   },
   "growth": {
-    "hp": 5.8,
-    "mp": 1.2,
-    "atk": 1.6,
-    "def": 1.1,
-    "spd": 1.7,
-    "wis": 1
+    "base": {
+      "hp": 3.5,
+      "mp": 1,
+      "spd": 1.2,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-abc-shout", "sk-habataki"],
+  "skills": [
+    "sk-abc-shout",
+    "sk-habataki"
+  ],
   "drops": [],
   "recruitRate": 0,
   "spriteKey": "mon.yamaguchi-oohashiwatari",

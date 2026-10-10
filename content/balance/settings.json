@@ -1,7 +1,38 @@
 {
   "$schema": "../../schemas/settings.schema.json",
   "timeLimitSecByGrade": { "1": 20, "2": 20, "3": 18, "4": 15, "5": 15, "6": 15 },
-  "heroGrowth": { "hp": 4, "mp": 1, "atk": 1, "def": 0.8, "spd": 0.6, "wis": 0 },
+  "heroGrowth": {
+    "base": {
+      "hp": 2,
+      "mp": 0.4,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 0.3,
+      "humanitiesDef": 0.3,
+      "spd": 0.3,
+      "wis": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
+  },
   "scoreMultipliers": { "perfect": 2.0, "good": 1.2, "weak": 0.8, "miss": 0.5 },
   "weaknessMultiplier": 1.5,
   "equipmentElementResistance": 0.8,

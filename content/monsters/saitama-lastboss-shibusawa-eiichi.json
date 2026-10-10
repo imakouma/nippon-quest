@@ -7,22 +7,51 @@
   "element": "mori",
   "weakness": "hino",
   "baseStats": {
-    "hp": 308,
-    "mp": 45,
-    "atk": 18,
-    "def": 15,
-    "spd": 11,
-    "wis": 15
+    "hp": 184.8,
+    "mp": 27,
+    "spd": 7.9,
+    "wis": 9,
+    "scienceAtk": 11.3,
+    "humanitiesAtk": 11.3,
+    "scienceDef": 10,
+    "humanitiesDef": 10
   },
   "growth": {
-    "hp": 12,
-    "mp": 2,
-    "atk": 1.7,
-    "def": 1.5,
-    "spd": 0.9,
-    "wis": 1.3
+    "base": {
+      "hp": 7.2,
+      "mp": 1.2,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1.1,
+      "humanitiesAtk": 1.1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-happa-arashi", "sk-happa-cutter"],
+  "skills": [
+    "sk-happa-arashi",
+    "sk-happa-cutter"
+  ],
   "drops": [
     {
       "itemId": "common-tetsu",
@@ -44,7 +73,10 @@
     {
       "hpBelow": 0.5,
       "element": "hikari",
-      "skills": ["sk-hikari-no-ya", "sk-happa-arashi"],
+      "skills": [
+        "sk-hikari-no-ya",
+        "sk-happa-arashi"
+      ],
       "line": "学[まな]びと はたらきは、車[くるま]の 両輪[りょうりん]じゃ！"
     }
   ]

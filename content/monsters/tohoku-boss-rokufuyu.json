@@ -7,20 +7,46 @@
   "element": "mizu",
   "weakness": "hino",
   "baseStats": {
-    "hp": 504,
-    "mp": 72,
-    "atk": 20,
-    "def": 16,
-    "spd": 8,
-    "wis": 13
+    "hp": 302.4,
+    "mp": 43.2,
+    "spd": 5.7,
+    "wis": 7.8,
+    "scienceAtk": 12.5,
+    "humanitiesAtk": 12.5,
+    "scienceDef": 10.7,
+    "humanitiesDef": 10.7
   },
   "growth": {
-    "hp": 0,
-    "mp": 0,
-    "atk": 0,
-    "def": 0,
-    "spd": 0,
-    "wis": 0
+    "base": {
+      "hp": 0,
+      "mp": 0,
+      "spd": 0,
+      "wis": 0,
+      "scienceAtk": 0,
+      "humanitiesAtk": 0,
+      "scienceDef": 0,
+      "humanitiesDef": 0
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-fubuki",

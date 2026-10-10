@@ -7,22 +7,52 @@
   "element": "tsuchi",
   "weakness": "mori",
   "baseStats": {
-    "hp": 70,
-    "mp": 14,
-    "atk": 17,
-    "def": 18,
-    "spd": 8,
-    "wis": 10
+    "hp": 42,
+    "mp": 8.4,
+    "spd": 5.7,
+    "wis": 6,
+    "scienceAtk": 10.6,
+    "humanitiesAtk": 10.6,
+    "scienceDef": 12,
+    "humanitiesDef": 12
   },
   "growth": {
-    "hp": 6.2,
-    "mp": 1.2,
-    "atk": 1.6,
-    "def": 1.6,
-    "spd": 0.8,
-    "wis": 0.7
+    "base": {
+      "hp": 3.7,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1.1,
+      "humanitiesDef": 1.1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-tashizan-giri", "sk-tsuchi-kabe", "sk-iwa-otoshi"],
+  "skills": [
+    "sk-tashizan-giri",
+    "sk-tsuchi-kabe",
+    "sk-iwa-otoshi"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 39,

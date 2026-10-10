@@ -7,26 +7,51 @@
   "element": "yami",
   "weakness": "hikari",
   "baseStats": {
-    "hp": 153,
-    "mp": 22,
-    "atk": 14,
-    "def": 11,
-    "spd": 8,
-    "wis": 8
+    "hp": 91.8,
+    "mp": 13.2,
+    "spd": 5.7,
+    "wis": 4.8,
+    "scienceAtk": 8.8,
+    "humanitiesAtk": 8.8,
+    "scienceDef": 7.3,
+    "humanitiesDef": 7.3
   },
   "growth": {
-    "hp": 8.8,
-    "mp": 2,
-    "atk": 1.3,
-    "def": 1.1,
-    "spd": 0.7,
-    "wis": 0.7
+    "base": {
+      "hp": 5.3,
+      "mp": 1.2,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-yami-no-uta"
   ],
-  "drops": [
-  ],
+  "drops": [],
   "recruitRate": 0,
   "xp": 87,
   "gold": 103,

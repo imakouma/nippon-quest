@@ -107,5 +107,41 @@
       "shuffle": true
     },
     "explanation": "えや ことばを えらぶと、みつけた ことを わかりやすく つたえられます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0007",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "どんぐりや おちばで おもちゃを つくりました。もっと たのしく あそぶには？",
+      "choices": [
+        { "id": "a", "text": "ためして、うまく いかない ところを つくりなおす" },
+        { "id": "b", "text": "ともだちの おもちゃを だまって こわす" },
+        { "id": "c", "text": "あそばずに すぐ すてる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "うごきや あそびかたを ためし、つくりなおすと、しぜんの よさを いかした おもちゃに できます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0008",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "おちばを ならべて えを つくります。ざいりょうの よさを いかした くふうは？",
+      "choices": [
+        { "id": "a", "text": "いろや かたちを くらべ、つかう ばしょを かんがえる" },
+        { "id": "b", "text": "いろも かたちも みないで えらぶ" },
+        { "id": "c", "text": "まだ つかう おちばを ぜんぶ ふむ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "おちばの いろや かたちは それぞれ ちがいます。ちがいを いかして ならべると、あらわしかたを くふうできます。"
   }
 ]

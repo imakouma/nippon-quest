@@ -8,22 +8,50 @@
   "subjectAffinity": "kokugo",
   "weakness": "mori",
   "baseStats": {
-    "hp": 34,
-    "mp": 6,
-    "atk": 10,
-    "def": 6,
-    "spd": 9,
-    "wis": 3
+    "hp": 20.4,
+    "mp": 3.6,
+    "spd": 6.4,
+    "wis": 1.8,
+    "scienceAtk": 6.3,
+    "humanitiesAtk": 6.3,
+    "scienceDef": 4,
+    "humanitiesDef": 4
   },
   "growth": {
-    "hp": 5,
-    "mp": 1,
-    "atk": 1.5,
-    "def": 1,
-    "spd": 1.2,
-    "wis": 0.5
+    "base": {
+      "hp": 3,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-shizuku"],
+  "skills": [
+    "sk-shizuku"
+  ],
   "drops": [
     {
       "itemId": "aomori-maguro-no-kiba",

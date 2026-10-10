@@ -7,20 +7,46 @@
   "element": "yami",
   "weakness": "hikari",
   "baseStats": {
-    "hp": 360,
-    "mp": 48,
-    "atk": 19,
-    "def": 15,
-    "spd": 11,
-    "wis": 12
+    "hp": 216,
+    "mp": 28.8,
+    "spd": 7.9,
+    "wis": 7.2,
+    "scienceAtk": 11.9,
+    "humanitiesAtk": 11.9,
+    "scienceDef": 10,
+    "humanitiesDef": 10
   },
   "growth": {
-    "hp": 13.2,
-    "mp": 2.2,
-    "atk": 2.0,
-    "def": 1.5,
-    "spd": 1.1,
-    "wis": 1.3
+    "base": {
+      "hp": 7.9,
+      "mp": 1.3,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1.3,
+      "humanitiesAtk": 1.3,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-mikazuki-giri",

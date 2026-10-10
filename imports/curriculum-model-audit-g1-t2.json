@@ -1,0 +1,245 @@
+{
+  "grade": 1,
+  "term": 2,
+  "units": [
+    {
+      "unitId": "sansu.g1.tashizan",
+      "subject": "sansu",
+      "name": "たしざん",
+      "goals": 4,
+      "questions": 8,
+      "confirmedTermQuestions": 2,
+      "linked": 8,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "sansu.g1.hikizan",
+      "subject": "sansu",
+      "name": "ひきざん",
+      "goals": 2,
+      "questions": 7,
+      "confirmedTermQuestions": 0,
+      "linked": 7,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "sansu.g1.kazu-100",
+      "subject": "sansu",
+      "name": "100までの かず",
+      "goals": 6,
+      "questions": 21,
+      "confirmedTermQuestions": 5,
+      "linked": 21,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g1.kanji",
+      "subject": "kokugo",
+      "name": "1年[ねん]の漢字[かんじ]",
+      "goals": 1,
+      "questions": 11,
+      "confirmedTermQuestions": 0,
+      "linked": 11,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g1.joshi",
+      "subject": "kokugo",
+      "name": "助詞[じょし]・言葉[ことば]のつなぎ方[かた]",
+      "goals": 1,
+      "questions": 10,
+      "confirmedTermQuestions": 6,
+      "linked": 10,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g1.bun-no-kimari",
+      "subject": "kokugo",
+      "name": "文[ぶん]のきまり・書[か]き方[かた]",
+      "goals": 4,
+      "questions": 11,
+      "confirmedTermQuestions": 3,
+      "linked": 11,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "seikatsu.g1.kisetsu",
+      "subject": "seikatsu",
+      "name": "きせつ",
+      "goals": 5,
+      "questions": 8,
+      "confirmedTermQuestions": 3,
+      "linked": 8,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "seikatsu.g1.legacy-cur-1801-03",
+      "subject": "seikatsu",
+      "name": "生[い]きものを育[そだ]てよう",
+      "goals": 1,
+      "questions": 12,
+      "confirmedTermQuestions": 0,
+      "linked": 12,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g1.katakana",
+      "subject": "kokugo",
+      "name": "カタカナ",
+      "goals": 1,
+      "questions": 8,
+      "confirmedTermQuestions": 8,
+      "linked": 8,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g1.dokkai",
+      "subject": "kokugo",
+      "name": "みじかい文[ぶん]を読[よ]む",
+      "goals": 1,
+      "questions": 6,
+      "confirmedTermQuestions": 0,
+      "linked": 6,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g1.hanasu-kiku",
+      "subject": "kokugo",
+      "name": "話[はな]す・聞[き]く",
+      "goals": 1,
+      "questions": 6,
+      "confirmedTermQuestions": 0,
+      "linked": 6,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g1.tsutaeru",
+      "subject": "kokugo",
+      "name": "じゅんじょよく伝[つた]える",
+      "goals": 1,
+      "questions": 6,
+      "confirmedTermQuestions": 0,
+      "linked": 6,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    }
+  ],
+  "gaps": [],
+  "conceptCoverage": [
+    {
+      "conceptId": "kokugo.g1.script.katakana",
+      "unitId": "kokugo.g1.katakana",
+      "primaryQuestions": 8
+    },
+    {
+      "conceptId": "kokugo.g1.sentence.subject-predicate",
+      "unitId": "kokugo.g1.bun-no-kimari",
+      "primaryQuestions": 4
+    },
+    {
+      "conceptId": "kokugo.g1.writing.word-connections",
+      "unitId": "kokugo.g1.bun-no-kimari",
+      "primaryQuestions": 5
+    },
+    {
+      "conceptId": "sansu.g1.number.two-digit-place-value",
+      "unitId": "sansu.g1.kazu-100",
+      "primaryQuestions": 4
+    },
+    {
+      "conceptId": "sansu.g1.addition.single-digit",
+      "unitId": "sansu.g1.tashizan",
+      "primaryQuestions": 3
+    },
+    {
+      "conceptId": "seikatsu.g1.nature.autumn-play",
+      "unitId": "seikatsu.g1.kisetsu",
+      "primaryQuestions": 3
+    }
+  ],
+  "findings": [
+    {
+      "unitId": "sansu.g1.tashizan",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "sansu.g1.hikizan",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "sansu.g1.kazu-100",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g1.kanji",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g1.joshi",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g1.bun-no-kimari",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "seikatsu.g1.kisetsu",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "seikatsu.g1.legacy-cur-1801-03",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g1.katakana",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g1.dokkai",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g1.hanasu-kiku",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g1.tsutaeru",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    }
+  ]
+}

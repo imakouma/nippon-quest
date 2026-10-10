@@ -7,22 +7,51 @@
   "element": "tsuchi",
   "weakness": "kaze",
   "baseStats": {
-    "hp": 45,
-    "mp": 8,
-    "atk": 9,
-    "def": 9,
-    "spd": 5,
-    "wis": 6
+    "hp": 27,
+    "mp": 4.8,
+    "spd": 3.6,
+    "wis": 3.6,
+    "scienceAtk": 5.6,
+    "humanitiesAtk": 5.6,
+    "scienceDef": 6,
+    "humanitiesDef": 6
   },
   "growth": {
-    "hp": 5.5,
-    "mp": 1,
-    "atk": 1.2,
-    "def": 1.2,
-    "spd": 0.8,
-    "wis": 0.7
+    "base": {
+      "hp": 3.3,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-suna-kabe", "sk-kazoe-giri"],
+  "skills": [
+    "sk-suna-kabe",
+    "sk-kazoe-giri"
+  ],
   "drops": [
     {
       "itemId": "ibaraki-natto-no-warazuto",

@@ -78,7 +78,16 @@ describe('開発者モード', () => {
       {
         name: 'ハル',
         level: 5,
-        baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+        baseStats: {
+          hp: 40,
+          mp: 10,
+          scienceAtk: 8,
+          humanitiesAtk: 8,
+          scienceDef: 6,
+          humanitiesDef: 6,
+          spd: 7,
+          wis: 5,
+        },
         growth: { hp: 6, mp: 2, atk: 1.5, def: 1.2, spd: 1.0, wis: 1.0 },
         skills: ['sk-tashizan-giri'],
         equipment: {},

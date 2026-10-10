@@ -7,22 +7,52 @@
   "element": "tsuchi",
   "weakness": "kaze",
   "baseStats": {
-    "hp": 58,
-    "mp": 12,
-    "atk": 13,
-    "def": 13,
-    "spd": 7,
-    "wis": 10
+    "hp": 34.8,
+    "mp": 7.2,
+    "spd": 5,
+    "wis": 6,
+    "scienceAtk": 8.1,
+    "humanitiesAtk": 8.1,
+    "scienceDef": 8.7,
+    "humanitiesDef": 8.7
   },
   "growth": {
-    "hp": 6.6,
-    "mp": 1.2,
-    "atk": 1.4,
-    "def": 1.6,
-    "spd": 1,
-    "wis": 1.1
+    "base": {
+      "hp": 4,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1.1,
+      "humanitiesDef": 1.1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-tsuchi-kabe", "sk-tashizan-giri", "sk-iwa-otoshi"],
+  "skills": [
+    "sk-tsuchi-kabe",
+    "sk-tashizan-giri",
+    "sk-iwa-otoshi"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 29,

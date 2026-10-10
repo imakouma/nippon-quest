@@ -7,20 +7,46 @@
   "element": "hikari",
   "weakness": "yami",
   "baseStats": {
-    "hp": 48,
-    "mp": 14,
-    "atk": 13,
-    "def": 11,
-    "spd": 8,
-    "wis": 9
+    "hp": 28.8,
+    "mp": 8.4,
+    "spd": 5.7,
+    "wis": 5.4,
+    "scienceAtk": 8.1,
+    "humanitiesAtk": 8.1,
+    "scienceDef": 7.3,
+    "humanitiesDef": 7.3
   },
   "growth": {
-    "hp": 5.5,
-    "mp": 1.2,
-    "atk": 1.6,
-    "def": 1.2,
-    "spd": 1.1,
-    "wis": 1.1
+    "base": {
+      "hp": 3.3,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-kanji-barrier",

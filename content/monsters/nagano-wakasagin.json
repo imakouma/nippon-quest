@@ -7,20 +7,46 @@
   "element": "mizu",
   "weakness": "mori",
   "baseStats": {
-    "hp": 43,
-    "mp": 10,
-    "atk": 11,
-    "def": 7,
-    "spd": 10,
-    "wis": 7
+    "hp": 25.8,
+    "mp": 6,
+    "spd": 7.1,
+    "wis": 4.2,
+    "scienceAtk": 6.9,
+    "humanitiesAtk": 6.9,
+    "scienceDef": 4.7,
+    "humanitiesDef": 4.7
   },
   "growth": {
-    "hp": 5,
-    "mp": 1,
-    "atk": 1.3,
-    "def": 1.0,
-    "spd": 1.0,
-    "wis": 0.8
+    "base": {
+      "hp": 3,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-shizuku"

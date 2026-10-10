@@ -3,7 +3,11 @@
   "id": "aomori-ringo-no-yoroi",
   "name": "りんごのよろい",
   "kind": "chest",
-  "stats": { "def": 6, "wis": 1 },
+  "stats": {
+    "wis": 1,
+    "scienceDef": 4,
+    "humanitiesDef": 4
+  },
   "element": "mori",
   "setId": "set-aomori",
   "price": 320,

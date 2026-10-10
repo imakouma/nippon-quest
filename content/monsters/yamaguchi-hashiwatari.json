@@ -7,22 +7,50 @@
   "element": "kaze",
   "weakness": "tsuchi",
   "baseStats": {
-    "hp": 49,
-    "mp": 12,
-    "atk": 13,
-    "def": 8,
-    "spd": 14,
-    "wis": 9
+    "hp": 29.4,
+    "mp": 7.2,
+    "spd": 10,
+    "wis": 5.4,
+    "scienceAtk": 8.1,
+    "humanitiesAtk": 8.1,
+    "scienceDef": 5.3,
+    "humanitiesDef": 5.3
   },
   "growth": {
-    "hp": 4.8,
-    "mp": 1,
-    "atk": 1.3,
-    "def": 0.9,
-    "spd": 1.4,
-    "wis": 0.8
+    "base": {
+      "hp": 2.9,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-abc-call"],
+  "skills": [
+    "sk-abc-call"
+  ],
   "drops": [
     {
       "itemId": "yamaguchi-tsunoshima-no-hane",

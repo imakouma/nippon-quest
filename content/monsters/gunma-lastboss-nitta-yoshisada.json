@@ -7,22 +7,51 @@
   "element": "kaze",
   "weakness": "tsuchi",
   "baseStats": {
-    "hp": 319,
-    "mp": 45,
-    "atk": 19,
-    "def": 16,
-    "spd": 11,
-    "wis": 12
+    "hp": 191.4,
+    "mp": 27,
+    "spd": 7.9,
+    "wis": 7.2,
+    "scienceAtk": 11.9,
+    "humanitiesAtk": 11.9,
+    "scienceDef": 10.7,
+    "humanitiesDef": 10.7
   },
   "growth": {
-    "hp": 12,
-    "mp": 2,
-    "atk": 1.7,
-    "def": 1.5,
-    "spd": 0.9,
-    "wis": 1.3
+    "base": {
+      "hp": 7.2,
+      "mp": 1.2,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1.1,
+      "humanitiesAtk": 1.1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-habataki", "sk-abc-shout"],
+  "skills": [
+    "sk-habataki",
+    "sk-abc-shout"
+  ],
   "drops": [
     {
       "itemId": "common-tetsu",
@@ -43,7 +72,10 @@
   "bossPhases": [
     {
       "hpBelow": 0.5,
-      "skills": ["sk-kaikyo-no-kaze", "sk-habataki"],
+      "skills": [
+        "sk-kaikyo-no-kaze",
+        "sk-habataki"
+      ],
       "line": "上州[じょうしゅう]の からっ風[かぜ]を うけてみよ！"
     }
   ]

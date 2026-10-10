@@ -93,8 +93,10 @@ export interface BagOverlayProps {
 
 const STATS: [keyof Stats, string][] = [
   ['hp', 'field.statHp'],
-  ['atk', 'field.statAtk'],
-  ['def', 'field.statDef'],
+  ['scienceAtk', 'field.statScienceAtk'],
+  ['humanitiesAtk', 'field.statHumanitiesAtk'],
+  ['scienceDef', 'field.statScienceDef'],
+  ['humanitiesDef', 'field.statHumanitiesDef'],
   ['spd', 'field.statSpd'],
   ['wis', 'field.statWis'],
 ];

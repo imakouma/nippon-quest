@@ -7,6 +7,15 @@ import { recordPlayDuration, recordPlayMinute } from '../../src/core/state/playT
 
 const fresh = () => createNewGame({ name: 'ハル', grade: 3 });
 
+type LegacyV9State = {
+  schemaVersion: number;
+  player: {
+    baseStats: { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
+    hp: number;
+    mp: number;
+  };
+};
+
 describe('GameState', () => {
   it('プレイ時間を加算し、変更日時を更新する', () => {
     const state = fresh();
@@ -92,6 +101,33 @@ describe('GameState', () => {
     const migrated = migrate(legacy);
     expect(migrated.migratedFrom).toBe(8);
     expect(migrated.state.progress.titles).toEqual(['ねぶた見習[みなら]い']);
+  });
+  it('v9 の能力を文理能力へ移行し、現在HP・MP割合を保つ', () => {
+    const legacy = structuredClone(fresh()) as unknown as LegacyV9State;
+    legacy.schemaVersion = 9;
+    legacy.player.baseStats = {
+      hp: 40,
+      mp: 10,
+      atk: 8,
+      def: 6,
+      spd: 7,
+      wis: 5,
+    };
+    legacy.player.hp = 20;
+    legacy.player.mp = 5;
+    const migrated = migrate(legacy).state;
+    expect(migrated.player.baseStats).toEqual({
+      hp: 24,
+      mp: 6,
+      scienceAtk: 5,
+      humanitiesAtk: 5,
+      scienceDef: 4,
+      humanitiesDef: 4,
+      spd: 5,
+      wis: 3,
+    });
+    expect(migrated.player.hp).toBe(12);
+    expect(migrated.player.mp).toBe(3);
   });
   it('v2 の学習データへ履歴と概念状態を追加して移行する', () => {
     const current = fresh();

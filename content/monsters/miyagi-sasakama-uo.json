@@ -7,22 +7,50 @@
   "element": "mizu",
   "weakness": "hino",
   "baseStats": {
-    "hp": 34,
-    "mp": 8,
-    "atk": 9,
-    "def": 7,
-    "spd": 8,
-    "wis": 5
+    "hp": 20.4,
+    "mp": 4.8,
+    "spd": 5.7,
+    "wis": 3,
+    "scienceAtk": 5.6,
+    "humanitiesAtk": 5.6,
+    "scienceDef": 4.7,
+    "humanitiesDef": 4.7
   },
   "growth": {
-    "hp": 5,
-    "mp": 1,
-    "atk": 1.3,
-    "def": 1.1,
-    "spd": 1,
-    "wis": 0.6
+    "base": {
+      "hp": 3,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-shizuku"],
+  "skills": [
+    "sk-shizuku"
+  ],
   "drops": [
     {
       "itemId": "miyagi-sasa-no-ha",

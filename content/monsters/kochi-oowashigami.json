@@ -7,22 +7,51 @@
   "element": "kaze",
   "weakness": "tsuchi",
   "baseStats": {
-    "hp": 65,
-    "mp": 18,
-    "atk": 19,
-    "def": 12,
-    "spd": 17,
-    "wis": 12
+    "hp": 39,
+    "mp": 10.8,
+    "spd": 12.1,
+    "wis": 7.2,
+    "scienceAtk": 11.9,
+    "humanitiesAtk": 11.9,
+    "scienceDef": 8,
+    "humanitiesDef": 8
   },
   "growth": {
-    "hp": 5.3,
-    "mp": 1.2,
-    "atk": 1.6,
-    "def": 1,
-    "spd": 1.6,
-    "wis": 1
+    "base": {
+      "hp": 3.2,
+      "mp": 1,
+      "spd": 1.1,
+      "wis": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-abc-shout", "sk-habataki"],
+  "skills": [
+    "sk-abc-shout",
+    "sk-habataki"
+  ],
   "drops": [],
   "recruitRate": 0,
   "xp": 36,

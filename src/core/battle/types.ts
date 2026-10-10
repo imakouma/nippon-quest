@@ -1,6 +1,6 @@
 /**
  * バトルの型（ターン制。GDD §4）。
- * 1 ターン ＝ 主人公 → オトモ（前に 立つ 仲間）→ てき の じゅんで 1 回ずつ 動く。
+ * 1 ターン ＝ 優先度 → すばやさ → シード付き同速抽選の順で 1 回ずつ動く。
  * 仕様のデータモデルとの対応：
  *  - PlayerState     … 主人公の Combatant（ally.hero：hp / maxHp = stats.hp / mp / maxMp = stats.mp / stats）＋ BattleState.player。
  *                      stats の名前は content とそろえて atk = attack・def = defense・spd = speed・wis = intelligence

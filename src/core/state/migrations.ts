@@ -118,6 +118,37 @@ const migrations: Record<number, Migration> = {
     const titles = missions['aomori-ms-04']?.status === 'done' ? [NEBUTA_APPRENTICE_TITLE] : [];
     return { ...s, schemaVersion: 9, progress: { ...progress, titles } };
   },
+  9: (s) => {
+    const player = (s.player ?? {}) as Record<string, unknown>;
+    const old = (player.baseStats ?? {}) as Record<string, number>;
+    if (old.scienceAtk !== undefined) return { ...s, schemaVersion: 10 };
+    const oldMaxHp = Math.max(1, old.hp ?? 40);
+    const oldMaxMp = Math.max(1, old.mp ?? 10);
+    const hp = Math.round((old.hp ?? 40) * 0.6);
+    const mp = Math.round((old.mp ?? 10) * 0.6);
+    const attack = Math.max(1, Math.round((old.atk ?? 8) * 0.625));
+    const defense = Math.max(1, Math.round((old.def ?? 6) * (2 / 3)));
+    const baseStats = {
+      hp,
+      mp,
+      scienceAtk: attack,
+      humanitiesAtk: attack,
+      scienceDef: defense,
+      humanitiesDef: defense,
+      spd: Math.max(1, Math.round((old.spd ?? 7) * (5 / 7))),
+      wis: Math.max(0, Math.round((old.wis ?? 5) * 0.6)),
+    };
+    return {
+      ...s,
+      schemaVersion: 10,
+      player: {
+        ...player,
+        baseStats,
+        hp: Math.max(1, Math.min(hp, Math.round(((player.hp as number) / oldMaxHp) * hp))),
+        mp: Math.max(0, Math.min(mp, Math.round(((player.mp as number) / oldMaxMp) * mp))),
+      },
+    };
+  },
 };
 
 export interface MigrateResult {

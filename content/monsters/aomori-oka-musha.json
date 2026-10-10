@@ -7,24 +7,54 @@
   "element": "kaze",
   "weakness": "tsuchi",
   "baseStats": {
-    "hp": 54,
-    "mp": 15,
-    "atk": 15,
-    "def": 11,
-    "spd": 14,
-    "wis": 9
+    "hp": 32.4,
+    "mp": 9,
+    "spd": 10,
+    "wis": 5.4,
+    "scienceAtk": 9.4,
+    "humanitiesAtk": 9.4,
+    "scienceDef": 7.3,
+    "humanitiesDef": 7.3
   },
   "growth": {
-    "hp": 6.5,
-    "mp": 1.5,
-    "atk": 2.1,
-    "def": 1.5,
-    "spd": 1.4,
-    "wis": 1.1
+    "base": {
+      "hp": 3.9,
+      "mp": 1,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1.3,
+      "humanitiesAtk": 1.3,
+      "scienceDef": 1,
+      "humanitiesDef": 1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
-  "skills": ["sk-abc-shout", "sk-habataki", "sk-kaikyo-no-kaze"],
+  "skills": [
+    "sk-abc-shout",
+    "sk-habataki",
+    "sk-kaikyo-no-kaze"
+  ],
   "drops": [],
-  "recruitRate": 0.0,
+  "recruitRate": 0,
   "xp": 50,
   "gold": 30,
   "spriteKey": "mon.aomori-oka-musha",

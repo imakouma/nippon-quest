@@ -7,20 +7,46 @@
   "element": "tsuchi",
   "weakness": "kaze",
   "baseStats": {
-    "hp": 572,
-    "mp": 71,
-    "atk": 31,
-    "def": 26,
-    "spd": 12,
-    "wis": 19
+    "hp": 343.2,
+    "mp": 42.6,
+    "spd": 8.6,
+    "wis": 11.4,
+    "scienceAtk": 19.4,
+    "humanitiesAtk": 19.4,
+    "scienceDef": 17.3,
+    "humanitiesDef": 17.3
   },
   "growth": {
-    "hp": 13.2,
-    "mp": 2.2,
-    "atk": 1.9,
-    "def": 1.6,
-    "spd": 1.0,
-    "wis": 1.4
+    "base": {
+      "hp": 7.9,
+      "mp": 1.3,
+      "spd": 1,
+      "wis": 1,
+      "scienceAtk": 1.2,
+      "humanitiesAtk": 1.2,
+      "scienceDef": 1.1,
+      "humanitiesDef": 1.1
+    },
+    "every5": {
+      "hp": 2,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 0
+    },
+    "every10": {
+      "hp": 3,
+      "mp": 1,
+      "scienceAtk": 1,
+      "humanitiesAtk": 1,
+      "scienceDef": 1,
+      "humanitiesDef": 1,
+      "spd": 1,
+      "wis": 1
+    }
   },
   "skills": [
     "sk-iwa-otoshi",

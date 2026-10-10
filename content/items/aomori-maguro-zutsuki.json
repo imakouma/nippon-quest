@@ -3,7 +3,10 @@
   "id": "aomori-maguro-zutsuki",
   "name": "マグロずつき",
   "kind": "weapon",
-  "stats": { "atk": 8 },
+  "stats": {
+    "scienceAtk": 5,
+    "humanitiesAtk": 5
+  },
   "element": "mizu",
   "setId": "set-aomori",
   "price": 600,
