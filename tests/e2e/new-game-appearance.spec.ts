@@ -26,7 +26,7 @@ test('旅立ち前に見た目を選び、物語の中で名前を決められ�
     .getByRole('button', { name: 'スキップ' })
     .click();
 
-  const namePrompt = page.getByRole('dialog', { name: /ものがたり.*名前/ });
+  const namePrompt = page.getByRole('dialog', { name: /ものがたり.*(?:名前|なまえ)/ });
   await expect(namePrompt).toBeVisible({ timeout: 30_000 });
   await expect(namePrompt).toHaveAttribute('aria-modal', 'true');
   const name = namePrompt.getByRole('textbox', { name: 'なまえ' });

@@ -1,4 +1,3 @@
-import { ElementChip } from '../chips';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
@@ -12,11 +11,13 @@ export function Bar({
   max,
   kind,
   label,
+  showValue = false,
 }: {
   value: number;
   max: number;
   kind: BarKind;
   label: string;
+  showValue?: boolean;
 }) {
   const ratio = max > 0 ? Math.max(0, Math.min(1, value / max)) : 0;
   const tone = kind !== 'hp' ? kind : ratio > 0.5 ? 'hp' : ratio > 0.2 ? 'hp-mid' : 'hp-low';
@@ -30,6 +31,11 @@ export function Bar({
       aria-valuemax={max}
     >
       <i class={`nq-fill-${tone}`} style={{ width: `${ratio * 100}%` }} />
+      {showValue && (
+        <span class="nq-bar-value" aria-hidden="true">
+          {value}/{max}
+        </span>
+      )}
     </div>
   );
 }
@@ -49,34 +55,18 @@ export function EnemyWindow({ e }: { e: EnemyView }) {
         {e.isBoss && (
           <span class="nq-boss-tag">
             <PixelIcon name="boss" scale={2} />
-            {t('battle.boss')}
+            <RubyLabel text={t('battle.boss')} />
           </span>
         )}
       </div>
       <div class="nq-foe-hp">
-        <span class="nq-lbl">{t('battle.hp')}</span>
-        <Bar value={e.hp} max={e.maxHp} kind="hp" label={`${displayText(e.name)} ${t('battle.hp')}`} />
-        <span class="nq-foe-hp-num">
-          {e.hp}/{e.maxHp}
-        </span>
-      </div>
-      <div class="nq-foe-row">
-        <ElementChip el={e.element} />
-        {e.weakness && e.weaknessRevealed ? (
-          <span class={`nq-chip nq-el-${e.weakness} nq-weak-open`}>
-            {t('battle.weakness')}
-            <PixelIcon name={`el-${e.weakness}`} scale={2} />
-            {t(`elements.${e.weakness}`)}
-          </span>
-        ) : (
-          <span class="nq-chip nq-weak">{t('battle.weaknessUnknown')}</span>
-        )}
-        {e.defMult !== 1 && (
-          <span class="nq-chip nq-def">
-            {t('battle.defMark')}
-            {e.defMult > 1 ? '▲' : '▼'}
-          </span>
-        )}
+        <Bar
+          value={e.hp}
+          max={e.maxHp}
+          kind="hp"
+          label={`${displayText(e.name)} ${t('battle.hp')}`}
+          showValue
+        />
       </div>
     </div>
   );
@@ -85,7 +75,9 @@ export function EnemyWindow({ e }: { e: EnemyView }) {
 export function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
   const down = a.hp <= 0;
   return (
-    <div class={`nq-ally ${active ? 'nq-ally-active' : ''} ${down ? 'nq-ally-down' : ''}`}>
+    <div
+      class={`nq-ally ${a.isHero ? 'nq-ally-hero' : ''} ${active ? 'nq-ally-active' : ''} ${down ? 'nq-ally-down' : ''}`}
+    >
       <div class="nq-ally-heading">
         <span class="nq-ally-cur" aria-hidden="true">
           {active ? '▶' : ''}
@@ -107,13 +99,15 @@ export function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
           <span class="nq-down">{t('battle.fainted')}</span>
         ) : (
           <>
-            <span class="nq-lbl">{t('battle.hp')}</span>
-            <Bar value={a.hp} max={a.maxHp} kind="hp" label={`${displayText(a.name)} ${t('battle.hp')}`} />
+            <Bar
+              value={a.hp}
+              max={a.maxHp}
+              kind="hp"
+              label={`${displayText(a.name)} ${t('battle.hp')}`}
+              showValue
+            />
           </>
         )}
-        <span class="nq-num">
-          {a.hp}/{a.maxHp}
-        </span>
       </div>
     </div>
   );
@@ -121,7 +115,7 @@ export function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
 
 export function GaugeColumn({ list }: { list: SubjectGaugeView[] }) {
   return (
-    <div class="nq-win nq-sgauge">
+    <div class="nq-sgauge">
       <span class="nq-sgauge-title">{t('battle.gauge')}</span>
       {list.map((g) => (
         <div

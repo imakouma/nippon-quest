@@ -1,6 +1,7 @@
 import {
   battleSkills,
   canAfford,
+  canUseBattleItem,
   frontAlly,
   makeCompanion,
   SUBJECTS,
@@ -94,7 +95,7 @@ export function buildGaugeViews(
 export function buildItemOptions(state: BattleState, content: ContentIndex): ItemOption[] {
   return Object.entries(state.ally.items).flatMap(([id, count]) => {
     const item = content.items.get(id);
-    if (!item || count <= 0 || item.kind !== 'consumable' || !item.use) return [];
+    if (!item || count <= 0 || !canUseBattleItem(state, item)) return [];
     return [{ id, name: item.name, count, blurb: item.blurb, icon: itemIconUrl(item) }];
   });
 }

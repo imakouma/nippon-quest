@@ -1,7 +1,7 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Area, Item, Monster, Motif } from '../../core/content/schemas';
 import type { GameState } from '../../core/state/schema';
-import { motifStamp } from '../../core/progression/route';
+import { specialtyKnown } from '../../core/progression/specialty';
 import { GEOGRAPHIC_AREA_ORDER } from './geography';
 
 export interface SpecialtyEntry {
@@ -32,10 +32,7 @@ export function specialtyCatalog(
       if (!isSpecialtyMotif(motif)) continue;
       const itemId = `${area.id}-${motif.id}`;
       const known =
-        revealAll ||
-        game.dex.motifs.includes(motifStamp(area.id, motif.id)) ||
-        game.dex.items.includes(itemId) ||
-        (game.inventory[itemId] ?? 0) > 0;
+        revealAll || specialtyKnown(game, area.id, motif.id, itemId) || (game.inventory[itemId] ?? 0) > 0;
       out.push({ area, motif, itemId, item: content.items.get(itemId), known });
     }
   return out;

@@ -7,7 +7,7 @@
     "unit": "sansu.g2.kasa",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_8", "reviewed:2026-09-30"],
     "payload": {
-      "prompt": "1リットルは、何デシリットル でしょう。",
+      "prompt": "1リットルは、何[なん]デシリットル でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -107,11 +107,11 @@
       "choices": [
         {
           "id": "c1",
-          "text": "大きな牛にゅうパック"
+          "text": "大[おお]きな 牛乳[ぎゅうにゅう]パック"
         },
         {
           "id": "c2",
-          "text": "きゅうしょくの牛にゅう"
+          "text": "きゅうしょくの 牛乳[ぎゅうにゅう]"
         },
         {
           "id": "c3",
@@ -119,13 +119,13 @@
         },
         {
           "id": "c4",
-          "text": "コンビニの小さなペットボトル"
+          "text": "コンビニの小[ちい]さなペットボトル"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "１リットルは、スーパーなどでうっている 大きな牛にゅうパック１本分の 「かさ」になる。"
+    "explanation": "１リットルは、スーパーなどで うっている 大[おお]きな 牛乳[ぎゅうにゅう]パック１本[ほん]分[ぶん]の 「かさ」になる。"
   },
   {
     "id": "sansu.g2.kasa.legacy-0005",
@@ -135,7 +135,7 @@
     "unit": "sansu.g2.kasa",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_8", "reviewed:2026-09-30"],
     "payload": {
-      "prompt": "1リットルは、何ミリリットル でしょう。",
+      "prompt": "1リットルは、何[なん]ミリリットル でしょう。",
       "choices": [
         {
           "id": "c1",

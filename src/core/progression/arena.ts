@@ -1,11 +1,12 @@
 /** 闘技場とマップ訪問の進行。UI や Phaser に依存しない純粋関数だけを置く。 */
 import type { GameState } from '../state/schema';
+import { addProgressValue } from '../../shared/safeInteger';
 
 /** 闘技場の勝利報酬とバッジを反映する。 */
 export function applyArenaVictory(prev: GameState, prize: number, now = Date.now()): GameState {
   const next = structuredClone(prev);
-  next.player.gold += prize;
-  next.arena.badges += 1;
+  next.player.gold = addProgressValue(next.player.gold, prize);
+  next.arena.badges = addProgressValue(next.arena.badges, 1);
   next.updatedAt = now;
   return next;
 }

@@ -1,0 +1,604 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-82v12-kokugo-g1-2",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]コード82V12 国語[こくご] 第[だい]1・2学年[がくねん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00002.htm",
+      "published": "平成29年告示・Ver 1.2",
+      "checkedAt": "2026-10-10",
+      "locator": "82102A3112000000〜82102A3132000000"
+    },
+    {
+      "id": "tokyo-shoseki-r6-kokugo-g1",
+      "title": "新編[しんぺん] 新[あたら]しい国語[こくご] 1年[ねん] 年間[ねんかん]指導[しどう]計画[けいかく]作成[さくせい]資料[しりょう]",
+      "publisher": "東京書籍",
+      "url": "https://ten.tokyo-shoseki.co.jp/text/shou/kokugo/keikaku/",
+      "published": "令和6年度用",
+      "checkedAt": "2026-10-10",
+      "locator": "1年"
+    },
+    {
+      "id": "kyoiku-shuppan-r6-kokugo-g1",
+      "title": "ひろがる言葉[ことば] 小学[しょうがく]国語[こくご] 1年[ねん] 年間[ねんかん]指導[しどう]計画[けいかく]・評価[ひょうか]計画[けいかく]",
+      "publisher": "教育出版",
+      "url": "https://www.kyoiku-shuppan.co.jp/tokushu/r6plan.html",
+      "published": "令和6年度版",
+      "checkedAt": "2026-10-10",
+      "locator": "国語 1年"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "kokugo.g1.script.hiragana",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.hiragana",
+      "name": "平仮名[ひらがな]を読[よ]み書[か]く",
+      "description": "平仮名[ひらがな]を音[おと]と結[むす]び付[つ]けて読[よ]み、形[かたち]に注意[ちゅうい]して書[か]く。",
+      "kind": "reading",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3113000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "年間[ねんかん]指導[しどう]計画[けいかく]二社[にしゃ]を照合[しょうごう]。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2", "tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.script.grade1-kanji",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.kanji",
+      "name": "第[だい]1学年[がくねん]の漢字[かんじ]を読[よ]み書[か]く",
+      "description": "第[だい]1学年[がくねん]に配当[はいとう]された漢字[かんじ]を読[よ]み、漸次[ぜんじ]書[か]いて文[ぶん]や文章[ぶんしょう]の中[なか]で使[つか]う。",
+      "kind": "reading",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3114000000"],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "reference",
+        "note": "学年[がくねん]を通[とお]して段階的[だんかいてき]に扱[あつか]う。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.sound.syllable",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.kotoba-asobi",
+      "name": "音節[おんせつ]と文字[もじ]の関係[かんけい]",
+      "description": "言葉[ことば]の音[おと]を区切[くぎ]り、文字[もじ]との対応[たいおう]に気付[きづ]く。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["82102A3112000000", "82102A3132000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "入学期[にゅうがくき]の文字[もじ]学習[がくしゅう]と関連[かんれん]。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.grammar.particles",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.joshi",
+      "name": "助詞[じょし]の「は」「へ」「を」",
+      "description": "助詞[じょし]の「は」「へ」「を」を文[ぶん]の中[なか]で正[ただ]しく使[つか]う。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3113000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "第[だい]1学期[がっき]から助詞[じょし]の「は」「へ」「を」を文[ぶん]の中[なか]で扱[あつか]う。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.vocabulary.semantic-groups",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.kotoba-asobi",
+      "name": "意味[いみ]による言葉[ことば]のまとまり",
+      "description": "身近[みぢか]な言葉[ことば]を意味[いみ]のまとまりで捉[とら]え、語彙[ごい]を豊[ゆた]かにする。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["82102A3115000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "身近[みぢか]な語句[ごく]を使[つか]う活動[かつどう]の中[なか]で継続的[けいぞくてき]に扱[あつか]う。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.sentence.punctuation",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.bun-no-kimari",
+      "name": "句読点[くとうてん]と文[ぶん]の形[かたち]",
+      "description": "句読点[くとうてん]やかぎを使[つか]い、文[ぶん]として読[よ]みやすく書[か]く。",
+      "kind": "skill",
+      "memoryType": "procedure",
+      "curriculumCodes": ["82102A3113000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "短[みじか]い文[ぶん]を書く活動[かつどう]から継続[けいぞく]する。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.sentence.subject-predicate",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.bun-no-kimari",
+      "name": "主語[しゅご]と述語[じゅつご]の関係[かんけい]",
+      "description": "文[ぶん]の中[なか]で、何[なに]が・誰[だれ]がに当[あ]たる言葉[ことば]と、どうする・どんなだに当[あ]たる言葉[ことば]の関係[かんけい]に気付[きづ]く。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["82102A3116000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "短[みじか]い文[ぶん]の読[よ]み書[か]きに慣[な]れた後[あと]に扱[あつか]う。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.writing.word-connections",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.bun-no-kimari",
+      "name": "語[ご]と語[ご]の続[つづ]き方[かた]",
+      "description": "語[ご]と語[ご]の続[つづ]き方[かた]に注意[ちゅうい]して、伝[つた]わる順序[じゅんじょ]で文[ぶん]を書く。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3221300000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "文[ぶん]を書く活動[かつどう]の進行[しんこう]に合[あ]わせる。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.writing.basic-format",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.bun-no-kimari",
+      "name": "文[ぶん]の区切[くぎ]りと書[か]き出[だ]し",
+      "description": "語[ご]のまとまりを捉[とら]え、文[ぶん]や文章[ぶんしょう]を読[よ]みやすい形[かたち]で書[か]く。",
+      "kind": "skill",
+      "memoryType": "procedure",
+      "curriculumCodes": ["82102A3118000000", "82102A3221300000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "入学期[にゅうがくき]の短[みじか]い文[ぶん]を書く活動[かつどう]から扱[あつか]う。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "kokugo.g1.sound.syllable",
+      "to": "kokugo.g1.script.hiragana",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "音[おと]と文字[もじ]の対応[たいおう]への気付[きづ]きが平仮名[ひらがな]の読[よ]み書[か]きを支[ささ]える。",
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "reviewStatus": "draft"
+    },
+    {
+      "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g1.sentence.punctuation",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "文字[もじ]の読[よ]み書[か]きは文[ぶん]を書く基礎[きそ]となる。",
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "reviewStatus": "draft"
+    }
+  ],
+  "questionLinks": [
+    {
+      "questionId": "kokugo.g1.hiragana.0002",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0001",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0002",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0003",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0004",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0005",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0006",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0007",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0008",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0009",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0010",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kanji.0011",
+      "concepts": [{ "conceptId": "kokugo.g1.script.grade1-kanji", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kotoba-asobi.0001",
+      "concepts": [{ "conceptId": "kokugo.g1.sound.syllable", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0004",
+      "concepts": [{ "conceptId": "kokugo.g1.grammar.particles", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0006",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0007",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0008",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0010",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0013",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0015",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0016",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0018",
+      "concepts": [{ "conceptId": "kokugo.g1.script.hiragana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hiragana.0019",
+      "concepts": [{ "conceptId": "kokugo.g1.grammar.particles", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kotoba-asobi.0002",
+      "concepts": [{ "conceptId": "kokugo.g1.sound.syllable", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kotoba-asobi.0003",
+      "concepts": [{ "conceptId": "kokugo.g1.sound.syllable", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kotoba-asobi.0004",
+      "concepts": [{ "conceptId": "kokugo.g1.sound.syllable", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kotoba-asobi.0005",
+      "concepts": [{ "conceptId": "kokugo.g1.vocabulary.semantic-groups", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0001",
+      "concepts": [{ "conceptId": "kokugo.g1.grammar.particles", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0001",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.punctuation", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0002",
+      "concepts": [{ "conceptId": "kokugo.g1.grammar.particles", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0003",
+      "concepts": [{ "conceptId": "kokugo.g1.grammar.particles", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0009",
+      "concepts": [{ "conceptId": "kokugo.g1.grammar.particles", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0004",
+      "concepts": [{ "conceptId": "kokugo.g1.writing.word-connections", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0005",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.subject-predicate", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0006",
+      "concepts": [{ "conceptId": "kokugo.g1.writing.word-connections", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0007",
+      "concepts": [{ "conceptId": "kokugo.g1.writing.word-connections", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0008",
+      "concepts": [{ "conceptId": "kokugo.g1.writing.word-connections", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.joshi.0010",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.subject-predicate", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0002",
+      "concepts": [{ "conceptId": "kokugo.g1.writing.basic-format", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0003",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.punctuation", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0004",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.punctuation", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0005",
+      "concepts": [{ "conceptId": "kokugo.g1.writing.word-connections", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0006",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.subject-predicate", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0007",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.subject-predicate", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0008",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.punctuation", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0009",
+      "concepts": [{ "conceptId": "kokugo.g1.sentence.punctuation", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0010",
+      "concepts": [{ "conceptId": "kokugo.g1.writing.basic-format", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kotoba-asobi.0006",
+      "concepts": [{ "conceptId": "kokugo.g1.vocabulary.semantic-groups", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.kotoba-asobi.0007",
+      "concepts": [{ "conceptId": "kokugo.g1.vocabulary.semantic-groups", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.bun-no-kimari.0011",
+      "concepts": [{ "conceptId": "kokugo.g1.writing.basic-format", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

@@ -5,6 +5,8 @@
 import { z, type ZodTypeAny } from 'zod';
 import {
   contentKinds,
+  elementSchema,
+  equipKinds,
   type Area,
   type ArenaRival,
   type ContentKind,
@@ -19,6 +21,7 @@ import {
   type World,
   type XpTable,
 } from './schemas';
+import { checkRewardReferences } from './rewardValidation';
 
 export interface ContentManifest {
   generatedAt: string;
@@ -26,6 +29,8 @@ export interface ContentManifest {
   questions: string[];
   /** Playground の ?q= 直リンクで全問題を読み込まず、該当ファイルだけ取得する索引。 */
   questionIndex?: Record<string, string>;
+  /** ゲーム開始時に選択学年だけ読み込むための索引。 */
+  questionFilesByGrade?: Record<string, string[]>;
 }
 
 const contentManifestSchema = z.object({
@@ -33,6 +38,7 @@ const contentManifestSchema = z.object({
   files: z.record(z.array(z.string().min(1))),
   questions: z.array(z.string().min(1)),
   questionIndex: z.record(z.string().min(1)).optional(),
+  questionFilesByGrade: z.record(z.array(z.string().min(1))).optional(),
 });
 
 export function parseContentManifest(data: unknown): ContentManifest {
@@ -69,6 +75,7 @@ export interface ContentIndex {
   /** area id → その県のモンスター一覧（索引） */
   monstersByArea: Map<string, Monster[]>;
   questionFiles: string[];
+  questionFilesByGrade?: Record<string, string[]>;
 }
 
 /** fetch ベースの reader（ブラウザ用）。base は '/content' など */
@@ -201,6 +208,7 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
     unlockableMonsters,
     monstersByArea,
     questionFiles: manifest.questions ?? [],
+    questionFilesByGrade: manifest.questionFilesByGrade ?? {},
   };
 }
 
@@ -219,6 +227,18 @@ export function findBrokenReferences(c: ContentIndex): string[] {
   const islandIds = new Set<string>();
   const islandOrders = new Set<number>();
   const areaOwners = new Map<string, string[]>();
+
+  checkUnique(c.elements.elements, 'elements: element');
+  for (const attack of elementSchema.options) {
+    if (!c.elements.elements.includes(attack)) errs.push(`elements: element "${attack}" がありません`);
+    const row = c.elements.multipliers[attack];
+    if (!row) {
+      errs.push(`elements: multipliers."${attack}" がありません`);
+      continue;
+    }
+    for (const defend of elementSchema.options)
+      if (row[defend] === undefined) errs.push(`elements: multipliers."${attack}"."${defend}" がありません`);
+  }
 
   for (const island of c.world.islands) {
     if (islandIds.has(island.id)) errs.push(`world: island id "${island.id}" が重複しています`);
@@ -272,10 +292,35 @@ export function findBrokenReferences(c: ContentIndex): string[] {
       errs.push(
         `area "${a.id}": midBoss "${a.midBoss}" は isBoss: true にしてください（にげられない戦いにする）`,
       );
+    checkUnique(
+      [a.boss, a.midBoss, a.secret?.boss, ...a.regions.map((region) => region.boss?.monsterId)].filter(
+        (id): id is string => !!id,
+      ),
+      `area "${a.id}": boss monster`,
+    );
     const motifIds = checkUnique(
       a.motifs.map((motif) => motif.id),
       `area "${a.id}": motif id`,
     );
+    for (const motif of a.motifs) {
+      if (motif.kind !== 'food' && motif.kind !== 'craft') continue;
+      const itemId = `${a.id}-${motif.id}`;
+      const item = c.items.get(itemId);
+      const expectedKind = motif.kind === 'food' ? 'consumable' : 'material';
+      if (!item) errs.push(`area "${a.id}": specialty "${motif.id}" の item "${itemId}" が存在しません`);
+      else {
+        if (item.kind !== expectedKind)
+          errs.push(
+            `area "${a.id}": specialty "${motif.id}" の item.kind が "${item.kind}" です（${expectedKind} が必要）`,
+          );
+        if (motif.kind === 'food' && !item.use?.heal)
+          errs.push(`area "${a.id}": food specialty "${motif.id}" には HP 回復効果が必要です`);
+        if (item.areaOrigin !== a.id)
+          errs.push(
+            `area "${a.id}": specialty "${motif.id}" の item.areaOrigin が "${item.areaOrigin}" です`,
+          );
+      }
+    }
     checkUnique(
       a.events.map((event) => event.id),
       `area "${a.id}": event id`,
@@ -292,13 +337,22 @@ export function findBrokenReferences(c: ContentIndex): string[] {
       a.encounters.map((encounter) => `${encounter.region ?? '*'}:${encounter.zone}`),
       `area "${a.id}": encounter key`,
     );
+    checkUnique(
+      a.shop.map((entry) => entry.itemId),
+      `area "${a.id}": shop itemId`,
+    );
     const regionIds = new Set<string>();
+    const regionMotifIds = new Set<string>();
     for (const region of a.regions) {
       if (regionIds.has(region.id)) errs.push(`area "${a.id}": region "${region.id}" が重複しています`);
       regionIds.add(region.id);
-      for (const motifId of region.motifs)
+      for (const motifId of region.motifs) {
+        if (regionMotifIds.has(motifId))
+          errs.push(`area "${a.id}": region motif "${motifId}" が重複しています`);
+        regionMotifIds.add(motifId);
         if (!motifIds.has(motifId))
           errs.push(`area "${a.id}": region "${region.id}" の motif "${motifId}" が存在しません`);
+      }
       if (region.boss) {
         const boss = c.monsters.get(region.boss.monsterId);
         if (!boss)
@@ -313,6 +367,14 @@ export function findBrokenReferences(c: ContentIndex): string[] {
     }
     if (a.regions.length && a.regions.filter((region) => region.start).length !== 1)
       errs.push(`area "${a.id}": regions の start はちょうど1つ必要です`);
+    if (a.regions.length)
+      for (const motifId of motifIds)
+        if (!regionMotifIds.has(motifId))
+          errs.push(`area "${a.id}": motif "${motifId}" がどの region にもありません`);
+    checkUnique(
+      a.regionGates.map((gate) => [...gate.between].sort().join(':')),
+      `area "${a.id}": regionGate pair`,
+    );
     for (const gate of a.regionGates) {
       for (const regionId of gate.between)
         if (!regionIds.has(regionId))
@@ -324,22 +386,57 @@ export function findBrokenReferences(c: ContentIndex): string[] {
       else if (!opener.boss)
         errs.push(`area "${a.id}": regionGate の openedBy "${gate.openedBy}" に boss がいません`);
     }
+    if (a.regions.length) {
+      const reachable = new Set(a.regions.filter((region) => region.start).map((region) => region.id));
+      let changed = true;
+      while (changed) {
+        changed = false;
+        for (const gate of a.regionGates) {
+          if (!reachable.has(gate.openedBy)) continue;
+          for (const regionId of gate.between)
+            if (!reachable.has(regionId) && regionIds.has(regionId)) {
+              reachable.add(regionId);
+              changed = true;
+            }
+        }
+      }
+      for (const region of a.regions)
+        if (!reachable.has(region.id)) errs.push(`area "${a.id}": region "${region.id}" に到達できません`);
+    }
     for (const e of a.encounters) {
       if (e.region && !regionIds.has(e.region))
         errs.push(`area "${a.id}": encounter の region "${e.region}" が存在しません`);
+      checkUnique(
+        e.table.map((entry) => entry.monsterId),
+        `area "${a.id}": encounter "${e.region ?? '*'}:${e.zone}" monster`,
+      );
       for (const t of e.table)
         if (!c.monsters.has(t.monsterId))
           errs.push(`area "${a.id}": encounter "${t.monsterId}" が存在しません`);
     }
-    for (const s of a.shop)
-      if (!c.items.has(s.itemId)) errs.push(`area "${a.id}": shop "${s.itemId}" が存在しません`);
+    for (const s of a.shop) {
+      const item = c.items.get(s.itemId);
+      if (!item) errs.push(`area "${a.id}": shop "${s.itemId}" が存在しません`);
+      else if (item.price === undefined)
+        errs.push(`area "${a.id}": shop "${s.itemId}" に item.price がありません`);
+      else if (item.price !== s.price)
+        errs.push(
+          `area "${a.id}": shop "${s.itemId}" の price ${s.price} が item.price ${item.price} と一致しません`,
+        );
+    }
     for (const ev of a.events) {
       if (!motifIds.has(ev.motifId))
         errs.push(
           `area "${a.id}": event "${ev.id}" の motifId "${ev.motifId}" がこの県の motifs にありません`,
         );
+      checkUnique(
+        ev.rewardByScore.map((tier) => String(tier.min)),
+        `area "${a.id}": event "${ev.id}" reward min`,
+      );
+      if (!ev.rewardByScore.some((tier) => tier.min === 0))
+        errs.push(`area "${a.id}": event "${ev.id}" の rewardByScore に min: 0 がありません`);
       for (const r of ev.rewardByScore)
-        errs.push(...checkReward(r.reward, c, `area "${a.id}" event "${ev.id}"`));
+        errs.push(...checkRewardReferences(r.reward, c, `area "${a.id}" event "${ev.id}"`));
     }
     const npcIds = new Set((a.town?.npcs ?? []).map((n) => n.id));
     for (const ms of a.missions) {
@@ -347,7 +444,7 @@ export function findBrokenReferences(c: ContentIndex): string[] {
         errs.push(
           `area "${a.id}": mission "${ms.id}" の giverNpc "${ms.giverNpc}" が town.npcs にありません`,
         );
-      errs.push(...checkReward(ms.reward, c, `area "${a.id}" mission "${ms.id}"`));
+      errs.push(...checkRewardReferences(ms.reward, c, `area "${a.id}" mission "${ms.id}"`));
       const [kind, target] = ms.condition.split(':');
       if ((kind === 'defeat' || kind === 'recruit') && target && !c.monsters.has(target))
         errs.push(`area "${a.id}": mission "${ms.id}" の対象モンスター "${target}" が存在しません`);
@@ -366,17 +463,37 @@ export function findBrokenReferences(c: ContentIndex): string[] {
     else if (!area && !m.isBoss) errs.push(`monster "${m.id}": 島 id を area にできるのは isBoss のみ`);
     else if (area && !area.motifs.some((x) => x.id === m.motifId))
       errs.push(`monster "${m.id}": motifId "${m.motifId}" が ${m.area} の motifs にありません`);
+    checkUnique(m.skills, `monster "${m.id}": skill`);
     for (const s of m.skills)
       if (!c.skills.has(s)) errs.push(`monster "${m.id}": skill "${s}" が存在しません`);
+    checkUnique(
+      m.drops.map((drop) => drop.itemId),
+      `monster "${m.id}": drop`,
+    );
     for (const d of m.drops)
       if (!c.items.has(d.itemId)) errs.push(`monster "${m.id}": drop "${d.itemId}" が存在しません`);
     if (!has(c.items, m.recruitItem))
       errs.push(`monster "${m.id}": recruitItem "${m.recruitItem}" が存在しません`);
-    for (const p of m.bossPhases ?? [])
+    const phases = m.bossPhases ?? [];
+    if (phases.length && !m.isBoss)
+      errs.push(`monster "${m.id}": bossPhases を使うには isBoss: true が必要です`);
+    for (const [index, p] of phases.entries()) {
+      if (index > 0 && p.hpBelow >= phases[index - 1]!.hpBelow)
+        errs.push(`monster "${m.id}": bossPhases の hpBelow は大きい順にしてください`);
+      checkUnique(p.skills ?? [], `monster "${m.id}": bossPhase ${index} skill`);
       for (const s of p.skills ?? [])
         if (!c.skills.has(s)) errs.push(`monster "${m.id}": phase skill "${s}" が存在しません`);
-    if (m.evolution && !c.monsters.has(m.evolution.to))
-      errs.push(`monster "${m.id}": evolution.to "${m.evolution.to}" が存在しません`);
+    }
+    if (m.evolution) {
+      const target = c.monsters.get(m.evolution.to);
+      if (!target) errs.push(`monster "${m.id}": evolution.to "${m.evolution.to}" が存在しません`);
+      else {
+        if (target.area !== m.area)
+          errs.push(`monster "${m.id}": evolution.to "${target.id}" の area が "${target.area}" です`);
+        if (target.motifId !== m.motifId)
+          errs.push(`monster "${m.id}": evolution.to "${target.id}" の motifId が "${target.motifId}" です`);
+      }
+    }
     if (m.evolution && !c.items.has(m.evolution.item))
       errs.push(`monster "${m.id}": evolution.item "${m.evolution.item}" が存在しません`);
   }
@@ -403,28 +520,87 @@ export function findBrokenReferences(c: ContentIndex): string[] {
     for (const id of path) checkedEvolutions.add(id);
   }
   for (const it of c.items.values()) {
+    const equipment = equipKinds.includes(it.kind as (typeof equipKinds)[number]);
+    if (it.kind === 'consumable' && !it.use) errs.push(`item "${it.id}": consumable には use が必要です`);
+    if (it.kind !== 'consumable' && it.use)
+      errs.push(`item "${it.id}": use を設定できるのは consumable だけです`);
+    for (const [field, value] of Object.entries({
+      stats: it.stats,
+      element: it.element,
+      grantsSkill: it.grantsSkill,
+      setId: it.setId,
+    }))
+      if (!equipment && value !== undefined)
+        errs.push(`item "${it.id}": ${field} を設定できるのは装備だけです`);
     if (!has(c.skills, it.grantsSkill))
       errs.push(`item "${it.id}": grantsSkill "${it.grantsSkill}" が存在しません`);
     if (!has(c.sets, it.setId)) errs.push(`item "${it.id}": setId "${it.setId}" が存在しません`);
+    else if (it.setId && !c.sets.get(it.setId)!.pieces.includes(it.id))
+      errs.push(`item "${it.id}": set "${it.setId}" の pieces にありません`);
     if (!has(c.areas, it.areaOrigin))
       errs.push(`item "${it.id}": areaOrigin "${it.areaOrigin}" が存在しません`);
   }
-  for (const s of c.sets.values())
-    for (const p of s.pieces) if (!c.items.has(p)) errs.push(`set "${s.id}": piece "${p}" が存在しません`);
+  for (const s of c.sets.values()) {
+    checkUnique(s.pieces, `set "${s.id}": piece`);
+    const kinds: string[] = [];
+    for (const p of s.pieces) {
+      const item = c.items.get(p);
+      if (!item) errs.push(`set "${s.id}": piece "${p}" が存在しません`);
+      else {
+        kinds.push(item.kind);
+        if (!equipKinds.includes(item.kind as (typeof equipKinds)[number]))
+          errs.push(`set "${s.id}": piece "${p}" の kind "${item.kind}" は装備ではありません`);
+        if (item.setId !== s.id) errs.push(`set "${s.id}": piece "${p}" の setId が "${item.setId}" です`);
+      }
+    }
+    checkUnique(kinds, `set "${s.id}": kind`);
+    for (const kind of equipKinds)
+      if (!kinds.includes(kind)) errs.push(`set "${s.id}": kind "${kind}" がありません`);
+  }
   for (const r of c.recipes.values()) {
-    if (!c.items.has(r.result.itemId))
-      errs.push(`recipe "${r.id}": result "${r.result.itemId}" が存在しません`);
-    for (const m of r.materials)
+    const result = c.items.get(r.result.itemId);
+    if (!result) errs.push(`recipe "${r.id}": result "${r.result.itemId}" が存在しません`);
+    else if (!equipKinds.includes(result.kind as (typeof equipKinds)[number]))
+      errs.push(`recipe "${r.id}": result "${r.result.itemId}" は装備ではありません`);
+    for (const m of r.materials) {
       if (!c.items.has(m.itemId)) errs.push(`recipe "${r.id}": material "${m.itemId}" が存在しません`);
+      if (m.itemId === r.result.itemId)
+        errs.push(`recipe "${r.id}": result "${r.result.itemId}" を材料にはできません`);
+    }
+  }
+  for (const unit of c.units.values()) {
+    const [idSubject, idGrade] = unit.id.split('.');
+    if (idSubject !== unit.subject)
+      errs.push(`unit "${unit.id}": id の教科 ${idSubject} と subject ${unit.subject} が一致しません`);
+    const grade = Number(idGrade?.slice(1));
+    if (grade !== unit.grade)
+      errs.push(`unit "${unit.id}": id の学年 ${grade} と grade ${unit.grade} が一致しません`);
   }
   for (const sk of c.skills.values()) {
-    for (const u of sk.unitHint ?? [])
-      if (!c.units.has(u)) errs.push(`skill "${sk.id}": unitHint "${u}" が units.json にありません`);
+    checkUnique(sk.unitHint ?? [], `skill "${sk.id}": unitHint`);
+    for (const u of sk.unitHint ?? []) {
+      const unit = c.units.get(u);
+      if (!unit) errs.push(`skill "${sk.id}": unitHint "${u}" が units.json にありません`);
+      else {
+        if (unit.subject !== sk.subject)
+          errs.push(`skill "${sk.id}": unitHint "${u}" の教科が ${unit.subject} です`);
+        if (unit.grade < sk.gradeRange[0] || unit.grade > sk.gradeRange[1])
+          errs.push(`skill "${sk.id}": unitHint "${u}" の学年 ${unit.grade} が gradeRange 外です`);
+      }
+    }
     if (sk.costGauge > c.settings.subjectGauge.max)
       errs.push(
         `skill "${sk.id}": costGauge ${sk.costGauge} が 教科ゲージの 上限 ${c.settings.subjectGauge.max} を こえています`,
       );
   }
+  const gradeKeys = new Set(['1', '2', '3', '4', '5', '6']);
+  for (const grade of gradeKeys)
+    if (c.settings.timeLimitSecByGrade[grade] === undefined)
+      errs.push(`settings.timeLimitSecByGrade."${grade}" がありません`);
+  for (const grade of Object.keys(c.settings.timeLimitSecByGrade))
+    if (!gradeKeys.has(grade)) errs.push(`settings.timeLimitSecByGrade."${grade}" は対象外です`);
+  if (c.settings.combo.critBase > c.settings.combo.critMax)
+    errs.push('settings.combo.critBase は critMax 以下にしてください');
   for (const [subject, id] of Object.entries(c.settings.subjectGauge.uniqueSkills)) {
     const sk = id ? c.skills.get(id) : undefined;
     if (!sk) errs.push(`settings.subjectGauge.uniqueSkills.${subject}: skill "${id}" が存在しません`);
@@ -435,25 +611,13 @@ export function findBrokenReferences(c: ContentIndex): string[] {
     for (const m of rv.monsters)
       if (!c.monsters.has(m.monsterId))
         errs.push(`rival "${rv.id}": monster "${m.monsterId}" が存在しません`);
-    for (const id of Object.values(rv.equipment))
-      if (id && !c.items.has(id)) errs.push(`rival "${rv.id}": equipment "${id}" が存在しません`);
+    for (const [slot, id] of Object.entries(rv.equipment)) {
+      if (!id) continue;
+      const item = c.items.get(id);
+      if (!item) errs.push(`rival "${rv.id}": equipment "${id}" が存在しません`);
+      else if (item.kind !== slot)
+        errs.push(`rival "${rv.id}": equipment.${slot} "${id}" の kind が "${item.kind}" です`);
+    }
   }
-  return errs;
-}
-
-function checkReward(
-  r: { items?: { itemId: string }[]; skills?: string[]; recipes?: string[]; unlockMonsters?: string[] },
-  c: ContentIndex,
-  where: string,
-): string[] {
-  const errs: string[] = [];
-  for (const i of r.items ?? [])
-    if (!c.items.has(i.itemId)) errs.push(`${where}: reward item "${i.itemId}" が存在しません`);
-  for (const s of r.skills ?? [])
-    if (!c.skills.has(s)) errs.push(`${where}: reward skill "${s}" が存在しません`);
-  for (const rc of r.recipes ?? [])
-    if (!c.recipes.has(rc)) errs.push(`${where}: reward recipe "${rc}" が存在しません`);
-  for (const m of r.unlockMonsters ?? [])
-    if (!c.monsters.has(m)) errs.push(`${where}: reward unlockMonsters "${m}" が存在しません`);
   return errs;
 }

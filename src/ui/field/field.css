@@ -1103,6 +1103,16 @@
 .nq-wmap-go {
   flex: none;
 }
+.nq-wmap-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 8px;
+  color: var(--nq-cloud);
+  font-size: 16px;
+  line-height: 20px;
+}
 .nq-wmap-go:disabled {
   color: #b7c3de;
   border-color: #59657d;

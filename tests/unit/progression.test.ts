@@ -23,6 +23,17 @@ describe('闘技場と訪問記録', () => {
     expect(gs.arena.badges).toBe(0);
   });
 
+  it('闘技場報酬とバッジが安全整数を超えない', () => {
+    const gs = newGame();
+    gs.player.gold = Number.MAX_SAFE_INTEGER;
+    gs.arena.badges = Number.MAX_SAFE_INTEGER;
+
+    const rewarded = applyArenaVictory(gs, 1);
+
+    expect(rewarded.player.gold).toBe(Number.MAX_SAFE_INTEGER);
+    expect(rewarded.arena.badges).toBe(Number.MAX_SAFE_INTEGER);
+  });
+
   it('初回訪問だけを記録し、更新時刻を進める', () => {
     const gs = newGame();
     const visited = markMapVisited(gs, 'aomori-town', 10);
@@ -110,6 +121,17 @@ describe('地方ボスと島クリア', () => {
     expect(cleared.progress.counters['visit:hokkaido-field']).toBe(1);
     expect(cleared.updatedAt).toBe(20);
     expect(completeIsland(cleared, c.world, 'tohoku', 30)).toBe(cleared);
+  });
+
+  it('地方データの配列順ではなく order に従って次の地方を解放する', async () => {
+    const c = await content();
+    const gs = newGame();
+    gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'tohoku')!.areas];
+    const reorderedWorld = { ...c.world, islands: [...c.world.islands].reverse() };
+
+    const cleared = completeIsland(gs, reorderedWorld, 'tohoku', 20);
+
+    expect(cleared.progress.counters['visit:hokkaido-field']).toBe(1);
   });
 
   it('北海道クリア後は関東最初の茨城を訪問可能にする', async () => {
@@ -248,6 +270,23 @@ describe('名所イベントの報酬（GDD §7）', () => {
     expect(gs.player.xp).toBe(0);
     expect(gs.progress.unlockedMonsters).toEqual([]);
     expect(gs.progress.titles).toEqual([]);
+  });
+
+  it('イベント報酬が安全整数を超えてセーブ不能にならない', () => {
+    const gs = newGame();
+    gs.player.xp = Number.MAX_SAFE_INTEGER;
+    gs.player.gold = Number.MAX_SAFE_INTEGER;
+    gs.inventory['aomori-ringo'] = Number.MAX_SAFE_INTEGER;
+
+    const { state } = applyReward(gs, {
+      xp: 1,
+      gold: 1,
+      items: [{ itemId: 'aomori-ringo', n: 1 }],
+    });
+
+    expect(state.player.xp).toBe(Number.MAX_SAFE_INTEGER);
+    expect(state.player.gold).toBe(Number.MAX_SAFE_INTEGER);
+    expect(state.inventory['aomori-ringo']).toBe(Number.MAX_SAFE_INTEGER);
   });
 
   it('イベント・スタンプ・しるしは何回つけても 1 つだけ', () => {

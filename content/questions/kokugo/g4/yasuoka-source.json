@@ -1,0 +1,163 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "source.kokugo.g4.jpn-4-2.f1bd103fc101",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "「雨が降った。___、傘をさした。」の空欄に入る正しい接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しかし"
+        },
+        {
+          "id": "b",
+          "text": "または"
+        },
+        {
+          "id": "c",
+          "text": "だから（そこで）"
+        },
+        {
+          "id": "d",
+          "text": "ところで"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "原因と結果をつなぐ順接の接続詞「だから」や「そこで」が適しています。"
+  },
+  {
+    "id": "source.kokugo.g4.jpn-4-2.45b82c2613cc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "前の内容のまとめや言い換えに使う接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "つまり"
+        },
+        {
+          "id": "b",
+          "text": "たとえば"
+        },
+        {
+          "id": "c",
+          "text": "しかし"
+        },
+        {
+          "id": "d",
+          "text": "または"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "要約や言い換えを表す「つまり」が適しています。"
+  },
+  {
+    "id": "source.kokugo.g4.jpn-4-2.1900d1ccbab5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "「りんご___バナナを買う。」の空欄に入る接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "だから"
+        },
+        {
+          "id": "b",
+          "text": "しかし"
+        },
+        {
+          "id": "c",
+          "text": "つまり"
+        },
+        {
+          "id": "d",
+          "text": "または"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "どちらか一方を選ぶ選択を表す「または」が適しています。"
+  },
+  {
+    "id": "source.kokugo.g4.jpn-4-2.dee0dd8ff6d2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "「国語と算数、___理科も好きだ。」の空欄に入る接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "または"
+        },
+        {
+          "id": "b",
+          "text": "しかし"
+        },
+        {
+          "id": "c",
+          "text": "さらに（そして）"
+        },
+        {
+          "id": "d",
+          "text": "なぜなら"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "付け足し（累加）を表す「さらに」や「そして」が適しています。"
+  },
+  {
+    "id": "source.kokugo.g4.jpn-4-3.4f2cd71c693a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "ことわざ「猿も木から___」の空欄に入る言葉はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "登る"
+        },
+        {
+          "id": "b",
+          "text": "落ちる"
+        },
+        {
+          "id": "c",
+          "text": "ぶらさがる"
+        },
+        {
+          "id": "d",
+          "text": "とぶ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「猿も木から落ちる」は、どんな名人でも時には失敗するという意味です。"
+  }
+]

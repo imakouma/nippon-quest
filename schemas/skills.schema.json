@@ -82,6 +82,7 @@
           "mp": {
             "type": "integer",
             "minimum": 0,
+            "maximum": 9007199254740991,
             "description": "敵が使うときの MP（味方の必殺技は 教科ゲージを使う）"
           },
           "gauge": {

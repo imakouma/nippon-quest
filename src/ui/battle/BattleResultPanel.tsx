@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
 import type { HudStore, ResultView } from './store';
@@ -64,7 +65,7 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
           class="nq-win nq-recruit-scene"
           role="dialog"
           aria-modal="true"
-          aria-label={t('battle.recruitSceneTitle')}
+          aria-label={displayText(t('battle.recruitSceneTitle'))}
         >
           <h2 class="nq-recruit-title">
             <PixelIcon name="star" scale={3} />
@@ -111,7 +112,7 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
         class={`nq-win nq-result nq-result-${r.kind}`}
         role="dialog"
         aria-modal="true"
-        aria-label={title}
+        aria-label={displayText(title)}
       >
         {r.kind === 'defeat' ? (
           <div class="nq-result-heart">

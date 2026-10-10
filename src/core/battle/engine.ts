@@ -8,6 +8,7 @@
  */
 import type { ElementTable, Item, Monster, Settings, Skill } from '../content/schemas';
 import { createRng, type Rng } from '../rng';
+import { addProgressValue } from '../../shared/safeInteger';
 import { comboBonus, computeDamage, fleeChance, recruitChance, scoreBand, scoreMultiplier } from './damage';
 import type {
   BattleEvent,
@@ -254,7 +255,7 @@ function hit(
     scoreBand: d.band,
     comboMult: d.comboMult,
   });
-  if (byAlly) checkBossPhase(s.enemy, def, ev);
+  if (byAlly && o.defender.hp > 0) checkBossPhase(s.enemy, def, ev);
   else if (o.defender.hp <= 0) allyDown(s, o.defender, def, ev);
 }
 
@@ -270,8 +271,8 @@ function finishIfOver(s: BattleState, def: BattleDeps, rng: Rng, ev: BattleEvent
     s.outcome = 'victory';
     ev.push({
       t: 'victory',
-      xp: Math.round((m?.xp ?? 0) * bonus),
-      gold: Math.round((m?.gold ?? 0) * bonus),
+      xp: addProgressValue(0, Math.round((m?.xp ?? 0) * bonus)),
+      gold: addProgressValue(0, Math.round((m?.gold ?? 0) * bonus)),
       drops,
       recruitOffer,
       bonus,
@@ -294,10 +295,10 @@ function enemyAction(s: BattleState, def: BattleDeps, rng: Rng, ev: BattleEvent[
   const healSkill = skills.find((sk) => sk.effect === 'heal');
   if (e.hp / e.stats.hp <= 0.3 && healSkill && e.mp >= healSkill.mp) {
     e.mp -= healSkill.mp;
-    const amount = Math.round(e.stats.hp * ENEMY_HEAL_RATIO);
-    e.hp = Math.min(e.stats.hp, e.hp + amount);
+    const before = e.hp;
+    e.hp = Math.min(e.stats.hp, e.hp + Math.round(e.stats.hp * ENEMY_HEAL_RATIO));
     ev.push({ t: 'act', side: 'enemy', actorId: e.id, command: 'skill', skillId: healSkill.id });
-    ev.push({ t: 'heal', side: 'enemy', targetId: e.id, amount });
+    ev.push({ t: 'heal', side: 'enemy', targetId: e.id, amount: e.hp - before });
     return;
   }
   const usable = skills.filter((sk) => sk.effect === 'damage' && e.mp >= sk.mp);
@@ -367,6 +368,13 @@ function weakestAlly(s: BattleState): Combatant {
   const front = frontAlly(s);
   const r = (c: Combatant) => c.hp / Math.max(1, c.stats.hp);
   return front !== s.ally.hero && r(front) < r(s.ally.hero) ? front : s.ally.hero;
+}
+
+/** 戦闘の自動対象に、回復どうぐの効果が実際にあるか。 */
+export function canUseBattleItem(s: BattleState, item: Item): boolean {
+  if (item.kind !== 'consumable' || !item.use) return false;
+  const target = weakestAlly(s);
+  return (!!item.use.heal && target.hp < target.stats.hp) || (!!item.use.mp && target.mp < target.stats.mp);
 }
 
 /** こたえた 教科の ゲージを ためる（オトモの 教科なら たまりやすい） */
@@ -444,9 +452,9 @@ function useSkill(
       break;
     case 'heal':
       for (const c of allyTargets(s, sk, actor)) {
-        const amount = Math.max(1, Math.round(c.stats.hp * HEAL_RATIO * mult));
-        c.hp = Math.min(c.stats.hp, c.hp + amount);
-        ev.push({ t: 'heal', side: 'ally', targetId: c.id, amount });
+        const before = c.hp;
+        c.hp = Math.min(c.stats.hp, c.hp + Math.max(1, Math.round(c.stats.hp * HEAL_RATIO * mult)));
+        ev.push({ t: 'heal', side: 'ally', targetId: c.id, amount: c.hp - before });
       }
       break;
     case 'buff': {
@@ -508,13 +516,14 @@ function heroCommand(
     case 'item': {
       const it = def.items.get(command.itemId);
       const n = s.ally.items[command.itemId] ?? 0;
-      if (!it || n <= 0) return false;
+      if (!it || n <= 0 || !canUseBattleItem(s, it)) return false;
       s.ally.items[command.itemId] = n - 1;
       const target = weakestAlly(s);
       ev.push({ t: 'itemUsed', itemId: it.id, targetId: target.id });
       if (it.use?.heal) {
+        const before = target.hp;
         target.hp = Math.min(target.stats.hp, target.hp + it.use.heal);
-        ev.push({ t: 'heal', side: 'ally', targetId: target.id, amount: it.use.heal });
+        ev.push({ t: 'heal', side: 'ally', targetId: target.id, amount: target.hp - before });
       }
       if (it.use?.mp) target.mp = Math.min(target.stats.mp, target.mp + it.use.mp);
       return true;

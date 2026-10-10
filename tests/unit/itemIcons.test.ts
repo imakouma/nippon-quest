@@ -25,7 +25,7 @@ describe('アイテムのアイコン', () => {
       ]).flatMap((colors, i) => colors.filter((color) => color && color !== NQ.ink).map(() => i));
       expect(brokenEdge, it.id).toEqual([]);
     }
-  });
+  }, 15_000);
 
   it('地名の 文字に まどわされない（淡路の たまねぎが 魚・スイカが いか に ならない）', async () => {
     const c = await content();

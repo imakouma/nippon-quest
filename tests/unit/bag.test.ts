@@ -53,13 +53,26 @@ describe('2Dバッグ', () => {
     expect(bagUsage(s, bagContext(s, c))).toMatchObject({ used: 2, capacity: 9, free: 7 });
   });
 
+  it('壊れたセーブの重複UIDを戦闘メンバーへ二重登録しない', () => {
+    const s = fresh();
+    own(s, 'second');
+    own(s, 'reserve');
+    s.party.team.push('second', 'second');
+    s.party.bagPlacements['mon:second'] = { x: 0, y: 0, rotated: false };
+    s.party.reserve.push('reserve', 'reserve');
+
+    expect(bagMonsterUids(s)).toEqual(['story-companion', 'second']);
+    expect(reserveMonsterUids(s)).toEqual(['reserve']);
+    expect(battleRosterUids(s)).toEqual(['story-companion', 'second', 'reserve']);
+  });
+
   it('ドラッグ相当の移動は衝突と境界を検査する', () => {
     const s = fresh();
     const ctx = bagContext(s, c);
     expect(moveBagThing(s, 'mon:story-companion', { x: 1, y: 1 }, ctx)).toBeNull();
-    expect(
-      moveBagThing(s, 'mon:story-companion', { x: 0, y: 0 }, ctx)?.party.bagPlacements['mon:story-companion'],
-    ).toMatchObject({ x: 0, y: 0 });
+    const moved = moveBagThing(s, 'mon:story-companion', { x: 0, y: 0 }, ctx, 2_000)!;
+    expect(moved.party.bagPlacements['mon:story-companion']).toMatchObject({ x: 0, y: 0 });
+    expect(moved.updatedAt).toBe(2_000);
   });
 
   it('不正座標・存在しないキー・未配置の仲間を注入しない', () => {

@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-82v12-kokugo-g1-activities",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]コード82V12 国語[こくご] 第[だい]1・2学年[がくねん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00002.htm",
+      "published": "平成29年告示・Ver 1.2",
+      "checkedAt": "2026-10-10",
+      "locator": "82102A3113000000、82102A3211000000、82102A3221000000、82102A3231000000"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "kokugo.g1.script.katakana",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.katakana",
+      "name": "片仮名[かたかな]を読[よ]み書[か]く",
+      "description": "片仮名[かたかな]を読[よ]み書[か]きし、片仮名[かたかな]で書[か]く語[ご]の種類[しゅるい]を知[し]る。",
+      "kind": "reading",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3113000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "平仮名[ひらがな]の習得[しゅうとく]後[ご]に段階的[だんかいてき]に扱[あつか]う。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.reading.basic-comprehension",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.dokkai",
+      "name": "順序[じゅんじょ]や場面[ばめん]を捉[とら]えて読[よ]む",
+      "description": "時間的[じかんてき]な順序[じゅんじょ]、場面[ばめん]の様子[ようす]、登場人物[とうじょうじんぶつ]の行動[こうどう]を捉[とら]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3231100000", "82102A3231200000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "短[みじか]い文[ぶん]の読解[どっかい]から始[はじ]める。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.speaking-listening.basic-dialogue",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.hanasu-kiku",
+      "name": "大切[たいせつ]なことを話[はな]し聞[き]く",
+      "description": "必要[ひつよう]な事柄[ことがら]を選[えら]んで話[はな]し、大切[たいせつ]なことを落[お]とさず聞[き]き、応答[おうとう]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3211100000", "82102A3211400000", "82102A3211500000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "入学期[にゅうがくき]の学校[がっこう]生活[せいかつ]から継続[けいぞく]する。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g1.expression.sequence-revision",
+      "subject": "kokugo",
+      "grade": 1,
+      "unit": "kokugo.g1.tsutaeru",
+      "name": "順序[じゅんじょ]を考[かんが]えて伝[つた]え、読[よ]み直[なお]す",
+      "description": "事柄[ことがら]の順序[じゅんじょ]を考[かんが]えて話[はな]したり書[か]いたりし、読[よ]み直[なお]して直[なお]す。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3211200000", "82102A3221200000", "82102A3221400000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "身近[みぢか]な経験[けいけん]を短[みじか]く伝[つた]える活動[かつどう]から始[はじ]める。"
+      },
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "kokugo.g1.katakana.0001",
+      "concepts": [{ "conceptId": "kokugo.g1.script.katakana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.katakana.0003",
+      "concepts": [{ "conceptId": "kokugo.g1.script.katakana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.katakana.0005",
+      "concepts": [{ "conceptId": "kokugo.g1.script.katakana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.katakana.0009",
+      "concepts": [{ "conceptId": "kokugo.g1.script.katakana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.katakana.0011",
+      "concepts": [{ "conceptId": "kokugo.g1.script.katakana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.katakana.0012",
+      "concepts": [{ "conceptId": "kokugo.g1.script.katakana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.katakana.0014",
+      "concepts": [{ "conceptId": "kokugo.g1.script.katakana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.katakana.0017",
+      "concepts": [{ "conceptId": "kokugo.g1.script.katakana", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.dokkai.0001",
+      "concepts": [{ "conceptId": "kokugo.g1.reading.basic-comprehension", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.dokkai.0002",
+      "concepts": [{ "conceptId": "kokugo.g1.reading.basic-comprehension", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.dokkai.0003",
+      "concepts": [{ "conceptId": "kokugo.g1.reading.basic-comprehension", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.dokkai.0004",
+      "concepts": [{ "conceptId": "kokugo.g1.reading.basic-comprehension", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.dokkai.0005",
+      "concepts": [{ "conceptId": "kokugo.g1.reading.basic-comprehension", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.dokkai.0006",
+      "concepts": [{ "conceptId": "kokugo.g1.reading.basic-comprehension", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hanasu-kiku.0001",
+      "concepts": [
+        { "conceptId": "kokugo.g1.speaking-listening.basic-dialogue", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hanasu-kiku.0002",
+      "concepts": [
+        { "conceptId": "kokugo.g1.speaking-listening.basic-dialogue", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hanasu-kiku.0003",
+      "concepts": [
+        { "conceptId": "kokugo.g1.speaking-listening.basic-dialogue", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hanasu-kiku.0004",
+      "concepts": [
+        { "conceptId": "kokugo.g1.speaking-listening.basic-dialogue", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hanasu-kiku.0005",
+      "concepts": [
+        { "conceptId": "kokugo.g1.speaking-listening.basic-dialogue", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.hanasu-kiku.0006",
+      "concepts": [
+        { "conceptId": "kokugo.g1.speaking-listening.basic-dialogue", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.tsutaeru.0001",
+      "concepts": [{ "conceptId": "kokugo.g1.expression.sequence-revision", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.tsutaeru.0002",
+      "concepts": [{ "conceptId": "kokugo.g1.expression.sequence-revision", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.tsutaeru.0003",
+      "concepts": [{ "conceptId": "kokugo.g1.expression.sequence-revision", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.tsutaeru.0004",
+      "concepts": [{ "conceptId": "kokugo.g1.expression.sequence-revision", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.tsutaeru.0005",
+      "concepts": [{ "conceptId": "kokugo.g1.expression.sequence-revision", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g1.tsutaeru.0006",
+      "concepts": [{ "conceptId": "kokugo.g1.expression.sequence-revision", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

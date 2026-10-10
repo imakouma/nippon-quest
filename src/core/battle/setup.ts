@@ -6,6 +6,7 @@ import type { ContentIndex } from '../content/loader';
 import type { Area } from '../content/schemas';
 import { activeEquipment, adjacencyBonus, bagContext, battleRosterUids } from '../progression/bag';
 import { heroLevel } from '../progression/battleResult';
+import { applySpecialtyTreasureBonus, specialtyTreasureBonus } from '../progression/specialty';
 import type { Rng } from '../rng';
 import type { GameState } from '../state/schema';
 import type { Ground } from '../world/ground';
@@ -14,7 +15,7 @@ import type { Party } from './types';
 
 export function partyFromGameState(
   gs: GameState,
-  c: Pick<ContentIndex, 'items' | 'sets' | 'monsters' | 'xp' | 'settings'>,
+  c: Pick<ContentIndex, 'areas' | 'items' | 'sets' | 'monsters' | 'xp' | 'settings'>,
 ): Party {
   const p = gs.player;
   const hero = makeHero(
@@ -30,6 +31,7 @@ export function partyFromGameState(
     c.items,
     c.sets,
   );
+  hero.stats = applySpecialtyTreasureBonus(hero.stats, specialtyTreasureBonus(gs, c.areas, c.items));
   // 戦闘は今の HP/MP から始まる（前の戦闘のダメージを持ち越す）。0 で始まらないよう最低 1
   hero.hp = Math.max(1, Math.min(hero.stats.hp, p.hp));
   hero.mp = Math.max(0, Math.min(hero.stats.mp, p.mp));

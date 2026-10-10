@@ -3,19 +3,49 @@
     "id": "sansu.g1.tashizan",
     "name": "たしざん",
     "subject": "sansu",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-sansu-g1", "kyoiku-shuppan-r6-sansu-g1"],
+      "note": "年間[ねんかん]指導[しどう]計画[けいかく]を照合[しょうごう]した おすすめ時期[じき]。"
+    },
+    "curriculumCodes": ["8250213121100000", "8250213121200000", "8250213121300000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "sansu.g1.hikizan",
     "name": "ひきざん",
     "subject": "sansu",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-sansu-g1", "kyoiku-shuppan-r6-sansu-g1"],
+      "note": "年間[ねんかん]指導[しどう]計画[けいかく]を照合[しょうごう]した おすすめ時期[じき]。"
+    },
+    "curriculumCodes": ["8250213121100000", "8250213121200000", "8250213121300000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "sansu.g1.kazu-100",
     "name": "100までの かず",
     "subject": "sansu",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": ["variable"],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-sansu-g1", "kyoiku-shuppan-r6-sansu-g1"],
+      "note": "数[かず]の範囲[はんい]を学年[がくねん]の中[なか]で段階的[だんかいてき]に広[ひろ]げる。"
+    },
+    "curriculumCodes": ["8250213111100000", "8250213111200000", "8250213111300000", "8250213111500000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "sansu.g2.kuku",
@@ -69,31 +99,81 @@
     "id": "kokugo.g1.hiragana",
     "name": "ひらがな",
     "subject": "kokugo",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "入学期[にゅうがくき]から始[はじ]める おすすめ時期[じき]。"
+    },
+    "curriculumCodes": ["82102A3113000000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "kokugo.g1.kanji",
     "name": "1年[ねん]の漢字[かんじ]",
     "subject": "kokugo",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": ["variable"],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "学年[がくねん]を通[とお]して段階的[だんかいてき]に扱[あつか]う。"
+    },
+    "curriculumCodes": ["82102A3114000000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "kokugo.g1.joshi",
     "name": "助詞[じょし]・言葉[ことば]のつなぎ方[かた]",
     "subject": "kokugo",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "文[ぶん]を書く活動[かつどう]と関連[かんれん]して扱[あつか]う。"
+    },
+    "curriculumCodes": ["82102A3113000000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "kokugo.g1.bun-no-kimari",
     "name": "文[ぶん]のきまり・書[か]き方[かた]",
     "subject": "kokugo",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2, 3],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "文[ぶん]を書く活動[かつどう]の中[なか]で繰[く]り返[かえ]し扱[あつか]う。"
+    },
+    "curriculumCodes": ["82102A3113000000", "82102A3116000000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "kokugo.g1.kotoba-asobi",
     "name": "言葉[ことば]あそび・音[おと]のかぞえ方[かた]",
     "subject": "kokugo",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "音節[おんせつ]と文字[もじ]の関係[かんけい]に親[した]しむ入門[にゅうもん]。"
+    },
+    "curriculumCodes": ["82102A3112000000", "82102A3132000000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "kokugo.g2.kanji",
@@ -111,7 +191,17 @@
     "id": "seikatsu.g1.kisetsu",
     "name": "きせつ",
     "subject": "seikatsu",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2, 3],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-seikatsu", "kyoiku-shuppan-r6-seikatsu"],
+      "note": "身近[みぢか]な自然[しぜん]を季節[きせつ]ごとに継続[けいぞく]して観察[かんさつ]する。"
+    },
+    "curriculumCodes": ["82702A3220000000"],
+    "sourceIds": ["mext-82v12"],
+    "review": { "status": "source-checked", "reviewedAt": "2026-10-10", "reviewer": "Codex（一次資料照合）" }
   },
   {
     "id": "seikatsu.g2.ikimono",
@@ -171,13 +261,31 @@
     "id": "eigo.g1.alphabet",
     "name": "アルファベット（よみかた）",
     "subject": "eigo",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "supplementary",
+    "placement": {
+      "terms": ["variable"],
+      "status": "unverified",
+      "sourceIds": ["project-supplementary-policy"],
+      "note": "正式[せいしき]な必修[ひっしゅう]進捗[しんちょく]に含[ふく]めない補助[ほじょ]教材[きょうざい]。"
+    },
+    "sourceIds": ["project-supplementary-policy"],
+    "review": { "status": "draft" }
   },
   {
     "id": "eigo.g2.alphabet-order",
     "name": "アルファベットの じゅんばん",
     "subject": "eigo",
-    "grade": 2
+    "grade": 2,
+    "courseKind": "supplementary",
+    "placement": {
+      "terms": ["variable"],
+      "status": "unverified",
+      "sourceIds": ["project-supplementary-policy"],
+      "note": "正式[せいしき]な必修[ひっしゅう]進捗[しんちょく]に含[ふく]めない補助[ほじょ]教材[きょうざい]。"
+    },
+    "sourceIds": ["project-supplementary-policy"],
+    "review": { "status": "draft" }
   },
   {
     "id": "eigo.g3.alphabet-small",
@@ -189,13 +297,31 @@
     "id": "eigo.g1.fruits",
     "name": "くだもの",
     "subject": "eigo",
-    "grade": 1
+    "grade": 1,
+    "courseKind": "supplementary",
+    "placement": {
+      "terms": ["variable"],
+      "status": "unverified",
+      "sourceIds": ["project-supplementary-policy"],
+      "note": "正式[せいしき]な必修[ひっしゅう]進捗[しんちょく]に含[ふく]めない補助[ほじょ]教材[きょうざい]。"
+    },
+    "sourceIds": ["project-supplementary-policy"],
+    "review": { "status": "draft" }
   },
   {
     "id": "eigo.g2.animals",
     "name": "どうぶつ",
     "subject": "eigo",
-    "grade": 2
+    "grade": 2,
+    "courseKind": "supplementary",
+    "placement": {
+      "terms": ["variable"],
+      "status": "unverified",
+      "sourceIds": ["project-supplementary-policy"],
+      "note": "正式[せいしき]な必修[ひっしゅう]進捗[しんちょく]に含[ふく]めない補助[ほじょ]教材[きょうざい]。"
+    },
+    "sourceIds": ["project-supplementary-policy"],
+    "review": { "status": "draft" }
   },
   {
     "id": "eigo.g3.sea",
@@ -227,7 +353,7 @@
   },
   {
     "id": "kokugo.g1.legacy-jpn-1-2",
-    "name": "かんたんな漢字",
+    "name": "かんたんな漢字[かんじ]",
     "subject": "kokugo",
     "grade": 1,
     "order": 2,
@@ -267,7 +393,7 @@
   },
   {
     "id": "kokugo.g1.legacy-jpn-1-4",
-    "name": "ぶんの書きかた",
+    "name": "ぶんの書[か]きかた",
     "subject": "kokugo",
     "grade": 1,
     "order": 4,
@@ -331,7 +457,7 @@
   },
   {
     "id": "kokugo.g2.legacy-jpn-2-1",
-    "name": "2年生の漢字",
+    "name": "2年生[ねんせい]の漢字[かんじ]",
     "subject": "kokugo",
     "grade": 2,
     "order": 5,
@@ -379,7 +505,7 @@
   },
   {
     "id": "kokugo.g2.legacy-kanji-2-02",
-    "name": "いきもの・人びと",
+    "name": "いきもの・人[ひと]びと",
     "subject": "kokugo",
     "grade": 2,
     "order": 12,
@@ -387,7 +513,7 @@
   },
   {
     "id": "kokugo.g2.legacy-kanji-2-03",
-    "name": "まち・国",
+    "name": "まち・国[こく]",
     "subject": "kokugo",
     "grade": 2,
     "order": 13,
@@ -395,7 +521,7 @@
   },
   {
     "id": "kokugo.g2.legacy-kanji-2-04",
-    "name": "学校・学び",
+    "name": "学校[がっこう]・学[まな]び",
     "subject": "kokugo",
     "grade": 2,
     "order": 14,
@@ -403,7 +529,7 @@
   },
   {
     "id": "kokugo.g2.legacy-kanji-2-05",
-    "name": "からだ・動き",
+    "name": "からだ・動[うご]き",
     "subject": "kokugo",
     "grade": 2,
     "order": 15,
@@ -411,7 +537,7 @@
   },
   {
     "id": "kokugo.g2.legacy-kanji-2-06",
-    "name": "食べ物・日常",
+    "name": "食[た]べ物[もの]・日常[にちじょう]",
     "subject": "kokugo",
     "grade": 2,
     "order": 16,
@@ -419,7 +545,7 @@
   },
   {
     "id": "kokugo.g2.legacy-kanji-2-07",
-    "name": "乗り物・道具",
+    "name": "乗[の]り物[もの]・道具[どうぐ]",
     "subject": "kokugo",
     "grade": 2,
     "order": 17,
@@ -427,7 +553,7 @@
   },
   {
     "id": "kokugo.g2.legacy-kanji-2-08",
-    "name": "言葉・方向",
+    "name": "言葉[ことば]・方向[ほうこう]",
     "subject": "kokugo",
     "grade": 2,
     "order": 18,
@@ -435,7 +561,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-1",
-    "name": "3年生の漢字",
+    "name": "3年生[ねんせい]の漢字[かんじ]",
     "subject": "kokugo",
     "grade": 3,
     "order": 9,
@@ -451,7 +577,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-3",
-    "name": "国語辞典のひき方",
+    "name": "国語[こくご]辞典[じてん]のひき方[かた]",
     "subject": "kokugo",
     "grade": 3,
     "order": 11,
@@ -467,7 +593,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-5",
-    "name": "国語辞典の使い方",
+    "name": "国語[こくご]辞典[じてん]の使[つか]い方[かた]",
     "subject": "kokugo",
     "grade": 3,
     "order": 12,
@@ -475,7 +601,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-6",
-    "name": "漢字の音と訓",
+    "name": "漢字[かんじ]の音[おと]と訓[くん]",
     "subject": "kokugo",
     "grade": 3,
     "order": 13,
@@ -483,7 +609,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-7",
-    "name": "説明文① 段落の役割",
+    "name": "説明[せつめい]文[ぶん]① 段落[だんらく]の役割[やくわり]",
     "subject": "kokugo",
     "grade": 3,
     "order": 14,
@@ -491,7 +617,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-8",
-    "name": "漢字③",
+    "name": "漢字[かんじ]③",
     "subject": "kokugo",
     "grade": 3,
     "order": 15,
@@ -499,7 +625,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-9",
-    "name": "漢字④",
+    "name": "漢字[かんじ]④",
     "subject": "kokugo",
     "grade": 3,
     "order": 16,
@@ -507,7 +633,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-10",
-    "name": "物語② 登場人物の特徴",
+    "name": "物語[ものがたり]② 登場[とうじょう]人物[じんぶつ]の特徴[とくちょう]",
     "subject": "kokugo",
     "grade": 3,
     "order": 17,
@@ -515,7 +641,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-11",
-    "name": "俳句",
+    "name": "俳句[はいく]",
     "subject": "kokugo",
     "grade": 3,
     "order": 18,
@@ -523,7 +649,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-12",
-    "name": "こそあど言葉①",
+    "name": "こそあど言葉[ことば]①",
     "subject": "kokugo",
     "grade": 3,
     "order": 19,
@@ -539,7 +665,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-15",
-    "name": "ローマ字",
+    "name": "ローマ字[じ]",
     "subject": "kokugo",
     "grade": 3,
     "order": 21,
@@ -547,7 +673,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-16",
-    "name": "修飾語①",
+    "name": "修飾[しゅうしょく]語[ご]①",
     "subject": "kokugo",
     "grade": 3,
     "order": 22,
@@ -555,7 +681,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-17",
-    "name": "ことわざ・故事成語①",
+    "name": "ことわざ・故事[こじ]成語[せいご]①",
     "subject": "kokugo",
     "grade": 3,
     "order": 23,
@@ -563,7 +689,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-18",
-    "name": "漢字の使い分け①",
+    "name": "漢字[かんじ]の使[つか]い分[わ]け①",
     "subject": "kokugo",
     "grade": 3,
     "order": 24,
@@ -571,7 +697,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-19",
-    "name": "物語③ 登場人物の気持ち",
+    "name": "物語[ものがたり]③ 登場[とうじょう]人物[じんぶつ]の気持[きも]ち",
     "subject": "kokugo",
     "grade": 3,
     "order": 25,
@@ -579,7 +705,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-20",
-    "name": "説明文② 文のつながり",
+    "name": "説明[せつめい]文[ぶん]② 文[ぶん]のつながり",
     "subject": "kokugo",
     "grade": 3,
     "order": 26,
@@ -587,7 +713,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-21",
-    "name": "慣用句",
+    "name": "慣用[かんよう]句[く]",
     "subject": "kokugo",
     "grade": 3,
     "order": 27,
@@ -595,7 +721,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-22",
-    "name": "漢字⑤",
+    "name": "漢字[かんじ]⑤",
     "subject": "kokugo",
     "grade": 3,
     "order": 28,
@@ -603,7 +729,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-23",
-    "name": "漢字⑥",
+    "name": "漢字[かんじ]⑥",
     "subject": "kokugo",
     "grade": 3,
     "order": 29,
@@ -611,7 +737,7 @@
   },
   {
     "id": "kokugo.g3.legacy-jpn-3-24",
-    "name": "短歌",
+    "name": "短歌[たんか]",
     "subject": "kokugo",
     "grade": 3,
     "order": 30,
@@ -619,7 +745,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-1",
-    "name": "4年生の漢字",
+    "name": "4年生[ねんせい]の漢字[かんじ]",
     "subject": "kokugo",
     "grade": 4,
     "order": 13,
@@ -627,7 +753,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-2",
-    "name": "つなぎ言葉",
+    "name": "つなぎ言葉[ことば]",
     "subject": "kokugo",
     "grade": 4,
     "order": 14,
@@ -635,7 +761,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-3",
-    "name": "ことわざと慣用句",
+    "name": "ことわざと慣用[かんよう]句[く]",
     "subject": "kokugo",
     "grade": 4,
     "order": 15,
@@ -643,7 +769,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-4",
-    "name": "都道府県の漢字",
+    "name": "都道府県[とどうふけん]の漢字[かんじ]",
     "subject": "kokugo",
     "grade": 4,
     "order": 16,
@@ -651,7 +777,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-25",
-    "name": "文のつながり",
+    "name": "文[ぶん]のつながり",
     "subject": "kokugo",
     "grade": 4,
     "order": 31,
@@ -659,7 +785,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-27",
-    "name": "まちがえやすい漢字",
+    "name": "まちがえやすい漢字[かんじ]",
     "subject": "kokugo",
     "grade": 4,
     "order": 32,
@@ -667,7 +793,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-28",
-    "name": "都道府県の漢字",
+    "name": "都道府県[とどうふけん]の漢字[かんじ]",
     "subject": "kokugo",
     "grade": 4,
     "order": 33,
@@ -675,7 +801,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-29",
-    "name": "漢字のまとめ①",
+    "name": "漢字[かんじ]のまとめ①",
     "subject": "kokugo",
     "grade": 4,
     "order": 34,
@@ -683,7 +809,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-30",
-    "name": "漢字のまとめ②",
+    "name": "漢字[かんじ]のまとめ②",
     "subject": "kokugo",
     "grade": 4,
     "order": 35,
@@ -691,7 +817,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-31",
-    "name": "物語「りんごどろぼう」",
+    "name": "物語[ものがたり]「りんごどろぼう」",
     "subject": "kokugo",
     "grade": 4,
     "order": 36,
@@ -699,7 +825,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-32",
-    "name": "説明文「アブラコウモリ」",
+    "name": "説明[せつめい]文[ぶん]「アブラコウモリ」",
     "subject": "kokugo",
     "grade": 4,
     "order": 37,
@@ -707,7 +833,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-33",
-    "name": "つなぎ言葉",
+    "name": "つなぎ言葉[ことば]",
     "subject": "kokugo",
     "grade": 4,
     "order": 38,
@@ -715,7 +841,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-34",
-    "name": "短歌と俳句",
+    "name": "短歌[たんか]と俳句[はいく]",
     "subject": "kokugo",
     "grade": 4,
     "order": 39,
@@ -723,7 +849,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-35",
-    "name": "ことわざと故事成語",
+    "name": "ことわざと故事[こじ]成語[せいご]",
     "subject": "kokugo",
     "grade": 4,
     "order": 40,
@@ -731,7 +857,7 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-36",
-    "name": "文の組み立て",
+    "name": "文[ぶん]の組[く]み立[た]て",
     "subject": "kokugo",
     "grade": 4,
     "order": 41,
@@ -771,7 +897,7 @@
   },
   {
     "id": "kokugo.g5.legacy-jpn-5-1",
-    "name": "5年生の漢字",
+    "name": "5年生[ねんせい]の漢字[かんじ]",
     "subject": "kokugo",
     "grade": 5,
     "order": 17,
@@ -779,7 +905,7 @@
   },
   {
     "id": "kokugo.g5.legacy-jpn-5-2",
-    "name": "にてる言葉はんたいの言葉",
+    "name": "にてる言葉[ことば]はんたいの言葉[ことば]",
     "subject": "kokugo",
     "grade": 5,
     "order": 18,
@@ -787,7 +913,7 @@
   },
   {
     "id": "kokugo.g5.legacy-jpn-5-3",
-    "name": "おなじ読みの漢字",
+    "name": "おなじ読[よ]みの漢字[かんじ]",
     "subject": "kokugo",
     "grade": 5,
     "order": 19,
@@ -795,7 +921,7 @@
   },
   {
     "id": "kokugo.g5.legacy-jpn-5-4",
-    "name": "和語・漢語・外来語",
+    "name": "和語[わご]・漢語[かんご]・外来[がいらい]語[ご]",
     "subject": "kokugo",
     "grade": 5,
     "order": 20,
@@ -803,7 +929,7 @@
   },
   {
     "id": "kokugo.g6.legacy-jpn-6-1",
-    "name": "6年生の漢字",
+    "name": "6年生[ねんせい]の漢字[かんじ]",
     "subject": "kokugo",
     "grade": 6,
     "order": 21,
@@ -811,7 +937,7 @@
   },
   {
     "id": "kokugo.g6.legacy-jpn-6-2",
-    "name": "敬語のつかい分け",
+    "name": "敬語[けいご]のつかい分[わ]け",
     "subject": "kokugo",
     "grade": 6,
     "order": 22,
@@ -819,7 +945,7 @@
   },
   {
     "id": "kokugo.g6.legacy-jpn-6-3",
-    "name": "四字熟語のせかい",
+    "name": "四[よん]字[じ]熟語[じゅくご]のせかい",
     "subject": "kokugo",
     "grade": 6,
     "order": 23,
@@ -827,7 +953,7 @@
   },
   {
     "id": "kokugo.g6.legacy-jpn-6-4",
-    "name": "文章のくみたて",
+    "name": "文章[ぶんしょう]のくみたて",
     "subject": "kokugo",
     "grade": 6,
     "order": 24,
@@ -835,7 +961,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-01",
-    "name": "身の回りの生物",
+    "name": "身[み]の回[まわ]りの生物[せいぶつ]",
     "subject": "rika",
     "grade": 3,
     "order": 1,
@@ -843,7 +969,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-02",
-    "name": "植物の育ち方",
+    "name": "植物[しょくぶつ]の育[そだ]ち方[かた]",
     "subject": "rika",
     "grade": 3,
     "order": 2,
@@ -851,7 +977,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-03",
-    "name": "こん虫の育ちと体",
+    "name": "こん虫[むし]の育[そだ]ちと体[からだ]",
     "subject": "rika",
     "grade": 3,
     "order": 3,
@@ -859,7 +985,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-04",
-    "name": "植物の体のつくり",
+    "name": "植物[しょくぶつ]の体[からだ]のつくり",
     "subject": "rika",
     "grade": 3,
     "order": 4,
@@ -867,7 +993,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-05",
-    "name": "光と音の性質",
+    "name": "光[ひかり]と音[おと]の性質[せいしつ]",
     "subject": "rika",
     "grade": 3,
     "order": 5,
@@ -875,7 +1001,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-06",
-    "name": "風とゴムの力のはたらき",
+    "name": "風[かぜ]とゴムの力[ちから]のはたらき",
     "subject": "rika",
     "grade": 3,
     "order": 6,
@@ -883,7 +1009,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-07",
-    "name": "太陽と地面の様子",
+    "name": "太陽[たいよう]と地面[じめん]の様子[ようす]",
     "subject": "rika",
     "grade": 3,
     "order": 7,
@@ -891,7 +1017,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-08",
-    "name": "電気の通り道",
+    "name": "電気[でんき]の通[とお]り道[みち]",
     "subject": "rika",
     "grade": 3,
     "order": 8,
@@ -907,7 +1033,7 @@
   },
   {
     "id": "rika.g3.legacy-cur-1503-10",
-    "name": "ものと重さ",
+    "name": "ものと重[おも]さ",
     "subject": "rika",
     "grade": 3,
     "order": 10,
@@ -915,7 +1041,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-01",
-    "name": "天気と気温",
+    "name": "天気[てんき]と気温[きおん]",
     "subject": "rika",
     "grade": 4,
     "order": 11,
@@ -923,7 +1049,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-02",
-    "name": "春の生きもの",
+    "name": "春[はる]の生[い]きもの",
     "subject": "rika",
     "grade": 4,
     "order": 12,
@@ -931,7 +1057,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-03",
-    "name": "電池のはたらき①",
+    "name": "電池[でんち]のはたらき①",
     "subject": "rika",
     "grade": 4,
     "order": 13,
@@ -939,7 +1065,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-04",
-    "name": "電池のはたらき②",
+    "name": "電池[でんち]のはたらき②",
     "subject": "rika",
     "grade": 4,
     "order": 14,
@@ -947,7 +1073,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-05",
-    "name": "とじこめた空気や水",
+    "name": "とじこめた空気[くうき]や水[みず]",
     "subject": "rika",
     "grade": 4,
     "order": 15,
@@ -955,7 +1081,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-06",
-    "name": "夏の生きもの",
+    "name": "夏[なつ]の生[い]きもの",
     "subject": "rika",
     "grade": 4,
     "order": 16,
@@ -963,7 +1089,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-07",
-    "name": "夏の星",
+    "name": "夏[なつ]の星[ほし]",
     "subject": "rika",
     "grade": 4,
     "order": 17,
@@ -971,7 +1097,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-08",
-    "name": "雨水のゆくえ①",
+    "name": "雨水[あまみず]のゆくえ①",
     "subject": "rika",
     "grade": 4,
     "order": 18,
@@ -979,7 +1105,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-09",
-    "name": "雨水のゆくえ②",
+    "name": "雨水[あまみず]のゆくえ②",
     "subject": "rika",
     "grade": 4,
     "order": 19,
@@ -987,7 +1113,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-10",
-    "name": "月の位置の変化",
+    "name": "月[つき]の位置[いち]の変化[へんか]",
     "subject": "rika",
     "grade": 4,
     "order": 20,
@@ -995,7 +1121,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-11",
-    "name": "星の位置の変化",
+    "name": "星[ほし]の位置[いち]の変化[へんか]",
     "subject": "rika",
     "grade": 4,
     "order": 21,
@@ -1003,7 +1129,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-12",
-    "name": "わたしたちの体と運動",
+    "name": "わたしたちの体[からだ]と運動[うんどう]",
     "subject": "rika",
     "grade": 4,
     "order": 22,
@@ -1011,7 +1137,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-13",
-    "name": "秋の生きもの",
+    "name": "秋[あき]の生[い]きもの",
     "subject": "rika",
     "grade": 4,
     "order": 23,
@@ -1019,7 +1145,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-14",
-    "name": "ものの温度と体積①",
+    "name": "ものの温度[おんど]と体積[たいせき]①",
     "subject": "rika",
     "grade": 4,
     "order": 24,
@@ -1027,7 +1153,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-15",
-    "name": "ものの温度と体積②",
+    "name": "ものの温度[おんど]と体積[たいせき]②",
     "subject": "rika",
     "grade": 4,
     "order": 25,
@@ -1035,7 +1161,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-16",
-    "name": "冬の星",
+    "name": "冬[ふゆ]の星[ほし]",
     "subject": "rika",
     "grade": 4,
     "order": 26,
@@ -1043,7 +1169,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-17",
-    "name": "冬の生きもの",
+    "name": "冬[ふゆ]の生[い]きもの",
     "subject": "rika",
     "grade": 4,
     "order": 27,
@@ -1051,7 +1177,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-18",
-    "name": "生きものの１年間",
+    "name": "生[い]きものの１年間[ねんかん]",
     "subject": "rika",
     "grade": 4,
     "order": 28,
@@ -1059,7 +1185,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-19",
-    "name": "もののあたたまり方①",
+    "name": "もののあたたまり方[かた]①",
     "subject": "rika",
     "grade": 4,
     "order": 29,
@@ -1067,7 +1193,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-20",
-    "name": "もののあたたまり方②",
+    "name": "もののあたたまり方[かた]②",
     "subject": "rika",
     "grade": 4,
     "order": 30,
@@ -1075,7 +1201,7 @@
   },
   {
     "id": "rika.g4.legacy-cur-1504-21",
-    "name": "すがたを変える水",
+    "name": "すがたを変[か]える水[みず]",
     "subject": "rika",
     "grade": 4,
     "order": 31,
@@ -1083,7 +1209,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-1",
-    "name": "雲と天気",
+    "name": "雲[くも]と天気[てんき]",
     "subject": "rika",
     "grade": 5,
     "order": 32,
@@ -1091,7 +1217,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-2",
-    "name": "植物の発芽と成長",
+    "name": "植物[しょくぶつ]の発芽[はつが]と成長[せいちょう]",
     "subject": "rika",
     "grade": 5,
     "order": 33,
@@ -1099,7 +1225,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-3",
-    "name": "魚のたんじょう",
+    "name": "魚[さかな]のたんじょう",
     "subject": "rika",
     "grade": 5,
     "order": 34,
@@ -1107,7 +1233,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-4",
-    "name": "植物の実や種子のでき方",
+    "name": "植物[しょくぶつ]の実[み]や種子[しゅし]のでき方[かた]",
     "subject": "rika",
     "grade": 5,
     "order": 35,
@@ -1115,7 +1241,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-5",
-    "name": "台風",
+    "name": "台風[たいふう]",
     "subject": "rika",
     "grade": 5,
     "order": 36,
@@ -1123,7 +1249,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-6",
-    "name": "流れる水のはたらき",
+    "name": "流[なが]れる水[みず]のはたらき",
     "subject": "rika",
     "grade": 5,
     "order": 37,
@@ -1131,7 +1257,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-7",
-    "name": "人のたんじょう",
+    "name": "人[ひと]のたんじょう",
     "subject": "rika",
     "grade": 5,
     "order": 38,
@@ -1139,7 +1265,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-8",
-    "name": "もののとけ方",
+    "name": "もののとけ方[かた]",
     "subject": "rika",
     "grade": 5,
     "order": 39,
@@ -1147,7 +1273,7 @@
   },
   {
     "id": "rika.g5.legacy-sci-5-9",
-    "name": "電磁石",
+    "name": "電磁石[でんじしゃく]",
     "subject": "rika",
     "grade": 5,
     "order": 40,
@@ -1163,7 +1289,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-1",
-    "name": "ものの燃え方",
+    "name": "ものの燃[も]え方[かた]",
     "subject": "rika",
     "grade": 6,
     "order": 42,
@@ -1171,7 +1297,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-2",
-    "name": "動物の体のつくりとはたらき①",
+    "name": "動物[どうぶつ]の体[からだ]のつくりとはたらき①",
     "subject": "rika",
     "grade": 6,
     "order": 43,
@@ -1179,7 +1305,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-3",
-    "name": "動物の体のつくりとはたらき②",
+    "name": "動物[どうぶつ]の体[からだ]のつくりとはたらき②",
     "subject": "rika",
     "grade": 6,
     "order": 44,
@@ -1187,7 +1313,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-4",
-    "name": "植物のつくりとはたらき",
+    "name": "植物[しょくぶつ]のつくりとはたらき",
     "subject": "rika",
     "grade": 6,
     "order": 45,
@@ -1195,7 +1321,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-5",
-    "name": "生物のくらしと環境",
+    "name": "生物[せいぶつ]のくらしと環境[かんきょう]",
     "subject": "rika",
     "grade": 6,
     "order": 46,
@@ -1203,7 +1329,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-6",
-    "name": "月と太陽",
+    "name": "月[つき]と太陽[たいよう]",
     "subject": "rika",
     "grade": 6,
     "order": 47,
@@ -1211,7 +1337,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-7",
-    "name": "大地のつくりと変化",
+    "name": "大地[だいち]のつくりと変化[へんか]",
     "subject": "rika",
     "grade": 6,
     "order": 48,
@@ -1227,7 +1353,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-9",
-    "name": "水よう液",
+    "name": "水[みず]よう液[えき]",
     "subject": "rika",
     "grade": 6,
     "order": 50,
@@ -1235,7 +1361,7 @@
   },
   {
     "id": "rika.g6.legacy-sci-6-10",
-    "name": "電気の利用",
+    "name": "電気[でんき]の利用[りよう]",
     "subject": "rika",
     "grade": 6,
     "order": 51,
@@ -1275,7 +1401,7 @@
   },
   {
     "id": "sansu.g1.legacy-math-1-5",
-    "name": "10より大きいたしざん・ひきざん",
+    "name": "10より大[おお]きいたしざん・ひきざん",
     "subject": "sansu",
     "grade": 1,
     "order": 5,
@@ -1307,7 +1433,7 @@
   },
   {
     "id": "sansu.g1.legacy-math-1-9",
-    "name": "たしざん・ひきざんの文書題",
+    "name": "たしざん・ひきざんの 文章題[ぶんしょうだい]",
     "subject": "sansu",
     "grade": 1,
     "order": 9,
@@ -1347,7 +1473,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-5",
-    "name": "時間と生活",
+    "name": "時間[じかん]と生活[せいかつ]",
     "subject": "sansu",
     "grade": 2,
     "order": 14,
@@ -1363,7 +1489,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-7",
-    "name": "100より大きい数",
+    "name": "100より大[おお]きい数[かず]",
     "subject": "sansu",
     "grade": 2,
     "order": 16,
@@ -1379,7 +1505,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-9",
-    "name": "２けたのたし算",
+    "name": "２けたのたし算[さん]",
     "subject": "sansu",
     "grade": 2,
     "order": 18,
@@ -1387,7 +1513,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-10",
-    "name": "３けた－２けたのひき算",
+    "name": "３けた－２けたのひき算[さん]",
     "subject": "sansu",
     "grade": 2,
     "order": 19,
@@ -1395,7 +1521,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-11",
-    "name": "計算のくふう",
+    "name": "計算[けいさん]のくふう",
     "subject": "sansu",
     "grade": 2,
     "order": 20,
@@ -1403,7 +1529,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-12",
-    "name": "三角形と四角形",
+    "name": "三角形[さんかっけい]と四角形[しかっけい]",
     "subject": "sansu",
     "grade": 2,
     "order": 21,
@@ -1411,7 +1537,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-13",
-    "name": "かけ算と九九",
+    "name": "かけ算[ざん]と 九九[くく]",
     "subject": "sansu",
     "grade": 2,
     "order": 22,
@@ -1419,7 +1545,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-14",
-    "name": "九九のきまり",
+    "name": "九九[くく]の きまり",
     "subject": "sansu",
     "grade": 2,
     "order": 23,
@@ -1435,7 +1561,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-16",
-    "name": "1000より大きい数",
+    "name": "1000より大[おお]きい数[かず]",
     "subject": "sansu",
     "grade": 2,
     "order": 25,
@@ -1443,7 +1569,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-17",
-    "name": "分数",
+    "name": "分数[ぶんすう]",
     "subject": "sansu",
     "grade": 2,
     "order": 26,
@@ -1451,7 +1577,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-18",
-    "name": "はこの形",
+    "name": "はこの形[かたち]",
     "subject": "sansu",
     "grade": 2,
     "order": 27,
@@ -1459,7 +1585,7 @@
   },
   {
     "id": "sansu.g2.legacy-math-2-19",
-    "name": "文しょうだい",
+    "name": "文[ぶん]しょうだい",
     "subject": "sansu",
     "grade": 2,
     "order": 28,
@@ -1467,7 +1593,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-1",
-    "name": "かけ算のおさらい",
+    "name": "かけ算[ざん]のおさらい",
     "subject": "sansu",
     "grade": 3,
     "order": 29,
@@ -1475,7 +1601,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-2",
-    "name": "わり算",
+    "name": "わり算[ざん]",
     "subject": "sansu",
     "grade": 3,
     "order": 30,
@@ -1483,7 +1609,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-3",
-    "name": "九九にないわり算",
+    "name": "九九[くく]に ない わり算[ざん]",
     "subject": "sansu",
     "grade": 3,
     "order": 31,
@@ -1491,7 +1617,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-4",
-    "name": "３けたのたし算、ひき算（筆算）",
+    "name": "３けたのたし算[さん]、ひき算[さん]（筆算[ひっさん]）",
     "subject": "sansu",
     "grade": 3,
     "order": 32,
@@ -1499,7 +1625,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-5",
-    "name": "時間と時こく",
+    "name": "時間[じかん]と 時刻[じこく]",
     "subject": "sansu",
     "grade": 3,
     "order": 33,
@@ -1507,7 +1633,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-6",
-    "name": "大きな数と計算",
+    "name": "大[おお]きな数[かず]と計算[けいさん]",
     "subject": "sansu",
     "grade": 3,
     "order": 34,
@@ -1515,7 +1641,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-7",
-    "name": "表とぼうグラフ",
+    "name": "表[ひょう]とぼうグラフ",
     "subject": "sansu",
     "grade": 3,
     "order": 35,
@@ -1523,7 +1649,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-8",
-    "name": "暗算で計算しよう",
+    "name": "暗算[あんざん]で計算[けいさん]しよう",
     "subject": "sansu",
     "grade": 3,
     "order": 36,
@@ -1531,7 +1657,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-9",
-    "name": "長さをあらわす：km（キロメートル）",
+    "name": "長[なが]さをあらわす：km（キロメートル）",
     "subject": "sansu",
     "grade": 3,
     "order": 37,
@@ -1539,7 +1665,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-10",
-    "name": "あまりのあるわり算",
+    "name": "あまりのあるわり算[ざん]",
     "subject": "sansu",
     "grade": 3,
     "order": 38,
@@ -1547,7 +1673,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-11",
-    "name": "かけ算の筆算（×１けた）",
+    "name": "かけ算[ざん]の筆算[ひっさん]（×１けた）",
     "subject": "sansu",
     "grade": 3,
     "order": 39,
@@ -1555,7 +1681,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-12",
-    "name": "円と球（きゅう）",
+    "name": "円[えん]と 球[きゅう]",
     "subject": "sansu",
     "grade": 3,
     "order": 40,
@@ -1563,7 +1689,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-13",
-    "name": "重さをあらわす",
+    "name": "重[おも]さをあらわす",
     "subject": "sansu",
     "grade": 3,
     "order": 41,
@@ -1571,7 +1697,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-14",
-    "name": "分数（３年生）",
+    "name": "分数[ぶんすう]（３年生[ねんせい]）",
     "subject": "sansu",
     "grade": 3,
     "order": 42,
@@ -1579,7 +1705,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-15",
-    "name": "小数（３年生）",
+    "name": "小数[しょうすう]（３年生[ねんせい]）",
     "subject": "sansu",
     "grade": 3,
     "order": 43,
@@ -1587,7 +1713,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-16",
-    "name": "三角形",
+    "name": "三角形[さんかっけい]",
     "subject": "sansu",
     "grade": 3,
     "order": 44,
@@ -1595,7 +1721,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-17",
-    "name": "×２けたの筆算",
+    "name": "×２けたの筆算[ひっさん]",
     "subject": "sansu",
     "grade": 3,
     "order": 45,
@@ -1603,7 +1729,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-18",
-    "name": "□が入った式",
+    "name": "□が入[はい]った式[しき]",
     "subject": "sansu",
     "grade": 3,
     "order": 46,
@@ -1611,7 +1737,7 @@
   },
   {
     "id": "sansu.g3.legacy-math-3-19",
-    "name": "文章題（３年生）",
+    "name": "文章[ぶんしょう]題[だい]（３年生[ねんせい]）",
     "subject": "sansu",
     "grade": 3,
     "order": 47,
@@ -1619,7 +1745,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-1",
-    "name": "大きな数（億、兆）とかけ算",
+    "name": "大[おお]きな数[かず]（億[おく]、兆[ちょう]）とかけ算[ざん]",
     "subject": "sansu",
     "grade": 4,
     "order": 48,
@@ -1627,7 +1753,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-2",
-    "name": "折れ線グラフ",
+    "name": "折[お]れ線[せん]グラフ",
     "subject": "sansu",
     "grade": 4,
     "order": 49,
@@ -1635,7 +1761,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-3",
-    "name": "わり算の筆算",
+    "name": "わり算[ざん]の筆算[ひっさん]",
     "subject": "sansu",
     "grade": 4,
     "order": 50,
@@ -1643,7 +1769,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-4",
-    "name": "角",
+    "name": "角[かく]",
     "subject": "sansu",
     "grade": 4,
     "order": 51,
@@ -1651,7 +1777,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-5",
-    "name": "直線と四角形",
+    "name": "直線[ちょくせん]と四角形[しかっけい]",
     "subject": "sansu",
     "grade": 4,
     "order": 52,
@@ -1659,7 +1785,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-6",
-    "name": "小数（４年生）",
+    "name": "小数[しょうすう]（４年生[ねんせい]）",
     "subject": "sansu",
     "grade": 4,
     "order": 53,
@@ -1667,7 +1793,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-7",
-    "name": "２けたでわる わり算の筆算",
+    "name": "２けたでわる わり算[ざん]の筆算[ひっさん]",
     "subject": "sansu",
     "grade": 4,
     "order": 54,
@@ -1675,7 +1801,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-8",
-    "name": "計算のきまり",
+    "name": "計算[けいさん]のきまり",
     "subject": "sansu",
     "grade": 4,
     "order": 55,
@@ -1683,7 +1809,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-9",
-    "name": "倍の見方と割合",
+    "name": "倍[ばい]の見方[みかた]と割合[わりあい]",
     "subject": "sansu",
     "grade": 4,
     "order": 56,
@@ -1691,7 +1817,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-10",
-    "name": "がい数（およその数）",
+    "name": "がい数[すう]（およその数[かず]）",
     "subject": "sansu",
     "grade": 4,
     "order": 57,
@@ -1699,7 +1825,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-11",
-    "name": "面積",
+    "name": "面積[めんせき]",
     "subject": "sansu",
     "grade": 4,
     "order": 58,
@@ -1707,7 +1833,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-12",
-    "name": "小数×整数",
+    "name": "小数[しょうすう]×整数[せいすう]",
     "subject": "sansu",
     "grade": 4,
     "order": 59,
@@ -1715,7 +1841,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-13",
-    "name": "小数÷整数",
+    "name": "小数[しょうすう]÷整数[せいすう]",
     "subject": "sansu",
     "grade": 4,
     "order": 60,
@@ -1723,7 +1849,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-14",
-    "name": "仮分数と帯分数",
+    "name": "仮分数[かぶんすう]と 帯分数[たいぶんすう]",
     "subject": "sansu",
     "grade": 4,
     "order": 61,
@@ -1731,7 +1857,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-15",
-    "name": "変わり方調べ（４年生）",
+    "name": "変[か]わり方[かた]調[しら]べ（４年生[ねんせい]）",
     "subject": "sansu",
     "grade": 4,
     "order": 62,
@@ -1739,7 +1865,7 @@
   },
   {
     "id": "sansu.g4.legacy-math-4-16",
-    "name": "直方体と立方体",
+    "name": "直方体[ちょくほうたい]と立方体[りっぽうたい]",
     "subject": "sansu",
     "grade": 4,
     "order": 63,
@@ -1747,7 +1873,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-1",
-    "name": "整数と小数",
+    "name": "整数[せいすう]と小数[しょうすう]",
     "subject": "sansu",
     "grade": 5,
     "order": 64,
@@ -1755,7 +1881,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-2",
-    "name": "体積",
+    "name": "体積[たいせき]",
     "subject": "sansu",
     "grade": 5,
     "order": 65,
@@ -1763,7 +1889,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-3",
-    "name": "比例",
+    "name": "比例[ひれい]",
     "subject": "sansu",
     "grade": 5,
     "order": 66,
@@ -1771,7 +1897,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-4",
-    "name": "小数×小数",
+    "name": "小数[しょうすう]×小数[しょうすう]",
     "subject": "sansu",
     "grade": 5,
     "order": 67,
@@ -1779,7 +1905,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-5",
-    "name": "小数÷小数",
+    "name": "小数[しょうすう]÷小数[しょうすう]",
     "subject": "sansu",
     "grade": 5,
     "order": 68,
@@ -1787,7 +1913,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-6",
-    "name": "合同な図形、内角",
+    "name": "合同[ごうどう]な図形[づけい]、内角[ないかく]",
     "subject": "sansu",
     "grade": 5,
     "order": 69,
@@ -1795,7 +1921,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-7",
-    "name": "倍数と約数",
+    "name": "倍数[ばいすう]と約数[やくすう]",
     "subject": "sansu",
     "grade": 5,
     "order": 70,
@@ -1803,7 +1929,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-8",
-    "name": "約分と通分",
+    "name": "約分[やくぶん]と通分[つうぶん]",
     "subject": "sansu",
     "grade": 5,
     "order": 71,
@@ -1811,7 +1937,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-9",
-    "name": "分数と小数",
+    "name": "分数[ぶんすう]と小数[しょうすう]",
     "subject": "sansu",
     "grade": 5,
     "order": 72,
@@ -1819,7 +1945,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-10",
-    "name": "三角形・四角形の面積",
+    "name": "三角形[さんかっけい]・四角形[しかっけい]の面積[めんせき]",
     "subject": "sansu",
     "grade": 5,
     "order": 73,
@@ -1827,7 +1953,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-11",
-    "name": "平均、単位量あたりの大きさ",
+    "name": "平均[へいきん]、単位[たんい]量[りょう]あたりの大[おお]きさ",
     "subject": "sansu",
     "grade": 5,
     "order": 74,
@@ -1835,7 +1961,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-12",
-    "name": "速さ",
+    "name": "速[はや]さ",
     "subject": "sansu",
     "grade": 5,
     "order": 75,
@@ -1843,7 +1969,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-13",
-    "name": "割合",
+    "name": "割合[わりあい]",
     "subject": "sansu",
     "grade": 5,
     "order": 76,
@@ -1851,7 +1977,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-14",
-    "name": "百分率と歩合",
+    "name": "百分率[ひゃくぶんりつ]と歩合[ぶあい]",
     "subject": "sansu",
     "grade": 5,
     "order": 77,
@@ -1859,7 +1985,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-15",
-    "name": "帯グラフと円グラフ",
+    "name": "帯[おび]グラフと円[えん]グラフ",
     "subject": "sansu",
     "grade": 5,
     "order": 78,
@@ -1867,7 +1993,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-16",
-    "name": "変わり方調べ（５年生）",
+    "name": "変[か]わり方[かた]調[しら]べ（５年生[ねんせい]）",
     "subject": "sansu",
     "grade": 5,
     "order": 79,
@@ -1875,7 +2001,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-17",
-    "name": "円と多角形",
+    "name": "円[えん]と 多角形[たかくけい]",
     "subject": "sansu",
     "grade": 5,
     "order": 80,
@@ -1883,7 +2009,7 @@
   },
   {
     "id": "sansu.g5.legacy-math-5-18",
-    "name": "角柱と円柱",
+    "name": "角柱[かくちゅう]と円柱[えんちゅう]",
     "subject": "sansu",
     "grade": 5,
     "order": 81,
@@ -1891,7 +2017,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-1",
-    "name": "対称な図形",
+    "name": "対称[たいしょう]な図形[づけい]",
     "subject": "sansu",
     "grade": 6,
     "order": 82,
@@ -1899,7 +2025,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-2",
-    "name": "文字と式",
+    "name": "文字[もじ]と式[しき]",
     "subject": "sansu",
     "grade": 6,
     "order": 83,
@@ -1907,7 +2033,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-3",
-    "name": "分数のかけ算",
+    "name": "分数[ぶんすう]のかけ算[ざん]",
     "subject": "sansu",
     "grade": 6,
     "order": 84,
@@ -1915,7 +2041,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-4",
-    "name": "分数のわり算",
+    "name": "分数[ぶんすう]のわり算[ざん]",
     "subject": "sansu",
     "grade": 6,
     "order": 85,
@@ -1923,7 +2049,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-5",
-    "name": "比",
+    "name": "比[ひ]",
     "subject": "sansu",
     "grade": 6,
     "order": 86,
@@ -1931,7 +2057,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-6",
-    "name": "拡大と縮小",
+    "name": "拡大[かくだい]と縮小[しゅくしょう]",
     "subject": "sansu",
     "grade": 6,
     "order": 87,
@@ -1939,7 +2065,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-7",
-    "name": "円の面積、立体の体積",
+    "name": "円[えん]の面積[めんせき]、立体[りったい]の体積[たいせき]",
     "subject": "sansu",
     "grade": 6,
     "order": 88,
@@ -1947,7 +2073,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-8",
-    "name": "データの調べ方",
+    "name": "データの調[しら]べ方[かた]",
     "subject": "sansu",
     "grade": 6,
     "order": 89,
@@ -1955,7 +2081,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-9",
-    "name": "比例と反比例",
+    "name": "比例[ひれい]と反比例[はんぴれい]",
     "subject": "sansu",
     "grade": 6,
     "order": 90,
@@ -1963,7 +2089,7 @@
   },
   {
     "id": "sansu.g6.legacy-math-6-10",
-    "name": "場合の数",
+    "name": "場合[ばあい]の数[かず]",
     "subject": "sansu",
     "grade": 6,
     "order": 91,
@@ -1971,15 +2097,29 @@
   },
   {
     "id": "seikatsu.g1.legacy-cur-1801-01",
-    "name": "学校生活と通学路",
+    "name": "学校[がっこう]生活[せいかつ]と通学[つうがく]路[ろ]",
     "subject": "seikatsu",
     "grade": 1,
     "order": 1,
-    "legacyNode": "cur-1801-01"
+    "legacyNode": "cur-1801-01",
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1],
+      "status": "reference",
+      "sourceIds": ["kyoiku-shuppan-r6-seikatsu"],
+      "note": "入学期[にゅうがくき]の学校[がっこう]探検[たんけん]と安全[あんぜん]指導[しどう]。"
+    },
+    "curriculumCodes": ["82702A3110000000"],
+    "sourceIds": ["mext-82v12", "kyoiku-shuppan-r6-seikatsu"],
+    "review": {
+      "status": "source-checked",
+      "reviewedAt": "2026-10-10",
+      "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+    }
   },
   {
     "id": "seikatsu.g1.legacy-cur-1801-02",
-    "name": "家庭生活と家族",
+    "name": "家庭[かてい]生活[せいかつ]と家族[かぞく]",
     "subject": "seikatsu",
     "grade": 1,
     "order": 2,
@@ -1987,15 +2127,29 @@
   },
   {
     "id": "seikatsu.g1.legacy-cur-1801-03",
-    "name": "生きものを育てよう",
+    "name": "生[い]きものを育[そだ]てよう",
     "subject": "seikatsu",
     "grade": 1,
     "order": 3,
-    "legacyNode": "cur-1801-03"
+    "legacyNode": "cur-1801-03",
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2],
+      "status": "reference",
+      "sourceIds": ["kyoiku-shuppan-r6-seikatsu"],
+      "note": "季節[きせつ]や地域[ちいき]に合[あ]わせて継続的[けいぞくてき]に育[そだ]てる。"
+    },
+    "curriculumCodes": ["82702A3240000000"],
+    "sourceIds": ["mext-82v12", "kyoiku-shuppan-r6-seikatsu"],
+    "review": {
+      "status": "source-checked",
+      "reviewedAt": "2026-10-10",
+      "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+    }
   },
   {
     "id": "seikatsu.g1.legacy-cur-1801-04",
-    "name": "季節と自然のあそび",
+    "name": "季節[きせつ]と自然[しぜん]のあそび",
     "subject": "seikatsu",
     "grade": 1,
     "order": 4,
@@ -2003,7 +2157,7 @@
   },
   {
     "id": "seikatsu.g2.legacy-cur-1802-01",
-    "name": "すみかと地域の人々",
+    "name": "すみかと地域[ちいき]の人々[ひとびと]",
     "subject": "seikatsu",
     "grade": 2,
     "order": 5,
@@ -2011,7 +2165,7 @@
   },
   {
     "id": "seikatsu.g2.legacy-cur-1802-02",
-    "name": "公共の場所を大切に",
+    "name": "公共[こうきょう]の場所[ばしょ]を大切[たいせつ]に",
     "subject": "seikatsu",
     "grade": 2,
     "order": 6,
@@ -2019,7 +2173,7 @@
   },
   {
     "id": "seikatsu.g2.legacy-cur-1802-03",
-    "name": "生きものの育ち",
+    "name": "生[い]きものの育[そだ]ち",
     "subject": "seikatsu",
     "grade": 2,
     "order": 7,
@@ -2027,7 +2181,7 @@
   },
   {
     "id": "seikatsu.g2.legacy-cur-1802-04",
-    "name": "伝え合いのたのしさ",
+    "name": "伝[つた]え合[あ]いのたのしさ",
     "subject": "seikatsu",
     "grade": 2,
     "order": 8,
@@ -2035,7 +2189,7 @@
   },
   {
     "id": "seikatsu.g2.legacy-cur-1802-05",
-    "name": "わたしの成長",
+    "name": "わたしの成長[せいちょう]",
     "subject": "seikatsu",
     "grade": 2,
     "order": 9,
@@ -2043,7 +2197,7 @@
   },
   {
     "id": "shakai.g3.legacy-cur-1403-01",
-    "name": "身近な地域や市区町村の様子",
+    "name": "身近[みぢか]な地域[ちいき]や市区[しく]町村[ちょうそん]の様子[ようす]",
     "subject": "shakai",
     "grade": 3,
     "order": 1,
@@ -2051,7 +2205,7 @@
   },
   {
     "id": "shakai.g3.legacy-cur-1403-02",
-    "name": "地域に見られる生産や販売の仕事",
+    "name": "地域[ちいき]に見[み]られる生産[せいさん]や販売[はんばい]の仕事[しごと]",
     "subject": "shakai",
     "grade": 3,
     "order": 2,
@@ -2059,7 +2213,7 @@
   },
   {
     "id": "shakai.g3.legacy-cur-1403-03",
-    "name": "地域の安全を守る働き",
+    "name": "地域[ちいき]の安全[あんぜん]を守[まも]る働[はたら]き",
     "subject": "shakai",
     "grade": 3,
     "order": 3,
@@ -2067,7 +2221,7 @@
   },
   {
     "id": "shakai.g3.legacy-cur-1403-04",
-    "name": "市の様子の移り変わり",
+    "name": "市[し]の様子[ようす]の移[うつ]り変[か]わり",
     "subject": "shakai",
     "grade": 3,
     "order": 4,
@@ -2075,7 +2229,7 @@
   },
   {
     "id": "shakai.g4.legacy-cur-1404-01",
-    "name": "都道府県の様子",
+    "name": "都道府県[とどうふけん]の様子[ようす]",
     "subject": "shakai",
     "grade": 4,
     "order": 5,
@@ -2083,7 +2237,7 @@
   },
   {
     "id": "shakai.g4.legacy-cur-1404-02",
-    "name": "人々の健康や生活環境を支える事業",
+    "name": "人々[ひとびと]の健康[けんこう]や生活[せいかつ]環境[かんきょう]を支[ささ]える事業[じぎょう]",
     "subject": "shakai",
     "grade": 4,
     "order": 6,
@@ -2091,7 +2245,7 @@
   },
   {
     "id": "shakai.g4.legacy-cur-1404-03",
-    "name": "自然災害から人々を守る活動",
+    "name": "自然[しぜん]災害[さいがい]から人々[ひとびと]を守[まも]る活動[かつどう]",
     "subject": "shakai",
     "grade": 4,
     "order": 7,
@@ -2099,7 +2253,7 @@
   },
   {
     "id": "shakai.g4.legacy-cur-1404-04",
-    "name": "県内の伝統や文化，先人の働き",
+    "name": "県内[けんない]の伝統[でんとう]や文化[ぶんか]，先人[せんじん]の働[はたら]き",
     "subject": "shakai",
     "grade": 4,
     "order": 8,
@@ -2107,7 +2261,7 @@
   },
   {
     "id": "shakai.g4.legacy-cur-1404-05",
-    "name": "県内の特色ある地域の様子",
+    "name": "県内[けんない]の特色[とくしょく]ある地域[ちいき]の様子[ようす]",
     "subject": "shakai",
     "grade": 4,
     "order": 9,
@@ -2115,7 +2269,7 @@
   },
   {
     "id": "shakai.g5.legacy-soc-5-1",
-    "name": "世界と日本の国土",
+    "name": "世界[せかい]と 日本[にほん]の 国土[こくど]",
     "subject": "shakai",
     "grade": 5,
     "order": 10,
@@ -2123,7 +2277,7 @@
   },
   {
     "id": "shakai.g5.legacy-soc-5-2",
-    "name": "日本の地形と気候",
+    "name": "日本[にほん]の 地形[ちけい]と 気候[きこう]",
     "subject": "shakai",
     "grade": 5,
     "order": 11,
@@ -2131,7 +2285,7 @@
   },
   {
     "id": "shakai.g5.legacy-soc-5-3",
-    "name": "様々な土地のくらし",
+    "name": "様々[さまざま]な土地[とち]のくらし",
     "subject": "shakai",
     "grade": 5,
     "order": 12,
@@ -2139,7 +2293,7 @@
   },
   {
     "id": "shakai.g5.legacy-soc-5-4",
-    "name": "日本の食料生産①",
+    "name": "日本[にほん]の 食料生産[しょくりょうせいさん]①",
     "subject": "shakai",
     "grade": 5,
     "order": 13,
@@ -2147,7 +2301,7 @@
   },
   {
     "id": "shakai.g5.legacy-soc-5-5",
-    "name": "日本の食料生産②",
+    "name": "日本[にほん]の 食料生産[しょくりょうせいさん]②",
     "subject": "shakai",
     "grade": 5,
     "order": 14,
@@ -2155,7 +2309,7 @@
   },
   {
     "id": "shakai.g5.legacy-soc-5-6",
-    "name": "日本の工業生産と交通",
+    "name": "日本[にほん]の 工業生産[こうぎょうせいさん]と 交通[こうつう]",
     "subject": "shakai",
     "grade": 5,
     "order": 15,
@@ -2163,7 +2317,7 @@
   },
   {
     "id": "shakai.g5.legacy-soc-5-7",
-    "name": "情報社会とくらし",
+    "name": "情報[じょうほう]社会[しゃかい]とくらし",
     "subject": "shakai",
     "grade": 5,
     "order": 16,
@@ -2171,7 +2325,7 @@
   },
   {
     "id": "shakai.g5.legacy-soc-5-8",
-    "name": "日本の自然と環境",
+    "name": "日本[にほん]の 自然[しぜん]と 環境[かんきょう]",
     "subject": "shakai",
     "grade": 5,
     "order": 17,
@@ -2179,7 +2333,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-1",
-    "name": "日本国憲法",
+    "name": "日本国憲法[にほんこくけんぽう]",
     "subject": "shakai",
     "grade": 6,
     "order": 18,
@@ -2187,7 +2341,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-2",
-    "name": "政治と生活",
+    "name": "政治[せいじ]と 生活[せいかつ]",
     "subject": "shakai",
     "grade": 6,
     "order": 19,
@@ -2195,7 +2349,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-3",
-    "name": "大昔の日本",
+    "name": "大昔[おおむかし]の 日本[にほん]",
     "subject": "shakai",
     "grade": 6,
     "order": 20,
@@ -2203,7 +2357,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-4",
-    "name": "飛鳥～平安時代",
+    "name": "飛鳥[あすか]～平安[へいあん]時代[じだい]",
     "subject": "shakai",
     "grade": 6,
     "order": 21,
@@ -2211,7 +2365,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-5",
-    "name": "鎌倉・室町時代",
+    "name": "鎌倉[かまくら]・室町[むろまち]時代[じだい]",
     "subject": "shakai",
     "grade": 6,
     "order": 22,
@@ -2219,7 +2373,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-6",
-    "name": "戦国時代",
+    "name": "戦国[せんごく]時代[じだい]",
     "subject": "shakai",
     "grade": 6,
     "order": 23,
@@ -2227,7 +2381,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-7",
-    "name": "江戸時代",
+    "name": "江戸[えど]時代[じだい]",
     "subject": "shakai",
     "grade": 6,
     "order": 24,
@@ -2235,7 +2389,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-8",
-    "name": "幕末と明治維新",
+    "name": "幕末[ばくまつ]と明治維新[めいじいしん]",
     "subject": "shakai",
     "grade": 6,
     "order": 25,
@@ -2243,7 +2397,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-9",
-    "name": "明治・大正時代",
+    "name": "明治[めいじ]・大正[たいしょう]時代[じだい]",
     "subject": "shakai",
     "grade": 6,
     "order": 26,
@@ -2251,7 +2405,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-10",
-    "name": "世界大戦～現代",
+    "name": "世界[せかい]大戦[たいせん]～現代[げんだい]",
     "subject": "shakai",
     "grade": 6,
     "order": 27,
@@ -2259,7 +2413,7 @@
   },
   {
     "id": "shakai.g6.legacy-soc-6-11",
-    "name": "国際社会と日本",
+    "name": "国際社会[こくさいしゃかい]と 日本[にほん]",
     "subject": "shakai",
     "grade": 6,
     "order": 28,
@@ -2267,10 +2421,188 @@
   },
   {
     "id": "kokugo.g4.legacy-jpn-4-5",
-    "name": "作文と原稿用紙",
+    "name": "作文[さくぶん]と原稿[げんこう]用紙[ようし]",
     "subject": "kokugo",
     "grade": 4,
     "order": 1257,
     "legacyNode": "jpn_4_5"
+  },
+  {
+    "id": "kokugo.g1.katakana",
+    "name": "カタカナ",
+    "subject": "kokugo",
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "平仮名[ひらがな]の学習[がくしゅう]後[ご]から段階的[だんかいてき]に扱[あつか]う。"
+    },
+    "curriculumCodes": ["82102A3113000000"],
+    "sourceIds": ["mext-82v12", "tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+    "review": {
+      "status": "source-checked",
+      "reviewedAt": "2026-10-10",
+      "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+    }
+  },
+  {
+    "id": "kokugo.g1.dokkai",
+    "name": "みじかい文[ぶん]を読[よ]む",
+    "subject": "kokugo",
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2, 3],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "短[みじか]い文章[ぶんしょう]から年間[ねんかん]を通[とお]して段階的[だんかいてき]に扱[あつか]う。"
+    },
+    "curriculumCodes": ["82102A3231100000", "82102A3231200000"],
+    "sourceIds": ["mext-82v12", "tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+    "review": {
+      "status": "source-checked",
+      "reviewedAt": "2026-10-10",
+      "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+    }
+  },
+  {
+    "id": "kokugo.g1.hanasu-kiku",
+    "name": "話[はな]す・聞[き]く",
+    "subject": "kokugo",
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2, 3],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "学校[がっこう]生活[せいかつ]の対話[たいわ]活動[かつどう]で年間[ねんかん]を通[とお]して扱[あつか]う。"
+    },
+    "curriculumCodes": ["82102A3211100000", "82102A3211400000", "82102A3211500000"],
+    "sourceIds": ["mext-82v12", "tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+    "review": {
+      "status": "source-checked",
+      "reviewedAt": "2026-10-10",
+      "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+    }
+  },
+  {
+    "id": "kokugo.g1.tsutaeru",
+    "name": "じゅんじょよく伝[つた]える",
+    "subject": "kokugo",
+    "grade": 1,
+    "courseKind": "required-subject",
+    "placement": {
+      "terms": [1, 2, 3],
+      "status": "reference",
+      "sourceIds": ["tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+      "note": "話[はな]すこと・書[か]くことの活動[かつどう]で年間[ねんかん]を通[とお]して扱[あつか]う。"
+    },
+    "curriculumCodes": ["82102A3211200000", "82102A3221200000", "82102A3221400000"],
+    "sourceIds": ["mext-82v12", "tokyo-shoseki-r6-kokugo-g1", "kyoiku-shuppan-r6-kokugo-g1"],
+    "review": {
+      "status": "source-checked",
+      "reviewedAt": "2026-10-10",
+      "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+    }
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-5",
+    "name": "5年生の漢字",
+    "subject": "kokugo",
+    "grade": 5,
+    "legacyNode": "jpn_5_5"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "name": "5年生の漢字（読み）前半",
+    "subject": "kokugo",
+    "grade": 5,
+    "legacyNode": "jpn_5_kanji_1"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "name": "5年生の漢字（読み）中盤",
+    "subject": "kokugo",
+    "grade": 5,
+    "legacyNode": "jpn_5_kanji_2"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "name": "5年生の漢字（読み）後半②",
+    "subject": "kokugo",
+    "grade": 5,
+    "legacyNode": "jpn_5_kanji_6"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "name": "5年生の漢字（読み）不足分補完",
+    "subject": "kokugo",
+    "grade": 5,
+    "legacyNode": "jpn_5_kanji_7"
+  },
+  {
+    "id": "kokugo.g5.legacy-jpn-5-6",
+    "name": "言葉の歴史と文化",
+    "subject": "kokugo",
+    "grade": 5,
+    "legacyNode": "jpn_5_6"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-kanji-1",
+    "name": "6年生の漢字（読み）1〜25",
+    "subject": "kokugo",
+    "grade": 6,
+    "legacyNode": "jpn_6_kanji_1"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-kanji-2",
+    "name": "6年生の漢字（読み）26〜50",
+    "subject": "kokugo",
+    "grade": 6,
+    "legacyNode": "jpn_6_kanji_2"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-kanji-3",
+    "name": "6年生の漢字（読み）51〜75",
+    "subject": "kokugo",
+    "grade": 6,
+    "legacyNode": "jpn_6_kanji_3"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-kanji-4",
+    "name": "6年生の漢字（読み）76〜100",
+    "subject": "kokugo",
+    "grade": 6,
+    "legacyNode": "jpn_6_kanji_4"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-kanji-6",
+    "name": "6年生の漢字（読み）後半①",
+    "subject": "kokugo",
+    "grade": 6,
+    "legacyNode": "jpn_6_kanji_6"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-kanji-7",
+    "name": "6年生の漢字（読み）後半②",
+    "subject": "kokugo",
+    "grade": 6,
+    "legacyNode": "jpn_6_kanji_7"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-kanji-8",
+    "name": "6年生の漢字（読み）後半③",
+    "subject": "kokugo",
+    "grade": 6,
+    "legacyNode": "jpn_6_kanji_8"
+  },
+  {
+    "id": "kokugo.g6.legacy-jpn-6-kanji-9",
+    "name": "6年生の漢字（読み）後半④",
+    "subject": "kokugo",
+    "grade": 6,
+    "legacyNode": "jpn_6_kanji_9"
   }
 ]

@@ -533,16 +533,17 @@ export function AreaMapOverlay({
             )}
           </div>
           <div class="nq-wmap-foot">
-            <button
-              type="button"
-              class="nq-opt nq-wmap-go"
-              disabled={!place}
-              aria-describedby={!place ? 'nq-amap-warp-unavailable' : undefined}
-              onClick={go}
-            >
-              <PixelIcon name="warp" scale={3} />
-              <RubyLabel text={t(place ? 'field.placeGo' : 'field.placeGoUnavailable')} />
-            </button>
+            {place ? (
+              <button type="button" class="nq-opt nq-wmap-go" onClick={go}>
+                <PixelIcon name="warp" scale={3} />
+                <RubyLabel text={t('field.placeGo')} />
+              </button>
+            ) : (
+              <span class="nq-wmap-next" aria-describedby="nq-amap-warp-unavailable">
+                <PixelIcon name="star" scale={2} />
+                <RubyLabel text={t('field.placeGoUnavailable')} />
+              </span>
+            )}
             <span class="nq-wmap-keys">{t('field.areaMapKeys')}</span>
           </div>
         </div>

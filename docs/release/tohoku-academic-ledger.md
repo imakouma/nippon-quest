@@ -18,7 +18,7 @@
 |---|---|
 | `questions/rika/g4/mizu-experiment.json` | `d803cdec84f39c5064e3fee34f53800c11f1e9d28fa1888b0f435690c652f139` |
 | `questions/sansu/g1/ringo-number-build.json` | `d228c03711c81016e2b58b7e87e80403161896b95d7b187e767637be63fbb956` |
-| `questions/sansu/g1/tashizan.json` | `b8860fd300c1c31eaae3cabb46c640e961ac0921859611350e6e6441bdc55ed7` |
+| `questions/sansu/g1/tashizan.json` | `508f8a3a7de10897095d1d4bc8dd198139aa26406114d676818d0b944e10fcc0` |
 | `questions/shakai/g4/todofuken.json` | `dbca6eb3b92ad1c778dd940da3f2066f100527fd6df4ed4187db1e2df3f8c2bc` |
 | `questions/shakai/g4/tohoku.json` | `78d29fd8752b970bf7b8dd88462cb0260673ae67a32e6cfdc3e4ba14228bc4e7` |
 

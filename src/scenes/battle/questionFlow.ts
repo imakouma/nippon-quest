@@ -31,7 +31,7 @@ export async function runBattleQuestion(input: {
   speak: (text: string) => void;
   now: () => number;
   port: BattleQuestionPort;
-  getGame?: () => GameState;
+  getGame: () => GameState;
 }): Promise<ActionResult> {
   const host = document.createElement('div');
   host.className = 'nq-bq-slot';

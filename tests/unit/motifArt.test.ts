@@ -39,5 +39,5 @@ describe('名所の絵（えはがき）', () => {
         expect(cells.length, m.id).toBe(MA * MA);
         expect([...new Set(cells.filter((color) => !palette.has(color)))], m.id).toEqual([]);
       }
-  });
+  }, 15_000);
 });

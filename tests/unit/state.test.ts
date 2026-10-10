@@ -28,10 +28,23 @@ describe('GameState', () => {
     expect(next.updatedAt).toBe(5_000);
   });
 
+  it('プレイ時間の合計が安全整数を超える更新は状態を壊さない', () => {
+    const state = fresh();
+    state.learning.playSecondsByDate['2026-10-08'] = Number.MAX_SAFE_INTEGER;
+
+    expect(recordPlayDuration(state, '2026-10-08', 1, 5_000)).toBe(state);
+    expect(state.learning.playSecondsByDate['2026-10-08']).toBe(Number.MAX_SAFE_INTEGER);
+  });
+
   it('新規ゲームがスキーマを満たす', () => {
     const state = fresh();
     expect(gameStateSchema.safeParse(state).success).toBe(true);
     expect(state.inventory['common-renshu-no-bou']).toBe(1);
+  });
+  it('安全整数を超える進行値をセーブデータとして受け入れない', () => {
+    const state = fresh();
+    state.player.gold = Number.MAX_SAFE_INTEGER + 1;
+    expect(gameStateSchema.safeParse(state).success).toBe(false);
   });
   it('個人情報を持たない（名前は6文字までのニックネームのみ）', () => {
     const s = fresh();
@@ -43,6 +56,11 @@ describe('GameState', () => {
   it('エクスポート → インポートで往復できる', () => {
     const s = fresh();
     expect(importJson(exportJson(s))).toEqual(s);
+  });
+  it('巨大なインポートをJSON解析前に拒否する', () => {
+    const oversized = `{"padding":"${'x'.repeat(5 * 1024 * 1024)}"}`;
+
+    expect(() => importJson(oversized)).toThrow(/大きすぎ/);
   });
   it('現行バージョンはそのまま通る', () => {
     const r = migrate(fresh());
@@ -106,6 +124,17 @@ describe('GameState', () => {
     expect(migrated.player.equipment.weapon).toBeUndefined();
     expect(migrated.inventory['aomori-nebuta-sword']).toBe(1);
     expect(migrated.inventory['common-renshu-no-bou']).toBe(1);
+  });
+  it('v3 の装備返却で所持数が上限でもセーブを失わない', () => {
+    const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
+    legacy.schemaVersion = 3;
+    legacy.player.equipment.weapon = 'common-renshu-no-bou';
+    legacy.inventory['common-renshu-no-bou'] = Number.MAX_SAFE_INTEGER;
+
+    const migrated = migrate(legacy).state;
+
+    expect(migrated.player.equipment.weapon).toBeUndefined();
+    expect(migrated.inventory['common-renshu-no-bou']).toBe(Number.MAX_SAFE_INTEGER);
   });
   it('v4 の序盤セーブに入門装備を1回だけ追加する', () => {
     const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };

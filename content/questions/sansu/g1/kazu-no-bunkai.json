@@ -79,5 +79,42 @@
       "shuffle": true
     },
     "explanation": "3 と 3 を あわせると 6 に なるよ。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.order-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "4と 7では、どちらが おおきい？",
+      "choices": [
+        { "id": "a", "text": "4" },
+        { "id": "b", "text": "7" },
+        { "id": "c", "text": "おなじ" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "かずの ならびでは 7は 4より あとに あるので、7の ほうが おおきいです。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.order-0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "2、3、4、□、6。□に はいる かずは？",
+      "choices": [
+        { "id": "a", "text": "1" },
+        { "id": "b", "text": "5" },
+        { "id": "c", "text": "7" },
+        { "id": "d", "text": "8" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "2から 1ずつ おおきく なる ならびなので、4の つぎは 5です。"
   }
 ]

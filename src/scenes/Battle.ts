@@ -18,7 +18,7 @@ import type { ActionResult, BattleEvent, BattleState, Command } from '../core/ba
 import { applyBattleResult } from '../core/progression/battleResult';
 import { evolutionStage } from '../core/progression/bag';
 import { settleBattleBag, type BattleSettlement } from '../core/progression/battleSettlement';
-import { specialtyIndex, withSpecialtyDrops } from '../core/progression/specialty';
+import { withSpecialtyDrops } from '../core/progression/specialty';
 import { createRng, freshSeed } from '../core/rng';
 import type { GameState } from '../core/state/schema';
 import { scoreBand, type QuestionQuery } from '../questions/contracts';
@@ -51,6 +51,7 @@ import { toCanvas } from '../rendering/grid';
 import { motifArtGrid } from '../rendering/motifArt';
 import { skillLook } from '../rendering/battle/skillLook';
 import { narrate, normalizeEvents, type NarrateCtx } from './battle/narrate';
+import { specialtyRewardViews } from './battle/specialtyRewards';
 import {
   ELEMENT_FX,
   MONSTER_SIZE,
@@ -1647,14 +1648,13 @@ export class BattleScene extends Phaser.Scene {
       playSfx('victory');
       await this.victoryPose();
       // 特産品を落としたら、名前の帯 → 「とくさんひん『〇〇』を てに いれた！」→ 特産品の説明（宝箱の特産品と同じ説明）
-      const specialties = specialtyIndex(this.content.areas, this.content.items);
-      for (const id of new Set(summary.drops)) {
-        const sp = specialties.get(id);
-        if (!sp) continue;
+      for (const reward of specialtyRewardViews(this.syncGame(), summary.drops, this.content)) {
         playSfx('discover');
-        await this.showBanner('skill', sp.item.name, t('field.specialtyFound'), undefined, 1300);
-        await this.say(t('battle.specialtyGet', { item: sp.item.name }), 'wait');
-        await this.say(sp.motif.blurb, 'wait');
+        await this.showBanner('skill', reward.name, t('field.specialtyFound'), undefined, 1300);
+        await this.say(t('battle.specialtyGet', { item: reward.name }), 'wait');
+        await this.say(reward.blurb, 'wait');
+        if (reward.powerText) await this.say(reward.powerText, 'wait');
+        if (reward.completeText) await this.say(reward.completeText, 'wait');
       }
       const result = victoryResultView(
         summary,

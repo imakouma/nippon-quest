@@ -44,7 +44,9 @@ export interface RoadmapInput {
 /** GameState と教材定義から表示専用データを作る。Phaser/DOMには依存しない。 */
 export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   const aliasedCurrent = new Set(Object.values(LEGACY_UNIT_ALIASES));
-  const units = [...input.units]
+  const allUnits = [...input.units];
+  const unitById = new Map(allUnits.map((unit) => [unit.id, unit]));
+  const units = allUnits
     .filter((unit) => !aliasedCurrent.has(unit.id))
     .sort(
       (a, b) =>
@@ -64,6 +66,9 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   }
 
   return units.map((unit) => {
+    const currentUnit = unit.legacyNode
+      ? unitById.get(LEGACY_UNIT_ALIASES[unit.legacyNode] ?? '')
+      : undefined;
     const record = input.mastery[masteryId(unit)];
     const mastery = record?.value ?? 0;
     const attempts = record?.n ?? 0;
@@ -76,6 +81,8 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
       subject: unit.subject,
       subjectLabel: input.subjectLabel(unit.subject),
       grade: unit.grade,
+      recommendedTerms: currentUnit?.placement?.terms ?? unit.placement?.terms,
+      courseKind: currentUnit?.courseKind ?? unit.courseKind,
       mastery,
       attempts,
       state: cleared ? 'cleared' : current && open ? 'current' : open ? 'open' : 'locked',

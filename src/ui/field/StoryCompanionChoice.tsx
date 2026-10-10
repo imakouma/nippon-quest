@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import type { StoryCompanionId } from '../../core/progression/storyCompanion';
 import { RubyLabel } from '../RubyLabel';
 import { t } from '../i18n';
+import { displayText } from '../ruby';
 import { useModalFocus } from '../useModalFocus';
 
 export interface StoryCompanionOption {
@@ -41,13 +42,17 @@ export function StoryCompanionChoice({
       class="nq-story-choice"
       role="dialog"
       aria-modal="true"
-      aria-label={t('field.musubiTitle')}
+      aria-label={displayText(t('field.musubiTitle'))}
       tabindex={-1}
     >
       <div class="nq-win nq-story-choice-panel">
-        <h2>{t('field.musubiTitle')}</h2>
-        <p>{t('field.musubiHint')}</p>
-        <div class="nq-musubi-list" role="group" aria-label={t('field.musubiList')}>
+        <h2>
+          <RubyLabel text={t('field.musubiTitle')} />
+        </h2>
+        <p>
+          <RubyLabel text={t('field.musubiHint')} />
+        </p>
+        <div class="nq-musubi-list" role="group" aria-label={displayText(t('field.musubiList'))}>
           {options.map((option) => (
             <button
               key={option.id}
@@ -68,14 +73,14 @@ export function StoryCompanionChoice({
           ))}
         </div>
         <div class="nq-musubi-detail" aria-live="polite">
-          {current ? <RubyLabel text={current.description} /> : t('field.musubiSelectHint')}
+          <RubyLabel text={current ? current.description : t('field.musubiSelectHint')} />
         </div>
         <div class="nq-story-choice-actions">
           <button type="button" onClick={onCancel}>
             {t('ui.back')}
           </button>
           <button type="button" disabled={!selected} onClick={() => selected && onChoose(selected)}>
-            {t('field.musubiChoose')}
+            <RubyLabel text={t('field.musubiChoose')} />
           </button>
         </div>
       </div>

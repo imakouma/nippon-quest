@@ -62,7 +62,7 @@ function Cursor({ on }: { on: boolean }) {
 /** コマンド窓（2 列 × 2 段）。下のメッセージ窓の左に出る */
 function CommandWindow({ s, store }: { s: HudState; store: HudStore }) {
   return (
-    <div class="nq-win nq-cmdwin" role="menu" aria-label={t('battle.commandMenu')}>
+    <div class="nq-cmdwin" role="menu" aria-label={t('battle.commandMenu')}>
       {s.commands.map((c, i) => {
         const focused = s.cursor === i;
         return (
@@ -460,11 +460,8 @@ export function BattleHud({ store }: { store: HudStore }) {
 
   return (
     <div ref={battleRef} class="nq-battle" onClick={onStageClick}>
-      {s.message && (
-        <div
-          class={`nq-win nq-box ${s.menu === 'commands' ? 'nq-box-cmd' : ''}`}
-          onClick={() => !bigMenu && advance()}
-        >
+      {s.message && s.menu !== 'commands' && (
+        <div class="nq-win nq-box" onClick={() => !bigMenu && advance()}>
           <p class="nq-box-text">
             <span class="nq-box-star" aria-hidden="true">
               ＊
@@ -480,20 +477,24 @@ export function BattleHud({ store }: { store: HudStore }) {
       )}
 
       {s.turn && !s.question && <TurnBadge turn={s.turn} class="nq-turn-stage" />}
-      {s.gauges.length > 0 && !s.result && <GaugeColumn list={s.gauges} />}
       {s.combo.count >= 2 && !s.result && <ComboBadge c={s.combo} />}
 
       <Popups list={s.popups} />
       {s.banner && <Banner b={s.banner} />}
 
       <div class="nq-panel">{s.enemy && <EnemyWindow e={s.enemy} />}</div>
-      <div class="nq-win nq-party">
-        {s.allies.map((a) => (
-          <AllyRow key={a.id} a={a} active={s.actorId === a.id && menuOpen} />
-        ))}
+      <div class="nq-bottom-rail">
+        <div class="nq-bottom-command-slot">
+          {s.menu === 'commands' && <CommandWindow s={s} store={store} />}
+        </div>
+        {s.gauges.length > 0 && !s.result && <GaugeColumn list={s.gauges} />}
+        <div class="nq-party">
+          {s.allies.map((a) => (
+            <AllyRow key={a.id} a={a} active={s.actorId === a.id && menuOpen} />
+          ))}
+        </div>
       </div>
 
-      {s.menu === 'commands' && <CommandWindow s={s} store={store} />}
       {s.menu === 'skills' && <SkillList s={s} store={store} />}
       {s.menu === 'items' && <ItemList s={s} store={store} />}
       {s.menu === 'swap' && <SwapList s={s} store={store} />}

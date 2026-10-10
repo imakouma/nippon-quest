@@ -258,7 +258,7 @@ interface ArrivalStoryOptions {
   root: HTMLElement;
   talk(lines: DialogueLine[]): Promise<void>;
   save(state: GameState): void;
-  getGame?: () => GameState;
+  getGame: () => GameState;
 }
 
 /** 到着物語を進め、青森の導入だけは主人公設定を物語の途中に挟む。 */
@@ -274,7 +274,7 @@ export async function runArrivalStory(options: ArrivalStoryOptions): Promise<boo
   const oldName = story.state.player.name;
   await talk(story.lines.slice(0, 4));
   const identity = await requestHeroIdentity(root, story.state.player.appearance);
-  save(applyHeroIdentity(options.getGame?.() ?? story.state, identity));
+  save(applyHeroIdentity(options.getGame(), identity));
   await talk(
     story.lines.slice(4).map((line) => ({
       ...line,
@@ -290,7 +290,7 @@ interface CompanionRiteOptions {
   root: HTMLElement;
   talk(lines: DialogueLine[]): Promise<void>;
   save(state: GameState): void;
-  getGame?: () => GameState;
+  getGame: () => GameState;
   afterOverlay(): void;
 }
 
@@ -325,7 +325,7 @@ export async function runCompanionRite(options: CompanionRiteOptions): Promise<v
     await talk([{ speaker: t('field.musubiKeeper'), text: t('field.musubiLater') }]);
     return;
   }
-  save(chooseStoryCompanion(options.getGame?.() ?? game, monsterId));
+  save(chooseStoryCompanion(options.getGame(), monsterId));
   const name = content.monsters.get(monsterId)?.name ?? monsterId;
   playSfx('recruit');
   await talk(companionJoinedLines(monsterId, name));

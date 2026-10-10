@@ -1,0 +1,259 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g1.katakana.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.katakana",
+    "payload": {
+      "prompt": "「ねこ」をカタカナで正しく書いたものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ネユ"
+        },
+        {
+          "id": "b",
+          "text": "ヌコ"
+        },
+        {
+          "id": "c",
+          "text": "ネコ"
+        },
+        {
+          "id": "d",
+          "text": "ヌユ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "ねこはカタカナで「ネコ」と書きます。",
+    "tags": ["skill:katakana-shibari"]
+  },
+  {
+    "id": "kokugo.g1.katakana.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.katakana",
+    "payload": {
+      "prompt": "カタカナ「ア」の1画目の向きはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "上から下へまっすぐ引く"
+        },
+        {
+          "id": "b",
+          "text": "左から右へ横に引く"
+        },
+        {
+          "id": "c",
+          "text": "右から左へはらう"
+        },
+        {
+          "id": "d",
+          "text": "下から上へ引く"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「ア」の1画目[かくめ]は、左[ひだり]から右[みぎ]へ横[よこ]に引[ひ]きます。",
+    "tags": ["skill:katakana-shibari"]
+  },
+  {
+    "id": "kokugo.g1.katakana.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.katakana",
+    "payload": {
+      "prompt": "「しゃしん（写真）」の正しいカタカナ表記はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "シヤシン"
+        },
+        {
+          "id": "b",
+          "text": "シャシン"
+        },
+        {
+          "id": "c",
+          "text": "サヤシン"
+        },
+        {
+          "id": "d",
+          "text": "シヤジン"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「しゃ」は小さい「ャ」を使って「シャ」と書きます。",
+    "tags": ["skill:katakana-shibari"]
+  },
+  {
+    "id": "kokugo.g1.katakana.0009",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.katakana",
+    "payload": {
+      "prompt": "犬の鳴き声「ワンワン」のように、ものの音や鳴き声はどの文字で書きますか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ひらがな"
+        },
+        {
+          "id": "b",
+          "text": "カタカナ"
+        },
+        {
+          "id": "c",
+          "text": "かん字"
+        },
+        {
+          "id": "d",
+          "text": "えいご"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "鳴き声や物の音はカタカナで書くのがきほんです。",
+    "tags": ["skill:katakana-shibari"]
+  },
+  {
+    "id": "kokugo.g1.katakana.0011",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.katakana",
+    "payload": {
+      "prompt": "「らいおん」をカタカナで正しく書いたものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ラィオン"
+        },
+        {
+          "id": "b",
+          "text": "ライフン"
+        },
+        {
+          "id": "c",
+          "text": "ライソン"
+        },
+        {
+          "id": "d",
+          "text": "ライオン"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「らいおん」は「ライオン」。「ン」と「ソ」をまちがえないようにします。",
+    "tags": ["skill:katakana-shibari"]
+  },
+  {
+    "id": "kokugo.g1.katakana.0012",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.katakana",
+    "payload": {
+      "prompt": "「ケーキ」のように、カタカナでのばす音は何で書きますか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "｜（たてせん）"
+        },
+        {
+          "id": "b",
+          "text": "ー（ぼうせん）"
+        },
+        {
+          "id": "c",
+          "text": "〜（なみせん）"
+        },
+        {
+          "id": "d",
+          "text": "・（てん）"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "カタカナののばす音は「ー」（ぼうせん）で書きます。",
+    "tags": ["skill:katakana-shibari"]
+  },
+  {
+    "id": "kokugo.g1.katakana.0014",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.katakana",
+    "payload": {
+      "prompt": "カタカナの「シ」とまちがえやすい文字はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ツ"
+        },
+        {
+          "id": "b",
+          "text": "ソ"
+        },
+        {
+          "id": "c",
+          "text": "ン"
+        },
+        {
+          "id": "d",
+          "text": "ミ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「シ」と「ツ」は点のむきと書く向きがちがいます。",
+    "tags": ["skill:katakana-shibari"]
+  },
+  {
+    "id": "kokugo.g1.katakana.0017",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.katakana",
+    "payload": {
+      "prompt": "次のうち、カタカナで書くことばはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "つくえ"
+        },
+        {
+          "id": "b",
+          "text": "テレビ"
+        },
+        {
+          "id": "c",
+          "text": "えんぴつ"
+        },
+        {
+          "id": "d",
+          "text": "ほん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "外国から来たことば（テレビ）はカタカナで書きます。",
+    "tags": ["skill:katakana-shibari"]
+  }
+]

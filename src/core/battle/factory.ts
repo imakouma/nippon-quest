@@ -2,30 +2,60 @@
  * content のデータ（Monster / Item / EquipSet）から Combatant / Party を組み立てる。
  * 装備・セットボーナス込みの「実効ステータス」はここで確定する。
  */
-import type { Element, EquipSet, Item, Monster, Stats } from '../content/schemas';
+import type { Element, EquipSet, GrowthCurve, Item, Monster, Stats } from '../content/schemas';
 import type { Combatant, Party } from './types';
 
 export interface HeroSpec {
   name: string;
   level: number;
   baseStats: Stats;
-  growth: { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
+  growth: GrowthCurve | LegacyGrowth;
   skills: string[];
   equipment: Partial<Record<'weapon' | 'head' | 'chest' | 'legs' | 'feet', string>>;
   /** 学習で伸びた かしこさ の上乗せ（GDD §4.2） */
   bonusWis?: number;
 }
 
-export function statsAtLevel(base: Stats, growth: HeroSpec['growth'], level: number): Stats {
-  const n = level - 1;
-  return {
-    hp: Math.round(base.hp + growth.hp * n),
-    mp: Math.round(base.mp + growth.mp * n),
-    atk: Math.round((base.atk + growth.atk * n) * 10) / 10,
-    def: Math.round((base.def + growth.def * n) * 10) / 10,
-    spd: Math.round((base.spd + growth.spd * n) * 10) / 10,
-    wis: Math.round((base.wis + growth.wis * n) * 10) / 10,
+type LegacyGrowth = { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
+
+const STAT_KEYS = [
+  'hp',
+  'mp',
+  'scienceAtk',
+  'humanitiesAtk',
+  'scienceDef',
+  'humanitiesDef',
+  'spd',
+  'wis',
+] as const;
+
+function normalizedGrowth(growth: GrowthCurve | LegacyGrowth): GrowthCurve {
+  if ('base' in growth) return growth;
+  const base = {
+    hp: growth.hp,
+    mp: growth.mp,
+    scienceAtk: growth.atk,
+    humanitiesAtk: growth.atk,
+    scienceDef: growth.def,
+    humanitiesDef: growth.def,
+    spd: growth.spd,
+    wis: growth.wis,
   };
+  const zero = Object.fromEntries(STAT_KEYS.map((key) => [key, 0])) as Stats;
+  return { base, every5: zero, every10: zero };
+}
+
+export function statsAtLevel(base: Stats, growthInput: HeroSpec['growth'], level: number): Stats {
+  const growth = normalizedGrowth(growthInput);
+  const n = Math.max(0, level - 1);
+  const minor = Math.floor(level / 5);
+  const major = Math.floor(level / 10);
+  return Object.fromEntries(
+    STAT_KEYS.map((key) => [
+      key,
+      Math.floor(base[key] + growth.base[key] * n + growth.every5[key] * minor + growth.every10[key] * major),
+    ]),
+  ) as Stats;
 }
 
 export interface EquipResult {
@@ -48,11 +78,13 @@ export function applyEquipment(
   const elementBoost: Partial<Record<Element, number>> = {};
   let attackElement: Element = 'none';
   const elementResists = new Set<Element>();
-  const equipped = Object.values(equipment).filter((x): x is string => !!x);
+  const equipped: string[] = [];
 
-  for (const id of equipped) {
+  for (const [slot, id] of Object.entries(equipment)) {
+    if (!id) continue;
     const it = items.get(id);
-    if (!it) continue;
+    if (!it || it.kind !== slot) continue;
+    equipped.push(id);
     for (const [k, v] of Object.entries(it.stats ?? {})) stats[k as keyof Stats] += v as number;
     if (it.grantsSkill) grantedSkills.push(it.grantsSkill);
     if (it.element && it.kind === 'weapon') attackElement = it.element;

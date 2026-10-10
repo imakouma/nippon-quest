@@ -57,7 +57,7 @@
   left: 12px;
   top: 12px;
   width: 340px;
-  height: 120px;
+  height: 84px;
   display: flex;
 }
 .nq-foe {
@@ -78,10 +78,12 @@
   min-height: 24px;
 }
 .nq-foe-heading {
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: 12px;
   min-width: 0;
+  padding-right: 64px;
 }
 .nq-boss-tag {
   display: inline-flex;
@@ -98,10 +100,13 @@
   color: var(--nq-yellow);
 }
 .nq-foe-level {
-  flex: none;
+  position: absolute;
+  right: 0;
+  top: 0;
   font-size: 20px;
   line-height: 36px;
   color: var(--nq-cream);
+  text-align: right;
 }
 .nq-foe .nq-bar {
   min-width: 96px;
@@ -109,16 +114,11 @@
 .nq-foe-hp {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 20px;
-}
-.nq-foe-hp-num {
-  flex: none;
-  min-width: 72px;
-  font-size: 16px;
-  text-align: right;
+  gap: 0;
+  min-height: 24px;
 }
 .nq-foe-name {
+  flex: 1;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -136,22 +136,43 @@
 .nq-def {
   background: #1f4fa3;
 }
-.nq-party {
+.nq-bottom-rail {
   position: absolute;
+  left: 12px;
   right: 12px;
-  width: 340px;
   bottom: 12px;
   box-sizing: border-box;
-  height: 120px;
+  height: 160px;
+  display: flex;
+  background: var(--nq-panel);
+  border: 4px solid var(--nq-white);
+  box-shadow:
+    0 0 0 4px #000,
+    6px 6px 0 4px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+}
+.nq-bottom-command-slot {
+  width: 416px;
+  flex: none;
+}
+.nq-party {
+  position: relative;
+  width: 340px;
+  box-sizing: border-box;
+  height: 152px;
   padding: 4px 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-left: 4px solid var(--nq-white);
 }
 .nq-ally {
   min-width: 0;
   height: 52px;
   font-size: 20px;
+}
+.nq-ally-hero {
+  height: 62px;
 }
 .nq-ally-heading,
 .nq-ally-hp {
@@ -192,18 +213,23 @@
 .nq-ally-hp {
   padding-left: 56px;
 }
+.nq-ally-hero .nq-ally-heading {
+  height: 36px;
+}
+.nq-ally-hero .nq-ally-hp {
+  height: 26px;
+  padding-left: 0;
+}
+.nq-ally-hero .nq-ally-lv {
+  font-size: 20px;
+  line-height: 36px;
+}
 .nq-ally-hp .nq-bar {
   min-width: 96px;
 }
 .nq-ally-passive {
   display: inline-flex;
   flex: none;
-}
-.nq-num {
-  min-width: 72px;
-  flex: none;
-  font-size: 16px;
-  text-align: right;
 }
 .nq-ally-down {
   color: var(--nq-silver);
@@ -222,11 +248,30 @@
   background: #2e2a45;
   border: 2px solid #000;
   box-shadow: 0 0 0 2px #fff;
+  overflow: hidden;
 }
 .nq-bar > i {
   display: block;
   height: 100%;
   transition: width 0.6s steps(12);
+}
+.nq-bar-hp {
+  height: 20px;
+}
+.nq-bar-value {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  text-shadow:
+    1px 0 #000,
+    -1px 0 #000,
+    0 1px #000,
+    0 -1px #000;
 }
 /* 時間の ゲージは 細く、コマ（tick）ごとに そのまま すすむ（border-box なので 高さは 枠 2px×2 ＋ 中身 4px） */
 .nq-bar-cmd,
@@ -275,7 +320,7 @@
 .nq-turn-stage {
   position: absolute;
   left: 170px;
-  top: 384px;
+  top: 340px;
   box-sizing: border-box;
   padding: 4px 8px;
   background: rgba(10, 11, 26, 0.85);
@@ -289,17 +334,16 @@
 
 /* ───── 下：コマンドと主人公ステータスのあいだの教科ゲージ ───── */
 .nq-sgauge {
-  position: absolute;
-  left: 444px;
-  bottom: 12px;
-  width: 120px;
-  height: 120px;
+  position: relative;
+  width: 172px;
+  height: 152px;
   box-sizing: border-box;
-  padding: 2px 4px 6px;
+  padding: 8px 12px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  z-index: 4;
+  justify-content: center;
+  gap: 8px;
+  border-left: 4px solid var(--nq-white);
   pointer-events: none;
 }
 .nq-sgauge-title {
@@ -314,6 +358,7 @@
   align-items: center;
   gap: 4px;
   height: 24px;
+  padding: 0 8px;
 }
 .nq-sg-bar {
   position: relative;
@@ -392,18 +437,16 @@
   color: var(--nq-sky);
 }
 
-/* ───── コマンド窓（下の左・2 列 × 2 段） ───── */
+/* ───── コマンド窓（下の左・4択を縦に並べる） ───── */
 .nq-cmdwin {
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
-  width: 420px;
-  height: 120px;
-  z-index: 5;
+  position: relative;
+  width: 100%;
+  height: 152px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: repeat(4, minmax(0, 1fr));
   align-content: center;
-  gap: 0 4px;
+  gap: 0;
   padding: 8px 6px;
   animation: nq-pop-in 0.12s steps(3);
 }
@@ -411,7 +454,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  min-height: 48px;
+  min-height: 32px;
   padding: 0 4px;
   background: transparent;
   color: #fff;
@@ -435,7 +478,7 @@
 /* 1 年生の設定だと「必殺技」が「ひっさつわざ」（6 文字）になるので、
  * ♥・アイコン・余白を調整して 2 列のボタン内に収める。 */
 .nq-cmdwin .nq-cmd {
-  min-height: 48px;
+  min-height: 32px;
   gap: 4px;
   padding: 0 6px;
 }

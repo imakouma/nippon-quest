@@ -21,6 +21,7 @@ for (const width of [640, 960]) {
     await expect(page.getByRole('menuitem')).toHaveCount(2);
     await expect(page.getByRole('menuitem', { name: /もんだいいちらん/ })).toHaveCount(0);
     await expect(page.getByText(/タップで けってい/)).toBeVisible();
+    await expect(page.getByText(/キーボードは/)).toHaveCount(0);
     await expect(first).toBeFocused();
     const continueItem = page.getByRole('menuitem').nth(1);
     await expect(continueItem).toBeDisabled();
@@ -74,7 +75,7 @@ test('新規ゲーム設定は大きな選択肢と読み上げ可能な選択�
   const grade = setup.getByRole('combobox', { name: /がくねん/ });
   await expect(grade).toBeFocused();
   await page.keyboard.press('Shift+Tab');
-  await expect(setup.getByRole('button', { name: 'もどる' })).toBeFocused();
+  await expect(setup.getByRole('button', { name: 'はじめる' })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(grade).toBeFocused();
   await expect(setup.getByRole('img', { name: /しゅじんこうの みため/ })).toBeVisible();
@@ -162,7 +163,7 @@ test('メニューと保護者画面はモーダルとしてフォーカスを�
   await expect(menu.getByRole('group', { name: 'メニュー' })).toBeVisible();
   await expect(menu.getByRole('button', { name: 'がくしゅう' })).toBeFocused();
   await page.keyboard.press('Enter');
-  await expect(menu.getByRole('group', { name: 'ひょうじする 教科' })).toBeVisible();
+  await expect(menu.getByRole('group', { name: /ひょうじする (?:教科|きょうか)/ })).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(menu.getByRole('button', { name: 'がくしゅう' })).toBeFocused();
   await page.keyboard.press('ArrowRight');
@@ -173,7 +174,7 @@ test('メニューと保護者画面はモーダルとしてフォーカスを�
   await expect(selectedDexEntry).toHaveAttribute('aria-current', 'true');
   const dexTypes = menu.getByRole('group', { name: 'ずかん' });
   await expect(dexTypes.getByRole('button', { name: 'マナビモノ' })).toHaveAttribute('aria-pressed', 'true');
-  await expect(menu.getByRole('group', { name: '地方ごとの ずかん' })).toBeVisible();
+  await expect(menu.getByRole('group', { name: /^(?:地方|ちほう)ごとの ずかん$/ })).toBeVisible();
   await page.keyboard.press('ArrowDown');
   await expect(menu.locator('[data-menu-entry].nq-focus')).toBeFocused();
   await page.screenshot({ path: '/tmp/nihonquest-roadmap-960x540.png' });
@@ -190,7 +191,7 @@ test('メニューと保護者画面はモーダルとしてフォーカスを�
   await page.getByLabel('こたえ').fill('12');
   await parent.getByRole('button', { name: 'ひらく' }).click();
   await expect(parent.locator('.nq-parent-content')).toBeVisible();
-  await expect(parent.getByRole('combobox', { name: '出題学年' })).toBeFocused();
+  await expect(parent.getByRole('combobox', { name: /しゅつだい.*学年/ })).toBeFocused();
   expect(
     Number.parseFloat(
       await parent
@@ -236,15 +237,15 @@ test('バトル画面は狭い表示でもステージ内に収まる', async ({
       await enemyWindow.locator('.nq-foe-level').evaluate((node) => getComputedStyle(node).fontSize),
     ),
   ).toBeGreaterThanOrEqual(20);
-  await expect(enemyWindow.locator('.nq-foe-hp-num')).toContainText('/');
+  await expect(enemyWindow.locator('.nq-foe-hp .nq-bar-value')).toContainText('/');
   const message = page.locator('.nq-box');
-  await message.click();
   const partyWindow = page.locator('.nq-party');
   const messageBox = await message.boundingBox();
   const partyBox = await partyWindow.boundingBox();
   expect(messageBox).not.toBeNull();
   expect(partyBox).not.toBeNull();
   expect(messageBox!.y).toBeLessThan(partyBox!.y);
+  await message.click();
   await expect(partyWindow.locator('.nq-ally-heading')).toBeVisible();
   await expect(partyWindow.locator('.nq-ally-hp')).toContainText('/');
   await expect(page.locator('.nq-box-speak')).toHaveCount(0);

@@ -1,0 +1,111 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "seikatsu.g1.kisetsu.0001",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "はるの こうていで、きの ようすを しらべます。いちばん よい ほうほうは？",
+      "choices": [
+        { "id": "a", "text": "おなじ きの ようすを よく みて、えや ことばで のこす" },
+        { "id": "b", "text": "えだを たくさん おる" },
+        { "id": "c", "text": "みないで きめる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "おなじ ばしょを よく みて きろくすると、きせつの へんかに きづけます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0002",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "きのうと きょうで はなの ようすが ちがいます。つぎに すると よいことは？",
+      "choices": [
+        { "id": "a", "text": "いろや おおきさを くらべて きろくする" },
+        { "id": "b", "text": "すぐに ぬく" },
+        { "id": "c", "text": "ちがいは ないことに する" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ちがいを くらべて のこすと、へんかを たしかめられます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0003",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "あつい ひに そとで かんさつします。たいせつなことは？",
+      "choices": [
+        { "id": "a", "text": "みずを のまずに がまんする" },
+        { "id": "b", "text": "ぼうしや みずを よういし、むりを しない" },
+        { "id": "c", "text": "ひなたに ずっと いる" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "きせつに あわせて、あんぜんに かつどうします。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0004",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "おちばを つかって あそびを つくります。どんな くふうが できる？",
+      "choices": [
+        { "id": "a", "text": "いろや かたちで なかまわけして ならべる" },
+        { "id": "b", "text": "ぜんぶ ごみに する" },
+        { "id": "c", "text": "ひとの にわから かってに とる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "しぜんの いろや かたちを いかすと、あそびを くふうできます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0005",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "ふゆに おなじ きを みると、はるより はが すくなく なっていました。わかったことは？",
+      "choices": [
+        { "id": "a", "text": "きの ようすは きせつで かわることが ある" },
+        { "id": "b", "text": "どの きも いつも おなじ" },
+        { "id": "c", "text": "かんさつしても わからない" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "おなじ ばしょを つづけて みると、きせつの へんかに きづけます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0006",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "みつけた きせつの へんかを ともだちに つたえるには？",
+      "choices": [
+        { "id": "a", "text": "えと ことばで、みつけた ことを つたえる" },
+        { "id": "b", "text": "なにも みせずに おわる" },
+        { "id": "c", "text": "ちがう ことを いう" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "えや ことばを えらぶと、みつけた ことを わかりやすく つたえられます。"
+  }
+]

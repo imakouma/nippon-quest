@@ -53,14 +53,20 @@ describe('手描きモンスター（docs/06 の規格）', () => {
   });
 
   it('大きさが種類の規格どおり', () => {
+    const violations: string[] = [];
     for (const [key, d] of entries) {
-      expect(d.size, key).toBe(expectedSize(key));
+      const expected = expectedSize(key);
+      if (d.size !== expected) violations.push(`${key}: size ${d.size} != ${expected}`);
       for (const layer of d.layers) {
         const w = layer.mirror ? d.size / 2 : d.size;
-        for (const row of layer.rows) expect((layer.x ?? 0) + row.length, key).toBeLessThanOrEqual(w);
-        expect((layer.y ?? 0) + layer.rows.length, key).toBeLessThanOrEqual(d.size);
+        for (const [rowIndex, row] of layer.rows.entries()) {
+          if ((layer.x ?? 0) + row.length > w) violations.push(`${key}: row ${rowIndex} exceeds width ${w}`);
+        }
+        if ((layer.y ?? 0) + layer.rows.length > d.size)
+          violations.push(`${key}: layer exceeds height ${d.size}`);
       }
     }
+    expect(violations).toEqual([]);
   });
 
   it('色は NQ-48 だけ、色数は上限まで（通常・フィールド 12、ボス 15）', () => {

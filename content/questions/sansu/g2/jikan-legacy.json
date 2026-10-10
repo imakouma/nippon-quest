@@ -7,29 +7,29 @@
     "unit": "sansu.g2.jikan",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
     "payload": {
-      "prompt": "１時間は、なん分でしょう。",
+      "prompt": "１時間[じかん]は、なん分[ふん]でしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "60分"
+          "text": "60分[ふん]"
         },
         {
           "id": "c2",
-          "text": "12分"
+          "text": "12分[ふん]"
         },
         {
           "id": "c3",
-          "text": "24分"
+          "text": "24分[ふん]"
         },
         {
           "id": "c4",
-          "text": "30分"
+          "text": "30分[ふん]"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "とけいのちいさな「めもり」は、ぜんぶで 60 ある。つまり、１時間は６０分ってことだね。"
+    "explanation": "とけいのちいさな「めもり」は、ぜんぶで 60 ある。つまり、１時間[じかん]は６０分[ふん]ってことだね。"
   },
   {
     "id": "sansu.g2.jikan.legacy-0002",
@@ -39,25 +39,25 @@
     "unit": "sansu.g2.jikan",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
     "payload": {
-      "prompt": "時計の みじかいはりが １しゅうすると、なん時間 たつでしょう。",
+      "prompt": "時計[とけい]の みじかいはりが １しゅうすると、なん時間[じかん] たつでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "12時間"
+          "text": "12時間[じかん]"
         },
         {
           "id": "c2",
-          "text": "24時間"
+          "text": "24時間[じかん]"
         },
         {
           "id": "c3",
-          "text": "60時間"
+          "text": "60時間[じかん]"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "とけいのすうじは、１から １２まで あるね。このすうじが 時間を さしているので、みじかいはりが １しゅうすると、12時間になるよ。"
+    "explanation": "とけいのすうじは、１から １２まで あるね。このすうじが 時間[じかん]を さしているので、みじかいはりが １しゅうすると、12時間[じかん]になるよ。"
   },
   {
     "id": "sansu.g2.jikan.legacy-0003",
@@ -67,25 +67,25 @@
     "unit": "sansu.g2.jikan",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
     "payload": {
-      "prompt": "７時の１時間後は、なん時 でしょう。",
+      "prompt": "７時[じ]の１時間[じかん]後[ご]は、なん時[じ] でしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "８時"
+          "text": "８時[じ]"
         },
         {
           "id": "c2",
-          "text": "９時"
+          "text": "９時[じ]"
         },
         {
           "id": "c3",
-          "text": "６時"
+          "text": "６時[じ]"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「１時間後」なので、「時間」のみじかいはりを １すすめて、８時になる。"
+    "explanation": "「１時間[じかん]後[ご]」なので、「時間[じかん]」のみじかいはりを １すすめて、８時[じ]になる。"
   },
   {
     "id": "sansu.g2.jikan.legacy-0004",
@@ -95,25 +95,25 @@
     "unit": "sansu.g2.jikan",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
     "payload": {
-      "prompt": "１日は、なん時間でしょう。",
+      "prompt": "１日[にち]は、なん時間[じかん]でしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "24時間"
+          "text": "24時間[じかん]"
         },
         {
           "id": "c2",
-          "text": "12時間"
+          "text": "12時間[じかん]"
         },
         {
           "id": "c3",
-          "text": "60時間"
+          "text": "60時間[じかん]"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "とけいのすうじは、１から １２まで あるね。午前で１２時間、午後で１２時間。あわせて、２４時間が１日のながさになる。"
+    "explanation": "とけいのすうじは、１から １２まで あるね。午前[ごぜん]で１２時間[じかん]、午後[ごご]で１２時間[じかん]。あわせて、２４時間[じかん]が１日[にち]のながさになる。"
   },
   {
     "id": "sansu.g2.jikan.legacy-0005",
@@ -123,25 +123,25 @@
     "unit": "sansu.g2.jikan",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
     "payload": {
-      "prompt": "夜中の０時から、おひるの１２時までを なんというでしょう。",
+      "prompt": "夜中[よなか]の０時[じ]から、おひるの１２時[じ]までを なんというでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "午前"
+          "text": "午前[ごぜん]"
         },
         {
           "id": "c2",
-          "text": "午後"
+          "text": "午後[ごご]"
         },
         {
           "id": "c3",
-          "text": "朝"
+          "text": "朝[あさ]"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "夜中の０時から、おひるの１２時までを 午前 というよ。"
+    "explanation": "夜中[よなか]の０時[じ]から、おひるの１２時[じ]までを 午前[ごぜん] というよ。"
   },
   {
     "id": "sansu.g2.jikan.legacy-0006",
@@ -151,24 +151,24 @@
     "unit": "sansu.g2.jikan",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_2_5", "reviewed:2026-09-30"],
     "payload": {
-      "prompt": "おひるの１２時から、夜中の０時までを なんというでしょう。",
+      "prompt": "おひるの１２時[じ]から、夜中[よなか]の０時[じ]までを なんというでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "午前"
+          "text": "午前[ごぜん]"
         },
         {
           "id": "c2",
-          "text": "午後"
+          "text": "午後[ごご]"
         },
         {
           "id": "c3",
-          "text": "昼"
+          "text": "昼[ひる]"
         }
       ],
       "answer": "c2",
       "shuffle": true
     },
-    "explanation": "おひるの１２時から、夜中の０時までを 午後 というよ。"
+    "explanation": "おひるの１２時[じ]から、夜中[よなか]の０時[じ]までを 午後[ごご] というよ。"
   }
 ]

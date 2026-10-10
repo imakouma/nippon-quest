@@ -38,12 +38,21 @@ export async function openBarberFlow(options: {
       const [, part, rawIndex] = key.split(':');
       const lookPart = LOOK_PARTS.find((candidate) => candidate.part === part);
       const index = Number(rawIndex);
-      if (!lookPart || !Number.isInteger(index) || game.player.gold < BARBER_PRICE) {
+      const optionCount = lookPart ? t(`field.${lookPart.key}Names`).split(',').length : 0;
+      if (
+        !lookPart ||
+        !Number.isInteger(index) ||
+        index < 0 ||
+        index >= optionCount ||
+        game.player.appearance[lookPart.part] === index ||
+        game.player.gold < BARBER_PRICE
+      ) {
         playSfx('miss');
         return t('field.townPoor');
       }
       setGame({
         ...game,
+        updatedAt: Date.now(),
         player: {
           ...game.player,
           gold: game.player.gold - BARBER_PRICE,

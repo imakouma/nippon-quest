@@ -18,7 +18,8 @@ function walk(dir: string, out: string[] = []): string[] {
       name.endsWith('.json') &&
       name !== 'manifest.json' &&
       name !== 'content-bundle.json' &&
-      name !== 'questions-bundle.json'
+      name !== 'questions-bundle.json' &&
+      !/^questions-g[1-6]-bundle\.json$/.test(name)
     )
       out.push(relative(ROOT, p).split(sep).join('/'));
   }
@@ -38,16 +39,28 @@ for (const [kind, def] of Object.entries(contentKinds) as [ContentKind, { glob: 
 // 問題ファイル：content/questions/**/*.json（_samples も含める。ゲーム側は _samples を除外できる）
 const questions = all.filter((f) => f.startsWith('questions/'));
 const questionIndex: Record<string, string> = {};
+const questionFilesByGrade: Record<string, string[]> = {};
 for (const file of questions) {
   const raw = JSON.parse(readFileSync(join(ROOT, file), 'utf8')) as unknown;
   if (!Array.isArray(raw)) continue;
+  const grades = new Set<number>();
   for (const item of raw) {
     const id = (item as { id?: unknown })?.id;
     if (typeof id === 'string' && !(id in questionIndex)) questionIndex[id] = file;
+    const grade = (item as { grade?: unknown })?.grade;
+    if (typeof grade === 'number' && grade >= 1 && grade <= 6) grades.add(grade);
   }
+  for (const grade of grades)
+    (questionFilesByGrade[String(grade)] ??= []).push(file);
 }
 
-const manifest = { generatedAt: new Date().toISOString(), files, questions, questionIndex };
+const manifest = {
+  generatedAt: new Date().toISOString(),
+  files,
+  questions,
+  questionIndex,
+  questionFilesByGrade,
+};
 writeFileSync(join(ROOT, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 const readEntries = (paths: string[]) =>
   Object.fromEntries(paths.map((file) => [file, JSON.parse(readFileSync(join(ROOT, file), 'utf8'))]));
@@ -55,5 +68,16 @@ const bundle = readEntries(['manifest.json', ...all.filter((file) => !file.start
 const questionBundle = readEntries(questions);
 writeFileSync(join(ROOT, 'content-bundle.json'), JSON.stringify(bundle));
 writeFileSync(join(ROOT, 'questions-bundle.json'), JSON.stringify(questionBundle));
+for (let grade = 1; grade <= 6; grade += 1) {
+  const gradeBundle = Object.fromEntries(
+    Object.entries(questionBundle)
+      .map(([file, entries]) => [
+        file,
+        (entries as { grade?: unknown }[]).filter((entry) => entry.grade === grade),
+      ])
+      .filter(([, entries]) => (entries as unknown[]).length > 0),
+  );
+  writeFileSync(join(ROOT, `questions-g${grade}-bundle.json`), JSON.stringify(gradeBundle));
+}
 const total = Object.values(files).reduce((n, a) => n + a.length, 0) + questions.length;
 console.log(`content bundles: ${total} files (questions: ${questions.length})`);

@@ -3,6 +3,8 @@
  * 操作：↑↓ で選ぶ / Z・Enter・Space で決定。えらべない項目は理由を下に出す。
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
+import { RubyLabel } from '../RubyLabel';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import './title.css';
 
@@ -115,19 +117,21 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
             }}
           >
             <span class="nq-cur">{cursor === i ? <span class="nq-heart">♥</span> : null}</span>
-            {it.label}
+            <RubyLabel text={it.label} />
           </button>
         ))}
         {hasDisabledItem ? (
           <p id="nq-title-disabled-note" class="nq-title-disabled-note">
-            {disabledNote}
+            <RubyLabel text={disabledNote} />
           </p>
         ) : null}
       </div>
       <p class={`nq-title-hint ${note ? 'nq-title-note' : ''}`} aria-live="polite">
-        {note ?? hint}
+        <RubyLabel text={note ?? hint} />
       </p>
-      <p class="nq-title-credit">{credit}</p>
+      <p class="nq-title-credit" aria-label={displayText(credit)}>
+        <RubyLabel text={credit} />
+      </p>
     </div>
   );
 }

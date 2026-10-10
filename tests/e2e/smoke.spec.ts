@@ -55,24 +55,26 @@ test('問題Webエディタの主要入力と選択肢操作に名前がある',
   await expect(page.getByRole('button', { name: '選択肢 1を削除' })).toBeVisible();
 });
 
-test('問題データはタイトルでは取得せず、ゲーム開始時に一度だけ取得する', async ({ page }) => {
+test('問題データはタイトルでは取得せず、開始時に選択学年だけ取得する', async ({ page }) => {
   test.setTimeout(60_000);
   const requests: string[] = [];
-  await page.route('**/content/questions-bundle.json', async (route) => {
+  await page.route('**/content/questions-g1-bundle.json', async (route) => {
     await new Promise((resolve) => setTimeout(resolve, 800));
     await route.continue();
   });
   page.on('request', (request) => requests.push(new URL(request.url()).pathname));
   await page.goto('/');
   await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 20_000 });
-  expect(requests).not.toContain('/content/questions-bundle.json');
+  expect(requests.filter((path) => /questions-g\d-bundle\.json$/.test(path))).toEqual([]);
 
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'テスト');
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
   await expect(page.locator('.nq-loading')).toHaveCount(0);
-  expect(requests.filter((path) => path === '/content/questions-bundle.json')).toHaveLength(1);
+  expect(requests.filter((path) => path === '/content/questions-g1-bundle.json')).toHaveLength(1);
+  expect(requests).not.toContain('/content/questions-bundle.json');
+  expect(requests.filter((path) => /questions-g[2-6]-bundle\.json$/.test(path))).toEqual([]);
 });
 
 test('保護者メニューで概念別学習状態と診断欄を確認できる', async ({ page }) => {
@@ -89,12 +91,23 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   await page.getByLabel('こたえ').fill('12');
   await page.getByRole('button', { name: 'ひらく', exact: true }).click();
 
-  await expect(page.getByRole('heading', { name: '知識・技能ごとの学習状態' })).toBeVisible();
-  await expect(page.getByText('知識グラフに対応した問題にこたえると表示されます')).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'つまずきの候補' })).toBeVisible();
-  await expect(page.getByText('診断できる不正解はまだありません')).toBeVisible();
+  await expect(
+    page.getByRole('heading', {
+      name: /^(?:知識|ちしき)・(?:技能|ぎのう)ごとの(?:学習状態|がくしゅうじょうたい)$/,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(
+      /^(?:知識|ちしき)グラフに(?:対応|たいおう)した(?:問題|もんだい)にこたえると(?:表示|ひょうじ)されます$/,
+    ),
+  ).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^つまずきの(?:候補|こうほ)$/ })).toBeVisible();
+  await expect(page.getByText(/^しんだんできる (?:不正解|ふせいかい)は まだ ありません$/)).toBeVisible();
 
-  await page.getByRole('button', { name: 'JSONを表示' }).click();
+  const exportButton = page.getByRole('button', { name: /^JSONを(?:表示|ひょうじ)$/ });
+  const importButton = page.getByRole('button', { name: /^JSONを(?:読|よ)みこむ$/ });
+  const importError = page.getByText(/^JSONを(?:読|よ)みこめませんでした$/);
+  await exportButton.click();
   const jsonBox = page.getByLabel('セーブデータJSON');
   const state = JSON.parse(await jsonBox.inputValue()) as {
     progress: { currentMap: string; lastInn: { map: string; x: number; y: number } | null };
@@ -106,17 +119,17 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   const currentMap = state.progress.currentMap;
   state.progress.currentMap = 'missing-map';
   await jsonBox.fill(JSON.stringify(state));
-  await page.getByRole('button', { name: 'JSONを読みこむ' }).click();
-  await expect(page.getByText('JSONを読みこめませんでした')).toBeVisible();
-  await page.getByRole('button', { name: 'JSONを表示' }).click();
+  await importButton.click();
+  await expect(importError).toBeVisible();
+  await exportButton.click();
   const unchanged = JSON.parse(await jsonBox.inputValue()) as { progress: { currentMap: string } };
   expect(unchanged.progress.currentMap).toBe(currentMap);
 
   state.progress.currentMap = currentMap;
   state.progress.lastInn = { map: 'missing-map', x: 0, y: 0 };
   await jsonBox.fill(JSON.stringify(state));
-  await page.getByRole('button', { name: 'JSONを読みこむ' }).click();
-  await expect(page.getByText('JSONを読みこめませんでした')).toBeVisible();
+  await importButton.click();
+  await expect(importError).toBeVisible();
 
   state.progress.lastInn = null;
   const now = Date.now();
@@ -150,14 +163,14 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
     appVersion: 'e2e',
   });
   await jsonBox.fill(JSON.stringify(state));
-  await page.getByRole('button', { name: 'JSONを読みこむ' }).click();
+  await importButton.click();
   await page.getByRole('button', { name: 'メニュー' }).click({ timeout: 30_000 });
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');
   await page.getByRole('button', { name: 'ひらく', exact: true }).click();
 
-  await expect(page.getByText('一位数の加法').first()).toBeVisible();
-  await expect(page.getByText(/理解 60%/)).toBeVisible();
-  await expect(page.getByText('復習の時期です')).toBeVisible();
-  await expect(page.getByText(/選んだ答え「b」/)).toBeVisible();
+  await expect(page.getByText(/^(?:一位数の加法|いちいすうの かほう)$/).first()).toBeVisible();
+  await expect(page.getByText(/(?:理解|りかい) 60%/)).toBeVisible();
+  await expect(page.getByText(/(?:復習の時期です|ふくしゅうのじきです)/)).toBeVisible();
+  await expect(page.getByText(/(?:選んだ答え|えらんだこたえ)「b」/)).toBeVisible();
 });

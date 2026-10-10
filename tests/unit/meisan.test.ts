@@ -22,6 +22,12 @@ const stampsOf = (id: string) => world.regions.flatMap((r) => r.areas).find((a) 
 const allStamps = (id: string) => stampsOf(id).map((m) => motifStamp(id, m));
 
 describe('めいさんひんの そうび', () => {
+  it('id の 県と areaOrigin が ちがう そうびは めいさんひんとして あつかわない', async () => {
+    const c = await content();
+    const melon = c.items.get(MELON)!;
+    expect(isMeisanGear({ ...melon, areaOrigin: 'aomori' })).toBe(false);
+  });
+
   it('県ごとの そうびで、強さ（stats）と 着たときの 絵（COSTUME_ART）が ある', async () => {
     const c = await content();
     const gear = [...c.items.values()].filter(isMeisanGear);

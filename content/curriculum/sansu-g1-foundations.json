@@ -4,7 +4,7 @@
   "sources": [
     {
       "id": "mext-h29-sansu-commentary",
-      "title": "小学校学習指導要領（平成29年告示）解説 算数編",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 算数[さんすう]編[へん]",
       "publisher": "文部科学省",
       "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
       "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
@@ -13,7 +13,7 @@
     },
     {
       "id": "mext-h29-curriculum-codes",
-      "title": "文部科学省 教育データ標準：学習指導要領コード",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
       "publisher": "文部科学省",
       "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
       "published": "平成29年告示版",
@@ -27,8 +27,8 @@
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.kazu-100",
-      "name": "ものとものの対応",
-      "description": "ものを一つずつ対応させて個数を比べる。",
+      "name": "ものとものの対応[たいおう]",
+      "description": "ものを一[ひと]つずつ対応[たいおう]させて個数[こすう]を比[くら]べる。",
       "kind": "skill",
       "memoryType": "concept",
       "curriculumCodes": ["8250213111100000"],
@@ -49,8 +49,8 @@
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.kazu-100",
-      "name": "個数と順番を数えて表す",
-      "description": "個数や順番を正しく数え、数字などで表す。",
+      "name": "個数[こすう]と順番[じゅんばん]を数[かぞ]えて表[あらわ]す",
+      "description": "個数[こすう]や順番[じゅんばん]を正[ただ]しく数[かぞ]え、数字[すうじ]などで表[あらわ]す。",
       "kind": "skill",
       "memoryType": "mixed",
       "curriculumCodes": ["8250213111200000"],
@@ -71,8 +71,8 @@
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.kazu-100",
-      "name": "数の大小と順序",
-      "description": "数の大小や順序を考え、数の系列や数直線で表す。",
+      "name": "数[かず]の大小[だいしょう]と順序[じゅんじょ]",
+      "description": "数[かず]の大小[だいしょう]や順序[じゅんじょ]を考[かんが]え、数[かず]の系列[けいれつ]や数[すう]直線[ちょくせん]で表[あらわ]す。",
       "kind": "concept",
       "memoryType": "concept",
       "curriculumCodes": ["8250213111300000"],
@@ -93,8 +93,8 @@
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.kazu-100",
-      "name": "数の合成と分解",
-      "description": "一つの数を、ほかの数の和や差として関係付けて見る。",
+      "name": "数[かず]の合成[ごうせい]と分解[ぶんかい]",
+      "description": "一[ひと]つの数[かず]を、ほかの数[かず]の和[わ]や差[さ]として関係付[かんけいづ]けて見[み]る。",
       "kind": "concept",
       "memoryType": "concept",
       "curriculumCodes": ["8250213111400000"],
@@ -111,12 +111,34 @@
       }
     },
     {
+      "id": "sansu.g1.number.two-digit-place-value",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "2位数[にいすう]と10のまとまり",
+      "description": "2位数[にいすう]を10のまとまりと端数[はすう]で表[あらわ]し、十[じゅう]を単位[たんい]として捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213111500000", "8250213111700000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "入門[にゅうもん]の数[かず]の合成[ごうせい]・分解[ぶんかい]より後[あと]に扱[あつか]う。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
       "id": "sansu.g1.number.make-ten",
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.kazu-100",
       "name": "10のまとまり",
-      "description": "数を10のまとまりとして捉え、10になる組合せを使う。",
+      "description": "数[かず]を10のまとまりとして捉[とら]え、10になる組合[くみあわ]せを使[つか]う。",
       "kind": "concept",
       "memoryType": "mixed",
       "curriculumCodes": ["8250213111400000", "8250213122100000"],
@@ -126,15 +148,17 @@
         "note": "A(1)キを基礎にした細分化。学年内時期は別途確認が必要。"
       },
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "review": { "status": "draft" }
+      "review": {
+        "status": "draft"
+      }
     },
     {
       "id": "sansu.g1.addition.meaning",
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.tashizan",
-      "name": "加法の意味",
-      "description": "増加や合併など、加法が用いられる場面を式と対応させる。",
+      "name": "加法[かほう]の意味[いみ]",
+      "description": "増加[ぞうか]や合併[がっぺい]など、加法[かほう]が用[もち]いられる場面[ばめん]を式[しき]と対応[たいおう]させる。",
       "kind": "concept",
       "memoryType": "concept",
       "curriculumCodes": ["8250213121100000"],
@@ -155,8 +179,8 @@
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.tashizan",
-      "name": "一位数の加法",
-      "description": "一位数と一位数の加法の仕方を考え、確実に計算する。",
+      "name": "一位数[いちいすう]の 加法[かほう]",
+      "description": "一位数[いちいすう]と 一位数[いちいすう]の 加法[かほう]の 仕方[しかた]を 考[かんが]え、確実[かくじつ]に 計算[けいさん]する。",
       "kind": "procedure",
       "memoryType": "procedure",
       "curriculumCodes": ["8250213121300000"],
@@ -173,17 +197,87 @@
       }
     },
     {
+      "id": "sansu.g1.addition.within-ten",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.tashizan",
+      "name": "和[わ]が10までの加法[かほう]",
+      "description": "具体物[ぐたいぶつ]や数[かず]の合成[ごうせい]と結[むす]び付[つ]けて、和[わ]が10までの加法[かほう]を計算[けいさん]する。",
+      "kind": "procedure",
+      "memoryType": "procedure",
+      "curriculumCodes": ["8250213121100000", "8250213121200000", "8250213121300000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "fromMonth": 5,
+        "toMonth": 7,
+        "status": "reference",
+        "note": "単元[たんげん]の年間[ねんかん]配置[はいち]に基[もと]づく入門[にゅうもん]段階[だんかい]。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary", "mext-h29-curriculum-codes"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
       "id": "sansu.g1.misconception.add-instead-difference",
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.tashizan",
-      "name": "加法場面で差を求める",
-      "description": "合併・増加の場面で、二数の差を答えてしまう誤り方。単一誤答だけでは断定しない。",
+      "name": "加法[かほう]場面[ばめん]で差[さ]を求[もと]める",
+      "description": "合併[がっぺい]・増加[ぞうか]の 場面[ばめん]で、二数[にすう]の 差[さ]を 答[こた]えてしまう 誤[あやま]り方[かた]。単一[たんいつ]の 誤答[ごとう]だけでは 断定[だんてい]しない。",
       "kind": "misconception",
       "memoryType": "concept",
       "curriculumCodes": [],
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "review": { "status": "draft" }
+      "review": {
+        "status": "draft"
+      }
+    },
+    {
+      "id": "sansu.g1.subtraction.meaning",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.hikizan",
+      "name": "減法[げんぽう]の意味[いみ]",
+      "description": "求残[きゅうざん]や求差[きゅうさ]など、減法[げんぽう]が用[もち]いられる場面[ばめん]を式[しき]と対応[たいおう]させる。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["8250213121100000", "8250213121200000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "10までの減法[げんぽう]を第[だい]1学期[がっき]に扱[あつか]う年間[ねんかん]配置[はいち]に対応[たいおう]。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.subtraction.single-digit",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.hikizan",
+      "name": "一位数[いちいすう]の減法[げんぽう]",
+      "description": "一位数[いちいすう]と一位数[いちいすう]の減法[げんぽう]を、数[かず]の構成[こうせい]を使[つか]って確実[かくじつ]に計算[けいさん]する。",
+      "kind": "procedure",
+      "memoryType": "procedure",
+      "curriculumCodes": ["8250213121300000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "10までの数[かず]の構成[こうせい]と加法[かほう]との関係[かんけい]を扱[あつか]う。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
     }
   ],
   "relations": [
@@ -249,33 +343,96 @@
       "rationale": "10のまとまりは一位数加法の方略の一つとして使う。",
       "sourceIds": ["mext-h29-sansu-commentary"],
       "reviewStatus": "draft"
+    },
+    {
+      "from": "sansu.g1.number.compose-decompose",
+      "to": "sansu.g1.subtraction.meaning",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "数[かず]を差[さ]として見[み]ることが減法[げんぽう]の意味[いみ]理解[りかい]を支[ささ]える。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
+    },
+    {
+      "from": "sansu.g1.subtraction.meaning",
+      "to": "sansu.g1.subtraction.single-digit",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "減法[げんぽう]場面[ばめん]の理解[りかい]と計算[けいさん]技能[ぎのう]を関連付[かんれんづ]ける。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "draft"
     }
   ],
   "questionLinks": [
     {
+      "questionId": "sansu.g1.kazu-100.ringo-blocks-0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.two-digit-place-value", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.ringo-keypad-0001",
+      "concepts": [{ "conceptId": "sansu.g1.addition.single-digit", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.ringo-numberline-0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
       "questionId": "sansu.g1.kazu-100.legacy-bunkai-0001",
-      "concepts": [{ "conceptId": "sansu.g1.number.compose-decompose", "weight": 1, "role": "primary" }],
+      "concepts": [
+        {
+          "conceptId": "sansu.g1.number.compose-decompose",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
       "diagnosticValue": 0.9,
       "reviewStatus": "source-checked",
       "misconceptionSignals": []
     },
     {
       "questionId": "sansu.g1.kazu-100.legacy-bunkai-0002",
-      "concepts": [{ "conceptId": "sansu.g1.number.compose-decompose", "weight": 1, "role": "primary" }],
+      "concepts": [
+        {
+          "conceptId": "sansu.g1.number.compose-decompose",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
       "diagnosticValue": 0.9,
       "reviewStatus": "source-checked",
       "misconceptionSignals": []
     },
     {
       "questionId": "sansu.g1.kazu-100.legacy-bunkai-0003",
-      "concepts": [{ "conceptId": "sansu.g1.number.compose-decompose", "weight": 1, "role": "primary" }],
+      "concepts": [
+        {
+          "conceptId": "sansu.g1.number.compose-decompose",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
       "diagnosticValue": 0.9,
       "reviewStatus": "source-checked",
       "misconceptionSignals": []
     },
     {
       "questionId": "sansu.g1.kazu-100.legacy-bunkai-0004",
-      "concepts": [{ "conceptId": "sansu.g1.number.compose-decompose", "weight": 1, "role": "primary" }],
+      "concepts": [
+        {
+          "conceptId": "sansu.g1.number.compose-decompose",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
       "diagnosticValue": 0.8,
       "reviewStatus": "source-checked",
       "misconceptionSignals": []
@@ -283,8 +440,16 @@
     {
       "questionId": "sansu.g1.tashizan.0001",
       "concepts": [
-        { "conceptId": "sansu.g1.addition.meaning", "weight": 0.6, "role": "primary" },
-        { "conceptId": "sansu.g1.addition.single-digit", "weight": 0.4, "role": "supporting" }
+        {
+          "conceptId": "sansu.g1.addition.meaning",
+          "weight": 0.6,
+          "role": "primary"
+        },
+        {
+          "conceptId": "sansu.g1.addition.single-digit",
+          "weight": 0.4,
+          "role": "supporting"
+        }
       ],
       "diagnosticValue": 0.7,
       "reviewStatus": "draft",
@@ -299,7 +464,13 @@
     },
     {
       "questionId": "sansu.g1.tashizan.0002",
-      "concepts": [{ "conceptId": "sansu.g1.addition.single-digit", "weight": 1, "role": "primary" }],
+      "concepts": [
+        {
+          "conceptId": "sansu.g1.addition.within-ten",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
       "diagnosticValue": 0.75,
       "reviewStatus": "draft",
       "misconceptionSignals": [
@@ -314,8 +485,16 @@
     {
       "questionId": "sansu.g1.tashizan.0003",
       "concepts": [
-        { "conceptId": "sansu.g1.number.make-ten", "weight": 0.7, "role": "primary" },
-        { "conceptId": "sansu.g1.addition.single-digit", "weight": 0.3, "role": "supporting" }
+        {
+          "conceptId": "sansu.g1.addition.within-ten",
+          "weight": 0.7,
+          "role": "primary"
+        },
+        {
+          "conceptId": "sansu.g1.number.make-ten",
+          "weight": 0.3,
+          "role": "supporting"
+        }
       ],
       "diagnosticValue": 0.85,
       "reviewStatus": "draft",
@@ -324,8 +503,16 @@
     {
       "questionId": "sansu.g1.tashizan.0004",
       "concepts": [
-        { "conceptId": "sansu.g1.number.make-ten", "weight": 0.6, "role": "primary" },
-        { "conceptId": "sansu.g1.addition.meaning", "weight": 0.4, "role": "supporting" }
+        {
+          "conceptId": "sansu.g1.addition.within-ten",
+          "weight": 0.6,
+          "role": "primary"
+        },
+        {
+          "conceptId": "sansu.g1.addition.meaning",
+          "weight": 0.4,
+          "role": "supporting"
+        }
       ],
       "diagnosticValue": 0.8,
       "reviewStatus": "draft",
@@ -341,11 +528,162 @@
     {
       "questionId": "sansu.g1.tashizan.0005",
       "concepts": [
-        { "conceptId": "sansu.g1.number.make-ten", "weight": 0.6, "role": "primary" },
-        { "conceptId": "sansu.g1.addition.single-digit", "weight": 0.4, "role": "supporting" }
+        {
+          "conceptId": "sansu.g1.addition.single-digit",
+          "weight": 0.6,
+          "role": "primary"
+        },
+        {
+          "conceptId": "sansu.g1.number.make-ten",
+          "weight": 0.4,
+          "role": "supporting"
+        }
       ],
       "diagnosticValue": 0.8,
       "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.hikizan.0001",
+      "concepts": [{ "conceptId": "sansu.g1.subtraction.meaning", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.hikizan.0003",
+      "concepts": [
+        { "conceptId": "sansu.g1.subtraction.meaning", "weight": 0.7, "role": "primary" },
+        { "conceptId": "sansu.g1.subtraction.single-digit", "weight": 0.3, "role": "supporting" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.hikizan.0002",
+      "concepts": [{ "conceptId": "sansu.g1.subtraction.single-digit", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.hikizan.0004",
+      "concepts": [{ "conceptId": "sansu.g1.subtraction.single-digit", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.hikizan.0005",
+      "concepts": [{ "conceptId": "sansu.g1.subtraction.single-digit", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.hikizan.0006",
+      "concepts": [{ "conceptId": "sansu.g1.subtraction.single-digit", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tashizan.0006",
+      "concepts": [{ "conceptId": "sansu.g1.addition.meaning", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tashizan.0007",
+      "concepts": [{ "conceptId": "sansu.g1.addition.meaning", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.order-0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.order-0002",
+      "concepts": [{ "conceptId": "sansu.g1.number.order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.correspondence-0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.one-to-one", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.correspondence-0002",
+      "concepts": [{ "conceptId": "sansu.g1.number.one-to-one", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.correspondence-0003",
+      "concepts": [{ "conceptId": "sansu.g1.number.one-to-one", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.count-0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.count-represent", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.count-0002",
+      "concepts": [{ "conceptId": "sansu.g1.number.count-represent", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.count-0003",
+      "concepts": [{ "conceptId": "sansu.g1.number.count-represent", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.make-ten-0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.make-ten", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.make-ten-0002",
+      "concepts": [{ "conceptId": "sansu.g1.number.make-ten", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-100.make-ten-0003",
+      "concepts": [{ "conceptId": "sansu.g1.number.make-ten", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.hikizan.0007",
+      "concepts": [{ "conceptId": "sansu.g1.subtraction.meaning", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
       "misconceptionSignals": []
     }
   ]

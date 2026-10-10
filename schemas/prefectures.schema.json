@@ -133,6 +133,7 @@
               "stepsPerCheck": {
                 "type": "integer",
                 "exclusiveMinimum": 0,
+                "maximum": 9007199254740991,
                 "default": 12
               },
               "rate": {
@@ -183,7 +184,8 @@
                   },
                   "level": {
                     "type": "integer",
-                    "exclusiveMinimum": 0
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
                   },
                   "line": {
                     "type": "string",
@@ -395,11 +397,13 @@
                       "properties": {
                         "gold": {
                           "type": "integer",
-                          "minimum": 0
+                          "minimum": 0,
+                          "maximum": 9007199254740991
                         },
                         "xp": {
                           "type": "integer",
-                          "minimum": 0
+                          "minimum": 0,
+                          "maximum": 9007199254740991
                         },
                         "items": {
                           "type": "array",
@@ -414,6 +418,7 @@
                               "n": {
                                 "type": "integer",
                                 "exclusiveMinimum": 0,
+                                "maximum": 9007199254740991,
                                 "default": 1
                               }
                             },
@@ -511,7 +516,8 @@
               },
               "price": {
                 "type": "integer",
-                "exclusiveMinimum": 0
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
               }
             },
             "required": [
@@ -550,11 +556,13 @@
                 "properties": {
                   "gold": {
                     "type": "integer",
-                    "minimum": 0
+                    "minimum": 0,
+                    "maximum": 9007199254740991
                   },
                   "xp": {
                     "type": "integer",
-                    "minimum": 0
+                    "minimum": 0,
+                    "maximum": 9007199254740991
                   },
                   "items": {
                     "type": "array",
@@ -569,6 +577,7 @@
                         "n": {
                           "type": "integer",
                           "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991,
                           "default": 1
                         }
                       },

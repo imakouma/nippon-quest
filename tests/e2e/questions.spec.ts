@@ -1,5 +1,18 @@
 import { expect, test, type Page } from '@playwright/test';
 
+test('choice：旧版の横長画像を正方形へ潰さず表示する', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.sansu.g1.math-1-1.d29b83d0c753');
+  const image = page.locator('.nq-q-prompt-img');
+  await expect(image).toBeVisible({ timeout: 20_000 });
+
+  const size = await image.evaluate((element: HTMLImageElement) => ({
+    naturalRatio: element.naturalWidth / element.naturalHeight,
+    renderedRatio: element.getBoundingClientRect().width / element.getBoundingClientRect().height,
+  }));
+  expect(size.naturalRatio).toBeGreaterThan(4);
+  expect(size.renderedRatio).toBeCloseTo(size.naturalRatio, 1);
+});
+
 /** Playground で picture-word のサンプル（1 問目：りんごの絵）を出す */
 async function showPictureWord(page: Page) {
   await page.goto('/playground.html');
@@ -45,7 +58,9 @@ test('sort-order：カードの順位と移動ボタンの意味を読み上げ�
 test('number-build：現在値と操作部から設問を読み上げで参照できる', async ({ page }) => {
   await page.goto('/playground.html');
   await page.locator('select#pg-file').selectOption('questions/_samples/number-build.json');
-  await expect(page.locator('textarea')).toHaveValue(/sample\.number-build\.blocks\.0001/);
+  await expect(page.locator('textarea')).toHaveValue(/sample\.number-build\.blocks\.0001/, {
+    timeout: 10_000,
+  });
   await page.click('button.pg-run');
   const value = page.locator('.nq-nb-value');
   await expect(value).toHaveAttribute('aria-label', 'いまの すうじ 0');

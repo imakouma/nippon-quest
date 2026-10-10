@@ -35,6 +35,23 @@ async function unlock(container: HTMLElement): Promise<void> {
 }
 
 describe('保護者設定の更新日時', () => {
+  it('古い画面状態への書き込みを防ぐため、最新版の取得方法を必須にする', () => {
+    const game = createNewGame({ name: 'ハル', grade: 3 }, 0);
+
+    expect(() =>
+      render(
+        h(ParentOverlay, {
+          game,
+          mastery: [],
+          onChange: vi.fn(),
+          onImport: vi.fn(),
+          onClose: vi.fn(),
+        } as unknown as Parameters<typeof ParentOverlay>[0]),
+        document.createElement('div'),
+      ),
+    ).toThrow('getGame');
+  });
+
   it('メニューを開いた後のプレイ時間を保ったまま設定を変更する', async () => {
     const opened = createNewGame({ name: 'ハル', grade: 3 }, 0);
     const latest = structuredClone(opened);
@@ -72,6 +89,7 @@ describe('保護者設定の更新日時', () => {
     render(
       h(ParentOverlay, {
         game,
+        getGame: () => changed,
         mastery: [],
         onChange: (next) => (changed = next),
         onImport: vi.fn(),
@@ -98,6 +116,7 @@ describe('保護者設定の更新日時', () => {
     render(
       h(ParentOverlay, {
         game,
+        getGame: () => changed,
         mastery: [],
         onChange: (next) => (changed = next),
         onImport: vi.fn(),

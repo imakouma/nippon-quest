@@ -1,6 +1,14 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
+test('タイトル画面で問題バンクを先読みしない', async ({ page }) => {
+  const requests: string[] = [];
+  page.on('request', (request) => requests.push(new URL(request.url()).pathname));
+  await page.goto('/?resetSaves=1');
+  await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 20_000 });
+  expect(requests.filter((path) => /questions-(?:g\d-)?bundle\.json$/.test(path))).toEqual([]);
+});
+
 test('起動コンテンツの初回読込に失敗しても、画面から再試行できる', async ({ page }) => {
   let bundleAttempts = 0;
   await page.route('**/*', async (route) => {
@@ -21,6 +29,9 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
   await page.goto('/');
   const retry = page.getByRole('button', { name: 'もういちど' });
   await expect(retry).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator('.nq-error')).toContainText('よみこみに しっぱいしました');
+  await expect(page.locator('.nq-error')).not.toContainText('503');
+  await expect(page.locator('.nq-error')).not.toContainText('temporary failure');
   await retry.click();
 
   await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 20_000 });

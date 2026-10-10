@@ -4,6 +4,7 @@
  */
 import { SCHEMA_VERSION, gameStateSchema, type GameState } from './schema';
 import { STARTER_EQUIPMENT_ID } from './starter';
+import { addProgressValue } from '../../shared/safeInteger';
 
 type Migration = (s: Record<string, unknown>) => Record<string, unknown>;
 
@@ -66,7 +67,7 @@ const migrations: Record<number, Migration> = {
     const inventory = { ...((s.inventory ?? {}) as Record<string, number>) };
     if (!cleared) {
       for (const [slot, id] of Object.entries(equipment)) {
-        inventory[id] = (inventory[id] ?? 0) + 1;
+        inventory[id] = addProgressValue(inventory[id] ?? 0, 1);
         delete placements[`eq:${slot}`];
       }
       for (const slot of Object.keys(equipment)) delete equipment[slot];

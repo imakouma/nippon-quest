@@ -10,7 +10,7 @@ import { isEquip } from './inventory';
 import { motifStamp } from './route';
 
 export const isMeisanGear = (it: Item): boolean =>
-  isEquip(it) && /^[a-z]+-meisan-/.test(it.id) && !!it.areaOrigin;
+  isEquip(it) && !!it.areaOrigin && it.id.startsWith(`${it.areaOrigin}-meisan-`);
 
 /** もっている（あずけている か そうびしている） */
 const owns = (gs: GameState, id: string): boolean =>

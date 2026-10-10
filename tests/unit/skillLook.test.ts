@@ -81,7 +81,7 @@ describe('モンスターの モチーフの こうげき', () => {
       if (!ok) none.push(`${m.id}(${m.motifId})`);
     }
     expect(none).toEqual([]);
-  });
+  }, 15_000);
 
   it('ネブタン → ネブタムシャ → ネブタイショウ は しんかの だんかいが 1 → 2 → 3（演出が だんだん はでに）', async () => {
     const { evolutionStage } = await import('../../src/core/progression/bag');

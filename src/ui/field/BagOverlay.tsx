@@ -11,6 +11,7 @@ import { ElementChip } from '../chips';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
 import type { BagCell } from './bagLayout';
@@ -414,7 +415,7 @@ export function BagOverlay({
                     setDragKey(x.key);
                   }}
                   onDragEnd={() => setDragKey(null)}
-                  aria-label={x.name.replace(/\[[^\]]*\]/g, '')}
+                  aria-label={displayText(x.name)}
                   onClick={() => activateKey(x.key)}
                 >
                   <Pic x={x} size={2} />

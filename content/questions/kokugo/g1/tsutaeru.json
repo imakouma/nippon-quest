@@ -1,0 +1,116 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g1.tsutaeru.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.tsutaeru",
+    "payload": {
+      "prompt": "できごとを じゅんに はなすとき、つかうと わかりやすい ことばは どれ？",
+      "choices": [
+        { "id": "a", "text": "はじめに・つぎに・さいごに" },
+        { "id": "b", "text": "あか・あお・きいろ" },
+        { "id": "c", "text": "うえ・した・よこ" },
+        { "id": "d", "text": "おおきい・ちいさい" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "じゅんじょを あらわす ことばを つかうと、できごとが つたわりやすくなります。"
+  },
+  {
+    "id": "kokugo.g1.tsutaeru.0002",
+    "type": "sort-order",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.tsutaeru",
+    "payload": {
+      "prompt": "できごとが おきる じゅんに ならべよう。",
+      "direction": "horizontal",
+      "cards": [
+        { "id": "seed", "text": "たねを まく" },
+        { "id": "water", "text": "みずを あげる" },
+        { "id": "sprout", "text": "めが でる" }
+      ],
+      "answer": ["seed", "water", "sprout"]
+    },
+    "explanation": "したことが おきた じゅんに ならべます。"
+  },
+  {
+    "id": "kokugo.g1.tsutaeru.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.tsutaeru",
+    "payload": {
+      "prompt": "『こうえんで あそびました。』に たすと、ようすが いちばん よく つたわる 文は どれ？",
+      "choices": [
+        { "id": "a", "text": "ともだちと すべりだいで あそびました。" },
+        { "id": "b", "text": "こうえんです。" },
+        { "id": "c", "text": "あそびました。" },
+        { "id": "d", "text": "なにかを しました。" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "だれと、なにを したかを くわしく かくと、ようすが よく つたわります。"
+  },
+  {
+    "id": "kokugo.g1.tsutaeru.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.tsutaeru",
+    "payload": {
+      "prompt": "『うさぎが。はしる。』を、ひとつの 文に なおしたものは どれ？",
+      "choices": [
+        { "id": "a", "text": "うさぎが はしる。" },
+        { "id": "b", "text": "うさぎ。がはしる。" },
+        { "id": "c", "text": "うさぎが。" },
+        { "id": "d", "text": "はしる うさぎが。" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "『なにが』と『どうする』を つないで、文の おわりに まるを つけます。"
+  },
+  {
+    "id": "kokugo.g1.tsutaeru.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.tsutaeru",
+    "payload": {
+      "prompt": "えんそくの ことを かく ぶんの だいに、いちばん あうのは どれ？",
+      "choices": [
+        { "id": "a", "text": "たのしかった えんそく" },
+        { "id": "b", "text": "きょうの きゅうしょく" },
+        { "id": "c", "text": "ぼくの えんぴつ" },
+        { "id": "d", "text": "あしたの てんき" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "だいは、かいた ないように あう ことばに します。"
+  },
+  {
+    "id": "kokugo.g1.tsutaeru.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.tsutaeru",
+    "payload": {
+      "prompt": "かいた 文を よみなおすとき、たしかめることは どれ？",
+      "choices": [
+        { "id": "a", "text": "ぬけた もじや まるが ないか" },
+        { "id": "b", "text": "えんぴつの いろだけ" },
+        { "id": "c", "text": "かみの おおきさだけ" },
+        { "id": "d", "text": "つくえの いろだけ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "よみなおして、もじの ぬけや 文の おわりの まるを たしかめます。"
+  }
+]

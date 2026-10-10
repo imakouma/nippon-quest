@@ -1,0 +1,117 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g1.hanasu-kiku.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.hanasu-kiku",
+    "payload": {
+      "prompt": "せんせいの はなしを きくとき、いちばん よいのは どれ？",
+      "choices": [
+        { "id": "a", "text": "ともだちと はなす" },
+        { "id": "b", "text": "はなす人を みて きく" },
+        { "id": "c", "text": "べつの ほんを よむ" },
+        { "id": "d", "text": "きょうしつを あるく" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "はなす人を みて、だいじな ことを おとさないように ききます。"
+  },
+  {
+    "id": "kokugo.g1.hanasu-kiku.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.hanasu-kiku",
+    "payload": {
+      "prompt": "はなしが よく きこえなかったとき、なんと いうと よい？",
+      "choices": [
+        { "id": "a", "text": "もう いちど おねがいします" },
+        { "id": "b", "text": "しらない" },
+        { "id": "c", "text": "もう はなさないで" },
+        { "id": "d", "text": "なんでも いい" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ききとれなかったことを、ていねいに たしかめます。"
+  },
+  {
+    "id": "kokugo.g1.hanasu-kiku.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.hanasu-kiku",
+    "payload": {
+      "prompt": "『あした、こうえんに 9じに あつまります。』いちばん だいじな ことは どれ？",
+      "choices": [
+        { "id": "a", "text": "きょう、えきに あつまる" },
+        { "id": "b", "text": "あした、こうえんに 9じに あつまる" },
+        { "id": "c", "text": "あした、うちで あそぶ" },
+        { "id": "d", "text": "9じに ねる" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "いつ、どこで、なんじに あつまるかを ききとります。"
+  },
+  {
+    "id": "kokugo.g1.hanasu-kiku.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.hanasu-kiku",
+    "payload": {
+      "prompt": "みんなの まえで、えんそくの ことを はなします。はじめに いうと わかりやすいのは どれ？",
+      "choices": [
+        { "id": "a", "text": "だまって たつ" },
+        { "id": "b", "text": "えんそくで たのしかったことを はなします" },
+        { "id": "c", "text": "ぜんぶ おわりです" },
+        { "id": "d", "text": "ちがう はなしを します" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "はじめに はなす ことを いうと、きく人に つたわりやすくなります。"
+  },
+  {
+    "id": "kokugo.g1.hanasu-kiku.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.hanasu-kiku",
+    "payload": {
+      "prompt": "ともだちが はなしている とちゅうで、ききたいことが できました。どうする？",
+      "choices": [
+        { "id": "a", "text": "すぐに おおきな こえで はなす" },
+        { "id": "b", "text": "さいごまで きいてから たずねる" },
+        { "id": "c", "text": "はなしを きかない" },
+        { "id": "d", "text": "べつの ひとに はなす" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "あいての はなしを さいごまで きいてから、たずねます。"
+  },
+  {
+    "id": "kokugo.g1.hanasu-kiku.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.hanasu-kiku",
+    "payload": {
+      "prompt": "おとなの人に えんぴつを かりたいとき、ていねいな いいかたは どれ？",
+      "choices": [
+        { "id": "a", "text": "えんぴつ、かして" },
+        { "id": "b", "text": "えんぴつを かしてください" },
+        { "id": "c", "text": "えんぴつを もっていく" },
+        { "id": "d", "text": "なにも いわない" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "『かしてください』は、あいてに おねがいする ていねいな いいかたです。"
+  }
+]

@@ -38,11 +38,119 @@
           },
           "order": {
             "type": "integer",
-            "minimum": 0
+            "minimum": 0,
+            "maximum": 9007199254740991
           },
           "legacyNode": {
             "type": "string",
             "minLength": 1
+          },
+          "courseKind": {
+            "type": "string",
+            "enum": [
+              "required-subject",
+              "required-activity",
+              "supplementary"
+            ]
+          },
+          "placement": {
+            "type": "object",
+            "properties": {
+              "terms": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "number",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 1,
+                    "items": [
+                      {
+                        "type": "string",
+                        "const": "variable"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "official",
+                  "reference",
+                  "unverified"
+                ]
+              },
+              "sourceIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "note": {
+                "type": "string",
+                "description": "RubyText: \"漢字[かんじ]\" 形式"
+              }
+            },
+            "required": [
+              "terms",
+              "status",
+              "sourceIds",
+              "note"
+            ],
+            "additionalProperties": false
+          },
+          "curriculumCodes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^82[A-Z0-9]{14}$"
+            }
+          },
+          "sourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "review": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "source-checked",
+                  "expert-reviewed"
+                ]
+              },
+              "reviewedAt": {
+                "type": "string",
+                "format": "date"
+              },
+              "reviewer": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [

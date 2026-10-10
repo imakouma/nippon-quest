@@ -10,9 +10,18 @@
       "prompt": "Which one is an apple?",
       "promptAudio": "audio/words/apple.mp3",
       "choices": [
-        { "id": "a", "image": "questions/eigo/apple.png" },
-        { "id": "b", "image": "questions/eigo/grape.png" },
-        { "id": "c", "image": "questions/eigo/peach.png" }
+        {
+          "id": "a",
+          "image": "questions/eigo/apple.png"
+        },
+        {
+          "id": "b",
+          "image": "questions/eigo/grape.png"
+        },
+        {
+          "id": "c",
+          "image": "questions/eigo/peach.png"
+        }
       ],
       "answer": "a",
       "shuffle": true
@@ -27,14 +36,23 @@
     "payload": {
       "prompt": "「海」の よみかたは？",
       "choices": [
-        { "id": "a", "text": "うみ" },
-        { "id": "b", "text": "やま" },
-        { "id": "c", "text": "かわ" }
+        {
+          "id": "a",
+          "text": "うみ"
+        },
+        {
+          "id": "b",
+          "text": "やま"
+        },
+        {
+          "id": "c",
+          "text": "かわ"
+        }
       ],
       "answer": "a",
       "shuffle": true
     },
-    "explanation": "海[うみ]。津軽海峡[つがるかいきょう]の「海」。"
+    "explanation": "海[うみ]。津軽海峡[つがるかいきょう]の「海[うみ]」。"
   },
   {
     "id": "sample.choice.0003",
@@ -45,9 +63,18 @@
     "payload": {
       "prompt": "水[みず]を こおらせると 体積[たいせき]は？",
       "choices": [
-        { "id": "a", "text": "ふえる" },
-        { "id": "b", "text": "へる" },
-        { "id": "c", "text": "かわらない" }
+        {
+          "id": "a",
+          "text": "ふえる"
+        },
+        {
+          "id": "b",
+          "text": "へる"
+        },
+        {
+          "id": "c",
+          "text": "かわらない"
+        }
       ],
       "answer": "a",
       "shuffle": false

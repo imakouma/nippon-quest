@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-82v12-seikatsu-g1-2",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]コード82V12 生活[せいかつ] 第[だい]1・2学年[がくねん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00002.htm",
+      "published": "平成29年告示・Ver 1.2",
+      "checkedAt": "2026-10-10",
+      "locator": "82702A3110000000〜82702A3240000000"
+    },
+    {
+      "id": "kyoiku-shuppan-r6-seikatsu",
+      "title": "せいかつ 上[じょう] 年間[ねんかん]指導[しどう]計画[けいかく]・評価[ひょうか]計画[けいかく]",
+      "publisher": "教育出版",
+      "url": "https://www.kyoiku-shuppan.co.jp/textbook/shou/seikatsu/",
+      "published": "令和6年度版",
+      "checkedAt": "2026-10-10",
+      "locator": "上"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "seikatsu.g1.school.safe-life",
+      "subject": "seikatsu",
+      "grade": 1,
+      "unit": "seikatsu.g1.legacy-cur-1801-01",
+      "name": "学校[がっこう]で安全[あんぜん]に生活[せいかつ]する",
+      "description": "学校[がっこう]の施設[しせつ]や支[ささ]える人々[ひとびと]、通学路[つうがくろ]を知[し]り、安全[あんぜん]に行動[こうどう]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3110000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "入学期[にゅうがくき]の学校[がっこう]探検[たんけん]と安全[あんぜん]指導[しどう]。"
+      },
+      "sourceIds": ["mext-82v12-seikatsu-g1-2", "kyoiku-shuppan-r6-seikatsu"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g1.nature.observe-seasons",
+      "subject": "seikatsu",
+      "grade": 1,
+      "unit": "seikatsu.g1.kisetsu",
+      "name": "身近[みぢか]な自然[しぜん]と季節[きせつ]の変化[へんか]",
+      "description": "身近[みぢか]な自然[しぜん]を観察[かんさつ]し、違[ちが]いや特徴[とくちょう]、季節[きせつ]による変化[へんか]に気付[きづ]く。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["82702A3220000000"],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "reference",
+        "note": "一年[いちねん]を通[とお]した継続[けいぞく]観察[かんさつ]。"
+      },
+      "sourceIds": ["mext-82v12-seikatsu-g1-2", "kyoiku-shuppan-r6-seikatsu"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g1.living-things.care",
+      "subject": "seikatsu",
+      "grade": 1,
+      "unit": "seikatsu.g1.legacy-cur-1801-03",
+      "name": "生[い]き物[もの]を育[そだ]てて変化[へんか]に気付[きづ]く",
+      "description": "動物[どうぶつ]や植物[しょくぶつ]に継続的[けいぞくてき]に働[はたら]きかけ、生命[せいめい]と成長[せいちょう]に気付[きづ]く。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3240000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "育成[いくせい]活動[かつどう]は季節[きせつ]や地域[ちいき]で変[か]わる。"
+      },
+      "sourceIds": ["mext-82v12-seikatsu-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g1.nature.spring-observation",
+      "subject": "seikatsu",
+      "grade": 1,
+      "unit": "seikatsu.g1.kisetsu",
+      "name": "春[はる]から夏[なつ]の自然[しぜん]を観察[かんさつ]する",
+      "description": "同[おな]じ場所[ばしょ]を続[つづ]けて見[み]て、春[はる]から夏[なつ]の違[ちが]いや変化[へんか]を記録[きろく]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3220000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "第[だい]1学期[がっき]の継続[けいぞく]観察[かんさつ]。"
+      },
+      "sourceIds": ["mext-82v12-seikatsu-g1-2", "kyoiku-shuppan-r6-seikatsu"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g1.nature.autumn-play",
+      "subject": "seikatsu",
+      "grade": 1,
+      "unit": "seikatsu.g1.kisetsu",
+      "name": "秋[あき]の自然[しぜん]を使[つか]って遊[あそ]ぶ",
+      "description": "落[お]ち葉[ば]などの色[いろ]や形[かたち]を生[い]かして遊[あそ]びを工夫[くふう]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3230000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "秋[あき]の自然物[しぜんぶつ]が得[え]られる時期[じき]。"
+      },
+      "sourceIds": ["mext-82v12-seikatsu-g1-2", "kyoiku-shuppan-r6-seikatsu"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g1.nature.winter-change",
+      "subject": "seikatsu",
+      "grade": 1,
+      "unit": "seikatsu.g1.kisetsu",
+      "name": "冬[ふゆ]の自然[しぜん]の変化[へんか]に気付[きづ]く",
+      "description": "同[おな]じ場所[ばしょ]を冬[ふゆ]にも観察[かんさつ]し、季節[きせつ]による変化[へんか]に気付[きづ]く。",
+      "kind": "concept",
+      "memoryType": "concept",
+      "curriculumCodes": ["82702A3220000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "冬[ふゆ]の自然[しぜん]を観察[かんさつ]できる時期[じき]。"
+      },
+      "sourceIds": ["mext-82v12-seikatsu-g1-2", "kyoiku-shuppan-r6-seikatsu"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g1.communication.share-findings",
+      "subject": "seikatsu",
+      "grade": 1,
+      "unit": "seikatsu.g1.kisetsu",
+      "name": "見付[みつ]けたことを伝[つた]え合[あ]う",
+      "description": "絵[え]や言葉[ことば]から伝[つた]え方[かた]を選[えら]び、気付[きづ]きを伝[つた]え合[あ]う。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3250000000"],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "reference",
+        "note": "各季節[かくきせつ]の活動[かつどう]と組[く]み合[あ]わせる。"
+      },
+      "sourceIds": ["mext-82v12-seikatsu-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "seikatsu.g1.school.safe-life",
+      "to": "seikatsu.g1.nature.observe-seasons",
+      "kind": "related",
+      "strength": 0.5,
+      "rationale": "学校[がっこう]や通学路[つうがくろ]の探検[たんけん]は身近[みぢか]な自然[しぜん]へ目[め]を向[む]ける機会[きかい]になる。",
+      "sourceIds": ["mext-82v12-seikatsu-g1-2"],
+      "reviewStatus": "draft"
+    }
+  ],
+  "questionLinks": [
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.382fd2528b02",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.45d343b9f727",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.5859e2628e2b",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.850f8a311e43",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.8e0796e9f01d",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.94fdf5abac98",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.9d253b14f435",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.ac4c31822718",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.daa4abe8975d",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.e163d4cc8378",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.f38edb617d4e",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-01.f7ea232fc6e3",
+      "concepts": [{ "conceptId": "seikatsu.g1.school.safe-life", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.0e6a02faf21c",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.11cd804ccf31",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.324f619c64e3",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.4278066e5361",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.6ab930a87bb2",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.778e00107878",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.81b79eca0859",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.852db49579f7",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.8eb1c4d42278",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.a7872039ae49",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.a8789c90138d",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g1.cur-1801-03.f7277cc993e1",
+      "concepts": [{ "conceptId": "seikatsu.g1.living-things.care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g1.kisetsu.0001",
+      "concepts": [{ "conceptId": "seikatsu.g1.nature.spring-observation", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g1.kisetsu.0006",
+      "concepts": [
+        { "conceptId": "seikatsu.g1.communication.share-findings", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.6,
+      "reviewStatus": "draft",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g1.kisetsu.0002",
+      "concepts": [{ "conceptId": "seikatsu.g1.nature.spring-observation", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g1.kisetsu.0003",
+      "concepts": [{ "conceptId": "seikatsu.g1.nature.spring-observation", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g1.kisetsu.0004",
+      "concepts": [{ "conceptId": "seikatsu.g1.nature.autumn-play", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g1.kisetsu.0005",
+      "concepts": [{ "conceptId": "seikatsu.g1.nature.winter-change", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

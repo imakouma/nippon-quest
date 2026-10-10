@@ -9,13 +9,15 @@ import {
 import type { GameState } from '../../core/state/schema';
 import { exportGameJson, importGameJson } from '../../core/state/serialization';
 import type { RoadmapNode } from '../../shared/menuModel';
+import { RubyLabel } from '../RubyLabel';
 import { t } from '../i18n';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
 
 export interface ParentOverlayProps {
   game: GameState;
-  getGame?: () => GameState;
+  getGame: () => GameState;
   mastery: RoadmapNode[];
   onChange: (game: GameState) => void;
   onImport: (game: GameState) => void;
@@ -26,6 +28,7 @@ const percent = (value: number) => `${Math.round(value * 100)}%`;
 const DAY = 86_400_000;
 
 export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onClose }: ParentOverlayProps) {
+  if (typeof getGame !== 'function') throw new TypeError('ParentOverlay requires getGame');
   const dialogRef = useRef<HTMLElement>(null);
   const [unlocked, setUnlocked] = useState(false);
   useModalFocus(dialogRef, unlocked ? 'select' : 'input');
@@ -74,13 +77,12 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  const currentGame = () => getGame?.() ?? game;
   const patchLearning = (learning: Partial<GameState['learning']>) => {
-    const current = currentGame();
+    const current = getGame();
     onChange({ ...current, updatedAt: Date.now(), learning: { ...current.learning, ...learning } });
   };
   const patchSettings = (settings: Partial<GameState['settings']>) => {
-    const current = currentGame();
+    const current = getGame();
     onChange({ ...current, updatedAt: Date.now(), settings: { ...current.settings, ...settings } });
   };
   const unlock = () => {
@@ -125,11 +127,13 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
         </header>
         {!unlocked ? (
           <form class="nq-parent-gate" onSubmit={(ev) => (ev.preventDefault(), unlock())}>
-            <p>{t('parent.gateHelp')}</p>
+            <p>
+              <RubyLabel text={t('parent.gateHelp')} />
+            </p>
             <label>
               <strong>7 + 5 = ?</strong>
               <input
-                aria-label={t('parent.answer')}
+                aria-label={displayText(t('parent.answer'))}
                 inputMode="numeric"
                 value={answer}
                 onInput={(ev) => setAnswer(ev.currentTarget.value)}
@@ -137,21 +141,23 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
               />
             </label>
             <button type="submit" class="nq-opt nq-parent-primary" aria-keyshortcuts="Enter">
-              {t('parent.open')}
+              <RubyLabel text={t('parent.open')} />
             </button>
             {gateError && (
               <p class="nq-parent-error" role="alert">
-                {t('parent.gateError')}
+                <RubyLabel text={t('parent.gateError')} />
               </p>
             )}
           </form>
         ) : (
           <div class="nq-parent-content">
             <section class="nq-parent-card">
-              <h3>{t('parent.learning')}</h3>
+              <h3>
+                <RubyLabel text={t('parent.learning')} />
+              </h3>
               <div class="nq-parent-grid">
                 <label>
-                  {t('parent.grade')}
+                  <RubyLabel text={t('parent.grade')} />
                   <select
                     value={game.learning.grade}
                     onChange={(ev) =>
@@ -163,13 +169,13 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
                     {[1, 2, 3, 4, 5, 6].map((n) => (
                       <option value={n}>
                         {n}
-                        {t('parent.gradeSuffix')}
+                        {displayText(t('parent.gradeSuffix'))}
                       </option>
                     ))}
                   </select>
                 </label>
                 <label>
-                  {t('parent.kanji')}
+                  <RubyLabel text={t('parent.kanji')} />
                   <select
                     value={game.learning.kanjiLevel}
                     onChange={(ev) =>
@@ -181,31 +187,33 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
                     {[1, 2, 3, 4, 5, 6].map((n) => (
                       <option value={n}>
                         {n}
-                        {t('parent.gradeSuffix')}
+                        {displayText(t('parent.gradeSuffix'))}
                       </option>
                     ))}
                   </select>
                 </label>
-                <label>
+                <label class="nq-parent-check">
                   <input
                     type="checkbox"
                     checked={game.learning.includeLower}
                     onChange={(ev) => patchLearning({ includeLower: ev.currentTarget.checked })}
                   />{' '}
-                  {t('parent.includeLower')}
+                  <RubyLabel text={t('parent.includeLower')} />
                 </label>
-                <label>
+                <label class="nq-parent-check">
                   <input
                     type="checkbox"
                     checked={game.learning.challengeHigher}
                     onChange={(ev) => patchLearning({ challengeHigher: ev.currentTarget.checked })}
                   />{' '}
-                  {t('parent.challengeHigher')}
+                  <RubyLabel text={t('parent.challengeHigher')} />
                 </label>
               </div>
             </section>
             <section class="nq-parent-card">
-              <h3>{t('parent.settings')}</h3>
+              <h3>
+                <RubyLabel text={t('parent.settings')} />
+              </h3>
               <div class="nq-parent-sliders">
                 <label>
                   {t('parent.bgm')}{' '}
@@ -220,7 +228,7 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
                   {percent(game.settings.bgmVolume)}
                 </label>
                 <label>
-                  {t('parent.se')}{' '}
+                  <RubyLabel text={t('parent.se')} />{' '}
                   <input
                     type="range"
                     min="0"
@@ -232,21 +240,23 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
                   {percent(game.settings.seVolume)}
                 </label>
                 <label>
-                  {t('parent.timeLimit')}
+                  <RubyLabel text={t('parent.timeLimit')} />
                   <select
                     value={game.settings.timeLimitScale}
                     onChange={(ev) => patchSettings({ timeLimitScale: Number(ev.currentTarget.value) })}
                   >
-                    <option value="0.75">{t('parent.short')}</option>
+                    <option value="0.75">{displayText(t('parent.short'))}</option>
                     <option value="1">{t('parent.normal')}</option>
-                    <option value="1.5">{t('parent.long')}</option>
-                    <option value="2">{t('parent.veryLong')}</option>
+                    <option value="1.5">{displayText(t('parent.long'))}</option>
+                    <option value="2">{displayText(t('parent.veryLong'))}</option>
                   </select>
                 </label>
               </div>
             </section>
             <section class="nq-parent-card nq-parent-scroll">
-              <h3>{t('parent.playTime')}</h3>
+              <h3>
+                <RubyLabel text={t('parent.playTime')} />
+              </h3>
               {Object.entries(game.learning.playSecondsByDate)
                 .sort(([a], [b]) => b.localeCompare(a))
                 .slice(0, 7)
@@ -255,90 +265,128 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
                     <time>{date}</time>
                     <strong>
                       {Math.floor(seconds / 60)}
-                      {t('parent.minutes')}
+                      <RubyLabel text={t('parent.minutes')} />
                     </strong>
                   </p>
                 ))}
-              {!Object.keys(game.learning.playSecondsByDate).length && <p>{t('parent.noRecord')}</p>}
-              <h3>{t('parent.mastery')}</h3>
+              {!Object.keys(game.learning.playSecondsByDate).length && (
+                <p>
+                  <RubyLabel text={t('parent.noRecord')} />
+                </p>
+              )}
+              <h3>
+                <RubyLabel text={t('parent.mastery')} />
+              </h3>
               {rows.map((row) => (
                 <div
                   class="nq-parent-mastery"
                   role="meter"
-                  aria-label={row.name}
+                  aria-label={displayText(row.name)}
                   aria-valuemin={0}
                   aria-valuenow={Math.round(row.mastery * 100)}
                   aria-valuemax={100}
                   aria-valuetext={percent(row.mastery)}
-                  title={`${row.name} ${percent(row.mastery)}`}
+                  title={`${displayText(row.name)} ${percent(row.mastery)}`}
                 >
-                  <span>{row.name}</span>
+                  <span>
+                    <RubyLabel text={row.name} />
+                  </span>
                   <i>
                     <b style={{ width: percent(row.mastery) }} />
                   </i>
                   <strong>{percent(row.mastery)}</strong>
                 </div>
               ))}
-              {!rows.length && <p>{t('parent.noMastery')}</p>}
-              <h3>{t('parent.concepts')}</h3>
+              {!rows.length && (
+                <p>
+                  <RubyLabel text={t('parent.noMastery')} />
+                </p>
+              )}
+              <h3>
+                <RubyLabel text={t('parent.concepts')} />
+              </h3>
               {conceptRows.map(({ concept, state }) => (
                 <div class="nq-parent-concept">
-                  <strong>{concept?.name}</strong>
+                  <strong>{concept?.name && <RubyLabel text={concept.name} />}</strong>
                   {concept?.description && (
-                    <small class="nq-parent-concept-description">{concept.description}</small>
+                    <small class="nq-parent-concept-description">
+                      <RubyLabel text={concept.description} />
+                    </small>
                   )}
                   <span>
-                    {t('parent.understanding')} {percent(state.understanding)}
+                    <RubyLabel text={t('parent.understanding')} /> {percent(state.understanding)}
                   </span>
                   <span>
-                    {t('parent.retention')} {percent(estimatedRetention(state, Date.now()))}
+                    <RubyLabel text={t('parent.retention')} />{' '}
+                    {percent(estimatedRetention(state, Date.now()))}
                   </span>
                   <small>
-                    {dueText(state.dueAt)}・{t('parent.attemptCount', { n: state.attempts })}
+                    <RubyLabel text={dueText(state.dueAt)} />・
+                    <RubyLabel text={t('parent.attemptCount', { n: state.attempts })} />
                   </small>
                 </div>
               ))}
-              {!conceptRows.length && <p>{t('parent.noConcepts')}</p>}
-              <h3>{t('parent.diagnosis')}</h3>
+              {!conceptRows.length && (
+                <p>
+                  <RubyLabel text={t('parent.noConcepts')} />
+                </p>
+              )}
+              <h3>
+                <RubyLabel text={t('parent.diagnosis')} />
+              </h3>
               {latestDiagnosis ? (
                 <div class="nq-parent-diagnosis">
-                  <small>{t('parent.diagnosisQuestion', { id: latestDiagnosis.questionId })}</small>
+                  <small>
+                    <RubyLabel text={t('parent.diagnosisQuestion', { id: latestDiagnosis.questionId })} />
+                  </small>
                   {latestDiagnosis.candidates.map((candidate) => (
                     <p>
-                      <strong>{conceptsById.get(candidate.conceptId)?.name ?? candidate.conceptId}</strong>
+                      <strong>
+                        <RubyLabel
+                          text={conceptsById.get(candidate.conceptId)?.name ?? candidate.conceptId}
+                        />
+                      </strong>
                       <span>{percent(candidate.confidence)}</span>
-                      <small>{candidate.reasons.join('／')}</small>
+                      <small>
+                        <RubyLabel text={candidate.reasons.join('／')} />
+                      </small>
                     </p>
                   ))}
-                  <small>{t('parent.diagnosisCaution')}</small>
+                  <small>
+                    <RubyLabel text={t('parent.diagnosisCaution')} />
+                  </small>
                 </div>
               ) : (
-                <p>{t('parent.noDiagnosis')}</p>
+                <p>
+                  <RubyLabel text={t('parent.noDiagnosis')} />
+                </p>
               )}
             </section>
             <section class="nq-parent-card nq-parent-save">
-              <h3>{t('parent.saveData')}</h3>
+              <h3>
+                <RubyLabel text={t('parent.saveData')} />
+              </h3>
               <div class="nq-parent-actions">
                 <button
                   type="button"
                   class="nq-opt"
                   onClick={() => (setJson(exportGameJson(game)), setMessage(t('parent.exportDone')))}
                 >
-                  {t('parent.export')}
+                  <RubyLabel text={t('parent.export')} />
                 </button>
                 <button type="button" class="nq-opt" disabled={!json.trim()} onClick={doImport}>
-                  {t('parent.import')}
+                  <RubyLabel text={t('parent.import')} />
                 </button>
               </div>
               <textarea
-                aria-label={t('parent.json')}
+                aria-label={displayText(t('parent.json'))}
                 value={json}
                 onInput={(ev) => setJson(ev.currentTarget.value)}
-                placeholder={t('parent.jsonHelp')}
+                placeholder={displayText(t('parent.jsonHelp'))}
               />
               {message && (
                 <p role="status" class="nq-parent-message">
-                  {message}
+                  <RubyLabel text={message} />
                 </p>
               )}
             </section>

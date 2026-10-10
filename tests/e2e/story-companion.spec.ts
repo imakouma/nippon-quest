@@ -106,6 +106,8 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   const companionChoice = page.getByRole('dialog', { name: /むすび/ });
   await expect(companionChoice.getByRole('group')).toBeVisible();
   await expect(companionChoice).toHaveAttribute('aria-modal', 'true');
+  await expect(companionChoice.locator('ruby')).not.toHaveCount(0);
+  await expect(companionChoice).not.toContainText('[');
   await expect(kagurabi).toBeFocused();
   await page.screenshot({ path: testInfo.outputPath('musubi-tama-choice.png'), fullPage: true });
   await page.setViewportSize({ width: 480, height: 720 });

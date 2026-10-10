@@ -29,3 +29,19 @@ export async function preloadMenuArt(
       await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
   }
 }
+
+interface DeferredMenuArtOptions {
+  schedule?: (run: () => void) => void;
+  onDone?: () => void;
+  onError?: (error: unknown) => void;
+}
+
+/** ゲーム起動を待たせず、タイトル画面が描画できてから図鑑画像のキャッシュを温める。 */
+export function deferMenuArtPreload(content: ContentIndex, options: DeferredMenuArtOptions = {}): void {
+  const schedule = options.schedule ?? ((run: () => void) => setTimeout(run, 0));
+  schedule(() => {
+    void preloadMenuArt(content)
+      .then(() => options.onDone?.())
+      .catch((error: unknown) => options.onError?.(error));
+  });
+}

@@ -1,6 +1,8 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { unitSchema } from '../src/core/content/schemas';
 import { validateCurriculumGraph } from '../src/core/learning/graph';
+import { validateCurriculumConceptUnits, validateCurriculumUnits } from '../src/core/learning/validation';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const errors: string[] = [];
@@ -10,6 +12,7 @@ interface QuestionRecord {
   type?: string;
   subject?: string;
   grade?: number;
+  unit?: string;
   payload?: {
     choices?: { id?: string }[];
     answer?: string;
@@ -37,6 +40,17 @@ for (const file of jsonFiles(resolve(ROOT, 'content/questions'))) {
   }
 }
 
+const units = unitSchema
+  .array()
+  .parse(JSON.parse(readFileSync(resolve(ROOT, 'content/units.json'), 'utf8')) as unknown);
+const classifiableQuestions = [...questionsById.values()].filter(
+  (question): question is QuestionRecord & { subject: string; grade: number; unit: string } =>
+    typeof question.subject === 'string' &&
+    typeof question.grade === 'number' &&
+    typeof question.unit === 'string',
+);
+errors.push(...validateCurriculumUnits(units, classifiableQuestions));
+
 let graphs = 0;
 let concepts = 0;
 let links = 0;
@@ -49,6 +63,9 @@ for (const file of jsonFiles(resolve(ROOT, 'content/curriculum'))) {
   graphs++;
   concepts += checked.graph.concepts.length;
   links += checked.graph.questionLinks.length;
+  errors.push(
+    ...validateCurriculumConceptUnits(units, checked.graph.concepts).map((error) => `${file}: ${error}`),
+  );
   const conceptsById = new Map(checked.graph.concepts.map((concept) => [concept.id, concept]));
   for (const link of checked.graph.questionLinks) {
     const question = questionsById.get(link.questionId);

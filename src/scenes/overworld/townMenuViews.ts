@@ -1,6 +1,12 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Item, Mission, Recipe, Reward } from '../../core/content/schemas';
-import { canCraft, missionProgress, missionStatus, type ShopEntry } from '../../core/progression/town';
+import {
+  canCraft,
+  missionProgress,
+  missionStatus,
+  sellPrice,
+  type ShopEntry,
+} from '../../core/progression/town';
 import type { GameState } from '../../core/state/schema';
 import { itemIconUrl } from '../../rendering/itemIcons';
 import type { TownRow } from '../../ui/field/TownOverlay';
@@ -22,7 +28,7 @@ export function shopRows(
   items: ReadonlyMap<string, Item>,
   game: GameState,
 ): TownRow[] {
-  return stock.flatMap((entry): TownRow[] => {
+  const buyRows = stock.flatMap((entry): TownRow[] => {
     const item = items.get(entry.itemId);
     if (!item) return [];
     const affordable = game.player.gold >= entry.price;
@@ -39,6 +45,25 @@ export function shopRows(
       },
     ];
   });
+  const sellRows = Object.entries(game.inventory).flatMap(([id, count]): TownRow[] => {
+    const item = items.get(id);
+    if (!item || count <= 0) return [];
+    const price = sellPrice(item);
+    if (price === null) return [];
+    return [
+      {
+        key: `sell:${id}`,
+        name: item.name,
+        icon: itemIconUrl(item),
+        right: t('field.townSellPrice', { n: price }),
+        tag: t('field.townSell'),
+        lines: [itemKindLabel(item), itemStatText(item), t('field.townHave', { n: count })].filter(Boolean),
+        blurb: item.blurb,
+        action: { label: t('field.townSellPrice', { n: price }), ok: true },
+      },
+    ];
+  });
+  return [...buyRows, ...sellRows];
 }
 
 export function smithRows(

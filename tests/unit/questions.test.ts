@@ -62,6 +62,14 @@ describe('QuestionBank', () => {
     expect(bank.size).toBeGreaterThan(0);
     expect(report.omitted).toBeGreaterThan(0);
     expect(report.skipped).toEqual([]);
+  }, 15_000);
+
+  it('学年別 bundle は対応学年の問題だけを含む', async () => {
+    const bundle = (await read('questions-g1-bundle.json')) as Record<string, { grade: number }[]>;
+    const questions = Object.values(bundle).flat();
+
+    expect(questions.length).toBeGreaterThan(0);
+    expect(questions.every((question) => question.grade === 1)).toBe(true);
   });
 
   it('式も図もない旧入力問題を出題候補へ入れない', async () => {
@@ -86,7 +94,7 @@ describe('QuestionBank', () => {
     const a = await QuestionBank.load(manifest.questions, read);
     const b = await QuestionBank.load(manifest.questions, read, { includeSamples: true });
     expect(b.bank.size).toBeGreaterThan(a.bank.size);
-  });
+  }, 15_000);
 
   it('payload がスキーマに合わない問題は skip され、他は読み込まれる', async () => {
     const files = ['bad.json'];

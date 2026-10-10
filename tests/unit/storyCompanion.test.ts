@@ -51,6 +51,26 @@ describe('物語の相棒選択', () => {
     expect(chosen.progress.eventsDone).toContain(STORY_COMPANION_EVENT);
   });
 
+  it('旧セーブに同名UIDがあっても、既存の仲間を上書きせず一意なUIDで加入する', () => {
+    const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
+    game.party.owned.push({
+      uid: 'story-companion',
+      monsterId: 'aomori-ringoron',
+      level: 2,
+      xp: 0,
+    });
+
+    const chosen = chooseStoryCompanion(game, 'iwate-izumiko', 200);
+
+    expect(chosen.party.owned.map((monster) => monster.uid)).toEqual([
+      'story-companion',
+      'story-companion#2',
+    ]);
+    expect(chosen.party.activeUid).toBe('story-companion#2');
+    expect(chosen.party.team).toEqual(['story-companion#2']);
+    expect(chosen.party.bagPlacements['mon:story-companion#2']).toMatchObject({ x: 1, y: 0 });
+  });
+
   it('相棒は仲間一覧の先頭でなくても正しく見つける', () => {
     const chosen = chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 1 }), 'iwate-kodamaru');
     chosen.party.owned.unshift({ uid: 'other', monsterId: 'aomori-ringoron', level: 1, xp: 0 });

@@ -59,9 +59,31 @@
   line-height: 1.6;
 }
 .nq-q-prompt-img {
-  width: 96px;
-  height: 96px;
+  width: auto;
+  height: auto;
+  max-width: min(52%, 496px);
+  max-height: 96px;
+  flex: none;
+  object-fit: contain;
   image-rendering: pixelated;
+}
+@media (max-height: 420px) {
+  .nq-q {
+    gap: 6px;
+    padding: 8px 12px;
+  }
+  .nq-q-prompt {
+    align-items: flex-start;
+    min-height: 48px;
+    max-height: 104px;
+    overflow-y: auto;
+  }
+  .nq-q-prompt-img {
+    width: auto;
+    height: auto;
+    max-width: 45%;
+    max-height: 64px;
+  }
 }
 .nq-btn {
   min-width: 48px;
@@ -218,10 +240,21 @@
 }
 .nq-map-pick {
   position: absolute;
+  width: 32px;
+  height: 32px;
   transform: translate(-50%, -50%);
-  color: #e5484d;
-  font-size: 48px;
-  text-shadow: 2px 2px #fff;
+  border: 4px solid #ffd866;
+  border-radius: 50%;
+  background: #1119;
+  box-shadow: 0 0 0 2px #111;
+  pointer-events: none;
+}
+.nq-map-pick::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: #ffd866;
 }
 .nq-map-cursor {
   position: absolute;

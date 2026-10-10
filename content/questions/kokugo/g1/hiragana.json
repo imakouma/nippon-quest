@@ -1,44 +1,12 @@
 [
   {
-    "$schema": "../../../../schemas/questions/choice.schema.json",
-    "id": "kokugo.g1.hiragana.0001",
-    "type": "choice",
-    "subject": "kokugo",
-    "grade": 1,
-    "unit": "kokugo.g1.hiragana",
-    "payload": {
-      "prompt": "「ねこ」をカタカナで正しく書いたものはどれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ネユ"
-        },
-        {
-          "id": "b",
-          "text": "ヌコ"
-        },
-        {
-          "id": "c",
-          "text": "ネコ"
-        },
-        {
-          "id": "d",
-          "text": "ヌユ"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
-    },
-    "explanation": "ねこはカタカナで「ネコ」と書きます。"
-  },
-  {
     "id": "kokugo.g1.hiragana.0002",
     "type": "choice",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.hiragana",
     "payload": {
-      "prompt": "「りんご」の「り」は、ひらがなで何画ですか？",
+      "prompt": "「りんご」の「り」は、ひらがなで何画[なんかく]ですか？",
       "choices": [
         {
           "id": "a",
@@ -60,38 +28,7 @@
       "answer": "b",
       "shuffle": true
     },
-    "explanation": "「り」は2画で書きます。"
-  },
-  {
-    "id": "kokugo.g1.hiragana.0003",
-    "type": "choice",
-    "subject": "kokugo",
-    "grade": 1,
-    "unit": "kokugo.g1.hiragana",
-    "payload": {
-      "prompt": "カタカナ「ア」の1画目の向きはどれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "上から下へまっすぐ引く"
-        },
-        {
-          "id": "b",
-          "text": "左から右へ横に引く"
-        },
-        {
-          "id": "c",
-          "text": "右から左へはらう"
-        },
-        {
-          "id": "d",
-          "text": "下から上へ引く"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
-    },
-    "explanation": "「ア」の1画目は左から右へ横に引き、そのまま左下へ折れます。"
+    "explanation": "「り」は 2画[かく]で書[か]きます。"
   },
   {
     "id": "kokugo.g1.hiragana.0004",
@@ -108,7 +45,7 @@
         },
         {
           "id": "b",
-          "text": "ごはんを食べる。"
+          "text": "ごはんを 食[た]べる。"
         },
         {
           "id": "c",
@@ -122,38 +59,7 @@
       "answer": "b",
       "shuffle": true
     },
-    "explanation": "動作の対象を表すときは「を」を使います。"
-  },
-  {
-    "id": "kokugo.g1.hiragana.0005",
-    "type": "choice",
-    "subject": "kokugo",
-    "grade": 1,
-    "unit": "kokugo.g1.hiragana",
-    "payload": {
-      "prompt": "「しゃしん（写真）」の正しいカタカナ表記はどれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "シヤシン"
-        },
-        {
-          "id": "b",
-          "text": "シャシン"
-        },
-        {
-          "id": "c",
-          "text": "サヤシン"
-        },
-        {
-          "id": "d",
-          "text": "シヤジン"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
-    },
-    "explanation": "「しゃ」は小さい「ャ」を使って「シャ」と書きます。"
+    "explanation": "動作[どうさ]の対象[たいしょう]を表[あらわ]すときは「を」を使[つか]います。"
   },
   {
     "id": "kokugo.g1.hiragana.0006",
@@ -162,7 +68,7 @@
     "grade": 1,
     "unit": "kokugo.g1.hiragana",
     "payload": {
-      "prompt": "「きって（切手）」を正しく書いたものはどれ？",
+      "prompt": "「きって（切手[きって]）」を正[ただ]しく書[か]いたものはどれ？",
       "choices": [
         {
           "id": "a",
@@ -184,7 +90,7 @@
       "answer": "c",
       "shuffle": true
     },
-    "explanation": "つまる音は小さい「っ」を使って「きって」と書きます。"
+    "explanation": "つまる音[おと]は小[ちい]さい「っ」を使[つか]って「きって」と書[か]きます。"
   },
   {
     "id": "kokugo.g1.hiragana.0007",
@@ -215,7 +121,7 @@
       "answer": "a",
       "shuffle": true
     },
-    "explanation": "だくてん（゛）をつけると「か」は「が」になります。"
+    "explanation": "濁点[だくてん]（゛）をつけると「か」は「が」になります。"
   },
   {
     "id": "kokugo.g1.hiragana.0008",
@@ -246,38 +152,7 @@
       "answer": "b",
       "shuffle": true
     },
-    "explanation": "丸い記号（゜）は「半濁点（はんだくてん）」といいます。"
-  },
-  {
-    "id": "kokugo.g1.hiragana.0009",
-    "type": "choice",
-    "subject": "kokugo",
-    "grade": 1,
-    "unit": "kokugo.g1.hiragana",
-    "payload": {
-      "prompt": "犬の鳴き声「ワンワン」のように、ものの音や鳴き声はどの文字で書きますか？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ひらがな"
-        },
-        {
-          "id": "b",
-          "text": "カタカナ"
-        },
-        {
-          "id": "c",
-          "text": "かん字"
-        },
-        {
-          "id": "d",
-          "text": "えいご"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
-    },
-    "explanation": "鳴き声や物の音はカタカナで書くのがきほんです。"
+    "explanation": "丸[まる]い記号[きごう]（゜）は「半濁点[はんだくてん]」といいます。"
   },
   {
     "id": "kokugo.g1.hiragana.0010",
@@ -308,69 +183,7 @@
       "answer": "a",
       "shuffle": true
     },
-    "explanation": "「ねえ」とのばす音は、ひらがなでは「え」を添えて「おねえさん」と書きます。"
-  },
-  {
-    "id": "kokugo.g1.hiragana.0011",
-    "type": "choice",
-    "subject": "kokugo",
-    "grade": 1,
-    "unit": "kokugo.g1.hiragana",
-    "payload": {
-      "prompt": "「らいおん」をカタカナで正しく書いたものはどれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ラィオン"
-        },
-        {
-          "id": "b",
-          "text": "ライフン"
-        },
-        {
-          "id": "c",
-          "text": "ライソン"
-        },
-        {
-          "id": "d",
-          "text": "ライオン"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
-    },
-    "explanation": "「らいおん」は「ライオン」。「ン」と「ソ」をまちがえないようにします。"
-  },
-  {
-    "id": "kokugo.g1.hiragana.0012",
-    "type": "choice",
-    "subject": "kokugo",
-    "grade": 1,
-    "unit": "kokugo.g1.hiragana",
-    "payload": {
-      "prompt": "「ケーキ」のように、カタカナでのばす音は何で書きますか？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "｜（たてせん）"
-        },
-        {
-          "id": "b",
-          "text": "ー（ぼうせん）"
-        },
-        {
-          "id": "c",
-          "text": "〜（なみせん）"
-        },
-        {
-          "id": "d",
-          "text": "・（てん）"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
-    },
-    "explanation": "カタカナののばす音は「ー」（ぼうせん）で書きます。"
+    "explanation": "「ねえ」とのばす音[おと]は、ひらがなでは「え」を添[そ]えて「おねえさん」と書[か]きます。"
   },
   {
     "id": "kokugo.g1.hiragana.0013",
@@ -401,38 +214,7 @@
       "answer": "b",
       "shuffle": true
     },
-    "explanation": "「わ・ね・れ」は形がにています。むきや結びに気をつけます。"
-  },
-  {
-    "id": "kokugo.g1.hiragana.0014",
-    "type": "choice",
-    "subject": "kokugo",
-    "grade": 1,
-    "unit": "kokugo.g1.hiragana",
-    "payload": {
-      "prompt": "カタカナの「シ」とまちがえやすい文字はどれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ツ"
-        },
-        {
-          "id": "b",
-          "text": "ソ"
-        },
-        {
-          "id": "c",
-          "text": "ン"
-        },
-        {
-          "id": "d",
-          "text": "ミ"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
-    },
-    "explanation": "「シ」と「ツ」は点のむきと書く向きがちがいます。"
+    "explanation": "「わ・ね・れ」は形[かたち]がにています。向[む]きや結[むす]びに気[き]をつけます。"
   },
   {
     "id": "kokugo.g1.hiragana.0015",
@@ -463,7 +245,7 @@
       "answer": "c",
       "shuffle": true
     },
-    "explanation": "つまる音は小さい「っ」を使って「がっこう」と書きます。"
+    "explanation": "つまる音[おと]は小[ちい]さい「っ」を使[つか]って「がっこう」と書[か]きます。"
   },
   {
     "id": "kokugo.g1.hiragana.0016",
@@ -494,38 +276,7 @@
       "answer": "b",
       "shuffle": true
     },
-    "explanation": "ねじれる音は小さい「ょ」を使って「きょう」と書きます。"
-  },
-  {
-    "id": "kokugo.g1.hiragana.0017",
-    "type": "choice",
-    "subject": "kokugo",
-    "grade": 1,
-    "unit": "kokugo.g1.hiragana",
-    "payload": {
-      "prompt": "次のうち、カタカナで書くことばはどれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "つくえ"
-        },
-        {
-          "id": "b",
-          "text": "テレビ"
-        },
-        {
-          "id": "c",
-          "text": "えんぴつ"
-        },
-        {
-          "id": "d",
-          "text": "ほん"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
-    },
-    "explanation": "外国から来たことば（テレビ）はカタカナで書きます。"
+    "explanation": "「きょ」の音[おと]は、小[ちい]さい「ょ」を使[つか]って書[か]きます。"
   },
   {
     "id": "kokugo.g1.hiragana.0018",

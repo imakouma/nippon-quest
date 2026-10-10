@@ -357,8 +357,12 @@
   color: #fff;
 }
 .nq-look-choice-active {
-  box-shadow: 0 0 0 2px #f6e7c1;
-  outline: 3px solid var(--nq-yellow);
+  position: relative;
+  box-shadow:
+    0 0 0 3px #f6e7c1,
+    inset 0 0 0 3px #111525;
+  outline: 4px solid var(--nq-yellow);
+  outline-offset: 1px;
 }
 .nq-new-game-actions {
   grid-column: 1 / -1;

@@ -94,5 +94,43 @@
       "shuffle": true
     },
     "explanation": "9に 1を たして 10、のこりの 2を たして 12。"
+  },
+  {
+    "id": "sansu.g1.tashizan.0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "あかい ふうせんが 4こ、あおい ふうせんが 3こ。ぜんぶの かずを もとめる しきは どれ？",
+      "choices": [
+        { "id": "a", "text": "4 + 3" },
+        { "id": "b", "text": "4 - 3" },
+        { "id": "c", "text": "4 + 4" },
+        { "id": "d", "text": "3 - 3" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "2つの かずを あわせるので、たしざんの しき「4 + 3」にします。"
+  },
+  {
+    "id": "sansu.g1.tashizan.0007",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "どんぐりが 5こ あります。2こ ふえるときの しきは どれ？",
+      "choices": [
+        { "id": "a", "text": "5 - 2" },
+        { "id": "b", "text": "5 + 2" },
+        { "id": "c", "text": "2 - 2" },
+        { "id": "d", "text": "5 + 5" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "2こ ふえるので、5に 2を たす「5 + 2」にします。"
   }
 ]

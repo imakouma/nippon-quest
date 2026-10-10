@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、この学校の施設はどれでしょう。",
+      "prompt": "写真を見て、この学校[がっこう]の施設はどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -34,7 +34,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/730606279e4fc5fc.jpg"
     },
-    "explanation": "図書室は、本を読んだり借りたりする学校の施設です。"
+    "explanation": "図書室は、本を読んだり借りたりする学校[がっこう]の施設です。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-01.45d343b9f727",
@@ -121,7 +121,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、この学校の場所の名前はどれでしょう。",
+      "prompt": "写真を見て、この学校[がっこう]の場所の名前[なまえ]はどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -203,7 +203,7 @@
         },
         {
           "id": "c2",
-          "text": "友達の名前"
+          "text": "友達の名前[なまえ]"
         },
         {
           "id": "c3",
@@ -236,7 +236,7 @@
       "choices": [
         {
           "id": "c1",
-          "text": "横断歩道"
+          "text": "横断歩道[おうだんほどう]"
         },
         {
           "id": "c2",
@@ -248,14 +248,14 @@
         },
         {
           "id": "c4",
-          "text": "屋上"
+          "text": "屋上[おくじょう]"
         }
       ],
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/04973e910fe1c44e.jpg"
     },
-    "explanation": "横断歩道は、安全に道路を渡るための場所です。"
+    "explanation": "横断歩道[おうだんほどう]は、安全に道路を渡るための場所です。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-01.ac4c31822718",
@@ -269,11 +269,11 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "学校の場所を調べるときに大切なことはどれでしょう。",
+      "prompt": "学校[がっこう]の場所を調べるときに大切なことはどれでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "場所の名前と役割を記録する"
+          "text": "場所の名前[なまえ]と役割を記録する"
         },
         {
           "id": "c2",
@@ -305,11 +305,11 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、安全な登下校のために正しいものはどれでしょう。",
+      "prompt": "安全[あんぜん]に登下校[とうげこう]するために、大切[たいせつ]なことはどれでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "友達と一緒に歩く"
+          "text": "決[き]められた通学路[つうがくろ]を歩[ある]く"
         },
         {
           "id": "c2",
@@ -328,7 +328,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/d131d0bec4d9bac6.jpg"
     },
-    "explanation": "友達と一緒に歩いたり、手をつないだりしましょう。"
+    "explanation": "決[き]められた通学路[つうがくろ]を通[とお]り、交通[こうつう]ルールを守[まも]って歩[ある]きます。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-01.e163d4cc8378",
@@ -452,7 +452,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、家族のしごととして正しいものはどれでしょう。",
+      "prompt": "写真を見て、家族[かぞく]のしごととして正しいものはどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -460,7 +460,7 @@
         },
         {
           "id": "c2",
-          "text": "学校の掃除"
+          "text": "学校[がっこう]の掃除"
         },
         {
           "id": "c3",
@@ -526,7 +526,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "家族のしごとを調べるときに大切なことはどれでしょう。",
+      "prompt": "家族[かぞく]のしごとを調べるときに大切なことはどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -548,7 +548,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "家族のしごとへの感謝を言葉で伝えましょう。"
+    "explanation": "家族[かぞく]のしごとへの感謝を言葉で伝えましょう。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-02.265bda0c3c1d",
@@ -635,7 +635,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、家族のくらしとして正しいものはどれでしょう。",
+      "prompt": "写真を見て、家族[かぞく]のくらしとして正しいものはどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -658,7 +658,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/3b4b862e380c9729.jpg"
     },
-    "explanation": "家族で一緒に食事をとることは、くらしの大切な時間です。"
+    "explanation": "家族[かぞく]で一緒に食事をとることは、くらしの大切な時間です。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-02.a42a98a164f0",
@@ -695,7 +695,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/925523a27c7eb00d.jpg"
     },
-    "explanation": "できたことを絵や言葉で家族に伝えましょう。"
+    "explanation": "できたことを絵や言葉で家族[かぞく]に伝えましょう。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-02.b33aedf0ef41",
@@ -805,7 +805,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/675dd39244f9dec2.jpg"
     },
-    "explanation": "手あらいは、病気を防ぐ大切な習慣です。"
+    "explanation": "手あらいは、病気[びょうき]を防ぐ大切な習慣です。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-02.dbdc311e318b",
@@ -819,7 +819,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、家族への気持ちとして正しいものはどれでしょう。",
+      "prompt": "写真を見て、家族[かぞく]への気持ちとして正しいものはどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -842,7 +842,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/5b6b76fd4748a382.jpg"
     },
-    "explanation": "家族のしごとへの感謝を言葉で伝えましょう。"
+    "explanation": "家族[かぞく]のしごとへの感謝を言葉で伝えましょう。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-02.f600e928beaa",
@@ -1040,7 +1040,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、植物の成長の様子として正しいものはどれでしょう。",
+      "prompt": "写真を見て、植物の成長の様子[ようす]として正しいものはどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -1100,7 +1100,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/e6e5154486a8895c.jpg"
     },
-    "explanation": "こまめに水をあげることが大切です。"
+    "explanation": "土[つち]の様子[ようす]を見[み]て、必要[ひつよう]な分[ぶん]だけ水[みず]をあげます。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-03.81b79eca0859",
@@ -1224,7 +1224,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、この生きものの名前はどれでしょう。",
+      "prompt": "写真を見て、この生きものの名前[なまえ]はどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -1273,11 +1273,11 @@
         },
         {
           "id": "c3",
-          "text": "自分の名前だけ"
+          "text": "自分の名前[なまえ]だけ"
         },
         {
           "id": "c4",
-          "text": "天気だけ"
+          "text": "天気[てんき]だけ"
         }
       ],
       "answer": "c1",
@@ -1313,7 +1313,7 @@
         },
         {
           "id": "c4",
-          "text": "屋上のコンクリート"
+          "text": "屋上[おくじょう]のコンクリート"
         }
       ],
       "answer": "c1",
@@ -1541,7 +1541,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/4729a839fc8fa86e.jpg"
     },
-    "explanation": "運動会は、秋の季節によく行われる学校の行事です。"
+    "explanation": "運動会は、秋の季節によく行われる学校[がっこう]の行事です。"
   },
   {
     "id": "legacy.seikatsu.g1.cur-1801-04.a0ef27d9c65e",
@@ -1747,7 +1747,7 @@
         },
         {
           "id": "c2",
-          "text": "名前"
+          "text": "名前[なまえ]"
         },
         {
           "id": "c3",

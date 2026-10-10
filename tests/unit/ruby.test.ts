@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   displayRuby,
@@ -20,6 +21,61 @@ function collectStrings(value: unknown, path: string[] = []): Array<{ path: stri
   if (typeof value === 'string') return [{ path: path.join('.'), text: value }];
   if (!value || typeof value !== 'object') return [];
   return Object.entries(value).flatMap(([key, child]) => collectStrings(child, [...path, key]));
+}
+
+const hasBareKanji = (text: string): boolean => {
+  const withoutRuby = text.replace(/[一-鿿々〆ヶ]+\[[ぁ-ゖァ-ヺー・]+\]/g, '');
+  return /[一-鿿々〆ヶ]|[[\]]/.test(withoutRuby);
+};
+
+const isSafeLegacyRubyCandidate = (text: string): boolean =>
+  hasBareKanji(text) &&
+  !text.includes('[') &&
+  !/<\/?(?:ruby|rt|rp|br)\b/i.test(text) &&
+  !/[一-鿿々〆ヶ]+[（(][ぁ-ゖァ-ヺー・]+[）)]/.test(text) &&
+  !/(?:なんと|何と)?(?:読む|よむ|読み方|よみかた|読み|よみ)(?:ますか|でしょう|は|を|？|\?)/.test(text);
+
+const displayFields = new Set([
+  'name',
+  'text',
+  'blurb',
+  'title',
+  'hint',
+  'line',
+  'intro',
+  'description',
+  'flavor',
+  'speaker',
+  'capital',
+  'fieldLine',
+  'prompt',
+  'explanation',
+  'label',
+  'result',
+  'question',
+]);
+
+function jsonFiles(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const file = join(dir, entry.name);
+    return entry.isDirectory() ? jsonFiles(file) : entry.name.endsWith('.json') ? [file] : [];
+  });
+}
+
+function collectDisplayStrings(
+  value: unknown,
+  file: string,
+  path: string[] = [],
+): Array<{ file: string; path: string; text: string }> {
+  if (!value || typeof value !== 'object') return [];
+  if (!Array.isArray(value) && 'subject' in value && (value as { subject?: unknown }).subject === 'kokugo')
+    return [];
+  return Object.entries(value).flatMap(([key, child]) => {
+    const nextPath = [...path, key];
+    if (typeof child === 'string' && displayFields.has(key))
+      return [{ file, path: nextPath.join('.'), text: child }];
+    return collectDisplayStrings(child, file, nextPath);
+  });
 }
 
 describe('漢字表示レベル（まだ習っていない漢字の ことばは、ルビではなく ひらがなで出す）', () => {
@@ -73,12 +129,109 @@ describe('漢字表示レベル（まだ習っていない漢字の ことばは
 });
 
 describe('RubyText', () => {
-  it('ゲーム画面の共通文言は、漢字を読みなしで残さない', () => {
-    const bare = collectStrings(ja.field, ['field']).filter(({ text }) => {
-      const rest = text.replace(/[一-鿿々〆ヶ]+\[[ぁ-ゖァ-ヺー]+\]/g, '');
-      return /[一-鿿々〆ヶ]|[[\]]/.test(rest);
+  it('通常画面の操作案内にPCキー名を常設しない', () => {
+    const dictionary = ja as {
+      saveSlots: { keyboardHint: string };
+      field: {
+        townShopKeys: string;
+        townSmithKeys: string;
+        townBoardKeys: string;
+        mapKeys: string;
+        mapNationKeys: string;
+        areaMapKeys: string;
+        menuKeys: string;
+        barberKeys: string;
+        lookSummary: string;
+      };
+    };
+    const visibleControlHints = [
+      dictionary.saveSlots.keyboardHint,
+      dictionary.field.townShopKeys,
+      dictionary.field.townSmithKeys,
+      dictionary.field.townBoardKeys,
+      dictionary.field.mapKeys,
+      dictionary.field.mapNationKeys,
+      dictionary.field.areaMapKeys,
+      dictionary.field.menuKeys,
+      dictionary.field.barberKeys,
+      dictionary.field.lookSummary,
+    ];
+
+    expect(
+      visibleControlHints.filter((text) => /[↑↓←→]|\b(?:Enter|Esc|Space)\b|\b[ZX]\b/.test(text)),
+    ).toEqual([]);
+  });
+
+  it('ゲーム画面の共通文言は、演出専用文字を除いて漢字を読みなしで残さない', () => {
+    const visibleDictionary = Object.fromEntries(Object.entries(ja).filter(([key]) => key !== 'skillFx'));
+    const bare = collectStrings(visibleDictionary).filter(
+      ({ path, text }) => !path.split('.').some((key) => key.startsWith('_')) && hasBareKanji(text),
+    );
+    expect(bare).toEqual([]);
+  });
+
+  it('ゲーム本編の表示データは、漢字問題を除いて漢字を読みなしで残さない', () => {
+    const contentRoot = new URL('../../content/', import.meta.url);
+    const rootPath = decodeURIComponent(contentRoot.pathname);
+    const fixedFiles = ['units.json', 'recipes.json', 'sets.json', 'skills.json'].map((file) =>
+      join(rootPath, file),
+    );
+    const folders = ['arena', 'curriculum', 'items', 'monsters', 'prefectures', 'world'];
+    const questionFiles = jsonFiles(join(rootPath, 'questions')).filter(
+      (file) => !file.includes('/kokugo/') && !file.includes('/legacy/'),
+    );
+    const files = [
+      ...fixedFiles,
+      ...folders.flatMap((folder) => jsonFiles(join(rootPath, folder))),
+      ...questionFiles,
+    ];
+    const bare = files.flatMap((file) => {
+      const data = JSON.parse(readFileSync(file, 'utf8')) as unknown;
+      return collectDisplayStrings(data, relative(rootPath, file)).filter(({ text }) => hasBareKanji(text));
     });
     expect(bare).toEqual([]);
+  });
+
+  it('旧教材も、読みが検証できた通常語は RubyText にし、出題意図のある表記は保護する', () => {
+    const contentRoot = new URL('../../content/', import.meta.url);
+    const rootPath = decodeURIComponent(contentRoot.pathname);
+    const legacyRoot = join(rootPath, 'questions', 'legacy');
+    const files = ['sansu', 'rika', 'seikatsu', 'shakai'].flatMap((subject) =>
+      jsonFiles(join(legacyRoot, subject)),
+    );
+    const strings = files.flatMap((file) => {
+      const data = JSON.parse(readFileSync(file, 'utf8')) as unknown;
+      return collectDisplayStrings(data, relative(rootPath, file));
+    });
+    const verifiedTerms = [
+      '四角形',
+      '三角形',
+      '長方形',
+      '正方形',
+      '太陽',
+      '面積',
+      '北海道',
+      '横断歩道',
+      '学校',
+      '家族',
+    ];
+    const stillBare = strings.filter(({ text }) => {
+      const withoutRuby = text.replace(/[一-鿿々〆ヶ]+\[[ぁ-ゖァ-ヺー・]+\]/g, '');
+      return (
+        isSafeLegacyRubyCandidate(text) &&
+        verifiedTerms.some((term) =>
+          new RegExp(`(^|[^一-鿿々〆ヶ])${term}($|[^一-鿿々〆ヶ])`).test(withoutRuby),
+        )
+      );
+    });
+    expect(stillBare).toEqual([]);
+
+    const protectedSource = readFileSync(join(legacyRoot, 'shakai', 'g4.json'), 'utf8');
+    expect(protectedSource).toContain('雨温図（うおんず）');
+    expect(protectedSource).toContain('経線（けいせん）');
+
+    const kokugoSource = readFileSync(join(legacyRoot, 'kokugo', 'g2.json'), 'utf8');
+    expect(kokugoSource).not.toContain('漢字[かんじ]');
   });
 
   it('漢字[よみ] を分解する', () => {

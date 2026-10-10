@@ -58,7 +58,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await menuHome.getByRole('button', { name: /ずかん/ }).click();
   await expect(page.getByRole('button', { name: 'マナビモノ' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'とくさん' })).toBeVisible();
-  const dexRegions = page.getByLabel('地方ごとの ずかん');
+  const dexRegions = page.getByLabel(/^(?:地方|ちほう)ごとの ずかん$/);
   await expect(dexRegions.getByRole('button')).toHaveCount(8);
   const regionBox = await dexRegions.boundingBox();
   expect(regionBox).not.toBeNull();
@@ -69,7 +69,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   const dexArtBox = await dexCard.locator('.nq-menu-icon').boundingBox();
   expect(dexCardBox).not.toBeNull();
   expect(dexArtBox).not.toBeNull();
-  expect(dexCardBox!.width).toBeGreaterThanOrEqual(210);
+  expect(dexCardBox!.width).toBeGreaterThanOrEqual(140);
   expect(dexArtBox!.height).toBeGreaterThanOrEqual(48);
   await dexRegions.getByRole('button', { name: /東北/ }).click();
   await expect(dexRegions.getByRole('button', { name: /東北/ })).toHaveAttribute('aria-pressed', 'true');

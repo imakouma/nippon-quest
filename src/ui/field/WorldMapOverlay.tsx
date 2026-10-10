@@ -316,13 +316,15 @@ function RegionWorldMapOverlay({
                     class={`nq-wmap-castle nq-wmap-castle-${region.islandBoss.state}`}
                     style={pinAt(islandBossCell(region), cell)}
                     disabled={region.islandBoss.state !== 'ready'}
-                    aria-label={t(
-                      region.islandBoss.state === 'done'
-                        ? 'field.mapIslandBossDoneLabel'
-                        : region.islandBoss.state === 'ready'
-                          ? 'field.mapIslandBossReadyLabel'
-                          : 'field.mapIslandBossLockedLabel',
-                      { name: region.islandBoss.name },
+                    aria-label={displayText(
+                      t(
+                        region.islandBoss.state === 'done'
+                          ? 'field.mapIslandBossDoneLabel'
+                          : region.islandBoss.state === 'ready'
+                            ? 'field.mapIslandBossReadyLabel'
+                            : 'field.mapIslandBossLockedLabel',
+                        { name: region.islandBoss.name },
+                      ),
                     )}
                     onClick={(event) => {
                       event.stopPropagation();
@@ -362,7 +364,9 @@ function RegionWorldMapOverlay({
             <div class="nq-wmap-info nq-wmap-barrier">
               <PixelIcon name="gate" scale={6} />
               <RubyLabel text={region.name} class="nq-wmap-aname" />
-              <p>{t('field.mapIslandBarrier')}</p>
+              <p>
+                <RubyLabel text={t('field.mapIslandBarrier')} />
+              </p>
             </div>
           ) : area ? (
             <div class="nq-wmap-info">
@@ -375,13 +379,17 @@ function RegionWorldMapOverlay({
                   </span>
                 )}
               </div>
-              {!area.visited && <p class="nq-wmap-locked">{t('field.mapLocked')}</p>}
+              {!area.visited && (
+                <p class="nq-wmap-locked">
+                  <RubyLabel text={t('field.mapLocked')} />
+                </p>
+              )}
               {area.boss !== 'none' && (
                 <p class="nq-wmap-row">
                   <PixelIcon name="boss" scale={3} />
-                  {t('field.mapBoss')}
+                  <RubyLabel text={t('field.mapBoss')} />
                   <span class={area.boss === 'done' ? 'nq-wmap-ok' : 'nq-wmap-yet'}>
-                    {t(area.boss === 'done' ? 'field.mapBossDone' : 'field.mapBossYet')}
+                    <RubyLabel text={t(area.boss === 'done' ? 'field.mapBossDone' : 'field.mapBossYet')} />
                   </span>
                 </p>
               )}
@@ -396,7 +404,7 @@ function RegionWorldMapOverlay({
                 {area.stamps.map((s, i) => (
                   <li key={i} class={s.name === null ? 'nq-wmap-yet' : ''}>
                     <PixelIcon name={s.box ? 'chest' : s.name === null ? 'star-off' : 'star'} scale={2} />
-                    {s.name ?? t('field.mapUnknown')}
+                    <RubyLabel text={s.name ?? t('field.mapUnknown')} />
                   </li>
                 ))}
               </ul>
@@ -404,13 +412,15 @@ function RegionWorldMapOverlay({
                 <div class={`nq-wmap-island-boss nq-wmap-island-boss-${region.islandBoss.state}`}>
                   <PixelIcon name="dungeon" scale={3} />
                   <span>
-                    {t('field.mapIslandBoss')}: {region.islandBoss.name}
+                    <RubyLabel text={`${t('field.mapIslandBoss')}: ${region.islandBoss.name}`} />
                   </span>
                   <strong>
-                    {t(`field.mapIslandBoss${region.islandBoss.state === 'done' ? 'Done' : 'Ready'}`, {
-                      found: region.islandBoss.foundSigns,
-                      required: region.islandBoss.requiredSigns,
-                    })}
+                    <RubyLabel
+                      text={t(`field.mapIslandBoss${region.islandBoss.state === 'done' ? 'Done' : 'Ready'}`, {
+                        found: region.islandBoss.foundSigns,
+                        required: region.islandBoss.requiredSigns,
+                      })}
+                    />
                   </strong>
                 </div>
               )}
@@ -422,7 +432,7 @@ function RegionWorldMapOverlay({
             {region?.islandBoss.state === 'ready' ? (
               <button type="button" class="nq-opt nq-wmap-go" onClick={challengeIslandBoss}>
                 <PixelIcon name="dungeon" scale={3} />
-                {t('field.mapIslandBossChallenge')}
+                <RubyLabel text={t('field.mapIslandBossChallenge')} />
               </button>
             ) : (
               <button

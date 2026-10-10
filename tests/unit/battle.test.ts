@@ -21,6 +21,7 @@ import {
 import { createRng } from '../../src/core/rng';
 import type { Skill } from '../../src/core/content/schemas';
 import type { ActionResult, BattleState, Combatant, Command } from '../../src/core/battle/types';
+import { buildItemOptions } from '../../src/scenes/battle/hudViews';
 
 let D: BattleDeps;
 beforeAll(async () => {
@@ -267,6 +268,16 @@ describe('ターンの すすみかた（主人公 → オトモ → てき）',
     expect(r.events.filter((e) => e.t === 'act' && e.side === 'enemy')).toHaveLength(1);
   });
 
+  it('ボスを倒した一撃では、撃破後のフェーズ移行を発生させない', async () => {
+    const { state } = await setup({ level: 40, enemyId: 'iwate-boss-konjiki-no-tora', enemyLevel: 5 });
+    const almostDown: BattleState = { ...state, enemy: { ...state.enemy, hp: 1 } };
+
+    const r = act(almostDown, { kind: 'attack' }, D);
+
+    expect(r.state.outcome).toBe('victory');
+    expect(r.events.some((event) => event.t === 'bossPhase')).toBe(false);
+  });
+
   it('コマンドが 成立しなければ ターンは すすまない（ゲージが たりない）', async () => {
     const { state } = await setup({ skills: ['sk-tashizan-giri', 'sk-kuku-rush'] });
     const r = act(state, { kind: 'skill', skillId: 'sk-kuku-rush', result: R(1) }, D);
@@ -503,6 +514,17 @@ describe('必殺技の 効果', () => {
     expect(heal(0)).toBeGreaterThan(0);
   });
 
+  it('かいふく技は最大HPを超えた満額ではなく、実際に回復した量を知らせる', async () => {
+    const def = withSkills([testSkill({ id: 'sk-test-heal-actual', effect: 'heal', power: 0 })]);
+    const { state } = await setup({ skills: ['sk-test-heal-actual'], def });
+    state.ally.hero.hp = state.ally.hero.stats.hp - 1;
+
+    const r = act(state, { kind: 'skill', skillId: 'sk-test-heal-actual', result: R(1) }, def);
+    const healed = r.events.find((event) => event.t === 'heal' && event.side === 'ally');
+
+    expect(healed && healed.t === 'heal' ? healed.amount : 0).toBe(1);
+  });
+
   it('まもり（party）：主人公と オトモの ぼうぎょが 上がり、settings.turns.buffTurns ターンで きれる', async () => {
     const { state } = await setup({ withMonster: true });
     const r = act(tough(state), { kind: 'skill', skillId: 'sk-kanji-barrier', result: R(1) }, D);
@@ -572,6 +594,26 @@ describe('コマンド', () => {
     expect(r.state.ally.items['aomori-ringo']).toBe(1);
   });
 
+  it('回復どうぐは実際に回復した量を知らせる', async () => {
+    const { state } = await setup();
+    state.ally.hero.hp = state.ally.hero.stats.hp - 1;
+
+    const r = act(state, { kind: 'item', itemId: 'aomori-ringo' }, D);
+    const healed = r.events.find((event) => event.t === 'heal' && event.side === 'ally');
+
+    expect(healed && healed.t === 'heal' ? healed.amount : 0).toBe(1);
+  });
+
+  it('HP・MPが満タンなら回復どうぐを表示・消費せず、ターンも進めない', async () => {
+    const { state, c } = await setup();
+
+    expect(buildItemOptions(state, c)).toEqual([]);
+    const r = act(state, { kind: 'item', itemId: 'aomori-ringo' }, D);
+    expect(r.state.ally.items['aomori-ringo']).toBe(2);
+    expect(r.state.turn).toBe(1);
+    expect(r.events).toEqual([]);
+  });
+
   it('いれかえ で オトモが かわる', async () => {
     const c = await content();
     const { state } = await setup({ withMonster: true });
@@ -594,6 +636,26 @@ describe('コマンド', () => {
     const v = events.find((e) => e.t === 'victory');
     expect(next.outcome).toBe('victory');
     expect(v && v.t === 'victory' && v.xp).toBeGreaterThan(0);
+  });
+
+  it('コンボ倍率を含む勝利報酬は安全整数を超えない', async () => {
+    const monster = D.monsters.get('aomori-ringoron')!;
+    const def: BattleDeps = {
+      ...D,
+      monsters: new Map([
+        ...D.monsters,
+        [monster.id, { ...monster, xp: Number.MAX_SAFE_INTEGER, gold: Number.MAX_SAFE_INTEGER }],
+      ]),
+    };
+    const { state } = await setup({ level: 30, def });
+    state.enemy.hp = 1;
+    state.player.maxCombo = 1;
+
+    const r = act(state, { kind: 'attack' }, def);
+    const victory = r.events.find((event) => event.t === 'victory');
+
+    expect(victory && victory.t === 'victory' ? victory.xp : 0).toBe(Number.MAX_SAFE_INTEGER);
+    expect(victory && victory.t === 'victory' ? victory.gold : 0).toBe(Number.MAX_SAFE_INTEGER);
   });
 });
 
@@ -688,6 +750,23 @@ describe('装備とセットボーナス', () => {
     const bare = makeHero(spec, c.items, c.sets);
     const armed = makeHero({ ...spec, equipment: { chest: 'aomori-ringo-no-yoroi' } }, c.items, c.sets);
     expect(armed.stats.def).toBeGreaterThan(bare.stats.def);
+  });
+
+  it('壊れたセーブ由来のスロット違い装備は能力へ反映しない', async () => {
+    const c = await content();
+    const spec = {
+      name: 'ハル',
+      level: 5,
+      baseStats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+      growth: { hp: 6, mp: 2, atk: 1.5, def: 1.2, spd: 1, wis: 1 },
+      skills: [],
+      equipment: {},
+    };
+    const bare = makeHero(spec, c.items, c.sets);
+    const mismatched = makeHero({ ...spec, equipment: { weapon: 'aomori-ringo-no-yoroi' } }, c.items, c.sets);
+
+    expect(mismatched.stats).toEqual(bare.stats);
+    expect(mismatched.elementResists).toEqual([]);
   });
 
   it('属性武器は主人公の通常攻撃に属性を付与する', async () => {

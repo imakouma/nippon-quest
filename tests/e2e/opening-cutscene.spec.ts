@@ -29,7 +29,7 @@ test('新規ゲームのオープニングが自動進行し、停止・手動�
   await expect(scene).toBeVisible({ timeout: 30_000 });
   await expect(scene).toContainText(/かぜ|風/);
   await scene.getByRole('button', { name: 'スキップ' }).click();
-  const namePrompt = page.getByRole('dialog', { name: /ものがたり.*名前/ });
+  const namePrompt = page.getByRole('dialog', { name: /ものがたり.*(?:名前|なまえ)/ });
   await namePrompt.getByRole('textbox', { name: 'なまえ' }).fill('ハル');
   await namePrompt.getByRole('button', { name: 'これで けってい' }).click();
 

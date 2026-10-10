@@ -5,11 +5,32 @@
  *   FinalDamage = BaseDamage × ScoreMultiplier × ComboBonus × ElementMultiplier（× かいしん）
  * 純粋関数のみ。Phaser・DOM・GameState を知らない。
  */
-import type { Element, ElementTable, Settings, Skill } from '../content/schemas';
+import type { Element, ElementTable, Settings, Skill, Stats } from '../content/schemas';
 import type { Rng } from '../rng';
 import type { Combatant, ScoreBandName } from './types';
 
 export type ScoreBand = ScoreBandName;
+export type AttackClass = 'science' | 'humanities' | 'balanced';
+
+export function selectAcademicStats(
+  attacker: Stats,
+  defender: Stats,
+  attackClass: AttackClass,
+): { attack: number; defense: number } {
+  if (attackClass === 'science') return { attack: attacker.scienceAtk, defense: defender.scienceDef };
+  if (attackClass === 'humanities')
+    return { attack: attacker.humanitiesAtk, defense: defender.humanitiesDef };
+  return {
+    attack: Math.floor((attacker.scienceAtk + attacker.humanitiesAtk) / 2),
+    defense: Math.floor((defender.scienceDef + defender.humanitiesDef) / 2),
+  };
+}
+
+export function pokemonLikeBaseDamage(level: number, power: number, attack: number, defense: number): number {
+  const levelFactor = Math.floor((2 * level) / 5) + 2;
+  const scaled = Math.floor((levelFactor * power * attack) / Math.max(1, defense));
+  return Math.floor(scaled / 50) + 2;
+}
 
 /** 1.0 = CRITICAL / 0.5〜0.99 = GREAT / 0.01〜0.49 = GOOD / 0 = MISS */
 export function scoreBand(score: number): ScoreBand {

@@ -1,6 +1,7 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Item } from '../../core/content/schemas';
 import { equipmentUnlocked } from '../../core/progression/bag';
+import { xpToNextLevel } from '../../core/progression/battleResult';
 import { EQUIP_SLOTS, isEquip } from '../../core/progression/inventory';
 import type { GameState } from '../../core/state/schema';
 import { STARTER_EQUIPMENT_ID } from '../../core/state/starter';
@@ -8,6 +9,11 @@ import { itemIconUrl } from '../../rendering/itemIcons';
 import type { BagThing } from '../../ui/field/BagOverlay';
 import { t } from '../../ui/i18n';
 import { itemStatText } from './menuEntries';
+
+export function levelProgressLine(table: readonly number[], level: number, xp: number): string {
+  const progress = xpToNextLevel(table, level, xp);
+  return progress.need > 0 ? t('battle.nextLevel', { n: progress.need }) : t('battle.maxLevel');
+}
 
 function equipmentThing(it: Item, key: string, count?: number): BagThing {
   return {

@@ -36,9 +36,12 @@ export function canChallengeIslandBoss(
  */
 export function completeIsland(prev: GameState, world: World, islandId: string, now = Date.now()): GameState {
   if (!canChallengeIslandBoss(world, islandId, prev.progress)) return prev;
-  const islandIndex = world.islands.findIndex((island) => island.id === islandId);
-  const nextIsland = world.islands[islandIndex + 1];
-  const nextArea = nextIsland?.status === 'playable' ? nextIsland.areas[0] : undefined;
+  const island = world.islands.find((candidate) => candidate.id === islandId);
+  if (!island) return prev;
+  const nextIsland = world.islands
+    .filter((candidate) => candidate.status === 'playable' && candidate.order > island.order)
+    .sort((a, b) => a.order - b.order)[0];
+  const nextArea = nextIsland?.areas[0];
   return {
     ...prev,
     updatedAt: now,

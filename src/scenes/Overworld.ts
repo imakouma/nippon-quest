@@ -33,7 +33,7 @@ import {
   toggleBagMonster,
   toggleBattleItem,
 } from '../core/progression/bag';
-import { heroLevel } from '../core/progression/battleResult';
+import { heroLevel, syncHeroLevel } from '../core/progression/battleResult';
 import { EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
 import {
   acceptMission,
@@ -44,12 +44,12 @@ import {
   dexProgress,
   giftKey,
   INN_PRICE,
-  innRest,
   knownRecipes,
   missionsFor,
   missionStatus,
   shopStock,
   buyItem,
+  sellItem,
   villagerGift,
 } from '../core/progression/town';
 import {
@@ -69,6 +69,7 @@ import {
   type NextStop,
 } from '../core/progression/route';
 import { canChallengeIslandBoss, completeIsland } from '../core/progression/island';
+import { specialtyTreasureGain } from '../core/progression/specialty';
 import { applyArenaVictory, markMapVisited } from '../core/progression/arena';
 import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
@@ -130,16 +131,19 @@ import {
   type TiledMapSource,
 } from './overworld/mapModels';
 import { buildRoadmapNodes } from './overworld/roadmap';
+import { runRoadmapPractice } from './overworld/roadmapPractice';
 import { buildMenuView, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
 import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
 import { presentTownMenu, type TownMenuAction, type TownMenuViewFactory } from './overworld/townMenuFlow';
 import { openBarberFlow } from './overworld/barberFlow';
-import { equippedBagThings, storedBagThings } from './overworld/bagItems';
+import { commitInnStay } from './overworld/innFlow';
+import { equippedBagThings, levelProgressLine, storedBagThings } from './overworld/bagItems';
 import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
 import { npcModel } from './overworld/npcModel';
 import { applyChestReward, chestModel, specialtyChestModel } from './overworld/chestModel';
+import { itemKindPresentation, specialtyRewardLines } from './overworld/treasurePresentation';
 import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
@@ -292,8 +296,8 @@ export class OverworldScene extends Phaser.Scene {
   private facing: Dir = 'down';
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
   private wasd?: Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
-  private rng: Rng = createRng(freshSeed());
-  private readonly speak = createSpeaker();
+  readonly rng: Rng = createRng(freshSeed());
+  readonly speak = createSpeaker();
   private readonly roots = new Map<RootName, HTMLDivElement>();
   // ↓ マップが変わるたびに resetMapState() で作り直す
   private moving = false;
@@ -1540,7 +1544,6 @@ export class OverworldScene extends Phaser.Scene {
         return t('field.rewardMonster');
     }
   }
-
   /** 名所の問題。出せる問題が無いときは 0 点あつかい（ごほうびは必ずもらえる：GDD §7） */
   private async quiz(ev: AreaEvent, motif: Motif | undefined): Promise<number> {
     const content = this.content();
@@ -1568,6 +1571,7 @@ export class OverworldScene extends Phaser.Scene {
       rng: this.rng,
       speak: this.speak,
       reason: 'event',
+      getGame: () => this.gs() ?? gs,
     });
     let score: number | null = null;
     try {
@@ -1581,7 +1585,6 @@ export class OverworldScene extends Phaser.Scene {
     }
     return score;
   }
-
   /** image を わたすと その絵（特産品は どうぐの アイコン）。無ければ 名所の絵 assets/motifs/<県>/<id>.png */
   private cutin(
     areaId: string,
@@ -1995,6 +1998,18 @@ export class OverworldScene extends Phaser.Scene {
       },
       (key) => {
         const gs = this.gs();
+        if (key.startsWith('sell:')) {
+          const itemId = key.slice('sell:'.length);
+          const item = c.items.get(itemId);
+          const next = gs && item && sellItem(gs, item);
+          if (!next) {
+            playSfx('miss');
+            return t('field.townCantSell');
+          }
+          this.setGame(next);
+          playSfx('select');
+          return t('field.townSold', { item: item.name });
+        }
         const e = stock.find((s) => s.itemId === key);
         const next = gs && e && buyItem(gs, e);
         if (!next) {
@@ -2122,18 +2137,16 @@ export class OverworldScene extends Phaser.Scene {
       return;
     }
     const reviewed = choice === 1 ? await this.reviewMistakes(speaker) : 0;
-    const current = this.gs();
-    if (!current) return;
-    const hero = partyFromGameState(current, c).hero;
     const [x, y] = this.playerTile();
-    const { state, paid } = innRest(
-      current,
-      { hp: hero.stats.hp, mp: hero.stats.mp },
-      { map: this.mapKey, x: x * TILE + 8, y: y * TILE + 8 },
-    );
-    if (reviewed > 0) state.player.gold += reviewed * 5;
-    if (!paid) await this.talk([{ speaker, text: t('field.townInnFree') }]);
-    this.setGame(state);
+    const stayed = await commitInnStay({
+      getGame: () => this.gs(),
+      setGame: (state) => this.setGame(state),
+      max: (game) => partyFromGameState(game, c).hero.stats,
+      inn: { map: this.mapKey, x: x * TILE + 8, y: y * TILE + 8 },
+      reviewed,
+      onFree: () => this.talk([{ speaker, text: t('field.townInnFree') }]),
+    });
+    if (!stayed) return;
     const cam = this.cameras.main;
     cam.fade(400, 0, 0, 0);
     await this.wait(900);
@@ -2147,7 +2160,6 @@ export class OverworldScene extends Phaser.Scene {
       { speaker, text: t('field.townInnSaved') },
     ]);
   }
-
   /** まちがいを優先し、空きがあれば復習期限を迎えた問題を合わせて最大3問。 */
   private async reviewMistakes(speaker: string): Promise<number> {
     const content = this.content();
@@ -2182,9 +2194,11 @@ export class OverworldScene extends Phaser.Scene {
             rng: this.rng,
             speak: this.speak,
             reason: 'review',
+            getGame: () => this.gs() ?? gs!,
           }),
           id,
         );
+        gs = this.gs() ?? gs;
         if (result.score >= 1) {
           gs = clearReviewedMistake(gs, id);
           this.setGame(gs);
@@ -2329,22 +2343,12 @@ export class OverworldScene extends Phaser.Scene {
 
   /** 宝箱から出たものの カットイン（特産品と同じ見た目）。絵は その どうぐの アイコン（itemIcons）、無ければ宝箱のアイコン */
   private itemCutin(item: Item | undefined, name: string, title = t('field.treasureFound')): Promise<void> {
-    const kind = item?.kind;
-    const kindLabel = !kind
-      ? t('field.itemKindTool')
-      : kind === 'consumable'
-        ? t('field.itemKindTool')
-        : kind === 'material'
-          ? t('field.itemKindMaterial')
-          : kind === 'key'
-            ? t('field.itemKindKey')
-            : t('field.itemKindEquip', { slot: t(`slots.${kind}`) });
+    const presentation = itemKindPresentation(item?.kind, t);
     return this.show('fx', (done) =>
       h(LandmarkCutin, {
         title,
         name,
-        kind: kind ?? 'consumable',
-        kindLabel,
+        ...presentation,
         image: item ? itemIconUrl(item) : undefined,
         icon: 'chest',
         onDone: done,
@@ -2380,18 +2384,24 @@ export class OverworldScene extends Phaser.Scene {
       this.busy = false;
       return;
     }
+    const content = this.content();
+    const gain = content ? specialtyTreasureGain(current, chest.itemId, content.areas, content.items) : null;
     const next = applyChestReward(current, chest, item);
     this.setGame(next);
     playSfx('select');
     chest.sprite.setTexture('fld.chest.open');
     this.renderHud();
     // 説明を先に出してから、アイテムを わたす
-    const lines: DialogueLine[] = [
+    const lines = specialtyRewardLines({
       guide,
-      { speaker: box, text: t('field.chestOpen', { item: chest.itemName, n: chest.count }) },
-    ];
-    if (item?.use?.heal) lines.push({ text: t('field.specialtyUse', { n: item.use.heal }) });
-    lines.push({ text: t('field.specialtyStamp', this.stampCount()) });
+      box,
+      itemName: chest.itemName,
+      count: chest.count,
+      heal: item?.use?.heal,
+      stampCount: this.stampCount(),
+      gain,
+      translate: t,
+    });
     await this.talk(lines);
     await this.checkMeisan();
     this.busy = false;
@@ -2499,7 +2509,7 @@ export class OverworldScene extends Phaser.Scene {
 
   // ───────────────────────── 画面（DOM） ─────────────────────────
 
-  private root(name: RootName): HTMLDivElement {
+  root(name: RootName): HTMLDivElement {
     let el = this.roots.get(name);
     if (!el) {
       el = document.createElement('div');
@@ -2524,7 +2534,7 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  private talk(lines: DialogueLine[]): Promise<void> {
+  talk(lines: DialogueLine[]): Promise<void> {
     return this.choose(lines).then(() => undefined);
   }
 
@@ -2573,7 +2583,7 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  private renderHud(): void {
+  renderHud(): void {
     const root = this.root('hud');
     if (this.inBattle) {
       render(null, root);
@@ -2651,7 +2661,7 @@ export class OverworldScene extends Phaser.Scene {
     this.standStill();
     if (playOpenSfx) playSfx('select');
     const root = this.root('travel');
-    const draw = (tab: MenuTab, focusKey?: string, message: string | null = null) => {
+    const draw = (tab: MenuTab, focusKey?: string, message: string | null = null, initialHome = true) => {
       const view = this.menuView(tab);
       render(
         h(MenuOverlay, {
@@ -2663,6 +2673,7 @@ export class OverworldScene extends Phaser.Scene {
           empty: view.empty,
           message,
           focusKey,
+          initialHome,
           keys: t('field.menuKeys'),
           onTab: (next: MenuTab) => draw(next),
           onBag: () => {
@@ -2671,6 +2682,10 @@ export class OverworldScene extends Phaser.Scene {
             this.openBag(undefined, null, undefined, true);
           },
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
+          onRoadmapSelect: (unitId: string) => (
+            render(null, root),
+            void runRoadmapPractice(this, unitId).finally(() => draw('roadmap', undefined, null, false))
+          ),
           onSave: () => {
             const game = this.gs();
             if (game) this.setGame({ ...game, updatedAt: Date.now() });
@@ -2980,6 +2995,7 @@ export class OverworldScene extends Phaser.Scene {
       stats: heroC.stats,
       skills: skills(heroC.skills),
       lines: [
+        levelProgressLine(c.xp.hero, level, gs.player.xp),
         ...gs.progress.titles.map((title) => t('field.bagOwnedTitle', { title })),
         ...adjacencyBonus(gs, ctx, gs.player.baseStats).labels,
       ],
@@ -3010,6 +3026,7 @@ export class OverworldScene extends Phaser.Scene {
           element: def.element,
           stats: m.stats,
           skills: skills(m.skills),
+          lines: [levelProgressLine(c.xp.monster, o.level, o.xp)],
           blurb: def.dexBlurb,
           evolve: evo
             ? {
@@ -3375,16 +3392,17 @@ export class OverworldScene extends Phaser.Scene {
 
   // ───────────────────────── 小道具 ─────────────────────────
 
-  private content(): ContentIndex | undefined {
+  content(): ContentIndex | undefined {
     return this.registry.get('content') as ContentIndex | undefined;
   }
 
-  private gs(): GameState | undefined {
+  gs(): GameState | undefined {
     return this.registry.get('game') as GameState | undefined;
   }
 
   private setGame(gs: GameState): void {
-    this.registry.set('game', gs);
+    const xp = this.content()?.xp.hero;
+    this.registry.set('game', xp ? syncHeroLevel(gs, xp) : gs);
     // 見た目・めいさんひんの そうびが かわったら 主人公の 絵も
     this.refreshHeroLook();
   }
@@ -3405,6 +3423,7 @@ export class OverworldScene extends Phaser.Scene {
     // 位置だけの更新で歩行スプライトを再生成しない。setGame は見た目・装備変更時に使う。
     this.registry.set('game', {
       ...gs,
+      updatedAt: Date.now(),
       progress: {
         ...gs.progress,
         currentMap: this.mapKey,

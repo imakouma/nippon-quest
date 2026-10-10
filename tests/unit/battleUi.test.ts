@@ -15,6 +15,7 @@ import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion'
 import { encounterLevel, partyFromGameState, pickEncounter, zoneForMap } from '../../src/core/battle/setup';
 import {
   applyBattleResult,
+  syncHeroLevel,
   xpToNextLevel,
   type BattleSummary,
 } from '../../src/core/progression/battleResult';
@@ -31,6 +32,16 @@ beforeAll(() => setDictionary(ja));
 const newGame = () => chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 1 }, 0), 'iwate-kagurabi');
 
 describe('GameState → Party', () => {
+  it('戦闘外で経験値を得た状態も保存用レベルへ同期できる', async () => {
+    const c = await content();
+    const gs = newGame();
+    gs.player.xp = c.xp.hero[2]!;
+
+    const synced = syncHeroLevel(gs, c.xp.hero);
+    expect(synced.player.level).toBe(3);
+    expect(gs.player.level).toBe(1);
+  });
+
   it('主人公と相棒が入り、今の HP/MP から始まる', async () => {
     const c = await content();
     const gs = newGame();
@@ -136,6 +147,23 @@ describe('バトル結果の反映（GDD §4.5〜4.6）', () => {
     const gs = newGame();
     applyBattleResult(gs, summary(), { defeatGoldLossRate: 0.1 });
     expect(gs.player.xp).toBe(0);
+  });
+
+  it('勝利報酬とカウンターが安全整数を超えてセーブ不能にならない', () => {
+    const gs = newGame();
+    gs.player.xp = Number.MAX_SAFE_INTEGER;
+    gs.player.gold = Number.MAX_SAFE_INTEGER;
+    gs.inventory['aomori-ringo'] = Number.MAX_SAFE_INTEGER;
+    gs.progress.counters['defeat:aomori-ringoron'] = Number.MAX_SAFE_INTEGER;
+    gs.progress.counters['perfect:sansu'] = Number.MAX_SAFE_INTEGER;
+
+    const { state } = applyBattleResult(gs, summary(), { defeatGoldLossRate: 0.1 });
+
+    expect(state.player.xp).toBe(Number.MAX_SAFE_INTEGER);
+    expect(state.player.gold).toBe(Number.MAX_SAFE_INTEGER);
+    expect(state.inventory['aomori-ringo']).toBe(Number.MAX_SAFE_INTEGER);
+    expect(state.progress.counters['defeat:aomori-ringoron']).toBe(Number.MAX_SAFE_INTEGER);
+    expect(state.progress.counters['perfect:sansu']).toBe(Number.MAX_SAFE_INTEGER);
   });
 
   it('敗北：ゴールド 10% を失い、HP/MP 全快。仲間は失わない', () => {

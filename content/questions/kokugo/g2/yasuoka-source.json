@@ -1,0 +1,771 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "source.kokugo.g2.jpn-2-1.ff21add4f410",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の かん字の ただしい よみかたは どれですか。◆（朝）はやく おきる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あさ"
+        },
+        {
+          "id": "b",
+          "text": "ひる"
+        },
+        {
+          "id": "c",
+          "text": "よる"
+        },
+        {
+          "id": "d",
+          "text": "ゆう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「朝」は「あさ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-1.24f9ef2effb7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の かん字の ただしい よみかたは どれですか。◆（春）に なると さくらが さく。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "はる"
+        },
+        {
+          "id": "b",
+          "text": "なつ"
+        },
+        {
+          "id": "c",
+          "text": "あき"
+        },
+        {
+          "id": "d",
+          "text": "ふゆ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「春」は「はる」と読みます。季節を表す漢字です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-1.a6f7f56e7280",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の かん字の ただしい よみかたは どれですか。◆みんなで げんきに（歌）を うたう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こえ"
+        },
+        {
+          "id": "b",
+          "text": "おと"
+        },
+        {
+          "id": "c",
+          "text": "うた"
+        },
+        {
+          "id": "d",
+          "text": "おはなし"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「歌」は「うた」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-1.dcc165b92f10",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の かん字の ただしい よみかたは どれですか。◆えほんで むかしの（話）を よむ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こえ"
+        },
+        {
+          "id": "b",
+          "text": "はなし"
+        },
+        {
+          "id": "c",
+          "text": "おと"
+        },
+        {
+          "id": "d",
+          "text": "うた"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「話」は「はなし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-1.f75b419750ef",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の かん字の ただしい よみかたは どれですか。◆おなじ（形）の つみきを さがす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いろ"
+        },
+        {
+          "id": "b",
+          "text": "かたち"
+        },
+        {
+          "id": "c",
+          "text": "おおきさ"
+        },
+        {
+          "id": "d",
+          "text": "ながさ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「形」は「かたち」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-1.d29f9b14ec36",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の かん字の ただしい よみかたは どれですか。◆（兄弟）で なかよく あそぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きょうたい"
+        },
+        {
+          "id": "b",
+          "text": "きょうだい"
+        },
+        {
+          "id": "c",
+          "text": "けいだい"
+        },
+        {
+          "id": "d",
+          "text": "あにおとうと"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「兄弟」は「きょうだい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-1.490912cb4f7b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の かん字の ただしい よみかたは どれですか。◆たかくて （広）い そら。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なが"
+        },
+        {
+          "id": "b",
+          "text": "ひろ"
+        },
+        {
+          "id": "c",
+          "text": "たか"
+        },
+        {
+          "id": "d",
+          "text": "おお"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「広（い）」は「ひろ（い）」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-2.5b59d7a34044",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい かん字は どれですか。◆（よる）に なると ほしが みえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "昼"
+        },
+        {
+          "id": "b",
+          "text": "夜"
+        },
+        {
+          "id": "c",
+          "text": "朝"
+        },
+        {
+          "id": "d",
+          "text": "夕"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「よる」は「夜」と書きます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-2.81a52b5ac8e1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい かん字は どれですか。◆（あたらしい） ノートを かう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "新しい"
+        },
+        {
+          "id": "b",
+          "text": "古い"
+        },
+        {
+          "id": "c",
+          "text": "親しい"
+        },
+        {
+          "id": "d",
+          "text": "楽しい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「あたらしい」は「新しい」と書きます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-2.6c9063c9b2d6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい かん字は どれですか。◆えに むぎわらぼうしの（いろ）を ぬる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "形"
+        },
+        {
+          "id": "b",
+          "text": "光"
+        },
+        {
+          "id": "c",
+          "text": "色"
+        },
+        {
+          "id": "d",
+          "text": "星"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「いろ」は「色」と書きます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-2.663fe135d3cc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい かん字は どれですか。◆（こころ）を こめて おれいを いう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "思い"
+        },
+        {
+          "id": "b",
+          "text": "心"
+        },
+        {
+          "id": "c",
+          "text": "体"
+        },
+        {
+          "id": "d",
+          "text": "首"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「こころ」は「心」と書きます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-2.82aeb53e9e94",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい かん字は どれですか。◆はさみで（かみ）を きる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "糸"
+        },
+        {
+          "id": "b",
+          "text": "線"
+        },
+        {
+          "id": "c",
+          "text": "絵"
+        },
+        {
+          "id": "d",
+          "text": "紙"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「かみ」は「紙」と書きます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-2.e0ddaf81c847",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい かん字は どれですか。◆まいにち がっこうへ（いく）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "来る"
+        },
+        {
+          "id": "b",
+          "text": "歩く"
+        },
+        {
+          "id": "c",
+          "text": "行く"
+        },
+        {
+          "id": "d",
+          "text": "走る"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「いく」は「行く」と書きます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-2.97fb18e47931",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい かん字は どれですか。◆おおきな（こえ）で へんじを する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "歌"
+        },
+        {
+          "id": "b",
+          "text": "音"
+        },
+        {
+          "id": "c",
+          "text": "話"
+        },
+        {
+          "id": "d",
+          "text": "声"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「こえ」は「声」と書きます。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-3.2a3feb25b261",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "「つくえ、いす、本だな」と おなじ なかまの ことばは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "テレビ"
+        },
+        {
+          "id": "b",
+          "text": "ベッド"
+        },
+        {
+          "id": "c",
+          "text": "えんぴつ"
+        },
+        {
+          "id": "d",
+          "text": "りんご"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "どれも家具（へやに置いて使うもの）の仲間です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-3.ae348ca7c414",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "「はしる、あるく、とぶ」と おなじ なかまの ことばは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あかい"
+        },
+        {
+          "id": "b",
+          "text": "おおきい"
+        },
+        {
+          "id": "c",
+          "text": "およぐ"
+        },
+        {
+          "id": "d",
+          "text": "かわいい"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "体を動かす「うごき（動詞）」の仲間です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-3.bcb219cc198a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "「あたらしい」と はんたいの いみを もつ ことばは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おおきい"
+        },
+        {
+          "id": "b",
+          "text": "ふるい"
+        },
+        {
+          "id": "c",
+          "text": "わかい"
+        },
+        {
+          "id": "d",
+          "text": "たかい"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「あたらしい」の反対は「ふるい」です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-3.728079410870",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "「おおい」と はんたいの いみを もつ ことばは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "すくない"
+        },
+        {
+          "id": "b",
+          "text": "ちいさい"
+        },
+        {
+          "id": "c",
+          "text": "ほそい"
+        },
+        {
+          "id": "d",
+          "text": "みじかい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「おおい」の反対は「すくない」です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-4.35257c1db5b8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "つぎの ぶんの 「だれが（なにが）」にあたる ことばは どれですか。◆きれいな さくらが さく。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きれいな"
+        },
+        {
+          "id": "b",
+          "text": "さくらが"
+        },
+        {
+          "id": "c",
+          "text": "さく"
+        },
+        {
+          "id": "d",
+          "text": "きれいなさくらがさく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "文の主役になる言葉（主語）は「さくらが」です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-4.82ec95edd3ec",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "つぎの ぶんの 「どうする」にあたる ことばは どれですか。◆いもうとが うたを うたう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いもうとが"
+        },
+        {
+          "id": "b",
+          "text": "うたを"
+        },
+        {
+          "id": "c",
+          "text": "うたう"
+        },
+        {
+          "id": "d",
+          "text": "いもうとがうたを"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "動きを表す言葉（述語）は「うたう」です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-4.e1a3f347a9bf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい ことばは どれですか。◆きのう（ ） あめが ふった。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "に"
+        },
+        {
+          "id": "c",
+          "text": "は"
+        },
+        {
+          "id": "d",
+          "text": "へ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「きのうは」と書くとき、発音は「わ」ですが文字は「は」を使います。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-4.7e6cdc9d0163",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい ことばは どれですか。◆ともだち（ ） いっしょに あそぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "と"
+        },
+        {
+          "id": "c",
+          "text": "は"
+        },
+        {
+          "id": "d",
+          "text": "へ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "相手と一緒に何かをするときは「と」を使います。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-5.21cf840ff956",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "つぎの ことばを ただしい じゅんばんに ならべた ものは どれですか。［ わたしは / よみました / 本を ］",
+      "choices": [
+        {
+          "id": "a",
+          "text": "わたしは よみました 本を。"
+        },
+        {
+          "id": "b",
+          "text": "本を よみました わたしは。"
+        },
+        {
+          "id": "c",
+          "text": "わたしは 本を よみました。"
+        },
+        {
+          "id": "d",
+          "text": "よみました わたしは 本を。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "日本語は「だれが（わたしは）」「なにを（本を）」「どうする（よみました）」の順番に並べるのが基本です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-5.10eac5fd83ed",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "じかんの じゅんばんに ただしく ならんでいる ものは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あさおきて、よるねて、ひるごはんをたべる。"
+        },
+        {
+          "id": "b",
+          "text": "あさおきて、ひるごはんをたべて、よるねる。"
+        },
+        {
+          "id": "c",
+          "text": "ひるごはんをたべて、あさおきて、よるねる。"
+        },
+        {
+          "id": "d",
+          "text": "よるねて、あさおきて、ひるごはんをたべる。"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "朝、昼、夜という時間の順序（事柄の順序）に合わせて文をつなぎます。"
+  }
+]

@@ -7,7 +7,7 @@
     "grade": 1,
     "unit": "kokugo.g1.bun-no-kimari",
     "payload": {
-      "prompt": "文の終わりに必ずつける記号は何ですか？",
+      "prompt": "ふつうの文[ぶん]の終[お]わりにつける記号[きごう]はどれ？",
       "choices": [
         {
           "id": "a",
@@ -29,7 +29,7 @@
       "answer": "b",
       "shuffle": true
     },
-    "explanation": "文の終わりには「句点（くてん・まる）」をつけます。"
+    "explanation": "ふつうの文[ぶん]の終[お]わりには「句点[くてん]（。）」をつけます。"
   },
   {
     "id": "kokugo.g1.bun-no-kimari.0002",
@@ -73,7 +73,7 @@
       "choices": [
         {
           "id": "a",
-          "text": "しゃべった言葉（会話）や、特別な言葉を表すとき"
+          "text": "人[ひと]が話[はな]した言葉[ことば]を文[ぶん]に書[か]くとき"
         },
         {
           "id": "b",
@@ -91,7 +91,7 @@
       "answer": "a",
       "shuffle": true
     },
-    "explanation": "かぎかっこは会話文や強調したい言葉を囲むときに使います。"
+    "explanation": "かぎかっこは、人[ひと]が話[はな]した言葉[ことば]などを囲[かこ]むときに使[つか]います。"
   },
   {
     "id": "kokugo.g1.bun-no-kimari.0004",
@@ -153,7 +153,7 @@
       "answer": "b",
       "shuffle": true
     },
-    "explanation": "日本語では修飾語（おもしろい）が被修飾語（本）の前にきます。"
+    "explanation": "「どんな本[ほん]」かを表[あらわ]す「おもしろい」は、「本[ほん]」の前[まえ]に書[か]きます。"
   },
   {
     "id": "kokugo.g1.bun-no-kimari.0006",
@@ -309,5 +309,24 @@
       "shuffle": true
     },
     "explanation": "文章や段落の書き出しは、はじめの一マスをあけて書きます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0011",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「あさごはんをたべる」を、ことばの まとまりで わけたものは どれ？",
+      "choices": [
+        { "id": "a", "text": "あさごはんを たべる" },
+        { "id": "b", "text": "あさ ごはんをた べる" },
+        { "id": "c", "text": "あさご はんを たべる" },
+        { "id": "d", "text": "あさごはんをたべる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「あさごはんを」と「たべる」の まとまりに わけると、読[よ]みやすく なります。"
   }
 ]

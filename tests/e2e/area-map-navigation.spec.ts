@@ -8,11 +8,11 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'ちず');
 
-  const miniMap = page.getByRole('button', { name: 'ちずを ひらく（M）' });
+  const miniMap = page.getByRole('button', { name: 'ちずを ひらく', exact: true });
   await expect(miniMap).toBeVisible({ timeout: 40_000 });
   await expect(miniMap).toHaveAttribute('aria-keyshortcuts', 'M');
   await expect(page.getByRole('button', { name: 'メニュー' })).toHaveAttribute('aria-keyshortcuts', 'I');
-  await expect(miniMap.locator('.nq-mini-open')).toContainText('ちずを ひらく（M）');
+  await expect(miniMap.locator('.nq-mini-open')).toHaveText('ちずを ひらく');
   await expect(page.getByRole('button', { name: 'かいはつしゃ' })).toBeVisible();
   const skip = page.getByRole('button', { name: 'スキップ', exact: true });
   if (await skip.isVisible()) await skip.click();
@@ -53,11 +53,11 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await expect(mapView).toBeVisible();
   await expect(areaMapDialog).toBeVisible();
   await expect(areaMapDialog.getByText(/まだ ワープできる ばしょが ない/)).toBeVisible();
-  await expect(areaMapDialog.getByRole('button', { name: 'ワープ先を さがそう' })).toBeDisabled();
-  await expect(areaMapDialog.getByRole('button', { name: 'ワープ先を さがそう' })).toHaveAttribute(
-    'aria-describedby',
-    'nq-amap-warp-unavailable',
-  );
+  await expect(areaMapDialog.getByRole('button', { name: 'ワープ先を さがそう' })).toHaveCount(0);
+  const unavailableWarp = areaMapDialog.locator('.nq-wmap-next');
+  await expect(unavailableWarp).toContainText('ワープ先');
+  await expect(unavailableWarp.locator('ruby')).toHaveCount(1);
+  await expect(unavailableWarp).not.toContainText('[');
   await expect(areaMapDialog.getByRole('button', { name: 'にほんちず' })).toBeFocused();
   await expect(page.getByText('100%', { exact: true })).toBeVisible();
 
@@ -153,7 +153,7 @@ test('鳥取県の大きな地図で現在県だけを詳しく、周辺県を�
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
   await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
 
-  const miniMap = page.getByRole('button', { name: 'ちずを ひらく（M）' });
+  const miniMap = page.getByRole('button', { name: 'ちずを ひらく', exact: true });
   await expect(miniMap).toBeVisible({ timeout: 40_000 });
   await miniMap.click();
   await expect(page.locator('.nq-amap-view')).toBeVisible();

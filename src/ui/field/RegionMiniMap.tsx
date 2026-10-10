@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
+import { displayText } from '../ruby';
 import type { RegionGrid } from './worldMapModel';
 import { areaMapTerrainColor } from './areaMapTerrain';
 import { drawRegionContext } from './regionContext';
@@ -82,9 +83,9 @@ export function RegionMiniMap({
       ref={box}
       type="button"
       class="nq-mini"
-      aria-label={label}
+      aria-label={displayText(label)}
       aria-keyshortcuts="M"
-      title={label}
+      title={displayText(label)}
       onClick={onOpen}
     >
       <div

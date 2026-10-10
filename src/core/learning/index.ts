@@ -1,4 +1,7 @@
 export * from './model';
+export * from './placement';
+export * from './validation';
+export * from './coverage';
 export * from './graph';
 export * from './state';
 export * from './diagnosis';

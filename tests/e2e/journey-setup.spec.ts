@@ -26,7 +26,7 @@ test('旅の準備は見た目が重ならず、名前は物語の中で決め�
   await expect(prelude).toBeVisible({ timeout: 30_000 });
   await expect(prelude).toContainText(/かぜ|風/);
   await prelude.getByRole('button', { name: 'スキップ' }).click();
-  const namePrompt = page.getByRole('dialog', { name: /ものがたり.*名前/ });
+  const namePrompt = page.getByRole('dialog', { name: /ものがたり.*(?:名前|なまえ)/ });
   await expect(namePrompt).toHaveAttribute('aria-modal', 'true');
   await expect(namePrompt.getByRole('textbox', { name: 'なまえ' })).toBeFocused();
   await expect(namePrompt).toBeVisible({ timeout: 30_000 });

@@ -9,10 +9,11 @@ import type { MenuEntry, MenuHomeKey, MenuTab, RoadmapNode } from '../../shared/
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
-import { displayText, stripRuby } from '../ruby';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
 import { MenuCategoryIcon } from './MenuCategoryIcon';
+import { RoadmapView } from './RoadmapView';
 import './field.css';
 import './menu.css';
 
@@ -29,10 +30,12 @@ export interface MenuOverlayProps {
   empty: string;
   message: string | null;
   focusKey?: string;
+  initialHome?: boolean;
   keys: string;
   onTab: (tab: MenuTab) => void;
   onBag: () => void;
   onAct: (key: string) => void;
+  onRoadmapSelect: (unitId: string) => void;
   onSave: () => void;
   onParent: () => void;
   onClose: () => void;
@@ -88,10 +91,12 @@ export function MenuOverlay({
   empty,
   message,
   focusKey,
+  initialHome = true,
   keys,
   onTab,
   onBag,
   onAct,
+  onRoadmapSelect,
   onSave,
   onParent,
   onClose,
@@ -102,7 +107,7 @@ export function MenuOverlay({
       entries.findIndex((e) => e.key === focusKey),
     );
   const [sel, setSel] = useState(find);
-  const [home, setHome] = useState(true);
+  const [home, setHome] = useState(initialHome);
   const [saved, setSaved] = useState(false);
   const [dexGroup, setDexGroup] = useState<string | null>(null);
   const [homeSel, setHomeSel] = useState(() =>
@@ -370,6 +375,7 @@ export function MenuOverlay({
                   type="button"
                   class={`nq-menu-card nq-menu-card-${x.key} ${index === homeSel ? 'nq-focus' : ''}`}
                   onPointerEnter={() => setHomeSel(index)}
+                  onFocus={() => setHomeSel(index)}
                   onClick={() => openTab(index)}
                 >
                   <span class="nq-menu-card-icon">
@@ -398,7 +404,7 @@ export function MenuOverlay({
             </div>
           </>
         ) : tab === 'roadmap' ? (
-          <RoadmapView nodes={roadmap} />
+          <RoadmapView nodes={roadmap} onSelect={onRoadmapSelect} />
         ) : (
           <>
             {(tab === 'monsters' || tab === 'specialties') && (
@@ -422,7 +428,7 @@ export function MenuOverlay({
               </div>
             )}
             {isDex && groups.length > 0 && (
-              <div class="nq-dex-regions" role="group" aria-label={stripRuby(t('field.dexRegions'))}>
+              <div class="nq-dex-regions" role="group" aria-label={displayText(t('field.dexRegions'))}>
                 {groups.map(([id, label]) => (
                   <button
                     key={id}
@@ -515,118 +521,5 @@ function BagFootprint({ size }: { size: { w: number; h: number } }) {
         ))}
       </span>
     </span>
-  );
-}
-
-function RoadmapView({ nodes }: { nodes: RoadmapNode[] }) {
-  const subjects = [...new Map(nodes.map((node) => [node.subject, node.subjectLabel])).entries()];
-  const [subject, setSubject] = useState('all');
-  const shown = subject === 'all' ? nodes : nodes.filter((node) => node.subject === subject);
-  const completed = shown.filter((node) => node.state === 'cleared').length;
-  return (
-    <section class={`nq-roadmap nq-roadmap-subject-${subject}`} aria-label="がくしゅうロードマップ">
-      <div class="nq-roadmap-subjects" role="group" aria-label={t('field.roadmapSubjectFilter')}>
-        <button
-          type="button"
-          class={`nq-opt nq-roadmap-subject ${subject === 'all' ? 'nq-focus' : ''}`}
-          aria-pressed={subject === 'all'}
-          onClick={() => (playSfx('move'), setSubject('all'))}
-        >
-          <RubyLabel text={t('field.roadmapAllSubjects')} />
-        </button>
-        {subjects.map(([key, label]) => (
-          <button
-            key={key}
-            type="button"
-            class={`nq-opt nq-roadmap-subject ${key === subject ? 'nq-focus' : ''}`}
-            aria-pressed={key === subject}
-            onClick={() => (playSfx('move'), setSubject(key))}
-          >
-            <RubyLabel text={label} />
-          </button>
-        ))}
-        <span class="nq-roadmap-score" role="status" aria-live="polite">
-          ★ {completed}/{shown.length}
-        </span>
-      </div>
-      {subject === 'all' ? (
-        <div class="nq-roadmap-overview" role="group" aria-label={t('field.roadmapAllOverview')}>
-          {subjects.map(([key, label]) => {
-            const subjectNodes = nodes.filter((node) => node.subject === key);
-            const subjectCompleted = subjectNodes.filter((node) => node.state === 'cleared').length;
-            const next =
-              subjectNodes.find((node) => node.state === 'current') ??
-              subjectNodes.find((node) => node.state !== 'cleared');
-            const progress = subjectNodes.length
-              ? Math.round((subjectCompleted / subjectNodes.length) * 100)
-              : 0;
-            return (
-              <button
-                key={key}
-                type="button"
-                class={`nq-roadmap-summary nq-roadmap-summary-${key}`}
-                aria-label={`${label} ${subjectCompleted}/${subjectNodes.length}`}
-                onClick={() => (playSfx('move'), setSubject(key))}
-              >
-                <span class="nq-roadmap-summary-head">
-                  <RubyLabel text={label} />
-                  <span>
-                    ★ {subjectCompleted}/{subjectNodes.length}
-                  </span>
-                </span>
-                <span class="nq-roadmap-summary-meter" aria-hidden>
-                  <span style={{ width: `${progress}%` }} />
-                </span>
-                <RubyLabel
-                  class="nq-roadmap-summary-current"
-                  text={next ? t('field.roadmapNext', { name: next.name }) : t('field.roadmapCompleted')}
-                />
-              </button>
-            );
-          })}
-        </div>
-      ) : (
-        <div class="nq-roadmap-map">
-          <div class="nq-roadmap-path">
-            {shown.map((node, index) => {
-              const columns = 6;
-              const row = Math.floor(index / columns);
-              const offset = index % columns;
-              const column = row % 2 === 0 ? offset + 1 : columns - offset;
-              const turnsToNextRow = offset === columns - 1 && index < shown.length - 1;
-              const roadFromPrevious =
-                offset === 0 ? '' : row % 2 === 0 ? ' nq-roadmap-from-left' : ' nq-roadmap-from-right';
-              return (
-                <div
-                  key={node.id}
-                  class={`nq-roadmap-node nq-roadmap-${node.state}${roadFromPrevious}${turnsToNextRow ? ' nq-roadmap-turn' : ''}`}
-                  style={{ gridColumn: column, gridRow: row + 1 }}
-                  role="meter"
-                  aria-label={displayText(node.name)}
-                  aria-valuemin={0}
-                  aria-valuenow={Math.round(node.mastery * 100)}
-                  aria-valuemax={100}
-                  aria-valuetext={`${Math.round(node.mastery * 100)}%`}
-                  title={`${node.name} ${Math.round(node.mastery * 100)}%`}
-                >
-                  <span class="nq-roadmap-step">
-                    {node.state === 'cleared' ? '★' : node.state === 'locked' ? '🔒' : index + 1}
-                  </span>
-                  <RubyLabel text={node.name} class="nq-roadmap-node-name" />
-                  <span class="nq-roadmap-meter">
-                    <span style={{ width: `${Math.round(node.mastery * 100)}%` }} />
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-          {!shown.length && <RubyLabel text="この きょうかは じゅんびちゅう" />}
-        </div>
-      )}
-      <RubyLabel
-        class="nq-wmap-keys nq-roadmap-help"
-        text="★ クリア　● いまの もくひょう　うすいマスは これから"
-      />
-    </section>
   );
 }

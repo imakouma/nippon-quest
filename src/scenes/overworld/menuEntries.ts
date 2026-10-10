@@ -2,6 +2,7 @@ import type { ContentIndex } from '../../core/content/loader';
 import type { Item, Monster, Motif } from '../../core/content/schemas';
 import { canUse, EQUIP_SLOTS, isEquip } from '../../core/progression/inventory';
 import { monsterSize } from '../../core/progression/bag';
+import { specialtyTreasureBonus } from '../../core/progression/specialty';
 import type { GameState } from '../../core/state/schema';
 import type { QuestionBank } from '../../questions/engine';
 import type { MenuEntry, MenuHomeKey, MenuTab } from '../../shared/menuModel';
@@ -266,8 +267,11 @@ export function buildMenuView(input: MenuViewInput): MenuView {
 
   if (tab === 'specialties') {
     const specialties = specialtyCatalog(content, game, input.revealAll);
+    const treasure = specialtyTreasureBonus(game, content.areas, content.items);
+    const percent = (rate: number) => Math.round(rate * 1000) / 10;
     const entries = specialties.map(({ area, motif, itemId, item, known }, index): MenuEntry => {
       const region = dexRegionOf(area.id);
+      const areaTreasure = treasure.byArea.get(area.id)!;
       return {
         key: itemId,
         name: known ? motif.name : unknown,
@@ -281,6 +285,11 @@ export function buildMenuView(input: MenuViewInput): MenuView {
         lines: known
           ? [
               t('field.dexFrom', { area: area.name }),
+              t('field.specialtyAreaBonus', {
+                n: areaTreasure.found,
+                total: areaTreasure.total,
+                p: percent(areaTreasure.rate),
+              }),
               ...(item?.use?.heal ? [t('field.bagHeal', { n: item.use.heal })] : []),
               t('field.townHave', { n: game.inventory[itemId] ?? 0 }),
             ]
@@ -289,7 +298,15 @@ export function buildMenuView(input: MenuViewInput): MenuView {
         action: null,
       };
     });
-    return { entries, empty: t('field.dexEmpty') };
+    return {
+      entries,
+      summary: t('field.specialtyBonusSummary', {
+        p: percent(treasure.rate),
+        n: treasure.found,
+        total: treasure.total,
+      }),
+      empty: t('field.dexEmpty'),
+    };
   }
 
   if (tab === 'bag') return bagMenu(content, game, stats, itemStatText, itemKindLabel);

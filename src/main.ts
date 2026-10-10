@@ -119,17 +119,17 @@ function clearError(): void {
   errorBox = null;
 }
 
-function showError(error: unknown, retry: () => void): void {
+function showError(messageText: string, retry: () => void): void {
   hideLoading();
   clearError();
   const box = document.createElement('section');
   box.className = 'nq-error';
   const message = document.createElement('p');
-  message.textContent = `よみこみに しっぱいしました。\n\n${error instanceof Error ? error.message : String(error)}\n\nつうしんを たしかめて、もういちど おしてね。`;
+  message.textContent = messageText;
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'nq-btn nq-error-retry';
-  button.textContent = 'もういちど';
+  button.textContent = t('ui.retry');
   button.addEventListener('click', () => {
     clearError();
     retry();
@@ -178,31 +178,48 @@ game.events.on('boot:done', () => {
   }
 });
 game.events.on('boot:error', (e: unknown) => {
-  showError(e, () => location.reload());
+  console.error('[boot] よみこみに失敗しました', e);
+  showError(t('ui.loadError'), () => location.reload());
 });
 let activeSlot: SlotId = 1;
 const autosave = new AutosaveCoordinator(save);
-let bankPromise: Promise<QuestionBank> | undefined;
-function ensureQuestionBank(): Promise<QuestionBank> {
-  if (game.registry.get('bank')) return Promise.resolve(game.registry.get('bank') as QuestionBank);
-  bankPromise ??= (async () => {
+function reportSaveFailure(
+  context: string,
+  error: unknown,
+  slot: SlotId,
+  state: Parameters<typeof save>[1],
+): void {
+  console.error(`[save] ${context}に失敗しました`, error);
+  showError(t('ui.saveError'), () => {
+    void autosave
+      .request(slot, state)
+      .catch((nextError) => reportSaveFailure(context, nextError, slot, state));
+  });
+}
+let bankPromise: { grade: NewGameOptions['grade']; promise: Promise<QuestionBank> } | undefined;
+function ensureQuestionBank(grade: NewGameOptions['grade']): Promise<QuestionBank> {
+  const loadedGrade = game.registry.get('bankGrade') as NewGameOptions['grade'] | undefined;
+  if (loadedGrade === grade && game.registry.get('bank'))
+    return Promise.resolve(game.registry.get('bank') as QuestionBank);
+  if (bankPromise?.grade === grade) return bankPromise.promise;
+  const promise = (async () => {
     const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-    // 問題は開発中も生成済み bundle から一括取得する。48 ファイルを同時に
-    // fetch すると、内蔵ブラウザなど接続数が限られる環境で最後の 1 件が
-    // 待ち続け、ゲーム開始画面から進めなくなることがある。
-    const read = bundledFetchReader(`${base}/content`, 'questions-bundle.json');
-    const files = game.registry.get('questionFiles') as string[];
+    const read = bundledFetchReader(`${base}/content`, `questions-g${grade}-bundle.json`);
+    const filesByGrade = game.registry.get('questionFilesByGrade') as Record<string, string[]>;
+    const files = filesByGrade[String(grade)] ?? [];
     const { bank, report } = await QuestionBank.load(files, read);
     if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
     if (report.omitted)
       console.warn(`[questions] 表示材料が足りない旧問題を ${report.omitted} 件 除外しました`);
     game.registry.set('bank', bank);
+    game.registry.set('bankGrade', grade);
     return bank;
-  })().catch((error) => {
-    bankPromise = undefined;
+  })();
+  bankPromise = { grade, promise };
+  return promise.catch((error) => {
+    if (bankPromise?.promise === promise) bankPromise = undefined;
     throw error;
   });
-  return bankPromise;
 }
 
 let titleAction: Promise<void> | null = null;
@@ -214,7 +231,10 @@ function runTitleAction(label: string, action: () => Promise<void>, retry: () =>
   titleAction = action()
     .then(clearStaleChunkReloadChance)
     .catch((error) => {
-      if (!reloadStaleChunkOnce(error, retry)) showError(error, retry);
+      if (!reloadStaleChunkOnce(error, retry)) {
+        console.error(`[startup] ${label}で失敗しました`, error);
+        showError(t('ui.loadError'), retry);
+      }
     })
     .finally(() => {
       titleAction = null;
@@ -227,14 +247,14 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
   runTitleAction(
     'もんだいを よみこんでいるよ…',
     async () => {
-      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank()]);
+      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank(selectedOptions.grade)]);
       activeSlot = slot;
       const next = createNewGame(selectedOptions);
       setSfxVolume(next.settings.seVolume);
       game.registry.set('game', next);
       void autosave
         .request(activeSlot, next)
-        .catch((error) => console.error('[save] はじめのセーブに失敗しました', error));
+        .catch((error) => reportSaveFailure('はじめのセーブ', error, activeSlot, next));
       hideLoading();
       game.scene.stop('Title');
       game.scene.start('Overworld', {
@@ -252,11 +272,12 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
   runTitleAction(
     'セーブと もんだいを よみこんでいるよ…',
     async () => {
-      const [saved] = await Promise.all([load(slot), ensureGameplayScenes(game), ensureQuestionBank()]);
+      const saved = await load(slot);
       if (!saved) {
         hideLoading();
         return;
       }
+      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank(saved.learning.grade)]);
       activeSlot = slot;
       setSfxVolume(saved.settings.seVolume);
       game.registry.set('game', saved);
@@ -282,7 +303,7 @@ game.registry.events.on('changedata-game', (_parent: unknown, value: unknown) =>
   setSfxVolume(state.settings.seVolume);
   void autosave
     .request(activeSlot, state)
-    .catch((error) => console.error('[save] オートセーブに失敗しました', error));
+    .catch((error) => reportSaveFailure('オートセーブ', error, activeSlot, state));
 });
 
 // 問題への解答は戦闘・イベントの完了を待たず、その場で保存する。
@@ -291,7 +312,7 @@ window.addEventListener('nq:learning-changed', (event) => {
   const state = (event as CustomEvent<Parameters<typeof save>[1]>).detail;
   void autosave
     .request(activeSlot, state)
-    .catch((error) => console.error('[save] 学習履歴の保存に失敗しました', error));
+    .catch((error) => reportSaveFailure('学習履歴の保存', error, activeSlot, state));
 });
 
 // 実際に表示していた時間を日別に記録する。非表示中の時間は数えない。

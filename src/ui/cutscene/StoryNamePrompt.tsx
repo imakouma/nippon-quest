@@ -1,6 +1,7 @@
 import { useRef, useState } from 'preact/hooks';
 import { t } from '../i18n';
 import { RubyLabel } from '../RubyLabel';
+import { displayText } from '../ruby';
 import { useModalFocus } from '../useModalFocus';
 import './cutscene.css';
 
@@ -15,7 +16,7 @@ export function StoryNamePrompt({ onDecide }: { onDecide: (name: string) => void
       class="nq-story-name"
       role="dialog"
       aria-modal="true"
-      aria-label={t('field.prologueNameTitle')}
+      aria-label={displayText(t('field.prologueNameTitle'))}
       tabIndex={-1}
     >
       <form

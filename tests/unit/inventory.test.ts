@@ -61,4 +61,44 @@ describe('バッグ・そうび', () => {
     expect(equipItem(gs, c.items.get('aomori-ringo')!)).toBeNull();
     expect(unequip(gs, 'head')).toBeNull();
   });
+
+  it('前の装備をバッグへ戻せないときは交換せず、装備を失わない', async () => {
+    const c = await content();
+    const old = c.items.get('common-renshu-no-bou')!;
+    const next = c.items.get('common-dou-no-ken')!;
+    const gs = fresh();
+    gs.player.equipment.weapon = old.id;
+    gs.inventory[old.id] = Number.MAX_SAFE_INTEGER;
+    gs.inventory[next.id] = 1;
+
+    expect(equipItem(gs, next)).toBeNull();
+    expect(gs.player.equipment.weapon).toBe(old.id);
+    expect(gs.inventory[old.id]).toBe(Number.MAX_SAFE_INTEGER);
+    expect(gs.inventory[next.id]).toBe(1);
+  });
+
+  it('装備をバッグへ戻せないときは解除せず、装備を失わない', async () => {
+    const c = await content();
+    const sword = c.items.get('common-renshu-no-bou')!;
+    const gs = fresh();
+    gs.player.equipment.weapon = sword.id;
+    gs.inventory[sword.id] = Number.MAX_SAFE_INTEGER;
+
+    expect(unequip(gs, 'weapon')).toBeNull();
+    expect(gs.player.equipment.weapon).toBe(sword.id);
+    expect(gs.inventory[sword.id]).toBe(Number.MAX_SAFE_INTEGER);
+  });
+
+  it('装備中と同じ品を選び直しても所持数は変わらない', async () => {
+    const c = await content();
+    const sword = c.items.get('common-renshu-no-bou')!;
+    const gs = fresh();
+    gs.player.equipment.weapon = sword.id;
+    gs.inventory[sword.id] = Number.MAX_SAFE_INTEGER;
+
+    const equipped = equipItem(gs, sword)!;
+
+    expect(equipped.player.equipment.weapon).toBe(sword.id);
+    expect(equipped.inventory[sword.id]).toBe(Number.MAX_SAFE_INTEGER);
+  });
 });

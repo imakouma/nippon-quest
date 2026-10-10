@@ -1,11 +1,15 @@
 import { readFileSync } from 'node:fs';
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { createNewGame } from '../../src/core/state/newGame';
+import { motifStamp } from '../../src/core/progression/route';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
 import { barberRows, buildMenuView, menuTabs } from '../../src/scenes/overworld/menuEntries';
 import { shopItemLines } from '../../src/scenes/overworld/townMenuViews';
+import { levelProgressLine } from '../../src/scenes/overworld/bagItems';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
 import { content } from './helpers';
+
+vi.mock('../../src/rendering/itemIcons', () => ({ itemIconUrl: () => 'item-icon' }));
 
 const game = () => chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 3 }, 1_000), 'iwate-kagurabi');
 
@@ -17,6 +21,11 @@ beforeAll(() => {
 });
 
 describe('フィールドメニューの表示モデル', () => {
+  it('主人公と仲間の次レベルまでの経験値を表示できる', () => {
+    expect(levelProgressLine([0, 15, 50], 1, 5)).toContain('あと 10');
+    expect(levelProgressLine([0, 15, 50], 3, 50)).toContain('さいこう');
+  });
+
   it('店の武器には購入前に装備部位と性能を表示する', async () => {
     const c = await content();
     const weapon = c.items.get('common-dou-no-ken')!;
@@ -77,6 +86,24 @@ describe('フィールドメニューの表示モデル', () => {
       w: 2,
       h: 2,
     });
+  });
+
+  it('特産品図鑑に永久ボーナスの合計と県ごとの進みを表示する', async () => {
+    const c = await content();
+    const gs = game();
+    gs.dex.motifs.push(motifStamp('aomori', 'ringo'));
+    const view = buildMenuView({
+      content: c,
+      game: gs,
+      tab: 'specialties',
+      stats: { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 },
+      revealAll: false,
+      heroArt: () => 'hero',
+      monsterArt: (monster) => `monster:${monster.id}`,
+    });
+
+    expect(view.summary).toContain('全能力[ぜんのうりょく] +1.3%');
+    expect(view.entries.find((entry) => entry.key === 'aomori-ringo')?.lines.join(' ')).toContain('1/4こ');
   });
 
   it('床屋を5部位の有料選択肢へ変換する', () => {

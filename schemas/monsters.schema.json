@@ -67,11 +67,13 @@
           "properties": {
             "hp": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "mp": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "atk": {
               "type": "number",
@@ -184,11 +186,13 @@
         },
         "xp": {
           "type": "integer",
-          "minimum": 0
+          "minimum": 0,
+          "maximum": 9007199254740991
         },
         "gold": {
           "type": "integer",
-          "minimum": 0
+          "minimum": 0,
+          "maximum": 9007199254740991
         },
         "spriteKey": {
           "type": "string"
@@ -237,7 +241,8 @@
               },
               "actionsPerTurn": {
                 "type": "integer",
-                "exclusiveMinimum": 0
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
               },
               "line": {
                 "type": "string",
@@ -271,11 +276,13 @@
             "count": {
               "type": "integer",
               "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
               "description": "しんかに つかう どうぐの数（省略時は 1）"
             },
             "minLevel": {
               "type": "integer",
               "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
               "description": "このレベルから しんかできる"
             }
           },

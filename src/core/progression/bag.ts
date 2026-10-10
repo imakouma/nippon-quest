@@ -116,14 +116,16 @@ export function activeEquipment(gs: GameState): GameState['player']['equipment']
 
 export function bagMonsterUids(gs: GameState): string[] {
   const owned = new Set(gs.party.owned.map((o) => o.uid));
-  const placed = gs.party.team.filter((uid) => owned.has(uid) && !!gs.party.bagPlacements[monKey(uid)]);
+  const placed = [
+    ...new Set(gs.party.team.filter((uid) => owned.has(uid) && !!gs.party.bagPlacements[monKey(uid)])),
+  ];
   const lead = gs.party.activeUid;
   return lead && placed.includes(lead) ? [lead, ...placed.filter((u) => u !== lead)] : placed;
 }
 
 export function reserveMonsterUids(gs: GameState): string[] {
   const owned = new Set(gs.party.owned.map((o) => o.uid));
-  return gs.party.reserve.filter((uid) => owned.has(uid) && !gs.party.team.includes(uid));
+  return [...new Set(gs.party.reserve.filter((uid) => owned.has(uid) && !gs.party.team.includes(uid)))];
 }
 
 /** バッグ内＋控え。主人公と合わせて最大8体。 */
@@ -183,12 +185,18 @@ export function firstFreePosition(gs: GameState, key: string, ctx: BagContext): 
   return null;
 }
 
-export function moveBagThing(prev: GameState, key: string, pos: BagPos, ctx: BagContext): GameState | null {
+export function moveBagThing(
+  prev: GameState,
+  key: string,
+  pos: BagPos,
+  ctx: BagContext,
+  now = Date.now(),
+): GameState | null {
   if (!Object.hasOwn(prev.party.bagPlacements, key)) return null;
   if (!canPlace(prev, key, pos, ctx)) return null;
   const gs = structuredClone(prev);
   gs.party.bagPlacements[key] = { x: pos.x, y: pos.y, rotated: !!pos.rotated };
-  gs.updatedAt = Date.now();
+  gs.updatedAt = now;
   return gs;
 }
 

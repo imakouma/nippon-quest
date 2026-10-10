@@ -8,6 +8,9 @@ export function recordPlayDuration(
   now = Date.now(),
 ): GameState {
   if (!Number.isSafeInteger(seconds) || seconds <= 0) return prev;
+  const current = prev.learning.playSecondsByDate[date] ?? 0;
+  const total = current + seconds;
+  if (!Number.isSafeInteger(current) || current < 0 || !Number.isSafeInteger(total)) return prev;
   return {
     ...prev,
     updatedAt: now,
@@ -15,7 +18,7 @@ export function recordPlayDuration(
       ...prev.learning,
       playSecondsByDate: {
         ...prev.learning.playSecondsByDate,
-        [date]: (prev.learning.playSecondsByDate[date] ?? 0) + seconds,
+        [date]: total,
       },
     },
   };

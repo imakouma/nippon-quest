@@ -8,6 +8,7 @@
  */
 import type { Settings } from '../content/schemas';
 import type { GameState } from '../state/schema';
+import { addProgressValue } from '../../shared/safeInteger';
 
 export interface BattleSummary {
   outcome: 'victory' | 'defeat' | 'fled' | 'recruited';
@@ -37,7 +38,7 @@ export interface AppliedBattle {
 }
 
 const bump = (rec: Record<string, number>, key: string, n = 1) => {
-  rec[key] = (rec[key] ?? 0) + n;
+  rec[key] = addProgressValue(rec[key] ?? 0, n);
 };
 
 export function applyBattleResult(
@@ -66,12 +67,12 @@ export function applyBattleResult(
   }
 
   if (r.outcome === 'victory') {
-    gs.player.xp += r.xp;
+    gs.player.xp = addProgressValue(gs.player.xp, r.xp);
     const participants = new Set(r.participantMonsterUids ?? []);
     for (const monster of gs.party.owned) {
-      if (participants.has(monster.uid)) monster.xp += r.xp;
+      if (participants.has(monster.uid)) monster.xp = addProgressValue(monster.xp, r.xp);
     }
-    gs.player.gold += r.gold;
+    gs.player.gold = addProgressValue(gs.player.gold, r.gold);
     for (const id of r.drops) {
       bump(gs.inventory, id);
       if (!gs.dex.items.includes(id)) gs.dex.items.push(id);
@@ -93,7 +94,11 @@ export function applyBattleResult(
 }
 
 /** 次のレベルまでの残り経験値。xp.json は「index = Lv-1 に到達するのに必要な累積 XP」として読む */
-export function xpToNextLevel(table: number[], level: number, xp: number): { need: number; ratio: number } {
+export function xpToNextLevel(
+  table: readonly number[],
+  level: number,
+  xp: number,
+): { need: number; ratio: number } {
   const cur = table[level - 1] ?? 0;
   const next = table[level];
   if (next === undefined) return { need: 0, ratio: 1 };
@@ -109,10 +114,15 @@ export function levelForXp(table: readonly number[], xp: number): number {
 }
 
 /**
- * 主人公の レベル（バッグの マス・「つぎの レベルまで」の 表示）。
- * レベルアップの ステータスの のびは まだ 無く player.level は 1 の ままなので、けいけんち から きまる レベルと 大きいほう。
- * 出てくる 敵の レベルは player.level の まま（主人公が 強く ならないうちに 敵だけ 強く ならないように）
+ * 主人公のレベル。古いセーブや戦闘外報酬直後でも表示・敵レベルが遅れないよう、
+ * 保存済みレベルと経験値から求めたレベルの大きい方を返す。
  */
 export function heroLevel(gs: GameState, table: readonly number[]): number {
   return Math.max(gs.player.level, levelForXp(table, gs.player.xp));
+}
+
+/** XPから到達したレベルを保存値へ反映する。戦闘外報酬など全更新経路で共用する。 */
+export function syncHeroLevel(gs: GameState, table: readonly number[]): GameState {
+  const level = heroLevel(gs, table);
+  return level === gs.player.level ? gs : { ...gs, player: { ...gs.player, level } };
 }

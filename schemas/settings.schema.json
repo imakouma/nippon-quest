@@ -16,11 +16,13 @@
           "properties": {
             "hp": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "mp": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "atk": {
               "type": "number",
@@ -128,7 +130,8 @@
         },
         "recentQuestionWindow": {
           "type": "integer",
-          "exclusiveMinimum": 0
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
         },
         "adaptiveWeakUnitRatio": {
           "type": "number",
@@ -203,6 +206,7 @@
             "max": {
               "type": "integer",
               "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
               "description": "1 教科の ゲージの 上限"
             },
             "charge": {
@@ -210,19 +214,23 @@
               "properties": {
                 "perfect": {
                   "type": "integer",
-                  "minimum": 0
+                  "minimum": 0,
+                  "maximum": 9007199254740991
                 },
                 "good": {
                   "type": "integer",
-                  "minimum": 0
+                  "minimum": 0,
+                  "maximum": 9007199254740991
                 },
                 "weak": {
                   "type": "integer",
-                  "minimum": 0
+                  "minimum": 0,
+                  "maximum": 9007199254740991
                 },
                 "miss": {
                   "type": "integer",
-                  "minimum": 0
+                  "minimum": 0,
+                  "maximum": 9007199254740991
                 }
               },
               "required": [
@@ -310,6 +318,7 @@
             "buffTurns": {
               "type": "integer",
               "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
               "description": "ぼうぎょ アップ・ダウンが つづく ターン数"
             },
             "statusTurns": {
@@ -335,6 +344,7 @@
             "baseSlots": {
               "type": "integer",
               "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
               "description": "さいしょの マスの数"
             },
             "levelsPerSlot": {
@@ -345,6 +355,7 @@
             "maxSlots": {
               "type": "integer",
               "exclusiveMinimum": 0,
+              "maximum": 9007199254740991,
               "description": "マスの 上限"
             }
           },

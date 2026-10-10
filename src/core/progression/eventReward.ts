@@ -5,6 +5,7 @@
 import type { Reward } from '../content/schemas';
 import type { GameState } from '../state/schema';
 import { areaBossFlag } from './route';
+import { addProgressValue } from '../../shared/safeInteger';
 
 export interface RewardTier {
   min: number;
@@ -31,16 +32,16 @@ export function applyReward(
   const gs = structuredClone(prev);
   const lines: RewardLine[] = [];
   if (r.xp) {
-    gs.player.xp += r.xp;
+    gs.player.xp = addProgressValue(gs.player.xp, r.xp);
     lines.push({ kind: 'xp', n: r.xp });
   }
   if (r.gold) {
-    gs.player.gold += r.gold;
+    gs.player.gold = addProgressValue(gs.player.gold, r.gold);
     lines.push({ kind: 'gold', n: r.gold });
   }
   for (const it of r.items ?? []) {
     const n = it.n ?? 1;
-    gs.inventory[it.itemId] = (gs.inventory[it.itemId] ?? 0) + n;
+    gs.inventory[it.itemId] = addProgressValue(gs.inventory[it.itemId] ?? 0, n);
     if (!gs.dex.items.includes(it.itemId)) gs.dex.items.push(it.itemId);
     lines.push({ kind: 'item', id: it.itemId, n });
   }

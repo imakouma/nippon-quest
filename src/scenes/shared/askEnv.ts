@@ -6,8 +6,10 @@ import type { ContentIndex } from '../../core/content/loader';
 import type { Settings } from '../../core/content/schemas';
 import type { GameState } from '../../core/state/schema';
 import {
+  appendAttemptEvent,
   applyAttemptToConcepts,
   createAttemptEvent,
+  nextAttemptSequence,
   questionLinksById,
   type AttemptEvent,
 } from '../../core/learning';
@@ -30,7 +32,7 @@ export interface AskEnvOptions {
   speak: (text: string) => void;
   reason?: AttemptEvent['reason'];
   /** 長い処理中に別経路が GameState を差し替える場合、回答時点の最新版を返す。 */
-  getGame?: () => GameState;
+  getGame: () => GameState;
 }
 
 /** 問題への回答で変わる学習状態と、その更新時刻を一度に記録する。 */
@@ -48,11 +50,11 @@ export function recordLearningResult(
     result,
     presentedAt,
     answeredAt,
-    sequence: gs.learning.attempts.length,
+    sequence: nextAttemptSequence(gs.learning.attempts),
     reason,
     appVersion: '0.1.0',
   });
-  gs.learning.attempts.push(event);
+  appendAttemptEvent(gs.learning.attempts, event);
   const link = questionLinksById.get(question.id);
   if (link) gs.learning.conceptStates = applyAttemptToConcepts(gs.learning.conceptStates, event, link);
   if (wisdom && result.score >= wisdom.minScore) {
@@ -66,6 +68,7 @@ export function recordLearningResult(
 }
 
 export function buildAskEnv(o: AskEnvOptions): AskEnv {
+  if (typeof o.getGame !== 'function') throw new TypeError('buildAskEnv requires getGame');
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const st = o.content.settings;
   const scale = o.gs.settings.timeLimitScale ?? 1;
@@ -86,7 +89,25 @@ export function buildAskEnv(o: AskEnvOptions): AskEnv {
     mistakes: o.gs.learning.mistakes,
     onResult: (question, result, presentedAt) => {
       const answeredAt = Date.now();
-      const game = o.getGame?.() ?? o.gs;
+      const game = o.getGame();
+      const recordedMastery = o.mastery.toJSON();
+      if (game.learning.mastery !== recordedMastery) {
+        const unit = recordedMastery[question.unit];
+        if (unit) game.learning.mastery[question.unit] = { ...unit };
+      }
+      if (game.learning.recent !== o.gs.learning.recent) {
+        game.learning.recent.push(question.id);
+        while (game.learning.recent.length > st.recentQuestionWindow) {
+          game.learning.recent.shift();
+        }
+      }
+      if (
+        game.learning.mistakes !== o.gs.learning.mistakes &&
+        result.score < 1 &&
+        !game.learning.mistakes.includes(question.id)
+      ) {
+        game.learning.mistakes.push(question.id);
+      }
       recordLearningResult(game, question, result, presentedAt, answeredAt, o.reason, st.learningWisdom);
       window.dispatchEvent(new CustomEvent('nq:learning-changed', { detail: game }));
     },

@@ -61,7 +61,7 @@ export async function askOpeningHeroName(
   mapKey: string,
   game: GameState,
   root: HTMLElement,
-  getGame: () => GameState = () => game,
+  getGame: () => GameState,
 ): Promise<GameState> {
   if (
     mapKey !== 'aomori-field' ||

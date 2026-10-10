@@ -109,4 +109,25 @@ describe('map-tap renderer cancellation', () => {
     expect(settled).toBe(true);
     await expect(resultPromise).resolves.toMatchObject({ score: 0, attempts: 0, timedOut: true });
   });
+
+  it('選んだ場所を赤い×ではなく読み上げ対象外の中立マーカーで示す', () => {
+    vi.useFakeTimers();
+    const container = document.createElement('div');
+    document.body.append(container);
+    const controller = new AbortController();
+
+    act(() => {
+      void mapTapRenderer.mount(context(container, controller.signal));
+    });
+    act(() => {
+      container.querySelector<HTMLButtonElement>('.nq-map-tap')!.click();
+    });
+
+    const marker = container.querySelector('.nq-map-pick');
+    expect(marker).not.toBeNull();
+    expect(marker?.textContent).not.toContain('×');
+    expect(marker?.getAttribute('aria-hidden')).toBe('true');
+
+    act(() => controller.abort());
+  });
 });

@@ -47,6 +47,7 @@
     "validate:curriculum-graph": "tsx scripts/validate-curriculum-graph.ts",
     "check:architecture": "tsx scripts/check-architecture.ts",
     "audit:curriculum": "tsx scripts/audit-curriculum.ts",
+    "audit:curriculum-model": "tsx scripts/audit-curriculum-model.ts",
     "audit:assets": "tsx scripts/audit-assets.ts",
     "audit:academic-review": "tsx scripts/audit-academic-review.ts",
     "audit:academic-review:strict": "tsx scripts/audit-academic-review.ts --strict",
@@ -60,7 +61,7 @@
     "scaffold:all-areas": "tsx scripts/scaffold-area.ts --all",
     "scaffold:maps": "tsx scripts/scaffold-maps.ts",
     "gen:terrain": "tsx scripts/gen-terrain.ts",
-    "check": "pnpm lint && pnpm check:architecture && pnpm audit:curriculum --strict && pnpm audit:worldmap && pnpm test && pnpm validate:content && pnpm validate:curriculum-graph && pnpm build"
+    "check": "pnpm lint && pnpm check:architecture && pnpm audit:curriculum --strict && pnpm audit:curriculum-model --strict && pnpm audit:worldmap && pnpm test && pnpm validate:content && pnpm validate:curriculum-graph && pnpm build"
   },
   "dependencies": {
     "localforage": "^1.10.0",

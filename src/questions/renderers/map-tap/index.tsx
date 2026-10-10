@@ -103,9 +103,7 @@ function View({
           />
         )}
         {pick && (
-          <span class="nq-map-pick" style={{ left: `${pick.x}%`, top: `${pick.y}%` }}>
-            ×
-          </span>
+          <span class="nq-map-pick" aria-hidden="true" style={{ left: `${pick.x}%`, top: `${pick.y}%` }} />
         )}
       </button>
       <span id="nq-map-tap-instruction" class="nq-visually-hidden">

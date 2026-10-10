@@ -177,7 +177,7 @@ export function TownOverlay({
                           key={option.key}
                           type="button"
                           class={`nq-barber-choice ${index === sel ? 'nq-focus' : ''}`}
-                          aria-label={option.name.replace(/\[[^\]]*\]/g, '')}
+                          aria-label={displayText(option.name)}
                           aria-pressed={!!option.tag}
                           aria-current={index === sel ? 'true' : undefined}
                           onPointerEnter={() => pick(index)}

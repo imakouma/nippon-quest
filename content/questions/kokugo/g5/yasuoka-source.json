@@ -1,0 +1,8163 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "source.kokugo.g5.jpn-5-1.ff233b523375",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "次の文のうち、「事実（実際にあったこと）」を書いているものはどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "アンケートでは、30人中20人が賛成した。"
+        },
+        {
+          "id": "b",
+          "text": "私はこの結果にとてもおどろいた。"
+        },
+        {
+          "id": "c",
+          "text": "学校はこの案を採用すべきだと思う。"
+        },
+        {
+          "id": "d",
+          "text": "もっと多くの人が賛成するはずだ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "誰が見ても変わらないデータや出来事を「事実」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-1.0404203998b7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "次の文のうち、「意見（自分の主張や考え）」を書いているものはどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "今日は朝から大雨が降っている。"
+        },
+        {
+          "id": "b",
+          "text": "図書室には本が3000冊ある。"
+        },
+        {
+          "id": "c",
+          "text": "学校に植物を増やす方がよいと考える。"
+        },
+        {
+          "id": "d",
+          "text": "昨日の給食はカレーだった。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「〜すべきだ」「〜の方がよいと考える」など、自分の主張を述べるものを「意見」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-1.c49ae7d83d53",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "次の文のうち、「感想（心で感じたこと）」を書いているものはどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "富士山は日本で一番高い山だ。"
+        },
+        {
+          "id": "b",
+          "text": "頂上からの景色を見て、とても感動した。"
+        },
+        {
+          "id": "c",
+          "text": "登山道をもっと整備するべきだ。"
+        },
+        {
+          "id": "d",
+          "text": "毎年多くの人が富士山に登る。"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "出来事に対して「うれしかった」「おどろいた」など、心に浮かんだ思いを「感想」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-2.0c14b683b09b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "目上の人の動きを高めて言う「尊敬語（そんけいご）」として正しいものはどれですか。◆先生が（来る）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "まいる"
+        },
+        {
+          "id": "b",
+          "text": "くる"
+        },
+        {
+          "id": "c",
+          "text": "うかがう"
+        },
+        {
+          "id": "d",
+          "text": "いらっしゃる"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "先生などの目上の人が「来る・行く・いる」ことは、尊敬語で「いらっしゃる」と言います。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-2.b34c5b5d2063",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "「先生が（言う）」の（ ）に入る正しい尊敬語はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おっしゃる"
+        },
+        {
+          "id": "b",
+          "text": "もうす"
+        },
+        {
+          "id": "c",
+          "text": "いただく"
+        },
+        {
+          "id": "d",
+          "text": "ごらんになる"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "目上の人が「言う」ことは、尊敬語で「おっしゃる」と言います。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-2.27386d5031fc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "作文やレポートにふさわしい「書き言葉」はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "これ、めっちゃいいと思う。"
+        },
+        {
+          "id": "b",
+          "text": "すごくいい感じだ。"
+        },
+        {
+          "id": "c",
+          "text": "これは非常に良いと考える。"
+        },
+        {
+          "id": "d",
+          "text": "ちょーおすすめだよ。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "話し言葉と書き言葉には違いがあります。レポートなどでは「非常に」「〜と考える」といった正しい書き言葉を使います。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-3.bd342e3bb926",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "次の2つの文の関係はどれですか。◆「大雨が降った。川の水があふれた。」",
+      "choices": [
+        {
+          "id": "a",
+          "text": "意見と感想"
+        },
+        {
+          "id": "b",
+          "text": "原因と結果"
+        },
+        {
+          "id": "c",
+          "text": "目的と方法"
+        },
+        {
+          "id": "d",
+          "text": "質問と答え"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「大雨が降った」こと（原因）によって、「川があふれた」という（結果）が起きています。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-3.bfa285a878a0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "説明文などの基本的な文章の組み立て（構成）として、正しい順番はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "結論 → 本論 → 序論"
+        },
+        {
+          "id": "b",
+          "text": "本論 → 序論 → 結論"
+        },
+        {
+          "id": "c",
+          "text": "序論 → 結論 → 本論"
+        },
+        {
+          "id": "d",
+          "text": "序論 → 本論 → 結論"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "問題を提示する「序論」、理由や例を説明する「本論」、考えをまとめる「結論」の順で構成するのが基本です。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-3.b8fc84548a85",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "自分で書いた文章を読み返し、より良くなるように書き直すことを何といいますか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "引用（いんよう）"
+        },
+        {
+          "id": "b",
+          "text": "推敲（すいこう）"
+        },
+        {
+          "id": "c",
+          "text": "構成（こうせい）"
+        },
+        {
+          "id": "d",
+          "text": "要旨（ようし）"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "書いた文章を読み返して、間違いを直したり分かりやすくしたりすることを「推敲（すいこう）」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-3.f1abaf671af1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "自分の意見の根拠として、他の人が書いた文章やデータを自分の文章にそのまま書き写して使うことを何といいますか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "引用（いんよう）"
+        },
+        {
+          "id": "b",
+          "text": "構成（こうせい）"
+        },
+        {
+          "id": "c",
+          "text": "要約（ようやく）"
+        },
+        {
+          "id": "d",
+          "text": "朗読（ろうどく）"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "本などの文章を使うことを「引用」といい、「 」で囲んで出典を明記するルールがあります。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-4.d805161b38f5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "あるものを別のものにたとえる「比喩（ひゆ）」を使った文はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "彼はとても足が速い。"
+        },
+        {
+          "id": "b",
+          "text": "彼はチーターのように足が速い。"
+        },
+        {
+          "id": "c",
+          "text": "彼はクラスで一番足が速い。"
+        },
+        {
+          "id": "d",
+          "text": "彼は毎日走っているから足が速い。"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「〜のようだ」などの言葉を使って別のものにたとえる表現を「比喩」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-4.bae4ab6edb61",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "同じ言葉や似た言葉を繰り返す「反復（はんぷく）」を使うと、どのような効果がありますか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "意味がわからなくなる。"
+        },
+        {
+          "id": "b",
+          "text": "文章が短くなる。"
+        },
+        {
+          "id": "c",
+          "text": "印象が強まり、リズムが生まれる。"
+        },
+        {
+          "id": "d",
+          "text": "敬語が正しくなる。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "同じ言葉を繰り返すことで、その部分が強調され、リズムが生まれて印象に残りやすくなります。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.0a2058f1894e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "空気を（圧）縮する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おつ"
+        },
+        {
+          "id": "b",
+          "text": "あん"
+        },
+        {
+          "id": "c",
+          "text": "あつ"
+        },
+        {
+          "id": "d",
+          "text": "いん"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「圧縮」は「あっしゅく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.8d0a02260b89",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "家の周（囲）を歩く。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "い"
+        },
+        {
+          "id": "b",
+          "text": "き"
+        },
+        {
+          "id": "c",
+          "text": "し"
+        },
+        {
+          "id": "d",
+          "text": "ひ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「周囲」は「しゅうい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.26e2f6b99892",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "別の場所に（移）動する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "い"
+        },
+        {
+          "id": "b",
+          "text": "む"
+        },
+        {
+          "id": "c",
+          "text": "た"
+        },
+        {
+          "id": "d",
+          "text": "や"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「移動」は「いどう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.651fd0e2aad5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "じこの原（因）をさぐる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おん"
+        },
+        {
+          "id": "b",
+          "text": "いん"
+        },
+        {
+          "id": "c",
+          "text": "あん"
+        },
+        {
+          "id": "d",
+          "text": "かん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「原因」は「げんいん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.a8b324b45c77",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（永）遠に わすれない。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "えん"
+        },
+        {
+          "id": "b",
+          "text": "あん"
+        },
+        {
+          "id": "c",
+          "text": "えい"
+        },
+        {
+          "id": "d",
+          "text": "ひょう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「永遠」は「えいえん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.dd44e66f73ad",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "お店の（営）業時間。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "えい"
+        },
+        {
+          "id": "b",
+          "text": "けい"
+        },
+        {
+          "id": "c",
+          "text": "てい"
+        },
+        {
+          "id": "d",
+          "text": "めい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「営業」は「えいぎょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.f325f31ce891",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "人工（衛）星が とぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "えつ"
+        },
+        {
+          "id": "b",
+          "text": "えっ"
+        },
+        {
+          "id": "c",
+          "text": "えい"
+        },
+        {
+          "id": "d",
+          "text": "がい"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「衛星」は「えいせい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.5861a7bed71c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "この問題は（易）しい。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "たの"
+        },
+        {
+          "id": "b",
+          "text": "やさ"
+        },
+        {
+          "id": "c",
+          "text": "くる"
+        },
+        {
+          "id": "d",
+          "text": "うつく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「易しい」は「やさしい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.b033e74f3e41",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（益）鳥を たいせつにする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "えき"
+        },
+        {
+          "id": "b",
+          "text": "そん"
+        },
+        {
+          "id": "c",
+          "text": "がい"
+        },
+        {
+          "id": "d",
+          "text": "おん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "人の役に立つ鳥を「益鳥（えきちょう）」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.137ee3629ed4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "水は（液）体である。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こ"
+        },
+        {
+          "id": "b",
+          "text": "けい"
+        },
+        {
+          "id": "c",
+          "text": "えき"
+        },
+        {
+          "id": "d",
+          "text": "えん"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「液体」は「えきたい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.46a4f8cd4b43",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "すばらしい（演）技。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いん"
+        },
+        {
+          "id": "b",
+          "text": "えん"
+        },
+        {
+          "id": "c",
+          "text": "おん"
+        },
+        {
+          "id": "d",
+          "text": "あん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「演技」は「えんぎ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.546d7a4f993e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "ルールを（応）用する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おう"
+        },
+        {
+          "id": "b",
+          "text": "ぼう"
+        },
+        {
+          "id": "c",
+          "text": "もう"
+        },
+        {
+          "id": "d",
+          "text": "どう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「応用」は「おうよう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.0af5eb13104f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "ゆうびんの（往）復はがき。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゅう"
+        },
+        {
+          "id": "b",
+          "text": "きゅう"
+        },
+        {
+          "id": "c",
+          "text": "しゅう"
+        },
+        {
+          "id": "d",
+          "text": "おう"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「往復」は「おうふく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.ed0e5c71bfa8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "はるに（桜）がさく。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "もも"
+        },
+        {
+          "id": "b",
+          "text": "さくら"
+        },
+        {
+          "id": "c",
+          "text": "うめ"
+        },
+        {
+          "id": "d",
+          "text": "きく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「桜」は「さくら」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.3525492b1cf1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "それは（可）能です。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "か"
+        },
+        {
+          "id": "b",
+          "text": "が"
+        },
+        {
+          "id": "c",
+          "text": "は"
+        },
+        {
+          "id": "d",
+          "text": "ば"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「可能」は「かのう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.896e52ee7c8e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（仮）の なまえをつける。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ほん"
+        },
+        {
+          "id": "b",
+          "text": "うそ"
+        },
+        {
+          "id": "c",
+          "text": "かり"
+        },
+        {
+          "id": "d",
+          "text": "わり"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「仮」は「かり」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.82530c53ce5c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "おなじ（価）値がある。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "か"
+        },
+        {
+          "id": "b",
+          "text": "げ"
+        },
+        {
+          "id": "c",
+          "text": "こ"
+        },
+        {
+          "id": "d",
+          "text": "ご"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「価値」は「かち」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.258f976dbfee",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（河）の 流れをみる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いけ"
+        },
+        {
+          "id": "b",
+          "text": "うみ"
+        },
+        {
+          "id": "c",
+          "text": "たに"
+        },
+        {
+          "id": "d",
+          "text": "かわ"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「河」は「かわ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.37885528b5e6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（過）去を ふりかえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "か"
+        },
+        {
+          "id": "b",
+          "text": "が"
+        },
+        {
+          "id": "c",
+          "text": "き"
+        },
+        {
+          "id": "d",
+          "text": "ぎ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「過去」は「かこ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.06cc6a8a4c73",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（快）適な へや。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けい"
+        },
+        {
+          "id": "b",
+          "text": "けつ"
+        },
+        {
+          "id": "c",
+          "text": "かい"
+        },
+        {
+          "id": "d",
+          "text": "がい"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「快適」は「かいてき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.afe26d0a23a2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "もんだいを（解）決する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "がい"
+        },
+        {
+          "id": "b",
+          "text": "かい"
+        },
+        {
+          "id": "c",
+          "text": "けい"
+        },
+        {
+          "id": "d",
+          "text": "げい"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「解決」は「かいけつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.ddd4662b456f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "テストに合（格）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きゃく"
+        },
+        {
+          "id": "b",
+          "text": "ぎゃく"
+        },
+        {
+          "id": "c",
+          "text": "がく"
+        },
+        {
+          "id": "d",
+          "text": "かく"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「合格」は「ごうかく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.ea35688eb997",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "あんぜんを（確）認する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "かく"
+        },
+        {
+          "id": "b",
+          "text": "がく"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「確認」は「かくにん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.b82a9d194010",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "お金の（額）をきめる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "かく"
+        },
+        {
+          "id": "b",
+          "text": "きゃく"
+        },
+        {
+          "id": "c",
+          "text": "がく"
+        },
+        {
+          "id": "d",
+          "text": "ぎゃく"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「額」は「がく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.538d2cd7ab69",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "新聞の朝（刊）をよむ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "かん"
+        },
+        {
+          "id": "c",
+          "text": "がん"
+        },
+        {
+          "id": "d",
+          "text": "げん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「朝刊」は「ちょうかん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.e600d0fd8ada",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "木の（幹）に さわる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "みき"
+        },
+        {
+          "id": "b",
+          "text": "えだ"
+        },
+        {
+          "id": "c",
+          "text": "根"
+        },
+        {
+          "id": "d",
+          "text": "葉"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「幹」は「みき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.f4e22294c11d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "あたらしい クラスに（慣）れる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "や"
+        },
+        {
+          "id": "b",
+          "text": "は"
+        },
+        {
+          "id": "c",
+          "text": "た"
+        },
+        {
+          "id": "d",
+          "text": "な"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「慣れる」は「なれる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.245906d9951c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "目のびょうきで（眼）科にいく。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "め"
+        },
+        {
+          "id": "b",
+          "text": "がん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "げん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「眼科」は「がんか」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.b3d7a5b8ab1a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "二十一世（紀）になる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "き"
+        },
+        {
+          "id": "b",
+          "text": "ぎ"
+        },
+        {
+          "id": "c",
+          "text": "け"
+        },
+        {
+          "id": "d",
+          "text": "げ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「世紀」は「せいき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.6b537cb9f345",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "スポーツの（基）本をまなぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぎ"
+        },
+        {
+          "id": "b",
+          "text": "け"
+        },
+        {
+          "id": "c",
+          "text": "き"
+        },
+        {
+          "id": "d",
+          "text": "げ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「基本」は「きほん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.e602af47e67c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "コンビニに 立ち（寄）る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "よ"
+        },
+        {
+          "id": "b",
+          "text": "の"
+        },
+        {
+          "id": "c",
+          "text": "と"
+        },
+        {
+          "id": "d",
+          "text": "も"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「立ち寄る」は「たちよる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.4215da529c3e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "学校の（規）則をまもる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぎ"
+        },
+        {
+          "id": "b",
+          "text": "け"
+        },
+        {
+          "id": "c",
+          "text": "げ"
+        },
+        {
+          "id": "d",
+          "text": "き"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「規則」は「きそく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.54bba4637fca",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "プレゼントをもらって（喜）ぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "よろこ"
+        },
+        {
+          "id": "b",
+          "text": "おどろ"
+        },
+        {
+          "id": "c",
+          "text": "かなし"
+        },
+        {
+          "id": "d",
+          "text": "たのし"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「喜ぶ」は「よろこぶ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.6c3cf0a9058a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "すばらしい（技）を見る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ちから"
+        },
+        {
+          "id": "b",
+          "text": "ぎ"
+        },
+        {
+          "id": "c",
+          "text": "わざ"
+        },
+        {
+          "id": "d",
+          "text": "うで"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「技」は「わざ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.93863811a45f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "正（義）の 味方。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "き"
+        },
+        {
+          "id": "b",
+          "text": "ぎ"
+        },
+        {
+          "id": "c",
+          "text": "け"
+        },
+        {
+          "id": "d",
+          "text": "げ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「正義」は「せいぎ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.738e72cc0d68",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "まったく（逆）の いけん。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きゃく"
+        },
+        {
+          "id": "b",
+          "text": "かく"
+        },
+        {
+          "id": "c",
+          "text": "がく"
+        },
+        {
+          "id": "d",
+          "text": "ぎゃく"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「逆」は「ぎゃく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.d596c5d5542d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（久）しぶりに あう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ひさ"
+        },
+        {
+          "id": "b",
+          "text": "あたら"
+        },
+        {
+          "id": "c",
+          "text": "ふる"
+        },
+        {
+          "id": "d",
+          "text": "なつか"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「久しい」は「ひさしい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.e1396562f77e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（旧）友と 再会する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きょう"
+        },
+        {
+          "id": "b",
+          "text": "ぎょう"
+        },
+        {
+          "id": "c",
+          "text": "きゅう"
+        },
+        {
+          "id": "d",
+          "text": "ぎゅう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "昔からの友人を「旧友（きゅうゆう）」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.584c97592963",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "こまっている 人を（救）う。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "か"
+        },
+        {
+          "id": "b",
+          "text": "すく"
+        },
+        {
+          "id": "c",
+          "text": "むく"
+        },
+        {
+          "id": "d",
+          "text": "つく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「救う」は「すくう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.edd0bdf2bdae",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（居）間で テレビをみる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こ"
+        },
+        {
+          "id": "b",
+          "text": "ご"
+        },
+        {
+          "id": "c",
+          "text": "き"
+        },
+        {
+          "id": "d",
+          "text": "い"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "家族がいる部屋を「居間（いま）」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.70449fce1748",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "失敗を（許）す。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ゆる"
+        },
+        {
+          "id": "b",
+          "text": "くだ"
+        },
+        {
+          "id": "c",
+          "text": "なお"
+        },
+        {
+          "id": "d",
+          "text": "かえ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「許す」は「ゆるす」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.8962d9f7bb72",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "国（境）を こえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きょう"
+        },
+        {
+          "id": "b",
+          "text": "ぎょう"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「国境」は「こっきょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.9f6e494526f4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "テストの平（均）点。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いん"
+        },
+        {
+          "id": "b",
+          "text": "きん"
+        },
+        {
+          "id": "c",
+          "text": "ぎん"
+        },
+        {
+          "id": "d",
+          "text": "けん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「平均」は「へいきん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.afa3b8342106",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "立ち入りを（禁）止する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "げん"
+        },
+        {
+          "id": "c",
+          "text": "ぎん"
+        },
+        {
+          "id": "d",
+          "text": "きん"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「禁止」は「きんし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.75f4aefeb9cc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "俳（句）を つくる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "く"
+        },
+        {
+          "id": "b",
+          "text": "ぐ"
+        },
+        {
+          "id": "c",
+          "text": "ほう"
+        },
+        {
+          "id": "d",
+          "text": "ぼう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「俳句」は「はいく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.d8495a53a86f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "大（型）の トラック。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けい"
+        },
+        {
+          "id": "b",
+          "text": "げい"
+        },
+        {
+          "id": "c",
+          "text": "かた"
+        },
+        {
+          "id": "d",
+          "text": "がた"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「大型」は「おおがた」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.e03c5b89c343",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "はじめての（経）験。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "げい"
+        },
+        {
+          "id": "b",
+          "text": "けい"
+        },
+        {
+          "id": "c",
+          "text": "けん"
+        },
+        {
+          "id": "d",
+          "text": "げん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「経験」は「けいけん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.a9267dc22ee6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "部屋を清（潔）にする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けつ"
+        },
+        {
+          "id": "b",
+          "text": "げつ"
+        },
+        {
+          "id": "c",
+          "text": "かつ"
+        },
+        {
+          "id": "d",
+          "text": "きつ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「清潔」は「せいけつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.f9e3050892c2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "大きな事（件）が おきる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "げん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「事件」は「じけん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-1.499b3fb65a7f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-1",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "危（険）な 場所。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "げん"
+        },
+        {
+          "id": "b",
+          "text": "かん"
+        },
+        {
+          "id": "c",
+          "text": "けん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「危険」は「きけん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.8bb5e99deaa5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "持ち物を（検）査する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "げん"
+        },
+        {
+          "id": "b",
+          "text": "けん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「検査」は「けんさ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.f4b15b9b9158",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "体力の（限）界をこえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "げん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「限界」は「げんかい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.4bb189bccff3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（現）代の社会。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "がん"
+        },
+        {
+          "id": "c",
+          "text": "げん"
+        },
+        {
+          "id": "d",
+          "text": "かん"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「現代」は「げんだい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b360129dbbac",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "人口が（減）少する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "げん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「減少」は「げんしょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.4e1531d20b98",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "交通事（故）に 気をつける。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こ"
+        },
+        {
+          "id": "b",
+          "text": "ご"
+        },
+        {
+          "id": "c",
+          "text": "き"
+        },
+        {
+          "id": "d",
+          "text": "ぎ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「事故」は「じこ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.694c3668e551",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（個）人の 意見。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こ"
+        },
+        {
+          "id": "b",
+          "text": "ご"
+        },
+        {
+          "id": "c",
+          "text": "き"
+        },
+        {
+          "id": "d",
+          "text": "ぎ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「個人」は「こじん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a7fb645acf87",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "自然を保（護）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こ"
+        },
+        {
+          "id": "b",
+          "text": "き"
+        },
+        {
+          "id": "c",
+          "text": "ぎ"
+        },
+        {
+          "id": "d",
+          "text": "ご"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「保護」は「ほご」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.08a21f6ff73c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "薬の（効）果があらわれる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ごう"
+        },
+        {
+          "id": "b",
+          "text": "こう"
+        },
+        {
+          "id": "c",
+          "text": "ぼう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「効果」は「こうか」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.f258f309f12e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（厚）い 本をよむ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あつ"
+        },
+        {
+          "id": "b",
+          "text": "ほそ"
+        },
+        {
+          "id": "c",
+          "text": "ふと"
+        },
+        {
+          "id": "d",
+          "text": "なが"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「厚い」は「あつい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.5b2a061713c9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "畑を（耕）す。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "たがや"
+        },
+        {
+          "id": "b",
+          "text": "はや"
+        },
+        {
+          "id": "c",
+          "text": "のば"
+        },
+        {
+          "id": "d",
+          "text": "もや"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「耕す」は「たがやす」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.d285a2e842d6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（航）空機に のる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こう"
+        },
+        {
+          "id": "b",
+          "text": "ごう"
+        },
+        {
+          "id": "c",
+          "text": "ぼう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「航空」は「こうくう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.d4ab683901a1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "鉄の（鉱）石を ほりだす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ごう"
+        },
+        {
+          "id": "b",
+          "text": "こう"
+        },
+        {
+          "id": "c",
+          "text": "ぼう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「鉱石」は「こうせき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.e436902cafb3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "チームを（構）成する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こう"
+        },
+        {
+          "id": "b",
+          "text": "ごう"
+        },
+        {
+          "id": "c",
+          "text": "きょう"
+        },
+        {
+          "id": "d",
+          "text": "ぎょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「構成」は「こうせい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a70732c39406",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "歴史に（興）味をもつ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ごう"
+        },
+        {
+          "id": "b",
+          "text": "こう"
+        },
+        {
+          "id": "c",
+          "text": "きょう"
+        },
+        {
+          "id": "d",
+          "text": "ぎょう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「興味」は「きょうみ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.2b9813e89310",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "先生の（講）義をきく。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こう"
+        },
+        {
+          "id": "b",
+          "text": "ごう"
+        },
+        {
+          "id": "c",
+          "text": "きょう"
+        },
+        {
+          "id": "d",
+          "text": "ぎょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「講義」は「こうぎ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.bf461647f8ce",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "結果を報（告）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こく"
+        },
+        {
+          "id": "b",
+          "text": "ごく"
+        },
+        {
+          "id": "c",
+          "text": "きょく"
+        },
+        {
+          "id": "d",
+          "text": "ぎょく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「報告」は「ほうこく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.901c2cb49873",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "会場が（混）乱する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ごん"
+        },
+        {
+          "id": "b",
+          "text": "こん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「混乱」は「こんらん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.c4f6956b4592",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "原因を調（査）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さ"
+        },
+        {
+          "id": "b",
+          "text": "ざ"
+        },
+        {
+          "id": "c",
+          "text": "し"
+        },
+        {
+          "id": "d",
+          "text": "じ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「調査」は「ちょうさ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.5d8f2dfd2e31",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "ビデオを（再）生する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ざい"
+        },
+        {
+          "id": "b",
+          "text": "さい"
+        },
+        {
+          "id": "c",
+          "text": "しゃ"
+        },
+        {
+          "id": "d",
+          "text": "じゃ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「再生」は「さいせい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.1c6fb59b1580",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（災）害に そなえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ざい"
+        },
+        {
+          "id": "b",
+          "text": "さい"
+        },
+        {
+          "id": "c",
+          "text": "しゃ"
+        },
+        {
+          "id": "d",
+          "text": "じゃ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「災害」は「さいがい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.bb0f6995cb56",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（妻）と いっしょにでかける。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おっと"
+        },
+        {
+          "id": "b",
+          "text": "つま"
+        },
+        {
+          "id": "c",
+          "text": "こ"
+        },
+        {
+          "id": "d",
+          "text": "まご"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「妻」は「つま」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.d238305e8794",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "新しい人を（採）用する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "ざい"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「採用」は「さいよう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.c386dc1d1def",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "人と交（際）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ざい"
+        },
+        {
+          "id": "b",
+          "text": "さい"
+        },
+        {
+          "id": "c",
+          "text": "しゃ"
+        },
+        {
+          "id": "d",
+          "text": "じゃ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「交際」は「こうさい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.621943bcbe46",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "そこに存（在）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "ざい"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「存在」は「そんざい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.c4c761edd9e1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "大きな（財）産。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "しゃ"
+        },
+        {
+          "id": "c",
+          "text": "ざい"
+        },
+        {
+          "id": "d",
+          "text": "じゃ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「財産」は「ざいさん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.9329ae575369",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "犯（罪）を ふせぐ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "ざい"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「犯罪」は「はんざい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.9829ee069ec6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "虫を（殺）虫剤で たおす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さつ"
+        },
+        {
+          "id": "b",
+          "text": "ざつ"
+        },
+        {
+          "id": "c",
+          "text": "そつ"
+        },
+        {
+          "id": "d",
+          "text": "ぞつ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「殺虫剤」は「さっちゅうざい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.5196e251da70",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "複（雑）な 計算。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さつ"
+        },
+        {
+          "id": "b",
+          "text": "ざつ"
+        },
+        {
+          "id": "c",
+          "text": "そつ"
+        },
+        {
+          "id": "d",
+          "text": "ぞつ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「複雑」は「ふくざつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.69fcbb2ccd78",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "炭（酸）飲料を のむ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さん"
+        },
+        {
+          "id": "b",
+          "text": "ざん"
+        },
+        {
+          "id": "c",
+          "text": "そん"
+        },
+        {
+          "id": "d",
+          "text": "ぞん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「炭酸」は「たんさん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.1a356414fcc4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "意見に（賛）成する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さん"
+        },
+        {
+          "id": "b",
+          "text": "ざん"
+        },
+        {
+          "id": "c",
+          "text": "そん"
+        },
+        {
+          "id": "d",
+          "text": "ぞん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「賛成」は「さんせい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.6538dcea2387",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（武）士の 時代。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "む"
+        },
+        {
+          "id": "b",
+          "text": "ぶ"
+        },
+        {
+          "id": "c",
+          "text": "ふ"
+        },
+        {
+          "id": "d",
+          "text": "ぷ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「武士」は「ぶし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b1cbe16106da",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "お金を（支）払う。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "し"
+        },
+        {
+          "id": "b",
+          "text": "じ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「支払う」は「しはらう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.695ded56415f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "歴（史）の 勉強をする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じ"
+        },
+        {
+          "id": "b",
+          "text": "し"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「歴史」は「れきし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.2c448df167f0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "強い意（志）をもつ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じ"
+        },
+        {
+          "id": "b",
+          "text": "さ"
+        },
+        {
+          "id": "c",
+          "text": "ざ"
+        },
+        {
+          "id": "d",
+          "text": "し"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「意志」は「いし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a1b6180407c9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "木の（枝）を 切る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "えだ"
+        },
+        {
+          "id": "b",
+          "text": "みき"
+        },
+        {
+          "id": "c",
+          "text": "葉"
+        },
+        {
+          "id": "d",
+          "text": "根"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「枝」は「えだ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.78ec0acd3773",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "学校の教（師）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じ"
+        },
+        {
+          "id": "b",
+          "text": "し"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「教師」は「きょうし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b0f61a6c10a5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "天然の（資）源。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "し"
+        },
+        {
+          "id": "b",
+          "text": "じ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「資源」は「しげん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.922a20a877bd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "動物を（飼）育する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "し"
+        },
+        {
+          "id": "b",
+          "text": "じ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「飼育」は「しいく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.36615eabe21c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "先生が指（示）をだす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "し"
+        },
+        {
+          "id": "b",
+          "text": "じ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「指示」は「しじ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.ab0bed471e76",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "母親に よく（似）ている。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "み"
+        },
+        {
+          "id": "b",
+          "text": "び"
+        },
+        {
+          "id": "c",
+          "text": "に"
+        },
+        {
+          "id": "d",
+          "text": "ぢ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「似ている」は「にている」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.8b4cbd7c9713",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "専門の知（識）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じき"
+        },
+        {
+          "id": "b",
+          "text": "しき"
+        },
+        {
+          "id": "c",
+          "text": "さき"
+        },
+        {
+          "id": "d",
+          "text": "ざき"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「知識」は「ちしき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.032fc8674053",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "物質の性（質）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じつ"
+        },
+        {
+          "id": "b",
+          "text": "しつ"
+        },
+        {
+          "id": "c",
+          "text": "さつ"
+        },
+        {
+          "id": "d",
+          "text": "ざつ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「性質」は「せいしつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.fb13a8fa81c3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "学校の校（舎）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゃ"
+        },
+        {
+          "id": "b",
+          "text": "しゃ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「校舎」は「こうしゃ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.71ba325dc361",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "感（謝）の 気持ち。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゃ"
+        },
+        {
+          "id": "b",
+          "text": "しゃ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「感謝」は「かんしゃ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.6bd3476faa03",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "英語の（授）業をうける。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しゅ"
+        },
+        {
+          "id": "b",
+          "text": "じゅ"
+        },
+        {
+          "id": "c",
+          "text": "す"
+        },
+        {
+          "id": "d",
+          "text": "ず"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「授業」は「じゅぎょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.c17696201640",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "自転車を（修）理する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゅ"
+        },
+        {
+          "id": "b",
+          "text": "しゅ"
+        },
+        {
+          "id": "c",
+          "text": "しゅう"
+        },
+        {
+          "id": "d",
+          "text": "じゅう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「修理」は「しゅうり」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.901a2771ec90",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "意見を（述）べる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "の"
+        },
+        {
+          "id": "b",
+          "text": "く"
+        },
+        {
+          "id": "c",
+          "text": "た"
+        },
+        {
+          "id": "d",
+          "text": "ま"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「述べる」は「のべる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.34d52962d093",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "テストの（準）備をする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゅん"
+        },
+        {
+          "id": "b",
+          "text": "しゅん"
+        },
+        {
+          "id": "c",
+          "text": "すん"
+        },
+        {
+          "id": "d",
+          "text": "ずん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「準備」は「じゅんび」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.8209d9382a55",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "正しい順（序）で ならぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しょ"
+        },
+        {
+          "id": "b",
+          "text": "じょ"
+        },
+        {
+          "id": "c",
+          "text": "そ"
+        },
+        {
+          "id": "d",
+          "text": "ぞ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「順序」は「じゅんじょ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.488f343625dc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "友達を家に（招）く。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "たた"
+        },
+        {
+          "id": "b",
+          "text": "まね"
+        },
+        {
+          "id": "c",
+          "text": "はぶ"
+        },
+        {
+          "id": "d",
+          "text": "えが"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「招く」は「まねく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b6f4045f8238",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "身分を（証）明する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しょう"
+        },
+        {
+          "id": "b",
+          "text": "じょう"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「証明」は「しょうめい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.17c648ae0230",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "動物園で（象）を見る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そう"
+        },
+        {
+          "id": "b",
+          "text": "じょう"
+        },
+        {
+          "id": "c",
+          "text": "しょう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「象」は「ぞう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.403b109f20e4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "大会で（賞）をもらう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じょう"
+        },
+        {
+          "id": "b",
+          "text": "しょう"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「賞」は「しょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.2c3ba4ee4261",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（条）件を みたす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じょう"
+        },
+        {
+          "id": "b",
+          "text": "しょう"
+        },
+        {
+          "id": "c",
+          "text": "ちょう"
+        },
+        {
+          "id": "d",
+          "text": "ぢょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「条件」は「じょうけん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.927f65cb8fbc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "表彰（状）を受けとる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しょう"
+        },
+        {
+          "id": "b",
+          "text": "そう"
+        },
+        {
+          "id": "c",
+          "text": "じょう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「表彰状」は「ひょうしょうじょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.df9438ff2a6b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（常）識を わきまえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しょう"
+        },
+        {
+          "id": "b",
+          "text": "じょう"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「常識」は「じょうしき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.1b7a139ca2da",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（情）報を あつめる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じょう"
+        },
+        {
+          "id": "b",
+          "text": "しょう"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「情報」は「じょうほう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.e51b5ff59d99",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "糸で 布を（織）る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "お"
+        },
+        {
+          "id": "b",
+          "text": "ぬ"
+        },
+        {
+          "id": "c",
+          "text": "あ"
+        },
+        {
+          "id": "d",
+          "text": "は"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「織る」は「おる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.025021a8c072",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（職）業を えらぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そく"
+        },
+        {
+          "id": "b",
+          "text": "しょく"
+        },
+        {
+          "id": "c",
+          "text": "じょく"
+        },
+        {
+          "id": "d",
+          "text": "ぞく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「職業」は「しょくぎょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.c0cfb12b2bfc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "交通を（制）限する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "せい"
+        },
+        {
+          "id": "b",
+          "text": "ぜい"
+        },
+        {
+          "id": "c",
+          "text": "さい"
+        },
+        {
+          "id": "d",
+          "text": "ざい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「制限」は「せいげん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.8eff935a03c0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "物質の（性）質。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぜい"
+        },
+        {
+          "id": "b",
+          "text": "しょう"
+        },
+        {
+          "id": "c",
+          "text": "せい"
+        },
+        {
+          "id": "d",
+          "text": "じょう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「性質」は「せいしつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a5f3379cf6f0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "国の（政）治。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "せい"
+        },
+        {
+          "id": "b",
+          "text": "ぜい"
+        },
+        {
+          "id": "c",
+          "text": "さい"
+        },
+        {
+          "id": "d",
+          "text": "ざい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「政治」は「せいじ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b48098acfff6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（勢）い よく走る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なら"
+        },
+        {
+          "id": "b",
+          "text": "つど"
+        },
+        {
+          "id": "c",
+          "text": "いきお"
+        },
+        {
+          "id": "d",
+          "text": "うかが"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「勢い」は「いきおい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.59df2d721676",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（精）密な 機械。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぜい"
+        },
+        {
+          "id": "b",
+          "text": "せい"
+        },
+        {
+          "id": "c",
+          "text": "さい"
+        },
+        {
+          "id": "d",
+          "text": "ざい"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「精密」は「せいみつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.5496f2de6c09",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "日本製の（製）品。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "ざい"
+        },
+        {
+          "id": "c",
+          "text": "せい"
+        },
+        {
+          "id": "d",
+          "text": "ぜい"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「製品」は「せいひん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.8178e56f1e03",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "消費（税）を 支払う。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぜい"
+        },
+        {
+          "id": "b",
+          "text": "せい"
+        },
+        {
+          "id": "c",
+          "text": "さい"
+        },
+        {
+          "id": "d",
+          "text": "ざい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「消費税」は「しょうひぜい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.d238c291390f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "自分の（責）任をはたす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しき"
+        },
+        {
+          "id": "b",
+          "text": "じき"
+        },
+        {
+          "id": "c",
+          "text": "せき"
+        },
+        {
+          "id": "d",
+          "text": "ぜき"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「責任」は「せきにん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.e1aeb71d05dc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "良い成（績）をとる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぜき"
+        },
+        {
+          "id": "b",
+          "text": "せき"
+        },
+        {
+          "id": "c",
+          "text": "じき"
+        },
+        {
+          "id": "d",
+          "text": "しき"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「成績」は「せいせき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.005bdb46e485",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "木と木を（接）着する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぜつ"
+        },
+        {
+          "id": "b",
+          "text": "ざつ"
+        },
+        {
+          "id": "c",
+          "text": "せつ"
+        },
+        {
+          "id": "d",
+          "text": "さつ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「接着」は「せっちゃく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.9485a21f73db",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "機械を（設）定する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぜつ"
+        },
+        {
+          "id": "b",
+          "text": "せつ"
+        },
+        {
+          "id": "c",
+          "text": "さつ"
+        },
+        {
+          "id": "d",
+          "text": "ざつ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「設定」は「せってい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.f7950418c9b7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（絶）対に あきらめない。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "せつ"
+        },
+        {
+          "id": "b",
+          "text": "ぜつ"
+        },
+        {
+          "id": "c",
+          "text": "さつ"
+        },
+        {
+          "id": "d",
+          "text": "ざつ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「絶対」は「ぜったい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.2202603a7923",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "自分の（祖）父。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ろ"
+        },
+        {
+          "id": "b",
+          "text": "ぼ"
+        },
+        {
+          "id": "c",
+          "text": "そ"
+        },
+        {
+          "id": "d",
+          "text": "ぞ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「祖父」は「そふ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.0eb2cd5415d9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（素）晴らしい 景色。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そ"
+        },
+        {
+          "id": "b",
+          "text": "す"
+        },
+        {
+          "id": "c",
+          "text": "ざ"
+        },
+        {
+          "id": "d",
+          "text": "さ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「素晴らしい」は「すばらしい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.0dc6f071dd55",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（総）理大臣。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そう"
+        },
+        {
+          "id": "b",
+          "text": "ぞう"
+        },
+        {
+          "id": "c",
+          "text": "しょう"
+        },
+        {
+          "id": "d",
+          "text": "じょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「総理」は「そうり」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.6d571ac09dea",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "船を（造）る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ほ"
+        },
+        {
+          "id": "b",
+          "text": "つく"
+        },
+        {
+          "id": "c",
+          "text": "おく"
+        },
+        {
+          "id": "d",
+          "text": "めぐ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「造る」は「つくる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a6b17b41a83b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "仏（像）を 拝む。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そう"
+        },
+        {
+          "id": "b",
+          "text": "ぞう"
+        },
+        {
+          "id": "c",
+          "text": "しょう"
+        },
+        {
+          "id": "d",
+          "text": "じょう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「仏像」は「ぶつぞう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.d0628d075a63",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "体重が（増）える。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ふ"
+        },
+        {
+          "id": "b",
+          "text": "は"
+        },
+        {
+          "id": "c",
+          "text": "た"
+        },
+        {
+          "id": "d",
+          "text": "ひ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「増える」は「ふえる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b459e98a02a9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "交通規（則）をまもる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぞく"
+        },
+        {
+          "id": "b",
+          "text": "そく"
+        },
+        {
+          "id": "c",
+          "text": "しょく"
+        },
+        {
+          "id": "d",
+          "text": "じょく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「規則」は「きそく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b721735634ce",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "記録を（測）定する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぞく"
+        },
+        {
+          "id": "b",
+          "text": "そく"
+        },
+        {
+          "id": "c",
+          "text": "さく"
+        },
+        {
+          "id": "d",
+          "text": "ざく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「測定」は「そくてい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b76a13b39405",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "チームに所（属）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぞく"
+        },
+        {
+          "id": "b",
+          "text": "そく"
+        },
+        {
+          "id": "c",
+          "text": "しょく"
+        },
+        {
+          "id": "d",
+          "text": "じょく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「所属」は「しょぞく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.2e58fcd6b14e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "成功する確（率）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そつ"
+        },
+        {
+          "id": "b",
+          "text": "ぞつ"
+        },
+        {
+          "id": "c",
+          "text": "りつ"
+        },
+        {
+          "id": "d",
+          "text": "れつ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「確率」は「かくりつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.cb63c4d1263f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（損）害が でる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そん"
+        },
+        {
+          "id": "b",
+          "text": "ぞん"
+        },
+        {
+          "id": "c",
+          "text": "さん"
+        },
+        {
+          "id": "d",
+          "text": "ざん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「損害」は「そんがい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.c56e031f3ab6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "本を（貸）し出す。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "か"
+        },
+        {
+          "id": "b",
+          "text": "かり"
+        },
+        {
+          "id": "c",
+          "text": "かえ"
+        },
+        {
+          "id": "d",
+          "text": "さが"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「貸す」は「かす」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.262b8e8f9107",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "じゅんび（態）勢をととのえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "だい"
+        },
+        {
+          "id": "b",
+          "text": "たい"
+        },
+        {
+          "id": "c",
+          "text": "けい"
+        },
+        {
+          "id": "d",
+          "text": "げい"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「態勢」は「たいせい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.e0d7be6e6073",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（団）体で 行動する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "だん"
+        },
+        {
+          "id": "b",
+          "text": "たん"
+        },
+        {
+          "id": "c",
+          "text": "とん"
+        },
+        {
+          "id": "d",
+          "text": "どん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「団体」は「だんたい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a46f426511d3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "さそいを（断）る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "かた"
+        },
+        {
+          "id": "b",
+          "text": "ことわ"
+        },
+        {
+          "id": "c",
+          "text": "さわ"
+        },
+        {
+          "id": "d",
+          "text": "あやま"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「断る」は「ことわる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.13f5c6e72306",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "ビルを建（築）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じく"
+        },
+        {
+          "id": "b",
+          "text": "ちく"
+        },
+        {
+          "id": "c",
+          "text": "きく"
+        },
+        {
+          "id": "d",
+          "text": "ぎく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「建築」は「けんちく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.2e73166c9e93",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "銀行に（貯）金する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ちょ"
+        },
+        {
+          "id": "b",
+          "text": "じょ"
+        },
+        {
+          "id": "c",
+          "text": "しょ"
+        },
+        {
+          "id": "d",
+          "text": "ちゅ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「貯金」は「ちょきん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.6790f7aaccf4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "意見を主（張）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じょう"
+        },
+        {
+          "id": "b",
+          "text": "ちょう"
+        },
+        {
+          "id": "c",
+          "text": "しょう"
+        },
+        {
+          "id": "d",
+          "text": "ぢょう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「主張」は「しゅちょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.937de2d6ccb1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "バスが（停）車する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "でい"
+        },
+        {
+          "id": "b",
+          "text": "てい"
+        },
+        {
+          "id": "c",
+          "text": "たい"
+        },
+        {
+          "id": "d",
+          "text": "だい"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「停車」は「ていしゃ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.879f08ccfe37",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "もんだいを（提）出する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "てい"
+        },
+        {
+          "id": "b",
+          "text": "でい"
+        },
+        {
+          "id": "c",
+          "text": "たい"
+        },
+        {
+          "id": "d",
+          "text": "だい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「提出」は「ていしゅつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a77887fc60c5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "作る過（程）を見る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "てい"
+        },
+        {
+          "id": "b",
+          "text": "でい"
+        },
+        {
+          "id": "c",
+          "text": "たい"
+        },
+        {
+          "id": "d",
+          "text": "だい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「過程」は「かてい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.80e717910aca",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "運動に（適）した服。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "でき"
+        },
+        {
+          "id": "b",
+          "text": "てき"
+        },
+        {
+          "id": "c",
+          "text": "たき"
+        },
+        {
+          "id": "d",
+          "text": "だき"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「適した」は「てきした」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.587a16f62e91",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "チームを（統）一する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "どう"
+        },
+        {
+          "id": "b",
+          "text": "とう"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「統一」は「とういつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.72984184f459",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "立派な 食（堂）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "どう"
+        },
+        {
+          "id": "b",
+          "text": "とう"
+        },
+        {
+          "id": "c",
+          "text": "ろう"
+        },
+        {
+          "id": "d",
+          "text": "しょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「食堂」は「しょくどう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.070e9e9ed33a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（銅）メダルをとる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "とう"
+        },
+        {
+          "id": "b",
+          "text": "どう"
+        },
+        {
+          "id": "c",
+          "text": "ほう"
+        },
+        {
+          "id": "d",
+          "text": "ぼう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「銅」は「どう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.78fb8bea5d7c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "みんなを（導）く。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "はぶ"
+        },
+        {
+          "id": "b",
+          "text": "さば"
+        },
+        {
+          "id": "c",
+          "text": "みちび"
+        },
+        {
+          "id": "d",
+          "text": "なび"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「導く」は「みちびく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.4a3a253b5d61",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "利益を（得）る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "え"
+        },
+        {
+          "id": "b",
+          "text": "と"
+        },
+        {
+          "id": "c",
+          "text": "う"
+        },
+        {
+          "id": "d",
+          "text": "さ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「得る」は「える」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.ef6dfe6aecf9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（毒）きのこに ちゅうい。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "どく"
+        },
+        {
+          "id": "b",
+          "text": "とく"
+        },
+        {
+          "id": "c",
+          "text": "そく"
+        },
+        {
+          "id": "d",
+          "text": "ぞく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「毒」は「どく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.8e499bcd9c6e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（独）立して 会社をつくる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "とく"
+        },
+        {
+          "id": "b",
+          "text": "どく"
+        },
+        {
+          "id": "c",
+          "text": "ばく"
+        },
+        {
+          "id": "d",
+          "text": "はく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「独立」は「どくりつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.39bf95f4bb9f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆クラスの担（任）の先生。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "にん"
+        },
+        {
+          "id": "b",
+          "text": "じん"
+        },
+        {
+          "id": "c",
+          "text": "みん"
+        },
+        {
+          "id": "d",
+          "text": "りん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「担任」は「たんにん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.552a5f8dcfe4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆火が（燃）える。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "は"
+        },
+        {
+          "id": "b",
+          "text": "も"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "た"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「燃える」は「もえる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.0b2f65644c41",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆自分の（能）力を しんじる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "とう"
+        },
+        {
+          "id": "b",
+          "text": "もう"
+        },
+        {
+          "id": "c",
+          "text": "のう"
+        },
+        {
+          "id": "d",
+          "text": "どう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「能力」は「のうりょく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.e97652a34b7b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆紙が（破）れる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "やぶ"
+        },
+        {
+          "id": "b",
+          "text": "かく"
+        },
+        {
+          "id": "c",
+          "text": "つか"
+        },
+        {
+          "id": "d",
+          "text": "たお"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「破れる」は「やぶれる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.8f4c6a85a33d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆事件の（犯）人。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "はん"
+        },
+        {
+          "id": "b",
+          "text": "ばん"
+        },
+        {
+          "id": "c",
+          "text": "まん"
+        },
+        {
+          "id": "d",
+          "text": "たん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「犯人」は「はんにん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.93308838877a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆自分で（判）断する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "はん"
+        },
+        {
+          "id": "b",
+          "text": "ばん"
+        },
+        {
+          "id": "c",
+          "text": "まん"
+        },
+        {
+          "id": "d",
+          "text": "たん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「判断」は「はんだん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a033b5c75929",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆本を出（版）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぱん"
+        },
+        {
+          "id": "b",
+          "text": "かん"
+        },
+        {
+          "id": "c",
+          "text": "さん"
+        },
+        {
+          "id": "d",
+          "text": "たん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「出版」は「しゅっぱん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.9a4008e49e00",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆大きさを（比）べる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なら"
+        },
+        {
+          "id": "b",
+          "text": "しら"
+        },
+        {
+          "id": "c",
+          "text": "くら"
+        },
+        {
+          "id": "d",
+          "text": "あら"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「比べる」は「くらべる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.6df2eb3b8dae",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆畑に（肥）料をまく。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ひ"
+        },
+        {
+          "id": "b",
+          "text": "び"
+        },
+        {
+          "id": "c",
+          "text": "ぴ"
+        },
+        {
+          "id": "d",
+          "text": "み"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「肥料」は「ひりょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.a6c35787a15e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（非）常口を たしかめる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ひ"
+        },
+        {
+          "id": "b",
+          "text": "び"
+        },
+        {
+          "id": "c",
+          "text": "ぴ"
+        },
+        {
+          "id": "d",
+          "text": "み"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「非常口」は「ひじょうぐち」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.2465f48429b2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆旅行の（費）用。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ひ"
+        },
+        {
+          "id": "b",
+          "text": "び"
+        },
+        {
+          "id": "c",
+          "text": "ぴ"
+        },
+        {
+          "id": "d",
+          "text": "み"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「費用」は「ひよう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.513f53a161db",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆テストの準（備）をする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ひ"
+        },
+        {
+          "id": "b",
+          "text": "び"
+        },
+        {
+          "id": "c",
+          "text": "ぴ"
+        },
+        {
+          "id": "d",
+          "text": "み"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「準備」は「じゅんび」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.bc4d776ae3b3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆作品を（評）価する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "びょう"
+        },
+        {
+          "id": "b",
+          "text": "ひょう"
+        },
+        {
+          "id": "c",
+          "text": "ぴょう"
+        },
+        {
+          "id": "d",
+          "text": "みょう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「評価」は「ひょうか」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.b12123fd667b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（貧）しい くらし。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さび"
+        },
+        {
+          "id": "b",
+          "text": "かな"
+        },
+        {
+          "id": "c",
+          "text": "くわ"
+        },
+        {
+          "id": "d",
+          "text": "まず"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「貧しい」は「まずしい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.7e2cee610e3f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（布）で つくった かばん。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きぬ"
+        },
+        {
+          "id": "b",
+          "text": "ぬの"
+        },
+        {
+          "id": "c",
+          "text": "いと"
+        },
+        {
+          "id": "d",
+          "text": "わた"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「布」は「ぬの」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.6c10661c6acb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆仲のよい 夫（婦）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぶ"
+        },
+        {
+          "id": "b",
+          "text": "ふ"
+        },
+        {
+          "id": "c",
+          "text": "ぷ"
+        },
+        {
+          "id": "d",
+          "text": "む"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「夫婦」は「ふうふ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.fde17bc3c552",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（武）器を もつ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "む"
+        },
+        {
+          "id": "b",
+          "text": "ふ"
+        },
+        {
+          "id": "c",
+          "text": "ぶ"
+        },
+        {
+          "id": "d",
+          "text": "ぷ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「武器」は「ぶき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.bcbcc96725f1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆今日の 授業を（復）習する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぶく"
+        },
+        {
+          "id": "b",
+          "text": "むく"
+        },
+        {
+          "id": "c",
+          "text": "ふく"
+        },
+        {
+          "id": "d",
+          "text": "ぷく"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「復習」は「ふくしゅう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-2.88e852c8f177",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-2",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（複）数の 人があつまる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ふく"
+        },
+        {
+          "id": "b",
+          "text": "ぶく"
+        },
+        {
+          "id": "c",
+          "text": "むく"
+        },
+        {
+          "id": "d",
+          "text": "ぷく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「複数」は「ふくすう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.80da810adc05",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆お寺で（仏）像を見る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "むつ"
+        },
+        {
+          "id": "b",
+          "text": "ふつ"
+        },
+        {
+          "id": "c",
+          "text": "ぶつ"
+        },
+        {
+          "id": "d",
+          "text": "ぷつ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「仏像」は「ぶつぞう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.448ea930f845",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆春は 花（粉）がとぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ふん"
+        },
+        {
+          "id": "b",
+          "text": "ぷん"
+        },
+        {
+          "id": "c",
+          "text": "ぶん"
+        },
+        {
+          "id": "d",
+          "text": "むん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「花粉」は「かふん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.eaa93156aa28",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆毛糸で セーターを（編）む。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "か"
+        },
+        {
+          "id": "b",
+          "text": "た"
+        },
+        {
+          "id": "c",
+          "text": "や"
+        },
+        {
+          "id": "d",
+          "text": "あ"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「編む」は「あむ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.82a9214f2a5d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆お（弁）当を たべる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぺん"
+        },
+        {
+          "id": "b",
+          "text": "へん"
+        },
+        {
+          "id": "c",
+          "text": "べん"
+        },
+        {
+          "id": "d",
+          "text": "めん"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「弁当」は「べんとう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.c30b9d9519fc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆データを 保（存）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぽ"
+        },
+        {
+          "id": "b",
+          "text": "ぼ"
+        },
+        {
+          "id": "c",
+          "text": "も"
+        },
+        {
+          "id": "d",
+          "text": "ほ"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「保存」は「ほぞん」と読みます（※「保」は「ほ」と読みます）。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.ae9bd61a60bf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆お（墓）まいりに 行く。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "はか"
+        },
+        {
+          "id": "b",
+          "text": "ばか"
+        },
+        {
+          "id": "c",
+          "text": "ぱか"
+        },
+        {
+          "id": "d",
+          "text": "まか"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「墓」は「はか」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.01d11f707d90",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆結果を（報）告する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぼう"
+        },
+        {
+          "id": "b",
+          "text": "ほう"
+        },
+        {
+          "id": "c",
+          "text": "ぽう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「報告」は「ほうこく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.17343509715d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆自然が（豊）かだ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ほが"
+        },
+        {
+          "id": "b",
+          "text": "しず"
+        },
+        {
+          "id": "c",
+          "text": "おごそ"
+        },
+        {
+          "id": "d",
+          "text": "ゆた"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「豊か」は「ゆたか」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.1dc7c2dd5055",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆事故を（防）ぐ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "かせ"
+        },
+        {
+          "id": "b",
+          "text": "ふせ"
+        },
+        {
+          "id": "c",
+          "text": "つ"
+        },
+        {
+          "id": "d",
+          "text": "いそ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「防ぐ」は「ふせぐ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.c3bb9d027f37",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆外国と（貿）易をする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ほう"
+        },
+        {
+          "id": "b",
+          "text": "ぼう"
+        },
+        {
+          "id": "c",
+          "text": "ぽう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「貿易」は「ぼうえき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.ce3105cee649",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆馬が（暴）れる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こぼ"
+        },
+        {
+          "id": "b",
+          "text": "あば"
+        },
+        {
+          "id": "c",
+          "text": "つか"
+        },
+        {
+          "id": "d",
+          "text": "わ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「暴れる」は「あばれる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.e9da6bc980c6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆大きな 山（脈）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "みゃく"
+        },
+        {
+          "id": "b",
+          "text": "びゃく"
+        },
+        {
+          "id": "c",
+          "text": "ぴゃく"
+        },
+        {
+          "id": "d",
+          "text": "りゃく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「山脈」は「さんみゃく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.7df44740dca4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆国民の 義（務）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぶ"
+        },
+        {
+          "id": "b",
+          "text": "む"
+        },
+        {
+          "id": "c",
+          "text": "ふ"
+        },
+        {
+          "id": "d",
+          "text": "ぷ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「義務」は「ぎむ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.9474dbc01f6a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆将来の（夢）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ゆめ"
+        },
+        {
+          "id": "b",
+          "text": "くも"
+        },
+        {
+          "id": "c",
+          "text": "ほし"
+        },
+        {
+          "id": "d",
+          "text": "にじ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「夢」は「ゆめ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.17946af50a63",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆道に（迷）う。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なや"
+        },
+        {
+          "id": "b",
+          "text": "まよ"
+        },
+        {
+          "id": "c",
+          "text": "かよ"
+        },
+        {
+          "id": "d",
+          "text": "さそ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「迷う」は「まよう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.cc46a88fdc11",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆木（綿）の ハンカチ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "べん"
+        },
+        {
+          "id": "b",
+          "text": "めん"
+        },
+        {
+          "id": "c",
+          "text": "ぺん"
+        },
+        {
+          "id": "d",
+          "text": "へん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「木綿」は「もめん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.8c4b98b77a08",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆石油を（輸）入する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゅ"
+        },
+        {
+          "id": "b",
+          "text": "きゅ"
+        },
+        {
+          "id": "c",
+          "text": "ゆ"
+        },
+        {
+          "id": "d",
+          "text": "しゅ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「輸入」は「ゆにゅう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.a14e5019db55",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆時間が（余）る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あま"
+        },
+        {
+          "id": "b",
+          "text": "たま"
+        },
+        {
+          "id": "c",
+          "text": "とま"
+        },
+        {
+          "id": "d",
+          "text": "そま"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「余る」は「あまる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.4a95e845229e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆箱の中の 内（容）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "よう"
+        },
+        {
+          "id": "b",
+          "text": "そう"
+        },
+        {
+          "id": "c",
+          "text": "りょう"
+        },
+        {
+          "id": "d",
+          "text": "きょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「内容」は「ないよう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.dcce0ef532dc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆詳しい説明を 省（略）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "みゃく"
+        },
+        {
+          "id": "b",
+          "text": "りゃく"
+        },
+        {
+          "id": "c",
+          "text": "ぎゃく"
+        },
+        {
+          "id": "d",
+          "text": "きゃく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「省略」は「しょうりゃく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.e46aef451da1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（留）守番を する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "る"
+        },
+        {
+          "id": "b",
+          "text": "む"
+        },
+        {
+          "id": "c",
+          "text": "ぶ"
+        },
+        {
+          "id": "d",
+          "text": "ふ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「留守」は「るす」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.fa2b5824e1f2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（領）収書を もらう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きょう"
+        },
+        {
+          "id": "b",
+          "text": "りょう"
+        },
+        {
+          "id": "c",
+          "text": "ぎょう"
+        },
+        {
+          "id": "d",
+          "text": "みょう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「領収書」は「りょうしゅうしょ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.ae8ea1fa40b5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆日本の（歴）史。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "れき"
+        },
+        {
+          "id": "b",
+          "text": "でき"
+        },
+        {
+          "id": "c",
+          "text": "めき"
+        },
+        {
+          "id": "d",
+          "text": "ぺき"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「歴史」は「れきし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.df90d222547f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆持ち物を（検）査する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "げん"
+        },
+        {
+          "id": "b",
+          "text": "けん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「検査」は「けんさ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.2d1ba0a7b8d7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆体力の（限）界をこえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "げん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「限界」は「げんかい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.80be03501579",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（現）代の社会。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "がん"
+        },
+        {
+          "id": "c",
+          "text": "げん"
+        },
+        {
+          "id": "d",
+          "text": "かん"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「現代」は「げんだい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.afcbf51194af",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆人口が（減）少する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "けん"
+        },
+        {
+          "id": "b",
+          "text": "げん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「減少」は「げんしょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.a6e79f626eed",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆交通事（故）に 気をつける。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こ"
+        },
+        {
+          "id": "b",
+          "text": "ご"
+        },
+        {
+          "id": "c",
+          "text": "き"
+        },
+        {
+          "id": "d",
+          "text": "ぎ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「事故」は「じこ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.272f06557565",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（個）人の 意見。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こ"
+        },
+        {
+          "id": "b",
+          "text": "ご"
+        },
+        {
+          "id": "c",
+          "text": "き"
+        },
+        {
+          "id": "d",
+          "text": "ぎ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「個人」は「こじん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.f72eac1bc2d9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆自然を保（護）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こ"
+        },
+        {
+          "id": "b",
+          "text": "き"
+        },
+        {
+          "id": "c",
+          "text": "ぎ"
+        },
+        {
+          "id": "d",
+          "text": "ご"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「保護」は「ほご」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.8e2e1b4bc80b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆薬の（効）果があらわれる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ごう"
+        },
+        {
+          "id": "b",
+          "text": "こう"
+        },
+        {
+          "id": "c",
+          "text": "ぼう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「効果」は「こうか」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.a1262111f2ee",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（厚）い 本をよむ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あつ"
+        },
+        {
+          "id": "b",
+          "text": "ほそ"
+        },
+        {
+          "id": "c",
+          "text": "ふと"
+        },
+        {
+          "id": "d",
+          "text": "なが"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「厚い」は「あつい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.382c58a97c8a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆畑を（耕）す。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "たがや"
+        },
+        {
+          "id": "b",
+          "text": "はや"
+        },
+        {
+          "id": "c",
+          "text": "のば"
+        },
+        {
+          "id": "d",
+          "text": "もや"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「耕す」は「たがやす」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.1f61d6c705b1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（航）空機に のる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こう"
+        },
+        {
+          "id": "b",
+          "text": "ごう"
+        },
+        {
+          "id": "c",
+          "text": "ぼう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「航空」は「こうくう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.d9f593239b94",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆鉄の（鉱）石を ほりだす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ごう"
+        },
+        {
+          "id": "b",
+          "text": "こう"
+        },
+        {
+          "id": "c",
+          "text": "ぼう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「鉱石」は「こうせき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.d5802ec7e0fc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆チームを（構）成する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こう"
+        },
+        {
+          "id": "b",
+          "text": "ごう"
+        },
+        {
+          "id": "c",
+          "text": "きょう"
+        },
+        {
+          "id": "d",
+          "text": "ぎょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「構成」は「こうせい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.ddf7bcea2c6a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆歴史に（興）味をもつ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ごう"
+        },
+        {
+          "id": "b",
+          "text": "こう"
+        },
+        {
+          "id": "c",
+          "text": "きょう"
+        },
+        {
+          "id": "d",
+          "text": "ぎょう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「興味」は「きょうみ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.93e3dd30f0a9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆先生の（講）義をきく。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こう"
+        },
+        {
+          "id": "b",
+          "text": "ごう"
+        },
+        {
+          "id": "c",
+          "text": "きょう"
+        },
+        {
+          "id": "d",
+          "text": "ぎょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「講義」は「こうぎ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.4a29fa0cc4ed",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆結果を報（告）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こく"
+        },
+        {
+          "id": "b",
+          "text": "ごく"
+        },
+        {
+          "id": "c",
+          "text": "きょく"
+        },
+        {
+          "id": "d",
+          "text": "ぎょく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「報告」は「ほうこく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.a09abe44ebeb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆会場が（混）乱する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ごん"
+        },
+        {
+          "id": "b",
+          "text": "こん"
+        },
+        {
+          "id": "c",
+          "text": "かん"
+        },
+        {
+          "id": "d",
+          "text": "がん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「混乱」は「こんらん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.91ad89fc43cb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆原因を調（査）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さ"
+        },
+        {
+          "id": "b",
+          "text": "ざ"
+        },
+        {
+          "id": "c",
+          "text": "し"
+        },
+        {
+          "id": "d",
+          "text": "じ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「調査」は「ちょうさ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.663577fa504f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆ビデオを（再）生する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ざい"
+        },
+        {
+          "id": "b",
+          "text": "さい"
+        },
+        {
+          "id": "c",
+          "text": "しゃ"
+        },
+        {
+          "id": "d",
+          "text": "じゃ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「再生」は「さいせい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.afe433f5b2c1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（災）害に そなえる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ざい"
+        },
+        {
+          "id": "b",
+          "text": "さい"
+        },
+        {
+          "id": "c",
+          "text": "しゃ"
+        },
+        {
+          "id": "d",
+          "text": "じゃ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「災害」は「さいがい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.6e1821fbf8c4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（妻）と いっしょにでかける。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おっと"
+        },
+        {
+          "id": "b",
+          "text": "つま"
+        },
+        {
+          "id": "c",
+          "text": "こ"
+        },
+        {
+          "id": "d",
+          "text": "まご"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「妻」は「つま」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.09ec3df6fca4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆新しい人を（採）用する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "ざい"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「採用」は「さいよう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.099f51a6754f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆人と交（際）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ざい"
+        },
+        {
+          "id": "b",
+          "text": "さい"
+        },
+        {
+          "id": "c",
+          "text": "しゃ"
+        },
+        {
+          "id": "d",
+          "text": "じゃ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「交際」は「こうさい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.147e385b859d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆そこに存（在）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "ざい"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「存在」は「そんざい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.6fb7ba0c4e3c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆大きな（財）産。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "しゃ"
+        },
+        {
+          "id": "c",
+          "text": "ざい"
+        },
+        {
+          "id": "d",
+          "text": "じゃ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「財産」は「ざいさん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.fddc1d81e450",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆犯（罪）を ふせぐ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さい"
+        },
+        {
+          "id": "b",
+          "text": "ざい"
+        },
+        {
+          "id": "c",
+          "text": "そう"
+        },
+        {
+          "id": "d",
+          "text": "ぞう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「犯罪」は「はんざい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.369694b8749d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆虫を（殺）虫剤で たおす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さつ"
+        },
+        {
+          "id": "b",
+          "text": "ざつ"
+        },
+        {
+          "id": "c",
+          "text": "そつ"
+        },
+        {
+          "id": "d",
+          "text": "ぞつ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「殺虫剤」は「さっちゅうざい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.e88e008a35e8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆複（雑）な 計算。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さつ"
+        },
+        {
+          "id": "b",
+          "text": "ざつ"
+        },
+        {
+          "id": "c",
+          "text": "そつ"
+        },
+        {
+          "id": "d",
+          "text": "ぞつ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「複雑」は「ふくざつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.89e2a961d46a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆炭（酸）飲料を のむ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さん"
+        },
+        {
+          "id": "b",
+          "text": "ざん"
+        },
+        {
+          "id": "c",
+          "text": "そん"
+        },
+        {
+          "id": "d",
+          "text": "ぞん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「炭酸」は「たんさん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.884c5ef89948",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆意見に（賛）成する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さん"
+        },
+        {
+          "id": "b",
+          "text": "ざん"
+        },
+        {
+          "id": "c",
+          "text": "そん"
+        },
+        {
+          "id": "d",
+          "text": "ぞん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「賛成」は「さんせい」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.b715f70ceb5b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（武）士の 時代。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "む"
+        },
+        {
+          "id": "b",
+          "text": "ぶ"
+        },
+        {
+          "id": "c",
+          "text": "ふ"
+        },
+        {
+          "id": "d",
+          "text": "ぷ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「武士」は「ぶし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.e59a56c40ad2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆お金を（支）払う。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "し"
+        },
+        {
+          "id": "b",
+          "text": "じ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「支払う」は「しはらう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.4c81a0bc9319",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆歴（史）の 勉強をする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じ"
+        },
+        {
+          "id": "b",
+          "text": "し"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「歴史」は「れきし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.72521e9f905c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆強い意（志）をもつ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じ"
+        },
+        {
+          "id": "b",
+          "text": "さ"
+        },
+        {
+          "id": "c",
+          "text": "ざ"
+        },
+        {
+          "id": "d",
+          "text": "し"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「意志」は「いし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.78958d19ce7c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆木の（枝）を 切る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "えだ"
+        },
+        {
+          "id": "b",
+          "text": "みき"
+        },
+        {
+          "id": "c",
+          "text": "葉"
+        },
+        {
+          "id": "d",
+          "text": "根"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「枝」は「えだ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.6a0edc53f0a9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆学校の教（師）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じ"
+        },
+        {
+          "id": "b",
+          "text": "し"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「教師」は「きょうし」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.aac41d05ef4a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆天然の（資）源。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "し"
+        },
+        {
+          "id": "b",
+          "text": "じ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「資源」は「しげん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.17d3a6a2f44d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆動物を（飼）育する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "し"
+        },
+        {
+          "id": "b",
+          "text": "じ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「飼育」は「しいく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.6d8bd0146b46",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆先生が指（示）をだす。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "し"
+        },
+        {
+          "id": "b",
+          "text": "じ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「指示」は「しじ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.f3e20fe0839c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆母親に よく（似）ている。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "み"
+        },
+        {
+          "id": "b",
+          "text": "び"
+        },
+        {
+          "id": "c",
+          "text": "に"
+        },
+        {
+          "id": "d",
+          "text": "ぢ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「似ている」は「にている」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.e1ff4a2984e4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆専門の知（識）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じき"
+        },
+        {
+          "id": "b",
+          "text": "しき"
+        },
+        {
+          "id": "c",
+          "text": "さき"
+        },
+        {
+          "id": "d",
+          "text": "ざき"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「知識」は「ちしき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.be2ffdfd43b6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆物質の性（質）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じつ"
+        },
+        {
+          "id": "b",
+          "text": "しつ"
+        },
+        {
+          "id": "c",
+          "text": "さつ"
+        },
+        {
+          "id": "d",
+          "text": "ざつ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「性質」は「せいしつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.0c61bfebf4e7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆学校の校（舎）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゃ"
+        },
+        {
+          "id": "b",
+          "text": "しゃ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「校舎」は「こうしゃ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.9f675a4476bf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆感（謝）の 気持ち。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゃ"
+        },
+        {
+          "id": "b",
+          "text": "しゃ"
+        },
+        {
+          "id": "c",
+          "text": "さ"
+        },
+        {
+          "id": "d",
+          "text": "ざ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「感謝」は「かんしゃ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.ab0490ea7034",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆英語の（授）業をうける。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しゅ"
+        },
+        {
+          "id": "b",
+          "text": "じゅ"
+        },
+        {
+          "id": "c",
+          "text": "す"
+        },
+        {
+          "id": "d",
+          "text": "ず"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「授業」は「じゅぎょう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.af9f760ad7b7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆自転車を（修）理する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゅ"
+        },
+        {
+          "id": "b",
+          "text": "しゅ"
+        },
+        {
+          "id": "c",
+          "text": "しゅう"
+        },
+        {
+          "id": "d",
+          "text": "じゅう"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「修理」は「しゅうり」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.bb4585f98b00",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆意見を（述）べる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "の"
+        },
+        {
+          "id": "b",
+          "text": "く"
+        },
+        {
+          "id": "c",
+          "text": "た"
+        },
+        {
+          "id": "d",
+          "text": "ま"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「述べる」は「のべる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.c81c5e663262",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆新しい技（術）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しゅつ"
+        },
+        {
+          "id": "b",
+          "text": "じゅつ"
+        },
+        {
+          "id": "c",
+          "text": "すつ"
+        },
+        {
+          "id": "d",
+          "text": "ずつ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「技術」は「ぎじゅつ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.ee3a67b95852",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆テストの（準）備をする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゅん"
+        },
+        {
+          "id": "b",
+          "text": "しゅん"
+        },
+        {
+          "id": "c",
+          "text": "すん"
+        },
+        {
+          "id": "d",
+          "text": "ずん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「準備」は「じゅんび」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-7.60667a06c89c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-7",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆正しい順（序）で ならぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しょ"
+        },
+        {
+          "id": "b",
+          "text": "じょ"
+        },
+        {
+          "id": "c",
+          "text": "そ"
+        },
+        {
+          "id": "d",
+          "text": "ぞ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「順序」は「じゅんじょ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-6.e162a8bcb223",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-6",
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
+    "payload": {
+      "prompt": "ある地域だけで使われている特有の言葉を何といいますか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "古文（こぶん）"
+        },
+        {
+          "id": "b",
+          "text": "共通語（きょうつうご）"
+        },
+        {
+          "id": "c",
+          "text": "漢文（かんぶん）"
+        },
+        {
+          "id": "d",
+          "text": "方言（ほうげん）"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "地域によって異なる言葉を「方言」といい、全国どこでも通じる言葉を「共通語」といいます。"
+  }
+]

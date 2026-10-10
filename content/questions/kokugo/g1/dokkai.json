@@ -1,0 +1,117 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g1.dokkai.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.dokkai",
+    "payload": {
+      "prompt": "『あさ、ゆうたは ねこに みずを あげました。そのあと、じぶんの あさごはんを たべました。』ゆうたが さきに したことは どれ？",
+      "choices": [
+        { "id": "a", "text": "あさごはんを たべた" },
+        { "id": "b", "text": "ねこに みずを あげた" },
+        { "id": "c", "text": "ねこと あそんだ" },
+        { "id": "d", "text": "みずを のんだ" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "『そのあと』より まえに、ねこに みずを あげています。"
+  },
+  {
+    "id": "kokugo.g1.dokkai.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.dokkai",
+    "payload": {
+      "prompt": "『あかい ぼうしが、いすの したに あります。』ぼうしは どこに ある？",
+      "choices": [
+        { "id": "a", "text": "つくえの うえ" },
+        { "id": "b", "text": "いすの した" },
+        { "id": "c", "text": "はこの なか" },
+        { "id": "d", "text": "げんかん" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "文に『いすの した』と かいてあります。"
+  },
+  {
+    "id": "kokugo.g1.dokkai.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.dokkai",
+    "payload": {
+      "prompt": "『あめが ふって きたので、みきは かさを ひらきました。』みきが かさを ひらいたのは なぜ？",
+      "choices": [
+        { "id": "a", "text": "かぜが ふいたから" },
+        { "id": "b", "text": "あめが ふったから" },
+        { "id": "c", "text": "よるに なったから" },
+        { "id": "d", "text": "かさを なくしたから" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "『あめが ふって きたので』が、かさを ひらいた わけです。"
+  },
+  {
+    "id": "kokugo.g1.dokkai.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.dokkai",
+    "payload": {
+      "prompt": "『そうたは、さがしていた どんぐりを みつけて、にっこり しました。』そうたの きもちは どれ？",
+      "choices": [
+        { "id": "a", "text": "うれしい" },
+        { "id": "b", "text": "かなしい" },
+        { "id": "c", "text": "こわい" },
+        { "id": "d", "text": "おこっている" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "みつけて『にっこり』したので、うれしい きもちだと わかります。"
+  },
+  {
+    "id": "kokugo.g1.dokkai.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.dokkai",
+    "payload": {
+      "prompt": "『はじめに たねを まきました。つぎに みずを あげました。さいごに なまえの ふだを たてました。』みずを あげたのは いつ？",
+      "choices": [
+        { "id": "a", "text": "はじめ" },
+        { "id": "b", "text": "つぎ" },
+        { "id": "c", "text": "さいご" },
+        { "id": "d", "text": "かいていない" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "文には『つぎに みずを あげました』と あります。"
+  },
+  {
+    "id": "kokugo.g1.dokkai.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.dokkai",
+    "payload": {
+      "prompt": "『りすは きのみを ひろいます。ことりは きの えだで うたいます。』りすと ことりが いる ところは どこ？",
+      "choices": [
+        { "id": "a", "text": "うみ" },
+        { "id": "b", "text": "もり" },
+        { "id": "c", "text": "えき" },
+        { "id": "d", "text": "みせ" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "きのみや きの えだが あるので、もりの ようすだと わかります。"
+  }
+]

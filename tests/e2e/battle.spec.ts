@@ -137,9 +137,14 @@ test('バトル：教科ゲージはコマンドと主人公ステータスの�
   expect(commands).not.toBeNull();
   expect(gauge).not.toBeNull();
   expect(party).not.toBeNull();
-  expect(party!.width).toBeCloseTo(enemy!.width, 0);
-  expect(gauge!.x).toBeGreaterThan(commands!.x + commands!.width);
-  expect(gauge!.x + gauge!.width).toBeLessThan(party!.x);
+  await expect(page.locator('.nq-bottom-rail')).toBeVisible();
+  await expect(page.locator('.nq-bottom-rail .nq-win')).toHaveCount(0);
+  await expect(page.locator('.nq-box')).toHaveCount(0);
+  await expect(page.locator('.nq-foe-row')).toHaveCount(0);
+  await expect(page.locator('.nq-bar-hp .nq-bar-value')).toHaveCount(2);
+  expect(enemy!.width).toBeCloseTo(party!.width, 0);
+  expect(gauge!.x).toBeCloseTo(commands!.x + commands!.width, 0);
+  expect(gauge!.x + gauge!.width).toBeCloseTo(party!.x, 0);
   expect(gauge!.y).toBeCloseTo(party!.y, 0);
 });
 

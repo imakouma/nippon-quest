@@ -31,7 +31,10 @@ export function chooseStoryCompanion(
   if (hasStoryCompanion(prev)) return prev;
 
   const next = structuredClone(prev);
-  const uid = 'story-companion';
+  const baseUid = 'story-companion';
+  let uid = baseUid;
+  let suffix = 2;
+  while (next.party.owned.some((monster) => monster.uid === uid)) uid = `${baseUid}#${suffix++}`;
   next.party.owned.push({ uid, monsterId, level: 1, xp: 0 });
   next.party.activeUid = uid;
   const occupied = new Set(

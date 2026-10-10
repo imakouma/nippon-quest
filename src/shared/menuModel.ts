@@ -11,6 +11,9 @@ export interface RoadmapNode {
   subject: string;
   subjectLabel: string;
   grade: number;
+  /** 学校ごとの差を許容した、おすすめの学習時期。variable は学年を通して扱う。 */
+  recommendedTerms?: readonly (1 | 2 | 3 | 'variable')[];
+  courseKind?: 'required-subject' | 'required-activity' | 'supplementary';
   mastery: number;
   attempts: number;
   state: 'cleared' | 'current' | 'open' | 'locked';

@@ -5,6 +5,9 @@
  */
 import { z } from 'zod';
 
+export const safeNonnegativeIntegerSchema = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
+export const safePositiveIntegerSchema = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
+
 export const idSchema = z
   .string()
   .regex(/^[a-z0-9][a-z0-9.-]*$/, 'id は小文字英数字・ドット・ハイフンのみ')
@@ -27,21 +30,54 @@ export const gradeRangeSchema = z
   .refine(([a, b]) => a <= b, 'gradeRange は [小, 大]');
 export const elementSchema = z.enum(['hino', 'mizu', 'mori', 'tsuchi', 'kaze', 'hikari', 'yami', 'none']);
 
-export const statsSchema = z.object({
-  hp: z.number().int().nonnegative(),
-  mp: z.number().int().nonnegative(),
-  atk: z.number().nonnegative(),
-  def: z.number().nonnegative(),
+const academicStatsObjectSchema = z.object({
+  hp: safeNonnegativeIntegerSchema,
+  mp: safeNonnegativeIntegerSchema,
+  scienceAtk: z.number().nonnegative(),
+  humanitiesAtk: z.number().nonnegative(),
+  scienceDef: z.number().nonnegative(),
+  humanitiesDef: z.number().nonnegative(),
   spd: z.number().nonnegative(),
   wis: z.number().nonnegative(),
 });
-export const partialStatsSchema = statsSchema.partial();
+
+const normalizeLegacyStats = (value: unknown): unknown => {
+  if (!value || typeof value !== 'object') return value;
+  const stats = value as Record<string, unknown>;
+  return {
+    ...stats,
+    scienceAtk: stats.scienceAtk ?? stats.atk,
+    humanitiesAtk: stats.humanitiesAtk ?? stats.atk,
+    scienceDef: stats.scienceDef ?? stats.def,
+    humanitiesDef: stats.humanitiesDef ?? stats.def,
+  };
+};
+
+/** 旧JSONは読込時だけ文理へ複製し、ランタイムでは8能力に統一する。 */
+export const statsSchema = z.preprocess(normalizeLegacyStats, academicStatsObjectSchema);
+export const partialStatsSchema = z.preprocess(normalizeLegacyStats, academicStatsObjectSchema.partial());
+
+const zeroStats = {
+  hp: 0,
+  mp: 0,
+  scienceAtk: 0,
+  humanitiesAtk: 0,
+  scienceDef: 0,
+  humanitiesDef: 0,
+  spd: 0,
+  wis: 0,
+};
+
+export const growthCurveSchema = z.preprocess((value) => {
+  if (!value || typeof value !== 'object' || 'base' in value) return value;
+  return { base: value, every5: zeroStats, every10: zeroStats };
+}, z.object({ base: statsSchema, every5: statsSchema, every10: statsSchema }));
 
 // ───────────────────────── World / Island ─────────────────────────
 export const islandSchema = z.object({
   id: idSchema,
   name: rubyTextSchema,
-  order: z.number().int().positive(),
+  order: safePositiveIntegerSchema,
   mapKey: z.string(),
   areas: z.array(idSchema).min(1),
   bossId: idSchema,
@@ -77,14 +113,14 @@ export const encounterTableSchema = z.object({
       '名所エリア（regions の id）。あれば その エリアの 中だけで つかう（エリアの 表が 無い 地面は region なしの 表）',
     ),
   table: z.array(z.object({ monsterId: idSchema, weight: z.number().positive() })).min(1),
-  stepsPerCheck: z.number().int().positive().default(12),
+  stepsPerCheck: safePositiveIntegerSchema.default(12),
   rate: z.number().min(0).max(1).default(0.25),
 });
 
 export const rewardSchema = z.object({
-  gold: z.number().int().nonnegative().optional(),
-  xp: z.number().int().nonnegative().optional(),
-  items: z.array(z.object({ itemId: idSchema, n: z.number().int().positive().default(1) })).optional(),
+  gold: safeNonnegativeIntegerSchema.optional(),
+  xp: safeNonnegativeIntegerSchema.optional(),
+  items: z.array(z.object({ itemId: idSchema, n: safePositiveIntegerSchema.default(1) })).optional(),
   skills: z.array(idSchema).optional(),
   recipes: z.array(idSchema).optional(),
   unlockMonsters: z.array(idSchema).optional(),
@@ -119,14 +155,18 @@ export const areaEventSchema = z.object({
   afterDialogue: z.array(dialogueLineSchema).optional(),
 });
 
-export const shopEntrySchema = z.object({ itemId: idSchema, price: z.number().int().positive() });
+export const shopEntrySchema = z.object({ itemId: idSchema, price: safePositiveIntegerSchema });
 
 export const missionConditionSchema = z
   .string()
   .regex(
     /^(?:(?:defeat|collect):[a-z0-9.-]+:[1-9]\d*|perfect:(?:kokugo|sansu|rika|shakai|seikatsu|eigo):[1-9]\d*|(?:event|recruit):[a-z0-9.-]+)$/,
     'condition の形式: defeat:<monsterId>:<n> / collect:<itemId>:<n> / perfect:<subject>:<n> / event:<eventId> / recruit:<monsterId>',
-  );
+  )
+  .refine((condition) => {
+    const count = condition.split(':')[2];
+    return count === undefined || Number.isSafeInteger(Number(count));
+  }, 'condition の必要数は安全整数にしてください');
 
 export const missionSchema = z.object({
   id: idSchema,
@@ -157,7 +197,7 @@ export const regionSchema = z.object({
   boss: z
     .object({
       monsterId: idSchema,
-      level: z.number().int().positive(),
+      level: safePositiveIntegerSchema,
       line: rubyTextSchema.optional().describe('はなしかけた ときの ぬしの ひとこと'),
     })
     .optional()
@@ -207,7 +247,7 @@ export const bossPhaseSchema = z.object({
   skills: z.array(idSchema).optional(),
   spriteKey: z.string().optional(),
   element: elementSchema.optional(),
-  actionsPerTurn: z.number().int().positive().optional(),
+  actionsPerTurn: safePositiveIntegerSchema.optional(),
   line: rubyTextSchema.optional(),
 });
 
@@ -222,20 +262,13 @@ export const monsterSchema = z.object({
     .describe('このモンスターが得意な教科。仲間にすると対応する教科ゲージをためやすい'),
   weakness: elementSchema.optional().describe('「しらべる」で判明するじゃくてん'),
   baseStats: statsSchema,
-  growth: z.object({
-    hp: z.number().nonnegative(),
-    mp: z.number().nonnegative(),
-    atk: z.number().nonnegative(),
-    def: z.number().nonnegative(),
-    spd: z.number().nonnegative(),
-    wis: z.number().nonnegative(),
-  }),
+  growth: growthCurveSchema,
   skills: z.array(idSchema).default([]),
   drops: z.array(z.object({ itemId: idSchema, rate: z.number().min(0).max(1) })).default([]),
   recruitRate: z.number().min(0).max(1).default(0),
   recruitItem: idSchema.optional(),
-  xp: z.number().int().nonnegative(),
-  gold: z.number().int().nonnegative(),
+  xp: safeNonnegativeIntegerSchema,
+  gold: safeNonnegativeIntegerSchema,
   spriteKey: z.string(),
   dexBlurb: rubyTextSchema,
   isBoss: z.boolean().default(false),
@@ -250,8 +283,8 @@ export const monsterSchema = z.object({
     .object({
       to: idSchema.describe('しんかした あとの モンスター id'),
       item: idSchema.describe('しんかに つかう どうぐ（count こ へる）'),
-      count: z.number().int().positive().optional().describe('しんかに つかう どうぐの数（省略時は 1）'),
-      minLevel: z.number().int().positive().optional().describe('このレベルから しんかできる'),
+      count: safePositiveIntegerSchema.optional().describe('しんかに つかう どうぐの数（省略時は 1）'),
+      minLevel: safePositiveIntegerSchema.optional().describe('このレベルから しんかできる'),
     })
     .optional()
     .describe('しんか：なかまの画面で item を つかうと to に なる'),
@@ -283,11 +316,11 @@ export const itemSchema = z.object({
   element: elementSchema.optional(),
   grantsSkill: idSchema.optional(),
   setId: idSchema.optional(),
-  price: z.number().int().nonnegative().optional(),
+  price: safeNonnegativeIntegerSchema.optional(),
   use: z
     .object({
-      heal: z.number().int().positive().optional(),
-      mp: z.number().int().positive().optional(),
+      heal: safePositiveIntegerSchema.optional(),
+      mp: safePositiveIntegerSchema.optional(),
     })
     .refine((use) => use.heal !== undefined || use.mp !== undefined, 'heal または mp が必要です')
     .optional(),
@@ -309,9 +342,9 @@ export const equipSetSchema = z.object({
 
 export const recipeSchema = z.object({
   id: idSchema,
-  result: z.object({ itemId: idSchema, n: z.number().int().positive().default(1) }),
-  materials: z.array(z.object({ itemId: idSchema, n: z.number().int().positive() })).min(1),
-  gold: z.number().int().nonnegative().default(0),
+  result: z.object({ itemId: idSchema, n: safePositiveIntegerSchema.default(1) }),
+  materials: z.array(z.object({ itemId: idSchema, n: safePositiveIntegerSchema })).min(1),
+  gold: safeNonnegativeIntegerSchema.default(0),
   unlockedByDefault: z.boolean().default(true),
 });
 
@@ -324,7 +357,7 @@ export const skillSchema = z.object({
   unitHint: z.array(z.string()).optional(),
   power: z.number().nonnegative().describe('いりょく（100 = 1 ばい）'),
   element: elementSchema,
-  mp: z.number().int().nonnegative().describe('敵が使うときの MP（味方の必殺技は 教科ゲージを使う）'),
+  mp: safeNonnegativeIntegerSchema.describe('敵が使うときの MP（味方の必殺技は 教科ゲージを使う）'),
   gauge: z
     .number()
     .int()
@@ -354,7 +387,7 @@ export const skillSchema = z.object({
 
 // ───────────────────────── Balance ─────────────────────────
 const cumulativeXpSchema = z
-  .array(z.number().int().nonnegative())
+  .array(safeNonnegativeIntegerSchema)
   .min(2)
   .refine((table) => table[0] === 0, 'Lv1 の累積XPは 0 が必要です')
   .refine(
@@ -376,7 +409,7 @@ const bandNumbers = (n: z.ZodNumber) => z.object({ perfect: n, good: n, weak: n,
 
 export const settingsSchema = z.object({
   timeLimitSecByGrade: z.record(z.string(), z.number().positive()),
-  heroGrowth: statsSchema.describe('主人公が 1 レベル上がるごとの ステータス成長量'),
+  heroGrowth: growthCurveSchema.describe('主人公の基礎成長と5・10レベルごとの節目成長'),
   scoreMultipliers: bandNumbers(z.number().positive())
     .refine(
       ({ perfect, good, weak, miss }) => perfect >= good && good >= weak && weak >= miss,
@@ -396,7 +429,7 @@ export const settingsSchema = z.object({
   }),
   defeatGoldLossRate: z.number().min(0).max(1),
   recruitHpThreshold: z.number().min(0).max(1),
-  recentQuestionWindow: z.number().int().positive(),
+  recentQuestionWindow: safePositiveIntegerSchema,
   adaptiveWeakUnitRatio: z.number().min(0).max(1),
   damageScale: z
     .number()
@@ -426,8 +459,8 @@ export const settingsSchema = z.object({
     .describe('コンボ＆ストリーク倍率：れんぞく せいかいで いりょく・かいしん・けいけんち・おかねが ふえる'),
   subjectGauge: z
     .object({
-      max: z.number().int().positive().describe('1 教科の ゲージの 上限'),
-      charge: bandNumbers(z.number().int().nonnegative()).describe(
+      max: safePositiveIntegerSchema.describe('1 教科の ゲージの 上限'),
+      charge: bandNumbers(safeNonnegativeIntegerSchema).describe(
         '問題に こたえたとき その教科の ゲージに たまる量',
       ),
       companionBoost: z.number().positive().describe('オトモ（出撃中の 仲間）の 教科は この倍 たまる'),
@@ -459,7 +492,7 @@ export const settingsSchema = z.object({
     .describe('モンスターが その県の特産品を落とす確率（特産品ぜんぶ合わせて）'),
   turns: z
     .object({
-      buffTurns: z.number().int().positive().describe('ぼうぎょ アップ・ダウンが つづく ターン数'),
+      buffTurns: safePositiveIntegerSchema.describe('ぼうぎょ アップ・ダウンが つづく ターン数'),
       statusTurns: z
         .number()
         .int()
@@ -470,16 +503,40 @@ export const settingsSchema = z.object({
     .describe('ターン制の 長さ：1 ターンに 主人公・オトモ・てきが 1 回ずつ 動く'),
   bag: z
     .object({
-      baseSlots: z.number().int().positive().describe('さいしょの マスの数'),
+      baseSlots: safePositiveIntegerSchema.describe('さいしょの マスの数'),
       levelsPerSlot: z
         .number()
         .int()
         .positive()
         .describe('主人公の レベルが これだけ 上がるごとに 1 マス ふえる'),
-      maxSlots: z.number().int().positive().describe('マスの 上限'),
+      maxSlots: safePositiveIntegerSchema.describe('マスの 上限'),
     })
     .default({ baseSlots: 3, levelsPerSlot: 2, maxSlots: 12 })
     .describe('バッグの マス：仲間（しんかの だんかい ぶん 1〜3 マス）と そうび（1 こ 1 マス）を 入れる'),
+});
+
+const curriculumReviewSchema = z
+  .object({
+    status: z.enum(['draft', 'source-checked', 'expert-reviewed']),
+    reviewedAt: z.string().date().optional(),
+    reviewer: z.string().min(1).optional(),
+  })
+  .superRefine((review, ctx) => {
+    if (review.status === 'draft') return;
+    if (!review.reviewedAt)
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: '確認済み教材には確認日が必要です' });
+    if (!review.reviewer)
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: '確認済み教材には確認者が必要です' });
+  });
+
+const curriculumPlacementSchema = z.object({
+  terms: z.union([
+    z.array(z.union([z.literal(1), z.literal(2), z.literal(3)])).min(1),
+    z.tuple([z.literal('variable')]),
+  ]),
+  status: z.enum(['official', 'reference', 'unverified']),
+  sourceIds: z.array(z.string().min(1)).min(1),
+  note: rubyTextSchema,
 });
 
 export const unitSchema = z.object({
@@ -487,16 +544,23 @@ export const unitSchema = z.object({
   name: rubyTextSchema,
   subject: subjectSchema,
   grade: gradeSchema,
-  order: z.number().int().nonnegative().optional(),
+  order: safeNonnegativeIntegerSchema.optional(),
   legacyNode: z.string().min(1).optional(),
+  courseKind: z.enum(['required-subject', 'required-activity', 'supplementary']).optional(),
+  placement: curriculumPlacementSchema.optional(),
+  curriculumCodes: z
+    .array(z.string().regex(/^82[A-Z0-9]{14}$/, '小学校学習指導要領コードは82V12形式の16桁です'))
+    .optional(),
+  sourceIds: z.array(z.string().min(1)).min(1).optional(),
+  review: curriculumReviewSchema.optional(),
 });
 
 export const arenaRivalSchema = z.object({
   id: idSchema,
   name: rubyTextSchema,
   face: z.string().optional(),
-  heroLevel: z.number().int().positive(),
-  monsters: z.array(z.object({ monsterId: idSchema, level: z.number().int().positive() })).max(3),
+  heroLevel: safePositiveIntegerSchema,
+  monsters: z.array(z.object({ monsterId: idSchema, level: safePositiveIntegerSchema })).max(3),
   equipment: z
     .object({ weapon: idSchema, head: idSchema, chest: idSchema, legs: idSchema, feet: idSchema })
     .partial(),
@@ -509,6 +573,7 @@ export type Grade = z.infer<typeof gradeSchema>;
 export type GradeRange = z.infer<typeof gradeRangeSchema>;
 export type Element = z.infer<typeof elementSchema>;
 export type Stats = z.infer<typeof statsSchema>;
+export type GrowthCurve = z.infer<typeof growthCurveSchema>;
 export type World = z.infer<typeof worldSchema>;
 export type Island = z.infer<typeof islandSchema>;
 export type Area = z.infer<typeof areaSchema>;

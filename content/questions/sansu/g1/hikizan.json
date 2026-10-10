@@ -1,0 +1,125 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "sansu.g1.hikizan.0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "りんごが 8こ。3こ たべました。のこりは なんこ？",
+      "choices": [
+        { "id": "a", "text": "5こ" },
+        { "id": "b", "text": "11こ" },
+        { "id": "c", "text": "6こ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "8こから 3こを とると、のこりは 5こ。8 - 3 = 5。"
+  },
+  {
+    "id": "sansu.g1.hikizan.0002",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "9 - 4 = ？　こたえを 入[い]れよう。",
+      "template": "9 - 4 = □",
+      "answers": ["5"]
+    },
+    "explanation": "9から 4を ひくと 5。"
+  },
+  {
+    "id": "sansu.g1.hikizan.0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "あかい はなが 7ほん、しろい はなが 5ほん。あかい はなは なんぼん おおい？",
+      "choices": [
+        { "id": "a", "text": "2ほん" },
+        { "id": "b", "text": "12ほん" },
+        { "id": "c", "text": "3ほん" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ちがいを もとめるので 7 - 5 = 2。"
+  },
+  {
+    "id": "sansu.g1.hikizan.0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "10 - 6 = ？",
+      "choices": [
+        { "id": "a", "text": "16" },
+        { "id": "b", "text": "5" },
+        { "id": "c", "text": "4" }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "6と 4で 10。だから 10 - 6 = 4。"
+  },
+  {
+    "id": "sansu.g1.hikizan.0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "6 - 6 = ？",
+      "choices": [
+        { "id": "a", "text": "0" },
+        { "id": "b", "text": "6" },
+        { "id": "c", "text": "12" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "6こから 6こ ぜんぶ とると、のこりは 0こ。"
+  },
+  {
+    "id": "sansu.g1.hikizan.0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "8 - ？ = 3。？に はいる かずは？",
+      "choices": [
+        { "id": "a", "text": "11" },
+        { "id": "b", "text": "5" },
+        { "id": "c", "text": "3" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "8から 5を ひくと 3。3に 5を たすと 8になることでも たしかめられる。"
+  },
+  {
+    "id": "sansu.g1.hikizan.0007",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "とりが 7わ いました。2わ とんで いきました。のこりを もとめる しきは どれ？",
+      "choices": [
+        { "id": "a", "text": "7 + 2" },
+        { "id": "b", "text": "7 - 2" },
+        { "id": "c", "text": "2 - 2" },
+        { "id": "d", "text": "7 + 7" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "2わ へって のこりを もとめるので、ひきざんの しき「7 - 2」にします。"
+  }
+]

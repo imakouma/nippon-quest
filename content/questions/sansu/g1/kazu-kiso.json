@@ -1,0 +1,164 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "sansu.g1.kazu-100.correspondence-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "コップが 3こ、ストローが 3ぼん。コップ 1こに ストローを 1ぽんずつ いれると、どうなる？",
+      "choices": [
+        { "id": "a", "text": "ちょうど たりる" },
+        { "id": "b", "text": "コップが 1こ あまる" },
+        { "id": "c", "text": "ストローが 1ぽん あまる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "コップと ストローを 1つずつ くみあわせると、どちらも 3つなので ちょうど たりります。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.correspondence-0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "こどもが 5人[にん]、いすが 4きゃく。1人[ひとり]ずつ すわると、どうなる？",
+      "choices": [
+        { "id": "a", "text": "いすが 1きゃく あまる" },
+        { "id": "b", "text": "1人[ひとり] すわれない" },
+        { "id": "c", "text": "みんな すわれる" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "5人[にん]と 4きゃくを 1つずつ くみあわせると、こどもが 1人[ひとり] のこります。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.correspondence-0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "さらが 4まい、りんごが 6こ。さら 1まいに りんごを 1こずつ のせると、なにが あまる？",
+      "choices": [
+        { "id": "a", "text": "さらが 2まい" },
+        { "id": "b", "text": "りんごが 2こ" },
+        { "id": "c", "text": "なにも あまらない" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "さら 4まいと りんご 4こを くみあわせると、りんごが 2こ のこります。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.count-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "● ● ● ● ● ● ●　まるは なんこ？",
+      "choices": [
+        { "id": "a", "text": "6こ" },
+        { "id": "b", "text": "7こ" },
+        { "id": "c", "text": "8こ" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "ひとつずつ ゆびで たしかめながら かぞえると、7こです。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.count-0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "ひだりから「ねこ・いぬ・うさぎ・とり」と ならんでいます。3ばんめは どれ？",
+      "choices": [
+        { "id": "a", "text": "ねこ" },
+        { "id": "b", "text": "いぬ" },
+        { "id": "c", "text": "うさぎ" },
+        { "id": "d", "text": "とり" }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "ひだりから 1ばんめが ねこ、2ばんめが いぬ、3ばんめが うさぎです。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.count-0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "えんぴつが 5ほん あります。かずを あらわす すうじは どれ？",
+      "choices": [
+        { "id": "a", "text": "3" },
+        { "id": "b", "text": "4" },
+        { "id": "c", "text": "5" },
+        { "id": "d", "text": "6" }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "5ほんの「5」は、すうじで「5」と あらわします。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.make-ten-0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "7と あわせて 10に なる かずは どれ？",
+      "choices": [
+        { "id": "a", "text": "2" },
+        { "id": "b", "text": "3" },
+        { "id": "c", "text": "4" },
+        { "id": "d", "text": "5" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "7と 3を あわせると 10に なります。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.make-ten-0002",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "10を 6と □に わけます。□に はいる かずを 入[い]れよう。",
+      "template": "6 と □ で 10",
+      "answers": ["4"]
+    },
+    "explanation": "6と 4を あわせると 10なので、□は 4です。"
+  },
+  {
+    "id": "sansu.g1.kazu-100.make-ten-0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "payload": {
+      "prompt": "あわせると 10に なる くみは どれ？",
+      "choices": [
+        { "id": "a", "text": "8と 2" },
+        { "id": "b", "text": "8と 3" },
+        { "id": "c", "text": "7と 2" },
+        { "id": "d", "text": "6と 3" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "8と 2を あわせると 10に なります。"
+  }
+]

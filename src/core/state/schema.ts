@@ -3,7 +3,14 @@
  * 個人情報は一切入れない（GDD §8：ログイン不要・端末内保存）。
  */
 import { z } from 'zod';
-import { gradeSchema, idSchema, rubyTextSchema, statsSchema } from '../content/schemas';
+import {
+  gradeSchema,
+  idSchema,
+  rubyTextSchema,
+  safeNonnegativeIntegerSchema,
+  safePositiveIntegerSchema,
+  statsSchema,
+} from '../content/schemas';
 import { attemptEventSchema, conceptStateSchema } from '../learning/state';
 
 export const SCHEMA_VERSION = 9;
@@ -16,24 +23,24 @@ export const ownedMonsterSchema = z.object({
   uid: z.string(),
   monsterId: idSchema,
   nickname: z.string().max(8).optional(),
-  level: z.number().int().positive(),
-  xp: z.number().int().nonnegative(),
+  level: safePositiveIntegerSchema,
+  xp: safeNonnegativeIntegerSchema,
 });
 
 export const bagPlacementSchema = z.object({
-  x: z.number().int().nonnegative(),
-  y: z.number().int().nonnegative(),
+  x: safeNonnegativeIntegerSchema,
+  y: safeNonnegativeIntegerSchema,
   rotated: z.boolean().default(false),
 });
 
 export const masteryRecordSchema = z.object({
   value: z.number().min(0).max(1),
-  n: z.number().int().nonnegative(),
+  n: safeNonnegativeIntegerSchema,
   lastAt: z.number(),
 });
 
 export const gameStateSchema = z.object({
-  schemaVersion: z.number().int().positive(),
+  schemaVersion: safePositiveIntegerSchema,
   createdAt: z.number(),
   updatedAt: z.number(),
   seed: z.string(),
@@ -46,15 +53,15 @@ export const gameStateSchema = z.object({
       hairStyle: z.number().int().min(0).max(3).default(0),
       eyes: z.number().int().min(0).max(2).default(0),
     }),
-    level: z.number().int().positive(),
-    xp: z.number().int().nonnegative(),
-    gold: z.number().int().nonnegative(),
+    level: safePositiveIntegerSchema,
+    xp: safeNonnegativeIntegerSchema,
+    gold: safeNonnegativeIntegerSchema,
     baseStats: statsSchema,
     bonusWis: z.number().nonnegative().default(0),
     skills: z.array(idSchema),
     equipment: equipmentSchema,
-    hp: z.number().int().nonnegative(),
-    mp: z.number().int().nonnegative(),
+    hp: safeNonnegativeIntegerSchema,
+    mp: safeNonnegativeIntegerSchema,
   }),
   party: z.object({
     owned: z.array(ownedMonsterSchema),
@@ -71,7 +78,7 @@ export const gameStateSchema = z.object({
       .describe('2Dバッグ上の配置。キーは hero / mon:<uid> / eq:<slot>'),
     bagItems: z.array(idSchema).default([]).describe('バトルへ持ち込む消耗品のID（個数はinventoryで管理）'),
   }),
-  inventory: z.record(idSchema, z.number().int().nonnegative()),
+  inventory: z.record(idSchema, safeNonnegativeIntegerSchema),
   progress: z.object({
     currentIsland: idSchema,
     currentArea: idSchema,
@@ -87,10 +94,10 @@ export const gameStateSchema = z.object({
     titles: z.array(rubyTextSchema),
     missions: z.record(
       idSchema,
-      z.object({ status: z.enum(['accepted', 'done']), progress: z.number().int().nonnegative() }),
+      z.object({ status: z.enum(['accepted', 'done']), progress: safeNonnegativeIntegerSchema }),
     ),
     counters: z
-      .record(z.string(), z.number().int().nonnegative())
+      .record(z.string(), safeNonnegativeIntegerSchema)
       .describe('defeat:<id> / perfect:<subject> / collect:<id> などの集計'),
   }),
   dex: z.object({ monsters: z.array(idSchema), items: z.array(idSchema), motifs: z.array(z.string()) }),
@@ -102,11 +109,11 @@ export const gameStateSchema = z.object({
     mastery: z.record(z.string(), masteryRecordSchema),
     recent: z.array(z.string()),
     mistakes: z.array(z.string()),
-    playSecondsByDate: z.record(z.string(), z.number().int().nonnegative()),
+    playSecondsByDate: z.record(z.string(), safeNonnegativeIntegerSchema),
     attempts: z.array(attemptEventSchema).default([]),
     conceptStates: z.record(z.string(), conceptStateSchema).default({}),
   }),
-  arena: z.object({ badges: z.number().int().nonnegative(), ghostParty: z.unknown().nullable() }),
+  arena: z.object({ badges: safeNonnegativeIntegerSchema, ghostParty: z.unknown().nullable() }),
   settings: z.object({
     bgmVolume: z.number().min(0).max(1),
     seVolume: z.number().min(0).max(1),

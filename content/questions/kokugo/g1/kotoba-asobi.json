@@ -154,5 +154,43 @@
       "shuffle": true
     },
     "explanation": "「みかん」はくだもの（たべもの）です。"
+  },
+  {
+    "id": "kokugo.g1.kotoba-asobi.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kotoba-asobi",
+    "payload": {
+      "prompt": "「のりもの」のなかまは どれ？",
+      "choices": [
+        { "id": "a", "text": "でんしゃ" },
+        { "id": "b", "text": "りんご" },
+        { "id": "c", "text": "えんぴつ" },
+        { "id": "d", "text": "ぼうし" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「でんしゃ」は、人[ひと]をのせて はこぶ「のりもの」のなかまです。"
+  },
+  {
+    "id": "kokugo.g1.kotoba-asobi.0007",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kotoba-asobi",
+    "payload": {
+      "prompt": "「からだ」のなかまでは ないものは どれ？",
+      "choices": [
+        { "id": "a", "text": "て" },
+        { "id": "b", "text": "あし" },
+        { "id": "c", "text": "みみ" },
+        { "id": "d", "text": "つくえ" }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「て・あし・みみ」は からだのなかまです。「つくえ」は どうぐです。"
   }
 ]

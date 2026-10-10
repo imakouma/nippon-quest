@@ -13,7 +13,7 @@ import {
 } from '../questions/contracts';
 import { allRenderers, getRenderer } from '../questions/renderers/registry';
 import { fetchReader, parseContentManifest } from '../core/content/loader';
-import { setDictionary, t, type I18nDict } from '../ui/i18n';
+import { setDictionary, tOpt, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
 import { QuestionList, type QuestionEntry } from './QuestionList';
@@ -66,6 +66,7 @@ function App() {
   const [subjects, setSubjects] = useState<ReadonlyMap<string, string>>(new Map());
   const [kanji, setKanji] = useState<{ table: KanjiGradeTable; names: ReadonlySet<string> } | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
+  const [selectedItemId, setSelectedItemId] = useState('');
   const [json, setJson] = useState('');
   const [grade, setGrade] = useState<Grade>(3);
   const [timeLimit, setTimeLimit] = useState(20);
@@ -128,8 +129,12 @@ function App() {
     read(file)
       .then((raw) => {
         const arr = Array.isArray(raw) ? raw : [];
-        setItems(arr.filter((q) => questionBaseSchema.safeParse(q).success) as QuestionBase[]);
-        if (arr[0]) setJson(JSON.stringify(arr[0], null, 2));
+        const validItems = arr.filter((q) => questionBaseSchema.safeParse(q).success) as QuestionBase[];
+        const requestedId = new URLSearchParams(location.search).get('q');
+        const initial = validItems.find((q) => q.id === requestedId) ?? validItems[0];
+        setItems(validItems);
+        setSelectedItemId(initial?.id ?? '');
+        if (initial) setJson(JSON.stringify(initial, null, 2));
       })
       .catch((e) => setError(String(e)));
   }, [file]);
@@ -192,6 +197,8 @@ function App() {
   const pick = (e: QuestionEntry) => {
     const text = JSON.stringify(e.raw, null, 2);
     setSelected(e.key);
+    setFile(e.file);
+    setSelectedItemId(e.q?.id ?? '');
     setJson(text);
     if (e.q) history.replaceState(null, '', `?q=${encodeURIComponent(e.q.id)}`);
     stage.current?.scrollIntoView({ block: 'nearest' });
@@ -217,7 +224,7 @@ function App() {
               href={`${base}/`}
               style="font-size:13px; font-weight:bold; color:#334155; text-decoration:none; background:#e2e8f0; padding:4px 8px; border-radius:4px;"
             >
-              ← {t('ui.backToGame')}
+              ← {tOpt('ui.backToGame')}
             </a>
             <a
               href={`${base}/editor.html`}
@@ -259,9 +266,18 @@ function App() {
           <select
             id="pg-question"
             aria-label="このファイルの 問題"
-            onChange={(e) =>
-              setJson(JSON.stringify(items[Number((e.target as HTMLSelectElement).value)], null, 2))
-            }
+            value={String(
+              Math.max(
+                0,
+                items.findIndex((item) => item.id === selectedItemId),
+              ),
+            )}
+            onChange={(e) => {
+              const item = items[Number((e.target as HTMLSelectElement).value)];
+              if (!item) return;
+              setSelectedItemId(item.id);
+              setJson(JSON.stringify(item, null, 2));
+            }}
           >
             {items.map((q, i) => (
               <option value={i}>
