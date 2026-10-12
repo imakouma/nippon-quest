@@ -1,0 +1,20 @@
+{
+  "name": "ニホンクエスト",
+  "short_name": "ニホンクエスト",
+  "description": "小学生向け・ゲーム主体の学習RPG",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "landscape",
+  "background_color": "#0b0d16",
+  "theme_color": "#12162a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

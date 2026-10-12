@@ -58,10 +58,18 @@ body {
   inset: 0;
   display: grid;
   place-items: center;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
 }
 #game-root,
 #ui-layer {
   position: absolute;
+}
+#game-root {
+  /* Phaser.Scale.FIT がスマホの表示領域全体を基準に拡大できるようにする。 */
+  inset: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+  overflow: hidden;
 }
 #game-root canvas {
   display: block;

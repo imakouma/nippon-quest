@@ -62,6 +62,18 @@ test('縦向きの小画面では横向き案内を表示する', async ({ page 
   await expect(notice).toBeHidden();
 });
 
+test('横長スマホではゲーム画面を表示領域の高さまで拡大する', async ({ page }) => {
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto('/');
+
+  const canvas = page.locator('#game-root canvas');
+  await expect(canvas).toBeVisible();
+  const box = await canvas.boundingBox();
+  expect(box).not.toBeNull();
+  expect(box!.height).toBeGreaterThanOrEqual(388);
+  expect(box!.width).toBeGreaterThan(680);
+});
+
 test('新規ゲーム設定は大きな選択肢と読み上げ可能な選択状態を持つ', async ({ page }) => {
   test.setTimeout(60_000);
   await page.setViewportSize({ width: 960, height: 540 });

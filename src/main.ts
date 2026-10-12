@@ -24,9 +24,12 @@ import { isLocalDevelopmentUrl } from './core/localDevelopment';
 import { setDictionary, t } from './ui/i18n';
 import { recordPlayDuration } from './core/state/playTime';
 import bootstrapJapanese from '../content/i18n/bootstrap-ja.json';
+import { enableMobileFullscreen, registerAppServiceWorker } from './ui/mobileAppShell';
 
 // 通常辞書を読み込めない起動失敗でも、再試行画面だけは日本語で表示する。
 setDictionary(bootstrapJapanese);
+enableMobileFullscreen();
+registerAppServiceWorker();
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', grade: 1 } as const;
