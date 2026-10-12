@@ -15,7 +15,7 @@ describe('東北公開素材の権利監査', () => {
 
   it('登録済み音声と読み上げフォールバックを検出する', async () => {
     const report = await auditTohokuAssetsRights();
-    expect(report.counts.audioFiles).toBe(9);
+    expect(report.counts.audioFiles).toBe(15);
     expect(report.runtime.speechFallbackPresent).toBe(true);
     expect(report.runtime.audioPolicy).toBe('Bundled audio present');
   });

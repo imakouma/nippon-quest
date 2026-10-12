@@ -58,6 +58,34 @@
       }
     },
     {
+      "id": "stable-audio-exploration-sfx",
+      "paths": [
+        "assets/audio/se/step-grass.mp3",
+        "assets/audio/se/step-sand.mp3",
+        "assets/audio/se/step-stone.mp3",
+        "assets/audio/se/step-water.mp3",
+        "assets/audio/se/door.mp3",
+        "assets/audio/se/chest.mp3"
+      ],
+      "status": "approved",
+      "origin": "Stable Audio 3 Small SFXで無料ローカル生成し、短い単発音へ切り出し",
+      "author": "NIHON QUEST project（AI-assisted local generation）",
+      "source": "Stability-AI/stable-audio-3, seeds 271840–271845; assets/audio/se/generation.json",
+      "license": "Stability AI Community License（年間売上100万米ドル未満の条件付き）",
+      "licenseEvidence": "assets/audio/se/PROVENANCE.md",
+      "modificationAllowed": true,
+      "redistributionAllowed": true,
+      "creditRequired": false,
+      "sha256": {
+        "assets/audio/se/step-grass.mp3": "0bb1f2ef27d0df38148665f49e45fdeaf726539139f3bd31f986919922d58fcb",
+        "assets/audio/se/step-sand.mp3": "263f7af50a89e0e47fabd620f8b76f131b9035c25d3cf5a39b827d3c88c10bb9",
+        "assets/audio/se/step-stone.mp3": "1313832b07ef06ade241af3f6be4e646f282855af0754eb3c079604ce43616d4",
+        "assets/audio/se/step-water.mp3": "587b39cca3f4dd28965bbf4db0722ddd6e26c0390bb8d40ba2f9771ef576a8e7",
+        "assets/audio/se/door.mp3": "397a63b9ea23918f76b510c9d5cfc990324141e6722d5ea1bcecaaae17e5921c",
+        "assets/audio/se/chest.mp3": "641feb40f8a99c90036aaa2d9e476a22f30ef4064a9d0b8732351ea992ad8da2"
+      }
+    },
+    {
       "id": "procedurally-exported-tohoku-art",
       "pathPrefixes": [
         "assets/motifs/aomori/",

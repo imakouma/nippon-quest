@@ -140,6 +140,7 @@ import { commitInnStay } from './overworld/innFlow';
 import { equippedBagThings, levelProgressLine, storedBagThings } from './overworld/bagItems';
 import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { mapMusicTrack } from './overworld/music';
+import { attachFieldSounds, playFieldFootstep, playEntranceSound } from './overworld/sounds';
 import { attachSceneMusic } from './shared/music';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
@@ -370,6 +371,7 @@ export class OverworldScene extends Phaser.Scene {
   create(): void {
     this.resetMapState();
     attachSceneMusic(this, mapMusicTrack(this.mapKey));
+    attachFieldSounds(this);
     for (const r of ['hud', 'title', 'fx', 'dialogue', 'travel'] as const) this.root(r);
 
     const onBattleEnd = (p: BattleEndPayload) => this.onBattleEnd(p);
@@ -712,6 +714,7 @@ export class OverworldScene extends Phaser.Scene {
       onComplete: () => {
         this.moving = false;
         this.stepCount++;
+        playFieldFootstep(this.mapKey, this.map.getTileAt(nx, ny, true, 'background')?.index);
         this.rememberLocation(nx, ny);
         this.renderHud(); // 左上の地図の主人公を動かす
         this.arrive(nx, ny);
@@ -742,6 +745,7 @@ export class OverworldScene extends Phaser.Scene {
     }
     if (tr && this.canWarp) {
       this.canWarp = false;
+      playEntranceSound(this.mapKey, tr.map);
       this.switchMap(tr.map, tr.spawn);
       return;
     }
@@ -2314,7 +2318,7 @@ export class OverworldScene extends Phaser.Scene {
     const item = this.chestItem(chest);
     const name = item?.name ?? chest.itemName;
     chest.sprite.setTexture('fld.chest.open');
-    playSfx('discover');
+    playSfx('chest');
     await this.itemCutin(item, name);
     const current = this.gs();
     if (!current || current.progress.chestsOpened.includes(chest.key)) {
@@ -2391,7 +2395,7 @@ export class OverworldScene extends Phaser.Scene {
     const gain = content ? specialtyTreasureGain(current, chest.itemId, content.areas, content.items) : null;
     const next = applyChestReward(current, chest, item);
     this.setGame(next);
-    playSfx('select');
+    playSfx('chest');
     chest.sprite.setTexture('fld.chest.open');
     this.renderHud();
     // 説明を先に出してから、アイテムを わたす

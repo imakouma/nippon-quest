@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-10-12",
+  "model": "Stable Audio 3 Small SFX",
+  "implementation": "Stability-AI/stable-audio-3 optimized/mlx",
+  "steps": 8,
+  "cfg": 2,
+  "postProcessing": "strongest transient extraction, mono, peak 0.6, 3ms attack fade, 25ms footstep / 50ms other release fade, MP3 128kbps",
+  "sounds": [
+    {
+      "id": "step-grass",
+      "prompt": "One soft dry footstep on short grass, a gentle shoe thud with a small leafy rustle. Close isolated game foley, no music, no voices, no ambience.",
+      "seed": 271840,
+      "sourceSeconds": 2,
+      "duration": 0.14,
+      "sha256": "0bb1f2ef27d0df38148665f49e45fdeaf726539139f3bd31f986919922d58fcb",
+      "bytes": 3387
+    },
+    {
+      "id": "step-sand",
+      "prompt": "One soft dry footstep on sand, gentle shoe crunch with fine sandy grains. Close isolated game foley, no music, no voices, no ambience.",
+      "seed": 271841,
+      "sourceSeconds": 2,
+      "duration": 0.14,
+      "sha256": "263f7af50a89e0e47fabd620f8b76f131b9035c25d3cf5a39b827d3c88c10bb9",
+      "bytes": 3387
+    },
+    {
+      "id": "step-stone",
+      "prompt": "One light shoe footstep on a stone floor, crisp small tap with a soft low thud. Close dry isolated game foley, no echo, no music, no voices.",
+      "seed": 271842,
+      "sourceSeconds": 2,
+      "duration": 0.14,
+      "sha256": "1313832b07ef06ade241af3f6be4e646f282855af0754eb3c079604ce43616d4",
+      "bytes": 3387
+    },
+    {
+      "id": "step-water",
+      "prompt": "One gentle shoe footstep in a shallow puddle, a small soft water splash. Close isolated game foley, no music, no voices, no ambience.",
+      "seed": 271843,
+      "sourceSeconds": 2,
+      "duration": 0.14,
+      "sha256": "587b39cca3f4dd28965bbf4db0722ddd6e26c0390bb8d40ba2f9771ef576a8e7",
+      "bytes": 3387
+    },
+    {
+      "id": "door",
+      "prompt": "A small wooden door opening with a gentle latch click and short soft wood creak. Close dry isolated game sound effect, no music, no voices, no ambience.",
+      "seed": 271844,
+      "sourceSeconds": 3,
+      "duration": 0.65,
+      "sha256": "397a63b9ea23918f76b510c9d5cfc990324141e6722d5ea1bcecaaae17e5921c",
+      "bytes": 11328
+    },
+    {
+      "id": "chest",
+      "prompt": "A small wooden treasure chest opening, a clean metal latch click followed by a gentle wooden lid creak and a soft clunk. Close isolated game sound effect, no music, no voices.",
+      "seed": 271845,
+      "sourceSeconds": 3,
+      "duration": 0.7,
+      "sha256": "641feb40f8a99c90036aaa2d9e476a22f30ef4064a9d0b8732351ea992ad8da2",
+      "bytes": 12164
+    }
+  ]
+}

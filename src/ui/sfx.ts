@@ -1,6 +1,6 @@
 /**
- * 効果音（Web Audio の矩形波・ノイズで合成するチップチューン風 SE）。
- * 音声ファイルが用意できたら assets/audio/se/<name>.mp3 に差し替える想定。キー名はここの SfxName と揃える。
+ * 効果音（既存のチップチューン合成SEと、先読みする探索用の単発音源）。
+ * 探索音源は assets/audio/se/<name>.mp3。歩行時にfetchせず、読込待ちの遅延再生も行わない。
  * 再生できない環境（AudioContext 非対応・自動再生制限）では黙って何もしない。
  */
 export type SfxName =
@@ -26,6 +26,12 @@ export type SfxName =
   | 'stamp'
   | 'warp'
   | 'bump'
+  | 'step-grass'
+  | 'step-sand'
+  | 'step-stone'
+  | 'step-water'
+  | 'door'
+  | 'chest'
   | 'slash';
 
 interface Note {
@@ -39,7 +45,7 @@ interface Note {
 
 const N = (f: number, d: number, at = 0, extra: Partial<Note> = {}): Note => ({ f, d, at, ...extra });
 
-const SOUNDS: Record<SfxName, Note[]> = {
+const SOUNDS: Partial<Record<SfxName, Note[]>> = {
   blip: [N(880, 0.03, 0, { g: 0.25 })],
   move: [N(660, 0.04, 0, { g: 0.4 })],
   select: [N(784, 0.05), N(1175, 0.08, 0.05)],
@@ -93,6 +99,38 @@ let noise: AudioBuffer | null = null;
 let volume = 0.5;
 let muted = false;
 
+const FILE_SOUNDS: Partial<Record<SfxName, number>> = {
+  'step-grass': 0.3,
+  'step-sand': 0.3,
+  'step-stone': 0.25,
+  'step-water': 0.25,
+  door: 0.55,
+  chest: 0.6,
+};
+const samples = new Map<SfxName, AudioBuffer>();
+const loading = new Map<SfxName, Promise<void>>();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+function loadSample(name: SfxName): Promise<void> {
+  const pending = loading.get(name);
+  if (pending) return pending;
+  const a = audio();
+  if (!a) return Promise.resolve();
+  const promise = fetch(`${base}/assets/audio/se/${name}.mp3`)
+    .then(async (response) => {
+      if (!response.ok) return;
+      const buffer = await a.decodeAudioData(await response.arrayBuffer());
+      samples.set(name, buffer);
+    })
+    .catch(() => undefined);
+  loading.set(name, promise);
+  return promise;
+}
+
+export async function preloadFieldSfx(): Promise<void> {
+  await Promise.all((Object.keys(FILE_SOUNDS) as SfxName[]).map(loadSample));
+}
+
 export function setSfxVolume(v: number): void {
   volume = Math.min(1, Math.max(0, v));
 }
@@ -130,7 +168,27 @@ export function playSfx(name: SfxName): void {
   if (!a) return;
   if (a.state === 'suspended') void a.resume().catch(() => undefined);
   const t0 = a.currentTime + 0.01;
-  for (const n of SOUNDS[name]) {
+  const sampleVolume = FILE_SOUNDS[name];
+  if (sampleVolume !== undefined) {
+    const buffer = samples.get(name);
+    if (!buffer) {
+      void loadSample(name);
+      return;
+    }
+    const gain = a.createGain();
+    gain.gain.value = volume * sampleVolume;
+    gain.connect(a.destination);
+    const source = a.createBufferSource();
+    source.buffer = buffer;
+    source.connect(gain);
+    source.onended = () => {
+      source.disconnect();
+      gain.disconnect();
+    };
+    source.start(t0);
+    return;
+  }
+  for (const n of SOUNDS[name] ?? []) {
     const start = t0 + (n.at ?? 0);
     const gain = a.createGain();
     const peak = 0.12 * volume * (n.g ?? 0.5);
