@@ -139,6 +139,8 @@ import { openBarberFlow } from './overworld/barberFlow';
 import { commitInnStay } from './overworld/innFlow';
 import { equippedBagThings, levelProgressLine, storedBagThings } from './overworld/bagItems';
 import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
+import { mapMusicTrack } from './overworld/music';
+import { attachSceneMusic } from './shared/music';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
 import { npcModel } from './overworld/npcModel';
@@ -367,6 +369,7 @@ export class OverworldScene extends Phaser.Scene {
 
   create(): void {
     this.resetMapState();
+    attachSceneMusic(this, mapMusicTrack(this.mapKey));
     for (const r of ['hud', 'title', 'fx', 'dialogue', 'travel'] as const) this.root(r);
 
     const onBattleEnd = (p: BattleEndPayload) => this.onBattleEnd(p);

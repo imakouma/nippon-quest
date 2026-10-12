@@ -76,6 +76,7 @@ import { battleSummary, defeatResultView, victoryResultView } from './battle/res
 import { questionQueryForSkill, recruitQuestionQuery } from './battle/questionQueries';
 import { runBattleQuestion } from './battle/questionFlow';
 import { BattleHudFlow } from './battle/hudFlow';
+import { attachBattleBgm, finishBattleBgm } from './battle/bgm';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
 import { monsterDisplaySize, monsterMenuArtUrl } from '../rendering/menuArt';
 import {
@@ -256,7 +257,7 @@ export class BattleScene extends Phaser.Scene {
     // タブを ほかに して いる あいだは Phaser の フェードや タイマーが とまるので、もどったら 立て直す
     document.addEventListener('visibilitychange', this.onVisible);
     window.addEventListener('focus', this.onVisible);
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.teardown());
+    attachBattleBgm(this, isBoss, () => this.teardown());
     void this.run().catch((e: unknown) => {
       void this.recoverFromError('進行中', e);
     });
@@ -1252,7 +1253,7 @@ export class BattleScene extends Phaser.Scene {
         this.victory = e;
         return;
       case 'defeat':
-        playSfx('defeat');
+        finishBattleBgm('defeat');
         this.cameras.main.fadeOut(900, 0, 0, 0);
         await this.wait(900);
         return;
@@ -1643,9 +1644,9 @@ export class BattleScene extends Phaser.Scene {
         : this.victory;
     const summary = battleSummary(s, v, this.perfectBySubject);
     const outcome = summary.outcome;
+    finishBattleBgm(outcome);
 
     if (outcome === 'victory') {
-      playSfx('victory');
       await this.victoryPose();
       // 特産品を落としたら、名前の帯 → 「とくさんひん『〇〇』を てに いれた！」→ 特産品の説明（宝箱の特産品と同じ説明）
       for (const reward of specialtyRewardViews(this.syncGame(), summary.drops, this.content)) {

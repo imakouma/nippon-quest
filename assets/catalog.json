@@ -1,13 +1,25 @@
 {
   "source": "assets/",
-  "fileCount": 1560,
-  "totalBytes": 123855343,
+  "fileCount": 1571,
+  "totalBytes": 136278643,
   "categories": {
+    "audio": { "fileCount": 11, "extensions": ["json", "md", "mp3"], "subdirectories": ["bgm"] },
     "palette": { "fileCount": 2, "extensions": ["gpl", "hex"], "subdirectories": [] },
     "questions": { "fileCount": 1557, "extensions": ["jpg", "png"], "subdirectories": ["eigo", "legacy"] },
     "rights": { "fileCount": 1, "extensions": ["json"], "subdirectories": [] }
   },
   "files": [
+    "audio/bgm/PROVENANCE.md",
+    "audio/bgm/battle-theme.mp3",
+    "audio/bgm/boss-theme.mp3",
+    "audio/bgm/defeat-theme.mp3",
+    "audio/bgm/dungeon-theme.mp3",
+    "audio/bgm/field-theme.mp3",
+    "audio/bgm/generation.json",
+    "audio/bgm/secret-theme.mp3",
+    "audio/bgm/title-theme.mp3",
+    "audio/bgm/town-theme.mp3",
+    "audio/bgm/victory-theme.mp3",
     "palette/nq48.gpl",
     "palette/nq48.hex",
     "questions/eigo/apple.png",

@@ -24,6 +24,40 @@
       }
     },
     {
+      "id": "stable-audio-game-music",
+      "paths": [
+        "assets/audio/bgm/battle-theme.mp3",
+        "assets/audio/bgm/title-theme.mp3",
+        "assets/audio/bgm/field-theme.mp3",
+        "assets/audio/bgm/town-theme.mp3",
+        "assets/audio/bgm/dungeon-theme.mp3",
+        "assets/audio/bgm/secret-theme.mp3",
+        "assets/audio/bgm/boss-theme.mp3",
+        "assets/audio/bgm/victory-theme.mp3",
+        "assets/audio/bgm/defeat-theme.mp3"
+      ],
+      "status": "approved",
+      "origin": "Stable Audio 3 Small Musicでローカル生成し、ffmpegで音圧調整・MP3変換",
+      "author": "NIHON QUEST project（AI-assisted local generation）",
+      "source": "Stability-AI/stable-audio-3, seeds 271828–271836; assets/audio/bgm/generation.json",
+      "license": "Stability AI Community License（年間売上100万米ドル未満の条件付き）",
+      "licenseEvidence": "assets/audio/bgm/PROVENANCE.md",
+      "modificationAllowed": true,
+      "redistributionAllowed": true,
+      "creditRequired": false,
+      "sha256": {
+        "assets/audio/bgm/battle-theme.mp3": "2395203a21ab3fa0c60e72ca76345883d31c6b27a7a8318d49f4599b4b4a72f8",
+        "assets/audio/bgm/title-theme.mp3": "0fc58a9d0f202c8054a01ab49bb957a2eed2846617cfd6b91e0d22b48bace3da",
+        "assets/audio/bgm/field-theme.mp3": "8414d63499c3271d94d7eb5496321325aa52a8470c9516e434f17cee6a1c59ec",
+        "assets/audio/bgm/town-theme.mp3": "cad63427d940c55be7be0b69a3bd8331a843f01b567b078759c689d5442afcd0",
+        "assets/audio/bgm/dungeon-theme.mp3": "7ced53f68f154fe583fbe90c348bc4f21dcc4b163bc8853b3e6abdcbafa16fce",
+        "assets/audio/bgm/secret-theme.mp3": "71eb0f4a12633a5c2f801a84afe62b74f7508f78f1e14248d6929f38b3d04a09",
+        "assets/audio/bgm/boss-theme.mp3": "522f7e6bb7e4d376c78d2ea59de31e68929bd9eff0b8e4f979e30e8bd8a86988",
+        "assets/audio/bgm/victory-theme.mp3": "d3de82ab8da10d20516b450ce1389ffe808ecad437ab4ebc8092a2baaf435e5a",
+        "assets/audio/bgm/defeat-theme.mp3": "294c02485fee5e060e7395cc1b060a25ee720f8e0ea7c1cee0a96226adee63cc"
+      }
+    },
+    {
       "id": "procedurally-exported-tohoku-art",
       "pathPrefixes": [
         "assets/motifs/aomori/",
