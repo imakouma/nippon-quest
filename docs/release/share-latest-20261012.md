@@ -1,5 +1,7 @@
 # 最新プレビューの共有 — 2026-10-12
 
+この文書は専用共有ブランチ作成時点の記録。以後のmain統合とBGM修正は [main統合記録](main-battle-audio-20261012.md) を参照する。
+
 ## 取得先
 
 - リポジトリ: https://github.com/imakouma/nippon-quest.git

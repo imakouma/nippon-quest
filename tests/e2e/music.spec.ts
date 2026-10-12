@@ -1,5 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
 import type Phaser from 'phaser';
+import type { BattleEvent, BattleState } from '../../src/core/battle/types';
+import type { ContentIndex } from '../../src/core/content/loader';
+import type { Skill } from '../../src/core/content/schemas';
 
 declare global {
   interface Window {
@@ -43,6 +46,72 @@ test.beforeEach(async ({ page }) => {
     });
   });
 });
+
+for (const interrupt of [false, true]) {
+  test(`技の後もBGMを継続し演出中だけ減音する（音声中断=${interrupt}）`, async ({ page }, info) => {
+    test.setTimeout(120_000);
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(String(error)));
+    await page.goto('/?debug=battle');
+    await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 60_000 });
+    await page.locator('.nq-box').click();
+    await expectTrack(page, 'battle');
+    const result = await page.evaluate(async (interrupt) => {
+      const battle = window.__nq.scene.getScene('Battle') as Phaser.Scene & {
+        state: BattleState;
+        content: ContentIndex;
+        askSkill(): Promise<{ score: number; timeMs: number; attempts: number }>;
+        animate(event: BattleEvent, next?: BattleEvent): Promise<void>;
+        runIntent(intent: { kind: 'skill'; entry: { actorId: string; skill: Skill } }): Promise<void>;
+      };
+      // 採点結果だけを固定し、行動・演出・音声は実装を通す。倒さず次のターンまで確認する。
+      battle.state.enemy.hp = battle.state.enemy.stats.hp = 9999;
+      battle.askSkill = async () => ({ score: 0.6, timeMs: 1000, attempts: 1 });
+      const skill = battle.content.skills.get(battle.state.ally.hero.skills[0]!)!;
+      const audio = window.__musicAudio.find((a) => a.src.endsWith('/battle-theme.mp3'))!;
+      audio.currentTime = 10;
+      const before = audio.currentTime;
+      const volumes: number[] = [];
+      let interrupted = false;
+      const animate = battle.animate.bind(battle);
+      battle.animate = async (event, next) => {
+        if (event.t !== 'act' || event.command !== 'skill') return animate(event, next);
+        const sample = setInterval(() => volumes.push(audio.volume), 20);
+        // OS/ブラウザ由来の一時停止を注入し、同じ音源・同じ位置からの復帰を検査する。
+        if (interrupt && !interrupted) {
+          interrupted = true;
+          audio.pause();
+        }
+        try {
+          await animate(event, next);
+        } finally {
+          clearInterval(sample);
+        }
+      };
+      await battle.runIntent({ kind: 'skill', entry: { actorId: battle.state.ally.hero.id, skill } });
+      return {
+        before,
+        after: audio.currentTime,
+        paused: audio.paused,
+        volume: audio.volume,
+        outcome: battle.state.outcome,
+        minimumVolume: Math.min(...volumes),
+        interrupted,
+        settingsVolume: window.__nq.registry.get('game').settings.bgmVolume,
+      };
+    }, interrupt);
+    expect(result.outcome).toBe('ongoing');
+    expect(result.paused).toBe(false);
+    expect(result.after).toBeGreaterThan(result.before);
+    expect(result.volume).toBeCloseTo(0.6);
+    expect(result.minimumVolume).toBeCloseTo(0.36);
+    expect(result.interrupted).toBe(interrupt);
+    expect(result.settingsVolume).toBe(0.6);
+    expect(errors).toEqual([]);
+    await expectTrack(page, 'battle');
+    await info.attach('skill-music-state', { body: JSON.stringify(result), contentType: 'application/json' });
+  });
+}
 
 test('タイトル・各マップ・通常戦・ボス戦・勝敗で音源を切り替え、探索へ復帰する', async ({ page }, info) => {
   test.setTimeout(180_000);

@@ -16,3 +16,12 @@ export function attachBattleBgm(scene: Phaser.Scene, isBoss: boolean, teardown: 
 export function finishBattleBgm(outcome: string): void {
   if (outcome === 'victory' || outcome === 'defeat') session?.change(outcome);
 }
+
+export async function withBattleMusicDucked(animation: () => Promise<void>): Promise<void> {
+  const release = session?.duck();
+  try {
+    await animation();
+  } finally {
+    release?.();
+  }
+}

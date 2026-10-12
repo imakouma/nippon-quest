@@ -33,7 +33,6 @@ import {
 } from '../ui/battle/store';
 import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
-import { displayText } from '../ui/ruby';
 import { playSfx, prepareBattleSfx } from '../ui/sfx';
 import { BATTLE_POSE, battleSheet, HERO_H, HERO_W, heroKey, heroLook } from '../rendering/characters';
 import { itemIconGrid, itemIconUrl } from '../rendering/itemIcons';
@@ -43,7 +42,8 @@ import { Motions, type EnemyStyle, type MotifFx, type SwingKind } from './battle
 import { toCanvas } from '../rendering/grid';
 import { motifArtGrid } from '../rendering/motifArt';
 import { skillLook } from '../rendering/battle/skillLook';
-import { narrate, normalizeEvents, type NarrateCtx } from './battle/narrate';
+import { normalizeEvents, type NarrateCtx } from './battle/narrate';
+import { playBattleEvents } from './battle/eventPlayback';
 import { specialtyRewardViews } from './battle/specialtyRewards';
 import {
   ELEMENT_FX,
@@ -71,21 +71,11 @@ import { runBattleQuestion } from './battle/questionFlow';
 import { BattleHudFlow } from './battle/hudFlow';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
 import { monsterDisplaySize, monsterMenuArtUrl } from '../rendering/menuArt';
-import {
-  BATTLE_SCALE as S,
-  battleLayout,
-  type BattleLayout,
-  LOG_BASE_MS,
-  LOG_CHAR_MS,
-  LOG_MAX_MS,
-  OFF_RIGHT,
-  READY_STEP,
-} from './battle/layout';
+import { BATTLE_SCALE as S, battleLayout, type BattleLayout, OFF_RIGHT, READY_STEP } from './battle/layout';
 import { createBattleClouds, createBattleWinds, moveBattleClouds, moveBattleWinds } from './battle/clouds';
 import { attachBattleBgm, finishBattleBgm } from './battle/bgm';
 import {
   BAND_TEXT,
-  TALK_FIRST,
   combatantName,
   type BattleSkill,
   type Intent,
@@ -871,33 +861,12 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private async play(events: BattleEvent[]): Promise<void> {
-    const ctx = this.narrateCtx();
-    for (let i = 0; i < events.length; i++) {
-      const e = events[i]!;
-      const lines = narrate(e, ctx, events[i - 1]);
-      const talk = async () => {
-        if (!lines.length) return;
-        // 決着・ボスの セリフは 読んでから すすむ
-        if (e.t === 'defeat' || e.t === 'bossPhase') {
-          for (const line of lines)
-            await this.say(line, e.t === 'defeat' || line.startsWith('「') ? 'wait' : 'auto');
-          return;
-        }
-        // ほかは ようすの 文（待たない。2 行ずつ、少しだけ 読む 時間を とる）
-        for (let j = 0; j < lines.length; j += 2) {
-          const text = lines.slice(j, j + 2).join('\n');
-          this.log(text);
-          await this.wait(Math.min(LOG_MAX_MS, LOG_BASE_MS + displayText(text).length * LOG_CHAR_MS));
-        }
-      };
-      // 次の イベント（ダメージ・回復・まもり）を わたして、必殺技の 動きを ほんとうの あいてに 向ける
-      const next = events[i + 1];
-      if (TALK_FIRST.has(e.t)) await Promise.all([talk(), this.animate(e, next)]);
-      else {
-        await this.animate(e, next);
-        await talk();
-      }
-    }
+    await playBattleEvents(events, this.narrateCtx(), {
+      log: (text) => this.log(text),
+      say: (text, mode) => this.say(text, mode),
+      wait: (ms) => this.wait(ms),
+      animate: (event, next) => this.animate(event, next),
+    });
   }
 
   // ───────────────────────── 問題 ─────────────────────────

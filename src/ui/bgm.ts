@@ -4,11 +4,14 @@ export type MusicTrack =
 export interface MusicSession {
   change(track: MusicTrack): void;
   setVolume(volume: number): void;
+  /** 再生位置を保ったまま演出用に減音する。返り値で解除する。 */
+  duck(): () => void;
   stop(): void;
 }
 interface Request {
   track: MusicTrack;
   volume: number;
+  ducks: Set<symbol>;
 }
 interface Sound {
   audio: HTMLAudioElement;
@@ -70,24 +73,39 @@ export function createMusicDirector() {
     }
   }
 
-  function sync(): void {
+  function sync(smooth = false): void {
     const version = ++revision;
     if (timer) clearInterval(timer);
     timer = null;
     clearRetry();
     const request = requests.at(-1);
+    const targetVolume = request ? request.volume * (request.ducks.size ? 0.6 : 1) : 0;
     let next: Sound | null = null;
     if (request && request.volume > 0 && typeof Audio !== 'undefined') {
       next = sounds.get(request.track) ?? null;
       if (!next) {
         try {
-          const audio = new Audio(`${base}/assets/audio/bgm/${request.track}-theme.mp3`);
+          const track = request.track;
+          const audio = new Audio(`${base}/assets/audio/bgm/${track}-theme.mp3`);
           audio.loop = request.track !== 'victory' && request.track !== 'defeat';
           audio.preload = 'auto';
           next = { audio, ended: false };
           const sound = next;
           audio.addEventListener('ended', () => {
             sound.ended = true;
+          });
+          audio.addEventListener('pause', () => {
+            const active = requests.at(-1);
+            // 音声デバイス等による中断だけを回復し、消音・曲切替・終了は尊重する。
+            if (
+              current === sound &&
+              active?.track === track &&
+              active.volume > 0 &&
+              audio.loop &&
+              audio.paused &&
+              !audio.ended
+            )
+              play(sound, revision);
           });
           sounds.set(request.track, sound);
         } catch {
@@ -100,10 +118,13 @@ export function createMusicDirector() {
       if (!next || next.ended) return;
       next.audio.volume = 0;
       play(next, version);
-      fade(next, request!.volume, () => undefined);
+      fade(next, targetVolume, () => undefined);
     };
     if (current === next) {
-      if (next) next.audio.volume = request!.volume;
+      if (next) {
+        if (smooth) fade(next, targetVolume, () => undefined);
+        else next.audio.volume = targetVolume;
+      }
       // 切替フェード中に同曲を再要求した場合も再生を回復する。
       if (next?.audio.paused && !next.ended) play(next, version);
       return;
@@ -119,7 +140,7 @@ export function createMusicDirector() {
 
   return {
     start(track: MusicTrack, volume: number): MusicSession {
-      const request = { track, volume: clamp(volume) };
+      const request: Request = { track, volume: clamp(volume), ducks: new Set() };
       // 新しい戦闘・結果の曲は先頭から。探索曲はマップ移動後も続きを使う。
       const cached = sounds.get(track);
       if (cached && ['battle', 'boss', 'victory', 'defeat'].includes(track)) {
@@ -137,6 +158,7 @@ export function createMusicDirector() {
         change(nextTrack) {
           if (stopped || request.track === nextTrack) return;
           request.track = nextTrack;
+          request.ducks.clear();
           const sound = sounds.get(nextTrack);
           if (sound && !sound.audio.loop) {
             sound.ended = false;
@@ -153,6 +175,16 @@ export function createMusicDirector() {
           if (stopped || request.volume === normalized) return;
           request.volume = normalized;
           if (requests.at(-1) === request) sync();
+        },
+        duck() {
+          if (stopped) return () => undefined;
+          const token = Symbol();
+          request.ducks.add(token);
+          if (requests.at(-1) === request) sync(true);
+          return () => {
+            if (stopped || !request.ducks.delete(token)) return;
+            if (requests.at(-1) === request) sync(true);
+          };
         },
         stop() {
           if (stopped) return;

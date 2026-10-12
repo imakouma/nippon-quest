@@ -228,6 +228,16 @@ test('バトル：使えない必殺技も理由を読める明るさで表示�
 
 test('バトル：必殺技を えらぶと 問題が出て、答えると採点されてターンが進む', async ({ page }) => {
   test.setTimeout(90_000);
+  await page.addInitScript(() => {
+    window.__musicAudio = [];
+    window.Audio = new Proxy(window.Audio, {
+      construct(target, args: [string?]) {
+        const audio = new target(args[0]);
+        window.__musicAudio.push(audio);
+        return audio;
+      },
+    });
+  });
   await start(page, 1);
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
   await page.locator('[data-skill="sk-tashizan-giri"]').click();
@@ -248,11 +258,21 @@ test('バトル：必殺技を えらぶと 問題が出て、答えると採点
             .click()
             .catch(() => undefined);
         return (
-          (await page.locator('.nq-turn-stage').textContent())?.includes('ターン 2') ||
+          (await page.locator('.nq-cmd[data-cmd="skill"]').isVisible()) ||
           (await page.locator('.nq-result').isVisible())
         );
       },
       { timeout: 45_000 },
     )
     .toBe(true);
+  if (await page.locator('.nq-cmd[data-cmd="skill"]').isVisible()) {
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const audio = window.__musicAudio.find((a) => a.src.endsWith('/battle-theme.mp3'));
+          return !!audio && !audio.paused && audio.volume === 0.6 && audio.currentTime > 0;
+        }),
+      )
+      .toBe(true);
+  }
 });

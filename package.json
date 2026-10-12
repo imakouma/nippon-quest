@@ -31,7 +31,7 @@
     "test:e2e:app": "pnpm test:e2e:field && pnpm test:e2e:bag && pnpm test:e2e:battle && pnpm test:e2e:onboarding && pnpm test:e2e:tools && pnpm test:e2e:flows",
     "test:e2e:field": "playwright test tests/e2e/aomori-boss-distance.spec.ts tests/e2e/area-map-navigation.spec.ts",
     "test:e2e:bag": "playwright test tests/e2e/bag-interactions.spec.ts",
-    "test:e2e:battle": "playwright test tests/e2e/battle.spec.ts tests/e2e/battle-question-audit.spec.ts --grep-invert '全問題をバトル問題枠'",
+    "test:e2e:battle": "playwright test tests/e2e/battle.spec.ts tests/e2e/battle-question-audit.spec.ts tests/e2e/music.spec.ts tests/e2e/battle-sounds.spec.ts tests/e2e/enemy-knockout.spec.ts tests/e2e/skill-gauge-cost.spec.ts --grep-invert '全問題をバトル問題枠'",
     "test:e2e:onboarding": "playwright test tests/e2e/empty-save-slots.spec.ts tests/e2e/journey-setup.spec.ts tests/e2e/look-heading.spec.ts tests/e2e/mvp-regions.spec.ts tests/e2e/new-game-appearance.spec.ts tests/e2e/opening-cutscene.spec.ts",
     "test:e2e:tools": "playwright test tests/e2e/playground-list.spec.ts tests/e2e/questions.spec.ts tests/e2e/smoke.spec.ts",
     "test:e2e:flows": "pnpm test:e2e:flow-progress && pnpm test:e2e:flow-recovery && pnpm test:e2e:flow-companion && pnpm test:e2e:flow-accessibility",

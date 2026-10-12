@@ -122,6 +122,68 @@ describe('場面別BGM', () => {
     expect(town.paused).toBe(true);
   });
 
+  it('ブラウザに中断された戦闘ループは同じ位置から復帰する', () => {
+    const session = createMusicDirector().start('battle', 0.6);
+    settle();
+    const battle = FakeAudio.instances[0]!;
+    battle.currentTime = 23;
+    battle.pause();
+    battle.dispatchEvent(new Event('pause'));
+    expect(battle.paused).toBe(false);
+    expect(battle.currentTime).toBe(23);
+    session.setVolume(0);
+    settle();
+    battle.dispatchEvent(new Event('pause'));
+    expect(battle.paused).toBe(true);
+  });
+
+  it('技の間だけ音量を下げ、重なった演出が終わると最新設定へ戻す', () => {
+    const session = createMusicDirector().start('battle', 0.6);
+    settle();
+    const battle = FakeAudio.instances[0]!;
+    battle.currentTime = 23;
+    const release = session.duck();
+    const releaseSecond = session.duck();
+    settle();
+    expect(battle.volume).toBeCloseTo(0.36);
+    expect(battle.paused).toBe(false);
+    expect(battle.currentTime).toBe(23);
+    release();
+    release();
+    session.setVolume(0.4);
+    settle();
+    expect(battle.volume).toBeCloseTo(0.24);
+    releaseSecond();
+    settle();
+    expect(battle.volume).toBeCloseTo(0.4);
+    expect(battle.play).toHaveBeenCalledOnce();
+  });
+
+  it('消音・勝敗切替・戦闘終了後に技の音量復帰が曲を復活させない', () => {
+    const music = createMusicDirector();
+    music.start('field', 0.5);
+    settle();
+    const battle = music.start('battle', 0.6);
+    settle();
+    const release = battle.duck();
+    battle.setVolume(0);
+    settle();
+    release();
+    settle();
+    expect(FakeAudio.instances.every((a) => a.paused)).toBe(true);
+    battle.setVolume(0.6);
+    const releaseLater = battle.duck();
+    battle.change('victory');
+    settle();
+    expect(FakeAudio.instances.at(-1)!.volume).toBeCloseTo(0.6);
+    battle.stop();
+    settle();
+    releaseLater();
+    settle();
+    expect(FakeAudio.instances[0]!.volume).toBeCloseTo(0.5);
+    expect(FakeAudio.instances.filter((a) => !a.paused)).toEqual([FakeAudio.instances[0]]);
+  });
+
   it('終了した背景Sceneからの停止が新しい曲を止めない', () => {
     const music = createMusicDirector();
     const field = music.start('field', 0.6);
