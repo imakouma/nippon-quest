@@ -9,13 +9,15 @@ async function expectEightStatsFit(page: Page) {
     /HP/,
     /MP/,
     /理系.*こうげき/,
-    /文系.*こうげき/,
+    /文系攻撃/,
     /理系.*ぼうぎょ/,
     /文系.*ぼうぎょ/,
     /すばやさ/,
     /かしこさ/,
   ])
     await expect(info).toContainText(label);
+  await expect(stats.locator('small').filter({ hasText: '文系攻撃' })).toHaveText('文系攻撃');
+  await expect(info.locator('.nq-party-stats')).not.toContainText(/[[\]]/);
   const [infoBox, statsBox] = await Promise.all([
     info.boundingBox(),
     info.locator('.nq-party-stats').boundingBox(),
@@ -34,6 +36,16 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await completeNewGameSetup(page, 'テスト');
 
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 40_000 });
+  await page
+    .getByRole('dialog', { name: 'ものがたりの シーン' })
+    .getByRole('button', { name: 'スキップ' })
+    .click();
+  const battleTutorial = page.locator('.nq-dlg');
+  await expect(battleTutorial).toBeVisible();
+  for (let step = 0; step < 12 && (await battleTutorial.isVisible()); step += 1) {
+    await battleTutorial.click();
+  }
+  await expect(battleTutorial).toHaveCount(0);
   await page.getByRole('button', { name: 'メニュー' }).click();
   const menuHome = page.locator('.nq-menu-home');
   await expect(menuHome).toBeVisible();
@@ -112,6 +124,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expectEightStatsFit(page);
   await page.setViewportSize({ width: 960, height: 540 });
   await expectEightStatsFit(page);
+  await page.screenshot({ path: testInfo.outputPath('bag-stat-labels.png') });
   await page.setViewportSize({ width: 640, height: 540 });
   await heroCell.click();
   await expect(page.locator('.nq-party-info')).toHaveCount(0);

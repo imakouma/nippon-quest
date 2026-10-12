@@ -41,7 +41,7 @@ describe('フィールドメニューの表示モデル', () => {
     const text = itemStatText(weapon);
 
     expect(text).toContain('理系[りけい]こうげき+1');
-    expect(text).toContain('文系[ぶんけい]こうげき+1');
+    expect(text).toContain('文系[ぶんけい]攻撃[こうげき]+1');
     expect(text).not.toContain('undefined');
   });
 

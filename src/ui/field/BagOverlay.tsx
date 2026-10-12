@@ -11,7 +11,7 @@ import { ElementChip } from '../chips';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
-import { displayText } from '../ruby';
+import { displayText, stripRuby } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
 import type { BagCell } from './bagLayout';
@@ -502,7 +502,7 @@ export function BagOverlay({
                 <div class="nq-party-stats">
                   {STATS.map(([k, key]) => (
                     <span key={k}>
-                      <small>{t(key)}</small>
+                      <small>{stripRuby(t(key))}</small>
                       {Math.round(m.stats![k])}
                     </span>
                   ))}
