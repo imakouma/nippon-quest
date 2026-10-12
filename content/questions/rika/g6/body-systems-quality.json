@@ -1,0 +1,242 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.16bd961d5353",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:circulation-respiration", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "心臓[しんぞう]から肺[はい]へ送[おく]られた血液[けつえき]は、肺[はい]でどのように変[か]わる？",
+      "choices": [
+        { "id": "a", "text": "二酸化炭素[にさんかたんそ]を出[だ]し、酸素[さんそ]を受[う]け取[と]る" },
+        { "id": "b", "text": "酸素[さんそ]を出[だ]し、養分[ようぶん]だけを受[う]け取[と]る" },
+        { "id": "c", "text": "水[みず]だけを出[だ]し、二酸化炭素[にさんかたんそ]を受[う]け取[と]る" },
+        { "id": "d", "text": "何[なに]も受[う]け取[と]らず、そのまま全身[ぜんしん]へ進[すす]む" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "肺[はい]では、血液[けつえき]が二酸化炭素[にさんかたんそ]を手放[てばな]し、吸[す]った空気[くうき]から酸素[さんそ]を受[う]け取[と]る。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.321cdef043ff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:excretion-organs", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "じん臓[ぞう]でつくられた尿[にょう]は、体外[たいがい]へ出[で]る前[まえ]にどこへたくわえられる？",
+      "choices": [
+        { "id": "a", "text": "ぼうこう" },
+        { "id": "b", "text": "胃[い]" },
+        { "id": "c", "text": "肺[はい]" },
+        { "id": "d", "text": "小腸[しょうちょう]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "じん臓[ぞう]でできた尿[にょう]は、ぼうこうに一時的[いちじてき]にたくわえられてから体外[たいがい]へ出[だ]される。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.3a6a63f8630d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:heartbeat-pulse", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "手首[てくび]で感[かん]じる脈[みゃく]の動[うご]きと、心臓[しんぞう]の動[うご]きの関係[かんけい]として正[ただ]しいものはどれ？",
+      "choices": [
+        { "id": "a", "text": "心臓[しんぞう]の拍動[はくどう]が血管[けっかん]を伝[つた]わっている" },
+        { "id": "b", "text": "肺[はい]のふくらみだけが骨[ほね]を伝[つた]わっている" },
+        { "id": "c", "text": "胃[い]が食[た]べ物[もの]を動[うご]かすたびに起[お]こる" },
+        { "id": "d", "text": "筋肉[きんにく]を動[うご]かさないときだけ起[お]こる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "心臓[しんぞう]が血液[けつえき]を送[おく]り出[だ]す拍動[はくどう]は血管[けっかん]を伝[つた]わり、手首[てくび]などで脈拍[みゃくはく]として感[かん]じられる。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.5233962add07",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:circulation-path", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "肺[はい]で酸素[さんそ]を受[う]け取[と]った血液[けつえき]が、全身[ぜんしん]へ送[おく]られるまでの道筋[みちすじ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "肺[はい]から心臓[しんぞう]へもどり、心臓[しんぞう]から全身[ぜんしん]へ進[すす]む"
+        },
+        { "id": "b", "text": "肺[はい]から胃[い]へ進[すす]み、胃[い]から全身[ぜんしん]へ進[すす]む" },
+        { "id": "c", "text": "肺[はい]からぼうこうへ進[すす]み、尿[にょう]といっしょに出[で]る" },
+        { "id": "d", "text": "肺[はい]から直接[ちょくせつ]、骨[ほね]の中[なか]だけを進[すす]む" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "肺[はい]で酸素[さんそ]を受[う]け取[と]った血液[けつえき]は心臓[しんぞう]へもどり、心臓[しんぞう]から全身[ぜんしん]へ送[おく]り出[だ]される。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.6821dd87c0ab",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:animal-organ-comparison", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "魚[さかな]が水中[すいちゅう]の酸素[さんそ]を取[と]り入[い]れる器官[きかん]はどれ？",
+      "choices": [
+        { "id": "a", "text": "えら" },
+        { "id": "b", "text": "胃[い]" },
+        { "id": "c", "text": "腸[ちょう]" },
+        { "id": "d", "text": "こう門[もん]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "魚[さかな]は、えらで水中[すいちゅう]にとけている酸素[さんそ]を取[と]り入[い]れる。胃[い]や腸[ちょう]は消化[しょうか]・吸収[きゅうしゅう]に関[かか]わる。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.75137293df5d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:digestion-organs", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "肝臓[かんぞう]のはたらきとして正[ただ]しいものはどれ？",
+      "choices": [
+        { "id": "a", "text": "吸収[きゅうしゅう]された養分[ようぶん]を一時的[いちじてき]にたくわえる" },
+        { "id": "b", "text": "空気[くうき]から酸素[さんそ]を取[と]り入[い]れる" },
+        { "id": "c", "text": "血液[けつえき]を全身[ぜんしん]へ送[おく]り出[だ]す" },
+        { "id": "d", "text": "尿[にょう]を一時的[いちじてき]にためる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "肝臓[かんぞう]は、小腸[しょうちょう]で吸収[きゅうしゅう]された養分[ようぶん]を一時的[いちじてき]にたくわえ、必要[ひつよう]に応[おう]じて利用[りよう]できるようにする。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.915bbf9c51c1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:organ-systems", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "体内[たいない]のさまざまな臓器[ぞうき]が、たがいに関係[かんけい]してはたらける主[おも]な理由[りゆう]はどれ？",
+      "choices": [
+        { "id": "a", "text": "血液[けつえき]が物質[ぶっしつ]を運[はこ]んで臓器[ぞうき]をつないでいるから" },
+        { "id": "b", "text": "すべての臓器[ぞうき]が同[おな]じはたらきをするから" },
+        { "id": "c", "text": "すべての臓器[ぞうき]が直接[ちょくせつ]つながっているから" },
+        { "id": "d", "text": "食[た]べ物[もの]が臓器[ぞうき]の外側[そとがわ]を流[なが]れるから" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "血液[けつえき]は酸素[さんそ]や養分[ようぶん]、不要[ふよう]な物質[ぶっしつ]などを運[はこ]び、異[こと]なる臓器[ぞうき]のはたらきを結[むす]び付[つ]ける。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.aa9156ab8edb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:organ-function", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "小腸[しょうちょう]のおもなはたらきはどれ？",
+      "choices": [
+        { "id": "a", "text": "消化[しょうか]された養分[ようぶん]を吸収[きゅうしゅう]する" },
+        { "id": "b", "text": "血液[けつえき]を全身[ぜんしん]へ送[おく]り出[だ]す" },
+        { "id": "c", "text": "血液[けつえき]へ酸素[さんそ]を取[と]り入[い]れる" },
+        { "id": "d", "text": "尿[にょう]をつくって体外[たいがい]へ出[だ]す" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "小腸[しょうちょう]では、消化[しょうか]されて水[みず]にとけやすくなった養分[ようぶん]が吸収[きゅうしゅう]され、血液[けつえき]によって運[はこ]ばれる。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.b4cad7be7f8c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:excretion-circulation", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "体内[たいない]でできた不要[ふよう]な物質[ぶっしつ]が、じん臓[ぞう]へ届[とど]くまで運[はこ]ぶものはどれ？",
+      "choices": [
+        { "id": "a", "text": "血液[けつえき]" },
+        { "id": "b", "text": "吸[す]いこんだ空気[くうき]" },
+        { "id": "c", "text": "消化[しょうか]される前[まえ]の食[た]べ物[もの]" },
+        { "id": "d", "text": "骨[ほね]の中[なか]のすき間[ま]" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "血液[けつえき]は全身[ぜんしん]で不要[ふよう]な物質[ぶっしつ]を受[う]け取[と]り、じん臓[ぞう]へ運[はこ]ぶ。じん臓[ぞう]はそれらをこし取[と]る。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.f90d87f1b571",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:kidney-function", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "じん臓[ぞう]のはたらきを最[もっと]もよく表[あらわ]しているものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "血液[けつえき]から不要[ふよう]な物質[ぶっしつ]をこし取[と]り、尿[にょう]をつくる"
+        },
+        { "id": "b", "text": "食[た]べ物[もの]を細[こま]かくして、胃[い]へ送[おく]る" },
+        { "id": "c", "text": "酸素[さんそ]を取[と]り入[い]れ、全身[ぜんしん]へ直接[ちょくせつ]送[おく]る" },
+        { "id": "d", "text": "血液[けつえき]を押[お]し出[だ]して、脈[みゃく]をつくる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "じん臓[ぞう]は血液[けつえき]をこし、不要[ふよう]な物質[ぶっしつ]や余分[よぶん]な水分[すいぶん]を尿[にょう]として取[と]り除[のぞ]く。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-3.ff295856c314",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-3",
+    "tags": ["source:codex-remediation", "skill:exercise-heart-rate", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "軽[かる]い運動[うんどう]の前[まえ]は1分間[ぷんかん]に80回[かい]、運動後[うんどうご]は100回[かい]の脈拍[みゃくはく]だった。この結果[けっか]からいえることはどれ？",
+      "choices": [
+        { "id": "a", "text": "運動後[うんどうご]は、心臓[しんぞう]が動[うご]く回数[かいすう]が増[ふ]えた" },
+        {
+          "id": "b",
+          "text": "運動後[うんどうご]は、心臓[しんぞう]が動[うご]く回数[かいすう]が20回[かい]減[へ]った"
+        },
+        { "id": "c", "text": "運動[うんどう]しても、心臓[しんぞう]の動[うご]きは変[か]わらなかった" },
+        { "id": "d", "text": "運動後[うんどうご]は、心臓[しんぞう]が止[と]まる時間[じかん]が増[ふ]えた" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "100回[かい]は80回[かい]より20回[かい]多[おお]い。運動後[うんどうご]は、全身[ぜんしん]へ血液[けつえき]を送[おく]るために心臓[しんぞう]の動[うご]きが速[はや]くなったと考[かんが]えられる。"
+  }
+]

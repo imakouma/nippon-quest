@@ -1,0 +1,181 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-gaikokugo-g56",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 外国語[がいこくご]活動[かつどう]・外国語[がいこくご]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20220614-mxt_kyoiku02-100002607_11.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2022-06-14版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第2部 外国語・第5学年及び第6学年"
+    },
+    {
+      "id": "mext-h29-gaikokugo-codes-g56",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第5学年及び第6学年外国語"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "eigo.g5.communication.alphabet-self-introduction",
+      "subject": "eigo",
+      "grade": 5,
+      "unit": "eigo.g5.alphabet-self-introduction",
+      "name": "アルファベットと自己紹介[じこしょうかい]",
+      "description": "聞[き]く・読[よ]む・話[はな]す・書[か]く活動[かつどう]を、目的[もくてき]や場面[ばめん]に応[おう]じて結[むす]び付[つ]ける。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82H12D3112100000", "82H12D3221210000", "82H12D3221420000", "82H12D3221510000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "音声[おんせい]で十分[じゅうぶん]に慣[な]れ親[した]しんだ表現[ひょうげん]から、読[よ]む・書[か]く活動[かつどう]へ段階的[だんかいてき]につなげる。"
+      },
+      "sourceIds": ["mext-h29-gaikokugo-g56", "mext-h29-gaikokugo-codes-g56"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0001",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0002",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0003",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0004",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0005",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0006",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0007",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0008",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0009",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g5.alphabet-self-introduction.0010",
+      "concepts": [
+        {
+          "conceptId": "eigo.g5.communication.alphabet-self-introduction",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

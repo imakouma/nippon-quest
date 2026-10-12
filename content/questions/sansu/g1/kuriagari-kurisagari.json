@@ -1,0 +1,103 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "sansu.g1.kuriagari-kurisagari.0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kuriagari-kurisagari",
+    "payload": {
+      "prompt": "9 + 4。10の まとまりを つくるには、4を いくつと いくつに わける？",
+      "choices": [
+        { "id": "a", "text": "1と 3" },
+        { "id": "b", "text": "2と 2" },
+        { "id": "c", "text": "4と 4" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "9に 1を たすと 10。4を 1と 3に わけると、10と 3で 13になります。"
+  },
+  {
+    "id": "sansu.g1.kuriagari-kurisagari.0002",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kuriagari-kurisagari",
+    "payload": {
+      "prompt": "8 + 7 = ？　10の まとまりを つくって こたえよう。",
+      "template": "8 + 7 = □",
+      "answers": ["15"]
+    },
+    "explanation": "7を 2と 5に わけます。8と 2で 10、10と 5で 15です。"
+  },
+  {
+    "id": "sansu.g1.kuriagari-kurisagari.0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kuriagari-kurisagari",
+    "payload": {
+      "prompt": "6 + 8の こたえは？",
+      "choices": [
+        { "id": "a", "text": "12" },
+        { "id": "b", "text": "13" },
+        { "id": "c", "text": "14" },
+        { "id": "d", "text": "15" }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "8を 4と 4に わけます。6と 4で 10、のこりの 4を たして 14です。"
+  },
+  {
+    "id": "sansu.g1.kuriagari-kurisagari.0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kuriagari-kurisagari",
+    "payload": {
+      "prompt": "13 - 5。13を 10と 3に わけた あと、どう かんがえる？",
+      "choices": [
+        { "id": "a", "text": "10 - 5と 3を あわせる" },
+        { "id": "b", "text": "10 + 5と 3を あわせる" },
+        { "id": "c", "text": "13と 5を あわせる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "13を 10と 3に わけます。10 - 5 = 5、5と 3を あわせて 8です。"
+  },
+  {
+    "id": "sansu.g1.kuriagari-kurisagari.0005",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kuriagari-kurisagari",
+    "payload": {
+      "prompt": "15 - 7 = ？　10を つかって こたえよう。",
+      "template": "15 - 7 = □",
+      "answers": ["8"]
+    },
+    "explanation": "15を 10と 5に わけます。10から 7を ひくと 3。3と 5を あわせて 8です。"
+  },
+  {
+    "id": "sansu.g1.kuriagari-kurisagari.0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kuriagari-kurisagari",
+    "payload": {
+      "prompt": "どんぐりが 12こ。4こ つかいました。のこりは なんこ？",
+      "choices": [
+        { "id": "a", "text": "7こ" },
+        { "id": "b", "text": "8こ" },
+        { "id": "c", "text": "9こ" },
+        { "id": "d", "text": "16こ" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "12を 10と 2に わけます。10 - 4 = 6、6と 2を あわせて 8こです。"
+  }
+]

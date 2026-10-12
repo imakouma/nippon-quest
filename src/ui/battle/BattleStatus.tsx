@@ -72,16 +72,22 @@ export function EnemyWindow({ e }: { e: EnemyView }) {
   );
 }
 
-export function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
+export function AllyRow({
+  a,
+  active,
+  gauges = [],
+}: {
+  a: AllyView;
+  active: boolean;
+  gauges?: SubjectGaugeView[];
+}) {
   const down = a.hp <= 0;
   return (
     <div
       class={`nq-ally ${a.isHero ? 'nq-ally-hero' : ''} ${active ? 'nq-ally-active' : ''} ${down ? 'nq-ally-down' : ''}`}
     >
       <div class="nq-ally-heading">
-        <span class="nq-ally-cur" aria-hidden="true">
-          {active ? '▶' : ''}
-        </span>
+        <span class="nq-ally-cur" aria-hidden="true" />
         <PixelIcon name={a.isHero ? 'hero' : `el-${a.element}`} scale={2} />
         <RubyLabel text={a.name} class="nq-ally-name" />
         <span class="nq-ally-lv">
@@ -98,25 +104,24 @@ export function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
         {down ? (
           <span class="nq-down">{t('battle.fainted')}</span>
         ) : (
-          <>
-            <Bar
-              value={a.hp}
-              max={a.maxHp}
-              kind="hp"
-              label={`${displayText(a.name)} ${t('battle.hp')}`}
-              showValue
-            />
-          </>
+          <Bar
+            value={a.hp}
+            max={a.maxHp}
+            kind="hp"
+            label={`${displayText(a.name)} ${t('battle.hp')}`}
+            showValue
+          />
         )}
       </div>
+      {a.isHero && !down && gauges.length > 0 && <GaugeColumn list={gauges} compact />}
     </div>
   );
 }
 
-export function GaugeColumn({ list }: { list: SubjectGaugeView[] }) {
+export function GaugeColumn({ list, compact = false }: { list: SubjectGaugeView[]; compact?: boolean }) {
   return (
-    <div class="nq-sgauge">
-      <span class="nq-sgauge-title">{t('battle.gauge')}</span>
+    <div class={`nq-sgauge ${compact ? 'nq-sgauge-hero' : ''}`}>
+      {!compact && <span class="nq-sgauge-title">{t('battle.gauge')}</span>}
       {list.map((g) => (
         <div
           key={g.subject}
@@ -133,6 +138,9 @@ export function GaugeColumn({ list }: { list: SubjectGaugeView[] }) {
             {g.marks.map((mark) => (
               <b key={mark} class="nq-sg-mark" style={{ left: `${(mark / g.max) * 100}%` }} />
             ))}
+            <span class="nq-sg-value" aria-hidden="true">
+              {g.value}/{g.max}
+            </span>
           </span>
           {g.gain && (
             <span key={g.gain.id} class="nq-sg-gain">

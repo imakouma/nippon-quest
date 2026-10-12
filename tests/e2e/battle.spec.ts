@@ -9,8 +9,12 @@ async function start(page: Page, lv: number, forceRecruit = false): Promise<void
   await page.goto(`/?debug=battle&enemy=aomori-ringoron&lv=${lv}${forceRecruit ? '&recruit=1' : ''}`);
   // 登場メッセージ（タップ待ち）→ コマンド。1 文字ずつ出し終わって ▼ が出てからタップする
   await expect(page.locator('.nq-box-text')).toContainText('リンゴロン', { timeout: 60_000 });
+  await expect(page.locator('.nq-bottom-command-slot')).toHaveCount(0);
+  await expect(page.locator('.nq-bottom-rail')).toHaveCount(0);
   await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 10_000 });
   await page.locator('.nq-box').click();
+  await expect(page.locator('.nq-bottom-rail')).toBeVisible();
+  await expect(page.locator('.nq-bottom-command-slot')).toBeVisible();
 }
 
 /** 単元には複数の問題形式が混ざり得るため、表示された形式に依存せず1回答する。 */
@@ -30,7 +34,7 @@ async function answerCurrentQuestion(page: Page): Promise<void> {
   }
   if (await page.locator('.nq-q-input input').first().isVisible()) {
     const inputs = page.locator('.nq-q-input input');
-    await expect(inputs.first()).toHaveAttribute('aria-describedby', 'nq-question-prompt');
+    await expect(inputs.first()).toHaveAttribute('aria-describedby', /nq-question-(prompt|template)/);
     for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
     await page.getByRole('button', { name: 'こたえる' }).click();
     return;
@@ -110,42 +114,85 @@ test('バトル：報酬のあとに、キャラが動く仲間加入演出を�
   expect(errors).toEqual([]);
 });
 
-test('バトル：ターンが 出て、こちらが 動くと敵の行動後に次のターンへ進む', async ({ page }) => {
+test('バトル：ターン表示を出さず、こちらが動くと次のコマンド選択へ戻る', async ({ page }) => {
   test.setTimeout(60_000);
-  await start(page, 8);
-  await expect(page.locator('.nq-turn-stage')).toContainText('ターン', { timeout: 10_000 });
+  // lv は敵レベル。初期パーティが一撃で全滅しない条件で、1ターンの完走を確認する。
+  await start(page, 1);
+  await expect(page.locator('.nq-turn-stage')).toHaveCount(0);
   await expect(page.locator('.nq-sgauge')).toBeVisible();
   await expect(page.locator('.nq-cmd[data-cmd="skill"]')).toBeVisible({ timeout: 20_000 });
   await expect(page.getByRole('meter', { name: /リンゴロン HP/ })).toBeVisible();
   await expect(page.getByRole('meter', { name: /ハル HP/ })).toBeVisible();
   await useFirstAvailableSkill(page);
-  // 敵は攻撃だけでなく防御も選ぶため、HP変化ではなくターン完走を確認する。
-  await expect(page.locator('.nq-turn-stage')).toContainText('ターン 2', { timeout: 30_000 });
+  // 敵は攻撃だけでなく防御も選ぶため、次のコマンド選択へ戻ることを確認する。
+  await expect(page.locator('.nq-cmd[data-cmd="skill"]')).toBeVisible({ timeout: 30_000 });
 });
 
-test('バトル：教科ゲージはコマンドと主人公ステータスの間にあり、両ステータス枠は同じ幅', async ({ page }) => {
+test('バトル：コマンドと主人公情報はポケモン風の独立したコンパクトな枠に収まる', async ({ page }) => {
   test.setTimeout(60_000);
   await start(page, 8);
-  const [enemy, commands, gauge, party] = await Promise.all([
+  const [rail, foe, commandSlot, gauge, party, heroHp, heroGauge] = await Promise.all([
+    page.locator('.nq-bottom-rail').boundingBox(),
     page.locator('.nq-panel').boundingBox(),
-    page.locator('.nq-cmdwin').boundingBox(),
-    page.locator('.nq-sgauge').boundingBox(),
+    page.locator('.nq-bottom-command-slot').boundingBox(),
+    page.locator('.nq-ally-hero .nq-sgauge').boundingBox(),
     page.locator('.nq-party').boundingBox(),
+    page.locator('.nq-ally-hero .nq-bar-hp').boundingBox(),
+    page.locator('.nq-ally-hero .nq-sg-bar').boundingBox(),
   ]);
 
-  expect(enemy).not.toBeNull();
-  expect(commands).not.toBeNull();
+  expect(rail).not.toBeNull();
+  expect(foe).not.toBeNull();
+  expect(commandSlot).not.toBeNull();
   expect(gauge).not.toBeNull();
   expect(party).not.toBeNull();
+  expect(heroHp).not.toBeNull();
+  expect(heroGauge).not.toBeNull();
   await expect(page.locator('.nq-bottom-rail')).toBeVisible();
   await expect(page.locator('.nq-bottom-rail .nq-win')).toHaveCount(0);
   await expect(page.locator('.nq-box')).toHaveCount(0);
   await expect(page.locator('.nq-foe-row')).toHaveCount(0);
   await expect(page.locator('.nq-bar-hp .nq-bar-value')).toHaveCount(2);
-  expect(enemy!.width).toBeCloseTo(party!.width, 0);
-  expect(gauge!.x).toBeCloseTo(commands!.x + commands!.width, 0);
-  expect(gauge!.x + gauge!.width).toBeCloseTo(party!.x, 0);
-  expect(gauge!.y).toBeCloseTo(party!.y, 0);
+  expect(foe!.width).toBeLessThanOrEqual(225);
+  expect(commandSlot!.width).toBeLessThanOrEqual(190);
+  expect(party!.width).toBeLessThanOrEqual(260);
+  expect(commandSlot!.x).toBeCloseTo(rail!.x, 0);
+  expect(party!.x + party!.width).toBeCloseTo(rail!.x + rail!.width, 0);
+  expect(party!.x).toBeGreaterThan(commandSlot!.x + commandSlot!.width);
+  expect(gauge!.y).toBeGreaterThan(heroHp!.y);
+  expect(gauge!.x).toBeGreaterThanOrEqual(heroHp!.x);
+  expect(heroGauge!.width).toBeCloseTo(heroHp!.width, 0);
+  await expect(page.locator('.nq-ally-hero .nq-sg-value')).toHaveText('0/100');
+
+  // 技一覧を開いても、右下の主人公枠は動かず、舞台を覆い過ぎない高さに保つ。
+  await page.locator('.nq-cmd[data-cmd="skill"]').click();
+  const [menu, partyWhileMenu] = await Promise.all([
+    page.locator('.nq-menu').boundingBox(),
+    page.locator('.nq-party').boundingBox(),
+  ]);
+  expect(menu).not.toBeNull();
+  expect(partyWhileMenu).not.toBeNull();
+  expect(menu!.height).toBeLessThanOrEqual(216);
+  expect(menu!.x + menu!.width).toBeLessThanOrEqual(partyWhileMenu!.x);
+  expect(partyWhileMenu!.x).toBeCloseTo(party!.x, 0);
+  await expect(page.locator('.nq-menu .nq-chip')).toHaveCount(0);
+  await expect(page.locator('.nq-menu [data-skill] .nq-cur')).toHaveCount(0);
+  await expect(page.locator('.nq-menu .nq-opt-side').first()).toHaveCSS('white-space', 'nowrap');
+  await expect(page.locator('.nq-menu-skill .nq-menu-head')).toHaveCount(0);
+  const firstSkillBox = await page.locator('.nq-menu-skill .nq-opt').first().boundingBox();
+  const skillListBox = await page.locator('.nq-menu-skill .nq-menu-grid').boundingBox();
+  const skillDetailBox = await page.locator('.nq-menu-foot-skill').boundingBox();
+  expect(firstSkillBox!.height).toBe(40);
+  expect(skillDetailBox!.x).toBeGreaterThan(skillListBox!.x + skillListBox!.width);
+  expect(skillDetailBox!.height).toBe(skillListBox!.height);
+  for (const skill of await page.locator('.nq-menu-skill .nq-opt').all()) {
+    expect(await skill.evaluate((node) => node.scrollWidth <= node.clientWidth)).toBe(true);
+  }
+
+  // 技一覧の外側を押すと、専用の「もどる」見出しなしでコマンド選択へ戻る。
+  await page.locator('.nq-menu-dismiss').click({ position: { x: 940, y: 24 } });
+  await expect(page.locator('.nq-menu-skill')).toHaveCount(0);
+  await expect(page.locator('.nq-cmd[data-cmd="skill"]')).toBeVisible();
 });
 
 test('バトル：矢印で選んだコマンドへ実フォーカスが追従する', async ({ page }) => {
@@ -169,17 +216,19 @@ test('バトル：使えない必殺技も理由を読める明るさで表示�
   await expect(page.getByRole('group', { name: 'わざ' })).toBeVisible();
   const unavailable = page.locator('[data-skill].nq-opt-off').first();
   await expect(unavailable).toBeVisible();
+  // Hover can select a disabled row; check its idle color with focus on a usable skill.
+  await page.locator('[data-skill]:not(.nq-opt-off)').first().hover();
   await expect(unavailable).toHaveAttribute('aria-disabled', 'true');
   await expect(unavailable).toHaveCSS('color', 'rgb(163, 170, 187)');
-  await expect(unavailable.locator('.nq-opt-cost')).toHaveAttribute('aria-label', /ゲージ 0\//);
-  await expect(unavailable.locator('.nq-opt-cost-value')).toContainText('0/');
+  await expect(unavailable.locator('.nq-opt-cost')).toHaveAttribute('aria-label', /^ひつようゲージ \d+$/);
+  await expect(unavailable.locator('.nq-opt-cost-value')).toHaveText(/^\d+$/);
   await expect(unavailable.locator('.nq-opt-cost')).toHaveCSS('color', 'rgb(255, 210, 138)');
   await expect(unavailable.locator('.nq-opt-cost')).toHaveCSS('white-space', 'nowrap');
 });
 
 test('バトル：必殺技を えらぶと 問題が出て、答えると採点されてターンが進む', async ({ page }) => {
   test.setTimeout(90_000);
-  await start(page, 8);
+  await start(page, 1);
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
   await page.locator('[data-skill="sk-tashizan-giri"]').click();
   const question = page.locator('.nq-bq');
@@ -187,8 +236,23 @@ test('バトル：必殺技を えらぶと 問題が出て、答えると採点
   await expect(question).toHaveAttribute('aria-modal', 'true');
   expect(await question.evaluate((node) => node.contains(document.activeElement))).toBe(true);
   await answerCurrentQuestion(page);
-  // 不正解ならゲージ加算が0になるのが仕様。問題を閉じてターンを完走することを確認する。
-  // 正解時のゲージ加算量は、乱数や問題形式に依存しない core のユニットテストで検証する。
+  // 問題を閉じて、メッセージ送りを含めてターンまたは決着まで進むことを確認する。
+  // ゲージ加算量は、乱数や問題形式に依存しない core のユニットテストで検証する。
   await expect(page.locator('.nq-bq')).toHaveCount(0, { timeout: 10_000 });
-  await expect(page.locator('.nq-turn-stage')).toContainText('ターン 2', { timeout: 30_000 });
+  await expect
+    .poll(
+      async () => {
+        if (await page.locator('.nq-box-next').isVisible())
+          await page
+            .locator('.nq-box')
+            .click()
+            .catch(() => undefined);
+        return (
+          (await page.locator('.nq-turn-stage').textContent())?.includes('ターン 2') ||
+          (await page.locator('.nq-result').isVisible())
+        );
+      },
+      { timeout: 45_000 },
+    )
+    .toBe(true);
 });

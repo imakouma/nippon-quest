@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-10-12",
+  "model": "Stable Audio 3 Small Music",
+  "implementation": "Stability-AI/stable-audio-3 optimized/mlx",
+  "cfg": 2,
+  "steps": 8,
+  "negativePrompt": "vocals, singing, speech, noise, distortion, existing song, sound logo",
+  "tracks": [
+    {
+      "id": "title",
+      "seconds": 70,
+      "seed": 271829,
+      "prompt": "Original instrumental soundtrack for a family-friendly retro handheld pixel-art adventure RPG. Dawn over island seas, hopeful opening title theme, warm uplifting melody, gentle sparkling arpeggios, expressive retro synthesizer lead, light percussion, 105 BPM. Clean polished melodic game music, cohesive retro electronic palette. Consistent rhythm, loop-friendly structure, no long silent ending.",
+      "sha256": "0fc58a9d0f202c8054a01ab49bb957a2eed2846617cfd6b91e0d22b48bace3da",
+      "bytes": 1647674,
+      "postProcessing": "trim trailing silence, cyclic 0.25s crossfade, loudnorm -18 LUFS / -2 dBTP, MP3 192kbps",
+      "duration": 68.583197,
+      "peakDb": -5
+    },
+    {
+      "id": "field",
+      "seconds": 80,
+      "seed": 271830,
+      "prompt": "Original instrumental soundtrack for a family-friendly retro handheld pixel-art adventure RPG. Bright adventurous overworld exploration theme, walking across grassy islands, tuneful playful synth lead, flowing arpeggios, light steady percussion, lively bass, 120 BPM. Clean polished melodic game music, cohesive retro electronic palette. Consistent rhythm, loop-friendly structure, no long silent ending.",
+      "sha256": "8414d63499c3271d94d7eb5496321325aa52a8470c9516e434f17cee6a1c59ec",
+      "bytes": 1894688,
+      "postProcessing": "trim trailing silence, cyclic 0.25s crossfade, loudnorm -18 LUFS / -2 dBTP, MP3 192kbps",
+      "duration": 78.868231,
+      "peakDb": -2.2
+    },
+    {
+      "id": "town",
+      "seconds": 70,
+      "seed": 271831,
+      "prompt": "Original instrumental soundtrack for a family-friendly retro handheld pixel-art adventure RPG. Peaceful welcoming village theme, cozy friendly streets, lilting warm melody, soft bell and woodwind-like synth tones, light plucked accompaniment, gentle bass, 95 BPM. Clean polished melodic game music, cohesive retro electronic palette. Consistent rhythm, loop-friendly structure, no long silent ending.",
+      "sha256": "cad63427d940c55be7be0b69a3bd8331a843f01b567b078759c689d5442afcd0",
+      "bytes": 1656450,
+      "postProcessing": "trim trailing silence, cyclic 0.25s crossfade, loudnorm -18 LUFS / -2 dBTP, MP3 192kbps",
+      "duration": 68.940295,
+      "peakDb": -4.1
+    },
+    {
+      "id": "dungeon",
+      "seconds": 70,
+      "seed": 271832,
+      "prompt": "Original instrumental soundtrack for a family-friendly retro handheld pixel-art adventure RPG. Mysterious cave exploration theme, curious rather than frightening, restrained minor-key melody, rounded synth bass, delicate echoing bells, subtle rhythmic pulse, 100 BPM. Clean polished melodic game music, cohesive retro electronic palette. Consistent rhythm, loop-friendly structure, no long silent ending.",
+      "sha256": "7ced53f68f154fe583fbe90c348bc4f21dcc4b163bc8853b3e6abdcbafa16fce",
+      "bytes": 1656453,
+      "postProcessing": "trim trailing silence, cyclic 0.25s crossfade, loudnorm -18 LUFS / -2 dBTP, MP3 192kbps",
+      "duration": 68.955215,
+      "peakDb": -5.3
+    },
+    {
+      "id": "secret",
+      "seconds": 70,
+      "seed": 271833,
+      "prompt": "Original instrumental soundtrack for a family-friendly retro handheld pixel-art adventure RPG. Secret magical hidden island theme, wonder and discovery, shimmering bell melody, lush warm synth pads, gentle arpeggios, playful mysterious harmonies, 110 BPM. Clean polished melodic game music, cohesive retro electronic palette. Consistent rhythm, loop-friendly structure, no long silent ending.",
+      "sha256": "71eb0f4a12633a5c2f801a84afe62b74f7508f78f1e14248d6929f38b3d04a09",
+      "bytes": 1675887,
+      "postProcessing": "trim trailing silence, cyclic 0.25s crossfade, loudnorm -18 LUFS / -2 dBTP, MP3 192kbps",
+      "duration": 69.75,
+      "peakDb": -3.4
+    },
+    {
+      "id": "boss",
+      "seconds": 80,
+      "seed": 271834,
+      "prompt": "Original instrumental soundtrack for a family-friendly retro handheld pixel-art adventure RPG. Heroic boss battle theme, dramatic urgent original melody, fast crisp rhythmic percussion, driving syncopated synth bass, bold bright lead, energetic heroic tension, 155 BPM. Clean polished melodic game music, cohesive retro electronic palette. Consistent rhythm, loop-friendly structure, no long silent ending.",
+      "sha256": "522f7e6bb7e4d376c78d2ea59de31e68929bd9eff0b8e4f979e30e8bd8a86988",
+      "bytes": 1864594,
+      "postProcessing": "trim trailing silence, cyclic 0.25s crossfade, loudnorm -18 LUFS / -2 dBTP, MP3 192kbps",
+      "duration": 77.624649,
+      "peakDb": -4.3
+    },
+    {
+      "id": "victory",
+      "seconds": 8,
+      "seed": 271835,
+      "prompt": "Original instrumental soundtrack for a family-friendly retro handheld pixel-art adventure RPG. Short triumphant victory fanfare, immediate bright rising melody, major-key celebration, crisp retro drums, joyful brass-like synth lead, decisive satisfying final chord and complete ending. Clean polished melodic game music, cohesive retro electronic palette.",
+      "sha256": "d3de82ab8da10d20516b450ce1389ffe808ecad437ab4ebc8092a2baaf435e5a",
+      "bytes": 150546,
+      "postProcessing": "trim trailing silence, 0.15s ending fade, loudnorm -18 LUFS / -2 dBTP, MP3 192kbps",
+      "duration": 6.210431,
+      "peakDb": -6.9
+    },
+    {
+      "id": "defeat",
+      "seconds": 8,
+      "seed": 271836,
+      "prompt": "Original instrumental soundtrack for a family-friendly retro handheld pixel-art adventure RPG. Short gentle defeat and retry jingle, tender descending melody, soft warm synth and bell tones, reassuring bittersweet feeling, hopeful final chord, complete resolved ending. Clean polished melodic game music, cohesive retro electronic palette.",
+      "sha256": "294c02485fee5e060e7395cc1b060a25ee720f8e0ea7c1cee0a96226adee63cc",
+      "bytes": 185027,
+      "postProcessing": "trim trailing silence, 0.15s ending fade, loudnorm -18 LUFS / -2 dBTP, MP3 192kbps",
+      "duration": 7.649637,
+      "peakDb": -6.7
+    }
+  ]
+}

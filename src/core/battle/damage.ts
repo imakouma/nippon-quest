@@ -1,8 +1,8 @@
 /**
  * ダメージ計算。GDD §4.3 の「問題の出来 → わざの威力」がここに集約される。
- *   BaseDamage  = こうげき × いりょく ÷ ぼうぎょ × damageScale（必殺技は かしこさ で いりょく アップ）
+ *   BaseDamage  = floor(floor((floor(2L/5)+2) × power × A / D) / 50) + 2
  *   ComboBonus  = 1 + comboCount × perCombo（最大 +maxBonus）
- *   FinalDamage = BaseDamage × ScoreMultiplier × ComboBonus × ElementMultiplier（× かいしん）
+ *   FinalDamage = BaseDamage × ScoreMultiplier × ComboBonus × ElementMultiplier × 85〜100%（× かいしん）
  * 純粋関数のみ。Phaser・DOM・GameState を知らない。
  */
 import type { Element, ElementTable, Settings, Skill, Stats } from '../content/schemas';

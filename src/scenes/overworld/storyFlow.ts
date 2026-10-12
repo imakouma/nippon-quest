@@ -7,6 +7,11 @@ import {
   STORY_COMPANION_IDS,
 } from '../../core/progression/storyCompanion';
 import type { GameState } from '../../core/state/schema';
+import {
+  completeBattleTutorial,
+  queueBattleTutorial,
+  shouldShowBattleTutorial,
+} from '../../core/progression/battleTutorial';
 import { UNNAMED_HERO } from '../../core/state/newGame';
 import type { DialogueLine } from '../../ui/dialogue';
 import type { CutsceneKind } from '../../ui/cutscene/CutsceneOverlay';
@@ -18,6 +23,7 @@ import { monsterMenuArtUrl } from '../../rendering/menuArt';
 import {
   companionChoiceLines,
   companionJoinedLines,
+  battleTutorialLines,
   hokkaidoChapterArrivalLines,
   hokurikuChapterArrivalLines,
   koshinetsuChapterArrivalLines,
@@ -99,6 +105,27 @@ export interface MapStory {
   state: GameState;
   lines: DialogueLine[];
   presentation: CutsceneKind;
+}
+
+/** 今回開始したオープニングだけ、終了後のバトル説明を予約する。 */
+export function queueOpeningBattleTutorial(story: MapStory, now = Date.now()): GameState {
+  return story.presentation === 'opening' ? queueBattleTutorial(story.state, now) : story.state;
+}
+
+interface PendingBattleTutorialOptions {
+  mapKey: string;
+  game: GameState;
+  talk(lines: DialogueLine[]): Promise<void>;
+  save(state: GameState): void;
+  getGame: () => GameState;
+}
+
+/** 予約済みの説明を最後まで見せてから、同じセーブでの完了を記録する。 */
+export async function runPendingBattleTutorial(options: PendingBattleTutorialOptions): Promise<boolean> {
+  if (!shouldShowBattleTutorial(options.mapKey, options.game)) return false;
+  await options.talk(battleTutorialLines());
+  options.save(completeBattleTutorial(options.getGame()));
+  return true;
 }
 
 export function requestHeroIdentity(

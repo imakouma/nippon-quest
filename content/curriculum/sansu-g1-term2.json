@@ -1,0 +1,231 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-sansu-g1-term2",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 算数[さんすう]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第1学年 A(1)数の構成と表し方、A(2)加法・減法、C(2)時刻"
+    },
+    {
+      "id": "mext-h29-sansu-codes-g1-term2",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第1学年算数"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "sansu.g1.number.to-twenty",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-20",
+      "name": "20までの数[かず]と10のまとまり",
+      "description": "20までの数[かず]を10のまとまりと端数[はすう]で表[あらわ]し、大小[だいしょう]や順序[じゅんじょ]を考[かんが]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213111500000", "8250213111700000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "学年内時期は教科書会社の年間指導計画を照合した参考配置。"
+      },
+      "sourceIds": ["mext-h29-sansu-g1-term2", "mext-h29-sansu-codes-g1-term2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.operation.make-ten-strategy",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kuriagari-kurisagari",
+      "name": "10のまとまりを使[つか]う加法[かほう]・減法[げんぽう]",
+      "description": "一位数[いちいすう]の加法[かほう]と、その逆[ぎゃく]の減法[げんぽう]を、数[かず]の分解[ぶんかい]と10のまとまりを使[つか]って考[かんが]える。",
+      "kind": "procedure",
+      "memoryType": "procedure",
+      "curriculumCodes": ["8250213111400000", "8250213121300000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "10までの数の合成・分解と加法・減法の意味理解の後に扱う参考配置。"
+      },
+      "sourceIds": ["mext-h29-sansu-g1-term2", "mext-h29-sansu-codes-g1-term2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.measure.clock-hour-half-hour",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.tokei",
+      "name": "正時[せいじ]・30分[ぷん]と生活[せいかつ]時刻[じこく]",
+      "description": "時計[とけい]の長針[ちょうしん]と短針[たんしん]を見分[みわ]け、正時[せいじ]や30分[ぷん]の時刻[じこく]を生活[せいかつ]場面[ばめん]と結[むす]び付[つ]ける。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213321100000", "8250213322100000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "生活場面と結び付け、正時から30分へ段階的に扱う参考配置。"
+      },
+      "sourceIds": ["mext-h29-sansu-g1-term2", "mext-h29-sansu-codes-g1-term2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "sansu.g1.number.to-twenty",
+      "to": "sansu.g1.operation.make-ten-strategy",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "20までの数を10と端数で捉えることが、10をつくる計算方略の基礎になる。",
+      "sourceIds": ["mext-h29-sansu-g1-term2"],
+      "reviewStatus": "source-checked"
+    }
+  ],
+  "questionLinks": [
+    {
+      "questionId": "sansu.g1.kazu-20.0001",
+      "concepts": [{ "conceptId": "sansu.g1.number.to-twenty", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-20.0002",
+      "concepts": [{ "conceptId": "sansu.g1.number.to-twenty", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-20.0003",
+      "concepts": [{ "conceptId": "sansu.g1.number.to-twenty", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-20.0004",
+      "concepts": [{ "conceptId": "sansu.g1.number.to-twenty", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-20.0005",
+      "concepts": [{ "conceptId": "sansu.g1.number.to-twenty", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kazu-20.0006",
+      "concepts": [{ "conceptId": "sansu.g1.number.to-twenty", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kuriagari-kurisagari.0001",
+      "concepts": [{ "conceptId": "sansu.g1.operation.make-ten-strategy", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kuriagari-kurisagari.0002",
+      "concepts": [{ "conceptId": "sansu.g1.operation.make-ten-strategy", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kuriagari-kurisagari.0003",
+      "concepts": [{ "conceptId": "sansu.g1.operation.make-ten-strategy", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kuriagari-kurisagari.0004",
+      "concepts": [{ "conceptId": "sansu.g1.operation.make-ten-strategy", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kuriagari-kurisagari.0005",
+      "concepts": [{ "conceptId": "sansu.g1.operation.make-ten-strategy", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kuriagari-kurisagari.0006",
+      "concepts": [{ "conceptId": "sansu.g1.operation.make-ten-strategy", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tokei.0001",
+      "concepts": [{ "conceptId": "sansu.g1.measure.clock-hour-half-hour", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tokei.0002",
+      "concepts": [{ "conceptId": "sansu.g1.measure.clock-hour-half-hour", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tokei.0003",
+      "concepts": [{ "conceptId": "sansu.g1.measure.clock-hour-half-hour", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tokei.0004",
+      "concepts": [{ "conceptId": "sansu.g1.measure.clock-hour-half-hour", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tokei.0005",
+      "concepts": [{ "conceptId": "sansu.g1.measure.clock-hour-half-hour", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.tokei.0006",
+      "concepts": [{ "conceptId": "sansu.g1.measure.clock-hour-half-hour", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

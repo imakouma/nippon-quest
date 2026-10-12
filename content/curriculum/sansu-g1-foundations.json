@@ -278,6 +278,94 @@
         "reviewedAt": "2026-10-10",
         "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
       }
+    },
+    {
+      "id": "sansu.g1.geometry.shape-position",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.katachi",
+      "name": "形[かたち]の特徴[とくちょう]・構成[こうせい]・位置[いち]",
+      "description": "身[み]の回[まわ]りの物[もの]の形[かたち]を捉[とら]え、具体物[ぐたいぶつ]で形[かたち]を作[つく]ったり、上下[じょうげ]などの言葉[ことば]で位置[いち]を表[あらわ]したりする。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213211100000", "8250213211200000", "8250213211300000", "8250213212100000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "具体物[ぐたいぶつ]を操作[そうさ]する形[かたち]遊[あそ]びを学年[がくねん]後半[こうはん]に扱[あつか]う配置[はいち]。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary", "mext-h29-curriculum-codes"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.measure.compare-quantities",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kurabekata",
+      "name": "長[なが]さ・広[ひろ]さ・かさの比[くら]べ方[かた]",
+      "description": "量[りょう]を直接[ちょくせつ]比[くら]べたり、同[おな]じ物[もの]の幾[いく]つ分[ぶん]かで比[くら]べたりして、比[くら]べ方[かた]を考[かんが]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213311100000", "8250213311200000", "8250213312100000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "具体物[ぐたいぶつ]を用[もち]いる直接[ちょくせつ]比較[ひかく]から任意[にんい]単位[たんい]へ進[すす]む配置[はいち]。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary", "mext-h29-curriculum-codes"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.measure.read-clock",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.legacy-math-1-8",
+      "name": "生活[せいかつ]の中[なか]で時刻[じこく]を読[よ]む",
+      "description": "時計[とけい]の長[なが]い針[はり]と短[みじか]い針[はり]を読[よ]み、時刻[じこく]と生活[せいかつ]場面[ばめん]を結[むす]び付[つ]ける。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213321100000", "8250213322100000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "生活[せいかつ]場面[ばめん]と時刻[じこく]を関連付[かんれんづ]けて扱[あつか]う。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary", "mext-h29-curriculum-codes"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g1.data.picture-counts",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.data",
+      "name": "個数[こすう]を絵[え]や図[ず]で整理[せいり]する",
+      "description": "ものの個数[こすう]を種類[しゅるい]ごとに絵[え]や図[ず]に表[あらわ]し、数[かず]の特徴[とくちょう]を読[よ]み取[と]る。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213411100000", "8250213412100000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "既習[きしゅう]の数[かず]と差[さ]を用[もち]いて個数[こすう]を整理[せいり]する配置[はいち]。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary", "mext-h29-curriculum-codes"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
     }
   ],
   "relations": [
@@ -714,6 +802,139 @@
         { "conceptId": "sansu.g1.number.make-ten", "weight": 0.3, "role": "supporting" }
       ],
       "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.katachi.0001",
+      "concepts": [{ "conceptId": "sansu.g1.geometry.shape-position", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.katachi.0002",
+      "concepts": [{ "conceptId": "sansu.g1.geometry.shape-position", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.katachi.0003",
+      "concepts": [{ "conceptId": "sansu.g1.geometry.shape-position", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kurabekata.0001",
+      "concepts": [{ "conceptId": "sansu.g1.measure.compare-quantities", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kurabekata.0002",
+      "concepts": [{ "conceptId": "sansu.g1.measure.compare-quantities", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.kurabekata.0003",
+      "concepts": [{ "conceptId": "sansu.g1.measure.compare-quantities", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.13b5d9e4304f",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.3c5ad93789a3",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.c6e63b71e522",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.64c4ef4d45b9",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.6c2c0a80bec3",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.7b4e7e51b9eb",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.7bed5fa2e4a0",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.7f09e0a90aba",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.bf1c1121fe83",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g1.math-1-8.ef8dff9d637a",
+      "concepts": [{ "conceptId": "sansu.g1.measure.read-clock", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.data.0001",
+      "concepts": [{ "conceptId": "sansu.g1.data.picture-counts", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.data.0002",
+      "concepts": [{ "conceptId": "sansu.g1.data.picture-counts", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "sansu.g1.data.0003",
+      "concepts": [{ "conceptId": "sansu.g1.data.picture-counts", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
       "reviewStatus": "source-checked",
       "misconceptionSignals": []
     }

@@ -247,7 +247,7 @@ function hit(
     comboMult: d.comboMult,
   });
   if (byAlly && o.defender.hp > 0) checkBossPhase(s.enemy, def, ev);
-  else if (o.defender.hp <= 0) allyDown(s, o.defender, def, ev);
+  else if (!byAlly && o.defender.hp <= 0) allyDown(s, o.defender, def, ev);
 }
 
 function finishIfOver(s: BattleState, def: BattleDeps, rng: Rng, ev: BattleEvent[]): void {

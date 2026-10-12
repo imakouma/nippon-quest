@@ -117,9 +117,9 @@ const ELEMENT_COLOR: Record<Skill['element'], string> = {
 
 /** 単元 → 追加の 演出 */
 const UNIT_EXTRA: Readonly<Record<string, SkillLook['extra']>> = {
-  'rika.g3.hikari': 'prism',
+  'rika.g3.legacy-cur-1503-05': 'prism',
   'rika.g4.mizu-no-sugata': 'ice',
-  'shakai.g3.machi': 'map',
+  'shakai.g3.legacy-cur-1403-01': 'map',
   'shakai.g4.todofuken': 'map',
   'seikatsu.g1.kisetsu': 'season',
   'seikatsu.g2.ikimono': 'creature',

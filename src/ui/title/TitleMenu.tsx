@@ -17,7 +17,7 @@ export interface TitleMenuProps {
   items: TitleMenuItem[];
   hint: string;
   /** えらべない項目を選んだときに出す一言 */
-  disabledNote: string;
+  disabledNote: string | null;
   credit: string;
   onSelect: (index: number) => void;
 }
@@ -35,7 +35,7 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
     if (!it) return;
     if (it.disabled) {
       playSfx('miss');
-      setNote(disabledNote);
+      if (disabledNote) setNote(disabledNote);
       return;
     }
     playSfx('select');
@@ -107,7 +107,7 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
             role="menuitem"
             disabled={it.disabled}
             aria-disabled={it.disabled}
-            aria-describedby={it.disabled ? 'nq-title-disabled-note' : undefined}
+            aria-describedby={it.disabled && disabledNote ? 'nq-title-disabled-note' : undefined}
             class={`nq-title-opt ${cursor === i ? 'nq-focus' : ''} ${it.disabled ? 'nq-off' : ''} ${chosen === i ? 'nq-chosen' : ''}`}
             onPointerEnter={() => !it.disabled && cursor !== i && setCursor(i)}
             onClick={() => {
@@ -120,7 +120,7 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
             <RubyLabel text={it.label} />
           </button>
         ))}
-        {hasDisabledItem ? (
+        {hasDisabledItem && disabledNote ? (
           <p id="nq-title-disabled-note" class="nq-title-disabled-note">
             <RubyLabel text={disabledNote} />
           </p>

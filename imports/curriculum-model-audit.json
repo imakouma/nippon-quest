@@ -7,9 +7,9 @@
       "subject": "sansu",
       "name": "たしざん",
       "goals": 4,
-      "questions": 7,
+      "questions": 8,
       "confirmedTermQuestions": 6,
-      "linked": 7,
+      "linked": 8,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -31,9 +31,9 @@
       "subject": "sansu",
       "name": "100までの かず",
       "goals": 6,
-      "questions": 18,
+      "questions": 21,
       "confirmedTermQuestions": 16,
-      "linked": 18,
+      "linked": 21,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -103,9 +103,21 @@
       "subject": "seikatsu",
       "name": "きせつ",
       "goals": 5,
-      "questions": 6,
+      "questions": 10,
       "confirmedTermQuestions": 3,
-      "linked": 6,
+      "linked": 10,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "sansu.g1.legacy-math-1-8",
+      "subject": "sansu",
+      "name": "とけいをよむ",
+      "goals": 1,
+      "questions": 10,
+      "confirmedTermQuestions": 0,
+      "linked": 10,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -324,6 +336,11 @@
     },
     {
       "unitId": "seikatsu.g1.kisetsu",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "sansu.g1.legacy-math-1-8",
       "kind": "ambiguous-term-placement",
       "severity": "review"
     },

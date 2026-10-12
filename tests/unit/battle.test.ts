@@ -108,15 +108,15 @@ const testSkill = (over: Partial<Skill>): Skill => ({
 });
 
 describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × ElementMultiplier）', () => {
-  it('score の表：1.0 = CRITICAL ×2.0 / 0.5〜0.99 = GREAT ×1.2 / 0.01〜0.49 = GOOD ×0.8 / 0 = MISS ×0.5', () => {
-    expect(D.settings.scoreMultipliers).toEqual({ perfect: 2, good: 1.2, weak: 0.8, miss: 0.5 });
+  it('score の表：1.0 = CRITICAL ×2.0 / 0.5〜0.99 = GREAT ×1.2 / 0.01〜0.49 = GOOD ×0.8 / 0 = MISS ×0.55', () => {
+    expect(D.settings.scoreMultipliers).toEqual({ perfect: 2, good: 1.2, weak: 0.8, miss: 0.55 });
     const table: [number, string, number][] = [
       [1, 'perfect', 2],
       [0.99, 'good', 1.2],
       [0.5, 'good', 1.2],
       [0.49, 'weak', 0.8],
       [0.01, 'weak', 0.8],
-      [0, 'miss', 0.5],
+      [0, 'miss', 0.55],
     ];
     for (const [score, band, mult] of table) {
       expect(scoreBand(score)).toBe(band);
@@ -242,7 +242,7 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
   });
 });
 
-  describe('ターンの すすみかた（優先度 → すばやさ → 同速抽選）', () => {
+describe('ターンの すすみかた（優先度 → すばやさ → 同速抽選）', () => {
   it('はじめは ターン 1 で、主人公は すぐ 動ける', async () => {
     const { state } = await setup();
     expect(state.turn).toBe(1);
@@ -263,6 +263,22 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
     const r = act(tough(state), { kind: 'attack' }, D);
     const actors = r.events.filter((e) => e.t === 'act').map((e) => (e.t === 'act' ? e.actorId : ''));
     expect(actors).toEqual(['hero', 'enemy']);
+  });
+
+  it('敵先攻・味方先攻とも、actイベントを計算した行動順で返す', async () => {
+    const { state } = await setup({ withMonster: true });
+    const ordered = (heroSpeed: number, companionSpeed: number, enemySpeed: number) => {
+      const battle = tough(state);
+      battle.ally.hero.stats.spd = heroSpeed;
+      battle.ally.monsters[0]!.stats.spd = companionSpeed;
+      battle.enemy.stats.spd = enemySpeed;
+      return act(battle, { kind: 'attack' }, D)
+        .events.filter((event) => event.t === 'act')
+        .map((event) => (event.t === 'act' ? event.actorId : ''));
+    };
+
+    expect(ordered(10, 20, 30)).toEqual(['enemy', 'pal', 'hero']);
+    expect(ordered(30, 20, 10)).toEqual(['hero', 'pal', 'enemy']);
   });
 
   it('敵は 1 ターンに 1 回だけ 動く（ボスの フェーズでも ふえない）', async () => {
@@ -291,6 +307,16 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
 
     expect(r.state.outcome).toBe('victory');
     expect(r.events.some((event) => event.t === 'bossPhase')).toBe(false);
+  });
+
+  it('敵を倒したときは敵のKOだけを返し、味方KOを先に発行しない', async () => {
+    const { state } = await setup();
+    const almostDown: BattleState = { ...state, enemy: { ...state.enemy, hp: 1 } };
+    const result = act(almostDown, { kind: 'attack' }, D);
+    expect(result.state.outcome).toBe('victory');
+    expect(result.events.filter((event) => event.t === 'ko')).toEqual([
+      { t: 'ko', side: 'enemy', targetId: state.enemy.id },
+    ]);
   });
 
   it('コマンドが 成立しなければ ターンは すすまない（ゲージが たりない）', async () => {
@@ -583,6 +609,19 @@ describe('必殺技の 効果', () => {
 });
 
 describe('コマンド', () => {
+  it.each([
+    ['通常敵', 'aomori-ringoron'],
+    ['中ボス', 'aomori-midboss-nebuta-taisho'],
+    ['県ボス', 'aomori-boss-tsugaru-no-nushi'],
+  ])('%sでもperfect・average・missの必殺技で戦闘が進む', async (_label, enemyId) => {
+    for (const score of [1, 0.65, 0]) {
+      const { state } = await setup({ enemyId, enemyLevel: 5, seed: `${enemyId}:${score}` });
+      const result = act(tough(state), { kind: 'skill', skillId: 'sk-tashizan-giri', result: R(score) }, D);
+      expect(result.events.some((event) => event.t === 'damage' && event.side === 'enemy')).toBe(true);
+      expect(result.state.turn).toBe(2);
+    }
+  });
+
   it('たたかう は問題なしで必ず成立する', async () => {
     const { state } = await setup();
     const { state: next, events } = act(state, { kind: 'attack' }, D);

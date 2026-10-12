@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-10-12",
+  "model": "Stable Audio 3 Small SFX",
+  "implementation": "Stability-AI/stable-audio-3 optimized/mlx",
+  "steps": 8,
+  "cfg": 2,
+  "negativePrompt": "music, singing, speech, screams, gore, background ambience, distortion, clipping",
+  "postProcessing": "strongest transient extraction with 30ms pre-roll, mono, peak 0.6, 3ms attack and 40ms release fades, MP3 128kbps",
+  "sounds": [
+    {
+      "id": "slash",
+      "prompt": "One quick soft clean sword swing swoosh through air, a playful stylized handheld adventure game attack sound, short airy swish, dry isolated sound effect, no impact, no music, no speech.",
+      "seed": 271850,
+      "sourceSeconds": 3,
+      "duration": 0.24,
+      "sha256": "763d751260d1852315d5484a942b89098c554d14cc875d46fdbcaebdfd96cefd",
+      "bytes": 5059
+    },
+    {
+      "id": "hit",
+      "prompt": "One compact punchy cartoon battle hit, a rounded light thump with a crisp click, satisfying friendly adventure game impact sound, dry isolated sound effect, no music, no voices, not violent.",
+      "seed": 271851,
+      "sourceSeconds": 3,
+      "duration": 0.2,
+      "sha256": "c1fcdbdb56498a1bf103948898f89db0acaed7878f7a6b0f28f9848071b6e012",
+      "bytes": 4223
+    },
+    {
+      "id": "crit",
+      "prompt": "One stronger crisp magical battle impact, a compact punchy thump with a sparkling bright crack, satisfying heroic adventure game critical hit, short dry isolated sound effect, no music, no speech, not harsh.",
+      "seed": 271852,
+      "sourceSeconds": 3,
+      "duration": 0.28,
+      "sha256": "5496dee13fdb74ee22ddf4fe6d2ffd8dc78efb9fd8ef30b5633d69d09079d477",
+      "bytes": 5477
+    },
+    {
+      "id": "hurt",
+      "prompt": "One short soft low cartoon impact thud, a gentle descending rounded game damage sound for a friendly adventure character, compact dry isolated sound effect, no voice, no scream, no music.",
+      "seed": 271853,
+      "sourceSeconds": 3,
+      "duration": 0.23,
+      "sha256": "3e6c0eec99435ecc81e618969b97256189af5b659fa9db5d4313837c968feca3",
+      "bytes": 4641
+    },
+    {
+      "id": "heal",
+      "prompt": "One short warm magical healing shimmer, delicate bright sparkling bells rising gently into a soft resolved sparkle, friendly retro adventure game restoration sound effect, no sustained music, no voices.",
+      "seed": 271854,
+      "sourceSeconds": 3,
+      "duration": 0.65,
+      "sha256": "0d2ca4e918195090e00ab8c04f4b22bff510c7574a741be8ac0a1014b9142b87",
+      "bytes": 11328
+    }
+  ]
+}

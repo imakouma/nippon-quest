@@ -11,7 +11,9 @@
   position: absolute;
   left: 400px;
   top: 304px;
-  width: 340px;
+  box-sizing: border-box;
+  width: 320px;
+  height: 120px;
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
@@ -19,6 +21,7 @@
   animation: nq-pop-in 0.3s steps(4) 0.9s both;
 }
 .nq-title-opt {
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 8px;

@@ -43,6 +43,33 @@ const units: Unit[] = [
     grade: 1,
     legacyNode: 'jpn_1_2',
   },
+  {
+    id: 'kokugo.g1.kanji',
+    name: '1年[ねん]の漢字[かんじ]',
+    subject: 'kokugo',
+    grade: 1,
+    courseKind: 'required-subject',
+    placement: {
+      terms: ['variable'],
+      status: 'reference',
+      sourceIds: ['annual-plan'],
+      note: '学年[がくねん]を通[とお]して学[まな]ぶ',
+    },
+  },
+  {
+    id: 'kokugo.g1.legacy-kanji-1-10',
+    name: 'がっこう・もじ',
+    subject: 'kokugo',
+    grade: 1,
+    legacyNode: 'kanji_1_10',
+  },
+  {
+    id: 'sansu.g5.legacy-math-5-13',
+    name: '割合[わりあい]（移行版[いこうばん]）',
+    subject: 'sansu',
+    grade: 5,
+    legacyNode: 'math_5_13',
+  },
 ];
 
 describe('buildRoadmapNodes', () => {
@@ -56,11 +83,12 @@ describe('buildRoadmapNodes', () => {
     });
 
     expect(nodes.map((node) => [node.id, node.state])).toEqual([
-      ['kokugo.g1.legacy-jpn-1-2', 'current'],
-      ['sansu.g1.legacy-math-1-2', 'cleared'],
+      ['kokugo.g1.kanji', 'current'],
+      ['sansu.g1.tashizan', 'cleared'],
       ['sansu.g2.legacy-math-2-13', 'locked'],
+      ['sansu.g5.legacy-math-5-13', 'locked'],
     ]);
-    expect(nodes.find((node) => node.id === 'sansu.g1.legacy-math-1-2')).toMatchObject({
+    expect(nodes.find((node) => node.id === 'sansu.g1.tashizan')).toMatchObject({
       recommendedTerms: [1],
       courseKind: 'required-subject',
     });
@@ -100,5 +128,37 @@ describe('pickRoadmapQuestionId', () => {
 
   it('単元に問題がなければ null を返す', () => {
     expect(pickRoadmapQuestionId(new QuestionBank(), 'sansu.g1.kazu-10', [], { next: () => 0 })).toBeNull();
+  });
+
+  it('整理後の単元から、対応する旧問題も復習できる', () => {
+    const bank = new QuestionBank();
+    bank.add({
+      id: 'legacy.sansu.g1.tashizan.0001',
+      type: 'choice',
+      subject: 'sansu',
+      grade: 1,
+      unit: 'sansu.g1.legacy-math-1-2',
+      payload: {},
+    });
+
+    expect(pickRoadmapQuestionId(bank, 'sansu.g1.tashizan', [], { next: () => 0 })).toBe(
+      'legacy.sansu.g1.tashizan.0001',
+    );
+  });
+
+  it('整理後の漢字単元から、旧漢字グループの問題も復習できる', () => {
+    const bank = new QuestionBank();
+    bank.add({
+      id: 'legacy.kokugo.g1.kanji-school.0001',
+      type: 'choice',
+      subject: 'kokugo',
+      grade: 1,
+      unit: 'kokugo.g1.legacy-kanji-1-10',
+      payload: {},
+    });
+
+    expect(pickRoadmapQuestionId(bank, 'kokugo.g1.kanji', [], { next: () => 0 })).toBe(
+      'legacy.kokugo.g1.kanji-school.0001',
+    );
   });
 });

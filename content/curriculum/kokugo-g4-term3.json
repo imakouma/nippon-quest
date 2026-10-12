@@ -1,0 +1,703 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-kokugo-g34",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]解説[かいせつ] 国語[こくご]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_01.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第3学年及び第4学年"
+    },
+    {
+      "id": "mext-h29-kokugo-codes-g34",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年及び第4学年国語"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "kokugo.g4.kanji.consolidation-b",
+      "subject": "kokugo",
+      "grade": 4,
+      "unit": "kokugo.g4.legacy-jpn-4-30",
+      "name": "漢字[かんじ]のまとめ②",
+      "description": "第4学年[だいよんがくねん]配当[はいとう]漢字[かんじ]を文脈[ぶんみゃく]に合[あ]わせて使[つか]う。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3114000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g4.culture.proverbs-idioms-b",
+      "subject": "kokugo",
+      "grade": 4,
+      "unit": "kokugo.g4.legacy-jpn-4-35",
+      "name": "ことわざと故事成語[こじせいご]",
+      "description": "ことわざや故事成語[こじせいご]の意味[いみ]を知[し]り、場面[ばめん]に合[あ]わせて使[つか]う。",
+      "kind": "concept",
+      "memoryType": "fact",
+      "curriculumCodes": ["82102C3132000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g4.grammar.sentence-structure",
+      "subject": "kokugo",
+      "grade": 4,
+      "unit": "kokugo.g4.legacy-jpn-4-36",
+      "name": "文[ぶん]の組[く]み立[た]て",
+      "description": "主語[しゅご]と述語[じゅつご]、修飾[しゅうしょく]と被修飾[ひしゅうしょく]の関係[かんけい]を捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3116000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g4.vocabulary.compound-structure",
+      "subject": "kokugo",
+      "grade": 4,
+      "unit": "kokugo.g4.legacy-jpn-4-37",
+      "name": "熟語[じゅくご]の組[く]み立[た]て",
+      "description": "反対[はんたい]・似[に]た意味[いみ]など、漢字[かんじ]の組[く]み合[あ]わせから熟語[じゅくご]の構成[こうせい]を捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "fact",
+      "curriculumCodes": ["82102C3115000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g4.vocabulary.meaning",
+      "subject": "kokugo",
+      "grade": 4,
+      "unit": "kokugo.g4.legacy-jpn-4-38",
+      "name": "語句[ごく]の意味[いみ]",
+      "description": "文脈[ぶんみゃく]から語句[ごく]や故事成語[こじせいご]の意味[いみ]を捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3115000000", "82102C3132000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g4.reading.story-b",
+      "subject": "kokugo",
+      "grade": 4,
+      "unit": "kokugo.g4.legacy-jpn-4-39",
+      "name": "物語[ものがたり]の人物[じんぶつ]と変化[へんか]",
+      "description": "人物[じんぶつ]の気持[きも]ちの変化[へんか]を行動[こうどう]や場面[ばめん]の叙述[じょじゅつ]から捉[とら]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3231200000", "82102C3231400000", "82102C3231500000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g4.reading.expository-b",
+      "subject": "kokugo",
+      "grade": 4,
+      "unit": "kokugo.g4.legacy-jpn-4-40",
+      "name": "説明[せつめい]文[ぶん]の要点[ようてん]",
+      "description": "段落[だんらく]の関係[かんけい]を捉[とら]え、文章[ぶんしょう]の中心[ちゅうしん]と事例[じれい]の関係[かんけい]を考[かんが]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3231100000", "82102C3231300000", "82102C3231500000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.0b3051885d2c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.0eb38d3d0421",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.11247090db18",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.18e80ccda199",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.1f39dc077b25",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.2b990c829207",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.3f90d39a6633",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.473cede6ec8c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.627a866e037b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.7f8a78d6caaf",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.956963895954",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.b70c47dd31f5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.bc856c81f712",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.c71fa1dc66e5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.d8a668c54146",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.e070d8ccb73a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.f071d11bda57",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-30.f4e5822ae628",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-35.0ecb0f5fa24a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.culture.proverbs-idioms-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-35.2c4538bc4b57",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.culture.proverbs-idioms-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-35.6b9b3e81dfd8",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.culture.proverbs-idioms-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-35.ce7f1d0a342f",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.culture.proverbs-idioms-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-35.f4ef20b147e9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.culture.proverbs-idioms-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-35.f86da340802e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.culture.proverbs-idioms-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-36.021e66a343fb",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.grammar.sentence-structure",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-36.0b27c7ebfee3",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.grammar.sentence-structure",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-36.573401d5cc64",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.grammar.sentence-structure",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-36.ec309ca0d71a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.grammar.sentence-structure",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-37.e2b102f0d2a1",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.vocabulary.compound-structure",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-38.bff888d57a04",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.vocabulary.meaning",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-39.6d99d371877a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.reading.story-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g4.jpn-4-40.8a4784d5eb93",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.reading.expository-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g4.supplemental.compound.0001",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.vocabulary.compound-structure",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g4.supplemental.compound.0002",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.vocabulary.compound-structure",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g4.supplemental.meaning.0001",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.vocabulary.meaning",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g4.supplemental.meaning.0002",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.vocabulary.meaning",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g4.supplemental.story-b.0001",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.reading.story-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g4.supplemental.story-b.0002",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.reading.story-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g4.supplemental.expository-b.0001",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.reading.expository-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g4.supplemental.expository-b.0002",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g4.reading.expository-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

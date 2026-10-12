@@ -1,0 +1,57 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "sansu.g1.data.0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "すきな くだものを しらべました。りんご ●●●、みかん ●●、ぶどう ●。いちばん おおいのは？",
+      "choices": [
+        { "id": "a", "text": "りんご" },
+        { "id": "b", "text": "みかん" },
+        { "id": "c", "text": "ぶどう" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "しるしを かぞえると、りんごが 3こで いちばん おおいです。"
+  },
+  {
+    "id": "sansu.g1.data.0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "あかい はな ●●●●、しろい はな ●●。あかい はなは しろい はなより なんぼん おおい？",
+      "choices": [
+        { "id": "a", "text": "1ぽん" },
+        { "id": "b", "text": "2ほん" },
+        { "id": "c", "text": "6ぽん" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "あかは 4ほん、しろは 2ほんです。4と 2の ちがいは 2なので、2ほん おおいです。"
+  },
+  {
+    "id": "sansu.g1.data.0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "ねこ 3びき、いぬ 1ぴき、うさぎ 2ひきの かずを、わかりやすく くらべる かきかたは？",
+      "choices": [
+        { "id": "a", "text": "どうぶつごとに しるしを ならべる" },
+        { "id": "b", "text": "じゅんばんを きめずに しるしを ちらす" },
+        { "id": "c", "text": "かずを かかない" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "しゅるいごとに しるしを そろえて ならべると、かずの ちがいを みつけやすく なります。"
+  }
+]

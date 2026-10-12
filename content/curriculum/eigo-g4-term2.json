@@ -1,0 +1,156 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-gaikokugo-katsudo-g34",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 外国語[がいこくご]活動[かつどう]・外国語[がいこくご]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20220614-mxt_kyoiku02-100002607_11.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2022-06-14版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第2部 外国語活動・第3学年及び第4学年"
+    },
+    {
+      "id": "mext-h29-gaikokugo-katsudo-codes-g34",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年及び第4学年外国語活動"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "eigo.g4.interaction.days-time-routines",
+      "subject": "eigo",
+      "grade": 4,
+      "unit": "eigo.g4.days-time-routines",
+      "name": "曜日[ようび]・時刻[じこく]・生活[せいかつ]を伝[つた]える",
+      "description": "曜日[ようび]や時刻[じこく]、日課[にっか]についての簡単[かんたん]な英語[えいご]を聞[き]き、場面[ばめん]に合[あ]う応答[おうとう]を選[えら]ぶ。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82L12C3211000000", "82L12C3221330000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "自分[じぶん]や友達[ともだち]の生活[せいかつ]と結[むす]び付[つ]けて、伝[つた]え合[あ]う。"
+      },
+      "sourceIds": ["mext-h29-gaikokugo-katsudo-g34", "mext-h29-gaikokugo-katsudo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "eigo.g4.days-time-routines.0001",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0002",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0003",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0004",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0005",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0006",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0007",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0008",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0009",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0010",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0011",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0012",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0013",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0014",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g4.days-time-routines.0015",
+      "concepts": [{ "conceptId": "eigo.g4.interaction.days-time-routines", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

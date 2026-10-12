@@ -15,6 +15,10 @@ export interface ChoiceViewProps {
   onDone: (r: { score: number; attempts: number; timedOut: boolean; chosen: string | null }) => void;
 }
 
+export function getChoicePromptSpeech(payload: ChoicePayload): string {
+  return payload.promptSpeech ?? stripRuby(payload.prompt, 'kana');
+}
+
 export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
   const [chosen, setChosen] = useState<string | null>(null);
   const [phase, setPhase] = useState<'answering' | 'feedback'>('answering');
@@ -81,11 +85,10 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
           class="nq-btn nq-btn-speak"
           aria-label={t('question.speak')}
           onClick={() => {
+            const speech = getChoicePromptSpeech(payload);
             if (payload.promptAudio)
-              new Audio(ctx.assets.audio(payload.promptAudio))
-                .play()
-                .catch(() => ctx.speak(stripRuby(payload.prompt, 'kana')));
-            else ctx.speak(stripRuby(payload.prompt, 'kana'));
+              new Audio(ctx.assets.audio(payload.promptAudio)).play().catch(() => ctx.speak(speech));
+            else ctx.speak(speech);
           }}
         >
           🔊

@@ -27,7 +27,7 @@ import {
   type SkillOption,
 } from './store';
 import { BattleResultPanel } from './BattleResultPanel';
-import { AllyRow, Bar, ComboBadge, EnemyWindow, GaugeColumn, TurnBadge } from './BattleStatus';
+import { AllyRow, Bar, ComboBadge, EnemyWindow, TurnBadge } from './BattleStatus';
 import { pickBattleHudOption, useBattleHudInput } from './useBattleHudInput';
 import './battle.css';
 
@@ -57,6 +57,11 @@ function Heart({ broken = false }: { broken?: boolean }) {
 
 function Cursor({ on }: { on: boolean }) {
   return <span class="nq-cur">{on ? <Heart /> : null}</span>;
+}
+
+function backToCommands(store: HudStore): void {
+  playSfx('back');
+  store.dispatch({ t: 'back' });
 }
 
 /** コマンド窓（2 列 × 2 段）。下のメッセージ窓の左に出る */
@@ -115,33 +120,26 @@ function MenuHead({
         <RubyLabel text={title} />
       </span>
       {extra}
-      <button
-        type="button"
-        class="nq-back"
-        onClick={() => {
-          playSfx('back');
-          store.dispatch({ t: 'back' });
-        }}
-      >
+      <button type="button" class="nq-back" onClick={() => backToCommands(store)}>
         × {t('ui.back')}
       </button>
     </div>
   );
 }
 
-/** 必殺技に 使う 教科ゲージ（たまった ぶんを 教科の 色で） */
-function GaugeCost({ k }: { k: SkillOption }) {
-  const r = Math.min(1, k.have / k.cost);
+/** 必殺技に 必要な 教科ゲージを 最大量に 対する 割合で 示す */
+function GaugeCost({ k, max }: { k: SkillOption; max: number }) {
+  const r = Math.min(1, k.cost / max);
   return (
     <span
-      class={`nq-opt-cost ${r >= 1 ? 'nq-opt-cost-ok' : ''}`}
-      aria-label={t('battle.gaugeCostStatus', { have: k.have, cost: k.cost })}
+      class={`nq-opt-cost ${k.have >= k.cost ? 'nq-opt-cost-ok' : ''}`}
+      aria-label={t('battle.gaugeCostStatus', { cost: k.cost })}
     >
       <span class="nq-opt-costbar">
         <i class={`nq-subj-${k.subject}`} style={{ width: `${r * 100}%` }} />
       </span>
       <span class="nq-opt-cost-value" aria-hidden="true">
-        {k.have}/{k.cost}
+        {k.cost}
       </span>
     </span>
   );
@@ -151,71 +149,65 @@ function SkillList({ s, store }: { s: HudState; store: HudStore }) {
   const focus = s.skills[s.cursor];
   const subject = focus ? t(`subjects.${focus.subject}`) : '';
   return (
-    <div class="nq-win nq-menu">
-      <MenuHead
-        icon="cmd-skill"
-        title={t('cmd.skill')}
-        store={store}
-        extra={s.turn ? <TurnBadge turn={s.turn} class="nq-turn-head" /> : undefined}
-      />
-      <div class="nq-menu-grid" role="group" aria-label={t('cmd.skill')}>
-        {s.skills.map((k, i) => (
-          <button
-            key={k.key}
-            type="button"
-            class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''} ${k.disabled ? 'nq-opt-off' : ''}`}
-            aria-current={s.cursor === i ? 'true' : undefined}
-            aria-disabled={k.disabled}
-            data-skill={k.id}
-            data-actor={k.actorId}
-            onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
-            onClick={() =>
-              pickBattleHudOption({
-                key: k.key,
-                disabled: k.disabled,
-                action: () => store.dispatch({ t: 'skill', key: k.key }),
-              })
-            }
-          >
-            <Cursor on={s.cursor === i} />
-            <SubjectChip subject={k.subject} />
-            <RubyLabel text={k.name} class="nq-opt-name" />
-            <span class="nq-opt-side">
-              {k.reason ? (
-                <span class="nq-opt-reason">{k.reason}</span>
-              ) : (
-                <>
-                  <PixelIcon name={`el-${k.element}`} scale={2} />
-                  {k.cost > 0 ? (
-                    <GaugeCost k={k} />
-                  ) : (
-                    <span class="nq-opt-charge">{t('battle.gaugeCharge')}</span>
-                  )}
-                </>
-              )}
-            </span>
-          </button>
-        ))}
-      </div>
-      {focus && (
-        <div class="nq-menu-foot nq-menu-foot-skill">
-          <div class="nq-menu-foot-row">
-            {focus.by && <RubyLabel text={t('battle.skillBy', { name: focus.by })} class="nq-opt-by" />}
-            <RubyLabel text={focus.flavor ?? t(EFFECT_HINT[focus.effect])} />
+    <div class="nq-win nq-menu nq-menu-skill">
+      <div class="nq-skill-layout">
+        <div class="nq-menu-grid" role="group" aria-label={t('cmd.skill')}>
+          {s.skills.map((k, i) => (
+            <button
+              key={k.key}
+              type="button"
+              class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''} ${k.disabled ? 'nq-opt-off' : ''}`}
+              aria-current={s.cursor === i ? 'true' : undefined}
+              aria-disabled={k.disabled}
+              data-skill={k.id}
+              data-actor={k.actorId}
+              onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
+              onClick={() =>
+                pickBattleHudOption({
+                  key: k.key,
+                  disabled: k.disabled,
+                  action: () => store.dispatch({ t: 'skill', key: k.key }),
+                })
+              }
+            >
+              {/* 教科は色・ピクトだけで示す。狭い技一覧で「さんすう」等の文字を重ねない。 */}
+              <PixelIcon name={`subj-${k.subject}`} scale={2} />
+              <RubyLabel text={k.name} class="nq-opt-name" />
+              <span class="nq-opt-side">
+                {k.reason ? (
+                  <span class="nq-opt-reason">{k.reason}</span>
+                ) : (
+                  <>
+                    <PixelIcon name={`el-${k.element}`} scale={2} />
+                    {k.cost > 0 ? (
+                      <GaugeCost k={k} max={s.gauges.find((g) => g.subject === k.subject)?.max ?? k.cost} />
+                    ) : (
+                      <span class="nq-opt-charge">{t('battle.gaugeCharge')}</span>
+                    )}
+                  </>
+                )}
+              </span>
+            </button>
+          ))}
+        </div>
+        {focus && (
+          <div class="nq-menu-foot nq-menu-foot-skill">
+            <div class="nq-menu-foot-row">
+              {focus.by && <RubyLabel text={t('battle.skillBy', { name: focus.by })} class="nq-opt-by" />}
+              <RubyLabel text={focus.flavor ?? t(EFFECT_HINT[focus.effect])} />
+            </div>
             <span class="nq-menu-grade">
               <span class="nq-menu-stars">{'★'.repeat(focus.stars)}</span>
               {focus.gradeRange[0] === focus.gradeRange[1]
                 ? t('battle.gradeOne', { a: focus.gradeRange[0] })
                 : t('battle.gradeRange', { a: focus.gradeRange[0], b: focus.gradeRange[1] })}
             </span>
+            {focus.cost > 0 && (
+              <span class="nq-menu-cost">{t('battle.costHint', { subject, n: focus.cost })}</span>
+            )}
           </div>
-          <span class="nq-menu-cost">
-            {focus.cost > 0
-              ? t('battle.costHint', { subject, n: focus.cost })
-              : t('battle.chargeHint', { subject })}
-          </span>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
@@ -476,26 +468,45 @@ export function BattleHud({ store }: { store: HudStore }) {
         </div>
       )}
 
-      {s.turn && !s.question && <TurnBadge turn={s.turn} class="nq-turn-stage" />}
       {s.combo.count >= 2 && !s.result && <ComboBadge c={s.combo} />}
 
       <Popups list={s.popups} />
       {s.banner && <Banner b={s.banner} />}
 
       <div class="nq-panel">{s.enemy && <EnemyWindow e={s.enemy} />}</div>
-      <div class="nq-bottom-rail">
-        <div class="nq-bottom-command-slot">
-          {s.menu === 'commands' && <CommandWindow s={s} store={store} />}
+      {!s.intro && !s.result && (
+        <div class="nq-bottom-rail">
+          {s.menu === 'commands' && (
+            <div class="nq-bottom-command-slot">
+              <CommandWindow s={s} store={store} />
+            </div>
+          )}
+          {s.menu !== 'commands' && <div class="nq-bottom-command-spacer" aria-hidden="true" />}
+          <div class="nq-party">
+            {s.allies.map((a) => (
+              <AllyRow
+                key={a.id}
+                a={a}
+                active={s.allies.length > 1 && s.actorId === a.id && menuOpen}
+                gauges={a.isHero ? s.gauges : []}
+              />
+            ))}
+          </div>
         </div>
-        {s.gauges.length > 0 && !s.result && <GaugeColumn list={s.gauges} />}
-        <div class="nq-party">
-          {s.allies.map((a) => (
-            <AllyRow key={a.id} a={a} active={s.actorId === a.id && menuOpen} />
-          ))}
-        </div>
-      </div>
+      )}
 
-      {s.menu === 'skills' && <SkillList s={s} store={store} />}
+      {s.menu === 'skills' && (
+        <>
+          <button
+            type="button"
+            class="nq-menu-dismiss"
+            aria-label={t('ui.back')}
+            tabIndex={-1}
+            onClick={() => backToCommands(store)}
+          />
+          <SkillList s={s} store={store} />
+        </>
+      )}
       {s.menu === 'items' && <ItemList s={s} store={store} />}
       {s.menu === 'swap' && <SwapList s={s} store={store} />}
 

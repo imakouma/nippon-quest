@@ -1,6 +1,7 @@
 import type { BattleSummary } from '../../core/progression/battleResult';
 import type { EncounterZone } from '../../core/battle/setup';
 import type { Ground } from '../../core/world/ground';
+import type { BattlePresentation } from './layout';
 
 /** Overworld から Battle Scene へ渡す、表示層間の安定した契約。 */
 export interface BattleSceneData {
@@ -15,6 +16,8 @@ export interface BattleSceneData {
   devMode?: boolean;
   /** E2Eで報酬画面と仲間加入演出を確実に確認する。 */
   forceRecruitOffer?: boolean;
+  /** 比較確認用の戦闘画面配置。省略時は正式仕様の奥行きビュー。 */
+  presentation?: BattlePresentation;
 }
 
 /** Battle Scene が終了時に通知する最小限の結果。 */

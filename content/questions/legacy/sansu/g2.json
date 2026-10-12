@@ -38,7 +38,8 @@
       "template": "カレーと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
       "suffix": "人",
       "promptImage": "questions/legacy/e5a87f0aa11f2a32.png"
-    }
+    },
+    "explanation": "あつめたカードを しゅるいごとに ならべると、カレーのカードは 6まい あります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.0efdcce0ec27",
@@ -96,7 +97,8 @@
       "template": "やきそばと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
       "suffix": "人",
       "promptImage": "questions/legacy/e5a87f0aa11f2a32.png"
-    }
+    },
+    "explanation": "あつめたカードを しゅるいごとに ならべると、やきそばのカードは 3まい あります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.2b01dbbab681",
@@ -297,7 +299,8 @@
       "template": "スパゲティと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
       "suffix": "人",
       "promptImage": "questions/legacy/e5a87f0aa11f2a32.png"
-    }
+    },
+    "explanation": "あつめたカードを しゅるいごとに ならべると、スパゲティのカードは 4まい あります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-10.00534c612a9e",
@@ -755,7 +758,8 @@
       ],
       "answer": "c1",
       "shuffle": true
-    }
+    },
+    "explanation": "たす順番[じゅんばん]を入[い]れ替[か]えても、同[おな]じ数[かず]をたしているので答[こた]えは変[か]わりません。"
   },
   {
     "id": "legacy.sansu.g2.math-2-11.8f908457fec8",
@@ -1127,7 +1131,8 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/c54c0b0b6ce2ff14.png"
-    }
+    },
+    "explanation": "四角[しかく]い紙[かみ]のかどのように、ぴったり重[かさ]なるかどを直角[ちょっかく]といいます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-12.43d4514f24ce",
@@ -1600,7 +1605,8 @@
         "36"
       ],
       "template": "4×6 = {{INPUT}} 4×7 = {{INPUT}} 4×8 = {{INPUT}} 4×9 = {{INPUT}}"
-    }
+    },
+    "explanation": "4の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが4ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.19eeb2d42e58",
@@ -1659,7 +1665,8 @@
         "10"
       ],
       "template": "2×1 = {{INPUT}} 2×2 = {{INPUT}} 2×3 = {{INPUT}} 2×4 = {{INPUT}} 2×5 = {{INPUT}}"
-    }
+    },
+    "explanation": "2の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが2ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.496965847170",
@@ -1761,7 +1768,8 @@
         "54"
       ],
       "template": "6×6 = {{INPUT}} 6×7 = {{INPUT}} 6×8 = {{INPUT}} 6×9 = {{INPUT}}"
-    }
+    },
+    "explanation": "6の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが6ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.706faa161f48",
@@ -1784,7 +1792,8 @@
         "15"
       ],
       "template": "3×1 = {{INPUT}} 3×2 = {{INPUT}} 3×3 = {{INPUT}} 3×4 = {{INPUT}} 3×5 = {{INPUT}}"
-    }
+    },
+    "explanation": "3の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが3ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.736b78ee1c6c",
@@ -1807,7 +1816,8 @@
         "45"
       ],
       "template": "9×1 = {{INPUT}} 9×2 = {{INPUT}} 9×3 = {{INPUT}} 9×4 = {{INPUT}} 9×5 = {{INPUT}}"
-    }
+    },
+    "explanation": "9の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが9ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.7592a6f07dd1",
@@ -1830,7 +1840,8 @@
         "35"
       ],
       "template": "7×1 = {{INPUT}} 7×2 = {{INPUT}} 7×3 = {{INPUT}} 7×4 = {{INPUT}} 7×5 = {{INPUT}}"
-    }
+    },
+    "explanation": "7の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが7ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.77955bc84149",
@@ -1852,7 +1863,8 @@
         "63"
       ],
       "template": "7×6 = {{INPUT}} 7×7 = {{INPUT}} 7×8 = {{INPUT}} 7×9 = {{INPUT}}"
-    }
+    },
+    "explanation": "7の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが7ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.79d79fc372bb",
@@ -1875,7 +1887,8 @@
         "40"
       ],
       "template": "8×1 = {{INPUT}} 8×2 = {{INPUT}} 8×3 = {{INPUT}} 8×4 = {{INPUT}} 8×5 = {{INPUT}}"
-    }
+    },
+    "explanation": "8の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが8ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.805f3df9f146",
@@ -1988,7 +2001,8 @@
         "27"
       ],
       "template": "3×6 = {{INPUT}} 3×7 = {{INPUT}} 3×8 = {{INPUT}} 3×9 = {{INPUT}}"
-    }
+    },
+    "explanation": "3の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが3ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.969f97b4124e",
@@ -2011,7 +2025,8 @@
         "25"
       ],
       "template": "5×1 = {{INPUT}} 5×2 = {{INPUT}} 5×3 = {{INPUT}} 5×4 = {{INPUT}} 5×5 = {{INPUT}}"
-    }
+    },
+    "explanation": "5の段[だん]は、答[こた]えの一[いち]の位[くらい]が5、0、5、0と交互[こうご]になります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.96d0d8aa3547",
@@ -2034,7 +2049,8 @@
         "20"
       ],
       "template": "4×1 = {{INPUT}} 4×2 = {{INPUT}} 4×3 = {{INPUT}} 4×4 = {{INPUT}} 4×5 = {{INPUT}}"
-    }
+    },
+    "explanation": "4の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが4ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.9b32cfc00744",
@@ -2111,7 +2127,8 @@
         "45"
       ],
       "template": "5×6 = {{INPUT}} 5×7 = {{INPUT}} 5×8 = {{INPUT}} 5×9 = {{INPUT}}"
-    }
+    },
+    "explanation": "5の段[だん]は、答[こた]えの一[いち]の位[くらい]が5、0、5、0と交互[こうご]になります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.ad9aae9a2cc6",
@@ -2133,7 +2150,8 @@
         "72"
       ],
       "template": "8×6 = {{INPUT}} 8×7 = {{INPUT}} 8×8 = {{INPUT}} 8×9 = {{INPUT}}"
-    }
+    },
+    "explanation": "8の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが8ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.ba347e9d2c6f",
@@ -2155,7 +2173,8 @@
         "81"
       ],
       "template": "9×6 = {{INPUT}} 9×7 = {{INPUT}} 9×8 = {{INPUT}} 9×9 = {{INPUT}}"
-    }
+    },
+    "explanation": "9の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが9ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.d10c9d1d64a3",
@@ -2216,7 +2235,8 @@
         "30"
       ],
       "template": "6×1 = {{INPUT}} 6×2 = {{INPUT}} 6×3 = {{INPUT}} 6×4 = {{INPUT}} 6×5 = {{INPUT}}"
-    }
+    },
+    "explanation": "6の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが6ずつふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.2091ba8ff60c",
@@ -2831,7 +2851,8 @@
       ],
       "answer": "c1",
       "shuffle": true
-    }
+    },
+    "explanation": "千[せん]の位[くらい]から順[じゅん]に読[よ]むと、3926は「三千九百二十六[さんぜんきゅうひゃくにじゅうろく]」です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.3962c42d18d9",
@@ -2923,7 +2944,8 @@
       "answers": [
         "2851"
       ]
-    }
+    },
+    "explanation": "2000＋800＋50＋1＝2851です。千[せん]・百[ひゃく]・十[じゅう]・一[いち]の位[くらい]を順[じゅん]に考[かんが]えます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.64f14e36da63",
@@ -3043,7 +3065,8 @@
       "answers": [
         "4379"
       ]
-    }
+    },
+    "explanation": "4000＋300＋70＋9＝4379です。千[せん]・百[ひゃく]・十[じゅう]・一[いち]の位[くらい]を順[じゅん]に考[かんが]えます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.adcb3cbe433b",
@@ -3763,7 +3786,8 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/e01092184ac521a3.png"
-    }
+    },
+    "explanation": "はこの平[たい]らな部分[ぶぶん]を面[めん]といいます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.0b5521f885aa",
@@ -3795,7 +3819,8 @@
       "answer": "c2",
       "shuffle": true,
       "promptImage": "questions/legacy/8fb1d13af78f16b5.png"
-    }
+    },
+    "explanation": "二[ふた]つの面[めん]が出会[であ]う、まっすぐな線[せん]の部分[ぶぶん]を辺[へん]といいます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.10ca147cab6a",
@@ -3860,7 +3885,8 @@
       "answer": "c2",
       "shuffle": true,
       "promptImage": "questions/legacy/15e7c657c809ba53.png"
-    }
+    },
+    "explanation": "①のはこを辺[へん]にそって切[き]り開[ひら]くと、六[むっ]つの面[めん]がつながったイの形[かたち]になります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.15345bd2561f",
@@ -3892,7 +3918,8 @@
       "answer": "c3",
       "shuffle": true,
       "promptImage": "questions/legacy/8aa379c7e771015f.png"
-    }
+    },
+    "explanation": "辺[へん]が集[あつ]まる角[かど]の点[てん]を、頂点[ちょうてん]といいます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.4fb31424dc0e",
@@ -3979,7 +4006,8 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/15e7c657c809ba53.png"
-    }
+    },
+    "explanation": "②のはこを辺[へん]にそって切[き]り開[ひら]くと、六[むっ]つの面[めん]がつながったアの形[かたち]になります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.7155a7b84537",
@@ -5534,7 +5562,7 @@
       ],
       "template": "{{INPUT}}時{{INPUT}}分"
     },
-    "explanation": "「４５分後」なので、「分」のながいはりを ４５すすむと、「時間」のみじかいはりが １すすんで、４時３０分になる。"
+    "explanation": "３時[じ]４５分[ふん]から１５分[ふん]すすむと４時[じ]。そこから、さらに３０分[ぷん]すすむので、４時[じ]３０分[ぷん]になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.4a71d5b0e8de",
@@ -5792,7 +5820,7 @@
       "template": "{{INPUT}}時{{INPUT}}分",
       "promptImage": "questions/legacy/454fc9bd73743995.png"
     },
-    "explanation": "「３０分後」なので、「分」のながいはりを ３０、「時間」のみじかいはりを １すすめて、４時１５分になる。"
+    "explanation": "３時[じ]４５分[ふん]から１５分[ふん]すすむと４時[じ]。のこりの１５分[ふん]をすすむので、４時[じ]１５分[ふん]になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.dc0838b681eb",
@@ -5835,7 +5863,7 @@
       "suffix": "時間",
       "promptImage": "questions/legacy/2beb0bf8cf2c8050.png"
     },
-    "explanation": "午前８時から、午後２時分までで、６時間 すすめたらいいので、６時間だね。"
+    "explanation": "午前[ごぜん]８時[じ]から正午[しょうご]までが４時間[じかん]、正午[しょうご]から午後[ごご]２時[じ]までが２時間[じかん]。あわせて６時間[じかん]だね。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.f691d0ea5f27",
@@ -5911,7 +5939,8 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/1945cd296ba5ad09.png"
-    }
+    },
+    "explanation": "ものさしの 大[おお]きな めもり 1つ分[ぶん]は、1cmです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-6.2f703d3a8754",
@@ -6051,15 +6080,15 @@
       "choices": [
         {
           "id": "c1",
-          "text": "c m"
+          "text": "cm"
         },
         {
           "id": "c2",
-          "text": "m m"
+          "text": "mm"
         },
         {
           "id": "c3",
-          "text": "s m"
+          "text": "mL"
         },
         {
           "id": "c4",
@@ -6151,15 +6180,15 @@
       "choices": [
         {
           "id": "c1",
-          "text": "c m"
+          "text": "cm"
         },
         {
           "id": "c2",
-          "text": "m m"
+          "text": "mm"
         },
         {
           "id": "c3",
-          "text": "s m"
+          "text": "mL"
         },
         {
           "id": "c4",
@@ -6169,7 +6198,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "センチメートルは、「c m」とあらわす。ミリメートルは、「m m」だね。"
+    "explanation": "センチメートルは「cm」、ミリメートルは「mm」と表[あらわ]すよ。"
   },
   {
     "id": "legacy.sansu.g2.math-2-6.d5ed5472e2c6",

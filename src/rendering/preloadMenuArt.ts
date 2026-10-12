@@ -4,10 +4,7 @@ import { monsterMenuArtUrl } from './menuArt';
 
 const YIELD_EVERY = 12;
 
-/**
- * 図鑑を初めて開く瞬間にドット絵を一括生成しないよう、Boot 中に共有キャッシュを温める。
- * 数枚ごとに描画へ制御を返し、ロード画面の進捗表示も止めない。
- */
+/** 開発用の明示的なキャッシュ生成。通常起動からは呼ばない。 */
 export async function preloadMenuArt(
   content: ContentIndex,
   onProgress?: (progress: number) => void,
@@ -36,7 +33,7 @@ interface DeferredMenuArtOptions {
   onError?: (error: unknown) => void;
 }
 
-/** ゲーム起動を待たせず、タイトル画面が描画できてから図鑑画像のキャッシュを温める。 */
+/** 開発用に、明示的に指定されたときだけ非同期生成する。 */
 export function deferMenuArtPreload(content: ContentIndex, options: DeferredMenuArtOptions = {}): void {
   const schedule = options.schedule ?? ((run: () => void) => setTimeout(run, 0));
   schedule(() => {

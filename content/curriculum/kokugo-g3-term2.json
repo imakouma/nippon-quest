@@ -1,0 +1,1827 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-kokugo-g34",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]解説[かいせつ] 国語[こくご]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_01.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第3学年及び第4学年"
+    },
+    {
+      "id": "mext-h29-kokugo-codes-g34",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年及び第4学年国語"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "kokugo.g3.kanji.expansion-a",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-8",
+      "name": "漢字[かんじ]の読[よ]み書[か]き③",
+      "description": "第3学年[だいさんがくねん]配当[はいとう]漢字[かんじ]の読[よ]み書[か]きを語句[ごく]の中[なか]で広[ひろ]げる。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3114000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.kanji.expansion-b",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-9",
+      "name": "漢字[かんじ]の読[よ]み書[か]き④",
+      "description": "第3学年[だいさんがくねん]配当[はいとう]漢字[かんじ]を文脈[ぶんみゃく]に合[あ]わせて使[つか]う。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3114000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.reading.character-traits",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-10",
+      "name": "登場[とうじょう]人物[じんぶつ]の特徴[とくちょう]",
+      "description": "登場[とうじょう]人物[じんぶつ]の行動[こうどう]や気持[きも]ちを叙述[じょじゅつ]から捉[とら]え、性格[せいかく]を想像[そうぞう]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3231200000", "82102C3231400000", "82102C3231500000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.culture.haiku",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-11",
+      "name": "俳句[はいく]の響[ひび]きとリズム",
+      "description": "易[やさ]しい文語調[ぶんごちょう]の俳句[はいく]を読[よ]み、季節[きせつ]や情景[じょうけい]、リズムに親[した]しむ。",
+      "kind": "concept",
+      "memoryType": "fact",
+      "curriculumCodes": ["82102C3131000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.grammar.demonstratives",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-12",
+      "name": "こそあど言葉[ことば]",
+      "description": "指示語[しじご]が何[なに]を指[さ]すかを前後[ぜんご]の文脈[ぶんみゃく]から確[たし]かめる。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3116000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.kanji.parts-applied",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-14",
+      "name": "へんとつくりの活用[かつよう]",
+      "description": "漢字[かんじ]のへんとつくりを見分[みわ]け、意味[いみ]や字形[じけい]の理解[りかい]に生[い]かす。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3133000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.romanization",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-15",
+      "name": "ローマ字[じ]の読[よ]み書[か]き",
+      "description": "日常[にちじょう]で使[つか]う簡単[かんたん]な単語[たんご]をローマ字[じ]で読[よ]み書[か]きする。",
+      "kind": "skill",
+      "memoryType": "procedure",
+      "curriculumCodes": ["82102C3113000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.grammar.modifiers",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-16",
+      "name": "修飾語[しゅうしょくご]の関係[かんけい]",
+      "description": "修飾語[しゅうしょくご]がどの語[ご]を詳[くわ]しくしているかを文[ぶん]の中[なか]で捉[とら]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3116000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.grammar.subject-predicate",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-16",
+      "name": "主語[しゅご]と述語[じゅつご]の関係[かんけい]",
+      "description": "文[ぶん]の中[なか]で主語[しゅご]と述語[じゅつご]の対応[たいおう]を捉[とら]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3116000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.culture.proverbs-idioms",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-17",
+      "name": "ことわざの意味[いみ]と使[つか]い方[かた]",
+      "description": "ことわざの意味[いみ]を知[し]り、適切[てきせつ]な場面[ばめん]で使[つか]う。",
+      "kind": "concept",
+      "memoryType": "fact",
+      "curriculumCodes": ["82102C3132000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.culture.idioms",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-17",
+      "name": "慣用句[かんようく]の意味[いみ]と使[つか]い方[かた]",
+      "description": "慣用句[かんようく]のまとまりとしての意味[いみ]を知[し]り、文脈[ぶんみゃく]に合[あ]わせて使[つか]う。",
+      "kind": "concept",
+      "memoryType": "fact",
+      "curriculumCodes": ["82102C3132000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.culture.koji-seigo",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-17",
+      "name": "故事成語[こじせいご]の意味[いみ]と使[つか]い方[かた]",
+      "description": "故事成語[こじせいご]の由来[ゆらい]につながる意味[いみ]を知[し]り、適切[てきせつ]に使[つか]う。",
+      "kind": "concept",
+      "memoryType": "fact",
+      "curriculumCodes": ["82102C3132000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-10.49c58f6ae5a6",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.character-traits",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-10.7ea2a5bc937b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.character-traits",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-10.879428c8ece7",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.character-traits",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-10.b14bee17fdec",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.character-traits",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-11.0717e990d3d6",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.haiku",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-11.339fa6225e76",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.haiku",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-11.5b85d888629e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.haiku",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-11.764763e0fbc1",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.haiku",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-11.b8fc2f359213",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.haiku",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.26cc8b76148a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.2ad89a620226",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.374a54969b35",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.4766bdac496b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.522864cccce5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.5d75237f271f",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.66cc24046804",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.6f6f7f9b3adc",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.7c6be7f6e047",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.8c9347167f54",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.a6de11d04f1e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.b51a5a6f365c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.b5a6bb2a6214",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.dcc146f94a30",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.f745284e1ae6",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-12.fc9010690881",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.demonstratives",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-14.334c6d54c17b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.parts-applied",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-14.532ac753251c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.parts-applied",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-14.6328240b8fc6",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.parts-applied",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-14.682de6358122",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.parts-applied",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-14.8b5e1e1d741c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.parts-applied",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-14.9f96fff23193",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.parts-applied",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-14.e897a00f70cb",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.parts-applied",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-14.fecf1eb3d0a2",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.parts-applied",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.0164e7041ab2",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.02f3a8f0a82c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.1d91eba7e628",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.24e532600796",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.3c0e89cb3e75",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.519545930b58",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.63509573acd2",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.6a96c117f7a9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.6c26f9f1310b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.79706c3d294e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.7e2e81d73f25",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.aee8fb39b459",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.cfc50ff0043e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.cfc7f3676503",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.e71ca8fcbe1b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.f24db413f8dc",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.f350335db90d",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.f4a1228d9429",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-15.fc237c5b020b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.romanization",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.0cc07d0d5f15",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.1ee2d9d477c9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.271e104c89c9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.2d367e388746",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.3ee273f33607",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.4e44626de908",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.4f29ba72ae6e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.6593d825665d",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.693328e51033",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.subject-predicate",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.6d9b415d4756",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.subject-predicate",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.7df06ee97fc8",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.abe542f19aec",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.d08cc129d2b5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-16.fa0908413ff4",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.grammar.modifiers",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.03356f1967f5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.08a245b11c90",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.koji-seigo",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.1e5ae74c02e2",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.2e37698a0eec",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.36549af717f5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.koji-seigo",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.4ca24d6124ef",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.7701a83c9771",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.851cb4c916aa",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.8da4240bc36d",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.9bcbc1e13ff9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.bc65949219f1",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.ca9352cf9ce8",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.dbb3f657d6a6",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-17.fdb3dd08a4ed",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.proverbs-idioms",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.0144c5f01eb8",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.0c974045952f",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.162233461b14",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.164cba804f95",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.28f70fd77037",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.29cdae4d3435",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.32b61b0a3a1f",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.4f30846969fd",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.50b2e81c1cc9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.5a75cc041dc9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.5a7dcc1bdcbc",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.938aa1e5595b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.a2f25052623f",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.b1b53e4ba94e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.c035297dda97",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.cf958b6fead9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.e41ed437f952",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.efd98c058877",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-8.fa547dc1662b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.034606af640c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.15fc5c9ad3d4",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.31dd9db23c3b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.325f3a472d75",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.34b187942c21",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.3ff6d287d8c1",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.4b34e763cc35",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.52c149818807",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.67d509252a33",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.6a383ad0d481",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.7aa89f95663c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.9ae54f8551aa",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.acc6593c1eb9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.bfe704c6d1b5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.d52b1879f6ee",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.e0d0e77b7983",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.e59bf13024e9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.eb706cf55f2d",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-9.ed2ad74e3b1e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.expansion-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

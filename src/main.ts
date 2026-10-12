@@ -23,11 +23,11 @@ import { QuestionBank } from './questions/engine/bank';
 import { isLocalDevelopmentUrl } from './core/localDevelopment';
 import { setDictionary, t } from './ui/i18n';
 import { recordPlayDuration } from './core/state/playTime';
-import bootstrapJapanese from '../content/i18n/bootstrap-ja.json';
+import { BOOTSTRAP_JA } from './ui/bootstrapI18n';
 import { enableMobileFullscreen, registerAppServiceWorker } from './ui/mobileAppShell';
 
 // 通常辞書を読み込めない起動失敗でも、再試行画面だけは日本語で表示する。
-setDictionary(bootstrapJapanese);
+setDictionary(BOOTSTRAP_JA);
 enableMobileFullscreen();
 registerAppServiceWorker();
 
@@ -42,7 +42,8 @@ const PLAY_DATE_FORMATTER = new Intl.DateTimeFormat('sv-SE', {
 });
 
 /**
- * ?debug=battle[&enemy=<monsterId>][&lv=<n>][&zone=dungeon][&ground=beach] でタイトルを飛ばしてすぐバトル（確認・E2E 用）。
+ * ?debug=battle[&enemy=<monsterId>][&lv=<n>][&zone=dungeon][&ground=beach][&battleView=side]
+ * でタイトルを飛ばしてすぐバトル（確認・E2E 用）。battleView=side は旧サイドビューとの比較用。
  * ground は フィールドの 地面（src/core/world/ground.ts）ごとの 背景を 見る ため
  */
 const params = new URLSearchParams(location.search);
@@ -61,6 +62,7 @@ const debugBattle =
         zone: params.get('zone') === 'dungeon' ? ('dungeon' as const) : undefined,
         ground: GROUNDS.find((g) => g === params.get('ground')),
         forceRecruitOffer: params.get('recruit') === '1',
+        presentation: params.get('battleView') === 'side' ? ('side' as const) : undefined,
       }
     : null;
 
@@ -259,9 +261,14 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
       const next = createNewGame(selectedOptions);
       setSfxVolume(next.settings.seVolume);
       game.registry.set('game', next);
-      void autosave
-        .request(activeSlot, next)
-        .catch((error) => reportSaveFailure('はじめのセーブ', error, activeSlot, next));
+      try {
+        // 新規開始直後にブラウザを再読み込みしても「つづきから」を失わないよう、
+        // フィールドへ遷移する前に最初のセーブを完了させる。
+        await autosave.request(activeSlot, next);
+      } catch (error) {
+        reportSaveFailure('はじめのセーブ', error, activeSlot, next);
+        return;
+      }
       hideLoading();
       game.scene.stop('Title');
       game.scene.start('Overworld', {

@@ -8,6 +8,7 @@ import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
 import { RegionMiniMap, type RegionMiniView } from './RegionMiniMap';
+import { VirtualStick, type VirtualStickDirection } from './VirtualStick';
 import './field.css';
 
 export interface FieldHudProps {
@@ -22,6 +23,7 @@ export interface FieldHudProps {
   /** メニュー（ずかん・どうぐ・そうび）を ひらく */
   menuLabel: string;
   onMenu: () => void;
+  onMove: (direction: VirtualStickDirection | null) => void;
   /** 開発者モード（ぜんぶの 場所へ ワープ）。開発サーバーか ?dev のときだけ ボタンを出す */
   dev?: { label: string; on: boolean; onToggle: () => void };
 }
@@ -36,10 +38,12 @@ export function FieldHud({
   onAreaMap,
   menuLabel,
   onMenu,
+  onMove,
   dev,
 }: FieldHudProps) {
   return (
     <div class="nq-fhud">
+      <VirtualStick label={t('field.moveStick')} onDirection={onMove} />
       <div class="nq-win nq-fhud-loc">
         <div class="nq-fhud-row">
           <RubyLabel text={title} class="nq-fhud-title" />

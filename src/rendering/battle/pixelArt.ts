@@ -292,6 +292,38 @@ const HORIZON = 64;
 const PATH_TOP = 82;
 const PATH_BOTTOM = 97;
 
+/** 戦闘背景の上を流れる雲（背景本体と分けて Phaser でゆっくり動かす） */
+export function battleCloudArt(): HTMLCanvasElement {
+  const c = document.createElement('canvas');
+  c.width = 30;
+  c.height = 8;
+  const ctx = c.getContext('2d')!;
+  const r = (x: number, y: number, w: number, h: number, col: string) => {
+    ctx.fillStyle = col;
+    ctx.fillRect(x, y, w, h);
+  };
+  r(0, 4, 30, 3, NQ.white);
+  r(3, 2, 22, 3, NQ.white);
+  r(7, 0, 14, 3, NQ.white);
+  r(1, 7, 28, 1, NQ.cloud);
+  return c;
+}
+
+/** 草原バトルの奥を横切る、細い風の筋。キャラやUIを邪魔しない背景専用の演出。 */
+export function battleWindArt(): HTMLCanvasElement {
+  const c = document.createElement('canvas');
+  c.width = 24;
+  c.height = 3;
+  const ctx = c.getContext('2d')!;
+  ctx.fillStyle = NQ.cloud;
+  ctx.fillRect(0, 1, 15, 1);
+  ctx.fillRect(5, 0, 9, 1);
+  ctx.fillStyle = NQ.aqua;
+  ctx.fillRect(16, 1, 6, 1);
+  ctx.fillRect(19, 2, 5, 1);
+  return c;
+}
+
 interface BackdropPalette {
   sky: string[];
   far: string;
@@ -405,24 +437,13 @@ export function backdropArt(kind: BackdropKind): HTMLCanvasElement {
     if (next) for (let x = i % 2; x < W; x += 2) r(x, i * band + band - 1, 1, 1, next);
   });
 
-  if (kind !== 'dungeon' && kind !== 'boss') {
-    for (const [x, y, w] of [
-      [26, 12, 24],
-      [120, 22, 30],
-      [196, 8, 18],
-    ] as const) {
-      r(x, y, w, 3, NQ.white);
-      r(x + 3, y - 2, w - 8, 2, NQ.white);
-      r(x + 6, y - 4, w - 14, 2, NQ.white);
-      r(x + 1, y + 3, w - 2, 1, NQ.cloud);
-    }
-  } else if (kind === 'boss') {
+  if (kind === 'boss') {
     // 地平線にしずむ太陽
     for (let y = -20; y <= 0; y++) {
       const hw = Math.round(Math.sqrt(400 - y * y));
       r(176 - hw, HORIZON - 6 + y, hw * 2, 1, y > -14 ? NQ.apricot : NQ.gold);
     }
-  } else {
+  } else if (kind === 'dungeon') {
     // つらら
     for (let x = 0; x < W; x += 10 + rng.int(0, 8)) {
       const h = 6 + rng.int(0, 14);

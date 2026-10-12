@@ -1,0 +1,563 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-rika-g3",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 理科[りか]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211020-mxt_kyoiku02-100002607_05.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-10-20版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第3学年"
+    },
+    {
+      "id": "mext-h29-rika-codes-g3",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年理科"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "rika.g3.electric-circuit",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-08",
+      "name": "電気[でんき]の通[とお]り道[みち]",
+      "description": "乾電池[かんでんち]と豆電球[まめでんきゅう]の回路[かいろ]、電気[でんき]を通[とお]す物[もの]を比較[ひかく]して調[しら]べる。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233151100000", "8260233151200000", "8260233152000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.magnets",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-09",
+      "name": "磁石[じしゃく]の性質[せいしつ]",
+      "description": "磁石[じしゃく]に付[つ]く物[もの]と極[きょく]どうしの引[ひ]き合[あ]い・退[しりぞ]け合[あ]いを比較[ひかく]する。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233141100000", "8260233141200000", "8260233142000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.materials-weight",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-10",
+      "name": "物[もの]と重[おも]さ",
+      "description": "形[かたち]を変[か]えたときの重[おも]さと、同[おな]じ体積[たいせき]の物[もの]の重[おも]さを比較[ひかく]する。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233111100000", "8260233111200000", "8260233112000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.1b90f658c982",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.1e75a02b83d2",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.2d105d494dd5",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.3ac86d4160a6",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.3d64605e8be5",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.498c16e51fe0",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.5e58452f94a5",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.5f64bd3987e1",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.8b4fbe78fa4b",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.988c0be26210",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.9ea5bfe12c6d",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-08.e9416fa6bbec",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.electric-circuit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.027f51f5d70c",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.1da0cd3c9d1d",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.42f3e50c6206",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.49e5b2f7126c",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.76b1b18ef7de",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.7d8945a82ba2",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.826215f6a7df",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.89b4fcaefc8e",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.8cfe9816af21",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.9e8f507c75e5",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.a11c4f96e5d4",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-09.d4c16a39487c",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.magnets",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.1e2ea9453164",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.2f37f992c555",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.378f53cd51c7",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.4267ce0a6a92",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.62c5d7178bb5",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.643ed37368ef",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.72749b5d85f5",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.935fc1d30972",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.a018956dd332",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.ba88ca416b12",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.e58ebf4e9b98",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-10.eb9526d72cd6",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.materials-weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

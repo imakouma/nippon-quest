@@ -1,0 +1,110 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-1.51f7e741e14c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": ["source:codex-remediation", "skill:combustion-products", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "木[き]や紙[かみ]など、植物[しょくぶつ]からできたものを燃[も]やした後[あと]に見[み]られるものはどれ？",
+      "choices": [
+        { "id": "a", "text": "黒[くろ]っぽい炭[すみ]や白[しろ]っぽい灰[はい]" },
+        { "id": "b", "text": "燃[も]やす前[まえ]より大[おお]きな木片[もくへん]" },
+        { "id": "c", "text": "新[あたら]しい酸素[さんそ]だけ" },
+        { "id": "d", "text": "とけた鉄[てつ]だけ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "植物[しょくぶつ]からできたものを燃[も]やすと、二酸化炭素[にさんかたんそ]が発生[はっせい]し、燃[も]え残[のこ]りとして炭[すみ]や灰[はい]が見[み]られることがある。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-1.8dab2305003b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": ["source:codex-remediation", "skill:combustion-gas-change", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "ものが燃[も]える前後[ぜんご]の空気[くうき]を比[くら]べると、体積[たいせき]の割合[わりあい]はどのように変[か]わる？",
+      "choices": [
+        { "id": "a", "text": "酸素[さんそ]が減[へ]り、二酸化炭素[にさんかたんそ]が増[ふ]える" },
+        { "id": "b", "text": "酸素[さんそ]が増[ふ]え、二酸化炭素[にさんかたんそ]が減[へ]る" },
+        { "id": "c", "text": "窒素[ちっそ]だけがすべてなくなる" },
+        { "id": "d", "text": "どの気体[きたい]の割合[わりあい]も変[か]わらない" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ものが燃[も]えると酸素[さんそ]が使[つか]われ、二酸化炭素[にさんかたんそ]ができるため、酸素[さんそ]の割合[わりあい]は減[へ]り、二酸化炭素[にさんかたんそ]の割合[わりあい]は増[ふ]える。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-1.acbc71cd514c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": ["source:codex-remediation", "skill:combustion-airflow", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "集気[しゅうき]びんの中[なか]で、ろうそくを長[なが]く燃[も]やし続[つづ]けるために必要[ひつよう]なことはどれ？",
+      "choices": [
+        { "id": "a", "text": "空気[くうき]が入[い]れかわるようにする" },
+        { "id": "b", "text": "びんを完全[かんぜん]にふさいで空気[くうき]を入[い]れない" },
+        { "id": "c", "text": "ろうそくを水[みず]の中[なか]へ沈[しず]める" },
+        { "id": "d", "text": "びんの中[なか]から酸素[さんそ]を取[と]り除[のぞ]く" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ものが燃[も]え続[つづ]けるには酸素[さんそ]をふくむ新[あたら]しい空気[くうき]が必要[ひつよう]。空気[くうき]が入[い]れかわらないと、やがて火[ひ]は消[き]える。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-1.e11aec13cb01",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": ["source:codex-remediation", "skill:airflow-observation", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "集気[しゅうき]びんの下[した]に空気[くうき]の入口[いりぐち]、上[うえ]に出口[でぐち]をつくった。線香[せんこう]の煙[けむり]で空気[くうき]の流[なが]れを調[しら]べると、どうなる？",
+      "choices": [
+        { "id": "a", "text": "煙[けむり]は下[した]から入[はい]り、上[うえ]から出[で]る" },
+        { "id": "b", "text": "煙[けむり]は上[うえ]から入[はい]り、下[した]から出[で]る" },
+        { "id": "c", "text": "煙[けむり]は入口[いりぐち]の外[そと]で止[と]まり、まったく入[はい]らない" },
+        { "id": "d", "text": "煙[けむり]は下[した]から入[はい]り、下[した]からだけ出[で]る" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "温[あたた]められた空気[くうき]は上[うえ]へ動[うご]くため、外[そと]の新[あたら]しい空気[くうき]が下[した]から入[はい]り、上[うえ]から出[で]る流[なが]れができる。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "legacy.rika.g6.sci-6-1.ff109f778631",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-1",
+    "tags": ["source:codex-remediation", "skill:limewater-evidence", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "ろうそくを燃[も]やした後[あと]の空気[くうき]に石灰水[せっかいすい]を入[い]れて振[ふ]ると、白[しろ]くにごった。この結果[けっか]から分[わ]かることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "燃[も]やした後[あと]の空気[くうき]には二酸化炭素[にさんかたんそ]が増[ふ]えている"
+        },
+        { "id": "b", "text": "燃[も]やした後[あと]の空気[くうき]には酸素[さんそ]しかない" },
+        { "id": "c", "text": "ろうそくが石灰水[せっかいすい]に変[か]わった" },
+        { "id": "d", "text": "燃[も]やしても空気[くうき]はまったく変[か]わらない" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "石灰水[せっかいすい]が白[しろ]くにごることは、二酸化炭素[にさんかたんそ]がある証拠[しょうこ]。燃焼後[ねんしょうご]に二酸化炭素[にさんかたんそ]が増[ふ]えたと判断[はんだん]できる。"
+  }
+]

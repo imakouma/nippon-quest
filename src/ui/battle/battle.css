@@ -56,7 +56,7 @@
   position: absolute;
   left: 12px;
   top: 12px;
-  width: 340px;
+  width: 220px;
   height: 84px;
   display: flex;
 }
@@ -144,27 +144,39 @@
   box-sizing: border-box;
   height: 160px;
   display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 5;
+}
+.nq-bottom-command-slot {
+  box-sizing: border-box;
+  width: 188px;
+  height: 160px;
+  flex: none;
   background: var(--nq-panel);
   border: 4px solid var(--nq-white);
   box-shadow:
     0 0 0 4px #000,
     6px 6px 0 4px rgba(0, 0, 0, 0.35);
-  z-index: 5;
 }
-.nq-bottom-command-slot {
-  width: 416px;
+.nq-bottom-command-spacer {
+  width: 188px;
   flex: none;
 }
 .nq-party {
   position: relative;
-  width: 340px;
+  width: 252px;
   box-sizing: border-box;
-  height: 152px;
-  padding: 4px 12px;
+  height: 160px;
+  padding: 4px 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-left: 4px solid var(--nq-white);
+  background: var(--nq-panel);
+  border: 4px solid var(--nq-white);
+  box-shadow:
+    0 0 0 4px #000,
+    6px 6px 0 4px rgba(0, 0, 0, 0.35);
 }
 .nq-ally {
   min-width: 0;
@@ -172,7 +184,7 @@
   font-size: 20px;
 }
 .nq-ally-hero {
-  height: 62px;
+  height: 82px;
 }
 .nq-ally-heading,
 .nq-ally-hp {
@@ -352,6 +364,31 @@
   color: var(--nq-yellow);
   text-align: center;
 }
+.nq-sgauge-hero {
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  gap: 4px;
+  border: 0;
+}
+.nq-sgauge-hero .nq-sg {
+  flex: 1;
+  height: 20px;
+  padding: 0;
+  position: relative;
+}
+.nq-sgauge-hero .nq-sg > .nq-picon {
+  /* HP と同じ外枠の幅にそろえ、教科アイコンだけをバー左端のバッジとして重ねる。 */
+  position: absolute;
+  z-index: 1;
+  left: 4px;
+  top: 2px;
+}
+.nq-sgauge-hero .nq-sg-bar {
+  height: 20px;
+}
 .nq-sg {
   position: relative;
   display: flex;
@@ -371,6 +408,21 @@
 .nq-sg-bar > i {
   display: block;
   height: 100%;
+}
+.nq-sg-value {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  color: var(--nq-white);
+  font-size: 12px;
+  line-height: 1;
+  text-shadow:
+    1px 0 #000,
+    -1px 0 #000,
+    0 1px #000,
+    0 -1px #000;
 }
 /* 必殺技に 要る 量の 目もり */
 .nq-sg-mark {
@@ -467,6 +519,11 @@
 .nq-cmd.nq-focus {
   color: var(--nq-yellow);
 }
+/* 選択色とブラウザ共通フォーカス枠を重ねない。戦闘中は黄色表示だけで現在位置を示す。 */
+.nq-battle button.nq-focus:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
 /* どうぐの アイコン（16×16 を ×2）。どうぐの窓・てに いれた もの */
 .nq-item-icon {
   width: 32px;
@@ -481,10 +538,15 @@
   min-height: 32px;
   gap: 4px;
   padding: 0 6px;
+  font-size: 20px;
 }
 .nq-cmdwin .nq-cur {
-  width: 18px;
+  width: 16px;
   flex: none;
+}
+.nq-cmdwin .nq-item-icon {
+  width: 24px;
+  height: 24px;
 }
 .nq-cmd .nq-off {
   color: #a3aabb;
@@ -494,24 +556,34 @@
 }
 
 /* ───── わざ・どうぐ・いれかえ の窓 ───── */
+.nq-menu-dismiss {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
 .nq-menu {
   position: absolute;
   left: 12px;
-  right: 12px;
+  /* 右下の主人公ステータス枠を覆わず、選択中のHPを常に読めるようにする。 */
+  right: 280px;
   bottom: 12px;
-  height: 288px;
+  /* 舞台（特に敵）を覆わない、下端に収まるコンパクトな選択窓。 */
+  height: 208px;
   z-index: 6;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 4px;
+  padding: 6px 10px;
   animation: nq-pop-in 0.12s steps(3);
 }
 .nq-menu-head {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding-bottom: 4px;
+  gap: 8px;
+  padding-bottom: 2px;
   border-bottom: 2px dashed #4a5063;
 }
 .nq-menu-title {
@@ -523,10 +595,23 @@
 .nq-menu-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 12px;
+  gap: 4px 8px;
   align-content: start;
   flex: 1;
   overflow-y: auto;
+}
+.nq-skill-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+  min-height: 0;
+  flex: 1;
+  gap: 10px;
+}
+.nq-menu-skill .nq-menu-grid {
+  width: auto;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 40px;
+  align-content: start;
 }
 .nq-menu-empty {
   margin: 12px 8px;
@@ -541,19 +626,34 @@
 }
 .nq-opt-name {
   flex: 1;
+  min-width: 0;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   line-height: 36px;
+}
+.nq-menu .nq-opt {
+  min-height: 40px;
+  gap: 6px;
+  padding: 2px 8px;
 }
 .nq-opt-side {
   display: inline-flex;
+  flex: none;
   align-items: center;
   gap: 6px;
   font-size: 16px;
+  white-space: nowrap;
 }
 .nq-opt-swap {
   width: 188px;
 }
-/* 必殺技に 使う 教科ゲージ（たまった ぶん / 要る 量） */
+/* 通常技と必殺技で、属性アイコンとその右の表示を同じ列に揃える。 */
+[data-skill] .nq-opt-side {
+  flex: none;
+  width: 108px;
+}
+/* 必殺技に 必要な 教科ゲージ（要る 量 / 最大量） */
 .nq-opt-cost {
   display: inline-flex;
   align-items: center;
@@ -599,21 +699,30 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  min-height: 40px;
-  padding-top: 4px;
+  min-height: 32px;
+  padding-top: 2px;
   border-top: 2px dashed #4a5063;
   color: var(--nq-cloud);
-  line-height: 36px;
+  line-height: 24px;
 }
 .nq-menu-foot-skill {
+  box-sizing: border-box;
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px 10px;
   flex-direction: column;
   align-items: stretch;
-  gap: 0;
+  justify-content: center;
+  gap: 8px;
+  border-top: 0;
+  border-left: 2px dashed #4a5063;
 }
 .nq-menu-foot-row {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
 }
 .nq-menu-cost {
   font-size: 16px;
@@ -627,7 +736,7 @@
   white-space: nowrap;
 }
 .nq-menu-grade {
-  margin-left: auto;
+  margin-left: 0;
   font-size: 16px;
   color: var(--nq-silver);
   white-space: nowrap;

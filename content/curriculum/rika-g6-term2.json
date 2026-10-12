@@ -1,0 +1,849 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-rika-g6",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 理科[りか]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211020-mxt_kyoiku02-100002607_05.pdf",
+      "published": "平成29年6月（文部科学省公開PDFは2021-10-20版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第4節 第6学年"
+    },
+    {
+      "id": "mext-h29-rika-codes-g6",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第6学年理科"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "rika.g6.sci-6-5",
+      "subject": "rika",
+      "grade": 6,
+      "unit": "rika.g6.legacy-sci-6-5",
+      "name": "生物[せいぶつ]のくらしと環境[かんきょう]",
+      "description": "生物[せいぶつ]のくらしと環境[かんきょう]について、複数[ふくすう]の結果[けっか]や資料[しりょう]から、より妥当[だとう]な考[かんが]えをつくり表現[ひょうげん]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260263231100000", "8260263231200000", "8260263231300000", "8260263232000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]の季節性[きせつせい]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-rika-g6", "mext-h29-rika-codes-g6"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g6.sci-6-6",
+      "subject": "rika",
+      "grade": 6,
+      "unit": "rika.g6.legacy-sci-6-6",
+      "name": "月[つき]と太陽[たいよう]",
+      "description": "月[つき]と太陽[たいよう]について、複数[ふくすう]の結果[けっか]や資料[しりょう]から、より妥当[だとう]な考[かんが]えをつくり表現[ひょうげん]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260263251100000", "8260263252000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]の季節性[きせつせい]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-rika-g6", "mext-h29-rika-codes-g6"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g6.sci-6-7",
+      "subject": "rika",
+      "grade": 6,
+      "unit": "rika.g6.legacy-sci-6-7",
+      "name": "大地[だいち]のつくりと変化[へんか]",
+      "description": "大地[だいち]のつくりと変化[へんか]について、複数[ふくすう]の結果[けっか]や資料[しりょう]から、より妥当[だとう]な考[かんが]えをつくり表現[ひょうげん]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260263241100000", "8260263241200000", "8260263241300000", "8260263242000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]の季節性[きせつせい]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-rika-g6", "mext-h29-rika-codes-g6"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.05331a4cc637",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.212a7dc95af9",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.35761fe4fd2f",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.36715b75511a",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.3bf796865edb",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.5194d5099a51",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.51eef29164bc",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.59bdebca3064",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.5ca94bf37164",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.7497123839a5",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.8088d7eeaa7c",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.995ef767a2e1",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.a7a375415803",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.a9657386e70c",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.b4b5e6710b3a",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.c7d92e830503",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.c85c10364f5a",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.cb597db6c31f",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.cd7415be64e8",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.e21df8501954",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.edd5b3f58445",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-5.efb8a53ef841",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.0f73b9fa94fd",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.18be942bf0fb",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.1cab69405793",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.3c21eeb664c3",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.438657f7c75f",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.4b0519700a87",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.52ffa8ba56bf",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.9292026a1315",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.96947509b9a3",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.a1f7e50aa144",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.a34736bd2769",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.b7898b1f55cf",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.b9eae8e18685",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.d0359358354a",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.e630657ef028",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.f6f846757bc2",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-6.f8337b096452",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.064fe18e2b6d",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.06a6d41f2791",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.084bcb4e54c9",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.088976700f94",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.227b01b05bed",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.2b4f695cd2f9",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.5099345d62cd",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.5f84e1b5ebb3",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.68877e7d8924",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.6f846af2919f",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.75343754bfaf",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.7b5ed487bc0f",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.962f22225582",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.9e76bad89cc6",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.a725e31255bb",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.b678ad92b78a",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.c3fe96e4f9c1",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.ec5c7787bc2f",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g6.sci-6-7.eff84167a8d3",
+      "concepts": [
+        {
+          "conceptId": "rika.g6.sci-6-7",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

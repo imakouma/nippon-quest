@@ -24,6 +24,94 @@
       }
     },
     {
+      "id": "stable-audio-game-music",
+      "paths": [
+        "assets/audio/bgm/battle-theme.mp3",
+        "assets/audio/bgm/title-theme.mp3",
+        "assets/audio/bgm/field-theme.mp3",
+        "assets/audio/bgm/town-theme.mp3",
+        "assets/audio/bgm/dungeon-theme.mp3",
+        "assets/audio/bgm/secret-theme.mp3",
+        "assets/audio/bgm/boss-theme.mp3",
+        "assets/audio/bgm/victory-theme.mp3",
+        "assets/audio/bgm/defeat-theme.mp3"
+      ],
+      "status": "approved",
+      "origin": "Stable Audio 3 Small Musicでローカル生成し、ffmpegで音圧調整・MP3変換",
+      "author": "NIHON QUEST project（AI-assisted local generation）",
+      "source": "Stability-AI/stable-audio-3, seeds 271828–271836; assets/audio/bgm/generation.json",
+      "license": "Stability AI Community License（年間売上100万米ドル未満の条件付き）",
+      "licenseEvidence": "assets/audio/bgm/PROVENANCE.md",
+      "modificationAllowed": true,
+      "redistributionAllowed": true,
+      "creditRequired": false,
+      "sha256": {
+        "assets/audio/bgm/battle-theme.mp3": "2395203a21ab3fa0c60e72ca76345883d31c6b27a7a8318d49f4599b4b4a72f8",
+        "assets/audio/bgm/title-theme.mp3": "0fc58a9d0f202c8054a01ab49bb957a2eed2846617cfd6b91e0d22b48bace3da",
+        "assets/audio/bgm/field-theme.mp3": "8414d63499c3271d94d7eb5496321325aa52a8470c9516e434f17cee6a1c59ec",
+        "assets/audio/bgm/town-theme.mp3": "cad63427d940c55be7be0b69a3bd8331a843f01b567b078759c689d5442afcd0",
+        "assets/audio/bgm/dungeon-theme.mp3": "7ced53f68f154fe583fbe90c348bc4f21dcc4b163bc8853b3e6abdcbafa16fce",
+        "assets/audio/bgm/secret-theme.mp3": "71eb0f4a12633a5c2f801a84afe62b74f7508f78f1e14248d6929f38b3d04a09",
+        "assets/audio/bgm/boss-theme.mp3": "522f7e6bb7e4d376c78d2ea59de31e68929bd9eff0b8e4f979e30e8bd8a86988",
+        "assets/audio/bgm/victory-theme.mp3": "d3de82ab8da10d20516b450ce1389ffe808ecad437ab4ebc8092a2baaf435e5a",
+        "assets/audio/bgm/defeat-theme.mp3": "294c02485fee5e060e7395cc1b060a25ee720f8e0ea7c1cee0a96226adee63cc"
+      }
+    },
+    {
+      "id": "stable-audio-exploration-sfx",
+      "paths": [
+        "assets/audio/se/step-grass.mp3",
+        "assets/audio/se/step-sand.mp3",
+        "assets/audio/se/step-stone.mp3",
+        "assets/audio/se/step-water.mp3",
+        "assets/audio/se/door.mp3",
+        "assets/audio/se/chest.mp3"
+      ],
+      "status": "approved",
+      "origin": "Stable Audio 3 Small SFXで無料ローカル生成し、短い単発音へ切り出し",
+      "author": "NIHON QUEST project（AI-assisted local generation）",
+      "source": "Stability-AI/stable-audio-3, seeds 271840–271845; assets/audio/se/generation.json",
+      "license": "Stability AI Community License（年間売上100万米ドル未満の条件付き）",
+      "licenseEvidence": "assets/audio/se/PROVENANCE.md",
+      "modificationAllowed": true,
+      "redistributionAllowed": true,
+      "creditRequired": false,
+      "sha256": {
+        "assets/audio/se/step-grass.mp3": "0bb1f2ef27d0df38148665f49e45fdeaf726539139f3bd31f986919922d58fcb",
+        "assets/audio/se/step-sand.mp3": "263f7af50a89e0e47fabd620f8b76f131b9035c25d3cf5a39b827d3c88c10bb9",
+        "assets/audio/se/step-stone.mp3": "1313832b07ef06ade241af3f6be4e646f282855af0754eb3c079604ce43616d4",
+        "assets/audio/se/step-water.mp3": "587b39cca3f4dd28965bbf4db0722ddd6e26c0390bb8d40ba2f9771ef576a8e7",
+        "assets/audio/se/door.mp3": "397a63b9ea23918f76b510c9d5cfc990324141e6722d5ea1bcecaaae17e5921c",
+        "assets/audio/se/chest.mp3": "641feb40f8a99c90036aaa2d9e476a22f30ef4064a9d0b8732351ea992ad8da2"
+      }
+    },
+    {
+      "id": "stable-audio-battle-sfx",
+      "paths": [
+        "assets/audio/se/slash.mp3",
+        "assets/audio/se/hit.mp3",
+        "assets/audio/se/crit.mp3",
+        "assets/audio/se/hurt.mp3",
+        "assets/audio/se/heal.mp3"
+      ],
+      "status": "approved",
+      "origin": "Stable Audio 3 Small SFXで無料ローカル生成し、短い単発音へ切り出し",
+      "author": "NIHON QUEST project（AI-assisted local generation）",
+      "source": "Stability-AI/stable-audio-3, seeds 271850–271854; assets/audio/se/battle-generation.json",
+      "license": "Stability AI Community License（年間売上100万米ドル未満の条件付き）",
+      "licenseEvidence": "assets/audio/se/PROVENANCE.md",
+      "modificationAllowed": true,
+      "redistributionAllowed": true,
+      "creditRequired": false,
+      "sha256": {
+        "assets/audio/se/slash.mp3": "763d751260d1852315d5484a942b89098c554d14cc875d46fdbcaebdfd96cefd",
+        "assets/audio/se/hit.mp3": "c1fcdbdb56498a1bf103948898f89db0acaed7878f7a6b0f28f9848071b6e012",
+        "assets/audio/se/crit.mp3": "5496dee13fdb74ee22ddf4fe6d2ffd8dc78efb9fd8ef30b5633d69d09079d477",
+        "assets/audio/se/hurt.mp3": "3e6c0eec99435ecc81e618969b97256189af5b659fa9db5d4313837c968feca3",
+        "assets/audio/se/heal.mp3": "0d2ca4e918195090e00ab8c04f4b22bff510c7574a741be8ac0a1014b9142b87"
+      }
+    },
+    {
       "id": "procedurally-exported-tohoku-art",
       "pathPrefixes": [
         "assets/motifs/aomori/",

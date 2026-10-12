@@ -1,0 +1,111 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "seikatsu.g1.home-life.0001",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.home-life",
+    "payload": {
+      "prompt": "いえの ひとが いそがしそうです。じぶんに できることを みつけるには？",
+      "choices": [
+        { "id": "a", "text": "こまっていることを きいて、できることを そうだんする" },
+        { "id": "b", "text": "なにも きかずに、きけんな しごとを はじめる" },
+        { "id": "c", "text": "じぶんには なにも できないと きめる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "いえによって ひつようなことは ちがいます。いえの ひとと そうだんして、あんぜんに できることを みつけます。"
+  },
+  {
+    "id": "seikatsu.g1.home-life.0002",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.home-life",
+    "payload": {
+      "prompt": "じぶんの つかった ものを かたづけます。つづけやすい くふうは？",
+      "choices": [
+        { "id": "a", "text": "もどす ばしょを きめ、つかった あとに かたづける" },
+        { "id": "b", "text": "まいにち ちがう ばしょへ おく" },
+        { "id": "c", "text": "だれかが かたづけるまで そのままに する" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "もどす ばしょと する ときを きめると、じぶんの しごとを つづけやすく なります。"
+  },
+  {
+    "id": "seikatsu.g1.home-life.0003",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.home-life",
+    "payload": {
+      "prompt": "テーブルを ふく しごとを ためしました。あとで ふりかえると よいことは？",
+      "choices": [
+        { "id": "a", "text": "できたことと、つぎに くふうしたいこと" },
+        { "id": "b", "text": "だれが いちばん えらいか" },
+        { "id": "c", "text": "しごとと かんけいのないこと" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "できたことや こまったことを ふりかえると、つぎの くふうを かんがえられます。"
+  },
+  {
+    "id": "seikatsu.g1.home-life.0004",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.home-life",
+    "payload": {
+      "prompt": "おさらを はこぶ とき、あつい りょうりが のっています。どうする？",
+      "choices": [
+        { "id": "a", "text": "いえの ひとに つたえ、あんぜんな しごとに かえる" },
+        { "id": "b", "text": "むりに ひとりで はこぶ" },
+        { "id": "c", "text": "はしって はこぶ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "あぶないと おもったら、いえの ひとに つたえます。じぶんに できる あんぜんな しごとを えらびます。"
+  },
+  {
+    "id": "seikatsu.g1.home-life.0005",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.home-life",
+    "payload": {
+      "prompt": "じぶんの しごとを なんにちか つづけました。いえの ひとに つたえるには？",
+      "choices": [
+        { "id": "a", "text": "したことと、きづいたことを えや ことばで つたえる" },
+        { "id": "b", "text": "できなかったことを かくす" },
+        { "id": "c", "text": "していないことを したと いう" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "したことと きづきを つたえると、いえの くらしを いっしょに よくする くふうを かんがえられます。"
+  },
+  {
+    "id": "seikatsu.g1.home-life.0006",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.home-life",
+    "payload": {
+      "prompt": "あさの したくを じぶんで しやすくするには？",
+      "choices": [
+        { "id": "a", "text": "もちものを たしかめる じゅんばんを きめる" },
+        { "id": "b", "text": "まいあさ もちものを かくす" },
+        { "id": "c", "text": "じかんを みないで ゆっくりする" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "じゅんばんを きめて ためすと、じぶんで できることが ふえ、あさの くらしを ととのえやすく なります。"
+  }
+]

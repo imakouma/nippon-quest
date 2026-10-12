@@ -47,7 +47,10 @@ describe('バッグ・そうび', () => {
     gs = putEquip(gs, sword, bagContext(gs, c)).state;
     expect(gs.player.equipment.weapon).toBe(sword.id);
     expect(gs.inventory[sword.id]).toBe(0);
-    expect(partyFromGameState(gs, c).hero.stats.scienceAtk).toBeGreaterThan(before);
+    const equippedStats = partyFromGameState(gs, c).hero.stats;
+    expect(equippedStats.scienceAtk).toBe(before + 3);
+    for (const [stat, value] of Object.entries(equippedStats))
+      expect(Number.isInteger(value), `${stat}: ${value}`).toBe(true);
     expect(equipItem(gs, sword)).toBeNull(); // もう バッグに ない
     const off = unequip(gs, 'weapon')!;
     expect(off.player.equipment.weapon).toBeUndefined();

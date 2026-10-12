@@ -139,6 +139,9 @@ import { openBarberFlow } from './overworld/barberFlow';
 import { commitInnStay } from './overworld/innFlow';
 import { equippedBagThings, levelProgressLine, storedBagThings } from './overworld/bagItems';
 import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
+import { mapMusicTrack } from './overworld/music';
+import { attachFieldSounds, playFieldFootstep, playEntranceSound } from './overworld/sounds';
+import { attachSceneMusic } from './shared/music';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
 import { npcModel } from './overworld/npcModel';
@@ -147,7 +150,12 @@ import { itemKindPresentation, specialtyRewardLines } from './overworld/treasure
 import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
-import { mapArrivalStory, runCompanionRite } from './overworld/storyFlow';
+import {
+  mapArrivalStory,
+  queueOpeningBattleTutorial,
+  runCompanionRite,
+  runPendingBattleTutorial,
+} from './overworld/storyFlow';
 import { hasStoryCompanion, storyCompanionId } from '../core/progression/storyCompanion';
 import {
   areaBossStoryLines,
@@ -186,6 +194,8 @@ interface DebugBattle {
   /** バトルの 背景を 見る ための 地面 */
   ground?: Ground;
   forceRecruitOffer?: boolean;
+  /** 比較用の戦闘画面配置。通常のゲーム進行では指定しない。 */
+  presentation?: BattleSceneData['presentation'];
 }
 
 interface OverworldSceneData {
@@ -296,6 +306,7 @@ export class OverworldScene extends Phaser.Scene {
   private facing: Dir = 'down';
   private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
   private wasd?: Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
+  private touchDir: Dir | null = null;
   readonly rng: Rng = createRng(freshSeed());
   readonly speak = createSpeaker();
   private readonly roots = new Map<RootName, HTMLDivElement>();
@@ -367,6 +378,8 @@ export class OverworldScene extends Phaser.Scene {
 
   create(): void {
     this.resetMapState();
+    attachSceneMusic(this, mapMusicTrack(this.mapKey));
+    attachFieldSounds(this);
     for (const r of ['hud', 'title', 'fx', 'dialogue', 'travel'] as const) this.root(r);
 
     const onBattleEnd = (p: BattleEndPayload) => this.onBattleEnd(p);
@@ -443,6 +456,7 @@ export class OverworldScene extends Phaser.Scene {
           zone,
           ...(debug.ground ? { ground: debug.ground } : {}),
           forceRecruitOffer: debug.forceRecruitOffer,
+          presentation: debug.presentation,
         }),
       );
     }
@@ -619,6 +633,7 @@ export class OverworldScene extends Phaser.Scene {
     if (c?.right.isDown || k?.D.isDown) return 'right';
     if (c?.up.isDown || k?.W.isDown) return 'up';
     if (c?.down.isDown || k?.S.isDown) return 'down';
+    if (this.touchDir) return this.touchDir;
     const p = this.input.activePointer;
     if (p.isDown && p.getDuration() > 150) {
       const w = p.positionToCamera(this.cameras.main) as Phaser.Math.Vector2;
@@ -709,6 +724,7 @@ export class OverworldScene extends Phaser.Scene {
       onComplete: () => {
         this.moving = false;
         this.stepCount++;
+        playFieldFootstep(this.mapKey, this.map.getTileAt(nx, ny, true, 'background')?.index);
         this.rememberLocation(nx, ny);
         this.renderHud(); // 左上の地図の主人公を動かす
         this.arrive(nx, ny);
@@ -739,6 +755,7 @@ export class OverworldScene extends Phaser.Scene {
     }
     if (tr && this.canWarp) {
       this.canWarp = false;
+      playEntranceSound(this.mapKey, tr.map);
       this.switchMap(tr.map, tr.spawn);
       return;
     }
@@ -2311,7 +2328,7 @@ export class OverworldScene extends Phaser.Scene {
     const item = this.chestItem(chest);
     const name = item?.name ?? chest.itemName;
     chest.sprite.setTexture('fld.chest.open');
-    playSfx('discover');
+    playSfx('chest');
     await this.itemCutin(item, name);
     const current = this.gs();
     if (!current || current.progress.chestsOpened.includes(chest.key)) {
@@ -2388,7 +2405,7 @@ export class OverworldScene extends Phaser.Scene {
     const gain = content ? specialtyTreasureGain(current, chest.itemId, content.areas, content.items) : null;
     const next = applyChestReward(current, chest, item);
     this.setGame(next);
-    playSfx('select');
+    playSfx('chest');
     chest.sprite.setTexture('fld.chest.open');
     this.renderHud();
     // 説明を先に出してから、アイテムを わたす
@@ -2558,20 +2575,34 @@ export class OverworldScene extends Phaser.Scene {
     if (named !== gs) this.setGame(named);
     gs = named;
     const story = mapArrivalStory(this.mapKey, gs);
-    if (!story) return void (this.busy = false);
-    this.setGame(story.state);
-    await presentCutscene({
-      root: this.root('dialogue'),
-      lines: story.lines,
-      kind: story.presentation,
-      game: gs,
-      fairyName: t('field.prologueFairy'),
-      afterClose: () => {
-        this.inputLockUntil = this.time.now + 250;
-        this.waitRelease = true;
-      },
-    });
-    this.busy = false;
+    try {
+      if (story) {
+        this.setGame(queueOpeningBattleTutorial(story));
+        await presentCutscene({
+          root: this.root('dialogue'),
+          lines: story.lines,
+          kind: story.presentation,
+          game: gs,
+          fairyName: t('field.prologueFairy'),
+          afterClose: () => {
+            this.inputLockUntil = this.time.now + 250;
+            this.waitRelease = true;
+          },
+        });
+      }
+      const current = this.gs();
+      if (current) {
+        await runPendingBattleTutorial({
+          mapKey: this.mapKey,
+          game: current,
+          talk: (lines) => this.talk(lines),
+          save: (state) => this.setGame(state),
+          getGame: () => this.gs() ?? current,
+        });
+      }
+    } finally {
+      this.busy = false;
+    }
   }
 
   /** 会話を出す。choices があれば最後の行で選ばせて、その番号を返す（選択肢なしは -1） */
@@ -2601,6 +2632,9 @@ export class OverworldScene extends Phaser.Scene {
         onAreaMap: () => this.openAreaMap(),
         menuLabel: t('field.menu'),
         onMenu: () => this.openMenu(),
+        onMove: (direction) => {
+          this.touchDir = direction;
+        },
         dev: this.devAvailable()
           ? {
               label: t(this.devAll() ? 'field.devOn' : 'field.devLabel'),

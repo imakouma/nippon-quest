@@ -14,30 +14,18 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
   let bundleAttempts = 0;
   let manifestFailed = false;
   const pageErrors: string[] = [];
-  const consoleMessages: string[] = [];
   page.on('pageerror', (error) => pageErrors.push(error.message));
-  page.on('console', (message) => consoleMessages.push(message.text()));
-  await page.route('**/*', async (route) => {
-    const pathname = new URL(route.request().url()).pathname;
-    if (pathname.endsWith('/content/content-bundle.json')) {
-      bundleAttempts += 1;
-      if (bundleAttempts === 1) {
-        await route.fulfill({ status: 503, contentType: 'text/plain', body: 'temporary failure' });
-        return;
-      }
-    } else if (
-      bundleAttempts === 0 &&
-      !manifestFailed &&
-      pathname.endsWith('/content/manifest.json')
-    ) {
-      manifestFailed = true;
+  await page.route('**/content/content-bundle.json', async (route) => {
+    bundleAttempts += 1;
+    if (bundleAttempts === 1) {
       await route.fulfill({ status: 503, contentType: 'text/plain', body: 'temporary failure' });
       return;
-    } else if (
-      bundleAttempts === 1 &&
-      pathname.includes('/content/') &&
-      !pathname.endsWith('/content/i18n/bootstrap-ja.json')
-    ) {
+    }
+    await route.continue();
+  });
+  await page.route('**/content/manifest.json', async (route) => {
+    if (!manifestFailed) {
+      manifestFailed = true;
       await route.fulfill({ status: 503, contentType: 'text/plain', body: 'temporary failure' });
       return;
     }
@@ -46,8 +34,8 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
 
   await page.goto('/');
   await page.waitForTimeout(1_000);
-  console.log({ bundleAttempts, manifestFailed, pageErrors, consoleMessages });
   expect(pageErrors).toEqual([]);
+  expect(bundleAttempts > 0 || manifestFailed).toBe(true);
   const retry = page.getByRole('button', { name: 'もういちど' });
   await expect(retry).toBeVisible({ timeout: 60_000 });
   await expect(page.locator('.nq-error')).toContainText('よみこみに しっぱいしました');

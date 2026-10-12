@@ -1,0 +1,158 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-foreign-activities-g1-boundary",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]・外国語[がいこくご]活動[かつどう]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/shotou/new-cs/1387014.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "第4章 外国語活動・第3学年及び第4学年（1年生はプロジェクト独自の補助教材）"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "eigo.g1.supplementary.greeting-sounds",
+      "subject": "eigo",
+      "grade": 1,
+      "unit": "eigo.g1.alphabet",
+      "name": "挨拶[あいさつ]や気持[きも]ちを表[あらわ]す英語[えいご]の音[おと]に親[した]しむ",
+      "description": "挨拶[あいさつ]や気持[きも]ちを表[あらわ]す短[みじか]い英語[えいご]を聞[き]き、文字[もじ]を読[よ]まずに場面[ばめん]や表情[ひょうじょう]の絵[え]と結[むす]び付[つ]ける。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": [],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "unverified",
+        "note": "1年生[ねんせい]の必修[ひっしゅう]内容[ないよう]ではない おまけ。英字[えいじ]を読[よ]ませず、音[おと]と絵[え]で楽[たの]しむ。"
+      },
+      "sourceIds": ["mext-h29-foreign-activities-g1-boundary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（必修範囲外であることを一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "eigo.g1.supplementary.fruit-sounds",
+      "subject": "eigo",
+      "grade": 1,
+      "unit": "eigo.g1.fruits",
+      "name": "果物[くだもの]を表[あらわ]す英語[えいご]の音[おと]に親[した]しむ",
+      "description": "身近[みぢか]な果物[くだもの]を表[あらわ]す英語[えいご]を聞[き]き、英単語[えいたんご]を読[よ]まずに絵[え]と結[むす]び付[つ]ける。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": [],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "unverified",
+        "note": "1年生[ねんせい]の必修[ひっしゅう]内容[ないよう]ではない おまけ。音声[おんせい]と絵[え]だけで扱[あつか]う。"
+      },
+      "sourceIds": ["mext-h29-foreign-activities-g1-boundary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（必修範囲外であることを一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "eigo.g1.supplementary.greeting-sounds",
+      "to": "eigo.g1.supplementary.fruit-sounds",
+      "kind": "related",
+      "strength": 0.3,
+      "rationale": "短[みじか]い英語[えいご]の音[おと]を絵[え]と結[むす]び付[つ]けて聞[き]く遊[あそ]びとして共通[きょうつう]する。",
+      "sourceIds": ["mext-h29-foreign-activities-g1-boundary"],
+      "reviewStatus": "draft"
+    }
+  ],
+  "questionLinks": [
+    {
+      "questionId": "eigo.g1.alphabet.0001",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.greeting-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.alphabet.0002",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.greeting-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.alphabet.0003",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.greeting-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.alphabet.0004",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.greeting-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.alphabet.0005",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.greeting-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.alphabet.0006",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.greeting-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.fruits.0001",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.fruit-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.fruits.0002",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.fruit-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.fruits.0003",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.fruit-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.fruits.0004",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.fruit-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.fruits.0005",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.fruit-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g1.fruits.0006",
+      "concepts": [{ "conceptId": "eigo.g1.supplementary.fruit-sounds", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.4,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

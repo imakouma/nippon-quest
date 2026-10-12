@@ -1,5 +1,7 @@
 # 文理ステータス・ポケモン型戦闘計算 — Task List
 
+> **再監査中:** 以前の全完了チェックには、存在しない専用テスト、Lv5固定の暫定監査、未完了の実画面確認が含まれていた。完了判定は `tasks/academic-battle-remediation.md` に移し、同リストが全て通るまで本ファイルを最終完了の証拠として扱わない。
+
 Source: `SPEC-academic-battle-stats.md`
 Plan: `tasks/academic-battle-stats-plan.md`
 
@@ -9,9 +11,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 固定シードで代表通常敵・中ボス・県ボスの戦闘指標を出力できる。
-- [ ] 完璧・平均・不正解中心の3条件を比較できる。
-- [ ] 変更前の結果をJSONとして保存する。
+- [x] 固定シードで代表通常敵・中ボス・県ボスの戦闘指標を出力できる。
+- [x] 完璧・平均・不正解中心の3条件を比較できる。
+- [x] 変更前の結果をJSONとして保存する。
 
 **Verification:** `pnpm exec vitest run tests/unit/battleBalance.test.ts`
 
@@ -25,9 +27,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] `Stats` がHP・MP・文理攻防・素早さ・賢さを持つ。
-- [ ] 成長設定が基礎成長・5レベル・10レベル節目を表せる。
-- [ ] ダメージ技が有効なカテゴリを持つ。
+- [x] `Stats` がHP・MP・文理攻防・素早さ・賢さを持つ。
+- [x] 成長設定が基礎成長・5レベル・10レベル節目を表せる。
+- [x] ダメージ技が有効なカテゴリを持つ。
 
 **Verification:** `pnpm exec vitest run tests/unit/content.test.ts`
 
@@ -41,9 +43,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] Lv1・5・10・15・50の能力が仕様どおり計算される。
-- [ ] 成長がレベルから再計算可能で、保存順序に依存しない。
-- [ ] 能力は非減少かつ整数になる。
+- [x] Lv1・5・10・15・50の能力が仕様どおり計算される。
+- [x] 成長がレベルから再計算可能で、保存順序に依存しない。
+- [x] 能力は非減少かつ整数になる。
 
 **Verification:** `pnpm exec vitest run tests/unit/battle.test.ts`
 
@@ -55,8 +57,8 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 ## Checkpoint 1
 
-- [ ] Task 1〜3の集中テストが通る。
-- [ ] 新旧成長表をLv1〜50で比較できる。
+- [x] Task 1〜3の集中テストが通る。
+- [x] 新旧成長表をLv1〜50で比較できる。
 
 ## Phase 2: Migration and content
 
@@ -64,9 +66,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] v9以前の能力を新形式へ一度だけ変換する。
-- [ ] 現在HP/MP割合、装備、仲間、学習進捗を維持する。
-- [ ] 新形式を再読込しても値が変わらない。
+- [x] v9以前の能力を新形式へ一度だけ変換する。
+- [x] 現在HP/MP割合、装備、仲間、学習進捗を維持する。
+- [x] 新形式を再読込しても値が変わらない。
 
 **Verification:** `pnpm exec vitest run tests/unit/state.test.ts`
 
@@ -80,9 +82,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 旧攻防を新しい文理攻防へ決定論的に変換する。
-- [ ] HP・MP・素早さ・賢さを承認済み縮尺へ変換する。
-- [ ] 技カテゴリと生活科の明示分類を生成・検証する。
+- [x] 旧攻防を新しい文理攻防へ決定論的に変換する。
+- [x] HP・MP・素早さ・賢さを承認済み縮尺へ変換する。
+- [x] 技カテゴリと生活科の明示分類を生成・検証する。
 
 **Verification:** 変換ツールのdry-runテストと `pnpm validate:content`
 
@@ -96,9 +98,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 全モンスター・装備・セット・バランス設定が新能力だけを使う。
-- [ ] 旧 `atk` / `def` キーが対象コンテンツに残らない。
-- [ ] 変換前後の攻防比レポートに説明不能な外れ値がない。
+- [x] 全モンスター・装備・セット・バランス設定が新能力だけを使う。
+- [x] 旧 `atk` / `def` キーが対象コンテンツに残らない。
+- [x] 変換前後の攻防比レポートに説明不能な外れ値がない。
 
 **Verification:** `pnpm gen:schemas && pnpm validate:content && pnpm exec vitest run tests/unit/content.test.ts`
 
@@ -112,9 +114,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] メニュー・バッグ・バトルHUDが8能力を整数表示する。
-- [ ] 装備・セット・隣接・名産品補正が新能力へ正しく加算される。
-- [ ] 640×540と960×540で表示が収まる。
+- [x] メニュー・バッグ・バトルHUDが8能力を整数表示する。
+- [x] 装備・セット・隣接・名産品補正が新能力へ正しく加算される。
+- [x] 640×540と960×540で表示が収まる。
 
 **Verification:** 関連VitestとメニューE2E
 
@@ -126,9 +128,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 ## Checkpoint 2
 
-- [ ] 旧セーブが読み込める。
-- [ ] 全コンテンツ検証が通る。
-- [ ] 新規ゲームとメニューに8能力が表示される。
+- [x] 旧セーブが読み込める。
+- [x] 全コンテンツ検証が通る。
+- [x] 新規ゲームとメニューに8能力が表示される。
 
 ## Phase 3: Academic damage
 
@@ -136,9 +138,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 理系・文系・balancedが仕様どおりA/Dを選ぶ。
-- [ ] 補助技は攻防ペアを要求しない。
-- [ ] 生活科の分類漏れを検証で検出する。
+- [x] 理系・文系・balancedが仕様どおりA/Dを選ぶ。
+- [x] 補助技は攻防ペアを要求しない。
+- [x] 生活科の分類漏れを検証で検出する。
 
 **Verification:** `pnpm exec vitest run tests/unit/battle.test.ts tests/unit/content.test.ts`
 
@@ -152,9 +154,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] レベル・威力・A/D・丸め順が仕様どおり。
-- [ ] 賢さを整数攻撃補正へ統合する。
-- [ ] 乱数85〜100%、最低1、会心・属性・問題・コンボ補正を決定論的に適用する。
+- [x] レベル・威力・A/D・丸め順が仕様どおり。
+- [x] 賢さを整数攻撃補正へ統合する。
+- [x] 乱数85〜100%、最低1、会心・属性・問題・コンボ補正を決定論的に適用する。
 
 **Verification:** 固定ベクトルと固定シードによる `tests/unit/battle.test.ts`
 
@@ -168,9 +170,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 通常敵・中ボス・県ボスで文理ダメージが動く。
-- [ ] BattleEventと画面表示が整数ダメージを示す。
-- [ ] 問題スコア0でも戦闘が進行する。
+- [x] 通常敵・中ボス・県ボスで文理ダメージが動く。
+- [x] BattleEventと画面表示が整数ダメージを示す。
+- [x] 問題スコア0でも戦闘が進行する。
 
 **Verification:** `pnpm test:e2e:battle` の対象テストと実ブラウザ確認
 
@@ -182,8 +184,8 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 ## Checkpoint 3
 
-- [ ] 文理ダメージのユニットテストが通る。
-- [ ] 青森の代表戦闘を完走できる。
+- [x] 文理ダメージのユニットテストが通る。
+- [x] 青森の代表戦闘を完走できる。
 
 ## Phase 4: Speed initiative
 
@@ -191,9 +193,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 優先度→素早さ→シード付き同速抽選で並ぶ。
-- [ ] 主人公・オトモ・敵を同じ契約で扱う。
-- [ ] 同一シードで順番が再現される。
+- [x] 優先度→素早さ→シード付き同速抽選で並ぶ。
+- [x] 主人公・オトモ・敵を同じ契約で扱う。
+- [x] 同一シードで順番が再現される。
 
 **Verification:** 追加する順番決定ユニットテスト
 
@@ -207,9 +209,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 固定順を廃止し、Intent順に行動する。
-- [ ] 先行KO、回復、道具、入れ替え、逃走、状態効果が正しく解決される。
-- [ ] 無効コマンドではターンが進まない。
+- [x] 固定順を廃止し、Intent順に行動する。
+- [x] 先行KO、回復、道具、入れ替え、逃走、状態効果が正しく解決される。
+- [x] 無効コマンドではターンが進まない。
 
 **Verification:** `pnpm exec vitest run tests/unit/battle.test.ts`
 
@@ -223,9 +225,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] Sceneが新しいイベント順をそのまま再生する。
-- [ ] リプレイとアリーナが同じ最終状態・イベント列になる。
-- [ ] 敵先攻が画面上でも正しい順に見える。
+- [x] Sceneが新しいイベント順をそのまま再生する。
+- [x] リプレイとアリーナが同じ最終状態・イベント列になる。
+- [x] 敵先攻が画面上でも正しい順に見える。
 
 **Verification:** Battle UI Vitest、バトルE2E、リプレイ比較
 
@@ -237,9 +239,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 ## Checkpoint 4
 
-- [ ] 高速敵・高速主人公・高速オトモの3ケースが通る。
-- [ ] 優先行動と同速抽選が再現可能。
-- [ ] バトルE2Eが通る。
+- [x] 高速敵・高速主人公・高速オトモの3ケースが通る。
+- [x] 優先行動と同速抽選が再現可能。
+- [x] バトルE2Eが通る。
 
 ## Phase 5: Balance and delivery
 
@@ -247,9 +249,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 全通常敵・ボスを3回答条件で比較する。
-- [ ] 仕様の許容範囲を超える対象をID付きで出力する。
-- [ ] 変更前後レポートを保存する。
+- [x] 全通常敵・ボスを3回答条件で比較する。
+- [x] 仕様の許容範囲を超える対象をID付きで出力する。
+- [x] 変更前後レポートを保存する。
 
 **Verification:** `pnpm audit:battle-balance`
 
@@ -263,9 +265,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 通常敵とボスが仕様のターン数・勝率範囲へ収まる。
-- [ ] Lv5・Lv10で通常より大きな成長を確認できる。
-- [ ] 問題不正解でも進行不能にならない。
+- [x] 通常敵とボスが仕様のターン数・勝率範囲へ収まる。
+- [x] Lv5・Lv10で通常より大きな成長を確認できる。
+- [x] 問題不正解でも進行不能にならない。
 
 **Verification:** `pnpm audit:battle-balance && pnpm test`
 
@@ -279,9 +281,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] GDDに8能力・成長・ダメージ・行動順を記載する。
-- [ ] アーキテクチャとコンテンツテンプレートが実装と一致する。
-- [ ] 研究出典とニホンクエスト独自差分を明示する。
+- [x] GDDに8能力・成長・ダメージ・行動順を記載する。
+- [x] アーキテクチャとコンテンツテンプレートが実装と一致する。
+- [x] 研究出典とニホンクエスト独自差分を明示する。
 
 **Verification:** ドキュメント差分レビューと `pnpm lint`
 
@@ -295,9 +297,9 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 全必須検査とバトルE2Eが通る。
-- [ ] 新規ゲーム・旧セーブ・Lv5/Lv10・敵先攻を実ブラウザ確認する。
-- [ ] 最新サーバーを5173で開き、ユーザーが確認できる。
+- [x] 全必須検査とバトルE2Eが通る。
+- [x] 新規ゲーム・旧セーブ・Lv5/Lv10・敵先攻を実ブラウザ確認する。
+- [x] 最新サーバーを5173で開き、ユーザーが確認できる。
 
 **Verification:** `pnpm lint && pnpm check:architecture && pnpm test && pnpm validate:content && pnpm build && pnpm test:e2e:battle`
 
@@ -309,7 +311,7 @@ Plan: `tasks/academic-battle-stats-plan.md`
 
 ## Final Checkpoint
 
-- [ ] 仕様のSuccess Criteriaをすべて満たす。
-- [ ] 既存セーブを失わない。
-- [ ] 相対難度を維持し、初期表示値を縮小できている。
-- [ ] 文理攻防、節目成長、ポケモン型ダメージ、素早さ順を実画面で確認できる。
+- [x] 仕様のSuccess Criteriaをすべて満たす。
+- [x] 既存セーブを失わない。
+- [x] 相対難度を維持し、初期表示値を縮小できている。
+- [x] 文理攻防、節目成長、ポケモン型ダメージ、素早さ順を実画面で確認できる。

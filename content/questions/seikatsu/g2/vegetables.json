@@ -1,0 +1,120 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "seikatsu.g2.vegetables.0001",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.vegetables",
+    "payload": {
+      "prompt": "育[そだ]てる 野菜[やさい]を きめる まえに、たしかめると よいことは？",
+      "choices": [
+        { "id": "a", "text": "植[う]える 時期[じき]と 場所[ばしょ]、育[そだ]て方[かた]" },
+        { "id": "b", "text": "名前[なまえ]の 長[なが]さだけ" },
+        { "id": "c", "text": "何[なに]も しらべずに きめる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "野菜[やさい]によって 植[う]える 時期[じき]や 育[そだ]ちやすい 場所[ばしょ]が ちがうので、はじめに しらべます。"
+  },
+  {
+    "id": "seikatsu.g2.vegetables.0002",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.vegetables",
+    "payload": {
+      "prompt": "野菜[やさい]の 葉[は]が しおれています。まず どうする？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "土[つち]や 葉[は]の ようすを 観察[かんさつ]し、先生[せんせい]や 本[ほん]で 世話[せわ]を たしかめる"
+        },
+        { "id": "b", "text": "りゆうを たしかめず、水[みず]を ずっと かける" },
+        { "id": "c", "text": "すぐに ぬいて すてる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "野菜[やさい]の ようすを よく 見[み]て、その 野菜[やさい]に 合[あ]う 世話[せわ]を たしかめます。"
+  },
+  {
+    "id": "seikatsu.g2.vegetables.0003",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.vegetables",
+    "payload": {
+      "prompt": "野菜[やさい]の 成長[せいちょう]を くらべやすい きろくは？",
+      "choices": [
+        { "id": "a", "text": "日[ひ]づけ、葉[は]の 数[かず]や 大[おお]きさ、気[き]づいたこと" },
+        { "id": "b", "text": "鉢[はち]の 色[いろ]だけ" },
+        { "id": "c", "text": "一日[いちにち]だけの ようす" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "日[ひ]づけと おなじ 見方[みかた]で きろくを 続[つづ]けると、変化[へんか]や 成長[せいちょう]を くらべられます。"
+  },
+  {
+    "id": "seikatsu.g2.vegetables.0004",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.vegetables",
+    "payload": {
+      "prompt": "友達[ともだち]の 野菜[やさい]と 育[そだ]ち方[かた]が ちがいます。どう かんがえる？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "野菜[やさい]の 種類[しゅるい]や 日当[ひあ]たり、世話[せわ]の ちがいを くらべる"
+        },
+        { "id": "b", "text": "どちらかは 生[い]きていないと きめる" },
+        { "id": "c", "text": "ちがいを 見[み]ないことに する" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "種類[しゅるい]や 育[そだ]つ 条件[じょうけん]によって ようすは ちがいます。くらべると 世話[せわ]の 工夫[くふう]を 考[かんが]えられます。"
+  },
+  {
+    "id": "seikatsu.g2.vegetables.0005",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.vegetables",
+    "payload": {
+      "prompt": "休[やす]みの 日[ひ]も 野菜[やさい]の 世話[せわ]が ひつようです。よい 計画[けいかく]は？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "先生[せんせい]や 友達[ともだち]と そうだんし、だれが いつ 世話[せわ]を するか きめる"
+        },
+        { "id": "b", "text": "だれかが するだろうと そのままに する" },
+        { "id": "c", "text": "一度[いちど]に 何日分[なんにちぶん]もの 水[みず]を かける" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "生[い]きている 野菜[やさい]を 大切[たいせつ]に するため、続[つづ]けられる 世話[せわ]の 計画[けいかく]を 立[た]てます。"
+  },
+  {
+    "id": "seikatsu.g2.vegetables.0006",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.vegetables",
+    "payload": {
+      "prompt": "実[み]が できました。これまでの 成長[せいちょう]を つたえるには？",
+      "choices": [
+        { "id": "a", "text": "はじめから 今[いま]までの きろくを 順番[じゅんばん]に ならべる" },
+        { "id": "b", "text": "実[み]の しゃしんだけを 見[み]せる" },
+        { "id": "c", "text": "世話[せわ]を していないと つたえる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "きろくを 時間[じかん]の 順[じゅん]に ならべると、野菜[やさい]が 変化[へんか]しながら 成長[せいちょう]したことが わかります。"
+  }
+]

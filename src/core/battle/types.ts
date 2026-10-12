@@ -3,7 +3,7 @@
  * 1 ターン ＝ 優先度 → すばやさ → シード付き同速抽選の順で 1 回ずつ動く。
  * 仕様のデータモデルとの対応：
  *  - PlayerState     … 主人公の Combatant（ally.hero：hp / maxHp = stats.hp / mp / maxMp = stats.mp / stats）＋ BattleState.player。
- *                      stats の名前は content とそろえて atk = attack・def = defense・spd = speed・wis = intelligence
+ *                      stats はHP/MP・文理攻防・すばやさ・かしこさの8能力。
  *  - EnemyUnit       … BattleState.enemy（element・weakness・skipTurns）
  *  - Companion       … BattleState.companion（出撃中の仲間モンスター＝オトモ）
  *  - SkillDefinition … content の Skill（subject・costGauge・power・targetType・effect = effectType・flavor = description）

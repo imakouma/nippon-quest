@@ -103,7 +103,18 @@ describe('GameState', () => {
     expect(migrated.state.progress.titles).toEqual(['ねぶた見習[みなら]い']);
   });
   it('v9 の能力を文理能力へ移行し、現在HP・MP割合を保つ', () => {
-    const legacy = structuredClone(fresh()) as unknown as LegacyV9State;
+    const source = fresh();
+    source.player.equipment.weapon = 'common-renshu-no-bou';
+    source.party.owned.push({ uid: 'pal-1', monsterId: 'aomori-ringoron', level: 3, xp: 12 });
+    source.party.activeUid = 'pal-1';
+    source.party.team = ['pal-1'];
+    source.learning.mastery['sansu:addition'] = { value: 0.75, n: 4, lastAt: 1234 };
+    const preserved = {
+      equipment: structuredClone(source.player.equipment),
+      party: structuredClone(source.party),
+      learning: structuredClone(source.learning),
+    };
+    const legacy = structuredClone(source) as unknown as LegacyV9State;
     legacy.schemaVersion = 9;
     legacy.player.baseStats = {
       hp: 40,
@@ -128,6 +139,10 @@ describe('GameState', () => {
     });
     expect(migrated.player.hp).toBe(12);
     expect(migrated.player.mp).toBe(3);
+    expect(migrated.player.equipment).toEqual(preserved.equipment);
+    expect(migrated.party).toEqual(preserved.party);
+    expect(migrated.learning).toEqual(preserved.learning);
+    expect(migrate(migrated).state).toEqual(migrated);
   });
   it('v2 の学習データへ履歴と概念状態を追加して移行する', () => {
     const current = fresh();

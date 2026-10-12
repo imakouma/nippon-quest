@@ -1324,7 +1324,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "地図の端に描かれている、地図記号の意味や実際の距離（縮尺[しゅくしゃく]）を示すための目盛りのことを何といいますか。",
+      "prompt": "地図[ちず]の端[はし]などにある、地図記号[ちずきごう]や色[いろ]の意味[いみ]をまとめた部分[ぶぶん]を何[なん]といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -1346,7 +1346,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "地図記号の意味を分かりやすくまとめて示した表や部分を「凡例[はんれい]」と呼びます。"
+    "explanation": "地図記号[ちずきごう]や色[いろ]の意味[いみ]をまとめて示[しめ]した部分[ぶぶん]を「凡例[はんれい]」と呼[よ]びます。縮尺[しゅくしゃく]は、実際[じっさい]の距離[きょり]を地図上[ちずじょう]に縮[ちぢ]めた割合[わりあい]です。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-01.d961cd365b76",
@@ -1647,79 +1647,6 @@
     "explanation": "交番は警棒を交差[こうさ]させた形からできた「X」の記号[きごう]です。地図の右下近くにあります。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-02.0355c8c00401",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "写真を見て、この旗について正しいものをえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "日本の国旗である"
-        },
-        {
-          "id": "c2",
-          "text": "市の旗である"
-        },
-        {
-          "id": "c3",
-          "text": "学校[がっこう]の旗である"
-        },
-        {
-          "id": "c4",
-          "text": "店の看板である"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/de7c7fddf8c0fb9a.png"
-    },
-    "explanation": "我が国には国旗があります。国旗を尊重する態度を大切にします。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.040fb76445e8",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "農家の人たちが、虫の被害を防いだり、野菜が病気[びょうき]になるのを防いだりするために、工夫して使っている安全な肥料や土のことを何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "有機肥料（たいひなど）"
-        },
-        {
-          "id": "c2",
-          "text": "化学物質の原液"
-        },
-        {
-          "id": "c3",
-          "text": "海水"
-        },
-        {
-          "id": "c4",
-          "text": "砂利（じゃり）"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "落ち葉や家畜のふんなどを発酵させて作る「たいひ（堆肥）」などの有機肥料は、安全で栄養豊かな土を作るのに使われます。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-02.0fa69fe8f3bb",
     "type": "choice",
     "subject": "shakai",
@@ -1828,42 +1755,6 @@
     "explanation": "暑い日には冷たい麺類、寒い日には温かいおでんなどを多めに仕入れるなど、無駄（ロス）をなくし需要に応えるための工夫です。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-02.14b4eef643eb",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "買い物をするときに、売上の一部が障害のある人の支援や環境保護活動に使われる商品についているマークや取り組みを何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "ソーシャル商品（寄付つき商品・フェアトレード）"
-        },
-        {
-          "id": "c2",
-          "text": "バーコード"
-        },
-        {
-          "id": "c3",
-          "text": "値引きシール"
-        },
-        {
-          "id": "c4",
-          "text": "賞味期限[しょうみきげん]"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "買物をすることを通じて、途上国の生産者を支えたり環境保護に貢献したりする「ソーシャルアクション（エシカル消費[しょうひ]）」が広がっています。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-02.16323347aa52",
     "type": "choice",
     "subject": "shakai",
@@ -1898,114 +1789,6 @@
       "shuffle": true
     },
     "explanation": "それぞれの人が決まった一部分の作業を順番に行う「流れ作業」により、短時間で大量[たいりょう]の製品を作ることができます。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.1c4bf7184861",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "日本のスーパーマーケットでは、カボチャやバナナなど、季節や気候の異なる海外からも多くの食品を仕入れています。バナナの主な産地[さんち]として有名な国はどれですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "フィリピン"
-        },
-        {
-          "id": "c2",
-          "text": "ロシア"
-        },
-        {
-          "id": "c3",
-          "text": "イギリス"
-        },
-        {
-          "id": "c4",
-          "text": "カナダ"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "日本のスーパーで並ぶバナナの多くは、暖かい気候の「フィリピン」から輸入[ゆにゅう]されています。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.1ea55028a889",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "イチゴ栽培において、苗の植え付けが行われるのは一般的に何月ごろですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "9月"
-        },
-        {
-          "id": "c2",
-          "text": "1月"
-        },
-        {
-          "id": "c3",
-          "text": "5月"
-        },
-        {
-          "id": "c4",
-          "text": "7月"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "いちごの苗植えは秋の初め（9月ごろ）に行われます。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.2152821f1519",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "街のスーパーマーケットが、オンラインで注文を受けて家庭まで商品をトラックで届けるサービスを何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "ネットスーパー"
-        },
-        {
-          "id": "c2",
-          "text": "無人店舗"
-        },
-        {
-          "id": "c3",
-          "text": "自動販売機"
-        },
-        {
-          "id": "c4",
-          "text": "フリーマーケット"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "スマートフォンなどで注文すると、近くのスーパーから自宅まで食材を運んでくれる「ネットスーパー」が普及しています。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-02.2331f774f5bb",
@@ -2080,42 +1863,6 @@
     "explanation": "生産[せいさん]・収穫から輸送、消費地での店舗保管まで、一貫して低温に保って鮮度を守る流通[りゅうつう]システムを「コールドチェーン」と呼びます。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-02.2cef53682a68",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "日本で作った自動車や機械などを、外国に向けて売ることを何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "輸出（ゆしゅつ）"
-        },
-        {
-          "id": "c2",
-          "text": "輸入（ゆにゅう）"
-        },
-        {
-          "id": "c3",
-          "text": "生産（せいさん）"
-        },
-        {
-          "id": "c4",
-          "text": "仕入れ"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "自国の製品を海外へ売りに出すことを「輸出[ゆしゅつ]」といいます。日本は自動車や精密機械などを多く輸出[ゆしゅつ]しています。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-02.2f95c2ee2a0a",
     "type": "choice",
     "subject": "shakai",
@@ -2150,78 +1897,6 @@
       "shuffle": true
     },
     "explanation": "農産物や水産物などが生産[せいさん]された場所を「産地[さんち]」といいます。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.4db86f5fe44c",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "「広がるつながり」について正しいものはどれですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "スーパーには、県外や外国から運ばれてきた商品も並んでいます。"
-        },
-        {
-          "id": "c2",
-          "text": "地図帳を使って、産地[さんち]や国の名称と位置を調べましょう。"
-        },
-        {
-          "id": "c3",
-          "text": "我が国や外国には国旗があることを理解する"
-        },
-        {
-          "id": "c4",
-          "text": "国旗を尊重する態度を大切にする"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "正解は「スーパーには、県外や外国から運ばれてきた商品も並んでいます。」です。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.4fab4873e82c",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "次のうち、「24時間あいていて、朝早くや夜遅くでも買い物や公共料金の支払いができる店」はどれですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "コンビニエンスストア"
-        },
-        {
-          "id": "c2",
-          "text": "スーパーマーケット"
-        },
-        {
-          "id": "c3",
-          "text": "八百屋"
-        },
-        {
-          "id": "c4",
-          "text": "大型ショッピングモール"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "24時間営業で多機能なのがコンビニエンスストアの大きな特徴です。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-02.50cef253b63c",
@@ -2261,42 +1936,6 @@
     "explanation": "スーパーには県外や外国から運ばれてきた商品も並んでいます。地図帳で産地[さんち]を調べましょう。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-02.6055fd13ca0c",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "横浜の名物「しゅうまい」の原料となるグリーンピースなどの野菜は、日本国内だけでなく、どの国からも仕入れられていますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "ニュージーランドなどの海外"
-        },
-        {
-          "id": "c2",
-          "text": "日本国内だけ"
-        },
-        {
-          "id": "c3",
-          "text": "北極からだけ"
-        },
-        {
-          "id": "c4",
-          "text": "アフリカの砂漠からだけ"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "一年を通じて安定して仕入れるため、南半球のニュージーランドなど海外からも輸入[ゆにゅう]されています。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-02.634835dcc2d9",
     "type": "choice",
     "subject": "shakai",
@@ -2331,42 +1970,6 @@
       "shuffle": true
     },
     "explanation": "異物混入を防ぐため、粘着ローラーやエアーシャワーでほこりを払い、念入りな手洗いを行います。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.68301bfa64cb",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "いちごをビニールハウスで栽培するとき、花粉を運んで受粉させる（実を実らせる）ためにハウスに放つ虫は何ですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "みつばち"
-        },
-        {
-          "id": "c2",
-          "text": "てんとうむし"
-        },
-        {
-          "id": "c3",
-          "text": "かまきり"
-        },
-        {
-          "id": "c4",
-          "text": "ちょうちょ"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "ビニールハウスでの受粉のために「みつばち」が使われます。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-02.6a64636f69a7",
@@ -2441,42 +2044,6 @@
     "explanation": "海沿いや港・駅の近くは、原材料（魚など）の調達や製品の輸送に有利な立地です。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-02.71fa3a377c30",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "スーパーマーケットで肉や魚のパックに貼られている「賞味期限（しょうみきげん）」の意味として正しいものはどれですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "美味しく食べることができる期限（過ぎてもすぐに食べられなくなるわけではない）"
-        },
-        {
-          "id": "c2",
-          "text": "絶対に食べてはいけない期限"
-        },
-        {
-          "id": "c3",
-          "text": "工場で作られた日付"
-        },
-        {
-          "id": "c4",
-          "text": "店に並べられた日付"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "「賞味期限[しょうみきげん]」は品質が変わらず美味しく食べられる期限です。「消費期限」は安全に食べられる期限なので区別しましょう。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-02.93b41eb14518",
     "type": "choice",
     "subject": "shakai",
@@ -2513,42 +2080,6 @@
     "explanation": "地元の商店が集まり、アーケードなどを設けて買い物しやすくした通りを商店街[しょうてんがい]といいます。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-02.9cdcd970a882",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "スーパーマーケットの店内レイアウトで、牛乳[ぎゅうにゅう]や卵など「毎日多くの人が買うもの」は、なぜ店の奥の方に置かれることが多いですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "お客さんが色々な売り場を通ることで、他の商品も目に入るようにするため"
-        },
-        {
-          "id": "c2",
-          "text": "重くて運びにくいから"
-        },
-        {
-          "id": "c3",
-          "text": "冷やす機械が奥にしかないから"
-        },
-        {
-          "id": "c4",
-          "text": "売り場の面積[めんせき]が広いから"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "定番の日常食品を奥に配置することで、店内を回遊してもらい、他の商品にも興味を持ってもらう工夫です。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-02.a4bdfb2b7114",
     "type": "choice",
     "subject": "shakai",
@@ -2583,42 +2114,6 @@
       "shuffle": true
     },
     "explanation": "データの大小を比較するのには「棒グラフ」が適しています。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.a83c5641c328",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "「広がるつながり」の説明[せつめい]として正しいものはどれですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "地図帳を使って、産地[さんち]や国の名称と位置を調べましょう。"
-        },
-        {
-          "id": "c2",
-          "text": "我が国や外国には国旗があることを理解する"
-        },
-        {
-          "id": "c3",
-          "text": "国旗を尊重する態度を大切にする"
-        },
-        {
-          "id": "c4",
-          "text": "地域の特産品がどこへ運ばれているかを調べる"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "正解は「地図帳を使って、産地[さんち]や国の名称と位置を調べましょう。」です。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-02.aba37ee56337",
@@ -2920,65 +2415,29 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "「他地域や外国との関わり」の学習[がくしゅう]で、社会科の調べ方として正しいものはどれですか。",
+      "prompt": "スーパーの商品[しょうひん]がどこから来[き]たかを調[しら]べるとき、産地[さんち]ラベルを記録[きろく]した後[あと]にするとよいことはどれですか。",
       "choices": [
         {
           "id": "c1",
-          "text": "地図帳や調査を使って、身近な地域の様子[ようす]を調べ、まとめる"
+          "text": "地図帳[ちずちょう]で産地[さんち]の位置[いち]を確[たし]かめ、地域別[ちいきべつ]にまとめる"
         },
         {
           "id": "c2",
-          "text": "調べたことを記録せずに終わる"
+          "text": "産地[さんち]を見[み]ずに近[ちか]い場所[ばしょ]だと決[き]める"
         },
         {
           "id": "c3",
-          "text": "地図帳を使わずに位置を決める"
+          "text": "一[ひと]つの商品[しょうひん]だけで全体[ぜんたい]を決[き]める"
         },
         {
           "id": "c4",
-          "text": "見学や聞き取りのルールを守らない"
+          "text": "記録[きろく]を捨[す]てて覚[おぼ]えていることだけを書く"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "地図帳や調査を使って、身近な地域の様子[ようす]を調べ、まとめることが、学習指導要領で求められる社会科の調べ方です。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-02.f0ec78bc2b4e",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-02",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-02",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "福岡市のおもな野菜や果物の生産[せいさん]において、生産額が最も高い作物はどれですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "いちご"
-        },
-        {
-          "id": "c2",
-          "text": "キャベツ"
-        },
-        {
-          "id": "c3",
-          "text": "とまと"
-        },
-        {
-          "id": "c4",
-          "text": "ブロッコリー"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "福岡市では「博多とよのか」や「あまおう」などで知られる「いちご」の生産額が非常に高くなっています。"
+  "explanation": "産地[さんち]ラベルを資料[しりょう]として記録[きろく]し、地図帳[ちずちょう]で位置[いち]を確[たし]かめてまとめると、品物[しなもの]が他地域[たりいき]や外国[がいこく]から届[とど]く様子[ようす]が分[わ]かります。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-02.f92585117e1b",
@@ -3161,114 +2620,6 @@
     "explanation": "道路や壁に設置され、消防車に水を供給するための水道設備を「消火栓[しょうかせん]」といいます。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-03.1dddd5143e05",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "地震などの災害で、電気や水道が止まってしまったときのために、家の中に準備しておく水や食料、懐中電灯などをまとめた袋を何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "非常用持ち出し袋（防災バッグ）"
-        },
-        {
-          "id": "c2",
-          "text": "ランドセル"
-        },
-        {
-          "id": "c3",
-          "text": "買い物袋"
-        },
-        {
-          "id": "c4",
-          "text": "旅行カバン"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "災害時にすぐに持ち出せるように、非常食、飲料水、懐中電灯、簡易トイレなどをまとめた袋を「非常用持ち出し袋」といいます。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-03.25077a7c6483",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "119番通報をかけたとき、最初につながる場所（通報を受けて消防車や救急車に出動指令を出す場所）を何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "通信指令室（つうしんしれいしつ）"
-        },
-        {
-          "id": "c2",
-          "text": "市役所"
-        },
-        {
-          "id": "c3",
-          "text": "警察署"
-        },
-        {
-          "id": "c4",
-          "text": "消防団[しょうぼうだん]の詰所"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "119番通報は、消防本部の「通信指令室[つうしんしれいしつ]」につながり、そこから各消防署に出動指令が送られます。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-03.301e159aab60",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "警察官の仕事として、地域を巡回して事件を未然に防いだり、道案内をしたりする活動を何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "パトロール"
-        },
-        {
-          "id": "c2",
-          "text": "交通取り締まり"
-        },
-        {
-          "id": "c3",
-          "text": "鑑識活動"
-        },
-        {
-          "id": "c4",
-          "text": "防犯指導"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "街の安全を守り、困っている人を助けるための日常的な巡回活動を「パトロール（巡回連絡）」といいます。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-03.36b39201a1cb",
     "type": "choice",
     "subject": "shakai",
@@ -3338,80 +2689,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "火災の初期段階で安全かつ迅速に消火活動を行うために「消火器[しょうかき]」が設置されています。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-03.406ee263aa17",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "写真を見て、自分たちにできる安全の心がけとして正しいものはどれですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "避難場所や避難経路を確認する"
-        },
-        {
-          "id": "c2",
-          "text": "備えをしない"
-        },
-        {
-          "id": "c3",
-          "text": "家族[かぞく]と話し合わない"
-        },
-        {
-          "id": "c4",
-          "text": "不審なものをそのままにする"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/c52ff3fb6b49a120.png"
-    },
-    "explanation": "避難場所や避難経路を確認し、家族[かぞく]と話し合っておくことが大切です。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-03.4241324602bb",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "子どもが登下校中などに不審者に遭遇した際、駆け込んで助けを求めることができる、地域の家やお店に協力してもらっている避難場所の取り組みを何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "こども110番の家"
-        },
-        {
-          "id": "c2",
-          "text": "避難所"
-        },
-        {
-          "id": "c3",
-          "text": "交番"
-        },
-        {
-          "id": "c4",
-          "text": "児童館"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "緊急時に子どもが駆け込める場所として、ステッカーが貼られた「こども110番の家」が地域に設けられています。"
+  "explanation": "消火器[しょうかき]は初期消火[しょきしょうか]の設備[せつび]です。子[こ]どもは自分[じぶん]で無理[むり]に消[け]そうとせず、大人[おとな]に知[し]らせて安全[あんぜん]な場所[ばしょ]へ逃[に]げ、119番[ばん]通報[つうほう]につなげます。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-03.4570d1336d67",
@@ -3522,78 +2800,6 @@
     "explanation": "デパートやホテルの天井にあり、火災の熱を感知して自動で水をまく消火設備を「スプリンクラー」といいます。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-03.711c2ecbdbd6",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "普段は別の仕事をしている地域の人々が、火災や災害が発生したときに消火活動や救助活動を行うために組織されている団体を何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "消防団（しょうぼうだん）"
-        },
-        {
-          "id": "c2",
-          "text": "消防署"
-        },
-        {
-          "id": "c3",
-          "text": "警察署"
-        },
-        {
-          "id": "c4",
-          "text": "自衛隊"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "消防署で働く専業の消防士とは異なり、地域住民によって組織される防災組織を「消防団[しょうぼうだん]」といいます。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-03.71503aabc3e5",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "大雨や台風のときに、川が氾濫（はんらん）したり土砂崩れが起きたりする危険がある場所を示した地図を何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "ハザードマップ（防災マップ）"
-        },
-        {
-          "id": "c2",
-          "text": "安全マップ"
-        },
-        {
-          "id": "c3",
-          "text": "観光マップ"
-        },
-        {
-          "id": "c4",
-          "text": "路線図"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "大雨や地震のときにどんな災害が想定されるかを色分けして示した避難用の地図を「ハザードマップ」といいます。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-03.7d4b1837f778",
     "type": "choice",
     "subject": "shakai",
@@ -3628,78 +2834,6 @@
       "shuffle": true
     },
     "explanation": "消防士は24時間体制を維持するため、交代制（当番と非番など）で勤務し、夜間も常に警戒にあたっています。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-03.82ef2498faa2",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "災害に備えて、地域の人たちが避難ルートや避難場所（学校[がっこう]の体育館など）をあらかじめ確認しておくために、みんなで行う確認活動は何ですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "防災マップづくり（地域の安全点検）"
-        },
-        {
-          "id": "c2",
-          "text": "お花見"
-        },
-        {
-          "id": "c3",
-          "text": "スタンプラリー"
-        },
-        {
-          "id": "c4",
-          "text": "買い物ツアー"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "実際に町を歩いて、倒れやすいブロック塀や危険箇所を確かめ、避難経路を地図にまとめることで防災意識を高めます。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-03.8b15e75b3c4f",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "交通事故や、事件・ドロボウなどの被害に遭った（目撃した）とき、警察に通報するための緊急電話番号は何番ですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "110番"
-        },
-        {
-          "id": "c2",
-          "text": "119番"
-        },
-        {
-          "id": "c3",
-          "text": "117番"
-        },
-        {
-          "id": "c4",
-          "text": "113番"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "事件や事故の緊急通報は「110番」です。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-03.9323494e5738",
@@ -3812,42 +2946,6 @@
     "explanation": "火事や救急のときは119番、警察のときは110番に電話[でんわ]します。"
   },
   {
-    "id": "legacy.shakai.g3.cur-1403-03.b9f1740dcbc7",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "火事を見つけたり、急な病気[びょうき]やケガで救急車を呼びたいとき、電話[でんわ]でダイヤルする緊急用の番号は何番ですか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "119番"
-        },
-        {
-          "id": "c2",
-          "text": "110番"
-        },
-        {
-          "id": "c3",
-          "text": "117番"
-        },
-        {
-          "id": "c4",
-          "text": "104番"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "火事や救急のときは「119番」、警察（事件や事故）のときは「110番」にかけます。"
-  },
-  {
     "id": "legacy.shakai.g3.cur-1403-03.c18e4c15cbaa",
     "type": "choice",
     "subject": "shakai",
@@ -3859,11 +2957,11 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "学校[がっこう]や地域で行われる、地震や火事が発生したと想定して、安全な場所に素早く逃げる練習を何といいますか。",
+      "prompt": "学校[がっこう]で火事[かじ]が起[お]きたと想定[そうてい]し、煙[けむり]を避[さ]けて安全[あんぜん]な場所[ばしょ]へ逃[に]げる練習[れんしゅう]を何[なん]といいますか。",
       "choices": [
         {
           "id": "c1",
-          "text": "避難訓練（防災訓練）"
+          "text": "避難訓練[ひなんくんれん]"
         },
         {
           "id": "c2",
@@ -3881,7 +2979,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "もしもの時に落ち着いて逃げられるよう、避難の経路や約束（「おはしも」など）を確認する練習を「避難訓練」といいます。"
+  "explanation": "火事[かじ]のときに落[お]ち着[つ]いて逃[に]げられるよう、避難経路[ひなんけいろ]や行動[こうどう]の約束[やくそく]を確[たし]かめる練習[れんしゅう]を避難訓練[ひなんくんれん]といいます。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-03.c1e7067c39cc",
@@ -4099,42 +3197,6 @@
       "shuffle": true
     },
     "explanation": "自分たちで町を歩き、見通しが悪かったり入り込みやすかったりする危険な場所を記した手作りの地図を「地域安全マップ」といいます。"
-  },
-  {
-    "id": "legacy.shakai.g3.cur-1403-03.f1a036b6070e",
-    "type": "choice",
-    "subject": "shakai",
-    "grade": 3,
-    "unit": "shakai.g3.legacy-cur-1403-03",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:cur-1403-03",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "地域で災害が起きたときに、お互いに助け合う「自助[じじょ]・共助[きょうじょ]・公助」のうち、近所の人たちと協力して助け合うことを何といいますか。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "共助（きょうじょ）"
-        },
-        {
-          "id": "c2",
-          "text": "自助（じじょ）"
-        },
-        {
-          "id": "c3",
-          "text": "公助（こうじょ）"
-        },
-        {
-          "id": "c4",
-          "text": "天助（てんじょ）"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "自分で自分を守るのが「自助[じじょ]」、近所や地域で助け合うのが「共助[きょうじょ]」、市役所や自衛隊など公の機関が助けるのを「公助」といいます。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-03.fed5b4d987e6",

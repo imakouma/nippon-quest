@@ -33,43 +33,6 @@
     "explanation": "空気中の酸素の割合[わりあい]が 21% から 17 % になっている。このことから、ものを燃やすと、空気中の酸素の割合[わりあい]が減ったということがわかる。"
   },
   {
-    "id": "legacy.rika.g6.sci-6-1.51f7e741e14c",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_1",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "植物からできたものを燃やしたときの空気の変化について、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "紙・二酸化炭素・炭・灰"
-        },
-        {
-          "id": "c2",
-          "text": "鉄"
-        },
-        {
-          "id": "c3",
-          "text": "酸素"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/8448145ff6f8b539.png"
-    },
-    "explanation": "木や（紙）などの植物からできたものが燃えると、（二酸化炭素）が発生する。これらが燃えた後には、黒っぽい（炭）や、白っぽい（灰）が残る。"
-  },
-  {
     "id": "legacy.rika.g6.sci-6-1.53c7c779cc2c",
     "type": "choice",
     "subject": "rika",
@@ -176,43 +139,6 @@
     "explanation": "酸素には、ものを燃やすのを助けるはたらきがある。"
   },
   {
-    "id": "legacy.rika.g6.sci-6-1.8dab2305003b",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_1",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "ものが燃える前と後の、空気中の気体の体積の割合[わりあい]について、A～C に当てはまる気体をそれぞれえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "ちっ素・酸素・二酸化炭素"
-        },
-        {
-          "id": "c2",
-          "text": "水蒸気"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/e57d578a5837933c.png"
-    },
-    "explanation": "A：ちっ素 B：酸素 C：二酸化炭素"
-  },
-  {
     "id": "legacy.rika.g6.sci-6-1.a12ddd07c998",
     "type": "choice",
     "subject": "rika",
@@ -284,42 +210,6 @@
       "promptImage": "questions/legacy/4ef56ea4c113e031.png"
     },
     "explanation": "ものが燃え続けるためには、新しい空気にふれることが必要。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-1.acbc71cd514c",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_1",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "ものの燃え方と空気の動きについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "空気・新しい・よく燃え続ける・燃えなくなる"
-        },
-        {
-          "id": "c2",
-          "text": "同じ"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "（空気）が入れかわって、（新しい）空気にふれることで、ものは（よく燃え続ける）。空気が入れかわらないところでは、ものは（燃えなくなる）。"
   },
   {
     "id": "legacy.rika.g6.sci-6-1.c5d8b662956f",
@@ -396,43 +286,6 @@
     "explanation": "新しい空気にふれることで、ものは燃え続ける。空気が入れかわらないところでは、ものは燃えなくなる。B では、集気びんの中の空気が入れかわらないので、ろうそくの火はすぐに消える。"
   },
   {
-    "id": "legacy.rika.g6.sci-6-1.e11aec13cb01",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_1",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "図の A～C のような集気びんに線香を近づけると、線香のけむりはどうなるでしょう。それぞれ正しいものをえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "集気びんの中に上から入り、上から出ていく。・集気びんの中には入らない。・集気びんの中に下から入り、上から出ていく。"
-        },
-        {
-          "id": "c2",
-          "text": "集気びんの中に上から入り、下から出ていく。"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/60ec961a25138603.png"
-    },
-    "explanation": "A：集気びんの中に上から入り、上から出ていく。 B：集気びんの中には入らない。 C：集気びんの中に下から入り、上から出ていく。"
-  },
-  {
     "id": "legacy.rika.g6.sci-6-1.e17bbc6674a9",
     "type": "choice",
     "subject": "rika",
@@ -470,80 +323,6 @@
     "explanation": "ろうそくが燃えるとき、集気びんの中では酸素がつかわれ、二酸化炭素が発生する。はじめは酸素がたくさんあるのでよく燃えるが、だんだん集気びんの中の酸素が減り、しばらくすると火は消える。 このびんの中に新しく火のついたろうそくを入れても、びんの中は二酸化炭素の割合[わりあい]が多くなっているので、火はすぐに消える。"
   },
   {
-    "id": "legacy.rika.g6.sci-6-1.ff109f778631",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_1",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "集気びんの中に石灰水をいれ、ろうそくを燃やす前と後の空気を調べた。この実験の結果について、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "変化しなかった・白くにごった・二酸化炭素"
-        },
-        {
-          "id": "c2",
-          "text": "酸素"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/d0f75d7b926d9ef1.png"
-    },
-    "explanation": "ろうそくを燃やす前の空気では、石灰水は（変化しなかった）が、ろうそくを燃やした後の空気では、石灰水は（白くにごった） 。このことから、ろうそくを燃やすと（二酸化炭素）ができることが分かった。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.2c209c1852c8",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "蓄電・コンデンサー"
-        },
-        {
-          "id": "c2",
-          "text": "発電"
-        },
-        {
-          "id": "c3",
-          "text": "発光ダイオード"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/80cd42d30d840495.png"
-    },
-    "explanation": "電気をたくわえることを（蓄ちく電でん）もしくはじゅう電という。A のような（コンデンサー）を使うと、つくった電気をためることができる。"
-  },
-  {
     "id": "legacy.rika.g6.sci-6-10.43484c1b7bf9",
     "type": "choice",
     "subject": "rika",
@@ -579,372 +358,6 @@
       "promptImage": "questions/legacy/88059b4165a713f2.png"
     },
     "explanation": "光を当てると発電する図のようなそうちを、光電池こうでんちという。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.4d0e18cf5711",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "電気を使う量を少なくするためのくふうについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "暗・人が近づいた・明る・人がいない"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/89c8a4c3c14eddfd.jpg"
-    },
-    "explanation": "家の外にある電灯には、夜に人が近づいたときにだけ電気がつくものがある。この電灯には明るさセンサーと人感センサーがついていて、 外が（暗）く、 （人が近づいた）ときに電気をつけるというプログラムによって動作している。外が（明る）いときや、（人がいない）ときには電気はつかない。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.63d970284d87",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "次の電気製品は、電気を 光・音・熱・運動 のどれに変えて使っているでしょう。正しいものをそれぞれえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "光・音・運動・熱"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "電灯：光 スピーカー：音 せんぷう機：運動 アイロン：熱"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.7120e72536af",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "手回し発電機をモーターにつないで、ハンドルを回したときのようすを調べた。次の②〜④のときのモーターの動きとして、正しいものをえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "①より速く回る・①とは逆向きに回る・①とは逆向きに速く回る"
-        },
-        {
-          "id": "c2",
-          "text": "①と同じように回る"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/7f137fb8e1ae7b5d.png"
-    },
-    "explanation": "①ハンドルを回しているとき：モーターが回る ②ハンドルを速く回したとき：①より速く回る ③ハンドルを逆向きに回したとき：①とは逆向きに回る ④ハンドルを逆向きに速く回したとき：①とは逆向きに速く回る 手回し発電機のハンドルを回す向きを逆にすると電流の向きが変わり、ハンドルを回す速さを変えると電流の大きさが変わる。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.ae23e3182d63",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "次の電気製品は、電気を 光・音・熱・運動 のどれに変えて使っているでしょう。正しい組み合わせをそれぞれえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "熱と運動・光と音・光と音と運動・熱と光"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "ドライヤー：熱と運動 テレビ：光と音 スマートフォン：光と音と運動 電気ストーブ：熱と光"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.be7239b411ed",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "発光ダイオード・少ない"
-        },
-        {
-          "id": "c2",
-          "text": "豆電球"
-        },
-        {
-          "id": "c3",
-          "text": "多い"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/13d6604d65aac7ff.png"
-    },
-    "explanation": "コンデンサーにためた電気を使って、豆電球と発光ダイオードを光らせて、それぞれ光り続ける時間を調べたところ、（発光ダイオード）のほうが長い時間光った。これは、発光ダイオードのほうが豆電球よりも使う電気の量が（少ない）からである。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.c4d4e302d846",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "手回し発電機の特ちょうについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "回している・回していない・向き・量"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/3baf8a67633f5f09.png"
-    },
-    "explanation": "手回し発電機のハンドルを（回している）ときに電気が流れ、（回していない）ときは電気は流れない。ハンドルを回す向きを逆にすると電流の（向き）が変わり、ハンドルを回す速さを変えると電流の（大きさ）が変わる。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.ce756f4ff36f",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "光電池をモーターにつないで、日光をあてたときのようすを調べた。次の②〜④のときのモーターの動きとして、正しいものをえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "①とは逆向きに回る・①より速く回る・①よりゆっくりと回る"
-        },
-        {
-          "id": "c2",
-          "text": "①と同じように回る"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/82653cfe7fb147b2.png"
-    },
-    "explanation": "①日光に当てているとき：モーターが回る ②光電池をつなぐ向きを逆にしたとき：①とは逆向きに回る ③光を強くしたとき：①より速く回る ④光を弱くしたとき：①よりゆっくりと回る"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.e0744a456f7a",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "電気を使う量を少なくするためのくふうについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "画面の明るさ・電源を消す"
-        },
-        {
-          "id": "c2",
-          "text": "電源をつける"
-        },
-        {
-          "id": "c3",
-          "text": "チャンネル"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "テレビには、明るさセンサーがついていて、部屋の明るさに合わせて（画面の明るさ）を自動で変えたり、何も操作せずに一定の時間が経つと（電源を消す）など、電気を使う量を少なくするくふうがある。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.e742537d2673",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "光電池の特ちょうについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "光があたっている・光があたっていない・大きさ"
-        },
-        {
-          "id": "c2",
-          "text": "向き"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/82653cfe7fb147b2.png"
-    },
-    "explanation": "光電池に（光があたっている）ときには電気が流れ、（光があたっていない）ときには電気は流れない。光の強さを変えると電流の（大きさ）が変わる。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-10.fbbc87e3e543",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_10",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "発電所での発電のしくみについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "発電機・風車・水車・水蒸気"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "発電所では、（発電機）を回すことで電気を生み出している。風力発電では、（風車）を回して発電機を回す。水力発電では、（水車）を回して発電機を回す。火力発電、原子力発電、地熱発電では、それぞれの熱でつくった（水蒸じょう気）の勢いでタービン（羽根車）を回して発電している。"
   },
   {
     "id": "legacy.rika.g6.sci-6-2.06018759107a",
@@ -1067,15 +480,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "肺[はい]ほう・毛細血管[もうさいけっかん]・二酸化炭素[にさんかたんそ]・酸素[さんそ]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "気管[きかん]・太[ふと]い血管[けっかん]・酸素[さんそ]・二酸化炭素[にさんかたんそ]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "胃[い]・小腸[しょうちょう]・酸素[さんそ]・二酸化炭素[にさんかたんそ]"
         }
       ],
       "answer": "c1",
@@ -1140,15 +553,15 @@
         },
         {
           "id": "c2",
-          "text": "ちっ素"
+          "text": "窒素[ちっそ]・二酸化炭素[にさんかたんそ]・消化[しょうか]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "酸素[さんそ]・窒素[ちっそ]・呼吸[こきゅう]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "二酸化炭素[にさんかたんそ]・酸素[さんそ]・消化[しょうか]"
         }
       ],
       "answer": "c1",
@@ -1176,15 +589,15 @@
         },
         {
           "id": "c2",
-          "text": "酸素"
+          "text": "肺[はい]・酸素[さんそ]・血液[けつえき]・気管[きかん]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "心臓[しんぞう]・酸素[さんそ]・血液[けつえき]・食道[しょくどう]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "じん臓[ぞう]・二酸化炭素[にさんかたんそ]・空気[くうき]・気管[きかん]"
         }
       ],
       "answer": "c1",
@@ -1213,15 +626,15 @@
         },
         {
           "id": "c2",
-          "text": "酸素"
+          "text": "酸素[さんそ]・血液[けつえき]・全身[ぜんしん]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "養分[ようぶん]・空気[くうき]・肺[はい]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "水分[すいぶん]・血液[けつえき]・胃[い]"
         }
       ],
       "answer": "c1",
@@ -1249,15 +662,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "口[くち]・はな・肺[はい]・気管[きかん]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "はな・食道[しょくどう]・胃[い]・肺[はい]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "はな・口[くち]・肺[はい]・気管[きかん]"
         }
       ],
       "answer": "c1",
@@ -1323,15 +736,15 @@
         },
         {
           "id": "c2",
-          "text": "二酸化炭素"
+          "text": "二酸化炭素[にさんかたんそ]・白[しろ]"
         },
         {
           "id": "c3",
-          "text": "白"
+          "text": "でんぷん・白[しろ]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "でんぷん・赤[あか]"
         }
       ],
       "answer": "c1",
@@ -1359,15 +772,15 @@
         },
         {
           "id": "c2",
-          "text": "二酸化炭素"
+          "text": "気管[きかん]・肺[はい]・二酸化炭素[にさんかたんそ]・血液[けつえき]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "食道[しょくどう]・胃[い]・酸素[さんそ]・血液[けつえき]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "気管[きかん]・肺[はい]・二酸化炭素[にさんかたんそ]・空気[くうき]"
         }
       ],
       "answer": "c1",
@@ -1502,15 +915,15 @@
         },
         {
           "id": "c2",
-          "text": "食道"
+          "text": "食道[しょくどう]・毛細血管[もうさいけっかん]"
         },
         {
           "id": "c3",
-          "text": "消化管"
+          "text": "じゅう毛[もう]・消化管[しょうかかん]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "じゅう毛[もう]・太[ふと]い血管[けっかん]"
         }
       ],
       "answer": "c1",
@@ -1575,15 +988,15 @@
         },
         {
           "id": "c2",
-          "text": "吸収"
+          "text": "表面[ひょうめん]の面積[めんせき]・大[おお]きく・吸収[きゅうしゅう]"
         },
         {
           "id": "c3",
-          "text": "小さく"
+          "text": "表面[ひょうめん]の面積[めんせき]・小[ちい]さく・こうかん"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "体積[たいせき]・小[ちい]さく・吸収[きゅうしゅう]"
         }
       ],
       "answer": "c1",
@@ -1612,15 +1025,15 @@
         },
         {
           "id": "c2",
-          "text": "消化"
+          "text": "表面[ひょうめん]の面積[めんせき]・大[おお]きく・消化[しょうか]"
         },
         {
           "id": "c3",
-          "text": "小さく"
+          "text": "表面[ひょうめん]の面積[めんせき]・小[ちい]さく・吸収[きゅうしゅう]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "表面[ひょうめん]の面積[めんせき]・小[ちい]さく・消化[しょうか]"
         }
       ],
       "answer": "c1",
@@ -1648,15 +1061,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "小腸[しょうちょう]・胃[い]・吸収[きゅうしゅう]・消化[しょうか]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "食道[しょくどう]・大腸[だいちょう]・消化[しょうか]・呼吸[こきゅう]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "胃[い]・肺[はい]・吸収[きゅうしゅう]・消化[しょうか]"
         }
       ],
       "answer": "c1",
@@ -1685,15 +1098,15 @@
         },
         {
           "id": "c2",
-          "text": "小腸"
+          "text": "小腸[しょうちょう]・水分[すいぶん]・こう門[もん]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "大腸[だいちょう]・養分[ようぶん]・口[くち]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "胃[い]・水分[すいぶん]・食道[しょくどう]"
         }
       ],
       "answer": "c1",
@@ -1722,15 +1135,15 @@
         },
         {
           "id": "c2",
-          "text": "赤くなる"
+          "text": "二酸化炭素[にさんかたんそ]・赤[あか]くなる"
         },
         {
           "id": "c3",
-          "text": "酸素"
+          "text": "酸素[さんそ]・赤[あか]くなる"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "酸素[さんそ]・白[しろ]くにごる"
         }
       ],
       "answer": "c1",
@@ -1758,15 +1171,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "胃[い]・食道[しょくどう]・大腸[だいちょう]・小腸[しょうちょう]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "気管[きかん]・肺[はい]・小腸[しょうちょう]・大腸[だいちょう]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "食道[しょくどう]・胃[い]・大腸[だいちょう]・小腸[しょうちょう]"
         }
       ],
       "answer": "c1",
@@ -1953,43 +1366,6 @@
     "explanation": "全身に血液を送り出すポンプのような役やく割わりをしている、体のつくりを、心しん臓ぞうという。"
   },
   {
-    "id": "legacy.rika.g6.sci-6-3.16bd961d5353",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "心臓から肺へ送られた血液について、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "二酸化炭素・酸素・心臓・全身"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/9156fb3fd7161af4.png"
-    },
-    "explanation": "心臓から肺へ送られた血液は、肺で（二酸化炭素）を出し、（酸素）を受け取る。この血液は（心臓）にもどり、再び心臓から（全身）に送り出される。"
-  },
-  {
     "id": "legacy.rika.g6.sci-6-3.21ad9cdcbae9",
     "type": "choice",
     "subject": "rika",
@@ -2024,189 +1400,6 @@
       "shuffle": true
     },
     "explanation": "血液中の不要なものをこしだして、血液をきれいにする体のつくりを、じん臓という。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-3.321cdef043ff",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "体内でできた不要なもののゆくえについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "じん臓・ぼうこう"
-        },
-        {
-          "id": "c2",
-          "text": "すい臓"
-        },
-        {
-          "id": "c3",
-          "text": "大腸"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/c4628eaa08ea5985.png"
-    },
-    "explanation": "A（じん臓）でできた にょうは、しばらく B（ぼうこう）にためられ、その後、体の外に出される。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-3.3a6a63f8630d",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "血液・はく動・脈はく"
-        },
-        {
-          "id": "c2",
-          "text": "酸素"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "心臓は、全身に（血液）を送り出すポンプのような役割をしている。この心臓の動きを（はく動）といい、はく動が血管を伝わって手首などで感じる動きを、（脈はく）という。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-3.5233962add07",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "呼吸にかかわる臓器と血液の流れについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "肺・心臓・酸素・二酸化炭素"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "空気中の酸素は、A（肺）で血液に取り入れられ、血液は B（心臓）にもどる。B（心臓）から送り出された血液は、全身の臓器や各部分に（酸素）を届け、（二酸化炭素）を受け取って、再び B（心臓）にもどってくる。B（心臓）にもどってきた血液は A（肺）に送られ、血液中の二酸化炭素は、はき出す息によって体の外に出される。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-3.6821dd87c0ab",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "ヒト以外の動物にも、消化と吸収に関わるつくりがある。図のA〜Eのつくりをそれぞれえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "肺・胃・腸・こう門・えら"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/0e9bf82faf8bdca0.png"
-    },
-    "explanation": "A：肺 B：胃 C：腸 D：こう門 E：えら"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-3.75137293df5d",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "消化に関わる臓器について、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "すい臓・かん臓・養分・たん汁・たんのう"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/0ca5b3eb11fb467a.png"
-    },
-    "explanation": "消化管には、さらにA（すい臓）や B（かん臓）がつながっている。A から出る消化液を、すい液という。B は（養分）を一時的にたくわえる他に、しぼうの消化を助ける（たん汁）をつくるはたらきもしている。B の近くには、C（たんのう）というたん汁をためるふくろがある。"
   },
   {
     "id": "legacy.rika.g6.sci-6-3.786a76b64a62",
@@ -2245,42 +1438,6 @@
     "explanation": "メダカやフナなどの魚には、肺はない。えらを使って、水中の酸素を取り入れ、水中に二酸化炭素を出して呼吸をしている。"
   },
   {
-    "id": "legacy.rika.g6.sci-6-3.915bbf9c51c1",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "臓器・血液"
-        },
-        {
-          "id": "c2",
-          "text": "消化管"
-        },
-        {
-          "id": "c3",
-          "text": "心臓"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "体の中のさまざまなはたらきをするつくりを、A（臓器）という。体の中の A は、（血液）によってたがいにつながり合ってはたらいている。"
-  },
-  {
     "id": "legacy.rika.g6.sci-6-3.a4d53abfef87",
     "type": "choice",
     "subject": "rika",
@@ -2315,78 +1472,6 @@
       "shuffle": true
     },
     "explanation": "心臓が全身に血液を送り出すときの動きをはく動といい、このはく動が血管を伝わって、手首などで感じることができる動きを脈はくという。なので、脈はくを数えると１分間に 80 回だったとき、はく動も１分間に 80 回ある。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-3.aa9156ab8edb",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "次の臓器のはたらきとして、正しいものをそれぞれえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "全身に血液を送り出す。・消化された養分を吸収する。・吸収された養分を一時的にたくわえる。・血液中に酸素を取りこみ、二酸化炭素を出す。"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "心臓：全身に血液を送り出す。 小腸：消化された養分を吸収する。 かん臓：吸収された養分を一時的にたくわえる。 肺：血液中に酸素を取りこみ、二酸化炭素を出す。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-3.b4cad7be7f8c",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "不要物のはい出にかかわる臓器と血液の流れについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "養分・体内でできた不要なもの・じん臓・にょう・心臓"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "血液は、全身に酸素や（養分）を届けるとともに、二酸化炭素や（体内でできた不要なもの）を受け取っている。体内でできた不要なものは、A（じん臓）に運ばれる。A（じん臓）では、不要なものがこしとられ、（にょう）として体の外に出る。きれいになった血液は、再び（心臓）にもどり、全身に送られる。"
   },
   {
     "id": "legacy.rika.g6.sci-6-3.d3f5a0e39379",
@@ -2426,79 +1511,6 @@
     "explanation": "吸収された養分を一時的にたくわえたり、しぼうの消化を助ける消化液をつくるなど、さまざまなはたらきをする A の臓器を、かん臓という。"
   },
   {
-    "id": "legacy.rika.g6.sci-6-3.f90d87f1b571",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "体内でできた不要なもののゆくえについて、かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "血液・じん臓・水・にょう"
-        },
-        {
-          "id": "c2",
-          "text": "選択肢1"
-        },
-        {
-          "id": "c3",
-          "text": "選択肢2"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/8b6b8fe353a156ba.png"
-    },
-    "explanation": "体内でできた不要なものは、（血液）によって A（じん臓）に送られる。じん臓では、不要なものが（水）とともにこしとられ、（にょう）ができる。"
-  },
-  {
-    "id": "legacy.rika.g6.sci-6-3.ff295856c314",
-    "type": "choice",
-    "subject": "rika",
-    "grade": 6,
-    "unit": "rika.g6.legacy-sci-6-3",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:sci_6_3",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "100・増える"
-        },
-        {
-          "id": "c2",
-          "text": "60"
-        },
-        {
-          "id": "c3",
-          "text": "減る"
-        },
-        {
-          "id": "c4",
-          "text": "選択肢3"
-        }
-      ],
-      "answer": "c1",
-      "shuffle": true
-    },
-    "explanation": "手首に指を当てて脈はくを数えると、１分間に 80 回だった。その後、少し足ぶみをしてから脈はくを数えると、（100）回だった。このことから、軽い運動を行ったとき、心臓が動く回数は（増える）ことがわかる。"
-  },
-  {
     "id": "legacy.rika.g6.sci-6-4.037d8afce6ff",
     "type": "choice",
     "subject": "rika",
@@ -2518,15 +1530,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "D・B・C・A"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "B・D・A・C"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "D・A・B・C"
         }
       ],
       "answer": "c1",
@@ -2555,15 +1567,15 @@
         },
         {
           "id": "c2",
-          "text": "水"
+          "text": "気孔[きこう]・水[みず]"
         },
         {
           "id": "c3",
-          "text": "道管"
+          "text": "道管[どうかん]・水蒸気[すいじょうき]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "道管[どうかん]・水[みず]"
         }
       ],
       "answer": "c1",
@@ -2625,15 +1637,15 @@
         },
         {
           "id": "c2",
-          "text": "葉"
+          "text": "蒸散[じょうさん]・葉[は]・体全体[からだぜんたい]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "呼吸[こきゅう]・根[ね]・葉[は]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "蒸散[じょうさん]・葉[は]・根[ね]"
         }
       ],
       "answer": "c1",
@@ -2661,15 +1673,15 @@
         },
         {
           "id": "c2",
-          "text": "呼吸"
+          "text": "でんぷん・呼吸[こきゅう]・養分[ようぶん]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "酸素[さんそ]・呼吸[こきゅう]・養分[ようぶん]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "でんぷん・蒸散[じょうさん]・水分[すいぶん]"
         }
       ],
       "answer": "c1",
@@ -2733,15 +1745,15 @@
         },
         {
           "id": "c2",
-          "text": "全体が染まっていた"
+          "text": "全体[ぜんたい]が染[そ]まっていた・根[ね]・水[みず]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "染[そ]まらなかった・葉[は]・養分[ようぶん]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "葉[は]だけ染[そ]まった・くき・空気[くうき]"
         }
       ],
       "answer": "c1",
@@ -2803,15 +1815,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "水[みず]・でんぷん・養分[ようぶん]・根[ね]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "でんぷん・空気[くうき]・水分[すいぶん]・葉[は]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "養分[ようぶん]・水[みず]・でんぷん・花[はな]"
         }
       ],
       "answer": "c1",
@@ -2948,15 +1960,15 @@
         },
         {
           "id": "c2",
-          "text": "風"
+          "text": "でんぷん・風[かぜ]"
         },
         {
           "id": "c3",
-          "text": "水"
+          "text": "水[みず]・日光[にっこう]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "でんぷん・水[みず]"
         }
       ],
       "answer": "c1",
@@ -3094,15 +2106,15 @@
         },
         {
           "id": "c2",
-          "text": "くき"
+          "text": "くき・水蒸気[すいじょうき]・蒸散[じょうさん]"
         },
         {
           "id": "c3",
-          "text": "呼吸"
+          "text": "葉[は]・水蒸気[すいじょうき]・呼吸[こきゅう]"
         },
         {
           "id": "c4",
-          "text": "酸素"
+          "text": "葉[は]・酸素[さんそ]・呼吸[こきゅう]"
         }
       ],
       "answer": "c1",
@@ -3167,15 +2179,15 @@
         },
         {
           "id": "c2",
-          "text": "葉"
+          "text": "下[さ]がった・葉[は]"
         },
         {
           "id": "c3",
-          "text": "上がった"
+          "text": "上[あ]がった・根[ね]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "上[あ]がった・葉[は]"
         }
       ],
       "answer": "c1",
@@ -3240,15 +2252,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "対物[たいぶつ]レンズ・接眼[せつがん]レンズ・反射鏡[はんしゃきょう]・調節[ちょうせつ]ねじ"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "接眼[せつがん]レンズ・反射鏡[はんしゃきょう]・調節[ちょうせつ]ねじ・対物[たいぶつ]レンズ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "反射鏡[はんしゃきょう]・調節[ちょうせつ]ねじ・接眼[せつがん]レンズ・対物[たいぶつ]レンズ"
         }
       ],
       "answer": "c1",
@@ -3314,15 +2326,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "イワシ・オキアミ・マグロ・カツオ"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "オキアミ・カツオ・イワシ・マグロ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "マグロ・カツオ・イワシ・オキアミ"
         }
       ],
       "answer": "c1",
@@ -3351,15 +2363,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "ミジンコ・ミカヅキモ・ザリガニ・メダカ"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "ミカヅキモ・メダカ・ミジンコ・ザリガニ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "ザリガニ・メダカ・ミジンコ・ミカヅキモ"
         }
       ],
       "answer": "c1",
@@ -3498,15 +2510,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "A・D・C・B"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "B・D・C・A"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "C・B・D・A"
         }
       ],
       "answer": "c1",
@@ -3535,15 +2547,15 @@
         },
         {
           "id": "c2",
-          "text": "月"
+          "text": "月[つき]・水蒸気[すいじょうき]・雲[くも]・雨[あめ]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "太陽[たいよう]・雲[くも]・水蒸気[すいじょうき]・雨[あめ]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "風[かぜ]・水蒸気[すいじょうき]・雨[あめ]・雲[くも]"
         }
       ],
       "answer": "c1",
@@ -3681,15 +2693,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "カエル・バッタ・タカ・ヘビ"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "バッタ・ヘビ・カエル・タカ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "タカ・ヘビ・カエル・バッタ"
         }
       ],
       "answer": "c1",
@@ -3718,15 +2730,15 @@
         },
         {
           "id": "c2",
-          "text": "葉"
+          "text": "葉[は]・蒸散[じょうさん]・水蒸気[すいじょうき]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "葉[は]・呼吸[こきゅう]・水[みず]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "根[ね]・蒸散[じょうさん]・酸素[さんそ]"
         }
       ],
       "answer": "c1",
@@ -3791,15 +2803,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "二酸化炭素[にさんかたんそ]・酸素[さんそ]・養分[ようぶん]・水[みず]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "水[みず]・養分[ようぶん]・酸素[さんそ]・二酸化炭素[にさんかたんそ]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "養分[ようぶん]・水[みず]・二酸化炭素[にさんかたんそ]・酸素[さんそ]"
         }
       ],
       "answer": "c1",
@@ -3828,15 +2840,15 @@
         },
         {
           "id": "c2",
-          "text": "水蒸気"
+          "text": "肺[はい]・全身[ぜんしん]・にょう"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "肺[はい]・胃[い]・二酸化炭素[にさんかたんそ]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "口[くち]・全身[ぜんしん]・水蒸気[すいじょうき]"
         }
       ],
       "answer": "c1",
@@ -3865,15 +2877,15 @@
         },
         {
           "id": "c2",
-          "text": "正方形[せいほうけい]"
+          "text": "食[た]べる・食[た]べられる・正方形[せいほうけい]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "食[た]べられる・食[た]べる・円[えん]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "食[た]べる・食[た]べられる・直線[ちょくせん]"
         }
       ],
       "answer": "c1",
@@ -3902,15 +2914,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "牛肉[ぎゅうにく]・野菜[やさい]・牧草[ぼくそう]・牛乳[ぎゅうにゅう]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "野菜[やさい]・牛乳[ぎゅうにゅう]・牛肉[ぎゅうにく]・魚[さかな]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "牧草[ぼくそう]・牛肉[ぎゅうにく]・野菜[やさい]・牛乳[ぎゅうにゅう]"
         }
       ],
       "answer": "c1",
@@ -3938,15 +2950,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "接眼[せつがん]レンズ・ステージ・上[うえ]・反射鏡[はんしゃきょう]・調節[ちょうせつ]ねじ"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "反射鏡[はんしゃきょう]・ステージ・横[よこ]・対物[たいぶつ]レンズ・クリップ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "調節[ちょうせつ]ねじ・接眼[せつがん]レンズ・横[よこ]・ステージ・反射鏡[はんしゃきょう]"
         }
       ],
       "answer": "c1",
@@ -3974,15 +2986,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "ライオンは草[くさ]を食[た]べる・シマウマはライオンを食[た]べる・草[くさ]はライオンに食[た]べられる・ライオンはシマウマに食[た]べられる"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "ライオンはシマウマを食[た]べる・シマウマは草[くさ]を食[た]べる・草[くさ]はライオンに食[た]べられる・シマウマは草[くさ]に食[た]べられる"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "シマウマはライオンを食[た]べる・ライオンは草[くさ]を食[た]べる・草[くさ]はシマウマに食[た]べられる・ライオンはシマウマに食[た]べられる"
         }
       ],
       "answer": "c1",
@@ -4048,15 +3060,15 @@
         },
         {
           "id": "c2",
-          "text": "地球"
+          "text": "太陽[たいよう]・同[おな]じ・地球[ちきゅう]"
         },
         {
           "id": "c3",
-          "text": "反対[はんたい]"
+          "text": "太陽[たいよう]・反対[はんたい]・月[つき]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "太陽[たいよう]・反対[はんたい]・地球[ちきゅう]"
         }
       ],
       "answer": "c1",
@@ -4085,15 +3097,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "満月[まんげつ]・三日月[みかづき]・半月[はんげつ]（上弦[じょうげん]の月[つき]）・半月[はんげつ]（下弦[かげん]の月[つき]）"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "三日月[みかづき]・満月[まんげつ]・半月[はんげつ]（下弦[かげん]の月[つき]）・半月[はんげつ]（上弦[じょうげん]の月[つき]）"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "半月[はんげつ]（下弦[かげん]の月[つき]）・満月[まんげつ]・三日月[みかづき]・半月[はんげつ]（上弦[じょうげん]の月[つき]）"
         }
       ],
       "answer": "c1",
@@ -4307,15 +3319,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "高地[こうち]・平地[へいち]・クレーター・風[かぜ]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "平地[へいち]・高地[こうち]・谷[たに]・水[みず]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "海[うみ]・山[やま]・クレーター・氷[こおり]"
         }
       ],
       "answer": "c1",
@@ -4344,15 +3356,15 @@
         },
         {
           "id": "c2",
-          "text": "北"
+          "text": "北[きた]・南[みなみ]・西[にし]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "東[ひがし]・北[きた]・西[にし]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "西[にし]・南[みなみ]・東[ひがし]"
         }
       ],
       "answer": "c1",
@@ -4486,15 +3498,15 @@
         },
         {
           "id": "c2",
-          "text": "半月"
+          "text": "半月[はんげつ]・満月[まんげつ]・新月[しんげつ]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "満月[まんげつ]・三日月[みかづき]・新月[しんげつ]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "半月[はんげつ]・満月[まんげつ]・三日月[みかづき]"
         }
       ],
       "answer": "c1",
@@ -4707,15 +3719,15 @@
         },
         {
           "id": "c2",
-          "text": "丸みをおびている"
+          "text": "丸[まる]みをおびている・とうめい・そろっていない"
         },
         {
           "id": "c3",
-          "text": "黒っぽい"
+          "text": "角[かく]ばった・黒[くろ]っぽい・そろっている"
         },
         {
           "id": "c4",
-          "text": "どれも同じ"
+          "text": "角[かく]ばった・とうめい・どれも同[おな]じ"
         }
       ],
       "answer": "c1",
@@ -4743,15 +3755,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "よう岩[がん]・火山灰[かざんばい]・湖[みずうみ]・島[しま]や山[やま]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "火山灰[かざんばい]・水[みず]・平地[へいち]・川[かわ]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "砂[すな]・どろ・谷[たに]・海[うみ]"
         }
       ],
       "answer": "c1",
@@ -4779,15 +3791,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "水[みず]・温泉[おんせん]・水力発電[すいりょくはつでん]・水[みず]もち"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "温泉[おんせん]・水[みず]・火力発電[かりょくはつでん]・水[みず]もち"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "海水[かいすい]・雨水[あまみず]・風力発電[ふうりょくはつでん]・水[みず]はけ"
         }
       ],
       "answer": "c1",
@@ -4890,15 +3902,15 @@
         },
         {
           "id": "c2",
-          "text": "人間"
+          "text": "丸[まる]みをおびた・人間[にんげん]のはたらき"
         },
         {
           "id": "c3",
-          "text": "角ばった"
+          "text": "角[かく]ばった・人間[にんげん]のはたらき"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "角[かく]ばった・流[なが]れる水[みず]のはたらき"
         }
       ],
       "answer": "c1",
@@ -4927,15 +3939,15 @@
         },
         {
           "id": "c2",
-          "text": "形"
+          "text": "形[かたち]・れき・砂[すな]・どろ"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "色[いろ]・れき・砂[すな]・どろ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "大[おお]きさ・どろ・砂[すな]・れき"
         }
       ],
       "answer": "c1",
@@ -5148,15 +4160,15 @@
         },
         {
           "id": "c2",
-          "text": "時間"
+          "text": "化石[かせき]・時間[じかん]"
         },
         {
           "id": "c3",
-          "text": "地層"
+          "text": "地層[ちそう]・時代[じだい]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "化石[かせき]・場所[ばしょ]"
         }
       ],
       "answer": "c1",
@@ -5435,15 +4447,15 @@
         },
         {
           "id": "c2",
-          "text": "重さ"
+          "text": "分銅[ふんどう]・重[おも]さ・垂直[すいちょく]・めもり"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "支点[してん]・重[おも]さ・水平[すいへい]・めもり"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "支点[してん]・位置[いち]・垂直[すいちょく]・めもり"
         }
       ],
       "answer": "c1",
@@ -5472,15 +4484,15 @@
         },
         {
           "id": "c2",
-          "text": "大き"
+          "text": "力点[りきてん]・作用点[さようてん]・支点[してん]・大[おお]き"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "支点[してん]・力点[りきてん]・作用点[さようてん]・小[ちい]さ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "作用点[さようてん]・力点[りきてん]・支点[してん]・大[おお]き"
         }
       ],
       "answer": "c1",
@@ -5509,15 +4521,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "力点[りきてん]・作用点[さようてん]・支点[してん]・小[ちい]さ・大[おお]き"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "支点[してん]・力点[りきてん]・作用点[さようてん]・大[おお]き・小[ちい]さ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "作用点[さようてん]・支点[してん]・力点[りきてん]・小[ちい]さ・大[おお]き"
         }
       ],
       "answer": "c1",
@@ -5616,15 +4628,15 @@
         },
         {
           "id": "c2",
-          "text": "異なる"
+          "text": "重[おも]さ・きょり・異[こと]なる"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "きょり・重[おも]さ・異[こと]なる"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "きょり・重[おも]さ・等[ひと]しい"
         }
       ],
       "answer": "c1",
@@ -5708,15 +4720,15 @@
         },
         {
           "id": "c2",
-          "text": "大きさ"
+          "text": "異[こと]なる・大[おお]きさ・水平[すいへい]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "等[ひと]しい・きょり・水平[すいへい]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "異[こと]なる・重[おも]さ・水平[すいへい]"
         }
       ],
       "answer": "c1",
@@ -5767,15 +4779,15 @@
         },
         {
           "id": "c2",
-          "text": "おもりの大きさ"
+          "text": "おもりの大[おお]きさ・250・250 gのおもりの重[おも]さ"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "おもりの重[おも]さ・500・500 gのおもりの重[おも]さ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "おもりの大[おお]きさ・250・250 gのおもりの大[おお]きさ"
         }
       ],
       "answer": "c1",
@@ -5828,15 +4840,15 @@
         },
         {
           "id": "c2",
-          "text": "比例"
+          "text": "半分[はんぶん]・比例[ひれい]"
         },
         {
           "id": "c3",
-          "text": "２倍"
+          "text": "２倍[ばい]・比例[ひれい]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "２倍[ばい]・反比例[はんぴれい]"
         }
       ],
       "answer": "c1",
@@ -5890,15 +4902,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "作用点[さようてん]・支点[してん]・力点[りきてん]・小[ちい]さ・大[おお]き"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "力点[りきてん]・作用点[さようてん]・支点[してん]・大[おお]き・小[ちい]さ"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "支点[してん]・力点[りきてん]・作用点[さようてん]・小[ちい]さ・大[おお]き"
         }
       ],
       "answer": "c1",
@@ -5927,15 +4939,15 @@
         },
         {
           "id": "c2",
-          "text": "てんびん"
+          "text": "てんびん・支点[してん]・力点[りきてん]・作用点[さようてん]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "てこ・力点[りきてん]・支点[してん]・作用点[さようてん]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "てんびん・支点[してん]・作用点[さようてん]・力点[りきてん]"
         }
       ],
       "answer": "c1",
@@ -6001,15 +5013,15 @@
         },
         {
           "id": "c2",
-          "text": "炭酸水、重そう水"
+          "text": "炭酸水[たんさんすい]、重[じゅう]そう水[すい]・食塩水[しょくえんすい]、石灰水[せっかいすい]、アンモニア水[すい]・塩酸[えんさん]"
         },
         {
           "id": "c3",
-          "text": "食塩水、石灰水"
+          "text": "食塩水[しょくえんすい]、石灰水[せっかいすい]・塩酸[えんさん]、アンモニア水[すい]・炭酸水[たんさんすい]、重[じゅう]そう水[すい]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "塩酸[えんさん]、炭酸水[たんさんすい]・食塩水[しょくえんすい]、重[じゅう]そう水[すい]・石灰水[せっかいすい]、アンモニア水[すい]"
         }
       ],
       "answer": "c1",
@@ -6191,15 +5203,15 @@
         },
         {
           "id": "c2",
-          "text": "二酸化炭素"
+          "text": "固体[こたい]・二酸化炭素[にさんかたんそ]・重[じゅう]そう"
         },
         {
           "id": "c3",
-          "text": "気体"
+          "text": "気体[きたい]・食塩[しょくえん]・重[じゅう]そう"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "気体[きたい]・食塩[しょくえん]・二酸化炭素[にさんかたんそ]"
         }
       ],
       "answer": "c1",
@@ -6372,15 +5384,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "石[せっ]けん水[すい]・牛乳[ぎゅうにゅう]・しょうゆ・レモンのしる"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "レモンのしる・牛乳[ぎゅうにゅう]・しょうゆ・石[せっ]けん水[すい]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "しょうゆ・レモンのしる・石[せっ]けん水[すい]・牛乳[ぎゅうにゅう]"
         }
       ],
       "answer": "c1",
@@ -6409,15 +5421,15 @@
         },
         {
           "id": "c2",
-          "text": "何も残らない"
+          "text": "何[なに]も残[のこ]らない・白[しろ]い固体[こたい]が残[のこ]る"
         },
         {
           "id": "c3",
-          "text": "銀色の固体が残る"
+          "text": "銀色[ぎんいろ]の固体[こたい]が残[のこ]る・銀色[ぎんいろ]の固体[こたい]が残[のこ]る"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "白[しろ]い固体[こたい]が残[のこ]る・うすい黄色[きいろ]の固体[こたい]が残[のこ]る"
         }
       ],
       "answer": "c1",
@@ -6446,15 +5458,15 @@
         },
         {
           "id": "c2",
-          "text": "あわを出して"
+          "text": "白色[はくしょく]・黄色[きいろ]・つかなかった・あわを出[だ]して"
         },
         {
           "id": "c3",
-          "text": "ついた"
+          "text": "白色[はくしょく]・黄色[きいろ]・ついた・あわを出[だ]さずに"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "白色[はくしょく]・黄色[きいろ]・ついた・あわを出[だ]して"
         }
       ],
       "answer": "c1",
@@ -6483,15 +5495,15 @@
         },
         {
           "id": "c2",
-          "text": "レモン"
+          "text": "レモン・黄[き]・緑[みどり]・青[あお]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "ムラサキキャベツ・青[あお]・緑[みどり]・黄[き]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "アサガオ・黄[き]・青[あお]・緑[みどり]"
         }
       ],
       "answer": "c1",
@@ -6520,15 +5532,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "無色[むしょく]とうめい・無色[むしょく]とうめいで、あわが出[で]ている・なし・つんとしたにおい・何[なに]も残[のこ]らなかった・白[しろ]いものが残[のこ]った"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "無色[むしょく]とうめいで、あわが出[で]ている・無色[むしょく]とうめい・つんとしたにおい・なし・白[しろ]いものが残[のこ]った・何[なに]も残[のこ]らなかった"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "無色[むしょく]とうめい・無色[むしょく]とうめいで、あわが出[で]ている・つんとしたにおい・なし・何[なに]も残[のこ]らなかった・白[しろ]いものが残[のこ]った"
         }
       ],
       "answer": "c1",
@@ -6629,15 +5641,15 @@
         },
         {
           "id": "c2",
-          "text": "気体になった"
+          "text": "あわ・気体[きたい]になった・固体[こたい]がのこる"
         },
         {
           "id": "c3",
-          "text": "何も残らない"
+          "text": "あわ・液体[えきたい]にとけている・何[なに]も残[のこ]らない"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "あわ・気体[きたい]になった・何[なに]も残[のこ]らない"
         }
       ],
       "answer": "c1",
@@ -6702,15 +5714,15 @@
         },
         {
           "id": "c2",
-          "text": "固体"
+          "text": "固体[こたい]・塩化水素[えんかすいそ]・二酸化炭素[にさんかたんそ]・アンモニア"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "液体[えきたい]・塩化水素[えんかすいそ]・二酸化炭素[にさんかたんそ]・アンモニア"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "気体[きたい]・食塩[しょくえん]・二酸化炭素[にさんかたんそ]・アンモニア"
         }
       ],
       "answer": "c1",
@@ -6847,15 +5859,15 @@
         },
         {
           "id": "c2",
-          "text": "選択肢1"
+          "text": "アンモニア水[すい]・塩酸[えんさん]・食塩水[しょくえんすい]・炭酸水[たんさんすい]・石灰水[せっかいすい]、重[じゅう]そう水[すい]"
         },
         {
           "id": "c3",
-          "text": "選択肢2"
+          "text": "塩酸[えんさん]・炭酸水[たんさんすい]・食塩水[しょくえんすい]・石灰水[せっかいすい]、重[じゅう]そう水[すい]・アンモニア水[すい]"
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "炭酸水[たんさんすい]・アンモニア水[すい]・食塩水[しょくえんすい]・石灰水[せっかいすい]、重[じゅう]そう水[すい]・塩酸[えんさん]"
         }
       ],
       "answer": "c1",

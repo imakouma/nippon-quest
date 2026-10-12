@@ -1,0 +1,109 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "sansu.g1.kazu-20.0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-20",
+    "payload": {
+      "prompt": "10この りんごと 4この りんご。あわせて なんこ？",
+      "choices": [
+        { "id": "a", "text": "14こ" },
+        { "id": "b", "text": "10こ" },
+        { "id": "c", "text": "4こ" },
+        { "id": "d", "text": "41こ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "10の まとまりが 1つと、ばらが 4こなので、14こです。"
+  },
+  {
+    "id": "sansu.g1.kazu-20.0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-20",
+    "payload": {
+      "prompt": "16は、10と いくつに わけられる？",
+      "choices": [
+        { "id": "a", "text": "6" },
+        { "id": "b", "text": "16" },
+        { "id": "c", "text": "10" },
+        { "id": "d", "text": "4" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "16は、10の まとまりが 1つと、ばらが 6です。"
+  },
+  {
+    "id": "sansu.g1.kazu-20.0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-20",
+    "payload": {
+      "prompt": "13と 17では、どちらが おおきい？",
+      "choices": [
+        { "id": "a", "text": "13" },
+        { "id": "b", "text": "17" },
+        { "id": "c", "text": "おなじ" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "どちらも10が 1つ。ばらの 7は 3より おおきいので、17が おおきいです。"
+  },
+  {
+    "id": "sansu.g1.kazu-20.0004",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-20",
+    "payload": {
+      "prompt": "14、15、16、□。つぎの かずを 入[い]れよう。",
+      "template": "14、15、16、□",
+      "answers": ["17"]
+    },
+    "explanation": "1ずつ ふえているので、16の つぎは 17です。"
+  },
+  {
+    "id": "sansu.g1.kazu-20.0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-20",
+    "payload": {
+      "prompt": "20から 1つ まえの かずは？",
+      "choices": [
+        { "id": "a", "text": "18" },
+        { "id": "b", "text": "19" },
+        { "id": "c", "text": "21" }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "20より 1ちいさい かずは 19です。"
+  },
+  {
+    "id": "sansu.g1.kazu-20.0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-20",
+    "payload": {
+      "prompt": "10の まとまりが 1つ、ばらが 8こ。ぜんぶで いくつ？",
+      "choices": [
+        { "id": "a", "text": "8" },
+        { "id": "b", "text": "10" },
+        { "id": "c", "text": "18" },
+        { "id": "d", "text": "81" }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "10と 8を あわせると 18です。18は 10の まとまりが 1つと、ばらが 8こです。"
+  }
+]

@@ -64,8 +64,8 @@
       "prompt": "おちばを つかって あそびを つくります。どんな くふうが できる？",
       "choices": [
         { "id": "a", "text": "いろや かたちで なかまわけして ならべる" },
-        { "id": "b", "text": "ぜんぶ ごみに する" },
-        { "id": "c", "text": "ひとの にわから かってに とる" }
+        { "id": "b", "text": "いろを みないで、おおきさだけで ならべる" },
+        { "id": "c", "text": "どの はも おなじだと かんがえて ならべる" }
       ],
       "answer": "a",
       "shuffle": true
@@ -82,8 +82,8 @@
       "prompt": "ふゆに おなじ きを みると、はるより はが すくなく なっていました。わかったことは？",
       "choices": [
         { "id": "a", "text": "きの ようすは きせつで かわることが ある" },
-        { "id": "b", "text": "どの きも いつも おなじ" },
-        { "id": "c", "text": "かんさつしても わからない" }
+        { "id": "b", "text": "ふゆに なると、どの きも はが ぜんぶ なくなる" },
+        { "id": "c", "text": "はの かずは きせつと かんけいが ない" }
       ],
       "answer": "a",
       "shuffle": true
@@ -118,8 +118,8 @@
       "prompt": "どんぐりや おちばで おもちゃを つくりました。もっと たのしく あそぶには？",
       "choices": [
         { "id": "a", "text": "ためして、うまく いかない ところを つくりなおす" },
-        { "id": "b", "text": "ともだちの おもちゃを だまって こわす" },
-        { "id": "c", "text": "あそばずに すぐ すてる" }
+        { "id": "b", "text": "さいしょに つくった まま、うごきを ためさない" },
+        { "id": "c", "text": "かざりだけを ふやして、あそびかたは かえない" }
       ],
       "answer": "a",
       "shuffle": true
@@ -136,12 +136,120 @@
       "prompt": "おちばを ならべて えを つくります。ざいりょうの よさを いかした くふうは？",
       "choices": [
         { "id": "a", "text": "いろや かたちを くらべ、つかう ばしょを かんがえる" },
-        { "id": "b", "text": "いろも かたちも みないで えらぶ" },
-        { "id": "c", "text": "まだ つかう おちばを ぜんぶ ふむ" }
+        { "id": "b", "text": "おおきさだけを みて、いろは くらべない" },
+        { "id": "c", "text": "おなじ かたちの はだけを つかう" }
       ],
       "answer": "a",
       "shuffle": true
     },
     "explanation": "おちばの いろや かたちは それぞれ ちがいます。ちがいを いかして ならべると、あらわしかたを くふうできます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0009",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "ふゆの あさ、じめんに しろい しもが ありました。しらべる ときに よい ことは？",
+      "choices": [
+        { "id": "a", "text": "さむさや ばしょと いっしょに、みつけた ようすを きろくする" },
+        { "id": "b", "text": "しもの いろだけを みて、ばしょは のこさない" },
+        { "id": "c", "text": "ひるに なってから、おなじ しもを さがす" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "いつ、どこで、どんな ようすだったかを のこすと、ふゆらしい へんかを たしかめられます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0010",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "はると ふゆの おなじ きを くらべます。きせつの へんかを つたえやすいのは？",
+      "choices": [
+        { "id": "a", "text": "はの かずや いろ、えだの ようすを ならべて つたえる" },
+        { "id": "b", "text": "ふゆの ようすだけを みて、はるも おなじだと いう" },
+        { "id": "c", "text": "はると ふゆで ちがう きを くらべる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "おなじ ものを ちがう きせつで くらべると、はや えだの ようすの へんかを わかりやすく つたえられます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0011",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "ふゆの こうていを しらべます。あんぜんに かんさつするには？",
+      "choices": [
+        { "id": "a", "text": "あたたかい ふくを きて、こおった ところは ゆっくり あるく" },
+        { "id": "b", "text": "うすい ふくで、こおった ところを はしる" },
+        { "id": "c", "text": "さむくても ずっと そとに いる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ふゆの さむさや じめんの ようすに あわせて、むりなく あんぜんに かんさつします。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0012",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "あきと ふゆの おなじ ばしょを くらべます。のこすと よい ことは？",
+      "choices": [
+        { "id": "a", "text": "ひづけと、はや じめんの ようす" },
+        { "id": "b", "text": "ともだちの なまえだけ" },
+        { "id": "c", "text": "みつけた ものを ぜんぶ もちかえる" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "おなじ ばしょの ひづけと ようすを のこすと、きせつで かわった ところを くらべられます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0013",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "ともだちの まちには ゆきが あり、じぶんの まちには ありません。どう かんがえる？",
+      "choices": [
+        { "id": "a", "text": "ばしょによって、ふゆの ようすは ちがうことが ある" },
+        { "id": "b", "text": "ゆきが ない まちは、ふゆでは ない" },
+        { "id": "c", "text": "どの まちも、ふゆの ようすは ぜんぶ おなじ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ふゆでも、ゆきや こおりの ようすは ばしょによって ちがいます。それぞれの ちいきの へんかを みつけます。"
+  },
+  {
+    "id": "seikatsu.g1.kisetsu.0014",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.kisetsu",
+    "payload": {
+      "prompt": "ふゆに みつけた ことを、はるの きろくと いっしょに つたえるには？",
+      "choices": [
+        { "id": "a", "text": "ふたつの えを ならべ、かわった ところを しるしで しめす" },
+        { "id": "b", "text": "ふゆの えだけを みせ、せつめいしない" },
+        { "id": "c", "text": "みていない ことを つけたす" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ちがう きせつの きろくを ならべ、かわった ところを しめすと、みつけた ことが つたわります。"
   }
 ]

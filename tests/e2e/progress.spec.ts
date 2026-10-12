@@ -1,5 +1,30 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
+
+async function expectEightStatsFit(page: Page) {
+  const info = page.locator('.nq-party-info');
+  const stats = info.locator('.nq-party-stats > span');
+  await expect(stats).toHaveCount(8);
+  for (const label of [
+    /HP/,
+    /MP/,
+    /理系.*こうげき/,
+    /文系.*こうげき/,
+    /理系.*ぼうぎょ/,
+    /文系.*ぼうぎょ/,
+    /すばやさ/,
+    /かしこさ/,
+  ])
+    await expect(info).toContainText(label);
+  const [infoBox, statsBox] = await Promise.all([
+    info.boundingBox(),
+    info.locator('.nq-party-stats').boundingBox(),
+  ]);
+  expect(infoBox).not.toBeNull();
+  expect(statsBox).not.toBeNull();
+  expect(statsBox!.x).toBeGreaterThanOrEqual(infoBox!.x);
+  expect(statsBox!.x + statsBox!.width).toBeLessThanOrEqual(infoBox!.x + infoBox!.width + 1);
+}
 
 test('新規ゲームから2Dロードマップを開き、セーブ後に同じスロットを続行できる', async ({ page }, testInfo) => {
   test.setTimeout(180_000);
@@ -84,6 +109,10 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   const bagWindow = page.locator('.nq-wmap-box');
   const openWidth = await bagWindow.evaluate((el) => el.getBoundingClientRect().width);
   await expect(page.locator('.nq-party-info')).toBeVisible();
+  await expectEightStatsFit(page);
+  await page.setViewportSize({ width: 960, height: 540 });
+  await expectEightStatsFit(page);
+  await page.setViewportSize({ width: 640, height: 540 });
   await heroCell.click();
   await expect(page.locator('.nq-party-info')).toHaveCount(0);
   await expect(page.getByRole('button', { name: /とじる/ })).toBeVisible();

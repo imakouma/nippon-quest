@@ -9,6 +9,7 @@ const preinstalled = [
 ].find((p) => existsSync(p));
 // 開発用 preview と共有すると、別タスクの終了・再ビルドでE2E中に接続が切れる。
 const port = Number(process.env.E2E_PORT ?? 4174);
+const useDevServer = process.env.E2E_USE_DEV_SERVER === '1';
 
 export default defineConfig({
   testDir: 'tests/e2e',
@@ -22,7 +23,9 @@ export default defineConfig({
     ...(preinstalled ? { launchOptions: { executablePath: preinstalled } } : {}),
   },
   webServer: {
-    command: `pnpm build && pnpm exec vite preview --host 127.0.0.1 --port ${port} --strictPort`,
+    command: useDevServer
+      ? `pnpm exec vite --host 127.0.0.1 --port ${port} --strictPort`
+      : `pnpm build && pnpm exec vite preview --host 127.0.0.1 --port ${port} --strictPort`,
     port,
     // 通常は検査ごとに本番previewを作り直す。手元で既に最新版を起動済みの場合だけ明示的に再利用する。
     reuseExistingServer: process.env.E2E_REUSE_SERVER === '1',
