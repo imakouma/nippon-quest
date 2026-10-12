@@ -20,6 +20,7 @@ import { HeroIdentitySetup, type HeroIdentity } from '../../ui/title/HeroIdentit
 import { t } from '../../ui/i18n';
 import { playSfx } from '../../ui/sfx';
 import { monsterMenuArtUrl } from '../../rendering/menuArt';
+import { askOpeningHeroName, presentCutscene } from './cutsceneFlow';
 import {
   companionChoiceLines,
   companionJoinedLines,
@@ -126,6 +127,41 @@ export async function runPendingBattleTutorial(options: PendingBattleTutorialOpt
   await options.talk(battleTutorialLines());
   options.save(completeBattleTutorial(options.getGame()));
   return true;
+}
+
+interface OpeningSequenceOptions {
+  mapKey: string;
+  game: GameState;
+  root: HTMLElement;
+  getGame: () => GameState;
+  setGame: (state: GameState) => void;
+  talk: (lines: DialogueLine[]) => Promise<void>;
+  afterCutscene: () => void;
+}
+
+/** 名前決定・到着物語・初回バトル説明を、保存順を崩さず連続して進める。 */
+export async function runOpeningSequence(options: OpeningSequenceOptions): Promise<void> {
+  const named = await askOpeningHeroName(options.mapKey, options.game, options.root, options.getGame);
+  if (named !== options.game) options.setGame(named);
+  const story = mapArrivalStory(options.mapKey, named);
+  if (story) {
+    options.setGame(queueOpeningBattleTutorial(story));
+    await presentCutscene({
+      root: options.root,
+      lines: story.lines,
+      kind: story.presentation,
+      game: named,
+      fairyName: t('field.prologueFairy'),
+      afterClose: options.afterCutscene,
+    });
+  }
+  await runPendingBattleTutorial({
+    mapKey: options.mapKey,
+    game: options.getGame(),
+    talk: options.talk,
+    save: options.setGame,
+    getGame: options.getGame,
+  });
 }
 
 export function requestHeroIdentity(

@@ -150,12 +150,7 @@ import { itemKindPresentation, specialtyRewardLines } from './overworld/treasure
 import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
-import {
-  mapArrivalStory,
-  queueOpeningBattleTutorial,
-  runCompanionRite,
-  runPendingBattleTutorial,
-} from './overworld/storyFlow';
+import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
 import { hasStoryCompanion, storyCompanionId } from '../core/progression/storyCompanion';
 import {
   areaBossStoryLines,
@@ -166,7 +161,6 @@ import {
   regionBossStoryLines,
 } from './overworld/chapterMilestones';
 import { presentDialogue } from './overworld/dialogueFlow';
-import { askOpeningHeroName, presentCutscene } from './overworld/cutsceneFlow';
 import { currentMichiruGuideKey, type MichiruGuideKey } from './overworld/michiruGuide';
 import { createMichiruFollower, positionMichiruFollower } from './overworld/michiruFollower';
 import { fieldPlaceName } from './overworld/placeName';
@@ -2556,7 +2550,7 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private async showPrologue(): Promise<void> {
-    let gs = this.gs();
+    const gs = this.gs();
     // 操作可能になるまで待ち、到着物語が永久に始まらない状態を防ぐ。
     if ((this.busy && !this.awaitingPrologue) || this.inBattle || !gs) {
       this.time.delayedCall(300, () => void this.showPrologue());
@@ -2565,41 +2559,19 @@ export class OverworldScene extends Phaser.Scene {
     this.awaitingPrologue = false;
     this.busy = true;
     this.standStill();
-    const startingGame = gs;
-    const named = await askOpeningHeroName(
-      this.mapKey,
-      startingGame,
-      this.root('dialogue'),
-      () => this.gs() ?? startingGame,
-    );
-    if (named !== gs) this.setGame(named);
-    gs = named;
-    const story = mapArrivalStory(this.mapKey, gs);
     try {
-      if (story) {
-        this.setGame(queueOpeningBattleTutorial(story));
-        await presentCutscene({
-          root: this.root('dialogue'),
-          lines: story.lines,
-          kind: story.presentation,
-          game: gs,
-          fairyName: t('field.prologueFairy'),
-          afterClose: () => {
-            this.inputLockUntil = this.time.now + 250;
-            this.waitRelease = true;
-          },
-        });
-      }
-      const current = this.gs();
-      if (current) {
-        await runPendingBattleTutorial({
-          mapKey: this.mapKey,
-          game: current,
-          talk: (lines) => this.talk(lines),
-          save: (state) => this.setGame(state),
-          getGame: () => this.gs() ?? current,
-        });
-      }
+      await runOpeningSequence({
+        mapKey: this.mapKey,
+        game: gs,
+        root: this.root('dialogue'),
+        getGame: () => this.gs() ?? gs,
+        setGame: (state) => this.setGame(state),
+        talk: (lines) => this.talk(lines),
+        afterCutscene: () => {
+          this.inputLockUntil = this.time.now + 250;
+          this.waitRelease = true;
+        },
+      });
     } finally {
       this.busy = false;
     }
