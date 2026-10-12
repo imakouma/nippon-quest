@@ -41,7 +41,7 @@ import {
 import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { displayText } from '../ui/ruby';
-import { playSfx, setSfxVolume } from '../ui/sfx';
+import { playSfx, prepareBattleSfx } from '../ui/sfx';
 import { BATTLE_POSE, battleSheet, HERO_H, HERO_W, heroKey, heroLook } from '../rendering/characters';
 import { itemIconGrid, itemIconUrl } from '../rendering/itemIcons';
 import { designedMonsterArt } from '../rendering/monsters';
@@ -232,7 +232,7 @@ export class BattleScene extends Phaser.Scene {
       monsters: withSpecialtyDrops(c.monsters, c.areas, c.items, c.settings.specialtyDropRate),
     };
     this.mastery = new MasteryStore(this.gs.learning.mastery);
-    setSfxVolume(this.gs.settings.seVolume);
+    void prepareBattleSfx(this.gs.settings.seVolume);
 
     const isBoss = this.opts.isBoss ?? def.isBoss;
     this.state = createBattle(

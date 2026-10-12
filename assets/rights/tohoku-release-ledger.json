@@ -86,6 +86,32 @@
       }
     },
     {
+      "id": "stable-audio-battle-sfx",
+      "paths": [
+        "assets/audio/se/slash.mp3",
+        "assets/audio/se/hit.mp3",
+        "assets/audio/se/crit.mp3",
+        "assets/audio/se/hurt.mp3",
+        "assets/audio/se/heal.mp3"
+      ],
+      "status": "approved",
+      "origin": "Stable Audio 3 Small SFXで無料ローカル生成し、短い単発音へ切り出し",
+      "author": "NIHON QUEST project（AI-assisted local generation）",
+      "source": "Stability-AI/stable-audio-3, seeds 271850–271854; assets/audio/se/battle-generation.json",
+      "license": "Stability AI Community License（年間売上100万米ドル未満の条件付き）",
+      "licenseEvidence": "assets/audio/se/PROVENANCE.md",
+      "modificationAllowed": true,
+      "redistributionAllowed": true,
+      "creditRequired": false,
+      "sha256": {
+        "assets/audio/se/slash.mp3": "763d751260d1852315d5484a942b89098c554d14cc875d46fdbcaebdfd96cefd",
+        "assets/audio/se/hit.mp3": "c1fcdbdb56498a1bf103948898f89db0acaed7878f7a6b0f28f9848071b6e012",
+        "assets/audio/se/crit.mp3": "5496dee13fdb74ee22ddf4fe6d2ffd8dc78efb9fd8ef30b5633d69d09079d477",
+        "assets/audio/se/hurt.mp3": "3e6c0eec99435ecc81e618969b97256189af5b659fa9db5d4313837c968feca3",
+        "assets/audio/se/heal.mp3": "0d2ca4e918195090e00ab8c04f4b22bff510c7574a741be8ac0a1014b9142b87"
+      }
+    },
+    {
       "id": "procedurally-exported-tohoku-art",
       "pathPrefixes": [
         "assets/motifs/aomori/",

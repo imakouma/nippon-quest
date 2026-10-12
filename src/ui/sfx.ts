@@ -1,6 +1,6 @@
 /**
- * 効果音（既存のチップチューン合成SEと、先読みする探索用の単発音源）。
- * 探索音源は assets/audio/se/<name>.mp3。歩行時にfetchせず、読込待ちの遅延再生も行わない。
+ * 効果音（既存のチップチューン合成SEと、先読みする探索・戦闘の単発音源）。
+ * 音源は assets/audio/se/<name>.mp3。再生ごとにfetchせず、読込待ちの遅延再生も行わない。
  * 再生できない環境（AudioContext 非対応・自動再生制限）では黙って何もしない。
  */
 export type SfxName =
@@ -50,6 +50,7 @@ const SOUNDS: Partial<Record<SfxName, Note[]>> = {
   move: [N(660, 0.04, 0, { g: 0.4 })],
   select: [N(784, 0.05), N(1175, 0.08, 0.05)],
   back: [N(523, 0.05), N(392, 0.08, 0.05)],
+  // 戦闘音源が未読込・欠損のときは既存の合成音で即時再生する。
   hit: [N(0, 0.12, 0, { g: 0.7 }), N(220, 0.1, 0, { to: 80, g: 0.5 })],
   crit: [N(0, 0.2, 0, { g: 0.9 }), N(440, 0.18, 0, { to: 60, g: 0.6 }), N(1568, 0.1, 0.12, { g: 0.4 })],
   hurt: [N(0, 0.15, 0, { g: 0.6 }), N(160, 0.15, 0, { to: 60, type: 'sawtooth', g: 0.4 })],
@@ -90,7 +91,6 @@ const SOUNDS: Partial<Record<SfxName, Note[]>> = {
   warp: [N(200, 0.6, 0, { to: 1600, type: 'triangle' }), N(400, 0.5, 0.12, { to: 2400, g: 0.3 })],
   // 壁にぶつかった
   bump: [N(110, 0.06, 0, { type: 'triangle', g: 0.6 })],
-  // 剣のひと振り
   slash: [N(0, 0.08, 0, { g: 0.6 }), N(1800, 0.08, 0, { to: 300, type: 'sawtooth', g: 0.25 })],
 };
 
@@ -99,7 +99,7 @@ let noise: AudioBuffer | null = null;
 let volume = 0.5;
 let muted = false;
 
-const FILE_SOUNDS: Partial<Record<SfxName, number>> = {
+const FIELD_SOUNDS: Partial<Record<SfxName, number>> = {
   'step-grass': 0.3,
   'step-sand': 0.3,
   'step-stone': 0.25,
@@ -107,6 +107,14 @@ const FILE_SOUNDS: Partial<Record<SfxName, number>> = {
   door: 0.55,
   chest: 0.6,
 };
+const BATTLE_SOUNDS: Partial<Record<SfxName, number>> = {
+  slash: 0.25,
+  hit: 0.38,
+  crit: 0.4,
+  hurt: 0.34,
+  heal: 0.35,
+};
+const FILE_SOUNDS: Partial<Record<SfxName, number>> = { ...FIELD_SOUNDS, ...BATTLE_SOUNDS };
 const samples = new Map<SfxName, AudioBuffer>();
 const loading = new Map<SfxName, Promise<void>>();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -128,7 +136,12 @@ function loadSample(name: SfxName): Promise<void> {
 }
 
 export async function preloadFieldSfx(): Promise<void> {
-  await Promise.all((Object.keys(FILE_SOUNDS) as SfxName[]).map(loadSample));
+  await Promise.all((Object.keys(FIELD_SOUNDS) as SfxName[]).map(loadSample));
+}
+
+export async function prepareBattleSfx(v: number): Promise<void> {
+  setSfxVolume(v);
+  await Promise.all((Object.keys(BATTLE_SOUNDS) as SfxName[]).map(loadSample));
 }
 
 export function setSfxVolume(v: number): void {
@@ -173,20 +186,20 @@ export function playSfx(name: SfxName): void {
     const buffer = samples.get(name);
     if (!buffer) {
       void loadSample(name);
+    } else {
+      const gain = a.createGain();
+      gain.gain.value = volume * sampleVolume;
+      gain.connect(a.destination);
+      const source = a.createBufferSource();
+      source.buffer = buffer;
+      source.connect(gain);
+      source.onended = () => {
+        source.disconnect();
+        gain.disconnect();
+      };
+      source.start(t0);
       return;
     }
-    const gain = a.createGain();
-    gain.gain.value = volume * sampleVolume;
-    gain.connect(a.destination);
-    const source = a.createBufferSource();
-    source.buffer = buffer;
-    source.connect(gain);
-    source.onended = () => {
-      source.disconnect();
-      gain.disconnect();
-    };
-    source.start(t0);
-    return;
   }
   for (const n of SOUNDS[name] ?? []) {
     const start = t0 + (n.at ?? 0);

@@ -61,7 +61,7 @@ test('実音源をデコードし、歩行・停止・壁・消音・入口・�
   const requests: string[] = [];
   page.on('pageerror', (error) => errors.push(String(error)));
   page.on('response', (response) => {
-    if (response.url().includes('/audio/se/')) {
+    if (/\/audio\/se\/(step-[^/]+|door|chest)\.mp3$/.test(response.url())) {
       requests.push(response.url());
       if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);
     }
@@ -81,7 +81,7 @@ test('実音源をデコードし、歩行・停止・壁・消音・入口・�
     AudioContext.prototype.decodeAudioData = async function (data) {
       const name = dataNames.get(data);
       const buffer = await originalDecode.call(this, data);
-      if (name) {
+      if (name && /^(step-|door\.|chest\.)/.test(name)) {
         bufferNames.set(buffer, name);
         window.__fieldDecoded.push(name);
       }
