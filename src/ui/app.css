@@ -40,6 +40,27 @@
   box-sizing: border-box;
 }
 
+/* ゲーム画面では、スマホブラウザの青いタップ色・長押し選択・コピー用吹き出しを出さない。 */
+#app,
+#app * {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 名前や自由回答など、文字入力そのものに必要な選択操作だけは残す。 */
+#app :is(input, textarea, [contenteditable='true']) {
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+#app img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 /* キーボード操作では、現在位置を色だけでなく太い枠でも示す。 */
 :where(button, input, select, textarea, [tabindex]):focus-visible {
   outline: 4px solid var(--nq-yellow);
