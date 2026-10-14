@@ -120,6 +120,8 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   const heroCell = page.getByRole('button', { name: 'テスト' });
   const bagWindow = page.locator('.nq-wmap-box');
   const openWidth = await bagWindow.evaluate((el) => el.getBoundingClientRect().width);
+  await expect(page.locator('.nq-party-info')).toHaveCount(0);
+  await heroCell.click();
   await expect(page.locator('.nq-party-info')).toBeVisible();
   await expectEightStatsFit(page);
   await page.setViewportSize({ width: 960, height: 540 });

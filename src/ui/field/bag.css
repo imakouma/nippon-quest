@@ -5,6 +5,21 @@
 .nq-bag-left {
   min-height: 0;
 }
+.nq-bag-right {
+  min-height: 0;
+}
+.nq-bag-right > .nq-wmap-head,
+.nq-bag-right > .nq-party-foot,
+.nq-bag-right > .nq-wmap-keys {
+  flex: none;
+}
+.nq-bag-reserve {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+  min-height: 160px;
+}
 .nq-bag-details-closed .nq-party-msg {
   visibility: hidden;
 }
@@ -94,12 +109,15 @@
 }
 .nq-bag-reserve-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: start;
+  flex: 1;
   gap: 8px;
   min-height: 0;
   margin: 0;
   padding: 0 4px 4px 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   list-style: none;
 }
 .nq-bag-reserve-tile {
@@ -116,6 +134,9 @@
   background: #1d2033;
   font: inherit;
   cursor: pointer;
+}
+.nq-bag-reserve-grid > .nq-party-none {
+  grid-column: 1 / -1;
 }
 .nq-bag-reserve-tile:hover,
 .nq-bag-reserve-tile:focus-visible {
@@ -143,6 +164,7 @@
   font-size: 16px;
   line-height: 20px;
   text-align: center;
+  word-break: keep-all;
   overflow-wrap: anywhere;
 }
 .nq-bag-reserve-heart {
