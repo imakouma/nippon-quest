@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'preact/hooks';
 import { playSfx } from '../sfx';
 import type { HudState, HudStore } from './store';
 
-const COLS = 2;
-const CMD_COLS = 2;
 const KEY_DIR: Record<string, [number, number]> = {
   ArrowLeft: [-1, 0],
   ArrowRight: [1, 0],
@@ -98,13 +96,7 @@ export function useBattleHudInput(store: HudStore, advance: () => void): void {
       if (state.menu !== 'none') {
         const options = menuOptions(state, store);
         if (direction && options.length) {
-          const next = Math.max(
-            0,
-            Math.min(
-              options.length - 1,
-              state.cursor + direction[0] + direction[1] * (state.menu === 'commands' ? CMD_COLS : COLS),
-            ),
-          );
+          const next = Math.max(0, Math.min(options.length - 1, state.cursor + direction[0] + direction[1]));
           if (next !== state.cursor) {
             playSfx('move');
             store.set({ cursor: next });

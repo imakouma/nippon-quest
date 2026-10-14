@@ -79,7 +79,7 @@ function CommandWindow({ s, store }: { s: HudState; store: HudStore }) {
             aria-current={focused ? 'true' : undefined}
             aria-disabled={c.disabled}
             data-cmd={c.kind}
-            onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
+            onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
             onClick={() =>
               pickBattleHudOption({
                 key: c.kind,
@@ -150,7 +150,7 @@ function SkillList({ s, store }: { s: HudState; store: HudStore }) {
   const subject = focus ? t(`subjects.${focus.subject}`) : '';
   return (
     <div class="nq-win nq-menu nq-menu-skill">
-      <div class="nq-skill-layout">
+      <div class="nq-menu-layout">
         <div class="nq-menu-grid" role="group" aria-label={t('cmd.skill')}>
           {s.skills.map((k, i) => (
             <button
@@ -161,7 +161,7 @@ function SkillList({ s, store }: { s: HudState; store: HudStore }) {
               aria-disabled={k.disabled}
               data-skill={k.id}
               data-actor={k.actorId}
-              onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
+              onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
               onClick={() =>
                 pickBattleHudOption({
                   key: k.key,
@@ -215,49 +215,57 @@ function SkillList({ s, store }: { s: HudState; store: HudStore }) {
 function ItemList({ s, store }: { s: HudState; store: HudStore }) {
   const focus = s.items[s.cursor];
   return (
-    <div class="nq-win nq-menu">
+    <div class="nq-win nq-menu nq-menu-items">
       <MenuHead icon="cmd-item" title={t('cmd.item')} store={store} />
-      {s.items.length === 0 ? (
-        <p class="nq-menu-empty">{t('battle.noItems')}</p>
-      ) : (
-        <div class="nq-menu-grid" role="group" aria-label={t('cmd.item')}>
-          {s.items.map((it, i) => (
-            <button
-              key={it.id}
-              type="button"
-              class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''}`}
-              aria-current={s.cursor === i ? 'true' : undefined}
-              aria-disabled={it.count <= 0}
-              data-item={it.id}
-              onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
-              onClick={() =>
-                pickBattleHudOption({
-                  key: it.id,
-                  disabled: it.count <= 0,
-                  action: () => store.dispatch({ t: 'item', id: it.id }),
-                })
-              }
-            >
-              <Cursor on={s.cursor === i} />
-              <img class="nq-item-icon" src={it.icon} alt="" />
-              <RubyLabel text={it.name} class="nq-opt-name" />
-              <span class="nq-opt-side">{t('battle.itemCount', { n: it.count })}</span>
-            </button>
-          ))}
-        </div>
-      )}
-      {focus && (
-        <div class="nq-menu-foot">
-          <RubyLabel text={focus.blurb} />
-        </div>
-      )}
+      <div class="nq-menu-layout">
+        {s.items.length === 0 ? (
+          <p class="nq-menu-empty">{t('battle.noItems')}</p>
+        ) : (
+          <div class="nq-menu-grid" role="group" aria-label={t('cmd.item')}>
+            {s.items.map((it, i) => (
+              <button
+                key={it.id}
+                type="button"
+                class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''}`}
+                aria-current={s.cursor === i ? 'true' : undefined}
+                aria-disabled={it.count <= 0}
+                data-item={it.id}
+                onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
+                onClick={() =>
+                  pickBattleHudOption({
+                    key: it.id,
+                    disabled: it.count <= 0,
+                    action: () => store.dispatch({ t: 'item', id: it.id }),
+                  })
+                }
+              >
+                <Cursor on={s.cursor === i} />
+                <img class="nq-item-icon" src={it.icon} alt="" />
+                <RubyLabel text={it.name} class="nq-opt-name" />
+                <span class="nq-opt-side">{t('battle.itemCount', { n: it.count })}</span>
+              </button>
+            ))}
+          </div>
+        )}
+        {focus && (
+          <div
+            class="nq-menu-foot nq-menu-foot-item"
+            tabIndex={0}
+            onKeyDown={(event) => {
+              if (event.key.startsWith('Arrow')) event.stopPropagation();
+            }}
+          >
+            <RubyLabel text={focus.blurb} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 function SwapList({ s, store }: { s: HudState; store: HudStore }) {
   return (
-    <div class="nq-win nq-menu">
+    <div class="nq-win nq-menu nq-menu-swap">
       <MenuHead icon="cmd-swap" title={t('cmd.swap')} store={store} />
       {s.swaps.length === 0 ? (
         <p class="nq-menu-empty">{t('battle.noPartner')}</p>
@@ -270,7 +278,7 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
               class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''} ${w.disabled ? 'nq-opt-off' : ''}`}
               aria-current={s.cursor === i ? 'true' : undefined}
               aria-disabled={w.disabled}
-              onPointerEnter={() => s.cursor !== i && store.set({ cursor: i })}
+              onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
               onClick={() =>
                 pickBattleHudOption({
                   key: String(w.index),
@@ -293,6 +301,7 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
                   max={w.maxHp}
                   kind="hp"
                   label={`${displayText(w.name)} ${t('battle.hp')}`}
+                  showValue
                 />
                 {w.active ? (
                   <span class="nq-opt-reason">{t('battle.active')}</span>
