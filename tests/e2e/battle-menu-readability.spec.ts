@@ -28,6 +28,79 @@ test('縦並びのバトルコマンドは下矢印で次の行を選ぶ', async
   await expect(page.locator('[data-cmd="swap"]')).toBeFocused();
 });
 
+test('Tabで移ったコマンドと技を選択表示・矢印・Zキーも追従する', async ({ page }) => {
+  test.setTimeout(90_000);
+  await start(page);
+  const skill = page.locator('[data-cmd="skill"]');
+  await expect(skill).toBeFocused();
+  await page.keyboard.press('Tab');
+  const item = page.locator('[data-cmd="item"]');
+  await expect(item).toBeFocused();
+  await expect(item).toHaveAttribute('aria-current', 'true');
+  await page.keyboard.press('ArrowDown');
+  await expect(page.locator('[data-cmd="swap"]')).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(item).toHaveAttribute('aria-current', 'true');
+  await page.keyboard.press('z');
+  await expect(page.locator('.nq-menu-skill')).toHaveCount(0);
+  await expect(item).toBeFocused();
+  await skill.click();
+  const options = page.locator('[data-skill]');
+  await expect(options.first()).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(options.nth(1)).toBeFocused();
+  await expect(options.nth(1)).toHaveAttribute('aria-current', 'true');
+  await page.keyboard.press('Shift+Tab');
+  await expect(options.first()).toHaveAttribute('aria-current', 'true');
+});
+
+test('静止したマウスの行と矢印で選んだ行を二重に強調しない', async ({ page }, info) => {
+  test.setTimeout(90_000);
+  await start(page);
+  await page.locator('[data-cmd="skill"]').click();
+  const options = page.locator('[data-skill]');
+  await options.first().hover();
+  await page.keyboard.press('ArrowDown');
+  await expect(options.nth(1)).toBeFocused();
+  await page.screenshot({ path: info.outputPath('single-selection.png') });
+  const colors = await options.evaluateAll((rows) =>
+    rows.slice(0, 2).map((row) => ({
+      border: getComputedStyle(row).borderTopColor,
+      text: getComputedStyle(row).color,
+    })),
+  );
+  expect(colors).toHaveLength(2);
+  expect(colors[0]!.border).not.toBe(colors[1]!.border);
+  expect(colors[0]!.text).not.toBe(colors[1]!.text);
+});
+
+test('道具の説明欄では決定キーで道具を使わずスクロールできる', async ({ page }, info) => {
+  test.setTimeout(90_000);
+  await start(page);
+  await page.evaluate(() => {
+    const battle = window.__nq.scene.getScene('Battle') as MenuBattle;
+    battle.state.ally.hero.hp = 1;
+    const item = [...battle.content.items.values()].find((it) => it.kind === 'consumable' && it.use?.heal)!;
+    battle.state.ally.items = { [item.id]: 12 };
+    battle.syncViews();
+    battle.showCommands();
+  });
+  await page.locator('[data-cmd="item"]').click();
+  const option = page.locator('[data-item]');
+  await expect(option).toBeFocused();
+  await page.keyboard.press('Tab');
+  const detail = page.locator('.nq-menu-foot-item');
+  await expect(detail).toBeFocused();
+  for (const key of ['Enter', 'z', 'Space']) {
+    await detail.press(key);
+    await expect(detail).toBeFocused();
+    await expect(option.locator('.nq-opt-side')).toHaveText(/12/);
+  }
+  await page.screenshot({ path: info.outputPath('item-description-focus.png') });
+  await page.keyboard.press('Escape');
+  await expect(page.locator('[data-cmd="skill"]')).toBeVisible();
+});
+
 for (const viewport of [
   { width: 960, height: 540 },
   { width: 640, height: 360 },
@@ -74,6 +147,12 @@ for (const viewport of [
       await page.locator(`[data-cmd="${menu}"]`).click();
       const options = page.locator('.nq-menu .nq-opt');
       await expect(options.first()).toBeVisible();
+      await expect(options.first()).toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(options.nth(1)).toBeFocused();
+      await expect(options.nth(1)).toHaveAttribute('aria-current', 'true');
+      await page.keyboard.press('Shift+Tab');
+      await expect(options.first()).toHaveAttribute('aria-current', 'true');
       await page.screenshot({ path: info.outputPath(`${menu}-menu.png`) });
       const grid = await page.locator('.nq-menu-grid').boundingBox();
       const firstRow = await options.first().boundingBox();

@@ -90,6 +90,7 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
                 key={String(yes)}
                 type="button"
                 class={`nq-cmd ${cursor === index ? 'nq-focus' : ''}`}
+                onFocus={() => cursor !== index && store.set({ cursor: index })}
                 onPointerEnter={() => store.set({ cursor: index })}
                 onClick={() => {
                   playSfx('select');

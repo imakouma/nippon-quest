@@ -102,6 +102,11 @@ test('バトル：報酬のあとに、キャラが動く仲間加入演出を�
   await expect(recruit).toBeVisible();
   await expect(recruit).toHaveAttribute('aria-modal', 'true');
   await expect(recruit.getByRole('button').first()).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(recruit.getByRole('button').nth(1)).toBeFocused();
+  await expect(recruit.getByRole('button').nth(1)).toHaveClass(/nq-focus/);
+  await page.keyboard.press('Shift+Tab');
+  await expect(recruit.getByRole('button').first()).toHaveClass(/nq-focus/);
   await page.keyboard.press('ArrowRight');
   await expect(recruit.getByRole('button').nth(1)).toBeFocused();
   await expect(recruit).toContainText('リンゴロン');

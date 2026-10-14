@@ -79,6 +79,7 @@ function CommandWindow({ s, store }: { s: HudState; store: HudStore }) {
             aria-current={focused ? 'true' : undefined}
             aria-disabled={c.disabled}
             data-cmd={c.kind}
+            onFocus={() => s.cursor !== i && store.set({ cursor: i })}
             onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
             onClick={() =>
               pickBattleHudOption({
@@ -161,6 +162,7 @@ function SkillList({ s, store }: { s: HudState; store: HudStore }) {
               aria-disabled={k.disabled}
               data-skill={k.id}
               data-actor={k.actorId}
+              onFocus={() => s.cursor !== i && store.set({ cursor: i })}
               onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
               onClick={() =>
                 pickBattleHudOption({
@@ -230,6 +232,7 @@ function ItemList({ s, store }: { s: HudState; store: HudStore }) {
                 aria-current={s.cursor === i ? 'true' : undefined}
                 aria-disabled={it.count <= 0}
                 data-item={it.id}
+                onFocus={() => s.cursor !== i && store.set({ cursor: i })}
                 onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
                 onClick={() =>
                   pickBattleHudOption({
@@ -252,7 +255,8 @@ function ItemList({ s, store }: { s: HudState; store: HudStore }) {
             class="nq-menu-foot nq-menu-foot-item"
             tabIndex={0}
             onKeyDown={(event) => {
-              if (event.key.startsWith('Arrow')) event.stopPropagation();
+              // 説明を読むキーで道具を使わない。戻る操作だけメニューへ渡す。
+              if (!['Escape', 'x', 'X', 'Backspace'].includes(event.key)) event.stopPropagation();
             }}
           >
             <RubyLabel text={focus.blurb} />
@@ -278,6 +282,7 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
               class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''} ${w.disabled ? 'nq-opt-off' : ''}`}
               aria-current={s.cursor === i ? 'true' : undefined}
               aria-disabled={w.disabled}
+              onFocus={() => s.cursor !== i && store.set({ cursor: i })}
               onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
               onClick={() =>
                 pickBattleHudOption({

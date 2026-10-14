@@ -519,6 +519,11 @@
 .nq-cmd.nq-focus {
   color: var(--nq-yellow);
 }
+/* 静止したポインターの下にある行より、現在のキーボード選択を優先する。 */
+.nq-battle .nq-opt:hover:not(.nq-focus) {
+  border-color: var(--nq-slate);
+  color: var(--nq-white);
+}
 /* 選択色とブラウザ共通フォーカス枠を重ねない。戦闘中は黄色表示だけで現在位置を示す。 */
 .nq-battle button.nq-focus:focus-visible {
   outline: none;
