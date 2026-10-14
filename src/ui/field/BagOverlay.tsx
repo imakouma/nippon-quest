@@ -322,7 +322,9 @@ export function BagOverlay({
 
   const monsInBag = inBag.some((x) => x.kind === 'monster');
   const itemsInBag = inBag.filter((x) => x.kind === 'item');
-  const canReturnItem = !!dragKey && byKey.get(dragKey)?.kind === 'item' && !!byKey.get(dragKey)?.inBag;
+  const draggedThing = dragKey ? byKey.get(dragKey) : undefined;
+  const canReturnItem =
+    !!draggedThing?.inBag && (draggedThing.kind === 'item' || draggedThing.kind === 'equip');
   const returnItem = () => {
     if (!canReturnItem || !dragKey) return;
     onToggle(dragKey);

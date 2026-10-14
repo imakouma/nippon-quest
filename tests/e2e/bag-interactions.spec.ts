@@ -1,7 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
-test('装備の詳細を閉じても崩れず、武器をドラッグして装備・移動できる', async ({ page }, testInfo) => {
+test('装備の詳細を閉じても崩れず、武器をドラッグして装備・移動・取り外しできる', async ({
+  page,
+}, testInfo) => {
   test.setTimeout(60_000);
   await page.goto('/');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
@@ -84,4 +86,10 @@ test('装備の詳細を閉じても崩れず、武器をドラッグして装�
   await expect(weapon).toHaveCSS('grid-column-start', '1');
   await expect(reserve).toContainText('ひかえや もちものは ないよ');
   await page.screenshot({ path: testInfo.outputPath('weapon-moved.png') });
+
+  await weapon.dragTo(reserve);
+  await expect(page.locator('.nq-bag-grid').getByRole('button', { name: 'れんしゅうの ぼう' })).toHaveCount(
+    0,
+  );
+  await expect(reserve.getByRole('button', { name: 'れんしゅうの ぼう' })).toBeVisible();
 });
