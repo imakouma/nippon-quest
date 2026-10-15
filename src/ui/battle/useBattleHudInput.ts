@@ -34,7 +34,7 @@ function menuOptions(state: HudState, store: HudStore): Option[] {
       }));
     case 'items':
       return state.items.map((item) => ({
-        disabled: item.count <= 0,
+        disabled: item.disabled || item.count <= 0,
         action: () => store.dispatch({ t: 'item', id: item.id }),
       }));
     case 'swap':

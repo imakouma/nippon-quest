@@ -92,7 +92,7 @@ export type Command =
   | { kind: 'attack' }
   /** 必殺技（effect が scan なら しらべる）。actorId を わたすと オトモが 使う（省略時は 主人公） */
   | { kind: 'skill'; skillId: string; result: ActionResult; actorId?: string }
-  | { kind: 'item'; itemId: string }
+  | { kind: 'item'; itemId: string; result?: ActionResult; timeLimitScale?: number }
   | { kind: 'swap'; monsterIndex: number }
   | { kind: 'recruit'; result: ActionResult; itemId?: string }
   | { kind: 'flee' }
@@ -167,7 +167,7 @@ export type BattleEvent =
   | { t: 'gaugeUse'; subject: Subject; amount: number; value: number }
   /** 教科ゲージが たりなくて 打てない（ターンは すすまない） */
   | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
-  | { t: 'itemUsed'; itemId: string; targetId: string }
+  | { t: 'itemUsed'; itemId: string; targetId: string; side?: Side }
   | { t: 'recruitGift'; itemId: string; targetId: string }
   /** auto = オトモが たおれて、次の 仲間が 自動で 前に 出た */
   | { t: 'swap'; from: string; to: string; auto?: boolean }

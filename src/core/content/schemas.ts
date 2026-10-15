@@ -343,8 +343,12 @@ export const itemSchema = z.object({
     .object({
       heal: safePositiveIntegerSchema.optional(),
       mp: safePositiveIntegerSchema.optional(),
+      recruit: z.literal(true).optional(),
     })
-    .refine((use) => use.heal !== undefined || use.mp !== undefined, 'heal または mp が必要です')
+    .refine(
+      (use) => use.heal !== undefined || use.mp !== undefined || use.recruit === true,
+      'heal / mp / recruit のいずれかが必要です',
+    )
     .optional(),
   iconKey: z.string(),
   blurb: rubyTextSchema,

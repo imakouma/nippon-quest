@@ -11,6 +11,7 @@ import { createRng, type Rng } from '../rng';
 import { addProgressValue } from '../../shared/safeInteger';
 import { comboBonus, computeDamage, fleeChance, recruitChance, scoreBand, scoreMultiplier } from './damage';
 import { commandPriority, initiativeOrder } from './initiative';
+import { useMusubiDama } from './musubiDama';
 import { clampBattleValue, cloneBattleValue, emptyGauges } from './utils';
 import type {
   BattleEvent,
@@ -36,7 +37,6 @@ export interface StepOutput {
   state: BattleState;
   events: BattleEvent[];
 }
-
 /** バトルで 使える 必殺技と、それを 使う 味方 */
 export interface BattleSkill {
   skill: Skill;
@@ -47,7 +47,6 @@ export interface BattleSkill {
 }
 
 export const SUBJECTS = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'] as const;
-
 /** かいふく わざ：最大 HP × この割合 × いりょく倍率 */
 const HEAL_RATIO = 0.25;
 /** ぼうぎょ アップ・ダウン：1 ± この割合 × いりょく倍率 */
@@ -57,7 +56,6 @@ const ENEMY_HEAL_RATIO = 0.25;
 /** 敵の「みを まもる」の ぼうぎょ倍率と つづく ターン数 */
 const ENEMY_GUARD_MULT = 1.5;
 const ENEMY_GUARD_TURNS = 1;
-
 export { emptyGauges } from './utils';
 
 /** 必殺技の 対象。targetType を 省略したら effect から（かいふく・まもりは 自分、ほかは 敵） */
@@ -364,6 +362,7 @@ function weakestAlly(s: BattleState): Combatant {
 /** 戦闘の自動対象に、回復どうぐの効果が実際にあるか。 */
 export function canUseBattleItem(s: BattleState, item: Item): boolean {
   if (item.kind !== 'consumable' || !item.use) return false;
+  if (item.use.recruit) return true;
   const target = weakestAlly(s);
   return (!!item.use.heal && target.hp < target.stats.hp) || (!!item.use.mp && target.mp < target.stats.mp);
 }
@@ -507,7 +506,9 @@ function heroCommand(
     case 'item': {
       const it = def.items.get(command.itemId);
       const n = s.ally.items[command.itemId] ?? 0;
-      if (!it || n <= 0 || !canUseBattleItem(s, it)) return false;
+      if (!it || n <= 0) return false;
+      if (it.use?.recruit) return useMusubiDama(s, it, def.monsters.get(s.enemy.refId), command, rng, ev);
+      if (!canUseBattleItem(s, it)) return false;
       s.ally.items[command.itemId] = n - 1;
       const target = weakestAlly(s);
       ev.push({ t: 'itemUsed', itemId: it.id, targetId: target.id });

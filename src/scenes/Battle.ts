@@ -67,6 +67,7 @@ import {
 import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 import { battleSummary, defeatResultView, victoryResultView } from './battle/resultView';
 import { questionQueryForSkill, recruitQuestionQuery } from './battle/questionQueries';
+import { prepareMusubiDamaCommand } from './battle/musubiDamaFlow';
 import { runBattleQuestion } from './battle/questionFlow';
 import { BattleHudFlow } from './battle/hudFlow';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
@@ -810,9 +811,27 @@ export class BattleScene extends Phaser.Scene {
       case 'flee':
         cmd = { kind: 'flee' };
         break;
-      case 'item':
-        cmd = { kind: 'item', itemId: intent.itemId };
+      case 'item': {
+        const item = this.content.items.get(intent.itemId);
+        if (!item?.use?.recruit) {
+          cmd = { kind: 'item', itemId: intent.itemId };
+          break;
+        }
+        const prepared = await prepareMusubiDamaCommand(
+          item,
+          this.state.ally.hero.skills,
+          this.content.skills,
+          this.gs.learning.grade,
+          this.enemyDef.area,
+          this.gs.settings.timeLimitScale,
+          t('battle.musubiQuestionHint'),
+          (query) => filterCandidates(this.bank, query).length > 0,
+          (query, title, subject, hint) => this.runQuestion(query, title, subject, hint),
+        );
+        if (!prepared || this.state.outcome !== 'ongoing') return;
+        cmd = prepared;
         break;
+      }
       case 'swap':
         cmd = { kind: 'swap', monsterIndex: intent.index };
         break;

@@ -21,6 +21,7 @@ export interface ShopEntry {
 export const INN_PRICE = 10;
 /** 店の品数の上限（content の shop が無い県） */
 const SHOP_MAX = 6;
+export const MUSUBI_DAMA_ITEM_ID = 'common-musubi-dama';
 
 function inventoryTotalAfterAdding(gs: GameState, itemId: string, n: number): number | null {
   const current = gs.inventory[itemId] ?? 0;
@@ -45,13 +46,18 @@ export function localFood(area: Area | undefined, items: ReadonlyMap<string, Ite
 
 /** おみせの 品ぞろえ。content の area.shop があれば それ、無ければ その県の たべもの・そざい */
 export function shopStock(area: Area, items: ReadonlyMap<string, Item>): ShopEntry[] {
-  if (area.shop.length) return area.shop.filter((s) => items.has(s.itemId));
-  const out: ShopEntry[] = [];
-  for (const it of items.values()) {
-    if (out.length >= SHOP_MAX) break;
-    if (it.areaOrigin !== area.id || !it.price) continue;
-    if (it.kind !== 'consumable' && it.kind !== 'material') continue;
-    out.push({ itemId: it.id, price: it.price });
+  const out = area.shop.length
+    ? area.shop.filter((entry) => items.has(entry.itemId))
+    : [...items.values()]
+        .flatMap((item) => {
+          if (item.areaOrigin !== area.id || !item.price) return [];
+          if (item.kind !== 'consumable' && item.kind !== 'material') return [];
+          return [{ itemId: item.id, price: item.price }];
+        })
+        .slice(0, SHOP_MAX);
+  const musubiDama = items.get(MUSUBI_DAMA_ITEM_ID);
+  if (musubiDama?.price && !out.some((entry) => entry.itemId === musubiDama.id)) {
+    out.push({ itemId: musubiDama.id, price: musubiDama.price });
   }
   return out;
 }

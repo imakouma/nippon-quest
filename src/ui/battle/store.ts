@@ -90,6 +90,8 @@ export interface ItemOption {
   blurb: string;
   /** どうぐの アイコン（data URL） */
   icon: string;
+  disabled: boolean;
+  reason?: string;
 }
 
 export interface SwapOption {

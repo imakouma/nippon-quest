@@ -52,6 +52,7 @@ import {
   sellItem,
   villagerGift,
 } from '../core/progression/town';
+import { recordMusubiDamaPurchase } from '../core/progression/musubiDamaOnboarding';
 import {
   applyReward,
   earnAreaSign,
@@ -151,6 +152,7 @@ import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
+import { musubiDamaPurchaseLines } from './overworld/storyScenes';
 import { hasStoryCompanion, storyCompanionId } from '../core/progression/storyCompanion';
 import {
   areaBossStoryLines,
@@ -1987,13 +1989,13 @@ export class OverworldScene extends Phaser.Scene {
       },
     });
   }
-
   /** おみせ：どうぐを かう */
   private async openShop(speaker: string): Promise<void> {
     const c = this.content();
     const area = this.currentArea();
     if (!c || !area) return;
     const stock = shopStock(area, c.items);
+    let showMusubiDamaInstructions = false;
     await this.townMenu(
       () => {
         const gs = this.gs()!;
@@ -2027,11 +2029,14 @@ export class OverworldScene extends Phaser.Scene {
           playSfx('miss');
           return t('field.townPoor');
         }
-        this.setGame(next);
+        const purchase = recordMusubiDamaPurchase(next, key);
+        this.setGame(purchase.state);
+        showMusubiDamaInstructions ||= purchase.showInstructions;
         playSfx('select');
         return t('field.townBought', { item: c.items.get(key)?.name ?? key });
       },
     );
+    if (showMusubiDamaInstructions) await this.talk(musubiDamaPurchaseLines());
     await this.talk([{ speaker, text: t('field.townShopBye') }]);
   }
 

@@ -230,14 +230,14 @@ function ItemList({ s, store }: { s: HudState; store: HudStore }) {
                 type="button"
                 class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''}`}
                 aria-current={s.cursor === i ? 'true' : undefined}
-                aria-disabled={it.count <= 0}
+                aria-disabled={it.disabled || it.count <= 0}
                 data-item={it.id}
                 onFocus={() => s.cursor !== i && store.set({ cursor: i })}
                 onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
                 onClick={() =>
                   pickBattleHudOption({
                     key: it.id,
-                    disabled: it.count <= 0,
+                    disabled: it.disabled || it.count <= 0,
                     action: () => store.dispatch({ t: 'item', id: it.id }),
                   })
                 }
@@ -259,7 +259,7 @@ function ItemList({ s, store }: { s: HudState; store: HudStore }) {
               if (!['Escape', 'x', 'X', 'Backspace'].includes(event.key)) event.stopPropagation();
             }}
           >
-            <RubyLabel text={focus.blurb} />
+            <RubyLabel text={focus.reason ?? focus.blurb} />
           </div>
         )}
       </div>

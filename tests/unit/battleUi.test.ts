@@ -333,6 +333,7 @@ describe('メッセージ（narrate）', () => {
       { t: 'gaugeUse', subject: 'kokugo', amount: 50, value: 50 },
       { t: 'gaugeShort', subject: 'rika', need: 100, have: 0 },
       { t: 'itemUsed', itemId: 'aomori-ringo', targetId: 'pal' },
+      { t: 'itemUsed', itemId: 'common-musubi-dama', targetId: 'enemy', side: 'enemy' },
       { t: 'recruitGift', itemId: 'aomori-ringo', targetId: 'enemy' },
       { t: 'swap', from: 'pal', to: 'hero' },
       { t: 'recruitAttempt', targetId: 'enemy', success: false, chance: 0.1 },

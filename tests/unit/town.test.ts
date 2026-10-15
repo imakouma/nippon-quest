@@ -39,8 +39,18 @@ describe('おみせ・やどや・かじや', () => {
     expect(shopStock(c.areas.get('aomori')!, c.items).map((s) => s.itemId)).toContain('aomori-ringo');
     const akita = shopStock(c.areas.get('akita')!, c.items);
     expect(akita.length).toBeGreaterThan(0);
-    expect(akita.every((s) => s.itemId.startsWith('akita-'))).toBe(true);
+    expect(akita.every((s) => s.itemId.startsWith('akita-') || s.itemId === 'common-musubi-dama')).toBe(true);
     expect(akita.every((s) => s.price > 0)).toBe(true);
+  });
+
+  it('むすび玉は全ての町で、30Gの商品と1枠だけ並ぶ', () => {
+    const item = c.items.get('common-musubi-dama');
+    expect(item).toMatchObject({ kind: 'consumable', price: 30, use: { recruit: true } });
+    expect(item && sellItem({ ...fresh(), inventory: { [item.id]: 1 } }, item)?.player.gold).toBe(115);
+    for (const area of c.areas.values()) {
+      const entries = shopStock(area, c.items).filter((entry) => entry.itemId === 'common-musubi-dama');
+      expect(entries, area.id).toEqual([{ itemId: 'common-musubi-dama', price: 30 }]);
+    }
   });
 
   it('かうと おかねが へって どうぐが ふえる。たりなければ かえない', () => {

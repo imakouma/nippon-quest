@@ -4,7 +4,8 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   bundledFetchReader,
   findBrokenReferences,
-  loadContent,
+  loadContent as loadContentFromFiles,
+  type ContentIndex,
   type FileReader,
 } from '../../src/core/content/loader';
 import {
@@ -20,6 +21,16 @@ import {
 
 const CONTENT = fileURLToPath(new URL('../../content/', import.meta.url));
 const read: FileReader = async (rel) => JSON.parse(readFileSync(CONTENT + rel, 'utf8'));
+
+// Most cases mutate a cloned slice of the same valid baseline. Loading and
+// validating every content file again in each case only repeats setup work and
+// used to account for most of the unit-suite runtime.
+let baselineContent: Promise<ContentIndex> | undefined;
+function loadContent(reader: FileReader, opts?: Parameters<typeof loadContentFromFiles>[1]) {
+  if (reader !== read || opts) return loadContentFromFiles(reader, opts);
+  baselineContent ??= loadContentFromFiles(reader);
+  return baselineContent;
+}
 
 afterEach(() => vi.unstubAllGlobals());
 
@@ -552,7 +563,7 @@ describe('content loader', () => {
     ).toBe(false);
   });
 
-  it('回復アイテムは正の回復量を1つ以上必要とする', () => {
+  it('消費アイテムは回復または仲間化効果を1つ以上必要とする', () => {
     const base = {
       id: 'test-item',
       name: 'テスト',
@@ -563,6 +574,8 @@ describe('content loader', () => {
 
     expect(itemSchema.safeParse({ ...base, use: { heal: 1 } }).success).toBe(true);
     expect(itemSchema.safeParse({ ...base, use: { mp: 1 } }).success).toBe(true);
+    expect(itemSchema.safeParse({ ...base, use: { recruit: true } }).success).toBe(true);
+    expect(itemSchema.safeParse({ ...base, use: { recruit: false } }).success).toBe(false);
     expect(itemSchema.safeParse({ ...base, use: {} }).success).toBe(false);
     expect(itemSchema.safeParse({ ...base, use: { heal: 0 } }).success).toBe(false);
     expect(itemSchema.safeParse({ ...base, use: { mp: -1 } }).success).toBe(false);

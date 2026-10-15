@@ -12,6 +12,10 @@ import {
   queueBattleTutorial,
   shouldShowBattleTutorial,
 } from '../../core/progression/battleTutorial';
+import {
+  guideMusubiDamaPurchase,
+  shouldGuideMusubiDamaPurchase,
+} from '../../core/progression/musubiDamaOnboarding';
 import { UNNAMED_HERO } from '../../core/state/newGame';
 import type { DialogueLine } from '../../ui/dialogue';
 import type { CutsceneKind } from '../../ui/cutscene/CutsceneOverlay';
@@ -36,6 +40,7 @@ import {
   iwateArrivalLines,
   kantoChapterArrivalLines,
   prologueLines,
+  musubiDamaShopGuideLines,
   tohokuTownArrivalLines,
   type StoryTownArea,
 } from './storyScenes';
@@ -162,6 +167,11 @@ export async function runOpeningSequence(options: OpeningSequenceOptions): Promi
     save: options.setGame,
     getGame: options.getGame,
   });
+  const current = options.getGame();
+  if (shouldGuideMusubiDamaPurchase(options.mapKey, current)) {
+    options.setGame(guideMusubiDamaPurchase(current));
+    await options.talk(musubiDamaShopGuideLines());
+  }
 }
 
 export function requestHeroIdentity(

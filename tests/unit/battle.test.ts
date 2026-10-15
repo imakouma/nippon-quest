@@ -21,7 +21,7 @@ import {
 import { createRng } from '../../src/core/rng';
 import type { Skill } from '../../src/core/content/schemas';
 import type { ActionResult, BattleState, Combatant, Command } from '../../src/core/battle/types';
-import { buildItemOptions } from '../../src/scenes/battle/hudViews';
+import { battleItemAvailability, buildItemOptions } from '../../src/scenes/battle/hudViews';
 
 let D: BattleDeps;
 beforeAll(async () => {
@@ -668,6 +668,17 @@ describe('コマンド', () => {
     expect(r.events).toEqual([]);
   });
 
+  it('むすび玉は通常敵に表示し、ボス戦では理由つきで無効にする', async () => {
+    const { state, c } = await setup();
+    const item = c.items.get('common-musubi-dama')!;
+    expect(battleItemAvailability(state, item, c).disabled).toBe(false);
+    state.isBossBattle = true;
+    expect(battleItemAvailability(state, item, c)).toMatchObject({
+      disabled: true,
+      reason: expect.any(String),
+    });
+  });
+
   it('いれかえ で オトモが かわる', async () => {
     const c = await content();
     const { state } = await setup({ withMonster: true });
@@ -714,6 +725,42 @@ describe('コマンド', () => {
 });
 
 describe('仲間化（GDD §4.6）', () => {
+  it('むすび玉は解答後に1こ消費し、成否を判定する', async () => {
+    const { state } = await setup({ seed: 'musubi-dama' });
+    state.ally.items['common-musubi-dama'] = 2;
+    state.enemy.hp = Math.max(1, Math.floor(state.enemy.stats.hp * 0.1));
+
+    const result = act(
+      state,
+      {
+        kind: 'item',
+        itemId: 'common-musubi-dama',
+        result: R(1),
+        timeLimitScale: 1,
+      },
+      D,
+    );
+
+    expect(result.state.ally.items['common-musubi-dama']).toBe(1);
+    expect(result.events.some((event) => event.t === 'recruitAttempt')).toBe(true);
+  });
+
+  it('むすび玉はボスや未解答では消費しない', async () => {
+    const { state } = await setup({ seed: 'musubi-dama-unavailable' });
+    state.ally.items['common-musubi-dama'] = 1;
+    state.isBossBattle = true;
+    const boss = act(
+      state,
+      { kind: 'item', itemId: 'common-musubi-dama', result: R(1), timeLimitScale: 1 },
+      D,
+    );
+    expect(boss.state.ally.items['common-musubi-dama']).toBe(1);
+
+    state.isBossBattle = false;
+    const unanswered = act(state, { kind: 'item', itemId: 'common-musubi-dama' }, D);
+    expect(unanswered.state.ally.items['common-musubi-dama']).toBe(1);
+  });
+
   it('指定された特産品をあげると 1こ消費して必ず仲間になる', async () => {
     const { state } = await setup({ seed: 'recruit-gift' });
     const result = act(state, { kind: 'recruit', result: R(0), itemId: 'aomori-ringo' }, D);
