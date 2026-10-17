@@ -905,7 +905,8 @@ test('地域のぬしが残る間は中ボス戦を止め、全地域の撃破�
 });
 
 test('各地方の代表県で開始地域・地域ボス・関所と旧セーブ互換が動く', async ({ page }) => {
-  test.setTimeout(180_000);
+  // 10県を新規・旧セーブの両方で再起動するため、低速なWebGL環境でも完走できる上限にする。
+  test.setTimeout(360_000);
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(String(error)));
 
