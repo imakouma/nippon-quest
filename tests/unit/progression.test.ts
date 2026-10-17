@@ -299,6 +299,81 @@ describe('名所イベントの報酬（GDD §7）', () => {
 });
 
 describe('名所エリア（青森）', () => {
+  it('地域ごとの出現率は合計100で、先の地域でも前の敵が低確率で出る', async () => {
+    const { content } = await import('./helpers');
+    const c = await content();
+    const aomori = c.areas.get('aomori')!;
+    const tables = new Map(
+      aomori.encounters
+        .filter((encounter) => encounter.region && encounter.zone === 'field')
+        .map((encounter) => [encounter.region!, encounter.table]),
+    );
+    const expected = {
+      nebuta: { 'aomori-nebutan': 60, 'aomori-ringoron': 40 },
+      sannai: { 'aomori-doguukun': 60, 'aomori-nebutan': 25, 'aomori-ringoron': 15 },
+      tsugaru: { 'aomori-umi-nyan': 60, 'aomori-magurodo': 25, 'aomori-doguukun': 10, 'aomori-nebutan': 5 },
+      hirosaki: {
+        'aomori-sakurapon': 45,
+        'aomori-tsugaru-nurin': 30,
+        'aomori-ringoron': 15,
+        'aomori-nebutan': 5,
+        'aomori-doguukun': 5,
+      },
+      shirakami: {
+        'aomori-bunakko': 45,
+        'aomori-kokeppi': 30,
+        'aomori-itakodori': 15,
+        'aomori-ringoron': 5,
+        'aomori-doguukun': 5,
+      },
+      towada: {
+        'aomori-himemassu': 50,
+        'aomori-kokeppi': 25,
+        'aomori-bunakko': 15,
+        'aomori-ringoron': 5,
+        'aomori-itakodori': 5,
+      },
+      oirase: {
+        'aomori-kokeppi': 45,
+        'aomori-himemassu': 30,
+        'aomori-bunakko': 15,
+        'aomori-ringoron': 5,
+        'aomori-doguukun': 5,
+      },
+      hachinohe: {
+        'aomori-senbein': 55,
+        'aomori-umi-nyan': 20,
+        'aomori-magurodo': 10,
+        'aomori-doguukun': 10,
+        'aomori-nebutan': 5,
+      },
+      osorezan: {
+        'aomori-itakodori': 50,
+        'aomori-magurodo': 20,
+        'aomori-umi-nyan': 15,
+        'aomori-doguukun': 10,
+        'aomori-nebutan': 5,
+      },
+      oma: {
+        'aomori-magurodo': 60,
+        'aomori-umi-nyan': 20,
+        'aomori-senbein': 10,
+        'aomori-itakodori': 5,
+        'aomori-ringoron': 5,
+      },
+    } as const;
+
+    expect([...tables.keys()].sort()).toEqual(Object.keys(expected).sort());
+    for (const [region, rates] of Object.entries(expected)) {
+      const actual = Object.fromEntries(tables.get(region)!.map((entry) => [entry.monsterId, entry.weight]));
+      expect(actual, region).toEqual(rates);
+      expect(
+        Object.values(actual).reduce((sum, weight) => sum + weight, 0),
+        region,
+      ).toBe(100);
+    }
+  });
+
   it('エリアの 中では その エリアの 表、地面の 表が あれば そちら、無い エリアの 地面は エリアの field', async () => {
     const { encounterTable } = await import('../../src/core/battle/setup');
     const { content } = await import('./helpers');
