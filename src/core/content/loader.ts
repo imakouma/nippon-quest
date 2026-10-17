@@ -215,6 +215,7 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
 /** 参照整合性チェック。validate-content と実行時の両方で使う */
 export function findBrokenReferences(c: ContentIndex): string[] {
   const errs: string[] = [];
+  const maxProgressionLevel = Math.min(c.xp.hero.length, c.xp.monster.length);
   const has = (m: Map<string, unknown>, id: string | undefined) => id === undefined || m.has(id);
   const checkUnique = (ids: Iterable<string>, where: string): Set<string> => {
     const seen = new Set<string>();
@@ -354,6 +355,10 @@ export function findBrokenReferences(c: ContentIndex): string[] {
           errs.push(`area "${a.id}": region "${region.id}" の motif "${motifId}" が存在しません`);
       }
       if (region.boss) {
+        if (region.boss.level > maxProgressionLevel)
+          errs.push(
+            `area "${a.id}": region "${region.id}" の boss level は経験値表の上限 ${maxProgressionLevel} 以下にしてください`,
+          );
         const boss = c.monsters.get(region.boss.monsterId);
         if (!boss)
           errs.push(
@@ -364,6 +369,13 @@ export function findBrokenReferences(c: ContentIndex): string[] {
             `area "${a.id}": region "${region.id}" の boss "${region.boss.monsterId}" の area が "${boss.area}" です`,
           );
       }
+      const fieldEncounterCount = a.encounters.filter(
+        (encounter) => encounter.region === region.id && encounter.zone === 'field',
+      ).length;
+      if (fieldEncounterCount !== 1)
+        errs.push(
+          `area "${a.id}": region "${region.id}" の field encounter はちょうど1つ必要です（${fieldEncounterCount}件）`,
+        );
     }
     if (a.regions.length && a.regions.filter((region) => region.start).length !== 1)
       errs.push(`area "${a.id}": regions の start はちょうど1つ必要です`);
@@ -392,7 +404,8 @@ export function findBrokenReferences(c: ContentIndex): string[] {
       while (changed) {
         changed = false;
         for (const gate of a.regionGates) {
-          if (!reachable.has(gate.openedBy)) continue;
+          if (!reachable.has(gate.openedBy) || !gate.between.some((regionId) => reachable.has(regionId)))
+            continue;
           for (const regionId of gate.between)
             if (!reachable.has(regionId) && regionIds.has(regionId)) {
               reachable.add(regionId);
@@ -406,13 +419,25 @@ export function findBrokenReferences(c: ContentIndex): string[] {
     for (const e of a.encounters) {
       if (e.region && !regionIds.has(e.region))
         errs.push(`area "${a.id}": encounter の region "${e.region}" が存在しません`);
+      if (e.region && e.zone === 'field') {
+        const totalWeight = e.table.reduce((sum, entry) => sum + entry.weight, 0);
+        if (totalWeight !== 100)
+          errs.push(
+            `area "${a.id}": encounter "${e.region}:field" の weight 合計は100にしてください（${totalWeight}）`,
+          );
+      }
       checkUnique(
         e.table.map((entry) => entry.monsterId),
         `area "${a.id}": encounter "${e.region ?? '*'}:${e.zone}" monster`,
       );
-      for (const t of e.table)
-        if (!c.monsters.has(t.monsterId))
-          errs.push(`area "${a.id}": encounter "${t.monsterId}" が存在しません`);
+      for (const t of e.table) {
+        const monster = c.monsters.get(t.monsterId);
+        if (!monster) errs.push(`area "${a.id}": encounter "${t.monsterId}" が存在しません`);
+        else if (monster.area !== a.id)
+          errs.push(
+            `area "${a.id}": encounter "${e.region ?? '*'}:${e.zone}" monster "${t.monsterId}" の area が "${monster.area}" です`,
+          );
+      }
     }
     for (const s of a.shop) {
       const item = c.items.get(s.itemId);

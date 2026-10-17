@@ -188,6 +188,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "owari-nagoya",
+      "table": [
+        {
+          "monsterId": "aichi-shiborin",
+          "weight": 55
+        },
+        {
+          "monsterId": "aichi-tebasakky",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "chita-nishimikawa",
+      "table": [
+        {
+          "monsterId": "aichi-hatchon",
+          "weight": 55
+        },
+        {
+          "monsterId": "aichi-shiborin",
+          "weight": 25
+        },
+        {
+          "monsterId": "aichi-tebasakky",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "higashimikawa-atsumi",
+      "table": [
+        {
+          "monsterId": "aichi-denkikun",
+          "weight": 55
+        },
+        {
+          "monsterId": "aichi-hatchon",
+          "weight": 20
+        },
+        {
+          "monsterId": "aichi-tebasakky",
+          "weight": 15
+        },
+        {
+          "monsterId": "aichi-shiborin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "owari-nagoya",
+      "name": "尾張[おわり]・名古屋[なごや]エリア",
+      "motifs": [
+        "nagoya-jo",
+        "inuyama-jo",
+        "arimatsu-shibori",
+        "setoyaki",
+        "tebasaki"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "aichi-arimatsu-zome",
+        "level": 32
+      }
+    },
+    {
+      "id": "chita-nishimikawa",
+      "name": "知多[ちた]・西三河[にしみかわ]エリア",
+      "motifs": [
+        "tokonameyaki",
+        "korankei",
+        "hatcho-miso"
+      ],
+      "boss": {
+        "monsterId": "aichi-miso-yagura",
+        "level": 32
+      }
+    },
+    {
+      "id": "higashimikawa-atsumi",
+      "name": "東三河[ひがしみかわ]・渥美[あつみ]エリア",
+      "motifs": [
+        "denshogiku",
+        "takeshima"
+      ],
+      "boss": {
+        "monsterId": "aichi-denkou-giku",
+        "level": 33
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "owari-nagoya",
+        "chita-nishimikawa"
+      ],
+      "openedBy": "owari-nagoya"
+    },
+    {
+      "between": [
+        "chita-nishimikawa",
+        "higashimikawa-atsumi"
+      ],
+      "openedBy": "chita-nishimikawa"
     }
   ],
   "boss": "aichi-boss-kinshachi-ou",

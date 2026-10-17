@@ -103,6 +103,68 @@
       "blurb": "屋久島[やくしま]の 山[やま]おくに ある、とても 古[ふる]くて 大[おお]きな 杉[すぎ]の 木[き]。"
     }
   ],
+  "regions": [
+    {
+      "id": "kagoshima-sakurajima",
+      "name": "鹿児島[かごしま]・薩摩[さつま]エリア",
+      "motifs": [
+        "karukan",
+        "satsumayaki",
+        "kurobuta"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "kagoshima-kurogane-boo",
+        "level": 49
+      }
+    },
+    {
+      "id": "kirishima-hokusatsu",
+      "name": "霧島[きりしま]・北薩[ほくさつ]・大隅[おおすみ]エリア",
+      "motifs": [
+        "kirishima-jingu",
+        "sogi-no-taki",
+        "izumi-tsuru",
+        "kagoshima-cha"
+      ],
+      "boss": {
+        "monsterId": "kagoshima-shincha-dou",
+        "level": 50
+      }
+    },
+    {
+      "id": "nansatsu-yakushima",
+      "name": "南薩[なんさつ]・桜島[さくらじま]・屋久島[やくしま]エリア",
+      "motifs": [
+        "ibusuki-sunamushi",
+        "kaimondake",
+        "satsumaimo",
+        "sakurajima",
+        "sakurajima-daikon",
+        "jomonsugi"
+      ],
+      "boss": {
+        "monsterId": "kagoshima-daikon-shogun",
+        "level": 50
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "kagoshima-sakurajima",
+        "kirishima-hokusatsu"
+      ],
+      "openedBy": "kagoshima-sakurajima"
+    },
+    {
+      "between": [
+        "kagoshima-sakurajima",
+        "nansatsu-yakushima"
+      ],
+      "openedBy": "kirishima-hokusatsu"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -198,6 +260,66 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "kagoshima-sakurajima",
+      "table": [
+        {
+          "monsterId": "kagoshima-maru-daikon",
+          "weight": 45
+        },
+        {
+          "monsterId": "kagoshima-roppaku-boo",
+          "weight": 55
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kirishima-hokusatsu",
+      "table": [
+        {
+          "monsterId": "kagoshima-chappa",
+          "weight": 50
+        },
+        {
+          "monsterId": "kagoshima-nabezurun",
+          "weight": 25
+        },
+        {
+          "monsterId": "kagoshima-roppaku-boo",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "nansatsu-yakushima",
+      "table": [
+        {
+          "monsterId": "kagoshima-maru-daikon",
+          "weight": 45
+        },
+        {
+          "monsterId": "kagoshima-nabezurun",
+          "weight": 30
+        },
+        {
+          "monsterId": "kagoshima-roppaku-boo",
+          "weight": 15
+        },
+        {
+          "monsterId": "kagoshima-chappa",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "kagoshima-boss-sakurajimaguma",
@@ -217,7 +339,10 @@
       "once": true,
       "cutinImageKey": "motif.kagoshima.izumi-tsuru",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "ツルが 来[く]る 時期[じき]、数[かず]、天気[てんき]を 毎年[まいとし] 比[くら]べれば、変化[へんか]を 早[はや]く 見[み]つけられる。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "ツルが 来[く]る 時期[じき]、数[かず]、天気[てんき]を 毎年[まいとし] 比[くら]べれば、変化[へんか]を 早[はや]く 見[み]つけられる。"
+        },
         {
           "speaker": "ツルの ガイドさん",
           "text": "冬[ふゆ]に なると、遠[とお]い 北[きた]の 国[くに]から ツルが わたって くるんだ。生[い]きものの ふしぎを しらべよう！"
@@ -261,7 +386,10 @@
           "speaker": "ツルの ガイドさん",
           "text": "よく しらべたね！ 出水[いずみ]には、毎年[まいとし] 1万[まん]羽[わ]を こえる ツルが やって くるんだよ。"
         },
-        { "speaker": "ミチル", "text": "一度[いちど]の 数[かず]で 決[き]めず、長[なが]く 見続[みつづ]ける 備[そな]えが できた。第七[だいなな]の 鍵[かぎ]だね。" }
+        {
+          "speaker": "ミチル",
+          "text": "一度[いちど]の 数[かず]で 決[き]めず、長[なが]く 見続[みつづ]ける 備[そな]えが できた。第七[だいなな]の 鍵[かぎ]だね。"
+        }
       ]
     }
   ],

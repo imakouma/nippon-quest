@@ -203,6 +203,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "inaba",
+      "table": [
+        {
+          "monsterId": "tottori-rakkyon",
+          "weight": 60
+        },
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "chubu-kurayoshi",
+      "table": [
+        {
+          "monsterId": "tottori-nashikoron",
+          "weight": 60
+        },
+        {
+          "monsterId": "tottori-rakkyon",
+          "weight": 25
+        },
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "seibu-daisen",
+      "table": [
+        {
+          "monsterId": "tottori-beniganin",
+          "weight": 60
+        },
+        {
+          "monsterId": "tottori-nashikoron",
+          "weight": 20
+        },
+        {
+          "monsterId": "tottori-rakkyon",
+          "weight": 10
+        },
+        {
+          "monsterId": "tottori-perawashi",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "inaba",
+      "name": "因幡[いなば]エリア",
+      "motifs": [
+        "tottori-sakyu",
+        "uradome",
+        "rakkyo",
+        "inshu-washi"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "tottori-rakkyo-musha",
+        "level": 38
+      }
+    },
+    {
+      "id": "chubu-kurayoshi",
+      "name": "中部[ちゅうぶ]・倉吉[くらよし]エリア",
+      "motifs": [
+        "nageiredo",
+        "kurayoshi-shirakabe",
+        "nijisseiki-nashi"
+      ],
+      "boss": {
+        "monsterId": "tottori-nijisseikishi",
+        "level": 38
+      }
+    },
+    {
+      "id": "seibu-daisen",
+      "name": "西部[せいぶ]・大山[だいせん]エリア",
+      "motifs": [
+        "daisen",
+        "kaike-onsen",
+        "beni-zuwai"
+      ],
+      "boss": {
+        "monsterId": "tottori-beniyoroigani",
+        "level": 39
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "inaba",
+        "chubu-kurayoshi"
+      ],
+      "openedBy": "inaba"
+    },
+    {
+      "between": [
+        "chubu-kurayoshi",
+        "seibu-daisen"
+      ],
+      "openedBy": "chubu-kurayoshi"
     }
   ],
   "boss": "tottori-boss-sakyu-majin",

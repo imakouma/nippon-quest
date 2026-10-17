@@ -166,6 +166,124 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "takamatsu-shodoshima",
+      "table": [
+        {
+          "monsterId": "kagawa-kororibu",
+          "weight": 55
+        },
+        {
+          "monsterId": "kagawa-aogin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "marugame-kotohira",
+      "table": [
+        {
+          "monsterId": "kagawa-aogin",
+          "weight": 55
+        },
+        {
+          "monsterId": "kagawa-kororibu",
+          "weight": 25
+        },
+        {
+          "monsterId": "kagawa-zenigani",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "mitoyo-kanonji",
+      "table": [
+        {
+          "monsterId": "kagawa-mizukagami",
+          "weight": 55
+        },
+        {
+          "monsterId": "kagawa-zenigani",
+          "weight": 20
+        },
+        {
+          "monsterId": "kagawa-aogin",
+          "weight": 15
+        },
+        {
+          "monsterId": "kagawa-kororibu",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "takamatsu-shodoshima",
+      "name": "高松[たかまつ]・小豆島[しょうどしま]エリア",
+      "motifs": [
+        "ritsurin",
+        "yashima",
+        "shodoshima-olive",
+        "ajiishi"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "kagawa-minoribu",
+        "level": 43
+      }
+    },
+    {
+      "id": "marugame-kotohira",
+      "name": "丸亀[まるがめ]・琴平[ことひら]エリア",
+      "motifs": [
+        "kotohiragu",
+        "sanuki-udon",
+        "marugame-uchiwa"
+      ],
+      "boss": {
+        "monsterId": "kagawa-tsumuji-uchiwa",
+        "level": 43
+      }
+    },
+    {
+      "id": "mitoyo-kanonji",
+      "name": "三豊[みとよ]・観音寺[かんおんじ]エリア",
+      "motifs": [
+        "chichibugahama",
+        "zenigata"
+      ],
+      "boss": {
+        "monsterId": "kagawa-oozenigani",
+        "level": 43
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "takamatsu-shodoshima",
+        "marugame-kotohira"
+      ],
+      "openedBy": "takamatsu-shodoshima"
+    },
+    {
+      "between": [
+        "marugame-kotohira",
+        "mitoyo-kanonji"
+      ],
+      "openedBy": "marugame-kotohira"
     }
   ],
   "boss": "kagawa-boss-oudon-ryu",

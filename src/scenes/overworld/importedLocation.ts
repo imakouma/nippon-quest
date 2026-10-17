@@ -1,3 +1,6 @@
+import type { GameState } from '../../core/state/schema';
+import { groundOfTile, isRoadTile } from '../../core/world/ground';
+
 interface ImportedProgressLocation {
   currentIsland: string;
   currentArea: string;
@@ -19,6 +22,25 @@ interface AreaLocation {
 interface EnclaveLocation {
   prefId: string;
   enclaveId: string;
+}
+
+interface SpawnObject {
+  name?: string;
+  type?: string;
+  x?: number;
+  y?: number;
+}
+
+interface SpawnResolutionInput {
+  spawnTile: readonly [number, number] | null;
+  exactSpawn: boolean;
+  width: number;
+  height: number;
+  fieldGroundRequired: boolean;
+  terrainAt(x: number, y: number): number | undefined;
+  blocked(x: number, y: number): boolean;
+  objects: readonly SpawnObject[];
+  spawnName: string;
 }
 
 /** セーブ由来の座標をそのまま使っても、マップ外や壁内に出ないか調べる。 */
@@ -46,6 +68,72 @@ export function isSavedFieldTileWalkable(tile: number | undefined): boolean {
   return groundOfTile(tile) !== null || isRoadTile(tile);
 }
 
+/** 保存座標・地図ワープ・マップ既定地点の優先順で、安全な出現位置を決める。 */
+export function resolveSpawn(input: SpawnResolutionInput): { tile: [number, number]; faceUp: boolean } {
+  if (input.spawnTile) {
+    const [tx, ty] = input.spawnTile;
+    if (
+      input.exactSpawn &&
+      isExactSpawnValid(
+        input.spawnTile,
+        input.width,
+        input.height,
+        input.blocked(tx, ty),
+        !input.fieldGroundRequired || isSavedFieldTileWalkable(input.terrainAt(tx, ty)),
+      )
+    )
+      return { tile: [tx, ty], faceUp: false };
+    if (!input.exactSpawn) {
+      for (const [dx, dy] of [
+        [0, 1],
+        [-1, 0],
+        [1, 0],
+        [0, -1],
+        [0, 0],
+      ] as const) {
+        const tile: [number, number] = [tx + dx, ty + dy];
+        if (!input.blocked(...tile)) return { tile, faceUp: dy === 1 };
+      }
+      return { tile: [tx, ty], faceUp: false };
+    }
+  }
+  const object =
+    input.objects.find((candidate) => candidate.name === input.spawnName) ??
+    input.objects.find((candidate) => candidate.type === 'spawn' && candidate.name === 'spawn');
+  const x = Math.floor((object?.x ?? 96) / 16);
+  const offset = object && (object.type === 'transition' || object.name?.startsWith('to_')) ? 16 : 0;
+  const y = Math.floor(((object?.y ?? 240) + offset) / 16);
+  return {
+    tile: [Math.min(Math.max(0, x), input.width - 1), Math.min(Math.max(0, y), input.height - 1)],
+    faceUp: false,
+  };
+}
+
+/** 歩行位置だけを保存し、同じ位置なら元の参照を返して不要な保存を避ける。 */
+export function rememberLocationState(
+  game: GameState,
+  input: { mapKey: string; areaId: string; areaExists: boolean; x: number; y: number; now: number },
+): GameState {
+  const currentArea = input.areaExists ? input.areaId : game.progress.currentArea;
+  if (
+    game.progress.currentMap === input.mapKey &&
+    game.progress.currentArea === currentArea &&
+    game.progress.position.x === input.x * 16 &&
+    game.progress.position.y === input.y * 16
+  )
+    return game;
+  return {
+    ...game,
+    updatedAt: input.now,
+    progress: {
+      ...game.progress,
+      currentMap: input.mapKey,
+      currentArea,
+      position: { x: input.x * 16, y: input.y * 16 },
+    },
+  };
+}
+
 /** 貼り付けたセーブの現在地が、読み込み済みコンテンツの実在する場所を指すか調べる。 */
 export function isImportedLocationValid(
   progress: ImportedProgressLocation,
@@ -65,4 +153,3 @@ export function isImportedLocationValid(
   if (area.secret && progress.currentMap === `${area.id}-secret`) return true;
   return enclaves.some((enclave) => enclave.prefId === area.id && enclave.enclaveId === progress.currentMap);
 }
-import { groundOfTile, isRoadTile } from '../../core/world/ground';

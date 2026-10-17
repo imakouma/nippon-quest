@@ -159,6 +159,123 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "osaka-city",
+      "table": [
+        {
+          "monsterId": "osaka-hafuhafu-yaki",
+          "weight": 60
+        },
+        {
+          "monsterId": "osaka-budomaru",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hokusetsu-kawachi",
+      "table": [
+        {
+          "monsterId": "osaka-sakusaku-momiji",
+          "weight": 60
+        },
+        {
+          "monsterId": "osaka-hafuhafu-yaki",
+          "weight": 25
+        },
+        {
+          "monsterId": "osaka-budomaru",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "sakai-senshu",
+      "table": [
+        {
+          "monsterId": "osaka-juwanasu",
+          "weight": 60
+        },
+        {
+          "monsterId": "osaka-sakusaku-momiji",
+          "weight": 20
+        },
+        {
+          "monsterId": "osaka-hafuhafu-yaki",
+          "weight": 10
+        },
+        {
+          "monsterId": "osaka-budomaru",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "osaka-city",
+      "name": "大阪市[おおさかし]エリア",
+      "motifs": [
+        "osaka-jo",
+        "takoyaki"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "osaka-takoyaki-sencho",
+        "level": 35
+      }
+    },
+    {
+      "id": "hokusetsu-kawachi",
+      "name": "北摂[ほくせつ]・河内[かわち]エリア",
+      "motifs": [
+        "minoo-no-taki",
+        "banpaku-koen",
+        "kawachi-budo"
+      ],
+      "boss": {
+        "monsterId": "osaka-momiji-fubuki",
+        "level": 35
+      }
+    },
+    {
+      "id": "sakai-senshu",
+      "name": "堺[さかい]・泉州[せんしゅう]エリア",
+      "motifs": [
+        "daisen-kofun",
+        "kishiwada-danjiri",
+        "mizunasu"
+      ],
+      "boss": {
+        "monsterId": "osaka-juwanasu-zamurai",
+        "level": 36
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "osaka-city",
+        "hokusetsu-kawachi"
+      ],
+      "openedBy": "osaka-city"
+    },
+    {
+      "between": [
+        "osaka-city",
+        "sakai-senshu"
+      ],
+      "openedBy": "hokusetsu-kawachi"
     }
   ],
   "boss": "osaka-boss-takoishi-daio",
@@ -178,7 +295,10 @@
       "once": true,
       "cutinImageKey": "motif.osaka.daisen-kofun",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。"
+        },
         {
           "speaker": "古墳[こふん]の ガイドさん",
           "text": "これが 日本[にほん]で いちばん 大[おお]きな 古墳[こふん]、大仙古墳[だいせんこふん]だよ。むかしの ことを しらべて みよう！"
@@ -218,7 +338,10 @@
         }
       ],
       "afterDialogue": [
-        { "speaker": "ミチル", "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。" },
+        {
+          "speaker": "ミチル",
+          "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。"
+        },
         {
           "speaker": "古墳[こふん]の ガイドさん",
           "text": "よく できたね！ 大仙古墳[だいせんこふん]の ある 古墳群[こふんぐん]は、世界遺産[せかいいさん]にも なって いるんだよ。"

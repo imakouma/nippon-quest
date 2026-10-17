@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest';
+import { createNewGame } from '../../src/core/state/newGame';
 import {
   isExactSpawnValid,
   isImportedLocationValid,
   isSavedFieldTileWalkable,
+  rememberLocationState,
+  resolveSpawn,
 } from '../../src/scenes/overworld/importedLocation';
 
 const areas = new Map([
@@ -102,5 +105,59 @@ describe('保存された正確なスポーン座標', () => {
     expect(isSavedFieldTileWalkable(3)).toBe(false);
     expect(isSavedFieldTileWalkable(1)).toBe(true);
     expect(isExactSpawnValid([10, 20], 128, 124, false, isSavedFieldTileWalkable(3))).toBe(false);
+  });
+
+  it('保存座標、地図ワープの隣、既定spawnの順に出現位置を決める', () => {
+    const base = {
+      width: 20,
+      height: 20,
+      fieldGroundRequired: true,
+      terrainAt: () => 1,
+      blocked: (x: number, y: number) => x < 0 || y < 0 || x >= 20 || y >= 20,
+      objects: [{ name: 'spawn', type: 'spawn', x: 32, y: 48 }],
+      spawnName: 'spawn',
+    };
+    expect(resolveSpawn({ ...base, spawnTile: [7, 8], exactSpawn: true })).toEqual({
+      tile: [7, 8],
+      faceUp: false,
+    });
+    expect(resolveSpawn({ ...base, spawnTile: [7, 8], exactSpawn: false })).toEqual({
+      tile: [7, 9],
+      faceUp: true,
+    });
+    expect(resolveSpawn({ ...base, spawnTile: null, exactSpawn: false })).toEqual({
+      tile: [2, 3],
+      faceUp: false,
+    });
+  });
+
+  it('歩行位置が変わったときだけ保存状態を更新する', () => {
+    const game = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    game.progress.currentArea = 'aomori';
+    game.progress.currentMap = 'aomori-field';
+    game.progress.position = { x: 16, y: 32 };
+    expect(
+      rememberLocationState(game, {
+        mapKey: 'aomori-field',
+        areaId: 'aomori',
+        areaExists: true,
+        x: 1,
+        y: 2,
+        now: 2_000,
+      }),
+    ).toBe(game);
+    expect(
+      rememberLocationState(game, {
+        mapKey: 'iwate-field',
+        areaId: 'iwate',
+        areaExists: true,
+        x: 3,
+        y: 4,
+        now: 2_000,
+      }),
+    ).toMatchObject({
+      updatedAt: 2_000,
+      progress: { currentMap: 'iwate-field', currentArea: 'iwate', position: { x: 48, y: 64 } },
+    });
   });
 });

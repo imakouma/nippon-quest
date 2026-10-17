@@ -184,6 +184,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "wakayama-koya",
+      "table": [
+        {
+          "monsterId": "wakayama-koromikan",
+          "weight": 60
+        },
+        {
+          "monsterId": "wakayama-kankantan",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "tanabe-shirahama",
+      "table": [
+        {
+          "monsterId": "wakayama-kankantan",
+          "weight": 60
+        },
+        {
+          "monsterId": "wakayama-koromikan",
+          "weight": 25
+        },
+        {
+          "monsterId": "wakayama-toudain",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kumano-nachi",
+      "table": [
+        {
+          "monsterId": "wakayama-shibukin",
+          "weight": 60
+        },
+        {
+          "monsterId": "wakayama-toudain",
+          "weight": 20
+        },
+        {
+          "monsterId": "wakayama-koromikan",
+          "weight": 10
+        },
+        {
+          "monsterId": "wakayama-kankantan",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "wakayama-koya",
+      "name": "和歌山[わかやま]・高野[こうや]エリア",
+      "motifs": [
+        "wakayama-jo",
+        "kishu-shikki",
+        "koyasan",
+        "arida-mikan"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "wakayama-morimori-mikan",
+        "level": 37
+      }
+    },
+    {
+      "id": "tanabe-shirahama",
+      "name": "田辺[たなべ]・白浜[しらはま]エリア",
+      "motifs": [
+        "shirarahama",
+        "nanko-ume",
+        "binchotan"
+      ],
+      "boss": {
+        "monsterId": "wakayama-bincho-homura",
+        "level": 38
+      }
+    },
+    {
+      "id": "kumano-nachi",
+      "name": "熊野[くまの]・那智[なち]エリア",
+      "motifs": [
+        "kumano-kodo",
+        "nachi-no-taki",
+        "shionomisaki"
+      ],
+      "boss": {
+        "monsterId": "wakayama-ootakimaru",
+        "level": 38
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "wakayama-koya",
+        "tanabe-shirahama"
+      ],
+      "openedBy": "wakayama-koya"
+    },
+    {
+      "between": [
+        "tanabe-shirahama",
+        "kumano-nachi"
+      ],
+      "openedBy": "tanabe-shirahama"
     }
   ],
   "boss": "wakayama-boss-kuroshio-ryu",
@@ -203,7 +322,10 @@
       "once": true,
       "cutinImageKey": "motif.wakayama.nachi-no-taki",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。"
+        },
         {
           "speaker": "那智[なち]の 滝[たき]の ガイドさん",
           "text": "この 滝[たき]は 高[たか]さ 133メートル。流[なが]れる 水[みず]の ふしぎを しらべよう！"
@@ -243,7 +365,10 @@
         }
       ],
       "afterDialogue": [
-        { "speaker": "ミチル", "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。" },
+        {
+          "speaker": "ミチル",
+          "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。"
+        },
         {
           "speaker": "那智[なち]の 滝[たき]の ガイドさん",
           "text": "よく しらべたね！ 流[なが]れる 水[みず]は、土[つち]や 石[いし]を けずったり はこんだり するんだよ。"

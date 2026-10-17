@@ -6,10 +6,10 @@
       "unitId": "sansu.g1.tashizan",
       "subject": "sansu",
       "name": "たしざん",
-      "goals": 4,
-      "questions": 8,
-      "confirmedTermQuestions": 6,
-      "linked": 8,
+      "goals": 5,
+      "questions": 27,
+      "confirmedTermQuestions": 25,
+      "linked": 27,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -18,10 +18,10 @@
       "unitId": "sansu.g1.hikizan",
       "subject": "sansu",
       "name": "ひきざん",
-      "goals": 2,
-      "questions": 7,
-      "confirmedTermQuestions": 7,
-      "linked": 7,
+      "goals": 3,
+      "questions": 20,
+      "confirmedTermQuestions": 20,
+      "linked": 20,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -30,10 +30,22 @@
       "unitId": "sansu.g1.kazu-100",
       "subject": "sansu",
       "name": "100までの かず",
-      "goals": 6,
-      "questions": 21,
+      "goals": 7,
+      "questions": 41,
       "confirmedTermQuestions": 16,
-      "linked": 21,
+      "linked": 41,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "sansu.g1.tokei",
+      "subject": "sansu",
+      "name": "とけいと せいかつ",
+      "goals": 2,
+      "questions": 16,
+      "confirmedTermQuestions": 0,
+      "linked": 16,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -42,10 +54,10 @@
       "unitId": "kokugo.g1.hiragana",
       "subject": "kokugo",
       "name": "ひらがな",
-      "goals": 1,
-      "questions": 11,
-      "confirmedTermQuestions": 11,
-      "linked": 11,
+      "goals": 2,
+      "questions": 52,
+      "confirmedTermQuestions": 52,
+      "linked": 52,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "exact"
@@ -54,10 +66,10 @@
       "unitId": "kokugo.g1.kanji",
       "subject": "kokugo",
       "name": "1年[ねん]の漢字[かんじ]",
-      "goals": 1,
-      "questions": 11,
+      "goals": 2,
+      "questions": 57,
       "confirmedTermQuestions": 0,
-      "linked": 11,
+      "linked": 57,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -66,10 +78,10 @@
       "unitId": "kokugo.g1.joshi",
       "subject": "kokugo",
       "name": "助詞[じょし]・言葉[ことば]のつなぎ方[かた]",
-      "goals": 1,
-      "questions": 10,
+      "goals": 2,
+      "questions": 40,
       "confirmedTermQuestions": 4,
-      "linked": 10,
+      "linked": 40,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -78,10 +90,10 @@
       "unitId": "kokugo.g1.bun-no-kimari",
       "subject": "kokugo",
       "name": "文[ぶん]のきまり・書[か]き方[かた]",
-      "goals": 4,
-      "questions": 11,
+      "goals": 5,
+      "questions": 33,
       "confirmedTermQuestions": 8,
-      "linked": 11,
+      "linked": 33,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -90,10 +102,10 @@
       "unitId": "kokugo.g1.kotoba-asobi",
       "subject": "kokugo",
       "name": "言葉[ことば]あそび・音[おと]のかぞえ方[かた]",
-      "goals": 2,
-      "questions": 7,
-      "confirmedTermQuestions": 7,
-      "linked": 7,
+      "goals": 3,
+      "questions": 27,
+      "confirmedTermQuestions": 27,
+      "linked": 27,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "exact"
@@ -102,22 +114,34 @@
       "unitId": "seikatsu.g1.kisetsu",
       "subject": "seikatsu",
       "name": "きせつ",
-      "goals": 5,
-      "questions": 10,
+      "goals": 7,
+      "questions": 26,
       "confirmedTermQuestions": 3,
-      "linked": 10,
+      "linked": 26,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
     {
-      "unitId": "sansu.g1.legacy-math-1-8",
+      "unitId": "sansu.g1.legacy-math-1-1",
       "subject": "sansu",
-      "name": "とけいをよむ",
+      "name": "10までのかず",
       "goals": 1,
-      "questions": 10,
-      "confirmedTermQuestions": 0,
-      "linked": 10,
+      "questions": 19,
+      "confirmedTermQuestions": 19,
+      "linked": 19,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "exact"
+    },
+    {
+      "unitId": "seikatsu.g1.living-things",
+      "subject": "seikatsu",
+      "name": "いきものと なかよし",
+      "goals": 2,
+      "questions": 18,
+      "confirmedTermQuestions": 12,
+      "linked": 18,
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
@@ -133,18 +157,6 @@
       "unreviewed": 0,
       "confirmedTermUnreviewed": 0,
       "placementKind": "exact"
-    },
-    {
-      "unitId": "seikatsu.g1.legacy-cur-1801-03",
-      "subject": "seikatsu",
-      "name": "生[い]きものを育[そだ]てよう",
-      "goals": 1,
-      "questions": 12,
-      "confirmedTermQuestions": 12,
-      "linked": 12,
-      "unreviewed": 0,
-      "confirmedTermUnreviewed": 0,
-      "placementKind": "spans-terms"
     },
     {
       "unitId": "kokugo.g1.katakana",
@@ -211,6 +223,11 @@
       "conceptId": "kokugo.g1.expression.sequence-revision",
       "unitId": "kokugo.g1.tsutaeru",
       "primaryQuestions": 6
+    },
+    {
+      "conceptId": "kokugo.g1.legacy.kana-basics",
+      "unitId": "kokugo.g1.hiragana",
+      "primaryQuestions": 41
     },
     {
       "conceptId": "kokugo.g1.script.hiragana",
@@ -288,13 +305,28 @@
       "primaryQuestions": 4
     },
     {
+      "conceptId": "sansu.g1.legacy.number-basics",
+      "unitId": "sansu.g1.legacy-math-1-1",
+      "primaryQuestions": 19
+    },
+    {
+      "conceptId": "sansu.g1.legacy.addition-within-ten",
+      "unitId": "sansu.g1.tashizan",
+      "primaryQuestions": 19
+    },
+    {
+      "conceptId": "sansu.g1.legacy.subtraction-within-ten",
+      "unitId": "sansu.g1.hikizan",
+      "primaryQuestions": 13
+    },
+    {
       "conceptId": "seikatsu.g1.school.safe-life",
       "unitId": "seikatsu.g1.legacy-cur-1801-01",
       "primaryQuestions": 12
     },
     {
       "conceptId": "seikatsu.g1.living-things.care",
-      "unitId": "seikatsu.g1.legacy-cur-1801-03",
+      "unitId": "seikatsu.g1.living-things",
       "primaryQuestions": 12
     },
     {
@@ -320,6 +352,11 @@
       "severity": "review"
     },
     {
+      "unitId": "sansu.g1.tokei",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
       "unitId": "kokugo.g1.kanji",
       "kind": "ambiguous-term-placement",
       "severity": "review"
@@ -340,12 +377,7 @@
       "severity": "review"
     },
     {
-      "unitId": "sansu.g1.legacy-math-1-8",
-      "kind": "ambiguous-term-placement",
-      "severity": "review"
-    },
-    {
-      "unitId": "seikatsu.g1.legacy-cur-1801-03",
+      "unitId": "seikatsu.g1.living-things",
       "kind": "ambiguous-term-placement",
       "severity": "review"
     },

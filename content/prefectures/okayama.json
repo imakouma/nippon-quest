@@ -166,6 +166,124 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "okayama-bizen",
+      "table": [
+        {
+          "monsterId": "okayama-fukuromomo",
+          "weight": 60
+        },
+        {
+          "monsterId": "okayama-muscatton",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kurashiki-kojima",
+      "table": [
+        {
+          "monsterId": "okayama-aizomen",
+          "weight": 60
+        },
+        {
+          "monsterId": "okayama-fukuromomo",
+          "weight": 25
+        },
+        {
+          "monsterId": "okayama-muscatton",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "bitchu-hiruzen",
+      "table": [
+        {
+          "monsterId": "okayama-bizentsubon",
+          "weight": 60
+        },
+        {
+          "monsterId": "okayama-aizomen",
+          "weight": 20
+        },
+        {
+          "monsterId": "okayama-fukuromomo",
+          "weight": 10
+        },
+        {
+          "monsterId": "okayama-muscatton",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "okayama-bizen",
+      "name": "岡山[おかやま]・備前[びぜん]エリア",
+      "motifs": [
+        "korakuen",
+        "bizenyaki",
+        "okayama-hakuto",
+        "okayama-muscat"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "okayama-hakuto-hime",
+        "level": 40
+      }
+    },
+    {
+      "id": "kurashiki-kojima",
+      "name": "倉敷[くらしき]・児島[こじま]エリア",
+      "motifs": [
+        "kurashiki",
+        "seto-ohashi",
+        "okayama-denim"
+      ],
+      "boss": {
+        "monsterId": "okayama-denim-bushi",
+        "level": 40
+      }
+    },
+    {
+      "id": "bitchu-hiruzen",
+      "name": "備中[びっちゅう]・蒜山[ひるぜん]エリア",
+      "motifs": [
+        "hiruzen",
+        "bitchu-matsuyama-jo"
+      ],
+      "boss": {
+        "monsterId": "okayama-bizen-ootsubo",
+        "level": 40
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "okayama-bizen",
+        "kurashiki-kojima"
+      ],
+      "openedBy": "okayama-bizen"
+    },
+    {
+      "between": [
+        "kurashiki-kojima",
+        "bitchu-hiruzen"
+      ],
+      "openedBy": "kurashiki-kojima"
     }
   ],
   "boss": "okayama-boss-kibi-no-onio",

@@ -192,6 +192,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "kanazawa-kaga",
+      "table": [
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 55
+        },
+        {
+          "monsterId": "ishikawa-gosai-bon",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "chirihama-wajima",
+      "table": [
+        {
+          "monsterId": "ishikawa-wajimanurin",
+          "weight": 60
+        },
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 25
+        },
+        {
+          "monsterId": "ishikawa-gosai-bon",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "suzu-noto",
+      "table": [
+        {
+          "monsterId": "ishikawa-hamashion",
+          "weight": 60
+        },
+        {
+          "monsterId": "ishikawa-wajimanurin",
+          "weight": 20
+        },
+        {
+          "monsterId": "ishikawa-kinpaku-cho",
+          "weight": 10
+        },
+        {
+          "monsterId": "ishikawa-gosai-bon",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "kanazawa-kaga",
+      "name": "金沢[かなざわ]・加賀[かが]エリア",
+      "motifs": [
+        "kenrokuen",
+        "hakusan",
+        "kutaniyaki",
+        "kanazawa-kinpaku",
+        "kano-gani"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "ishikawa-kinran-ageha",
+        "level": 28
+      }
+    },
+    {
+      "id": "chirihama-wajima",
+      "name": "千里浜[ちりはま]・輪島[わじま]エリア",
+      "motifs": [
+        "chirihama",
+        "shiroyone-senmaida",
+        "wajimanuri"
+      ],
+      "boss": {
+        "monsterId": "ishikawa-kaga-nurimaru",
+        "level": 28
+      }
+    },
+    {
+      "id": "suzu-noto",
+      "name": "珠洲[すず]・能登[のと]エリア",
+      "motifs": [
+        "kiriko-matsuri",
+        "suzu-shio"
+      ],
+      "boss": {
+        "monsterId": "ishikawa-oo-hamashion",
+        "level": 28
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "kanazawa-kaga",
+        "chirihama-wajima"
+      ],
+      "openedBy": "kanazawa-kaga"
+    },
+    {
+      "between": [
+        "chirihama-wajima",
+        "suzu-noto"
+      ],
+      "openedBy": "chirihama-wajima"
     }
   ],
   "boss": "ishikawa-boss-yukitsuri-oomatsu",

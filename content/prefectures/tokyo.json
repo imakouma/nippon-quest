@@ -89,6 +89,66 @@
       "blurb": "伊豆大島[いずおおしま]には つばきの 木[き]が たくさん あり、冬[ふゆ]から 春[はる]に 赤[あか]い 花[はな]が さく。種[たね]から 油[あぶら]も とる。"
     }
   ],
+  "regions": [
+    {
+      "id": "tokyo-23ku",
+      "name": "東京[とうきょう]・23区[く]エリア",
+      "motifs": [
+        "kaminarimon",
+        "nerima-daikon",
+        "edo-kiriko"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "tokyo-kagayakiriko",
+        "level": 25
+      }
+    },
+    {
+      "id": "musashino-izu",
+      "name": "東京湾岸[とうきょうわんがん]・伊豆[いず]エリア",
+      "motifs": [
+        "tokyo-tower",
+        "miharayama",
+        "oshima-tsubaki"
+      ],
+      "boss": {
+        "monsterId": "tokyo-daikon-zamurai",
+        "level": 25
+      }
+    },
+    {
+      "id": "tama-okutama",
+      "name": "多摩[たま]・奥多摩[おくたま]エリア",
+      "motifs": [
+        "takaosan",
+        "okutamako",
+        "mitakesan",
+        "jindaiji-soba",
+        "tokyo-udo"
+      ],
+      "boss": {
+        "monsterId": "tokyo-tsukiyo-musasabi",
+        "level": 25
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "tokyo-23ku",
+        "musashino-izu"
+      ],
+      "openedBy": "tokyo-23ku"
+    },
+    {
+      "between": [
+        "tokyo-23ku",
+        "tama-okutama"
+      ],
+      "openedBy": "musashino-izu"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -172,6 +232,62 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "tokyo-23ku",
+      "table": [
+        {
+          "monsterId": "tokyo-kirariko",
+          "weight": 55
+        },
+        {
+          "monsterId": "tokyo-nerikon",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "tama-okutama",
+      "table": [
+        {
+          "monsterId": "tokyo-musasabyun",
+          "weight": 50
+        },
+        {
+          "monsterId": "tokyo-nerikon",
+          "weight": 30
+        },
+        {
+          "monsterId": "tokyo-kirariko",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "musashino-izu",
+      "table": [
+        {
+          "monsterId": "tokyo-nerikon",
+          "weight": 45
+        },
+        {
+          "monsterId": "tokyo-musasabyun",
+          "weight": 30
+        },
+        {
+          "monsterId": "tokyo-kirariko",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "tokyo-boss-mihara-no-nushi",
@@ -202,8 +318,13 @@
       ],
       "question": {
         "subject": "rika",
-        "gradeRange": [3, 6],
-        "tags": ["prefecture:tokyo"]
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:tokyo"
+        ]
       },
       "rewardByScore": [
         {

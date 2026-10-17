@@ -82,6 +82,65 @@
       "blurb": "益子町[ましこまち]で 作[つく]られる、ぽってりと あつみの ある やきもの。"
     }
   ],
+  "regions": [
+    {
+      "id": "utsunomiya-kenou",
+      "name": "宇都宮[うつのみや]・県央[けんおう]エリア",
+      "motifs": [
+        "oyaishi",
+        "kanpyo",
+        "utsunomiya-gyoza"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "tochigi-gyozamurai",
+        "level": 22
+      }
+    },
+    {
+      "id": "nikko-nasu",
+      "name": "日光[にっこう]・那須[なす]エリア",
+      "motifs": [
+        "nikko-toshogu",
+        "kegon-no-taki",
+        "nasu-kogen",
+        "kinugawa-onsen"
+      ],
+      "boss": {
+        "monsterId": "tochigi-go-bellmoo",
+        "level": 22
+      }
+    },
+    {
+      "id": "ashikaga-mashiko",
+      "name": "足利[あしかが]・益子[ましこ]エリア",
+      "motifs": [
+        "ashikaga-gakko",
+        "tochigi-ichigo",
+        "mashikoyaki"
+      ],
+      "boss": {
+        "monsterId": "tochigi-ichigo-ouji",
+        "level": 22
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "utsunomiya-kenou",
+        "nikko-nasu"
+      ],
+      "openedBy": "utsunomiya-kenou"
+    },
+    {
+      "between": [
+        "utsunomiya-kenou",
+        "ashikaga-mashiko"
+      ],
+      "openedBy": "nikko-nasu"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -165,6 +224,62 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "utsunomiya-kenou",
+      "table": [
+        {
+          "monsterId": "tochigi-gyozan",
+          "weight": 60
+        },
+        {
+          "monsterId": "tochigi-ichigoro",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "nikko-nasu",
+      "table": [
+        {
+          "monsterId": "tochigi-bellmoo",
+          "weight": 60
+        },
+        {
+          "monsterId": "tochigi-gyozan",
+          "weight": 25
+        },
+        {
+          "monsterId": "tochigi-ichigoro",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "ashikaga-mashiko",
+      "table": [
+        {
+          "monsterId": "tochigi-ichigoro",
+          "weight": 50
+        },
+        {
+          "monsterId": "tochigi-bellmoo",
+          "weight": 25
+        },
+        {
+          "monsterId": "tochigi-gyozan",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "tochigi-boss-kegon-ryuo",
@@ -195,8 +310,13 @@
       ],
       "question": {
         "subject": "shakai",
-        "gradeRange": [3, 6],
-        "tags": ["prefecture:tochigi"]
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:tochigi"
+        ]
       },
       "rewardByScore": [
         {

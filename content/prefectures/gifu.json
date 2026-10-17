@@ -173,6 +173,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "gifu-seino",
+      "table": [
+        {
+          "monsterId": "gifu-ukaidori",
+          "weight": 55
+        },
+        {
+          "monsterId": "gifu-fuyugakid",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "chuno-tono",
+      "table": [
+        {
+          "monsterId": "gifu-oriben",
+          "weight": 55
+        },
+        {
+          "monsterId": "gifu-ukaidori",
+          "weight": 25
+        },
+        {
+          "monsterId": "gifu-fuyugakid",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hida",
+      "table": [
+        {
+          "monsterId": "gifu-washigamin",
+          "weight": 55
+        },
+        {
+          "monsterId": "gifu-oriben",
+          "weight": 20
+        },
+        {
+          "monsterId": "gifu-ukaidori",
+          "weight": 15
+        },
+        {
+          "monsterId": "gifu-fuyugakid",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "gifu-seino",
+      "name": "岐阜[ぎふ]・西濃[せいのう]エリア",
+      "motifs": [
+        "nagaragawa-ukai",
+        "mino-washi",
+        "fuyugaki"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "gifu-ushou-dori",
+        "level": 31
+      }
+    },
+    {
+      "id": "chuno-tono",
+      "name": "中濃[ちゅうのう]・東濃[とうのう]エリア",
+      "motifs": [
+        "gujo-odori",
+        "gero-onsen",
+        "magomejuku",
+        "minoyaki"
+      ],
+      "boss": {
+        "monsterId": "gifu-oribe-musha",
+        "level": 31
+      }
+    },
+    {
+      "id": "hida",
+      "name": "飛騨[ひだ]エリア",
+      "motifs": [
+        "shirakawago",
+        "takayama",
+        "hidagyu"
+      ],
+      "boss": {
+        "monsterId": "gifu-kamiori-dori",
+        "level": 31
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "gifu-seino",
+        "chuno-tono"
+      ],
+      "openedBy": "gifu-seino"
+    },
+    {
+      "between": [
+        "chuno-tono",
+        "hida"
+      ],
+      "openedBy": "chuno-tono"
     }
   ],
   "boss": "gifu-boss-gassho-daiou",

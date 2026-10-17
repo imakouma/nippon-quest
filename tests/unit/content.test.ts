@@ -121,6 +121,19 @@ describe('content loader', () => {
     expect(errors).toContain('area "aomori": encounter の region "missing-region" が存在しません');
   });
 
+  it('地域のぬしレベルが経験値表の上限を超えると検出する', async () => {
+    const c = await loadContent(read);
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    const region = aomori.regions[0]!;
+    region.boss!.level = Math.min(c.xp.hero.length, c.xp.monster.length) + 1;
+    areas.set(aomori.id, aomori);
+
+    expect(findBrokenReferences({ ...c, areas })).toContain(
+      `area "aomori": region "${region.id}" の boss level は経験値表の上限 ${Math.min(c.xp.hero.length, c.xp.monster.length)} 以下にしてください`,
+    );
+  });
+
   it('逆順を含む地域ゲートの重複を検出する', async () => {
     const c = await loadContent(read);
     const areas = new Map(c.areas);
@@ -144,6 +157,68 @@ describe('content loader', () => {
 
     expect(findBrokenReferences({ ...c, areas })).toContain(
       `area "aomori": region "${locked.id}" に到達できません`,
+    );
+  });
+
+  it('各地域に field 出現表がちょうど1つあることを検証する', async () => {
+    const c = await loadContent(read);
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    const region = aomori.regions[0]!;
+    aomori.encounters = aomori.encounters.filter(
+      (encounter) => encounter.region !== region.id || encounter.zone !== 'field',
+    );
+    areas.set(aomori.id, aomori);
+
+    expect(findBrokenReferences({ ...c, areas })).toContain(
+      `area "aomori": region "${region.id}" の field encounter はちょうど1つ必要です（0件）`,
+    );
+  });
+
+  it('地域別 field 出現表の weight 合計が100であることを検証する', async () => {
+    const c = await loadContent(read);
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    const encounter = aomori.encounters.find((entry) => entry.region && entry.zone === 'field')!;
+    encounter.table[0]!.weight += 1;
+    const totalWeight = encounter.table.reduce((sum, entry) => sum + entry.weight, 0);
+    areas.set(aomori.id, aomori);
+
+    expect(findBrokenReferences({ ...c, areas })).toContain(
+      `area "aomori": encounter "${encounter.region}:field" の weight 合計は100にしてください（${totalWeight}）`,
+    );
+  });
+
+  it('出現表に他の県のモンスターを登録できない', async () => {
+    const c = await loadContent(read);
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    const encounter = aomori.encounters.find((entry) => entry.region && entry.zone === 'field')!;
+    const otherAreaMonster = [...c.monsters.values()].find(
+      (monster) =>
+        monster.area !== aomori.id && !encounter.table.some((entry) => entry.monsterId === monster.id),
+    )!;
+    encounter.table[0]!.monsterId = otherAreaMonster.id;
+    areas.set(aomori.id, aomori);
+
+    expect(findBrokenReferences({ ...c, areas })).toContain(
+      `area "aomori": encounter "${encounter.region}:field" monster "${otherAreaMonster.id}" の area が "${otherAreaMonster.area}" です`,
+    );
+  });
+
+  it('開始地域に片端も接続していない浮遊ゲートで地域を開放しない', async () => {
+    const c = await loadContent(read);
+    const areas = new Map(c.areas);
+    const aomori = structuredClone(areas.get('aomori')!);
+    const [start, connected, floatingA, floatingB] = aomori.regions;
+    aomori.regionGates = [
+      { between: [start!.id, connected!.id], openedBy: start!.id },
+      { between: [floatingA!.id, floatingB!.id], openedBy: start!.id },
+    ];
+    areas.set(aomori.id, aomori);
+
+    expect(findBrokenReferences({ ...c, areas })).toContain(
+      `area "aomori": region "${floatingA!.id}" に到達できません`,
     );
   });
 

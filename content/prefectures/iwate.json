@@ -217,6 +217,172 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "morioka-hachimantai",
+      "table": [
+        {
+          "monsterId": "iwate-iwa-kamoshika",
+          "weight": 55
+        },
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "ryusendo-kitasanriku",
+      "table": [
+        {
+          "monsterId": "iwate-ryusen-uo",
+          "weight": 55
+        },
+        {
+          "monsterId": "iwate-iwa-kamoshika",
+          "weight": 25
+        },
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "miyako-tono",
+      "table": [
+        {
+          "monsterId": "iwate-tono-kappa",
+          "weight": 50
+        },
+        {
+          "monsterId": "iwate-ryusen-uo",
+          "weight": 25
+        },
+        {
+          "monsterId": "iwate-iwa-kamoshika",
+          "weight": 15
+        },
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hiraizumi-sanriku",
+      "table": [
+        {
+          "monsterId": "iwate-wakamekko",
+          "weight": 50
+        },
+        {
+          "monsterId": "iwate-tono-kappa",
+          "weight": 20
+        },
+        {
+          "monsterId": "iwate-ryusen-uo",
+          "weight": 15
+        },
+        {
+          "monsterId": "iwate-iwa-kamoshika",
+          "weight": 10
+        },
+        {
+          "monsterId": "iwate-wankosobat",
+          "weight": 5
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "morioka-hachimantai",
+      "name": "盛岡[もりおか]・八幡平[はちまんたい]エリア",
+      "motifs": [
+        "iwate-san",
+        "hachimantai",
+        "morioka-reimen",
+        "wanko"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "iwate-hayate-kamoshika",
+        "level": 15
+      }
+    },
+    {
+      "id": "ryusendo-kitasanriku",
+      "name": "龍泉洞[りゅうせんどう]・北三陸[きたさんりく]エリア",
+      "motifs": [
+        "ryusendo",
+        "kitayamazaki"
+      ],
+      "boss": {
+        "monsterId": "iwate-dragon-blue",
+        "level": 15
+      }
+    },
+    {
+      "id": "miyako-tono",
+      "name": "宮古[みやこ]・遠野[とおの]エリア",
+      "motifs": [
+        "jodogahama",
+        "tono"
+      ],
+      "boss": {
+        "monsterId": "iwate-oo-kappa",
+        "level": 15
+      }
+    },
+    {
+      "id": "hiraizumi-sanriku",
+      "name": "平泉[ひらいずみ]・三陸南部[さんりくなんぶ]エリア",
+      "motifs": [
+        "chusonji",
+        "nanbu-tekki",
+        "geibikei",
+        "sanriku-wakame"
+      ],
+      "boss": {
+        "monsterId": "iwate-wakame-ryu",
+        "level": 15
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "morioka-hachimantai",
+        "ryusendo-kitasanriku"
+      ],
+      "openedBy": "morioka-hachimantai"
+    },
+    {
+      "between": [
+        "ryusendo-kitasanriku",
+        "miyako-tono"
+      ],
+      "openedBy": "ryusendo-kitasanriku"
+    },
+    {
+      "between": [
+        "miyako-tono",
+        "hiraizumi-sanriku"
+      ],
+      "openedBy": "miyako-tono"
     }
   ],
   "boss": "iwate-boss-konjiki-no-tora",

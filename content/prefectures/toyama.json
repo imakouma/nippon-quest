@@ -173,6 +173,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "toyama-wan",
+      "table": [
+        {
+          "monsterId": "toyama-pikka-ika",
+          "weight": 55
+        },
+        {
+          "monsterId": "toyama-masuzushin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "takaoka-tonami",
+      "table": [
+        {
+          "monsterId": "toyama-tulipon",
+          "weight": 60
+        },
+        {
+          "monsterId": "toyama-pikka-ika",
+          "weight": 25
+        },
+        {
+          "monsterId": "toyama-masuzushin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "tateyama-kurobe",
+      "table": [
+        {
+          "monsterId": "toyama-okojon",
+          "weight": 60
+        },
+        {
+          "monsterId": "toyama-tulipon",
+          "weight": 20
+        },
+        {
+          "monsterId": "toyama-pikka-ika",
+          "weight": 10
+        },
+        {
+          "monsterId": "toyama-masuzushin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "toyama-wan",
+      "name": "富山湾[とやまわん]エリア",
+      "motifs": [
+        "hotaruika",
+        "masuzushi"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "toyama-ginga-ika",
+        "level": 27
+      }
+    },
+    {
+      "id": "takaoka-tonami",
+      "name": "高岡[たかおか]・砺波[となみ]エリア",
+      "motifs": [
+        "gokayama",
+        "tonami-tulip",
+        "takaoka-doki",
+        "himi-buri",
+        "inami-chokoku"
+      ],
+      "boss": {
+        "monsterId": "toyama-mankai-churi",
+        "level": 27
+      }
+    },
+    {
+      "id": "tateyama-kurobe",
+      "name": "立山[たてやま]・黒部[くろべ]エリア",
+      "motifs": [
+        "tateyama",
+        "kurobe-kyokoku",
+        "shomyodaki"
+      ],
+      "boss": {
+        "monsterId": "toyama-fubuki-okojo",
+        "level": 27
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "toyama-wan",
+        "takaoka-tonami"
+      ],
+      "openedBy": "toyama-wan"
+    },
+    {
+      "between": [
+        "toyama-wan",
+        "tateyama-kurobe"
+      ],
+      "openedBy": "takaoka-tonami"
     }
   ],
   "boss": "toyama-boss-tateyama-ou",

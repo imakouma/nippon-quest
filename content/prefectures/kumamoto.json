@@ -89,6 +89,66 @@
       "blurb": "天草[あまくさ]の あたたかい 海[うみ]で 育[そだ]てられる、しまもようの 大[おお]きな えび。"
     }
   ],
+  "regions": [
+    {
+      "id": "kumamoto-kenou",
+      "name": "熊本[くまもと]・県央[けんおう]エリア",
+      "motifs": [
+        "kumamoto-jo",
+        "yamaga-toro",
+        "kumamoto-suika"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "kumamoto-suikabuto",
+        "level": 47
+      }
+    },
+    {
+      "id": "aso-kikuchi",
+      "name": "阿蘇[あそ]・菊池[きくち]エリア",
+      "motifs": [
+        "asosan",
+        "tsujunkyo",
+        "kurokawa-onsen",
+        "kikuchi-keikoku"
+      ],
+      "boss": {
+        "monsterId": "kumamoto-dai-karudera",
+        "level": 47
+      }
+    },
+    {
+      "id": "yatsushiro-amakusa",
+      "name": "八代[やつしろ]・天草[あまくさ]エリア",
+      "motifs": [
+        "yatsushiro-igusa",
+        "sakitsu",
+        "amakusa-iruka",
+        "amakusa-kurumaebi"
+      ],
+      "boss": {
+        "monsterId": "kumamoto-ebi-musha",
+        "level": 48
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "kumamoto-kenou",
+        "aso-kikuchi"
+      ],
+      "openedBy": "kumamoto-kenou"
+    },
+    {
+      "between": [
+        "kumamoto-kenou",
+        "yatsushiro-amakusa"
+      ],
+      "openedBy": "aso-kikuchi"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -199,6 +259,66 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "kumamoto-kenou",
+      "table": [
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 55
+        },
+        {
+          "monsterId": "kumamoto-tatamin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "aso-kikuchi",
+      "table": [
+        {
+          "monsterId": "kumamoto-karuderan",
+          "weight": 50
+        },
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 25
+        },
+        {
+          "monsterId": "kumamoto-tatamin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "yatsushiro-amakusa",
+      "table": [
+        {
+          "monsterId": "kumamoto-ebiguruma",
+          "weight": 45
+        },
+        {
+          "monsterId": "kumamoto-tatamin",
+          "weight": 30
+        },
+        {
+          "monsterId": "kumamoto-karuderan",
+          "weight": 15
+        },
+        {
+          "monsterId": "kumamoto-shimadama",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "kumamoto-boss-mushagaeshi",
@@ -218,7 +338,10 @@
       "once": true,
       "cutinImageKey": "motif.kumamoto.tsujunkyo",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "水[みず]が 届[とど]くまでの 高[たか]さ、道[みち]、石[いし]の 組[く]み方[かた]を 一[ひと]つの 仕組[しく]みとして 見[み]よう。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "水[みず]が 届[とど]くまでの 高[たか]さ、道[みち]、石[いし]の 組[く]み方[かた]を 一[ひと]つの 仕組[しく]みとして 見[み]よう。"
+        },
         {
           "speaker": "通潤橋[つうじゅんきょう]の あんないの おじさん",
           "text": "この 石[いし]の 橋[はし]は、田[た]んぼに 水[みず]を おくる ために 作[つく]られたんだ。水[みず]の ふしぎを しらべよう！"
@@ -262,7 +385,10 @@
           "speaker": "通潤橋[つうじゅんきょう]の あんないの おじさん",
           "text": "よく しらべたね！ 水[みず]は 高[たか]い ところから 低[ひく]い ところへ 流[なが]れるんだよ。"
         },
-        { "speaker": "ミチル", "text": "ひとつの 石[いし]ではなく、全部[ぜんぶ]の つながりが 水[みず]を 運[はこ]んでいた。第四[だいよん]の 鍵[かぎ]だね。" }
+        {
+          "speaker": "ミチル",
+          "text": "ひとつの 石[いし]ではなく、全部[ぜんぶ]の つながりが 水[みず]を 運[はこ]んでいた。第四[だいよん]の 鍵[かぎ]だね。"
+        }
       ]
     }
   ],

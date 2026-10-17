@@ -38,5 +38,35 @@ export const lastBossFlag = (areaId: string): string => `lastboss.${areaId}`;
 export const regionBossFlag = (areaId: string, regionId: string): string =>
   `regionboss.${areaId}.${regionId}`;
 
+interface RegionProgress {
+  areaSigns: readonly string[];
+  eventsDone: readonly string[];
+}
+
+/**
+ * 地域制を追加する前に県をクリアしたセーブも、その県の地域ボスを撃破済みとして扱う。
+ * これにより既存プレイヤーの関所や地図を再ロックしない。
+ */
+export function regionBossDefeated(
+  progress: RegionProgress | null | undefined,
+  areaId: string,
+  regionId: string,
+): boolean {
+  return (
+    progress?.areaSigns.includes(areaId) === true ||
+    progress?.eventsDone.includes(midBossFlag(areaId)) === true ||
+    progress?.eventsDone.includes(regionBossFlag(areaId, regionId)) === true
+  );
+}
+
+/** 次の県を開く中ボスへ進めるのは、県内の地域のぬしを全員倒したあと。 */
+export function allRegionBossesDefeated(
+  progress: RegionProgress | null | undefined,
+  areaId: string,
+  regionIds: readonly string[],
+): boolean {
+  return regionIds.every((regionId) => regionBossDefeated(progress, areaId, regionId));
+}
+
 /** dex.motifs に入れる「名所スタンプ」の id。スタンプを持っている＝その名所を見つけた */
 export const motifStamp = (areaId: string, motifId: string): string => `${areaId}.${motifId}`;

@@ -82,6 +82,65 @@
       "blurb": "日田市[ひたし]の 山[やま]あいの 里[さと]で 作[つく]られる、はけで もようを つけた やきもの。"
     }
   ],
+  "regions": [
+    {
+      "id": "oita-beppu",
+      "name": "大分[おおいた]・別府[べっぷ]エリア",
+      "motifs": [
+        "beppu-onsen",
+        "usuki-sekibutsu",
+        "seki-aji"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "oita-oozeki-aji",
+        "level": 48
+      }
+    },
+    {
+      "id": "yufu-kuju",
+      "name": "由布[ゆふ]・くじゅう・豊後大野[ぶんごおおの]エリア",
+      "motifs": [
+        "yufuin",
+        "kuju",
+        "ontayaki",
+        "kabosu",
+        "oita-shiitake"
+      ],
+      "boss": {
+        "monsterId": "oita-hodagi-oh",
+        "level": 48
+      }
+    },
+    {
+      "id": "kunisaki-yabakei",
+      "name": "国東[くにさき]・耶馬渓[やばけい]エリア",
+      "motifs": [
+        "yabakei",
+        "kunisaki"
+      ],
+      "boss": {
+        "monsterId": "oita-yubune-don",
+        "level": 48
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "oita-beppu",
+        "yufu-kuju"
+      ],
+      "openedBy": "oita-beppu"
+    },
+    {
+      "between": [
+        "yufu-kuju",
+        "kunisaki-yabakei"
+      ],
+      "openedBy": "yufu-kuju"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -192,6 +251,66 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "oita-beppu",
+      "table": [
+        {
+          "monsterId": "oita-sekiajiro",
+          "weight": 55
+        },
+        {
+          "monsterId": "oita-yukemurin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "yufu-kuju",
+      "table": [
+        {
+          "monsterId": "oita-kabosuppa",
+          "weight": 50
+        },
+        {
+          "monsterId": "oita-sekiajiro",
+          "weight": 25
+        },
+        {
+          "monsterId": "oita-shiitaken",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kunisaki-yabakei",
+      "table": [
+        {
+          "monsterId": "oita-yukemurin",
+          "weight": 45
+        },
+        {
+          "monsterId": "oita-kabosuppa",
+          "weight": 30
+        },
+        {
+          "monsterId": "oita-shiitaken",
+          "weight": 15
+        },
+        {
+          "monsterId": "oita-sekiajiro",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "oita-boss-yukemuryu",
@@ -211,7 +330,10 @@
       "once": true,
       "cutinImageKey": "motif.oita.beppu-onsen",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "熱[ねつ]と 水[みず]が どの 道[みち]を 通[とお]るか、危険[きけん]なく 使[つか]う 手順[てじゅん]まで 調[しら]べよう。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "熱[ねつ]と 水[みず]が どの 道[みち]を 通[とお]るか、危険[きけん]なく 使[つか]う 手順[てじゅん]まで 調[しら]べよう。"
+        },
         {
           "speaker": "湯[ゆ]けむりの 案内人[あんないにん]",
           "text": "大分県[おおいたけん]は 温泉[おんせん]が とても 多[おお]いんだ。地面[じめん]の 下[した]の 熱[ねつ]の ふしぎを しらべよう！"
@@ -255,7 +377,10 @@
           "speaker": "湯[ゆ]けむりの 案内人[あんないにん]",
           "text": "よく しらべたね！ 温泉[おんせん]の お湯[ゆ]は、地[ち]の 下[した]の 熱[ねつ]で あたためられて いるんだよ。"
         },
-        { "speaker": "ミチル", "text": "力[ちから]を 閉[と]じこめず、安全[あんぜん]な 道[みち]で 分[わ]ける 方法[ほうほう]が わかった。第五[だいご]の 鍵[かぎ]だよ。" }
+        {
+          "speaker": "ミチル",
+          "text": "力[ちから]を 閉[と]じこめず、安全[あんぜん]な 道[みち]で 分[わ]ける 方法[ほうほう]が わかった。第五[だいご]の 鍵[かぎ]だよ。"
+        }
       ]
     }
   ],

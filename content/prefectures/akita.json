@@ -180,6 +180,171 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "akita-oga-ogata",
+      "table": [
+        {
+          "monsterId": "akita-kiritanpon",
+          "weight": 55
+        },
+        {
+          "monsterId": "akita-hanabii",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "odate-kazuno",
+      "table": [
+        {
+          "monsterId": "akita-akitainu",
+          "weight": 45
+        },
+        {
+          "monsterId": "akita-magewappan",
+          "weight": 35
+        },
+        {
+          "monsterId": "akita-kiritanpon",
+          "weight": 15
+        },
+        {
+          "monsterId": "akita-hanabii",
+          "weight": 5
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "tazawako-kakunodate",
+      "table": [
+        {
+          "monsterId": "akita-magewappan",
+          "weight": 45
+        },
+        {
+          "monsterId": "akita-akitainu",
+          "weight": 25
+        },
+        {
+          "monsterId": "akita-kiritanpon",
+          "weight": 20
+        },
+        {
+          "monsterId": "akita-hanabii",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "omagari-chokai",
+      "table": [
+        {
+          "monsterId": "akita-hanabii",
+          "weight": 50
+        },
+        {
+          "monsterId": "akita-magewappan",
+          "weight": 20
+        },
+        {
+          "monsterId": "akita-kiritanpon",
+          "weight": 15
+        },
+        {
+          "monsterId": "akita-akitainu",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "akita-oga-ogata",
+      "name": "秋田[あきた]・男鹿[おが]・大潟[おおがた]エリア",
+      "motifs": [
+        "kanto-matsuri",
+        "namahage",
+        "ogata-okome"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "akita-kiritanpo-nabe",
+        "level": 17
+      }
+    },
+    {
+      "id": "odate-kazuno",
+      "name": "大館[おおだて]・鹿角[かづの]エリア",
+      "motifs": [
+        "kiritanpo",
+        "magewappa",
+        "akita-inu"
+      ],
+      "boss": {
+        "monsterId": "akita-chuken-maru",
+        "level": 17
+      }
+    },
+    {
+      "id": "tazawako-kakunodate",
+      "name": "田沢湖[たざわこ]・角館[かくのだて]エリア",
+      "motifs": [
+        "tazawako",
+        "kakunodate"
+      ],
+      "boss": {
+        "monsterId": "akita-wappa-toride",
+        "level": 17
+      }
+    },
+    {
+      "id": "omagari-chokai",
+      "name": "大曲[おおまがり]・鳥海[ちょうかい]エリア",
+      "motifs": [
+        "omagari-hanabi",
+        "inaniwa-udon",
+        "chokaisan"
+      ],
+      "boss": {
+        "monsterId": "akita-oodama-hanabi",
+        "level": 17
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "akita-oga-ogata",
+        "odate-kazuno"
+      ],
+      "openedBy": "akita-oga-ogata"
+    },
+    {
+      "between": [
+        "odate-kazuno",
+        "tazawako-kakunodate"
+      ],
+      "openedBy": "odate-kazuno"
+    },
+    {
+      "between": [
+        "tazawako-kakunodate",
+        "omagari-chokai"
+      ],
+      "openedBy": "tazawako-kakunodate"
     }
   ],
   "boss": "akita-boss-namahage-ou",

@@ -103,6 +103,68 @@
       "blurb": "石垣島[いしがきじま]の いちばん 北[きた]の みさき。白[しろ]い 灯台[とうだい]が 立[た]つ。"
     }
   ],
+  "regions": [
+    {
+      "id": "naha-nanbu",
+      "name": "那覇[なは]・南部[なんぶ]エリア",
+      "motifs": [
+        "shurijo",
+        "sefa-utaki",
+        "bingata"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "okinawa-niji-kurage",
+        "level": 50
+      }
+    },
+    {
+      "id": "chubu-yanbaru",
+      "name": "中部[ちゅうぶ]・恩納[おんな]エリア",
+      "motifs": [
+        "manzamo",
+        "eisa",
+        "ryukyu-glass"
+      ],
+      "boss": {
+        "monsterId": "okinawa-yanbaru-kakeru",
+        "level": 50
+      }
+    },
+    {
+      "id": "nago-yaeyama",
+      "name": "名護[なご]・やんばる・八重山[やえやま]エリア",
+      "motifs": [
+        "goya",
+        "kourijima",
+        "yanbaru",
+        "okinawa-pineapple",
+        "kabirawan",
+        "ishigaki-gyu",
+        "hirakubozaki"
+      ],
+      "boss": {
+        "monsterId": "okinawa-goya-musha",
+        "level": 51
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "naha-nanbu",
+        "chubu-yanbaru"
+      ],
+      "openedBy": "naha-nanbu"
+    },
+    {
+      "between": [
+        "chubu-yanbaru",
+        "nago-yaeyama"
+      ],
+      "openedBy": "chubu-yanbaru"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -183,6 +245,66 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "naha-nanbu",
+      "table": [
+        {
+          "monsterId": "okinawa-garasu-kurage",
+          "weight": 55
+        },
+        {
+          "monsterId": "okinawa-goyamaru",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "chubu-yanbaru",
+      "table": [
+        {
+          "monsterId": "okinawa-yanbaru-totto",
+          "weight": 50
+        },
+        {
+          "monsterId": "okinawa-garasu-kurage",
+          "weight": 25
+        },
+        {
+          "monsterId": "okinawa-goyamaru",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "nago-yaeyama",
+      "table": [
+        {
+          "monsterId": "okinawa-painapon",
+          "weight": 45
+        },
+        {
+          "monsterId": "okinawa-yanbaru-totto",
+          "weight": 30
+        },
+        {
+          "monsterId": "okinawa-goyamaru",
+          "weight": 15
+        },
+        {
+          "monsterId": "okinawa-garasu-kurage",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "okinawa-boss-dairyuchu",
@@ -202,7 +324,10 @@
       "once": true,
       "cutinImageKey": "motif.okinawa.yanbaru",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "ここだけの 生[い]き物[もの]を 守[まも]る 知識[ちしき]を、森[もり]の 人[ひと]だけに 任[まか]せず みんなで 共有[きょうゆう]しよう。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "ここだけの 生[い]き物[もの]を 守[まも]る 知識[ちしき]を、森[もり]の 人[ひと]だけに 任[まか]せず みんなで 共有[きょうゆう]しよう。"
+        },
         {
           "speaker": "やんばるの 森[もり]の ガイドさん",
           "text": "やんばるの 森[もり]には、ここにしか いない 生[い]きものが すんで いるんだよ。生[い]きものの ふしぎを しらべよう！"
@@ -246,7 +371,10 @@
           "speaker": "やんばるの 森[もり]の ガイドさん",
           "text": "よく しらべたね！ やんばるの 森[もり]は 世界自然遺産[せかいしぜんいさん]に なっているんだ。"
         },
-        { "speaker": "ミチル", "text": "知[し]った 人[ひと]が 次[つぎ]の 人[ひと]へ 渡[わた]せば、守[まも]る 力[ちから]は 増[ふ]える。最後[さいご]の 鍵[かぎ]が そろったよ。" }
+        {
+          "speaker": "ミチル",
+          "text": "知[し]った 人[ひと]が 次[つぎ]の 人[ひと]へ 渡[わた]せば、守[まも]る 力[ちから]は 増[ふ]える。最後[さいご]の 鍵[かぎ]が そろったよ。"
+        }
       ]
     }
   ],
