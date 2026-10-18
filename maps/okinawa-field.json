@@ -186,11 +186,11 @@
         3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 147, 1, 1,
         1, 155, 1, 163, 163, 147, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 147, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
         3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-        3, 3, 3, 3, 3, 147, 147, 1, 13, 155, 155, 163, 163, 163, 163, 148, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+        3, 3, 3, 3, 3, 163, 163, 163, 13, 155, 155, 163, 163, 163, 163, 148, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
         3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-        3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 147, 1, 163, 163, 155, 155, 155, 163, 163,
-        148, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-        3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+        3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 163, 163, 163, 163, 155, 155, 155, 163,
+        163, 148, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+        3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
         148, 14, 163, 163, 155, 155, 155, 163, 163, 148, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
         3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
         3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 147, 147, 148, 163, 1, 163, 155, 155, 155, 1, 163, 163, 3, 3, 3, 3, 3,
@@ -712,12 +712,51 @@
           "width": 16,
           "height": 16,
           "properties": [{ "name": "region", "type": "string", "value": "nago-yaeyama" }]
+        },
+        {
+          "id": 27,
+          "name": "interpref_kagoshima-okinawa-ferry",
+          "type": "interPrefectureLink",
+          "x": 144,
+          "y": 1104,
+          "width": 16,
+          "height": 16,
+          "properties": [
+            { "name": "linkId", "type": "string", "value": "kagoshima-okinawa-ferry" },
+            { "name": "targetArea", "type": "string", "value": "kagoshima" },
+            { "name": "targetMap", "type": "string", "value": "kagoshima-field" },
+            { "name": "targetSpawn", "type": "string", "value": "from_kagoshima-okinawa-ferry" },
+            { "name": "firstTargetSpawn", "type": "string", "value": "spawn" },
+            { "name": "infrastructure", "type": "string", "value": "seaRoute" },
+            { "name": "travelMode", "type": "string", "value": "ferry" },
+            { "name": "unlockRole", "type": "string", "value": "story" },
+            {
+              "name": "labelKey",
+              "type": "string",
+              "value": "field.interPrefecture.links.kagoshima-okinawa-ferry.label"
+            },
+            { "name": "placeId", "type": "string", "value": "naha-shinko-a-line-terminal" },
+            {
+              "name": "endpointNameKey",
+              "type": "string",
+              "value": "field.interPrefecture.links.kagoshima-okinawa-ferry.okinawa"
+            }
+          ]
+        },
+        {
+          "id": 28,
+          "name": "from_kagoshima-okinawa-ferry",
+          "type": "spawn",
+          "x": 160,
+          "y": 1104,
+          "width": 16,
+          "height": 16
         }
       ]
     }
   ],
   "nextlayerid": 4,
-  "nextobjectid": 27,
+  "nextobjectid": 29,
   "tilesets": [
     {
       "firstgid": 1,
