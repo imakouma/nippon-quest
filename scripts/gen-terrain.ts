@@ -39,6 +39,7 @@ import {
   type Ring,
 } from './terrain/raster.js';
 import { ATTRIBUTION, loadBiwa, loadDem, loadPrefectures } from './terrain/sources.js';
+import { deriveLandBorderLinks } from './terrain/prefectureBorders.js';
 
 const OUT = fileURLToPath(new URL('./data/terrain.json', import.meta.url));
 
@@ -178,6 +179,9 @@ function autoBBox(list: Poly[]): BBox {
 async function main(): Promise<void> {
   console.log('元データを読み込み中…');
   const raw = await loadPrefectures();
+  const interPrefectureBorders = deriveLandBorderLinks(raw, PREFECTURES);
+  if (interPrefectureBorders.length !== 86)
+    throw new Error(`陸上県境が86組ではありません (${interPrefectureBorders.length}組)`);
   const polys = new Map<string, Poly[]>();
   for (const p of PREFECTURES) {
     const list = raw.get(Number(p.code));
@@ -470,6 +474,7 @@ async function main(): Promise<void> {
     about:
       'pnpm gen:terrain が実在の地理から作ったマップの地形（手で編集しない）。記号の意味は scripts/gen-terrain.ts の先頭コメント',
     sources: ATTRIBUTION,
+    interPrefectureBorders,
     maps,
   };
   const options = (await resolveConfig(OUT)) ?? {};
