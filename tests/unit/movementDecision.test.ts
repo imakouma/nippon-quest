@@ -29,4 +29,20 @@ describe('フィールド移動の優先順', () => {
     expect(decide({ blocked: () => true }).kind).toBe('blocked');
     expect(decide()).toEqual({ kind: 'move', x: 2, y: 1 });
   });
+
+  it('開いた関所は下の衝突タイルに止められず通れる', () => {
+    expect(
+      decide({
+        gateAt: () => 'gate',
+        gateOpen: () => true,
+        blocked: () => true,
+      }),
+    ).toEqual({ kind: 'move', x: 2, y: 1 });
+  });
+
+  it('開いた関所と重なっても県ボスと裏ボスを優先する', () => {
+    const openGate = { gateAt: () => 'gate', gateOpen: () => true };
+    expect(decide({ ...openGate, areaBossTile: 12 }).kind).toBe('areaBoss');
+    expect(decide({ ...openGate, lastBossTile: 12 }).kind).toBe('lastBoss');
+  });
 });

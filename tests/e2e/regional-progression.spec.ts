@@ -115,6 +115,7 @@ interface Layout {
     openedBy: string;
     startSide: Tile;
     enterKey: ArrowKey;
+    tile: Tile;
     nextSide: Tile;
     exitKey: ArrowKey;
   };
@@ -285,6 +286,7 @@ function resolveLayout(areaId = AREA_ID): Layout {
       openedBy: gateDefinition.openedBy,
       startSide,
       enterKey: direction(startSide, gateTile),
+      tile: gateTile,
       nextSide,
       exitKey: direction(gateTile, nextSide),
     },
@@ -836,13 +838,14 @@ test('最後の地域ボス撃破直後にダンジョン入口のロックと�
   expect(errors).toEqual([]);
 });
 
-test('開発者モードの切替直後に地域関所とダンジョン入口を同期する', async ({ page }) => {
+test('開発者モードの切替直後に地域関所を通過でき、ダンジョン入口も同期する', async ({ page }) => {
   test.setTimeout(90_000);
-  const layout = resolveLayout();
+  const area = REPRESENTATIVE_AREAS[0];
+  const layout = resolveLayout(area.areaId);
 
   await createFreshSave(page);
-  await seedNagasakiSave(page, layout.bossApproach.tile);
-  await continueFromSlot(page, layout.bossApproach.tile);
+  await continueFromSlot(page);
+  await restartRepresentativeArea(page, area, layout.gate.startSide, false);
 
   expect(await regionalDungeonSnapshot(page)).toEqual({ isTinted: true, locked: true });
   expect((await allRegionalObjectsSnapshot(page)).gates.every((gate) => !gate.open)).toBe(true);
@@ -854,6 +857,8 @@ test('開発者モードの切替直後に地域関所とダンジョン入口�
   expect(await regionalDungeonSnapshot(page)).toEqual({ isTinted: false, locked: false });
   expect((await allRegionalObjectsSnapshot(page)).gates.every((gate) => gate.open)).toBe(true);
   await clickThroughDialogue(page);
+  await walkOne(page, layout.gate.enterKey, 'move', layout.gate.tile);
+  await walkOne(page, layout.gate.exitKey, 'move', layout.gate.nextSide);
 
   await page.evaluate(() => {
     const game = (window as unknown as { __nq: BrowserGame }).__nq;
