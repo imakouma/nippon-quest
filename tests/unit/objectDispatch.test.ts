@@ -11,12 +11,14 @@ describe('Tiled object dispatcher', () => {
     dispatchMapObjects(
       [
         { type: 'transition', name: 'town', x: 32, y: 48 },
+        { type: 'interPrefectureLink', name: 'land-02-03', x: 80, y: 96 },
         { type: 'midboss', x: 16, y: 0 },
         { type: 'unknown', x: 0, y: 0 },
       ],
       {
         beforeAll: () => calls.push('before'),
         transition: handler('transition'),
+        interPrefectureLink: handler('interPrefectureLink'),
         npc: handler('npc'),
         chest: handler('chest'),
         midboss: noObject('midboss'),
@@ -30,6 +32,11 @@ describe('Tiled object dispatcher', () => {
         specialty: handler('specialty'),
       },
     );
-    expect(calls).toEqual(['before', 'transition:town:2,3', 'midboss:1,0']);
+    expect(calls).toEqual([
+      'before',
+      'transition:town:2,3',
+      'interPrefectureLink:land-02-03:5,6',
+      'midboss:1,0',
+    ]);
   });
 });
