@@ -75,6 +75,12 @@ interface BrowserGate {
   sprite: { texture: { key: string } };
 }
 
+interface BrowserInterPrefectureLink {
+  id: string;
+  targetArea: string;
+  targetMap: string;
+}
+
 interface BrowserField {
   currentRegion: string | null;
   lockedGates: Map<number, string>;
@@ -88,9 +94,10 @@ interface BrowserField {
     cooldownStepsRemaining: number;
   };
   midBoss: { tile: number } | null;
-  warp: { tile: number; to: { id: string; mapKey: string } } | null;
+  interPrefectureLinks: Map<number, BrowserInterPrefectureLink>;
   rng: { chance: (probability: number) => boolean };
   gateOpen(gate: BrowserGate): boolean;
+  interPrefectureOpen(link: BrowserInterPrefectureLink): boolean;
   isLocked(tile: number): boolean;
   checkRandomEncounter(): void;
   toggleDev(): void;
@@ -99,6 +106,38 @@ interface BrowserField {
   };
   scene: {
     restart(data: { mapKey: string; spawnTile: Tile; exactSpawn: true }): void;
+  };
+}
+
+function interPrefectureApproach(
+  areaId: string,
+  linkId: string,
+): {
+  enterKey: ArrowKey;
+  entryIndex: number;
+  entryTile: Tile;
+  startTile: Tile;
+} {
+  const map = JSON.parse(
+    readFileSync(new URL(`../../maps/${areaId}-field.json`, import.meta.url), 'utf8'),
+  ) as TiledMap;
+  const objects = map.layers.find((layer) => layer.name === 'objects')?.objects ?? [];
+  const objectTile = (object: TiledObject): Tile => [
+    Math.floor(object.x / map.tilewidth),
+    Math.floor(object.y / map.tileheight),
+  ];
+  const entry = objects.find(
+    (object) => object.type === 'interPrefectureLink' && prop(object, 'linkId') === linkId,
+  );
+  const arrival = objects.find((object) => object.type === 'spawn' && object.name === `from_${linkId}`);
+  if (!entry || !arrival) throw new Error(`${areaId}-field に ${linkId} の県境入口・到着点がありません`);
+  const entryTile = objectTile(entry);
+  const startTile = objectTile(arrival);
+  return {
+    enterKey: direction(startTile, entryTile),
+    entryIndex: entryTile[1] * map.width + entryTile[0],
+    entryTile,
+    startTile,
   };
 }
 
@@ -511,6 +550,21 @@ async function clickThroughDialogue(page: Page): Promise<string[]> {
     await page.waitForTimeout(80);
   }
   throw new Error('会話を最後まで進められませんでした');
+}
+
+async function clickThroughDialogueAndWaitForFieldRestart(page: Page): Promise<void> {
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: BrowserGame }).__nq;
+    const field = game.scene.getScene('Overworld') as BrowserField;
+    document.documentElement.removeAttribute('data-e2e-overworld-restarted');
+    field.events.once('create', () =>
+      document.documentElement.setAttribute('data-e2e-overworld-restarted', 'true'),
+    );
+  });
+  await clickThroughDialogue(page);
+  await expect(page.locator('html')).toHaveAttribute('data-e2e-overworld-restarted', 'true', {
+    timeout: 20_000,
+  });
 }
 
 async function defeatCurrentEnemy(page: Page): Promise<void> {
@@ -931,46 +985,65 @@ test('開発者モードの切替直後に地域関所を通過でき、ダン�
   await clickThroughDialogue(page);
 });
 
-test('開発者モードの切替直後に県境ワープを出し、歩いて次県へ進める', async ({ page }) => {
+test('県境門を常設し、開発者モードの切替直後に歩いて次県へ進める', async ({ page }) => {
   test.setTimeout(90_000);
   const area = REPRESENTATIVE_AREAS[0];
-  const layout = resolveLayout(area.areaId);
+  const border = interPrefectureApproach(area.areaId, 'land-iwate-miyagi');
 
   await createFreshSave(page);
   await continueFromSlot(page);
-  await restartRepresentativeArea(page, area, layout.midBossApproach.tile, false);
+  await restartRepresentativeArea(page, area, border.startTile, false);
 
   const travelSnapshot = () =>
     page.evaluate(() => {
       const game = (window as unknown as { __nq: BrowserGame }).__nq;
       const field = game.scene.getScene('Overworld') as BrowserField;
+      const link = [...field.interPrefectureLinks.entries()].find(
+        ([, candidate]) => candidate.id === 'land-iwate-miyagi',
+      );
       return {
         midBossTile: field.midBoss?.tile ?? null,
-        warp: field.warp ? { tile: field.warp.tile, to: field.warp.to } : null,
+        link: link
+          ? {
+              open: field.interPrefectureOpen(link[1]),
+              targetArea: link[1].targetArea,
+              targetMap: link[1].targetMap,
+              tile: link[0],
+            }
+          : null,
       };
     });
 
   const initial = await travelSnapshot();
   expect(initial.midBossTile).not.toBeNull();
-  expect(initial.warp).toBeNull();
+  expect(initial.link).toEqual({
+    open: false,
+    targetArea: 'miyagi',
+    targetMap: 'miyagi-field',
+    tile: border.entryIndex,
+  });
 
   await page.evaluate(() => {
     const game = (window as unknown as { __nq: BrowserGame }).__nq;
     (game.scene.getScene('Overworld') as BrowserField).toggleDev();
   });
-  await clickThroughDialogue(page);
-  await expect.poll(async () => (await travelSnapshot()).warp?.to.id ?? null).toBe('miyagi');
+  await clickThroughDialogueAndWaitForFieldRestart(page);
+  await expect.poll(async () => (await travelSnapshot()).link?.open ?? false).toBe(true);
   const enabled = await travelSnapshot();
   expect(enabled.midBossTile).toBeNull();
-  expect(enabled.warp).toMatchObject({ to: { id: 'miyagi', mapKey: 'miyagi-field' } });
-  expect(enabled.warp?.tile).toBe(initial.midBossTile);
+  expect(enabled.link).toEqual({
+    open: true,
+    targetArea: 'miyagi',
+    targetMap: 'miyagi-field',
+    tile: border.entryIndex,
+  });
 
   await page.evaluate(() => {
     const game = (window as unknown as { __nq: BrowserGame }).__nq;
     (game.scene.getScene('Overworld') as BrowserField).toggleDev();
   });
-  await clickThroughDialogue(page);
-  await expect.poll(travelSnapshot).toEqual({ midBossTile: initial.midBossTile, warp: null });
+  await clickThroughDialogueAndWaitForFieldRestart(page);
+  await expect.poll(travelSnapshot).toEqual(initial);
   expect(
     await page.evaluate(() => {
       const game = (window as unknown as { __nq: BrowserGame }).__nq;
@@ -983,22 +1056,11 @@ test('開発者モードの切替直後に県境ワープを出し、歩いて�
     const game = (window as unknown as { __nq: BrowserGame }).__nq;
     (game.scene.getScene('Overworld') as BrowserField).toggleDev();
   });
-  await clickThroughDialogue(page);
-  await expect.poll(async () => (await travelSnapshot()).warp?.to.id ?? null).toBe('miyagi');
-  await walkOne(page, layout.midBossApproach.key, 'move');
+  await clickThroughDialogueAndWaitForFieldRestart(page);
+  await expect.poll(async () => (await travelSnapshot()).link?.open ?? false).toBe(true);
+  await walkOne(page, border.enterKey, 'move', border.entryTile);
   await clickThroughDialogue(page);
   await expect.poll(() => currentMap(page), { timeout: 20_000 }).toBe('miyagi-field');
-
-  const terminalArea = REPRESENTATIVE_AREAS[1];
-  const terminalLayout = resolveLayout(terminalArea.areaId);
-  await page.evaluate(() => {
-    const game = (window as unknown as { __nq: BrowserGame }).__nq;
-    const state = game.registry.get('game') as { progress: { eventsDone: string[] } };
-    state.progress.eventsDone.push('midboss.hokkaido');
-    game.registry.set('game', state);
-  });
-  await restartRepresentativeArea(page, terminalArea, terminalLayout.midBossApproach.tile, false);
-  await expect.poll(travelSnapshot).toEqual({ midBossTile: null, warp: null });
 });
 
 test('地域のぬしが残る間は中ボス戦を止め、全地域の撃破後は確認へ進む', async ({ page }) => {
