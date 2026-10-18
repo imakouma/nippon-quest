@@ -68,7 +68,8 @@ const AREA_VIEW = 344;
 
 /**
  * 地形を 1 マス = 1 ドットでかく（CSS で整数倍に広げる）。
- * 海（3）は かかない（枠の青が見える。県の外の陸は海の色なので、下に かさねた地方の地図のとなりの県が見える）
+ * 海（3）は かかない（枠の青が見える）。県外の陸も mapModels で詳細レイヤーから外すため、
+ * 下に かさねた地方地図の暗い隣県シルエットが見える。
  */
 function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
   canvas.width = map.width;

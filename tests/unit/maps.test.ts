@@ -40,6 +40,9 @@ interface RegionArea {
 }
 
 interface TerrainMap {
+  width: number;
+  height: number;
+  rows: string[];
   panels: { bbox: [number, number, number, number]; proj: Proj }[];
 }
 
@@ -186,6 +189,40 @@ describe('マップ', () => {
             `${key} の ${o.name}`,
           ).toBe(true);
     }
+  });
+
+  it('県外の陸地は陸として描き、県境は通れず、実際の海や湖だけを水面として描く', () => {
+    let neighboringLandTiles = 0;
+    let waterTiles = 0;
+    const renderingErrors: string[] = [];
+    const collisionErrors: string[] = [];
+    for (const [key, terrain] of Object.entries(TERRAIN.maps)) {
+      if (!key.endsWith('-field')) continue;
+      const map = maps.get(key)!;
+      const background = map.layers.find((layer) => layer.name === 'background')?.data ?? [];
+      const collision = map.layers.find((layer) => layer.name === 'collision')?.data ?? [];
+      expect(terrain.rows, `${key}: 地形の高さ`).toHaveLength(terrain.height);
+      for (const [y, row] of terrain.rows.entries()) {
+        expect(row, `${key}: 地形 ${y} 行目の幅`).toHaveLength(terrain.width);
+        for (const [x, cell] of [...row].entries()) {
+          const index = y * terrain.width + x;
+          if (cell === 'x') {
+            neighboringLandTiles++;
+            if (background[index] !== 1) renderingErrors.push(`${key}: 県外の陸 (${x}, ${y})`);
+            if (collision[index] !== 3) collisionErrors.push(`${key}: 県境 (${x}, ${y})`);
+          }
+          if (cell === '.' || cell === '~') {
+            waterTiles++;
+            if (background[index] !== 3) renderingErrors.push(`${key}: 水面 (${x}, ${y})`);
+            if (collision[index] !== 3) collisionErrors.push(`${key}: 水面 (${x}, ${y})`);
+          }
+        }
+      }
+    }
+    expect(renderingErrors).toEqual([]);
+    expect(collisionErrors).toEqual([]);
+    expect(neighboringLandTiles).toBeGreaterThan(0);
+    expect(waterTiles).toBeGreaterThan(0);
   });
 
   it('ゲーム開始地点の近くにボスを置かない', () => {
