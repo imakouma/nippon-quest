@@ -1238,9 +1238,10 @@ export class OverworldScene extends Phaser.Scene {
   private addMidBoss(tx: number, ty: number, area: Area | undefined): void {
     const def = area?.midBoss ? this.content()?.monsters.get(area.midBoss) : undefined;
     if (!area || !def) return;
-    if (this.gs()?.progress.eventsDone.includes(midBossFlag(area.id))) {
+    const defeated = this.gs()?.progress.eventsDone.includes(midBossFlag(area.id));
+    if (defeated || this.devAll()) {
       this.openWarp(tx, ty, area, false);
-      return;
+      if (defeated || this.warp) return;
     }
     this.midBoss = this.bossMarker(tx, ty, def);
   }
@@ -2669,6 +2670,7 @@ export class OverworldScene extends Phaser.Scene {
     this.standStill();
     void this.talk([{ text: t(on ? 'field.devEnabled' : 'field.devDisabled') }]).then(() => {
       this.busy = false;
+      if (this.kind() === 'field') this.switchMap(this.mapKey, 'spawn', this.playerTile(), true);
     });
   }
 
