@@ -1,29 +1,5 @@
-/**
- * フィールドの「中ボス → ワープホール → 次の県」の道すじ。純粋関数のみ。
- * 県の順番は content/world/japan.json の islands[].order と islands[].areas の並び（コードに県名を書かない）。
- */
+/** 都道府県・地域の攻略進行に使う純粋関数。 */
 import type { World } from '../content/schemas';
-
-export interface NextStop {
-  id: string;
-  mapKey: string;
-}
-
-/**
- * 中ボスを倒したあとのワープ先のフィールド。同じ島（地方）の次の県。
- * 島の最後の県では地方ボスが次の島への結界を管理するため null。
- * どの島にも無い県も null。
- */
-export function nextStop(
-  world: World,
-  areaId: string,
-  fieldKeyOf: (areaId: string) => string = (id) => `${id}-field`,
-): NextStop | null {
-  const island = world.islands.find((candidate) => candidate.areas.includes(areaId));
-  if (!island) return null;
-  const next = island.areas[island.areas.indexOf(areaId) + 1];
-  return next ? { id: next, mapKey: fieldKeyOf(next) } : null;
-}
 
 /** progress.eventsDone に入れる「中ボスを倒した」しるし */
 export const midBossFlag = (areaId: string): string => `midboss.${areaId}`;
