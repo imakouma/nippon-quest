@@ -1,10 +1,8 @@
-/**
- * フィールドの進行（中ボス → ワープホール → 次の県）と、名所イベントの報酬。純粋関数のテスト。
- */
+/** フィールドの進行と、名所イベントの報酬。純粋関数のテスト。 */
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { createNewGame } from '../../src/core/state/newGame';
-import { midBossFlag, motifStamp, nextIncompleteArea, nextStop } from '../../src/core/progression/route';
+import { midBossFlag, motifStamp, nextIncompleteArea } from '../../src/core/progression/route';
 import { canChallengeIslandBoss, completeIsland, hasAllAreaSigns } from '../../src/core/progression/island';
 import { applyReward, markDone, pickReward } from '../../src/core/progression/eventReward';
 import { applyArenaVictory, markMapVisited } from '../../src/core/progression/arena';
@@ -68,27 +66,7 @@ describe('闘技場と訪問記録', () => {
   });
 });
 
-describe('中ボスを倒したあとのワープ先', () => {
-  it('同じ島の次の県のフィールドへ（順番は world/japan.json）', async () => {
-    const c = await content();
-    expect(nextStop(c.world, 'aomori')).toEqual({ id: 'iwate', mapKey: 'iwate-field' });
-    expect(nextStop(c.world, 'akita')).toEqual({ id: 'yamagata', mapKey: 'yamagata-field' });
-  });
-
-  it('島の最後の県では地方ボスが結界を守るため、次の島へ直接進まない', async () => {
-    const c = await content();
-    expect(nextStop(c.world, 'fukushima')).toBeNull();
-    expect(nextStop(c.world, 'hokkaido')).toBeNull();
-  });
-
-  it('最後の島の最後の県と、どの島にも入っていない id は null', async () => {
-    const c = await content();
-    const islands = [...c.world.islands].sort((a, b) => a.order - b.order);
-    const last = islands[islands.length - 1]!.areas;
-    expect(nextStop(c.world, last[last.length - 1]!)).toBeNull();
-    expect(nextStop(c.world, 'no-such-area')).toBeNull();
-  });
-
+describe('中ボスと県間進行のしるし', () => {
   it('東北 6 県には中ボスがいて、にげられない戦いになる', async () => {
     const c = await content();
     const tohoku = c.world.islands.find((i) => i.id === 'tohoku')!;
