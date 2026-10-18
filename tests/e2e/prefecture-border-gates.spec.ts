@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
+import { TRANSPORT_LINKS, type TransportLink } from '../../scripts/data/interPrefectureLinks';
 import { completeNewGameSetup } from './newGame';
 
 const SLOT = 1;
@@ -25,6 +26,10 @@ interface TiledMap {
   tilewidth: number;
   tileheight: number;
   layers: { name: string; objects?: TiledObject[] }[];
+}
+
+interface WorldData {
+  islands: { id: string; areas: string[] }[];
 }
 
 interface BrowserField {
@@ -71,6 +76,36 @@ const CARDINAL: readonly { dx: number; dy: number; key: ArrowKey }[] = [
   { dx: 0, dy: 1, key: 'ArrowDown' },
   { dx: 0, dy: -1, key: 'ArrowUp' },
 ];
+
+const WORLD = JSON.parse(
+  readFileSync(new URL('../../content/world/japan.json', import.meta.url), 'utf8'),
+) as WorldData;
+
+const TRANSPORT_ICONS = {
+  bridge: {
+    bicycle: 'travel-bridge-bicycle',
+    rail: 'travel-bridge-rail',
+    roadVehicle: 'travel-bridge-road',
+  },
+  seaRoute: { ferry: 'travel-ferry' },
+  tunnel: {
+    rail: 'travel-tunnel-rail',
+    walk: 'travel-tunnel-walk',
+  },
+} as const;
+
+function islandFor(areaId: string): string {
+  const island = WORLD.islands.find((candidate) => candidate.areas.includes(areaId));
+  if (!island) throw new Error(`${areaId} の地方が world にありません`);
+  return island.id;
+}
+
+function transportIcon(link: TransportLink): string {
+  const byMode = TRANSPORT_ICONS[link.infrastructure] as Partial<Record<string, string>>;
+  const icon = byMode[link.travelMode];
+  if (!icon) throw new Error(`${link.id} の交通アイコンがE2E表にありません`);
+  return icon;
+}
 
 const property = (object: TiledObject, name: string): unknown =>
   object.properties?.find((candidate) => candidate.name === name)?.value;
@@ -336,6 +371,61 @@ test('開発者モードは全県境を往復でき、訪問を付けず、解�
   const restored = await progressSnapshot(page);
   expect(restored.counters['dev:all']).toBeUndefined();
   expect(restored.counters['visit:miyagi-field']).toBeUndefined();
+});
+
+test('9つの実在交通を種類別に表示し、960×540と844×390に収める', async ({ page }) => {
+  test.setTimeout(180_000);
+  const browserErrors: string[] = [];
+  page.on('pageerror', (error) => browserErrors.push(error.message));
+  page.on('console', (message) => {
+    if (message.type() === 'error') browserErrors.push(message.text());
+  });
+
+  await createFreshSave(page);
+  // 青森は新規セーブのプロローグ制御があるため、交通検査の初期化には北海道を使う。
+  const firstLink = TRANSPORT_LINKS[1]!;
+  const firstArea = firstLink.endpoints[0].areaId;
+  const firstEndpoint = linkEndpoint(firstArea, islandFor(firstArea), firstLink.id);
+  await restartWithProgress(page, firstEndpoint, firstEndpoint.firstSpawnTile);
+  await toggleDev(page, true);
+
+  for (const link of TRANSPORT_LINKS) {
+    const areaId = link.endpoints[0].areaId;
+    const endpoint = linkEndpoint(areaId, islandFor(areaId), link.id);
+    await restartWithProgress(page, endpoint, endpoint.reciprocalSpawnTile);
+    await pressInto(page, endpoint.enterKey, 'move', endpoint.entryTile);
+
+    const overlay = page.locator('.nq-interpref-travel');
+    await expect(overlay, link.id).toBeVisible({ timeout: 10_000 });
+    await expect(overlay, link.id).toHaveAttribute('data-phase', 'confirm');
+    await expect(overlay.locator('[data-travel-icon]'), link.id).toHaveAttribute(
+      'data-travel-icon',
+      transportIcon(link),
+    );
+    await expect(overlay.locator('.nq-travel-route'), link.id).not.toHaveText('');
+    await expect(overlay.locator('.nq-travel-endpoints'), link.id).toHaveAttribute('aria-label', / から /);
+    await overlay.locator('.nq-travel-cancel').click();
+    await expect(overlay, link.id).toBeHidden();
+  }
+
+  await page.setViewportSize({ width: 844, height: 390 });
+  const compactLink = TRANSPORT_LINKS.find((link) => link.id === 'hyogo-tokushima-bridge')!;
+  const compactArea = compactLink.endpoints[0].areaId;
+  const compactEndpoint = linkEndpoint(compactArea, islandFor(compactArea), compactLink.id);
+  await restartWithProgress(page, compactEndpoint, compactEndpoint.reciprocalSpawnTile);
+  await pressInto(page, compactEndpoint.enterKey, 'move', compactEndpoint.entryTile);
+
+  const compactPanel = page.locator('.nq-travel-panel');
+  await expect(compactPanel).toBeVisible({ timeout: 10_000 });
+  const panelBox = await compactPanel.boundingBox();
+  expect(panelBox).not.toBeNull();
+  expect(panelBox!.x).toBeGreaterThanOrEqual(0);
+  expect(panelBox!.y).toBeGreaterThanOrEqual(0);
+  expect(panelBox!.x + panelBox!.width).toBeLessThanOrEqual(844);
+  expect(panelBox!.y + panelBox!.height).toBeLessThanOrEqual(390);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.nq-interpref-travel')).toBeHidden();
+  expect(browserErrors).toEqual([]);
 });
 
 test('実在交通は経路を確認表示し、移動中表示をスキップして到着できる', async ({ page }) => {
