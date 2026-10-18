@@ -5,6 +5,7 @@ const preinstalled = [
   '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
   '/usr/bin/google-chrome',
   '/usr/bin/chromium',
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
 ].find((path) => existsSync(path));
 
 export default defineConfig({
