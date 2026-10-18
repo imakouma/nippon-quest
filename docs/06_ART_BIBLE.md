@@ -777,7 +777,7 @@ Max 24 colors. PALETTE: {NQ-48 から}
 | 153〜154 | みずべ（153 水たまりと ガマ、154 しめった 草地と あし） | ○ | lime の 地に azure / sky / aqua / mint、green＋brown の 穂 |
 | 155〜156 | たんぼ（155 みどりの なえ、156 こがね色の いね。北と 西の はしが あぜ道） | ○ | lime / green / mint、yellow / ochre / cream、あぜ tan |
 | 157〜158 | 果樹園（157 りんご・さくらんぼ、158 もも） | ○ | lime の 地に leaf の 木、red / blush の 実 |
-| 159〜160 | 空き（あとで追加）。県の外の陸地は 3 の海で描く（県はそれぞれ海にかこまれた島） | | |
+| 159〜160 | 空き（あとで追加）。県の外の陸地は草原として描くが、県境なので通れない | | |
 
 町とダンジョンは `scripts/scaffold-maps.ts` がシード付き乱数で組み立てます（町は 52×40、ダンジョンは部屋と通路の迷路）。ダンジョンの見た目は県ごとに `DUNGEON_THEMES` で決めます（書いていない県は どうくつ）。町の見た目（地面・木・屋根・広場の名所・畑・街灯・海ぞい・小物）は県ごとに `scripts/data/towns.ts` の `TOWN_THEMES` で決めます（その土地の名所・特産品・気候から。`note` に理由）。61〜146 の絵は `src/rendering/overworld/townTiles.ts`。147〜158 の 地面の 絵は `fieldArt.ts`、フィールドの どこに どの 地面を 置くかは `scaffold-maps.ts` の `groundTiles`（海・湖・丘からの きょり。docs/00 §2.2、`src/core/world/ground.ts`）。フィールドと 離島では、その上に 見た目だけの 別の タイル `overworld-view` を かさねる（`src/rendering/overworld/viewTiles.ts` が 描く 8 列の テクスチャ。どの マスに どれを 使うかは `overworldView.ts`：海の 白い 波・森と すなはまの まるい ふち（となり 4 方向の しるし）・山・田んぼの なえの 列・果樹園の 木）。地面の 判定・エンカウントは 下の background の まま。入口の しるし（家・どうくつ・お城・船）は `entranceIcons.ts`。
 

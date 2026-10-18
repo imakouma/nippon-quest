@@ -8,8 +8,8 @@
  *
  * フィールド・離島・にほんちずの地形は scripts/data/terrain.json（pnpm gen:terrain が実在の地理から作る）を使う。
  * 町（県庁所在地）・ダンジョン・名所・港も、実際の場所に置く（位置は scripts/data/geo.ts）。
- * 県のフィールドは、県の外の陸地も海として描く（県はそれぞれ海にかこまれた島。
- * となりの県へは、中ボスを倒すと開くワープホールか、にほんちずから行く）。
+ * 県のフィールドは、県外の陸地も陸として描く。県境は通れず、となりの県へは
+ * 中ボスを倒すと開くワープホールか、にほんちずから行く。
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -75,13 +75,13 @@ const TERRAIN = (
   JSON.parse(readFileSync(`${ROOT}scripts/data/terrain.json`, 'utf8')) as { maps: Record<string, TerrainMap> }
 ).maps;
 
-/** 地形記号 → タイル番号（src/rendering/overworld/fieldArt.ts の仮タイルセットと対応）。県の外の陸地（x）も海（3） */
-const TILE: Record<string, number> = { '.': 3, '~': 3, '#': 1, '^': 11, A: 12, x: 3, W: 159 };
+/** 地形記号 → タイル番号（src/rendering/overworld/fieldArt.ts の仮タイルセットと対応） */
+const TILE: Record<string, number> = { '.': 3, '~': 3, '#': 1, '^': 11, A: 12, x: 1, W: 159 };
 /** にほんちずの地図データ。Tiled のマップではないので maps/ には入れず、ゲームが読む public/ にだけ置く */
 const WORLD_MAP_FILE = 'public/worldmap.json';
 /** collision レイヤーでこの番号のマスは通れない（Overworld.ts） */
 const BLOCK = 3;
-/** 海・湖・県外の陸地は通れない */
+/** 海・湖・県外の陸地は通れない（x は陸として描くが県境の外なので止める） */
 const BLOCKED = new Set(['.', '~', 'x', 'W']);
 /** 看板・入口などの目じるしどうしを、何マス離すか（Placer） */
 const SIGN_GAP = 3;
@@ -547,7 +547,7 @@ const MARSHES: Record<string, string[]> = { miyagi: ['izunuma'] };
  *   A → やま（雪の山）。^ → 平地から 2 マス以上 おくは やま、ふちは もり
  *   平地（#）→ 湖・沼の そばは みずべ、海の となりは すなはま、丘の となりは もり、
  *              海からも 丘からも はなれた 所は たはた（ところどころ くさはら）、ほかは くさはら
- * 県の外（x）は 海の絵でも 海では ないので、すなはまに しない
+ * 県の外（x）は 陸の絵だが通れない。海では ないので、すなはまに しない
  */
 function groundTiles(land: Land, prefId: string): (c: string, i: number) => number {
   const sea = distanceFrom(land, (c) => c === '.');

@@ -49,6 +49,19 @@ describe('地図表示モデル', () => {
     expect(mapBaseFromTiled('missing', { width: 1, height: 1, layers: [] })).toBeNull();
   });
 
+  it('県地図では陸表示の県外マスを現在県の詳細地形に含めない', () => {
+    const base = mapBaseFromTiled('sample-field', {
+      width: 3,
+      height: 1,
+      layers: [
+        { name: 'background', data: [1, 1, 3] },
+        { name: 'collision', data: [0, 3, 3] },
+      ],
+    });
+    expect(base?.tiles).toEqual([1, 3, 3]);
+    expect(base?.land).toEqual([0, 0, 0, 0]);
+  });
+
   it('地方ミニマップに現在県の詳細地形と主人公位置を重ねる', () => {
     const data: WorldMapData = {
       regions: [

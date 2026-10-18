@@ -69,8 +69,15 @@ export function mapBaseFromTiled<T extends MapObject>(
   key: string,
   source: TiledMapSource<T> | undefined,
 ): (Omit<MapBase, 'objects'> & { objects: T[] }) | null {
-  const tiles = source?.layers.find((layer) => layer.name === 'background')?.data;
-  if (!source || !tiles) return null;
+  const background = source?.layers.find((layer) => layer.name === 'background')?.data;
+  if (!source || !background) return null;
+  const collision = source.layers.find((layer) => layer.name === 'collision')?.data;
+  // フィールド本体では県外の陸も草原（1）として見せる。一方、県地図の詳細には
+  // 現在県だけを重ねたいので、「草原だが通れない」県外マスを透明な水面相当に戻す。
+  const tiles =
+    collision?.length === background.length
+      ? background.map((tile, index) => (tile === 1 && collision[index] === 3 ? 3 : tile))
+      : background;
   let land: MapBase['land'] = null;
   for (let index = 0; index < tiles.length; index++) {
     if (tiles[index] === 3) continue;
