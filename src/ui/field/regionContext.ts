@@ -1,7 +1,7 @@
 import { NQ } from '../../rendering/palette';
 import { areaAt, type RegionGrid } from './worldMapModel';
 
-/** 現在県以外を暗いシルエットと県境で描き、県同士の位置関係を残す。 */
+/** 周辺県を暗く、現在県を陸色の下地で描き、県同士の位置関係を切れ目なく残す。 */
 export function drawRegionContext(
   canvas: HTMLCanvasElement,
   region: RegionGrid & { here: number },
@@ -13,11 +13,16 @@ export function drawRegionContext(
   for (let y = 0; y < region.height; y++)
     for (let x = 0; x < region.width; x++) {
       const area = areaAt(region, x, y);
-      // 現在県は上に重ねる詳細地図へ任せる。ここでも描くと、解像度差で海岸から
-      // 暗いシルエットがはみ出し、県の端が黒く欠けて見える。
-      if (area < 0 || area === region.here) continue;
       const left = x * cell;
       const top = y * cell;
+      if (area === region.here) {
+        // 解像度の違う詳細地図を重ねても、輪郭誤差が青い海として露出しない下地。
+        // 地方図で海になっているマスは area < 0 のため、実際の海岸線は透明のまま残る。
+        ctx.fillStyle = NQ.leaf;
+        ctx.fillRect(left, top, cell, cell);
+        continue;
+      }
+      if (area < 0) continue;
       ctx.fillStyle = NQ.night;
       ctx.fillRect(left, top, cell, cell);
       ctx.fillStyle = NQ.slate;
