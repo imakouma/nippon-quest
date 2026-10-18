@@ -1,13 +1,15 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Area } from '../../core/content/schemas';
+import { interPrefectureAccess } from '../../core/progression/interPrefecture';
 import { canChallengeIslandBoss } from '../../core/progression/island';
 import { midBossFlag, motifStamp, regionBossDefeated } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
 import { regionMapTile } from '../../shared/regionVisibility';
 import type { RegionMiniView } from '../../ui/field/RegionMiniMap';
-import type { AreaMark, AreaMapView, PlaceOption } from '../../ui/field/AreaMap';
+import type { AreaMark, AreaMapView, AreaMarkKind, PlaceOption } from '../../ui/field/AreaMap';
 import type { MapAreaInfo, MapRegionInfo, WorldMapData } from '../../ui/field/worldMapModel';
 import { isSpecialtyMotif } from './catalogs';
+import { parseInterPrefectureLinkObject, type InterPrefectureLink } from './interPrefectureLink';
 
 const TILE = 16;
 
@@ -179,17 +181,28 @@ function boxFor(object: MapObject, area: Area, game: GameState | undefined): Box
   return { motif, stamp, opened: game?.dex.motifs.includes(stamp) ?? false };
 }
 
+/** フィールドと県地図で同じ交通種別を表示する。 */
+function interPrefectureMarkKind(link: InterPrefectureLink): AreaMarkKind {
+  if (link.travelMode === 'rail') return 'rail';
+  if (link.travelMode === 'ferry' || link.infrastructure === 'seaRoute') return 'ship';
+  if (link.infrastructure === 'bridge') return 'bridge';
+  if (link.infrastructure === 'tunnel') return 'tunnel';
+  return 'gate';
+}
+
 /** 県の全体地図に描く地形、印、主人公位置を組み立てる。 */
 export function areaMapView(input: {
   base: MapBase | null;
   area: Area | undefined;
   game: GameState | undefined;
+  /** 県境リンクの正確な行先名と解放状態を表示するための読み取り専用索引。 */
+  content?: Pick<ContentIndex, 'world' | 'areas'>;
   currentMapKey: string;
   heroTile: [number, number] | null;
   region: RegionMiniView | null;
   revealAll?: boolean;
 }): AreaMapView | null {
-  const { base, area, game, currentMapKey, heroTile, region, revealAll = false } = input;
+  const { base, area, game, content, currentMapKey, heroTile, region, revealAll = false } = input;
   if (!base) return null;
   const visible = visibleRegionTiles(base, area, game, revealAll);
   const onBase = base.key === currentMapKey;
@@ -205,7 +218,20 @@ export function areaMapView(input: {
       if (!onBase && target === currentMapKey) hero = [x, y];
     } else if (object.type === 'midboss' && area?.midBoss) {
       const beaten = game?.progress.eventsDone.includes(midBossFlag(area.id)) ?? false;
-      marks.push({ x, y, kind: beaten ? 'warp' : 'boss' });
+      if (!beaten) marks.push({ x, y, kind: 'boss' });
+    } else if (object.type === 'interPrefectureLink') {
+      if (!area) continue;
+      const link = parseInterPrefectureLinkObject(area.id, object);
+      if (!link) continue;
+      marks.push({
+        x,
+        y,
+        kind: interPrefectureMarkKind(link),
+        open: Boolean(
+          content && game && interPrefectureAccess(content.world, link, game.progress, revealAll).open,
+        ),
+        destination: content?.areas.get(link.targetArea)?.name ?? link.targetArea,
+      });
     } else if ((object.type === 'event' || object.type === 'landmark') && area) {
       const sign = signFor(object, base.key, area, game);
       if (sign) marks.push({ x, y, kind: sign.kind });
