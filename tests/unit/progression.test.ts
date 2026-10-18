@@ -115,7 +115,7 @@ describe('地理に合わせた攻略順と旧セーブ互換', () => {
     for (let prefixLength = 0; prefixLength <= order.legacy.length; prefixLength += 1) {
       it(`${islandId}: 旧順序 ${prefixLength} 県完了から未完了県を再要求しない`, async () => {
         const c = await content();
-        const completed = order.legacy.slice(0, prefixLength);
+        const completed: readonly string[] = order.legacy.slice(0, prefixLength);
         const expected = order.current.find((areaId) => !completed.includes(areaId)) ?? null;
         expect(
           nextIncompleteArea(c.world, islandId, {
