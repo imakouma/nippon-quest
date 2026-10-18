@@ -4,12 +4,35 @@
 import { describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { createNewGame } from '../../src/core/state/newGame';
-import { midBossFlag, motifStamp, nextStop } from '../../src/core/progression/route';
+import { midBossFlag, motifStamp, nextIncompleteArea, nextStop } from '../../src/core/progression/route';
 import { canChallengeIslandBoss, completeIsland, hasAllAreaSigns } from '../../src/core/progression/island';
 import { applyReward, markDone, pickReward } from '../../src/core/progression/eventReward';
 import { applyArenaVictory, markMapVisited } from '../../src/core/progression/arena';
 
 const newGame = () => createNewGame({ name: 'ハル', grade: 1 }, 0);
+
+const reorderedIslands = {
+  koshinetsu: {
+    legacy: ['yamanashi', 'nagano'],
+    current: ['nagano', 'yamanashi'],
+  },
+  tokai: {
+    legacy: ['gifu', 'shizuoka', 'aichi', 'mie'],
+    current: ['shizuoka', 'aichi', 'gifu', 'mie'],
+  },
+  kinki: {
+    legacy: ['shiga', 'kyoto', 'osaka', 'hyogo', 'nara', 'wakayama'],
+    current: ['shiga', 'kyoto', 'hyogo', 'osaka', 'nara', 'wakayama'],
+  },
+  chugoku: {
+    legacy: ['tottori', 'shimane', 'okayama', 'hiroshima', 'yamaguchi'],
+    current: ['tottori', 'shimane', 'yamaguchi', 'hiroshima', 'okayama'],
+  },
+  shikoku: {
+    legacy: ['tokushima', 'kagawa', 'ehime', 'kochi'],
+    current: ['kagawa', 'tokushima', 'kochi', 'ehime'],
+  },
+} as const;
 
 describe('闘技場と訪問記録', () => {
   it('勝利報酬とバッジを加算し、更新時刻を進める', () => {
@@ -82,6 +105,45 @@ describe('中ボスを倒したあとのワープ先', () => {
   });
 });
 
+describe('地理に合わせた攻略順と旧セーブ互換', () => {
+  it.each(Object.entries(reorderedIslands))('%s は承認済みの新順序になる', async (islandId, order) => {
+    const c = await content();
+    expect(c.world.islands.find((island) => island.id === islandId)?.areas).toEqual(order.current);
+  });
+
+  for (const [islandId, order] of Object.entries(reorderedIslands)) {
+    for (let prefixLength = 0; prefixLength <= order.legacy.length; prefixLength += 1) {
+      it(`${islandId}: 旧順序 ${prefixLength} 県完了から未完了県を再要求しない`, async () => {
+        const c = await content();
+        const completed = order.legacy.slice(0, prefixLength);
+        const expected = order.current.find((areaId) => !completed.includes(areaId)) ?? null;
+        expect(
+          nextIncompleteArea(c.world, islandId, {
+            areaSigns: [...completed],
+            eventsDone: [],
+          }),
+        ).toBe(expected);
+        expect(
+          nextIncompleteArea(c.world, islandId, {
+            areaSigns: [],
+            eventsDone: completed.map(midBossFlag),
+          }),
+        ).toBe(expected);
+      });
+    }
+  }
+
+  it('県のしるしは無くても中ボス撃破済みの県は再要求しない', async () => {
+    const c = await content();
+    expect(
+      nextIncompleteArea(c.world, 'tokai', {
+        areaSigns: [],
+        eventsDone: [midBossFlag('shizuoka')],
+      }),
+    ).toBe('aichi');
+  });
+});
+
 describe('地方ボスと島クリア', () => {
   it('東北6県の県のしるしがすべて揃ったときだけ挑戦できる', async () => {
     const c = await content();
@@ -109,7 +171,7 @@ describe('地方ボスと島クリア', () => {
     expect(canChallengeIslandBoss(c.world, 'kanto', gs.progress)).toBe(true);
   });
 
-  it('勝利処理は東北を一度だけ記録し、しるし不足では状態を変えない', async () => {
+  it('勝利処理は東北を一度だけ記録し、次の地方を訪問済みにしない', async () => {
     const c = await content();
     const gs = newGame();
     expect(completeIsland(gs, c.world, 'tohoku', 10)).toBe(gs);
@@ -118,12 +180,13 @@ describe('地方ボスと島クリア', () => {
     const cleared = completeIsland(gs, c.world, 'tohoku', 20);
     expect(cleared).not.toBe(gs);
     expect(cleared.progress.islandsCleared).toEqual(['tohoku']);
-    expect(cleared.progress.counters['visit:hokkaido-field']).toBe(1);
+    expect(cleared.progress.counters).toEqual(gs.progress.counters);
+    expect(cleared.progress.counters['visit:hokkaido-field']).toBeUndefined();
     expect(cleared.updatedAt).toBe(20);
     expect(completeIsland(cleared, c.world, 'tohoku', 30)).toBe(cleared);
   });
 
-  it('地方データの配列順ではなく order に従って次の地方を解放する', async () => {
+  it('地方データの配列順に関係なく次の地方の訪問状態は変えない', async () => {
     const c = await content();
     const gs = newGame();
     gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'tohoku')!.areas];
@@ -131,17 +194,28 @@ describe('地方ボスと島クリア', () => {
 
     const cleared = completeIsland(gs, reorderedWorld, 'tohoku', 20);
 
+    expect(cleared.progress.counters['visit:hokkaido-field']).toBeUndefined();
+  });
+
+  it('旧セーブですでに獲得した訪問記録は保持する', async () => {
+    const c = await content();
+    const gs = newGame();
+    gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'tohoku')!.areas];
+    gs.progress.counters['visit:hokkaido-field'] = 1;
+
+    const cleared = completeIsland(gs, c.world, 'tohoku', 20);
+
     expect(cleared.progress.counters['visit:hokkaido-field']).toBe(1);
   });
 
-  it('北海道クリア後は関東最初の茨城を訪問可能にする', async () => {
+  it('北海道クリア後も関東最初の茨城は物理横断まで未訪問にする', async () => {
     const c = await content();
     const gs = newGame();
     gs.progress.areaSigns = ['hokkaido'];
     gs.progress.islandsCleared = ['tohoku'];
     const cleared = completeIsland(gs, c.world, 'hokkaido', 20);
     expect(cleared.progress.islandsCleared).toEqual(['tohoku', 'hokkaido']);
-    expect(cleared.progress.counters['visit:ibaraki-field']).toBe(1);
+    expect(cleared.progress.counters['visit:ibaraki-field']).toBeUndefined();
   });
 
   it('関東クリア後は北陸最初の新潟を訪問可能にする', async () => {
@@ -151,27 +225,27 @@ describe('地方ボスと島クリア', () => {
     gs.progress.islandsCleared = ['tohoku', 'hokkaido'];
     const cleared = completeIsland(gs, c.world, 'kanto', 20);
     expect(cleared.progress.islandsCleared).toContain('kanto');
-    expect(cleared.progress.counters['visit:niigata-field']).toBe(1);
+    expect(cleared.progress.counters['visit:niigata-field']).toBeUndefined();
   });
 
-  it('北陸クリア後は甲信最初の山梨を訪問可能にする', async () => {
+  it('北陸クリア後も甲信最初の長野は物理横断まで未訪問にする', async () => {
     const c = await content();
     const gs = newGame();
     gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'hokuriku')!.areas];
     gs.progress.islandsCleared = ['tohoku', 'hokkaido', 'kanto'];
     const cleared = completeIsland(gs, c.world, 'hokuriku', 20);
     expect(cleared.progress.islandsCleared).toContain('hokuriku');
-    expect(cleared.progress.counters['visit:yamanashi-field']).toBe(1);
+    expect(cleared.progress.counters['visit:nagano-field']).toBeUndefined();
   });
 
-  it('甲信クリア後は東海最初の岐阜を訪問可能にする', async () => {
+  it('甲信クリア後も東海最初の静岡は物理横断まで未訪問にする', async () => {
     const c = await content();
     const gs = newGame();
     gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'koshinetsu')!.areas];
     gs.progress.islandsCleared = ['tohoku', 'hokkaido', 'kanto', 'hokuriku'];
     const cleared = completeIsland(gs, c.world, 'koshinetsu', 20);
     expect(cleared.progress.islandsCleared).toContain('koshinetsu');
-    expect(cleared.progress.counters['visit:gifu-field']).toBe(1);
+    expect(cleared.progress.counters['visit:shizuoka-field']).toBeUndefined();
   });
 
   it('東海クリア後は近畿最初の滋賀を訪問可能にする', async () => {
@@ -180,7 +254,7 @@ describe('地方ボスと島クリア', () => {
     gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'tokai')!.areas];
     gs.progress.islandsCleared = ['tohoku', 'hokkaido', 'kanto', 'hokuriku', 'koshinetsu'];
     const cleared = completeIsland(gs, c.world, 'tokai', 20);
-    expect(cleared.progress.counters['visit:shiga-field']).toBe(1);
+    expect(cleared.progress.counters['visit:shiga-field']).toBeUndefined();
   });
 
   it('近畿クリア後は中国地方最初の鳥取を訪問可能にする', async () => {
@@ -189,16 +263,16 @@ describe('地方ボスと島クリア', () => {
     gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'kinki')!.areas];
     gs.progress.islandsCleared = ['tohoku', 'hokkaido', 'kanto', 'hokuriku', 'koshinetsu', 'tokai'];
     const cleared = completeIsland(gs, c.world, 'kinki', 20);
-    expect(cleared.progress.counters['visit:tottori-field']).toBe(1);
+    expect(cleared.progress.counters['visit:tottori-field']).toBeUndefined();
   });
 
-  it('中国地方クリア後は四国最初の徳島を訪問可能にする', async () => {
+  it('中国地方クリア後も四国最初の香川は物理横断まで未訪問にする', async () => {
     const c = await content();
     const gs = newGame();
     gs.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'chugoku')!.areas];
     gs.progress.islandsCleared = ['tohoku', 'hokkaido', 'kanto', 'hokuriku', 'koshinetsu', 'tokai', 'kinki'];
     const cleared = completeIsland(gs, c.world, 'chugoku', 20);
-    expect(cleared.progress.counters['visit:tokushima-field']).toBe(1);
+    expect(cleared.progress.counters['visit:kagawa-field']).toBeUndefined();
   });
 
   it('四国クリア後は九州・沖縄最初の福岡を訪問可能にする', async () => {
@@ -216,7 +290,7 @@ describe('地方ボスと島クリア', () => {
       'chugoku',
     ];
     const cleared = completeIsland(gs, c.world, 'shikoku', 20);
-    expect(cleared.progress.counters['visit:fukuoka-field']).toBe(1);
+    expect(cleared.progress.counters['visit:fukuoka-field']).toBeUndefined();
   });
 });
 

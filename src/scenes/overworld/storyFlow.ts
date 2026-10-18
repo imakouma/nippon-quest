@@ -250,7 +250,7 @@ export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now(
     return { state, lines: hokurikuChapterArrivalLines(game), presentation: 'chapter' };
   }
   if (
-    mapKey === 'yamanashi-field' &&
+    mapKey === 'nagano-field' &&
     game.progress.islandsCleared.includes('hokuriku') &&
     !game.progress.counters[KOSHINETSU_CHAPTER_COUNTER]
   ) {
@@ -260,7 +260,7 @@ export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now(
     return { state, lines: koshinetsuChapterArrivalLines(game), presentation: 'chapter' };
   }
   if (
-    mapKey === 'gifu-field' &&
+    mapKey === 'shizuoka-field' &&
     game.progress.islandsCleared.includes('koshinetsu') &&
     !game.progress.counters[TOKAI_CHAPTER_COUNTER]
   ) {
@@ -290,7 +290,7 @@ export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now(
     return { state, lines: chugokuChapterArrivalLines(game), presentation: 'chapter' };
   }
   if (
-    mapKey === 'tokushima-field' &&
+    mapKey === 'kagawa-field' &&
     game.progress.islandsCleared.includes('chugoku') &&
     !game.progress.counters[SHIKOKU_CHAPTER_COUNTER]
   ) {

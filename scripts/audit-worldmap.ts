@@ -34,6 +34,8 @@ const errors: string[] = [];
 const fail = (message: string) => errors.push(message);
 const same = (a: readonly string[], b: readonly string[]) =>
   a.length === b.length && a.every((value, index) => value === b[index]);
+const sameMembers = (a: readonly string[], b: readonly string[]) =>
+  a.length === b.length && a.every((value) => b.includes(value));
 
 const masterIds = PREFECTURES.map((p) => p.id);
 if (masterIds.length !== 47 || new Set(masterIds).size !== 47)
@@ -72,7 +74,7 @@ for (const regionMaster of ISLANDS) {
     )
   )
     fail(`${region.id}: worldmap の県所属・順序が違います`);
-  if (!same(content.areas, expected)) fail(`${region.id}: content/world の県所属・順序が違います`);
+  if (!sameMembers(content.areas, expected)) fail(`${region.id}: content/world の県所属が違います`);
   if (!same(source.areas ?? [], expected)) fail(`${region.id}: terrain の県所属・順序が違います`);
   if (region.width !== source.width || region.height !== source.height)
     fail(`${region.id}: worldmap と地理生成元の寸法が違います`);

@@ -164,6 +164,7 @@ describe('保存された正確なスポーン座標', () => {
       rememberLocationState(game, {
         mapKey: 'aomori-field',
         areaId: 'aomori',
+        islandId: 'tohoku',
         areaExists: true,
         x: 1,
         y: 2,
@@ -172,8 +173,9 @@ describe('保存された正確なスポーン座標', () => {
     ).toBe(game);
     expect(
       rememberLocationState(game, {
-        mapKey: 'iwate-field',
-        areaId: 'iwate',
+        mapKey: 'niigata-field',
+        areaId: 'niigata',
+        islandId: 'hokuriku',
         areaExists: true,
         x: 3,
         y: 4,
@@ -181,7 +183,12 @@ describe('保存された正確なスポーン座標', () => {
       }),
     ).toMatchObject({
       updatedAt: 2_000,
-      progress: { currentMap: 'iwate-field', currentArea: 'iwate', position: { x: 48, y: 64 } },
+      progress: {
+        currentIsland: 'hokuriku',
+        currentMap: 'niigata-field',
+        currentArea: 'niigata',
+        position: { x: 48, y: 64 },
+      },
     });
   });
 });
