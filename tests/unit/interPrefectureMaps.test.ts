@@ -154,7 +154,10 @@ describe('全国の県境門と実在交通の生成物', () => {
         expect(cells[index], `${link.id}: ${areaId} の門`).not.toBe('x');
         expect(outside.length, `${link.id}: ${areaId} の県外陸`).toBeGreaterThan(0);
         expect(outside.every((candidate) => layer(map, 'collision')[candidate] === 3)).toBe(true);
-        expect(distance(map, entry, projected(raw, link.anchor)), `${link.id}: ${areaId}`).toBeLessThanOrEqual(5);
+        expect(
+          distance(map, entry, projected(raw, link.anchor)),
+          `${link.id}: ${areaId}`,
+        ).toBeLessThanOrEqual(5);
       }
 
     for (const link of TRANSPORT_LINKS)
