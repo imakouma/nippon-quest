@@ -1,0 +1,435 @@
+.nq-interpref-travel {
+  position: absolute;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 16px;
+  background: rgba(5, 8, 22, 0.86);
+  cursor: default;
+  touch-action: manipulation;
+  animation: nq-travel-fade-in 0.24s steps(3);
+}
+
+.nq-interpref-travel-moving,
+.nq-interpref-travel-arrived {
+  cursor: pointer;
+}
+
+.nq-travel-panel {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  grid-template-areas:
+    'icon copy'
+    'progress progress'
+    'status status'
+    'actions actions';
+  gap: 8px 16px;
+  box-sizing: border-box;
+  width: min(720px, 100%);
+  max-height: 100%;
+  padding: 20px 24px;
+  overflow: auto;
+  color: var(--nq-white);
+  background: var(--nq-night);
+}
+
+.nq-travel-copy {
+  grid-area: copy;
+  min-width: 0;
+  align-self: center;
+}
+
+.nq-travel-copy h2,
+.nq-travel-route,
+.nq-travel-status {
+  margin: 0;
+}
+
+.nq-travel-copy h2 {
+  color: var(--nq-yellow);
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.nq-travel-route {
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+  color: var(--nq-cloud);
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.nq-travel-endpoints {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.nq-travel-endpoints > span:not(.nq-travel-arrow) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.nq-travel-arrow {
+  flex: none;
+  color: var(--nq-yellow);
+}
+
+.nq-travel-status {
+  grid-area: status;
+  min-height: 28px;
+  color: var(--nq-white);
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.nq-travel-actions {
+  grid-area: actions;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.nq-travel-actions button,
+.nq-travel-skip {
+  min-width: 144px;
+  min-height: 48px;
+  padding: 4px 16px;
+  border: 4px solid var(--nq-white);
+  color: var(--nq-white);
+  background: var(--nq-slate);
+  font: inherit;
+  font-size: 24px;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.nq-travel-actions button:focus-visible,
+.nq-travel-skip:focus-visible,
+.nq-travel-actions .nq-focus {
+  color: var(--nq-night);
+  background: var(--nq-yellow);
+  outline: 4px solid var(--nq-white);
+  outline-offset: 2px;
+}
+
+.nq-travel-skip {
+  grid-area: actions;
+  justify-self: center;
+}
+
+.nq-travel-progress {
+  grid-area: progress;
+  height: 12px;
+  overflow: hidden;
+  border: 2px solid var(--nq-white);
+  background: var(--nq-ink);
+}
+
+.nq-travel-progress > i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--nq-yellow);
+}
+
+.nq-interpref-travel-moving .nq-travel-progress > i {
+  animation: nq-travel-progress 1.4s linear forwards;
+}
+
+.nq-interpref-travel-arrived .nq-travel-progress > i {
+  width: 100%;
+}
+
+/* 絵文字を使わず、設備と移動方法の組み合わせを軽量なCSSドット記号で描く。 */
+.nq-travel-icon {
+  position: relative;
+  grid-area: icon;
+  width: 96px;
+  height: 72px;
+  overflow: hidden;
+  border: 4px solid var(--nq-slate);
+  background: var(--nq-ink);
+  image-rendering: pixelated;
+}
+
+.nq-travel-structure,
+.nq-travel-vehicle,
+.nq-travel-vehicle::before,
+.nq-travel-vehicle::after {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  content: '';
+}
+
+[data-travel-icon^='travel-bridge'] .nq-travel-structure {
+  right: 8px;
+  bottom: 10px;
+  left: 8px;
+  height: 28px;
+  border-top: 6px solid var(--nq-yellow);
+  border-radius: 50% 50% 0 0;
+  box-shadow: inset 0 5px 0 var(--nq-orange);
+}
+
+[data-travel-icon^='travel-tunnel'] .nq-travel-structure {
+  bottom: 4px;
+  left: 9px;
+  width: 70px;
+  height: 56px;
+  border: 8px solid var(--nq-slate);
+  border-bottom: 0;
+  border-radius: 40px 40px 0 0;
+  box-shadow: inset 0 0 0 4px var(--nq-night);
+}
+
+.nq-travel-icon-travel-ferry .nq-travel-structure {
+  right: 0;
+  bottom: 7px;
+  left: 0;
+  height: 4px;
+  background: var(--nq-sky);
+  box-shadow:
+    16px 8px 0 var(--nq-sky),
+    -20px 16px 0 var(--nq-sky);
+}
+
+.nq-travel-icon-travel-bridge-road .nq-travel-vehicle {
+  bottom: 29px;
+  left: 28px;
+  width: 40px;
+  height: 14px;
+  border: 3px solid var(--nq-night);
+  background: var(--nq-orange);
+}
+
+.nq-travel-icon-travel-bridge-road .nq-travel-vehicle::before,
+.nq-travel-icon-travel-bridge-road .nq-travel-vehicle::after {
+  bottom: -8px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--nq-cloud);
+  background: var(--nq-night);
+}
+
+.nq-travel-icon-travel-bridge-road .nq-travel-vehicle::before {
+  left: 3px;
+}
+
+.nq-travel-icon-travel-bridge-road .nq-travel-vehicle::after {
+  right: 3px;
+}
+
+.nq-travel-icon-travel-bridge-rail .nq-travel-vehicle,
+.nq-travel-icon-travel-tunnel-rail .nq-travel-vehicle {
+  bottom: 24px;
+  left: 21px;
+  width: 54px;
+  height: 24px;
+  border: 4px solid var(--nq-white);
+  background: var(--nq-sky);
+}
+
+.nq-travel-icon-travel-bridge-rail .nq-travel-vehicle::before,
+.nq-travel-icon-travel-tunnel-rail .nq-travel-vehicle::before {
+  top: 4px;
+  left: 5px;
+  width: 8px;
+  height: 7px;
+  background: var(--nq-night);
+  box-shadow:
+    14px 0 0 var(--nq-night),
+    28px 0 0 var(--nq-night);
+}
+
+.nq-travel-icon-travel-bridge-rail .nq-travel-vehicle::after,
+.nq-travel-icon-travel-tunnel-rail .nq-travel-vehicle::after {
+  right: 4px;
+  bottom: -7px;
+  left: 4px;
+  height: 4px;
+  background: var(--nq-silver);
+}
+
+.nq-travel-icon-travel-bridge-bicycle .nq-travel-vehicle {
+  bottom: 24px;
+  left: 34px;
+  width: 26px;
+  height: 18px;
+  border-bottom: 4px solid var(--nq-white);
+  transform: skew(-18deg);
+}
+
+.nq-travel-icon-travel-bridge-bicycle .nq-travel-vehicle::before,
+.nq-travel-icon-travel-bridge-bicycle .nq-travel-vehicle::after {
+  bottom: -9px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--nq-sky);
+  border-radius: 50%;
+}
+
+.nq-travel-icon-travel-bridge-bicycle .nq-travel-vehicle::before {
+  left: -6px;
+}
+
+.nq-travel-icon-travel-bridge-bicycle .nq-travel-vehicle::after {
+  right: -6px;
+}
+
+.nq-travel-icon-travel-tunnel-walk .nq-travel-vehicle {
+  bottom: 14px;
+  left: 43px;
+  width: 8px;
+  height: 24px;
+  background: var(--nq-yellow);
+}
+
+.nq-travel-icon-travel-tunnel-walk .nq-travel-vehicle::before {
+  top: -10px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--nq-cloud);
+}
+
+.nq-travel-icon-travel-tunnel-walk .nq-travel-vehicle::after {
+  bottom: -8px;
+  left: -8px;
+  width: 24px;
+  height: 8px;
+  border-right: 5px solid var(--nq-white);
+  border-left: 5px solid var(--nq-white);
+}
+
+.nq-travel-icon-travel-ferry .nq-travel-vehicle {
+  bottom: 21px;
+  left: 23px;
+  width: 54px;
+  height: 18px;
+  border-bottom: 8px solid var(--nq-orange);
+  transform: skew(-12deg);
+  background: var(--nq-white);
+}
+
+.nq-travel-icon-travel-ferry .nq-travel-vehicle::before {
+  top: -15px;
+  left: 16px;
+  width: 22px;
+  height: 15px;
+  border: 3px solid var(--nq-night);
+  background: var(--nq-cloud);
+}
+
+.nq-interpref-travel-moving .nq-travel-vehicle {
+  animation: nq-travel-vehicle 0.72s steps(6) infinite alternate;
+}
+
+@keyframes nq-travel-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes nq-travel-progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes nq-travel-vehicle {
+  from {
+    translate: -4px 0;
+  }
+  to {
+    translate: 4px -2px;
+  }
+}
+
+@media (max-height: 430px) {
+  .nq-interpref-travel {
+    padding: 8px;
+  }
+
+  .nq-travel-panel {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 4px 12px;
+    padding: 12px 16px;
+  }
+
+  .nq-travel-icon {
+    width: 72px;
+    height: 64px;
+    transform: scale(0.75);
+    transform-origin: left center;
+  }
+
+  .nq-travel-copy h2 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .nq-travel-route,
+  .nq-travel-endpoints,
+  .nq-travel-status,
+  .nq-travel-actions button,
+  .nq-travel-skip {
+    font-size: 24px;
+    line-height: 26px;
+  }
+
+  .nq-travel-actions button,
+  .nq-travel-skip {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 700px) {
+  .nq-travel-panel {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'icon'
+      'copy'
+      'progress'
+      'status'
+      'actions';
+  }
+
+  .nq-travel-icon {
+    justify-self: center;
+  }
+
+  .nq-travel-copy {
+    text-align: center;
+  }
+
+  .nq-travel-endpoints {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nq-interpref-travel,
+  .nq-interpref-travel * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .nq-interpref-travel-moving .nq-travel-progress > i {
+    width: 70%;
+  }
+}
