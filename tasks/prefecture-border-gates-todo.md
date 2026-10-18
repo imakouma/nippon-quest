@@ -22,13 +22,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 地方クリアだけでは次県の `visit:*` が増えないテストが失敗する。
-- [ ] 新攻略順と旧セーブ各 prefix の次目的地を固定するテストが失敗する。
-- [ ] 県間到着で `currentIsland` まで揃うテストが失敗する。
+- [x] 地方クリアだけでは次県の `visit:*` が増えないテストが失敗する。
+- [x] 新攻略順と旧セーブ各 prefix の次目的地を固定するテストが失敗する。
+- [x] 県間到着で `currentIsland` まで揃うテストが失敗する。
 
 **Verification:**
 
-- [ ] 対象 Vitest が期待した理由で RED になる。
+- [x] 対象 Vitest が期待した理由で RED になる。
 
 **Dependencies:** Task 1
 
@@ -36,14 +36,14 @@
 
 **Acceptance criteria:**
 
-- [ ] `content/world/japan.json` が承認済み順序になる。
-- [ ] 地方クリアは未訪問県を高速移動先に追加しない。
-- [ ] 旧順序で途中まで進んだセーブは完了県を再要求しない。
+- [x] `content/world/japan.json` が承認済み順序になる。
+- [x] 地方クリアは未訪問県を高速移動先に追加しない。
+- [x] 旧順序で途中まで進んだセーブは完了県を再要求しない。
 
 **Verification:**
 
-- [ ] Task 2 の対象 Vitest が GREEN になる。
-- [ ] `pnpm validate:content`
+- [x] Task 2 の対象 Vitest が GREEN になる。
+- [x] `pnpm validate:content`
 
 **Dependencies:** Task 2
 
@@ -51,22 +51,22 @@
 
 **Acceptance criteria:**
 
-- [ ] 青森の既存10段階を維持する。
-- [ ] 残り145体が新攻略順で Lv15〜51 の単調増加になる。
-- [ ] 再配分が正規コマンドから決定論的に再現できる。
+- [x] 青森の既存10段階を維持する。
+- [x] 残り145体が新攻略順で Lv15〜51 の単調増加になる。
+- [x] 再配分が正規コマンドから決定論的に再現できる。
 
 **Verification:**
 
-- [ ] `tests/unit/regionalProgression.test.ts`
-- [ ] `pnpm validate:content`
+- [x] `tests/unit/regionalProgression.test.ts`
+- [x] `pnpm validate:content`
 
 **Dependencies:** Task 3
 
 ## Checkpoint A: 進行基盤
 
-- [ ] 進行・保存・難易度の対象テストがすべて通る。
-- [ ] 既存セーブ互換の全 prefix が通る。
-- [ ] 原子的なコミットを作る。
+- [x] 進行・保存・難易度の対象テストがすべて通る。
+- [x] 既存セーブ互換の全 prefix が通る。
+- [x] 原子的なコミットを作る。
 
 ## Task 5: 86組の正規陸上県境を地理データから生成
 

@@ -3435,6 +3435,7 @@ export class OverworldScene extends Phaser.Scene {
     const next = rememberLocationState(gs, {
       mapKey: this.mapKey,
       areaId,
+      islandId: this.content()?.areas.get(areaId)?.island ?? gs.progress.currentIsland,
       areaExists: this.content()?.areas.has(areaId) ?? false,
       x,
       y,

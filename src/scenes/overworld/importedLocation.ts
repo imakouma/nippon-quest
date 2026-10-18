@@ -112,12 +112,22 @@ export function resolveSpawn(input: SpawnResolutionInput): { tile: [number, numb
 /** 歩行位置だけを保存し、同じ位置なら元の参照を返して不要な保存を避ける。 */
 export function rememberLocationState(
   game: GameState,
-  input: { mapKey: string; areaId: string; areaExists: boolean; x: number; y: number; now: number },
+  input: {
+    mapKey: string;
+    areaId: string;
+    islandId: string;
+    areaExists: boolean;
+    x: number;
+    y: number;
+    now: number;
+  },
 ): GameState {
   const currentArea = input.areaExists ? input.areaId : game.progress.currentArea;
+  const currentIsland = input.areaExists ? input.islandId : game.progress.currentIsland;
   if (
     game.progress.currentMap === input.mapKey &&
     game.progress.currentArea === currentArea &&
+    game.progress.currentIsland === currentIsland &&
     game.progress.position.x === input.x * 16 &&
     game.progress.position.y === input.y * 16
   )
@@ -129,6 +139,7 @@ export function rememberLocationState(
       ...game.progress,
       currentMap: input.mapKey,
       currentArea,
+      currentIsland,
       position: { x: input.x * 16, y: input.y * 16 },
     },
   };

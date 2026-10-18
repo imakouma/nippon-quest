@@ -28,6 +28,29 @@ export function nextStop(
 /** progress.eventsDone に入れる「中ボスを倒した」しるし */
 export const midBossFlag = (areaId: string): string => `midboss.${areaId}`;
 
+interface AreaCompletionProgress {
+  areaSigns: readonly string[];
+  eventsDone: readonly string[];
+}
+
+/** 県間移動の順序上、すでに攻略済みとして飛ばせる県か。 */
+export function areaTravelCompleted(progress: AreaCompletionProgress, areaId: string): boolean {
+  return progress.areaSigns.includes(areaId) || progress.eventsDone.includes(midBossFlag(areaId));
+}
+
+/**
+ * 現行の地理順で最初の未攻略県。
+ * 旧攻略順の途中セーブでも、既完了県をもう一度要求しない。
+ */
+export function nextIncompleteArea(
+  world: World,
+  islandId: string,
+  progress: AreaCompletionProgress,
+): string | null {
+  const island = world.islands.find((candidate) => candidate.id === islandId);
+  return island?.areas.find((areaId) => !areaTravelCompleted(progress, areaId)) ?? null;
+}
+
 /** progress.eventsDone に入れる「ダンジョンの おくの 県ボスを倒した」しるし */
 export const areaBossFlag = (areaId: string): string => `boss.${areaId}`;
 
