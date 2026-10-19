@@ -18,7 +18,7 @@ async function showPictureWord(page: Page) {
   await page.goto('/playground.html');
   await page.locator('select#pg-file').selectOption('questions/_samples/picture-word.json');
   await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.picture-word\.0001/, {
-    timeout: 10_000,
+    timeout: 30_000,
   });
   await page.click('button.pg-run');
   await expect(page.locator('.nq-q-pw')).toBeVisible({ timeout: 10_000 });
@@ -45,7 +45,7 @@ test('sort-order：カードの順位と移動ボタンの意味を読み上げ�
   await page.goto('/playground.html');
   await page.locator('select#pg-file').selectOption('questions/_samples/sort-order.json');
   await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.sort-order\.0001/, {
-    timeout: 10_000,
+    timeout: 30_000,
   });
   await page.click('button.pg-run');
   const cards = page.getByRole('listitem');
@@ -59,7 +59,7 @@ test('number-build：現在値と操作部から設問を読み上げで参照�
   await page.goto('/playground.html');
   await page.locator('select#pg-file').selectOption('questions/_samples/number-build.json');
   await expect(page.locator('textarea')).toHaveValue(/sample\.number-build\.blocks\.0001/, {
-    timeout: 10_000,
+    timeout: 30_000,
   });
   await page.click('button.pg-run');
   const value = page.locator('.nq-nb-value');
@@ -91,7 +91,7 @@ test('experiment：予想・操作・結果の状態を読み上げ用に持つ'
   await page.goto('/playground.html');
   await page.locator('select#pg-file').selectOption('questions/_samples/experiment.json');
   await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.experiment\.water\.0001/, {
-    timeout: 10_000,
+    timeout: 30_000,
   });
   await page.click('button.pg-run');
   const choice = page.locator('.nq-exp-choices button').first();

@@ -95,7 +95,7 @@ function tilesetCanvas(): HTMLCanvasElement {
     r(11, 10, 2, 1, NQ.tan);
     r(6, 13, 1, 1, NQ.tan);
   });
-  // 3 水（海・湖・県の外。通れない）
+  // 3 水（海・湖。通れない）
   tile(3, (r) => {
     r(0, 0, 16, 16, NQ.azure);
     r(2, 4, 4, 1, NQ.sky);

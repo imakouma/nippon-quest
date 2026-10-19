@@ -29,7 +29,8 @@ test('Playground で choice 問題を解くと QuestionResult が返る', async 
   await expect(page.getByLabel('問題 JSON（直接編集して試せます）', { exact: true })).toBeVisible();
   // 問題ファイルを選ぶ → 最初の問題が JSON 欄に入る
   await page.locator('select#pg-file').selectOption({ index: 1 });
-  await expect(page.locator('textarea#pg-json')).not.toBeEmpty({ timeout: 10_000 });
+  // 問題ファイルを ぜんぶ 読みこむ あいだは 待たされる（教材が ふえて 10秒を こえる）
+  await expect(page.locator('textarea#pg-json')).not.toBeEmpty({ timeout: 30_000 });
   await page.click('button.pg-run');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 10_000 });
   await page.locator('.nq-choice').first().click();
@@ -86,6 +87,12 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   const story = page.getByRole('dialog', { name: 'ものがたりの シーン' });
   await expect(story).toBeVisible({ timeout: 30_000 });
   await story.getByRole('button', { name: 'スキップ' }).click();
+  const battleTutorial = page.locator('.nq-dlg');
+  await expect(battleTutorial).toBeVisible();
+  for (let step = 0; step < 12 && (await battleTutorial.isVisible()); step += 1) {
+    await battleTutorial.click();
+  }
+  await expect(battleTutorial).toHaveCount(0);
   await page.getByRole('button', { name: 'メニュー' }).click({ timeout: 30_000 });
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');

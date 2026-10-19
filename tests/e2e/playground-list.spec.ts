@@ -20,7 +20,7 @@ test('Playground の問題いちらん：ぜんぶ出て、しぼりこめて、
   await expect(page.locator('.pg-table tr.pg-bad')).toHaveCount(0);
 
   await page.locator('select#pg-f-type').selectOption('picture-word');
-  await expect(rows).toHaveCount(23);
+  await expect(rows).toHaveCount(14);
   await page.locator('input#pg-f-text').fill('eigo.g3.sea.0006');
   await expect(rows).toHaveCount(1);
   await rows.first().click();

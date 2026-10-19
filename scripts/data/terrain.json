@@ -5,6 +5,610 @@
     "標高: 国土地理院 標高タイル（DEM10B） https://maps.gsi.go.jp/development/ichiran.html",
     "琵琶湖: Natural Earth（パブリックドメイン）"
   ],
+  "interPrefectureBorders": [
+    {
+      "id": "land-aomori-iwate",
+      "areas": ["aomori", "iwate"],
+      "anchor": [141.33509826660202, 40.345531463623026],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-aomori-akita",
+      "areas": ["aomori", "akita"],
+      "anchor": [140.562301635742, 40.427532196044886],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-iwate-miyagi",
+      "areas": ["iwate", "miyagi"],
+      "anchor": [141.14669799804702, 38.859397888183636],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-iwate-akita",
+      "areas": ["iwate", "akita"],
+      "anchor": [140.779998779297, 39.590465545654325],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-miyagi-akita",
+      "areas": ["miyagi", "akita"],
+      "anchor": [140.67300415039102, 38.90246582031251],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-miyagi-yamagata",
+      "areas": ["miyagi", "yamagata"],
+      "anchor": [140.571502685547, 38.41326522827153],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-miyagi-fukushima",
+      "areas": ["miyagi", "fukushima"],
+      "anchor": [140.644897460938, 37.895801544189496],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-akita-yamagata",
+      "areas": ["akita", "yamagata"],
+      "anchor": [140.29539489746102, 39.01853179931642],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-yamagata-fukushima",
+      "areas": ["yamagata", "fukushima"],
+      "anchor": [140.052703857422, 37.77886581420901],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-yamagata-niigata",
+      "areas": ["yamagata", "niigata"],
+      "anchor": [139.712707519531, 38.20660018920902],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukushima-ibaraki",
+      "areas": ["fukushima", "ibaraki"],
+      "anchor": [140.56190490722696, 36.86333465576174],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukushima-tochigi",
+      "areas": ["fukushima", "tochigi"],
+      "anchor": [139.82200622558594, 37.085468292236285],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukushima-gunma",
+      "areas": ["fukushima", "gunma"],
+      "anchor": [139.30470275878903, 36.9259338378906],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukushima-niigata",
+      "areas": ["fukushima", "niigata"],
+      "anchor": [139.397598266602, 37.46006774902339],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-ibaraki-tochigi",
+      "areas": ["ibaraki", "tochigi"],
+      "anchor": [140.12179565429702, 36.41326522827148],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-ibaraki-saitama",
+      "areas": ["ibaraki", "saitama"],
+      "anchor": [139.726806640625, 36.11140060424802],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-ibaraki-chiba",
+      "areas": ["ibaraki", "chiba"],
+      "anchor": [140.281204223633, 35.87413406372068],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tochigi-gunma",
+      "areas": ["tochigi", "gunma"],
+      "anchor": [139.43490600585903, 36.521266937255895],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tochigi-saitama",
+      "areas": ["tochigi", "saitama"],
+      "anchor": [139.67770385742196, 36.20140075683588],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-gunma-saitama",
+      "areas": ["gunma", "saitama"],
+      "anchor": [139.063705444336, 36.159000396728494],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-gunma-niigata",
+      "areas": ["gunma", "niigata"],
+      "anchor": [138.94879150390597, 36.894001007080064],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-gunma-nagano",
+      "areas": ["gunma", "nagano"],
+      "anchor": [138.54139709472702, 36.40380096435553],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-saitama-chiba",
+      "areas": ["saitama", "chiba"],
+      "anchor": [139.84939575195298, 35.93826675415041],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-saitama-tokyo",
+      "areas": ["saitama", "tokyo"],
+      "anchor": [139.46450805664102, 35.77373123168954],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-saitama-yamanashi",
+      "areas": ["saitama", "yamanashi"],
+      "anchor": [138.829895019531, 35.86520004272462],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-saitama-nagano",
+      "areas": ["saitama", "nagano"],
+      "anchor": [138.73239135742202, 35.94446563720696],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-chiba-tokyo",
+      "areas": ["chiba", "tokyo"],
+      "anchor": [139.901397705078, 35.72146606445312],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tokyo-kanagawa",
+      "areas": ["tokyo", "kanagawa"],
+      "anchor": [139.45320129394503, 35.60493469238281],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tokyo-yamanashi",
+      "areas": ["tokyo", "yamanashi"],
+      "anchor": [139.012496948242, 35.7388000488281],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kanagawa-yamanashi",
+      "areas": ["kanagawa", "yamanashi"],
+      "anchor": [139.052398681641, 35.50973129272458],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kanagawa-shizuoka",
+      "areas": ["kanagawa", "shizuoka"],
+      "anchor": [138.98210144042997, 35.27259826660158],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-niigata-toyama",
+      "areas": ["niigata", "toyama"],
+      "anchor": [137.72210693359403, 36.8818016052246],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-niigata-nagano",
+      "areas": ["niigata", "nagano"],
+      "anchor": [138.25489807128903, 36.86999893188478],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-toyama-ishikawa",
+      "areas": ["toyama", "ishikawa"],
+      "anchor": [136.82350158691403, 36.66986846923834],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-toyama-nagano",
+      "areas": ["toyama", "nagano"],
+      "anchor": [137.69520568847702, 36.568866729736285],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-toyama-gifu",
+      "areas": ["toyama", "gifu"],
+      "anchor": [137.121795654297, 36.41726684570312],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-ishikawa-fukui",
+      "areas": ["ishikawa", "fukui"],
+      "anchor": [136.47129821777304, 36.14659881591803],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-ishikawa-gifu",
+      "areas": ["ishikawa", "gifu"],
+      "anchor": [136.80700683593798, 36.192268371581996],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukui-gifu",
+      "areas": ["fukui", "gifu"],
+      "anchor": [136.599594116211, 35.79859924316413],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukui-shiga",
+      "areas": ["fukui", "shiga"],
+      "anchor": [136.04019165039097, 35.53233337402341],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukui-kyoto",
+      "areas": ["fukui", "kyoto"],
+      "anchor": [135.56559753418, 35.377265930175845],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-yamanashi-nagano",
+      "areas": ["yamanashi", "nagano"],
+      "anchor": [138.45440673828097, 35.900333404540966],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-yamanashi-shizuoka",
+      "areas": ["yamanashi", "shizuoka"],
+      "anchor": [138.51249694824202, 35.314064025878906],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-nagano-gifu",
+      "areas": ["nagano", "gifu"],
+      "anchor": [137.464492797852, 35.755332946777344],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-nagano-shizuoka",
+      "areas": ["nagano", "shizuoka"],
+      "anchor": [138.09829711914097, 35.35513305664059],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-nagano-aichi",
+      "areas": ["nagano", "aichi"],
+      "anchor": [137.66859436035202, 35.22760009765628],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-gifu-aichi",
+      "areas": ["gifu", "aichi"],
+      "anchor": [137.16070556640602, 35.28260040283204],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-gifu-mie",
+      "areas": ["gifu", "mie"],
+      "anchor": [136.54820251464798, 35.2200012207031],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-gifu-shiga",
+      "areas": ["gifu", "shiga"],
+      "anchor": [136.41520690917997, 35.431732177734446],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-shizuoka-aichi",
+      "areas": ["shizuoka", "aichi"],
+      "anchor": [137.66899108886702, 34.948200225830135],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-aichi-mie",
+      "areas": ["aichi", "mie"],
+      "anchor": [136.74060058593795, 35.08653259277336],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-mie-shiga",
+      "areas": ["mie", "shiga"],
+      "anchor": [136.27699279785202, 34.87419891357419],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-mie-kyoto",
+      "areas": ["mie", "kyoto"],
+      "anchor": [136.02960205078097, 34.7641334533691],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-mie-nara",
+      "areas": ["mie", "nara"],
+      "anchor": [136.097503662109, 34.35093307495124],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-mie-wakayama",
+      "areas": ["mie", "wakayama"],
+      "anchor": [135.90130615234398, 33.88353347778318],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-shiga-kyoto",
+      "areas": ["shiga", "kyoto"],
+      "anchor": [135.83340454101602, 35.02233123779296],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kyoto-osaka",
+      "areas": ["kyoto", "osaka"],
+      "anchor": [135.571197509766, 34.93906784057616],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kyoto-hyogo",
+      "areas": ["kyoto", "hyogo"],
+      "anchor": [135.10899353027304, 35.266265869140604],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kyoto-nara",
+      "areas": ["kyoto", "nara"],
+      "anchor": [135.895599365234, 34.72499847412111],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-osaka-hyogo",
+      "areas": ["osaka", "hyogo"],
+      "anchor": [135.41819763183602, 34.90879821777339],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-osaka-nara",
+      "areas": ["osaka", "nara"],
+      "anchor": [135.67620849609403, 34.580398559570305],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-osaka-wakayama",
+      "areas": ["osaka", "wakayama"],
+      "anchor": [135.34629821777298, 34.33086776733402],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-hyogo-tottori",
+      "areas": ["hyogo", "tottori"],
+      "anchor": [134.45420837402295, 35.43666839599614],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-hyogo-okayama",
+      "areas": ["hyogo", "okayama"],
+      "anchor": [134.27650451660196, 34.975799560546875],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-nara-wakayama",
+      "areas": ["nara", "wakayama"],
+      "anchor": [135.63560485839804, 33.99079895019527],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tottori-shimane",
+      "areas": ["tottori", "shimane"],
+      "anchor": [133.22380065918003, 35.24933242797854],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tottori-okayama",
+      "areas": ["tottori", "okayama"],
+      "anchor": [133.817596435547, 35.252666473388686],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tottori-hiroshima",
+      "areas": ["tottori", "hiroshima"],
+      "anchor": [133.19760131835903, 35.07213211059572],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-shimane-hiroshima",
+      "areas": ["shimane", "hiroshima"],
+      "anchor": [132.51950073242196, 34.80373382568357],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-shimane-yamaguchi",
+      "areas": ["shimane", "yamaguchi"],
+      "anchor": [131.79310607910202, 34.436199188232415],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-okayama-hiroshima",
+      "areas": ["okayama", "hiroshima"],
+      "anchor": [133.36520385742202, 34.76846694946289],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-hiroshima-yamaguchi",
+      "areas": ["hiroshima", "yamaguchi"],
+      "anchor": [132.13940429687503, 34.28473281860349],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tokushima-kagawa",
+      "areas": ["tokushima", "kagawa"],
+      "anchor": [134.07479858398403, 34.11746597290037],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tokushima-ehime",
+      "areas": ["tokushima", "ehime"],
+      "anchor": [133.68359375000003, 33.93906784057618],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-tokushima-kochi",
+      "areas": ["tokushima", "kochi"],
+      "anchor": [134.06159973144503, 33.734867095947344],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kagawa-ehime",
+      "areas": ["kagawa", "ehime"],
+      "anchor": [133.63430786132798, 34.02959823608402],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-ehime-kochi",
+      "areas": ["ehime", "kochi"],
+      "anchor": [132.988403320313, 33.473735809326236],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukuoka-saga",
+      "areas": ["fukuoka", "saga"],
+      "anchor": [130.377395629883, 33.42486572265628],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukuoka-kumamoto",
+      "areas": ["fukuoka", "kumamoto"],
+      "anchor": [130.61590576171903, 33.10906600952148],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-fukuoka-oita",
+      "areas": ["fukuoka", "oita"],
+      "anchor": [130.885498046875, 33.37979888916022],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-saga-nagasaki",
+      "areas": ["saga", "nagasaki"],
+      "anchor": [129.95039367675798, 33.109867095947294],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kumamoto-oita",
+      "areas": ["kumamoto", "oita"],
+      "anchor": [131.01660156249997, 33.06306838989263],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kumamoto-miyazaki",
+      "areas": ["kumamoto", "miyazaki"],
+      "anchor": [131.054595947266, 32.40713500976559],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-kumamoto-kagoshima",
+      "areas": ["kumamoto", "kagoshima"],
+      "anchor": [130.538604736328, 32.13700103759766],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-oita-miyazaki",
+      "areas": ["oita", "miyazaki"],
+      "anchor": [131.62759399414102, 32.77253341674797],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    },
+    {
+      "id": "land-miyazaki-kagoshima",
+      "areas": ["miyazaki", "kagoshima"],
+      "anchor": [130.98170471191395, 31.763000488281282],
+      "infrastructure": "landBorder",
+      "travelMode": "walk"
+    }
+  ],
   "maps": {
     "hokkaido-field": {
       "kind": "field",

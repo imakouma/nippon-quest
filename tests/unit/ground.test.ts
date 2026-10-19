@@ -57,7 +57,7 @@ describe('フィールドの 地面の 性質（docs/00 §2.2）', () => {
     expect(zoneForGround(c.areas.get('akita')!, 'field', 'beach')).toBe('field');
   });
 
-  it('県の フィールドの 陸は どの マスも どれかの 地面（3 は 海・湖・県の外、RIDGE_TILE は 名所エリアの さかい）', () => {
+  it('県の フィールドの 陸は どの マスも どれかの 地面（3 は 海・湖、RIDGE_TILE は 名所エリアの さかい）', () => {
     for (const a of c.areas.values()) {
       if (!a.mapKeys) continue;
       const bad = background(a.mapKeys.field).filter((t) => t !== 3 && t !== RIDGE_TILE && !groundOfTile(t));

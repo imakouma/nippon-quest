@@ -24,8 +24,11 @@ export type AreaMarkKind =
   | 'town'
   | 'dungeon'
   | 'ship'
+  | 'gate'
+  | 'bridge'
+  | 'tunnel'
+  | 'rail'
   | 'boss'
-  | 'warp'
   | 'sign-off'
   | 'sign-todo'
   | 'sign-done'
@@ -37,6 +40,10 @@ export interface AreaMark {
   x: number;
   y: number;
   kind: AreaMarkKind;
+  /** 県境・交通入口だけが持つ、現在の通行可否。 */
+  open?: boolean;
+  /** 県境・交通入口の行先（RubyText）。 */
+  destination?: string;
 }
 
 export interface AreaMapView {
@@ -68,7 +75,8 @@ const AREA_VIEW = 344;
 
 /**
  * 地形を 1 マス = 1 ドットでかく（CSS で整数倍に広げる）。
- * 海（3）は かかない（枠の青が見える。県の外の陸は海の色なので、下に かさねた地方の地図のとなりの県が見える）
+ * 海（3）は かかない（枠の青が見える）。県外の陸も mapModels で詳細レイヤーから外すため、
+ * 下に かさねた地方地図の暗い隣県シルエットが見える。
  */
 function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
   canvas.width = map.width;
@@ -97,7 +105,31 @@ function useTerrain(map: AreaMapView) {
   return ref;
 }
 
-function MarkIcon({ kind }: { kind: AreaMarkKind }) {
+const MARK_LABELS: Record<AreaMarkKind, string> = {
+  town: 'まち',
+  dungeon: 'ダンジョン',
+  ship: '船',
+  gate: '県境の門',
+  bridge: '橋',
+  tunnel: 'トンネル',
+  rail: '鉄道',
+  boss: 'ボス',
+  'sign-off': 'まだ見つけていない名所',
+  'sign-todo': 'まだ調べていない名所',
+  'sign-done': '調べた名所',
+  box: 'たからばこ',
+  'box-open': 'あけたたからばこ',
+};
+
+/** 見た目のアイコンだけに頼らず、行先と通行可否まで読み上げる。 */
+export function areaMarkAccessibleLabel(mark: AreaMark): string {
+  const kind = MARK_LABELS[mark.kind];
+  if (!mark.destination) return kind;
+  const state = mark.open ? '通行可能' : '閉鎖中';
+  return `${displayText(mark.destination)}へ向かう${kind}、${state}`;
+}
+
+function MarkIcon({ kind, open }: Pick<AreaMark, 'kind' | 'open'>) {
   if (kind === 'sign-off') return <PixelIcon name="star-off" scale={2} />;
   if (kind === 'sign-todo')
     return (
@@ -115,7 +147,13 @@ function MarkIcon({ kind }: { kind: AreaMarkKind }) {
     );
   // 中ボスは「？」（だれがいるかは行ってみるまでわからない）
   if (kind === 'boss') return <span class="nq-amap-boss">？</span>;
-  return <PixelIcon name={kind} scale={2} />;
+  const icon =
+    kind === 'bridge' || kind === 'tunnel' || kind === 'rail' ? (
+      <span aria-hidden="true">{{ bridge: '橋', tunnel: 'ト', rail: '鉄' }[kind]}</span>
+    ) : (
+      <PixelIcon name={kind} scale={2} />
+    );
+  return open === false ? <span aria-hidden="true">×{icon}</span> : icon;
 }
 
 export interface AreaMapOverlayProps {
@@ -479,8 +517,17 @@ export function AreaMapOverlay({
               {regionBox && <canvas ref={regionRef} class="nq-amap-region-context" style={regionBox} />}
               <canvas ref={ref} />
               {map.marks.map((m, i) => (
-                <span key={i} class="nq-amap-pin" style={cellCenter(m.x, m.y, cell)}>
-                  <MarkIcon kind={m.kind} />
+                <span
+                  key={i}
+                  class="nq-amap-pin"
+                  style={cellCenter(m.x, m.y, cell)}
+                  role="img"
+                  aria-label={areaMarkAccessibleLabel(m)}
+                  title={areaMarkAccessibleLabel(m)}
+                  data-kind={m.kind}
+                  data-state={m.open === undefined ? undefined : m.open ? 'open' : 'closed'}
+                >
+                  <MarkIcon kind={m.kind} open={m.open} />
                 </span>
               ))}
               {place?.at && <span class="nq-amap-sel" style={cellCenter(place.at[0], place.at[1], cell)} />}

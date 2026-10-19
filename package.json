@@ -62,6 +62,7 @@
     "scaffold:all-areas": "tsx scripts/scaffold-area.ts --all",
     "scaffold:maps": "tsx scripts/scaffold-maps.ts",
     "gen:terrain": "tsx scripts/gen-terrain.ts",
+    "sync:regional-boss-levels": "tsx scripts/sync-regional-boss-levels.ts",
     "check": "pnpm lint && pnpm check:architecture && pnpm audit:curriculum --strict && pnpm audit:curriculum-model --strict && pnpm audit:worldmap && pnpm test && pnpm validate:content && pnpm validate:curriculum-graph && pnpm build"
   },
   "dependencies": {

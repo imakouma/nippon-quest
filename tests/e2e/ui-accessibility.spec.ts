@@ -9,6 +9,12 @@ async function startGame(page: Page) {
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 40_000 });
   const storySkip = page.getByRole('button', { name: 'スキップ' });
   if (await storySkip.isVisible()) await storySkip.click();
+  // オープニングの あとの バトルの チュートリアル会話を とじる
+  const battleTutorial = page.locator('.nq-dlg');
+  for (let step = 0; step < 12 && (await battleTutorial.isVisible()); step += 1) {
+    await battleTutorial.click();
+  }
+  await expect(battleTutorial).toHaveCount(0);
 }
 
 for (const width of [640, 960]) {
@@ -253,11 +259,13 @@ test('バトル画面は狭い表示でもステージ内に収まる', async ({
   const message = page.locator('.nq-box');
   const partyWindow = page.locator('.nq-party');
   const messageBox = await message.boundingBox();
+  // 登場メッセージの あいだは 下の 枠（なかま）を 出さない。タップして コマンドへ すすめてから はかる
+  await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 10_000 });
+  await message.click();
   const partyBox = await partyWindow.boundingBox();
   expect(messageBox).not.toBeNull();
   expect(partyBox).not.toBeNull();
   expect(messageBox!.y).toBeLessThan(partyBox!.y);
-  await message.click();
   await expect(partyWindow.locator('.nq-ally-heading')).toBeVisible();
   await expect(partyWindow.locator('.nq-ally-hp')).toContainText('/');
   await expect(page.locator('.nq-box-speak')).toHaveCount(0);
