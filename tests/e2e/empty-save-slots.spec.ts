@@ -7,11 +7,22 @@ test('ローカル確認URLで古いセーブを消し、3枠とも新規作成�
 
   // 本当に既存データがあっても消えることを確認するため、壊れた旧データを3枠へ置く。
   await page.evaluate(async () => {
-    const database = await new Promise<IDBDatabase>((resolve, reject) => {
-      const request = indexedDB.open('nihonquest');
-      request.onerror = () => reject(request.error);
-      request.onsuccess = () => resolve(request.result);
-    });
+    // 新しいブラウザではまだ saves ストアが無いので、無ければ作ってから置く。
+    const openDb = (version?: number) =>
+      new Promise<IDBDatabase>((resolve, reject) => {
+        const request = indexedDB.open('nihonquest', version);
+        request.onupgradeneeded = () => {
+          if (!request.result.objectStoreNames.contains('saves')) request.result.createObjectStore('saves');
+        };
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => resolve(request.result);
+      });
+    let database = await openDb();
+    if (!database.objectStoreNames.contains('saves')) {
+      const next = database.version + 1;
+      database.close();
+      database = await openDb(next);
+    }
     await new Promise<void>((resolve, reject) => {
       const transaction = database.transaction('saves', 'readwrite');
       const store = transaction.objectStore('saves');
