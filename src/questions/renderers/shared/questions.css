@@ -111,6 +111,9 @@
   display: grid;
   gap: 12px;
   flex: 1;
+  /* 長い選択肢でも問題枠からはみ出さず、枠の中でスクロールする */
+  min-height: 0;
+  overflow-y: auto;
   grid-template-columns: repeat(2, 1fr);
 }
 .nq-q-choices-3 {
@@ -555,6 +558,10 @@
   gap: 12px;
   width: 100%;
   justify-content: center;
+  /* カードが多くても「こたえる」を枠の中に残し、カードだけをスクロールする */
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 .nq-sort-vertical {
   flex-direction: column;
