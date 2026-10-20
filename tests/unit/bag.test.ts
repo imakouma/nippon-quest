@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { beforeAll, describe, expect, it } from 'vitest';
 import type { ContentIndex } from '../../src/core/content/loader';
 import { partyFromGameState } from '../../src/core/battle/setup';
@@ -22,17 +23,66 @@ import { createNewGame } from '../../src/core/state/newGame';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
 import type { GameState } from '../../src/core/state/schema';
 import { bagCells } from '../../src/ui/field/bagLayout';
+import { growBagThing, levelCapBagView } from '../../src/scenes/overworld/bagItems';
+import { LEARNING_FRAGMENT_ID } from '../../src/core/progression/learningRewards';
+import { TRIAL_CORE_ID } from '../../src/core/progression/eventReward';
+import { setDictionary, type I18nDict } from '../../src/ui/i18n';
 import { content } from './helpers';
 
 let c: ContentIndex;
 beforeAll(async () => {
   c = await content();
+  setDictionary(
+    JSON.parse(readFileSync(new URL('../../content/i18n/ja.json', import.meta.url), 'utf8')) as I18nDict,
+  );
 });
 const fresh = () => chooseStoryCompanion(createNewGame({ name: 'テスト', grade: 3 }, 1000), 'iwate-kagurabi');
 const own = (s: GameState, uid: string, monsterId = 'aomori-ringoron') => {
   s.party.owned.push({ uid, monsterId, level: 1, levelCap: 10, xp: 0 });
   return s;
 };
+
+describe('バッグのレベル上限表示と育成', () => {
+  it('現在上限・最終上限・次の解放・素材・保留XPをまとめて表示する', () => {
+    const game = fresh();
+    game.player.level = 10;
+    game.player.levelCap = 10;
+    game.player.xp = c.xp.hero[14]!;
+    game.inventory[LEARNING_FRAGMENT_ID] = 3;
+    game.inventory[TRIAL_CORE_ID] = 1;
+
+    const view = levelCapBagView(
+      game,
+      { kind: 'hero', level: 10, levelCap: 10, xp: game.player.xp },
+      c.xp.hero,
+      c.settings.levelCaps,
+    );
+
+    expect(view.canUnlock).toBe(true);
+    expect(view.lines.join('\n')).toContain('Lv10 / じょうげん 10');
+    expect(view.lines.join('\n')).toContain('さいご 200');
+    expect(view.lines.join('\n')).toContain('つぎ 20');
+    expect(view.lines.join('\n')).toContain('3/3');
+    expect(view.lines.join('\n')).toContain('1/1');
+    expect(view.lines.join('\n')).toContain('XP');
+  });
+
+  it('選択中の個体を育成し、同じキーと結果文を返す', () => {
+    const game = fresh();
+    const monster = game.party.owned[0]!;
+    monster.level = 10;
+    monster.levelCap = 10;
+    monster.xp = c.xp.monster[19]!;
+    game.inventory[LEARNING_FRAGMENT_ID] = 3;
+    game.inventory[TRIAL_CORE_ID] = 1;
+
+    const result = growBagThing(game, `mon:${monster.uid}`, monster.nickname ?? 'カグラビ', c, 200);
+
+    expect(result).toMatchObject({ success: true, focusKey: `mon:${monster.uid}` });
+    expect(result.state.party.owned[0]).toMatchObject({ level: 20, levelCap: 20 });
+    expect(result.message).toContain('10 → 20');
+  });
+});
 
 describe('2Dバッグ', () => {
   it('3x3から始まり、東北クリアで4x3へ広がる', () => {

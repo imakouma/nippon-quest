@@ -296,13 +296,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 主人公と各個体で`Lv現在 / 上限`と解放可否が正しく表示される。
-- [ ] 48px以上のボタンをキーボード・タッチで操作でき、成功・失敗理由が読める。
-- [ ] 上限解放後も対象を選択したまま、旧上限→新上限とレベル変化を確認できる。
+- [x] 主人公と各個体で`Lv現在 / 上限`と解放可否が正しく表示される。
+- [x] 48px以上のボタンをキーボード・タッチで操作でき、成功・失敗理由が読める。
+- [x] 上限解放後も対象を選択したまま、旧上限→新上限とレベル変化を確認できる。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/bag.test.ts tests/unit/battleUi.test.ts`
+- [x] `pnpm vitest run tests/unit/bag.test.ts tests/unit/battleUi.test.ts`
 - [ ] Playwrightで主人公と仲間の解放操作、フォーカス、タッチを確認する。
 
 **Dependencies:** Task 10

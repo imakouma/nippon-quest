@@ -50,6 +50,7 @@ export interface BagThing {
   skills?: { name: string; gauge: number; scan: boolean }[];
   blurb?: string;
   action?: 'pack';
+  growth?: { canUnlock: boolean; levelCap: number; maximum: number };
   /** しんかできる仲間なら、しんか先と条件。room＝バッグに 入りきるか（extra マス ふえる） */
   evolve?: {
     toName: string;
@@ -86,6 +87,7 @@ export interface BagOverlayProps {
   onToggle: (key: string) => void;
   onLeader: (key: string) => void;
   onEvolve: (key: string) => void;
+  onGrow: (key: string) => void;
   onMove: (key: string, x: number, y: number) => void;
   onRosterRemove: (key: string) => void;
   onClose: () => void;
@@ -140,6 +142,7 @@ export function BagOverlay({
   onToggle,
   onLeader,
   onEvolve,
+  onGrow,
   onMove,
   onRosterRemove,
   onClose,
@@ -484,6 +487,7 @@ export function BagOverlay({
                       <>
                         {t('battle.lv')}
                         {m.level}
+                        {m.growth && ` / ${m.growth.levelCap}`}
                       </>
                     )}
                     {m.kind === 'monster' && m.element && <ElementChip el={m.element} />}
@@ -531,12 +535,24 @@ export function BagOverlay({
               {m.blurb && <RubyLabel text={m.blurb} class="nq-party-blurb" as="p" />}
             </div>
           )}
-          {detailsOpen && m.kind !== 'hero' && (m.kind !== 'item' || m.action) && (
+          {detailsOpen && (m.growth || (m.kind !== 'hero' && (m.kind !== 'item' || m.action))) && (
             <div class="nq-wmap-foot nq-party-foot">
-              <button type="button" class="nq-opt nq-wmap-go" onClick={toggle}>
-                <PixelIcon name="cmd-item" scale={3} />
-                {t(m.inBag ? 'field.bagOut' : 'field.bagIn')}
-              </button>
+              {m.growth && (
+                <button
+                  type="button"
+                  class={`nq-opt nq-wmap-go nq-bag-grow ${m.growth.canUnlock ? 'nq-bag-grow-ready' : ''}`}
+                  onClick={() => onGrow(m.key)}
+                >
+                  <PixelIcon name="star" scale={3} />
+                  <RubyLabel text={t('field.levelCapGrow')} />
+                </button>
+              )}
+              {m.kind !== 'hero' && (m.kind !== 'item' || m.action) && (
+                <button type="button" class="nq-opt nq-wmap-go" onClick={toggle}>
+                  <PixelIcon name="cmd-item" scale={3} />
+                  {t(m.inBag ? 'field.bagOut' : 'field.bagIn')}
+                </button>
+              )}
               {m.kind === 'monster' && m.inBag && !m.leader && (
                 <button type="button" class="nq-opt nq-wmap-go" onClick={leader}>
                   <PixelIcon name="hero" scale={3} />

@@ -14,7 +14,7 @@ import {
   zoneForMap,
 } from '../core/battle/setup';
 import { groundOfTile, isRoadTile, type Ground } from '../core/world/ground';
-import { evolutionOf, evolve, skillChanges } from '../core/progression/evolution';
+import { evolutionOf } from '../core/progression/evolution';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
   activeEquipment,
@@ -140,7 +140,14 @@ import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
 import { presentTownMenu, type TownMenuAction, type TownMenuViewFactory } from './overworld/townMenuFlow';
 import { openBarberFlow } from './overworld/barberFlow';
 import { commitInnStay } from './overworld/innFlow';
-import { equippedBagThings, levelProgressLine, storedBagThings } from './overworld/bagItems';
+import {
+  equippedBagThings,
+  evolveBagThing,
+  growBagThing,
+  heroLevelCapBagThing,
+  monsterLevelCapBagThing,
+  storedBagThings,
+} from './overworld/bagItems';
 import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
@@ -2929,28 +2936,23 @@ export class OverworldScene extends Phaser.Scene {
         },
         onEvolve: (key: string) => {
           const cur = this.gs();
-          const uid = key.slice('mon:'.length);
-          const next =
-            cur && evolveRoom(cur, uid, bagContext(cur, c)).ok ? evolve(cur, uid, c.monsters) : null;
-          const o = next?.party.owned.find((x) => x.uid === uid);
-          if (!next || !o) {
+          const result = cur && evolveBagThing(cur, key, nameOf(key), c);
+          if (!result) {
             playSfx('miss');
             return;
           }
-          const before = cur && c.monsters.get(cur.party.owned.find((x) => x.uid === uid)?.monsterId ?? '');
-          const after = c.monsters.get(o.monsterId);
-          this.setGame(next);
+          this.setGame(result.state);
           playSfx('recruit');
           this.cameras.main.flash(300, 255, 255, 255);
-          const to = o.nickname ?? after?.name ?? '';
-          const change =
-            before && after ? skillChanges(before, after, c.skills) : { evolved: [], learned: [] };
-          const lines = [
-            t('field.partyEvolved', { from: nameOf(key), to }),
-            ...change.evolved.map(([a, b]) => t('field.partySkillEvolved', { from: a.name, to: b.name })),
-            ...change.learned.map((sk) => t('field.partySkillLearned', { name: sk.name })),
-          ];
-          again(key, lines.join('\n'), key);
+          again(key, result.message, key);
+        },
+        onGrow: (key: string) => {
+          const cur = this.gs();
+          if (!cur) return;
+          const result = growBagThing(cur, key, nameOf(key), c);
+          if (result.success) this.setGame(result.state);
+          playSfx(result.success ? 'recruit' : 'miss');
+          again(result.focusKey, result.message);
         },
         onMove: (key: string, x: number, y: number) => {
           const cur = this.gs();
@@ -2989,6 +2991,10 @@ export class OverworldScene extends Phaser.Scene {
         return sk ? [{ name: sk.name, gauge: sk.gauge, scan: sk.effect === 'scan' }] : [];
       });
     const heroC = partyFromGameState(gs, c).hero;
+    const heroGrowth = heroLevelCapBagThing(gs, level, c, [
+      ...gs.progress.titles.map((title) => t('field.bagOwnedTitle', { title })),
+      ...adjacencyBonus(gs, ctx, gs.player.baseStats).labels,
+    ]);
     const hero: BagThing = {
       key: 'hero',
       kind: 'hero',
@@ -3001,13 +3007,9 @@ export class OverworldScene extends Phaser.Scene {
       size: { w: 1, h: 1 },
       inBag: true,
       level,
+      ...heroGrowth,
       stats: heroC.stats,
       skills: skills(heroC.skills),
-      lines: [
-        levelProgressLine(c.xp.hero, level, gs.player.xp, gs.player.levelCap),
-        ...gs.progress.titles.map((title) => t('field.bagOwnedTitle', { title })),
-        ...adjacencyBonus(gs, ctx, gs.player.baseStats).labels,
-      ],
     };
     const bagUids = bagMonsterUids(gs);
     const roster = new Set([...bagUids, ...gs.party.reserve]);
@@ -3032,10 +3034,10 @@ export class OverworldScene extends Phaser.Scene {
           roster: roster.has(o.uid),
           leader: inBag && bagUids[0] === o.uid,
           level: o.level,
+          ...monsterLevelCapBagThing(gs, o, c),
           element: def.element,
           stats: m.stats,
           skills: skills(m.skills),
-          lines: [levelProgressLine(c.xp.monster, o.level, o.xp, o.levelCap)],
           blurb: def.dexBlurb,
           evolve: evo
             ? {
