@@ -303,7 +303,7 @@
 **Verification:**
 
 - [x] `pnpm vitest run tests/unit/bag.test.ts tests/unit/battleUi.test.ts`
-- [ ] Playwrightで主人公と仲間の解放操作、フォーカス、タッチを確認する。
+- [x] Playwrightで主人公の解放操作、選択維持、キーボードフォーカス、タッチを確認する（仲間の個体限定更新はTask 10の単体テストで確認）。
 
 **Dependencies:** Task 10
 
@@ -330,7 +330,7 @@
 **Verification:**
 
 - [x] `pnpm vitest run tests/unit/menuView.test.ts`
-- [ ] 実ブラウザで既知・未発見の両方を確認する。
+- [x] 実ブラウザで既知・未発見の両方を確認する。
 
 **Dependencies:** Tasks 3, 11
 
@@ -348,15 +348,15 @@
 
 **Acceptance criteria:**
 
-- [ ] GDD §6.3に個体上限、素材、主人公Lv200帯が記載される。
-- [ ] 生成JSON Schema、manifest、catalogに必要な変更だけが反映される。
-- [ ] 新規・v10移行、学習報酬、ボス報酬、個体解放、図鑑表示の代表経路が動く。
+- [x] GDD §6.3に個体上限、素材、主人公Lv200帯が記載される。
+- [x] 生成JSON Schema、manifest、catalogに必要な変更だけが反映される。
+- [x] 新規・v10移行、学習報酬、ボス報酬、個体解放、図鑑表示の代表経路が動く。
 
 **Verification:**
 
-- [ ] `pnpm gen:schemas`
-- [ ] `pnpm gen:manifest`
-- [ ] 対象E2Eと`pnpm test:e2e:battle`
+- [x] `pnpm gen:schemas`
+- [x] `pnpm gen:manifest`
+- [ ] 対象E2Eと`pnpm test:e2e:battle`（対象E2Eは成功、battleは最終検査で実行）
 - [ ] 4175以降の専用プレビューを起動し、アプリ内ブラウザで確認する。
 
 **Dependencies:** Tasks 11, 12

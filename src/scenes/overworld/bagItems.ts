@@ -75,10 +75,10 @@ function levelCapBagThing(
   return {
     growth,
     lines: [
+      ...growth.lines,
       ...(target.level < target.levelCap
         ? [levelProgressLine(table, target.level, target.xp, target.levelCap)]
         : []),
-      ...growth.lines,
       ...extraLines,
     ],
   };

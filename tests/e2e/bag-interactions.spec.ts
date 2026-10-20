@@ -1,5 +1,36 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
+
+async function seedLevelCapUnlock(page: Page): Promise<void> {
+  await page.evaluate(async () => {
+    const database = await new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open('nihonquest');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => resolve(request.result);
+    });
+    await new Promise<void>((resolve, reject) => {
+      const transaction = database.transaction('saves', 'readwrite');
+      const store = transaction.objectStore('saves');
+      const request = store.get('save:1');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const state = request.result;
+        state.player.level = 10;
+        state.player.levelCap = 10;
+        state.player.xp = 9564;
+        state.inventory['learning-fragment'] = 3;
+        state.inventory['trial-core'] = 1;
+        state.dex.monsters = ['iwate-kagurabi'];
+        state.updatedAt = Date.now();
+        store.put(state, 'save:1');
+      };
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error);
+      transaction.onabort = () => reject(transaction.error);
+    });
+    database.close();
+  });
+}
 
 test('装備の詳細を閉じても崩れず、武器をドラッグして装備・移動できる', async ({ page }, testInfo) => {
   test.setTimeout(60_000);
@@ -38,4 +69,60 @@ test('装備の詳細を閉じても崩れず、武器をドラッグして装�
   await page.locator('.nq-bag-empty').first().click();
   await expect(weapon).toHaveCSS('grid-column-start', '1');
   await page.screenshot({ path: testInfo.outputPath('weapon-moved.png') });
+});
+
+test.describe('レベル上限のタッチ操作', () => {
+  test.use({ hasTouch: true });
+
+  test('主人公の個体上限をタッチで解放し、図鑑では既知種族だけ上限を読める', async ({ page }, testInfo) => {
+    test.setTimeout(90_000);
+    await page.goto('/?resetSaves=1');
+    await page.getByRole('menuitem', { name: /はじめから/ }).click();
+    await page.getByRole('button', { name: /スロット 1/ }).click();
+    await completeNewGameSetup(page, 'テスト');
+    const storySkip = page.getByRole('button', { name: 'スキップ' });
+    if (await storySkip.isVisible()) await storySkip.click();
+    await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+
+    await page.reload();
+    await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
+    await seedLevelCapUnlock(page);
+    await page.getByRole('menuitem', { name: 'つづきから' }).click();
+    await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
+    await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+
+    await page.getByRole('button', { name: 'メニュー' }).click();
+    const menu = page.getByRole('dialog', { name: 'メニュー' });
+    await menu.getByRole('button', { name: /もちもの・へんせい/ }).click();
+    const bag = page.getByRole('dialog', { name: /もちもの・へんせい/ });
+    await expect(bag.locator('.nq-party-info')).toContainText('Lv10 / じょうげん 10');
+    await expect(bag.locator('.nq-party-info')).toContainText('さいご 200');
+    await expect(bag.locator('.nq-party-info')).toContainText('3/3');
+    await expect(bag.locator('.nq-party-info')).toContainText('1/1');
+
+    const grow = bag.getByRole('button', { name: /そだてる/ });
+    const growBox = await grow.boundingBox();
+    expect(growBox).not.toBeNull();
+    expect(growBox!.height).toBeGreaterThanOrEqual(48);
+    await grow.focus();
+    await expect(grow).toBeFocused();
+    await page.touchscreen.tap(growBox!.x + growBox!.width / 2, growBox!.y + growBox!.height / 2);
+    await expect(bag.locator('.nq-party-msg')).toContainText('10 → 20');
+    await expect(bag.locator('.nq-party-info')).toContainText(/Lv1[1-9] \/ じょうげん 20/);
+    await expect(bag.locator('[data-bag-key="hero"]')).toHaveClass(/nq-focus/);
+    await page.screenshot({ path: testInfo.outputPath('hero-level-cap-unlocked.png'), fullPage: true });
+
+    await bag.getByRole('button', { name: /とじる/ }).click();
+    await menu.getByRole('button', { name: /ずかん/ }).click();
+    const regions = menu.getByRole('group', { name: /^(?:地方|ちほう)ごとの ずかん$/ });
+    await regions.getByRole('button', { name: /東北/ }).click();
+    await menu.getByRole('button', { name: /カグラビ/ }).click();
+    const detail = menu.locator('.nq-dex-info');
+    await expect(detail).toContainText('はじめの上限 Lv10');
+    await expect(detail).toContainText('さいごの上限 Lv100');
+    await page.screenshot({ path: testInfo.outputPath('dex-level-caps-known.png'), fullPage: true });
+    await menu.locator('[data-menu-entry]').filter({ hasText: '？？？' }).first().click();
+    await expect(detail).not.toContainText('はじめの上限');
+    await page.screenshot({ path: testInfo.outputPath('dex-level-caps-hidden.png'), fullPage: true });
+  });
 });
