@@ -263,13 +263,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 成功時だけ素材を消費し、対象個体だけの上限を更新する。
-- [ ] 素材不足・上限未到達・絶対上限・不明uidでは状態が変わらない。
-- [ ] 解放後の蓄積XP反映とHP・MP割合維持が同じ結果へ含まれる。
+- [x] 成功時だけ素材を消費し、対象個体だけの上限を更新する。
+- [x] 素材不足・上限未到達・絶対上限・不明uidでは状態が変わらない。
+- [x] 解放後の蓄積XP反映とHP・MP割合維持が同じ結果へ含まれる。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/levelCap.test.ts tests/unit/inventory.test.ts`
+- [x] `pnpm vitest run tests/unit/levelCap.test.ts tests/unit/inventory.test.ts`
 
 **Dependencies:** Tasks 6, 8, 9
 
