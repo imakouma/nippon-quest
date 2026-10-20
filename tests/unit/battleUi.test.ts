@@ -12,7 +12,13 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { content } from './helpers';
 import { createNewGame } from '../../src/core/state/newGame';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
-import { encounterLevel, partyFromGameState, pickEncounter, zoneForMap } from '../../src/core/battle/setup';
+import {
+  encounterLevel,
+  enemyScalingLevel,
+  partyFromGameState,
+  pickEncounter,
+  zoneForMap,
+} from '../../src/core/battle/setup';
 import {
   applyBattleResult,
   syncHeroLevel,
@@ -109,6 +115,13 @@ describe('エンカウント', () => {
 
   it('出現レベルは 1 未満にならない', () => {
     for (let i = 0; i < 50; i++) expect(encounterLevel(1, createRng(`lv${i}`))).toBeGreaterThanOrEqual(1);
+  });
+
+  it('主人公がLv100を超えても敵の自動追従はLv100を超えない', () => {
+    expect(enemyScalingLevel(200)).toBe(100);
+    expect(enemyScalingLevel(200, 120)).toBe(100);
+    for (let i = 0; i < 50; i++)
+      expect(encounterLevel(200, createRng(`post100-${i}`))).toBeLessThanOrEqual(100);
   });
 });
 

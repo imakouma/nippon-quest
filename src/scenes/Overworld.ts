@@ -8,6 +8,7 @@ import { makeMonster } from '../core/battle/factory';
 import {
   encounterLevel,
   encounterTable,
+  enemyScalingLevel,
   partyFromGameState,
   pickFromTable,
   zoneForMap,
@@ -3443,7 +3444,7 @@ export class OverworldScene extends Phaser.Scene {
   private heroLevel(): number {
     const gs = this.gs();
     const xp = this.content()?.xp.hero;
-    return gs && xp ? heroLevel(gs, xp) : (gs?.player.level ?? 1);
+    return enemyScalingLevel(gs && xp ? heroLevel(gs, xp) : (gs?.player.level ?? 1));
   }
 
   private kind(): MapKind {

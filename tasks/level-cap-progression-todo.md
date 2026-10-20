@@ -177,14 +177,14 @@
 
 **Acceptance criteria:**
 
-- [ ] Lv1〜100の能力値とダメージが変更前と一致する。
-- [ ] Lv101以降の成長分だけ25%になり、表示レベルは実値を保つ。
-- [ ] 主人公のダメージ係数と主人公追従の敵レベルは100を超えない。
+- [x] Lv1〜100の能力値とダメージが変更前と一致する。
+- [x] Lv101以降の成長分だけ25%になり、表示レベルは実値を保つ。
+- [x] 主人公のダメージ係数と主人公追従の敵レベルは100を超えない。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/battle.test.ts tests/unit/progression.test.ts`
-- [ ] `pnpm audit:battle-balance`
+- [x] `pnpm vitest run tests/unit/battle.test.ts tests/unit/progression.test.ts`
+- [x] `pnpm audit:battle-balance`
 
 **Dependencies:** Tasks 2, 6
 
