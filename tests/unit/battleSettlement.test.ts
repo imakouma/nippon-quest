@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { applyBattleResult, type BattleSummary } from '../../src/core/progression/battleResult';
-import { settleBattleBag } from '../../src/core/progression/battleSettlement';
+import { settleBattleBag, syncCappedLevels } from '../../src/core/progression/battleSettlement';
+import { partyFromGameState } from '../../src/core/battle/setup';
 import { createNewGame } from '../../src/core/state/newGame';
 import { recordPlayDuration } from '../../src/core/state/playTime';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
@@ -112,5 +113,58 @@ describe('バトル後のバッグ編成', () => {
       level: 1,
     });
     expect(settled.monsterLevelUps).toEqual([{ uid: 'deployed', before: 1, after: 2 }]);
+  });
+
+  it('上限中はXPを保留し、解放後にHP・MP割合を保って一度に同期する', async () => {
+    const c = await content();
+    const before = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    before.player.level = 10;
+    before.player.levelCap = 10;
+    before.player.xp = c.xp.hero[9]!;
+    before.party.owned.push({
+      uid: 'deployed',
+      monsterId: 'aomori-ringoron',
+      level: 10,
+      levelCap: 10,
+      xp: c.xp.monster[9]!,
+    });
+    const earned = Math.max(c.xp.hero[19]!, c.xp.monster[19]!);
+    const oldMax = partyFromGameState(before, c).hero.stats;
+    before.player.hp = Math.floor(oldMax.hp / 2);
+    before.player.mp = Math.floor(oldMax.mp / 2);
+    const applied = applyBattleResult(
+      before,
+      summary({
+        xp: earned,
+        heroHp: before.player.hp,
+        heroMp: before.player.mp,
+        heroMaxHp: oldMax.hp,
+        heroMaxMp: oldMax.mp,
+        participantMonsterUids: ['deployed'],
+      }),
+      c.settings,
+      2_000,
+    );
+
+    const capped = settleBattleBag(before, applied, c);
+    expect(capped.state.player).toMatchObject({ level: 10, levelCap: 10, xp: c.xp.hero[9]! + earned });
+    expect(capped.state.party.owned[0]).toMatchObject({
+      level: 10,
+      levelCap: 10,
+      xp: c.xp.monster[9]! + earned,
+    });
+
+    const unlocked = structuredClone(capped.state);
+    unlocked.player.levelCap = 20;
+    unlocked.party.owned[0]!.levelCap = 20;
+    const synced = syncCappedLevels(capped.state, unlocked, c);
+    const newMax = partyFromGameState(synced.state, c).hero.stats;
+
+    expect(synced.state.player.level).toBe(20);
+    expect(synced.state.party.owned[0]?.level).toBe(20);
+    expect(synced.state.player.xp).toBe(capped.state.player.xp);
+    expect(synced.state.party.owned[0]?.xp).toBe(capped.state.party.owned[0]?.xp);
+    expect(synced.state.player.hp / newMax.hp).toBeCloseTo(before.player.hp / oldMax.hp, 1);
+    expect(synced.state.player.mp / newMax.mp).toBeCloseTo(before.player.mp / oldMax.mp, 1);
   });
 });

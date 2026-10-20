@@ -41,7 +41,7 @@ export function buildEnemyView(state: BattleState, hp = state.enemy.hp): EnemyVi
 
 export function buildAllyViews(state: BattleState, game: GameState, content: ContentIndex): AllyView[] {
   const table = content.xp.hero;
-  const { ratio } = xpToNextLevel(table, heroLevel(game, table), game.player.xp);
+  const { ratio } = xpToNextLevel(table, heroLevel(game, table), game.player.xp, game.player.levelCap);
   const front = frontAlly(state);
   const view = (combatant: Combatant, extra: Partial<AllyView>): AllyView => ({
     id: combatant.id,

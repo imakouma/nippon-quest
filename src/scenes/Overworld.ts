@@ -3002,7 +3002,7 @@ export class OverworldScene extends Phaser.Scene {
       stats: heroC.stats,
       skills: skills(heroC.skills),
       lines: [
-        levelProgressLine(c.xp.hero, level, gs.player.xp),
+        levelProgressLine(c.xp.hero, level, gs.player.xp, gs.player.levelCap),
         ...gs.progress.titles.map((title) => t('field.bagOwnedTitle', { title })),
         ...adjacencyBonus(gs, ctx, gs.player.baseStats).labels,
       ],
@@ -3033,7 +3033,7 @@ export class OverworldScene extends Phaser.Scene {
           element: def.element,
           stats: m.stats,
           skills: skills(m.skills),
-          lines: [levelProgressLine(c.xp.monster, o.level, o.xp)],
+          lines: [levelProgressLine(c.xp.monster, o.level, o.xp, o.levelCap)],
           blurb: def.dexBlurb,
           evolve: evo
             ? {

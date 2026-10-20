@@ -152,13 +152,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 上限中も主人公・出撃仲間のXPが増える。
-- [ ] 戦闘後レベルは現在上限を超えない。
-- [ ] 解放後に蓄積XP相当まで上がり、HP・MP割合を維持する。
+- [x] 上限中も主人公・出撃仲間のXPが増える。
+- [x] 戦闘後レベルは現在上限を超えない。
+- [x] 解放後に蓄積XP相当まで上がり、HP・MP割合を維持する。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/battleSettlement.test.ts tests/unit/levelCap.test.ts`
+- [x] `pnpm vitest run tests/unit/battleSettlement.test.ts tests/unit/levelCap.test.ts`
 
 **Dependencies:** Tasks 2, 4, 5
 

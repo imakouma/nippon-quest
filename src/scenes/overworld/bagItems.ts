@@ -10,8 +10,13 @@ import type { BagThing } from '../../ui/field/BagOverlay';
 import { t } from '../../ui/i18n';
 import { itemStatText } from './menuEntries';
 
-export function levelProgressLine(table: readonly number[], level: number, xp: number): string {
-  const progress = xpToNextLevel(table, level, xp);
+export function levelProgressLine(
+  table: readonly number[],
+  level: number,
+  xp: number,
+  levelCap = table.length,
+): string {
+  const progress = xpToNextLevel(table, level, xp, levelCap);
   return progress.need > 0 ? t('battle.nextLevel', { n: progress.need }) : t('battle.maxLevel');
 }
 
