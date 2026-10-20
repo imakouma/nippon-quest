@@ -30,7 +30,9 @@ async function answerCurrentQuestion(page: Page): Promise<void> {
   }
   if (await page.locator('.nq-q-input input').first().isVisible()) {
     const inputs = page.locator('.nq-q-input input');
-    await expect(inputs.first()).toHaveAttribute('aria-describedby', 'nq-question-prompt');
+    const describedBy = await inputs.first().getAttribute('aria-describedby');
+    expect(describedBy).toMatch(/^nq-question-(?:prompt|template)$/);
+    await expect(page.locator(`#${describedBy}`)).toBeVisible();
     for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
     await page.getByRole('button', { name: 'こたえる' }).click();
     return;
@@ -112,7 +114,8 @@ test('バトル：報酬のあとに、キャラが動く仲間加入演出を�
 
 test('バトル：ターンが 出て、こちらが 動くと敵の行動後に次のターンへ進む', async ({ page }) => {
   test.setTimeout(60_000);
-  await start(page, 8);
+  // 主人公Lv1が敵の一撃で倒れず、正解時も敵を一撃で倒さない強さに固定する。
+  await start(page, 3);
   await expect(page.locator('.nq-turn-stage')).toContainText('ターン', { timeout: 10_000 });
   await expect(page.locator('.nq-sgauge')).toBeVisible();
   await expect(page.locator('.nq-cmd[data-cmd="skill"]')).toBeVisible({ timeout: 20_000 });
@@ -179,7 +182,7 @@ test('バトル：使えない必殺技も理由を読める明るさで表示�
 
 test('バトル：必殺技を えらぶと 問題が出て、答えると採点されてターンが進む', async ({ page }) => {
   test.setTimeout(90_000);
-  await start(page, 8);
+  await start(page, 3);
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
   await page.locator('[data-skill="sk-tashizan-giri"]').click();
   const question = page.locator('.nq-bq');
