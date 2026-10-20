@@ -212,13 +212,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 3回以上かつ習熟度0.80到達時に単元ごと1個だけ付与する。
-- [ ] 異なる3問を完全に直すごとに1個付与し、同一問題を再計上しない。
-- [ ] 問題タイプで分岐せず、同一回答で複数条件達成時も正しい合計になる。
+- [x] 3回以上かつ習熟度0.80到達時に単元ごと1個だけ付与する。
+- [x] 異なる3問を完全に直すごとに1個付与し、同一問題を再計上しない。
+- [x] 問題タイプで分岐せず、同一回答で複数条件達成時も正しい合計になる。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/askEnv.test.ts tests/unit/learningRewards.test.ts`
+- [x] `pnpm vitest run tests/unit/askEnv.test.ts tests/unit/learningRewards.test.ts`
 
 **Dependencies:** Task 4
 

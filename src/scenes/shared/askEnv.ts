@@ -14,6 +14,7 @@ import {
   type AttemptEvent,
 } from '../../core/learning';
 import type { QuestionBase, QuestionQuery, QuestionResult } from '../../questions/contracts';
+import { applyLearningRewards } from '../../core/progression/learningRewards';
 import {
   ask,
   NoQuestionError,
@@ -90,6 +91,8 @@ export function buildAskEnv(o: AskEnvOptions): AskEnv {
     onResult: (question, result, presentedAt) => {
       const answeredAt = Date.now();
       const game = o.getGame();
+      const wasMistakeBeforeAnswer =
+        game.learning.mistakes.includes(question.id) || o.gs.learning.mistakes.includes(question.id);
       const recordedMastery = o.mastery.toJSON();
       if (game.learning.mastery !== recordedMastery) {
         const unit = recordedMastery[question.unit];
@@ -109,6 +112,17 @@ export function buildAskEnv(o: AskEnvOptions): AskEnv {
         game.learning.mistakes.push(question.id);
       }
       recordLearningResult(game, question, result, presentedAt, answeredAt, o.reason, st.learningWisdom);
+      const rewarded = applyLearningRewards(game, {
+        questionId: question.id,
+        unit: question.unit,
+        score: result.score,
+        wasMistakeBeforeAnswer,
+      });
+      if (rewarded.state !== game) {
+        game.inventory = rewarded.state.inventory;
+        game.learning.masteredRewardUnits = rewarded.state.learning.masteredRewardUnits;
+        game.learning.correctedRewardQuestionIds = rewarded.state.learning.correctedRewardQuestionIds;
+      }
       window.dispatchEvent(new CustomEvent('nq:learning-changed', { detail: game }));
     },
   };

@@ -7,6 +7,7 @@ import { buildAskEnv, recordLearningResult, type AskEnvOptions } from '../../src
 import type { QuestionBase, QuestionResult } from '../../src/questions/contracts';
 import type { ContentIndex } from '../../src/core/content/loader';
 import { MasteryStore, type QuestionBank } from '../../src/questions/engine';
+import { LEARNING_FRAGMENT_ID } from '../../src/core/progression/learningRewards';
 
 describe('問題結果の学習状態への記録', () => {
   it('非同期回答を古い状態へ記録しないため、最新版の取得方法を必須にする', () => {
@@ -160,5 +161,51 @@ describe('問題結果の学習状態への記録', () => {
     expect(latest.learning.mistakes).toEqual([question.id]);
     expect(latest.learning.playSecondsByDate['2026-10-08']).toBe(60);
     expect(stale.learning.attempts).toHaveLength(0);
+  });
+
+  it('回答時点の習熟とまちがい直しを同時に素材へ反映する', () => {
+    const stale = createNewGame({ name: 'ハル', grade: 1 }, 100);
+    const question: QuestionBase = {
+      id: 'sansu.g1.tashizan.0003',
+      type: 'choice',
+      subject: 'sansu',
+      grade: 1,
+      unit: 'sansu.g1.tashizan',
+      payload: {},
+    };
+    stale.learning.mastery[question.unit] = { value: 0.75, n: 2, lastAt: 800 };
+    stale.learning.correctedRewardQuestionIds = ['sansu.g1.tashizan.0001', 'sansu.g1.tashizan.0002'];
+    stale.learning.mistakes = [question.id];
+    const latest = structuredClone(stale);
+    const mastery = new MasteryStore(stale.learning.mastery);
+    const env = buildAskEnv({
+      host: document.createElement('div'),
+      gs: stale,
+      content: {
+        settings: {
+          timeLimitSecByGrade: { '1': 20 },
+          recentQuestionWindow: 10,
+          adaptiveWeakUnitRatio: 0.5,
+        },
+      } as unknown as ContentIndex,
+      bank: {} as QuestionBank,
+      mastery,
+      rng: { next: () => 0 },
+      speak: () => {},
+      getGame: () => latest,
+    });
+    const result: QuestionResult = {
+      questionId: question.id,
+      score: 1,
+      timeMs: 800,
+      attempts: 1,
+    };
+
+    mastery.record(question.unit, result, 950);
+    env.onResult?.(question, result, 900);
+
+    expect(latest.inventory[LEARNING_FRAGMENT_ID]).toBe(2);
+    expect(latest.learning.masteredRewardUnits).toEqual([question.unit]);
+    expect(latest.learning.correctedRewardQuestionIds).toHaveLength(3);
   });
 });
