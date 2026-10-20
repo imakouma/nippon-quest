@@ -33,15 +33,15 @@
 
 **Acceptance criteria:**
 
-- [ ] 現行Lv1〜51の値が1件も変わらない。
-- [ ] 主人公200件、仲間100件の累積XPが単調増加し、安全整数内に収まる。
-- [ ] Lv101/121/151/181の境界から8/12/18/25倍が適用される。
+- [x] 現行Lv1〜51の値が1件も変わらない。
+- [x] 主人公200件、仲間100件の累積XPが単調増加し、安全整数内に収まる。
+- [x] Lv101/121/151/181の境界から8/12/18/25倍が適用される。
 
 **Verification:**
 
-- [ ] 生成前後の再実行で差分が出ない。
-- [ ] `pnpm vitest run tests/unit/xpTable.test.ts`
-- [ ] `pnpm validate:content`
+- [x] 生成前後の再実行で差分が出ない。
+- [x] `pnpm vitest run tests/unit/xpTable.test.ts`
+- [x] `pnpm validate:content`
 
 **Dependencies:** Task 1
 
