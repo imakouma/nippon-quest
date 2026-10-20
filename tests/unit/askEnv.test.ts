@@ -200,12 +200,17 @@ describe('問題結果の学習状態への記録', () => {
       timeMs: 800,
       attempts: 1,
     };
+    const notices: unknown[] = [];
+    const onReward = (event: Event) => notices.push((event as CustomEvent).detail);
+    window.addEventListener('nq:learning-reward', onReward);
 
     mastery.record(question.unit, result, 950);
     env.onResult?.(question, result, 900);
+    window.removeEventListener('nq:learning-reward', onReward);
 
     expect(latest.inventory[LEARNING_FRAGMENT_ID]).toBe(2);
     expect(latest.learning.masteredRewardUnits).toEqual([question.unit]);
     expect(latest.learning.correctedRewardQuestionIds).toHaveLength(3);
+    expect(notices).toEqual([{ earned: 2, reasons: ['mastery', 'correction'] }]);
   });
 });

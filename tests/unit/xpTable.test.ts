@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { createHash } from 'node:crypto';
 import current from '../../content/balance/xp.json';
 import { buildXpTables, heroXpMultiplier } from '../../scripts/gen-xp-table';
 
@@ -7,6 +8,14 @@ describe('経験値テーブル生成', () => {
     const generated = buildXpTables();
     expect(generated.hero.slice(0, 51)).toEqual(current.hero.slice(0, 51));
     expect(generated.monster.slice(0, 51)).toEqual(current.monster.slice(0, 51));
+    const digest = (values: readonly number[]) =>
+      createHash('sha256').update(JSON.stringify(values)).digest('hex');
+    expect(digest(generated.hero.slice(0, 51))).toBe(
+      '5174285efc4e71bb19c0ef09c410ddbee013e28b747e5d33f1f1c084d6c40a70',
+    );
+    expect(digest(generated.monster.slice(0, 51))).toBe(
+      '7b2a9c4d5be38008a4d08ba657a022f9735e7236a4434f0e1feb9f08337b020b',
+    );
   });
 
   it('主人公Lv200・仲間Lv100まで安全な累積XPを生成する', () => {

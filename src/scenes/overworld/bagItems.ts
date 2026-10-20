@@ -11,7 +11,7 @@ import {
   type LevelCapRules,
   type LevelCapTarget,
 } from '../../core/progression/levelCap';
-import { unlockLevelCap } from '../../core/progression/levelCapUnlock';
+import { GROWTH_MAGATAMA_ID, unlockLevelCap } from '../../core/progression/levelCapUnlock';
 import type { GameState } from '../../core/state/schema';
 import { STARTER_EQUIPMENT_ID } from '../../core/state/starter';
 import { itemIconUrl } from '../../rendering/itemIcons';
@@ -157,6 +157,7 @@ export function growBagThing(
     state: result.state,
     focusKey: key,
     message: t(result.newLevel > result.oldLevel ? 'field.levelCapRaisedWithLevel' : 'field.levelCapRaised', {
+      item: content.items.get(GROWTH_MAGATAMA_ID)?.name ?? t('field.levelCapGrowthItem'),
       name,
       oldCap: result.oldCap,
       newCap: result.newCap,

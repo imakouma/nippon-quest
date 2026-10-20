@@ -52,6 +52,10 @@ export function applyLearningRewards(prev: GameState, outcome: LearningRewardOut
               [LEARNING_FRAGMENT_ID]: addProgressValue(prev.inventory[LEARNING_FRAGMENT_ID] ?? 0, earned),
             }
           : prev.inventory,
+      dex:
+        earned > 0 && !prev.dex.items.includes(LEARNING_FRAGMENT_ID)
+          ? { ...prev.dex, items: [...prev.dex.items, LEARNING_FRAGMENT_ID] }
+          : prev.dex,
       learning: {
         ...prev.learning,
         masteredRewardUnits: mastered

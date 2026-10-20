@@ -42,8 +42,12 @@ export function applyFirstBossReward(
 export const rewardMarkedBoss = (prev: GameState, flag: string, count: number) =>
   applyFirstBossReward(prev, (state) => markDone(state, { flag }), count);
 
-export const rewardAreaBoss = (prev: GameState, areaId: string) =>
-  applyFirstBossReward(prev, (state) => earnAreaSign(state, areaId), 2);
+export const rewardAreaBoss = (prev: GameState, areaId: string) => {
+  if (prev.progress.eventsDone.includes(areaBossFlag(areaId))) {
+    return { state: earnAreaSign(prev, areaId), awarded: 0 };
+  }
+  return applyFirstBossReward(prev, (state) => earnAreaSign(state, areaId), 2);
+};
 
 /** score 以下でいちばん高い段の報酬。どれにも届かなければいちばん低い段（score 0 でも必ず何かもらえる） */
 export function pickReward(tiers: readonly RewardTier[], score: number): Reward {
@@ -129,6 +133,10 @@ export function markDone(
 /** 県ボスを倒した：「県のしるし」（progress.areaSigns）を もらい、ボスを倒した しるし（eventsDone）を つける */
 export function earnAreaSign(prev: GameState, areaId: string, now = Date.now()): GameState {
   const gs = markDone(prev, { flag: areaBossFlag(areaId) }, now);
-  if (!gs.progress.areaSigns.includes(areaId)) gs.progress.areaSigns.push(areaId);
-  return gs;
+  if (gs.progress.areaSigns.includes(areaId)) return gs;
+  return {
+    ...gs,
+    updatedAt: now,
+    progress: { ...gs.progress, areaSigns: [...gs.progress.areaSigns, areaId] },
+  };
 }

@@ -1871,8 +1871,15 @@
     "levelCapMaterials": "素材[そざい]：かけら {fragments}/{fragmentNeed}　核[かく] {cores}/{coreNeed}",
     "levelCapBankedXp": "上限[じょうげん]で ためている XP：{n}",
     "levelCapGrow": "そだてる",
-    "levelCapRaised": "{name}の じょうげんが {oldCap} → {newCap}に ひろがった！",
-    "levelCapRaisedWithLevel": "{name}の じょうげんが {oldCap} → {newCap}に ひろがり、Lv{oldLevel} → Lv{newLevel}に なった！",
+    "levelCapGrowthItem": "せいちょうの 勾玉[まがたま]",
+    "levelCapRaised": "{item}を つくって {name}に つかった！\n{name}の じょうげんが {oldCap} → {newCap}に ひろがった！",
+    "levelCapRaisedWithLevel": "{item}を つくって {name}に つかった！\n{name}の じょうげんが {oldCap} → {newCap}に ひろがり、Lv{oldLevel} → Lv{newLevel}に なった！",
+    "learningRewardReason": {
+      "mastery": "単元[たんげん]を マスター！",
+      "correction": "まちがいを 3もん なおした！"
+    },
+    "learningRewardGained": "まなびの かけら +{n}",
+    "trialCoreReward": "しれんの 核[かく]を {n}こ てにいれた！",
     "levelCapFail": {
       "not-at-cap": "いまの じょうげんまで そだつと つかえるよ。",
       "insufficient-materials": "まなびの かけら 3こと しれんの 核[かく] 1こが ひつようだよ。",

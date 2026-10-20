@@ -26,6 +26,7 @@ import { recordPlayDuration } from './core/state/playTime';
 import { normalizeLevelCaps } from './core/state/levelCaps';
 import bootstrapJapanese from '../content/i18n/bootstrap-ja.json';
 import { enableMobileFullscreen, registerAppServiceWorker } from './ui/mobileAppShell';
+import { showLearningRewardNotice, type LearningRewardNotice } from './ui/learningRewardNotice';
 
 // 通常辞書を読み込めない起動失敗でも、再試行画面だけは日本語で表示する。
 setDictionary(bootstrapJapanese);
@@ -327,6 +328,9 @@ window.addEventListener('nq:learning-changed', (event) => {
   void autosave
     .request(activeSlot, state)
     .catch((error) => reportSaveFailure('学習履歴の保存', error, activeSlot, state));
+});
+window.addEventListener('nq:learning-reward', (event) => {
+  showLearningRewardNotice(uiLayer, (event as CustomEvent<LearningRewardNotice>).detail);
 });
 
 // 実際に表示していた時間を日別に記録する。非表示中の時間は数えない。

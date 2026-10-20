@@ -120,10 +120,18 @@ export function buildAskEnv(o: AskEnvOptions): AskEnv {
       });
       if (rewarded.state !== game) {
         game.inventory = rewarded.state.inventory;
+        game.dex = rewarded.state.dex;
         game.learning.masteredRewardUnits = rewarded.state.learning.masteredRewardUnits;
         game.learning.correctedRewardQuestionIds = rewarded.state.learning.correctedRewardQuestionIds;
       }
       window.dispatchEvent(new CustomEvent('nq:learning-changed', { detail: game }));
+      if (rewarded.earned > 0) {
+        window.dispatchEvent(
+          new CustomEvent('nq:learning-reward', {
+            detail: { earned: rewarded.earned, reasons: rewarded.reasons },
+          }),
+        );
+      }
     },
   };
 }

@@ -140,14 +140,7 @@ import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
 import { presentTownMenu, type TownMenuAction, type TownMenuViewFactory } from './overworld/townMenuFlow';
 import { openBarberFlow } from './overworld/barberFlow';
 import { commitInnStay } from './overworld/innFlow';
-import {
-  equippedBagThings,
-  evolveBagThing,
-  growBagThing,
-  heroLevelCapBagThing,
-  monsterLevelCapBagThing,
-  storedBagThings,
-} from './overworld/bagItems';
+import * as bagItems from './overworld/bagItems';
 import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
@@ -1227,6 +1220,7 @@ export class OverworldScene extends Phaser.Scene {
     playSfx('victory');
     const lines = [
       { text: t('field.regionBossDown', { region: rb.region.name }) },
+      { text: t('field.trialCoreReward', { n: 1 }) },
       ...regionBossStoryLines(area.id, rb.regionId, rb.boss.def.name),
     ];
     for (const g of opened) {
@@ -1721,6 +1715,7 @@ export class OverworldScene extends Phaser.Scene {
     await this.wait(700);
     await this.talk([
       ...midBossStoryLines(area.id, this.gs() ?? gs, this.storyCompanion()),
+      { text: t('field.trialCoreReward', { n: 1 }) },
       { text: t('field.warpAppear', { name: this.warp?.toName ?? '' }) },
     ]);
     this.busy = false;
@@ -1743,6 +1738,7 @@ export class OverworldScene extends Phaser.Scene {
       ...(epilogue ? [{ speaker: ab.def.name, text: epilogue }] : []),
       ...areaBossStoryLines(area.id, this.gs() ?? gs, this.storyCompanion()),
       { text: t('field.areaSign', { name: area.name }) },
+      { text: t('field.trialCoreReward', { n: 2 }) },
     ]);
     this.busy = false;
   }
@@ -1797,6 +1793,7 @@ export class OverworldScene extends Phaser.Scene {
       ...(epilogue ? [{ speaker: lb.def.name, text: epilogue }] : []),
       ...lastBossStoryLines(area.id, gs.player.name),
       { text: t('field.lastBossDown', { name: lb.def.name, stage: area.secret?.name ?? area.name }) },
+      { text: t('field.trialCoreReward', { n: 3 }) },
     ]);
     this.busy = false;
   }
@@ -2936,7 +2933,7 @@ export class OverworldScene extends Phaser.Scene {
         },
         onEvolve: (key: string) => {
           const cur = this.gs();
-          const result = cur && evolveBagThing(cur, key, nameOf(key), c);
+          const result = cur && bagItems.evolveBagThing(cur, key, nameOf(key), c);
           if (!result) {
             playSfx('miss');
             return;
@@ -2949,7 +2946,7 @@ export class OverworldScene extends Phaser.Scene {
         onGrow: (key: string) => {
           const cur = this.gs();
           if (!cur) return;
-          const result = growBagThing(cur, key, nameOf(key), c);
+          const result = bagItems.growBagThing(cur, key, nameOf(key), c);
           if (result.success) this.setGame(result.state);
           playSfx(result.success ? 'recruit' : 'miss');
           again(result.focusKey, result.message);
@@ -2991,7 +2988,7 @@ export class OverworldScene extends Phaser.Scene {
         return sk ? [{ name: sk.name, gauge: sk.gauge, scan: sk.effect === 'scan' }] : [];
       });
     const heroC = partyFromGameState(gs, c).hero;
-    const heroGrowth = heroLevelCapBagThing(gs, level, c, [
+    const heroGrowth = bagItems.heroLevelCapBagThing(gs, level, c, [
       ...gs.progress.titles.map((title) => t('field.bagOwnedTitle', { title })),
       ...adjacencyBonus(gs, ctx, gs.player.baseStats).labels,
     ]);
@@ -3034,7 +3031,7 @@ export class OverworldScene extends Phaser.Scene {
           roster: roster.has(o.uid),
           leader: inBag && bagUids[0] === o.uid,
           level: o.level,
-          ...monsterLevelCapBagThing(gs, o, c),
+          ...bagItems.monsterLevelCapBagThing(gs, o, c),
           element: def.element,
           stats: m.stats,
           skills: skills(m.skills),
@@ -3054,10 +3051,10 @@ export class OverworldScene extends Phaser.Scene {
       ];
     };
     const owned = new Map(gs.party.owned.map((o) => [o.uid, o]));
-    const stored = storedBagThings(gs, c);
+    const stored = bagItems.storedBagThings(gs, c);
     const inBag = [
       ...bagUids.flatMap((u) => monster(owned.get(u)!)),
-      ...equippedBagThings(gs, c),
+      ...bagItems.equippedBagThings(gs, c),
       ...stored.filter((item) => item.kind === 'item' && item.inBag),
     ];
     const outside = [
@@ -3332,13 +3329,14 @@ export class OverworldScene extends Phaser.Scene {
     const bossName = content.monsters.get(island?.bossId ?? '')?.name;
     const starter = gs.party.owned.find((monster) => monster.uid === gs.party.activeUid);
     const starterDef = content.monsters.get(starter?.monsterId ?? '');
-    await this.talk(
-      islandEpilogueLines(islandId, {
+    await this.talk([
+      ...islandEpilogueLines(islandId, {
         bossName,
         playerName: gs.player.name,
         companion: starterDef && starter ? { id: starter.monsterId, name: starterDef.name } : undefined,
       }),
-    );
+      { text: t('field.trialCoreReward', { n: reward.awarded }) },
+    ]);
     this.busy = false;
   }
   /** にほんちずの地方と県。地図は public/worldmap.json、名前は content、進みぐあいはセーブから */

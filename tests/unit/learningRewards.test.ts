@@ -21,6 +21,7 @@ describe('学習成果のまなびのかけら', () => {
     expect(first.earned).toBe(1);
     expect(first.reasons).toEqual(['mastery']);
     expect(first.state.inventory[LEARNING_FRAGMENT_ID]).toBe(1);
+    expect(first.state.dex.items).toContain(LEARNING_FRAGMENT_ID);
     expect(first.state.learning.masteredRewardUnits).toEqual(['sansu.g1.tashizan']);
     expect(repeated).toMatchObject({ state: first.state, earned: 0, reasons: [] });
   });
