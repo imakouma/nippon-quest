@@ -6,15 +6,15 @@
 
 **Acceptance criteria:**
 
-- [ ] Lv100以下は+10、主人公Lv100以降は+5、仲間Lv100・主人公Lv200で停止する。
-- [ ] 素材不足、上限未到達、絶対上限、対象不明を判別可能な結果で返す。
-- [ ] 数値は`settings.json`の検証済み設定から渡し、Sceneへ重複させない。
+- [x] Lv100以下は+10、主人公Lv100以降は+5、仲間Lv100・主人公Lv200で停止する。
+- [x] 素材不足、上限未到達、絶対上限を判別可能な結果で返す（対象不明はTask 10の状態更新時に追加）。
+- [x] 数値は`settings.json`の検証済み設定から渡し、Sceneへ重複させない。
 
 **Verification:**
 
-- [ ] 失敗する境界テストを先に確認する。
-- [ ] `pnpm vitest run tests/unit/levelCap.test.ts`
-- [ ] `pnpm validate:content`
+- [x] 失敗する境界テストを先に確認する。
+- [x] `pnpm vitest run tests/unit/levelCap.test.ts`
+- [x] `pnpm validate:content`
 
 **Dependencies:** None
 

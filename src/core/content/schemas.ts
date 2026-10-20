@@ -433,6 +433,16 @@ const bandNumbers = (n: z.ZodNumber) => z.object({ perfect: n, good: n, weak: n,
 export const settingsSchema = z.object({
   timeLimitSecByGrade: z.record(z.string(), z.number().positive()),
   heroGrowth: growthCurveSchema.describe('主人公の基礎成長と5・10レベルごとの節目成長'),
+  levelCaps: z.object({
+    heroInitial: safePositiveIntegerSchema,
+    heroMaximum: safePositiveIntegerSchema,
+    monsterMaximum: safePositiveIntegerSchema,
+    standardStep: safePositiveIntegerSchema,
+    heroPost100Step: safePositiveIntegerSchema,
+    learningFragmentsPerUnlock: safePositiveIntegerSchema,
+    trialCoresPerUnlock: safePositiveIntegerSchema,
+    heroPost100GrowthRate: z.number().positive().max(1),
+  }),
   scoreMultipliers: bandNumbers(z.number().positive())
     .refine(
       ({ perfect, good, weak, miss }) => perfect >= good && good >= weak && weak >= miss,

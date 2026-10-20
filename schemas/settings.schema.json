@@ -167,6 +167,62 @@
           "additionalProperties": false,
           "description": "主人公の基礎成長と5・10レベルごとの節目成長"
         },
+        "levelCaps": {
+          "type": "object",
+          "properties": {
+            "heroInitial": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "heroMaximum": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "monsterMaximum": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "standardStep": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "heroPost100Step": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "learningFragmentsPerUnlock": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "trialCoresPerUnlock": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "heroPost100GrowthRate": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "heroInitial",
+            "heroMaximum",
+            "monsterMaximum",
+            "standardStep",
+            "heroPost100Step",
+            "learningFragmentsPerUnlock",
+            "trialCoresPerUnlock",
+            "heroPost100GrowthRate"
+          ],
+          "additionalProperties": false
+        },
         "scoreMultipliers": {
           "type": "object",
           "properties": {
@@ -491,6 +547,7 @@
       "required": [
         "timeLimitSecByGrade",
         "heroGrowth",
+        "levelCaps",
         "scoreMultipliers",
         "weaknessMultiplier",
         "equipmentElementResistance",
