@@ -14,6 +14,7 @@ import {
 } from '../core/battle/setup';
 import { groundOfTile, isRoadTile, type Ground } from '../core/world/ground';
 import { evolutionOf, evolve, skillChanges } from '../core/progression/evolution';
+import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
   activeEquipment,
   adjacencyBonus,
@@ -2746,9 +2747,15 @@ export class OverworldScene extends Phaser.Scene {
     if (!content || !isImportedLocationValid(next.progress, content.areas, ENCLAVES)) {
       throw new Error('Imported save points to an unknown location');
     }
-    this.setGame(next);
-    const { x, y } = next.progress.position;
-    this.switchMap(next.progress.currentMap, 'spawn', [Math.floor(x / TILE), Math.floor(y / TILE)], true);
+    const normalized = normalizeLevelCaps(next, content.monsters, content.settings.levelCaps.heroInitial);
+    this.setGame(normalized);
+    const { x, y } = normalized.progress.position;
+    this.switchMap(
+      normalized.progress.currentMap,
+      'spawn',
+      [Math.floor(x / TILE), Math.floor(y / TILE)],
+      true,
+    );
   }
 
   private heroStats(gs: GameState) {

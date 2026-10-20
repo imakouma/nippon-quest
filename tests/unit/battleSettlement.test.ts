@@ -61,8 +61,8 @@ describe('バトル後のバッグ編成', () => {
     const c = await content();
     const before = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
     before.party.owned.push(
-      { uid: 'deployed', monsterId: 'aomori-ringoron', level: 1, xp: 0 },
-      { uid: 'reserve', monsterId: 'aomori-senbein', level: 1, xp: 0 },
+      { uid: 'deployed', monsterId: 'aomori-ringoron', level: 1, levelCap: 10, xp: 0 },
+      { uid: 'reserve', monsterId: 'aomori-senbein', level: 1, levelCap: 10, xp: 0 },
     );
     const earned = c.xp.monster[1]!;
     const applied = applyBattleResult(

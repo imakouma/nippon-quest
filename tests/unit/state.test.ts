@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { createNewGame } from '../../src/core/state/newGame';
 import { migrate } from '../../src/core/state/migrations';
 import { SCHEMA_VERSION, gameStateSchema } from '../../src/core/state/schema';
+import { normalizeLevelCaps } from '../../src/core/state/levelCaps';
 import { exportJson, importJson, summarizeSlot } from '../../src/core/state/save';
 import { recordPlayDuration, recordPlayMinute } from '../../src/core/state/playTime';
 
@@ -49,6 +50,9 @@ describe('GameState', () => {
     const state = fresh();
     expect(gameStateSchema.safeParse(state).success).toBe(true);
     expect(state.inventory['common-renshu-no-bou']).toBe(1);
+    expect(state.player.levelCap).toBe(10);
+    expect(state.learning.masteredRewardUnits).toEqual([]);
+    expect(state.learning.correctedRewardQuestionIds).toEqual([]);
   });
   it('安全整数を超える進行値をセーブデータとして受け入れない', () => {
     const state = fresh();
@@ -128,6 +132,74 @@ describe('GameState', () => {
     });
     expect(migrated.player.hp).toBe(12);
     expect(migrated.player.mp).toBe(3);
+  });
+  it('v10 の進行を保ったまま個体上限と学習報酬履歴を追加する', () => {
+    const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
+    legacy.schemaVersion = 10;
+    legacy.player.level = 37;
+    legacy.player.xp = 12_345;
+    legacy.player.equipment.weapon = 'common-renshu-no-bou';
+    legacy.party.owned = [
+      {
+        uid: 'same-uid',
+        monsterId: 'aomori-ringoron',
+        nickname: 'リン',
+        level: 12,
+        levelCap: 20,
+        xp: 678,
+      },
+    ];
+    legacy.dex.monsters = ['aomori-ringoron'];
+    legacy.inventory['aomori-ringo'] = 4;
+    legacy.learning.mastery['sansu.g1'] = { value: 0.9, n: 8, lastAt: 123 };
+    delete (legacy.player as Partial<typeof legacy.player>).levelCap;
+    delete (legacy.learning as Partial<typeof legacy.learning>).masteredRewardUnits;
+    delete (legacy.learning as Partial<typeof legacy.learning>).correctedRewardQuestionIds;
+    delete (legacy.party.owned[0] as Partial<(typeof legacy.party.owned)[number]>).levelCap;
+
+    const migrated = migrate(legacy);
+
+    expect(migrated.migratedFrom).toBe(10);
+    expect(migrated.state.schemaVersion).toBe(11);
+    expect(migrated.state.player).toMatchObject({ level: 37, xp: 12_345, levelCap: 40 });
+    expect(migrated.state.party.owned).toEqual([
+      {
+        uid: 'same-uid',
+        monsterId: 'aomori-ringoron',
+        nickname: 'リン',
+        level: 12,
+        xp: 678,
+        levelCap: 20,
+      },
+    ]);
+    expect(migrated.state.player.equipment.weapon).toBe('common-renshu-no-bou');
+    expect(migrated.state.dex.monsters).toEqual(['aomori-ringoron']);
+    expect(migrated.state.inventory['aomori-ringo']).toBe(4);
+    expect(migrated.state.learning.mastery['sansu.g1']).toEqual({ value: 0.9, n: 8, lastAt: 123 });
+    expect(migrated.state.learning.masteredRewardUnits).toEqual([]);
+    expect(migrated.state.learning.correctedRewardQuestionIds).toEqual([]);
+    expect(migrate(migrated.state)).toEqual({ state: migrated.state, migratedFrom: null });
+  });
+  it('読込後の上限を現在レベルと種族初期上限の大きい方へ一度だけ正規化する', () => {
+    const state = fresh();
+    state.player.level = 37;
+    state.player.levelCap = 40;
+    state.party.owned = [
+      {
+        uid: 'same-uid',
+        monsterId: 'aomori-ringoron',
+        level: 12,
+        xp: 678,
+        levelCap: 20,
+      },
+    ];
+    const monsters = new Map([['aomori-ringoron', { initialLevelCap: 40 }]]);
+
+    const normalized = normalizeLevelCaps(state, monsters, 10);
+
+    expect(normalized.player.levelCap).toBe(40);
+    expect(normalized.party.owned[0]?.levelCap).toBe(40);
+    expect(normalizeLevelCaps(normalized, monsters, 10)).toBe(normalized);
   });
   it('v2 の学習データへ履歴と概念状態を追加して移行する', () => {
     const current = fresh();

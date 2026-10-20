@@ -99,14 +99,14 @@
 
 **Acceptance criteria:**
 
-- [ ] v10のレベル、XP、uid、しんか状態、装備、学習履歴、図鑑、在庫を保持する。
-- [ ] 正規化後の上限は現在レベルと種族初期上限の両方を下回らない。
-- [ ] 二重移行・二重正規化で値が変わらない。
+- [x] v10のレベル、XP、uid、しんか状態、装備、学習履歴、図鑑、在庫を保持する。
+- [x] 正規化後の上限は現在レベルと種族初期上限の両方を下回らない。
+- [x] 二重移行・二重正規化で値が変わらない。
 
 **Verification:**
 
-- [ ] 移行前後の代表セーブをスナップショット比較する。
-- [ ] `pnpm vitest run tests/unit/state.test.ts tests/unit/savePersistence.test.ts`
+- [x] 移行前後の代表セーブをスナップショット比較する。
+- [x] `pnpm vitest run tests/unit/state.test.ts tests/unit/savePersistence.test.ts`
 
 **Dependencies:** Tasks 1, 3
 

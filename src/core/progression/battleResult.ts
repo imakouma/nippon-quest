@@ -8,6 +8,7 @@
  */
 import type { Settings } from '../content/schemas';
 import type { GameState } from '../state/schema';
+import { provisionalLevelCap } from './levelCap';
 import { addProgressValue } from '../../shared/safeInteger';
 
 export interface BattleSummary {
@@ -85,7 +86,13 @@ export function applyBattleResult(
     while (gs.party.owned.some((o) => o.uid === `${r.enemyRefId}#${n}`)) n++;
     newMonsterUid = `${r.enemyRefId}#${n}`;
     // バッグに 入れるかは マスしだい（progression/bag.ts の stowNewMonster を Battle が よぶ）。ここでは あずけるだけ
-    gs.party.owned.push({ uid: newMonsterUid, monsterId: r.enemyRefId, level: r.enemyLevel, xp: 0 });
+    gs.party.owned.push({
+      uid: newMonsterUid,
+      monsterId: r.enemyRefId,
+      level: r.enemyLevel,
+      levelCap: provisionalLevelCap(r.enemyLevel, 100),
+      xp: 0,
+    });
     bump(gs.progress.counters, `recruit:${r.enemyRefId}`);
   }
 

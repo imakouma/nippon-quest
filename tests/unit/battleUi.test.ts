@@ -78,7 +78,7 @@ describe('GameState → Party', () => {
   it('content に無いモンスターは連れていかない', async () => {
     const c = await content();
     const gs = newGame();
-    gs.party.owned.push({ uid: 'ghost', monsterId: 'no-such-monster', level: 1, xp: 0 });
+    gs.party.owned.push({ uid: 'ghost', monsterId: 'no-such-monster', level: 1, levelCap: 10, xp: 0 });
     expect(partyFromGameState(gs, c).monsters).toHaveLength(1);
   });
 });

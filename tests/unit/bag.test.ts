@@ -30,7 +30,7 @@ beforeAll(async () => {
 });
 const fresh = () => chooseStoryCompanion(createNewGame({ name: 'テスト', grade: 3 }, 1000), 'iwate-kagurabi');
 const own = (s: GameState, uid: string, monsterId = 'aomori-ringoron') => {
-  s.party.owned.push({ uid, monsterId, level: 1, xp: 0 });
+  s.party.owned.push({ uid, monsterId, level: 1, levelCap: 10, xp: 0 });
   return s;
 };
 

@@ -62,7 +62,13 @@ describe('物語のマップ導入', () => {
 
   it('旧セーブに通常の仲間がいても、岩手の相棒イベントを飛ばさない', () => {
     const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
-    game.party.owned.push({ uid: 'legacy-pal', monsterId: 'aomori-ringoron', level: 1, xp: 0 });
+    game.party.owned.push({
+      uid: 'legacy-pal',
+      monsterId: 'aomori-ringoron',
+      level: 1,
+      levelCap: 10,
+      xp: 0,
+    });
     game.party.team.push('legacy-pal');
     game.party.activeUid = 'legacy-pal';
     const story = mapArrivalStory('iwate-town', game, 200);

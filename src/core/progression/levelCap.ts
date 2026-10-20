@@ -24,6 +24,11 @@ export type LevelCapUnlockPreview =
   | { ok: true; nextCap: number; cost: LevelCapMaterials }
   | { ok: false; reason: 'not-at-cap' | 'insufficient-materials' | 'absolute-cap'; cost?: LevelCapMaterials };
 
+export function provisionalLevelCap(level: number, maximum: number): number {
+  const rounded = Math.ceil(Math.max(1, level) / 10) * 10;
+  return Math.max(level, Math.min(maximum, Math.max(10, rounded)));
+}
+
 export function previewLevelCapUnlock(
   target: LevelCapTarget,
   materials: LevelCapMaterials,

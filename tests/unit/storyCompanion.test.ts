@@ -35,7 +35,13 @@ describe('物語の相棒選択', () => {
 
   it('旧セーブに通常の仲間がいても、限定相棒を選べる', () => {
     const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
-    game.party.owned.push({ uid: 'legacy-pal', monsterId: 'aomori-ringoron', level: 2, xp: 0 });
+    game.party.owned.push({
+      uid: 'legacy-pal',
+      monsterId: 'aomori-ringoron',
+      level: 2,
+      levelCap: 10,
+      xp: 0,
+    });
     game.party.team.push('legacy-pal');
     game.party.activeUid = 'legacy-pal';
     game.party.bagPlacements['mon:legacy-pal'] = { x: 1, y: 0, rotated: false };
@@ -57,6 +63,7 @@ describe('物語の相棒選択', () => {
       uid: 'story-companion',
       monsterId: 'aomori-ringoron',
       level: 2,
+      levelCap: 10,
       xp: 0,
     });
 
@@ -73,7 +80,13 @@ describe('物語の相棒選択', () => {
 
   it('相棒は仲間一覧の先頭でなくても正しく見つける', () => {
     const chosen = chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 1 }), 'iwate-kodamaru');
-    chosen.party.owned.unshift({ uid: 'other', monsterId: 'aomori-ringoron', level: 1, xp: 0 });
+    chosen.party.owned.unshift({
+      uid: 'other',
+      monsterId: 'aomori-ringoron',
+      level: 1,
+      levelCap: 10,
+      xp: 0,
+    });
     expect(storyCompanionId(chosen)).toBe('iwate-kodamaru');
   });
 
@@ -81,7 +94,7 @@ describe('物語の相棒選択', () => {
     const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
     for (let index = 0; index < 7; index += 1) {
       const uid = `legacy-${index}`;
-      game.party.owned.push({ uid, monsterId: 'aomori-ringoron', level: 1, xp: 0 });
+      game.party.owned.push({ uid, monsterId: 'aomori-ringoron', level: 1, levelCap: 10, xp: 0 });
       game.party.team.push(uid);
     }
     game.party.reserve.push('old-reserve');
