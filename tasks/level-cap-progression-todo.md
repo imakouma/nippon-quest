@@ -356,8 +356,8 @@
 
 - [x] `pnpm gen:schemas`
 - [x] `pnpm gen:manifest`
-- [ ] 対象E2Eと`pnpm test:e2e:battle`（対象E2Eは成功、battleは最終検査で実行）
-- [ ] 4175以降の専用プレビューを起動し、アプリ内ブラウザで確認する。
+- [x] 対象E2Eと`pnpm test:e2e:battle`
+- [x] 4175以降の専用プレビューを起動し、アプリ内ブラウザで確認する。
 
 **Dependencies:** Tasks 11, 12
 
@@ -377,19 +377,19 @@
 
 **Acceptance criteria:**
 
-- [ ] 正しさ、設計、保守性、テスト、セキュリティの必須修正が残らない。
-- [ ] 重複した上限判断やScene内のドメイン分岐が残らない。
-- [ ] 仕様の成功条件をすべて満たし、作業ツリーに意図しない差分がない。
+- [x] 正しさ、設計、保守性、テスト、セキュリティの必須修正が残らない。
+- [x] 重複した上限判断やScene内のドメイン分岐が残らない。
+- [x] 仕様の成功条件をすべて満たし、作業ツリーに意図しない差分がない。
 
 **Verification:**
 
-- [ ] `pnpm lint`
-- [ ] `pnpm check:architecture`
-- [ ] `pnpm test`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm build`
-- [ ] `pnpm test:e2e:battle`
-- [ ] `git diff --check`
+- [ ] `pnpm lint`（今回の変更分は成功。基点から存在する未整形6ファイルで全体検査のみ失敗）
+- [x] `pnpm check:architecture`
+- [x] `pnpm test`
+- [x] `pnpm validate:content`
+- [x] `pnpm build`
+- [x] `pnpm test:e2e:battle`
+- [x] `git diff --check`
 
 **Dependencies:** Task 13
 
@@ -399,6 +399,14 @@
 
 ## Checkpoint D: Complete
 
-- [ ] `SPEC-level-cap-progression.md`の成功条件をすべて満たす。
-- [ ] 専用プレビューをユーザーが確認できる状態で開く。
-- [ ] ブランチ名、コミットID、変更概要、検査結果、残課題をWalkthroughへ記録する。
+- [x] `SPEC-level-cap-progression.md`の成功条件をすべて満たす。
+- [x] 専用プレビューをユーザーが確認できる状態で開く。
+- [x] ブランチ名、コミットID、変更概要、検査結果、残課題をWalkthroughへ記録する。
+
+## Walkthrough
+
+- ブランチ: `codex/level-cap-progression`
+- 実装最終コミット: `baada22`（レベル上限機能本体は先行する機能別コミットを含む）
+- 変更概要: 個体別上限、主人公Lv200、Lv101以降の成長抑制、XP保留、学習・ボス報酬、原子的な上限解放、バッグ・図鑑表示、v11セーブ移行を実装。
+- 検査: architecture、1148単体テスト、content、build、バッグE2E 2件、バトルE2E 8件、実ブラウザとコンソール確認が成功。
+- 残課題: 全体lintは今回触れていない基点由来の未整形6ファイルだけで失敗。今回の変更ファイルは個別のESLint・Prettierを通過。
