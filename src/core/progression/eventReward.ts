@@ -12,6 +12,39 @@ export interface RewardTier {
   reward: Reward;
 }
 
+export const TRIAL_CORE_ID = 'trial-core';
+
+export function applyFirstBossReward(
+  prev: GameState,
+  complete: (state: GameState) => GameState,
+  count: number,
+): { state: GameState; awarded: number } {
+  const completed = complete(prev);
+  if (completed === prev) return { state: prev, awarded: 0 };
+  return {
+    state: {
+      ...completed,
+      inventory: {
+        ...completed.inventory,
+        [TRIAL_CORE_ID]: addProgressValue(completed.inventory[TRIAL_CORE_ID] ?? 0, count),
+      },
+      dex: {
+        ...completed.dex,
+        items: completed.dex.items.includes(TRIAL_CORE_ID)
+          ? completed.dex.items
+          : [...completed.dex.items, TRIAL_CORE_ID],
+      },
+    },
+    awarded: count,
+  };
+}
+
+export const rewardMarkedBoss = (prev: GameState, flag: string, count: number) =>
+  applyFirstBossReward(prev, (state) => markDone(state, { flag }), count);
+
+export const rewardAreaBoss = (prev: GameState, areaId: string) =>
+  applyFirstBossReward(prev, (state) => earnAreaSign(state, areaId), 2);
+
 /** score 以下でいちばん高い段の報酬。どれにも届かなければいちばん低い段（score 0 でも必ず何かもらえる） */
 export function pickReward(tiers: readonly RewardTier[], score: number): Reward {
   const sorted = [...tiers].sort((a, b) => b.min - a.min);
@@ -81,6 +114,10 @@ export function markDone(
   o: { eventId?: string; stamp?: string; flag?: string },
   now = Date.now(),
 ): GameState {
+  const changed =
+    [o.eventId, o.flag].some((id) => id && !prev.progress.eventsDone.includes(id)) ||
+    Boolean(o.stamp && !prev.dex.motifs.includes(o.stamp));
+  if (!changed) return prev;
   const gs = structuredClone(prev);
   for (const id of [o.eventId, o.flag])
     if (id && !gs.progress.eventsDone.includes(id)) gs.progress.eventsDone.push(id);

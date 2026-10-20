@@ -55,10 +55,11 @@ import {
   villagerGift,
 } from '../core/progression/town';
 import {
-  applyReward,
-  earnAreaSign,
   markDone,
+  applyReward,
   pickReward,
+  rewardAreaBoss,
+  rewardMarkedBoss,
   type RewardLine,
 } from '../core/progression/eventReward';
 import {
@@ -70,7 +71,7 @@ import {
   nextStop,
   type NextStop,
 } from '../core/progression/route';
-import { canChallengeIslandBoss, completeIsland } from '../core/progression/island';
+import { canChallengeIslandBoss, rewardIslandBoss } from '../core/progression/island';
 import { specialtyTreasureGain } from '../core/progression/specialty';
 import { applyArenaVictory, markMapVisited } from '../core/progression/arena';
 import { createRng, freshSeed, type Rng } from '../core/rng';
@@ -1210,7 +1211,7 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     if (!area || !gs) return;
     this.busy = true;
-    this.setGame(markDone(gs, { eventId: regionBossFlag(area.id, rb.regionId) }));
+    this.setGame(rewardMarkedBoss(gs, regionBossFlag(area.id, rb.regionId), 1).state);
     this.regionBosses.delete(rb.boss.tile);
     this.dismissBoss(rb.boss);
     const opened = [...this.regionGates.values()].filter((g) => g.openedBy === rb.regionId);
@@ -1704,7 +1705,7 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     if (!mb || !area || !gs) return;
     this.busy = true;
-    this.setGame(markDone(gs, { flag: midBossFlag(area.id) }));
+    this.setGame(rewardMarkedBoss(gs, midBossFlag(area.id), 1).state);
     this.midBoss = null;
     this.dismissBoss(mb);
     await this.wait(650);
@@ -1725,7 +1726,7 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     if (!ab || !area || !gs) return;
     this.busy = true;
-    this.setGame(earnAreaSign(gs, area.id));
+    this.setGame(rewardAreaBoss(gs, area.id).state);
     this.areaBoss = null;
     this.dismissBoss(ab);
     await this.wait(650);
@@ -1779,7 +1780,7 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     if (!lb || !area || !gs) return;
     this.busy = true;
-    this.setGame(markDone(gs, { flag: lastBossFlag(area.id) }));
+    this.setGame(rewardMarkedBoss(gs, lastBossFlag(area.id), 3).state);
     this.lastBoss = null;
     this.dismissBoss(lb);
     await this.wait(650);
@@ -3319,10 +3320,10 @@ export class OverworldScene extends Phaser.Scene {
     const content = this.content();
     const gs = this.gs();
     if (!content || !gs) return;
-    const next = completeIsland(gs, content.world, islandId);
-    if (next === gs) return;
+    const reward = rewardIslandBoss(gs, content.world, islandId);
+    if (!reward.awarded) return;
     this.busy = true;
-    this.setGame(next);
+    this.setGame(reward.state);
     await this.wait(650);
     playSfx('victory');
     const island = content.world.islands.find((candidate) => candidate.id === islandId);

@@ -238,13 +238,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 地域ぬし・中ボス1、県ボス2、裏ボス3、地方ボス4個を付与する。
-- [ ] 同じ完了フラグがある再戦では付与しない。
-- [ ] ボス撃破の進行フラグ、県のしるし、物語進行を壊さない。
+- [x] 地域ぬし・中ボス1、県ボス2、裏ボス3、地方ボス4個を付与する。
+- [x] 同じ完了フラグがある再戦では付与しない。
+- [x] ボス撃破の進行フラグ、県のしるし、物語進行を壊さない。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/eventReward.test.ts tests/unit/areaBoss.test.ts`
+- [x] `pnpm vitest run tests/unit/eventReward.test.ts tests/unit/areaBoss.test.ts`
 
 **Dependencies:** Task 4
 

@@ -3,6 +3,7 @@
  */
 import type { World } from '../content/schemas';
 import type { GameState } from '../state/schema';
+import { applyFirstBossReward } from './eventReward';
 
 /** 島に属する全県の「県のしるし」が揃っているか。重複したしるしは1県分として扱う。 */
 export function hasAllAreaSigns(world: World, islandId: string, areaSigns: readonly string[]): boolean {
@@ -54,3 +55,6 @@ export function completeIsland(prev: GameState, world: World, islandId: string, 
     },
   };
 }
+
+export const rewardIslandBoss = (prev: GameState, world: World, islandId: string) =>
+  applyFirstBossReward(prev, (state) => completeIsland(state, world, islandId), 4);

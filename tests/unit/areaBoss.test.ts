@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { loadContent, type ContentIndex } from '../../src/core/content/loader';
-import { earnAreaSign } from '../../src/core/progression/eventReward';
+import { applyFirstBossReward, earnAreaSign, TRIAL_CORE_ID } from '../../src/core/progression/eventReward';
 import { areaBossFlag } from '../../src/core/progression/route';
 import { createNewGame } from '../../src/core/state/newGame';
 import { STORY_COMPANION_IDS } from '../../src/core/progression/storyCompanion';
@@ -28,12 +28,15 @@ beforeAll(async () => {
 describe('県ボス（ダンジョンの おく）', () => {
   it('倒すと 県のしるし と ボスの しるし が つく（2 回目は ふえない。元の GameState は 書きかえない）', () => {
     const gs = createNewGame({ name: 'ハル', grade: 3 });
-    const once = earnAreaSign(gs, 'aomori');
-    const twice = earnAreaSign(once, 'aomori');
+    const complete = (state: typeof gs) => earnAreaSign(state, 'aomori');
+    const once = applyFirstBossReward(gs, complete, 2).state;
+    const twice = applyFirstBossReward(once, complete, 2).state;
     expect(once.progress.areaSigns).toEqual(['aomori']);
     expect(once.progress.eventsDone).toContain(areaBossFlag('aomori'));
     expect(twice.progress.areaSigns).toEqual(['aomori']);
     expect(twice.progress.eventsDone.filter((f) => f === areaBossFlag('aomori'))).toHaveLength(1);
+    expect(once.inventory[TRIAL_CORE_ID]).toBe(2);
+    expect(twice.inventory[TRIAL_CORE_ID]).toBe(2);
     expect(gs.progress.areaSigns).toEqual([]);
   });
 
