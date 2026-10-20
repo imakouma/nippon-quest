@@ -118,11 +118,11 @@ test.describe('レベル上限のタッチ操作', () => {
     await regions.getByRole('button', { name: /東北/ }).click();
     await menu.getByRole('button', { name: /カグラビ/ }).click();
     const detail = menu.locator('.nq-dex-info');
-    await expect(detail).toContainText('はじめの上限 Lv10');
-    await expect(detail).toContainText('さいごの上限 Lv100');
+    await expect(detail).toContainText('はじめの 上限 Lv10');
+    await expect(detail).toContainText('さいごの 上限 Lv100');
     await page.screenshot({ path: testInfo.outputPath('dex-level-caps-known.png'), fullPage: true });
     await menu.locator('[data-menu-entry]').filter({ hasText: '？？？' }).first().click();
-    await expect(detail).not.toContainText('はじめの上限');
+    await expect(detail).not.toContainText('はじめの 上限');
     await page.screenshot({ path: testInfo.outputPath('dex-level-caps-hidden.png'), fullPage: true });
   });
 });
