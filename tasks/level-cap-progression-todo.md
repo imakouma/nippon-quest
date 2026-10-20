@@ -60,16 +60,16 @@
 
 **Acceptance criteria:**
 
-- [ ] 全モンスターが10〜60の10刻みの`initialLevelCap`を持つ。
-- [ ] 同じ入力から同じ値を生成し、二回目の実行では差分が出ない。
-- [ ] ランタイムは明示値を読み、学年から再推論しない。
+- [x] 全モンスターが10〜60の10刻みの`initialLevelCap`を持つ。
+- [x] 同じ入力から同じ値を生成し、二回目の実行では差分が出ない。
+- [x] ランタイムは明示値を読み、学年から再推論しない。
 
 **Verification:**
 
-- [ ] 値の件数・分布・範囲を監査出力で確認する。
-- [ ] `pnpm gen:schemas`
-- [ ] `pnpm vitest run tests/unit/content.test.ts`
-- [ ] `pnpm validate:content`
+- [x] 値の件数・分布・範囲を監査出力で確認する。
+- [x] `pnpm gen:schemas`
+- [x] `pnpm vitest run tests/unit/content.test.ts`
+- [x] `pnpm validate:content`
 
 **Dependencies:** Task 1
 
@@ -85,13 +85,13 @@
 
 ## Checkpoint A: 成長基盤
 
-- [ ] `pnpm gen:schemas`
-- [ ] `pnpm lint`
-- [ ] `pnpm check:architecture`
-- [ ] `pnpm test`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm build`
-- [ ] Task 1〜3を独立したコミットとして保存する。
+- [x] `pnpm gen:schemas`
+- [ ] `pnpm lint`（今回の変更分は成功。基点から存在する未整形8ファイルで全体検査のみ失敗）
+- [x] `pnpm check:architecture`
+- [x] `pnpm test`
+- [x] `pnpm validate:content`
+- [x] `pnpm build`
+- [x] Task 1〜3を独立したコミットとして保存する。
 
 ## Task 4: v11セーブ移行と上限正規化
 

@@ -286,6 +286,7 @@ export const monsterSchema = z.object({
   baseStats: statsSchema,
   growth: growthCurveSchema,
   skills: z.array(idSchema).default([]),
+  initialLevelCap: safePositiveIntegerSchema.min(10).max(60).multipleOf(10),
   drops: z.array(z.object({ itemId: idSchema, rate: z.number().min(0).max(1) })).default([]),
   recruitRate: z.number().min(0).max(1).default(0),
   recruitItem: idSchema.optional(),
