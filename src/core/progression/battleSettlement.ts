@@ -20,6 +20,21 @@ export function settleBattleBag(
   let state = applied.state;
   let recruitStored = false;
   if (applied.newMonsterUid) {
+    const joined = state.party.owned.find((monster) => monster.uid === applied.newMonsterUid);
+    const speciesInitialLevelCap = joined
+      ? content.monsters.get(joined.monsterId)?.initialLevelCap
+      : undefined;
+    if (joined && speciesInitialLevelCap && joined.levelCap < speciesInitialLevelCap) {
+      state = {
+        ...state,
+        party: {
+          ...state.party,
+          owned: state.party.owned.map((monster) =>
+            monster.uid === joined.uid ? { ...monster, levelCap: speciesInitialLevelCap } : monster,
+          ),
+        },
+      };
+    }
     const stow = stowNewMonster(state, applied.newMonsterUid, bagContext(state, content));
     state = stow.state;
     recruitStored = !stow.inBag;

@@ -126,13 +126,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 新規加入個体は種族初期上限と加入レベル切り上げの大きい方になる。
-- [ ] 物語相棒にも初期上限が入る。
-- [ ] しんか後は現在上限と進化先初期上限の大きい方になり、解放実績を失わない。
+- [x] 新規加入個体は種族初期上限と加入レベル切り上げの大きい方になる。
+- [x] 物語相棒にも初期上限が入る。
+- [x] しんか後は現在上限と進化先初期上限の大きい方になり、解放実績を失わない。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/battleResult.test.ts tests/unit/storyCompanion.test.ts tests/unit/evolution.test.ts`
+- [x] `pnpm vitest run tests/unit/battleSettlement.test.ts tests/unit/storyCompanion.test.ts tests/unit/evolution.test.ts`
 
 **Dependencies:** Task 4
 

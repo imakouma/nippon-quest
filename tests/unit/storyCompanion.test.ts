@@ -19,13 +19,23 @@ describe('物語の相棒選択', () => {
   it.each(STORY_COMPANION_IDS)('%s を選ぶと最初の相棒として加入する', (monsterId) => {
     const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
     const chosen = chooseStoryCompanion(game, monsterId, 200);
-    expect(chosen.party.owned).toEqual([{ uid: 'story-companion', monsterId, level: 1, xp: 0 }]);
+    expect(chosen.party.owned).toEqual([
+      { uid: 'story-companion', monsterId, level: 1, levelCap: 10, xp: 0 },
+    ]);
     expect(chosen.party.activeUid).toBe('story-companion');
     expect(chosen.party.team).toEqual(['story-companion']);
     expect(chosen.party.bagPlacements['mon:story-companion']).toMatchObject({ x: 1, y: 0 });
     expect(chosen.progress.eventsDone).toContain(STORY_COMPANION_EVENT);
     expect(chosen.dex.monsters).toContain(monsterId);
     expect(game.party.owned).toEqual([]);
+  });
+
+  it('相棒個体へ種族の初期上限を設定する', () => {
+    const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
+
+    const chosen = chooseStoryCompanion(game, 'iwate-kagurabi', 200, 30);
+
+    expect(chosen.party.owned[0]?.levelCap).toBe(30);
   });
 
   it('選択済みデータや既存の相棒がいるデータを上書きしない', () => {

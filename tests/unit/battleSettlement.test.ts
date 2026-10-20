@@ -35,6 +35,36 @@ describe('バトル後のバッグ編成', () => {
     expect(before.party.owned).toHaveLength(1);
   });
 
+  it('加入個体の上限を種族初期値と加入レベル切り上げの大きい方にする', async () => {
+    const c = await content();
+    const species = [...c.monsters.values()].find((monster) => monster.initialLevelCap === 40)!;
+    const before = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    const applied = applyBattleResult(
+      before,
+      summary({ outcome: 'recruited', enemyRefId: species.id, enemyLevel: 1 }),
+      c.settings,
+      2_000,
+    );
+
+    const settled = settleBattleBag(before, applied, c);
+
+    expect(settled.state.party.owned.find((monster) => monster.uid === applied.newMonsterUid)?.levelCap).toBe(
+      40,
+    );
+
+    const highLevelApplied = applyBattleResult(
+      before,
+      summary({ outcome: 'recruited', enemyRefId: species.id, enemyLevel: 51 }),
+      c.settings,
+      3_000,
+    );
+    const highLevelSettled = settleBattleBag(before, highLevelApplied, c);
+    expect(
+      highLevelSettled.state.party.owned.find((monster) => monster.uid === highLevelApplied.newMonsterUid)
+        ?.levelCap,
+    ).toBe(60);
+  });
+
   it('戦闘中に記録されたプレイ時間を結果反映後も保持する', async () => {
     const c = await content();
     const started = createNewGame({ name: 'ハル', grade: 3 }, 1_000);

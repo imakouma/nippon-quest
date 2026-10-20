@@ -45,7 +45,9 @@ export function evolve(
   const info = owned && evolutionOf(prev, owned, monsters);
   if (!owned || !info?.ok) return null;
   const gs = structuredClone(prev);
-  gs.party.owned.find((o) => o.uid === uid)!.monsterId = info.to.id;
+  const evolved = gs.party.owned.find((o) => o.uid === uid)!;
+  evolved.monsterId = info.to.id;
+  evolved.levelCap = Math.max(evolved.levelCap, info.to.initialLevelCap);
   gs.inventory[info.itemId] = info.have - info.need;
   if (!gs.dex.monsters.includes(info.to.id)) gs.dex.monsters.push(info.to.id);
   gs.updatedAt = now;
