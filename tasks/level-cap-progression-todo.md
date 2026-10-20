@@ -323,13 +323,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 既知種族に`はじめの上限`と`さいごの上限 Lv100`が表示される。
-- [ ] 未発見種族は上限値を公開しない。
-- [ ] 図鑑は個体上限ではなく種族定義を表示する。
+- [x] 既知種族に`はじめの上限`と`さいごの上限 Lv100`が表示される。
+- [x] 未発見種族は上限値を公開しない。
+- [x] 図鑑は個体上限ではなく種族定義を表示する。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/menuView.test.ts`
+- [x] `pnpm vitest run tests/unit/menuView.test.ts`
 - [ ] 実ブラウザで既知・未発見の両方を確認する。
 
 **Dependencies:** Tasks 3, 11

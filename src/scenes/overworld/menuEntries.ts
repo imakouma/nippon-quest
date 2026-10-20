@@ -269,6 +269,8 @@ export function buildMenuView(input: MenuViewInput): MenuView {
               m.weakness
                 ? t('field.dexWeak', { el: t(`elements.${m.weakness}`) })
                 : t('battle.weaknessUnknown'),
+              t('field.dexInitialLevelCap', { n: m.initialLevelCap }),
+              t('field.dexMaximumLevelCap', { n: content.settings.levelCaps.monsterMaximum }),
             ]
           : [area, t('field.dexNotSeen')],
         blurb: known ? m.dexBlurb : undefined,

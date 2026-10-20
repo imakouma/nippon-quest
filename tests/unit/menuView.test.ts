@@ -69,6 +69,12 @@ describe('フィールドメニューの表示モデル', () => {
       new Set(['hokkaido', 'tohoku', 'kanto', 'chubu', 'kinki', 'chugoku', 'shikoku', 'kyushu-okinawa']),
     );
     expect(view.entries.find((entry) => entry.key === 'iwate-kagurabi')).toMatchObject({ group: 'tohoku' });
+    const known = view.entries.find((entry) => entry.key === 'iwate-kagurabi')!;
+    expect(known.lines.join(' ')).toContain(
+      `はじめの上限 Lv${c.monsters.get('iwate-kagurabi')!.initialLevelCap}`,
+    );
+    expect(known.lines.join(' ')).toContain('さいごの上限 Lv100');
+    expect(view.entries.find((entry) => !entry.known)?.lines.join(' ')).not.toContain('上限');
   });
 
   it('図鑑にバッグ内で使うマスの形を渡す', async () => {
