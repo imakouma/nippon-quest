@@ -1165,6 +1165,7 @@ function worldMap(triggers: Map<string, EventSpot[]>): object {
       id: island.id,
       width: land.w,
       height: land.h,
+      panels: land.terrain.panels,
       rows: land.terrain.rows.map((r) => [...r].map((c) => (c >= 'a' && c < end ? c : '.')).join('')),
       areas: areas.map((id, k) => {
         const letter = String.fromCharCode(97 + k);

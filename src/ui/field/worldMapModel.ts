@@ -1,9 +1,25 @@
+export interface MapProjection {
+  lon0: number;
+  lat0: number;
+  kx: number;
+  ky: number;
+  ox: number;
+  oy: number;
+}
+
+export interface MapPanel {
+  bbox: [number, number, number, number];
+  proj: MapProjection;
+}
+
 /** public/worldmap.json の形 */
 export interface WorldMapData {
   regions: {
     id: string;
     width: number;
     height: number;
+    /** 地方ごとに異なる格子を全国共通の地理座標へ戻すための投影情報 */
+    panels: MapPanel[];
     /** '.' は海、'a' + i は areas[i] の県 */
     rows: string[];
     areas: { id: string; capital: [number, number]; stamps: string[] }[];
@@ -24,6 +40,7 @@ export interface MapRegionInfo {
   name: string;
   width: number;
   height: number;
+  panels: MapPanel[];
   rows: string[];
   areas: MapAreaInfo[];
   status: 'playable' | 'stub';
