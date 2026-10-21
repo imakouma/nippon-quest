@@ -8,6 +8,7 @@ import {
   GROUNDS,
   groundOfTile,
   isRoadTile,
+  PREFECTURE_BORDER_TILE,
   RIDGE_TILE,
   ROAD_TILE,
   type Ground,
@@ -60,7 +61,9 @@ describe('フィールドの 地面の 性質（docs/00 §2.2）', () => {
   it('県の フィールドの 陸は どの マスも どれかの 地面（3 は 海・湖、RIDGE_TILE は 名所エリアの さかい）', () => {
     for (const a of c.areas.values()) {
       if (!a.mapKeys) continue;
-      const bad = background(a.mapKeys.field).filter((t) => t !== 3 && t !== RIDGE_TILE && !groundOfTile(t));
+      const bad = background(a.mapKeys.field).filter(
+        (t) => t !== 3 && t !== RIDGE_TILE && t !== PREFECTURE_BORDER_TILE && !groundOfTile(t),
+      );
       expect(bad, a.id).toEqual([]);
     }
   });

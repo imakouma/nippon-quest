@@ -24,6 +24,8 @@ export const GROUND_TILES: Record<Ground, readonly number[]> = {
 export const RIDGE_TILE = 159;
 /** フィールドの土の道。歩けるが、ランダムエンカウントは起きない。 */
 export const ROAD_TILE = 163;
+/** 県境門のない場所を示す石垣（通れない。地面ではない）。 */
+export const PREFECTURE_BORDER_TILE = 301;
 
 export const isRoadTile = (tile: number | undefined): boolean => tile === ROAD_TILE;
 

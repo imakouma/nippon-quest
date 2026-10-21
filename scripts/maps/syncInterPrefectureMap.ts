@@ -5,6 +5,7 @@ import type { TerrainMap } from '../gen-terrain.js';
 import type { LandBorderLink } from '../terrain/prefectureBorders.js';
 import { components, project } from '../terrain/raster.js';
 import { interPrefectureObjectDefinitions } from './interPrefectureObjects.js';
+import { paintPrefectureBorders } from './prefectureBoundary.js';
 
 type Point = [number, number];
 
@@ -38,6 +39,9 @@ const TILE_SIZE = 16;
 const BLOCK_TILE = 3;
 const ROAD_TILE = 163;
 const SIGN_GAP = 3;
+
+const propertyValue = (object: TiledObject, name: string): unknown =>
+  object.properties?.find((property) => property.name === name)?.value;
 
 class ExistingMapLand {
   readonly w: number;
@@ -305,6 +309,27 @@ export function syncInterPrefectureMap(input: {
     ...(definition.properties ? { properties: definition.properties } : {}),
   }));
   connectEntrancesToRoads(map, land, objects, generated);
+  const background = map.layers.find((layer) => layer.name === 'background')?.data;
+  if (!background) throw new Error(`${input.prefId}-field: background がありません`);
+  paintPrefectureBorders(
+    input.terrain,
+    background,
+    generated.flatMap((entry) => {
+      if (entry.type !== 'interPrefectureLink' || propertyValue(entry, 'infrastructure') !== 'landBorder')
+        return [];
+      const linkId = propertyValue(entry, 'linkId');
+      const arrival = generated.find(
+        (object) => object.type === 'spawn' && object.name === `from_${String(linkId)}`,
+      );
+      if (!arrival) throw new Error(`${entry.name}: 県境の到着地点がありません`);
+      return [
+        {
+          entryIndex: land.idx([entry.x / TILE_SIZE, entry.y / TILE_SIZE]),
+          arrivalIndex: land.idx([arrival.x / TILE_SIZE, arrival.y / TILE_SIZE]),
+        },
+      ];
+    }),
+  );
   objectLayer.objects = [...objects, ...generated];
   map.nextobjectid = nextId;
   return map;

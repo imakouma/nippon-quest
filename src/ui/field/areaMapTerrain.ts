@@ -55,6 +55,7 @@ const TILE_COLOR: Record<number, string> = {
   246: NQ.tan,
   249: NQ.teal,
   250: NQ.aqua,
+  301: NQ.gray,
 };
 
 export const areaMapTerrainColor = (tile: number): string => TILE_COLOR[tile] ?? NQ.leaf;

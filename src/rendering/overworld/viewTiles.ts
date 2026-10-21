@@ -262,6 +262,22 @@ function drawView(px: (n: number) => Px): void {
   // 名所エリアの さかいの 山なみ：くらい 岩の 山に 雪。マスの はばいっぱいで すきま なく ならぶ（歩ける 茶色の 山と 見わけ）
   ridge(px(VIEW.RIDGE), 8, 1);
   ridge(px(VIEW.RIDGE2), 6, 2);
+  // 県境の石垣：門の正面以外を切れ目なく塞ぐ。
+  {
+    const p = px(VIEW.PREFECTURE_BORDER);
+    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, grassAt(x, y, 0));
+    for (let y = 2; y < 14; y++)
+      for (let x = 0; x < 16; x++)
+        p(x, y, y < 4 ? NQ.silver : y === 7 ? NQ.slate : y >= 13 ? NQ.night : NQ.gray);
+    for (const [x, y] of [
+      [5, 2],
+      [11, 2],
+      [2, 8],
+      [8, 8],
+      [14, 8],
+    ] as const)
+      for (let yy = y; yy < Math.min(y + 5, 13); yy++) p(x, yy, NQ.slate);
+  }
   // さくらの 木（ピンクの まるい こずえに 白い 花）
   sakuraTree(px(VIEW.SAKURA));
   // 恐山の はいいろの 砂地（小石と いおうの 黄色）・ゆけむりの 出る あな

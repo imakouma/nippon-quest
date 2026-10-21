@@ -60,7 +60,9 @@ import { partitionConnectedRegions } from './regions/connectedPartition.js';
 import { applyRegionWalls } from './regions/partitionWalls.js';
 import { interPrefectureObjectDefinitions } from './maps/interPrefectureObjects.js';
 import { findImmediateArrivalTile, hasImmediateArrivalTile } from './maps/immediateArrival.js';
+import { paintGeneratedPrefectureBorders } from './maps/prefectureBoundary.js';
 import { syncInterPrefectureMapFile } from './maps/syncInterPrefectureMap.js';
+import { terrainLayers } from './maps/terrainLayers.js';
 import { createRng } from '../src/core/rng.js';
 import { GROUND_TILES, type Ground } from '../src/core/world/ground.js';
 import type { TerrainMap } from './gen-terrain.js';
@@ -495,11 +497,6 @@ function ferryObjects(
     { name: `ferry_return_${tag}`, type: 'spawn', at: place.beside(a) },
   ];
 }
-
-const terrainLayers = (land: Land, tileOf: (c: string, i: number) => number) => ({
-  bg: [...land.cells].map(tileOf),
-  col: [...land.cells].map((c) => (BLOCKED.has(c) ? BLOCK : 0)),
-});
 
 /** seed の マスから 4 方向に 何マスで とどくか（seed の マスは 0。とどかない マスは -1） */
 function distanceFrom(land: Land, seed: (c: string) => boolean): Int32Array {
@@ -1002,13 +999,14 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
       transports: TRANSPORT_LINKS,
     }),
   );
-  const { bg, col } = terrainLayers(land, groundTiles(land, prefId));
+  const { bg, col } = terrainLayers(land, groundTiles(land, prefId), BLOCKED, BLOCK);
   if (FIELD_ALL_GRASS.has(prefId)) allGrass(land, bg);
   if (part) regionLooks(land, part, prefId, bg);
   if (part) {
     defs.push(...villages(land, part, prefId, defs, col));
     roads(land, defs, col, bg);
   }
+  paintGeneratedPrefectureBorders(land.terrain, bg, defs);
   const props = part
     ? [
         str(
@@ -1334,7 +1332,7 @@ function enclaveMap(enc: EnclaveDef): object {
     ...landmarks,
   ];
 
-  const { bg, col } = terrainLayers(land, groundTiles(land, enc.prefId));
+  const { bg, col } = terrainLayers(land, groundTiles(land, enc.prefId), BLOCKED, BLOCK);
   return tiledMap(land.w, land.h, bg, col, toObjects(defs), false);
 }
 

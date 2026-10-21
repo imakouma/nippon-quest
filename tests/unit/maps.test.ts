@@ -40,6 +40,9 @@ interface RegionArea {
 }
 
 interface TerrainMap {
+  width: number;
+  height: number;
+  rows: string[];
   panels: { bbox: [number, number, number, number]; proj: Proj }[];
 }
 
@@ -48,6 +51,8 @@ const PREFECTURES = new URL('../../content/prefectures/', import.meta.url);
 const WORLD_MAP = new URL('../../public/worldmap.json', import.meta.url);
 const WORLD = new URL('../../content/world/japan.json', import.meta.url);
 const ITEMS = new URL('../../content/items/', import.meta.url);
+const PREFECTURE_BORDER_TILE = 301;
+const ROAD_TILE = 163;
 const TERRAIN = JSON.parse(
   readFileSync(new URL('../../scripts/data/terrain.json', import.meta.url), 'utf8'),
 ) as { maps: Record<string, TerrainMap> };
@@ -163,6 +168,64 @@ describe('マップ', () => {
       }
       expect(seen.has(tileIndex(m, o)), `${key} の ${o.name} に行けない`).toBe(true);
     }
+  });
+
+  it('県外の陸地は陸として描き、門だけを開けた県境を見えるように塞ぐ', () => {
+    let neighboringLandTiles = 0;
+    let visibleBorderTiles = 0;
+    let gateOpenings = 0;
+    const renderingErrors: string[] = [];
+    const collisionErrors: string[] = [];
+    for (const [key, terrain] of Object.entries(TERRAIN.maps)) {
+      const map = maps.get(key);
+      if (!map) continue;
+      const landLinks = objectsOf(map).filter(
+        (object) =>
+          object.type === 'interPrefectureLink' && prop(object, 'infrastructure') === 'landBorder',
+      );
+      if (landLinks.length === 0) continue;
+      const background = map.layers.find((layer) => layer.name === 'background')?.data ?? [];
+      const collision = map.layers.find((layer) => layer.name === 'collision')?.data ?? [];
+      const cells = terrain.rows.join('');
+      const openings = new Set(
+        landLinks
+          .flatMap((object) => {
+            const entry = tileIndex(map, object);
+            const arrival = objectsOf(map).find(
+              (candidate) =>
+                candidate.type === 'spawn' && candidate.name === `from_${String(prop(object, 'linkId'))}`,
+            );
+            const opening = arrival ? entry * 2 - tileIndex(map, arrival) : -1;
+            return neighbors(map, entry).includes(opening) && cells[opening] === 'x' ? [opening] : [];
+          }),
+      );
+      expect(terrain.rows, `${key}: 地形の高さ`).toHaveLength(terrain.height);
+      for (const [y, row] of terrain.rows.entries()) {
+        expect(row, `${key}: 地形 ${y} 行目の幅`).toHaveLength(terrain.width);
+        for (const [x, cell] of [...row].entries()) {
+          const index = y * terrain.width + x;
+          if (cell === 'x') {
+            neighboringLandTiles++;
+            const boundary = neighbors(map, index).some(
+              (candidate) => !['.', '~', 'x'].includes(cells[candidate]!),
+            );
+            const expected = openings.has(index) ? ROAD_TILE : boundary ? PREFECTURE_BORDER_TILE : 1;
+            if (openings.has(index)) gateOpenings++;
+            else if (boundary) visibleBorderTiles++;
+            if (background[index] !== expected)
+              renderingErrors.push(
+                `${key}: 県外の陸 (${x}, ${y}) = ${background[index]}, expected ${expected}`,
+              );
+            if (collision[index] !== 3) collisionErrors.push(`${key}: 県境 (${x}, ${y})`);
+          }
+        }
+      }
+    }
+    expect(renderingErrors).toEqual([]);
+    expect(collisionErrors).toEqual([]);
+    expect(neighboringLandTiles).toBeGreaterThan(0);
+    expect(visibleBorderTiles).toBeGreaterThan(0);
+    expect(gateOpenings).toBeGreaterThan(0);
   });
 
   it('県のフィールドには中ボスの場所が 1 つ、名所の看板（フィールド・離島）は その県の motifs を指している', () => {
