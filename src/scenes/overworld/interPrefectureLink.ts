@@ -1,4 +1,5 @@
 import { areaTravelCompleted } from '../../core/progression/route';
+import { interPrefectureArrivalKey } from '../../core/progression/interPrefectureArrival';
 
 export type InterPrefectureInfrastructure = 'landBorder' | 'bridge' | 'tunnel' | 'seaRoute';
 export type InterPrefectureTravelMode = 'walk' | 'bicycle' | 'roadVehicle' | 'rail' | 'ferry';
@@ -124,17 +125,15 @@ export interface InterPrefectureDestinationProgress {
   counters: Readonly<Record<string, number>>;
 }
 
-/** 初回だけ通常入口へ送り、以後は県境の同じリンク同士をつなぐ。セーブは変更しない。 */
+/** 攻略前は通常入口へ送り、攻略後または開発者中は県境同士をつなぐ。セーブは変更しない。 */
 export function interPrefectureDestinationSpawn(
   link: InterPrefectureLink,
   progress: InterPrefectureDestinationProgress,
   devAll: boolean,
 ): string {
-  const visitPrefix = `visit:${link.targetArea}-`;
-  const visited = Object.entries(progress.counters).some(
-    ([key, count]) => key.startsWith(visitPrefix) && count > 0,
-  );
-  return devAll || visited || areaTravelCompleted(progress, link.targetArea)
+  return devAll ||
+    areaTravelCompleted(progress, link.targetArea) ||
+    progress.counters[interPrefectureArrivalKey(link.targetArea)]
     ? link.targetSpawn
     : link.firstTargetSpawn;
 }

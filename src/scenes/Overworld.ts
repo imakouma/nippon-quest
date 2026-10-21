@@ -66,14 +66,14 @@ import {
   regionBossDefeated,
   regionBossFlag,
 } from '../core/progression/route';
-import { DEV_ALL_KEY, toggleDeveloperTravel } from '../core/progression/developerTravel';
+import { developerTravelActive, toggleDeveloperTravel } from '../core/progression/developerTravel';
 import { canChallengeIslandBoss, rewardIslandBoss } from '../core/progression/island';
 import { specialtyTreasureGain } from '../core/progression/specialty';
 import { applyArenaVictory } from '../core/progression/arena';
 import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
 import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
-import { ENCLAVES } from '../../scripts/data/prefectures';
+import { ENCLAVES } from '../core/content/enclaves';
 import type { DialogueLine } from '../ui/dialogue';
 import { AreaMapOverlay, type AreaMapView } from '../ui/field/AreaMap';
 import type { RegionMiniView } from '../ui/field/RegionMiniMap';
@@ -83,7 +83,8 @@ import { bagCells } from '../ui/field/bagLayout';
 import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
 import { isImportedLocationValid } from './overworld/importedLocation';
-import { persistOverworldLocation } from './overworld/locationPersistence';
+import { unavailableDeveloperSceneRecovery } from './overworld/developerScene';
+import { accessibleLastInn, persistOverworldLocation } from './overworld/locationPersistence';
 import { WorldMapOverlay, type MapRegionInfo, type WorldMapData } from '../ui/field/WorldMapOverlay';
 import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
@@ -329,7 +330,11 @@ export class OverworldScene extends Phaser.Scene {
   private encounterSequence = 0;
   private readonly encounterResults = createEncounterResultHandlers(
     {
-      lastInn: () => this.gs()?.progress.lastInn,
+      lastInn: () => {
+        const game = this.gs();
+        const content = this.content();
+        return game && content ? accessibleLastInn(game, content.world, content.areas) : null;
+      },
       currentMap: () => this.mapKey,
       transition: (request, { signal, scope }) => {
         this.checkpointField();
@@ -404,6 +409,27 @@ export class OverworldScene extends Phaser.Scene {
     this.mapKey = this.entryRequest.targetMap;
     this.pendingInterPrefectureArrival = this.entryRequest.interPrefectureArrival ?? false;
     this.pendingDebugBattle = data?.debugBattle ?? null;
+
+    const recovery = unavailableDeveloperSceneRecovery(
+      this.gs(),
+      this.content()?.world,
+      this.devAvailable(),
+      TILE,
+      Date.now(),
+      this.content()?.areas,
+    );
+    if (recovery) {
+      this.registry.set('game', recovery.game);
+      this.entryRequest = {
+        targetMap: recovery.scene.mapKey,
+        spawnName: recovery.scene.spawnName,
+        tile: recovery.scene.spawnTile,
+        exactSpawn: recovery.scene.exactSpawn,
+        reason: 'script',
+      };
+      this.mapKey = this.entryRequest.targetMap;
+      this.pendingInterPrefectureArrival = false;
+    }
   }
 
   preload(): void {
@@ -811,11 +837,13 @@ export class OverworldScene extends Phaser.Scene {
   /** 1 マス歩き終えたときの候補をrouterへ渡し、一件だけ実行する。 */
   private arrive(x: number, y: number): void {
     this.enterRegion(x, y);
-    const interPrefecture = this.interPrefectureLinks.get(this.idx(x, y));
+    const index = this.idx(x, y);
+    const interPrefecture = this.interPrefectureLinks.get(index);
     if (interPrefecture) {
       void this.enterInterPrefecture(interPrefecture);
       return;
     }
+    if (this.devAll() && !this.transitions.has(index)) return;
     this.routeFieldInteraction('arrive', { x, y });
   }
   private routeFieldInteraction(intent: FieldInteractionIntent, position?: { x: number; y: number }): void {
@@ -1220,7 +1248,7 @@ export class OverworldScene extends Phaser.Scene {
     const regionId = String(prop(obj, 'region') ?? '');
     const region = area?.regions.find((r) => r.id === regionId);
     const def = region?.boss && this.content()?.monsters.get(region.boss.monsterId);
-    if (!area || !region || !def) return;
+    if (!area || !region || !def || this.devAll()) return;
     if (regionBossDefeated(this.gs()?.progress, area.id, regionId)) return;
     const boss = this.bossMarker(tx, ty, def);
     this.regionBosses.set(boss.tile, { regionId, region, boss });
@@ -1308,7 +1336,8 @@ export class OverworldScene extends Phaser.Scene {
   /** 県ボス：ダンジョンの おくの へや（さいだんの 前）に 立つ。見た目と ぶつかったときは 中ボスと同じ。倒すと 県のしるし */
   private addAreaBoss(tx: number, ty: number, area: Area | undefined): void {
     const def = area?.boss ? this.content()?.monsters.get(area.boss) : undefined;
-    if (!area || !def || this.gs()?.progress.eventsDone.includes(areaBossFlag(area.id))) return;
+    if (!area || !def || this.devAll() || this.gs()?.progress.eventsDone.includes(areaBossFlag(area.id)))
+      return;
     this.areaBoss = this.bossMarker(tx, ty, def);
   }
 
@@ -1759,7 +1788,8 @@ export class OverworldScene extends Phaser.Scene {
   /** 裏ステージの ラスボス（歴史上の 人物）：いちばん おくの へやに 立つ。見た目は ほかの ボスと 同じ「？」マーク */
   private addLastBoss(tx: number, ty: number, area: Area | undefined): void {
     const def = area?.secret ? this.content()?.monsters.get(area.secret.boss) : undefined;
-    if (!area || !def || this.gs()?.progress.eventsDone.includes(lastBossFlag(area.id))) return;
+    if (!area || !def || this.devAll() || this.gs()?.progress.eventsDone.includes(lastBossFlag(area.id)))
+      return;
     this.lastBoss = this.bossMarker(tx, ty, def);
   }
 
@@ -2451,7 +2481,7 @@ export class OverworldScene extends Phaser.Scene {
 
   /** 歩数エンカウント。フィールドでは現在の地面に対応する出現表を使う。 */
   private checkRandomEncounter(suppressed = false): void {
-    // 開発者モード中は ふつうの モンスターと 出会わない（中ボス・県ボス・ラスボスは そのまま）
+    // 開発者モード中は移動確認だけに限定し、ランダム戦闘を起こさない。
     if (this.devAll()) return;
     const area = this.currentArea();
     const gs = this.gs();
@@ -2649,22 +2679,21 @@ export class OverworldScene extends Phaser.Scene {
     this.busy = false;
   }
 
-  /** 開発者モードのボタンを出すか（開発・ローカルpreview、またはURLに ?dev）。 */
+  /** 開発者モードのボタンを出すか。本番ホストではクエリ指定でも公開しない。 */
   private devAvailable(): boolean {
-    const url = new URL(location.href);
-    return isLocalDevelopmentUrl(url, import.meta.env.DEV) || url.searchParams.has('dev');
+    return isLocalDevelopmentUrl(new URL(location.href), import.meta.env.DEV);
   }
 
   /** 開発者モード中：全地域へ移動でき、教材ロードマップも全開放する（counters の dev:all）。 */
   private devAll(): boolean {
-    return (this.gs()?.progress.counters[DEV_ALL_KEY] ?? 0) > 0;
+    return developerTravelActive(this.gs(), this.devAvailable());
   }
   private toggleDev(): void {
     const gs = this.gs();
     if (!gs || this.busy || this.inBattle || this.moving) return;
     const world = this.content()?.world;
     if (!world) return;
-    const change = toggleDeveloperTravel(gs, world, this.mapKey, this.playerTile());
+    const change = toggleDeveloperTravel(gs, world, this.mapKey, this.playerTile(), this.content()?.areas);
     this.setGame(change.game);
     for (const gate of this.regionGates.values()) this.syncGate(gate);
     this.syncLockedTransitions();
@@ -3314,6 +3343,7 @@ export class OverworldScene extends Phaser.Scene {
 
   /** にほんちずの城から地方ボスへ挑戦する。県のしるし不足・クリア済みなら開始しない。 */
   private async challengeIslandBoss(islandId: string): Promise<void> {
+    if (this.devAll()) return;
     const content = this.content();
     const gs = this.gs();
     const island = content?.world.islands.find((candidate) => candidate.id === islandId);

@@ -30,6 +30,8 @@ interface SpawnObject {
   type?: string;
   x?: number;
   y?: number;
+  width?: number;
+  height?: number;
 }
 
 interface SpawnResolutionInput {
@@ -42,6 +44,36 @@ interface SpawnResolutionInput {
   blocked(x: number, y: number): boolean;
   objects: readonly SpawnObject[];
   spawnName: string;
+}
+
+const UNSAFE_EXACT_SPAWN_OBJECT_TYPES = new Set([
+  'transition',
+  'interPrefectureLink',
+  'npc',
+  'chest',
+  'midboss',
+  'regionGate',
+  'structure',
+  'regionBoss',
+  'boss',
+  'lastboss',
+  'specialty',
+]);
+
+function overlapsUnsafeObject(objects: readonly SpawnObject[], x: number, y: number): boolean {
+  return objects.some((object) => {
+    if (!object.type || !UNSAFE_EXACT_SPAWN_OBJECT_TYPES.has(object.type)) return false;
+    const objectX = object.x ?? 0;
+    const objectY = object.y ?? 0;
+    const width = object.width && object.width > 0 ? object.width : 16;
+    const height = object.height && object.height > 0 ? object.height : 16;
+    return (
+      x >= Math.floor(objectX / 16) &&
+      x < Math.ceil((objectX + width) / 16) &&
+      y >= Math.floor(objectY / 16) &&
+      y < Math.ceil((objectY + height) / 16)
+    );
+  });
 }
 
 /** セーブ由来の座標をそのまま使っても、マップ外や壁内に出ないか調べる。 */
@@ -79,7 +111,7 @@ export function resolveSpawn(input: SpawnResolutionInput): { tile: [number, numb
         input.spawnTile,
         input.width,
         input.height,
-        input.blocked(tx, ty),
+        input.blocked(tx, ty) || overlapsUnsafeObject(input.objects, tx, ty),
         !input.fieldGroundRequired || isSavedFieldTileWalkable(input.terrainAt(tx, ty)),
       )
     )

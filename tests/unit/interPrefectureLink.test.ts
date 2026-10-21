@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { interPrefectureArrivalKey } from '../../src/core/progression/interPrefectureArrival';
 import {
   interPrefectureDestinationSpawn,
   parseInterPrefectureLinkObject,
@@ -94,16 +95,24 @@ describe('県境・実在交通のランタイムモデル', () => {
     expect(() => parseInterPrefectureLinkObject('hokkaido', linkObject)).toThrow('同じ県');
   });
 
-  it('初訪問だけ開始地域へ送り、開発者・訪問済み・攻略済みは県境の相互到着地点へ送る', () => {
+  it('攻略前は訪問済みでも開始地域へ送り、開発者・攻略済みだけ相互到着地点へ送る', () => {
     const link = parseInterPrefectureLinkObject('aomori', linkObject)!;
+    const visitedOnly = {
+      ...untouchedProgress,
+      counters: { 'visit:hokkaido-town': 1 },
+    };
     expect(interPrefectureDestinationSpawn(link, untouchedProgress, false)).toBe('spawn');
     expect(interPrefectureDestinationSpawn(link, untouchedProgress, true)).toBe(
       'from_aomori-hokkaido-seikan',
     );
+    expect(interPrefectureDestinationSpawn(link, visitedOnly, false)).toBe('spawn');
     expect(
       interPrefectureDestinationSpawn(
         link,
-        { ...untouchedProgress, counters: { 'visit:hokkaido-town': 1 } },
+        {
+          ...untouchedProgress,
+          counters: { [interPrefectureArrivalKey('hokkaido')]: 1 },
+        },
         false,
       ),
     ).toBe('from_aomori-hokkaido-seikan');

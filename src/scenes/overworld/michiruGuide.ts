@@ -1,6 +1,10 @@
 import type { World } from '../../core/content/schemas';
-import { interPrefectureAccess, interPrefectureUnlockRule } from '../../core/progression/interPrefecture';
-import { lastBossFlag, midBossFlag } from '../../core/progression/route';
+import {
+  interPrefectureAccess,
+  interPrefectureChapterLinks,
+  type InterPrefectureLinkRef,
+} from '../../core/progression/interPrefecture';
+import { lastBossFlag, nextIncompleteArea } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
 import type { MapKind } from './geography';
 import type { InterPrefectureLink } from './interPrefectureLink';
@@ -78,6 +82,74 @@ export function currentMichiruGuideKey(
   });
 }
 
+/** 現在の地方内、または次の地方で最初に攻略すべき県を求める。 */
+function guidanceTargetArea(game: GameState, areaId: string, world: World): string | null {
+  const island = world.islands.find((candidate) => candidate.areas.includes(areaId));
+  if (!island) return null;
+  if (!game.progress.islandsCleared.includes(island.id)) {
+    const targetArea = nextIncompleteArea(world, island.id, game.progress);
+    return targetArea === areaId ? null : targetArea;
+  }
+
+  const nextIsland = world.islands
+    .filter((candidate) => candidate.status === 'playable' && candidate.order > island.order)
+    .sort((a, b) => a.order - b.order)
+    .find((candidate) => !game.progress.islandsCleared.includes(candidate.id));
+  return nextIsland ? nextIncompleteArea(world, nextIsland.id, game.progress) : null;
+}
+
+/** worldの攻略順と正規の章間移動だけで、案内用の経路グラフを組み立てる。 */
+function guidanceRouteLinks(world: World): readonly InterPrefectureLinkRef[] {
+  const storyLinks = world.islands
+    .filter((island) => island.status === 'playable')
+    .flatMap((island) =>
+      island.areas.slice(0, -1).map((areaId, index) => ({
+        id: `guide-${areaId}-${island.areas[index + 1]!}`,
+        areas: [areaId, island.areas[index + 1]!] as const,
+        unlockRole: 'story' as const,
+      })),
+    );
+  return [...storyLinks, ...interPrefectureChapterLinks()];
+}
+
+/** 開いている正規経路をBFSし、目的地へ向かう最初の隣県を返す。 */
+function firstGuidanceStep(
+  game: GameState,
+  currentArea: string,
+  targetArea: string,
+  world: World,
+): string | null {
+  const links = guidanceRouteLinks(world);
+  const visited = new Set([currentArea]);
+  const queue: Array<{ areaId: string; firstStep: string | null }> = [
+    { areaId: currentArea, firstStep: null },
+  ];
+
+  for (let cursor = 0; cursor < queue.length; cursor += 1) {
+    const current = queue[cursor]!;
+    for (const link of links) {
+      const neighbor =
+        link.areas[0] === current.areaId
+          ? link.areas[1]
+          : link.areas[1] === current.areaId
+            ? link.areas[0]
+            : null;
+      if (!neighbor || visited.has(neighbor)) continue;
+      const directedLink: InterPrefectureLinkRef = {
+        ...link,
+        areas: [current.areaId, neighbor],
+      };
+      if (!interPrefectureAccess(world, directedLink, game.progress, false).open) continue;
+
+      const firstStep = current.firstStep ?? neighbor;
+      if (neighbor === targetArea) return firstStep;
+      visited.add(neighbor);
+      queue.push({ areaId: neighbor, firstStep });
+    }
+  }
+  return null;
+}
+
 /** 実マップ上のリンクから、中ボス撃破後に案内すべき物理入口も含めて決める。 */
 export function currentMichiruGuideKeyFromLinks(
   context: [
@@ -90,22 +162,20 @@ export function currentMichiruGuideKeyFromLinks(
 ): MichiruGuideKey {
   const [game, kind, areaId, world, links] = context;
   let nextLink: InterPrefectureLink | null = null;
-  let storyLink: InterPrefectureLink | null = null;
-  if (game && areaId && world)
-    for (const link of links) {
-      const rule = interPrefectureUnlockRule(world, link);
-      if (rule.kind === 'chapter' && interPrefectureAccess(world, link, game.progress, false).open) {
-        nextLink = link;
-        break;
+  if (game && areaId && world) {
+    const targetArea = guidanceTargetArea(game, areaId, world);
+    const nextArea = targetArea ? firstGuidanceStep(game, areaId, targetArea, world) : null;
+    if (nextArea)
+      for (const link of links) {
+        if (
+          link.currentArea === areaId &&
+          link.targetArea === nextArea &&
+          interPrefectureAccess(world, link, game.progress, false).open
+        ) {
+          nextLink = link;
+          break;
+        }
       }
-      if (
-        !storyLink &&
-        rule.kind === 'story' &&
-        rule.completedAreaId === areaId &&
-        game.progress.eventsDone.includes(midBossFlag(areaId))
-      )
-        storyLink = link;
-    }
-  nextLink ??= storyLink;
+  }
   return currentMichiruGuideKey([game, kind, areaId, world, nextLink]);
 }

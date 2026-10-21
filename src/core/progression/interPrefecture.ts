@@ -6,6 +6,7 @@ export type LinkUnlockRole = 'chapter' | 'story' | 'shortcut' | 'special';
 
 export interface InterPrefectureLinkRef {
   id: string;
+  /** 解放を判定する移動方向。[現在地, 行先] の順。 */
   areas: readonly [string, string];
   /** 交通カタログが持つ監査用の役割。判定そのものはworldの攻略順から導出する。 */
   unlockRole?: LinkUnlockRole;
@@ -31,6 +32,9 @@ export interface LinkAccessDecision {
   missingIslands: readonly string[];
 }
 
+/** 正規の県境・実在交通から一度入った県を、旧visit汚染と区別する保存キー。 */
+export const interPrefectureArrivalKey = (areaId: string): string => `interpref:arrived:${areaId}`;
+
 interface ChapterRule {
   areas: readonly [string, string];
   clearedIslandId: string;
@@ -54,6 +58,15 @@ const CHAPTER_RULES: Readonly<Record<string, ChapterRule>> = {
     clearedIslandId: 'shikoku',
   },
 };
+
+/** 章間の正規経路を、案内や検査で再利用できる最小のリンク契約として返す。 */
+export function interPrefectureChapterLinks(): readonly InterPrefectureLinkRef[] {
+  return Object.entries(CHAPTER_RULES).map(([id, rule]) => ({
+    id,
+    areas: rule.areas,
+    unlockRole: 'chapter',
+  }));
+}
 
 const SPECIAL_RULE: ChapterRule = {
   areas: ['ehime', 'oita'],
@@ -131,6 +144,25 @@ export function islandUnlockedForTravel(
     .every((candidate) => islandsCleared.includes(candidate.id));
 }
 
+/** 高速移動先として使える県か。訪問フラグだけでは攻略順を飛ばせない。 */
+export function areaUnlockedForTravel(world: World, areaId: string, progress: LinkUnlockProgress): boolean {
+  const island = world.islands.find((candidate) => candidate.areas.includes(areaId));
+  if (!island || !islandUnlockedForTravel(world, island.id, progress.islandsCleared)) return false;
+  const areaIndex = island.areas.indexOf(areaId);
+  return island.areas.slice(0, areaIndex).every((id) => areaTravelCompleted(progress, id));
+}
+
+/** 現行順で到達済み、または前地方を終えて旧順序ですでに攻略済みの県か。 */
+export function areaReachableForTravel(world: World, areaId: string, progress: LinkUnlockProgress): boolean {
+  const island = world.islands.find((candidate) => candidate.areas.includes(areaId));
+  if (!island) return false;
+  return (
+    areaUnlockedForTravel(world, areaId, progress) ||
+    (islandUnlockedForTravel(world, island.id, progress.islandsCleared) &&
+      areaTravelCompleted(progress, areaId))
+  );
+}
+
 /** 閉鎖理由を含め、現在の進行でリンクを通れるかを副作用なしで判定する。 */
 export function interPrefectureAccess(
   world: World,
@@ -144,18 +176,44 @@ export function interPrefectureAccess(
   let missingAreas: string[] = [];
   let missingIslands: string[] = [];
   if (rule.kind === 'story') {
-    if (!areaTravelCompleted(progress, rule.completedAreaId)) missingAreas = [rule.completedAreaId];
+    if (link.areas[0] === rule.completedAreaId) {
+      const island = islandContaining(world, rule.completedAreaId);
+      const completedIndex = island.areas.indexOf(rule.completedAreaId);
+      missingAreas = island.areas
+        .slice(0, completedIndex + 1)
+        .filter((areaId) => !areaTravelCompleted(progress, areaId));
+    }
   } else if (rule.kind === 'chapter') {
-    if (!progress.islandsCleared.includes(rule.clearedIslandId)) missingIslands = [rule.clearedIslandId];
+    const clearedIsland = world.islands.find((island) => island.id === rule.clearedIslandId);
+    if (!clearedIsland) throw new Error(`${rule.clearedIslandId}: world上の地方がありません`);
+    missingIslands = world.islands
+      .filter(
+        (island) =>
+          island.status === 'playable' &&
+          island.order <= clearedIsland.order &&
+          !progress.islandsCleared.includes(island.id),
+      )
+      .map((island) => island.id);
   } else if (rule.kind === 'shortcut') {
     missingAreas = link.areas.filter((areaId) => !areaTravelCompleted(progress, areaId));
     missingIslands = [...new Set(link.areas.map((areaId) => islandContaining(world, areaId).id))].filter(
       (islandId) => !islandUnlockedForTravel(world, islandId, progress.islandsCleared),
     );
   } else {
-    if (!areaTravelCompleted(progress, 'kumamoto')) missingAreas = ['kumamoto'];
-    if (!progress.islandsCleared.includes(SPECIAL_RULE.clearedIslandId))
-      missingIslands = [SPECIAL_RULE.clearedIslandId];
+    const kumamotoIsland = islandContaining(world, 'kumamoto');
+    const kumamotoIndex = kumamotoIsland.areas.indexOf('kumamoto');
+    missingAreas = kumamotoIsland.areas
+      .slice(0, kumamotoIndex + 1)
+      .filter((areaId) => !areaTravelCompleted(progress, areaId));
+    const clearedIsland = world.islands.find((island) => island.id === SPECIAL_RULE.clearedIslandId)!;
+    missingIslands = world.islands
+      .filter(
+        (island) =>
+          island.status === 'playable' &&
+          island.order <= clearedIsland.order &&
+          !progress.islandsCleared.includes(island.id),
+      )
+      .map((island) => island.id);
   }
 
   const open = missingAreas.length === 0 && missingIslands.length === 0;

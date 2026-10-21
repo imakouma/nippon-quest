@@ -64,6 +64,10 @@ interface AreaData {
   }[];
 }
 
+interface WorldData {
+  islands: { id: string; order: number; status: string; areas: string[] }[];
+}
+
 interface RegionPartition {
   ids: string[];
   rows: string[];
@@ -179,6 +183,21 @@ const CARDINAL: readonly { dx: number; dy: number; key: ArrowKey }[] = [
   { dx: 0, dy: 1, key: 'ArrowDown' },
   { dx: 0, dy: -1, key: 'ArrowUp' },
 ];
+
+const WORLD = JSON.parse(
+  readFileSync(new URL('../../content/world/japan.json', import.meta.url), 'utf8'),
+) as WorldData;
+
+function travelPrerequisites(areaId: string): { priorAreaIds: string[]; priorIslandIds: string[] } {
+  const island = WORLD.islands.find((candidate) => candidate.areas.includes(areaId));
+  if (!island) throw new Error(`${areaId} の地方が world にありません`);
+  return {
+    priorAreaIds: island.areas.slice(0, island.areas.indexOf(areaId)),
+    priorIslandIds: WORLD.islands
+      .filter((candidate) => candidate.status === 'playable' && candidate.order < island.order)
+      .map((candidate) => candidate.id),
+  };
+}
 
 const prop = (source: { properties?: TiledProperty[] }, name: string): unknown =>
   source.properties?.find((property) => property.name === name)?.value;
@@ -364,8 +383,20 @@ async function seedNagasakiSave(
   legacyCompletion: false | 'areaSign' | 'midBoss' = false,
   defeatedRegionIds: readonly string[] = [],
 ): Promise<void> {
+  const prerequisites = travelPrerequisites(AREA_ID);
   await page.evaluate(
-    async ({ areaId, defeatedRegions, legacy, mapKey, slot, tileSize, x, y }) => {
+    async ({
+      areaId,
+      defeatedRegions,
+      legacy,
+      mapKey,
+      priorAreaIds,
+      priorIslandIds,
+      slot,
+      tileSize,
+      x,
+      y,
+    }) => {
       const database = await new Promise<IDBDatabase>((resolve, reject) => {
         const request = indexedDB.open('nihonquest');
         request.onerror = () => reject(request.error);
@@ -403,6 +434,13 @@ async function seedNagasakiSave(
           state.progress.eventsDone = state.progress.eventsDone.filter(
             (id: string) => id !== `midboss.${areaId}` && !id.startsWith(`regionboss.${areaId}.`),
           );
+          for (const priorAreaId of priorAreaIds) {
+            const flag = `midboss.${priorAreaId}`;
+            if (!state.progress.eventsDone.includes(flag)) state.progress.eventsDone.push(flag);
+          }
+          for (const priorIslandId of priorIslandIds)
+            if (!state.progress.islandsCleared.includes(priorIslandId))
+              state.progress.islandsCleared.push(priorIslandId);
           if (legacy === 'midBoss') state.progress.eventsDone.push(`midboss.${areaId}`);
           for (const regionId of defeatedRegions)
             state.progress.eventsDone.push(`regionboss.${areaId}.${regionId}`);
@@ -411,6 +449,8 @@ async function seedNagasakiSave(
           state.progress.counters['story.prologue'] = 1;
           state.progress.counters['story.hero-identity'] = 1;
           state.progress.counters['story.chapter.kyushu-okinawa'] = 1;
+          state.progress.counters[`visit:${mapKey}`] = 1;
+          state.progress.counters[`interpref:arrived:${areaId}`] = 1;
           delete state.progress.counters['dev:all'];
           state.updatedAt = Date.now();
           store.put(state, `save:${slot}`);
@@ -426,6 +466,7 @@ async function seedNagasakiSave(
       defeatedRegions: defeatedRegionIds,
       legacy: legacyCompletion,
       mapKey: MAP_KEY,
+      ...prerequisites,
       slot: SLOT,
       tileSize: TILE,
       x: tile[0],
@@ -724,8 +765,9 @@ async function restartRepresentativeArea(
   tile: Tile,
   legacyCleared: boolean,
 ): Promise<void> {
+  const prerequisites = travelPrerequisites(area.areaId);
   await page.evaluate(
-    ({ areaId, islandId, legacy, mapKey, spawnTile, tileSize }) =>
+    ({ areaId, islandId, legacy, mapKey, priorAreaIds, priorIslandIds, spawnTile, tileSize }) =>
       new Promise<void>((resolve) => {
         const game = (window as unknown as { __nq: BrowserGame }).__nq;
         const state = game.registry.get('game') as {
@@ -736,6 +778,7 @@ async function restartRepresentativeArea(
             currentIsland: string;
             currentMap: string;
             eventsDone: string[];
+            islandsCleared: string[];
             position: { x: number; y: number };
           };
         };
@@ -749,9 +792,18 @@ async function restartRepresentativeArea(
         state.progress.eventsDone = state.progress.eventsDone.filter(
           (id) => !id.startsWith(`regionboss.${areaId}.`),
         );
+        for (const priorAreaId of priorAreaIds) {
+          const flag = `midboss.${priorAreaId}`;
+          if (!state.progress.eventsDone.includes(flag)) state.progress.eventsDone.push(flag);
+        }
+        for (const priorIslandId of priorIslandIds)
+          if (!state.progress.islandsCleared.includes(priorIslandId))
+            state.progress.islandsCleared.push(priorIslandId);
         state.progress.counters['story.prologue'] = 1;
         state.progress.counters['story.hero-identity'] = 1;
         state.progress.counters[`story.chapter.${islandId}`] = 1;
+        state.progress.counters[`visit:${mapKey}`] = 1;
+        state.progress.counters[`interpref:arrived:${areaId}`] = 1;
         delete state.progress.counters['dev:all'];
         game.registry.set('game', state);
         const field = game.scene.getScene('Overworld') as BrowserField;
@@ -763,6 +815,7 @@ async function restartRepresentativeArea(
       islandId: area.islandId,
       legacy: legacyCleared,
       mapKey: `${area.areaId}-field`,
+      ...prerequisites,
       spawnTile: tile,
       tileSize: TILE,
     },

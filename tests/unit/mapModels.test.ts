@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { createNewGame } from '../../src/core/state/newGame';
+import { normalizeUnavailableDeveloperTravel } from '../../src/core/progression/developerTravel';
 import { midBossFlag } from '../../src/core/progression/route';
 import {
   areaMapView,
@@ -48,9 +49,40 @@ describe('地図表示モデル', () => {
   it('現在地と訪問記録から解放済み県を作る', async () => {
     const c = await content();
     const state = game();
+    state.progress.areaSigns.push('aomori');
     state.progress.counters['visit:iwate-town'] = 1;
     expect([...visitedAreaIds('aomori', state, c, false)].sort()).toEqual(['aomori', 'iwate']);
     expect(visitedAreaIds('aomori', state, c, true).size).toBe(c.areas.size);
+  });
+
+  it('旧dev由来の未解放県visitは保持したまま高速移動先に出さない', async () => {
+    const c = await content();
+    const state = game();
+    state.progress.counters['visit:niigata-field'] = 1;
+
+    expect([...visitedAreaIds('aomori', state, c, false)]).toEqual(['aomori']);
+    expect(state.progress.counters['visit:niigata-field']).toBe(1);
+  });
+
+  it('隔離したvisitは後から県が解放されても、正規到着までは高速移動先に戻さない', async () => {
+    const c = await content();
+    const state = game();
+    state.progress.counters['visit:iwate-town'] = 1;
+    const quarantined = normalizeUnavailableDeveloperTravel(state, c.world, true, 2_000);
+    quarantined.progress.areaSigns.push('aomori');
+
+    expect([...visitedAreaIds('aomori', quarantined, c, false)]).toEqual(['aomori']);
+    expect(quarantined.progress.counters['visit:iwate-town']).toBe(1);
+  });
+
+  it('前地方を攻略済みなら旧順序で完了済みの県visitを維持する', async () => {
+    const c = await content();
+    const state = game();
+    state.progress.areaSigns = ['gifu'];
+    state.progress.islandsCleared = ['tohoku', 'hokkaido', 'kanto', 'hokuriku', 'koshinetsu'];
+    state.progress.counters['visit:gifu-field'] = 1;
+
+    expect(visitedAreaIds('aomori', state, c, false)).toContain('gifu');
   });
 
   it('Tiled の地形と objects レイヤーから地図の基礎データを作る', () => {

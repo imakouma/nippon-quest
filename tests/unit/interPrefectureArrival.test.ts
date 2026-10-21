@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { DEV_ALL_KEY } from '../../src/core/progression/developerTravel';
-import { applyInterPrefectureArrival } from '../../src/core/progression/interPrefectureArrival';
+import {
+  applyInterPrefectureArrival,
+  interPrefectureArrivalKey,
+} from '../../src/core/progression/interPrefectureArrival';
 import { createNewGame } from '../../src/core/state/newGame';
 import { content } from './helpers';
 
@@ -40,6 +43,7 @@ describe('県境・実在交通の到着保存', () => {
         counters: {
           'visit:aomori-field': 1,
           'visit:hokkaido-field': 1,
+          [interPrefectureArrivalKey('hokkaido')]: 1,
           keep: 7,
         },
       },
@@ -77,6 +81,7 @@ describe('県境・実在交通の到着保存', () => {
       position: { x: 16 * 8, y: 16 * 9 },
     });
     expect(arrived.progress.counters['visit:okinawa-field']).toBeUndefined();
+    expect(arrived.progress.counters[interPrefectureArrivalKey('okinawa')]).toBeUndefined();
     expect(game).toEqual(before);
   });
 

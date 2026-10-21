@@ -1,6 +1,7 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Area } from '../../core/content/schemas';
-import { interPrefectureAccess } from '../../core/progression/interPrefecture';
+import { developerVisitQuarantined } from '../../core/progression/developerTravel';
+import { areaReachableForTravel, interPrefectureAccess } from '../../core/progression/interPrefecture';
 import { canChallengeIslandBoss } from '../../core/progression/island';
 import { midBossFlag, motifStamp, regionBossDefeated } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
@@ -262,7 +263,10 @@ export function mapPlaces(input: {
 }): MapPlace[] {
   const { base, area, game, revealAll, enclaves, labels } = input;
   if (!base || !area || !game) return [];
-  const been = (key: string) => revealAll || (game.progress.counters[`visit:${key}`] ?? 0) > 0;
+  const been = (key: string) =>
+    revealAll ||
+    ((game.progress.counters[`visit:${key}`] ?? 0) > 0 &&
+      !developerVisitQuarantined(game.progress.counters, key));
   const maps: MapPlace[] = [];
   const signs: MapPlace[] = [];
   for (const object of base.objects) {
@@ -323,8 +327,19 @@ export function visitedAreaIds(
 ): Set<string> {
   const visited = new Set([currentAreaId]);
   if (revealAll) for (const id of content?.areas.keys() ?? []) visited.add(id);
-  for (const [key, count] of Object.entries(game?.progress.counters ?? {}))
-    if (key.startsWith('visit:') && count > 0) visited.add(key.slice('visit:'.length).split('-')[0] ?? '');
+  for (const [key, count] of Object.entries(game?.progress.counters ?? {})) {
+    const areaId = key.startsWith('visit:') ? key.slice('visit:'.length).split('-')[0] : undefined;
+    const mapKey = key.startsWith('visit:') ? key.slice('visit:'.length) : '';
+    if (
+      areaId &&
+      count > 0 &&
+      content &&
+      game &&
+      !developerVisitQuarantined(game.progress.counters, mapKey) &&
+      areaReachableForTravel(content.world, areaId, game.progress)
+    )
+      visited.add(areaId);
+  }
   return visited;
 }
 

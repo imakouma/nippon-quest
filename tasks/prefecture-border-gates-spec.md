@@ -1,6 +1,6 @@
 # Feature Specification: 全国の県境ゲートと実在交通網
 
-**Status:** Approved by user — implementation in progress
+**Status:** Implemented and verified
 **Date:** 2026-10-18
 **Integration branch:** `codex/integrate-prefecture-border-travel`
 
@@ -138,7 +138,7 @@
 1. `dev:all` が有効なら開く。
 2. 承認済み攻略順のリンクは、出発県の `midboss.<area>` が完了していれば両方向とも開く。
 3. 旧セーブ互換として、出発県の `progress.areaSigns` があれば同じく完了扱いにする。
-4. 章間の正規入口は、直前地方の `islandsCleared` が完了したとき開く。
+4. 章間の正規入口は、直前地方までの playable 地方が攻略順どおり `islandsCleared` になったとき開く。不整合な旧devセーブで後半地方のフラグだけが残っていても章を飛ばさない。
 5. 物語順でない隣接リンクと交通近道は、両端の県が完了し、両地方がそのセーブで解放済みの場合に開く。ただし章間の正規出口として表に定義したリンクは、直前地方の完了条件を優先する。
 6. `ehime-oita-ferry` は、四国クリア済み、かつ `midboss.kumamoto` またはlegacy `areaSigns` の熊本完了がある場合だけ開く。`visit:oita-field` は解放条件に使わず、福岡・佐賀・長崎・熊本を飛ばせない。
 7. 開発者モードの切替だけでは `midboss.*`、`areaSigns`、`islandsCleared`、`visit:*` を追加・削除しない。

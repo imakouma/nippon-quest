@@ -40,6 +40,7 @@ interface BrowserField {
 
 interface BrowserProgress {
   areaSigns: string[];
+  chestsOpened: string[];
   counters: Record<string, number>;
   currentArea: string;
   currentIsland: string;
@@ -54,7 +55,7 @@ interface BrowserGame {
     get(key: string): unknown;
     set(key: string, value: unknown): void;
   };
-  scene: { getScene(key: string): unknown };
+  scene: { getScene(key: string): unknown; isActive(key: string): boolean };
 }
 
 interface LinkEndpoint {
@@ -130,6 +131,17 @@ function spawnTile(areaId: string, spawnName: string): Tile {
   return [Math.floor(spawn.x / map.tilewidth), Math.floor(spawn.y / map.tileheight)];
 }
 
+function mapSpawnTile(mapKey: string, spawnName = 'spawn'): Tile {
+  const map = JSON.parse(
+    readFileSync(new URL(`../../maps/${mapKey}.json`, import.meta.url), 'utf8'),
+  ) as TiledMap;
+  const spawn = map.layers
+    .find((layer) => layer.name === 'objects')
+    ?.objects?.find((object) => object.type === 'spawn' && object.name === spawnName);
+  if (!spawn) throw new Error(`${mapKey} に ${spawnName} がありません`);
+  return [Math.floor(spawn.x / map.tilewidth), Math.floor(spawn.y / map.tileheight)];
+}
+
 function linkEndpoint(areaId: string, islandId: string, linkId: string): LinkEndpoint {
   const { map, objects } = mapObjects(areaId);
   const toTile = (object: TiledObject): Tile => [
@@ -170,9 +182,37 @@ async function createFreshSave(page: Page): Promise<void> {
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
+  await markIntroductionDone(page);
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
   await page.getByRole('button', { name: new RegExp(`スロット ${SLOT}`) }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+}
+
+async function markIntroductionDone(page: Page): Promise<void> {
+  await page.evaluate(async (slot) => {
+    const database = await new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open('nihonquest');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => resolve(request.result);
+    });
+    await new Promise<void>((resolve, reject) => {
+      const transaction = database.transaction('saves', 'readwrite');
+      const store = transaction.objectStore('saves');
+      const request = store.get(`save:${slot}`);
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const state = request.result;
+        state.player.name = 'ハル';
+        state.progress.counters['story.prologue'] = 1;
+        state.progress.counters['story.hero-identity'] = 1;
+        state.updatedAt = Date.now();
+        store.put(state, `save:${slot}`);
+      };
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error);
+    });
+    database.close();
+  }, SLOT);
 }
 
 async function restartWithProgress(
@@ -191,12 +231,21 @@ async function restartWithProgress(
         state.progress.currentMap = mapKey;
         state.progress.position = { x: spawnTile[0] * tileSize, y: spawnTile[1] * tileSize };
         if (mode === 'lock-iwate') {
+          if (!state.progress.eventsDone.includes('midboss.aomori'))
+            state.progress.eventsDone.push('midboss.aomori');
           state.progress.areaSigns = state.progress.areaSigns.filter((id) => id !== 'iwate');
           state.progress.eventsDone = state.progress.eventsDone.filter((id) => id !== 'midboss.iwate');
           state.progress.islandsCleared = state.progress.islandsCleared.filter((id) => id !== 'tohoku');
           delete state.progress.counters['visit:miyagi-field'];
-        } else if (mode === 'unlock-iwate' && !state.progress.eventsDone.includes('midboss.iwate')) {
-          state.progress.eventsDone.push('midboss.iwate');
+        } else if (mode === 'unlock-iwate') {
+          for (const areaId of ['aomori', 'iwate']) {
+            const flag = `midboss.${areaId}`;
+            if (!state.progress.eventsDone.includes(flag)) state.progress.eventsDone.push(flag);
+          }
+        }
+        if (mode) {
+          state.progress.counters['visit:iwate-field'] = 1;
+          state.progress.counters['interpref:arrived:iwate'] = 1;
         }
         game.registry.set('game', state);
         const field = game.scene.getScene('Overworld') as BrowserField;
@@ -300,6 +349,12 @@ async function progressSnapshot(page: Page): Promise<BrowserProgress> {
   });
 }
 
+function progressionWithoutPosition(progress: BrowserProgress): Omit<BrowserProgress, 'position'> {
+  const copy: Partial<BrowserProgress> = structuredClone(progress);
+  delete copy.position;
+  return copy as Omit<BrowserProgress, 'position'>;
+}
+
 test('通常時は未攻略の県境門を閉じ、攻略後は初回入口から次県へ入る', async ({ page }) => {
   test.setTimeout(120_000);
   const iwate = linkEndpoint('iwate', 'tohoku', 'land-iwate-miyagi');
@@ -373,6 +428,171 @@ test('開発者モードは全県境を往復でき、訪問を付けず、解�
   expect(restored.counters['visit:miyagi-field']).toBeUndefined();
 });
 
+test('開発者モードはボス・名所を起動せず進行を変更しない', async ({ page }) => {
+  test.setTimeout(120_000);
+  const iwate = linkEndpoint('iwate', 'tohoku', 'land-iwate-miyagi');
+  const { map, objects } = mapObjects('aomori');
+  const event = objects.find((object) => object.type === 'event');
+  if (!event) throw new Error('aomori-field に検査用イベントがありません');
+  const eventTile: Tile = [Math.floor(event.x / map.tilewidth), Math.floor(event.y / map.tileheight)];
+  const eventOutsideTile: Tile = [eventTile[0] - 2, eventTile[1]];
+  const eventTriggerTile: Tile = [eventTile[0] - 1, eventTile[1]];
+  const chest = objects.find((object) => object.type === 'chest');
+  if (!chest) throw new Error('aomori-field に検査用宝箱がありません');
+  const chestTile: Tile = [Math.floor(chest.x / map.tilewidth), Math.floor(chest.y / map.tileheight)];
+  const chestApproachTile: Tile = [chestTile[0] - 1, chestTile[1]];
+  const town = JSON.parse(
+    readFileSync(new URL('../../maps/aomori-town.json', import.meta.url), 'utf8'),
+  ) as TiledMap;
+  const townNpc = town.layers
+    .find((layer) => layer.name === 'objects')
+    ?.objects?.find((object) => object.type === 'npc' && property(object, 'role') === 'talk');
+  if (!townNpc) throw new Error('aomori-town に検査用町人がいません');
+  const npcTile: Tile = [Math.floor(townNpc.x / town.tilewidth), Math.floor(townNpc.y / town.tileheight)];
+  const npcApproachTile: Tile = [npcTile[0] - 1, npcTile[1]];
+
+  await createFreshSave(page);
+  await restartWithProgress(page, iwate, iwate.firstSpawnTile, 'lock-iwate');
+  await toggleDev(page, true);
+
+  const restart = async (mapKey: string, tile: Tile): Promise<void> => {
+    await page.evaluate(
+      ({ target, spawnTile }) =>
+        new Promise<void>((resolve) => {
+          const game = (window as unknown as { __nq: BrowserGame }).__nq;
+          const field = game.scene.getScene('Overworld') as BrowserField;
+          field.events.once('create', resolve);
+          field.scene.restart({ mapKey: target, spawnTile, exactSpawn: true });
+        }),
+      { target: mapKey, spawnTile: tile },
+    );
+    await expect(page.locator('canvas[data-player-tile]')).toHaveAttribute(
+      'data-player-tile',
+      tile.join(','),
+      { timeout: 30_000 },
+    );
+  };
+
+  await restart('aomori-field', eventOutsideTile);
+  const before = progressionWithoutPosition(await progressSnapshot(page));
+  const fieldState = await page.evaluate(() => {
+    const game = (window as unknown as { __nq: BrowserGame }).__nq;
+    const field = game.scene.getScene('Overworld') as unknown as {
+      midBoss: unknown;
+      regionBosses: Map<number, unknown>;
+    };
+    return { midBoss: field.midBoss, regionBosses: field.regionBosses.size };
+  });
+  expect(fieldState.midBoss).toBeNull();
+  expect(fieldState.regionBosses).toBe(0);
+  await pressInto(page, 'ArrowRight', 'move', eventTriggerTile);
+  await expect(page.locator('.nq-cutin')).toBeHidden();
+  await expect(page.locator('.nq-dlg')).toHaveCount(0);
+  expect(progressionWithoutPosition(await progressSnapshot(page))).toEqual(before);
+
+  await restart('aomori-field', chestApproachTile);
+  const beforeChest = await page.evaluate(() => {
+    const game = (window as unknown as { __nq: BrowserGame }).__nq;
+    const state = game.registry.get('game') as {
+      inventory: Record<string, number>;
+      progress: BrowserProgress;
+    };
+    return { chestsOpened: [...state.progress.chestsOpened], inventory: { ...state.inventory } };
+  });
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: BrowserGame }).__nq;
+    (game.scene.getScene('Overworld') as unknown as { interact(): void }).interact();
+  });
+  await expect(page.locator('.nq-cutin')).toHaveCount(0);
+  await expect(page.locator('.nq-dlg')).toHaveCount(0);
+  expect(
+    await page.evaluate(() => {
+      const game = (window as unknown as { __nq: BrowserGame }).__nq;
+      const state = game.registry.get('game') as {
+        inventory: Record<string, number>;
+        progress: BrowserProgress;
+      };
+      return { chestsOpened: [...state.progress.chestsOpened], inventory: { ...state.inventory } };
+    }),
+  ).toEqual(beforeChest);
+
+  await restart('aomori-town', npcApproachTile);
+  const beforeNpc = await progressSnapshot(page);
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: BrowserGame }).__nq;
+    (game.scene.getScene('Overworld') as unknown as { interact(): void }).interact();
+  });
+  await expect(page.locator('.nq-dlg')).toHaveCount(0);
+  expect(await progressSnapshot(page)).toEqual(beforeNpc);
+
+  const niigata = mapObjects('niigata');
+  const harbor = niigata.objects.find(
+    (object) => object.type === 'transition' && property(object, 'targetMap') === 'niigata-enclave',
+  );
+  if (!harbor) throw new Error('niigata-field に離島への港がありません');
+  const harborTile = mapSpawnTile('niigata-field', 'from_niigata-enclave');
+  await restart('niigata-field', harborTile);
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: BrowserGame }).__nq;
+    const field = game.scene.getScene('Overworld') as unknown as { interact(): void };
+    field.interact();
+  });
+  await expect(page.getByRole('menuitem', { name: 'はい' })).toBeVisible();
+  await page.getByRole('menuitem', { name: 'はい' }).click();
+  await clickThroughDialogue(page);
+  await expect
+    .poll(() => progressSnapshot(page).then((progress) => progress.currentMap))
+    .toBe('niigata-enclave');
+
+  await restart('aomori-dungeon', mapSpawnTile('aomori-dungeon'));
+  expect(
+    await page.evaluate(() => {
+      const game = (window as unknown as { __nq: BrowserGame }).__nq;
+      const field = game.scene.getScene('Overworld') as unknown as { areaBoss: unknown };
+      return field.areaBoss === null;
+    }),
+  ).toBe(true);
+  expect(
+    await page.evaluate(() => {
+      const game = (window as unknown as { __nq: BrowserGame }).__nq;
+      const field = game.scene.getScene('Overworld') as unknown as {
+        checkRandomEncounter(): void;
+        inBattle: boolean;
+        rng: { chance: () => boolean };
+        stepCount: number;
+      };
+      field.stepCount = 0;
+      field.rng.chance = () => true;
+      field.checkRandomEncounter();
+      return { battleSceneActive: game.scene.isActive('Battle'), inBattle: field.inBattle };
+    }),
+  ).toEqual({ battleSceneActive: false, inBattle: false });
+  await expect(page.locator('.nq-battle')).toHaveCount(0);
+
+  await restart('aomori-secret', mapSpawnTile('aomori-secret'));
+  expect(
+    await page.evaluate(() => {
+      const game = (window as unknown as { __nq: BrowserGame }).__nq;
+      const field = game.scene.getScene('Overworld') as unknown as { lastBoss: unknown };
+      return field.lastBoss === null;
+    }),
+  ).toBe(true);
+
+  const beforeIslandBoss = await page.evaluate(() => {
+    const game = (window as unknown as { __nq: BrowserGame }).__nq;
+    const state = game.registry.get('game') as { progress: BrowserProgress };
+    state.progress.areaSigns = ['aomori', 'iwate', 'miyagi', 'akita', 'yamagata', 'fukushima'];
+    game.registry.set('game', state);
+    const field = game.scene.getScene('Overworld') as unknown as {
+      challengeIslandBoss(islandId: string): Promise<void>;
+    };
+    void field.challengeIslandBoss('tohoku');
+    return structuredClone(state.progress);
+  });
+  await expect(page.locator('.nq-dlg')).toHaveCount(0);
+  expect(await progressSnapshot(page)).toEqual(beforeIslandBoss);
+});
+
 test('9つの実在交通を種類別に表示し、960×540と844×390に収める', async ({ page }) => {
   test.setTimeout(180_000);
   const browserErrors: string[] = [];
@@ -382,12 +602,11 @@ test('9つの実在交通を種類別に表示し、960×540と844×390に収め
   });
 
   await createFreshSave(page);
-  // 青森は新規セーブのプロローグ制御があるため、交通検査の初期化には北海道を使う。
+  await toggleDev(page, true);
   const firstLink = TRANSPORT_LINKS[1]!;
   const firstArea = firstLink.endpoints[0].areaId;
   const firstEndpoint = linkEndpoint(firstArea, islandFor(firstArea), firstLink.id);
   await restartWithProgress(page, firstEndpoint, firstEndpoint.firstSpawnTile);
-  await toggleDev(page, true);
 
   for (const link of TRANSPORT_LINKS) {
     const areaId = link.endpoints[0].areaId;
@@ -434,8 +653,8 @@ test('実在交通は経路を確認表示し、移動中表示をスキップ�
   const ibaraki = linkEndpoint('ibaraki', 'kanto', 'hokkaido-ibaraki-ferry');
 
   await createFreshSave(page);
-  await restartWithProgress(page, hokkaido, hokkaido.reciprocalSpawnTile);
   await toggleDev(page, true);
+  await restartWithProgress(page, hokkaido, hokkaido.reciprocalSpawnTile);
   await pressInto(page, hokkaido.enterKey, 'move', hokkaido.entryTile);
 
   const overlay = page.locator('.nq-interpref-travel');

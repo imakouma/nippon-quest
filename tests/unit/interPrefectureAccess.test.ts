@@ -3,6 +3,8 @@ import { describe, expect, it } from 'vitest';
 import { TRANSPORT_LINKS } from '../../scripts/data/interPrefectureLinks';
 import type { LandBorderLink } from '../../scripts/terrain/prefectureBorders';
 import {
+  areaReachableForTravel,
+  areaUnlockedForTravel,
   interPrefectureAccess,
   interPrefectureUnlockRule,
   type InterPrefectureLinkRef,
@@ -23,6 +25,28 @@ const empty = (): LinkUnlockProgress => ({
 });
 
 describe('県境・実在交通の解放表', () => {
+  it('高速移動先は前地方と地方内prefixを攻略した県だけ解放する', async () => {
+    const { world } = await content();
+    expect(areaUnlockedForTravel(world, 'aomori', empty())).toBe(true);
+    expect(areaUnlockedForTravel(world, 'iwate', empty())).toBe(false);
+    expect(areaUnlockedForTravel(world, 'iwate', { ...empty(), areaSigns: ['aomori'] })).toBe(true);
+    expect(areaUnlockedForTravel(world, 'niigata', empty())).toBe(false);
+    expect(
+      areaUnlockedForTravel(world, 'niigata', {
+        ...empty(),
+        islandsCleared: ['tohoku', 'hokkaido', 'kanto'],
+      }),
+    ).toBe(true);
+    expect(areaReachableForTravel(world, 'gifu', { ...empty(), areaSigns: ['gifu'] })).toBe(false);
+    expect(
+      areaReachableForTravel(world, 'gifu', {
+        ...empty(),
+        areaSigns: ['gifu'],
+        islandsCleared: ['tohoku', 'hokkaido', 'kanto', 'hokuriku', 'koshinetsu'],
+      }),
+    ).toBe(true);
+  });
+
   it('95リンクを物語37・章間10・近道47・特例1へ一意に分類する', async () => {
     const { world } = await content();
     const counts = { story: 0, chapter: 0, shortcut: 0, special: 0 };
@@ -30,7 +54,7 @@ describe('県境・実在交通の解放表', () => {
     expect(counts).toEqual({ story: 37, chapter: 10, shortcut: 47, special: 1 });
   });
 
-  it('物語順37リンクは直前県の中ボスまたは旧しるしで双方向に開く', async () => {
+  it('物語順37リンクは前進時だけ地方内の先行県完了を要求し、後戻りは常に開く', async () => {
     const { world } = await content();
     const storyLinks = links.filter((link) => interPrefectureUnlockRule(world, link).kind === 'story');
     expect(storyLinks).toHaveLength(37);
@@ -38,26 +62,54 @@ describe('県境・実在交通の解放表', () => {
       const rule = interPrefectureUnlockRule(world, link);
       expect(rule.kind).toBe('story');
       if (rule.kind !== 'story') continue;
-      expect(interPrefectureAccess(world, link, empty(), false).open, link.id).toBe(false);
+      const island = world.islands.find((candidate) => candidate.areas.includes(rule.completedAreaId))!;
+      const completedIndex = island.areas.indexOf(rule.completedAreaId);
+      const requiredAreas = island.areas.slice(0, completedIndex + 1);
+      const laterAreaId = link.areas.find((areaId) => areaId !== rule.completedAreaId)!;
+      const forward = { ...link, areas: [rule.completedAreaId, laterAreaId] as const };
+      const reverse = { ...link, areas: [laterAreaId, rule.completedAreaId] as const };
+      expect(interPrefectureAccess(world, forward, empty(), false).open, `${link.id}: forward`).toBe(false);
       expect(
         interPrefectureAccess(
           world,
-          link,
-          { ...empty(), eventsDone: [midBossFlag(rule.completedAreaId)] },
+          forward,
+          { ...empty(), eventsDone: requiredAreas.map(midBossFlag) },
           false,
         ).open,
-        `${link.id}: midboss`,
+        `${link.id}: midboss prefix`,
       ).toBe(true);
-      expect(
-        interPrefectureAccess(
-          world,
-          { ...link, areas: [link.areas[1], link.areas[0]] },
-          { ...empty(), areaSigns: [rule.completedAreaId] },
-          false,
-        ).open,
-        `${link.id}: legacy/reverse`,
-      ).toBe(true);
+      expect(interPrefectureAccess(world, reverse, empty(), false).open, `${link.id}: reverse`).toBe(true);
     }
+  });
+
+  it('旧攻略順で後ろの県だけ完了していても、現行順の未攻略県を飛ばせない', async () => {
+    const { world } = await content();
+    const gifuMie = links.find((link) => link.id === 'land-gifu-mie')!;
+    expect(
+      interPrefectureAccess(world, gifuMie, { ...empty(), eventsDone: [midBossFlag('gifu')] }, false),
+    ).toMatchObject({ open: false, missingAreas: ['shizuoka', 'aichi'] });
+
+    const osakaNara = links.find((link) => link.id === 'land-osaka-nara')!;
+    expect(
+      interPrefectureAccess(world, osakaNara, { ...empty(), areaSigns: ['shiga', 'kyoto', 'osaka'] }, false),
+    ).toMatchObject({ open: false, missingAreas: ['hyogo'] });
+    expect(
+      interPrefectureAccess(
+        world,
+        osakaNara,
+        { ...empty(), areaSigns: ['shiga', 'kyoto', 'hyogo', 'osaka'] },
+        false,
+      ).open,
+    ).toBe(true);
+
+    const gifuAichi = links.find((link) => link.id === 'land-gifu-aichi')!;
+    const legacyGifuOnly = { ...empty(), areaSigns: ['gifu'] };
+    expect(
+      interPrefectureAccess(world, { ...gifuAichi, areas: ['aichi', 'gifu'] }, legacyGifuOnly, false),
+    ).toMatchObject({ open: false, missingAreas: ['shizuoka', 'aichi'] });
+    expect(
+      interPrefectureAccess(world, { ...gifuAichi, areas: ['gifu', 'aichi'] }, legacyGifuOnly, false),
+    ).toMatchObject({ open: true, missingAreas: [] });
   });
 
   it('JIS順と攻略順が逆の7県境は攻略順の直前県を要求する', async () => {
@@ -83,7 +135,7 @@ describe('県境・実在交通の解放表', () => {
       });
   });
 
-  it('章間10リンクは指定地方クリアだけで開き、端点県完了では開かない', async () => {
+  it('章間10リンクは指定地方まで順にクリアした場合だけ開く', async () => {
     const { world } = await content();
     const expected = {
       'aomori-hokkaido-seikan': 'tohoku',
@@ -105,10 +157,19 @@ describe('県境・実在交通の解放表', () => {
           .open,
         id,
       ).toBe(false);
+      const clearedIsland = world.islands.find((island) => island.id === clearedIslandId)!;
+      const requiredIslands = world.islands
+        .filter((island) => island.status === 'playable' && island.order <= clearedIsland.order)
+        .map((island) => island.id);
       expect(
-        interPrefectureAccess(world, link, { ...empty(), islandsCleared: [clearedIslandId] }, false).open,
+        interPrefectureAccess(world, link, { ...empty(), islandsCleared: requiredIslands }, false).open,
         id,
       ).toBe(true);
+      if (requiredIslands.length > 1)
+        expect(
+          interPrefectureAccess(world, link, { ...empty(), islandsCleared: [clearedIslandId] }, false).open,
+          `${id}: prefixなし`,
+        ).toBe(false);
     }
   });
 
@@ -161,7 +222,13 @@ describe('県境・実在交通の解放表', () => {
       interPrefectureAccess(
         world,
         link,
-        { ...empty(), islandsCleared: ['shikoku'], eventsDone: [midBossFlag('kumamoto')] },
+        {
+          ...empty(),
+          islandsCleared: world.islands
+            .filter((island) => island.status === 'playable' && island.order <= 9)
+            .map((island) => island.id),
+          eventsDone: ['fukuoka', 'saga', 'nagasaki', 'kumamoto'].map(midBossFlag),
+        },
         false,
       ).open,
     ).toBe(true);
@@ -169,7 +236,13 @@ describe('県境・実在交通の解放表', () => {
       interPrefectureAccess(
         world,
         link,
-        { ...empty(), islandsCleared: ['shikoku'], areaSigns: ['kumamoto'] },
+        {
+          ...empty(),
+          islandsCleared: world.islands
+            .filter((island) => island.status === 'playable' && island.order <= 9)
+            .map((island) => island.id),
+          areaSigns: ['fukuoka', 'saga', 'nagasaki', 'kumamoto'],
+        },
         false,
       ).open,
     ).toBe(true);
@@ -182,13 +255,24 @@ describe('県境・実在交通の解放表', () => {
         open: true,
         via: 'dev',
       });
+      const rule = interPrefectureUnlockRule(world, link);
+      const normalLink =
+        rule.kind === 'story'
+          ? {
+              ...link,
+              areas: [
+                rule.completedAreaId,
+                link.areas.find((areaId) => areaId !== rule.completedAreaId)!,
+              ] as const,
+            }
+          : link;
       expect(
         interPrefectureAccess(
           world,
-          link,
+          normalLink,
           {
             ...empty(),
-            counters: { [`visit:${link.areas[0]}-field`]: 1 },
+            counters: { [`visit:${normalLink.areas[0]}-field`]: 1 },
           } as LinkUnlockProgress,
           false,
         ).open,

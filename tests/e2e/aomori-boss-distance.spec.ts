@@ -104,15 +104,36 @@ test('青森の最初のぬしは開始地点から離れた奥地にいて、�
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
 
-  // 通常エンカウントだけを止め、開始地点から実際の道を歩く。ボスは開発者モードでも残る。
-  await page.getByRole('button', { name: 'かいはつしゃ' }).click();
-  await expect(page.locator('.nq-dlg')).toBeVisible();
-  for (let step = 0; step < 3 && (await page.locator('.nq-dlg').isVisible()); step += 1) {
-    await page.locator('.nq-dlg').click();
+  // 通常状態のボス配置を確認するため、説明を閉じてランダム戦闘の乱数判定だけを止める。
+  const dialogue = page.locator('.nq-dlg');
+  for (let step = 0; step < 12 && (await dialogue.isVisible()); step += 1) {
+    await dialogue.click();
     await page.waitForTimeout(100);
   }
-  await expect(page.locator('.nq-dlg')).toHaveCount(0);
-  await expect(page.locator('canvas[data-player-tile]')).toHaveAttribute('data-input-ready', 'true');
+  await expect(dialogue).toHaveCount(0);
+  await page.evaluate(() => {
+    const game = (
+      window as unknown as {
+        __nq: { scene: { getScene(key: string): unknown } };
+      }
+    ).__nq;
+    const field = game.scene.getScene('Overworld') as { rng: { chance: () => boolean } };
+    field.rng.chance = () => false;
+  });
+  await expect
+    .poll(
+      () =>
+        page.evaluate(() => {
+          const game = (
+            window as unknown as {
+              __nq: { scene: { getScene(key: string): unknown } };
+            }
+          ).__nq;
+          return (game.scene.getScene('Overworld') as { busy: boolean }).busy;
+        }),
+      { timeout: 10_000 },
+    )
+    .toBe(false);
   await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
 
   await walk(page, 'ArrowRight', 10);

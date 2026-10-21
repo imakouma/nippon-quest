@@ -2,6 +2,9 @@
 import type { World } from '../content/schemas';
 import type { GameState } from '../state/schema';
 import { DEV_ALL_KEY } from './developerTravel';
+import { interPrefectureArrivalKey } from './interPrefecture';
+
+export { interPrefectureArrivalKey } from './interPrefecture';
 
 const TILE_SIZE = 16;
 
@@ -34,6 +37,7 @@ export function applyInterPrefectureArrival(
   };
   const devAll = Boolean(prev.progress.counters[DEV_ALL_KEY]);
   const visitKey = `visit:${arrival.targetMap}`;
+  const arrivalKey = interPrefectureArrivalKey(arrival.targetArea);
 
   return {
     ...prev,
@@ -47,6 +51,7 @@ export function applyInterPrefectureArrival(
             counters: {
               ...prev.progress.counters,
               [visitKey]: prev.progress.counters[visitKey] || 1,
+              [arrivalKey]: 1,
             },
           }),
     },

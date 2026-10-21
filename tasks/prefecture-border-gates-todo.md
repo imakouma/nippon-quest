@@ -101,34 +101,34 @@
 
 **Acceptance criteria:**
 
-- [ ] 86陸上リンクと9交通リンクに双方向の `interPrefectureLink` がある。
-- [ ] 門は自県の歩行可能地で県外陸に接し、港は海岸側にある。
-- [ ] 入口・相互spawnが他オブジェクトと重ならず、町から到達できる。
+- [x] 86陸上リンクと9交通リンクに双方向の `interPrefectureLink` がある。
+- [x] 門は自県の歩行可能地で県外陸に接し、港は海岸側にある。
+- [x] 入口・相互spawnが他オブジェクトと重ならず、町から到達できる。
 
 **Verification:**
 
-- [ ] `pnpm scaffold:maps --force`
-- [ ] 生成マップ監査の対象 Vitest。
+- [x] `pnpm scaffold:maps --links-only --force`
+- [x] 生成マップ監査の対象 Vitest。
 
 **Dependencies:** Tasks 5, 6
 
 ## Checkpoint B: 全国生成物
 
-- [ ] 190個の双方向入口が存在する。
-- [ ] 生成失敗時は県ペア名を含む明示エラーになる。
-- [ ] 原子的なコミットを作る。
+- [x] 190個の双方向入口が存在する。
+- [x] 生成失敗時は県ペア名を含む明示エラーになる。
+- [x] 原子的なコミットを作る。
 
 ## Task 8: リンク解放判定を純粋関数で実装
 
 **Acceptance criteria:**
 
-- [ ] 物語順、章間、非物語、旧セーブ、devの開閉表が一意に判定される。
-- [ ] 愛媛―大分は四国クリアと熊本完了の両方を要求する。
-- [ ] `visit:*` を解放条件に使わない。
+- [x] 物語順、章間、非物語、旧セーブ、devの開閉表が一意に判定される。
+- [x] 愛媛―大分は四国クリアと熊本完了の両方を要求する。
+- [x] `visit:*` を解放条件に使わない。
 
 **Verification:**
 
-- [ ] 解放表の対象 Vitest。
+- [x] 解放表の対象 Vitest。
 
 **Dependencies:** Tasks 3, 6
 
@@ -136,14 +136,14 @@
 
 **Acceptance criteria:**
 
-- [ ] 閉鎖入口は座標を変えず不足条件を伝える。
-- [ ] 開放入口は正しい相互spawnへ移動する。
-- [ ] 到着後の `currentIsland`、`currentArea`、`currentMap`、座標が一致する。
+- [x] 閉鎖入口は座標を変えず不足条件を伝える。
+- [x] 開放入口は正しい相互spawnへ移動する。
+- [x] 到着後の `currentIsland`、`currentArea`、`currentMap`、座標が一致する。
 
 **Verification:**
 
-- [ ] movement / location / object dispatch の対象 Vitest。
-- [ ] 岩手―宮城のPlaywrightスモーク。
+- [x] movement / location / object dispatch の対象 Vitest。
+- [x] 岩手―宮城のPlaywrightスモーク。
 
 **Dependencies:** Tasks 7, 8
 
@@ -151,13 +151,13 @@
 
 **Acceptance criteria:**
 
-- [ ] 中ボス撃破後にワープホールを生成しない。
-- [ ] 地図とミチル案内が実際の県境門・交通入口を示す。
-- [ ] 地方ボス後も未訪問の次県へ直接高速移動できない。
+- [x] 中ボス撃破後にワープホールを生成しない。
+- [x] 地図とミチル案内が実際の県境門・交通入口を示す。
+- [x] 地方ボス後も未訪問の次県へ直接高速移動できない。
 
 **Verification:**
 
-- [ ] map model / guide / progression の対象 Vitest。
+- [x] map model / guide / progression の対象 Vitest。
 
 **Dependencies:** Tasks 8, 9
 
@@ -165,14 +165,14 @@
 
 **Acceptance criteria:**
 
-- [ ] 橋・トンネル・鉄道・フェリーを種類別アイコンと文言で区別する。
-- [ ] キーボード・タッチ・マウスで確認とスキップができる。
-- [ ] 960×540 と844×390で読みやすく、コンソールエラーがない。
+- [x] 橋・トンネル・鉄道・フェリーを種類別アイコンと文言で区別する。
+- [x] キーボード・タッチ・マウスで確認とスキップができる。
+- [x] 960×540 と844×390で読みやすく、コンソールエラーがない。
 
 **Verification:**
 
-- [ ] 9交通リンクのデータ駆動Playwright。
-- [ ] 実ブラウザのスクリーンショット確認。
+- [x] 9交通リンクのデータ駆動Playwright。
+- [x] 実ブラウザのスクリーンショット確認。
 
 **Dependencies:** Task 9
 
@@ -180,13 +180,13 @@
 
 **Acceptance criteria:**
 
-- [ ] dev中の横断は `visit:*` や攻略フラグを永続化しない。
-- [ ] devを切ると未達リンクが閉じる。
-- [ ] 通常条件で不正な現在地なら既存の訪問済み安全spawnへ戻る。
+- [x] dev中の横断は `visit:*` や攻略フラグを永続化しない。
+- [x] devを切ると未達リンクが閉じる。
+- [x] 通常条件で不正な現在地なら既存の訪問済み安全spawnへ戻る。
 
 **Verification:**
 
-- [ ] dev on/off の対象VitestとPlaywright。
+- [x] dev on/off の対象VitestとPlaywright。
 
 **Dependencies:** Tasks 8, 9
 

@@ -45,6 +45,28 @@ const chapterLink: InterPrefectureLink = {
   unlockRole: 'chapter',
 };
 
+function link(
+  id: string,
+  currentArea: string,
+  targetArea: string,
+  infrastructure: InterPrefectureLink['infrastructure'] = 'landBorder',
+  travelMode: InterPrefectureLink['travelMode'] = 'walk',
+  unlockRole: InterPrefectureLink['unlockRole'] = 'story',
+): InterPrefectureLink {
+  return {
+    id,
+    currentArea,
+    targetArea,
+    areas: [currentArea, targetArea],
+    targetMap: `${targetArea}-field`,
+    targetSpawn: `from_${id}`,
+    firstTargetSpawn: 'spawn',
+    infrastructure,
+    travelMode,
+    unlockRole,
+  };
+}
+
 describe('michiruGuideKey', () => {
   it('導入前はミチルとの最初の会話を優先する', () => {
     expect(michiruGuideKey({ ...base, prologueDone: false, islandBossReady: true })).toBe('wake');
@@ -112,5 +134,165 @@ describe('michiruGuideKey', () => {
     expect(
       currentMichiruGuideKeyFromLinks([state, 'field', 'aomori', c.world, [chapterLink, storyLink]]),
     ).toBe('gate');
+  });
+
+  it('四国クリア後は完了済みの愛媛に戻らず、広島から山口へ案内する', async () => {
+    const c = await content();
+    const state = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    state.progress.counters['story.prologue'] = 1;
+    state.progress.islandsCleared.push(
+      ...c.world.islands
+        .filter((island) => island.status === 'playable' && island.order <= 9)
+        .map((island) => island.id),
+    );
+    state.progress.areaSigns.push(...c.world.islands.find((island) => island.id === 'chugoku')!.areas);
+
+    expect(
+      currentMichiruGuideKeyFromLinks([
+        state,
+        'field',
+        'hiroshima',
+        c.world,
+        [
+          link('hiroshima-ehime-bridge', 'hiroshima', 'ehime', 'bridge', 'bicycle', 'chapter'),
+          link('land-hiroshima-yamaguchi', 'hiroshima', 'yamaguchi'),
+        ],
+      ]),
+    ).toBe('gate');
+  });
+
+  it('九州クリア後は、広島から攻略済みの愛媛へ逆案内しない', async () => {
+    const c = await content();
+    const state = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    state.progress.counters['story.prologue'] = 1;
+    state.progress.islandsCleared.push(...c.world.islands.map((island) => island.id));
+
+    expect(
+      currentMichiruGuideKeyFromLinks([
+        state,
+        'field',
+        'hiroshima',
+        c.world,
+        [link('hiroshima-ehime-bridge', 'hiroshima', 'ehime', 'bridge', 'bicycle', 'chapter')],
+      ]),
+    ).toBe('explore');
+  });
+
+  it('四国から九州への実経路を愛媛→広島→山口→福岡の順に案内する', async () => {
+    const c = await content();
+    const state = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    state.progress.counters['story.prologue'] = 1;
+    state.progress.islandsCleared.push(
+      ...c.world.islands
+        .filter((island) => island.status === 'playable' && island.order <= 9)
+        .map((island) => island.id),
+    );
+    state.progress.areaSigns.push(...c.world.islands.find((island) => island.id === 'chugoku')!.areas);
+
+    expect(
+      currentMichiruGuideKeyFromLinks([
+        state,
+        'field',
+        'ehime',
+        c.world,
+        [link('hiroshima-ehime-bridge', 'ehime', 'hiroshima', 'bridge', 'bicycle', 'chapter')],
+      ]),
+    ).toBe('bridge');
+    expect(
+      currentMichiruGuideKeyFromLinks([
+        state,
+        'field',
+        'yamaguchi',
+        c.world,
+        [
+          link('land-hiroshima-yamaguchi', 'yamaguchi', 'hiroshima'),
+          link('yamaguchi-fukuoka-kanmon', 'yamaguchi', 'fukuoka', 'tunnel', 'walk', 'chapter'),
+        ],
+      ]),
+    ).toBe('tunnel');
+  });
+
+  it('県内の攻略順で次に未完了の県だけを案内する', async () => {
+    const c = await content();
+    const state = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    state.progress.counters['story.prologue'] = 1;
+    state.progress.areaSigns.push('tottori', 'shimane', 'yamaguchi', 'hiroshima');
+
+    expect(
+      currentMichiruGuideKeyFromLinks([
+        state,
+        'field',
+        'hiroshima',
+        c.world,
+        [
+          link('land-hiroshima-yamaguchi', 'hiroshima', 'yamaguchi', 'bridge', 'bicycle'),
+          link('land-okayama-hiroshima', 'hiroshima', 'okayama'),
+        ],
+      ]),
+    ).toBe('gate');
+  });
+
+  it('旧セーブの県のしるしだけでも、次の未攻略県へ案内する', async () => {
+    const c = await content();
+    const state = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    state.progress.counters['story.prologue'] = 1;
+    state.progress.areaSigns.push('aomori');
+
+    expect(currentMichiruGuideKeyFromLinks([state, 'field', 'aomori', c.world, [storyLink]])).toBe('gate');
+  });
+
+  it('次の未攻略県が隣接しないときも、攻略済み県を通る最初の門へ案内する', async () => {
+    const c = await content();
+    const state = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    state.progress.counters['story.prologue'] = 1;
+    state.progress.areaSigns.push('aomori', 'iwate');
+
+    expect(
+      currentMichiruGuideKeyFromLinks([
+        state,
+        'field',
+        'aomori',
+        c.world,
+        [link('land-aomori-iwate', 'aomori', 'iwate', 'tunnel')],
+      ]),
+    ).toBe('tunnel');
+  });
+
+  it('地方クリア後は最終県から章間出口へ向かう最初の戻り道を案内する', async () => {
+    const c = await content();
+    const state = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    state.progress.counters['story.prologue'] = 1;
+    state.progress.islandsCleared.push('tohoku');
+    state.progress.areaSigns.push(...c.world.islands.find((island) => island.id === 'tohoku')!.areas);
+
+    expect(
+      currentMichiruGuideKeyFromLinks([
+        state,
+        'field',
+        'fukushima',
+        c.world,
+        [link('land-yamagata-fukushima', 'fukushima', 'yamagata', 'bridge', 'bicycle')],
+      ]),
+    ).toBe('bridge');
+  });
+
+  it('旧攻略順で岐阜だけ完了済みでも、愛知を経由して静岡へ戻る', async () => {
+    const c = await content();
+    const state = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    state.progress.counters['story.prologue'] = 1;
+    state.progress.areaSigns.push('gifu');
+
+    expect(
+      currentMichiruGuideKeyFromLinks([
+        state,
+        'field',
+        'gifu',
+        c.world,
+        [
+          link('land-aichi-gifu', 'gifu', 'aichi', 'tunnel'),
+          link('land-gifu-mie', 'gifu', 'mie', 'bridge', 'bicycle'),
+        ],
+      ]),
+    ).toBe('tunnel');
   });
 });
