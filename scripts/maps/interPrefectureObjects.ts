@@ -1,6 +1,6 @@
 import type { LonLat } from '../data/geo.js';
 import type { TransportLink } from '../data/interPrefectureLinks.js';
-import type { LandBorderLink } from '../terrain/prefectureBorders.js';
+import type { OrientedLandBorderLink, TileDirection } from './landBorderDirections.js';
 
 type Pt = [number, number];
 
@@ -27,11 +27,12 @@ interface LandPlacement {
 
 interface ObjectPlacer {
   gate(target: Pt, allowed: (index: number) => boolean): Pt;
-  hasImmediateArrival(index: number): boolean;
-  besideImmediate(at: Pt, preferred?: readonly number[]): Pt;
+  hasImmediateArrival(index: number, required?: number): boolean;
+  besideImmediate(at: Pt, preferred?: readonly number[], exact?: boolean): Pt;
 }
 
 const stringProperty = (name: string, value: string): Property => ({ name, type: 'string', value });
+const opposite = ([x, y]: TileDirection): TileDirection => [-x, -y];
 
 /** 正規カタログから、県境・実在交通の入口と隣接する相互到着点を生成する。 */
 export function interPrefectureObjectDefinitions(input: {
@@ -39,7 +40,7 @@ export function interPrefectureObjectDefinitions(input: {
   land: LandPlacement;
   place: ObjectPlacer;
   inMain(index: number): boolean;
-  borders: readonly LandBorderLink[];
+  borders: readonly OrientedLandBorderLink[];
   transports: readonly TransportLink[];
 }): InterPrefectureObjectDefinition[] {
   const { prefId, land, place, inMain } = input;
@@ -50,26 +51,45 @@ export function interPrefectureObjectDefinitions(input: {
       (candidate) => candidate >= 0 && candidate < land.cells.length,
     );
   };
+  const step = (index: number, [dx, dy]: TileDirection) => {
+    const x = index % land.w;
+    const nextX = x + dx;
+    const next = index + dy * land.w + dx;
+    return nextX >= 0 && nextX < land.w && next >= 0 && next < land.cells.length ? next : -1;
+  };
   const add = (
-    link: LandBorderLink | TransportLink,
+    link: OrientedLandBorderLink | TransportLink,
     target: LonLat,
     allowed: (index: number) => boolean,
     extra: Property[] = [],
+    outward?: TileDirection,
   ) => {
     const targetArea = link.areas.find((areaId) => areaId !== prefId);
     if (!targetArea) throw new Error(`${link.id}: ${prefId} の相手県がありません`);
     try {
-      const entry = place.gate(land.tile(target), (index) =>
-        Boolean(inMain(index) && allowed(index) && place.hasImmediateArrival(index)),
-      );
+      const entry = place.gate(land.tile(target), (index) => {
+        if (!inMain(index) || !allowed(index)) return false;
+        if (!outward) return place.hasImmediateArrival(index);
+        const outside = step(index, outward);
+        const inside = step(index, opposite(outward));
+        return (
+          outside >= 0 &&
+          land.cells[outside] === 'x' &&
+          inside >= 0 &&
+          place.hasImmediateArrival(index, inside)
+        );
+      });
       const entryIndex = land.idx(entry);
       const outside =
         link.infrastructure === 'landBorder'
-          ? adjacent(entryIndex).filter((candidate) => land.cells[candidate] === 'x')
+          ? outward
+            ? [step(entryIndex, outward)]
+            : adjacent(entryIndex).filter((candidate) => land.cells[candidate] === 'x')
           : [];
       const arrival = place.besideImmediate(
         entry,
         outside.map((candidate) => entryIndex * 2 - candidate),
+        Boolean(outward),
       );
       definitions.push(
         {
@@ -97,7 +117,14 @@ export function interPrefectureObjectDefinitions(input: {
 
   for (const link of input.borders) {
     if (!link.areas.includes(prefId)) continue;
-    add(link, link.anchor, (index) => adjacent(index).some((candidate) => land.cells[candidate] === 'x'));
+    const outward = link.areas[0] === prefId ? link.outwardFromFirst : opposite(link.outwardFromFirst);
+    add(
+      link,
+      link.anchor,
+      (index) => adjacent(index).some((candidate) => land.cells[candidate] === 'x'),
+      [],
+      outward,
+    );
   }
   for (const link of input.transports) {
     const endpoint = link.endpoints.find((candidate) => candidate.areaId === prefId);

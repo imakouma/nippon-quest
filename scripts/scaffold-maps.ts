@@ -60,6 +60,7 @@ import { partitionConnectedRegions } from './regions/connectedPartition.js';
 import { applyRegionWalls } from './regions/partitionWalls.js';
 import { interPrefectureObjectDefinitions } from './maps/interPrefectureObjects.js';
 import { findImmediateArrivalTile, hasImmediateArrivalTile } from './maps/immediateArrival.js';
+import { orientLandBorderLinks } from './maps/landBorderDirections.js';
 import { paintGeneratedPrefectureBorders } from './maps/prefectureBoundary.js';
 import { syncInterPrefectureMapFile } from './maps/syncInterPrefectureMap.js';
 import { terrainLayers } from './maps/terrainLayers.js';
@@ -85,7 +86,7 @@ const TERRAIN_DATA = JSON.parse(readFileSync(`${ROOT}scripts/data/terrain.json`,
   interPrefectureBorders: LandBorderLink[];
 };
 const TERRAIN = TERRAIN_DATA.maps;
-
+const LAND_BORDERS = orientLandBorderLinks(TERRAIN_DATA.interPrefectureBorders, TERRAIN);
 /** 地形記号 → タイル番号（src/rendering/overworld/fieldArt.ts の仮タイルセットと対応） */
 const TILE: Record<string, number> = { '.': 3, '~': 3, '#': 1, '^': 11, A: 12, x: 1, W: 159 };
 /** にほんちずの地図データ。Tiled のマップではないので maps/ には入れず、ゲームが読む public/ にだけ置く */
@@ -381,6 +382,7 @@ class Placer {
   private readonly taken: { at: Pt; labeled: boolean }[] = [];
   /** 遷移のマス。乗った瞬間に移動するので、その先へは歩いて抜けられない */
   private readonly gates = new Set<number>();
+  private readonly arrivalFree = (x: number, y: number): boolean => this.free(x, y, false);
 
   constructor(private readonly land: Land) {}
 
@@ -449,13 +451,13 @@ class Placer {
   }
 
   /** i のすぐ隣に、同じ陸続きの空いた到着マスを確保できるか。 */
-  hasImmediateArrival(i: number): boolean {
-    return hasImmediateArrivalTile(this.land, i, (x, y) => this.free(x, y, false));
+  hasImmediateArrival(i: number, required?: number): boolean {
+    return hasImmediateArrivalTile(this.land, i, this.arrivalFree, required);
   }
 
   /** 県間入口のすぐ隣に到着地点を置く。遠くへずらして入口と到着地点を分離しない。 */
-  besideImmediate(at: Pt, preferred: readonly number[] = []): Pt {
-    const arrival = findImmediateArrivalTile(this.land, at, preferred, (x, y) => this.free(x, y, false));
+  besideImmediate(at: Pt, preferred: readonly number[] = [], exact = false): Pt {
+    const arrival = findImmediateArrivalTile(this.land, at, preferred, this.arrivalFree, exact);
     if (arrival) {
       this.taken.push({ at: arrival, labeled: false });
       return arrival;
@@ -995,7 +997,7 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
       land,
       place,
       inMain,
-      borders: TERRAIN_DATA.interPrefectureBorders,
+      borders: LAND_BORDERS,
       transports: TRANSPORT_LINKS,
     }),
   );
@@ -2656,7 +2658,7 @@ for (const pref of PREFECTURES) {
           pref.id,
           `${MAPS_DIR}${filename}`,
           TERRAIN[`${pref.id}-field`]!,
-          TERRAIN_DATA.interPrefectureBorders,
+          LAND_BORDERS,
         ),
         true,
       );

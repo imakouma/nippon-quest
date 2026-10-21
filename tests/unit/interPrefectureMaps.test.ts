@@ -2,8 +2,10 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { TRANSPORT_LINKS } from '../../scripts/data/interPrefectureLinks';
 import type { LonLat } from '../../scripts/data/geo';
+import type { TerrainMap } from '../../scripts/gen-terrain';
+import { orientLandBorderLinks } from '../../scripts/maps/landBorderDirections';
 import type { LandBorderLink } from '../../scripts/terrain/prefectureBorders';
-import { project, type Proj } from '../../scripts/terrain/raster';
+import { project } from '../../scripts/terrain/raster';
 
 interface Property {
   name: string;
@@ -24,13 +26,6 @@ interface TiledMap {
   width: number;
   height: number;
   layers: { name: string; data?: number[]; objects?: MapObject[] }[];
-}
-
-interface TerrainMap {
-  width: number;
-  height: number;
-  rows: string[];
-  panels: { bbox: [number, number, number, number]; proj: Proj }[];
 }
 
 const ROOT = new URL('../../', import.meta.url);
@@ -139,6 +134,43 @@ describe('全国の県境門と実在交通の生成物', () => {
           expect(overlaps, `${link.id}: ${areaId} の${name}が重複`).toHaveLength(1);
         }
       }
+  });
+
+  it('陸上門は生成器が決めた正反対の向きに開き、その正面が県外陸になる', () => {
+    const oriented = orientLandBorderLinks(terrain.interPrefectureBorders, terrain.maps);
+    const mismatches = oriented.flatMap((link) =>
+      link.areas.flatMap((areaId, endpointIndex) => {
+        const map = maps.get(`${areaId}-field`)!;
+        const raw = terrain.maps[`${areaId}-field`]!;
+        const list = objects(map);
+        const entry = list.find((object) => object.name === `interpref_${link.id}`)!;
+        const spawn = list.find((object) => object.name === `from_${link.id}`)!;
+        const actual = [
+          Math.floor(entry.x / 16) - Math.floor(spawn.x / 16),
+          Math.floor(entry.y / 16) - Math.floor(spawn.y / 16),
+        ] as const;
+        const expected =
+          endpointIndex === 0
+            ? link.outwardFromFirst
+            : ([-link.outwardFromFirst[0], -link.outwardFromFirst[1]] as const);
+        const entryX = Math.floor(entry.x / 16);
+        const entryY = Math.floor(entry.y / 16);
+        const outsideX = entryX + expected[0];
+        const outsideY = entryY + expected[1];
+        const outside = outsideY * raw.width + outsideX;
+        return actual[0] === expected[0] &&
+          actual[1] === expected[1] &&
+          outsideX >= 0 &&
+          outsideX < raw.width &&
+          outsideY >= 0 &&
+          outsideY < raw.height &&
+          raw.rows.join('')[outside] === 'x'
+          ? []
+          : [`${link.id}: ${areaId} actual=${actual.join(',')} expected=${expected.join(',')}`];
+      }),
+    );
+
+    expect(mismatches).toEqual([]);
   });
 
   it('陸上門は県外陸と接し、実在交通は指定された地理条件に置かれる', () => {

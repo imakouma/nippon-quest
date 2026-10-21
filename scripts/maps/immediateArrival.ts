@@ -21,8 +21,11 @@ export function hasImmediateArrivalTile(
   land: ImmediateArrivalLand,
   index: number,
   free: (x: number, y: number) => boolean,
+  required?: number,
 ): boolean {
-  return adjacentTileIndexes(land, index).some((candidate) => {
+  const candidates = required === undefined ? adjacentTileIndexes(land, index) : [required];
+  return candidates.some((candidate) => {
+    if (candidate < 0 || candidate >= land.cells.length) return false;
     const x = candidate % land.w;
     const y = Math.floor(candidate / land.w);
     return land.label[candidate] === land.label[index] && free(x, y);
@@ -34,9 +37,11 @@ export function findImmediateArrivalTile(
   at: TilePoint,
   preferred: readonly number[],
   free: (x: number, y: number) => boolean,
+  exact = false,
 ): TilePoint | null {
   const entry = land.idx(at);
-  for (const candidate of [...new Set([...preferred, ...adjacentTileIndexes(land, entry)])]) {
+  const candidates = exact ? preferred : [...preferred, ...adjacentTileIndexes(land, entry)];
+  for (const candidate of [...new Set(candidates)]) {
     if (candidate < 0 || candidate >= land.cells.length) continue;
     const x = candidate % land.w;
     const y = Math.floor(candidate / land.w);

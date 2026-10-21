@@ -2,9 +2,10 @@ import { readFileSync } from 'node:fs';
 import type { LonLat } from '../data/geo.js';
 import { TRANSPORT_LINKS, type TransportLink } from '../data/interPrefectureLinks.js';
 import type { TerrainMap } from '../gen-terrain.js';
-import type { LandBorderLink } from '../terrain/prefectureBorders.js';
 import { components, project } from '../terrain/raster.js';
+import { findImmediateArrivalTile, hasImmediateArrivalTile } from './immediateArrival.js';
 import { interPrefectureObjectDefinitions } from './interPrefectureObjects.js';
+import type { OrientedLandBorderLink } from './landBorderDirections.js';
 import { paintPrefectureBorders } from './prefectureBoundary.js';
 
 type Point = [number, number];
@@ -93,6 +94,7 @@ class ExistingMapLand {
 class ExistingObjectPlacer {
   private readonly taken: { at: Point; labeled: boolean }[] = [];
   private readonly gates = new Set<number>();
+  private readonly arrivalFree = (x: number, y: number): boolean => this.free(x, y, false);
 
   constructor(private readonly land: ExistingMapLand) {}
 
@@ -145,21 +147,13 @@ class ExistingObjectPlacer {
     return at;
   }
 
-  hasImmediateArrival(index: number): boolean {
-    return this.land.adjacent(index).some((candidate) => {
-      const x = candidate % this.land.w;
-      const y = Math.floor(candidate / this.land.w);
-      return this.land.label[candidate] === this.land.label[index] && this.free(x, y, false);
-    });
+  hasImmediateArrival(index: number, required?: number): boolean {
+    return hasImmediateArrivalTile(this.land, index, this.arrivalFree, required);
   }
 
-  besideImmediate(at: Point, preferred: readonly number[] = []): Point {
-    const entry = this.land.idx(at);
-    for (const candidate of [...new Set([...preferred, ...this.land.adjacent(entry)])]) {
-      const x = candidate % this.land.w;
-      const y = Math.floor(candidate / this.land.w);
-      if (this.land.label[candidate] !== this.land.label[entry] || !this.free(x, y, false)) continue;
-      const arrival: Point = [x, y];
+  besideImmediate(at: Point, preferred: readonly number[] = [], exact = false): Point {
+    const arrival = findImmediateArrivalTile(this.land, at, preferred, this.arrivalFree, exact);
+    if (arrival) {
       this.reserve(arrival, false, false);
       return arrival;
     }
@@ -264,7 +258,7 @@ export function syncInterPrefectureMap(input: {
   prefId: string;
   map: ExistingFieldMap;
   terrain: TerrainMap;
-  borders: readonly LandBorderLink[];
+  borders: readonly OrientedLandBorderLink[];
   transports: readonly TransportLink[];
 }): ExistingFieldMap {
   const map = structuredClone(input.map);
@@ -340,7 +334,7 @@ export function syncInterPrefectureMapFile(
   prefId: string,
   filePath: string,
   terrain: TerrainMap,
-  borders: readonly LandBorderLink[],
+  borders: readonly OrientedLandBorderLink[],
 ): ExistingFieldMap {
   return syncInterPrefectureMap({
     prefId,

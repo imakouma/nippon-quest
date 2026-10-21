@@ -428,6 +428,32 @@ test('開発者モードは全県境を往復でき、訪問を付けず、解�
   expect(restored.counters['visit:miyagi-field']).toBeUndefined();
 });
 
+test('開発者モードは入口を補正した栃木・埼玉の県境も往復できる', async ({ page }) => {
+  test.setTimeout(120_000);
+  const iwate = linkEndpoint('iwate', 'tohoku', 'land-iwate-miyagi');
+  const tochigi = linkEndpoint('tochigi', islandFor('tochigi'), 'land-tochigi-saitama');
+  const saitama = linkEndpoint('saitama', islandFor('saitama'), 'land-tochigi-saitama');
+
+  await createFreshSave(page);
+  await restartWithProgress(page, iwate, iwate.firstSpawnTile, 'lock-iwate');
+  await toggleDev(page, true);
+  await restartWithProgress(page, tochigi, tochigi.reciprocalSpawnTile);
+
+  await crossLandBorder(page, tochigi);
+  await expect(page.locator('canvas[data-player-tile]')).toHaveAttribute(
+    'data-player-tile',
+    saitama.reciprocalSpawnTile.join(','),
+    { timeout: 30_000 },
+  );
+
+  await crossLandBorder(page, saitama);
+  await expect(page.locator('canvas[data-player-tile]')).toHaveAttribute(
+    'data-player-tile',
+    tochigi.reciprocalSpawnTile.join(','),
+    { timeout: 30_000 },
+  );
+});
+
 test('開発者モードはボス・名所を起動せず進行を変更しない', async ({ page }) => {
   test.setTimeout(120_000);
   const iwate = linkEndpoint('iwate', 'tohoku', 'land-iwate-miyagi');
