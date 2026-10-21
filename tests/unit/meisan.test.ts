@@ -74,8 +74,7 @@ describe('めいさんひんの そうび', () => {
       gs = putEquip(gs, c.items.get(id)!, bagContext(gs, c)).state;
     }
     const up = partyFromGameState(gs, c).hero.stats;
-    const sum = (k: 'hp' | 'scienceDef') =>
-      ids.reduce((a, id) => a + (c.items.get(id)!.stats?.[k] ?? 0), 0);
+    const sum = (k: 'hp' | 'scienceDef') => ids.reduce((a, id) => a + (c.items.get(id)!.stats?.[k] ?? 0), 0);
     expect(up.hp - base.hp).toBe(sum('hp'));
     expect(up.scienceDef - base.scienceDef).toBe(sum('scienceDef'));
     // 絵は 足 → くつ → 体 → 頭 の じゅんに かさねる

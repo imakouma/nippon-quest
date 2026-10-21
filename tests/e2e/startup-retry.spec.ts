@@ -25,11 +25,7 @@ test('起動コンテンツの初回読込に失敗しても、画面から再�
         await route.fulfill({ status: 503, contentType: 'text/plain', body: 'temporary failure' });
         return;
       }
-    } else if (
-      bundleAttempts === 0 &&
-      !manifestFailed &&
-      pathname.endsWith('/content/manifest.json')
-    ) {
+    } else if (bundleAttempts === 0 && !manifestFailed && pathname.endsWith('/content/manifest.json')) {
       manifestFailed = true;
       await route.fulfill({ status: 503, contentType: 'text/plain', body: 'temporary failure' });
       return;

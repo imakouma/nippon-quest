@@ -50,8 +50,7 @@ for (const file of questions) {
     const grade = (item as { grade?: unknown })?.grade;
     if (typeof grade === 'number' && grade >= 1 && grade <= 6) grades.add(grade);
   }
-  for (const grade of grades)
-    (questionFilesByGrade[String(grade)] ??= []).push(file);
+  for (const grade of grades) (questionFilesByGrade[String(grade)] ??= []).push(file);
 }
 
 const manifest = {

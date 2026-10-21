@@ -43,7 +43,9 @@ const rows = [...content.monsters.values()].flatMap((monster) => {
       elements: content.elements,
       rng: createRng(`${monster.id}:${condition}:dealt`),
     }).amount;
-    const enemySkill = monster.skills.map((id) => content.skills.get(id)).find((candidate) => candidate?.effect === 'damage');
+    const enemySkill = monster.skills
+      .map((id) => content.skills.get(id))
+      .find((candidate) => candidate?.effect === 'damage');
     const received = computeDamage({
       attacker: enemy,
       defender: hero,
