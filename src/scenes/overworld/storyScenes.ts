@@ -24,6 +24,32 @@ export function prologueLines(game: GameState): DialogueLine[] {
   ];
 }
 
+/** プロローグ直後に、ミチルが最初のバトルで必要なことだけを短く伝える。 */
+export function battleTutorialLines(): DialogueLine[] {
+  const speaker = t('field.prologueFairy');
+  return [
+    { speaker, text: t('field.battleTutorialEncounter') },
+    { speaker, text: t('field.battleTutorialSkill') },
+    { speaker, text: t('field.battleTutorialGauge') },
+    { speaker, text: t('field.battleTutorialFlee') },
+  ];
+}
+
+export function musubiDamaShopGuideLines(): DialogueLine[] {
+  return [
+    { speaker: t('field.prologueFairy'), text: t('field.musubiShopGuide') },
+    { speaker: t('field.prologueFairy'), text: t('field.musubiShopGoal') },
+  ];
+}
+
+export function musubiDamaPurchaseLines(): DialogueLine[] {
+  return [
+    { speaker: t('field.prologueFairy'), text: t('field.musubiBought') },
+    { speaker: t('field.prologueFairy'), text: t('field.musubiUseWeak') },
+    { speaker: t('field.prologueFairy'), text: t('field.musubiUseQuestion') },
+  ];
+}
+
 export function companionChoiceLines(): DialogueLine[] {
   return [
     { speaker: t('field.musubiKeeper'), text: t('field.manabimonoExplain') },

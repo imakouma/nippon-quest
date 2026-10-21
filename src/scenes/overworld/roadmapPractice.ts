@@ -6,6 +6,7 @@ import { t } from '../../ui/i18n';
 import type { QuestionBank } from '../../questions/engine';
 import { askById, MasteryStore } from '../../questions/engine';
 import { buildAskEnv } from '../shared/askEnv';
+import { LEGACY_QUESTION_UNIT_ALIASES } from './roadmap';
 
 export function pickRoadmapQuestionId(
   bank: QuestionBank,
@@ -13,7 +14,9 @@ export function pickRoadmapQuestionId(
   recent: readonly string[],
   rng: { next(): number },
 ): string | null {
-  const questions = bank.all().filter((question) => question.unit === unitId);
+  const questions = bank
+    .all()
+    .filter((question) => question.unit === unitId || LEGACY_QUESTION_UNIT_ALIASES[question.unit] === unitId);
   if (!questions.length) return null;
   const recentIds = new Set(recent);
   const fresh = questions.filter((question) => !recentIds.has(question.id));

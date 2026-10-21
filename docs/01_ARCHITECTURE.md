@@ -262,3 +262,6 @@ interface Skill {
 1. `docs/` を更新 → 2. Antigravity にステップ単位のプロンプト（`02_ANTIGRAVITY_PROMPTS.md`）→ 3. Implementation Plan を **人間がレビュー**（三分割が崩れていないか、`content/` にコードが混ざっていないか）→ 4. 実装 → 5. `pnpm test && pnpm validate:content && pnpm build` が通る → 6. Walkthrough（Antigravity が生成する動作説明）を確認 → 7. コミット。
 - ブランチ：`main`（常に動く）／`feat/<step>`。Antigravity には feat ブランチで作業させる。
 - コミットは小さく。1ステップ＝1PR 相当。
+# 文理戦闘契約（v10）
+
+能力値の正は `src/core/content/schemas.ts` の8能力契約、成長は `{ base, every5, every10 }` です。文理ペア選択とポケモン型基礎式は `src/core/battle/damage.ts`、行動順は `src/core/battle/initiative.ts` に分離します。Sceneは計算せず、BattleEventをエンジンが返した順に再生します。旧セーブの6能力は `src/core/state/migrations.ts` で一度だけv10へ変換します。

@@ -190,6 +190,128 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "kobe-akashi-awaji",
+      "table": [
+        {
+          "monsterId": "hyogo-takotsubon",
+          "weight": 60
+        },
+        {
+          "monsterId": "hyogo-tamanegin",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "harima-tanba",
+      "table": [
+        {
+          "monsterId": "hyogo-sorobanban",
+          "weight": 60
+        },
+        {
+          "monsterId": "hyogo-takotsubon",
+          "weight": 25
+        },
+        {
+          "monsterId": "hyogo-tamanegin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "tajima",
+      "table": [
+        {
+          "monsterId": "hyogo-kuromamen",
+          "weight": 60
+        },
+        {
+          "monsterId": "hyogo-sorobanban",
+          "weight": 20
+        },
+        {
+          "monsterId": "hyogo-takotsubon",
+          "weight": 10
+        },
+        {
+          "monsterId": "hyogo-tamanegin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "kobe-akashi-awaji",
+      "name": "神戸[こうべ]・明石[あかし]・淡路[あわじ]エリア",
+      "motifs": [
+        "kobe-ko",
+        "arima-onsen",
+        "akashi-tako",
+        "awaji-tamanegi",
+        "awaji-ningyo",
+        "awaji-senko"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "hyogo-takotsubo-daisho",
+        "level": 36
+      }
+    },
+    {
+      "id": "harima-tanba",
+      "name": "播磨[はりま]・丹波[たんば]エリア",
+      "motifs": [
+        "himeji-jo",
+        "tanba-kuromame",
+        "banshu-soroban"
+      ],
+      "boss": {
+        "monsterId": "hyogo-soroban-shogun",
+        "level": 36
+      }
+    },
+    {
+      "id": "tajima",
+      "name": "但馬[たじま]エリア",
+      "motifs": [
+        "kinosaki-onsen",
+        "takeda-jo",
+        "tajimaushi",
+        "izushi-soba"
+      ],
+      "boss": {
+        "monsterId": "hyogo-kuromame-musha",
+        "level": 36
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "kobe-akashi-awaji",
+        "harima-tanba"
+      ],
+      "openedBy": "kobe-akashi-awaji"
+    },
+    {
+      "between": [
+        "harima-tanba",
+        "tajima"
+      ],
+      "openedBy": "harima-tanba"
     }
   ],
   "boss": "hyogo-boss-shirasagi-tenshu",
@@ -209,7 +331,10 @@
       "once": true,
       "cutinImageKey": "motif.hyogo.takeda-jo",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。"
+        },
         {
           "speaker": "竹田城跡[たけだじょうあと]の ガイドさん",
           "text": "秋[あき]の 朝[あさ]は、この 城跡[しろあと]が 雲[くも]の 海[うみ]に うかんで 見[み]えるんだ。天気[てんき]の ふしぎを しらべよう！"
@@ -249,7 +374,10 @@
         }
       ],
       "afterDialogue": [
-        { "speaker": "ミチル", "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。" },
+        {
+          "speaker": "ミチル",
+          "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。"
+        },
         {
           "speaker": "竹田城跡[たけだじょうあと]の ガイドさん",
           "text": "よく しらべたね！ 雲[くも]の 海[うみ]は、よく 晴[は]れて 冷[ひ]えこんだ 朝[あさ]に 見[み]えやすいんだよ。"

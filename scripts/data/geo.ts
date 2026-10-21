@@ -149,6 +149,51 @@ export const REGION_SEEDS: Record<string, Record<string, LonLat[]>> = {
     osorezan: [[141.09, 41.325]],
     oma: [[140.95, 41.5]],
   },
+  iwate: {
+    'morioka-hachimantai': [[141.152667, 39.70353]],
+    'ryusendo-kitasanriku': [[141.803, 39.857]],
+    'miyako-tono': [
+      [141.533, 39.328],
+      [141.983, 39.647],
+    ],
+    'hiraizumi-sanriku': [
+      [141.288, 38.99],
+      [141.72, 39.07],
+    ],
+  },
+  miyagi: {
+    'sendai-aoba': [[140.872183, 38.268737]],
+    'matsushima-ishinomaki': [[141.065, 38.37]],
+    'izunuma-kesennuma': [[141.1, 38.72]],
+    'naruko-osaki': [[140.689, 38.742]],
+  },
+  akita: {
+    'akita-oga-ogata': [[140.103356, 39.718175]],
+    'odate-kazuno': [[140.59, 40.28]],
+    'tazawako-kakunodate': [[140.563, 39.595]],
+    'omagari-chokai': [
+      [140.476, 39.453],
+      [140, 39.13],
+    ],
+  },
+  yamagata: {
+    'murayama-tendo': [[140.362533, 38.240127]],
+    'mogami-ginzan': [
+      [140.53, 38.57],
+      [140.12, 38.775],
+    ],
+    'shonai-dewasanzan': [[139.981, 38.702]],
+    'zao-okitama': [[140.116, 37.922]],
+  },
+  fukushima: {
+    nakadori: [
+      [140.466754, 37.750146],
+      [140.211, 37.126],
+    ],
+    'inawashiro-urabandai': [[140.09, 37.655]],
+    'aizu-kitakata': [[139.874, 37.651]],
+    hamadori: [[140.957, 37.635]],
+  },
 };
 
 /**
@@ -279,7 +324,7 @@ export const EVENT_SPOTS: Record<string, LonLat> = {
   event_nagano_suwako: [138.085, 36.048], // 諏訪市・岡谷市・下諏訪町
   event_gifu_shirakawago: [136.906, 36.257], // 白川村
   event_shizuoka_fujisan: [138.73, 35.36], // 富士宮市・御殿場市
-  event_shiga_biwako: [136.08, 35.25], // 琵琶湖（湖）
+  event_shiga_biwako: [135.88, 35.08], // 琵琶湖（大津側の湖岸）
   event_kyoto_amanohashidate: [135.19, 35.57], // 宮津市
   'event_hyogo_takeda-jo': [134.83, 35.3], // 朝来市
   event_nara_ishibutai: [135.827, 34.466], // 明日香村
@@ -719,7 +764,7 @@ export const LANDMARK_SPOTS: Record<string, Record<string, LonLat>> = {
     rurikoji: [131.47, 34.19], // 山口市
     motonosumi: [131.03, 34.43], // 長門市
     'shimonoseki-fugu': [130.945, 33.957], // 下関市
-    hagiyaki: [131.17, 34.34], // 長門市深川
+    hagiyaki: [131.4, 34.41], // 萩市
     'oshima-mikan': [132.25, 33.93], // 周防大島町
   },
   tokushima: {

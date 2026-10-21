@@ -1,0 +1,364 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-foreign-activities-g3-4",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]・外国語[がいこくご]活動[かつどう]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/shotou/new-cs/1387014.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "第4章 外国語活動・第3学年及び第4学年（2年生はプロジェクト独自の補助教材）"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "eigo.g2.supplementary.alphabet-order",
+      "subject": "eigo",
+      "grade": 2,
+      "unit": "eigo.g2.alphabet-order",
+      "name": "AからJまでの並[なら]びに親[した]しむ",
+      "description": "英語[えいご]の大文字[おおもじ]を見[み]て、AからJまでの前後[ぜんご]の並[なら]びに遊[あそ]びながら親[した]しむ。",
+      "kind": "fact",
+      "memoryType": "fact",
+      "curriculumCodes": [],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "unverified",
+        "note": "2年生[ねんせい]の必修[ひっしゅう]内容[ないよう]ではない先取[さきど]りのおまけ。"
+      },
+      "sourceIds": ["mext-h29-foreign-activities-g3-4"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（必修範囲外であることを一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "eigo.g2.supplementary.alphabet-order-middle",
+      "subject": "eigo",
+      "grade": 2,
+      "unit": "eigo.g2.alphabet-order",
+      "name": "IからRまでの並[なら]びに親[した]しむ",
+      "description": "英語[えいご]の大文字[おおもじ]を見[み]て、IからRまでの前後[ぜんご]の並[なら]びに遊[あそ]びながら親[した]しむ。",
+      "kind": "fact",
+      "memoryType": "fact",
+      "curriculumCodes": [],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "unverified",
+        "note": "2年生[ねんせい]の必修[ひっしゅう]内容[ないよう]ではない先取[さきど]りのおまけ。"
+      },
+      "sourceIds": ["mext-h29-foreign-activities-g3-4"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（必修範囲外であることを一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "eigo.g2.supplementary.alphabet-order-late",
+      "subject": "eigo",
+      "grade": 2,
+      "unit": "eigo.g2.alphabet-order",
+      "name": "QからZまでの並[なら]びに親[した]しむ",
+      "description": "英語[えいご]の大文字[おおもじ]を見[み]て、QからZまでの前後[ぜんご]の並[なら]びに遊[あそ]びながら親[した]しむ。",
+      "kind": "fact",
+      "memoryType": "fact",
+      "curriculumCodes": [],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "unverified",
+        "note": "2年生[ねんせい]の必修[ひっしゅう]内容[ないよう]ではない先取[さきど]りのおまけ。"
+      },
+      "sourceIds": ["mext-h29-foreign-activities-g3-4"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（必修範囲外であることを一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "eigo.g2.supplementary.animals",
+      "subject": "eigo",
+      "grade": 2,
+      "unit": "eigo.g2.animals",
+      "name": "身近[みぢか]な動物[どうぶつ]の英語[えいご]に親[した]しむ",
+      "description": "絵[え]と音声[おんせい]を手掛[てが]かりに、身近[みぢか]な動物[どうぶつ]を表[あらわ]す簡単[かんたん]な英語[えいご]に親[した]しむ。",
+      "kind": "fact",
+      "memoryType": "fact",
+      "curriculumCodes": [],
+      "recommendedWindow": {
+        "stage": "variable",
+        "status": "unverified",
+        "note": "2年生[ねんせい]の必修[ひっしゅう]内容[ないよう]ではない先取[さきど]りのおまけ。"
+      },
+      "sourceIds": ["mext-h29-foreign-activities-g3-4"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（必修範囲外であることを一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "eigo.g2.alphabet-order.0001",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.alphabet-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0002",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.alphabet-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0003",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.alphabet-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0004",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.alphabet-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0005",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.alphabet-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0006",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.alphabet-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0007",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.alphabet-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0008",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.alphabet-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0009",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-middle", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0010",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-middle", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0011",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-middle", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0012",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-middle", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0013",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-middle", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0014",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-middle", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0015",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-middle", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0016",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-middle", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0017",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-late", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0018",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-late", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0019",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-late", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0020",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-late", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0021",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-late", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0022",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-late", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0023",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-late", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.alphabet-order.0024",
+      "concepts": [
+        { "conceptId": "eigo.g2.supplementary.alphabet-order-late", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.animals.0001",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.animals", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.animals.0002",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.animals", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.animals.0003",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.animals", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.animals.0004",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.animals", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.animals.0005",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.animals", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.animals.0006",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.animals", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.animals.0007",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.animals", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "eigo.g2.animals.0008",
+      "concepts": [{ "conceptId": "eigo.g2.supplementary.animals", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.5,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

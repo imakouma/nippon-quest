@@ -170,6 +170,124 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "fukuoka-chikuzen",
+      "table": [
+        {
+          "monsterId": "fukuoka-barikatan",
+          "weight": 55
+        },
+        {
+          "monsterId": "fukuoka-strobaby",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kitakyushu-chikuho",
+      "table": [
+        {
+          "monsterId": "fukuoka-tobikanna",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukuoka-barikatan",
+          "weight": 25
+        },
+        {
+          "monsterId": "fukuoka-strobaby",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "chikugo-yanagawa",
+      "table": [
+        {
+          "monsterId": "fukuoka-donkomaru",
+          "weight": 55
+        },
+        {
+          "monsterId": "fukuoka-strobaby",
+          "weight": 20
+        },
+        {
+          "monsterId": "fukuoka-barikatan",
+          "weight": 15
+        },
+        {
+          "monsterId": "fukuoka-tobikanna",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "fukuoka-chikuzen",
+      "name": "福岡[ふくおか]・筑前[ちくぜん]エリア",
+      "motifs": [
+        "dazaifu",
+        "akizuki",
+        "hakata-ramen"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "fukuoka-kaedama-oh",
+        "level": 45
+      }
+    },
+    {
+      "id": "kitakyushu-chikuho",
+      "name": "北九州[きたきゅうしゅう]・筑豊[ちくほう]エリア",
+      "motifs": [
+        "mojiko",
+        "hiraodai",
+        "koishiwarayaki"
+      ],
+      "boss": {
+        "monsterId": "fukuoka-rokuro-kanna",
+        "level": 45
+      }
+    },
+    {
+      "id": "chikugo-yanagawa",
+      "name": "筑後[ちくご]・柳川[やながわ]エリア",
+      "motifs": [
+        "yanagawa",
+        "yamecha",
+        "fukuoka-ichigo"
+      ],
+      "boss": {
+        "monsterId": "fukuoka-suigo-maru",
+        "level": 45
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "fukuoka-chikuzen",
+        "kitakyushu-chikuho"
+      ],
+      "openedBy": "fukuoka-chikuzen"
+    },
+    {
+      "between": [
+        "fukuoka-chikuzen",
+        "chikugo-yanagawa"
+      ],
+      "openedBy": "kitakyushu-chikuho"
     }
   ],
   "boss": "fukuoka-boss-hiraodaio",
@@ -189,7 +307,10 @@
       "once": true,
       "cutinImageKey": "motif.fukuoka.hiraodai",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "白[しろ]い 岩[いわ]が できた 時間[じかん]と 水[みず]の 働[はたら]きを 元[もと]の 記録[きろく]まで たどれば、1つめの カギに なる。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "白[しろ]い 岩[いわ]が できた 時間[じかん]と 水[みず]の 働[はたら]きを 元[もと]の 記録[きろく]まで たどれば、1つめの カギに なる。"
+        },
         {
           "speaker": "平尾台[ひらおだい]の 自然[しぜん]ガイドさん",
           "text": "白[しろ]い 岩[いわ]が、ひつじの むれみたいでしょう？ 岩[いわ]と 水[みず]の ふしぎを しらべよう！"
@@ -233,7 +354,10 @@
           "speaker": "平尾台[ひらおだい]の 自然[しぜん]ガイドさん",
           "text": "よく しらべたね！ 雨水[あまみず]は、とても 長[なが]い 時間[じかん]を かけて 岩[いわ]を とかすんだよ。"
         },
-        { "speaker": "ミチル", "text": "見[み]た 形[かたち]だけでなく、できるまでの 記録[きろく]へ 戻[もど]れたね。知識[ちしき]を かえす 道[みち]が 光[ひか]っている。" }
+        {
+          "speaker": "ミチル",
+          "text": "見[み]た 形[かたち]だけでなく、できるまでの 記録[きろく]へ 戻[もど]れたね。知識[ちしき]を かえす 道[みち]が 光[ひか]っている。"
+        }
       ]
     }
   ],

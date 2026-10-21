@@ -173,6 +173,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "nara-ikoma",
+      "table": [
+        {
+          "monsterId": "nara-suminosuke",
+          "weight": 60
+        },
+        {
+          "monsterId": "nara-chasenmaru",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "ikaruga-asuka",
+      "table": [
+        {
+          "monsterId": "nara-somen-tsururi",
+          "weight": 60
+        },
+        {
+          "monsterId": "nara-suminosuke",
+          "weight": 25
+        },
+        {
+          "monsterId": "nara-chasenmaru",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "yoshino-odai",
+      "table": [
+        {
+          "monsterId": "nara-happazushi",
+          "weight": 60
+        },
+        {
+          "monsterId": "nara-somen-tsururi",
+          "weight": 20
+        },
+        {
+          "monsterId": "nara-suminosuke",
+          "weight": 10
+        },
+        {
+          "monsterId": "nara-chasenmaru",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "nara-ikoma",
+      "name": "奈良[なら]・生駒[いこま]エリア",
+      "motifs": [
+        "todaiji-daibutsu",
+        "nara-shika",
+        "nara-zumi",
+        "takayama-chasen"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "nara-sumiryu",
+        "level": 37
+      }
+    },
+    {
+      "id": "ikaruga-asuka",
+      "name": "斑鳩[いかるが]・飛鳥[あすか]エリア",
+      "motifs": [
+        "horyuji",
+        "ishibutai",
+        "miwa-somen"
+      ],
+      "boss": {
+        "monsterId": "nara-uzumaki-somen",
+        "level": 37
+      }
+    },
+    {
+      "id": "yoshino-odai",
+      "name": "吉野[よしの]・大台[おおだい]エリア",
+      "motifs": [
+        "yoshinoyama",
+        "odaigahara",
+        "kakinohazushi"
+      ],
+      "boss": {
+        "monsterId": "nara-happazushi-yagura",
+        "level": 37
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "nara-ikoma",
+        "ikaruga-asuka"
+      ],
+      "openedBy": "nara-ikoma"
+    },
+    {
+      "between": [
+        "ikaruga-asuka",
+        "yoshino-odai"
+      ],
+      "openedBy": "ikaruga-asuka"
     }
   ],
   "boss": "nara-boss-shika-daio",
@@ -192,7 +311,10 @@
       "once": true,
       "cutinImageKey": "motif.nara.ishibutai",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。"
+        },
         {
           "speaker": "明日香村[あすかむら]の ガイドさん",
           "text": "これが 石舞台古墳[いしぶたいこふん]。1400年[ねん]ほど 前[まえ]に、大[おお]きな 石[いし]を 組[く]んで 作[つく]られたんだ。むかしの 日本[にほん]を しらべよう！"
@@ -232,7 +354,10 @@
         }
       ],
       "afterDialogue": [
-        { "speaker": "ミチル", "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。" },
+        {
+          "speaker": "ミチル",
+          "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。"
+        },
         {
           "speaker": "明日香村[あすかむら]の ガイドさん",
           "text": "よく しらべたね！ 明日香村[あすかむら]には、飛鳥時代[あすかじだい]の あとが たくさん のこっているよ。"

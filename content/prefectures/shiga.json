@@ -188,6 +188,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "otsu-konan",
+      "table": [
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 60
+        },
+        {
+          "monsterId": "shiga-nigoron",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "koto-hikone",
+      "table": [
+        {
+          "monsterId": "shiga-asanunon",
+          "weight": 60
+        },
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 25
+        },
+        {
+          "monsterId": "shiga-nigoron",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kohoku-ibuki",
+      "table": [
+        {
+          "monsterId": "shiga-ibukikko",
+          "weight": 60
+        },
+        {
+          "monsterId": "shiga-asanunon",
+          "weight": 20
+        },
+        {
+          "monsterId": "shiga-tsuburin",
+          "weight": 10
+        },
+        {
+          "monsterId": "shiga-nigoron",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "otsu-konan",
+      "name": "大津[おおつ]・湖南[こなん]エリア",
+      "motifs": [
+        "biwako",
+        "enryakuji",
+        "shigarakiyaki"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "shiga-naminori-tsuburi",
+        "level": 34
+      }
+    },
+    {
+      "id": "koto-hikone",
+      "name": "湖東[ことう]・彦根[ひこね]エリア",
+      "motifs": [
+        "omihachiman",
+        "hikone-jo",
+        "omiushi",
+        "omi-jofu"
+      ],
+      "boss": {
+        "monsterId": "shiga-jofu-hime",
+        "level": 34
+      }
+    },
+    {
+      "id": "kohoku-ibuki",
+      "name": "湖北[こほく]・伊吹[いぶき]エリア",
+      "motifs": [
+        "nagahama-hikiyama",
+        "ibukiyama",
+        "funazushi"
+      ],
+      "boss": {
+        "monsterId": "shiga-ibuki-no-oyama",
+        "level": 34
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "otsu-konan",
+        "koto-hikone"
+      ],
+      "openedBy": "otsu-konan"
+    },
+    {
+      "between": [
+        "koto-hikone",
+        "kohoku-ibuki"
+      ],
+      "openedBy": "koto-hikone"
     }
   ],
   "boss": "shiga-boss-dainamazu",
@@ -207,7 +326,10 @@
       "once": true,
       "cutinImageKey": "motif.shiga.biwako",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "この 名所[めいしょ]を 一[ひと]つの 種類[しゅるい]だけでなく、関係[かんけい]する 人[ひと]・場所[ばしょ]・時代[じだい]からも 調[しら]べよう。"
+        },
         {
           "speaker": "琵琶湖[びわこ]の 漁師[りょうし]さん",
           "text": "ここは 日本[にほん]で いちばん 大[おお]きな 湖[みずうみ]、琵琶湖[びわこ]だよ。湖[みずうみ]の ことを しらべて みよう！"
@@ -247,7 +369,10 @@
         }
       ],
       "afterDialogue": [
-        { "speaker": "ミチル", "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。" },
+        {
+          "speaker": "ミチル",
+          "text": "別[べつ]の 記録箱[きろくばこ]にも 同[おな]じ 名前[なまえ]と 日付[ひづけ]が あった。参照線[さんしょうせん]で 結[むす]んでおこう。"
+        },
         {
           "speaker": "琵琶湖[びわこ]の 漁師[りょうし]さん",
           "text": "よく できたね！ 琵琶湖[びわこ]の 水[みず]は、京都[きょうと]や 大阪[おおさか]でも 使[つか]われているんだよ。"

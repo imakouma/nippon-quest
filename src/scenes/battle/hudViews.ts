@@ -11,7 +11,7 @@ import type { BattleState, Combatant } from '../../core/battle/types';
 import type { ContentIndex } from '../../core/content/loader';
 import { heroLevel, xpToNextLevel } from '../../core/progression/battleResult';
 import type { GameState } from '../../core/state/schema';
-import type { Skill } from '../../core/content/schemas';
+import type { Item, Skill } from '../../core/content/schemas';
 import type { QuestionQuery } from '../../questions/contracts';
 import type {
   AllyView,
@@ -23,6 +23,26 @@ import type {
   SwapOption,
 } from '../../ui/battle/store';
 import { itemIconUrl } from '../../rendering/itemIcons';
+import { canUseMusubiDama } from '../../core/battle/musubiDama';
+import { t } from '../../ui/i18n';
+
+export function battleItemAvailability(
+  state: BattleState,
+  item: Item,
+  content: ContentIndex,
+): { disabled: boolean; reason?: string } {
+  if (!item.use?.recruit) return { disabled: false };
+  const monster = content.monsters.get(state.enemy.refId);
+  const usable = Boolean(
+    monster &&
+    canUseMusubiDama({
+      isBoss: state.isBossBattle || Boolean(state.enemy.isBoss),
+      hp: state.enemy.hp,
+      recruitRate: monster.recruitRate,
+    }),
+  );
+  return usable ? { disabled: false } : { disabled: true, reason: t('battle.musubiUnavailable') };
+}
 
 export function buildEnemyView(state: BattleState, hp = state.enemy.hp): EnemyView {
   const enemy = state.enemy;
@@ -96,7 +116,16 @@ export function buildItemOptions(state: BattleState, content: ContentIndex): Ite
   return Object.entries(state.ally.items).flatMap(([id, count]) => {
     const item = content.items.get(id);
     if (!item || count <= 0 || !canUseBattleItem(state, item)) return [];
-    return [{ id, name: item.name, count, blurb: item.blurb, icon: itemIconUrl(item) }];
+    return [
+      {
+        id,
+        name: item.name,
+        count,
+        blurb: item.blurb,
+        icon: itemIconUrl(item),
+        ...battleItemAvailability(state, item, content),
+      },
+    ];
   });
 }
 

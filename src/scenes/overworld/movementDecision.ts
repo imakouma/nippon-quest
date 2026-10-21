@@ -33,6 +33,7 @@ export function movementDecision<TBoss, TGate>(input: {
   if (gate && !input.gateOpen(gate)) return { kind: 'lockedGate', gate };
   if (input.areaBossTile === index) return { kind: 'areaBoss' };
   if (input.lastBossTile === index) return { kind: 'lastBoss' };
+  if (gate) return { kind: 'move', x, y };
   if (input.blocked(x, y)) return { kind: 'blocked' };
   return { kind: 'move', x, y };
 }

@@ -1,0 +1,625 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-rika-g3",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 理科[りか]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211020-mxt_kyoiku02-100002607_05.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-10-20版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第3学年"
+    },
+    {
+      "id": "mext-h29-rika-codes-g3",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年理科"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "rika.g3.light",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-05",
+      "name": "光[ひかり]の反射[はんしゃ]と集光[しゅうこう]",
+      "description": "日光[にっこう]は直進[ちょくしん]し、鏡[かがみ]で反射[はんしゃ]できることや、集[あつ]めると明[あか]るさと暖[あたた]かさが増[ま]すことを確[たし]かめる。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233131100000", "8260233131200000", "8260233132000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.sound-vibration",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-05",
+      "name": "音[おと]と震[ふる]え",
+      "description": "音[おと]が出[で]ている物[もの]は震[ふる]え、その震[ふる]えが伝[つた]わることや、音[おと]の大小[だいしょう]と震[ふる]え方[かた]の関係[かんけい]を確[たし]かめる。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233131300000", "8260233132000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.wind-force",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-06",
+      "name": "風[かぜ]の力[ちから]",
+      "description": "風[かぜ]の強[つよ]さを変[か]え、物[もの]の動[うご]き方[かた]との関係[かんけい]を比較[ひかく]する。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233121100000", "8260233122000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.rubber-force",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-06",
+      "name": "ゴムの力[ちから]",
+      "description": "ゴムの伸[の]ばし方[かた]や本数[ほんすう]を変[か]え、物[もの]の動[うご]き方[かた]との関係[かんけい]を比較[ひかく]する。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233121200000", "8260233122000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.force-investigation",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-06",
+      "name": "力[ちから]と動[うご]きの比[くら]べ方[かた]",
+      "description": "変[か]える条件[じょうけん]と測[はか]る結果[けっか]をそろえて記録[きろく]し、力[ちから]の大[おお]きさと物[もの]の動[うご]き方[かた]を比[くら]べる。",
+      "kind": "skill",
+      "memoryType": "procedure",
+      "curriculumCodes": ["8260233122000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.sun-shadow",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-07",
+      "name": "太陽[たいよう]の位置[いち]と影[かげ]",
+      "description": "太陽[たいよう]の位置[いち]と影[かげ]の向[む]きや長[なが]さを、方位[ほうい]と結[むす]び付[つ]けて観察[かんさつ]する。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233221100000", "8260233222000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.ground-warmth-moisture",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-07",
+      "name": "日[ひ]なたと日陰[ひかげ]の地面[じめん]",
+      "description": "日[ひ]なたと日陰[ひかげ]の地面[じめん]の暖[あたた]かさや湿[しめ]り気[け]を、同[おな]じ条件[じょうけん]で比[くら]べる。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233221200000", "8260233222000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.16fe7ff6d3a6",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.light",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.1baad717e855",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sound-vibration",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.4c167c73fe8e",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sound-vibration",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.5a2f7fb57c47",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.light",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.6f88211fcc69",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.light",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.7a3744f8f36a",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.light",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.9ad45c04607c",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.light",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.cdddd90ce47f",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sound-vibration",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.cf4ced4396dc",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sound-vibration",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-05.fd7140bac78c",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.light",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.10426b245212",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.wind-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.10449977149d",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.wind-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.1ca209e91733",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.rubber-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.29f106612467",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.rubber-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.357e6c67f8aa",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.wind-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.3f39fe355c4a",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.force-investigation",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.9b6b729600bb",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.rubber-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.bf887024cad1",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.force-investigation",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.c9d8cb9f4443",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.rubber-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.d28c7d90a446",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.force-investigation",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.d7559b2221e0",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.wind-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-06.f5bd845372b9",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.wind-force",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.2b2e5dc2a113",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.ground-warmth-moisture",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.2f951fbe25b6",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sun-shadow",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.45545669c0bb",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.ground-warmth-moisture",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.5b194e123371",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sun-shadow",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.5f2169dd2509",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sun-shadow",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.6225f0a93f00",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sun-shadow",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.7814e9d5dcba",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sun-shadow",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.8865ac68a7c5",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.ground-warmth-moisture",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.a443c7ae33a4",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sun-shadow",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.c8975261bcb0",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sun-shadow",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.df505e894844",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.ground-warmth-moisture",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-07.f68930a086f5",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.sun-shadow",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

@@ -21,7 +21,7 @@ import {
 import { createRng } from '../../src/core/rng';
 import type { Skill } from '../../src/core/content/schemas';
 import type { ActionResult, BattleState, Combatant, Command } from '../../src/core/battle/types';
-import { buildItemOptions } from '../../src/scenes/battle/hudViews';
+import { battleItemAvailability, buildItemOptions } from '../../src/scenes/battle/hudViews';
 
 let D: BattleDeps;
 beforeAll(async () => {
@@ -146,15 +146,15 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
     expect(statsAtLevel(base, growth, 200)).toEqual(stats(1366));
   });
 
-  it('score の表：1.0 = CRITICAL ×2.0 / 0.5〜0.99 = GREAT ×1.2 / 0.01〜0.49 = GOOD ×0.8 / 0 = MISS ×0.5', () => {
-    expect(D.settings.scoreMultipliers).toEqual({ perfect: 2, good: 1.2, weak: 0.8, miss: 0.5 });
+  it('score の表：1.0 = CRITICAL ×2.0 / 0.5〜0.99 = GREAT ×1.2 / 0.01〜0.49 = GOOD ×0.8 / 0 = MISS ×0.55', () => {
+    expect(D.settings.scoreMultipliers).toEqual({ perfect: 2, good: 1.2, weak: 0.8, miss: 0.55 });
     const table: [number, string, number][] = [
       [1, 'perfect', 2],
       [0.99, 'good', 1.2],
       [0.5, 'good', 1.2],
       [0.49, 'weak', 0.8],
       [0.01, 'weak', 0.8],
-      [0, 'miss', 0.5],
+      [0, 'miss', 0.55],
     ];
     for (const [score, band, mult] of table) {
       expect(scoreBand(score)).toBe(band);
@@ -303,6 +303,22 @@ describe('ターンの すすみかた（優先度 → すばやさ → 同速�
     expect(actors).toEqual(['hero', 'enemy']);
   });
 
+  it('敵先攻・味方先攻とも、actイベントを計算した行動順で返す', async () => {
+    const { state } = await setup({ withMonster: true });
+    const ordered = (heroSpeed: number, companionSpeed: number, enemySpeed: number) => {
+      const battle = tough(state);
+      battle.ally.hero.stats.spd = heroSpeed;
+      battle.ally.monsters[0]!.stats.spd = companionSpeed;
+      battle.enemy.stats.spd = enemySpeed;
+      return act(battle, { kind: 'attack' }, D)
+        .events.filter((event) => event.t === 'act')
+        .map((event) => (event.t === 'act' ? event.actorId : ''));
+    };
+
+    expect(ordered(10, 20, 30)).toEqual(['enemy', 'pal', 'hero']);
+    expect(ordered(30, 20, 10)).toEqual(['hero', 'pal', 'enemy']);
+  });
+
   it('敵は 1 ターンに 1 回だけ 動く（ボスの フェーズでも ふえない）', async () => {
     const { state } = await setup({ level: 40, enemyId: 'iwate-boss-konjiki-no-tora', enemyLevel: 5 });
     const half: BattleState = {
@@ -329,6 +345,16 @@ describe('ターンの すすみかた（優先度 → すばやさ → 同速�
 
     expect(r.state.outcome).toBe('victory');
     expect(r.events.some((event) => event.t === 'bossPhase')).toBe(false);
+  });
+
+  it('敵を倒したときは敵のKOだけを返し、味方KOを先に発行しない', async () => {
+    const { state } = await setup();
+    const almostDown: BattleState = { ...state, enemy: { ...state.enemy, hp: 1 } };
+    const result = act(almostDown, { kind: 'attack' }, D);
+    expect(result.state.outcome).toBe('victory');
+    expect(result.events.filter((event) => event.t === 'ko')).toEqual([
+      { t: 'ko', side: 'enemy', targetId: state.enemy.id },
+    ]);
   });
 
   it('コマンドが 成立しなければ ターンは すすまない（ゲージが たりない）', async () => {
@@ -621,6 +647,19 @@ describe('必殺技の 効果', () => {
 });
 
 describe('コマンド', () => {
+  it.each([
+    ['通常敵', 'aomori-ringoron'],
+    ['中ボス', 'aomori-midboss-nebuta-taisho'],
+    ['県ボス', 'aomori-boss-tsugaru-no-nushi'],
+  ])('%sでもperfect・average・missの必殺技で戦闘が進む', async (_label, enemyId) => {
+    for (const score of [1, 0.65, 0]) {
+      const { state } = await setup({ enemyId, enemyLevel: 5, seed: `${enemyId}:${score}` });
+      const result = act(tough(state), { kind: 'skill', skillId: 'sk-tashizan-giri', result: R(score) }, D);
+      expect(result.events.some((event) => event.t === 'damage' && event.side === 'enemy')).toBe(true);
+      expect(result.state.turn).toBe(2);
+    }
+  });
+
   it('たたかう は問題なしで必ず成立する', async () => {
     const { state } = await setup();
     const { state: next, events } = act(state, { kind: 'attack' }, D);
@@ -665,6 +704,17 @@ describe('コマンド', () => {
     expect(r.state.ally.items['aomori-ringo']).toBe(2);
     expect(r.state.turn).toBe(1);
     expect(r.events).toEqual([]);
+  });
+
+  it('むすび玉は通常敵に表示し、ボス戦では理由つきで無効にする', async () => {
+    const { state, c } = await setup();
+    const item = c.items.get('common-musubi-dama')!;
+    expect(battleItemAvailability(state, item, c).disabled).toBe(false);
+    state.isBossBattle = true;
+    expect(battleItemAvailability(state, item, c)).toMatchObject({
+      disabled: true,
+      reason: expect.any(String),
+    });
   });
 
   it('いれかえ で オトモが かわる', async () => {
@@ -713,6 +763,42 @@ describe('コマンド', () => {
 });
 
 describe('仲間化（GDD §4.6）', () => {
+  it('むすび玉は解答後に1こ消費し、成否を判定する', async () => {
+    const { state } = await setup({ seed: 'musubi-dama' });
+    state.ally.items['common-musubi-dama'] = 2;
+    state.enemy.hp = Math.max(1, Math.floor(state.enemy.stats.hp * 0.1));
+
+    const result = act(
+      state,
+      {
+        kind: 'item',
+        itemId: 'common-musubi-dama',
+        result: R(1),
+        timeLimitScale: 1,
+      },
+      D,
+    );
+
+    expect(result.state.ally.items['common-musubi-dama']).toBe(1);
+    expect(result.events.some((event) => event.t === 'recruitAttempt')).toBe(true);
+  });
+
+  it('むすび玉はボスや未解答では消費しない', async () => {
+    const { state } = await setup({ seed: 'musubi-dama-unavailable' });
+    state.ally.items['common-musubi-dama'] = 1;
+    state.isBossBattle = true;
+    const boss = act(
+      state,
+      { kind: 'item', itemId: 'common-musubi-dama', result: R(1), timeLimitScale: 1 },
+      D,
+    );
+    expect(boss.state.ally.items['common-musubi-dama']).toBe(1);
+
+    state.isBossBattle = false;
+    const unanswered = act(state, { kind: 'item', itemId: 'common-musubi-dama' }, D);
+    expect(unanswered.state.ally.items['common-musubi-dama']).toBe(1);
+  });
+
   it('指定された特産品をあげると 1こ消費して必ず仲間になる', async () => {
     const { state } = await setup({ seed: 'recruit-gift' });
     const result = act(state, { kind: 'recruit', result: R(0), itemId: 'aomori-ringo' }, D);

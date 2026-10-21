@@ -1,0 +1,112 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g2.observation-writing.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.observation-writing",
+    "payload": {
+      "prompt": "ミニトマトを かんさつします。見[み]た じじつを 書[か]いた 文[ぶん]は？",
+      "choices": [
+        { "id": "a", "text": "みどりの はが 5まい あります。" },
+        { "id": "b", "text": "きっと いちばん おいしく なります。" },
+        { "id": "c", "text": "なんとなく すごいです。" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "いろや かずなど、見[み]て たしかめた じじつを 書[か]くと ようすが つたわります。"
+  },
+  {
+    "id": "kokugo.g2.observation-writing.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.observation-writing",
+    "payload": {
+      "prompt": "はの ようすを くわしく 書[か]く ことばは？",
+      "choices": [
+        { "id": "a", "text": "ふちが ぎざぎざしている" },
+        { "id": "b", "text": "いい はっぱ" },
+        { "id": "c", "text": "たぶん いちばん 大[おお]きく なります" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "形[かたち]や 手[て]ざわりを あらわす ことばを つかうと、ようすが くわしく つたわります。"
+  },
+  {
+    "id": "kokugo.g2.observation-writing.0003",
+    "type": "sort-order",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.observation-writing",
+    "payload": {
+      "prompt": "かんさつしたことを 書[か]く じゅんに ならべよう。",
+      "direction": "vertical",
+      "cards": [
+        { "id": "look", "text": "よく 見[み]る" },
+        { "id": "memo", "text": "色[いろ]や 形[かたち]を メモする" },
+        { "id": "write", "text": "じゅんを 考[かんが]えて 書[か]く" },
+        { "id": "review", "text": "読[よ]みなおす" }
+      ],
+      "answer": ["look", "memo", "write", "review"]
+    },
+    "explanation": "見[み]つけたことを メモし、じゅんを 考[かんが]えて 書[か]いたあとに 読[よ]みなおします。"
+  },
+  {
+    "id": "kokugo.g2.observation-writing.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.observation-writing",
+    "payload": {
+      "prompt": "きのうと きょうの へんかを 書[か]く 文[ぶん]は？",
+      "choices": [
+        { "id": "a", "text": "きのうより、つぼみが ひらいています。" },
+        { "id": "b", "text": "きょうも すごいです。" },
+        { "id": "c", "text": "はなが すきです。" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "『きのうより』を つかうと、かんさつした へんかが わかります。"
+  },
+  {
+    "id": "kokugo.g2.observation-writing.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.observation-writing",
+    "payload": {
+      "prompt": "かんさつ文[ぶん]の はじめに 書[か]くと よいことは？",
+      "choices": [
+        { "id": "a", "text": "いつ、なにを 見[み]たか" },
+        { "id": "b", "text": "かんさつと かんけいのない できごと" },
+        { "id": "c", "text": "まだ 見[み]ていない みらい" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "いつ、なにを かんさつしたかを はじめに 書[か]くと、読[よ]む人[ひと]に つたわります。"
+  },
+  {
+    "id": "kokugo.g2.observation-writing.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.observation-writing",
+    "payload": {
+      "prompt": "書[か]いた かんさつ文[ぶん]を 読[よ]みなおします。たしかめることは？",
+      "choices": [
+        { "id": "a", "text": "見[み]つけた ようすが じゅんに 書[か]けているか" },
+        { "id": "b", "text": "字[じ]の 大[おお]きさだけ" },
+        { "id": "c", "text": "文[ぶん]の かずだけ" }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "見[み]つけた じじつと へんかが じゅんに 書[か]けているかを たしかめます。"
+  }
+]

@@ -13,6 +13,7 @@ import { shouldResetLocalSaves } from '../core/localDevelopment';
 import type { GameState } from '../core/state/schema';
 import { PIXEL_FONT, PIXEL_FONT_NAME } from '../ui/fonts';
 import { t } from '../ui/i18n';
+import { attachSceneMusic } from './shared/music';
 import { STAGE_W } from '../ui/overlay';
 import { TitleMenu } from '../ui/title/TitleMenu';
 import { NewGameSetup } from '../ui/title/NewGameSetup';
@@ -53,6 +54,7 @@ export class TitleScene extends Phaser.Scene {
 
   create(): void {
     this.starting = false;
+    attachSceneMusic(this, 'title');
     addImage(this.textures, 'title.bg', titleBackdrop());
     this.add.image(0, 0, 'title.bg').setOrigin(0).setScale(S).setDepth(0);
     this.addStars();
@@ -255,7 +257,7 @@ export class TitleScene extends Phaser.Scene {
       h(TitleMenu, {
         items: [{ label: t('ui.newGame') }, { label: t('ui.continue'), disabled: !this.hasSave }],
         hint: t('ui.titleHint'),
-        disabledNote: t(this.saveChecked ? 'ui.noSave' : 'ui.saveChecking'),
+        disabledNote: this.saveChecked ? null : t('ui.saveChecking'),
         credit: t('ui.credits'),
         onSelect: (index: number) => {
           if (index === 0) this.mountSlotPicker('new');

@@ -1,13 +1,33 @@
 import { BACKDROP_SCALE } from '../../rendering/battle/pixelArt';
 
 export const BATTLE_SCALE = BACKDROP_SCALE;
-export const ENEMY_X = 250;
-export const ENEMY_Y = 380;
-export const BOSS_MAX_H = ENEMY_Y - 140;
-export const HERO_X = 690;
-export const HERO_Y = 388;
-export const PAL_X = 820;
-export const PAL_Y = 356;
+export type BattlePresentation = 'side' | 'depth';
+
+export interface BattleLayout {
+  enemy: { x: number; y: number; scaleStep: number };
+  hero: { x: number; y: number; scale: number };
+  partner: { x: number; y: number; scale: number };
+  bossMaxHeight: number;
+}
+
+const SIDE_LAYOUT: BattleLayout = {
+  enemy: { x: 250, y: 380, scaleStep: 0 },
+  hero: { x: 690, y: 388, scale: BATTLE_SCALE },
+  partner: { x: 820, y: 356, scale: BATTLE_SCALE },
+  bossMaxHeight: 240,
+};
+
+/** 敵を奥、味方を手前に置く比較用の試作レイアウト。戦闘ロジックには影響しない。 */
+const DEPTH_LAYOUT: BattleLayout = {
+  enemy: { x: 300, y: 286, scaleStep: -1 },
+  hero: { x: 676, y: 432, scale: BATTLE_SCALE + 1 },
+  partner: { x: 828, y: 404, scale: BATTLE_SCALE + 1 },
+  bossMaxHeight: 188,
+};
+
+export function battleLayout(presentation: BattlePresentation = 'depth'): BattleLayout {
+  return presentation === 'depth' ? DEPTH_LAYOUT : SIDE_LAYOUT;
+}
 export const READY_STEP = 24;
 export const OFF_RIGHT = 1080;
 

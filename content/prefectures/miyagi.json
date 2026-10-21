@@ -214,6 +214,171 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "sendai-aoba",
+      "table": [
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 55
+        },
+        {
+          "monsterId": "miyagi-tanyakki",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "matsushima-ishinomaki",
+      "table": [
+        {
+          "monsterId": "miyagi-sasakama-uo",
+          "weight": 55
+        },
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 25
+        },
+        {
+          "monsterId": "miyagi-tanyakki",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "izunuma-kesennuma",
+      "table": [
+        {
+          "monsterId": "miyagi-shiratorin",
+          "weight": 50
+        },
+        {
+          "monsterId": "miyagi-sasakama-uo",
+          "weight": 25
+        },
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 15
+        },
+        {
+          "monsterId": "miyagi-tanyakki",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "naruko-osaki",
+      "table": [
+        {
+          "monsterId": "miyagi-kokeshina",
+          "weight": 50
+        },
+        {
+          "monsterId": "miyagi-shiratorin",
+          "weight": 20
+        },
+        {
+          "monsterId": "miyagi-sasakama-uo",
+          "weight": 15
+        },
+        {
+          "monsterId": "miyagi-zundamaru",
+          "weight": 10
+        },
+        {
+          "monsterId": "miyagi-tanyakki",
+          "weight": 5
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "sendai-aoba",
+      "name": "仙台[せんだい]・青葉[あおば]エリア",
+      "motifs": [
+        "gyutan",
+        "sendai-tanabata",
+        "sendai-jo",
+        "zunda"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "miyagi-zundagon",
+        "level": 16
+      }
+    },
+    {
+      "id": "matsushima-ishinomaki",
+      "name": "松島[まつしま]・石巻[いしのまき]エリア",
+      "motifs": [
+        "matsushima",
+        "sasakama",
+        "miyagi-kaki"
+      ],
+      "boss": {
+        "monsterId": "miyagi-sasakama-bushi",
+        "level": 16
+      }
+    },
+    {
+      "id": "izunuma-kesennuma",
+      "name": "伊豆沼[いずぬま]・気仙沼[けせんぬま]エリア",
+      "motifs": [
+        "izunuma",
+        "kesennuma"
+      ],
+      "boss": {
+        "monsterId": "miyagi-oohakucho",
+        "level": 16
+      }
+    },
+    {
+      "id": "naruko-osaki",
+      "name": "鳴子[なるこ]・大崎[おおさき]エリア",
+      "motifs": [
+        "naruko-kyo",
+        "naruko-kokeshi"
+      ],
+      "boss": {
+        "monsterId": "miyagi-kokeshi-hime",
+        "level": 16
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "sendai-aoba",
+        "matsushima-ishinomaki"
+      ],
+      "openedBy": "sendai-aoba"
+    },
+    {
+      "between": [
+        "matsushima-ishinomaki",
+        "izunuma-kesennuma"
+      ],
+      "openedBy": "matsushima-ishinomaki"
+    },
+    {
+      "between": [
+        "izunuma-kesennuma",
+        "naruko-osaki"
+      ],
+      "openedBy": "izunuma-kesennuma"
     }
   ],
   "boss": "miyagi-boss-mikazuki-shogun",

@@ -123,6 +123,20 @@ describe('curriculum unit validation', () => {
     );
   });
 
+  it('rejects an unclassified science, social studies, or English unit in grades 1 and 2', () => {
+    const lowGradeUnits = [
+      unitSchema.parse({ id: 'rika.g1.observe', name: 'しぜん', subject: 'rika', grade: 1 }),
+      unitSchema.parse({ id: 'shakai.g2.town', name: 'まち', subject: 'shakai', grade: 2 }),
+      unitSchema.parse({ id: 'eigo.g1.words', name: 'ことば', subject: 'eigo', grade: 1 }),
+    ];
+
+    expect(validateCurriculumUnits(lowGradeUnits, [])).toEqual([
+      'rika.g1.observe: 1年 rika は supplementary と明記した補助教材だけ登録できます',
+      'shakai.g2.town: 2年 shakai は supplementary と明記した補助教材だけ登録できます',
+      'eigo.g1.words: 1年 eigo は supplementary と明記した補助教材だけ登録できます',
+    ]);
+  });
+
   it('reports a question whose subject or grade differs from its unit', () => {
     const unit = unitSchema.parse(classifiedUnit);
     const questions = [
@@ -168,6 +182,39 @@ describe('curriculum unit validation', () => {
 });
 
 describe('curriculum coverage', () => {
+  it('旧単元の問題を現行単元へ集約し、旧単元を重複集計しない', () => {
+    const current = unitSchema.parse({
+      id: 'sansu.g1.tens-calculation',
+      name: '10のまとまりで かんたんな けいさん',
+      subject: 'sansu',
+      grade: 1,
+      courseKind: 'required-subject',
+      placement: { terms: [3], status: 'reference', sourceIds: ['annual-plan'], note: '3学期' },
+    });
+    const legacy = unitSchema.parse({
+      id: 'sansu.g1.legacy-math-1-7',
+      name: '100までのたしざん・ひきざん',
+      subject: 'sansu',
+      grade: 1,
+      legacyNode: 'math_1_7',
+      courseKind: 'required-subject',
+      placement: { terms: [3], status: 'reference', sourceIds: ['annual-plan'], note: '3学期' },
+    });
+    const report = buildCurriculumCoverage({
+      units: [current, legacy],
+      questions: [{ id: 'legacy-q1', unit: legacy.id }],
+      concepts: [{ id: 'c1', unit: current.id }],
+      linkedQuestionIds: new Set(['legacy-q1']),
+      grade: 1,
+      term: 3,
+    });
+
+    expect(report.units).toEqual([
+      expect.objectContaining({ unitId: current.id, questions: 1, linked: 1, goals: 1 }),
+    ]);
+    expect(report.gaps).toEqual([]);
+  });
+
   it('separates linked questions from unreviewed questions by unit', () => {
     const unit = unitSchema.parse(classifiedUnit);
     const report = buildCurriculumCoverage({

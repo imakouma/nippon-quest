@@ -181,6 +181,124 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "tokushima-naruto",
+      "table": [
+        {
+          "monsterId": "tokushima-kintokin",
+          "weight": 55
+        },
+        {
+          "monsterId": "tokushima-sudachibi",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "yoshinogawa-miyoshi",
+      "table": [
+        {
+          "monsterId": "tokushima-kazura-musasabi",
+          "weight": 60
+        },
+        {
+          "monsterId": "tokushima-kintokin",
+          "weight": 25
+        },
+        {
+          "monsterId": "tokushima-sudachibi",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "anan-kaifu",
+      "table": [
+        {
+          "monsterId": "tokushima-hamagamen",
+          "weight": 60
+        },
+        {
+          "monsterId": "tokushima-kazura-musasabi",
+          "weight": 20
+        },
+        {
+          "monsterId": "tokushima-kintokin",
+          "weight": 10
+        },
+        {
+          "monsterId": "tokushima-sudachibi",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "tokushima-naruto",
+      "name": "徳島[とくしま]・鳴門[なると]エリア",
+      "motifs": [
+        "naruto-uzushio",
+        "awa-odori",
+        "aizome",
+        "naruto-kintoki"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "tokushima-oo-kintoki",
+        "level": 42
+      }
+    },
+    {
+      "id": "yoshinogawa-miyoshi",
+      "name": "吉野川[よしのがわ]・三好[みよし]エリア",
+      "motifs": [
+        "iya-kazurabashi",
+        "tsurugisan",
+        "udatsu"
+      ],
+      "boss": {
+        "monsterId": "tokushima-sorawatari",
+        "level": 42
+      }
+    },
+    {
+      "id": "anan-kaifu",
+      "name": "阿南[あなん]・海部[かいふ]エリア",
+      "motifs": [
+        "hiwasa-umigame",
+        "sudachi"
+      ],
+      "boss": {
+        "monsterId": "tokushima-oogamedon",
+        "level": 42
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "tokushima-naruto",
+        "yoshinogawa-miyoshi"
+      ],
+      "openedBy": "tokushima-naruto"
+    },
+    {
+      "between": [
+        "tokushima-naruto",
+        "anan-kaifu"
+      ],
+      "openedBy": "yoshinogawa-miyoshi"
     }
   ],
   "boss": "tokushima-boss-awaodori-ou",

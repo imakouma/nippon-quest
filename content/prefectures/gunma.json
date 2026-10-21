@@ -82,6 +82,65 @@
       "blurb": "くしに さした まんじゅうに、あまい みそだれを ぬって やいた 群馬[ぐんま]の 名物[めいぶつ]。"
     }
   ],
+  "regions": [
+    {
+      "id": "maebashi-takasaki",
+      "name": "前橋[まえばし]・高崎[たかさき]エリア",
+      "motifs": [
+        "ikaho-onsen",
+        "takasaki-daruma",
+        "yakimanju"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "gunma-dosshirikon",
+        "level": 22
+      }
+    },
+    {
+      "id": "tomioka-shimonita",
+      "name": "富岡[とみおか]・下仁田[しもにた]エリア",
+      "motifs": [
+        "tomioka-seishijo",
+        "konnyaku"
+      ],
+      "boss": {
+        "monsterId": "gunma-kinuhane-hime",
+        "level": 23
+      }
+    },
+    {
+      "id": "kusatsu-oze",
+      "name": "草津[くさつ]・尾瀬[おぜ]エリア",
+      "motifs": [
+        "kusatsu-onsen",
+        "oze",
+        "tanigawadake",
+        "fukiware-no-taki",
+        "tsumagoi-kyabetsu"
+      ],
+      "boss": {
+        "monsterId": "gunma-kyabe-yoroi",
+        "level": 23
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "maebashi-takasaki",
+        "tomioka-shimonita"
+      ],
+      "openedBy": "maebashi-takasaki"
+    },
+    {
+      "between": [
+        "maebashi-takasaki",
+        "kusatsu-oze"
+      ],
+      "openedBy": "tomioka-shimonita"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -165,6 +224,62 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "maebashi-takasaki",
+      "table": [
+        {
+          "monsterId": "gunma-purukon",
+          "weight": 55
+        },
+        {
+          "monsterId": "gunma-mayumaru",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "tomioka-shimonita",
+      "table": [
+        {
+          "monsterId": "gunma-mayumaru",
+          "weight": 50
+        },
+        {
+          "monsterId": "gunma-purukon",
+          "weight": 30
+        },
+        {
+          "monsterId": "gunma-kyabezukin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kusatsu-oze",
+      "table": [
+        {
+          "monsterId": "gunma-kyabezukin",
+          "weight": 55
+        },
+        {
+          "monsterId": "gunma-mayumaru",
+          "weight": 25
+        },
+        {
+          "monsterId": "gunma-purukon",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "gunma-boss-gankake-daruma",
@@ -195,8 +310,13 @@
       ],
       "question": {
         "subject": "shakai",
-        "gradeRange": [3, 6],
-        "tags": ["prefecture:gunma"]
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:gunma"
+        ]
       },
       "rewardByScore": [
         {

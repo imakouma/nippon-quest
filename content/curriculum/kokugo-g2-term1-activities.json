@@ -1,0 +1,276 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-kokugo-g2-activities",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]解説[かいせつ] 国語[こくご]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20220606-mxt_kyoiku02-100002607_002.pdf",
+      "published": "平成29年7月",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第1節 第1学年及び第2学年 A話すこと・聞くこと B書くこと C読むこと"
+    },
+    {
+      "id": "tokyo-shoseki-r6-kokugo-g2",
+      "title": "新編[しんぺん] 新[あたら]しい国語[こくご] 2年[ねん] 年間[ねんかん]指導[しどう]計画[けいかく]",
+      "publisher": "東京書籍",
+      "url": "https://ten.tokyo-shoseki.co.jp/text/shou/kokugo/data/kokugo_tangen_2_202401.pdf",
+      "published": "令和6年度版",
+      "checkedAt": "2026-10-12",
+      "locator": "1学期：話す・聞く、順序、観察文、物語・説明文"
+    },
+    {
+      "id": "kyoiku-shuppan-r6-kokugo-g2",
+      "title": "ひろがる言葉[ことば] 小学[しょうがく]国語[こくご] 2年[ねん] 年間[ねんかん]指導[しどう]計画[けいかく]・評価[ひょうか]計画[けいかく]",
+      "publisher": "教育出版",
+      "url": "https://www.kyoiku-shuppan.co.jp/textbook/shou/kokugo/files/r6kokugo2_nenkeihyouka_2404.pdf",
+      "published": "令和6年度版",
+      "checkedAt": "2026-10-12",
+      "locator": "2年・第1学期"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "kokugo.g2.reading.sequence-and-evidence",
+      "subject": "kokugo",
+      "grade": 2,
+      "unit": "kokugo.g2.reading-sequence",
+      "name": "順序[じゅんじょ]と大事[だいじ]な言葉[ことば]を確[たし]かめて読[よ]む",
+      "description": "時間的[じかんてき]な順序[じゅんじょ]や事柄[ことがら]の順序[じゅんじょ]を、文章[ぶんしょう]の大事[だいじ]な言葉[ことば]を根拠[こんきょ]に捉[とら]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3231100000", "82102A3231200000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "第[だい]1学期[がっき]に物語[ものがたり]と説明文[せつめいぶん]で扱[あつか]う。"
+      },
+      "sourceIds": [
+        "mext-h29-kokugo-g2-activities",
+        "tokyo-shoseki-r6-kokugo-g2",
+        "kyoiku-shuppan-r6-kokugo-g2"
+      ],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g2.communication.listen-and-retell",
+      "subject": "kokugo",
+      "grade": 2,
+      "unit": "kokugo.g2.speaking-listening",
+      "name": "大事[だいじ]なことを聞[き]き、順序[じゅんじょ]よく伝[つた]える",
+      "description": "相手[あいて]の話[はなし]を最後[さいご]まで聞[き]き、分[わ]からない点[てん]を尋[たず]ね、大事[だいじ]なことを落[お]とさず伝[つた]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3211100000", "82102A3211300000", "82102A3211400000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "第[だい]1学期[がっき]の紹介[しょうかい]や取材[しゅざい]の活動[かつどう]で扱[あつか]う。"
+      },
+      "sourceIds": [
+        "mext-h29-kokugo-g2-activities",
+        "tokyo-shoseki-r6-kokugo-g2",
+        "kyoiku-shuppan-r6-kokugo-g2"
+      ],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g2.writing.observe-and-order",
+      "subject": "kokugo",
+      "grade": 2,
+      "unit": "kokugo.g2.observation-writing",
+      "name": "観察[かんさつ]した事実[じじつ]を順序[じゅんじょ]立[だ]てて書[か]く",
+      "description": "観察[かんさつ]した対象[たいしょう]の色[いろ]・形[かたち]・数[かず]・変化[へんか]を集[あつ]め、順序[じゅんじょ]を考[かんが]えて文章[ぶんしょう]にする。",
+      "kind": "procedure",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102A3221100000", "82102A3221200000", "82102A3221300000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "第[だい]1学期[がっき]の植物[しょくぶつ]などの観察[かんさつ]と結[むす]び付[つ]ける。"
+      },
+      "sourceIds": [
+        "mext-h29-kokugo-g2-activities",
+        "tokyo-shoseki-r6-kokugo-g2",
+        "kyoiku-shuppan-r6-kokugo-g2"
+      ],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "kokugo.g2.communication.listen-and-retell",
+      "to": "kokugo.g2.writing.observe-and-order",
+      "kind": "related",
+      "strength": 0.5,
+      "rationale": "聞[き]いて集[あつ]めた大事[だいじ]なことを順序[じゅんじょ]立[だ]てる力[ちから]は文章[ぶんしょう]構成[こうせい]にもつながる。",
+      "sourceIds": ["mext-h29-kokugo-g2-activities"],
+      "reviewStatus": "draft"
+    }
+  ],
+  "questionLinks": [
+    {
+      "questionId": "kokugo.g2.reading-sequence.0001",
+      "concepts": [
+        { "conceptId": "kokugo.g2.reading.sequence-and-evidence", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.reading-sequence.0002",
+      "concepts": [
+        { "conceptId": "kokugo.g2.reading.sequence-and-evidence", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.reading-sequence.0003",
+      "concepts": [
+        { "conceptId": "kokugo.g2.reading.sequence-and-evidence", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.reading-sequence.0004",
+      "concepts": [
+        { "conceptId": "kokugo.g2.reading.sequence-and-evidence", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.reading-sequence.0005",
+      "concepts": [
+        { "conceptId": "kokugo.g2.reading.sequence-and-evidence", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.reading-sequence.0006",
+      "concepts": [
+        { "conceptId": "kokugo.g2.reading.sequence-and-evidence", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.speaking-listening.0001",
+      "concepts": [
+        { "conceptId": "kokugo.g2.communication.listen-and-retell", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.speaking-listening.0002",
+      "concepts": [
+        { "conceptId": "kokugo.g2.communication.listen-and-retell", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.speaking-listening.0003",
+      "concepts": [
+        { "conceptId": "kokugo.g2.communication.listen-and-retell", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.speaking-listening.0004",
+      "concepts": [
+        { "conceptId": "kokugo.g2.communication.listen-and-retell", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.speaking-listening.0005",
+      "concepts": [
+        { "conceptId": "kokugo.g2.communication.listen-and-retell", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.speaking-listening.0006",
+      "concepts": [
+        { "conceptId": "kokugo.g2.communication.listen-and-retell", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.observation-writing.0001",
+      "concepts": [{ "conceptId": "kokugo.g2.writing.observe-and-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.observation-writing.0002",
+      "concepts": [{ "conceptId": "kokugo.g2.writing.observe-and-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.observation-writing.0003",
+      "concepts": [{ "conceptId": "kokugo.g2.writing.observe-and-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.9,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.observation-writing.0004",
+      "concepts": [{ "conceptId": "kokugo.g2.writing.observe-and-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.observation-writing.0005",
+      "concepts": [{ "conceptId": "kokugo.g2.writing.observe-and-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "kokugo.g2.observation-writing.0006",
+      "concepts": [{ "conceptId": "kokugo.g2.writing.observe-and-order", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

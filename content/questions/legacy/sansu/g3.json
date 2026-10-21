@@ -689,7 +689,8 @@
         "3"
       ],
       "template": "9÷3 = {{INPUT}}"
-    }
+    },
+    "explanation": "9は3が3こ分[ぶん]なので、9÷3=3です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-10.d1d606b8be15",
@@ -819,12 +820,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 205×91845 =",
+    "prompt": "次の計算をしましょう。 205×9 =",
       "answers": [
         "1845"
       ]
     },
-    "explanation": "2 0 5 × 9 1 8 4 5"
+  "explanation": "205×9=1845。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.243ae8447a48",
@@ -838,12 +839,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 26×3178 =",
+    "prompt": "次の計算をしましょう。 26×3 =",
       "answers": [
         "78"
       ]
     },
-    "explanation": "2 6 × 3 1 7 8"
+  "explanation": "26×3=78。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.2d69941ed134",
@@ -857,12 +858,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 123×3369 =",
+    "prompt": "次の計算をしましょう。 123×3 =",
       "answers": [
         "369"
       ]
     },
-    "explanation": "1 2 3 × 3 3 6 9"
+  "explanation": "123×3=369。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.2db2700bc27c",
@@ -876,12 +877,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 71×2142 =",
+    "prompt": "次の計算をしましょう。 71×2 =",
       "answers": [
         "142"
       ]
     },
-    "explanation": "7 1 × 2 1 4 2"
+  "explanation": "71×2=142。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.374ccf29a056",
@@ -895,12 +896,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 7×5 =",
+    "prompt": "次の計算をしましょう。 70×5 =",
       "answers": [
         "350"
       ]
     },
-    "explanation": "70 は、「10が7つ」ということ。これに 5をかけるので、 7×5=35 に0を１つ つけてあげればいい。答えは、350 だね。"
+  "explanation": "70は10が7こなので、7×5=35の10倍で350。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.48137a6886a4",
@@ -914,12 +915,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 24×72168 =",
+    "prompt": "次の計算をしましょう。 24×7 =",
       "answers": [
         "168"
       ]
     },
-    "explanation": "2 4 × 7 2 1 6 8"
+  "explanation": "24×7=168。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.484bf2a43256",
@@ -933,12 +934,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 109×7763 =",
+    "prompt": "次の計算をしましょう。 109×7 =",
       "answers": [
         "763"
       ]
     },
-    "explanation": "1 0 9 × 7 7 6 3"
+  "explanation": "109×7=763。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.516a7e4cc535",
@@ -952,12 +953,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 386×5431930 =",
+    "prompt": "次の計算をしましょう。 386×5 =",
       "answers": [
         "1930"
       ]
     },
-    "explanation": "3 8 6 × 5 4 3 1 9 3 0"
+  "explanation": "386×5=1930。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.59ed66c52525",
@@ -971,12 +972,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3×3 =",
+    "prompt": "次の計算をしましょう。 300×3 =",
       "answers": [
         "900"
       ]
     },
-    "explanation": "300 は、「100が3つ」ということ。これに 3をかけるので、 3×3=9 に0を２つ つけてあげればいい。答えは、900 だね。"
+  "explanation": "300は100が3こなので、3×3=9の100倍で900。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.6554b837b291",
@@ -990,12 +991,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 5×2 =",
+    "prompt": "次の計算をしましょう。 500×2 =",
       "answers": [
         "1000"
       ]
     },
-    "explanation": "500 は、「100が5つ」ということ。これに 2をかけるので、 5×2=10 に0を２つ つけてあげればいい。答えは、1000 だね。"
+  "explanation": "500は100が5こなので、5×2=10の100倍で1000。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.6ae0edb2e22b",
@@ -1009,12 +1010,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 9×6 =",
+    "prompt": "次の計算をしましょう。 90×6 =",
       "answers": [
         "540"
       ]
     },
-    "explanation": "90 は、「10が9つ」ということ。これに 6をかけるので、 9×6=54 に0を１つ つけてあげればいい。答えは、540 だね。"
+  "explanation": "90は10が9こなので、9×6=54の10倍で540。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.6f3e7c844e62",
@@ -1028,12 +1029,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 2×4 =",
+    "prompt": "次の計算をしましょう。 20×4 =",
       "answers": [
         "80"
       ]
     },
-    "explanation": "20 は、「10が2つ」ということ。これに 4をかけるので、 2×4=8 に0を１つ つけてあげればいい。答えは、80 だね。"
+  "explanation": "20は10が2こなので、2×4=8の10倍で80。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.78b1afa8552c",
@@ -1047,12 +1048,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 92×4368 =",
+    "prompt": "次の計算をしましょう。 92×4 =",
       "answers": [
         "368"
       ]
     },
-    "explanation": "9 2 × 4 3 6 8"
+  "explanation": "92×4=368。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.a653af44ca29",
@@ -1066,12 +1067,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 14×5270 =",
+    "prompt": "次の計算をしましょう。 14×5 =",
       "answers": [
         "70"
       ]
     },
-    "explanation": "1 4 × 5 2 7 0"
+  "explanation": "14×5=70。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.b87a539f1dbe",
@@ -1085,12 +1086,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 415×632490 =",
+    "prompt": "次の計算をしましょう。 415×6 =",
       "answers": [
         "2490"
       ]
     },
-    "explanation": "4 1 5 × 6 3 2 4 9 0"
+  "explanation": "415×6=2490。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.d5f575b2a0ab",
@@ -1104,12 +1105,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 58×54290 =",
+    "prompt": "次の計算をしましょう。 58×5 =",
       "answers": [
         "290"
       ]
     },
-    "explanation": "5 8 × 5 4 2 9 0"
+  "explanation": "58×5=290。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.d6d3d36cd1a9",
@@ -1123,12 +1124,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 729×4132916 =",
+    "prompt": "次の計算をしましょう。 729×4 =",
       "answers": [
         "2916"
       ]
     },
-    "explanation": "7 2 9 × 4 1 3 2 9 1 6"
+  "explanation": "729×4=2916。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.da0263102feb",
@@ -1142,12 +1143,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3×4 =",
+    "prompt": "次の計算をしましょう。 30×4 =",
       "answers": [
         "120"
       ]
     },
-    "explanation": "30 は、「10が3つ」ということ。これに 4をかけるので、 3×4=12 に0を１つ つけてあげればいい。答えは、120 だね。"
+  "explanation": "30は10が3こなので、3×4=12の10倍で120。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.daa8182f64f1",
@@ -1161,12 +1162,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 25×42100 =",
+    "prompt": "次の計算をしましょう。 25×4 =",
       "answers": [
         "100"
       ]
     },
-    "explanation": "2 5 × 4 2 1 0 0"
+  "explanation": "25×4=100。"
   },
   {
     "id": "legacy.sansu.g3.math-3-11.e276407ed1ce",
@@ -1180,12 +1181,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 21×484 =",
+    "prompt": "次の計算をしましょう。 21×4 =",
       "answers": [
         "84"
       ]
     },
-    "explanation": "2 1 × 4 8 4"
+  "explanation": "21×4=84。"
   },
   {
     "id": "legacy.sansu.g3.math-3-12.0b5c9230c6fa",
@@ -1259,7 +1260,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/340bdbe32bd95515.png"
     },
-    "explanation": "円の中心をとおる 円のはしとはしを むすんだ 直線を、「直径[ちょっけい]ちょっけい」といいます。"
+    "explanation": "円[えん]の中心[ちゅうしん]を通[とお]り、円[えん]のはしとはしを結[むす]ぶ線分[せんぶん]を「直径[ちょっけい]」といいます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-12.23bf1fd4e82f",
@@ -1295,7 +1296,8 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/5890275464501ee9.png"
-    }
+    },
+    "explanation": "平面[へいめん]にかいた、中心[ちゅうしん]からの長[なが]さがどこでも同[おな]じ形[かたち]を円[えん]といいます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-12.3f156151b1c4",
@@ -1332,7 +1334,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/ce5104b55fb42518.png"
     },
-    "explanation": "円の中心と 外がわをむすんだ 直線を、「半径[はんけい]はんけい」といいます。"
+    "explanation": "円[えん]の中心[ちゅうしん]から円周[えんしゅう]まで引[ひ]いた線分[せんぶん]を「半径[はんけい]」といいます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-12.5850b6b50aa0",
@@ -1368,7 +1370,8 @@
       "answer": "c2",
       "shuffle": true,
       "promptImage": "questions/legacy/89f89657f17aee4c.png"
-    }
+    },
+    "explanation": "ボールのように、どの向[む]きから見[み]ても円[えん]に見[み]える立体[りったい]を球[きゅう]といいます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-12.dfc86c09b0b1",
@@ -1446,27 +1449,6 @@
     "explanation": "1t = 1000kg になる。しっかりおぼえておこう。キリンやカバは、大きくなると、1tをこえるんだ。"
   },
   {
-    "id": "legacy.sansu.g3.math-3-13.18ed4e507d05",
-    "type": "text-input",
-    "subject": "sansu",
-    "grade": 3,
-    "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "1Lは、何mL でしょう。",
-      "answers": [
-        "1000"
-      ],
-      "template": "{{INPUT}}mL",
-      "suffix": "mL"
-    },
-    "explanation": "L はリットル とよむ かさのたんい。水などの量を あらわすときに 使う。1L=1000mL になる。"
-  },
-  {
     "id": "legacy.sansu.g3.math-3-13.1a719426bdce",
     "type": "choice",
     "subject": "sansu",
@@ -1500,7 +1482,7 @@
       "answer": "c3",
       "shuffle": true
     },
-    "explanation": "スーパーなどで売っている 牛にゅうパック1本が、およそ 1kg になる。"
+  "explanation": "中身[なかみ]の入[はい]った1Lの牛乳[ぎゅうにゅう]パック1本[ぽん]は、およそ1kgです。身近[みぢか]な重[おも]さの目安[めやす]にできます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.1fc33d03fb2c",
@@ -1578,28 +1560,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "1km=1000m, 1kg=1000g からもわかるとおり、たんいにつく k（キロ） は、1000 こ分の 大きさをあらわしているよ。"
-  },
-  {
-    "id": "legacy.sansu.g3.math-3-13.30af66604ce9",
-    "type": "text-input",
-    "subject": "sansu",
-    "grade": 3,
-    "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "1kmは、何m でしょう。",
-      "answers": [
-        "1000"
-      ],
-      "template": "{{INPUT}}m",
-      "suffix": "m"
-    },
-    "explanation": "km はキロメートル とよむ 長さのたんい。1km=1000m になる。"
+  "explanation": "1km=1000m、1kg=1000gです。単位[たんい]の前[まえ]につくk（キロ）は、もとの単位[たんい]の1000倍[ばい]を表[あらわ]します。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.483704a016c1",
@@ -1621,27 +1582,6 @@
       "suffix": "g"
     },
     "explanation": "1kg=1000g なので、2kg=2000g、1kg300g=1300g になる。 2kg - 1kg300g = 2000g-1300g = 700g"
-  },
-  {
-    "id": "legacy.sansu.g3.math-3-13.4a99e635f30b",
-    "type": "text-input",
-    "subject": "sansu",
-    "grade": 3,
-    "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "1mは、何mm でしょう。",
-      "answers": [
-        "1000"
-      ],
-      "template": "{{INPUT}}mm",
-      "suffix": "mm"
-    },
-    "explanation": "m はメートル とよむ 長さのたんい。 1m=100cm 1cm=10mm なので、1m=1000mm になる。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.4e029a4e244b",
@@ -1737,42 +1677,6 @@
     "explanation": "１円玉は、ちょうど１グラムになっている。"
   },
   {
-    "id": "legacy.sansu.g3.math-3-13.d2e918c85670",
-    "type": "choice",
-    "subject": "sansu",
-    "grade": 3,
-    "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
-    "payload": {
-      "prompt": "mm や mL のように、たんいにつく m（ミリ） は 何をあらわしているでしょう。",
-      "choices": [
-        {
-          "id": "c1",
-          "text": "1000 こ分の 大きさになる。"
-        },
-        {
-          "id": "c2",
-          "text": "100 こ分の 大きさになる。"
-        },
-        {
-          "id": "c3",
-          "text": "÷1000 をした 大きさになる。"
-        },
-        {
-          "id": "c4",
-          "text": "÷100 をした 大きさになる。"
-        }
-      ],
-      "answer": "c3",
-      "shuffle": true
-    },
-    "explanation": "1m=1000mm, 1mL=1000mL からもわかるとおり、たんいにつく m（ミリ） は、÷1000 をした 大きさになる。"
-  },
-  {
     "id": "legacy.sansu.g3.math-3-13.ed4745ebc930",
     "type": "choice",
     "subject": "sansu",
@@ -1806,7 +1710,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "１トンは、1000kgになる。キリンは、800kg〜1600kg なので、１ばん近いね。他のものは、かるすぎるぞ。"
+  "explanation": "1t=1000kgです。大[おお]きなキリンの体重[たいじゅう]はおよそ1tになることがあり、ほかの選択肢[せんたくし]より1tに近[ちか]いと考[かんが]えられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.f36c04ebd4d9",
@@ -3544,12 +3448,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 43×1625843688 =",
+    "prompt": "次の計算をしましょう。 43×16 =",
       "answers": [
         "688"
       ]
     },
-    "explanation": "4 3 × 1 6 2 5 8 4 3 6 8 8"
+  "explanation": "43×16=43×(10+6)=430+258=688。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.41108493c9fa",
@@ -3563,12 +3467,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 908×421816363238136 =",
+    "prompt": "次の計算をしましょう。 908×42 =",
       "answers": [
         "38136"
       ]
     },
-    "explanation": "9 0 8 × 4 2 1 8 1 6 3 6 3 2 3 8 1 3 6"
+  "explanation": "908×42=908×40+908×2=36320+1816=38136。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.4a902d6f25ae",
@@ -3582,12 +3486,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 98×0 =",
+    "prompt": "次の計算をしましょう。 98×50 =",
       "answers": [
         "4900"
       ]
     },
-    "explanation": "かけ算の１だん目 98×0は、しょうりゃくしてもいいよ。 9 8 × 5 0 0 0 4 9 0 4 9 0 0"
+  "explanation": "98×50=98×5×10=4900。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.5445b932bb07",
@@ -3601,12 +3505,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 805×732415563558765 =",
+    "prompt": "次の計算をしましょう。 805×73 =",
       "answers": [
         "58765"
       ]
     },
-    "explanation": "8 0 5 × 7 3 2 4 1 5 5 6 3 5 5 8 7 6 5"
+  "explanation": "805×73=805×70+805×3=56350+2415=58765。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.5c9ad33a96c5",
@@ -3658,12 +3562,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 19×259538475 =",
+    "prompt": "次の計算をしましょう。 19×25 =",
       "answers": [
         "475"
       ]
     },
-    "explanation": "1 9 × 2 5 9 5 3 8 4 7 5"
+  "explanation": "19×25=19×(20+5)=380+95=475。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.86c08ce11605",
@@ -3677,12 +3581,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 667×985336600365366 =",
+    "prompt": "次の計算をしましょう。 667×98 =",
       "answers": [
         "65366"
       ]
     },
-    "explanation": "6 6 7 × 9 8 5 3 3 6 6 0 0 3 6 5 3 6 6"
+  "explanation": "667×98=667×(100-2)=66700-1334=65366。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.9b9ff666a0c7",
@@ -3696,12 +3600,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 296×0 =",
+    "prompt": "次の計算をしましょう。 296×50 =",
       "answers": [
         "14800"
       ]
     },
-    "explanation": "かけ算の１だん目 296×0は、しょうりゃくしてもいいよ。 2 9 6 × 5 0 0 0 0 1 4 8 0 1 4 8 0 0"
+  "explanation": "296×50=296×5×10=14800。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.b490d5298dfb",
@@ -3715,12 +3619,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 900×243600180021600 =",
+    "prompt": "次の計算をしましょう。 900×24 =",
       "answers": [
         "21600"
       ]
     },
-    "explanation": "9 0 0 × 2 4 3 6 0 0 1 8 0 0 2 1 6 0 0 かけ算のじゅん番を入れかえて、24×900 で計算してもいい。 24×900 = 24×9×100 = 21600"
+  "explanation": "900×24=9×24×100=21600。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.b4c3943dd258",
@@ -3753,12 +3657,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 87×554354354785 =",
+    "prompt": "次の計算をしましょう。 87×55 =",
       "answers": [
         "4785"
       ]
     },
-    "explanation": "8 7 × 5 5 4 3 5 4 3 5 4 7 8 5"
+  "explanation": "87×55=87×(50+5)=4350+435=4785。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.c3f89d8408bd",
@@ -3772,12 +3676,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 60×321201801920 =",
+    "prompt": "次の計算をしましょう。 60×32 =",
       "answers": [
         "1920"
       ]
     },
-    "explanation": "6 0 × 3 2 1 2 0 1 8 0 1 9 2 0"
+  "explanation": "60×32=6×32×10=1920。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.d1a42fc41e11",
@@ -3791,12 +3695,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 39×42781561638 =",
+    "prompt": "次の計算をしましょう。 39×42 =",
       "answers": [
         "1638"
       ]
     },
-    "explanation": "3 9 × 4 2 7 8 1 5 6 1 6 3 8"
+  "explanation": "39×42=39×40+39×2=1560+78=1638。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.ddb0334c9de4",
@@ -3810,12 +3714,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12×211224252 =",
+    "prompt": "次の計算をしましょう。 12×21 =",
       "answers": [
         "252"
       ]
     },
-    "explanation": "1 2 × 2 1 1 2 2 4 2 5 2"
+  "explanation": "12×21=12×20+12=252。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.eb43c42bf0bd",
@@ -3848,12 +3752,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 123×456154925535 =",
+    "prompt": "次の計算をしましょう。 123×45 =",
       "answers": [
         "5535"
       ]
     },
-    "explanation": "1 2 3 × 4 5 6 1 5 4 9 2 5 5 3 5"
+  "explanation": "123×45=123×40+123×5=4920+615=5535。"
   },
   {
     "id": "legacy.sansu.g3.math-3-17.f9a7f3a15f8e",
@@ -3867,12 +3771,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 77×0 =",
+    "prompt": "次の計算をしましょう。 77×40 =",
       "answers": [
         "3080"
       ]
     },
-    "explanation": "かけ算の１だん目 77×0は、しょうりゃくしてもいいよ。 7 7 × 4 0 0 0 3 0 8 3 0 8 0"
+  "explanation": "77×40=77×4×10=3080。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.1c8f423a9eee",
@@ -6108,7 +6012,7 @@
         },
         {
           "id": "c4",
-          "text": "選択肢3"
+          "text": "数直線[すうちょくせん]・小[ちい]さく"
         }
       ],
       "answer": "c1",
@@ -7098,7 +7002,8 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/1af15bc435a1828b.png"
-    }
+    },
+    "explanation": "数[かず]を表[あらわ]す長方形[ちょうほうけい]の棒[ぼう]の長[なが]さで、量[りょう]の大小[だいしょう]を比[くら]べるグラフを棒[ぼう]グラフといいます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-7.c17411b5b4be",
@@ -7386,7 +7291,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 43-20 =",
+    "prompt": "次の計算をしましょう。 43-18 =",
       "answers": [
         "25"
       ]
@@ -7409,7 +7314,8 @@
       "answers": [
         "43"
       ]
-    }
+    },
+    "explanation": "22を20と2に分[わ]けると、21+20=41、41+2=43です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.0e29bd01e951",
@@ -7427,7 +7333,8 @@
       "answers": [
         "19"
       ]
-    }
+    },
+    "explanation": "25を20と5に分[わ]けると、44-20=24、24-5=19です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.1a72160af9fb",
@@ -7445,7 +7352,8 @@
       "answers": [
         "73"
       ]
-    }
+    },
+    "explanation": "37を40と考[かんが]えて36+40=76。多[おお]く足[た]した3を引[ひ]いて73です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.284cfb5e6552",
@@ -7463,7 +7371,8 @@
       "answers": [
         "24"
       ]
-    }
+    },
+    "explanation": "25を20と5に分[わ]けると、49-20=29、29-5=24です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.29d29facc04e",
@@ -7481,7 +7390,8 @@
       "answers": [
         "17"
       ]
-    }
+    },
+    "explanation": "25を20と5に分[わ]けると、42-20=22、22-5=17です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.34c3b6874eba",
@@ -7495,12 +7405,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 100-30 =",
+    "prompt": "次の計算をしましょう。 100-32 =",
       "answers": [
         "68"
       ]
     },
-    "explanation": "100 からひく引き算には、いくつかのやり方がある。 ① 数を小さく分けて考える。 30 を 30 と 2 に分ける。 100-30=70 70-2=68 ② 何をたしたら 100 になるか、考える。 32+8=40 40+60=100 60+8=68 ③ 100 を 99 として計算してから、 1 をたす。 99-32=67 67+1=68"
+  "explanation": "100 からひく引き算には、いくつかのやり方がある。① 32 を30と2に分ける。100-30=70、70-2=68。② 32に何をたしたら100になるか考える。32+8=40、40+60=100なので、60+8=68。③ 100を99として計算してから1をたす。99-32=67、67+1=68。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.38f34016f0a4",
@@ -7518,7 +7428,8 @@
       "answers": [
         "34"
       ]
-    }
+    },
+    "explanation": "25を20と5に分[わ]けると、59-20=39、39-5=34です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.4abceaa7ea76",
@@ -7536,7 +7447,8 @@
       "answers": [
         "59"
       ]
-    }
+    },
+    "explanation": "29に30を足[た]すと、29+30=59です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.4edb33dd8f60",
@@ -7554,7 +7466,8 @@
       "answers": [
         "81"
       ]
-    }
+    },
+    "explanation": "40+40=80で、さらに1を足[た]して81です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.53d9670b1183",
@@ -7572,7 +7485,8 @@
       "answers": [
         "86"
       ]
-    }
+    },
+    "explanation": "14を10と4に分[わ]けると、100-10=90、90-4=86です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.6956333714c3",
@@ -7590,7 +7504,8 @@
       "answers": [
         "26"
       ]
-    }
+    },
+    "explanation": "25を20と5に分[わ]けると、51-20=31、31-5=26です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.6f2249b5239c",
@@ -7608,7 +7523,8 @@
       "answers": [
         "37"
       ]
-    }
+    },
+    "explanation": "25を20と5に分[わ]けると、62-20=42、42-5=37です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.70b6cbbf8918",
@@ -7622,7 +7538,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 6+9 =",
+    "prompt": "次の計算をしましょう。 26+49 =",
       "answers": [
         "75"
       ]
@@ -7645,7 +7561,8 @@
       "answers": [
         "90"
       ]
-    }
+    },
+    "explanation": "45+45は45の2倍[ばい]なので、90です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.c744d738e5b7",
@@ -7663,7 +7580,8 @@
       "answers": [
         "31"
       ]
-    }
+    },
+    "explanation": "69に31を足[た]すと100になるので、100-69=31です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.cd8591c437d6",
@@ -7681,7 +7599,8 @@
       "answers": [
         "92"
       ]
-    }
+    },
+    "explanation": "46+46は46の2倍[ばい]なので、92です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.d727d812b533",
@@ -7699,7 +7618,8 @@
       "answers": [
         "23"
       ]
-    }
+    },
+    "explanation": "77に23を足[た]すと100になるので、100-77=23です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.f34fecc8b35a",
@@ -7717,7 +7637,8 @@
       "answers": [
         "75"
       ]
-    }
+    },
+    "explanation": "100の半分[はんぶん]は50で、25を引[ひ]くと75です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-9.012e7acaf760",

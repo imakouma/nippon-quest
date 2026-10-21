@@ -344,8 +344,12 @@ export const itemSchema = z.object({
     .object({
       heal: safePositiveIntegerSchema.optional(),
       mp: safePositiveIntegerSchema.optional(),
+      recruit: z.literal(true).optional(),
     })
-    .refine((use) => use.heal !== undefined || use.mp !== undefined, 'heal または mp が必要です')
+    .refine(
+      (use) => use.heal !== undefined || use.mp !== undefined || use.recruit === true,
+      'heal / mp / recruit のいずれかが必要です',
+    )
     .optional(),
   iconKey: z.string(),
   blurb: rubyTextSchema,
@@ -628,7 +632,6 @@ export type Unit = z.infer<typeof unitSchema>;
 export type Region = z.infer<typeof regionSchema>;
 export type RegionGate = z.infer<typeof regionGateSchema>;
 export type ArenaRival = z.infer<typeof arenaRivalSchema>;
-
 /** gen-schemas / validate-content が走査する「ファイル種別 → スキーマ」の対応表 */
 export const contentKinds = {
   world: { schema: worldSchema, glob: 'world/*.json', array: false },
@@ -644,5 +647,4 @@ export const contentKinds = {
   settings: { schema: settingsSchema, glob: 'balance/settings.json', array: false },
   rivals: { schema: arenaRivalSchema, glob: 'arena/rivals.json', array: true },
 } as const;
-
 export type ContentKind = keyof typeof contentKinds;

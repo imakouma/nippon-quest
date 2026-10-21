@@ -353,16 +353,17 @@ describe('英語の問題（content/questions/eigo）', () => {
     const files = manifest.questions.filter((f) => f.startsWith('questions/eigo/'));
     return (await Promise.all(files.map((f) => read(f)))).flat() as QuestionBase[];
   };
-  it('アルファベットは 26 もじ ぜんぶ（じゅんばんは 24 もん）', async () => {
+  it('1年生は音と絵の補助教材、2・3年生はアルファベット教材を持つ', async () => {
     const qs = await load();
     const count = (unit: string) => qs.filter((q) => q.unit === unit).length;
-    expect(count('eigo.g1.alphabet')).toBe(26);
+    expect(count('eigo.g1.alphabet')).toBe(6);
+    expect(count('eigo.g1.fruits')).toBe(6);
     expect(count('eigo.g2.alphabet-order')).toBe(24);
     expect(count('eigo.g3.alphabet-small')).toBe(26);
   });
   it('picture-word の正解は 絵と同じ単語で、カードは 英語だけ（日本語訳を書かない）', async () => {
     const pw = (await load()).filter((q) => q.type === 'picture-word');
-    expect(pw.length).toBeGreaterThanOrEqual(20);
+    expect(pw.length).toBeGreaterThan(0);
     for (const q of pw) {
       const p = q.payload as { picture?: string; answer: string; words: { id: string; text: string }[] };
       expect(p.words.find((w) => w.id === p.answer)?.text, q.id).toBe(p.picture);

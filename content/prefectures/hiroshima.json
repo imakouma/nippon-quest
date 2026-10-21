@@ -188,6 +188,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "hiroshima-aki",
+      "table": [
+        {
+          "monsterId": "hiroshima-kakigaran",
+          "weight": 60
+        },
+        {
+          "monsterId": "hiroshima-kasaneyakin",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "geihoku-bihoku",
+      "table": [
+        {
+          "monsterId": "hiroshima-iwabashigame",
+          "weight": 60
+        },
+        {
+          "monsterId": "hiroshima-kakigaran",
+          "weight": 25
+        },
+        {
+          "monsterId": "hiroshima-kasaneyakin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "bingo-setouchi",
+      "table": [
+        {
+          "monsterId": "hiroshima-setolemon",
+          "weight": 60
+        },
+        {
+          "monsterId": "hiroshima-iwabashigame",
+          "weight": 20
+        },
+        {
+          "monsterId": "hiroshima-kakigaran",
+          "weight": 10
+        },
+        {
+          "monsterId": "hiroshima-kasaneyakin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "hiroshima-aki",
+      "name": "広島[ひろしま]・安芸[あき]エリア",
+      "motifs": [
+        "itsukushima",
+        "hiroshima-kaki",
+        "okonomiyaki",
+        "kumano-fude"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "hiroshima-kakigara-don",
+        "level": 40
+      }
+    },
+    {
+      "id": "geihoku-bihoku",
+      "name": "芸北[げいほく]・備北[びほく]エリア",
+      "motifs": [
+        "sandankyo",
+        "taishakukyo"
+      ],
+      "boss": {
+        "monsterId": "hiroshima-onbashigame",
+        "level": 41
+      }
+    },
+    {
+      "id": "bingo-setouchi",
+      "name": "備後[びんご]・瀬戸内[せとうち]エリア",
+      "motifs": [
+        "onomichi",
+        "tomonoura",
+        "takehara",
+        "setoda-lemon"
+      ],
+      "boss": {
+        "monsterId": "hiroshima-taiyo-lemon",
+        "level": 41
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "hiroshima-aki",
+        "geihoku-bihoku"
+      ],
+      "openedBy": "hiroshima-aki"
+    },
+    {
+      "between": [
+        "geihoku-bihoku",
+        "bingo-setouchi"
+      ],
+      "openedBy": "geihoku-bihoku"
     }
   ],
   "boss": "hiroshima-boss-momiji-ryu",

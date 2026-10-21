@@ -5,7 +5,6 @@ import type { GameState } from '../core/state/schema';
 import { setDictionary, type I18nDict } from '../ui/i18n';
 import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
 import { setAssetCatalog, type AssetCatalog } from '../rendering/assetCatalog';
-import { deferMenuArtPreload } from '../rendering/preloadMenuArt';
 
 /** ドットフォント（PixelMplus12）を先に読んでおく。Canvas の文字が代替フォントで描かれないように */
 async function waitForFont(): Promise<void> {
@@ -70,9 +69,6 @@ export class BootScene extends Phaser.Scene {
       this.game.events.emit('boot:progress', 1);
       this.game.events.emit('boot:done', { areas: content.areas.size });
       this.scene.start('Title');
-      deferMenuArtPreload(content, {
-        onError: (error) => console.warn('[dex] 図鑑画像の先読みを完了できませんでした', error),
-      });
     } catch (e) {
       this.game.events.emit('boot:error', e);
     }

@@ -13,10 +13,10 @@ describe('東北公開素材の権利監査', () => {
     expect(report.counts.holdMedia).toBeGreaterThan(0);
   });
 
-  it('音声未収録を明示し、読み上げフォールバックを検出する', async () => {
+  it('登録済み音声と読み上げフォールバックを検出する', async () => {
     const report = await auditTohokuAssetsRights();
-    expect(report.counts.audioFiles).toBe(0);
+    expect(report.counts.audioFiles).toBe(20);
     expect(report.runtime.speechFallbackPresent).toBe(true);
-    expect(report.runtime.audioPolicy).toContain('Web Speech');
+    expect(report.runtime.audioPolicy).toBe('Bundled audio present');
   });
 });

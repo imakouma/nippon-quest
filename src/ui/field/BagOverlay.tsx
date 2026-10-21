@@ -11,7 +11,7 @@ import { ElementChip } from '../chips';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
-import { displayText } from '../ruby';
+import { displayText, stripRuby } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
 import type { BagCell } from './bagLayout';
@@ -95,6 +95,7 @@ export interface BagOverlayProps {
 
 const STATS: [keyof Stats, string][] = [
   ['hp', 'field.statHp'],
+  ['mp', 'field.statMp'],
   ['scienceAtk', 'field.statScienceAtk'],
   ['humanitiesAtk', 'field.statHumanitiesAtk'],
   ['scienceDef', 'field.statScienceDef'],
@@ -156,7 +157,7 @@ export function BagOverlay({
       order.findIndex((x) => x.key === key),
     );
   const [sel, setSel] = useState(() => indexOf(focusKey));
-  const [detailsOpen, setDetailsOpen] = useState(true);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const [dragKey, setDragKey] = useState<string | null>(null);
   const sig = order.map((x) => x.key).join(',');
   useEffect(() => setSel(indexOf(focusKey)), [focusKey, sig]);
@@ -220,7 +221,7 @@ export function BagOverlay({
       const selectedItem = e.target instanceof HTMLElement && e.target.closest<HTMLElement>('[data-bag-key]');
       if (isConfirm && selectedItem) {
         e.preventDefault();
-        live.current.toggle();
+        selectedItem.click();
         return;
       }
       if (
@@ -310,14 +311,7 @@ export function BagOverlay({
           setDragKey(x.key);
         }}
         onDragEnd={() => setDragKey(null)}
-        onClick={() => {
-          const next = indexOf(x.key);
-          if (next !== sel) {
-            playSfx('move');
-            setSel(next);
-          }
-          setDetailsOpen(true);
-        }}
+        onClick={() => activateKey(x.key)}
       >
         <span class="nq-bag-reserve-pic">
           <Pic x={x} size={3} />
@@ -331,7 +325,9 @@ export function BagOverlay({
 
   const monsInBag = inBag.some((x) => x.kind === 'monster');
   const itemsInBag = inBag.filter((x) => x.kind === 'item');
-  const canReturnItem = !!dragKey && byKey.get(dragKey)?.kind === 'item' && !!byKey.get(dragKey)?.inBag;
+  const draggedThing = dragKey ? byKey.get(dragKey) : undefined;
+  const canReturnItem =
+    !!draggedThing?.inBag && (draggedThing.kind === 'item' || draggedThing.kind === 'equip');
   const returnItem = () => {
     if (!canReturnItem || !dragKey) return;
     onToggle(dragKey);
@@ -437,43 +433,45 @@ export function BagOverlay({
               <ul class="nq-party-list nq-bag-packed">{itemsInBag.map(listRow)}</ul>
             </>
           )}
-          <p
-            class={`nq-party-sep nq-bag-sep ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
-            onDragOver={(e) => {
-              if (canReturnItem) e.preventDefault();
-            }}
-            onDrop={(e) => {
-              e.preventDefault();
-              returnItem();
-            }}
-          >
-            {t('field.bagOutside')}
-          </p>
-          <ul
-            class={`nq-bag-reserve-grid ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
-            onDragOver={(e) => {
-              if (canReturnItem) e.preventDefault();
-            }}
-            onDrop={(e) => {
-              e.preventDefault();
-              returnItem();
-            }}
-          >
-            {outside.length ? (
-              outside.map(reserveTile)
-            ) : (
-              <li class="nq-party-none">{t('field.bagOutsideNone')}</li>
-            )}
-          </ul>
         </div>
 
-        <div class="nq-wmap-right">
+        <div class="nq-wmap-right nq-bag-right">
           <div class="nq-wmap-head">
             {message ? <RubyLabel text={message} class="nq-party-msg" /> : <span />}
             <button type="button" class="nq-back" onClick={onClose}>
               × {t('ui.close')}
             </button>
           </div>
+          <section class="nq-bag-reserve" aria-label={t('field.bagOutside')}>
+            <p
+              class={`nq-party-sep nq-bag-sep ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
+              onDragOver={(e) => {
+                if (canReturnItem) e.preventDefault();
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                returnItem();
+              }}
+            >
+              {t('field.bagOutside')}
+            </p>
+            <ul
+              class={`nq-bag-reserve-grid ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
+              onDragOver={(e) => {
+                if (canReturnItem) e.preventDefault();
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                returnItem();
+              }}
+            >
+              {outside.length ? (
+                outside.map(reserveTile)
+              ) : (
+                <li class="nq-party-none">{t('field.bagOutsideNone')}</li>
+              )}
+            </ul>
+          </section>
           {detailsOpen && (
             <div class="nq-wmap-info nq-party-info">
               <div class="nq-party-head">
@@ -505,7 +503,7 @@ export function BagOverlay({
                 <div class="nq-party-stats">
                   {STATS.map(([k, key]) => (
                     <span key={k}>
-                      <small>{t(key)}</small>
+                      <small>{stripRuby(t(key))}</small>
                       {Math.round(m.stats![k])}
                     </span>
                   ))}

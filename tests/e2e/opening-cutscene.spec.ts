@@ -63,6 +63,42 @@ test('新規ゲームのオープニングが自動進行し、停止・手動�
 
   await page.getByRole('button', { name: 'スキップ' }).click();
   await expect(scene).toHaveCount(0);
+  const battleTutorial = page.locator('.nq-dlg');
+  await expect(battleTutorial).toBeVisible();
+  await battleTutorial.click();
+  await expect(battleTutorial).toContainText('てきに ちかづくと、バトルが はじまるよ');
+  await page.screenshot({ path: testInfo.outputPath('battle-tutorial.png'), fullPage: true });
+  for (let step = 0; step < 12 && (await battleTutorial.isVisible()); step += 1) {
+    await battleTutorial.click();
+  }
+  await expect(battleTutorial).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible();
+  await expect
+    .poll(() =>
+      page.evaluate(async () => {
+        const database = await new Promise<IDBDatabase>((resolve, reject) => {
+          const request = indexedDB.open('nihonquest');
+          request.onerror = () => reject(request.error);
+          request.onsuccess = () => resolve(request.result);
+        });
+        const saved = await new Promise<{ progress?: { eventsDone?: string[] } } | undefined>(
+          (resolve, reject) => {
+            const request = database.transaction('saves').objectStore('saves').get('save:1');
+            request.onerror = () => reject(request.error);
+            request.onsuccess = () => resolve(request.result);
+          },
+        );
+        database.close();
+        return saved?.progress?.eventsDone?.includes('tutorial.battle-basics') ?? false;
+      }),
+    )
+    .toBe(true);
+
+  await page.reload();
+  await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
+  await page.getByRole('menuitem', { name: 'つづきから' }).click();
+  await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
+  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  await expect(battleTutorial).toHaveCount(0);
   expect(errors.filter((error) => !error.includes('favicon'))).toEqual([]);
 });

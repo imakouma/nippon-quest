@@ -14,6 +14,11 @@ export const choicePayloadSchema = z
     prompt: z.string().min(1).describe('問題文（RubyText）'),
     promptImage: z.string().optional(),
     promptAudio: z.string().optional(),
+    promptSpeech: z
+      .string()
+      .min(1)
+      .optional()
+      .describe('読み上げ専用テキスト。答えを問題文に表示せず聞き取りを問う場合に使う'),
     choices: z.array(choiceOption).min(2).max(6),
     answer: z.string().min(1).describe('正解の choice.id'),
     shuffle: z.boolean().default(true),

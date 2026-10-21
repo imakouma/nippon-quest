@@ -187,6 +187,168 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "nakadori",
+      "table": [
+        {
+          "monsterId": "fukushima-momorin",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukushima-koboshi",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "inawashiro-urabandai",
+      "table": [
+        {
+          "monsterId": "fukushima-akabekon",
+          "weight": 50
+        },
+        {
+          "monsterId": "fukushima-momorin",
+          "weight": 25
+        },
+        {
+          "monsterId": "fukushima-koboshi",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "aizu-kitakata",
+      "table": [
+        {
+          "monsterId": "fukushima-chijiremen",
+          "weight": 45
+        },
+        {
+          "monsterId": "fukushima-akabekon",
+          "weight": 30
+        },
+        {
+          "monsterId": "fukushima-koboshi",
+          "weight": 15
+        },
+        {
+          "monsterId": "fukushima-momorin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hamadori",
+      "table": [
+        {
+          "monsterId": "fukushima-koboshi",
+          "weight": 40
+        },
+        {
+          "monsterId": "fukushima-momorin",
+          "weight": 25
+        },
+        {
+          "monsterId": "fukushima-akabekon",
+          "weight": 20
+        },
+        {
+          "monsterId": "fukushima-chijiremen",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "nakadori",
+      "name": "中通[なかどお]りエリア",
+      "motifs": [
+        "momo",
+        "shirakawa-daruma",
+        "miharu-takizakura"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "fukushima-akatsuki-momo",
+        "level": 19
+      }
+    },
+    {
+      "id": "inawashiro-urabandai",
+      "name": "猪苗代[いなわしろ]・裏磐梯[うらばんだい]エリア",
+      "motifs": [
+        "inawashiroko",
+        "goshikinuma"
+      ],
+      "boss": {
+        "monsterId": "fukushima-akabeko-don",
+        "level": 19
+      }
+    },
+    {
+      "id": "aizu-kitakata",
+      "name": "会津[あいづ]・喜多方[きたかた]エリア",
+      "motifs": [
+        "tsurugajo",
+        "akabeko",
+        "ouchijuku",
+        "okiagari-koboshi",
+        "kitakata-ramen"
+      ],
+      "boss": {
+        "monsterId": "fukushima-kura-donburi",
+        "level": 19
+      }
+    },
+    {
+      "id": "hamadori",
+      "name": "浜通[はまどお]りエリア",
+      "motifs": [
+        "shioyasaki",
+        "soma-nomaoi"
+      ],
+      "boss": {
+        "monsterId": "fukushima-yaoki-koboshi",
+        "level": 19
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "nakadori",
+        "inawashiro-urabandai"
+      ],
+      "openedBy": "nakadori"
+    },
+    {
+      "between": [
+        "inawashiro-urabandai",
+        "aizu-kitakata"
+      ],
+      "openedBy": "inawashiro-urabandai"
+    },
+    {
+      "between": [
+        "nakadori",
+        "hamadori"
+      ],
+      "openedBy": "aizu-kitakata"
     }
   ],
   "boss": "fukushima-boss-tsurugajo-no-nushi",

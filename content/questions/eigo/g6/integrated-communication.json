@@ -1,0 +1,993 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "eigo.g6.school-life-past.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I enjoyed the sports day.」で分[わ]かることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "運動会[うんどうかい]を楽[たの]しんだ。"
+        },
+        {
+          "id": "b",
+          "text": "これから運動会[うんどうかい]を開[ひら]く。"
+        },
+        {
+          "id": "c",
+          "text": "毎日[まいにち]運動会[うんどうかい]がある。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "enjoyed は過去[かこ]の出来事[できごと]を表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「What did you see?」への答[こた]えはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I saw a beautiful bird."
+        },
+        {
+          "id": "b",
+          "text": "I see tomorrow."
+        },
+        {
+          "id": "c",
+          "text": "I can a bird."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "過去[かこ]に見[み]たものを saw で答[こた]える。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "会話[かいわ]「How was the school trip?」「It was exciting.」で分[わ]かることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "修学旅行[しゅうがくりょこう]はわくわくするものだった。"
+        },
+        {
+          "id": "b",
+          "text": "修学旅行[しゅうがくりょこう]は中止[ちゅうし]だった。"
+        },
+        {
+          "id": "c",
+          "text": "旅行[りょこう]の値段[ねだん]を聞[き]いている。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "How was ...? は過去[かこ]の感想[かんそう]をたずねる。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I went to Kyoto.」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "京都[きょうと]へ行[い]った。"
+        },
+        {
+          "id": "b",
+          "text": "京都[きょうと]へ行[い]きたい。"
+        },
+        {
+          "id": "c",
+          "text": "京都[きょうと]に住[す]んでいる。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "went は go の過去形[かこけい]。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "友達[ともだち]の思[おも]い出[で]を詳[くわ]しく聞[き]く質問[しつもん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "What did you do there?"
+        },
+        {
+          "id": "b",
+          "text": "How much is it?"
+        },
+        {
+          "id": "c",
+          "text": "Can I have water?"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "そこで何[なに]をしたかをたずねる質問[しつもん]。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「We played soccer after school.」で、いつしたかを表[あらわ]す部分[ぶぶん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "after school"
+        },
+        {
+          "id": "b",
+          "text": "played soccer"
+        },
+        {
+          "id": "c",
+          "text": "We"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "after school が時[とき]を表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "思[おも]い出[で]を順番[じゅんばん]に話[はな]すときに使[つか]える語[ご]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "first, next, finally"
+        },
+        {
+          "id": "b",
+          "text": "left, right, straight"
+        },
+        {
+          "id": "c",
+          "text": "big, bigger, biggest"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "順序[じゅんじょ]を表[あらわ]す語[ご]で出来事[できごと]を整理[せいり]できる。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Did you enjoy the festival?」に肯定[こうてい]で答[こた]えるならどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Yes, I did."
+        },
+        {
+          "id": "b",
+          "text": "Yes, I can."
+        },
+        {
+          "id": "c",
+          "text": "Yes, it is."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "did で始[はじ]まる質問[しつもん]には did で答[こた]える。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "短[みじか]い会話[かいわ]から必要[ひつよう]な情報[じょうほう]を得[え]るには何[なに]に注目[ちゅうもく]する？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "人物[じんぶつ]・場所[ばしょ]・時[とき]・したこと。"
+        },
+        {
+          "id": "b",
+          "text": "話[はな]し手[て]の声[こえ]の高[たか]さだけ。"
+        },
+        {
+          "id": "c",
+          "text": "知[し]っている単語[たんご]を一[ひと]つだけ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "目的[もくてき]に応[おう]じて5W1Hに関[かか]わる語[ご]を聞[き]き取[と]る。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「My best memory is the music festival.」が伝[つた]えることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "一番[いちばん]の思[おも]い出[で]は音楽会[おんがくかい]。"
+        },
+        {
+          "id": "b",
+          "text": "音楽会[おんがくかい]は明日[あした]。"
+        },
+        {
+          "id": "c",
+          "text": "音楽[おんがく]が聞[き]こえない。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "best memory は一番[いちばん]心[こころ]に残[のこ]る思[おも]い出[で]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "案内[あんない]に「Open 9:00–17:00」とある。分[わ]かることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "午前[ごぜん]9時[じ]から午後[ごご]5時[じ]まで開[あ]いている。"
+        },
+        {
+          "id": "b",
+          "text": "9月[がつ]17日[にち]だけ開[あ]いている。"
+        },
+        {
+          "id": "c",
+          "text": "料金[りょうきん]は917円[えん]である。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "時刻[じこく]の範囲[はんい]として読[よ]む。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "パンフレットの「Free admission」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "入場無料[にゅうじょうむりょう]"
+        },
+        {
+          "id": "b",
+          "text": "飲食禁止[いんしょくきんし]"
+        },
+        {
+          "id": "c",
+          "text": "予約必要[よやくひつよう]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "admission は入場[にゅうじょう]、free は無料[むりょう]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「You can see traditional dances.」で紹介[しょうかい]していることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "伝統的[でんとうてき]な踊[おど]りを見[み]られる。"
+        },
+        {
+          "id": "b",
+          "text": "踊[おど]ってはいけない。"
+        },
+        {
+          "id": "c",
+          "text": "踊[おど]りを昨日[きのう]見[み]た。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "can see は見[み]ることができるという案内[あんない]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "旅行案内[りょこうあんない]から出発時刻[しゅっぱつじこく]を探[さが]すとき、注目[ちゅうもく]する語[ご]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Departure"
+        },
+        {
+          "id": "b",
+          "text": "Price"
+        },
+        {
+          "id": "c",
+          "text": "Food"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "departure は出発[しゅっぱつ]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Please take off your shoes.」という文化施設[ぶんかしせつ]の案内[あんない]に従[したが]う行動[こうどう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "靴[くつ]を脱[ぬ]ぐ。"
+        },
+        {
+          "id": "b",
+          "text": "写真[しゃしん]を撮[と]る。"
+        },
+        {
+          "id": "c",
+          "text": "大声[おおごえ]で話[はな]す。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "take off your shoes は靴[くつ]を脱[ぬ]ぐ依頼[いらい]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "外国[がいこく]の友達[ともだち]へ日本文化[にほんぶんか]を紹介[しょうかい]する文[ぶん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "We enjoy hanami in spring."
+        },
+        {
+          "id": "b",
+          "text": "Hanami is five o'clock."
+        },
+        {
+          "id": "c",
+          "text": "Turn left at hanami."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "季節[きせつ]と文化的[ぶんかてき]な活動[かつどう]を簡単[かんたん]な文[ぶん]で説明[せつめい]している。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Where can I buy a ticket?」がたずねていることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "切符[きっぷ]を買[か]える場所[ばしょ]"
+        },
+        {
+          "id": "b",
+          "text": "切符[きっぷ]の値段[ねだん]"
+        },
+        {
+          "id": "c",
+          "text": "旅行[りょこう]の日付[ひづけ]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Where は場所[ばしょ]をたずねる。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "掲示[けいじ]に「No photos」とある。どうする？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "写真[しゃしん]を撮[と]らない。"
+        },
+        {
+          "id": "b",
+          "text": "写真[しゃしん]を無料[むりょう]でもらう。"
+        },
+        {
+          "id": "c",
+          "text": "写真[しゃしん]を二枚[にまい]撮[と]る。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "No photos は撮影禁止[さつえいきんし]を表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "二[ふた]つの観光地[かんこうち]を比[くら]べるとき必要[ひつよう]な情報[じょうほう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "場所[ばしょ]、時間[じかん]、料金[りょうきん]、できること。"
+        },
+        {
+          "id": "b",
+          "text": "文字[もじ]の色[いろ]だけ。"
+        },
+        {
+          "id": "c",
+          "text": "パンフレットの紙[かみ]の重[おも]さ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "目的[もくてき]に関係[かんけい]する共通項目[きょうつうこうもく]を比[くら]べる。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I'd like to visit Canada.」で伝[つた]えていることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "カナダを訪[おとず]れたい。"
+        },
+        {
+          "id": "b",
+          "text": "カナダから帰[かえ]った。"
+        },
+        {
+          "id": "c",
+          "text": "カナダの値段[ねだん]を知[し]りたい。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "I'd like to ... はしたいことを丁寧[ていねい]に伝[つた]える。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I want to be a vet.」で伝[つた]えていることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "獣医[じゅうい]になりたい。"
+        },
+        {
+          "id": "b",
+          "text": "獣医[じゅうい]に会[あ]った。"
+        },
+        {
+          "id": "c",
+          "text": "動物[どうぶつ]を飼[か]えない。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "want to be ... は将来[しょうらい]なりたいものを表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "将来[しょうらい]したいことの理由[りゆう]を続[つづ]ける文[ぶん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I like helping animals."
+        },
+        {
+          "id": "b",
+          "text": "Turn right at the animal."
+        },
+        {
+          "id": "c",
+          "text": "It is three animals."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "希望[きぼう]と関係[かんけい]する理由[りゆう]を簡単[かんたん]な文[ぶん]で伝[つた]える。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「We can save water.」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "私[わたし]たちは節水[せっすい]できる。"
+        },
+        {
+          "id": "b",
+          "text": "水[みず]を買[か]わなければならない。"
+        },
+        {
+          "id": "c",
+          "text": "昨日[きのう]雨[あめ]が降[ふ]った。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "save water は水[みず]を節約[せつやく]すること。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "世界[せかい]の課題[かだい]について自分[じぶん]にできることを伝[つた]える文[ぶん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I can use less plastic."
+        },
+        {
+          "id": "b",
+          "text": "Plastic is seven."
+        },
+        {
+          "id": "c",
+          "text": "Where is less?"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "can を使[つか]い自分[じぶん]にできる行動[こうどう]を表[あらわ]している。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "例文[れいぶん]「I want to visit Australia.」を参考[さんこう]に書[か]いた文[ぶん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I want to visit Egypt."
+        },
+        {
+          "id": "b",
+          "text": "Want Egypt I visit to."
+        },
+        {
+          "id": "c",
+          "text": "I Egypt can visiting."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "例文[れいぶん]の語順[ごじゅん]を保[たも]ち、場所[ばしょ]を入[い]れ替[か]える。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "自分[じぶん]の考[かんが]えと理由[りゆう]を書[か]く組合[くみあ]わせはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I think school gardens are useful. We can grow food."
+        },
+        {
+          "id": "b",
+          "text": "I think. Garden school seven."
+        },
+        {
+          "id": "c",
+          "text": "Useful because left."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "考[かんが]えと、それを支[ささ]える理由[りゆう]が二文[にぶん]でつながっている。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「What do you want to do in junior high school?」への答[こた]えはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I want to join the science club."
+        },
+        {
+          "id": "b",
+          "text": "I went to school yesterday."
+        },
+        {
+          "id": "c",
+          "text": "It is a science room."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "中学校[ちゅうがっこう]でしたいことを want to で答[こた]える。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "意見[いけん]に賛成[さんせい]するときの表現[ひょうげん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I agree."
+        },
+        {
+          "id": "b",
+          "text": "I'm a green."
+        },
+        {
+          "id": "c",
+          "text": "Go straight."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "I agree. は賛成[さんせい]を伝[つた]える。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "聞[き]き手[て]に分[わ]かりやすい発表[はっぴょう]の順[じゅん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "したいこと→理由[りゆう]→自分[じぶん]にできる行動[こうどう]。"
+        },
+        {
+          "id": "b",
+          "text": "理由[りゆう]なし→関係[かんけい]のない話[はなし]。"
+        },
+        {
+          "id": "c",
+          "text": "単語[たんご]を順不同[じゅんふどう]に並[なら]べる。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "内容[ないよう]を整理[せいり]して話[はな]すと考[かんが]えが伝[つた]わる。"
+  },
+  {
+    "id": "eigo.g6.dreams-global-writing.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.dreams-global-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "卒業[そつぎょう]メッセージに「Thank you for everything.」と書[か]く目的[もくてき]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "これまでの感謝[かんしゃ]を伝[つた]える。"
+        },
+        {
+          "id": "b",
+          "text": "値段[ねだん]をたずねる。"
+        },
+        {
+          "id": "c",
+          "text": "場所[ばしょ]を案内[あんない]する。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Thank you for everything. は全[すべ]てへの感謝[かんしゃ]を伝[つた]える表現[ひょうげん]。"
+  }
+]

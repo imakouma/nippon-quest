@@ -38,6 +38,7 @@ export const motifKindLabelKey = (kind: Motif['kind']): string => MOTIF_KIND_KEY
 
 const STAT_LABELS: Readonly<Record<string, string>> = {
   hp: 'field.statHp',
+  mp: 'field.statMp',
   scienceAtk: 'field.statScienceAtk',
   humanitiesAtk: 'field.statHumanitiesAtk',
   scienceDef: 'field.statScienceDef',
@@ -48,6 +49,7 @@ const STAT_LABELS: Readonly<Record<string, string>> = {
 
 export function itemStatText(item: Item): string {
   return Object.entries(item.stats ?? {})
+    .filter((entry): entry is [string, number] => typeof entry[1] === 'number' && Number.isFinite(entry[1]))
     .map(([key, value]) => `${STAT_LABELS[key] ? t(STAT_LABELS[key]) : key.toUpperCase()}+${value}`)
     .join('　');
 }
@@ -181,6 +183,8 @@ export function equipmentMenu(
     summary: t('field.equipStats', {
       hp: gs.player.hp,
       max: stats.hp,
+      mp: gs.player.mp,
+      maxMp: stats.mp,
       scienceAtk: stats.scienceAtk,
       humanitiesAtk: stats.humanitiesAtk,
       scienceDef: stats.scienceDef,

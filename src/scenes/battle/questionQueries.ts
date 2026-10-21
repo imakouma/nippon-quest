@@ -1,5 +1,5 @@
 import type { Skill } from '../../core/content/schemas';
-import type { Grade, QuestionQuery } from '../../questions/contracts';
+import type { Grade, QuestionQuery, Subject } from '../../questions/contracts';
 
 /** スキルの質問条件。固有スキルはプレイヤー学年から段階的に候補を広げる。 */
 export function questionQueryForSkill(input: {
@@ -24,5 +24,11 @@ export function questionQueryForSkill(input: {
 export const recruitQuestionQuery = (skill: Skill, areaId: string): QuestionQuery => ({
   subject: skill.subject,
   gradeRange: skill.gradeRange,
+  tags: [`prefecture:${areaId}`],
+});
+
+export const musubiDamaQuestionQuery = (subject: Subject, grade: Grade, areaId: string): QuestionQuery => ({
+  subject,
+  gradeRange: [Math.max(1, grade - 1) as Grade, grade],
   tags: [`prefecture:${areaId}`],
 });

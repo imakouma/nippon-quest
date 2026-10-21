@@ -1,0 +1,835 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-rika-g3",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 理科[りか]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211020-mxt_kyoiku02-100002607_05.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-10-20版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第3学年"
+    },
+    {
+      "id": "mext-h29-rika-codes-g3",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年理科"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "rika.g3.observation.methods-safety",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-01",
+      "name": "安全[あんぜん]に観察[かんさつ]して記録[きろく]する",
+      "description": "虫[むし]めがねを安全[あんぜん]に使[つか]い、日付[ひづけ]・場所[ばしょ]・形[かたち]・色[いろ]・大[おお]きさなどを観察[かんさつ]カードに記録[きろく]する。",
+      "kind": "procedure",
+      "memoryType": "procedure",
+      "curriculumCodes": ["8260233211100000", "8260233212000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.living-things.compare-appearance",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-01",
+      "name": "生物[せいぶつ]の姿[すがた]を比[くら]べる",
+      "description": "身[み]の回[まわ]りの生物[せいぶつ]を形[かたち]・色[いろ]・大[おお]きさなどの観点[かんてん]で比[くら]べ、違[ちが]いを見[み]いだす。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233211100000", "8260233212000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "複数[ふくすう]の生物[せいぶつ]を同[おな]じ観点[かんてん]で比[くら]べる。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.plants.growth",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-02",
+      "name": "植物[しょくぶつ]の育[そだ]ち方[かた]",
+      "description": "植物[しょくぶつ]の育[そだ]ち方[かた]には一定[いってい]の順序[じゅんじょ]があることを観察[かんさつ]から捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233211300000", "8260233212000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.insects.growth",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-03",
+      "name": "昆虫[こんちゅう]の育[そだ]ち方[かた]",
+      "description": "昆虫[こんちゅう]が卵[たまご]・幼虫[ようちゅう]・蛹[さなぎ]・成虫[せいちゅう]などの順序[じゅんじょ]で育[そだ]つことを比[くら]べる。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233211200000", "8260233212000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.insects.body",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-03",
+      "name": "昆虫[こんちゅう]の体[からだ]のつくり",
+      "description": "昆虫[こんちゅう]の成虫[せいちゅう]は頭[あたま]・胸[むね]・腹[はら]からでき、胸[むね]に6本[ほん]の足[あし]が付[つ]くことを捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233211200000", "8260233212000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "体[からだ]の分[わ]かれ方[かた]と足[あし]の数[かず]を根拠[こんきょ]に昆虫[こんちゅう]かどうかを比[くら]べる。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.plants.body",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-04",
+      "name": "植物[しょくぶつ]の体[からだ]のつくり",
+      "description": "植物[しょくぶつ]の体[からだ]が根[ね]・茎[くき]・葉[は]からできていることを比較[ひかく]して捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8260233211300000", "8260233212000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "観察[かんさつ]・実験[じっけん]で差異点[さいてん]と共通点[きょうつうてん]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "rika.g3.plants.observe-care",
+      "subject": "rika",
+      "grade": 3,
+      "unit": "rika.g3.legacy-cur-1503-04",
+      "name": "植物[しょくぶつ]の変化[へんか]を測[はか]って世話[せわ]する",
+      "description": "植物[しょくぶつ]の高[たか]さ、茎[くき]の太[ふと]さ、葉[は]の数[かず]を続[つづ]けて観察[かんさつ]し、根[ね]を傷[いた]めずに植[う]えかえる。",
+      "kind": "procedure",
+      "memoryType": "procedure",
+      "curriculumCodes": ["8260233211300000", "8260233212000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "前[まえ]の記録[きろく]と比[くら]べて成長[せいちょう]の変化[へんか]を見[み]いだす。"
+      },
+      "sourceIds": ["mext-h29-rika-g3", "mext-h29-rika-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "rika.g3.observation.methods-safety",
+      "to": "rika.g3.living-things.compare-appearance",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "安全[あんぜん]な観察[かんさつ]と記録[きろく]を基[もと]に、生物[せいぶつ]の姿[すがた]の違[ちが]いを比[くら]べる。",
+      "sourceIds": ["mext-h29-rika-g3"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "rika.g3.insects.growth",
+      "to": "rika.g3.insects.body",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "育[そだ]ちの段階[だんかい]を観察[かんさつ]し、成虫[せいちゅう]の体[からだ]の共通[きょうつう]したつくりを捉[とら]える。",
+      "sourceIds": ["mext-h29-rika-g3"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "rika.g3.plants.observe-care",
+      "to": "rika.g3.plants.body",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "継続[けいぞく]して育[そだ]て観察[かんさつ]した記録[きろく]から、根[ね]・茎[くき]・葉[は]のつくりを比[くら]べる。",
+      "sourceIds": ["mext-h29-rika-g3"],
+      "reviewStatus": "source-checked"
+    }
+  ],
+  "questionLinks": [
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.15a88fa0a6e1",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.45d11cceb0fa",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.83348d998a7c",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.living-things.compare-appearance",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.83b6770c33de",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.9ae2fd9effd3",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.a2fd99d450a9",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.a86d2fdd1dba",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.aedcad415883",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.af8a2ed18e73",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.bfad0c46dd5f",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.d3f6b99414c3",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-01.ed5938dc69a7",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.observation.methods-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.1a3f0ae2f679",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.1f2236975621",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.424be7f29b35",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.584930957bfb",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.5b45b0a6c3bc",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.918d188d4350",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.980986c641f6",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.9b4ef8f1a4b9",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.acbff057f0d9",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.b639074466f8",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.d3c4f83856d9",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-02.f67ac8878d5c",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.09857a7b399f",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.130d28eef4b2",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.1c594877ab32",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.466eeb823e9e",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.4beecd4f35d9",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.61e7fc9e66a8",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.6b5fef5033f0",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.6e5324aa1379",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.992fe0cc2ba0",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.c86850339a50",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.dbd37e9cd9c9",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.growth",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-03.e47faa3b789a",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.insects.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.1e1561d0b8f9",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.observe-care",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.20c6ed71fda1",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.36a0387cbcd4",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.observe-care",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.45969d4c94f1",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.observe-care",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.4d18732ae6c6",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.82a733220e1f",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.observe-care",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.9913caa90f00",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.9bc36598332d",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.a3b9a7931fb6",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.observe-care",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.ad90e75aae3f",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.observe-care",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.dd879a5ec396",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.rika.g3.cur-1503-04.e4366cfde9ef",
+      "concepts": [
+        {
+          "conceptId": "rika.g3.plants.body",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

@@ -192,6 +192,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "fukui-sakai-okuetsu",
+      "table": [
+        {
+          "monsterId": "fukui-raputorun",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukui-kamisukin",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "sabae-echizen",
+      "table": [
+        {
+          "monsterId": "fukui-suisenko",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukui-raputorun",
+          "weight": 25
+        },
+        {
+          "monsterId": "fukui-kamisukin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "wakasa-kaigan",
+      "table": [
+        {
+          "monsterId": "fukui-meganen",
+          "weight": 60
+        },
+        {
+          "monsterId": "fukui-suisenko",
+          "weight": 20
+        },
+        {
+          "monsterId": "fukui-raputorun",
+          "weight": 10
+        },
+        {
+          "monsterId": "fukui-kamisukin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "fukui-sakai-okuetsu",
+      "name": "福井[ふくい]・坂井[さかい]・奥越[おくえつ]エリア",
+      "motifs": [
+        "katsuyama-kyoryu",
+        "eiheiji",
+        "maruoka-jo",
+        "echizen-gani",
+        "oroshisoba"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "fukui-fukui-raptor",
+        "level": 28
+      }
+    },
+    {
+      "id": "sabae-echizen",
+      "name": "鯖江[さばえ]・越前[えちぜん]エリア",
+      "motifs": [
+        "echizen-washi",
+        "sabae-megane",
+        "echizen-suisen"
+      ],
+      "boss": {
+        "monsterId": "fukui-megane-hakase",
+        "level": 29
+      }
+    },
+    {
+      "id": "wakasa-kaigan",
+      "name": "若狭[わかさ]・越前海岸[えちぜんかいがん]エリア",
+      "motifs": [
+        "mikatagoko",
+        "wakasanuri"
+      ],
+      "boss": {
+        "monsterId": "fukui-yuki-no-suisen",
+        "level": 29
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "fukui-sakai-okuetsu",
+        "sabae-echizen"
+      ],
+      "openedBy": "fukui-sakai-okuetsu"
+    },
+    {
+      "between": [
+        "sabae-echizen",
+        "wakasa-kaigan"
+      ],
+      "openedBy": "sabae-echizen"
     }
   ],
   "boss": "fukui-boss-echizen-gani-ou",

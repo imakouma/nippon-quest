@@ -86,9 +86,18 @@
     {
       "zone": "field",
       "table": [
-        { "monsterId": "kochi-kamiwashi", "weight": 40 },
-        { "monsterId": "kochi-yuzupika", "weight": 35 },
-        { "monsterId": "kochi-aburikatsuo", "weight": 25 }
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 40
+        },
+        {
+          "monsterId": "kochi-yuzupika",
+          "weight": 35
+        },
+        {
+          "monsterId": "kochi-aburikatsuo",
+          "weight": 25
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -96,8 +105,14 @@
     {
       "zone": "farm",
       "table": [
-        { "monsterId": "kochi-yuzupika", "weight": 70 },
-        { "monsterId": "kochi-kamiwashi", "weight": 30 }
+        {
+          "monsterId": "kochi-yuzupika",
+          "weight": 70
+        },
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 30
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -105,8 +120,14 @@
     {
       "zone": "forest",
       "table": [
-        { "monsterId": "kochi-kamiwashi", "weight": 55 },
-        { "monsterId": "kochi-yuzupika", "weight": 45 }
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 55
+        },
+        {
+          "monsterId": "kochi-yuzupika",
+          "weight": 45
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -114,8 +135,14 @@
     {
       "zone": "mountain",
       "table": [
-        { "monsterId": "kochi-kamiwashi", "weight": 70 },
-        { "monsterId": "kochi-yuzupika", "weight": 30 }
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 70
+        },
+        {
+          "monsterId": "kochi-yuzupika",
+          "weight": 30
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -123,8 +150,14 @@
     {
       "zone": "beach",
       "table": [
-        { "monsterId": "kochi-aburikatsuo", "weight": 75 },
-        { "monsterId": "kochi-kamiwashi", "weight": 25 }
+        {
+          "monsterId": "kochi-aburikatsuo",
+          "weight": 75
+        },
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 25
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -132,17 +165,144 @@
     {
       "zone": "dungeon",
       "table": [
-        { "monsterId": "kochi-aburikatsuo", "weight": 35 },
-        { "monsterId": "kochi-kamiwashi", "weight": 35 },
-        { "monsterId": "kochi-yuzupika", "weight": 30 }
+        {
+          "monsterId": "kochi-aburikatsuo",
+          "weight": 35
+        },
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 35
+        },
+        {
+          "monsterId": "kochi-yuzupika",
+          "weight": 30
+        }
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "kochi-chuo",
+      "table": [
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 55
+        },
+        {
+          "monsterId": "kochi-yuzupika",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "aki-muroto",
+      "table": [
+        {
+          "monsterId": "kochi-yuzupika",
+          "weight": 60
+        },
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 25
+        },
+        {
+          "monsterId": "kochi-aburikatsuo",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hata-shimanto",
+      "table": [
+        {
+          "monsterId": "kochi-aburikatsuo",
+          "weight": 60
+        },
+        {
+          "monsterId": "kochi-yuzupika",
+          "weight": 20
+        },
+        {
+          "monsterId": "kochi-kamiwashi",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "kochi-chuo",
+      "name": "高知[こうち]中央[ちゅうおう]エリア",
+      "motifs": [
+        "katsurahama",
+        "yosakoi",
+        "ryugado",
+        "niyodogawa",
+        "tosa-washi"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "kochi-oowashigami",
+        "level": 44
+      }
+    },
+    {
+      "id": "aki-muroto",
+      "name": "安芸[あき]・室戸[むろと]エリア",
+      "motifs": [
+        "murotomisaki",
+        "kochi-yuzu"
+      ],
+      "boss": {
+        "monsterId": "kochi-kagayaki-yuzu",
+        "level": 44
+      }
+    },
+    {
+      "id": "hata-shimanto",
+      "name": "幡多[はた]・四万十[しまんと]エリア",
+      "motifs": [
+        "shimantogawa",
+        "ashizurimisaki",
+        "katsuo-tataki"
+      ],
+      "boss": {
+        "monsterId": "kochi-homura-katsuo",
+        "level": 45
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "kochi-chuo",
+        "aki-muroto"
+      ],
+      "openedBy": "kochi-chuo"
+    },
+    {
+      "between": [
+        "kochi-chuo",
+        "hata-shimanto"
+      ],
+      "openedBy": "aki-muroto"
     }
   ],
   "boss": "kochi-boss-kuroshio-kujira",
   "midBoss": "kochi-midboss-narukomai",
-  "secret": { "name": "上町[かみまち]の 龍馬[りょうま]の 家[いえ]", "boss": "kochi-lastboss-sakamoto-ryoma" },
+  "secret": {
+    "name": "上町[かみまち]の 龍馬[りょうま]の 家[いえ]",
+    "boss": "kochi-lastboss-sakamoto-ryoma"
+  },
   "events": [
     {
       "id": "ev-kochi-shimantogawa",
@@ -165,13 +325,36 @@
       ],
       "question": {
         "subject": "rika",
-        "gradeRange": [3, 6],
-        "tags": ["prefecture:kochi"]
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:kochi"
+        ]
       },
       "rewardByScore": [
-        { "min": 1, "reward": { "xp": 40, "gold": 100 } },
-        { "min": 0.5, "reward": { "xp": 20, "gold": 50 } },
-        { "min": 0, "reward": { "xp": 10, "gold": 10 } }
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
       ],
       "afterDialogue": [
         {

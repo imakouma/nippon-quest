@@ -173,6 +173,125 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "kofu-katsunuma",
+      "table": [
+        {
+          "monsterId": "yamanashi-budoon",
+          "weight": 55
+        },
+        {
+          "monsterId": "yamanashi-houtoun",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hokuto-minami-alps",
+      "table": [
+        {
+          "monsterId": "yamanashi-suzurin",
+          "weight": 60
+        },
+        {
+          "monsterId": "yamanashi-budoon",
+          "weight": 25
+        },
+        {
+          "monsterId": "yamanashi-houtoun",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "fuji-gunai",
+      "table": [
+        {
+          "monsterId": "yamanashi-momorin",
+          "weight": 55
+        },
+        {
+          "monsterId": "yamanashi-houtoun",
+          "weight": 20
+        },
+        {
+          "monsterId": "yamanashi-budoon",
+          "weight": 15
+        },
+        {
+          "monsterId": "yamanashi-suzurin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "kofu-katsunuma",
+      "name": "甲府[こうふ]・勝沼[かつぬま]エリア",
+      "motifs": [
+        "shosenkyo",
+        "budou",
+        "momo",
+        "houtou"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "yamanashi-tawawa-budou",
+        "level": 29
+      }
+    },
+    {
+      "id": "hokuto-minami-alps",
+      "name": "北杜[ほくと]・南[みなみ]アルプスエリア",
+      "motifs": [
+        "kitadake",
+        "yatsugatake",
+        "amahata-suzuri"
+      ],
+      "boss": {
+        "monsterId": "yamanashi-suzuri-tatsujin",
+        "level": 29
+      }
+    },
+    {
+      "id": "fuji-gunai",
+      "name": "富士[ふじ]・郡内[ぐんない]エリア",
+      "motifs": [
+        "fujigoko",
+        "oshino-hakkai",
+        "saruhashi"
+      ],
+      "boss": {
+        "monsterId": "yamanashi-hakuto-hime",
+        "level": 30
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "kofu-katsunuma",
+        "hokuto-minami-alps"
+      ],
+      "openedBy": "kofu-katsunuma"
+    },
+    {
+      "between": [
+        "kofu-katsunuma",
+        "fuji-gunai"
+      ],
+      "openedBy": "hokuto-minami-alps"
     }
   ],
   "boss": "yamanashi-boss-suisho-ryu",

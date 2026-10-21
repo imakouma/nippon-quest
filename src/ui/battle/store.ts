@@ -90,6 +90,8 @@ export interface ItemOption {
   blurb: string;
   /** どうぐの アイコン（data URL） */
   icon: string;
+  disabled: boolean;
+  reason?: string;
 }
 
 export interface SwapOption {
@@ -168,6 +170,8 @@ export interface ResultView {
 }
 
 export interface HudState {
+  /** 敵との遭遇演出中。下部のコマンド・味方情報は演出が終わるまで出さない。 */
+  intro: boolean;
   enemy: EnemyView | null;
   /** いまの ターン（1 から）。ターン制の 目じるし */
   turn: number | null;
@@ -203,6 +207,7 @@ export type UiAction =
   | { t: 'resultClose' };
 
 export const initialHudState = (): HudState => ({
+  intro: true,
   enemy: null,
   turn: null,
   allies: [],

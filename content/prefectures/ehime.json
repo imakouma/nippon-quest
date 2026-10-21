@@ -86,9 +86,18 @@
     {
       "zone": "field",
       "table": [
-        { "monsterId": "ehime-mofutaoru", "weight": 45 },
-        { "monsterId": "ehime-komikan", "weight": 35 },
-        { "monsterId": "ehime-jakotengyo", "weight": 20 }
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 45
+        },
+        {
+          "monsterId": "ehime-komikan",
+          "weight": 35
+        },
+        {
+          "monsterId": "ehime-jakotengyo",
+          "weight": 20
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -96,8 +105,14 @@
     {
       "zone": "farm",
       "table": [
-        { "monsterId": "ehime-komikan", "weight": 70 },
-        { "monsterId": "ehime-mofutaoru", "weight": 30 }
+        {
+          "monsterId": "ehime-komikan",
+          "weight": 70
+        },
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 30
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -105,8 +120,14 @@
     {
       "zone": "forest",
       "table": [
-        { "monsterId": "ehime-mofutaoru", "weight": 55 },
-        { "monsterId": "ehime-komikan", "weight": 45 }
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 55
+        },
+        {
+          "monsterId": "ehime-komikan",
+          "weight": 45
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -114,8 +135,14 @@
     {
       "zone": "mountain",
       "table": [
-        { "monsterId": "ehime-komikan", "weight": 60 },
-        { "monsterId": "ehime-mofutaoru", "weight": 40 }
+        {
+          "monsterId": "ehime-komikan",
+          "weight": 60
+        },
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 40
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -123,8 +150,14 @@
     {
       "zone": "beach",
       "table": [
-        { "monsterId": "ehime-jakotengyo", "weight": 70 },
-        { "monsterId": "ehime-mofutaoru", "weight": 30 }
+        {
+          "monsterId": "ehime-jakotengyo",
+          "weight": 70
+        },
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 30
+        }
       ],
       "stepsPerCheck": 12,
       "rate": 0.25
@@ -132,17 +165,144 @@
     {
       "zone": "dungeon",
       "table": [
-        { "monsterId": "ehime-jakotengyo", "weight": 40 },
-        { "monsterId": "ehime-mofutaoru", "weight": 35 },
-        { "monsterId": "ehime-komikan", "weight": 25 }
+        {
+          "monsterId": "ehime-jakotengyo",
+          "weight": 40
+        },
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 35
+        },
+        {
+          "monsterId": "ehime-komikan",
+          "weight": 25
+        }
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "chuyo-matsuyama",
+      "table": [
+        {
+          "monsterId": "ehime-komikan",
+          "weight": 60
+        },
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "toyo-imabari",
+      "table": [
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 60
+        },
+        {
+          "monsterId": "ehime-komikan",
+          "weight": 20
+        },
+        {
+          "monsterId": "ehime-jakotengyo",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "nanyo-uwajima",
+      "table": [
+        {
+          "monsterId": "ehime-jakotengyo",
+          "weight": 65
+        },
+        {
+          "monsterId": "ehime-mofutaoru",
+          "weight": 20
+        },
+        {
+          "monsterId": "ehime-komikan",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "chuyo-matsuyama",
+      "name": "中予[ちゅうよ]・松山[まつやま]エリア",
+      "motifs": [
+        "dogo-onsen",
+        "tobeyaki"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "ehime-iyokan-musha",
+        "level": 43
+      }
+    },
+    {
+      "id": "toyo-imabari",
+      "name": "東予[とうよ]・今治[いまばり]エリア",
+      "motifs": [
+        "shimanami",
+        "ishizuchisan",
+        "besshi-dozan",
+        "imabari-towel"
+      ],
+      "boss": {
+        "monsterId": "ehime-soratobi-taoru",
+        "level": 44
+      }
+    },
+    {
+      "id": "nanyo-uwajima",
+      "name": "南予[なんよ]・宇和島[うわじま]エリア",
+      "motifs": [
+        "uchiko",
+        "sadamisaki",
+        "ehime-mikan",
+        "jakoten"
+      ],
+      "boss": {
+        "monsterId": "ehime-jakotendai",
+        "level": 44
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "chuyo-matsuyama",
+        "toyo-imabari"
+      ],
+      "openedBy": "chuyo-matsuyama"
+    },
+    {
+      "between": [
+        "chuyo-matsuyama",
+        "nanyo-uwajima"
+      ],
+      "openedBy": "toyo-imabari"
     }
   ],
   "boss": "ehime-boss-ishizuchi-ou",
   "midBoss": "ehime-midboss-yuamisagi",
-  "secret": { "name": "能島[のしま]の とりで", "boss": "ehime-lastboss-murakami-takeyoshi" },
+  "secret": {
+    "name": "能島[のしま]の とりで",
+    "boss": "ehime-lastboss-murakami-takeyoshi"
+  },
   "events": [
     {
       "id": "ev-ehime-uchiko",
@@ -165,13 +325,36 @@
       ],
       "question": {
         "subject": "shakai",
-        "gradeRange": [3, 6],
-        "tags": ["prefecture:ehime"]
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:ehime"
+        ]
       },
       "rewardByScore": [
-        { "min": 1, "reward": { "xp": 40, "gold": 100 } },
-        { "min": 0.5, "reward": { "xp": 20, "gold": 50 } },
-        { "min": 0, "reward": { "xp": 10, "gold": 10 } }
+        {
+          "min": 1,
+          "reward": {
+            "xp": 40,
+            "gold": 100
+          }
+        },
+        {
+          "min": 0.5,
+          "reward": {
+            "xp": 20,
+            "gold": 50
+          }
+        },
+        {
+          "min": 0,
+          "reward": {
+            "xp": 10,
+            "gold": 10
+          }
+        }
       ],
       "afterDialogue": [
         {

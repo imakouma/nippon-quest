@@ -1,5 +1,6 @@
 import type { Grade, Unit } from '../content/schemas';
 import { isRequiredCourse } from './placement';
+import { canonicalUnitId } from './unitAliases';
 
 export function buildCurriculumCoverage(input: {
   units: readonly Unit[];
@@ -22,15 +23,17 @@ export function buildCurriculumCoverage(input: {
   const linksByQuestion = new Map(
     (input.questionConceptLinks ?? []).map((link) => [link.questionId, link.concepts]),
   );
+  const unitIds = new Set(input.units.map((unit) => unit.id));
   const targets = input.units.filter(
     (unit) =>
+      (!unitIds.has(canonicalUnitId(unit.id)) || canonicalUnitId(unit.id) === unit.id) &&
       unit.grade === input.grade &&
       unit.courseKind !== undefined &&
       isRequiredCourse({ ...unit, courseKind: unit.courseKind }) &&
       unit.placement?.terms.some((term) => term === input.term || term === 'variable'),
   );
   const units = targets.map((unit) => {
-    const questions = input.questions.filter((question) => question.unit === unit.id);
+    const questions = input.questions.filter((question) => canonicalUnitId(question.unit) === unit.id);
     const linked = questions.filter((question) => input.linkedQuestionIds.has(question.id)).length;
     const placement = unit.placement?.terms ?? [];
     const exactTerm = placement.length === 1 && placement[0] === input.term;
@@ -50,7 +53,7 @@ export function buildCurriculumCoverage(input: {
       unitId: unit.id,
       subject: unit.subject,
       name: unit.name,
-      goals: input.concepts.filter((concept) => concept.unit === unit.id).length,
+      goals: input.concepts.filter((concept) => canonicalUnitId(concept.unit) === unit.id).length,
       questions: questions.length,
       confirmedTermQuestions: confirmedQuestions.length,
       linked,
@@ -68,11 +71,12 @@ export function buildCurriculumCoverage(input: {
   const conceptCoverage = input.concepts
     .filter(
       (concept) =>
-        targetUnitIds.has(concept.unit) && concept.recommendedWindow?.stage === stageForTerm[input.term],
+        targetUnitIds.has(canonicalUnitId(concept.unit)) &&
+        concept.recommendedWindow?.stage === stageForTerm[input.term],
     )
     .map((concept) => ({
       conceptId: concept.id,
-      unitId: concept.unit,
+      unitId: canonicalUnitId(concept.unit),
       primaryQuestions: primaryConceptCounts.get(concept.id) ?? 0,
     }));
   const findings = units.flatMap((unit) => {

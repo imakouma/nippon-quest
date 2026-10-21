@@ -68,17 +68,22 @@ describe('GameState → Party', () => {
     expect(partyFromGameState(gs, c).hero.hp).toBe(1);
   });
 
-  it('経験値でレベルが上がると主人公の戦闘ステータスも成長する', async () => {
+  it('レベルごとの小さな成長とLv5の攻撃節目成長を戦闘ステータスへ反映する', async () => {
     const c = await content();
     const level1 = newGame();
     const level2 = newGame();
+    const level5 = newGame();
     level2.player.xp = c.xp.hero[1]!;
+    level5.player.xp = c.xp.hero[4]!;
 
     const before = partyFromGameState(level1, c).hero;
-    const after = partyFromGameState(level2, c).hero;
-    expect(after.level).toBe(2);
-    expect(after.stats.hp).toBeGreaterThan(before.stats.hp);
-    expect(after.stats.scienceAtk).toBeGreaterThan(before.stats.scienceAtk);
+    const afterLevel = partyFromGameState(level2, c).hero;
+    const afterMilestone = partyFromGameState(level5, c).hero;
+    expect(afterLevel.level).toBe(2);
+    expect(afterLevel.stats.hp).toBeGreaterThan(before.stats.hp);
+    expect(afterLevel.stats.scienceAtk).toBe(before.stats.scienceAtk);
+    expect(afterMilestone.level).toBe(5);
+    expect(afterMilestone.stats.scienceAtk).toBeGreaterThan(afterLevel.stats.scienceAtk);
   });
 
   it('content に無いモンスターは連れていかない', async () => {
@@ -341,6 +346,7 @@ describe('メッセージ（narrate）', () => {
       { t: 'gaugeUse', subject: 'kokugo', amount: 50, value: 50 },
       { t: 'gaugeShort', subject: 'rika', need: 100, have: 0 },
       { t: 'itemUsed', itemId: 'aomori-ringo', targetId: 'pal' },
+      { t: 'itemUsed', itemId: 'common-musubi-dama', targetId: 'enemy', side: 'enemy' },
       { t: 'recruitGift', itemId: 'aomori-ringo', targetId: 'enemy' },
       { t: 'swap', from: 'pal', to: 'hero' },
       { t: 'recruitAttempt', targetId: 'enemy', success: false, chance: 0.1 },

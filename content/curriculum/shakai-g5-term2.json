@@ -1,0 +1,654 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-shakai-g5",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 社会[しゃかい]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_003.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2023-03-08版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第3節 第5学年"
+    },
+    {
+      "id": "mext-h29-shakai-codes-g5",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第5学年社会"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "shakai.g5.soc-5-4",
+      "subject": "shakai",
+      "grade": 5,
+      "unit": "shakai.g5.legacy-soc-5-4",
+      "name": "日本[にほん]の 食料生産[しょくりょうせいさん]①",
+      "description": "日本[にほん]の 食料生産[しょくりょうせいさん]①について、地図[ちず]・統計[とうけい]・資料[しりょう]を関連[かんれん]付[づ]け、国民生活[こくみんせいかつ]との関[かか]わりを多角的[たかくてき]に考[かんが]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": [
+        "8220253211000000",
+        "8220253212000000",
+        "8220253213000000",
+        "8220253221000000",
+        "8220253222000000"
+      ],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-shakai-g5", "mext-h29-shakai-codes-g5"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "shakai.g5.soc-5-5",
+      "subject": "shakai",
+      "grade": 5,
+      "unit": "shakai.g5.legacy-soc-5-5",
+      "name": "日本[にほん]の 食料生産[しょくりょうせいさん]②",
+      "description": "日本[にほん]の 食料生産[しょくりょうせいさん]②について、地図[ちず]・統計[とうけい]・資料[しりょう]を関連[かんれん]付[づ]け、国民生活[こくみんせいかつ]との関[かか]わりを多角的[たかくてき]に考[かんが]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8220253211000000", "8220253212000000", "8220253221000000", "8220253222000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-shakai-g5", "mext-h29-shakai-codes-g5"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "shakai.g5.soc-5-6",
+      "subject": "shakai",
+      "grade": 5,
+      "unit": "shakai.g5.legacy-soc-5-6",
+      "name": "日本[にほん]の 工業生産[こうぎょうせいさん]と 交通[こうつう]",
+      "description": "日本[にほん]の 工業生産[こうぎょうせいさん]と 交通[こうつう]について、地図[ちず]・統計[とうけい]・資料[しりょう]を関連[かんれん]付[づ]け、国民生活[こくみんせいかつ]との関[かか]わりを多角的[たかくてき]に考[かんが]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": [
+        "8220253311000000",
+        "8220253312000000",
+        "8220253313000000",
+        "8220253321000000",
+        "8220253322000000",
+        "8220253323000000"
+      ],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-shakai-g5", "mext-h29-shakai-codes-g5"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.1f6bb557986a",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.25dd00e5fbd0",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.2a63117435c9",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.3113fb5b6e85",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.661afeb79b7f",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.66c6a685ead3",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.7e9b57e4e7af",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.9b27d522d83d",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.daff2e3e5c88",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-4.faf7a6626d56",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-4",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.0a702a03d140",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.0f6792cb3e62",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.1c06d9e2dd08",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.386804aff3a2",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.619908e12f51",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.703e24dd931a",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.7579c793f59d",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.ad0ce7090420",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.bbdf13ddd319",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-5.bc1c4e88acb6",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-5",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.0bd9593a067b",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.11beec90347f",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.17b73cab75bb",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.1a789bd01c05",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.2618028b60ea",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.273c4138ab81",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.27a4c2358cd2",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.32699770777f",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.40ee58d86b04",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.4a259057be95",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.5514780fd9df",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.57a9415add63",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.6929b4d324e1",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.7b385ea8e988",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.7e73c274dc1f",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.86b0e71e36d7",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.99c9da06dd9b",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.a5491e4a708f",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.a8c96b1c1aa6",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.b059945f3dcc",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.e230d0e5d7fb",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g5.soc-5-6.ed778057868e",
+      "concepts": [
+        {
+          "conceptId": "shakai.g5.soc-5-6",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

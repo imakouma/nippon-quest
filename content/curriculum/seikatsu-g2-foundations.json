@@ -1,0 +1,864 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-seikatsu-g1-2",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 生活[せいかつ]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_05.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第1学年及び第2学年・内容(3)(4)(7)(8)(9)"
+    },
+    {
+      "id": "mext-h29-seikatsu-codes-g1-2",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・生活科"
+    },
+    {
+      "id": "tokyo-shoseki-r6-seikatsu-g2",
+      "title": "令和[れいわ]6年度[ねんど] 小学校[しょうがっこう]生活科[せいかつか]用[よう]「新編[しんぺん] 新[あたら]しい 生活[せいかつ]」年間[ねんかん]指導[しどう]計画[けいかく]作成[さくせい]資料[しりょう] 2年[ねん]（下巻[げかん]）",
+      "publisher": "東京書籍",
+      "url": "https://ten.tokyo-shoseki.co.jp/text/shou/seikatsu/data/seikatsu_keikaku_ge.pdf",
+      "published": "令和5年7月版",
+      "checkedAt": "2026-10-12",
+      "locator": "4〜7月：春・野菜・町探検・生きもの、10月：公共施設"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "seikatsu.g2.seasons.spring-change",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.spring",
+      "name": "春[はる]の自然[しぜん]と生活[せいかつ]の変化[へんか]",
+      "description": "身近[みぢか]な自然[しぜん]を冬[ふゆ]やこれまでの記録[きろく]と比[くら]べ、春[はる]の特徴[とくちょう]と生活[せいかつ]の変化[へんか]に気付[きづ]く。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3220000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "4〜5月[がつ]に校庭[こうてい]と町[まち]で観察[かんさつ]し、安全[あんぜん]に記録[きろく]する。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "tokyo-shoseki-r6-seikatsu-g2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.nature.vegetable-care",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.vegetables",
+      "name": "野菜[やさい]の成長[せいちょう]に合[あ]う世話[せわ]と記録[きろく]",
+      "description": "野菜[やさい]の変化[へんか]や成長[せいちょう]を継続的[けいぞくてき]に観察[かんさつ]し、育[そだ]ち方[かた]に合[あ]う世話[せわ]を考[かんが]えて続[つづ]ける。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3240000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "4〜7月[がつ]に栽培[さいばい]・観察[かんさつ]・記録[きろく]を継続[けいぞく]する。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "tokyo-shoseki-r6-seikatsu-g2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.community.people-places",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.town-exploration",
+      "name": "地域[ちいき]の場所[ばしょ]と人々[ひとびと]の関[かか]わり",
+      "description": "地域[ちいき]の場所[ばしょ]や、そこで生活[せいかつ]したり働[はたら]いたりする人々[ひとびと]と自分[じぶん]の生活[せいかつ]との関[かか]わりに気付[きづ]く。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3130000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "地域[ちいき]探検[たんけん]に適[てき]した時期[じき]に扱[あつか]う。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.community.explore-safely",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.town-exploration",
+      "name": "安全[あんぜん]に町[まち]を探検[たんけん]して調[しら]べる",
+      "description": "地域[ちいき]を安全[あんぜん]に歩[ある]き、見付[みつ]けた場所[ばしょ]や人々[ひとびと]の仕事[しごと]を観察[かんさつ]したり、質問[しつもん]したりして調[しら]べる。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3130000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "実際[じっさい]の町探検[まちたんけん]の前後[ぜんご]に、安全[あんぜん]と調[しら]べ方[かた]を確[たし]かめる。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.community.public-use",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.public-places",
+      "name": "公共物[こうきょうぶつ]・公共施設[こうきょうしせつ]の働[はたら]き",
+      "description": "みんなで使[つか]う物[もの]や施設[しせつ]の働[はたら]きと、それらを支[ささ]える人々[ひとびと]に気付[きづ]く。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3210000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "実際[じっさい]の利用[りよう]体験[たいけん]と結[むす]び付[つ]ける。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.community.public-care-safety",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.public-places",
+      "name": "公共[こうきょう]の物[もの]や場所[ばしょ]を大切[たいせつ]に安全[あんぜん]に使[つか]う",
+      "description": "みんなで使[つか]う物[もの]や場所[ばしょ]の約束[やくそく]を守[まも]り、周[まわ]りの人[ひと]を考[かんが]えて大切[たいせつ]に安全[あんぜん]に利用[りよう]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3210000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "公共施設[こうきょうしせつ]を利用[りよう]する体験[たいけん]の前後[ぜんご]に、約束[やくそく]と安全[あんぜん]を確[たし]かめる。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.nature.growth-care",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.ikimono",
+      "name": "生[い]き物[もの]の生命[せいめい]と世話[せわ]",
+      "description": "動物[どうぶつ]の飼育[しいく]や植物[しょくぶつ]の栽培[さいばい]を続[つづ]け、生命[せいめい]をもつことに気付[きづ]き、生[い]き物[もの]に合[あ]う世話[せわ]をする。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3240000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "継続的[けいぞくてき]な観察[かんさつ]と記録[きろく]を行[おこな]う。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.nature.observe-record",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.ikimono",
+      "name": "成長[せいちょう]を観察[かんさつ]して記録[きろく]する",
+      "description": "生[い]き物[もの]の育[そだ]つ場所[ばしょ]や変化[へんか]、成長[せいちょう]の様子[ようす]を継続的[けいぞくてき]に観察[かんさつ]し、比[くら]べたり記録[きろく]したりして表現[ひょうげん]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3240000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "同[おな]じ生[い]き物[もの]を継続的[けいぞくてき]に観察[かんさつ]し、前[まえ]の記録[きろく]と比[くら]べる。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.communication.choose-method",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.legacy-cur-1802-04",
+      "name": "相手[あいて]に合[あ]う伝[つた]え方[かた]を選[えら]ぶ",
+      "description": "相手[あいて]を想像[そうぞう]し、手紙[てがみ]などから伝[つた]えたいことに合[あ]う方法[ほうほう]を選[えら]んで交流[こうりゅう]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3250000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "地域[ちいき]の人々[ひとびと]との交流[こうりゅう]に合[あ]わせて扱[あつか]う。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.communication.relate-exchange",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.legacy-cur-1802-04",
+      "name": "身近[みぢか]な人々[ひとびと]と進[すす]んで伝[つた]え合[あ]う",
+      "description": "相手[あいて]を思[おも]いやる言葉[ことば]を選[えら]び、学校[がっこう]や地域[ちいき]の出来事[できごと]を身近[みぢか]な人々[ひとびと]と進[すす]んで伝[つた]え合[あ]う。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3250000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "実際[じっさい]の交流[こうりゅう]で相手[あいて]の反応[はんのう]を確[たし]かめ、伝[つた]え方[かた]を振[ふ]り返[かえ]る。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.self.growth-evidence",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.legacy-cur-1802-05",
+      "name": "記録[きろく]や作品[さくひん]から自分[じぶん]の成長[せいちょう]を見付[みつ]ける",
+      "description": "写真[しゃしん]・記録[きろく]・作品[さくひん]や増[ふ]えた役割[やくわり]を振[ふ]り返[かえ]り、自分[じぶん]ができるようになったことを具体的[ぐたいてき]に見付[みつ]ける。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3310000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "2年間[ねんかん]の生活[せいかつ]科[か]を振[ふ]り返[かえ]る時期[じき]に扱[あつか]う。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.self.support-gratitude",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.legacy-cur-1802-05",
+      "name": "支[ささ]えてくれた人々[ひとびと]に気付[きづ]き感謝[かんしゃ]を伝[つた]える",
+      "description": "家族[かぞく]・先生[せんせい]・友達[ともだち]などが果[は]たした役割[やくわり]に気付[きづ]き、相手[あいて]に合[あ]う方法[ほうほう]で感謝[かんしゃ]を伝[つた]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3310000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "成長[せいちょう]の事実[じじつ]と周囲[しゅうい]の人々[ひとびと]の支[ささ]えを結[むす]び付[つ]ける。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "seikatsu.g2.self.future-wishes",
+      "subject": "seikatsu",
+      "grade": 2,
+      "unit": "seikatsu.g2.legacy-cur-1802-05",
+      "name": "これからの成長[せいちょう]への願[ねが]いをもつ",
+      "description": "これまでの成長[せいちょう]を基[もと]に、これから挑戦[ちょうせん]したいことや成長[せいちょう]への願[ねが]いを言葉[ことば]や絵[え]で表[あらわ]す。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3310000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "3年生[ねんせい]への接続[せつぞく]を意識[いしき]し、実現[じつげん]できる次[つぎ]の一歩[いっぽ]を考[かんが]える。"
+      },
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "mext-h29-seikatsu-codes-g1-2"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "seikatsu.g2.spring.0001",
+      "concepts": [{ "conceptId": "seikatsu.g2.seasons.spring-change", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.spring.0002",
+      "concepts": [{ "conceptId": "seikatsu.g2.seasons.spring-change", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.spring.0003",
+      "concepts": [{ "conceptId": "seikatsu.g2.seasons.spring-change", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.spring.0004",
+      "concepts": [{ "conceptId": "seikatsu.g2.seasons.spring-change", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.spring.0005",
+      "concepts": [{ "conceptId": "seikatsu.g2.seasons.spring-change", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.spring.0006",
+      "concepts": [{ "conceptId": "seikatsu.g2.seasons.spring-change", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.vegetables.0001",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.vegetable-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.vegetables.0002",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.vegetable-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.vegetables.0003",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.vegetable-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.vegetables.0004",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.vegetable-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.vegetables.0005",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.vegetable-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "seikatsu.g2.vegetables.0006",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.vegetable-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.00cef7a07d4f",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.people-places", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.1fc7a568adc8",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.people-places", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.21a83bae6a48",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.explore-safely", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.3b4899a3d2a3",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.people-places", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.5ed380449328",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.explore-safely", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.5f2210edc188",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.explore-safely", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.8bac38cc87b7",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.people-places", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.9ad411b5b826",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.explore-safely", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.a0c113aa2a34",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.people-places", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.df1a73a22eaf",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.people-places", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.fc7e29951868",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.people-places", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-01.fdd128a46678",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.people-places", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.1416fefb4993",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.community.public-care-safety", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.3b67be132f8a",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.public-use", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.48568a8fbd00",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.community.public-care-safety", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.48f6e8bca906",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.public-use", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.4bbcebc48d15",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.community.public-care-safety", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.4cefc3ecf7c1",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.public-use", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.60b16e6d15bf",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.public-use", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.b136e1814085",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.community.public-care-safety", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.c5b6f601f800",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.community.public-care-safety", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.cafad8b675e5",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.public-use", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.d02adad6110a",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.community.public-care-safety", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-02.d6bf3053e390",
+      "concepts": [{ "conceptId": "seikatsu.g2.community.public-use", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.0e11d7ea74f9",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.observe-record", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.26ac8c7f3d2b",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.observe-record", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.26b44bb156dc",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.observe-record", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.5ba46c5f304f",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.observe-record", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.5e0ea0bea046",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.growth-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.6608654931f1",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.growth-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.906c6758ad51",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.observe-record", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.916c2730a0be",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.observe-record", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.a2053add4481",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.growth-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.c2587de750c9",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.growth-care", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.d0e025cdd959",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.observe-record", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-03.d6a509f64c8b",
+      "concepts": [{ "conceptId": "seikatsu.g2.nature.observe-record", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.2134c31a8c32",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.choose-method", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.4b414e220ad7",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.relate-exchange", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.51dc1ddeb89b",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.relate-exchange", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.81fec544fc78",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.choose-method", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.9c87acb11424",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.choose-method", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.a3f81d11a8f3",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.choose-method", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.b55cdb86cf2c",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.choose-method", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.c167e7733bf5",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.relate-exchange", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.c46355e685d6",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.relate-exchange", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.cad28a61ad7a",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.relate-exchange", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.da56ff58ce6b",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.relate-exchange", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-04.ff737b184136",
+      "concepts": [
+        { "conceptId": "seikatsu.g2.communication.relate-exchange", "weight": 1, "role": "primary" }
+      ],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.1c3f83ca8481",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.support-gratitude", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.365b132fc08a",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.support-gratitude", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.54e11bf578e4",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.future-wishes", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.75d79077510b",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.future-wishes", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.7d21004e1d98",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.support-gratitude", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.8590522f952a",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.growth-evidence", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.8b534785ec11",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.future-wishes", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.93c0ff2f3e87",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.growth-evidence", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.c715949c356b",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.growth-evidence", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.eb0b8b3b2057",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.future-wishes", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.f49a2215a673",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.growth-evidence", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.seikatsu.g2.cur-1802-05.f55130319924",
+      "concepts": [{ "conceptId": "seikatsu.g2.self.support-gratitude", "weight": 1, "role": "primary" }],
+      "diagnosticValue": 0.7,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

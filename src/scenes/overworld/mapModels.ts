@@ -1,7 +1,7 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Area } from '../../core/content/schemas';
 import { canChallengeIslandBoss } from '../../core/progression/island';
-import { midBossFlag, motifStamp, regionBossFlag } from '../../core/progression/route';
+import { midBossFlag, motifStamp, regionBossDefeated } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
 import { regionMapTile } from '../../shared/regionVisibility';
 import type { RegionMiniView } from '../../ui/field/RegionMiniMap';
@@ -102,7 +102,7 @@ function visibleRegionTiles(
   const open = new Set(area.regions.filter((region) => revealAll || region.start).map((region) => region.id));
   if (!revealAll)
     for (const gate of area.regionGates)
-      if (game?.progress.eventsDone.includes(regionBossFlag(area.id, gate.openedBy)))
+      if (regionBossDefeated(game?.progress, area.id, gate.openedBy))
         gate.between.forEach((id) => open.add(id));
   const idAt = (x: number, y: number) => {
     const cell = grid.rows[y]?.[x];

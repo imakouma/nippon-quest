@@ -1296,7 +1296,7 @@
         "14"
       ]
     },
-    "explanation": "19 は、10 と 9 にわけられる。この 9 から 5 をひいて、4。10 と 4 をあわせて、4 になるね。"
+    "explanation": "19 は、10 と 9 にわけられる。この 9 から 5 をひいて、4。10 と 4 をあわせて、14 になるね。"
   },
   {
     "id": "legacy.sansu.g1.math-1-4.90bf0bce1449",
@@ -2058,7 +2058,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "44 ＋ 20 は いくつ？",
       "answers": [
         "64"
       ]
@@ -2077,7 +2077,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "60 − 20 は いくつ？",
       "answers": [
         "40"
       ]
@@ -2096,7 +2096,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "90 − 30 は いくつ？",
       "answers": [
         "60"
       ]
@@ -2115,7 +2115,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "95 − 30 は いくつ？",
       "answers": [
         "65"
       ]
@@ -2134,7 +2134,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "50 ＋ 20 は いくつ？",
       "answers": [
         "70"
       ]
@@ -2153,7 +2153,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "53 ＋ 20 は いくつ？",
       "answers": [
         "73"
       ]
@@ -2172,7 +2172,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "93 − 60 は いくつ？",
       "answers": [
         "33"
       ]
@@ -2191,7 +2191,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "88 − 30 は いくつ？",
       "answers": [
         "58"
       ]
@@ -2210,7 +2210,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "20 ＋ 30 は いくつ？",
       "answers": [
         "50"
       ]
@@ -2229,7 +2229,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "52 ＋ 10 は いくつ？",
       "answers": [
         "62"
       ]
@@ -2248,7 +2248,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "80 − 50 は いくつ？",
       "answers": [
         "30"
       ]
@@ -2267,7 +2267,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
+      "prompt": "94 − 20 は いくつ？",
       "answers": [
         "74"
       ]
@@ -2301,7 +2301,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/f352be15a5a70bb5.png"
     },
-    "explanation": "ほそくて ながいはり で、なんじかが わかります。"
+    "explanation": "ほそくて ながいはり で、なんぷんかが わかります。"
   },
   {
     "id": "legacy.sansu.g1.math-1-8.3c5ad93789a3",
@@ -2591,7 +2591,7 @@
       "template": "5人のこどもがいます。15 こ のパンを、みんなで おなじかずずつ わけたとき、1人がもらえるパンは いくつになるでしょう。 {{INPUT}}こ",
       "suffix": "こ"
     },
-    "explanation": "1人が 5 このパンを もらうので、たしざんで かんがえよう。 5+5+5=15 5 を ３つたしたら、15 になるね。"
+    "explanation": "1人が 3 このパンを もらうと、3+3+3+3+3=15。3 を 5人分[にんぶん] あわせると、15 になるね。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.51c44ae28310",
@@ -2696,7 +2696,7 @@
       "template": "{{INPUT}}ほん",
       "suffix": "ほん"
     },
-    "explanation": "たくまさんは、「3 ほん すくない」ので、はるかさんの もっている ほんすうから、ひきざんしよう。 12-3=9 はるかさんは、9 ほんもっている。"
+    "explanation": "たくまさんは、「3 ほん すくない」ので、はるかさんの もっている ほんすうから、ひきざんしよう。12-3=9。たくまさんは、9 ほん もっている。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.8aa8ea763eae",
@@ -2717,7 +2717,7 @@
       "template": "{{INPUT}}こ",
       "suffix": "こ"
     },
-    "explanation": "りこさんは、「7 こ すくない」ので、ゆいさんの もっている こすうから、ひきざんしよう。 15-7=8 はるかさんは、8 こもっている。"
+    "explanation": "りこさんは、「7 こ すくない」ので、ゆいさんの もっている こすうから、ひきざんしよう。15-7=8。りこさんは、8 こ もっている。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.91fcf0312a4a",

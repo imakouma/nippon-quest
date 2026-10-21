@@ -75,6 +75,64 @@
       "blurb": "いろいろな 色[いろ]の 木[き]を くみあわせて、もようを 作[つく]る 工芸品[こうげいひん]。"
     }
   ],
+  "regions": [
+    {
+      "id": "yokohama-kawasaki",
+      "name": "横浜[よこはま]・川崎[かわさき]エリア",
+      "motifs": [
+        "yokohama-chukagai"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "kanagawa-iwashigun",
+        "level": 25
+      }
+    },
+    {
+      "id": "shonan-kamakura-miura",
+      "name": "湘南[しょうなん]・鎌倉[かまくら]・三浦[みうら]エリア",
+      "motifs": [
+        "kamakura-daibutsu",
+        "enoshima",
+        "misaki-maguro",
+        "shonan-shirasu"
+      ],
+      "boss": {
+        "monsterId": "kanagawa-kazakiri-tonbi",
+        "level": 26
+      }
+    },
+    {
+      "id": "hakone-tanzawa",
+      "name": "箱根[はこね]・丹沢[たんざわ]エリア",
+      "motifs": [
+        "owakudani",
+        "tanzawa",
+        "odawara-kamaboko",
+        "yosegi-zaiku"
+      ],
+      "boss": {
+        "monsterId": "kanagawa-karakuri-jo",
+        "level": 26
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "yokohama-kawasaki",
+        "shonan-kamakura-miura"
+      ],
+      "openedBy": "yokohama-kawasaki"
+    },
+    {
+      "between": [
+        "shonan-kamakura-miura",
+        "hakone-tanzawa"
+      ],
+      "openedBy": "shonan-kamakura-miura"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -173,6 +231,62 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "yokohama-kawasaki",
+      "table": [
+        {
+          "monsterId": "kanagawa-pichirasu",
+          "weight": 55
+        },
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "shonan-kamakura-miura",
+      "table": [
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 50
+        },
+        {
+          "monsterId": "kanagawa-pichirasu",
+          "weight": 30
+        },
+        {
+          "monsterId": "kanagawa-himitsubakon",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hakone-tanzawa",
+      "table": [
+        {
+          "monsterId": "kanagawa-himitsubakon",
+          "weight": 55
+        },
+        {
+          "monsterId": "kanagawa-piihyoro",
+          "weight": 25
+        },
+        {
+          "monsterId": "kanagawa-pichirasu",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "kanagawa-boss-yokohama-shishi-oh",
@@ -203,8 +317,13 @@
       ],
       "question": {
         "subject": "rika",
-        "gradeRange": [3, 6],
-        "tags": ["prefecture:kanagawa"]
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:kanagawa"
+        ]
       },
       "rewardByScore": [
         {

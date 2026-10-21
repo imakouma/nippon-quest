@@ -166,6 +166,124 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "yamaguchi-hagi",
+      "table": [
+        {
+          "monsterId": "yamaguchi-nanabaken",
+          "weight": 60
+        },
+        {
+          "monsterId": "yamaguchi-natsumikan-bushi",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "nagato-shimonoseki",
+      "table": [
+        {
+          "monsterId": "yamaguchi-pukufuku",
+          "weight": 60
+        },
+        {
+          "monsterId": "yamaguchi-nanabaken",
+          "weight": 25
+        },
+        {
+          "monsterId": "yamaguchi-natsumikan-bushi",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "iwakuni-suo",
+      "table": [
+        {
+          "monsterId": "yamaguchi-hashiwatari",
+          "weight": 60
+        },
+        {
+          "monsterId": "yamaguchi-pukufuku",
+          "weight": 20
+        },
+        {
+          "monsterId": "yamaguchi-nanabaken",
+          "weight": 10
+        },
+        {
+          "monsterId": "yamaguchi-natsumikan-bushi",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "yamaguchi-hagi",
+      "name": "山口[やまぐち]・萩[はぎ]エリア",
+      "motifs": [
+        "rurikoji",
+        "akiyoshidai",
+        "hagi",
+        "hagiyaki"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "yamaguchi-noborigaman",
+        "level": 41
+      }
+    },
+    {
+      "id": "nagato-shimonoseki",
+      "name": "長門[ながと]・下関[しものせき]エリア",
+      "motifs": [
+        "tsunoshima-ohashi",
+        "motonosumi",
+        "shimonoseki-fugu"
+      ],
+      "boss": {
+        "monsterId": "yamaguchi-kanmon-fuku",
+        "level": 41
+      }
+    },
+    {
+      "id": "iwakuni-suo",
+      "name": "岩国[いわくに]・周防[すおう]エリア",
+      "motifs": [
+        "kintaikyo",
+        "oshima-mikan"
+      ],
+      "boss": {
+        "monsterId": "yamaguchi-mikan-daimyo",
+        "level": 42
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "yamaguchi-hagi",
+        "nagato-shimonoseki"
+      ],
+      "openedBy": "yamaguchi-hagi"
+    },
+    {
+      "between": [
+        "yamaguchi-hagi",
+        "iwakuni-suo"
+      ],
+      "openedBy": "nagato-shimonoseki"
     }
   ],
   "boss": "yamaguchi-boss-akiyoshi-daiou",

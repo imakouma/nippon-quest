@@ -82,6 +82,65 @@
       "blurb": "霞ヶ浦[かすみがうら]の まわりの 田[た]んぼで 作[つく]られる。茨城県[いばらきけん]は れんこんの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
     }
   ],
+  "regions": [
+    {
+      "id": "mito-hitachi",
+      "name": "水戸[みと]・ひたちエリア",
+      "motifs": [
+        "kairakuen",
+        "nemophila",
+        "natto",
+        "hoshiimo"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "ibaraki-aozora-hime",
+        "level": 21
+      }
+    },
+    {
+      "id": "daigo-kasama",
+      "name": "大子[だいご]・笠間[かさま]エリア",
+      "motifs": [
+        "fukuroda-no-taki",
+        "kasamayaki"
+      ],
+      "boss": {
+        "monsterId": "ibaraki-hasu-kabuto",
+        "level": 21
+      }
+    },
+    {
+      "id": "tsukuba-kasumigaura",
+      "name": "つくば・霞ヶ浦[かすみがうら]エリア",
+      "motifs": [
+        "kasumigaura",
+        "tsukubasan",
+        "ibaraki-melon",
+        "renkon"
+      ],
+      "boss": {
+        "monsterId": "ibaraki-hobiki-maru",
+        "level": 21
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "mito-hitachi",
+        "daigo-kasama"
+      ],
+      "openedBy": "mito-hitachi"
+    },
+    {
+      "between": [
+        "mito-hitachi",
+        "tsukuba-kasumigaura"
+      ],
+      "openedBy": "daigo-kasama"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -158,6 +217,66 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "mito-hitachi",
+      "table": [
+        {
+          "monsterId": "ibaraki-natton",
+          "weight": 55
+        },
+        {
+          "monsterId": "ibaraki-nemofin",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "daigo-kasama",
+      "table": [
+        {
+          "monsterId": "ibaraki-renkonta",
+          "weight": 50
+        },
+        {
+          "monsterId": "ibaraki-natton",
+          "weight": 25
+        },
+        {
+          "monsterId": "ibaraki-nemofin",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "tsukuba-kasumigaura",
+      "table": [
+        {
+          "monsterId": "ibaraki-hobikin",
+          "weight": 45
+        },
+        {
+          "monsterId": "ibaraki-renkonta",
+          "weight": 30
+        },
+        {
+          "monsterId": "ibaraki-natton",
+          "weight": 15
+        },
+        {
+          "monsterId": "ibaraki-nemofin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "ibaraki-boss-tsukuba-gama-o",

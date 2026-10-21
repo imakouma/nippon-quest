@@ -210,6 +210,126 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "matsue",
+      "table": [
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 60
+        },
+        {
+          "monsterId": "shimane-shijimin",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "izumo-oda",
+      "table": [
+        {
+          "monsterId": "shimane-warigon",
+          "weight": 60
+        },
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 25
+        },
+        {
+          "monsterId": "shimane-shijimin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "iwami-tsuwano-oki",
+      "table": [
+        {
+          "monsterId": "shimane-rosokun",
+          "weight": 60
+        },
+        {
+          "monsterId": "shimane-warigon",
+          "weight": 20
+        },
+        {
+          "monsterId": "shimane-chidorin",
+          "weight": 10
+        },
+        {
+          "monsterId": "shimane-shijimin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "matsue",
+      "name": "松江[まつえ]エリア",
+      "motifs": [
+        "matsue-jo",
+        "shinjiko-shijimi"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "shimane-tenshu-chidori",
+        "level": 39
+      }
+    },
+    {
+      "id": "izumo-oda",
+      "name": "出雲[いずも]・大田[おおだ]エリア",
+      "motifs": [
+        "izumo-taisha",
+        "warigo-soba",
+        "iwami-ginzan",
+        "sanbesan"
+      ],
+      "boss": {
+        "monsterId": "shimane-warigo-tower",
+        "level": 39
+      }
+    },
+    {
+      "id": "iwami-tsuwano-oki",
+      "name": "石見[いわみ]・津和野[つわの]・隠岐[おき]エリア",
+      "motifs": [
+        "iwami-kagura",
+        "tsuwano",
+        "sekishu-washi",
+        "oki-iwagaki",
+        "rosokujima"
+      ],
+      "boss": {
+        "monsterId": "shimane-oohi-rosoku",
+        "level": 39
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "matsue",
+        "izumo-oda"
+      ],
+      "openedBy": "matsue"
+    },
+    {
+      "between": [
+        "izumo-oda",
+        "iwami-tsuwano-oki"
+      ],
+      "openedBy": "izumo-oda"
     }
   ],
   "boss": "shimane-boss-kagura-orochi",

@@ -134,7 +134,10 @@ function App() {
         const initial = validItems.find((q) => q.id === requestedId) ?? validItems[0];
         setItems(validItems);
         setSelectedItemId(initial?.id ?? '');
-        if (initial) setJson(JSON.stringify(initial, null, 2));
+        if (initial) {
+          setGrade(initial.grade);
+          setJson(JSON.stringify(initial, null, 2));
+        }
       })
       .catch((e) => setError(String(e)));
   }, [file]);
@@ -199,6 +202,7 @@ function App() {
     setSelected(e.key);
     setFile(e.file);
     setSelectedItemId(e.q?.id ?? '');
+    if (e.q) setGrade(e.q.grade);
     setJson(text);
     if (e.q) history.replaceState(null, '', `?q=${encodeURIComponent(e.q.id)}`);
     stage.current?.scrollIntoView({ block: 'nearest' });
@@ -276,6 +280,7 @@ function App() {
               const item = items[Number((e.target as HTMLSelectElement).value)];
               if (!item) return;
               setSelectedItemId(item.id);
+              setGrade(item.grade);
               setJson(JSON.stringify(item, null, 2));
             }}
           >

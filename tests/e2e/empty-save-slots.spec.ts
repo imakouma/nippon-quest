@@ -31,7 +31,7 @@ test('ローカル確認URLで古いセーブを消し、3枠とも新規作成�
   const slots = page.locator('.nq-save-slots > div > button');
   await expect(slots).toHaveCount(3);
   await expect(slots.first()).toBeFocused();
-  await expect(slotDialog.locator('.nq-save-slots-hint')).toContainText('↑↓で えらぶ');
+  await expect(slotDialog.locator('.nq-save-slots-hint')).toContainText('スロットを タップして えらぶ');
   await page.keyboard.press('ArrowDown');
   await expect(slots.nth(1)).toBeFocused();
   await page.keyboard.press('End');

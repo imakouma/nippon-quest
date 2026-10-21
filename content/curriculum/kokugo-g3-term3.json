@@ -1,0 +1,1184 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-kokugo-g34",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]解説[かいせつ] 国語[こくご]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_01.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第3学年及び第4学年"
+    },
+    {
+      "id": "mext-h29-kokugo-codes-g34",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年及び第4学年国語"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "kokugo.g3.kanji.contextual-choice",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-18",
+      "name": "漢字[かんじ]の使[つか]い分[わ]け",
+      "description": "同[おな]じ読[よ]みの漢字[かんじ]などから、文脈[ぶんみゃく]に合[あ]う字[じ]を選[えら]ぶ。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3114000000", "82102C3115000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.reading.character-feelings",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-19",
+      "name": "登場[とうじょう]人物[じんぶつ]の気持[きも]ち",
+      "description": "場面[ばめん]の移[うつ]り変[か]わりや行動[こうどう]を基[もと]に、人物[じんぶつ]の気持[きも]ちを具体的[ぐたいてき]に想像[そうぞう]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3231200000", "82102C3231400000", "82102C3231500000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.reading.expository-links",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-20",
+      "name": "説明[せつめい]文[ぶん]のつながり",
+      "description": "接続語[せつぞくご]や段落[だんらく]相互[そうご]の関係[かんけい]から、文章[ぶんしょう]の中心[ちゅうしん]を捉[とら]える。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3116000000", "82102C3231100000", "82102C3231300000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.culture.idiomatic-phrases",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-21",
+      "name": "慣用句[かんようく]",
+      "description": "慣用句[かんようく]の意味[いみ]を知[し]り、文[ぶん]や会話[かいわ]で使[つか]う。",
+      "kind": "concept",
+      "memoryType": "fact",
+      "curriculumCodes": ["82102C3132000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.kanji.consolidation-a",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-22",
+      "name": "漢字[かんじ]の定着[ていちゃく]⑤",
+      "description": "第3学年[だいさんがくねん]配当[はいとう]漢字[かんじ]の読[よ]み書[か]きを確実[かくじつ]にする。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3114000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.kanji.consolidation-b",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-23",
+      "name": "漢字[かんじ]の定着[ていちゃく]⑥",
+      "description": "第3学年[だいさんがくねん]配当[はいとう]漢字[かんじ]を文[ぶん]や文章[ぶんしょう]で使[つか]う。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82102C3114000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "kokugo.g3.culture.tanka",
+      "subject": "kokugo",
+      "grade": 3,
+      "unit": "kokugo.g3.legacy-jpn-3-24",
+      "name": "短歌[たんか]の情景[じょうけい]とリズム",
+      "description": "易[やさ]しい文語調[ぶんごちょう]の短歌[たんか]を読[よ]み、情景[じょうけい]と言葉[ことば]のリズムに親[した]しむ。",
+      "kind": "concept",
+      "memoryType": "fact",
+      "curriculumCodes": ["82102C3131000000"],
+      "recommendedWindow": {
+        "stage": "late",
+        "status": "reference",
+        "note": "教科書[きょうかしょ]会社[がいしゃ]による配列[はいれつ]差[さ]を考慮[こうりょ]した参考[さんこう]時期[じき]。"
+      },
+      "sourceIds": ["mext-h29-kokugo-g34", "mext-h29-kokugo-codes-g34"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.0784ea9cfc92",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.20fee1de66dc",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.283954308a5b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.358e1a52ad97",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.3cea964e3d36",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.4023d91f201f",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.5767afa15195",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.7681b7362f72",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.8a3e286d407a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.8e4913f16927",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.916e122a1a43",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.92395ede9d2d",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.a6e33c544702",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.a884f2931da0",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.a941228fbc29",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.d12d4955bc0a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-18.f29a13f63552",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.contextual-choice",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-19.2f10f53b2af5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.character-feelings",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-19.79f54db33e7d",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.character-feelings",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-19.848362467da6",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.character-feelings",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-20.4088987de6cc",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.expository-links",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-20.4d362455242a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.expository-links",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-20.b4394c8a3140",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.expository-links",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-20.b7adfb821ddb",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.expository-links",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-20.c7c16f373027",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.reading.expository-links",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.1f16714e5787",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.265d12071769",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.281181791e21",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.2c7fe4be862c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.37ae82d7aa28",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.3e340faa1ca5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.6fadfdbd1ab8",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.7b8c8a3f634b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.879f5bb6f939",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.aeb37f32e8ce",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.b561b5634407",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.cd1c651700af",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.e8a8f9077818",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.eb8c357e94cc",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-21.f53cda5bd27b",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.idiomatic-phrases",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.04378f13c08c",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.0b3f1d41b649",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.1d96f31c3027",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.38be63f6d51d",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.3e7f5ace63a6",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.449e662e5d6a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.584c10d9cc0a",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.6e5183a84ff5",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.944b853b9de6",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.b69731111a35",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.c22ca111f497",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.d4acecee3e5d",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.e43a71442599",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.edc0a5fcff68",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.f7c09ce02645",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-22.fe4258fd6afd",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-a",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.36bb7f546eb1",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.389bd91e90ed",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.44ee73bba0a1",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.4d9b9a8fe574",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.732736c3ce97",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.7af828fd6c57",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.804833d4b0be",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.83e0c960588e",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.a44e00c197fd",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.a4f29a65cd1f",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.bdc4c4993f13",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.be3c04e890b9",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.d1ec107a44fc",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.d8661ed1108f",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.e1ee083990e4",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.e22520f19888",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-23.ec9b9a27edb1",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.kanji.consolidation-b",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-24.055f81d3b692",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.tanka",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-24.50492db87166",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.tanka",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-24.d29e2a4002fb",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.tanka",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.kokugo.g3.jpn-3-24.ea37d5033fa7",
+      "concepts": [
+        {
+          "conceptId": "kokugo.g3.culture.tanka",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.75,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

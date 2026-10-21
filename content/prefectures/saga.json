@@ -170,6 +170,124 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "saga-ariake",
+      "table": [
+        {
+          "monsterId": "saga-pyongoro",
+          "weight": 55
+        },
+        {
+          "monsterId": "saga-chakoron",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "karatsu-yobuko",
+      "table": [
+        {
+          "monsterId": "saga-yumonbou",
+          "weight": 60
+        },
+        {
+          "monsterId": "saga-pyongoro",
+          "weight": 25
+        },
+        {
+          "monsterId": "saga-chakoron",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "imari-arita-ureshino",
+      "table": [
+        {
+          "monsterId": "saga-sometsubon",
+          "weight": 55
+        },
+        {
+          "monsterId": "saga-chakoron",
+          "weight": 20
+        },
+        {
+          "monsterId": "saga-pyongoro",
+          "weight": 15
+        },
+        {
+          "monsterId": "saga-yumonbou",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "saga-ariake",
+      "name": "佐賀[さが]・有明[ありあけ]エリア",
+      "motifs": [
+        "yoshinogari",
+        "mutsugoro",
+        "saga-nori"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "saga-higata-taisho",
+        "level": 46
+      }
+    },
+    {
+      "id": "karatsu-yobuko",
+      "name": "唐津[からつ]・呼子[よぶこ]エリア",
+      "motifs": [
+        "karatsu-kunchi",
+        "yobuko-ika"
+      ],
+      "boss": {
+        "monsterId": "saga-yumon-douji",
+        "level": 46
+      }
+    },
+    {
+      "id": "imari-arita-ureshino",
+      "name": "伊万里[いまり]・有田[ありた]・嬉野[うれしの]エリア",
+      "motifs": [
+        "okawachiyama",
+        "takeo-onsen",
+        "aritayaki",
+        "ureshinocha"
+      ],
+      "boss": {
+        "monsterId": "saga-kinran-tsubo",
+        "level": 46
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "saga-ariake",
+        "karatsu-yobuko"
+      ],
+      "openedBy": "saga-ariake"
+    },
+    {
+      "between": [
+        "saga-ariake",
+        "imari-arita-ureshino"
+      ],
+      "openedBy": "karatsu-yobuko"
     }
   ],
   "boss": "saga-boss-akajishi-oh",
@@ -189,7 +307,10 @@
       "once": true,
       "cutinImageKey": "motif.saga.yoshinogari",
       "dialogue": [
-        { "speaker": "見聞帳[けんぶんちょう]の シオリ", "text": "遺跡[いせき]に のこったものと、まだ わからないことを 分[わ]けて 読[よ]もう。空白[くうはく]を 勝手[かって]に 埋[う]めないよ。" },
+        {
+          "speaker": "見聞帳[けんぶんちょう]の シオリ",
+          "text": "遺跡[いせき]に のこったものと、まだ わからないことを 分[わ]けて 読[よ]もう。空白[くうはく]を 勝手[かって]に 埋[う]めないよ。"
+        },
         {
           "speaker": "吉野ヶ里[よしのがり]の あんないにん",
           "text": "ここは 弥生時代[やよいじだい]の むらの あと、吉野ヶ里遺跡[よしのがりいせき]だよ。むかしの くらしを しっているかな？"
@@ -233,7 +354,10 @@
           "speaker": "吉野ヶ里[よしのがり]の あんないにん",
           "text": "よく わかったね！ むらの まわりは、ほりと さくで まもられて いたんだよ。"
         },
-        { "speaker": "ミチル", "text": "証拠[しょうこ]から 暮[く]らしを 復元[ふくげん]し、予想[よそう]は 予想[よそう]として のこせた。第二[だいに]の 鍵[かぎ]だね。" }
+        {
+          "speaker": "ミチル",
+          "text": "証拠[しょうこ]から 暮[く]らしを 復元[ふくげん]し、予想[よそう]は 予想[よそう]として のこせた。第二[だいに]の 鍵[かぎ]だね。"
+        }
       ]
     }
   ],

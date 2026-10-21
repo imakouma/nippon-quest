@@ -188,6 +188,129 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "suruga-shizuoka",
+      "table": [
+        {
+          "monsterId": "shizuoka-chatsumin",
+          "weight": 60
+        },
+        {
+          "monsterId": "shizuoka-soradako",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "fuji-izu",
+      "table": [
+        {
+          "monsterId": "shizuoka-wasabikko",
+          "weight": 55
+        },
+        {
+          "monsterId": "shizuoka-chatsumin",
+          "weight": 25
+        },
+        {
+          "monsterId": "shizuoka-soradako",
+          "weight": 10
+        },
+        {
+          "monsterId": "shizuoka-unanyoro",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "enshu",
+      "table": [
+        {
+          "monsterId": "shizuoka-unanyoro",
+          "weight": 55
+        },
+        {
+          "monsterId": "shizuoka-soradako",
+          "weight": 20
+        },
+        {
+          "monsterId": "shizuoka-chatsumin",
+          "weight": 15
+        },
+        {
+          "monsterId": "shizuoka-wasabikko",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "suruga-shizuoka",
+      "name": "駿河[するが]・静岡[しずおか]エリア",
+      "motifs": [
+        "miho-matsubara",
+        "toro-iseki",
+        "shizuoka-cha",
+        "yaizu-katsuo"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "shizuoka-chabashira",
+        "level": 31
+      }
+    },
+    {
+      "id": "fuji-izu",
+      "name": "富士[ふじ]・伊豆[いず]エリア",
+      "motifs": [
+        "fujisan",
+        "jogasaki",
+        "kawazuzakura",
+        "amagi-wasabi"
+      ],
+      "boss": {
+        "monsterId": "shizuoka-tsuun-wasabi",
+        "level": 32
+      }
+    },
+    {
+      "id": "enshu",
+      "name": "遠州[えんしゅう]エリア",
+      "motifs": [
+        "hamamatsu-tako",
+        "hamanako-unagi"
+      ],
+      "boss": {
+        "monsterId": "shizuoka-unagi-nobori",
+        "level": 32
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "suruga-shizuoka",
+        "fuji-izu"
+      ],
+      "openedBy": "suruga-shizuoka"
+    },
+    {
+      "between": [
+        "suruga-shizuoka",
+        "enshu"
+      ],
+      "openedBy": "fuji-izu"
     }
   ],
   "boss": "shizuoka-boss-fujimine-ou",

@@ -1,0 +1,283 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/choice.schema.json",
+    "id": "kokugo.g4.supplemental.story-a.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-31",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「ユウタは落[お]ちていたりんごを拾[ひろ]い、持[も]ち主[ぬし]を探[さが]した。」この行動[こうどう]から分[わ]かるユウタの性格[せいかく]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "正直[しょうじき]で親切[しんせつ]"
+        },
+        {
+          "id": "b",
+          "text": "乱暴[らんぼう]である"
+        },
+        {
+          "id": "c",
+          "text": "何[なに]にも関心[かんしん]がない"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "人物[じんぶつ]の性格[せいかく]は、書[か]かれている行動[こうどう]を根拠[こんきょ]に考[かんが]える。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.expository-a.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-32",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「コウモリは暗[くら]い場所[ばしょ]で休[やす]み、夜[よる]になるとえさを探[さが]します。」この文[ぶん]の中心[ちゅうしん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "コウモリの休[やす]む場所[ばしょ]と活動[かつどう]する時間[じかん]"
+        },
+        {
+          "id": "b",
+          "text": "コウモリの体[からだ]の色[いろ]"
+        },
+        {
+          "id": "c",
+          "text": "コウモリの大[おお]きさ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "中心[ちゅうしん]となる内容[ないよう]を、文[ぶん]に書[か]かれた二[ふた]つの情報[じょうほう]からまとめる。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.compound.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-37",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「左右[さゆう]」の熟語[じゅくご]の組[く]み立[た]てはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "反対[はんたい]の意味[いみ]の漢字[かんじ]を組[く]み合[あ]わせる"
+        },
+        {
+          "id": "b",
+          "text": "似[に]た意味[いみ]の漢字[かんじ]を組[く]み合[あ]わせる"
+        },
+        {
+          "id": "c",
+          "text": "上[うえ]の漢字[かんじ]が下[した]の漢字[かんじ]を修飾[しゅうしょく]する"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "左[ひだり]と右[みぎ]は反対[はんたい]の意味[いみ]。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.compound.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-37",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「森林[しんりん]」の熟語[じゅくご]の組[く]み立[た]てはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "似[に]た意味[いみ]の漢字[かんじ]を組[く]み合[あ]わせる"
+        },
+        {
+          "id": "b",
+          "text": "反対[はんたい]の意味[いみ]の漢字[かんじ]を組[く]み合[あ]わせる"
+        },
+        {
+          "id": "c",
+          "text": "動作[どうさ]と対象[たいしょう]を組[く]み合[あ]わせる"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "森[もり]と林[はやし]は似[に]た意味[いみ]を表[あらわ]す。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.meaning.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-38",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「計画[けいかく]を実行[じっこう]に移[うつ]す」の「実行[じっこう]」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "実際[じっさい]に行[おこな]うこと"
+        },
+        {
+          "id": "b",
+          "text": "詳[くわ]しく調[しら]べること"
+        },
+        {
+          "id": "c",
+          "text": "途中[とちゅう]でやめること"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "実行[じっこう]は、考[かんが]えたことを実際[じっさい]に行[おこな]うこと。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.meaning.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-38",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「友[とも]だちの意見[いけん]に納得[なっとく]した」の「納得[なっとく]」に近[ちか]い意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なるほどと思[おも]い、受[う]け入[い]れる"
+        },
+        {
+          "id": "b",
+          "text": "大声[おおごえ]で反対[はんたい]する"
+        },
+        {
+          "id": "c",
+          "text": "聞[き]かなかったことにする"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "納得[なっとく]は、理由[りゆう]が分[わ]かって受[う]け入[い]れること。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.story-b.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-39",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「ミカは発表[はっぴょう]の前[まえ]は手[て]が震[ふる]えていた。発表[はっぴょう]の後[あと]、笑顔[えがお]で席[せき]に戻[もど]った。」気持[きも]ちはどう変[か]わった？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "不安[ふあん]から安心[あんしん]へ"
+        },
+        {
+          "id": "b",
+          "text": "安心[あんしん]から怒[いか]りへ"
+        },
+        {
+          "id": "c",
+          "text": "喜[よろこ]びから悲[かな]しみへ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "手[て]の震[ふる]えと笑顔[えがお]を根拠[こんきょ]に気持[きも]ちの変化[へんか]を考[かんが]える。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.story-b.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-39",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「ケンは失敗[しっぱい]して下[した]を向[む]いた。友[とも]だちの言葉[ことば]を聞[き]くと、もう一度[いちど]やってみようと立[た]ち上[あ]がった。」ケンの変化[へんか]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "落[お]ち込[こ]んだ気持[きも]ちから意欲[いよく]へ"
+        },
+        {
+          "id": "b",
+          "text": "喜[よろこ]びから退屈[たいくつ]へ"
+        },
+        {
+          "id": "c",
+          "text": "驚[おどろ]きから怒[いか]りへ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "人物[じんぶつ]の行動[こうどう]の変化[へんか]を比[くら]べて気持[きも]ちを捉[とら]える。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.expository-b.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-40",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「木[き]を植[う]えると、根[ね]が土[つち]を支[ささ]えます。そのため、大雨[おおあめ]で土[つち]が流[なが]れにくくなります。」事例[じれい]が示[しめ]すことはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "木[き]が土[つち]を守[まも]る働[はたら]き"
+        },
+        {
+          "id": "b",
+          "text": "木[き]の葉[は]の色[いろ]"
+        },
+        {
+          "id": "c",
+          "text": "雨[あめ]の降[ふ]る時間[じかん]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "根[ね]が土[つち]を支[ささ]えるという事例[じれい]が、木[き]の働[はたら]きを説明[せつめい]している。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.expository-b.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-40",
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
+    "payload": {
+      "prompt": "「水筒[すいとう]を使[つか]うと、使[つか]い捨[す]ての容器[ようき]を減[へ]らせます。だから、ごみを減[へ]らす方法[ほうほう]の一[ひと]つです。」文章[ぶんしょう]の中心[ちゅうしん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "水筒[すいとう]はごみを減[へ]らすのに役立[やくだ]つ"
+        },
+        {
+          "id": "b",
+          "text": "水筒[すいとう]は重[おも]い"
+        },
+        {
+          "id": "c",
+          "text": "容器[ようき]には色[いろ]がある"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "理由[りゆう]と結論[けつろん]の関係[かんけい]から中心[ちゅうしん]を捉[とら]える。"
+  }
+]

@@ -32,6 +32,10 @@ const STAT_KEYS = [
   'wis',
 ] as const;
 
+function integerStats(stats: Stats): Stats {
+  return Object.fromEntries(STAT_KEYS.map((key) => [key, Math.round(stats[key])])) as Stats;
+}
+
 function normalizedGrowth(growth: GrowthCurve | LegacyGrowth): GrowthCurve {
   if ('base' in growth) return growth;
   const base = {
@@ -122,7 +126,8 @@ export function applyEquipment(
     const it = items.get(id);
     if (!it || it.kind !== slot) continue;
     equipped.push(id);
-    for (const [k, v] of Object.entries(it.stats ?? {})) stats[k as keyof Stats] += v as number;
+    for (const [k, v] of Object.entries(it.stats ?? {}))
+      if (typeof v === 'number') stats[k as keyof Stats] += v;
     if (it.grantsSkill) grantedSkills.push(it.grantsSkill);
     if (it.element && it.kind === 'weapon') attackElement = it.element;
     else if (it.element) elementResists.add(it.element);
@@ -132,7 +137,8 @@ export function applyEquipment(
   for (const set of sets.values()) {
     if (set.pieces.every((p) => equipped.includes(p))) {
       setComplete = set.id;
-      for (const [k, v] of Object.entries(set.bonus.stats ?? {})) stats[k as keyof Stats] += v as number;
+      for (const [k, v] of Object.entries(set.bonus.stats ?? {}))
+        if (typeof v === 'number') stats[k as keyof Stats] += v;
       for (const b of set.bonus.elementBoost ?? [])
         elementBoost[b.element] = (elementBoost[b.element] ?? 1) * b.multiplier;
     }
@@ -151,6 +157,7 @@ export function makeHero(spec: HeroSpec, items: Map<string, Item>, sets: Map<str
   const leveled = statsAtLevel(spec.baseStats, spec.growth, spec.level, spec.post100GrowthRate);
   leveled.wis += spec.bonusWis ?? 0;
   const eq = applyEquipment(leveled, spec.equipment, items, sets);
+  const stats = integerStats(eq.stats);
   return {
     id: 'hero',
     refId: 'hero',
@@ -159,9 +166,9 @@ export function makeHero(spec: HeroSpec, items: Map<string, Item>, sets: Map<str
     level: spec.level,
     element: eq.attackElement,
     weaknessRevealed: false,
-    stats: eq.stats,
-    hp: eq.stats.hp,
-    mp: eq.stats.mp,
+    stats,
+    hp: stats.hp,
+    mp: stats.mp,
     skills: [...new Set([...spec.skills, ...eq.grantedSkills])],
     buffs: {},
     isBoss: false,

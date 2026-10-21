@@ -1,0 +1,184 @@
+{
+  "grade": 2,
+  "term": 3,
+  "units": [
+    {
+      "unitId": "kokugo.g2.kanji",
+      "subject": "kokugo",
+      "name": "2年[ねん]の漢字[かんじ]",
+      "goals": 1,
+      "questions": 14,
+      "confirmedTermQuestions": 0,
+      "linked": 14,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g2.legacy-jpn-2-1",
+      "subject": "kokugo",
+      "name": "2年生[ねんせい]の漢字[かんじ]",
+      "goals": 1,
+      "questions": 40,
+      "confirmedTermQuestions": 0,
+      "linked": 40,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "spans-terms"
+    },
+    {
+      "unitId": "kokugo.g2.legacy-jpn-2-5",
+      "subject": "kokugo",
+      "name": "ぶんをつくろう",
+      "goals": 1,
+      "questions": 20,
+      "confirmedTermQuestions": 20,
+      "linked": 20,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "exact"
+    },
+    {
+      "unitId": "sansu.g2.legacy-math-2-15",
+      "subject": "sansu",
+      "name": "メートルであらわす",
+      "goals": 1,
+      "questions": 10,
+      "confirmedTermQuestions": 10,
+      "linked": 10,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "exact"
+    },
+    {
+      "unitId": "sansu.g2.legacy-math-2-16",
+      "subject": "sansu",
+      "name": "1000より大[おお]きい数[かず]",
+      "goals": 3,
+      "questions": 20,
+      "confirmedTermQuestions": 20,
+      "linked": 20,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "exact"
+    },
+    {
+      "unitId": "sansu.g2.legacy-math-2-17",
+      "subject": "sansu",
+      "name": "分数[ぶんすう]",
+      "goals": 1,
+      "questions": 16,
+      "confirmedTermQuestions": 16,
+      "linked": 16,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "exact"
+    },
+    {
+      "unitId": "sansu.g2.legacy-math-2-18",
+      "subject": "sansu",
+      "name": "はこの形[かたち]",
+      "goals": 1,
+      "questions": 16,
+      "confirmedTermQuestions": 16,
+      "linked": 16,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "exact"
+    },
+    {
+      "unitId": "sansu.g2.legacy-math-2-19",
+      "subject": "sansu",
+      "name": "文[ぶん]しょうだい",
+      "goals": 1,
+      "questions": 20,
+      "confirmedTermQuestions": 20,
+      "linked": 20,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "exact"
+    },
+    {
+      "unitId": "seikatsu.g2.legacy-cur-1802-05",
+      "subject": "seikatsu",
+      "name": "わたしの成長[せいちょう]",
+      "goals": 3,
+      "questions": 12,
+      "confirmedTermQuestions": 12,
+      "linked": 12,
+      "unreviewed": 0,
+      "confirmedTermUnreviewed": 0,
+      "placementKind": "exact"
+    }
+  ],
+  "gaps": [],
+  "conceptCoverage": [
+    {
+      "conceptId": "kokugo.g2.writing.sentence-order",
+      "unitId": "kokugo.g2.legacy-jpn-2-5",
+      "primaryQuestions": 20
+    },
+    {
+      "conceptId": "sansu.g2.measure.metre",
+      "unitId": "sansu.g2.legacy-math-2-15",
+      "primaryQuestions": 10
+    },
+    {
+      "conceptId": "sansu.g2.number.over-1000",
+      "unitId": "sansu.g2.legacy-math-2-16",
+      "primaryQuestions": 8
+    },
+    {
+      "conceptId": "sansu.g2.number.over-1000.compose",
+      "unitId": "sansu.g2.legacy-math-2-16",
+      "primaryQuestions": 6
+    },
+    {
+      "conceptId": "sansu.g2.number.over-1000.compare-order",
+      "unitId": "sansu.g2.legacy-math-2-16",
+      "primaryQuestions": 6
+    },
+    {
+      "conceptId": "sansu.g2.number.simple-fractions",
+      "unitId": "sansu.g2.legacy-math-2-17",
+      "primaryQuestions": 16
+    },
+    {
+      "conceptId": "sansu.g2.geometry.boxes",
+      "unitId": "sansu.g2.legacy-math-2-18",
+      "primaryQuestions": 16
+    },
+    {
+      "conceptId": "sansu.g2.application.word-problems",
+      "unitId": "sansu.g2.legacy-math-2-19",
+      "primaryQuestions": 20
+    },
+    {
+      "conceptId": "seikatsu.g2.self.growth-evidence",
+      "unitId": "seikatsu.g2.legacy-cur-1802-05",
+      "primaryQuestions": 4
+    },
+    {
+      "conceptId": "seikatsu.g2.self.support-gratitude",
+      "unitId": "seikatsu.g2.legacy-cur-1802-05",
+      "primaryQuestions": 4
+    },
+    {
+      "conceptId": "seikatsu.g2.self.future-wishes",
+      "unitId": "seikatsu.g2.legacy-cur-1802-05",
+      "primaryQuestions": 4
+    }
+  ],
+  "findings": [
+    {
+      "unitId": "kokugo.g2.kanji",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g2.legacy-jpn-2-1",
+      "kind": "ambiguous-term-placement",
+      "severity": "review"
+    }
+  ]
+}

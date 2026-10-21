@@ -7,6 +7,15 @@ import {
   STORY_COMPANION_IDS,
 } from '../../core/progression/storyCompanion';
 import type { GameState } from '../../core/state/schema';
+import {
+  completeBattleTutorial,
+  queueBattleTutorial,
+  shouldShowBattleTutorial,
+} from '../../core/progression/battleTutorial';
+import {
+  guideMusubiDamaPurchase,
+  shouldGuideMusubiDamaPurchase,
+} from '../../core/progression/musubiDamaOnboarding';
 import { UNNAMED_HERO } from '../../core/state/newGame';
 import type { DialogueLine } from '../../ui/dialogue';
 import type { CutsceneKind } from '../../ui/cutscene/CutsceneOverlay';
@@ -15,9 +24,11 @@ import { HeroIdentitySetup, type HeroIdentity } from '../../ui/title/HeroIdentit
 import { t } from '../../ui/i18n';
 import { playSfx } from '../../ui/sfx';
 import { monsterMenuArtUrl } from '../../rendering/menuArt';
+import { askOpeningHeroName, presentCutscene } from './cutsceneFlow';
 import {
   companionChoiceLines,
   companionJoinedLines,
+  battleTutorialLines,
   hokkaidoChapterArrivalLines,
   hokurikuChapterArrivalLines,
   koshinetsuChapterArrivalLines,
@@ -29,6 +40,7 @@ import {
   iwateArrivalLines,
   kantoChapterArrivalLines,
   prologueLines,
+  musubiDamaShopGuideLines,
   tohokuTownArrivalLines,
   type StoryTownArea,
 } from './storyScenes';
@@ -99,6 +111,67 @@ export interface MapStory {
   state: GameState;
   lines: DialogueLine[];
   presentation: CutsceneKind;
+}
+
+/** 今回開始したオープニングだけ、終了後のバトル説明を予約する。 */
+export function queueOpeningBattleTutorial(story: MapStory, now = Date.now()): GameState {
+  return story.presentation === 'opening' ? queueBattleTutorial(story.state, now) : story.state;
+}
+
+interface PendingBattleTutorialOptions {
+  mapKey: string;
+  game: GameState;
+  talk(lines: DialogueLine[]): Promise<void>;
+  save(state: GameState): void;
+  getGame: () => GameState;
+}
+
+/** 予約済みの説明を最後まで見せてから、同じセーブでの完了を記録する。 */
+export async function runPendingBattleTutorial(options: PendingBattleTutorialOptions): Promise<boolean> {
+  if (!shouldShowBattleTutorial(options.mapKey, options.game)) return false;
+  await options.talk(battleTutorialLines());
+  options.save(completeBattleTutorial(options.getGame()));
+  return true;
+}
+
+interface OpeningSequenceOptions {
+  mapKey: string;
+  game: GameState;
+  root: HTMLElement;
+  getGame: () => GameState;
+  setGame: (state: GameState) => void;
+  talk: (lines: DialogueLine[]) => Promise<void>;
+  afterCutscene: () => void;
+}
+
+/** 名前決定・到着物語・初回バトル説明を、保存順を崩さず連続して進める。 */
+export async function runOpeningSequence(options: OpeningSequenceOptions): Promise<void> {
+  const named = await askOpeningHeroName(options.mapKey, options.game, options.root, options.getGame);
+  if (named !== options.game) options.setGame(named);
+  const story = mapArrivalStory(options.mapKey, named);
+  if (story) {
+    options.setGame(queueOpeningBattleTutorial(story));
+    await presentCutscene({
+      root: options.root,
+      lines: story.lines,
+      kind: story.presentation,
+      game: named,
+      fairyName: t('field.prologueFairy'),
+      afterClose: options.afterCutscene,
+    });
+  }
+  await runPendingBattleTutorial({
+    mapKey: options.mapKey,
+    game: options.getGame(),
+    talk: options.talk,
+    save: options.setGame,
+    getGame: options.getGame,
+  });
+  const current = options.getGame();
+  if (shouldGuideMusubiDamaPurchase(options.mapKey, current)) {
+    options.setGame(guideMusubiDamaPurchase(current));
+    await options.talk(musubiDamaShopGuideLines());
+  }
 }
 
 export function requestHeroIdentity(

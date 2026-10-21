@@ -1,0 +1,733 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-shakai-g3",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 社会[しゃかい]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_003.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2023-03-08版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第3学年"
+    },
+    {
+      "id": "mext-h29-shakai-codes-g3",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年社会"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "shakai.g3.production-work",
+      "subject": "shakai",
+      "grade": 3,
+      "unit": "shakai.g3.legacy-cur-1403-02",
+      "name": "生産[せいさん]の仕事[しごと]と工夫[くふう]",
+      "description": "地域[ちいき]の生産[せいさん]の仕事[しごと]について、工程[こうてい]・協力[きょうりょく]・安全[あんぜん]や品質[ひんしつ]の工夫[くふう]を考[かんが]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8220233211000000", "8220233212000000", "8220233213000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "地域[ちいき]調査[ちょうさ]と資料[しりょう]活用[かつよう]を往復[おうふく]して学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-shakai-g3", "mext-h29-shakai-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "shakai.g3.sales-distribution",
+      "subject": "shakai",
+      "grade": 3,
+      "unit": "shakai.g3.legacy-cur-1403-02",
+      "name": "販売[はんばい]と流通[りゅうつう]の工夫[くふう]",
+      "description": "品物[しなもの]が生産者[せいさんしゃ]から店[みせ]や消費者[しょうひしゃ]へ届[とど]く流[なが]れと、販売[はんばい]の仕事[しごと]の工夫[くふう]を考[かんが]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8220233221000000", "8220233222000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "地域[ちいき]調査[ちょうさ]と資料[しりょう]活用[かつよう]を往復[おうふく]して学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-shakai-g3", "mext-h29-shakai-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "shakai.g3.social-inquiry",
+      "subject": "shakai",
+      "grade": 3,
+      "unit": "shakai.g3.legacy-cur-1403-02",
+      "name": "資料[しりょう]で調[しら]べて表[あらわ]す",
+      "description": "見学[けんがく]・聞[き]き取[と]り・地図[ちず]・グラフから必要[ひつよう]な情報[じょうほう]を読[よ]み取[と]り、地域[ちいき]の仕事[しごと]をまとめる。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8220233212000000", "8220233222000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "地域[ちいき]調査[ちょうさ]と資料[しりょう]活用[かつよう]を往復[おうふく]して学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-shakai-g3", "mext-h29-shakai-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "shakai.g3.traffic-crime-safety",
+      "subject": "shakai",
+      "grade": 3,
+      "unit": "shakai.g3.legacy-cur-1403-03",
+      "name": "事故[じこ]や事件[じけん]から地域[ちいき]を守[まも]る",
+      "description": "警察[けいさつ]・地域[ちいき]の人々[ひとびと]・学校[がっこう]などが協力[きょうりょく]し、交通事故[こうつうじこ]や犯罪[はんざい]を防[ふせ]ぐ仕組[しく]みを理解[りかい]する。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8220233312000000", "8220233321000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "地域[ちいき]調査[ちょうさ]と資料[しりょう]活用[かつよう]を往復[おうふく]して学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-shakai-g3", "mext-h29-shakai-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "shakai.g3.safety-action",
+      "subject": "shakai",
+      "grade": 3,
+      "unit": "shakai.g3.legacy-cur-1403-03",
+      "name": "安全[あんぜん]のためにできること",
+      "description": "法[ほう]やきまりを守[まも]り、地域[ちいき]の一員[いちいん]として安全[あんぜん]のために自分[じぶん]ができる行動[こうどう]を選[えら]ぶ。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8220233321000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "地域[ちいき]調査[ちょうさ]と資料[しりょう]活用[かつよう]を往復[おうふく]して学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-shakai-g3", "mext-h29-shakai-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "shakai.g3.fire-safety",
+      "subject": "shakai",
+      "grade": 3,
+      "unit": "shakai.g3.legacy-cur-1403-03",
+      "name": "火災[かさい]から地域[ちいき]を守[まも]る",
+      "description": "消防署[しょうぼうしょ]・消防団[しょうぼうだん]・地域[ちいき]の人々[ひとびと]が、設備[せつび]や連絡[れんらく]の仕組[しく]みを使[つか]って火災[かさい]を防[ふせ]ぐ働[はたら]きを理解[りかい]する。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8220233311000000", "8220233321000000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "地域[ちいき]調査[ちょうさ]と資料[しりょう]活用[かつよう]を往復[おうふく]して学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-shakai-g3", "mext-h29-shakai-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [],
+  "questionLinks": [
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.0fa69fe8f3bb",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.production-work",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.139f7dc7dce1",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.production-work",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.14aec85a967a",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.16323347aa52",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.production-work",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.2331f774f5bb",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.273d85369446",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.2f95c2ee2a0a",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.50cef253b63c",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.634835dcc2d9",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.production-work",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.6a64636f69a7",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.7159c4cf3cf6",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.production-work",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.93b41eb14518",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.a4bdfb2b7114",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.social-inquiry",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.aba37ee56337",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.bc0ecca3f13a",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.bdead77b274b",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.c2693aac636f",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.c7f3408388be",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.ce4178e93d12",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.d2f75440ba83",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.production-work",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.e9969a2bd37c",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.production-work",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.eb888d26b8cd",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.social-inquiry",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.f92585117e1b",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.fb11f1f1ee5b",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.production-work",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-02.fc5ba3760b26",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.sales-distribution",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.041d0368e4b9",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.traffic-crime-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.0b3df56ec1d8",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.fire-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.36b39201a1cb",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.fire-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.399c19579316",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.fire-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.4570d1336d67",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.fire-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.4b74da65b0d0",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.traffic-crime-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.5268421bba1f",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.fire-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.7d4b1837f778",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.fire-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.9323494e5738",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.safety-action",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.97ac012af30c",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.traffic-crime-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.acf0ef4930d5",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.safety-action",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.c18e4c15cbaa",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.safety-action",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.c1e7067c39cc",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.safety-action",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.d0e284e5de56",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.fire-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.d341a6e036f7",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.fire-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.d89355ad426b",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.traffic-crime-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.da93a7a1b1d3",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.traffic-crime-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.ec2092275430",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.traffic-crime-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.shakai.g3.cur-1403-03.fed5b4d987e6",
+      "concepts": [
+        {
+          "conceptId": "shakai.g3.traffic-crime-safety",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

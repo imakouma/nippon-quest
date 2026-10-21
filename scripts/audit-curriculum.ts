@@ -77,15 +77,18 @@ async function main(): Promise<void> {
           detail: prompt.slice(0, 160),
         });
       if (question.type === 'choice' && Array.isArray(payload.choices)) {
-        const texts = payload.choices.map((choice) =>
-          String((choice as { text?: unknown }).text ?? '').normalize('NFKC'),
-        );
-        if (new Set(texts).size !== texts.length)
+        const displays = payload.choices.map((choice) => {
+          const option = choice as { image?: unknown; text?: unknown };
+          const text = typeof option.text === 'string' ? option.text.normalize('NFKC') : '';
+          const image = typeof option.image === 'string' ? option.image : '';
+          return { key: JSON.stringify([text, image]), label: text || `[画像: ${image}]` };
+        });
+        if (new Set(displays.map(({ key }) => key)).size !== displays.length)
           findings.push({
             severity: 'high',
             kind: 'duplicate-choice',
             id: question.id,
-            detail: `同一表示の選択肢があります: ${texts.join(' / ')}`,
+            detail: `同一表示の選択肢があります: ${displays.map(({ label }) => label).join(' / ')}`,
           });
       }
     }

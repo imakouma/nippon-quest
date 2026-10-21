@@ -1,0 +1,1380 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-sansu-g3",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 算数[さんすう]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
+      "checkedAt": "2026-10-12",
+      "locator": "第3章 第2節 第3学年 A 数と計算、C 測定、D データの活用"
+    },
+    {
+      "id": "mext-h29-sansu-codes-g3",
+      "title": "文部[もんぶ]科学[かがく]省[しょう] 教育[きょういく]データ標準[ひょうじゅん]：学習[がくしゅう]指導[しどう]要領[ようりょう]コード",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/a_menu/other/data_00001.htm",
+      "published": "平成29年告示版",
+      "checkedAt": "2026-10-12",
+      "locator": "小学校学習指導要領コード 82V12・第3学年算数"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "sansu.g3.add-subtract.mental",
+      "subject": "sansu",
+      "grade": 3,
+      "unit": "sansu.g3.legacy-math-3-8",
+      "name": "暗算[あんざん]による加法[かほう]・減法[げんぽう]",
+      "description": "数[かず]を分[わ]けたり、まとまりを作[つく]ったりして、2位数[にすう]程度[ていど]の加法[かほう]・減法[げんぽう]を暗算[あんざん]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250233122100000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "既習[きしゅう]事項[じこう]を使[つか]い、具体的[ぐたいてき]な場面[ばめん]と結[むす]び付[つ]けて学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-sansu-g3", "mext-h29-sansu-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g3.measure.kilometres",
+      "subject": "sansu",
+      "grade": 3,
+      "unit": "sansu.g3.legacy-math-3-9",
+      "name": "キロメートルと長[なが]さ",
+      "description": "kmとmの関係[かんけい]を理解[りかい]し、目的[もくてき]に合[あ]う単位[たんい]で長[なが]さを表[あらわ]す。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250233311100000", "8250233311200000", "8250233312100000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "既習[きしゅう]事項[じこう]を使[つか]い、具体的[ぐたいてき]な場面[ばめん]と結[むす]び付[つ]けて学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-sansu-g3", "mext-h29-sansu-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g3.divide.remainders",
+      "subject": "sansu",
+      "grade": 3,
+      "unit": "sansu.g3.legacy-math-3-10",
+      "name": "余[あま]りのあるわり算[ざん]",
+      "description": "余[あま]りの意味[いみ]を理解[りかい]し、場面[ばめん]に応[おう]じて商[しょう]と余[あま]りを判断[はんだん]する。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250233141100000", "8250233141200000", "8250233142200000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "既習[きしゅう]事項[じこう]を使[つか]い、具体的[ぐたいてき]な場面[ばめん]と結[むす]び付[つ]けて学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-sansu-g3", "mext-h29-sansu-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g3.multiply.by-one-digit",
+      "subject": "sansu",
+      "grade": 3,
+      "unit": "sansu.g3.legacy-math-3-11",
+      "name": "2・3位数[いすう]×1位数[いすう]",
+      "description": "九九[くく]を基[もと]に、2位数[いすう]や3位数[いすう]に1位数[いすう]をかける筆算[ひっさん]を確実[かくじつ]に行[おこな]う。",
+      "kind": "procedure",
+      "memoryType": "procedure",
+      "curriculumCodes": ["8250233131100000", "8250233131200000", "8250233132100000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "既習[きしゅう]事項[じこう]を使[つか]い、具体的[ぐたいてき]な場面[ばめん]と結[むす]び付[つ]けて学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-sansu-g3", "mext-h29-sansu-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g3.geometry.circles-spheres",
+      "subject": "sansu",
+      "grade": 3,
+      "unit": "sansu.g3.legacy-math-3-12",
+      "name": "円[えん]と球[きゅう]",
+      "description": "円[えん]の中心[ちゅうしん]・半径[はんけい]・直径[ちょっけい]を理解[りかい]し、球[きゅう]の特徴[とくちょう]と関連付[かんれんづ]ける。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250233211300000", "8250233212100000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "既習[きしゅう]事項[じこう]を使[つか]い、具体的[ぐたいてき]な場面[ばめん]と結[むす]び付[つ]けて学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-sansu-g3", "mext-h29-sansu-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    },
+    {
+      "id": "sansu.g3.measure.weight",
+      "subject": "sansu",
+      "grade": 3,
+      "unit": "sansu.g3.legacy-math-3-13",
+      "name": "重[おも]さと単位[たんい]",
+      "description": "g・kg・tの関係[かんけい]を理解[りかい]し、適切[てきせつ]な計器[けいき]と単位[たんい]で重[おも]さを測[はか]る。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250233311100000", "8250233311200000", "8250233312100000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "既習[きしゅう]事項[じこう]を使[つか]い、具体的[ぐたいてき]な場面[ばめん]と結[むす]び付[つ]けて学[まな]ぶ。"
+      },
+      "sourceIds": ["mext-h29-sansu-g3", "mext-h29-sansu-codes-g3"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-12",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "sansu.g3.divide.remainders",
+      "to": "sansu.g3.multiply.by-one-digit",
+      "kind": "related",
+      "strength": 0.6,
+      "rationale": "どちらも九九[くく]を基[もと]に計算[けいさん]の仕組[しく]みを広[ひろ]げる。",
+      "sourceIds": ["mext-h29-sansu-g3"],
+      "reviewStatus": "source-checked"
+    }
+  ],
+  "questionLinks": [
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.1377a7de6c7b",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.1735bdbae846",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.29dbb56e4ebe",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.2d849d3416cb",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.427cf9a37b61",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.603a2d3a2702",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.725dcba1fca9",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.734c949646ba",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.952d52fd8a94",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.a85b3fc8bcb4",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.bc0e41ccdf25",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.c3f8bba4aa6a",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.ca17fd9f6bd8",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.cb8a02e7b9ff",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.d13eab95ad13",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.d1d606b8be15",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.d4cb33066946",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.d61fc318c812",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.eb1294fb2b9b",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-10.fca7cd97e581",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.divide.remainders",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.16cd172f043a",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.243ae8447a48",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.2d69941ed134",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.2db2700bc27c",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.374ccf29a056",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.48137a6886a4",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.484bf2a43256",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.516a7e4cc535",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.59ed66c52525",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.6554b837b291",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.6ae0edb2e22b",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.6f3e7c844e62",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.78b1afa8552c",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.a653af44ca29",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.b87a539f1dbe",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.d5f575b2a0ab",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.d6d3d36cd1a9",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.da0263102feb",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.daa8182f64f1",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-11.e276407ed1ce",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.multiply.by-one-digit",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-12.0b5c9230c6fa",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.geometry.circles-spheres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-12.150b8a6b4147",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.geometry.circles-spheres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-12.23bf1fd4e82f",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.geometry.circles-spheres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-12.3f156151b1c4",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.geometry.circles-spheres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-12.5850b6b50aa0",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.geometry.circles-spheres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-12.dfc86c09b0b1",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.geometry.circles-spheres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.0de864b9c158",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.0ef197c09fa0",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.1a719426bdce",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.1fc33d03fb2c",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.208428bc6fad",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.27f3ea0bdba8",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.483704a016c1",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.4e029a4e244b",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.6b132acf296b",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.a0803fed295f",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.ed4745ebc930",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.f36c04ebd4d9",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.f4ae1df9e4e1",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-13.f55e99ca1cff",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.weight",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.0b71115835ea",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.0d0304a60c74",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.0e29bd01e951",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.1a72160af9fb",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.284cfb5e6552",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.29d29facc04e",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.34c3b6874eba",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.38f34016f0a4",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.4abceaa7ea76",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.4edb33dd8f60",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.53d9670b1183",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.6956333714c3",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.6f2249b5239c",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.70b6cbbf8918",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.b375fc9721b5",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.c744d738e5b7",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.cd8591c437d6",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.d727d812b533",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-8.f34fecc8b35a",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.add-subtract.mental",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.012e7acaf760",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.06e8891039ef",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.2d54955c2bba",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.3e476f311f0c",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.4f20b7c76550",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.5b9035411c97",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.696e153c4086",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.750b2b765f20",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.992e0e833854",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.afc9e27b8d37",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.b6305e46d204",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.bc8f29ab6694",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.dd491005f417",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    },
+    {
+      "questionId": "legacy.sansu.g3.math-3-9.fe60b183f57a",
+      "concepts": [
+        {
+          "conceptId": "sansu.g3.measure.kilometres",
+          "weight": 1,
+          "role": "primary"
+        }
+      ],
+      "diagnosticValue": 0.8,
+      "reviewStatus": "source-checked",
+      "misconceptionSignals": []
+    }
+  ]
+}

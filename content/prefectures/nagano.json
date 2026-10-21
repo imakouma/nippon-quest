@@ -187,6 +187,131 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "hokushin-nagano",
+      "table": [
+        {
+          "monsterId": "nagano-yukemuri-zaru",
+          "weight": 55
+        },
+        {
+          "monsterId": "nagano-zaru-soban",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "toshin-suwa",
+      "table": [
+        {
+          "monsterId": "nagano-wakasagin",
+          "weight": 55
+        },
+        {
+          "monsterId": "nagano-retasuke",
+          "weight": 25
+        },
+        {
+          "monsterId": "nagano-yukemuri-zaru",
+          "weight": 10
+        },
+        {
+          "monsterId": "nagano-zaru-soban",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "matsumoto-kiso",
+      "table": [
+        {
+          "monsterId": "nagano-retasuke",
+          "weight": 55
+        },
+        {
+          "monsterId": "nagano-zaru-soban",
+          "weight": 20
+        },
+        {
+          "monsterId": "nagano-yukemuri-zaru",
+          "weight": 15
+        },
+        {
+          "monsterId": "nagano-wakasagin",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "hokushin-nagano",
+      "name": "北信[ほくしん]・長野[ながの]エリア",
+      "motifs": [
+        "zenkoji",
+        "onsen-zaru",
+        "togakushi-soba",
+        "nozawana"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "nagano-yukemuri-oyabun",
+        "level": 30
+      }
+    },
+    {
+      "id": "toshin-suwa",
+      "name": "東信[とうしん]・諏訪[すわ]エリア",
+      "motifs": [
+        "karuizawa",
+        "suwako",
+        "kawakami-retasu"
+      ],
+      "boss": {
+        "monsterId": "nagano-koori-wakasagi",
+        "level": 30
+      }
+    },
+    {
+      "id": "matsumoto-kiso",
+      "name": "松本[まつもと]・木曽[きそ]エリア",
+      "motifs": [
+        "matsumoto-jo",
+        "kamikochi",
+        "tsumago",
+        "kiso-shikki",
+        "shinshu-ringo"
+      ],
+      "boss": {
+        "monsterId": "nagano-retasu-zamurai",
+        "level": 30
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "hokushin-nagano",
+        "toshin-suwa"
+      ],
+      "openedBy": "hokushin-nagano"
+    },
+    {
+      "between": [
+        "toshin-suwa",
+        "matsumoto-kiso"
+      ],
+      "openedBy": "toshin-suwa"
     }
   ],
   "boss": "nagano-boss-inazuma-raicho",

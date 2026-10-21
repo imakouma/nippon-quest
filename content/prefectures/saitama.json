@@ -82,6 +82,65 @@
       "blurb": "小川町[おがわまち]で 作[つく]られる じょうぶな 和紙[わし]。その わざは ユネスコの 無形文化遺産[むけいぶんかいさん]に なっている。"
     }
   ],
+  "regions": [
+    {
+      "id": "saitama-kentou",
+      "name": "さいたま・県東[けんとう]エリア",
+      "motifs": [
+        "gaikaku-hosuiro",
+        "soka-senbei",
+        "iwatsuki-hina"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "saitama-dai-barissen",
+        "level": 23
+      }
+    },
+    {
+      "id": "kawagoe-kenhoku",
+      "name": "川越[かわごえ]・県北[けんぽく]エリア",
+      "motifs": [
+        "kawagoe",
+        "sakitama-kofun"
+      ],
+      "boss": {
+        "monsterId": "saitama-haniwa-musha",
+        "level": 23
+      }
+    },
+    {
+      "id": "chichibu-kensei",
+      "name": "秩父[ちちぶ]・県西[けんせい]エリア",
+      "motifs": [
+        "nagatoro",
+        "chichibu-yomatsuri",
+        "fukaya-negi",
+        "sayamacha",
+        "ogawa-washi"
+      ],
+      "boss": {
+        "monsterId": "saitama-negi-lancer",
+        "level": 24
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "saitama-kentou",
+        "kawagoe-kenhoku"
+      ],
+      "openedBy": "saitama-kentou"
+    },
+    {
+      "between": [
+        "kawagoe-kenhoku",
+        "chichibu-kensei"
+      ],
+      "openedBy": "kawagoe-kenhoku"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -165,6 +224,62 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "saitama-kentou",
+      "table": [
+        {
+          "monsterId": "saitama-parissen",
+          "weight": 60
+        },
+        {
+          "monsterId": "saitama-negi-boya",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kawagoe-kenhoku",
+      "table": [
+        {
+          "monsterId": "saitama-haniwaltz",
+          "weight": 55
+        },
+        {
+          "monsterId": "saitama-parissen",
+          "weight": 25
+        },
+        {
+          "monsterId": "saitama-negi-boya",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "chichibu-kensei",
+      "table": [
+        {
+          "monsterId": "saitama-negi-boya",
+          "weight": 50
+        },
+        {
+          "monsterId": "saitama-haniwaltz",
+          "weight": 30
+        },
+        {
+          "monsterId": "saitama-parissen",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "saitama-boss-yomatsuri-daio",
@@ -195,8 +310,13 @@
       ],
       "question": {
         "subject": "shakai",
-        "gradeRange": [3, 6],
-        "tags": ["prefecture:saitama"]
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:saitama"
+        ]
       },
       "rewardByScore": [
         {

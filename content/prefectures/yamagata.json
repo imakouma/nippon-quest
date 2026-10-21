@@ -180,6 +180,167 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "murayama-tendo",
+      "table": [
+        {
+          "monsterId": "yamagata-shogi-commander",
+          "weight": 55
+        },
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "mogami-ginzan",
+      "table": [
+        {
+          "monsterId": "yamagata-yukemurin",
+          "weight": 55
+        },
+        {
+          "monsterId": "yamagata-shogi-commander",
+          "weight": 25
+        },
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "shonai-dewasanzan",
+      "table": [
+        {
+          "monsterId": "yamagata-imoni-nabe",
+          "weight": 50
+        },
+        {
+          "monsterId": "yamagata-yukemurin",
+          "weight": 25
+        },
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 15
+        },
+        {
+          "monsterId": "yamagata-shogi-commander",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "zao-okitama",
+      "table": [
+        {
+          "monsterId": "yamagata-sakuranboy",
+          "weight": 40
+        },
+        {
+          "monsterId": "yamagata-shogi-commander",
+          "weight": 25
+        },
+        {
+          "monsterId": "yamagata-imoni-nabe",
+          "weight": 20
+        },
+        {
+          "monsterId": "yamagata-yukemurin",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "murayama-tendo",
+      "name": "村山[むらやま]・天童[てんどう]エリア",
+      "motifs": [
+        "sakuranbo",
+        "yamadera",
+        "shogi-koma",
+        "imoni"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "yamagata-ryuo-koma",
+        "level": 18
+      }
+    },
+    {
+      "id": "mogami-ginzan",
+      "name": "最上[もがみ]・銀山[ぎんざん]エリア",
+      "motifs": [
+        "mogamigawa",
+        "ginzan-onsen"
+      ],
+      "boss": {
+        "monsterId": "yamagata-yunohana-ryu",
+        "level": 18
+      }
+    },
+    {
+      "id": "shonai-dewasanzan",
+      "name": "庄内[しょうない]・出羽三山[でわさんざん]エリア",
+      "motifs": [
+        "sankyo-soko",
+        "haguro-gojunoto",
+        "dadachamame"
+      ],
+      "boss": {
+        "monsterId": "yamagata-jumbo-imoni",
+        "level": 18
+      }
+    },
+    {
+      "id": "zao-okitama",
+      "name": "蔵王[ざおう]・置賜[おきたま]エリア",
+      "motifs": [
+        "zao",
+        "yonezawa-gyu"
+      ],
+      "boss": {
+        "monsterId": "yamagata-double-cherry",
+        "level": 18
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "murayama-tendo",
+        "mogami-ginzan"
+      ],
+      "openedBy": "murayama-tendo"
+    },
+    {
+      "between": [
+        "mogami-ginzan",
+        "shonai-dewasanzan"
+      ],
+      "openedBy": "mogami-ginzan"
+    },
+    {
+      "between": [
+        "murayama-tendo",
+        "zao-okitama"
+      ],
+      "openedBy": "shonai-dewasanzan"
     }
   ],
   "boss": "yamagata-boss-juhyo-no-kami",

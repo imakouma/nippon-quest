@@ -227,6 +227,130 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "kaetsu",
+      "table": [
+        {
+          "monsterId": "niigata-shiobikin",
+          "weight": 60
+        },
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 40
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "chuetsu-sado",
+      "table": [
+        {
+          "monsterId": "niigata-inahon",
+          "weight": 60
+        },
+        {
+          "monsterId": "niigata-shiobikin",
+          "weight": 25
+        },
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 15
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "joetsu",
+      "table": [
+        {
+          "monsterId": "niigata-hisui-koro",
+          "weight": 60
+        },
+        {
+          "monsterId": "niigata-inahon",
+          "weight": 20
+        },
+        {
+          "monsterId": "niigata-shiobikin",
+          "weight": 10
+        },
+        {
+          "monsterId": "niigata-kotoki",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    }
+  ],
+  "regions": [
+    {
+      "id": "kaetsu",
+      "name": "下越[かえつ]エリア",
+      "motifs": [
+        "sasagawa-nagare",
+        "shiobiki-zake",
+        "hyoko",
+        "tsubame-sanjo"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "niigata-kitakaze-zake",
+        "level": 26
+      }
+    },
+    {
+      "id": "chuetsu-sado",
+      "name": "中越[ちゅうえつ]・佐渡[さど]エリア",
+      "motifs": [
+        "shinanogawa",
+        "uonuma-okome",
+        "nagaoka-hanabi",
+        "ojiya-chijimi",
+        "sado-kinzan",
+        "taraibune",
+        "sado-toki"
+      ],
+      "boss": {
+        "monsterId": "niigata-minori-maru",
+        "level": 26
+      }
+    },
+    {
+      "id": "joetsu",
+      "name": "上越[じょうえつ]エリア",
+      "motifs": [
+        "oyashirazu",
+        "itoigawa-hisui",
+        "takada-yozakura",
+        "myokosan"
+      ],
+      "boss": {
+        "monsterId": "niigata-hisui-goro",
+        "level": 27
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "kaetsu",
+        "chuetsu-sado"
+      ],
+      "openedBy": "kaetsu"
+    },
+    {
+      "between": [
+        "chuetsu-sado",
+        "joetsu"
+      ],
+      "openedBy": "chuetsu-sado"
     }
   ],
   "boss": "niigata-boss-shinanogawa-no-nushi",

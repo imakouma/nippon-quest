@@ -82,6 +82,65 @@
       "blurb": "南房総[みなみぼうそう]で 作[つく]られる、細[ほそ]く わった 竹[たけ]の ほねを 生[い]かした うちわ。"
     }
   ],
+  "regions": [
+    {
+      "id": "chiba-hokuso",
+      "name": "千葉[ちば]・北総[ほくそう]エリア",
+      "motifs": [
+        "naritasan",
+        "sawara",
+        "noda-shoyu",
+        "chiba-nashi"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "chiba-kousui-hime",
+        "level": 24
+      }
+    },
+    {
+      "id": "kujukuri-choshi",
+      "name": "九十九里[くじゅうくり]・銚子[ちょうし]エリア",
+      "motifs": [
+        "kujukurihama",
+        "inubosaki",
+        "rakkasei"
+      ],
+      "boss": {
+        "monsterId": "chiba-peanight",
+        "level": 24
+      }
+    },
+    {
+      "id": "boso-hanto",
+      "name": "房総半島[ぼうそうはんとう]エリア",
+      "motifs": [
+        "nokogiriyama",
+        "oyama-senmaida",
+        "boshu-uchiwa"
+      ],
+      "boss": {
+        "monsterId": "chiba-naminori-gai",
+        "level": 24
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "chiba-hokuso",
+        "kujukuri-choshi"
+      ],
+      "openedBy": "chiba-hokuso"
+    },
+    {
+      "between": [
+        "kujukuri-choshi",
+        "boso-hanto"
+      ],
+      "openedBy": "kujukuri-choshi"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -165,6 +224,62 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "chiba-hokuso",
+      "table": [
+        {
+          "monsterId": "chiba-sharirin",
+          "weight": 55
+        },
+        {
+          "monsterId": "chiba-horipii",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kujukuri-choshi",
+      "table": [
+        {
+          "monsterId": "chiba-kujukurin",
+          "weight": 50
+        },
+        {
+          "monsterId": "chiba-sharirin",
+          "weight": 25
+        },
+        {
+          "monsterId": "chiba-horipii",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "boso-hanto",
+      "table": [
+        {
+          "monsterId": "chiba-horipii",
+          "weight": 50
+        },
+        {
+          "monsterId": "chiba-kujukurin",
+          "weight": 30
+        },
+        {
+          "monsterId": "chiba-sharirin",
+          "weight": 20
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "chiba-boss-shoyu-ryu",
@@ -195,8 +310,13 @@
       ],
       "question": {
         "subject": "rika",
-        "gradeRange": [3, 6],
-        "tags": ["prefecture:chiba"]
+        "gradeRange": [
+          3,
+          6
+        ],
+        "tags": [
+          "prefecture:chiba"
+        ]
       },
       "rewardByScore": [
         {

@@ -138,6 +138,107 @@
       "blurb": "北見市[きたみし]の 畑[はたけ]では 玉[たま]ねぎが とても たくさん とれる。北海道[ほっかいどう]は 玉[たま]ねぎの 生産量[せいさんりょう]が 日本[にほん]で いちばん。"
     }
   ],
+  "regions": [
+    {
+      "id": "sapporo-ishikari",
+      "name": "札幌[さっぽろ]・石狩[いしかり]エリア",
+      "motifs": [
+        "yuki-matsuri",
+        "yubari-melon"
+      ],
+      "start": true,
+      "boss": {
+        "monsterId": "hokkaido-dodeka-melon",
+        "level": 20
+      }
+    },
+    {
+      "id": "hakodate-iburi",
+      "name": "函館[はこだて]・胆振[いぶり]エリア",
+      "motifs": [
+        "toyako",
+        "goryokaku",
+        "upopoy",
+        "kibori-guma"
+      ],
+      "boss": {
+        "monsterId": "hokkaido-jet-hotate",
+        "level": 20
+      }
+    },
+    {
+      "id": "asahikawa-soya",
+      "name": "旭川[あさひかわ]・宗谷[そうや]エリア",
+      "motifs": [
+        "asahidake",
+        "furano-lavender",
+        "soya-misaki",
+        "sarufutsu-hotate"
+      ],
+      "boss": {
+        "monsterId": "hokkaido-murasaki-kazedori",
+        "level": 20
+      }
+    },
+    {
+      "id": "obihiro-hidaka",
+      "name": "帯広[おびひろ]・日高[ひだか]エリア",
+      "motifs": [
+        "tokachi-jagaimo",
+        "hidaka-konbu"
+      ],
+      "boss": {
+        "monsterId": "hokkaido-jaga-dodon",
+        "level": 20
+      }
+    },
+    {
+      "id": "kushiro-okhotsk",
+      "name": "釧路[くしろ]・オホーツクエリア",
+      "motifs": [
+        "shiretoko",
+        "mashuko",
+        "kushiro-shitsugen",
+        "ryuhyo",
+        "konsen-gyunyu",
+        "kitami-tamanegi"
+      ],
+      "boss": {
+        "monsterId": "hokkaido-ryuhyo-tenshi",
+        "level": 21
+      }
+    }
+  ],
+  "regionGates": [
+    {
+      "between": [
+        "sapporo-ishikari",
+        "hakodate-iburi"
+      ],
+      "openedBy": "sapporo-ishikari"
+    },
+    {
+      "between": [
+        "sapporo-ishikari",
+        "asahikawa-soya"
+      ],
+      "openedBy": "hakodate-iburi"
+    },
+    {
+      "between": [
+        "asahikawa-soya",
+        "obihiro-hidaka"
+      ],
+      "openedBy": "asahikawa-soya"
+    },
+    {
+      "between": [
+        "obihiro-hidaka",
+        "kushiro-okhotsk"
+      ],
+      "openedBy": "obihiro-hidaka"
+    }
+  ],
   "encounters": [
     {
       "zone": "field",
@@ -252,6 +353,118 @@
       ],
       "stepsPerCheck": 8,
       "rate": 0.35
+    },
+    {
+      "zone": "field",
+      "region": "sapporo-ishikari",
+      "table": [
+        {
+          "monsterId": "hokkaido-ami-melon",
+          "weight": 55
+        },
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 45
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "hakodate-iburi",
+      "table": [
+        {
+          "monsterId": "hokkaido-hotaten",
+          "weight": 50
+        },
+        {
+          "monsterId": "hokkaido-ami-melon",
+          "weight": 25
+        },
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 25
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "asahikawa-soya",
+      "table": [
+        {
+          "monsterId": "hokkaido-lavendori",
+          "weight": 45
+        },
+        {
+          "monsterId": "hokkaido-hotaten",
+          "weight": 30
+        },
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 15
+        },
+        {
+          "monsterId": "hokkaido-ami-melon",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "obihiro-hidaka",
+      "table": [
+        {
+          "monsterId": "hokkaido-jaga-goron",
+          "weight": 55
+        },
+        {
+          "monsterId": "hokkaido-lavendori",
+          "weight": 20
+        },
+        {
+          "monsterId": "hokkaido-hotaten",
+          "weight": 15
+        },
+        {
+          "monsterId": "hokkaido-ami-melon",
+          "weight": 10
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
+    },
+    {
+      "zone": "field",
+      "region": "kushiro-okhotsk",
+      "table": [
+        {
+          "monsterId": "hokkaido-kurioneru",
+          "weight": 40
+        },
+        {
+          "monsterId": "hokkaido-kitakon",
+          "weight": 30
+        },
+        {
+          "monsterId": "hokkaido-jaga-goron",
+          "weight": 15
+        },
+        {
+          "monsterId": "hokkaido-hotaten",
+          "weight": 10
+        },
+        {
+          "monsterId": "hokkaido-lavendori",
+          "weight": 5
+        }
+      ],
+      "stepsPerCheck": 12,
+      "rate": 0.25
     }
   ],
   "boss": "hokkaido-boss-higuma-daio",

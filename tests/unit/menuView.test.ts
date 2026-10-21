@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { createNewGame } from '../../src/core/state/newGame';
 import { motifStamp } from '../../src/core/progression/route';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
-import { barberRows, buildMenuView, menuTabs } from '../../src/scenes/overworld/menuEntries';
+import { barberRows, buildMenuView, itemStatText, menuTabs } from '../../src/scenes/overworld/menuEntries';
 import { shopItemLines } from '../../src/scenes/overworld/townMenuViews';
 import { levelProgressLine } from '../../src/scenes/overworld/bagItems';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
@@ -33,6 +33,16 @@ describe('フィールドメニューの表示モデル', () => {
     expect(lines).toContain('ぶき');
     expect(lines).toMatch(/こうげき\+\d+/);
     expect(lines).toContain('もっている：0こ');
+  });
+
+  it('武器が持たない能力を undefined として表示しない', async () => {
+    const c = await content();
+    const weapon = c.items.get('common-renshu-no-bou')!;
+    const text = itemStatText(weapon);
+
+    expect(text).toContain('理系[りけい]こうげき+1');
+    expect(text).toContain('文系[ぶんけい]攻撃[こうげき]+1');
+    expect(text).not.toContain('undefined');
   });
 
   it('バッグをフィールドメニューの入口として表示する', () => {
