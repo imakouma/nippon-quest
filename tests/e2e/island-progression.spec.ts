@@ -34,6 +34,10 @@ async function seedTohokuBossReady(page: Page): Promise<void> {
         state.progress.areaSigns = signs;
         state.progress.islandsCleared = [];
         state.progress.counters['story.prologue'] = 1;
+        state.progress.counters['story.hero-identity'] = 1;
+        delete state.progress.counters['tutorial.battle-basics.pending'];
+        if (!state.progress.eventsDone.includes('tutorial.battle-basics'))
+          state.progress.eventsDone.push('tutorial.battle-basics');
         state.updatedAt = Date.now();
         store.put(state, 'save:3');
       };
