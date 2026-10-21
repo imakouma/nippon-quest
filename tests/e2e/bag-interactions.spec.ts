@@ -21,6 +21,11 @@ async function seedLevelCapUnlock(page: Page): Promise<void> {
         state.inventory['learning-fragment'] = 3;
         state.inventory['trial-core'] = 1;
         state.dex.monsters = ['iwate-kagurabi'];
+        state.progress.counters['story.prologue'] = 1;
+        state.progress.counters['story.hero-identity'] = 1;
+        delete state.progress.counters['tutorial.battle-basics.pending'];
+        if (!state.progress.eventsDone.includes('tutorial.battle-basics'))
+          state.progress.eventsDone.push('tutorial.battle-basics');
         state.updatedAt = Date.now();
         store.put(state, 'save:1');
       };
@@ -149,6 +154,7 @@ test.describe('レベル上限のタッチ操作', () => {
     const menu = page.getByRole('dialog', { name: 'メニュー' });
     await menu.getByRole('button', { name: /もちもの・へんせい/ }).click();
     const bag = page.getByRole('dialog', { name: /もちもの・へんせい/ });
+    await bag.getByRole('button', { name: 'テスト' }).click();
     await expect(bag.locator('.nq-party-info')).toContainText('Lv10 / じょうげん 10');
     await expect(bag.locator('.nq-party-info')).toContainText('さいご 200');
     await expect(bag.locator('.nq-party-info')).toContainText('3/3');
