@@ -435,6 +435,7 @@ export class OverworldScene extends Phaser.Scene {
       !this.pendingDebugBattle &&
       this.mapKey === 'aomori-field' &&
       !this.gs()?.progress.counters['story.prologue'];
+    this.game.canvas.dataset.inputReady = this.awaitingPrologue ? 'false' : 'true';
     if (this.awaitingPrologue) this.busy = true;
     this.setupInput();
     this.time.delayedCall(400, () => (this.canWarp = true));
@@ -614,7 +615,6 @@ export class OverworldScene extends Phaser.Scene {
     }
     return null;
   }
-
   override update(time: number): void {
     if (!this.player?.active) return;
     this.player.setDepth(this.player.y);
