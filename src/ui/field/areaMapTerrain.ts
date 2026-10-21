@@ -1,3 +1,4 @@
+import { ROAD_TILE } from '../../core/world/ground';
 import { NQ } from '../../rendering/palette';
 import { LOCKED_REGION_TILE } from '../../shared/regionVisibility';
 
@@ -24,7 +25,7 @@ const TILE_COLOR: Record<number, string> = {
   158: NQ.green,
   161: NQ.slate,
   162: NQ.slate,
-  163: NQ.slate,
+  [ROAD_TILE]: NQ.sand,
   164: NQ.slate,
   165: NQ.slate,
   166: NQ.gray,
