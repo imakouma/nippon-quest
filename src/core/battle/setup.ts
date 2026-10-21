@@ -27,6 +27,7 @@ export function partyFromGameState(
       skills: p.skills,
       equipment: activeEquipment(gs),
       bonusWis: p.bonusWis,
+      post100GrowthRate: c.settings.levelCaps.heroPost100GrowthRate,
     },
     c.items,
     c.sets,
@@ -139,5 +140,9 @@ export function pickFromTable(table: EncounterTable, rng: Rng, unlocks?: Encount
  * レベル帯を content に持たせるかは Step 10 のバランス調整で決める。
  */
 export function encounterLevel(heroLevel: number, rng: Rng): number {
-  return Math.max(1, heroLevel + rng.int(-1, 1));
+  return Math.min(100, Math.max(1, enemyScalingLevel(heroLevel) + rng.int(-1, 1)));
+}
+
+export function enemyScalingLevel(heroLevel: number, minimum = 1): number {
+  return Math.min(100, Math.max(minimum, heroLevel));
 }

@@ -108,7 +108,8 @@ export function computeDamage(input: DamageInput): DamageOutput {
   const wisdomAttack = skill ? Math.floor(attacker.stats.wis / 5) : 0;
   const atk = Math.max(1, Math.floor((pair.attack + wisdomAttack) * (attacker.buffs.atk?.mult ?? 1)));
   const def = Math.max(1, Math.floor(pair.defense * (defender.buffs.def?.mult ?? 1)));
-  const base = pokemonLikeBaseDamage(attacker.level, skill?.power ?? 100, atk, def);
+  const damageLevel = attacker.isHero ? Math.min(attacker.level, 100) : attacker.level;
+  const base = pokemonLikeBaseDamage(damageLevel, skill?.power ?? 100, atk, def);
 
   const element: Element = skill ? skill.element : attacker.element;
   const band = score === null ? null : scoreBand(score);

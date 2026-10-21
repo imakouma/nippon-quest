@@ -945,10 +945,36 @@
   justify-content: center;
 }
 .nq-japan-view canvas {
+  position: absolute;
+  inset: 0;
   width: 400px;
   height: 400px;
   image-rendering: pixelated;
+}
+.nq-japan-view {
+  position: relative;
+  overflow: hidden;
+}
+.nq-japan-map {
   cursor: pointer;
+}
+.nq-japan-highlight {
+  pointer-events: none;
+  animation: nq-japan-highlight-pulse 1.2s steps(3, end) infinite;
+}
+@keyframes nq-japan-highlight-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.62;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nq-japan-highlight {
+    animation: none;
+  }
 }
 .nq-japan-info > p {
   margin: 0;

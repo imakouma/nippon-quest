@@ -56,6 +56,12 @@ describe('地図表示モデル', () => {
           id: 'tohoku',
           width: 2,
           height: 1,
+          panels: [
+            {
+              bbox: [140, 40, 142, 41],
+              proj: { lon0: 140, lat0: 41, kx: 1, ky: 1, ox: 0, oy: 0 },
+            },
+          ],
           rows: ['ab'],
           areas: [
             { id: 'aomori', capital: [0, 0], stamps: [] },

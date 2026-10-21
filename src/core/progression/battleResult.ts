@@ -8,6 +8,7 @@
  */
 import type { Settings } from '../content/schemas';
 import type { GameState } from '../state/schema';
+import { provisionalLevelCap } from './levelCap';
 import { addProgressValue } from '../../shared/safeInteger';
 
 export interface BattleSummary {
@@ -85,7 +86,13 @@ export function applyBattleResult(
     while (gs.party.owned.some((o) => o.uid === `${r.enemyRefId}#${n}`)) n++;
     newMonsterUid = `${r.enemyRefId}#${n}`;
     // バッグに 入れるかは マスしだい（progression/bag.ts の stowNewMonster を Battle が よぶ）。ここでは あずけるだけ
-    gs.party.owned.push({ uid: newMonsterUid, monsterId: r.enemyRefId, level: r.enemyLevel, xp: 0 });
+    gs.party.owned.push({
+      uid: newMonsterUid,
+      monsterId: r.enemyRefId,
+      level: r.enemyLevel,
+      levelCap: provisionalLevelCap(r.enemyLevel, 100),
+      xp: 0,
+    });
     bump(gs.progress.counters, `recruit:${r.enemyRefId}`);
   }
 
@@ -98,7 +105,9 @@ export function xpToNextLevel(
   table: readonly number[],
   level: number,
   xp: number,
+  levelCap = table.length,
 ): { need: number; ratio: number } {
+  if (level >= levelCap) return { need: 0, ratio: 1 };
   const cur = table[level - 1] ?? 0;
   const next = table[level];
   if (next === undefined) return { need: 0, ratio: 1 };
@@ -107,9 +116,9 @@ export function xpToNextLevel(
 }
 
 /** けいけんち から きまる レベル（xp.json の 表で、xp が とどいている いちばん 上の レベル） */
-export function levelForXp(table: readonly number[], xp: number): number {
+export function levelForXp(table: readonly number[], xp: number, levelCap = table.length): number {
   let lv = 1;
-  while (table[lv] !== undefined && xp >= table[lv]!) lv++;
+  while (lv < levelCap && table[lv] !== undefined && xp >= table[lv]!) lv++;
   return lv;
 }
 
@@ -118,7 +127,10 @@ export function levelForXp(table: readonly number[], xp: number): number {
  * 保存済みレベルと経験値から求めたレベルの大きい方を返す。
  */
 export function heroLevel(gs: GameState, table: readonly number[]): number {
-  return Math.max(gs.player.level, levelForXp(table, gs.player.xp));
+  return Math.min(
+    gs.player.levelCap,
+    Math.max(gs.player.level, levelForXp(table, gs.player.xp, gs.player.levelCap)),
+  );
 }
 
 /** XPから到達したレベルを保存値へ反映する。戦闘外報酬など全更新経路で共用する。 */

@@ -262,3 +262,10 @@
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+.nq-bag-grow {
+  min-height: 48px;
+}
+.nq-bag-grow-ready {
+  border-color: var(--nq-yellow);
+  box-shadow: 0 0 0 2px rgba(255, 211, 61, 0.28);
+}

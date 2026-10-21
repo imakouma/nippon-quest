@@ -47,9 +47,9 @@ export function victoryResultView(
 ): ResultView {
   const table = content.xp.hero;
   const { xp } = game.player;
-  const from = xpToNextLevel(table, heroLevel(game, table), xp);
-  const toLevel = Math.max(game.player.level, levelForXp(table, xp + summary.xp));
-  const to = xpToNextLevel(table, toLevel, xp + summary.xp);
+  const from = xpToNextLevel(table, heroLevel(game, table), xp, game.player.levelCap);
+  const toLevel = Math.max(game.player.level, levelForXp(table, xp + summary.xp, game.player.levelCap));
+  const to = xpToNextLevel(table, toLevel, xp + summary.xp, game.player.levelCap);
   const counts = new Map<string, number>();
   const showRecruitOffer = Boolean(victory?.recruitOffer && (hasStoryCompanion(game) || forceRecruitOffer));
   for (const id of summary.drops) counts.set(id, (counts.get(id) ?? 0) + 1);

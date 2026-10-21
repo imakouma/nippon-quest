@@ -18,13 +18,15 @@ import {
 import { AutosaveCoordinator } from './core/state/autosave';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
-import { bundledFetchReader } from './core/content/loader';
+import { bundledFetchReader, type ContentIndex } from './core/content/loader';
 import { QuestionBank } from './questions/engine/bank';
 import { isLocalDevelopmentUrl } from './core/localDevelopment';
 import { setDictionary, t } from './ui/i18n';
 import { recordPlayDuration } from './core/state/playTime';
+import { normalizeLevelCaps } from './core/state/levelCaps';
 import { BOOTSTRAP_JA } from './ui/bootstrapI18n';
 import { enableMobileFullscreen, registerAppServiceWorker } from './ui/mobileAppShell';
+import { showLearningRewardNotice, type LearningRewardNotice } from './ui/learningRewardNotice';
 
 // 通常辞書を読み込めない起動失敗でも、再試行画面だけは日本語で表示する。
 setDictionary(BOOTSTRAP_JA);
@@ -258,7 +260,8 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
     async () => {
       await Promise.all([ensureGameplayScenes(game), ensureQuestionBank(selectedOptions.grade)]);
       activeSlot = slot;
-      const next = createNewGame(selectedOptions);
+      const content = game.registry.get('content') as ContentIndex;
+      const next = createNewGame(selectedOptions, Date.now(), content.settings.levelCaps.heroInitial);
       setSfxVolume(next.settings.seVolume);
       game.registry.set('game', next);
       try {
@@ -286,15 +289,20 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
   runTitleAction(
     'セーブと もんだいを よみこんでいるよ…',
     async () => {
-      const saved = await load(slot);
-      if (!saved) {
+      const loaded = await load(slot);
+      if (!loaded) {
         hideLoading();
         return;
       }
-      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank(saved.learning.grade)]);
+      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank(loaded.learning.grade)]);
+      const content = game.registry.get('content') as ContentIndex;
+      const saved = normalizeLevelCaps(loaded, content.monsters, content.settings.levelCaps.heroInitial);
       activeSlot = slot;
       setSfxVolume(saved.settings.seVolume);
       game.registry.set('game', saved);
+      void autosave
+        .request(activeSlot, saved)
+        .catch((error) => reportSaveFailure('移行後のセーブ', error, activeSlot, saved));
       hideLoading();
       game.scene.stop('Title');
       game.scene.start('Overworld', {
@@ -327,6 +335,9 @@ window.addEventListener('nq:learning-changed', (event) => {
   void autosave
     .request(activeSlot, state)
     .catch((error) => reportSaveFailure('学習履歴の保存', error, activeSlot, state));
+});
+window.addEventListener('nq:learning-reward', (event) => {
+  showLearningRewardNotice(uiLayer, (event as CustomEvent<LearningRewardNotice>).detail);
 });
 
 // 実際に表示していた時間を日別に記録する。非表示中の時間は数えない。

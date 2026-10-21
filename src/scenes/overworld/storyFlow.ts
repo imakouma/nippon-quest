@@ -398,7 +398,14 @@ export async function runCompanionRite(options: CompanionRiteOptions): Promise<v
     await talk([{ speaker: t('field.musubiKeeper'), text: t('field.musubiLater') }]);
     return;
   }
-  save(chooseStoryCompanion(options.getGame(), monsterId));
+  save(
+    chooseStoryCompanion(
+      options.getGame(),
+      monsterId,
+      Date.now(),
+      content.monsters.get(monsterId)?.initialLevelCap ?? 10,
+    ),
+  );
   const name = content.monsters.get(monsterId)?.name ?? monsterId;
   playSfx('recruit');
   await talk(companionJoinedLines(monsterId, name));

@@ -14,6 +14,8 @@ export interface HeroSpec {
   equipment: Partial<Record<'weapon' | 'head' | 'chest' | 'legs' | 'feet', string>>;
   /** 学習で伸びた かしこさ の上乗せ（GDD §4.2） */
   bonusWis?: number;
+  /** Lv101以降の成長倍率。主人公のやり込み帯だけに使う。 */
+  post100GrowthRate?: number;
 }
 
 type LegacyGrowth = { hp: number; mp: number; atk: number; def: number; spd: number; wis: number };
@@ -54,6 +56,7 @@ export function statsAtLevel(
   base: Stats | LegacyStats,
   growthInput: HeroSpec['growth'],
   level: number,
+  post100GrowthRate = 1,
 ): Stats {
   const growth = normalizedGrowth(growthInput);
   const legacy = base as Stats & Partial<LegacyStats>;
@@ -73,11 +76,24 @@ export function statsAtLevel(
   const n = Math.max(0, level - 1);
   const minor = Math.floor(level / 5);
   const major = Math.floor(level / 10);
+  const normalLevels = Math.min(n, 99);
+  const post100Levels = Math.max(0, n - normalLevels);
+  const normalMinor = Math.min(minor, 20);
+  const post100Minor = Math.max(0, minor - normalMinor);
+  const normalMajor = Math.min(major, 10);
+  const post100Major = Math.max(0, major - normalMajor);
   return Object.fromEntries(
     STAT_KEYS.map((key) => [
       key,
       Math.floor(
-        normalizedBase[key] + growth.base[key] * n + growth.every5[key] * minor + growth.every10[key] * major,
+        normalizedBase[key] +
+          growth.base[key] * normalLevels +
+          growth.every5[key] * normalMinor +
+          growth.every10[key] * normalMajor +
+          post100GrowthRate *
+            (growth.base[key] * post100Levels +
+              growth.every5[key] * post100Minor +
+              growth.every10[key] * post100Major),
       ),
     ]),
   ) as Stats;
@@ -138,7 +154,7 @@ export function applyEquipment(
 }
 
 export function makeHero(spec: HeroSpec, items: Map<string, Item>, sets: Map<string, EquipSet>): Combatant {
-  const leveled = statsAtLevel(spec.baseStats, spec.growth, spec.level);
+  const leveled = statsAtLevel(spec.baseStats, spec.growth, spec.level, spec.post100GrowthRate);
   leveled.wis += spec.bonusWis ?? 0;
   const eq = applyEquipment(leveled, spec.equipment, items, sets);
   const stats = integerStats(eq.stats);

@@ -27,6 +27,7 @@ export function chooseStoryCompanion(
   prev: GameState,
   monsterId: StoryCompanionId,
   now = Date.now(),
+  initialLevelCap = 10,
 ): GameState {
   if (hasStoryCompanion(prev)) return prev;
 
@@ -35,7 +36,7 @@ export function chooseStoryCompanion(
   let uid = baseUid;
   let suffix = 2;
   while (next.party.owned.some((monster) => monster.uid === uid)) uid = `${baseUid}#${suffix++}`;
-  next.party.owned.push({ uid, monsterId, level: 1, xp: 0 });
+  next.party.owned.push({ uid, monsterId, level: 1, levelCap: initialLevelCap, xp: 0 });
   next.party.activeUid = uid;
   const occupied = new Set(
     Object.values(next.party.bagPlacements).map((position) => `${position.x},${position.y}`),

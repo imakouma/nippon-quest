@@ -604,6 +604,16 @@ describe('content loader', () => {
     }
   });
 
+  it('全モンスターが明示的な初期レベル上限を持つ', async () => {
+    const c = await loadContent(read);
+    for (const monster of c.monsters.values()) {
+      const cap = monster.initialLevelCap;
+      expect(cap, monster.id).toBeGreaterThanOrEqual(10);
+      expect(cap, monster.id).toBeLessThanOrEqual(60);
+      expect(cap % 10, monster.id).toBe(0);
+    }
+  });
+
   it('イベント報酬は score 0 でも必ずある（GDD §7）', async () => {
     const c = await loadContent(read);
     for (const a of c.areas.values())

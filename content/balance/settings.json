@@ -33,6 +33,16 @@
       "wis": 1
     }
   },
+  "levelCaps": {
+    "heroInitial": 10,
+    "heroMaximum": 200,
+    "monsterMaximum": 100,
+    "standardStep": 10,
+    "heroPost100Step": 5,
+    "learningFragmentsPerUnlock": 3,
+    "trialCoresPerUnlock": 1,
+    "heroPost100GrowthRate": 0.25
+  },
   "scoreMultipliers": { "perfect": 2.0, "good": 1.2, "weak": 0.8, "miss": 0.55 },
   "weaknessMultiplier": 1.5,
   "equipmentElementResistance": 0.8,

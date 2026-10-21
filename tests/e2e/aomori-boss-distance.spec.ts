@@ -42,6 +42,9 @@ async function markIntroductionDone(page: Page): Promise<void> {
         state.player.name = 'ハル';
         state.progress.counters['story.prologue'] = 1;
         state.progress.counters['story.hero-identity'] = 1;
+        delete state.progress.counters['tutorial.battle-basics.pending'];
+        if (!state.progress.eventsDone.includes('tutorial.battle-basics'))
+          state.progress.eventsDone.push('tutorial.battle-basics');
         state.updatedAt = Date.now();
         store.put(state, 'save:1');
       };

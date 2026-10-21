@@ -13,7 +13,7 @@ import {
 } from '../content/schemas';
 import { attemptEventSchema, conceptStateSchema } from '../learning/state';
 
-export const SCHEMA_VERSION = 10;
+export const SCHEMA_VERSION = 11;
 
 export const equipmentSchema = z
   .object({ weapon: idSchema, head: idSchema, chest: idSchema, legs: idSchema, feet: idSchema })
@@ -24,6 +24,7 @@ export const ownedMonsterSchema = z.object({
   monsterId: idSchema,
   nickname: z.string().max(8).optional(),
   level: safePositiveIntegerSchema,
+  levelCap: safePositiveIntegerSchema,
   xp: safeNonnegativeIntegerSchema,
 });
 
@@ -54,6 +55,7 @@ export const gameStateSchema = z.object({
       eyes: z.number().int().min(0).max(2).default(0),
     }),
     level: safePositiveIntegerSchema,
+    levelCap: safePositiveIntegerSchema,
     xp: safeNonnegativeIntegerSchema,
     gold: safeNonnegativeIntegerSchema,
     baseStats: statsSchema,
@@ -107,6 +109,8 @@ export const gameStateSchema = z.object({
     challengeHigher: z.boolean().default(false),
     kanjiLevel: gradeSchema.describe('漢字表示レベル'),
     mastery: z.record(z.string(), masteryRecordSchema),
+    masteredRewardUnits: z.array(idSchema),
+    correctedRewardQuestionIds: z.array(idSchema),
     recent: z.array(z.string()),
     mistakes: z.array(z.string()),
     playSecondsByDate: z.record(z.string(), safeNonnegativeIntegerSchema),

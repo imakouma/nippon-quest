@@ -4,6 +4,22 @@ test('ローカル確認URLで古いセーブを消し、3枠とも新規作成�
   test.setTimeout(90_000);
   await page.goto('/');
   await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 30_000 });
+  await expect
+    .poll(
+      () =>
+        page.evaluate(async () => {
+          const database = await new Promise<IDBDatabase>((resolve, reject) => {
+            const request = indexedDB.open('nihonquest');
+            request.onerror = () => reject(request.error);
+            request.onsuccess = () => resolve(request.result);
+          });
+          const ready = database.objectStoreNames.contains('saves');
+          database.close();
+          return ready;
+        }),
+      { timeout: 30_000 },
+    )
+    .toBe(true);
 
   // 本当に既存データがあっても消えることを確認するため、壊れた旧データを3枠へ置く。
   await page.evaluate(async () => {

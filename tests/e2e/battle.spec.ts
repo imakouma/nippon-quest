@@ -34,7 +34,9 @@ async function answerCurrentQuestion(page: Page): Promise<void> {
   }
   if (await page.locator('.nq-q-input input').first().isVisible()) {
     const inputs = page.locator('.nq-q-input input');
-    await expect(inputs.first()).toHaveAttribute('aria-describedby', /nq-question-(prompt|template)/);
+    const describedBy = await inputs.first().getAttribute('aria-describedby');
+    expect(describedBy).toMatch(/^nq-question-(?:prompt|template)$/);
+    await expect(page.locator(`#${describedBy}`)).toBeVisible();
     for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
     await page.getByRole('button', { name: 'こたえる' }).click();
     return;

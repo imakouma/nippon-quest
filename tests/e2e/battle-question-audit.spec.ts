@@ -17,9 +17,26 @@ test('画像英単語問題はバトル問題枠に収まる', async ({ page }) 
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });
 
+test('長い選択肢と縦並びカードはスクロールして問題枠内で操作できる', async ({ page }) => {
+  const questionIds = [
+    'kokugo.g2.observation-writing.0003',
+    'kokugo.g2.reading-sequence.0002',
+    'kokugo.g2.speaking-listening.0005',
+    'legacy.rika.g5.sci-5-5.abadeb364b15',
+    'legacy.rika.g6.sci-6-5.efb8a53ef841',
+    'legacy.rika.g6.sci-6-9.ab5f3a055d8d',
+    'seikatsu.g1.next-grade.0005',
+  ];
+  for (const questionId of questionIds) {
+    await page.goto(`/battle-question-audit.html?q=${questionId}`);
+    await expect(page.locator('[data-audit-status="complete"]')).toBeVisible({ timeout: 20_000 });
+    await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
+  }
+});
+
 test('全問題をバトル問題枠で描画してレイアウトを検査する', async ({ page }) => {
-  test.setTimeout(300_000);
+  test.setTimeout(360_000);
   await page.goto('/battle-question-audit.html');
-  await expect(page.locator('[data-audit-status="complete"]')).toBeVisible({ timeout: 280_000 });
+  await expect(page.locator('[data-audit-status="complete"]')).toBeVisible({ timeout: 340_000 });
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });

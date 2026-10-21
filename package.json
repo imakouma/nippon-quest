@@ -42,6 +42,8 @@
     "test:e2e:progression": "playwright test tests/e2e/island-progression.spec.ts tests/e2e/regional-progression.spec.ts",
     "test:e2e:audit": "playwright test tests/e2e/battle-question-audit.spec.ts --grep '全問題をバトル問題枠'",
     "gen:schemas": "tsx scripts/gen-schemas.ts",
+    "gen:monster-level-caps": "tsx scripts/set-monster-level-caps.ts",
+    "gen:xp": "tsx scripts/gen-xp-table.ts",
     "gen:manifest": "tsx scripts/gen-manifest.ts && tsx scripts/gen-asset-catalog.ts",
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:curriculum-graph": "tsx scripts/validate-curriculum-graph.ts",

@@ -32,6 +32,7 @@ export function buildWorldMapRegions(
         name: island.name,
         width: region.width,
         height: region.height,
+        panels: region.panels,
         rows: region.rows,
         status: island.status,
         islandBoss: {

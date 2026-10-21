@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useMemo, useRef } from 'preact/hooks';
 import { NQ } from '../../rendering/palette';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
@@ -6,26 +6,16 @@ import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
+import {
+  buildNationalMapHighlight,
+  buildNationalMapRaster,
+  NATIONAL_MAP_SIZE,
+  type NationalMapRaster,
+} from './nationalMapGeometry';
 import type { MapRegionInfo } from './worldMapModel';
 
-const SIZE = 200;
-const areaAt = (region: MapRegionInfo, x: number, y: number): number => {
-  const cell = region.rows[y]?.[x];
-  return cell && cell !== '.' ? cell.charCodeAt(0) - 97 : -1;
-};
-
-export const JAPAN_REGION_LAYOUT: Readonly<Record<string, { x: number; y: number; w: number; h: number }>> = {
-  hokkaido: { x: 145, y: 2, w: 50, h: 44 },
-  tohoku: { x: 142, y: 43, w: 32, h: 63 },
-  kanto: { x: 142, y: 101, w: 52, h: 53 },
-  koshinetsu: { x: 111, y: 88, w: 38, h: 47 },
-  hokuriku: { x: 82, y: 91, w: 50, h: 44 },
-  tokai: { x: 108, y: 129, w: 52, h: 49 },
-  kinki: { x: 75, y: 127, w: 44, h: 52 },
-  chugoku: { x: 29, y: 130, w: 58, h: 36 },
-  shikoku: { x: 51, y: 164, w: 54, h: 31 },
-  'kyushu-okinawa': { x: 3, y: 149, w: 40, h: 48 },
-};
+const DOT = 2;
+const RENDER_SIZE = NATIONAL_MAP_SIZE * DOT;
 
 export const JAPAN_GENERAL_REGIONS = [
   { id: 'hokkaido', nameKey: 'field.mapRegionHokkaido', sourceIds: ['hokkaido'] },
@@ -46,66 +36,79 @@ export const JAPAN_GENERAL_REGIONS = [
   },
 ] as const;
 
-export function nationalRegionAt(x: number, y: number): number {
+export function nationalRegionAt(raster: NationalMapRaster, x: number, y: number): number {
+  const px = Math.floor(x);
+  const py = Math.floor(y);
+  if (px < 0 || py < 0 || px >= raster.width || py >= raster.height) return -1;
+  const sourceIndex = raster.regionAt[py * raster.width + px] ?? -1;
+  const sourceId = raster.sourceIds[sourceIndex];
   return JAPAN_GENERAL_REGIONS.findIndex((generalRegion) =>
-    generalRegion.sourceIds.some((sourceId) => {
-      const box = JAPAN_REGION_LAYOUT[sourceId];
-      return box && x >= box.x && y >= box.y && x < box.x + box.w && y < box.y + box.h;
-    }),
+    generalRegion.sourceIds.some((candidate) => candidate === sourceId),
   );
 }
 
-function regionImage(region: MapRegionInfo, hereAreaId: string | undefined): HTMLCanvasElement {
-  const canvas = document.createElement('canvas');
-  canvas.width = region.width;
-  canvas.height = region.height;
-  const ctx = canvas.getContext('2d')!;
-  for (let y = 0; y < region.height; y++)
-    for (let x = 0; x < region.width; x++) {
-      const areaIndex = areaAt(region, x, y);
-      if (areaIndex < 0) continue;
-      const area = region.areas[areaIndex];
-      ctx.fillStyle = area?.id === hereAreaId ? NQ.cream : area?.visited ? NQ.leaf : NQ.slate;
-      ctx.fillRect(x, y, 1, 1);
-      ctx.fillStyle = NQ.ink;
-      if (
-        areaAt(region, x - 1, y) !== areaIndex ||
-        areaAt(region, x + 1, y) !== areaIndex ||
-        areaAt(region, x, y - 1) !== areaIndex ||
-        areaAt(region, x, y + 1) !== areaIndex
-      )
-        ctx.fillRect(x, y, 1, 1);
-    }
-  return canvas;
-}
-
-function drawJapan(
+function drawJapanBase(
   canvas: HTMLCanvasElement,
+  raster: NationalMapRaster,
   regions: readonly MapRegionInfo[],
-  selectedGroup: number,
   hereAreaId: string | undefined,
 ): void {
-  canvas.width = SIZE;
-  canvas.height = SIZE;
+  canvas.width = RENDER_SIZE;
+  canvas.height = RENDER_SIZE;
   const ctx = canvas.getContext('2d')!;
   ctx.imageSmoothingEnabled = false;
-  ctx.clearRect(0, 0, SIZE, SIZE);
-  regions.forEach((region) => {
-    const box = JAPAN_REGION_LAYOUT[region.id];
-    if (!box) return;
-    ctx.drawImage(regionImage(region, hereAreaId), box.x, box.y, box.w, box.h);
-  });
-  const boxes = JAPAN_GENERAL_REGIONS[selectedGroup]?.sourceIds
-    .map((id) => JAPAN_REGION_LAYOUT[id])
-    .filter((box): box is { x: number; y: number; w: number; h: number } => Boolean(box));
-  if (!boxes?.length) return;
-  const x = Math.min(...boxes.map((box) => box.x));
-  const y = Math.min(...boxes.map((box) => box.y));
-  const right = Math.max(...boxes.map((box) => box.x + box.w));
-  const bottom = Math.max(...boxes.map((box) => box.y + box.h));
-  ctx.strokeStyle = NQ.yellow;
-  ctx.lineWidth = 2;
-  ctx.strokeRect(x - 1, y - 1, right - x + 2, bottom - y + 2);
+  ctx.clearRect(0, 0, RENDER_SIZE, RENDER_SIZE);
+  for (let index = 0; index < raster.regionAt.length; index++) {
+    const regionIndex = raster.regionAt[index]!;
+    if (regionIndex < 0) continue;
+    const areaIndex = raster.areaAt[index]!;
+    const area = regions[regionIndex]?.areas[areaIndex];
+    const x = index % raster.width;
+    const y = Math.floor(index / raster.width);
+    ctx.fillStyle = area?.id === hereAreaId ? NQ.cream : area?.visited ? NQ.leaf : NQ.slate;
+    ctx.fillRect(x * DOT, y * DOT, DOT, DOT);
+  }
+  const keyAt = (x: number, y: number): number => {
+    if (x < 0 || y < 0 || x >= raster.width || y >= raster.height) return -1;
+    const index = y * raster.width + x;
+    const regionIndex = raster.regionAt[index]!;
+    return regionIndex < 0 ? -1 : regionIndex * 64 + raster.areaAt[index]!;
+  };
+  ctx.fillStyle = NQ.ink;
+  for (let index = 0; index < raster.regionAt.length; index++) {
+    if (raster.regionAt[index]! < 0) continue;
+    const x = index % raster.width;
+    const y = Math.floor(index / raster.width);
+    const key = keyAt(x, y);
+    const left = x * DOT;
+    const top = y * DOT;
+    if (keyAt(x - 1, y) !== key) ctx.fillRect(left, top, 1, DOT);
+    if (keyAt(x + 1, y) !== key) ctx.fillRect(left + DOT - 1, top, 1, DOT);
+    if (keyAt(x, y - 1) !== key) ctx.fillRect(left, top, DOT, 1);
+    if (keyAt(x, y + 1) !== key) ctx.fillRect(left, top + DOT - 1, DOT, 1);
+  }
+}
+
+function drawJapanHighlight(
+  canvas: HTMLCanvasElement,
+  raster: NationalMapRaster,
+  selectedSourceIds: readonly string[],
+): void {
+  canvas.width = RENDER_SIZE;
+  canvas.height = RENDER_SIZE;
+  const ctx = canvas.getContext('2d')!;
+  ctx.clearRect(0, 0, RENDER_SIZE, RENDER_SIZE);
+  const highlight = buildNationalMapHighlight(raster, selectedSourceIds);
+  for (let distance = 4; distance >= 1; distance--)
+    for (let index = 0; index < highlight.glowDistance.length; index++) {
+      if (highlight.glowDistance[index] !== distance) continue;
+      const x = index % raster.width;
+      const y = Math.floor(index / raster.width);
+      if (distance === 4 && (x + y) % 3 !== 0) continue;
+      if (distance === 3 && (x + y) % 2 !== 0) continue;
+      ctx.fillStyle = distance === 1 ? NQ.yellow : distance === 2 ? NQ.gold : NQ.ochre;
+      ctx.fillRect(x * DOT, y * DOT, DOT, DOT);
+    }
 }
 
 export interface JapanMapOverviewProps {
@@ -125,7 +128,8 @@ export function JapanMapOverview({
   onOpen,
   onClose,
 }: JapanMapOverviewProps) {
-  const canvas = useRef<HTMLCanvasElement>(null);
+  const mapCanvas = useRef<HTMLCanvasElement>(null);
+  const highlightCanvas = useRef<HTMLCanvasElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   useModalFocus(dialogRef, '.nq-japan-region-list .nq-focus');
   const generalRegion = JAPAN_GENERAL_REGIONS[selectedGroup];
@@ -134,10 +138,15 @@ export function JapanMapOverview({
     .filter((region): region is MapRegionInfo => Boolean(region));
   const visited = sourceRegions?.flatMap((region) => region.areas).filter((area) => area.visited).length ?? 0;
   const total = sourceRegions?.reduce((sum, region) => sum + region.areas.length, 0) ?? 0;
+  const raster = useMemo(() => buildNationalMapRaster(regions), [regions]);
 
   useEffect(() => {
-    if (canvas.current) drawJapan(canvas.current, regions, selectedGroup, hereAreaId);
-  }, [regions, selectedGroup, hereAreaId]);
+    if (mapCanvas.current) drawJapanBase(mapCanvas.current, raster, regions, hereAreaId);
+  }, [raster, regions, hereAreaId]);
+  useEffect(() => {
+    const selectedSourceIds = JAPAN_GENERAL_REGIONS[selectedGroup]?.sourceIds ?? [];
+    if (highlightCanvas.current) drawJapanHighlight(highlightCanvas.current, raster, selectedSourceIds);
+  }, [raster, selectedGroup]);
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       dialogRef.current?.querySelector<HTMLElement>('.nq-japan-region-list .nq-focus')?.focus();
@@ -189,8 +198,9 @@ export function JapanMapOverview({
     const element = event.currentTarget as HTMLCanvasElement;
     const box = element.getBoundingClientRect();
     const index = nationalRegionAt(
-      ((event.clientX - box.left) / box.width) * SIZE,
-      ((event.clientY - box.top) / box.height) * SIZE,
+      raster,
+      ((event.clientX - box.left) / box.width) * NATIONAL_MAP_SIZE,
+      ((event.clientY - box.top) / box.height) * NATIONAL_MAP_SIZE,
     );
     if (index < 0) return;
     if (index === selectedGroup) openDefault();
@@ -212,7 +222,8 @@ export function JapanMapOverview({
             <RubyLabel text={t('field.mapNationTitle')} class="nq-wmap-rname" />
           </div>
           <div class="nq-wmap-view nq-japan-view">
-            <canvas ref={canvas} onClick={onMapClick} aria-hidden="true" />
+            <canvas ref={mapCanvas} class="nq-japan-map" onClick={onMapClick} aria-hidden="true" />
+            <canvas ref={highlightCanvas} class="nq-japan-highlight" aria-hidden="true" />
           </div>
         </div>
         <div class="nq-wmap-right">

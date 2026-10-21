@@ -8,12 +8,14 @@ import { makeMonster } from '../core/battle/factory';
 import {
   encounterLevel,
   encounterTable,
+  enemyScalingLevel,
   partyFromGameState,
   pickFromTable,
   zoneForMap,
 } from '../core/battle/setup';
 import { groundOfTile, isRoadTile, type Ground } from '../core/world/ground';
-import { evolutionOf, evolve, skillChanges } from '../core/progression/evolution';
+import { evolutionOf } from '../core/progression/evolution';
+import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
   activeEquipment,
   adjacencyBonus,
@@ -54,10 +56,11 @@ import {
 } from '../core/progression/town';
 import { recordMusubiDamaPurchase } from '../core/progression/musubiDamaOnboarding';
 import {
-  applyReward,
-  earnAreaSign,
   markDone,
+  applyReward,
   pickReward,
+  rewardAreaBoss,
+  rewardMarkedBoss,
   type RewardLine,
 } from '../core/progression/eventReward';
 import {
@@ -71,7 +74,7 @@ import {
   nextStop,
   type NextStop,
 } from '../core/progression/route';
-import { canChallengeIslandBoss, completeIsland } from '../core/progression/island';
+import { canChallengeIslandBoss, rewardIslandBoss } from '../core/progression/island';
 import { specialtyTreasureGain } from '../core/progression/specialty';
 import { applyArenaVictory, markMapVisited } from '../core/progression/arena';
 import { createRng, freshSeed, type Rng } from '../core/rng';
@@ -136,7 +139,7 @@ import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
 import { presentTownMenu, type TownMenuAction, type TownMenuViewFactory } from './overworld/townMenuFlow';
 import { openBarberFlow } from './overworld/barberFlow';
 import { commitInnStay } from './overworld/innFlow';
-import { equippedBagThings, levelProgressLine, storedBagThings } from './overworld/bagItems';
+import * as bagItems from './overworld/bagItems';
 import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { isTransitionLocked, syncTransitionLocks, transitionLock } from './overworld/transitionLock';
 import { mapMusicTrack } from './overworld/music';
@@ -432,6 +435,7 @@ export class OverworldScene extends Phaser.Scene {
       !this.pendingDebugBattle &&
       this.mapKey === 'aomori-field' &&
       !this.gs()?.progress.counters['story.prologue'];
+    this.game.canvas.dataset.inputReady = this.awaitingPrologue ? 'false' : 'true';
     if (this.awaitingPrologue) this.busy = true;
     this.setupInput();
     this.time.delayedCall(400, () => (this.canWarp = true));
@@ -611,7 +615,6 @@ export class OverworldScene extends Phaser.Scene {
     }
     return null;
   }
-
   override update(time: number): void {
     if (!this.player?.active) return;
     this.player.setDepth(this.player.y);
@@ -1197,7 +1200,7 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     if (!area || !gs) return;
     this.busy = true;
-    this.setGame(markDone(gs, { eventId: regionBossFlag(area.id, rb.regionId) }));
+    this.setGame(rewardMarkedBoss(gs, regionBossFlag(area.id, rb.regionId), 1).state);
     this.regionBosses.delete(rb.boss.tile);
     this.dismissBoss(rb.boss);
     const opened = [...this.regionGates.values()].filter((g) => g.openedBy === rb.regionId);
@@ -1208,6 +1211,7 @@ export class OverworldScene extends Phaser.Scene {
     playSfx('victory');
     const lines = [
       { text: t('field.regionBossDown', { region: rb.region.name }) },
+      { text: t('field.trialCoreReward', { n: 1 }) },
       ...regionBossStoryLines(area.id, rb.regionId, rb.boss.def.name),
     ];
     for (const g of opened) {
@@ -1712,7 +1716,7 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     if (!mb || !area || !gs) return;
     this.busy = true;
-    this.setGame(markDone(gs, { flag: midBossFlag(area.id) }));
+    this.setGame(rewardMarkedBoss(gs, midBossFlag(area.id), 1).state);
     this.midBoss = null;
     this.dismissBoss(mb);
     await this.wait(650);
@@ -1721,6 +1725,7 @@ export class OverworldScene extends Phaser.Scene {
     await this.wait(700);
     await this.talk([
       ...midBossStoryLines(area.id, this.gs() ?? gs, this.storyCompanion()),
+      { text: t('field.trialCoreReward', { n: 1 }) },
       { text: t('field.warpAppear', { name: this.warp?.toName ?? '' }) },
     ]);
     this.busy = false;
@@ -1733,7 +1738,7 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     if (!ab || !area || !gs) return;
     this.busy = true;
-    this.setGame(earnAreaSign(gs, area.id));
+    this.setGame(rewardAreaBoss(gs, area.id).state);
     this.areaBoss = null;
     this.dismissBoss(ab);
     await this.wait(650);
@@ -1743,6 +1748,7 @@ export class OverworldScene extends Phaser.Scene {
       ...(epilogue ? [{ speaker: ab.def.name, text: epilogue }] : []),
       ...areaBossStoryLines(area.id, this.gs() ?? gs, this.storyCompanion()),
       { text: t('field.areaSign', { name: area.name }) },
+      { text: t('field.trialCoreReward', { n: 2 }) },
     ]);
     this.busy = false;
   }
@@ -1787,7 +1793,7 @@ export class OverworldScene extends Phaser.Scene {
     const gs = this.gs();
     if (!lb || !area || !gs) return;
     this.busy = true;
-    this.setGame(markDone(gs, { flag: lastBossFlag(area.id) }));
+    this.setGame(rewardMarkedBoss(gs, lastBossFlag(area.id), 3).state);
     this.lastBoss = null;
     this.dismissBoss(lb);
     await this.wait(650);
@@ -1797,6 +1803,7 @@ export class OverworldScene extends Phaser.Scene {
       ...(epilogue ? [{ speaker: lb.def.name, text: epilogue }] : []),
       ...lastBossStoryLines(area.id, gs.player.name),
       { text: t('field.lastBossDown', { name: lb.def.name, stage: area.secret?.name ?? area.name }) },
+      { text: t('field.trialCoreReward', { n: 3 }) },
     ]);
     this.busy = false;
   }
@@ -2766,9 +2773,15 @@ export class OverworldScene extends Phaser.Scene {
     if (!content || !isImportedLocationValid(next.progress, content.areas, ENCLAVES)) {
       throw new Error('Imported save points to an unknown location');
     }
-    this.setGame(next);
-    const { x, y } = next.progress.position;
-    this.switchMap(next.progress.currentMap, 'spawn', [Math.floor(x / TILE), Math.floor(y / TILE)], true);
+    const normalized = normalizeLevelCaps(next, content.monsters, content.settings.levelCaps.heroInitial);
+    this.setGame(normalized);
+    const { x, y } = normalized.progress.position;
+    this.switchMap(
+      normalized.progress.currentMap,
+      'spawn',
+      [Math.floor(x / TILE), Math.floor(y / TILE)],
+      true,
+    );
   }
 
   private heroStats(gs: GameState) {
@@ -2940,28 +2953,23 @@ export class OverworldScene extends Phaser.Scene {
         },
         onEvolve: (key: string) => {
           const cur = this.gs();
-          const uid = key.slice('mon:'.length);
-          const next =
-            cur && evolveRoom(cur, uid, bagContext(cur, c)).ok ? evolve(cur, uid, c.monsters) : null;
-          const o = next?.party.owned.find((x) => x.uid === uid);
-          if (!next || !o) {
+          const result = cur && bagItems.evolveBagThing(cur, key, nameOf(key), c);
+          if (!result) {
             playSfx('miss');
             return;
           }
-          const before = cur && c.monsters.get(cur.party.owned.find((x) => x.uid === uid)?.monsterId ?? '');
-          const after = c.monsters.get(o.monsterId);
-          this.setGame(next);
+          this.setGame(result.state);
           playSfx('recruit');
           this.cameras.main.flash(300, 255, 255, 255);
-          const to = o.nickname ?? after?.name ?? '';
-          const change =
-            before && after ? skillChanges(before, after, c.skills) : { evolved: [], learned: [] };
-          const lines = [
-            t('field.partyEvolved', { from: nameOf(key), to }),
-            ...change.evolved.map(([a, b]) => t('field.partySkillEvolved', { from: a.name, to: b.name })),
-            ...change.learned.map((sk) => t('field.partySkillLearned', { name: sk.name })),
-          ];
-          again(key, lines.join('\n'), key);
+          again(key, result.message, key);
+        },
+        onGrow: (key: string) => {
+          const cur = this.gs();
+          if (!cur) return;
+          const result = bagItems.growBagThing(cur, key, nameOf(key), c);
+          if (result.success) this.setGame(result.state);
+          playSfx(result.success ? 'recruit' : 'miss');
+          again(result.focusKey, result.message);
         },
         onMove: (key: string, x: number, y: number) => {
           const cur = this.gs();
@@ -3000,6 +3008,10 @@ export class OverworldScene extends Phaser.Scene {
         return sk ? [{ name: sk.name, gauge: sk.gauge, scan: sk.effect === 'scan' }] : [];
       });
     const heroC = partyFromGameState(gs, c).hero;
+    const heroGrowth = bagItems.heroLevelCapBagThing(gs, level, c, [
+      ...gs.progress.titles.map((title) => t('field.bagOwnedTitle', { title })),
+      ...adjacencyBonus(gs, ctx, gs.player.baseStats).labels,
+    ]);
     const hero: BagThing = {
       key: 'hero',
       kind: 'hero',
@@ -3012,13 +3024,9 @@ export class OverworldScene extends Phaser.Scene {
       size: { w: 1, h: 1 },
       inBag: true,
       level,
+      ...heroGrowth,
       stats: heroC.stats,
       skills: skills(heroC.skills),
-      lines: [
-        levelProgressLine(c.xp.hero, level, gs.player.xp),
-        ...gs.progress.titles.map((title) => t('field.bagOwnedTitle', { title })),
-        ...adjacencyBonus(gs, ctx, gs.player.baseStats).labels,
-      ],
     };
     const bagUids = bagMonsterUids(gs);
     const roster = new Set([...bagUids, ...gs.party.reserve]);
@@ -3043,10 +3051,10 @@ export class OverworldScene extends Phaser.Scene {
           roster: roster.has(o.uid),
           leader: inBag && bagUids[0] === o.uid,
           level: o.level,
+          ...bagItems.monsterLevelCapBagThing(gs, o, c),
           element: def.element,
           stats: m.stats,
           skills: skills(m.skills),
-          lines: [levelProgressLine(c.xp.monster, o.level, o.xp)],
           blurb: def.dexBlurb,
           evolve: evo
             ? {
@@ -3063,10 +3071,10 @@ export class OverworldScene extends Phaser.Scene {
       ];
     };
     const owned = new Map(gs.party.owned.map((o) => [o.uid, o]));
-    const stored = storedBagThings(gs, c);
+    const stored = bagItems.storedBagThings(gs, c);
     const inBag = [
       ...bagUids.flatMap((u) => monster(owned.get(u)!)),
-      ...equippedBagThings(gs, c),
+      ...bagItems.equippedBagThings(gs, c),
       ...stored.filter((item) => item.kind === 'item' && item.inBag),
     ];
     const outside = [
@@ -3331,23 +3339,24 @@ export class OverworldScene extends Phaser.Scene {
     const content = this.content();
     const gs = this.gs();
     if (!content || !gs) return;
-    const next = completeIsland(gs, content.world, islandId);
-    if (next === gs) return;
+    const reward = rewardIslandBoss(gs, content.world, islandId);
+    if (!reward.awarded) return;
     this.busy = true;
-    this.setGame(next);
+    this.setGame(reward.state);
     await this.wait(650);
     playSfx('victory');
     const island = content.world.islands.find((candidate) => candidate.id === islandId);
     const bossName = content.monsters.get(island?.bossId ?? '')?.name;
     const starter = gs.party.owned.find((monster) => monster.uid === gs.party.activeUid);
     const starterDef = content.monsters.get(starter?.monsterId ?? '');
-    await this.talk(
-      islandEpilogueLines(islandId, {
+    await this.talk([
+      ...islandEpilogueLines(islandId, {
         bossName,
         playerName: gs.player.name,
         companion: starterDef && starter ? { id: starter.monsterId, name: starterDef.name } : undefined,
       }),
-    );
+      { text: t('field.trialCoreReward', { n: reward.awarded }) },
+    ]);
     this.busy = false;
   }
   /** にほんちずの地方と県。地図は public/worldmap.json、名前は content、進みぐあいはセーブから */
@@ -3446,43 +3455,34 @@ export class OverworldScene extends Phaser.Scene {
   private heroLevel(): number {
     const gs = this.gs();
     const xp = this.content()?.xp.hero;
-    return gs && xp ? heroLevel(gs, xp) : (gs?.player.level ?? 1);
+    return enemyScalingLevel(gs && xp ? heroLevel(gs, xp) : (gs?.player.level ?? 1));
   }
-
   private kind(): MapKind {
     return mapKind(this.mapKey);
   }
-
   private areaId(): string {
     return areaIdFromMapKey(this.mapKey);
   }
-
   /** このマップの県（content/prefectures） */
   private currentArea(): Area | undefined {
     return this.content()?.areas.get(this.areaId());
   }
-
   private idx(x: number, y: number): number {
     return y * this.map.width + x;
   }
-
   private inside(x: number, y: number): boolean {
     return x >= 0 && y >= 0 && x < this.map.width && y < this.map.height;
   }
-
   private playerTile(): [number, number] {
     return [Math.floor(this.player.x / TILE), Math.floor(this.player.y / TILE)];
   }
-
   private isBlocked(x: number, y: number): boolean {
     if (this.blocked.has(this.idx(x, y))) return true;
     return this.colLayer?.getTileAt(x, y)?.index === BLOCK_TILE;
   }
-
   private wait(ms: number): Promise<void> {
     return new Promise((resolve) => this.time.delayedCall(ms, () => resolve()));
   }
-
   private tweenP(cfg: Phaser.Types.Tweens.TweenBuilderConfig): Promise<void> {
     return new Promise((resolve) => this.tweens.add({ ...cfg, onComplete: () => resolve() }));
   }

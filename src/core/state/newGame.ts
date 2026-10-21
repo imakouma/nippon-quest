@@ -11,7 +11,7 @@ export interface NewGameOptions {
 
 export const UNNAMED_HERO = '？？？';
 
-export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
+export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLevelCap = 10): GameState {
   return {
     schemaVersion: SCHEMA_VERSION,
     createdAt: now,
@@ -21,6 +21,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       name: o.name,
       appearance: { hair: 0, skin: 0, cloth: 0, hairStyle: 0, eyes: 0, ...o.appearance },
       level: 1,
+      levelCap: heroInitialLevelCap,
       xp: 0,
       gold: 100,
       baseStats: {
@@ -73,6 +74,8 @@ export function createNewGame(o: NewGameOptions, now = Date.now()): GameState {
       challengeHigher: false,
       kanjiLevel: o.grade,
       mastery: {},
+      masteredRewardUnits: [],
+      correctedRewardQuestionIds: [],
       recent: [],
       mistakes: [],
       playSecondsByDate: {},

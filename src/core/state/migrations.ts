@@ -5,6 +5,7 @@
 import { SCHEMA_VERSION, gameStateSchema, type GameState } from './schema';
 import { STARTER_EQUIPMENT_ID } from './starter';
 import { addProgressValue } from '../../shared/safeInteger';
+import { provisionalLevelCap } from '../progression/levelCap';
 
 type Migration = (s: Record<string, unknown>) => Record<string, unknown>;
 
@@ -146,6 +147,34 @@ const migrations: Record<number, Migration> = {
         baseStats,
         hp: Math.max(1, Math.min(hp, Math.round(((player.hp as number) / oldMaxHp) * hp))),
         mp: Math.max(0, Math.min(mp, Math.round(((player.mp as number) / oldMaxMp) * mp))),
+      },
+    };
+  },
+  10: (s) => {
+    const player = (s.player ?? {}) as Record<string, unknown>;
+    const party = (s.party ?? {}) as Record<string, unknown>;
+    const learning = (s.learning ?? {}) as Record<string, unknown>;
+    const owned = Array.isArray(party.owned)
+      ? party.owned.map((value) => {
+          const monster = value as Record<string, unknown>;
+          return {
+            ...monster,
+            levelCap: provisionalLevelCap(Number(monster.level) || 1, 100),
+          };
+        })
+      : [];
+    return {
+      ...s,
+      schemaVersion: 11,
+      player: {
+        ...player,
+        levelCap: provisionalLevelCap(Number(player.level) || 1, 200),
+      },
+      party: { ...party, owned },
+      learning: {
+        ...learning,
+        masteredRewardUnits: [],
+        correctedRewardQuestionIds: [],
       },
     };
   },

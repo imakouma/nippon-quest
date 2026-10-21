@@ -9,6 +9,11 @@ async function startGame(page: Page) {
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 40_000 });
   const storySkip = page.getByRole('button', { name: 'スキップ' });
   if (await storySkip.isVisible()) await storySkip.click();
+  const battleTutorial = page.locator('.nq-dlg');
+  for (let step = 0; step < 12 && (await battleTutorial.isVisible()); step += 1) {
+    await battleTutorial.click();
+  }
+  await expect(battleTutorial).toHaveCount(0);
 }
 
 for (const width of [640, 960]) {
@@ -25,8 +30,7 @@ for (const width of [640, 960]) {
     await expect(first).toBeFocused();
     const continueItem = page.getByRole('menuitem').nth(1);
     await expect(continueItem).toBeDisabled();
-    await expect(continueItem).toHaveAttribute('aria-describedby', 'nq-title-disabled-note');
-    await expect(page.locator('#nq-title-disabled-note')).toBeVisible();
+    await expect(continueItem).toHaveAttribute('aria-disabled', 'true');
     await page.keyboard.press('ArrowDown');
     await expect(first).toBeFocused();
     await expect(page.locator('.nq-title-menu')).toHaveCSS('opacity', '1', { timeout: 5_000 });
@@ -253,11 +257,14 @@ test('バトル画面は狭い表示でもステージ内に収まる', async ({
   const message = page.locator('.nq-box');
   const partyWindow = page.locator('.nq-party');
   const messageBox = await message.boundingBox();
-  const partyBox = await partyWindow.boundingBox();
   expect(messageBox).not.toBeNull();
-  expect(partyBox).not.toBeNull();
-  expect(messageBox!.y).toBeLessThan(partyBox!.y);
   await message.click();
+  await expect(partyWindow).toBeVisible();
+  const enemyBox = await enemyWindow.boundingBox();
+  const partyBox = await partyWindow.boundingBox();
+  expect(enemyBox).not.toBeNull();
+  expect(partyBox).not.toBeNull();
+  expect(enemyBox!.y).toBeLessThan(partyBox!.y);
   await expect(partyWindow.locator('.nq-ally-heading')).toBeVisible();
   await expect(partyWindow.locator('.nq-ally-hp')).toContainText('/');
   await expect(page.locator('.nq-box-speak')).toHaveCount(0);

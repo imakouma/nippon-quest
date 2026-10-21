@@ -326,6 +326,24 @@ body {
   outline: 3px solid var(--nq-yellow);
   outline-offset: 3px;
 }
+.nq-learning-reward {
+  position: absolute;
+  z-index: 950;
+  top: 18px;
+  left: 50%;
+  max-width: 720px;
+  padding: 10px 20px;
+  color: var(--nq-yellow);
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  white-space: pre-line;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+.nq-learning-reward p {
+  margin: 0;
+}
 
 /* ───── 会話ウィンドウ ───── */
 .nq-dlg {

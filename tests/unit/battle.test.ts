@@ -9,7 +9,7 @@ import {
   replay,
   type BattleDeps,
 } from '../../src/core/battle/engine';
-import { makeHero, makeMonster, makeParty } from '../../src/core/battle/factory';
+import { makeHero, makeMonster, makeParty, statsAtLevel } from '../../src/core/battle/factory';
 import {
   comboBonus,
   computeDamage,
@@ -108,6 +108,44 @@ const testSkill = (over: Partial<Skill>): Skill => ({
 });
 
 describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × ElementMultiplier）', () => {
+  it('主人公はLv101以降もダメージ式のレベル係数をLv100で止める', async () => {
+    const { state } = await setup({ level: 100 });
+    const skill = D.skills.get('sk-tashizan-giri')!;
+    const damage = (level: number) =>
+      computeDamage({
+        attacker: { ...state.ally.hero, level },
+        defender: state.enemy,
+        skill,
+        score: 1,
+        combo: 0,
+        canCrit: false,
+        settings: D.settings,
+        elements: D.elements,
+        rng: createRng('post-100-level-factor'),
+      }).amount;
+
+    expect(damage(200)).toBe(damage(100));
+  });
+
+  it('Lv100までの能力値は同じで、Lv101以降の全成長を25%にする', () => {
+    const stats = (value: number) => ({
+      hp: value,
+      mp: value,
+      scienceAtk: value,
+      humanitiesAtk: value,
+      scienceDef: value,
+      humanitiesDef: value,
+      spd: value,
+      wis: value,
+    });
+    const base = stats(10);
+    const growth = { base: stats(4), every5: stats(8), every10: stats(12) };
+
+    expect(statsAtLevel(base, growth, 100, 0.25)).toEqual(statsAtLevel(base, growth, 100));
+    expect(statsAtLevel(base, growth, 200, 0.25)).toEqual(stats(856));
+    expect(statsAtLevel(base, growth, 200)).toEqual(stats(1366));
+  });
+
   it('score の表：1.0 = CRITICAL ×2.0 / 0.5〜0.99 = GREAT ×1.2 / 0.01〜0.49 = GOOD ×0.8 / 0 = MISS ×0.55', () => {
     expect(D.settings.scoreMultipliers).toEqual({ perfect: 2, good: 1.2, weak: 0.8, miss: 0.55 });
     const table: [number, string, number][] = [

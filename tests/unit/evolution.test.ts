@@ -65,6 +65,27 @@ describe('しんか', () => {
     const owned = { ...gs.party.owned[0]!, monsterId: 'aomori-nebuta-taisho' };
     expect(evolutionOf(gs, owned, c.monsters)).toBeNull();
   });
+
+  it('しんか先の初期上限が高いときだけ個体上限を引き上げる', async () => {
+    const c = await content();
+    const gs = chooseStoryCompanion(createNewGame({ name: 'ハル', grade: 1 }), 'iwate-kagurabi');
+    Object.assign(gs.party.owned[0]!, {
+      monsterId: 'akita-akitainu',
+      levelCap: 10,
+    });
+    gs.inventory['akita-chuken-no-kubikazari'] = 1;
+
+    const next = evolve(gs, gs.party.owned[0]!.uid, c.monsters)!;
+
+    expect(next.party.owned[0]).toMatchObject({
+      monsterId: 'akita-chuken-maru',
+      levelCap: 20,
+    });
+    expect(gs.party.owned[0]).toMatchObject({
+      monsterId: 'akita-akitainu',
+      levelCap: 10,
+    });
+  });
 });
 
 describe('わざの しんか', () => {
