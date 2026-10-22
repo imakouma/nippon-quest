@@ -9,7 +9,11 @@ import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { findBrokenReferences, loadContent, type FileReader } from '../src/core/content/loader';
-import { academicReviewLedgerSchema, isAcademicReviewExpired } from '../src/questions/academicReview';
+import {
+  academicReviewLedgerSchema,
+  assessAcademicReviews,
+  isAcademicReviewExpired,
+} from '../src/questions/academicReview';
 import { questionBaseSchema } from '../src/questions/contracts';
 import { getRenderer } from '../src/questions/renderers/registry';
 
@@ -105,41 +109,56 @@ if (content) {
       `quality/academic-reviews.json: ${ledger.error.issues.map((x) => `${x.path.join('.')}: ${x.message}`).join('; ')}`,
     );
   } else {
-    const sourceIds = new Set(ledger.data.sources.map((source) => source.id));
     for (const source of ledger.data.sources) {
       if (isAcademicReviewExpired(source.checkedAt, ledger.data.policy.reviewIntervalMonths))
         warnings.push(
           `academic review: 出典 "${source.id}" の確認期限が切れています（確認日 ${source.checkedAt}）`,
         );
     }
-    const productionFiles = new Set(
-      content.questionFiles.filter((file) => !file.startsWith('questions/_samples/')),
+    const productionFiles = content.questionFiles.filter((file) => !file.startsWith('questions/_samples/'));
+    const assessment = assessAcademicReviews(
+      ledger.data,
+      productionFiles.map((file) => ({
+        file,
+        sha256: createHash('sha256')
+          .update(readFileSync(CONTENT + file))
+          .digest('hex'),
+        subjects: [
+          ...new Set(
+            questionBaseSchema
+              .array()
+              .parse(JSON.parse(readFileSync(CONTENT + file, 'utf8')))
+              .map((question) => question.subject),
+          ),
+        ],
+      })),
     );
-    const approved = new Set<string>();
-    for (const review of ledger.data.reviews) {
-      if (!productionFiles.has(review.file)) {
-        errors.push(`academic review: 存在しない問題ファイル "${review.file}"`);
-        continue;
+    for (const invalid of assessment.invalidReviews) {
+      for (const reason of invalid.reasons) {
+        if (reason === 'missing-file')
+          errors.push(`academic review: 存在しない問題ファイル "${invalid.file}"`);
+        else if (reason === 'duplicate-review')
+          errors.push(`academic review: "${invalid.file}" の承認が重複しています`);
+        else if (reason === 'hash-mismatch')
+          errors.push(
+            `academic review: "${invalid.file}" は承認後に変更されています。再レビューしてください`,
+          );
+        else if (reason === 'unknown-source')
+          errors.push(`academic review: "${invalid.file}" が未知の出典を参照しています`);
+        else if (reason === 'review-expired')
+          warnings.push(`academic review: "${invalid.file}" の再レビュー期限が切れています`);
+        else if (reason === 'review-in-future')
+          errors.push(`academic review: "${invalid.file}" の確認日が未来です`);
+        else if (reason === 'source-in-future')
+          errors.push(`academic review: "${invalid.file}" の出典確認日が未来です`);
+        else if (reason === 'source-subject-mismatch')
+          errors.push(`academic review: "${invalid.file}" の対象教科を扱う出典がありません`);
       }
-      if (approved.has(review.file)) errors.push(`academic review: "${review.file}" の承認が重複しています`);
-      approved.add(review.file);
-      if (isAcademicReviewExpired(review.reviewedAt, ledger.data.policy.reviewIntervalMonths))
-        warnings.push(
-          `academic review: "${review.file}" の再レビュー期限が切れています（確認日 ${review.reviewedAt}）`,
-        );
-      for (const sourceId of review.sourceIds)
-        if (!sourceIds.has(sourceId))
-          errors.push(`academic review: "${review.file}" が未知の出典 "${sourceId}" を参照しています`);
-      const digest = createHash('sha256')
-        .update(readFileSync(CONTENT + review.file))
-        .digest('hex');
-      if (digest !== review.sha256)
-        errors.push(`academic review: "${review.file}" は承認後に変更されています。再レビューしてください`);
     }
-    const pending = productionFiles.size - approved.size;
+    const pending = productionFiles.length - assessment.validFiles.length;
     if (pending > 0)
       information.push(
-        `学術レビュー: ${pending}/${productionFiles.size} 問題ファイルが人による承認待ち（承認済み ${approved.size}）。` +
+        `学術レビュー: ${pending}/${productionFiles.length} 問題ファイルが人による承認待ち（有効な承認 ${assessment.validFiles.length}）。` +
           ' pnpm audit:academic-review で確認順を更新できます',
       );
   }
