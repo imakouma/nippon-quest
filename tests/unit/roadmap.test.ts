@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Unit } from '../../src/core/content/schemas';
+import type { CurriculumGraph } from '../../src/core/learning';
 import type { QuestionBase } from '../../src/questions/contracts';
 import { QuestionBank } from '../../src/questions/engine';
 import { buildRoadmapNodes } from '../../src/scenes/overworld/roadmap';
@@ -45,6 +46,58 @@ const units: Unit[] = [
   },
 ];
 
+const graphUnits: Unit[] = [
+  { id: 'sansu.g1.map-base', name: 'かず', subject: 'sansu', grade: 1 },
+  { id: 'sansu.g1.map-add', name: 'たしざん', subject: 'sansu', grade: 1 },
+  { id: 'sansu.g1.map-subtract', name: 'ひきざん', subject: 'sansu', grade: 1 },
+  { id: 'sansu.g1.map-application', name: 'たしひきの おうよう', subject: 'sansu', grade: 1 },
+  { id: 'sansu.g1.map-challenge', name: 'つぎの ちょうせん', subject: 'sansu', grade: 1 },
+];
+
+const curriculum: CurriculumGraph = {
+  schemaVersion: 1,
+  sources: [
+    {
+      id: 'test-source',
+      title: 'テスト',
+      publisher: 'テスト',
+      url: 'https://example.com',
+      published: '2026',
+      checkedAt: '2026-10-22',
+      locator: 'test',
+    },
+  ],
+  concepts: graphUnits.map((unit) => ({
+    id: `${unit.id}.concept`,
+    subject: unit.subject,
+    grade: unit.grade,
+    unit: unit.id,
+    name: unit.name,
+    description: unit.name,
+    kind: 'concept',
+    memoryType: 'concept',
+    curriculumCodes: [],
+    sourceIds: ['test-source'],
+    review: { status: 'draft' },
+  })),
+  relations: [
+    ['sansu.g1.map-base', 'sansu.g1.map-add'],
+    ['sansu.g1.map-base', 'sansu.g1.map-subtract'],
+    ['sansu.g1.map-add', 'sansu.g1.map-application'],
+    ['sansu.g1.map-subtract', 'sansu.g1.map-application'],
+    ['sansu.g1.map-application', 'sansu.g1.map-challenge'],
+  ].map(([from, to]) => ({
+    from: `${from}.concept`,
+    to: `${to}.concept`,
+    kind: 'prerequisite' as const,
+    strength: 1,
+    rationale: 'テスト',
+    sourceIds: [],
+    reviewStatus: 'draft' as const,
+  })),
+  questionLinks: [],
+};
+
 describe('buildRoadmapNodes', () => {
   it('教科・学年順に並べ、教科ごとの最初の未修得単元を current にする', () => {
     const nodes = buildRoadmapNodes({
@@ -75,6 +128,90 @@ describe('buildRoadmapNodes', () => {
       subjectLabel: (subject) => subject,
     });
     expect(nodes.find((node) => node.id === 'sansu.g2.legacy-math-2-13')?.state).toBe('open');
+  });
+
+  it('概念の前提関係を単元へ集約し、複数の前提をすべて満たすまで応用を開かない', () => {
+    const input = {
+      units: graphUnits,
+      curriculum,
+      conceptStates: {},
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject: string) => subject,
+    };
+    const before = buildRoadmapNodes({
+      ...input,
+      mastery: {
+        'sansu.g1.map-base': { value: 0.9, n: 3, lastAt: 1 },
+        'sansu.g1.map-add': { value: 0.9, n: 3, lastAt: 2 },
+      },
+    });
+
+    expect(before.find((node) => node.id === 'sansu.g1.map-application')).toMatchObject({
+      prerequisiteIds: ['sansu.g1.map-add', 'sansu.g1.map-subtract'],
+      state: 'locked',
+      visibility: 'frontier',
+    });
+
+    const after = buildRoadmapNodes({
+      ...input,
+      mastery: {
+        'sansu.g1.map-base': { value: 0.9, n: 3, lastAt: 1 },
+        'sansu.g1.map-add': { value: 0.9, n: 3, lastAt: 2 },
+        'sansu.g1.map-subtract': { value: 0.9, n: 3, lastAt: 3 },
+      },
+    });
+
+    expect(after.find((node) => node.id === 'sansu.g1.map-application')).toMatchObject({
+      state: 'current',
+      visibility: 'revealed',
+    });
+  });
+
+  it('現在地の一段先だけを霧越しに見せ、さらに遠い単元は隠す', () => {
+    const nodes = buildRoadmapNodes({
+      units: graphUnits,
+      curriculum,
+      conceptStates: {},
+      mastery: { 'sansu.g1.map-base': { value: 0.9, n: 3, lastAt: 1 } },
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === 'sansu.g1.map-add')).toMatchObject({
+      state: 'current',
+      visibility: 'revealed',
+    });
+    expect(nodes.find((node) => node.id === 'sansu.g1.map-application')).toMatchObject({
+      state: 'locked',
+      visibility: 'frontier',
+    });
+    expect(nodes.find((node) => node.id === 'sansu.g1.map-challenge')).toMatchObject({
+      state: 'locked',
+      visibility: 'hidden',
+    });
+  });
+
+  it('同じ入力から安定した分岐レイアウト座標を作る', () => {
+    const input = {
+      units: graphUnits,
+      curriculum,
+      conceptStates: {},
+      mastery: { 'sansu.g1.map-base': { value: 0.9, n: 3, lastAt: 1 } },
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject: string) => subject,
+    };
+
+    const first = buildRoadmapNodes(input);
+    const second = buildRoadmapNodes(input);
+    expect(first.map(({ id, x, y }) => ({ id, x, y }))).toEqual(
+      second.map(({ id, x, y }) => ({ id, x, y })),
+    );
+    expect(first.find((node) => node.id === 'sansu.g1.map-add')?.x).not.toBe(
+      first.find((node) => node.id === 'sansu.g1.map-subtract')?.x,
+    );
   });
 });
 

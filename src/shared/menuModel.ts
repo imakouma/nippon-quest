@@ -16,7 +16,12 @@ export interface RoadmapNode {
   courseKind?: 'required-subject' | 'required-activity' | 'supplementary';
   mastery: number;
   attempts: number;
-  state: 'cleared' | 'current' | 'open' | 'locked';
+  retention: number;
+  prerequisiteIds: string[];
+  x: number;
+  y: number;
+  visibility: 'revealed' | 'frontier' | 'hidden';
+  state: 'cleared' | 'review' | 'current' | 'open' | 'locked';
 }
 
 export interface MenuEntry {
