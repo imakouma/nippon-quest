@@ -42,6 +42,7 @@ then integrate the reviewable source/content changes onto the latest `imakouma/m
 
 ## Merge result
 
+- Pull request: `https://github.com/imakouma/nippon-quest/pull/23`.
 - Latest integrated base: `imakouma/main` at `0b101227ab639e75e586b6f76902c18c744fbcac`.
 - Exact copied source and the resolved merge remain recoverable in local-only branches
   `codex/workspace-source-snapshot-20261022-local` and
