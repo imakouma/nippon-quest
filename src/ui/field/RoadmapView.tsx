@@ -142,7 +142,13 @@ export function RoadmapView({
                 </span>
                 <RubyLabel
                   class="nq-roadmap-summary-current"
-                  text={next ? t('field.roadmapNext', { name: next.name }) : t('field.roadmapCompleted')}
+                  text={
+                    next
+                      ? t('field.roadmapNext', { name: next.name })
+                      : subjectCompleted === subjectNodes.length
+                        ? t('field.roadmapCompleted')
+                        : t('field.roadmapFog')
+                  }
                 />
               </button>
             );

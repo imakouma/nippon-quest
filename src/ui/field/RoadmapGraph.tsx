@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'preact/hooks';
 import type { RoadmapNode } from '../../shared/menuModel';
 import { t } from '../i18n';
 import { RubyLabel } from '../RubyLabel';
@@ -23,11 +24,10 @@ export function RoadmapGraph({
   nodes: RoadmapNode[];
   onSelect: (unitId: string) => void;
 }) {
-  if (!nodes.length) return <RubyLabel text={t('field.roadmapEmpty')} />;
-
+  const canvasRef = useRef<HTMLDivElement>(null);
   const byId = new Map(nodes.map((node) => [node.id, node]));
-  const minX = Math.min(...nodes.map((node) => node.x));
-  const minY = Math.min(...nodes.map((node) => node.y));
+  const minX = nodes.length ? Math.min(...nodes.map((node) => node.x)) : 0;
+  const minY = nodes.length ? Math.min(...nodes.map((node) => node.y)) : 0;
   const offsetX = minX - 40;
   const offsetY = minY - 40;
   const position = (node: RoadmapNode) => ({ x: node.x - offsetX, y: node.y - offsetY });
@@ -39,9 +39,23 @@ export function RoadmapGraph({
       return source ? [{ source, target }] : [];
     }),
   );
+  const focusNode =
+    nodes.find((node) => node.state === 'current') ??
+    nodes.find((node) => node.visibility === 'revealed' && node.state === 'open') ??
+    nodes.find((node) => node.visibility === 'revealed');
+
+  useEffect(() => {
+    const viewport = canvasRef.current?.parentElement;
+    if (!viewport || !focusNode) return;
+    const target = position(focusNode);
+    viewport.scrollLeft = Math.max(0, target.x - viewport.clientWidth / 2 + NODE_W / 2);
+    viewport.scrollTop = Math.max(0, target.y - viewport.clientHeight / 2 + NODE_H / 2);
+  }, [focusNode?.id, offsetX, offsetY]);
+
+  if (!nodes.length) return <RubyLabel text={t('field.roadmapEmpty')} />;
 
   return (
-    <div class="nq-roadmap-canvas" style={{ width, height }}>
+    <div ref={canvasRef} class="nq-roadmap-canvas" style={{ width, height }}>
       <svg class="nq-roadmap-edges" width={width} height={height} aria-hidden="true">
         {edges.map(({ source, target }) => {
           const from = position(source);

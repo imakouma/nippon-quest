@@ -71,6 +71,22 @@ const nodes: RoadmapNode[] = [
     state: 'open',
   },
   {
+    id: 'rika.g3.light',
+    name: '光[ひかり]の せいしつ',
+    subject: 'rika',
+    subjectLabel: '理科[りか]',
+    grade: 3,
+    recommendedTerms: [1],
+    mastery: 0,
+    attempts: 0,
+    retention: 0,
+    prerequisiteIds: [],
+    x: 72,
+    y: 64,
+    visibility: 'hidden',
+    state: 'locked',
+  },
+  {
     id: 'eigo.g1.alphabet',
     name: 'アルファベット',
     subject: 'eigo',
@@ -121,6 +137,14 @@ async function showRoadmap(
 }
 
 describe('学習ロードマップの単元選択', () => {
+  it('未到達の教科をクリア済みと表示しない', async () => {
+    const container = await showRoadmap(vi.fn());
+    const science = container.querySelector<HTMLButtonElement>('.nq-roadmap-summary-rika');
+
+    expect(science?.textContent).toContain('まだ');
+    expect(science?.textContent).not.toContain('クリア');
+  });
+
   it('問題の回答後はロードマップへ直接戻せる', async () => {
     const container = await showRoadmap(vi.fn(), false);
 
