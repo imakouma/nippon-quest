@@ -1,9 +1,5 @@
 import type { Unit } from '../../core/content/schemas';
-import {
-  estimatedRetention,
-  type ConceptStateData,
-  type CurriculumGraph,
-} from '../../core/learning';
+import { estimatedRetention, type ConceptStateData, type CurriculumGraph } from '../../core/learning';
 import type { MasteryData } from '../../questions/engine/mastery';
 import type { RoadmapNode } from '../../shared/menuModel';
 
@@ -123,8 +119,7 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     const prerequisitesOpen = prerequisites.every((id) => {
       const prerequisiteUnit = unitById.get(id);
       const prerequisite = input.mastery[prerequisiteUnit ? masteryId(prerequisiteUnit) : id];
-      if (prerequisite?.value !== undefined)
-        return prerequisite.value >= 0.8 && prerequisite.n >= 3;
+      if (prerequisite?.value !== undefined) return prerequisite.value >= 0.8 && prerequisite.n >= 3;
       const linked = (conceptsByUnit.get(id) ?? [])
         .map((conceptId) => input.conceptStates?.[conceptId])
         .filter((state) => state !== undefined);

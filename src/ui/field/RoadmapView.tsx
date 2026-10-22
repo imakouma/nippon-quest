@@ -4,6 +4,7 @@ import { t } from '../i18n';
 import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
+import { RoadmapGraph } from './RoadmapGraph';
 
 type RoadmapTerm = 'all' | 1 | 2 | 3;
 
@@ -13,12 +14,7 @@ function isNodeInTerm(node: RoadmapNode, term: RoadmapTerm): boolean {
   return Boolean(terms?.includes('variable') || terms?.includes(term));
 }
 
-function roadmapTermLabel(node: RoadmapNode): string {
-  const terms = node.recommendedTerms;
-  if (!terms?.length) return 'じき 未設定[みせってい]';
-  if (terms.includes('variable')) return 'つうねん';
-  return terms.map((term) => `${term}がっき`).join('・');
-}
+const isCompleted = (node: RoadmapNode) => node.state === 'cleared' || node.state === 'review';
 
 export function RoadmapView({
   nodes,
@@ -39,10 +35,13 @@ export function RoadmapView({
     activeSubject === 'all' ? termNodes : termNodes.filter((node) => node.subject === activeSubject);
   const progressNodes =
     activeSubject === 'all' ? shown.filter((node) => node.courseKind !== 'supplementary') : shown;
-  const completed = progressNodes.filter((node) => node.state === 'cleared').length;
+  const completed = progressNodes.filter(isCompleted).length;
 
   return (
-    <section class={`nq-roadmap nq-roadmap-subject-${activeSubject}`} aria-label="がくしゅうロードマップ">
+    <section
+      class={`nq-roadmap nq-roadmap-subject-${activeSubject}`}
+      aria-label={displayText(t('field.roadmapAria'))}
+    >
       <div class="nq-roadmap-grade-row">
         <RubyLabel class="nq-roadmap-filter-title" text={t('field.roadmapGrade')} />
         <div class="nq-roadmap-grades" role="group" aria-label={displayText(t('field.roadmapGradeFilter'))}>
@@ -55,7 +54,11 @@ export function RoadmapView({
               aria-pressed={grade === value}
               onClick={() => (playSfx('move'), setGrade(value))}
             >
-              <RubyLabel text={value === 'all' ? t('field.roadmapAllGrades') : `${value}ねん`} />
+              <RubyLabel
+                text={
+                  value === 'all' ? t('field.roadmapAllGrades') : t('field.roadmapGradeName', { n: value })
+                }
+              />
             </button>
           ))}
         </div>
@@ -72,7 +75,9 @@ export function RoadmapView({
               aria-pressed={term === value}
               onClick={() => (playSfx('move'), setTerm(value))}
             >
-              <RubyLabel text={value === 'all' ? t('field.roadmapAllTerms') : `${value}がっき`} />
+              <RubyLabel
+                text={value === 'all' ? t('field.roadmapAllTerms') : t('field.roadmapTermName', { n: value })}
+              />
             </button>
           ))}
         </div>
@@ -106,10 +111,10 @@ export function RoadmapView({
         <div class="nq-roadmap-overview" role="group" aria-label={displayText(t('field.roadmapAllOverview'))}>
           {subjects.map(([key, label]) => {
             const subjectNodes = termNodes.filter((node) => node.subject === key);
-            const subjectCompleted = subjectNodes.filter((node) => node.state === 'cleared').length;
+            const subjectCompleted = subjectNodes.filter(isCompleted).length;
             const next =
               subjectNodes.find((node) => node.state === 'current') ??
-              subjectNodes.find((node) => node.state !== 'cleared');
+              subjectNodes.find((node) => node.visibility === 'revealed' && !isCompleted(node));
             const progress = subjectNodes.length
               ? Math.round((subjectCompleted / subjectNodes.length) * 100)
               : 0;
@@ -125,7 +130,7 @@ export function RoadmapView({
                   <span class="nq-roadmap-summary-label">
                     <RubyLabel text={label} />
                     {subjectNodes.every((node) => node.courseKind === 'supplementary') && (
-                      <RubyLabel text="おまけ" class="nq-roadmap-summary-extra" />
+                      <RubyLabel text={t('field.roadmapSupplementary')} class="nq-roadmap-summary-extra" />
                     )}
                   </span>
                   <span>
@@ -145,60 +150,10 @@ export function RoadmapView({
         </div>
       ) : (
         <div class="nq-roadmap-map">
-          <div class="nq-roadmap-path">
-            {shown.map((node, index) => {
-              const columns = 6;
-              const row = Math.floor(index / columns);
-              const offset = index % columns;
-              const column = row % 2 === 0 ? offset + 1 : columns - offset;
-              const turnsToNextRow = offset === columns - 1 && index < shown.length - 1;
-              const roadFromPrevious =
-                offset === 0 ? '' : row % 2 === 0 ? ' nq-roadmap-from-left' : ' nq-roadmap-from-right';
-              return (
-                <button
-                  key={node.id}
-                  type="button"
-                  class={`nq-roadmap-node nq-roadmap-${node.state}${roadFromPrevious}${turnsToNextRow ? ' nq-roadmap-turn' : ''}`}
-                  style={{ gridColumn: column, gridRow: row + 1 }}
-                  aria-label={displayText(node.name)}
-                  disabled={node.state === 'locked'}
-                  onClick={() => {
-                    playSfx('select');
-                    onSelect(node.id);
-                  }}
-                  title={`${displayText(node.name)} ${Math.round(node.mastery * 100)}%`}
-                >
-                  <span class="nq-roadmap-step">
-                    {node.state === 'cleared' ? '★' : node.state === 'locked' ? '－' : index + 1}
-                  </span>
-                  <RubyLabel text={node.name} class="nq-roadmap-node-name" />
-                  <span class="nq-roadmap-node-tags">
-                    <RubyLabel text={roadmapTermLabel(node)} class="nq-roadmap-node-term" />
-                    {node.courseKind === 'supplementary' && (
-                      <RubyLabel text="おまけ" class="nq-roadmap-node-extra" />
-                    )}
-                  </span>
-                  <span
-                    class="nq-roadmap-meter"
-                    role="meter"
-                    aria-label={`${displayText(node.name)} ${Math.round(node.mastery * 100)}%`}
-                    aria-valuemin={0}
-                    aria-valuenow={Math.round(node.mastery * 100)}
-                    aria-valuemax={100}
-                  >
-                    <span style={{ width: `${Math.round(node.mastery * 100)}%` }} />
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-          {!shown.length && <RubyLabel text="この じきの もんだいは じゅんびちゅう" />}
+          <RoadmapGraph nodes={shown} onSelect={onSelect} />
         </div>
       )}
-      <RubyLabel
-        class="nq-wmap-keys nq-roadmap-help"
-        text="★ クリア　● いまの もくひょう　うすいマスは これから"
-      />
+      <RubyLabel class="nq-wmap-keys nq-roadmap-help" text={t('field.roadmapLegend')} />
     </section>
   );
 }

@@ -73,6 +73,7 @@ import { specialtyTreasureGain } from '../core/progression/specialty';
 import { applyArenaVictory, markMapVisited } from '../core/progression/arena';
 import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
+import { curriculumGraph } from '../core/learning';
 import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
 import { ENCLAVES } from '../../scripts/data/prefectures';
 import type { DialogueLine } from '../ui/dialogue';
@@ -2778,6 +2779,8 @@ export class OverworldScene extends Phaser.Scene {
     return buildRoadmapNodes({
       units: c.units.values(),
       mastery: gs.learning.mastery,
+      curriculum: curriculumGraph,
+      conceptStates: gs.learning.conceptStates,
       playerGrade: gs.learning.grade,
       challengeHigher: gs.learning.challengeHigher,
       subjectLabel: (subject) => t(`subjects.${subject}`),

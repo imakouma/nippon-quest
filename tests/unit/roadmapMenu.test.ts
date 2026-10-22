@@ -152,13 +152,29 @@ describe('学習ロードマップの単元選択', () => {
     await act(async () => {
       container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-subject')[1]!.click();
     });
-    const locked = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-node')].find((button) =>
-      button.textContent?.includes('かけ算'),
-    );
+    const locked = container.querySelector<HTMLButtonElement>('.nq-roadmap-frontier');
     expect(locked?.disabled).toBe(true);
     locked!.click();
 
     expect(onRoadmapSelect).not.toHaveBeenCalled();
+    expect(locked!.textContent).not.toContain('かけ算');
+    expect(locked!.textContent).toContain('？');
+  });
+
+  it('前提関係を接続線で描き、霧の向こうの単元名は読み上げない', async () => {
+    const container = await showRoadmap(vi.fn());
+
+    await act(async () => {
+      container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-subject')[1]!.click();
+    });
+
+    expect(container.querySelectorAll('.nq-roadmap-edge')).toHaveLength(1);
+    expect(container.querySelector('.nq-roadmap-frontier')?.getAttribute('aria-label')).toContain(
+      'まだ 見えない',
+    );
+    expect(container.querySelector('.nq-roadmap-frontier')?.getAttribute('aria-label')).not.toContain(
+      'かけ算',
+    );
   });
 
   it('学年とおすすめ時期で単元を絞り込める', async () => {

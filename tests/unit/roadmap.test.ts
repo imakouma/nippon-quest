@@ -206,9 +206,7 @@ describe('buildRoadmapNodes', () => {
 
     const first = buildRoadmapNodes(input);
     const second = buildRoadmapNodes(input);
-    expect(first.map(({ id, x, y }) => ({ id, x, y }))).toEqual(
-      second.map(({ id, x, y }) => ({ id, x, y })),
-    );
+    expect(first.map(({ id, x, y }) => ({ id, x, y }))).toEqual(second.map(({ id, x, y }) => ({ id, x, y })));
     expect(first.find((node) => node.id === 'sansu.g1.map-add')?.x).not.toBe(
       first.find((node) => node.id === 'sansu.g1.map-subtract')?.x,
     );
