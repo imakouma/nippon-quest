@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-18",
+  "request": "真っ黒だけのC09を、白紙ノート→フェード→暗転→次の草原のつながりが絵で分かる日本語の確認ページへ修正。",
+  "tool": "built-in-image_gen",
+  "useCase": "compositing / stylized-concept",
+  "status": "internal-visual-and-structure-checks-passed; user-review-pending; storyboard-not-video",
+  "output": "assets/cinematics/storyboards/v00-v1/c09-b40-transition-v3.png",
+  "supersedes": "assets/cinematics/storyboards/v00-v1/c09-b40-v2.png",
+  "references": [
+    "assets/cinematics/storyboards/v00-v1/c08-b36-b39-notebook-3d-v4.png",
+    "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+    "assets/cinematics/background-concepts/evaluation-batch-01/13-dialogue-awakening-meadow.png"
+  ],
+  "prompt": "Use case: compositing / stylized-concept.\nAsset type: ONE polished Japanese transition storyboard review page for NIHON QUEST, replacing an unhelpful all-black page.\nPrimary request: visually show the transition from the blank travel notebook to darkness, then the NEXT scene's dawn grass. A Japanese reader must immediately understand the before/during/after, without reading an English production memo.\nInput image1: the C08 notebook page, exact PROP and CAMERA reference. Use the LAST (bottom-right) blank notebook image: ordinary red-brown soft-cover open notebook, two completely blank cream pages, ONE brass button clasp on outer right, pencil on desk left and loose blank sheet right. Copy object layout/angle, no return of erased drawings or writing.\nInput image2: C06, STYLE authority ONLY. Match soft matte rounded 3D animated-game look, warm gentle daylight, solid depth, soft material shadows. Do not insert child or apple creature.\nInput image3: dawn meadow, ENVIRONMENT reference only. Final meadow view must be lowered to GROUND LEVEL looking between softly rounded grass blades up at morning blue sky, as the awakening protagonist's point of view. Not a wide distant landscape. No human, hands, fairy, village, props, text or monsters in meadow.\nLAYOUT: attractive clean white LANDSCAPE page (about 3:2). Four equal wide 16:9 scene frames in TWO COLUMNS, TWO ROWS, reading left-to-right then top-to-bottom, with enough white space for Japanese labels outside frames. Large readable dark-gray rounded Japanese sans-serif. Thin scene borders. Small arrows in WHITE gutters make reading order clear; never draw arrows over scenes. Do not let the black frame dominate the whole page. No English sentences. No logos.\nHeading EXACTLY: \"C09｜次の場面へのつなぎ\"\nSubheading EXACTLY: \"44〜48秒／B40\"\nThe four images are CONTEXT and TWO PHASES of the same transition, not four new cuts. Do not invent B41/B42, do not stamp B40 on all four.\nTOP LEFT frame: normal brightness, exact final blank notebook from image1, intact open notebook and warm desk. Caption below EXACTLY \"直前：白紙のノート（C08）\".\nTOP RIGHT frame: EXACTLY SAME notebook, angle, framing and desk as top-left, but the entire image is uniformly fading toward black, around 60 percent dimmed; notebook outline and blank pages still visibly recognizable. This is an editing FADE, not nightfall, not a closing book, no hand, no fire, no magical glow. Caption below EXACTLY \"B40前半：ゆっくり暗くなる\".\nBOTTOM LEFT frame: fully solid black scene rectangle, SAME frame size as others; no silhouettes, no words or icons inside black scene. Caption below EXACTLY \"B40後半：暗転し、風の音へ\".\nBOTTOM RIGHT frame: NEXT scene preview, dawn grass viewed from extremely low near-ground eye level, rounded 3D grass at left/right foreground with sky visible in the gap and gentle warm morning light, soft DOF, one or two tiny pale wildflowers. No notebook in this frame. Caption below EXACTLY \"次の場面：朝の草原（V01・参考）\".\nFooter EXACTLY: \"前後の画像は参考。V00のコマ数・尺は増やさない。\"\nSecond smaller footer EXACTLY: \"音声は後日追加。注記は本番映像に入れない。\"\nConstraints: four readable scene images, no giant standalone black poster; notebook fades out and NEVER opens/closes or regains writing; grass is clearly a next-scene REFERENCE outside V00's 44-48 seconds, not a new fifth-second shot inserted into the black hold. Preserve warm soft 3D medium for notebook and grass; never switch to anime watercolor or photoreal grass. NO English narration/captions, NO mysterious characters, NO magical particles, NO extra cuts.",
+  "registeredPanel": {
+    "id": "B40",
+    "cut": "C09",
+    "startSeconds": 44,
+    "durationSeconds": 4,
+    "phases": [
+      {
+        "from": 44,
+        "to": 45.2,
+        "action": "C08の白紙ノートの同じ画から黒へフェードアウト"
+      },
+      {
+        "from": 45.2,
+        "to": 48,
+        "action": "黒を保持。将来の風の音を先行させ、V01へ接続"
+      }
+    ]
+  },
+  "displayImages": [
+    {
+      "slot": "row1-left",
+      "scope": "context-before",
+      "source": "C08 B39; V00 existing panel",
+      "registeredAsNewPanel": false
+    },
+    {
+      "slot": "row1-right",
+      "scope": "B40-phase-fade",
+      "registeredAsNewPanel": false
+    },
+    {
+      "slot": "row2-left",
+      "scope": "B40-phase-black-hold",
+      "registeredAsNewPanel": false
+    },
+    {
+      "slot": "row2-right",
+      "scope": "context-after; V01 first shot reference OUTSIDE V00 duration",
+      "registeredAsNewPanel": false
+    }
+  ],
+  "invariants": {
+    "videoCount": 35,
+    "V00CutCount": 9,
+    "V00PanelCount": 40,
+    "V00ProvisionalSeconds": 48,
+    "V01ProvisionalSeconds": 29,
+    "C01ThroughC08Unchanged": true,
+    "noRuntimeChanges": true,
+    "noAudioGenerated": true,
+    "noNewStoryCharacters": true
+  },
+  "referenceStatus": "草原は候補画像の環境のみ参照。新しい低位置構図もV01本番原画の承認ではない。",
+  "userApproved": false,
+  "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-d05d06cf-c365-49a2-b75a-f95ae4913c1a.png",
+  "rootVisualCheck": {
+    "japaneseLabels": "pass",
+    "blankNotebookPreserved": "pass",
+    "notebookUniformFadeReadable": "pass",
+    "blackIsOnePhaseOnly": "pass",
+    "V01LowGrassView": "pass",
+    "noCharactersOrNewWriting": "pass",
+    "contextVsB40Labeling": "pass",
+    "notes": "C08直前／B40前半／B40後半／V01参考をラベルで区別。既存8ページは変更しない。"
+  },
+  "secondaryVisualReview": "PASS: clear Japanese captions; same blank notebook uniformly fades; black is one phase; V01 low grass has no characters and is explicitly context.",
+  "verification": {
+    "status": "pass",
+    "output": "assets/cinematics/storyboards/v00-v1/c09-b40-transition-v3.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "35d886a169f0721a2ee8a50658af4adad78d38de2fcdc4128686cc59f16633f6",
+    "pngCrcAndInflate": "pass",
+    "copyMatchesGeneratedSource": true,
+    "unchangedImages": "C01-C08 SHA256 match prior revision",
+    "gallerySelectedPages": 9,
+    "V00RegisteredPanels": 40,
+    "C09RegisteredPanels": 1,
+    "C09DisplayedImages": 4,
+    "V00Seconds": 48,
+    "V01Seconds": 29,
+    "videoCount": 35,
+    "shotCount": 182,
+    "totalSeconds": 1013,
+    "markdownLocalLinks": "pass",
+    "oldC09Retained": true,
+    "visual": "root and read-only secondary reviewer passed",
+    "formatting": "Prettier check passed for eight cinematic documents and JSON files",
+    "scriptDiff": "VIDEO_MANIFEST changed only V00 C09 visual; all other shots including V01 unchanged",
+    "runtimeTests": "not run: image and cinematic production documents only; game code/content/audio/video unchanged",
+    "appPreview": "requested opening saved PNG; Codex returned queued; native file preview not independently verified"
+  },
+  "remainingWork": [
+    "ユーザーが接続の見せ方を確認する。",
+    "44〜45.2秒のフェードと45.2〜48秒の保持は仮尺。本番動画・風の音・実際の編集は未制作。",
+    "草原はV01冒頭の参考であり、V01本番原画の確定ではない。"
+  ]
+}

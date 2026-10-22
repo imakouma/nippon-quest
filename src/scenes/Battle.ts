@@ -68,6 +68,7 @@ import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 import { battleSummary, defeatResultView, victoryResultView } from './battle/resultView';
 import { questionQueryForSkill, recruitQuestionQuery } from './battle/questionQueries';
 import { prepareMusubiDamaCommand } from './battle/musubiDamaFlow';
+import { canRecruitByCommand, recruitGiftId } from './battle/recruitFlow';
 import { runBattleQuestion } from './battle/questionFlow';
 import { BattleHudFlow } from './battle/hudFlow';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
@@ -77,8 +78,8 @@ import { createBattleClouds, createBattleWinds, moveBattleClouds, moveBattleWind
 import { attachBattleBgm, finishBattleBgm } from './battle/bgm';
 import {
   BAND_TEXT,
+  battleSkillStillUsable,
   combatantName,
-  type BattleSkill,
   type Intent,
   type MenuAction,
   type Phase,
@@ -520,20 +521,16 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private canRecruit(): boolean {
-    const s = this.state;
-    const hasGift = Boolean(this.recruitGiftId());
-    return (
-      hasStoryCompanion(this.gs) &&
-      !s.isBossBattle &&
-      this.enemyDef.recruitRate > 0 &&
-      s.enemy.hp > 0 &&
-      (hasGift || s.enemy.hp / s.enemy.stats.hp <= this.content.settings.recruitHpThreshold)
-    );
+    return canRecruitByCommand({
+      state: this.state,
+      enemy: this.enemyDef,
+      storyCompanion: hasStoryCompanion(this.gs),
+      hpThreshold: this.content.settings.recruitHpThreshold,
+    });
   }
 
   private recruitGiftId(): string | undefined {
-    const gift = this.enemyDef.recruitItem;
-    return gift && (this.state.ally.items[gift] ?? 0) > 0 ? gift : undefined;
+    return recruitGiftId(this.state, this.enemyDef);
   }
 
   private itemOptions(): ItemOption[] {
@@ -849,7 +846,7 @@ export class BattleScene extends Phaser.Scene {
         // 問題の あいだに 決着（オトモが たおした・全滅）したら、そのまま 決着の 演出へ
         if (this.state.outcome !== 'ongoing') return;
         // 問題の あいだに オトモが たおれて いたら、その オトモの 必殺技は もう 使えない
-        if (!this.stillUsable(intent.entry)) {
+        if (!battleSkillStillUsable(this.state, battleSkills(this.state, this.deps), intent.entry)) {
           this.log(t('battle.skillGone'));
           await this.wait(900);
           return;
@@ -871,12 +868,6 @@ export class BattleScene extends Phaser.Scene {
     const { state, events } = act(this.state, cmd, this.deps);
     this.state = state;
     await this.enqueue(events);
-  }
-
-  private stillUsable(entry: BattleSkill): boolean {
-    return battleSkills(this.state, this.deps).some(
-      (b) => b.actorId === entry.actorId && b.skill.id === entry.skill.id,
-    );
   }
 
   private async play(events: BattleEvent[]): Promise<void> {

@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-18",
+  "mode": "built-in image_gen",
+  "requestedImageCount": 10,
+  "layout": {
+    "canvas": "landscape 3:2",
+    "views": [
+      "front",
+      "front-three-quarter",
+      "right-facing-side-profile",
+      "back"
+    ],
+    "grid": "2x2"
+  },
+  "baseConceptDirectionApprovedByUser": true,
+  "turnaroundSheetsApprovedByUser": false,
+  "scope": "10 existing non-starter characters; one four-angle sheet per character. Ringoron uses corrected face v2. Game runtime and pixel art remain unchanged.",
+  "unseenSurfaces": "Conservative visual extrapolation only; back construction proposed for review, not a verified 3D mesh.",
+  "jobs": [
+    {
+      "id": "aomori-ringoron",
+      "name": "リンゴロン",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/concept-v2-face.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/aomori-ringoron.png",
+      "index": 1,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nUse the revised small white upright rounded-rectangle eyes with inward lower black pupils, tiny dark U mouth and pink cheek patches EXACTLY as the input, not the earlier large dark oval eyes/open laughing mouth. Red plump apple-shaped body, brown stem, ONE green leaf attached toward the character's anatomical LEFT (viewer-right in front view), TWO tiny integrated basal foot stubs; no arms, no new limbs, no tail. Leaf rotates with the model, so points to viewer-left in the rear view. Only the front face has eyes/mouth/cheeks. Back plain red with same apple lobes, no new patterns. Keep stem and leaf identical in size and tilt in all views.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/concept-v2-face.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-493ee088-c63b-4257-a5f2-558753f26380.png",
+      "file": {
+        "id": "aomori-ringoron",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1777712,
+        "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d",
+        "anchorSha256": "042d9e7ba2237225bd4f11a00d699e0c1fe387a7105020c282186ec7b7374848"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed.",
+      "followUpNote": "Leaf attachment/twist in side view remains approximate; lock exact angle during any future actual 3D modeling. Not a blocker for this visual reference."
+    },
+    {
+      "id": "aomori-nebutan",
+      "name": "ネブタン",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-nebutan/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/aomori-nebutan.png",
+      "index": 2,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nCompact red-orange upright warrior with blue headband, thin yellow band and exactly THREE chunky flame-shaped yellow/orange head tips. Preserve square-rounded face, eye design, U smile, pink cheeks, orange chest, red waist belt and square yellow buckle, two short arms and two short legs. ONE connected broad shallow lantern structure is mounted upright BEHIND the head/upper back; front projection has TWO rounded lateral lantern lobes with black outer frame, red inner rim and large ivory/light-yellow panels with restrained blue rectangular blocks, exactly as reference. Treat both glowing side lobes as a connected BACK-MOUNTED lantern/fan assembly, not hand-held or floating objects, not independent wings. Strict side view should show the lantern's shallow thickness and simple dark rear connection; direct back shows this connected lantern structure naturally occluding upper body. Continue the same simple rim/paper/blue-panel construction on back; no warrior face on lantern, no kanji or elaborate painted scene, no new straps across the front. All three head flames stay attached and same size, never add a fourth.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-nebutan/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-nebutan/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-5f9270fe-b7e5-4f5d-82f4-d63037d06b3f.png",
+      "file": {
+        "id": "aomori-nebutan",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1784489,
+        "sha256": "0830be238bd6111fdd96d43dacdbb9239e3296cbb7d112af9457e0a8580f0e11",
+        "anchorSha256": "0184616549d6d13131d9a64c6bca52fcbf129f00c905f0ec4a6a673e2e94ff6a"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    },
+    {
+      "id": "aomori-doguukun",
+      "name": "ドグウくん",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-doguukun/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/aomori-doguukun.png",
+      "index": 3,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nSquat tan-clay dogu with broad flattened head, exactly THREE short top bumps, TWO large cream shutter-goggle eye plates with horizontal dark slit (never round anime eyes), small vertical O mouth, tiny pink cheeks, thick torso, two short lateral arms and two broad legs. Preserve two bands of chunky dark-brown zigzag/checker rope-like markings on the FRONT torso and dark foot tips. Exactly THREE sparse dark square marks on its anatomical RIGHT thigh (viewer-left in front view); keep their same side when turning. Simple solid clay back without an added face, machinery, tail, plates, clothes or dense new markings; visible broad pattern may end around sides naturally. Goggles project only from the front of the head. Same proportions/material as reference.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-doguukun/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-doguukun/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-bea2e2cb-d1db-421d-80e6-6865df5c3e3a.png",
+      "file": {
+        "id": "aomori-doguukun",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1919041,
+        "sha256": "70df7f35c82233aa28ac26fce44e16974b33de4698f5b204d59d828ffda24394",
+        "anchorSha256": "211b7488b359126bb9bfe8ccfa3df470cc1903db3b6a8c44fb291e94e81659d6"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    },
+    {
+      "id": "aomori-umi-nyan",
+      "name": "ウミニャン",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-umi-nyan/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/aomori-umi-nyan.png",
+      "index": 4,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nUpright white fantasy SEA BIRD with TWO tall white cat-ear-like pointed head tufts and pink inner patches, a yellow BEAK and small open mouth with red tongue, dark oval eyes, pink cheeks, TWO silver-gray folded feather wings with charcoal tips and pale dot markings, and TWO orange dark-tipped bird feet as approved. Keep the distinctive fantasy ear silhouette while keeping BIRD wings/feet and beak, never substitute a four-legged cat or realistic ordinary gull. Feathers are chunky sculpted layers. Both wings remain folded in identical neutral pose through all angles; side shows wing overlap naturally, rear shows their attachment to white bird back and modest existing lower feather taper only. No long new cat tail, no fluffy mammal paws, no clothes, no scarf or hat.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-umi-nyan/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-umi-nyan/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-263bb493-86c4-47db-a98b-ecf45a504689.png",
+      "file": {
+        "id": "aomori-umi-nyan",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1662126,
+        "sha256": "88d2b94d24d8fe172353de6251eb75248b863aa50ab29c824f1eddf44e26480d",
+        "anchorSha256": "d42a73a9c3cccbf5f86068961afb2d2cee6219b1be0c59e897a2878e0c7ae002"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    },
+    {
+      "id": "iwate-tono-kappa",
+      "name": "トオノカッパ",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/iwate-tono-kappa/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/iwate-tono-kappa.png",
+      "index": 5,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nGreen bipedal kappa with dark-green cap around shallow white-rimmed blue-water dish on top of head, same eyes/pink cheeks/yellow beak/pale yellow-green belly. TWO arms and TWO short webbed legs. ONE upright green cucumber held in its anatomical LEFT hand (viewer-right in FRONT view) and remains that hand in every view; other arm hangs relaxed. ONE single convex brown turtle shell attached on CENTER BACK, extending from the brown segmented shell edges visible in the input: a modest oval dome with a few large simple scute seams, no duplicate shell, no backpack, no belt. Side view reveals dome depth; back view clearly shows the brown shell and the cucumber now on viewer-left. Head dish stays recessed on head, not floating, same water level and white rim across all views. No added hair spikes or ornaments.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/iwate-tono-kappa/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/iwate-tono-kappa/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-e3f283d7-4173-4ff3-98d8-f85077caee75.png",
+      "file": {
+        "id": "iwate-tono-kappa",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1788259,
+        "sha256": "7a0678d47de7e1d2bcb15cfac1745d55d441df1b65ca5e9fd18f483046ce9a36",
+        "anchorSha256": "aba66a673c830a234410ccd3dadcf47c33d0ec0c64c263a6311d57ef072f1116"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    },
+    {
+      "id": "iwate-wankosobat",
+      "name": "ワンコソバット",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/iwate-wankosobat/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/iwate-wankosobat.png",
+      "index": 6,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nHovering bat whose tapered body is EXACTLY THREE separate stacked dark indigo/black SOBa BOWLS, each with red rim. Largest top bowl alone has face, ONE tan noodle mound, crescent happy eyes, pink cheeks, open red mouth and TWO small cream fangs. Lower two bowls have NO faces or noodles. Exactly TWO tall bat ears (dark borders/turquoise inner/pink centers) attached behind upper bowl and TWO turquoise membrane wings with dark borders attached to its SIDES, identical spread angle all views; TWO small dark-teal feet attached beneath the bottom bowl. Front and back wing widths and bowl count must agree; strict side shows natural overlap of the two wings/ears, not extra wings. Back of all bowls plain dark with same red rims, no tail/arms/new markings. Four views hover at same height with soft shadow below, entire spread wings included.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/iwate-wankosobat/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/iwate-wankosobat/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-f085b664-48cd-4eb5-a3ca-c52ceda92eed.png",
+      "file": {
+        "id": "iwate-wankosobat",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1815159,
+        "sha256": "31270402b53185c630ea740ab564d21922fb853e3a72f1ecedc42f2968c7f1bf",
+        "anchorSha256": "a0f39e7da71ac663756d6003d05ec6bbc37484433819c5a034900ab4d65b382a"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    },
+    {
+      "id": "miyagi-zundamaru",
+      "name": "ズンダマル",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/miyagi-zundamaru/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/miyagi-zundamaru.png",
+      "index": 7,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nLimbless soft white mochi mound whose upper part is covered by thick green zunda coating, broad scalloped drips and a few large pale-green bean bumps. FACE on the green FRONT only: same white/dark eyes, small U smile and pink cheeks. ONE open green edamame pod on top containing exactly THREE beans, fixed to the top at the approved diagonal angle; rotate it as a physical object, not always face the open pod toward camera. Lower white mochi portion stays visible around the base on all sides. No arms, no legs, no feet, no tail, no woody stem, no second leaf/pod, no bowl or plate. Back is the natural same scalloped green coating and white mochi, no new face or decoration. Keep broad rounded squat proportions and matte finish.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/miyagi-zundamaru/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/miyagi-zundamaru/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-76bc2ba1-3f6e-4803-9e7f-5805f7fbe73d.png",
+      "file": {
+        "id": "miyagi-zundamaru",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1805220,
+        "sha256": "168216b3ccb93a9022c86bf261d36858808d354eaf5f05392e945dc0e7fbdc16",
+        "anchorSha256": "8769fb765fe061ffb3718b1c81cd9038c03c0686a4a813d0fa2efee05e0f1ec0"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    },
+    {
+      "id": "akita-akitainu",
+      "name": "アキタイヌ",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/akita-akitainu/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/akita-akitainu.png",
+      "index": 8,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nGolden-orange compact AKITA DOG with TWO upright triangular ears, cream cheek ruff/muzzle/chest/paw tips/tail tip, dark modest eyes and black nose, exactly FOUR short legs and ONE tightly curled tail emerging from rear body center. Preserve original curl direction and cream inner tail surface. ONE simple horizontal floating gold ring centered ABOVE the head, same height and size, never attached to ears/head, no extra rings or glow. Same neutral four-foot standing pose in all views: side view clearly shows foreleg/hindleg pairs naturally overlapping, back shows hindquarters with curled tail. Do not turn it into a biped, lion-dog or fox, no fire, mane curls, collar, bells, wings or extra accessories. Keep the same soft large sculpted fur clumps, not real fine fur strands.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/akita-akitainu/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/akita-akitainu/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-d231a9c5-7871-4586-b15a-491b88a52f1f.png",
+      "file": {
+        "id": "akita-akitainu",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1724937,
+        "sha256": "ca223a882634e8964a4033ea0310025d5911f49667eb03942b71b8511c252535",
+        "anchorSha256": "429a7556f3532d511cb08c2463ef49b9502c6ed198b2cd171b085e762c3ef038"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    },
+    {
+      "id": "yamagata-shogi-commander",
+      "name": "ショウギコマンダー",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/yamagata-shogi-commander/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/yamagata-shogi-commander.png",
+      "index": 9,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nA thick pale honey wooden pentagonal shogi tile IS the body/head, peaked top, beveled edges, two short wooden arms and two separate wooden feet. Keep approved eyes/eyebrows/U mouth/pink cheeks and broad red geometric front seal (no kanji); BACK of tile is PLAIN WOOD, no duplicate face/seal. ONE RED GUNBAI command fan with yellow square is held by character's anatomical RIGHT hand (viewer-left in front view); ONE BROWN SPEAR with silver leaf point and red collar in character's anatomical LEFT hand (viewer-right in front view). On BACK view fan is viewer-right and spear viewer-left; never switch hands, never duplicate weapons, never keep same screen sides when turning. Arms/props rotate with the body, side view may naturally overlap. Entire spear including top point and bottom shaft stays within its cell, no crop. Same wood thickness/material and plain minimally inferred back, no suit of armor, helmet, cape or extra text.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/yamagata-shogi-commander/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/yamagata-shogi-commander/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-aff8a1b8-f785-4290-9fc9-ec9360a5ffe6.png",
+      "file": {
+        "id": "yamagata-shogi-commander",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1775743,
+        "sha256": "4c5b94ab96d469013a000d80d78fc5ac4cc367f4a6efc75d00f36c52e87b9caf",
+        "anchorSha256": "3853471d25ffd04197cb461a1a0ecda4052c7e64ae41f54e759a039ed14ea6bc"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    },
+    {
+      "id": "fukushima-akabekon",
+      "name": "アカベコン",
+      "anchor": "../../assets/cinematics/monsters/tohoku-roster-v1/fukushima-akabekon/concept-v1.png",
+      "pixel": "../../assets/cinematics/monsters/tohoku-roster-v1/pixel-references/fukushima-akabekon.png",
+      "index": 10,
+      "prompt": "Use case: identity-preserve.\nAsset type: NIHON QUEST character turnaround reference sheet for cinematic production; illustrative views, not an actual 3D mesh.\nInput image 1: APPROVED character identity AND rendering style reference. This single reference controls the face, silhouette, proportions, palette, materials, all existing details and part counts. Do not redesign or evolve the character.\nPrimary request: Make ONE polished sheet of this EXACT same character seen from FOUR different angles. EXACTLY FOUR full-body renders in a balanced 2-by-2 arrangement, each same physical scale and same neutral stance/expression and anatomy. TOP LEFT = straight FRONT (0 degrees), TOP RIGHT = front THREE-QUARTER (45 degrees), BOTTOM LEFT = STRICT SIDE PROFILE (90 degrees, nose/front pointing to image RIGHT), BOTTOM RIGHT = straight BACK (180 degrees, away from camera, NOT a rear three-quarter). Four distinct camera views of the SAME fixed solid design, not four poses, variants or expressions. Correctly rotate the entire model including its attached and held parts; do not merely mirror a front render. Use near-orthographic gentle studio views, no dramatic perspective. On rear view show actual back surfaces, NO duplicated face, mouth or front-only markings. Correct natural occlusion is allowed; do NOT add duplicate parts to make hidden parts visible. Allocate enough space to prevent adjacent views overlapping, use identical height/ground baselines per row and generous outside margins. Every view includes complete feet, tails, wing tips, ornaments and props, with NOTHING cropped.\nStyle: copy the input's matte softly sculpted 3D miniature/game-character aesthetic, broad readable shapes and restrained surface texture. Same soft broad lighting and warm light-gray seamless background, subtle ground shadow or hover shadow. No new costume, no new ornament, no thin busy detailing, no glitter or strong bloom. No text, titles, labels, view names, numbers, logos, watermarks, borders, dimension lines or extra panels. Landscape 3:2 canvas, high-resolution clean presentation, FOUR views only.\nUnseen-back policy: minimally continue the approved shapes, color and material; do not invent new lore-bearing features, decorative motifs, harnesses, clothing, weapons or appendages. Asymmetric parts remain on their SAME anatomical side across every view, so their on-screen left/right reverses in the back view.\nCharacter identity and construction lock:\nRed AKABEKO TOY COW with huge distinct rounded-cuboid head on low compact body, TWO short cream horns, TWO horizontal red-brown ears, exactly FOUR short dark-hoofed legs and ONE tiny short tail emerging from rear body center. Preserve simple rectangular eyes/brow marks, pink cheeks, cream broad muzzle and small mouth. Head remains visibly separate from body (no fusion into one giant torso); only natural minimal hidden connection, no exposed spring or machine. Keep the approved yellow/dark-center chest mark and smaller matching SIDE marks, same rounded-block flower geometry and positions; do not invent marks on the back. Side shows oversized head and lower body's true depth, rear clearly shows four-legged structure and small tail; no added bell, harness, saddle, fur, fire or armor.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-roster-v1/fukushima-akabekon/concept-v1.png"
+      ],
+      "destination": "../../assets/cinematics/monsters/tohoku-roster-v1/fukushima-akabekon/turnaround-v1.png",
+      "status": "generated-visually-reviewed-awaiting-user",
+      "userApproved": false,
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-f5ed1c17-9412-4b9a-b456-3b31902cc508.png",
+      "file": {
+        "id": "fukushima-akabekon",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1784369,
+        "sha256": "6faacc7ecd38977d4beacc4c27058d79dca25991ad0b32b9acab783099a6b9b6",
+        "anchorSha256": "950c0827937848aaca6bd823f6871f4b9064ce99c0166bb03f913156a0bed5da"
+      },
+      "visualReview": "PASS for cinematic-reference turnaround: four distinct angle views; approved identity and major parts retained; no major clipping, added faces/text or hand swaps detected. Natural occlusion allowed."
+    }
+  ],
+  "deliveredImageCount": 10,
+  "verification": {
+    "allPngsValid": true,
+    "dimensionsEach": "1536x1024",
+    "workspaceCopiesIdenticalToGeneratedOriginals": true,
+    "anchorsAndOutputSha256Recorded": true,
+    "independentVisualReview": "10/10 sheets reviewed; no major identity, missing-part, crop, text or held-hand inconsistency",
+    "precision": "Visual angle reference, not calibrated orthographic CAD or a verified 3D mesh"
+  },
+  "runtimeChanged": false
+}

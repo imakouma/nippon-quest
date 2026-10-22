@@ -16,4 +16,17 @@ export async function completeNewGameSetup(page: Page, name = 'ハル'): Promise
   await opening.getByRole('button', { name: 'スキップ' }).click();
   await page.getByRole('textbox', { name: 'なまえ' }).fill(name);
   await page.getByRole('button', { name: 'これで けってい' }).click();
+
+  // Most E2E scenarios start after onboarding. Finish the battle tutorial via
+  // the same visible interaction a player uses instead of clicking through its
+  // modal backdrop or adding sleeps to every scenario.
+  const storySkip = page.getByRole('button', { name: 'スキップ' });
+  const tutorial = page.getByRole('dialog', { name: 'かいわ' });
+  await expect
+    .poll(async () => (await storySkip.isVisible()) || (await tutorial.isVisible()), { timeout: 30_000 })
+    .toBe(true);
+  if (await storySkip.isVisible()) await storySkip.click();
+  await expect(tutorial).toBeVisible({ timeout: 30_000 });
+  for (let step = 0; step < 16 && (await tutorial.isVisible()); step += 1) await tutorial.click();
+  await expect(tutorial).toHaveCount(0);
 }

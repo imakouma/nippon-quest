@@ -24,10 +24,24 @@ export const BAND_TEXT = {
 } as const;
 
 /** セリフを先に出してから動く（「ハルの こうげき！」→ 走って斬る）イベント。 */
-export const TALK_FIRST = new Set<BattleEvent['t']>(['act', 'swap', 'recruitGift', 'recruitAttempt']);
+export const TALK_FIRST = new Set<BattleEvent['t']>([
+  'act',
+  'swap',
+  'recruitGift',
+  'itemUsed',
+  'recruitAttempt',
+]);
 
 export function combatantName(state: BattleState, id: string): string {
   if (id === state.ally.hero.id) return state.ally.hero.name;
   if (id === state.enemy.id) return state.enemy.name;
   return state.ally.monsters.find((monster) => monster.id === id)?.name ?? id;
+}
+
+export function battleSkillStillUsable(
+  state: BattleState,
+  skills: readonly BattleSkill[],
+  entry: BattleSkill,
+): boolean {
+  return skills.some((skill) => skill.actorId === entry.actorId && skill.skill.id === entry.skill.id);
 }
