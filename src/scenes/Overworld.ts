@@ -132,7 +132,7 @@ import {
   type MapPlace,
   type TiledMapSource,
 } from './overworld/mapModels';
-import { buildRoadmapNodes } from './overworld/roadmap';
+import { buildGameRoadmapNodes } from './overworld/roadmap';
 import { runRoadmapPractice } from './overworld/roadmapPractice';
 import { buildMenuView, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
 import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
@@ -2807,9 +2807,10 @@ export class OverworldScene extends Phaser.Scene {
   private roadmapNodes(): RoadmapNode[] {
     const c = this.content()!;
     const gs = this.gs()!;
-    return buildRoadmapNodes({
+    return buildGameRoadmapNodes({
       units: c.units.values(),
       mastery: gs.learning.mastery,
+      conceptStates: gs.learning.conceptStates,
       playerGrade: gs.learning.grade,
       challengeHigher: gs.learning.challengeHigher,
       subjectLabel: (subject) => t(`subjects.${subject}`),
