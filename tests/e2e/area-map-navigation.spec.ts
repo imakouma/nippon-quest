@@ -60,6 +60,7 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await expect(unavailableWarp).not.toContainText('[');
   await expect(areaMapDialog.getByRole('button', { name: 'にほんちず' })).toBeFocused();
   await expect(page.getByText('100%', { exact: true })).toBeVisible();
+  await expect(areaMapDialog.locator('.nq-amap-reset')).toHaveCount(0);
 
   const box = await mapView.boundingBox();
   expect(box).not.toBeNull();
@@ -83,7 +84,7 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await page.mouse.up();
   await expect(mapCanvas).not.toHaveCSS('transform', /matrix\(1\.5, 0, 0, 1\.5, 0, 0\)/);
 
-  await page.getByRole('button', { name: 'もどす', exact: true }).click();
+  await page.getByRole('button', { name: 'ちずを ちいさくする' }).click();
   await expect(page.getByText('100%', { exact: true })).toBeVisible();
   await expect(mapCanvas).toHaveCSS('transform', /matrix\(1, 0, 0, 1, 0, 0\)/);
 
