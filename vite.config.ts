@@ -1,8 +1,9 @@
 import { defineConfig, type Plugin } from 'vite';
 import preact from '@preact/preset-vite';
 import { fileURLToPath } from 'node:url';
-import { resolve } from 'node:path';
+import { relative, resolve } from 'node:path';
 import { existsSync, statSync, createReadStream, cpSync } from 'node:fs';
+import { isGameAssetPath } from './scripts/game-asset-policy';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 
@@ -40,7 +41,11 @@ function serveRootDirs(dirs: string[]): Plugin {
     closeBundle() {
       for (const d of dirs) {
         const src = resolve(root, d);
-        if (existsSync(src)) cpSync(src, resolve(root, 'dist', d), { recursive: true });
+        if (existsSync(src))
+          cpSync(src, resolve(root, 'dist', d), {
+            recursive: true,
+            filter: (source) => isGameAssetPath(relative(root, source)),
+          });
       }
     },
   };

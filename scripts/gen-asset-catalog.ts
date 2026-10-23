@@ -3,6 +3,7 @@ import { readdirSync, statSync, writeFileSync } from 'node:fs';
 import { extname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { format, resolveConfig } from 'prettier';
+import { isGameAssetPath } from './game-asset-policy';
 
 const ROOT = fileURLToPath(new URL('../assets/', import.meta.url));
 const OUTPUT = 'catalog.json';
@@ -11,8 +12,10 @@ function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
     if (name.startsWith('.')) continue;
     const path = join(dir, name);
+    const assetPath = relative(ROOT, path).split(sep).join('/');
+    if (!isGameAssetPath(`assets/${assetPath}`)) continue;
     if (statSync(path).isDirectory()) walk(path, out);
-    else if (name !== OUTPUT) out.push(relative(ROOT, path).split(sep).join('/'));
+    else if (name !== OUTPUT) out.push(assetPath);
   }
   return out;
 }
