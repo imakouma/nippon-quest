@@ -5,7 +5,7 @@ import {
   type ConceptStateData,
   type CurriculumGraph,
 } from '../../core/learning';
-import { LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
+import { canonicalUnitId, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
 import type { MasteryData } from '../../questions/engine/mastery';
 import type { RoadmapNode } from '../../shared/menuModel';
 import { layoutRoadmapNodes } from './roadmapLayout';
@@ -65,7 +65,8 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   if (input.curriculum) {
     const displayUnitByConcept = new Map<string, string>();
     for (const concept of input.curriculum.concepts) {
-      const displayUnitId = displayIdByUnitId.get(concept.unit);
+      const displayUnitId =
+        displayIdByUnitId.get(canonicalUnitId(concept.unit)) ?? displayIdByUnitId.get(concept.unit);
       if (!displayUnitId || concept.kind === 'misconception') continue;
       displayUnitByConcept.set(concept.id, displayUnitId);
       const ids = conceptsByUnit.get(displayUnitId) ?? [];

@@ -8,6 +8,7 @@ import {
   parseCurriculumGraphFragment,
 } from '../../src/core/learning';
 import { canonicalUnitId } from '../../src/core/learning/unitAliases';
+import { buildRoadmapNodes } from '../../src/scenes/overworld/roadmap';
 
 const root = join(import.meta.dirname, '../..');
 const units = unitSchema.array().parse(JSON.parse(readFileSync(join(root, 'content/units.json'), 'utf8')));
@@ -58,6 +59,28 @@ describe('算数ロードマップデータ', () => {
       expect(relation.sourceIds.length).toBeGreaterThan(0);
       expect(relation.reviewStatus).not.toBe('expert-reviewed');
     }
+  });
+
+  it('旧単元から現行単元へ統合した前提線も実際のロードマップへ反映する', () => {
+    const report = buildCurriculumGraphQuality({ units, graph: merged.graph! });
+    const nodes = buildRoadmapNodes({
+      units,
+      curriculum: merged.graph!,
+      mastery: {},
+      conceptStates: {},
+      playerGrade: 6,
+      challengeHigher: true,
+      subjectLabel: (subject) => subject,
+    });
+    const nodeById = new Map(nodes.map((node) => [node.id, node]));
+
+    for (const edge of report.edges.filter(isSansuEdge)) {
+      expect(nodeById.get(edge.to)?.prerequisiteIds, `${edge.from} -> ${edge.to}`).toContain(edge.from);
+    }
+    expect(nodeById.get('sansu.g1.kazu-20')).toMatchObject({
+      prerequisiteIds: ['sansu.g1.hikizan'],
+      state: 'locked',
+    });
   });
 
   it('加法と減法を直列化せず、共通の数概念から並行して解放する', () => {
