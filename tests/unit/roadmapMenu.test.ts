@@ -6,6 +6,7 @@ import { h, render } from 'preact';
 import { act } from 'preact/test-utils';
 import type { RoadmapNode } from '../../src/shared/menuModel';
 import { MenuOverlay } from '../../src/ui/field/MenuOverlay';
+import { RoadmapGraph } from '../../src/ui/field/RoadmapGraph';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
 
 vi.mock('../../src/ui/sfx', () => ({ playSfx: vi.fn() }));
@@ -471,5 +472,33 @@ describe('学習ロードマップの単元選択', () => {
       map.dispatchEvent(new WheelEvent('wheel', { bubbles: true, cancelable: true, deltaX: 20, deltaY: 10 }));
     });
     expect(canvas.style.transform).not.toBe(beforePan);
+  });
+
+  it('非ロックの学習関係を点線で描き、未達の前提単元を表示する', () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    const base = { ...nodes[3]!, x: 72, y: 64 };
+    const target: RoadmapNode = {
+      ...nodes[5]!,
+      id: 'sansu.g1.application',
+      name: 'たしひきの おうよう',
+      x: 252,
+      y: 212,
+      state: 'locked',
+      visibility: 'revealed',
+      prerequisiteIds: ['sansu.g1.hikizan'],
+      supportingLinks: [{ sourceId: base.id, kind: 'transfer' }],
+      blockedByNames: ['ひき算[ざん]'],
+    };
+
+    render(h(RoadmapGraph, { nodes: [base, target], onSelect: vi.fn() }), container);
+
+    expect(container.querySelector('.nq-roadmap-edge-transfer')).not.toBeNull();
+    expect(container.querySelector('.nq-roadmap-blocked-by')?.textContent).toContain('さきに：ひき算');
+    expect(
+      [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-node')]
+        .find((node) => node.textContent?.includes('たしひき'))
+        ?.getAttribute('aria-label'),
+    ).toContain('さきに：ひき算');
   });
 });

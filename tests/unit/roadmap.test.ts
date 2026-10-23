@@ -177,6 +177,7 @@ describe('buildRoadmapNodes', () => {
 
     expect(before.find((node) => node.id === 'sansu.g1.map-application')).toMatchObject({
       prerequisiteIds: ['sansu.g1.map-add', 'sansu.g1.map-subtract'],
+      blockedByNames: ['ひきざん'],
       state: 'locked',
       visibility: 'frontier',
     });
@@ -238,6 +239,77 @@ describe('buildRoadmapNodes', () => {
     expect(first.find((node) => node.id === 'sansu.g1.map-add')?.x).not.toBe(
       first.find((node) => node.id === 'sansu.g1.map-subtract')?.x,
     );
+  });
+
+  it('旧単元を指す概念と関係を正規単元へ集約する', () => {
+    const canonical = units.find((unit) => unit.id === 'sansu.g1.tashizan')!;
+    const legacy = units.find((unit) => unit.id === 'sansu.g1.legacy-math-1-2')!;
+    const target = graphUnits.find((unit) => unit.id === 'sansu.g1.map-application')!;
+    const legacyGraph = structuredClone(curriculum);
+    legacyGraph.concepts = [
+      { ...legacyGraph.concepts[0]!, id: 'legacy-add', unit: legacy.id },
+      { ...legacyGraph.concepts[1]!, id: 'application', unit: target.id },
+    ];
+    legacyGraph.relations = [
+      {
+        from: 'legacy-add',
+        to: 'application',
+        kind: 'prerequisite',
+        strength: 1,
+        rationale: '旧単元から正規単元への接続テスト',
+        sourceIds: [],
+        reviewStatus: 'draft',
+      },
+    ];
+
+    const nodes = buildRoadmapNodes({
+      units: [canonical, legacy, target],
+      curriculum: legacyGraph,
+      conceptStates: {},
+      mastery: {},
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.map((node) => node.id)).not.toContain(legacy.id);
+    expect(nodes.find((node) => node.id === target.id)?.prerequisiteIds).toEqual([canonical.id]);
+  });
+
+  it('非ロック関係は線として残すが、解放条件にはしない', () => {
+    const [base, application] = [graphUnits[0]!, graphUnits[3]!];
+    const softGraph = structuredClone(curriculum);
+    softGraph.concepts = [
+      { ...softGraph.concepts[0]!, id: 'base', unit: base.id },
+      { ...softGraph.concepts[1]!, id: 'application', unit: application.id },
+    ];
+    softGraph.relations = [
+      {
+        from: 'base',
+        to: 'application',
+        kind: 'transfer',
+        strength: 0.7,
+        rationale: '使える学びだが必須ではない',
+        sourceIds: [],
+        reviewStatus: 'draft',
+      },
+    ];
+
+    const nodes = buildRoadmapNodes({
+      units: [base, application],
+      curriculum: softGraph,
+      conceptStates: {},
+      mastery: { [base.id]: { value: 0.9, n: 3, lastAt: 1 } },
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === application.id)).toMatchObject({
+      prerequisiteIds: [],
+      supportingLinks: [{ sourceId: base.id, kind: 'transfer' }],
+      state: 'current',
+    });
   });
 });
 

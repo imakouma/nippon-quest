@@ -45,11 +45,12 @@ Constraints: Phaser + Preact, existing pixel-RPG palette, RubyText, keyboard/tou
 
 ## Architecture
 
-1. `content/curriculum/` の `prerequisite` を概念単位の教育的な正とする。
-2. 純粋関数で概念関係を単元関係へ集約し、循環のない表示グラフを作る。
-3. `GameState.learning.mastery` と `conceptStates` から単元の状態と霧の可視範囲を決める。
-4. Scene が表示専用モデルをUIへ渡し、UIは保存先や学習ロジックへ依存しない。
-5. 接続線はSVG、操作ノードはネイティブ`button`で描画する。
+1. `content/curriculum/` の関係を概念単位の教育的な正とし、`prerequisite` だけを解放条件に使う。
+2. `component`、`transfer`、`related`、`chronological` は学びのつながりを示す非ロック線として表示する。
+3. 純粋関数で概念関係を単元関係へ集約し、循環のない表示グラフを作る。
+4. `GameState.learning.mastery` と `conceptStates` から単元の状態と霧の可視範囲を決める。
+5. Scene が表示専用モデルをUIへ渡し、UIは保存先や学習ロジックへ依存しない。
+6. 接続線はSVG、操作ノードはネイティブ`button`で描画する。
 
 ## Node States
 
@@ -98,8 +99,8 @@ Visibility is independent from learning state:
 - 標準検査とブラウザ確認が成功する。
 - 上部フィルタが1段に収まり、従来より地図表示領域が広い。
 - マウス、トラックパッド、タッチ、キーボードのいずれでも拡大縮小へ到達できる。
-- 小学1〜6年の正式課程に属する単元は、各教科の開始単元を除いて少なくとも1本の前提線を持つ。
-- 各教科に、一本道ではない分岐と、複数前提をすべて満たして開く合流が実データとして存在する。
+- 小学1〜6年の正式課程に属する単元は、少なくとも1本の学習関係線を持ち、孤立しない。
+- 各教科に一本道ではない分岐と合流があり、教育上妥当な教科・単元には複数前提をすべて満たして開くAND合流が存在する。
 - 前提関係は文部科学省の学習指導要領・解説を一次資料とし、出典、根拠、確認状態を各関係に保持する。
 - 全体統合後に、参照切れ、循環、重複線、逆学年線、孤立単元、分岐数、合流数を自動監査できる。
 - UIは実データ全体で、ノードや線の重なりを抑え、現在地から到達可能な選択肢を追える。
@@ -108,7 +109,7 @@ Visibility is independent from learning state:
 ## Not Doing
 
 - 自動レイアウト用の外部ライブラリ導入。
-- 教科横断関係によるハードロック。教科横断線は将来の補助表示候補とし、今回の解放条件には使わない。
+- 教科横断関係によるハードロック。生活科から理科・社会などは `transfer` の補助線だけにする。
 - 保護者画面の全面再設計。
 
 ## Academic Review Boundary

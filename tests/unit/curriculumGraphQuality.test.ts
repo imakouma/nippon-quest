@@ -70,8 +70,10 @@ describe('curriculum graph quality', () => {
     expect(report.bySubject.sansu).toMatchObject({
       units: 5,
       edges: 4,
+      hardEdges: 4,
       branches: 1,
       merges: 1,
+      hardMerges: 1,
       isolated: ['sansu.g2.isolated'],
     });
     expect(report.bySubject.kokugo?.isolated).toEqual(['kokugo.g2.read']);
@@ -108,5 +110,23 @@ describe('curriculum graph quality', () => {
     expect(report.reverseGradeEdges).toHaveLength(1);
     expect(report.unitCycles.length).toBeGreaterThan(0);
     expect(report.unreviewedPrerequisites).toBe(2);
+  });
+
+  it('非ロック関係も表示上の接続として数える', () => {
+    const connected = structuredClone(graph);
+    connected.relations.push({
+      from: 'sansu.g1.apply.concept',
+      to: 'sansu.g2.isolated.concept',
+      kind: 'transfer',
+      strength: 0.7,
+      rationale: '学年間の転移',
+      sourceIds: ['source'],
+      reviewStatus: 'source-checked',
+    });
+
+    const report = buildCurriculumGraphQuality({ units, graph: connected });
+
+    expect(report.bySubject.sansu).toMatchObject({ edges: 5, hardEdges: 4, isolated: [] });
+    expect(report.prerequisiteEdges).toHaveLength(4);
   });
 });

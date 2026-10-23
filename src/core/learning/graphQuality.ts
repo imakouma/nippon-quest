@@ -13,8 +13,10 @@ export interface CurriculumUnitEdge {
 export interface SubjectGraphQuality {
   units: number;
   edges: number;
+  hardEdges: number;
   branches: number;
   merges: number;
+  hardMerges: number;
   isolated: string[];
   roots: string[];
 }
@@ -40,15 +42,14 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
   const relationKeys = new Set<string>();
   const crossSubjectEdges: CurriculumUnitEdge[] = [];
   const reverseGradeEdges: CurriculumUnitEdge[] = [];
-  const unitEdges = new Map<string, CurriculumUnitEdge>();
+  const prerequisiteEdges = new Map<string, CurriculumUnitEdge>();
+  const displayEdges = new Map<string, CurriculumUnitEdge>();
   let unreviewedPrerequisites = 0;
 
   for (const relation of input.graph.relations) {
     const relationKey = `${relation.kind}:${relation.from}->${relation.to}`;
     if (relationKeys.has(relationKey)) duplicateRelations.push(relationKey);
     relationKeys.add(relationKey);
-    if (relation.kind !== 'prerequisite') continue;
-    if (relation.reviewStatus === 'draft') unreviewedPrerequisites++;
     const from = conceptUnits.get(relation.from);
     const to = conceptUnits.get(relation.to);
     if (!from || !to || from.id === to.id) continue;
@@ -58,21 +59,17 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
       fromConcept: relation.from,
       toConcept: relation.to,
     };
+    if (['prerequisite', 'component', 'transfer', 'related', 'chronological'].includes(relation.kind))
+      displayEdges.set(`${from.id}->${to.id}`, edge);
+    if (relation.kind !== 'prerequisite') continue;
+    if (relation.reviewStatus === 'draft') unreviewedPrerequisites++;
     if (from.subject !== to.subject) crossSubjectEdges.push(edge);
     if (from.grade > to.grade) reverseGradeEdges.push(edge);
-    unitEdges.set(`${from.id}->${to.id}`, edge);
+    prerequisiteEdges.set(`${from.id}->${to.id}`, edge);
   }
 
-  const outgoing = new Map<string, Set<string>>();
-  const incoming = new Map<string, Set<string>>();
-  for (const edge of unitEdges.values()) {
-    const next = outgoing.get(edge.from) ?? new Set<string>();
-    next.add(edge.to);
-    outgoing.set(edge.from, next);
-    const previous = incoming.get(edge.to) ?? new Set<string>();
-    previous.add(edge.from);
-    incoming.set(edge.to, previous);
-  }
+  const { outgoing, incoming } = adjacency(displayEdges.values());
+  const hardAdjacency = adjacency(prerequisiteEdges.values());
 
   const bySubject: Record<string, SubjectGraphQuality> = {};
   for (const subject of new Set([...requiredUnits.values()].map((unit) => unit.subject))) {
@@ -80,10 +77,14 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
     const subjectIds = new Set(subjectUnits.map((unit) => unit.id));
     bySubject[subject] = {
       units: subjectUnits.length,
-      edges: [...unitEdges.values()].filter((edge) => subjectIds.has(edge.from) && subjectIds.has(edge.to))
+      edges: [...displayEdges.values()].filter((edge) => subjectIds.has(edge.from) && subjectIds.has(edge.to))
         .length,
+      hardEdges: [...prerequisiteEdges.values()].filter(
+        (edge) => subjectIds.has(edge.from) && subjectIds.has(edge.to),
+      ).length,
       branches: subjectUnits.filter((unit) => (outgoing.get(unit.id)?.size ?? 0) > 1).length,
       merges: subjectUnits.filter((unit) => (incoming.get(unit.id)?.size ?? 0) > 1).length,
+      hardMerges: subjectUnits.filter((unit) => (hardAdjacency.incoming.get(unit.id)?.size ?? 0) > 1).length,
       isolated: subjectUnits
         .filter(
           (unit) => (incoming.get(unit.id)?.size ?? 0) === 0 && (outgoing.get(unit.id)?.size ?? 0) === 0,
@@ -99,13 +100,29 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
 
   return {
     bySubject,
-    edges: [...unitEdges.values()],
+    edges: [...displayEdges.values()],
+    prerequisiteEdges: [...prerequisiteEdges.values()],
     duplicateRelations,
     crossSubjectEdges,
     reverseGradeEdges,
     unitCycles: findCycles(requiredUnits.keys(), outgoing),
+    prerequisiteCycles: findCycles(requiredUnits.keys(), hardAdjacency.outgoing),
     unreviewedPrerequisites,
   };
+}
+
+function adjacency(edges: Iterable<CurriculumUnitEdge>) {
+  const outgoing = new Map<string, Set<string>>();
+  const incoming = new Map<string, Set<string>>();
+  for (const edge of edges) {
+    const next = outgoing.get(edge.from) ?? new Set<string>();
+    next.add(edge.to);
+    outgoing.set(edge.from, next);
+    const previous = incoming.get(edge.to) ?? new Set<string>();
+    previous.add(edge.from);
+    incoming.set(edge.to, previous);
+  }
+  return { outgoing, incoming };
 }
 
 function findCycles(nodes: Iterable<string>, outgoing: ReadonlyMap<string, ReadonlySet<string>>): string[][] {

@@ -33,10 +33,10 @@ const report = buildCurriculumGraphQuality({ units, graph: merged.graph });
 
 for (const [subject, quality] of Object.entries(report.bySubject))
   console.log(
-    `${subject}: ${quality.units} units / ${quality.edges} edges / ${quality.branches} branches / ${quality.merges} merges / ${quality.isolated.length} isolated / ${quality.roots.length} roots`,
+    `${subject}: ${quality.units} units / ${quality.edges} visible edges (${quality.hardEdges} hard) / ${quality.branches} branches / ${quality.merges} merges (${quality.hardMerges} hard) / ${quality.isolated.length} isolated / ${quality.roots.length} roots`,
   );
 console.log(
-  `global: ${report.duplicateRelations.length} duplicate relations / ${report.crossSubjectEdges.length} cross-subject edges / ${report.reverseGradeEdges.length} reverse-grade edges / ${report.unitCycles.length} unit cycles / ${report.unreviewedPrerequisites} draft prerequisites`,
+  `global: ${report.duplicateRelations.length} duplicate relations / ${report.crossSubjectEdges.length} cross-subject hard edges / ${report.reverseGradeEdges.length} reverse-grade hard edges / ${report.unitCycles.length} display cycles / ${report.prerequisiteCycles.length} hard cycles / ${report.unreviewedPrerequisites} draft prerequisites`,
 );
 
 if (process.argv.includes('--json')) console.log(JSON.stringify(report, null, 2));
@@ -53,6 +53,8 @@ if (process.argv.includes('--strict')) {
   if (report.crossSubjectEdges.length)
     failures.push(`教科横断ハードロック ${report.crossSubjectEdges.length}件`);
   if (report.reverseGradeEdges.length) failures.push(`逆学年線 ${report.reverseGradeEdges.length}件`);
-  if (report.unitCycles.length) failures.push(`単元循環 ${report.unitCycles.length}件`);
+  if (report.unitCycles.length) failures.push(`表示単元循環 ${report.unitCycles.length}件`);
+  if (report.prerequisiteCycles.length)
+    failures.push(`ハードロック単元循環 ${report.prerequisiteCycles.length}件`);
   if (failures.length) throw new Error(`ロードマップグラフ監査に失敗しました:\n${failures.join('\n')}`);
 }

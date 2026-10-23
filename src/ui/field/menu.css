@@ -483,6 +483,27 @@
   stroke-linejoin: round;
   filter: drop-shadow(0 3px 0 #775d2d) drop-shadow(0 0 4px rgba(255, 233, 137, 0.45));
 }
+.nq-roadmap-edge-supporting {
+  stroke-width: 4;
+  opacity: 0.72;
+  filter: none;
+}
+.nq-roadmap-edge-component {
+  stroke: #d4b5ff;
+  stroke-dasharray: 14 7;
+}
+.nq-roadmap-edge-transfer {
+  stroke: #79c8f2;
+  stroke-dasharray: 10 10;
+}
+.nq-roadmap-edge-related {
+  stroke: #b8c5dc;
+  stroke-dasharray: 3 11;
+}
+.nq-roadmap-edge-chronological {
+  stroke: #f0ae62;
+  stroke-dasharray: 7 9;
+}
 .nq-roadmap-edge-frontier {
   stroke: #9caed3;
   stroke-dasharray: 10 12;
@@ -511,6 +532,16 @@
   cursor: pointer;
   background: none;
   border: 0;
+}
+.nq-roadmap-blocked-by {
+  display: block;
+  max-width: 128px;
+  overflow: hidden;
+  color: #ffd66f;
+  font-size: 14px;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .nq-roadmap-node:focus-visible .nq-roadmap-step {
   outline: 4px solid #fff;

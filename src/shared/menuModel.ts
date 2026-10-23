@@ -4,6 +4,7 @@
  */
 export type MenuTab = 'roadmap' | 'mistakes' | 'monsters' | 'specialties' | 'bag' | 'equip';
 export type MenuHomeKey = MenuTab | 'party';
+export type RoadmapSupportingKind = 'component' | 'transfer' | 'related' | 'chronological';
 
 export interface RoadmapNode {
   id: string;
@@ -18,6 +19,10 @@ export interface RoadmapNode {
   attempts: number;
   retention: number;
   prerequisiteIds: string[];
+  /** 学びのつながりを示すが、解放条件には使わない関係。 */
+  supportingLinks?: { sourceId: string; kind: RoadmapSupportingKind }[];
+  /** まだ身についていない前提単元。 */
+  blockedByNames?: string[];
   x: number;
   y: number;
   visibility: 'revealed' | 'frontier' | 'hidden';

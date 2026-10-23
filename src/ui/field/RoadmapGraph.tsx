@@ -53,12 +53,16 @@ export function RoadmapGraph({
   const position = (node: RoadmapNode) => ({ x: node.x - offsetX, y: node.y - offsetY });
   const width = Math.max(720, ...nodes.map((node) => position(node).x + NODE_W + 40));
   const height = Math.max(460, ...nodes.map((node) => position(node).y + NODE_H + 40));
-  const edges = nodes.flatMap((target) =>
-    target.prerequisiteIds.flatMap((sourceId) => {
+  const edges = nodes.flatMap((target) => [
+    ...target.prerequisiteIds.flatMap((sourceId) => {
       const source = byId.get(sourceId);
-      return source ? [{ source, target }] : [];
+      return source ? [{ source, target, kind: 'prerequisite' as const }] : [];
     }),
-  );
+    ...(target.supportingLinks ?? []).flatMap(({ sourceId, kind }) => {
+      const source = byId.get(sourceId);
+      return source ? [{ source, target, kind }] : [];
+    }),
+  ]);
   const focusNode =
     nodes.find((node) => node.state === 'current') ??
     nodes.find((node) => node.visibility === 'revealed' && node.state === 'open') ??
@@ -289,7 +293,7 @@ export function RoadmapGraph({
           style={{ width, height, transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}
         >
           <svg class="nq-roadmap-edges" width={width} height={height} aria-hidden="true">
-            {edges.map(({ source, target }) => {
+            {edges.map(({ source, target, kind }) => {
               const from = position(source);
               const to = position(target);
               const x1 = from.x + NODE_W / 2;
@@ -301,8 +305,8 @@ export function RoadmapGraph({
               const frontier = source.visibility === 'frontier' || target.visibility === 'frontier';
               return (
                 <path
-                  key={`${source.id}->${target.id}`}
-                  class={`nq-roadmap-edge${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}`}
+                  key={`${kind}:${source.id}->${target.id}`}
+                  class={`nq-roadmap-edge nq-roadmap-edge-${kind}${kind !== 'prerequisite' ? ' nq-roadmap-edge-supporting' : ''}${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}`}
                   d={`M ${x1} ${y1} C ${x1} ${y1 + bend}, ${x2} ${y2 - bend}, ${x2} ${y2}`}
                 />
               );
@@ -324,13 +328,21 @@ export function RoadmapGraph({
 
             const fogged = node.visibility === 'frontier';
             const label = fogged ? t('field.roadmapFog') : node.name;
+            const blockedBy = node.blockedByNames?.[0];
+            const blockedRest = Math.max(0, (node.blockedByNames?.length ?? 1) - 1);
+            const blockedLabel = blockedBy
+              ? t(blockedRest ? 'field.roadmapNeedsMore' : 'field.roadmapNeeds', {
+                  name: blockedBy,
+                  n: blockedRest,
+                })
+              : undefined;
             return (
               <button
                 key={node.id}
                 type="button"
                 class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}`}
                 style={{ left: pos.x, top: pos.y }}
-                aria-label={displayText(label)}
+                aria-label={displayText(blockedLabel ? `${label} ${blockedLabel}` : label)}
                 disabled={fogged || node.state === 'locked'}
                 onClick={() => {
                   playSfx('select');
@@ -353,6 +365,7 @@ export function RoadmapGraph({
                         <RubyLabel text={t('field.roadmapSupplementary')} class="nq-roadmap-node-extra" />
                       )}
                     </span>
+                    {blockedLabel && <RubyLabel text={blockedLabel} class="nq-roadmap-blocked-by" />}
                     <span
                       class="nq-roadmap-meter"
                       role="meter"

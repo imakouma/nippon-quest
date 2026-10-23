@@ -5,13 +5,20 @@ import {
   type ConceptStateData,
   type CurriculumGraph,
 } from '../../core/learning';
-import { LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
+import { canonicalUnitId, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
 import type { MasteryData } from '../../questions/engine/mastery';
 import type { RoadmapNode } from '../../shared/menuModel';
+import type { RoadmapSupportingKind } from '../../shared/menuModel';
 
 export { LEGACY_QUESTION_UNIT_ALIASES, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
 
 const SUBJECT_ORDER = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'];
+const SUPPORTING_KINDS = new Set<RoadmapSupportingKind>([
+  'component',
+  'transfer',
+  'related',
+  'chronological',
+]);
 
 export interface RoadmapInput {
   units: Iterable<Unit>;
@@ -58,8 +65,13 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     displayIdByUnitId.set(unit.id, unit.id);
     displayIdByUnitId.set(masteryId(unit), unit.id);
   }
+  for (const unit of allUnits) {
+    const canonicalId = canonicalUnitId(unit.id);
+    if (displayIdByUnitId.has(canonicalId)) displayIdByUnitId.set(unit.id, canonicalId);
+  }
 
   const prerequisiteIds = new Map<string, Set<string>>();
+  const supportingLinks = new Map<string, Map<string, { sourceId: string; kind: RoadmapSupportingKind }>>();
   const conceptsByUnit = new Map<string, string[]>();
   if (input.curriculum) {
     const displayUnitByConcept = new Map<string, string>();
@@ -72,13 +84,19 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
       conceptsByUnit.set(displayUnitId, ids);
     }
     for (const relation of input.curriculum.relations) {
-      if (relation.kind !== 'prerequisite') continue;
       const from = displayUnitByConcept.get(relation.from);
       const to = displayUnitByConcept.get(relation.to);
       if (!from || !to || from === to) continue;
-      const ids = prerequisiteIds.get(to) ?? new Set<string>();
-      ids.add(from);
-      prerequisiteIds.set(to, ids);
+      if (relation.kind === 'prerequisite') {
+        const ids = prerequisiteIds.get(to) ?? new Set<string>();
+        ids.add(from);
+        prerequisiteIds.set(to, ids);
+      } else if (SUPPORTING_KINDS.has(relation.kind as RoadmapSupportingKind)) {
+        const links = supportingLinks.get(to) ?? new Map();
+        const kind = relation.kind as RoadmapSupportingKind;
+        links.set(`${from}:${kind}`, { sourceId: from, kind });
+        supportingLinks.set(to, links);
+      }
     }
   }
 
@@ -128,6 +146,9 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
       attempts,
       retention,
       prerequisiteIds: prerequisites,
+      supportingLinks: [...(supportingLinks.get(unit.id)?.values() ?? [])].sort(
+        (a, b) => a.sourceId.localeCompare(b.sourceId) || a.kind.localeCompare(b.kind),
+      ),
       x: 0,
       y: 0,
       visibility: 'revealed' as const,
@@ -142,6 +163,14 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   });
 
   const byId = new Map(draft.map((node) => [node.id, node]));
+  for (const node of draft)
+    node.blockedByNames = node.prerequisiteIds
+      .filter((id) => {
+        const prerequisite = byId.get(id);
+        return prerequisite?.state !== 'cleared' && prerequisite?.state !== 'review';
+      })
+      .map((id) => byId.get(id)?.name)
+      .filter((name): name is string => name !== undefined);
   const firstOpen = new Set<string>();
   for (const node of draft) {
     if (node.state !== 'open' || firstOpen.has(node.subject)) continue;
@@ -155,9 +184,12 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
       node.visibility = 'revealed';
       continue;
     }
-    const touchesRevealed = node.prerequisiteIds.some((id) => byId.get(id)?.state !== 'locked');
-    const nextGradeRoot =
-      node.prerequisiteIds.length === 0 && node.grade === Math.min(6, input.playerGrade + 1);
+    const incomingIds = [
+      ...node.prerequisiteIds,
+      ...(node.supportingLinks ?? []).map((link) => link.sourceId),
+    ];
+    const touchesRevealed = incomingIds.some((id) => byId.get(id)?.state !== 'locked');
+    const nextGradeRoot = incomingIds.length === 0 && node.grade === Math.min(6, input.playerGrade + 1);
     node.visibility = touchesRevealed || nextGradeRoot ? 'frontier' : 'hidden';
   }
 
@@ -182,7 +214,10 @@ function layoutNodes(nodes: RoadmapNode[]): void {
       const gradeBase = (node.grade - 1) * 3;
       if (visiting.has(node.id)) return gradeBase;
       visiting.add(node.id);
-      const prerequisiteDepths = node.prerequisiteIds
+      const prerequisiteDepths = [
+        ...node.prerequisiteIds,
+        ...(node.supportingLinks ?? []).map((link) => link.sourceId),
+      ]
         .map((id) => byId.get(id))
         .filter((item) => item !== undefined)
         .map((item) => depthOf(item) + 1);
