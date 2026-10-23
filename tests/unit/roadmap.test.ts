@@ -226,6 +226,58 @@ describe('buildRoadmapNodes', () => {
     });
   });
 
+  it('3年生から始まる教科も最初の入口を霧越しに見せる', () => {
+    const scienceUnits: Unit[] = [
+      { id: 'rika.g3.base', name: '理科の入口', subject: 'rika', grade: 3 },
+      { id: 'rika.g3.next', name: '次の理科', subject: 'rika', grade: 3 },
+    ];
+    const scienceCurriculum: CurriculumGraph = {
+      ...curriculum,
+      concepts: scienceUnits.map((unit) => ({
+        id: `${unit.id}.concept`,
+        subject: unit.subject,
+        grade: unit.grade,
+        unit: unit.id,
+        name: unit.name,
+        description: unit.name,
+        kind: 'concept',
+        memoryType: 'concept',
+        curriculumCodes: [],
+        sourceIds: ['test-source'],
+        review: { status: 'draft' },
+      })),
+      relations: [
+        {
+          from: 'rika.g3.base.concept',
+          to: 'rika.g3.next.concept',
+          kind: 'prerequisite',
+          strength: 1,
+          rationale: 'テスト',
+          sourceIds: [],
+          reviewStatus: 'draft',
+        },
+      ],
+    };
+
+    const nodes = buildRoadmapNodes({
+      units: scienceUnits,
+      curriculum: scienceCurriculum,
+      mastery: {},
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === 'rika.g3.base')).toMatchObject({
+      state: 'locked',
+      visibility: 'frontier',
+    });
+    expect(nodes.find((node) => node.id === 'rika.g3.next')).toMatchObject({
+      state: 'locked',
+      visibility: 'hidden',
+    });
+  });
+
   it('同じ入力から安定した分岐レイアウト座標を作る', () => {
     const input = {
       units: graphUnits,

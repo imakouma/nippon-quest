@@ -151,6 +151,13 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   }
 
   const progressiveReveal = Boolean(input.curriculum);
+  const firstGradeBySubject = new Map<string, number>();
+  for (const node of draft) {
+    firstGradeBySubject.set(
+      node.subject,
+      Math.min(firstGradeBySubject.get(node.subject) ?? Number.MAX_SAFE_INTEGER, node.grade),
+    );
+  }
   for (const node of draft) {
     if (!progressiveReveal || node.state !== 'locked' || node.attempts > 0) {
       node.visibility = 'revealed';
@@ -159,7 +166,9 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     const touchesRevealed = node.prerequisiteIds.some((id) => byId.get(id)?.state !== 'locked');
     const nextGradeRoot =
       node.prerequisiteIds.length === 0 && node.grade === Math.min(6, input.playerGrade + 1);
-    node.visibility = touchesRevealed || nextGradeRoot ? 'frontier' : 'hidden';
+    const subjectEntryRoot =
+      node.prerequisiteIds.length === 0 && node.grade === firstGradeBySubject.get(node.subject);
+    node.visibility = touchesRevealed || nextGradeRoot || subjectEntryRoot ? 'frontier' : 'hidden';
   }
 
   layoutRoadmapNodes(draft);

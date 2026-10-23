@@ -18,7 +18,7 @@
 
 ## どう確認したか
 
-- Unit 133ファイル・1420件、ロードマップE2E、lint、architecture、content、curriculum graph、production buildを通した。
+- Unit 133ファイル・1421件、ロードマップE2E、lint、architecture、content、curriculum graph、production buildを通した。
 - AND条件を一時的に `every` から `some` へ変えるミューテーション確認で、追加した回帰テストが実際に失敗することを確認した後、元へ戻して再度合格させた。
 - Playwright出力に `learning-roadmap-locked-condition.png`、`learning-roadmap-controls.png`、`learning-roadmap-20-percent.png` を保存した。
 - アプリ内ブラウザで100%・20%、960×540・640×540を確認し、ノード、操作部品、条件パネルの重なりがないことを確認した。
