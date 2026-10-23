@@ -3,6 +3,7 @@ export * from './placement';
 export * from './validation';
 export * from './coverage';
 export * from './graph';
+export * from './graphQuality';
 export * from './state';
 export * from './diagnosis';
 export * from './catalog';

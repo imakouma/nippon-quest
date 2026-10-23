@@ -5,6 +5,45 @@ export interface GraphValidationResult {
   errors: string[];
 }
 
+/** 個別ファイルは外部概念を参照できるため、ここでは構文だけを検証する。 */
+export function parseCurriculumGraphFragment(raw: unknown): GraphValidationResult {
+  const parsed = curriculumGraphSchema.safeParse(raw);
+  if (!parsed.success)
+    return {
+      graph: null,
+      errors: parsed.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`),
+    };
+  return { graph: parsed.data, errors: [] };
+}
+
+/** 複数ファイルを一つの知識グラフへまとめ、参照と循環を全体で検証する。 */
+export function mergeCurriculumGraphs(graphs: readonly CurriculumGraph[]): GraphValidationResult {
+  const errors: string[] = [];
+  const merged: CurriculumGraph = {
+    schemaVersion: 1,
+    sources: uniqueMerged(
+      graphs.flatMap((graph) => graph.sources),
+      '根拠資料',
+      errors,
+    ),
+    concepts: uniqueMerged(
+      graphs.flatMap((graph) => graph.concepts),
+      '概念',
+      errors,
+    ),
+    relations: graphs.flatMap((graph) => graph.relations),
+    questionLinks: uniqueMerged(
+      graphs.flatMap((graph) => graph.questionLinks),
+      '問題リンク',
+      errors,
+      (link) => link.questionId,
+    ),
+  };
+  const checked = validateCurriculumGraph(merged);
+  errors.push(...checked.errors);
+  return { graph: errors.length ? null : checked.graph, errors };
+}
+
 export function validateCurriculumGraph(raw: unknown): GraphValidationResult {
   const parsed = curriculumGraphSchema.safeParse(raw);
   if (!parsed.success)
@@ -57,6 +96,30 @@ function uniqueIds(items: readonly { id: string }[], label: string, errors: stri
     ids.add(item.id);
   }
   return ids;
+}
+
+function uniqueMerged<T extends { id: string }>(items: readonly T[], label: string, errors: string[]): T[];
+function uniqueMerged<T>(
+  items: readonly T[],
+  label: string,
+  errors: string[],
+  idOf: (item: T) => string,
+): T[];
+function uniqueMerged<T>(
+  items: readonly T[],
+  label: string,
+  errors: string[],
+  idOf: (item: T) => string = (item) => (item as { id: string }).id,
+): T[] {
+  const found = new Map<string, T>();
+  for (const item of items) {
+    const id = idOf(item);
+    const previous = found.get(id);
+    if (previous && JSON.stringify(previous) !== JSON.stringify(item))
+      errors.push(`${label}ID ${id} が複数ファイルで競合しています`);
+    else if (!previous) found.set(id, item);
+  }
+  return [...found.values()];
 }
 
 function prerequisiteCycles(graph: CurriculumGraph): string[] {

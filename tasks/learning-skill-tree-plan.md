@@ -33,15 +33,15 @@
 
 ### Phase 1: Global graph validation
 
-- [ ] Task 1.1: 複数ファイルを統合後に検証する失敗テストを追加する。
-- [ ] Task 1.2: fragment parse → merge → global validate の純粋関数を実装する。
-- [ ] Task 1.3: カタログと `validate-curriculum-graph` を共通統合関数へ接続する。
-- [ ] Task 1.4: 正式課程の孤立、重複線、逆学年線、分岐、合流、未監修数を出す監査を追加する。
+- [x] Task 1.1: 複数ファイルを統合後に検証する失敗テストを追加する。
+- [x] Task 1.2: fragment parse → merge → global validate の純粋関数を実装する。
+- [x] Task 1.3: カタログと `validate-curriculum-graph` を共通統合関数へ接続する。
+- [x] Task 1.4: 正式課程の孤立、重複線、逆学年線、分岐、合流、未監修数を出す監査を追加する。
 
 ### Checkpoint: Foundation
 
-- [ ] focused tests、`pnpm validate:content`、`pnpm check:architecture` が成功する。
-- [ ] 学年・ファイルをまたぐ関係の参照切れと循環を検出できる。
+- [x] focused tests、`pnpm validate:curriculum-graph`、`pnpm check:architecture` が成功する。
+- [x] 学年・ファイルをまたぐ関係の参照切れと循環を検出できる。
 
 ### Phase 2: Subject graphs in parallel
 
