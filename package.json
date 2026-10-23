@@ -69,7 +69,7 @@
     "scaffold:all-areas": "tsx scripts/scaffold-area.ts --all",
     "scaffold:maps": "tsx scripts/scaffold-maps.ts",
     "gen:terrain": "tsx scripts/gen-terrain.ts",
-    "check": "pnpm lint && pnpm check:architecture && pnpm gen:manifest && pnpm gen:schemas && pnpm audit:curriculum --strict && pnpm audit:curriculum-model --strict && pnpm audit:worldmap && pnpm test:unit && pnpm validate:content && pnpm validate:curriculum-graph && pnpm exec tsc --noEmit && pnpm exec vite build"
+    "check": "pnpm lint && pnpm check:architecture && pnpm gen:manifest && pnpm gen:schemas && pnpm audit:curriculum --strict && pnpm audit:curriculum-model --strict && pnpm audit:roadmap-graph --strict && pnpm audit:worldmap && pnpm test:unit && pnpm validate:content && pnpm validate:curriculum-graph && pnpm exec tsc --noEmit && pnpm exec vite build"
   },
   "dependencies": {
     "localforage": "^1.10.0",
