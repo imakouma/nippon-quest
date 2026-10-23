@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-21",
+  "status": "free trial saved; motion QA not production-ready",
+  "space": "https://huggingface.co/spaces/zerogpu-aoti/wan2-2-fp8da-aoti-faster",
+  "directUI": "https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space/?__theme=system",
+  "model": "Wan2.2 I2V 14B with Lightning LoRA, fp8/AoT",
+  "reference": "assets/cinematics/v00-production-v1/c01-start-v1.png",
+  "authorization": "User approved this free demo; no paid fallback.",
+  "settings": {
+    "duration": 5,
+    "steps": 8,
+    "seed": 42,
+    "randomizeSeed": false,
+    "guidanceScaleHigh": 1,
+    "guidanceScaleLow": 1
+  },
+  "attempts": [
+    {
+      "version": 1,
+      "status": "completed",
+      "prompt": "One continuous 5-second wide shot, same soft rounded matte 3D game-film style and warm morning light as the input. Preserve exactly the five people, their faces and clothes, the buildings and every prop. The apple vendor gently lowers the apple she holds into the wicker basket. The elderly artisan calmly continues one small hand-plane stroke on the fixed wooden board. The green-coated woman on the right briefly indicates the back-right lane; the backpacked man nods, then both turn and take two small steps down that lane. The mustard-shirt child makes a small step toward the right of the low sign and looks at it. Very subtle slow lateral camera movement, no zoom or cuts. The wooden sign must still read exactly あおもり throughout. Ordinary happy morning, before any magic or knowledge loss. No subtitles, dialogue text, speech bubbles, UI, watermark, new people, changing clothes, extra hands or distorted faces. No audio.",
+      "negativePrompt": "subtitles, dialogue captions, speech bubbles, title cards, UI, watermark, multiple shots, scene cuts, extra people, extra limbs, fused fingers, deformed hands, distorted faces, changing clothes, morphing buildings, flicker, disappearing sign lettering",
+      "output": "assets/cinematics/v00-production-v1/wan2-free-v1/c01-wan2-free-v1.mp4",
+      "sha256": "e09786abb94ccd4e392c4b7bc6742fdc9c517767ceb2a85e02ac7654904f3fbd",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 832,
+            "height": 480,
+            "sample_aspect_ratio": "1:1",
+            "r_frame_rate": "16/1",
+            "nb_frames": "81"
+          }
+        ],
+        "format": {
+          "duration": "5.062500",
+          "size": "934431"
+        }
+      },
+      "jobId": "not exposed in UI",
+      "downloadURL": "https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space/gradio_api/file=/tmp/gradio/91d99d000755c5cdff009679a3aaca5947c2071b00193875f695d5937705d079/tmp3lpp6_uu.mp4"
+    },
+    {
+      "version": 2,
+      "status": "failed; no new output",
+      "prompt": "Single continuous wide shot of this exact peaceful matte 3D village. The shopkeeper on the LEFT stays behind her apple stall for the entire clip and gently places her held apple into the basket. The gray-haired craftsman in the MIDDLE stays leaning over his workbench for the entire clip, both hands working with the plane on the board. He NEVER stands up, turns away or walks. The yellow-shirt child stays directly in front of the wooden sign, only tilting the head toward its letters, NEVER walking away. ONLY the TWO travelers on the RIGHT move: the green-coated woman indicates the back-right street, the backpacked man nods, they turn their backs to camera and take two slow steps AWAY down the RIGHT lane. They do NOT walk left toward the workshop. All five keep their original faces, bodies and clothes. Fixed camera, same daylight and buildings. Keep the wooden sign exactly あおもり, readable and unchanged. No magic, subtitles, dialogue, speech bubbles or audio.",
+      "negativePrompt": "walking craftsman, standing craftsman, departing child, crowd walking, moving shopkeeper, changed clothes, new people, duplicated people, disappearing props, extra hands, extra legs, deformed faces, changing sign letters, subtitles, captions, speech bubbles, scene cuts, camera zoom, watermark",
+      "error": "Generic エラー on output and seed; reason not exposed. Do not infer quota exhaustion.",
+      "previousDownloadLinkUnchanged": true
+    }
+  ],
+  "validation": {
+    "fullDecode": "passed",
+    "sampledFrames": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      60,
+      72,
+      79
+    ],
+    "contactSheet": "assets/cinematics/v00-production-v1/wan2-free-v1/qa/contact-sheet-v1.png",
+    "screenshot": "assets/cinematics/v00-production-v1/wan2-free-v1/qa/generation-result.png",
+    "duration": 5.0625,
+    "width": 832,
+    "height": 480,
+    "fps": 16,
+    "frames": 81,
+    "audioStreams": 0,
+    "upscaled": false
+  },
+  "assessment": {
+    "productionApproved": false,
+    "use": "Free workflow/motion test only",
+    "preserved": [
+      "matte 3D appearance",
+      "recognizable あおもり sign in samples",
+      "no subtitle captions",
+      "no audio"
+    ],
+    "issues": [
+      "Craftsman stands and leaves his workbench.",
+      "Child walks down the lane rather than stopping to read the sign.",
+      "Travelers direction/gesture is not cleanly controlled.",
+      "480px-height/16fps is below production 1080p target.",
+      "Eight sampled frames are not a frame-by-frame anatomy audit."
+    ]
+  },
+  "paidJobsCreated": 0,
+  "paidFallbackUsed": false,
+  "sourceUploads": 1,
+  "nextSteps": [
+    "User reviews free trial before further generation.",
+    "Do not retry paid fal/Higgsfield work.",
+    "For further free attempts verify demo readiness and available allowance without bypassing limits.",
+    "Preserve 1080p production target; do not mark V00 complete.",
+    "Check model/LoRA/demo usage conditions before production adoption."
+  ]
+}

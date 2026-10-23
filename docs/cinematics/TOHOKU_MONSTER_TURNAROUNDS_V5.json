@@ -1,0 +1,863 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-21",
+  "mode": "built-in image_gen",
+  "batchNumber": 4,
+  "userRequest": "いいね、もう20体分",
+  "requestedImageCount": 20,
+  "selectedImageCount": 20,
+  "initialGenerationCalls": 20,
+  "targetedCorrectionCalls": 2,
+  "generatedVariantFiles": 22,
+  "paidVideoJobs": 0,
+  "gameRuntimeChanged": false,
+  "existingAssetsOverwritten": false,
+  "userApproved": false,
+  "status": "generated-visually-reviewed-awaiting-user",
+  "scope": {
+    "aomori": 1,
+    "iwate": 6,
+    "miyagi": 12,
+    "akita": 1
+  },
+  "layout": {
+    "width": 1536,
+    "height": 1024,
+    "grid": "2x2",
+    "views": ["front", "three-quarter", "right-facing-profile", "back"]
+  },
+  "progress": {
+    "priorFourViewSheets": 40,
+    "added": 20,
+    "totalFourViewSheets": 60,
+    "nationwideComplete": false
+  },
+  "plan": "../../tasks/character-turnarounds-plan.md",
+  "review": "../../docs/cinematics/TOHOKU_MONSTER_TURNAROUNDS_REVIEW_V5.md",
+  "pixelProvenance": {
+    "registry": "src/rendering/monsters/index.ts: MONSTER_DESIGNS",
+    "rasterizer": "src/rendering/monsters/design.ts: designGrid()",
+    "method": "元32/40/48pxに4px余白、nearest-neighbor12倍。元ドット・コード未改変。"
+  },
+  "reviewMethod": "主担当が元ドット20枚と生成20枚・修正2枚を表示して目視確認。寸法・ハッシュ・生成元との同一性を検査。独立エージェントレビュー未実施。",
+  "limitations": [
+    "映像用外観資料であり、精密な正投影・3Dメッシュ・リグではない。",
+    "側背面は元ドットに未描写のため保守的な補完を含む。実モデル化前には構造を固定する。",
+    "人物ボスは既存ゲームの造形が基準で、史実の肖像の再現ではない。",
+    "本番映像への採用は未承認。全国分は未完了。"
+  ],
+  "jobs": [
+    {
+      "id": "aomori-midboss-nebuta-taisho",
+      "name": "ネブタイショウ（中ボス版）",
+      "index": 1,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: NEBUTA TAISHO BOSS VERSION: use the40px boss sprite, distinct from the32px allied relative in input3. Broader imposing squat festival-lantern samurai, navy/brightBLUE armor with rows of small red lacing, cream/black painted fierce mask with two white rectangular eyes and red mouth, gold face frame. TWO tall swept-up GOLD helmet horns and one red central jewel; huge gold/yellow-to-red flame-shaped shoulder lantern panels; blue torso, red waist skirt, two navy boots, two arms. Anatomical LEFT hand (front viewer RIGHT/back LEFT) raises ONE big pale SILVER curved single-edged sword on a long dark handle, not two swords. Anatomical RIGHT fist lowered. Back continue plain blue/red armor and lantern construction, no mask on back. Friendly game boss rather than horror, no loose floating flames beyond attached lantern panels.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/aomori-midboss-nebuta-taisho.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nebuta-taisho/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-12ca4333-ccd2-4470-ada7-73b813a80d32.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/aomori-midboss-nebuta-taisho/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: NEBUTA TAISHO BOSS VERSION: use the40px boss sprite, distinct from the32px allied relative in input3. Broader imposing squat festival-lantern samurai, navy/brightBLUE armor with rows of small red lacing, cream/black painted fierce mask with two white rectangular eyes and red mouth, gold face frame. TWO tall swept-up GOLD helmet horns and one red central jewel; huge gold/yellow-to-red flame-shaped shoulder lantern panels; blue torso, red waist skirt, two navy boots, two arms. Anatomical LEFT hand (front viewer RIGHT/back LEFT) raises ONE big pale SILVER curved single-edged sword on a long dark handle, not two swords. Anatomical RIGHT fist lowered. Back continue plain blue/red armor and lantern construction, no mask on back. Friendly game boss rather than horror, no loose floating flames beyond attached lantern panels.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/aomori-midboss-nebuta-taisho.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nebuta-taisho/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/aomori-midboss-nebuta-taisho/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-12ca4333-ccd2-4470-ada7-73b813a80d32.png",
+        "file": {
+          "id": "aomori-midboss-nebuta-taisho",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/aomori-midboss-nebuta-taisho/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1889741,
+          "sha256": "935af81fa33927ea1bdeffd3adaca5c32f3a30e7df84ac44242440807c24e516"
+        }
+      },
+      "file": {
+        "id": "aomori-midboss-nebuta-taisho",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/aomori-midboss-nebuta-taisho/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1889741,
+        "sha256": "935af81fa33927ea1bdeffd3adaca5c32f3a30e7df84ac44242440807c24e516"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-dragon-blue",
+      "name": "ドラゴンブルー",
+      "index": 2,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: DRAGON BLUE: evolved blue cave-lake dragonfish, NOT a four-legged land dragon. Upright hovering azure oval body, longer neck/muzzle than basic fish, sky-blue belly, two short pale-blue fin-arms with small pale claw tips, ONE forked icy-blue lower/rear TAIL with two lobes, NO human legs or feet. TWO branched gold antlers, pale icy-blue crest/mane down head and back, TWO thin pale-mint curved whiskers from muzzle, two dark nostrils, white rectangular eyes/dark pupils and pink cheeks. Tail, whiskers, mane and both antlers persist in back/profile; face only front. Modest water sheen, not glow/ice shards. Basic relative is family only; do not lose evolved antlers/neck.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-dragon-blue.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-ryusen-uo/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-d1ad746e-2a1f-428a-ab1c-168ce0bd52ef.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-dragon-blue/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: DRAGON BLUE: evolved blue cave-lake dragonfish, NOT a four-legged land dragon. Upright hovering azure oval body, longer neck/muzzle than basic fish, sky-blue belly, two short pale-blue fin-arms with small pale claw tips, ONE forked icy-blue lower/rear TAIL with two lobes, NO human legs or feet. TWO branched gold antlers, pale icy-blue crest/mane down head and back, TWO thin pale-mint curved whiskers from muzzle, two dark nostrils, white rectangular eyes/dark pupils and pink cheeks. Tail, whiskers, mane and both antlers persist in back/profile; face only front. Modest water sheen, not glow/ice shards. Basic relative is family only; do not lose evolved antlers/neck.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-dragon-blue.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-ryusen-uo/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-dragon-blue/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-d1ad746e-2a1f-428a-ab1c-168ce0bd52ef.png",
+        "file": {
+          "id": "iwate-dragon-blue",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-dragon-blue/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1680855,
+          "sha256": "e4edf794a55273c731616d8382322772a00f59242c2e226dcb354d20059b73eb"
+        }
+      },
+      "file": {
+        "id": "iwate-dragon-blue",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-dragon-blue/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1680855,
+        "sha256": "e4edf794a55273c731616d8382322772a00f59242c2e226dcb354d20059b73eb"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-hayate-kamoshika",
+      "name": "ハヤテカモシカ",
+      "index": 3,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: HAYATE KAMOSHIKA: evolved FOUR-LEGGED gray serow, gray body with longer thick white cheek/chest MANE in broad clean swept tufts, TWO pointed charcoal horns curving slightly back, TWO ears tan inside, focused narrow eyes and dark nose. One tan SHIMENAWA rope SCARF wraps neck, tied with TWO short tails at ANATOMICAL LEFT side (front RIGHT/back LEFT), keep knot side. FOUR hoofed legs with dark brown hooves, short goat tail on back. Gray rocky forehead patches. No human arms, extra limbs, realistic fine fur, wind particles, antlers, saddle or jewelry. Maintain strong quadruped silhouette and same scarf/horns across angles.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-hayate-kamoshika.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-iwa-kamoshika/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-628b825c-b9f3-4e0f-a8cb-eff7648ba8c7.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-hayate-kamoshika/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: HAYATE KAMOSHIKA: evolved FOUR-LEGGED gray serow, gray body with longer thick white cheek/chest MANE in broad clean swept tufts, TWO pointed charcoal horns curving slightly back, TWO ears tan inside, focused narrow eyes and dark nose. One tan SHIMENAWA rope SCARF wraps neck, tied with TWO short tails at ANATOMICAL LEFT side (front RIGHT/back LEFT), keep knot side. FOUR hoofed legs with dark brown hooves, short goat tail on back. Gray rocky forehead patches. No human arms, extra limbs, realistic fine fur, wind particles, antlers, saddle or jewelry. Maintain strong quadruped silhouette and same scarf/horns across angles.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-hayate-kamoshika.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-iwa-kamoshika/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-hayate-kamoshika/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-628b825c-b9f3-4e0f-a8cb-eff7648ba8c7.png",
+        "file": {
+          "id": "iwate-hayate-kamoshika",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-hayate-kamoshika/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1753496,
+          "sha256": "0610c21e726bc497575e3e99d6cc3675bd4c37608a1436f79f0f3e87383e3df7"
+        }
+      },
+      "file": {
+        "id": "iwate-hayate-kamoshika",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-hayate-kamoshika/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1753496,
+        "sha256": "0610c21e726bc497575e3e99d6cc3675bd4c37608a1436f79f0f3e87383e3df7"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-wakame-ryu",
+      "name": "ワカメリュウ",
+      "index": 4,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: WAKAME RYU: taller evolved DARK-GREEN SEAWEED LEAF spirit, not a literal animal dragon. Long softly undulating flattened leaf body, TWO long wavy light-green side fronds forming arms, TWO green stalk feet, gold pupils inside white rectangular eyes, dark slanted brows, pink cheeks and small U mouth. Same front lower lighter-green patch as basic at anatomical RIGHT front (viewer LEFT); rear plain. Thin leaf edge must be obvious in profile. No animal horns, dragon snout, scales, wings, tail, new crown or clothing. Omit unattached blue bubble marks as atmospheric effects, do not turn them into body parts.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-wakame-ryu.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-wakamekko/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-85bec69b-2d67-4a29-94ff-f6aece5bd6a9.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-wakame-ryu/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: WAKAME RYU: taller evolved DARK-GREEN SEAWEED LEAF spirit, not a literal animal dragon. Long softly undulating flattened leaf body, TWO long wavy light-green side fronds forming arms, TWO green stalk feet, gold pupils inside white rectangular eyes, dark slanted brows, pink cheeks and small U mouth. Same front lower lighter-green patch as basic at anatomical RIGHT front (viewer LEFT); rear plain. Thin leaf edge must be obvious in profile. No animal horns, dragon snout, scales, wings, tail, new crown or clothing. Omit unattached blue bubble marks as atmospheric effects, do not turn them into body parts.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-wakame-ryu.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-wakamekko/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-wakame-ryu/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-85bec69b-2d67-4a29-94ff-f6aece5bd6a9.png",
+        "file": {
+          "id": "iwate-wakame-ryu",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-wakame-ryu/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1686078,
+          "sha256": "20bf8e31a18c2079da75bc33d74f9d10d89c6749a55a0d43e97f7e0bf51252d5"
+        }
+      },
+      "file": {
+        "id": "iwate-wakame-ryu",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-wakame-ryu/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1686078,
+        "sha256": "20bf8e31a18c2079da75bc33d74f9d10d89c6749a55a0d43e97f7e0bf51252d5"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-midboss-tetsubin-game",
+      "name": "テツビンガメ",
+      "index": 5,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: TETSUBIN GAME: FOUR-LEGGED tan-brown TURTLE with a large charcoal cast-iron TEAPOT SHELL. One thick ARCH HANDLE attached to shell above back, a small plain central LID knob, ONE short curved spout on turtle ANATOMICAL LEFT side (front viewer RIGHT/back viewer LEFT). Iron shell has a few broad raised arare dots, no intricate texture or writing. Tan turtle head extends out front, white rectangular dark-pupil eyes, two dark nostrils, tiny straight smile, pink cheeks, broad cream segmented neck/belly, four thick brown clawed turtle feet. ONE small simple gold crown with red center on head, separate from kettle lid. Keep handle/spout/lid/shell connected in all views, no duplicate spout, no tail as spout, no red heated phase or steam cloud.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-midboss-tetsubin-game.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-4faa8242-9e96-43d1-ba80-16c3b13d9b35.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-midboss-tetsubin-game/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: TETSUBIN GAME: FOUR-LEGGED tan-brown TURTLE with a large charcoal cast-iron TEAPOT SHELL. One thick ARCH HANDLE attached to shell above back, a small plain central LID knob, ONE short curved spout on turtle ANATOMICAL LEFT side (front viewer RIGHT/back viewer LEFT). Iron shell has a few broad raised arare dots, no intricate texture or writing. Tan turtle head extends out front, white rectangular dark-pupil eyes, two dark nostrils, tiny straight smile, pink cheeks, broad cream segmented neck/belly, four thick brown clawed turtle feet. ONE small simple gold crown with red center on head, separate from kettle lid. Keep handle/spout/lid/shell connected in all views, no duplicate spout, no tail as spout, no red heated phase or steam cloud.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-midboss-tetsubin-game.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-midboss-tetsubin-game/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-4faa8242-9e96-43d1-ba80-16c3b13d9b35.png",
+        "file": {
+          "id": "iwate-midboss-tetsubin-game",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-midboss-tetsubin-game/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1877941,
+          "sha256": "a5c79b655699705406f39bac55102ae48b4815c754c5f79ecad0bf19bc97da4a"
+        }
+      },
+      "file": {
+        "id": "iwate-midboss-tetsubin-game",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-midboss-tetsubin-game/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1877941,
+        "sha256": "a5c79b655699705406f39bac55102ae48b4815c754c5f79ecad0bf19bc97da4a"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-boss-konjiki-no-tora",
+      "name": "コンジキノトラ",
+      "index": 6,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: KONJIKI NO TORA: a golden-orange FOUR-LEGGED TIGER guardian, broad shoulders, large forepaws with cream claws, black broad stripes, white muzzle/chest/cheek ruff, gold focused eyes, black nose, small slightly open mouth with red tongue and two tiny fangs. TWO round tiger ears, ONE gold crown with red center jewel. Gold shoulder armor caps with plain red central jewel, ONE broad gold chest plate with red center jewel. ONE striped tail curls up on anatomical LEFT side (front RIGHT/back LEFT). Behind shoulder/back is a single attached golden pale-cream HALO DISK with a few broad radial rays, centered on back, not a second tail/crown; show disk depth in profile and back attachment. Soft restrained halo luminosity, no floating confetti or weapons. Not a lion with added huge mane, keep tiger cheek tufts simple.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-boss-konjiki-no-tora.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-645084cb-7809-4aa9-9b45-1b9884d0fe5d.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-boss-konjiki-no-tora/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: KONJIKI NO TORA: a golden-orange FOUR-LEGGED TIGER guardian, broad shoulders, large forepaws with cream claws, black broad stripes, white muzzle/chest/cheek ruff, gold focused eyes, black nose, small slightly open mouth with red tongue and two tiny fangs. TWO round tiger ears, ONE gold crown with red center jewel. Gold shoulder armor caps with plain red central jewel, ONE broad gold chest plate with red center jewel. ONE striped tail curls up on anatomical LEFT side (front RIGHT/back LEFT). Behind shoulder/back is a single attached golden pale-cream HALO DISK with a few broad radial rays, centered on back, not a second tail/crown; show disk depth in profile and back attachment. Soft restrained halo luminosity, no floating confetti or weapons. Not a lion with added huge mane, keep tiger cheek tufts simple.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-boss-konjiki-no-tora.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-boss-konjiki-no-tora/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-645084cb-7809-4aa9-9b45-1b9884d0fe5d.png",
+        "file": {
+          "id": "iwate-boss-konjiki-no-tora",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-boss-konjiki-no-tora/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1849742,
+          "sha256": "784855ccb962ece8062892b8a2d31b5f23aecd681be321ef14fbc761f1c8c0a5"
+        }
+      },
+      "file": {
+        "id": "iwate-boss-konjiki-no-tora",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-boss-konjiki-no-tora/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1849742,
+        "sha256": "784855ccb962ece8062892b8a2d31b5f23aecd681be321ef14fbc761f1c8c0a5"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-lastboss-minamoto-yoshitsune",
+      "name": "源義経",
+      "index": 7,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: MINAMOTO YOSHITSUNE: stylized ADULT human samurai from sprite, not real historical portrait. Compact upright adult proportions, torso/legs longer than head, not a round creature or toddler. Tan face, sharp dark eyes, small dark mouth, NO beard and NO eyepatch. Navy helmet with two tall outward-upward GOLD prongs and red center plate. TEAL/green lamellar armor with broad gold trim, few red lacing accents and red waist cord, darkgreen waist skirt with simple lightergreen plate patches, pale silver forearm armor and shin guards, teal boots. TWO hands resting naturally at sides, no sword/flag/cape because none in sprite. Rear same colors and helmet neckguard, no face. Omit floating wind effects.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-lastboss-minamoto-yoshitsune.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-88cd2d2e-2b6b-4083-88a9-f406d7386fc6.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-lastboss-minamoto-yoshitsune/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: MINAMOTO YOSHITSUNE: stylized ADULT human samurai from sprite, not real historical portrait. Compact upright adult proportions, torso/legs longer than head, not a round creature or toddler. Tan face, sharp dark eyes, small dark mouth, NO beard and NO eyepatch. Navy helmet with two tall outward-upward GOLD prongs and red center plate. TEAL/green lamellar armor with broad gold trim, few red lacing accents and red waist cord, darkgreen waist skirt with simple lightergreen plate patches, pale silver forearm armor and shin guards, teal boots. TWO hands resting naturally at sides, no sword/flag/cape because none in sprite. Rear same colors and helmet neckguard, no face. Omit floating wind effects.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-lastboss-minamoto-yoshitsune.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-lastboss-minamoto-yoshitsune/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-88cd2d2e-2b6b-4083-88a9-f406d7386fc6.png",
+        "file": {
+          "id": "iwate-lastboss-minamoto-yoshitsune",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-lastboss-minamoto-yoshitsune/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1657406,
+          "sha256": "36ab2248bd609bbd33a0616162a2f5156b70226dec9b26951fb33c7649062aa8"
+        }
+      },
+      "file": {
+        "id": "iwate-lastboss-minamoto-yoshitsune",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-lastboss-minamoto-yoshitsune/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1657406,
+        "sha256": "36ab2248bd609bbd33a0616162a2f5156b70226dec9b26951fb33c7649062aa8"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-kokeshina",
+      "name": "コケシーナ",
+      "index": 8,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: KOKESHINA: Naruko KOKESHI wooden doll soldier, smooth round pale-tan head with flat black-purple BOB HAIR, TWO small red hair tufts/flowers symmetrically at upper sides, simple white rectangular dark-pupil eyes, pink cheeks, tiny red straight mouth. Body is ONE cream wooden CYLINDER with a red upper collar band, ONE large simple red chrysanthemum motif with two green side leaves on FRONT, thin green band and brown foot-ring at base. NO human arms, hands or legs. Doll stands on its flat circular wooden base. Back plain wooden body with minimally continuing color bands, NO duplicate flower/face. Clearly doll, not child in realistic kimono.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-kokeshina.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-49369660-a447-40c8-82e9-504e18fb9a08.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshina/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: KOKESHINA: Naruko KOKESHI wooden doll soldier, smooth round pale-tan head with flat black-purple BOB HAIR, TWO small red hair tufts/flowers symmetrically at upper sides, simple white rectangular dark-pupil eyes, pink cheeks, tiny red straight mouth. Body is ONE cream wooden CYLINDER with a red upper collar band, ONE large simple red chrysanthemum motif with two green side leaves on FRONT, thin green band and brown foot-ring at base. NO human arms, hands or legs. Doll stands on its flat circular wooden base. Back plain wooden body with minimally continuing color bands, NO duplicate flower/face. Clearly doll, not child in realistic kimono.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-kokeshina.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshina/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-49369660-a447-40c8-82e9-504e18fb9a08.png",
+        "file": {
+          "id": "miyagi-kokeshina",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshina/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1742582,
+          "sha256": "c17725f0a3d38776183ef99bb5eb99a6bd0f350a417c733cff8b04975061d1c8"
+        }
+      },
+      "file": {
+        "id": "miyagi-kokeshina",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshina/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1742582,
+        "sha256": "c17725f0a3d38776183ef99bb5eb99a6bd0f350a417c733cff8b04975061d1c8"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-kokeshi-hime",
+      "name": "コケシヒメ",
+      "index": 9,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: KOKESHI HIME: evolved KOKESHI wooden princess doll with round pale-tan face, smooth black-purple bob hair, rectangular eyes, pink cheeks, tiny red mouth. Broad RED kimono silhouette with two long red sleeves, simple white collar triangle, broad GOLD obi around waist, thin green base band. Lower body remains a flat-bottomed cylindrical wooden doll, NO human legs or visible feet. ONE large red/white chrysanthemum HAIRPIN on anatomical RIGHT temple (front viewer LEFT/back viewer RIGHT) on short gold stem, ONE small red floral accent opposite. ONE opened small GOLD/cream FOLDING FAN held on anatomical LEFT sleeve/hand (front RIGHT/back LEFT); same grip each angle. Sparse large pale flower spots on red sleeves, not fine patterns. Back no duplicate face or chest collar, obi wraps around and has a simple modest tie.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-kokeshi-hime.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-02e0e7f0-1dde-4653-9a25-269c6a106c85.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshi-hime/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: KOKESHI HIME: evolved KOKESHI wooden princess doll with round pale-tan face, smooth black-purple bob hair, rectangular eyes, pink cheeks, tiny red mouth. Broad RED kimono silhouette with two long red sleeves, simple white collar triangle, broad GOLD obi around waist, thin green base band. Lower body remains a flat-bottomed cylindrical wooden doll, NO human legs or visible feet. ONE large red/white chrysanthemum HAIRPIN on anatomical RIGHT temple (front viewer LEFT/back viewer RIGHT) on short gold stem, ONE small red floral accent opposite. ONE opened small GOLD/cream FOLDING FAN held on anatomical LEFT sleeve/hand (front RIGHT/back LEFT); same grip each angle. Sparse large pale flower spots on red sleeves, not fine patterns. Back no duplicate face or chest collar, obi wraps around and has a simple modest tie.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-kokeshi-hime.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshi-hime/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-02e0e7f0-1dde-4653-9a25-269c6a106c85.png",
+        "file": {
+          "id": "miyagi-kokeshi-hime",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshi-hime/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1711737,
+          "sha256": "8fcc057512ac326ef48a05c82e0976a8bcefd165d0645261cb8caed4038e5410"
+        }
+      },
+      "file": {
+        "id": "miyagi-kokeshi-hime",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshi-hime/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1711737,
+        "sha256": "8fcc057512ac326ef48a05c82e0976a8bcefd165d0645261cb8caed4038e5410"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-tanyakki",
+      "name": "タンヤッキー",
+      "index": 10,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: TANYAKKI: a pink rounded beef-tongue food-sprite, upright oval/teardrop thick meat SLICE with simple white rectangular dark-pupil eyes, small dark smile, sparse broad BROWN grilled sear marks and darkpink edge. Exactly TWO small orange flame tips above head as source, not horns. The tapered pink bottom attaches/stands on one small RECTANGULAR charcoal GRILL BASE with silver rim, dark body and sparse orange ember windows; two tiny side flame accents attached to grill edges. No separate human legs, arms, ears, meat gore, cut surface organs or animal muzzle. Keep base connected in each view, front face only, rear sear marks may continue. Food miniature, not raw realistic photo.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-tanyakki.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-3ad1dbce-09d0-4493-a326-774d23576031.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-tanyakki/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: TANYAKKI: a pink rounded beef-tongue food-sprite, upright oval/teardrop thick meat SLICE with simple white rectangular dark-pupil eyes, small dark smile, sparse broad BROWN grilled sear marks and darkpink edge. Exactly TWO small orange flame tips above head as source, not horns. The tapered pink bottom attaches/stands on one small RECTANGULAR charcoal GRILL BASE with silver rim, dark body and sparse orange ember windows; two tiny side flame accents attached to grill edges. No separate human legs, arms, ears, meat gore, cut surface organs or animal muzzle. Keep base connected in each view, front face only, rear sear marks may continue. Food miniature, not raw realistic photo.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-tanyakki.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-tanyakki/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-3ad1dbce-09d0-4493-a326-774d23576031.png",
+        "file": {
+          "id": "miyagi-tanyakki",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-tanyakki/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1699159,
+          "sha256": "29cd5e10f2532483fc7ca4e7609766847bf395f556a2a8b799f64f51092a8884"
+        }
+      },
+      "file": {
+        "id": "miyagi-tanyakki",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-tanyakki/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1699159,
+        "sha256": "29cd5e10f2532483fc7ca4e7609766847bf395f556a2a8b799f64f51092a8884"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-oo-sumibitan",
+      "name": "オオスミビタン",
+      "index": 11,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: OO SUMIBITAN: evolved larger PINK oval grilled tongue spirit, focused white rectangular eyes with two dark slanted eyebrows, pink cheeks, small dark smile, broad brown sear marks. ONE large rectangular dark charcoal STOVE BACKPACK on CENTER BACK with a few broad silver vent squares; show fully on back, not a second creature. Several simple orange/red attached flame tongues rise from backpack top, no detached sparks. Same small silver-rimmed RECTANGULAR grill platform at base with two edge flames and ember windows; pink tapered bottom connects to platform, no invented human arms/feet. Preserve flat food-slice silhouette, stove depth visible profile, no eyes on rear stove. Bigger evolved presence, restrained broad shapes not intricate grill hardware.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-oo-sumibitan.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-24ba5c08-897a-47b6-ade6-661483396141.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oo-sumibitan/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: OO SUMIBITAN: evolved larger PINK oval grilled tongue spirit, focused white rectangular eyes with two dark slanted eyebrows, pink cheeks, small dark smile, broad brown sear marks. ONE large rectangular dark charcoal STOVE BACKPACK on CENTER BACK with a few broad silver vent squares; show fully on back, not a second creature. Several simple orange/red attached flame tongues rise from backpack top, no detached sparks. Same small silver-rimmed RECTANGULAR grill platform at base with two edge flames and ember windows; pink tapered bottom connects to platform, no invented human arms/feet. Preserve flat food-slice silhouette, stove depth visible profile, no eyes on rear stove. Bigger evolved presence, restrained broad shapes not intricate grill hardware.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-oo-sumibitan.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oo-sumibitan/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-24ba5c08-897a-47b6-ade6-661483396141.png",
+        "file": {
+          "id": "miyagi-oo-sumibitan",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oo-sumibitan/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1705184,
+          "sha256": "d84afa3f4a0da38064bd8b134a911e8926582f82cc50d7649e5b44a1a6db348a"
+        }
+      },
+      "file": {
+        "id": "miyagi-oo-sumibitan",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oo-sumibitan/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1705184,
+        "sha256": "d84afa3f4a0da38064bd8b134a911e8926582f82cc50d7649e5b44a1a6db348a"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-sasakama-uo",
+      "name": "ササカマウオ",
+      "index": 12,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: SASAKAMA UO: pale cream SASA-shaped grilled fishcake fish, upright pointed oval/leaf body, blue tiny top dorsal tip, TWO BLUE side fin-arms, TWO short blue fin-feet, three broad gently curved BROWN diagonal grill-sear stripes across lower FRONT body. White rectangular dark-pupil eyes, pink cheeks, small open dark mouth with pink/red tongue. No animal scales, rice grains, green leaves or extra tail. Slight food-cake thickness visible side, back mostly pale cream with subtle grilled surface but NO face. Cute miniature fishcake, not realistic food photography.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-sasakama-uo.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-709b1bae-df4f-444a-a931-8ca4329c8737.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-uo/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: SASAKAMA UO: pale cream SASA-shaped grilled fishcake fish, upright pointed oval/leaf body, blue tiny top dorsal tip, TWO BLUE side fin-arms, TWO short blue fin-feet, three broad gently curved BROWN diagonal grill-sear stripes across lower FRONT body. White rectangular dark-pupil eyes, pink cheeks, small open dark mouth with pink/red tongue. No animal scales, rice grains, green leaves or extra tail. Slight food-cake thickness visible side, back mostly pale cream with subtle grilled surface but NO face. Cute miniature fishcake, not realistic food photography.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-sasakama-uo.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-uo/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-709b1bae-df4f-444a-a931-8ca4329c8737.png",
+        "file": {
+          "id": "miyagi-sasakama-uo",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-uo/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1655283,
+          "sha256": "1e4d9cea68bc33b981d05ca2a801c56854f28a5e4482324ce6609c7fc67c261a"
+        }
+      },
+      "file": {
+        "id": "miyagi-sasakama-uo",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-uo/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1655283,
+        "sha256": "1e4d9cea68bc33b981d05ca2a801c56854f28a5e4482324ce6609c7fc67c261a"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-sasakama-bushi",
+      "name": "ササカマブシ",
+      "index": 13,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: SASAKAMA BUSHI: evolved cream leaf-shaped grilled FISHCAKE SAMURAI. Same pointed cream upper body/top blue fin, simple white rectangular dark-pupil eyes, pink cheeks and small U smile, three broad brown grilled marks on lower chest. White headband tied at ANATOMICAL RIGHT temple (front LEFT/back RIGHT) with two short black/navy-tipped ends. Wide BLUE pleated hakama lower body, TWO short blue fin-feet and TWO blue fin-arms. Anatomical LEFT fin holds ONE upright GREEN bamboo-leaf sword with brown handle (front RIGHT/back LEFT). No metal armor/cape, no human hair or fingers. Sword/headband/fin count stays coherent.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-sasakama-bushi.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-d870ebba-19cf-43dc-a338-03327181c60c.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-bushi/turnaround-v2.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: SASAKAMA BUSHI: evolved cream leaf-shaped grilled FISHCAKE SAMURAI. Same pointed cream upper body/top blue fin, simple white rectangular dark-pupil eyes, pink cheeks and small U smile, three broad brown grilled marks on lower chest. White headband tied at ANATOMICAL RIGHT temple (front LEFT/back RIGHT) with two short black/navy-tipped ends. Wide BLUE pleated hakama lower body, TWO short blue fin-feet and TWO blue fin-arms. Anatomical LEFT fin holds ONE upright GREEN bamboo-leaf sword with brown handle (front RIGHT/back LEFT). No metal armor/cape, no human hair or fingers. Sword/headband/fin count stays coherent.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-sasakama-bushi.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-bushi/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-48aa3a67-5eb8-4d92-853b-994e63b4002f.png",
+        "file": {
+          "id": "miyagi-sasakama-bushi",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-bushi/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1672874,
+          "sha256": "7d894c831bb4f6b4056b0017fcac210a6fb8b82789a9850e1ba9e41036e0345b"
+        }
+      },
+      "corrections": [
+        {
+          "prompt": "Correct ONLY headband knot and its two black-tipped tails: they belong to character ANATOMICAL RIGHT side in all four views. Top-left/front move knot/tails to viewer LEFT, not viewer right. Top-right three-quarter same anatomical right, visible at viewer LEFT side. Bottom-left right-facing profile shows near right temple knot. Bottom-right/back move knot/tails to viewer RIGHT, not viewer left. Do not change leaf sword: it stays in ANATOMICAL LEFT hand (front viewer RIGHT/back viewer LEFT). Keep all other character details and layout/style unchanged. Smooth the three brown grill stripes into rounded diagonal stripes instead of pixel stairs. No labels.",
+          "references": [
+            "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-48aa3a67-5eb8-4d92-853b-994e63b4002f.png"
+          ],
+          "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-d870ebba-19cf-43dc-a338-03327181c60c.png",
+          "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-bushi/turnaround-v2.png"
+        }
+      ],
+      "file": {
+        "id": "miyagi-sasakama-bushi",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-sasakama-bushi/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1604900,
+        "sha256": "ab2bb9bd0f80b4bd0e6db5d9ca44f687388d9991505ed0b255edad2362463079"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-shiratorin",
+      "name": "シラトリン",
+      "index": 14,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: SHIRATORIN: a small WHITE SWAN cygnet with rounded egg-like body, long slim gently S-shaped WHITE neck, small head with dark rectangular eyes, yellow beak with BLACK TIP/base detail, pink cheek dabs. TWO folded white wings on body, simple large pale-gray feather shapes, ONE small pointed swan rear tail. Floats on a thin small sky-blue WATER RING BASE, feet naturally submerged/hidden, no human legs. In FRONT view beak faces camera and both sides of bird readable; 3quarter different; SIDE PROFILE points image RIGHT; BACK no duplicated beak/face. Keep long neck and water base, no crown/halo, no realistic feather filaments.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-shiratorin.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-2dcc471f-0c50-4efb-8733-2cda0eee7a11.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-shiratorin/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: SHIRATORIN: a small WHITE SWAN cygnet with rounded egg-like body, long slim gently S-shaped WHITE neck, small head with dark rectangular eyes, yellow beak with BLACK TIP/base detail, pink cheek dabs. TWO folded white wings on body, simple large pale-gray feather shapes, ONE small pointed swan rear tail. Floats on a thin small sky-blue WATER RING BASE, feet naturally submerged/hidden, no human legs. In FRONT view beak faces camera and both sides of bird readable; 3quarter different; SIDE PROFILE points image RIGHT; BACK no duplicated beak/face. Keep long neck and water base, no crown/halo, no realistic feather filaments.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-shiratorin.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-shiratorin/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-2dcc471f-0c50-4efb-8733-2cda0eee7a11.png",
+        "file": {
+          "id": "miyagi-shiratorin",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-shiratorin/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1605443,
+          "sha256": "bc95c63e79a7b0a3af8ffcd4d0f32ff9032e81c441f2b72dcb9482a68325c4b4"
+        }
+      },
+      "file": {
+        "id": "miyagi-shiratorin",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-shiratorin/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1605443,
+        "sha256": "bc95c63e79a7b0a3af8ffcd4d0f32ff9032e81c441f2b72dcb9482a68325c4b4"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-oohakucho",
+      "name": "オオハクチョウ",
+      "index": 15,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: OOHAKUCHO: evolved elegant large WHITE SWAN with long S-curved neck, TWO broad WHITE WINGS held raised and gently outstretched in a symmetrical neutral stance; broad scalloped feather blocks with a few pale icy-blue tips, no fine realistic plumage. Exactly ONE small three-point pale ICE-BLUE CROWN centered on head. Black eyes, yellow-and-black beak, small pale cheek mark. Thin sky-blue water ring/plinth beneath, no visible human feet. Wings remain TWO and raised across angles, full tips fit margins; back shows both wings/tail and crown, no front face. Omit floating sparkle stars, no extra wings.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-oohakucho.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-4529c2b2-2ab5-4a2f-8f65-59f88ef68528.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oohakucho/turnaround-v2.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: OOHAKUCHO: evolved elegant large WHITE SWAN with long S-curved neck, TWO broad WHITE WINGS held raised and gently outstretched in a symmetrical neutral stance; broad scalloped feather blocks with a few pale icy-blue tips, no fine realistic plumage. Exactly ONE small three-point pale ICE-BLUE CROWN centered on head. Black eyes, yellow-and-black beak, small pale cheek mark. Thin sky-blue water ring/plinth beneath, no visible human feet. Wings remain TWO and raised across angles, full tips fit margins; back shows both wings/tail and crown, no front face. Omit floating sparkle stars, no extra wings.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-oohakucho.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oohakucho/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-cacd4f32-8ff2-44d0-9927-0f3fff11e563.png",
+        "file": {
+          "id": "miyagi-oohakucho",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oohakucho/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1577128,
+          "sha256": "9020914618cf424f6d3f2f2a450446dbe08e8e15db9d969e115730763b9657c6"
+        }
+      },
+      "corrections": [
+        {
+          "prompt": "Edit ONLY TOP-LEFT view: make its head and beak face DIRECTLY toward viewer, symmetrical front view centered between the TWO raised wings. Both eyes visible symmetrically on head, beak foreshortened toward camera. Keep every other panel pixel-identical as much as possible. Keep same beautiful character, crown, two wings, water base, style, lighting, margins. No labels.",
+          "references": [
+            "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-cacd4f32-8ff2-44d0-9927-0f3fff11e563.png"
+          ],
+          "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-4529c2b2-2ab5-4a2f-8f65-59f88ef68528.png",
+          "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oohakucho/turnaround-v2.png"
+        }
+      ],
+      "file": {
+        "id": "miyagi-oohakucho",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oohakucho/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1578376,
+        "sha256": "8290e7fe36ec5a580d94c12d11fdd10755c91cb67a7bdf9cf7b2be08edd18b1c"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-zundagon",
+      "name": "ズンダゴン",
+      "index": 16,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: ZUNDAGON: evolved large green ZUNDA MOCHI creature, not a dinosaur or quadruped dragon. Broad bright-green edamame-paste round head/mane with TWO upward green BEAN POD horns, each a simple rounded pod ridge, large simple white rectangular focused eyes/dark pupils, pink cheeks, wide open smiling dark mouth with pink tongue. Thick simple green zunda mane fringe encircles neck above WHITE MOCHI lower body, TWO tiny white mochi side arms, TWO short white mochi foot stubs. Basic relative is material/family only. No long snout, animal tail, reptile scales, extra horns/wings or new clothes. Back no face, green paste continues over rounded head and white base.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-zundagon.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/miyagi-zundamaru/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-78eb72fc-2bbc-4bab-a0f5-3a6a6f1ff952.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-zundagon/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: ZUNDAGON: evolved large green ZUNDA MOCHI creature, not a dinosaur or quadruped dragon. Broad bright-green edamame-paste round head/mane with TWO upward green BEAN POD horns, each a simple rounded pod ridge, large simple white rectangular focused eyes/dark pupils, pink cheeks, wide open smiling dark mouth with pink tongue. Thick simple green zunda mane fringe encircles neck above WHITE MOCHI lower body, TWO tiny white mochi side arms, TWO short white mochi foot stubs. Basic relative is material/family only. No long snout, animal tail, reptile scales, extra horns/wings or new clothes. Back no face, green paste continues over rounded head and white base.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-zundagon.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/miyagi-zundamaru/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-zundagon/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-78eb72fc-2bbc-4bab-a0f5-3a6a6f1ff952.png",
+        "file": {
+          "id": "miyagi-zundagon",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-zundagon/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1762511,
+          "sha256": "c7241f0112bdabbb2c315332e9038ad7b8497646fec66701fb157bea0535ab21"
+        }
+      },
+      "file": {
+        "id": "miyagi-zundagon",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-zundagon/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1762511,
+        "sha256": "c7241f0112bdabbb2c315332e9038ad7b8497646fec66701fb157bea0535ab21"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-midboss-tanabata-dori",
+      "name": "タナバタドリ",
+      "index": 17,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: TANABATA DORI: grand TEAL BIRD with gold crown/red jewel, two small mint crest feathers, large white rectangular dark-pupil eyes and short GOLD beak. TWO broad wings spread up/out; each wing is exactly FIVE long paper STREAMER strips attached along a teal leading wing edge, colors RED/GOLD/BLUE/GREEN/PURPLE (outer to inner in FRONT). Same physical strips persist on back/profile, do not become feathers or multiply. ONE rounded GOLD KUSUDAMA ball/chest ornament with a few big red floral patches at CENTER FRONT only. Tail is a short fan of FIVE long attached paper ribbons GOLD/PURPLE/RED/PURPLE/GOLD, one rear tail assembly; TWO golden bird feet under body, ribbons end above/between feet with no overlap into adjacent panels. No writing on paper, no human hands, no extra tail or more wing strips. Restrained matte paper/plastic miniature, not complex cloth.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-midboss-tanabata-dori.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-c79a6fcf-930c-495c-a149-36a0ba15f8ba.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-midboss-tanabata-dori/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: TANABATA DORI: grand TEAL BIRD with gold crown/red jewel, two small mint crest feathers, large white rectangular dark-pupil eyes and short GOLD beak. TWO broad wings spread up/out; each wing is exactly FIVE long paper STREAMER strips attached along a teal leading wing edge, colors RED/GOLD/BLUE/GREEN/PURPLE (outer to inner in FRONT). Same physical strips persist on back/profile, do not become feathers or multiply. ONE rounded GOLD KUSUDAMA ball/chest ornament with a few big red floral patches at CENTER FRONT only. Tail is a short fan of FIVE long attached paper ribbons GOLD/PURPLE/RED/PURPLE/GOLD, one rear tail assembly; TWO golden bird feet under body, ribbons end above/between feet with no overlap into adjacent panels. No writing on paper, no human hands, no extra tail or more wing strips. Restrained matte paper/plastic miniature, not complex cloth.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-midboss-tanabata-dori.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-midboss-tanabata-dori/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-c79a6fcf-930c-495c-a149-36a0ba15f8ba.png",
+        "file": {
+          "id": "miyagi-midboss-tanabata-dori",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-midboss-tanabata-dori/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1741770,
+          "sha256": "ea0c808b012dde9099e25b5ce95c9b8eeb7848b8e94ec9df24fd1b72c682fcba"
+        }
+      },
+      "file": {
+        "id": "miyagi-midboss-tanabata-dori",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-midboss-tanabata-dori/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1741770,
+        "sha256": "ea0c808b012dde9099e25b5ce95c9b8eeb7848b8e94ec9df24fd1b72c682fcba"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-boss-mikazuki-shogun",
+      "name": "ミカヅキショウグン",
+      "index": 18,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: MIKAZUKI SHOGUN: EMPTY BLACK/NAVY SAMURAI ARMOR animated by magic, NOT a human face. Broad kabuto with ONE huge gold crescent spanning left-right across helmet front, small gold crown-like top crest, subtle gray helmet mottling. Faceplate is a DARK EMPTY cavity with TWO simple glowing pale-yellow eye slits, no nose, skin or mouth. Broad navy lamellar chest/shoulders with few gold bands and gray plate seams, TWO gauntleted arms and TWO armored feet. ONE long straight SILVER SWORD held vertically point-down at CENTER FRONT by BOTH gauntlets together; no additional sword. Plain PURPLE cape attached at shoulders falling behind, no front face on back. Can stand on a thin simple gray STONE plinth matching source, not castle scenery. Big solid readable forms, no elaborate etching or new jewels.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-boss-mikazuki-shogun.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-fd867370-9429-4587-bea0-6c317aef879e.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-boss-mikazuki-shogun/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: MIKAZUKI SHOGUN: EMPTY BLACK/NAVY SAMURAI ARMOR animated by magic, NOT a human face. Broad kabuto with ONE huge gold crescent spanning left-right across helmet front, small gold crown-like top crest, subtle gray helmet mottling. Faceplate is a DARK EMPTY cavity with TWO simple glowing pale-yellow eye slits, no nose, skin or mouth. Broad navy lamellar chest/shoulders with few gold bands and gray plate seams, TWO gauntleted arms and TWO armored feet. ONE long straight SILVER SWORD held vertically point-down at CENTER FRONT by BOTH gauntlets together; no additional sword. Plain PURPLE cape attached at shoulders falling behind, no front face on back. Can stand on a thin simple gray STONE plinth matching source, not castle scenery. Big solid readable forms, no elaborate etching or new jewels.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-boss-mikazuki-shogun.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-boss-mikazuki-shogun/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-fd867370-9429-4587-bea0-6c317aef879e.png",
+        "file": {
+          "id": "miyagi-boss-mikazuki-shogun",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-boss-mikazuki-shogun/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1809954,
+          "sha256": "fc9febfe8919e480973d48ba25d579a6a62c8b6f43c41e83c0fb93990bab8fc3"
+        }
+      },
+      "file": {
+        "id": "miyagi-boss-mikazuki-shogun",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-boss-mikazuki-shogun/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1809954,
+        "sha256": "fc9febfe8919e480973d48ba25d579a6a62c8b6f43c41e83c0fb93990bab8fc3"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "miyagi-lastboss-date-masamune",
+      "name": "伊達政宗",
+      "index": 19,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: DATE MASAMUNE: stylized ADULT human samurai as sprite, not a real portrait. Upright adult figure, dark navy/charcoal lamellar armor with modest gold bands, red chest lacing/red waist cord, dark purple/navy waist skirt, blue forearms/shins and dark boots, TWO bare tan hands relaxed at sides. NAVY kabuto with ONE huge smooth gold crescent crest across front/up at both ends. TAN human face with exactly ONE visible sharp eye: black EYEPATCH on ANATOMICAL RIGHT eye (front viewer LEFT). Same patch side in 3quarter and RIGHT-facing profile; never swap eyes or add second visible eye through patch. Back no face, helmet neckguard plain. No beard, sword, cape, horns separate from crescent, text or purple floating effects.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-lastboss-date-masamune.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-6e384458-a3b2-47fb-99c8-27902f650d2c.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-lastboss-date-masamune/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: DATE MASAMUNE: stylized ADULT human samurai as sprite, not a real portrait. Upright adult figure, dark navy/charcoal lamellar armor with modest gold bands, red chest lacing/red waist cord, dark purple/navy waist skirt, blue forearms/shins and dark boots, TWO bare tan hands relaxed at sides. NAVY kabuto with ONE huge smooth gold crescent crest across front/up at both ends. TAN human face with exactly ONE visible sharp eye: black EYEPATCH on ANATOMICAL RIGHT eye (front viewer LEFT). Same patch side in 3quarter and RIGHT-facing profile; never swap eyes or add second visible eye through patch. Back no face, helmet neckguard plain. No beard, sword, cape, horns separate from crescent, text or purple floating effects.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-lastboss-date-masamune.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-lastboss-date-masamune/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-6e384458-a3b2-47fb-99c8-27902f650d2c.png",
+        "file": {
+          "id": "miyagi-lastboss-date-masamune",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-lastboss-date-masamune/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1690544,
+          "sha256": "1438643bdc25e72d028fd00cd32019f2ed8acaba4954cec4fada407062c7975d"
+        }
+      },
+      "file": {
+        "id": "miyagi-lastboss-date-masamune",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-lastboss-date-masamune/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1690544,
+        "sha256": "1438643bdc25e72d028fd00cd32019f2ed8acaba4954cec4fada407062c7975d"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "akita-chuken-maru",
+      "name": "チュウケンマル",
+      "index": 20,
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: CHUKEN MARU: heroic FOUR-LEGGED AKITA DOG, orange/tan coat, thick white chest/cheek ruff in broad soft blocks, white muzzle and paw tips, TWO upright orange ears white/tan inside, focused white rectangular dark-pupil eyes with slanted brows, black nose and tiny smile, pink cheeks. FOUR short sturdy legs/white-tipped paws, ONE orange tightly curled tail on center rear curling toward anatomical LEFT (front viewer RIGHT/back viewer LEFT). RED SCARF around neck with knot and two short tails streaming at ANATOMICAL RIGHT side (front viewer LEFT/back viewer RIGHT), ONE small gold center chest tag. ONE thin GOLD HALO RING floats above head, same ring count and spacing each angle, not a crown. Preserve scarf/tail sides and four paws. No human arms, real fine fur, weapons or extra jewelry.",
+      "references": [
+        "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/akita-chuken-maru.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+        "../../assets/cinematics/monsters/tohoku-roster-v1/akita-akitainu/turnaround-v1.png"
+      ],
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-5126ae93-e6cf-49b9-83d5-7e5794936f12.png",
+      "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/akita-chuken-maru/turnaround-v1.png",
+      "initial": {
+        "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape 3:2 FOUR-VIEW character sheet for ONE existing NIHON QUEST game character. Input1 = canonical pixel sprite, controls identity, silhouette, face, colors, part counts and props. Input2 = approved Ringoron sheet, STYLE/LAYOUT ONLY: softly sculpted matte rounded 3D game-miniature look, simple big forms, warm light-gray studio background and small ground shadow. Never copy apple anatomy. Input3 if present = existing FAMILY relative, palette/material continuity only, NOT anatomy. Layout EXACTLY 2x2 complete neutral full bodies: top-left straight FRONT, top-right distinct 45-degree THREE-QUARTER, bottom-left STRICT SIDE with face pointing IMAGE RIGHT, bottom-right straight BACK. Keep fixed anatomy, neutral pose, scale, clothes, part counts and prop grip in all views. Anatomical RIGHT is viewer LEFT in front and viewer RIGHT in back; anatomical LEFT is viewer RIGHT front and viewer LEFT back. Hidden parts may be naturally occluded, never deleted or duplicated. Back has NO front face or front-only marks. Every horn, tail, wingtip, held item and foot fits inside its quadrant with generous 12% margins. No overlaps/cropping. Soft broad upper-left light, gentle near-orthographic camera. Convert pixel stair-step contours into smooth rounded 3D surfaces, not voxel blocks. Canonical simple rectangular eyes remain simple, no generic anime replacement. No text, names, labels, symbols resembling writing, watermarks, logos, UI, borders, expression strips, action sequence, unrelated scenery, extra ornaments, glitter, realistic fur or fine engraving. Unseen surfaces are minimal extrapolation, not a mesh/CAD. Character identity lock: CHUKEN MARU: heroic FOUR-LEGGED AKITA DOG, orange/tan coat, thick white chest/cheek ruff in broad soft blocks, white muzzle and paw tips, TWO upright orange ears white/tan inside, focused white rectangular dark-pupil eyes with slanted brows, black nose and tiny smile, pink cheeks. FOUR short sturdy legs/white-tipped paws, ONE orange tightly curled tail on center rear curling toward anatomical LEFT (front viewer RIGHT/back viewer LEFT). RED SCARF around neck with knot and two short tails streaming at ANATOMICAL RIGHT side (front viewer LEFT/back viewer RIGHT), ONE small gold center chest tag. ONE thin GOLD HALO RING floats above head, same ring count and spacing each angle, not a crown. Preserve scarf/tail sides and four paws. No human arms, real fine fur, weapons or extra jewelry.",
+        "references": [
+          "../../assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/akita-chuken-maru.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "../../assets/cinematics/monsters/tohoku-roster-v1/akita-akitainu/turnaround-v1.png"
+        ],
+        "destination": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/akita-chuken-maru/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-5126ae93-e6cf-49b9-83d5-7e5794936f12.png",
+        "file": {
+          "id": "akita-chuken-maru",
+          "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/akita-chuken-maru/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1726659,
+          "sha256": "87b8cc12ad0b6769dbb946cee366e42bc297178b82bc11dfcc3897bbeed5e20f"
+        }
+      },
+      "file": {
+        "id": "akita-chuken-maru",
+        "path": "../../assets/cinematics/monsters/tohoku-turnarounds-v5/akita-chuken-maru/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1726659,
+        "sha256": "87b8cc12ad0b6769dbb946cee366e42bc297178b82bc11dfcc3897bbeed5e20f"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    }
+  ]
+}

@@ -47,9 +47,11 @@ export function victoryResultView(
 ): ResultView {
   const table = content.xp.hero;
   const { xp } = game.player;
-  const from = xpToNextLevel(table, heroLevel(game, table), xp, game.player.levelCap);
+  const fromLevel = heroLevel(game, table);
+  const from = xpToNextLevel(table, fromLevel, xp, game.player.levelCap);
   const toLevel = Math.max(game.player.level, levelForXp(table, xp + summary.xp, game.player.levelCap));
   const to = xpToNextLevel(table, toLevel, xp + summary.xp, game.player.levelCap);
+  const leveledUp = toLevel > fromLevel;
   const counts = new Map<string, number>();
   const showRecruitOffer = Boolean(victory?.recruitOffer && (hasStoryCompanion(game) || forceRecruitOffer));
   for (const id of summary.drops) counts.set(id, (counts.get(id) ?? 0) + 1);
@@ -62,8 +64,10 @@ export function victoryResultView(
       return { name: item?.name ?? id, count, icon: item ? iconUrl(item) : undefined };
     }),
     xpFrom: from.ratio,
-    xpTo: to.ratio,
-    needNext: to.need,
+    // レベル境界をまたぐ場合、新Lvの残量へ直接つなぐとゲージが逆走して見える。
+    // リザルトでは旧Lvの満タンまで見せ、確定後のレベルアップ演出へ引き継ぐ。
+    xpTo: leveledUp ? 1 : to.ratio,
+    needNext: leveledUp ? 0 : to.need,
     recruitName: showRecruitOffer ? enemyName : undefined,
     recruitArt: showRecruitOffer ? recruitArt : undefined,
     goldLost: 0,

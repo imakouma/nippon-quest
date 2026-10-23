@@ -183,7 +183,6 @@ describe('場面別BGM', () => {
     expect(FakeAudio.instances[0]!.volume).toBeCloseTo(0.5);
     expect(FakeAudio.instances.filter((a) => !a.paused)).toEqual([FakeAudio.instances[0]]);
   });
-
   it('終了した背景Sceneからの停止が新しい曲を止めない', () => {
     const music = createMusicDirector();
     const field = music.start('field', 0.6);

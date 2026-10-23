@@ -182,6 +182,8 @@ export interface QuestionQuery {
 - 自動検査は構造・参照・正解形式を保証するが、設問内容の学術的正確性を承認しない。
 - 公式出典と承認記録は `content/quality/academic-reviews.json` に集約する。
 - 人間が問題ファイルを確認したら、担当者・確認日・出典ID・ファイルの SHA-256 を `reviews` に記録する。
+- 有効な承認は、対象ファイルが現存し、SHA-256 が一致し、レビュー日・出典確認日が未来日でも期限切れでもなく、参照する全出典が台帳に存在して対象ファイルの全教科を扱うものだけ。同一ファイルの重複記録も無効とする。
+- 記録は `pnpm academic-review:record -- ...` でプレビューし、人間が内容と根拠を確認したあと `--apply` を付ける。詳細は `docs/quality/ACADEMIC_REVIEW_WORKFLOW.md`。
 - 承認済みファイルの内容が変わると `pnpm validate:content` が失敗する。変更内容を再確認してからハッシュと確認日を更新する。
 - 統計、制度、地名など変化し得る事実は、台帳の `changingFactsRequireCurrentSource` に従い、確認時点で最新の一次資料を使う。
 - 未承認ファイル数は検証時に情報として表示する。未承認を「確認済み」とみなしてはならない。

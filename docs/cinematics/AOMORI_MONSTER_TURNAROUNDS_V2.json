@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-21",
+  "mode": "built-in image_gen",
+  "scope": "第1バッチ：現行青森モンスター5体の4方向設定画。全キャラクター完成ではない。",
+  "requestedImageCount": 5,
+  "selectedImageCount": 5,
+  "initialGenerationCalls": 5,
+  "targetedCorrectionCalls": 2,
+  "paidVideoJobs": 0,
+  "gameRuntimeChanged": false,
+  "existingAssetsOverwritten": false,
+  "userApproved": true,
+  "status": "reference-direction-approved-for-continuation",
+  "approvalNote": "2026-10-21の『いいね、そしたら前キャラ反映させていって』を、この5体の外観方針を採用して全キャラ展開を続ける指示として記録。ゲームや本番動画への組み込みは未実施。",
+  "plan": "../../tasks/character-turnarounds-plan.md",
+  "review": "../../docs/cinematics/AOMORI_MONSTER_TURNAROUNDS_REVIEW_V2.md",
+  "layout": {
+    "canvas": "landscape 3:2",
+    "width": 1536,
+    "height": 1024,
+    "grid": "2x2",
+    "views": ["front", "front-three-quarter", "right-facing-side-profile", "back"]
+  },
+  "pixelProvenance": {
+    "registry": "src/rendering/monsters/index.ts: MONSTER_DESIGNS",
+    "designs": "src/rendering/monsters/aomori.ts",
+    "rasterizer": "src/rendering/monsters/design.ts: designGrid()",
+    "method": "元32×32ドットを4px余白付きで書き出し、nearest-neighborで12倍（480×480）へ拡大。生成AIで元ドットを描き替えていない。"
+  },
+  "unseenSurfaces": "側背面は元ドットからの保守的な補完。厳密な正投影図・3Dメッシュ・リグではない。",
+  "reviewMethod": "全画像を表示し、元ドットと方向間の部品・持ち物を目視照合。別エージェントの独立目視も実施。PNG寸法、SHA-256、保存先と生成元の一致を検査。",
+  "nationwideProgress": {
+    "reachableMonsterIds": 541,
+    "legacyUnreachableIds": 1,
+    "previousExactFourViewSheets": 10,
+    "newExactFourViewSheets": 5,
+    "totalExactFourViewSheets": 15,
+    "note": "既存御三家9形態・主要人物4体・魔王2造形の別形式資料は再利用する。15枚を全資料数や全体完了と混同しない。"
+  },
+  "jobs": [
+    {
+      "id": "aomori-sakurapon",
+      "name": "サクラポン",
+      "index": 1,
+      "prompt": "Use case: stylized-concept.\nAsset type: one production-reference turnaround sheet for ONE existing NIHON QUEST game creature, not a 3D mesh.\nInput image 1 is the exact in-game pixel sprite: the authority for identity, silhouette, facial geometry, main colors and anatomy. Input image 2 is the approved Ringoron sheet: STYLE AND LAYOUT ONLY, never borrow apple anatomy or its face.\nPrimary request: translate image 1 faithfully into the same soft rounded matte sculpted 3D game-miniature look as image 2, with simple confident forms and restrained fine texture. Original game creature, not another franchise's character.\nLayout: one landscape 3:2 image, four full-body views in a clean 2x2 arrangement: TOP LEFT straight front, TOP RIGHT unmistakable 35–45-degree three-quarter rotation, BOTTOM LEFT true side profile facing right, BOTTOM RIGHT direct back. Same creature, same neutral stance, same scale and materials in all four. Each entire silhouette including every leaf, foot, held object, wing or tail must fit inside its quadrant with 10% free margin. No panel borders. Warm light gray seamless studio background, soft broad upper-left lighting and weak contact shadows. Correct occlusion is allowed, but no body part may disappear or change shape between views.\nNo text, names, labels, numbers, logos, captions, arrows, UI, watermarks or screenshot corners. No extra props, no extra views, no evolution montage, no expression strip. Avoid photorealism, plush/felt fur, anime painting, pixelated/voxel geometry, glitter, ornate trim. The front and three-quarter must clearly show the canonical face; no face on the back.\nCharacter-specific identity lock:\nSakurapon is a small pink cherry-blossom spirit: its ENTIRE head/body is one broad flattened pink blossom-shaped volume with the same big rounded petal lobes and notches as the sprite. The irregular petal perimeter is its silhouette, NOT a round apple with flowers attached, not a pink furry animal. One small simple green leaf protrudes from the top-center. Exactly TWO short dark brown twig-like legs/feet extend below. No arms, no nose, no stem trunk, no flower crown. Preserve two modest upright rectangular off-white eye patches with dark lower pupils and tiny berry-pink cheek marks; a tiny calm horizontal mouth, not an open grin. Front is pink, side reveals modest sculpted thickness, back has the same blossom perimeter, green leaf and two feet but no face. Keep the body wider than tall, uncluttered and sweet; do not convert into a perfect round ball.",
+      "references": [
+        {
+          "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/pixel-references/aomori-sakurapon.png",
+          "role": "identity-authority-pixel",
+          "width": 480,
+          "height": 480,
+          "bytes": 3670,
+          "sha256": "7bbfaea7dabace40b772da40df838c223290136103ba8f74ad510b605cc20bae"
+        },
+        {
+          "path": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "role": "style-and-layout-only",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "destination": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-sakurapon/turnaround-v1.png",
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-82a861fd-a4de-4b8f-b5b1-d51621141105.png",
+      "file": {
+        "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-sakurapon/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1714494,
+        "sha256": "bf1d7d2d176273f5ebbac9e9ea066ba6f65dd2ffa343478b6d71b00163d7edd6"
+      },
+      "status": "reference-direction-approved-for-continuation",
+      "userApproved": true,
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "花の輪郭・葉1枚・足2本、四角い目と横口を元ドットと照合。4方向の構造を目視確認。"
+      }
+    },
+    {
+      "id": "aomori-senbein",
+      "name": "センベイン",
+      "index": 2,
+      "prompt": "Use case: stylized-concept.\nAsset type: one production-reference turnaround sheet for ONE existing NIHON QUEST game creature, not a 3D mesh.\nInput image 1 is the exact in-game pixel sprite: the authority for identity, silhouette, facial geometry, main colors and anatomy. Input image 2 is the approved Ringoron sheet: STYLE AND LAYOUT ONLY, never borrow apple anatomy or its face.\nPrimary request: translate image 1 faithfully into the same soft rounded matte sculpted 3D game-miniature look as image 2, with simple confident forms and restrained fine texture. Original game creature, not another franchise's character.\nLayout: one landscape 3:2 image, four full-body views in a clean 2x2 arrangement: TOP LEFT straight front, TOP RIGHT unmistakable 35–45-degree three-quarter rotation, BOTTOM LEFT true side profile facing right, BOTTOM RIGHT direct back. Same creature, same neutral stance, same scale and materials in all four. Each entire silhouette including every leaf, foot, held object, wing or tail must fit inside its quadrant with 10% free margin. No panel borders. Warm light gray seamless studio background, soft broad upper-left lighting and weak contact shadows. Correct occlusion is allowed, but no body part may disappear or change shape between views.\nNo text, names, labels, numbers, logos, captions, arrows, UI, watermarks or screenshot corners. No extra props, no extra views, no evolution montage, no expression strip. Avoid photorealism, plush/felt fur, anime painting, pixelated/voxel geometry, glitter, ornate trim. The front and three-quarter must clearly show the canonical face; no face on the back.\nCharacter-specific identity lock:\nSenbein is a living round Nanbu rice cracker: one upright flattened golden-tan disk with a slightly uneven PALE SAND-colored raised rim and sparse dark-brown sesame dots. The cracker IS the whole head/body. Exactly TWO short dark-brown legs with chunky small feet, no arms, no animal ears, no mouth cavity or teeth. Preserve two upright modest off-white rectangular eyes with dark lower pupil blocks, muted rosy cheek rectangles and a tiny simple horizontal mouth. Quiet neutral expression, not generic huge shiny anime eyes. In profile it must clearly be a thick biscuit disk, not a spherical cookie or an animal wearing a cracker; keep enough thickness for a coherent 3D object, about one fifth of its diameter. The rim continues around the edge and back; sesame dots are sparse decorative brown marks, not realistic food crumbs. Back has no face. Keep the same two feet, disk thickness, pale rim and spot placement coherently across all four directions.",
+      "references": [
+        {
+          "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/pixel-references/aomori-senbein.png",
+          "role": "identity-authority-pixel",
+          "width": 480,
+          "height": 480,
+          "bytes": 3535,
+          "sha256": "b2b3f36b7626c5222752674d4c0cdba16ae2d3739cde8d0d6310b44178e1b452"
+        },
+        {
+          "path": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "role": "style-and-layout-only",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "destination": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-senbein/turnaround-v1.png",
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-121211a5-8cbd-431e-b06b-32c7b5dcdb39.png",
+      "file": {
+        "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-senbein/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1783360,
+        "sha256": "22adf1fb645c05d5d069fa74e6666f840a8b971b505541d82275391b2a2fd9be"
+      },
+      "status": "reference-direction-approved-for-continuation",
+      "userApproved": true,
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "煎餅の円盤形・淡い縁・焼き粒・四角い目・足2本を照合。側面は厚みを表現し、背面へ顔を複製していない。"
+      }
+    },
+    {
+      "id": "aomori-nebuta-musha",
+      "name": "ネブタムシャ",
+      "index": 3,
+      "prompt": "Use case: stylized-concept.\nAsset type: one production-reference turnaround sheet for ONE existing NIHON QUEST game creature, not a 3D mesh.\nInput image 1 is the exact in-game pixel sprite: the authority for identity, silhouette, facial geometry, main colors and anatomy. Input image 2 is the approved Ringoron sheet: STYLE AND LAYOUT ONLY, never borrow apple anatomy or its face.\nPrimary request: translate image 1 faithfully into the same soft rounded matte sculpted 3D game-miniature look as image 2, with simple confident forms and restrained fine texture. Original game creature, not another franchise's character.\nLayout: one landscape 3:2 image, four full-body views in a clean 2x2 arrangement: TOP LEFT straight front, TOP RIGHT unmistakable 35–45-degree three-quarter rotation, BOTTOM LEFT true side profile facing right, BOTTOM RIGHT direct back. Same creature, same neutral stance, same scale and materials in all four. Each entire silhouette including every leaf, foot, held object, wing or tail must fit inside its quadrant with 10% free margin. No panel borders. Warm light gray seamless studio background, soft broad upper-left lighting and weak contact shadows. Correct occlusion is allowed, but no body part may disappear or change shape between views.\nNo text, names, labels, numbers, logos, captions, arrows, UI, watermarks or screenshot corners. No extra props, no extra views, no evolution montage, no expression strip. Avoid photorealism, plush/felt fur, anime painting, pixelated/voxel geometry, glitter, ornate trim. The front and three-quarter must clearly show the canonical face; no face on the back.\nCharacter-specific identity lock:\nNebuta Musha is the armored evolution of Nebutan. Image 3 is its approved BASIC-form relative for family continuity ONLY; do not generate that baby form. Preserve image 1's compact upright red-orange festival warrior: broad square-rounded red face, small focused white-and-dark eyes under thick angled dark brows, confident subtle smile. Blue helmet/headband with gold band, TWO long broad upward gold kuwagata antlers and one small central gold crest. NO three flames on top: those belong to the baby in image 3. Large rounded BLUE shoulder armor with RED horizontal bands, broad PALE CREAM chest plate carrying one simple RED flame-shaped emblem with small GOLD center, red-orange waist/legs, gold belt, dark blue short boots. A single short sheathed dark-blue katana at the character's LEFT hip (viewer RIGHT in frontal view) with a small gold guard; do not swap hips between views. ONE broad fan-shaped nebuta lantern assembly is mounted on its BACK, projecting in two lobes to the sides of the helmet; red border, large pale cream panels and simple blue/yellow blocks. In back/side views show its coherent backing and straps, not a second face or extra weapon. Keep restrained simple miniature geometry, not a detailed human samurai. All antlers, lantern, feet and sword visible within frame.",
+      "references": [
+        {
+          "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/pixel-references/aomori-nebuta-musha.png",
+          "role": "identity-authority-pixel",
+          "width": 480,
+          "height": 480,
+          "bytes": 5658,
+          "sha256": "5fff0bc7af7e1cd92c7ec83dc6df98f4b4a082d3e2d3af0e00dace85fcf33c0a"
+        },
+        {
+          "path": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "role": "style-and-layout-only",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "path": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-nebutan/turnaround-v1.png",
+          "role": "basic-family-continuity-only",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1784489,
+          "sha256": "0830be238bd6111fdd96d43dacdbb9239e3296cbb7d112af9457e0a8580f0e11"
+        }
+      ],
+      "destination": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-nebuta-musha/turnaround-v1.png",
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-d346a07b-4411-433b-afaf-84d4e04bb3f5.png",
+      "file": {
+        "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-nebuta-musha/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1768838,
+        "sha256": "e80c69ba17ab994e43377152aa44e46aa819f1c1593ed98ef21fb84aed3607c7"
+      },
+      "status": "reference-direction-approved-for-continuation",
+      "userApproved": true,
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "二本の金角・青兜と鎧・炎の胸紋・灯籠背面を照合。刀は身体の左腰を維持。側面の鞘は身体の陰に隠れる。"
+      }
+    },
+    {
+      "id": "aomori-dogu-jin",
+      "name": "ドグウジン",
+      "index": 4,
+      "prompt": "Use case: stylized-concept.\nAsset type: one production-reference turnaround sheet for ONE existing NIHON QUEST game creature, not a 3D mesh.\nInput image 1 is the exact in-game pixel sprite: the authority for identity, silhouette, facial geometry, main colors and anatomy. Input image 2 is the approved Ringoron sheet: STYLE AND LAYOUT ONLY, never borrow apple anatomy or its face.\nPrimary request: translate image 1 faithfully into the same soft rounded matte sculpted 3D game-miniature look as image 2, with simple confident forms and restrained fine texture. Original game creature, not another franchise's character.\nLayout: one landscape 3:2 image, four full-body views in a clean 2x2 arrangement: TOP LEFT straight front, TOP RIGHT unmistakable 35–45-degree three-quarter rotation, BOTTOM LEFT true side profile facing right, BOTTOM RIGHT direct back. Same creature, same neutral stance, same scale and materials in all four. Each entire silhouette including every leaf, foot, held object, wing or tail must fit inside its quadrant with 10% free margin. No panel borders. Warm light gray seamless studio background, soft broad upper-left lighting and weak contact shadows. Correct occlusion is allowed, but no body part may disappear or change shape between views.\nNo text, names, labels, numbers, logos, captions, arrows, UI, watermarks or screenshot corners. No extra props, no extra views, no evolution montage, no expression strip. Avoid photorealism, plush/felt fur, anime painting, pixelated/voxel geometry, glitter, ornate trim. The front and three-quarter must clearly show the canonical face; no face on the back.\nCharacter-specific identity lock:\nDogu Jin is the stronger evolution of Dogu-kun. Image 3 is its approved SMALL basic relative, for clay texture and family continuity only. Follow image 1: broad sturdy tan terracotta dogu golem, thick head joining a wide rectangular torso, broad shoulders, short lateral arms and TWO thick separated legs. FIVE short chunky rounded ridge-nubs across the top of the head, not the baby's three tiny knobs. Its defining eyes are TWO LARGE HORIZONTAL RECTANGULAR cream goggle plates with dark-brown frames and narrow horizontal dark slits; preserve the squarer broad shape, do not use normal round anime eyeballs or only copy the baby's round goggles. Tiny vertical dark O mouth, muted pink cheeks. One simple GREEN jade comma-shaped magatama hangs at the center of the upper chest on a plain thin brown cord. Sparse wide brown angular/stepped rope-impression bands across chest/waist, small brown heel/foot accents, no fine engravings or invented symbols. Calm heavy ancient presence, not aggressive robot. Matte subtly porous clay, not metal or shiny plastic. Back has no eyes or jade ornament, only simple clay body and the logically continuing neck cord. All five head ridges, two arms, two legs and forward chest ornament remain structurally consistent.",
+      "references": [
+        {
+          "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/pixel-references/aomori-dogu-jin.png",
+          "role": "identity-authority-pixel",
+          "width": 480,
+          "height": 480,
+          "bytes": 6160,
+          "sha256": "516b73bd94d8aec06860415ab9c7d9494646833a8c4a0e90f8f74113b611b3df"
+        },
+        {
+          "path": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "role": "style-and-layout-only",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "path": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-doguukun/turnaround-v1.png",
+          "role": "basic-family-continuity-only",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1919041,
+          "sha256": "70df7f35c82233aa28ac26fce44e16974b33de4698f5b204d59d828ffda24394"
+        }
+      ],
+      "destination": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-dogu-jin/turnaround-v2.png",
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-ca5ece02-8d38-4846-b6f7-cce3786ac2d1.png",
+      "file": {
+        "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-dogu-jin/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1834456,
+        "sha256": "aa8cd32c26cb595de70af26935561ab1f93a31bc46fcf89c22e0fa70ed518733"
+      },
+      "status": "reference-direction-approved-for-continuation",
+      "userApproved": true,
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "v1の突起4個をv2で5個へ修正。正面・背面で5個を確認。四角い遮光器眼・勾玉・2本脚・粘土質感を保持。"
+      },
+      "superseded": {
+        "destination": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-dogu-jin/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-b6eda581-0709-4180-a7d7-1f25ce45b414.png",
+        "reason": "頭頂突起が元ドットの5個ではなく4個",
+        "file": {
+          "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-dogu-jin/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1912817,
+          "sha256": "956fc85aac4df14335bf7bcd5f7c11a71947098457ac4da23e112f9d1c094b79"
+        },
+        "status": "superseded-do-not-use"
+      },
+      "correction": {
+        "prompt": "Use case: precise-object-edit. Edit target: the provided 2x2 turnaround sheet of the terracotta clay golem. Correct ONLY the head's ridge-nub count to match the original character: there must be exactly FIVE short chunky rounded bumps spaced evenly in a single row from left to right across the top of the head, not the current FOUR. Show all five clearly in the top-left FRONT view and bottom-right BACK view. In the top-right THREE-QUARTER view show five in a single row receding consistently; in bottom-left SIDE profile the row may correctly overlap with perspective. Keep the same soft clay style and head outline as close as possible, adding the needed small fifth bump rather than redesigning. Absolutely preserve everything else: square cream goggle slit eyes, tiny O mouth, pink cheeks, single green jade comma ornament, cord, brown stepped chest bands, body, arms, two separated legs, four-view positions, scale, gray background, shadows, color and lighting. No new jewelry, symbols, labels, text or watermarks. Same 3:2 sheet.",
+        "references": [
+          "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-dogu-jin/turnaround-v1.png"
+        ],
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-ca5ece02-8d38-4846-b6f7-cce3786ac2d1.png"
+      }
+    },
+    {
+      "id": "aomori-umineko-taicho",
+      "name": "ウミネコタイチョウ",
+      "index": 5,
+      "prompt": "Use case: stylized-concept.\nAsset type: one production-reference turnaround sheet for ONE existing NIHON QUEST game creature, not a 3D mesh.\nInput image 1 is the exact in-game pixel sprite: the authority for identity, silhouette, facial geometry, main colors and anatomy. Input image 2 is the approved Ringoron sheet: STYLE AND LAYOUT ONLY, never borrow apple anatomy or its face.\nPrimary request: translate image 1 faithfully into the same soft rounded matte sculpted 3D game-miniature look as image 2, with simple confident forms and restrained fine texture. Original game creature, not another franchise's character.\nLayout: one landscape 3:2 image, four full-body views in a clean 2x2 arrangement: TOP LEFT straight front, TOP RIGHT unmistakable 35–45-degree three-quarter rotation, BOTTOM LEFT true side profile facing right, BOTTOM RIGHT direct back. Same creature, same neutral stance, same scale and materials in all four. Each entire silhouette including every leaf, foot, held object, wing or tail must fit inside its quadrant with 10% free margin. No panel borders. Warm light gray seamless studio background, soft broad upper-left lighting and weak contact shadows. Correct occlusion is allowed, but no body part may disappear or change shape between views.\nNo text, names, labels, numbers, logos, captions, arrows, UI, watermarks or screenshot corners. No extra props, no extra views, no evolution montage, no expression strip. Avoid photorealism, plush/felt fur, anime painting, pixelated/voxel geometry, glitter, ornate trim. The front and three-quarter must clearly show the canonical face; no face on the back.\nCharacter-specific identity lock:\nUmineko Taicho is the captain evolution of Uminyan. Image 3 is its approved BASIC relative for family texture and anatomy ONLY. Follow image 1: upright plump WHITE sea-bird creature, TWO pointed white cat-ear-like tufts with pink inner surfaces, short broad YELLOW bird beak, small open dark mouth and red tongue, pink cheek dabs, TWO orange bird feet. Its anatomy is a bird with a beak and wings, not a cat muzzle/paws/whiskers. A low broad NAVY CAPTAIN CAP with dark band and one plain GOLD RECTANGULAR badge sits between the ear tufts; no anchor symbol, no lettering. A simple broad RED neck scarf with two short ends tied at the character's LEFT side (viewer RIGHT front); maintain tie side in every view. TWO silver-gray wings are slightly held away from the body in a calm symmetrical stance, with dark-charcoal tips and ONE modest round white spot on each tip; soft broad feather blocks, no fine fur or feather filaments. Preserve the sprite's focused slightly narrowed dark eyes for a confident captain rather than the baby's large round innocent eyes. Keep the same hat, visible ear tufts, scarf knot, wings and feet across all views; rear must show scarf around neck and back of cap, not a face. No coat, no human hands, sword, ship, extra props or invented jewelry.",
+      "references": [
+        {
+          "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/pixel-references/aomori-umineko-taicho.png",
+          "role": "identity-authority-pixel",
+          "width": 480,
+          "height": 480,
+          "bytes": 4520,
+          "sha256": "4859fe18243d7b6977fe3a0487af2a60f584226fb1ae8c8045db0138a5d2a536"
+        },
+        {
+          "path": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "role": "style-and-layout-only",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "path": "../../assets/cinematics/monsters/tohoku-roster-v1/aomori-umi-nyan/turnaround-v1.png",
+          "role": "basic-family-continuity-only",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1662126,
+          "sha256": "88d2b94d24d8fe172353de6251eb75248b863aa50ab29c824f1eddf44e26480d"
+        }
+      ],
+      "destination": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-umineko-taicho/turnaround-v2.png",
+      "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-3c9ee8f6-18ee-4206-92b7-b7cfb4b3da5a.png",
+      "file": {
+        "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-umineko-taicho/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1607770,
+        "sha256": "4180c3fdeb319c93a45555991134d9362bf54cfd3ed1b14f82a52000090ce438"
+      },
+      "status": "reference-direction-approved-for-continuation",
+      "userApproved": true,
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "v1の背面スカーフ左右反転をv2で修正。結び目は正面画面右／背面画面左。帽子・鳥の嘴・翼2枚・足2本を保持。"
+      },
+      "superseded": {
+        "destination": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-umineko-taicho/turnaround-v1.png",
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-c64f2c26-696a-47cf-ad5c-ba2cbcea37ff.png",
+        "reason": "背面スカーフの結び目が左右逆",
+        "file": {
+          "path": "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-umineko-taicho/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1684934,
+          "sha256": "bf4119089774e49da3a3c75cd8e2cf1fc22d7e2caaea2404842c384e1c36c264"
+        },
+        "status": "superseded-do-not-use"
+      },
+      "correction": {
+        "prompt": "Use case: precise-object-edit. Edit target: the provided 2x2 turnaround sheet of the white bird captain. Make ONE localized correction ONLY in the BOTTOM RIGHT REAR VIEW: relocate the red scarf knot and its two short dangling ends from the viewer's RIGHT side of the neck to the viewer's LEFT side of the neck. Completely remove the old right-side knot/tails, leaving the plain smooth scarf band at the right. This makes the knot stay on the character's anatomical LEFT, consistent with the two top front views. Keep ALL other pixels and design features as close to unchanged as possible: the top two views, bottom-left profile, four-view placement, body proportions, face, captain hat, ears, wings, feet, lighting, background, image dimensions. Do not mirror the entire back bird; only change the scarf knot and tails. Preserve a full 3:2 four-view image. No text or watermarks.",
+        "references": [
+          "../../assets/cinematics/monsters/aomori-turnarounds-v2/aomori-umineko-taicho/turnaround-v1.png"
+        ],
+        "generatedSource": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-3c9ee8f6-18ee-4206-92b7-b7cfb4b3da5a.png"
+      }
+    }
+  ]
+}

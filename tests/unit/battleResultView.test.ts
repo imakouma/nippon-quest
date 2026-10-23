@@ -74,6 +74,47 @@ describe('バトル結果の表示モデル', () => {
     expect(view.recruitName).toBeUndefined();
   });
 
+  it('レベルアップをまたぐ経験値ゲージは現在位置から満タンへ増える', async () => {
+    const c = await content();
+    const game = createNewGame({ name: 'ハル', grade: 1 });
+    game.player.xp = c.xp.hero[1]! - 2;
+    const gainedXp = 5;
+    const view = victoryResultView(
+      {
+        outcome: 'victory',
+        enemyRefId: 'enemy',
+        enemyLevel: 1,
+        heroHp: 40,
+        heroMp: 10,
+        heroMaxHp: 40,
+        heroMaxMp: 10,
+        xp: gainedXp,
+        gold: 0,
+        drops: [],
+        items: {},
+        recruitAccepted: false,
+        perfectBySubject: {},
+      },
+      {
+        t: 'victory',
+        xp: gainedXp,
+        gold: 0,
+        drops: [],
+        recruitOffer: false,
+        bonus: 1,
+        maxCombo: 0,
+      },
+      'テストモンスター',
+      game,
+      c,
+      () => '',
+    );
+
+    expect(view.xpFrom).toBeGreaterThan(0);
+    expect(view.xpTo).toBe(1);
+    expect(view.needNext).toBe(0);
+  });
+
   it('敗北表示に失ったお金だけを渡す', () => {
     expect(defeatResultView(12)).toMatchObject({ kind: 'defeat', goldLost: 12, xp: 0, drops: [] });
   });

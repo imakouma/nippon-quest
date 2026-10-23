@@ -16,7 +16,8 @@ test('Playground の問題いちらん：ぜんぶ出て、しぼりこめて、
   await page.goto('/playground.html');
   const rows = page.locator('.pg-table tbody tr');
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
-  expect(await rows.count()).toBeGreaterThan(100);
+  const allQuestionCount = await rows.count();
+  expect(allQuestionCount).toBeGreaterThan(100);
   await expect(page.locator('.pg-table tr.pg-bad')).toHaveCount(0);
 
   await page.locator('select#pg-f-type').selectOption('picture-word');

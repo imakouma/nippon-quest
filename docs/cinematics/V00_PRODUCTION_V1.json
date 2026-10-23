@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-18",
+  "status": "free-Wan2.2-C01-trial-saved; motion-QA-not-production-ready",
+  "scope": {
+    "video": "V00",
+    "plannedDurationSeconds": 48,
+    "narrativeCuts": 9,
+    "trialCut": "C01",
+    "trialDurationSeconds": 5,
+    "targetVideoResolution": "1080p",
+    "audio": "deferred; do not generate speech/audio",
+    "gameIntegration": "unchanged"
+  },
+  "userDecisions": [
+    "48-second subtitled animatic flow approved for production.",
+    "Only dialogue/subtitle captions are added later. Keep in-world sign/notebook writing in generated stills/video.",
+    "User selected reconnecting fal before video generation rather than the quoted Higgsfield test.",
+    "2026-10-21: user approved the free Wan2.2 demo without paid fallback."
+  ],
+  "textPolicy": {
+    "dialogue": "separate editable layer; omit from production images/video generation",
+    "diegeticText": "generate as part of scene; preserve intended readable content and planned disappearance",
+    "c01": "あおもり remains readable throughout the intact morning",
+    "correctionPolicy": "Do not silently replace in-world lettering with blank surfaces or a post-only workflow; review defective generated text before choosing a correction"
+  },
+  "keyframes": [
+    {
+      "id": "V00-C01-START-v1",
+      "file": "assets/cinematics/v00-production-v1/c01-start-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "0f8ef5efdfe35071d50ae83816f8c4ea58d64c995ee9542c5147d4f08ba33241",
+      "generator": "built-in image_gen",
+      "sourceGeneratedFile": "<local-generated>/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-8d86df87-6b93-4237-b760-381095124545.png",
+      "references": [
+        "assets/cinematics/storyboards/v00-v1/c01-b01-b05-3d-v4.png",
+        "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png"
+      ],
+      "prompt": "Use case: stylized-concept / identity-preserving production keyframe.\nAsset type: ONE full-bleed first frame for V00 C01, a 5-second original RPG cinematic. Landscape 16:9, ideally 2048x1152, no borders. This is ONE scene, NOT a storyboard sheet, collage, multi-panel image, character sheet, or annotated page.\nInput image 1 is the exact composition/character continuity reference (a storyboard sheet). Reconstruct ONLY its first/top-left scene as a polished high-resolution single frame, do not reproduce sheet headers, panel numbers, other panels, white paper or frames.\nInput image 2 is a STYLE reference only: soft rounded 3D figures with matte tactile materials, a gently stylized cozy game world, dimensional faces and real soft shadows. Do not add its apple creature to this scene.\nScene: peaceful Japanese wooden market street in morning, before the loss of knowledge. Left foreground apple stall under a terracotta-red awning; next door an open woodworker's bay; stone-and-packed-earth lane extends toward the back-right, green trees and distant blue hills. Preserve all recognizable building layout from the first scene. Warm soft morning light from upper-left, gentle ambient fill, saturated yet natural colors, minimal ornamental detail, NOT flat anime painting, NOT live-action.\nExactly FIVE residents, preserving the first reference identities:\n1. Behind the left stall: friendly adult woman, dark brown swept hair in a low bun, rust-red long-sleeve blouse, cream apron. She is about to place one red apple into the wicker basket. Keep both hands clean and readable.\n2. In front of the stall/sign: small child, straight dark bob, mustard-yellow loose shirt, dark brown shorts, cream-soled dark shoes. Back/three-quarter back to camera, face turned toward the low sign. Same child design as style reference, not the protagonist.\n3. Center behind next workbench: elderly man, short gray hair, gray mustache and small beard, navy work jacket and ochre work apron. A wooden hand plane rests under both hands on one horizontal plank.\n4. Right foreground: adult woman with dark brown low bun, sage-green long coat over cream dress, brown crossbody satchel, boots. Standing beside the other traveler, hands relaxed before indicating the way.\n5. Beside her: young adult man, short tousled dark brown hair, rust-red jacket, cream shirt, charcoal cropped trousers, brown boots, tan backpack with a rolled bedroll. Listening to the woman.\nFraming: wide eye-level establishing view with all five residents readable, medium-deep focus; do not crop heads or feet. The street and scale match reference 1, with compact but not baby proportions. Keep ordinary relaxed faces and pre-motion natural poses.\nIn-world text ONLY: a low wooden sign on the front of the apple stall clearly reads exactly “あおもり” in four dark handwritten hiragana, horizontal and readable. Preserve space around these characters so the child doesn't obscure them. No other readable labels are needed.\nConstraints: NO subtitles, dialogue, speech bubbles, narration, title text, UI, watermarks, B/C numbers, film slate, extra characters, fairy, protagonist, monster, magic, disappearing text, or foreboding effect. This is the intact ordinary morning. Do not redesign faces, clothes or architecture. Beautiful production-quality high-resolution 3D game-film still with simple confident shapes.",
+      "review": "internally inspected: five residents, no captions/grid, あおもり legible, matte 3D style; user final visual approval pending"
+    }
+  ],
+  "preparedButNotGenerated": {
+    "c01EndPrompt": "Use case: identity-preserve.\nAsset type: ONE full-bleed END frame of a 5-second continuous original RPG cinematic. Single landscape 16:9 frame, no border or annotations.\nImage 1 is the exact first frame and all identities, geography, lighting, object designs and style are locked to it. Create its modest action progression 5 seconds later, NOT a new scene or redesigned image.\nChange ONLY these poses:\n- The adult woman and adult man on the right have turned toward the back-right street and begun walking away together, only two small steps farther into the lane. Their backs/three-quarter backs show, still clearly visible. Keep green coat, cream skirt and brown satchel on the woman; red jacket, dark cropped trousers, tan backpack and rolled bedroll on the man.\n- The apple vendor on the left has just settled the apple she was holding gently into the same wicker basket. Her empty hands now rest naturally near it, with an ordinary kind expression.\n- The gray-haired artisan behind the central workbench is still calmly planing the same board. Slightly advance the hand plane along the board, no altered tools or extra hands.\n- The child takes one small sideways step to the viewer-right of the low wooden sign, turns toward its letters, and stops ready for the next close shot of face, fingertip and sign. Preserve the whole sign lettering, do not walk in front of it or change the child's identity.\nEverything else stays unchanged, including the red awning, surrounding apples, stalls, street, flowers, trees, hills, time of day, sunlight and camera height. Keep the camera essentially the same; do not zoom or change composition/architecture.\nThe wooden sign still clearly reads exactly “あおもり”, the same four hiragana in the same place. NO text disappears yet.\nStyle invariant: soft rounded original 3D game-film characters, matte tactile materials, restrained costume detail, warm soft morning light, full dimensional environment matching image 1.\nConstraints: exactly the same five residents, no extra people, no magic, monsters, fear, subtitle, dialogue text, speech bubble, UI, title, panel grid, B/C numbers, logos or watermark. All faces, clothing, hands and props stable, normal anatomy, one continuous normal morning before anything goes wrong.",
+    "c01VideoPrompt": "V00 C01: a single continuous five-second shot of the ordinary morning BEFORE the knowledge loss. Animate the uploaded first-frame image without redesigning anything. Soft rounded matte 3D RPG-film rendering and warm upper-left morning light stay identical. Exactly five people: rust-blouse cream-apron apple vendor left, mustard-shirt dark-bob child by the sign, gray-haired navy-clothed artisan at central bench, sage-green-coat woman and red-jacket backpack man right. At first the vendor gently lowers the apple she already holds into the same basket, then relaxes her empty hands. The woman on the right briefly gestures toward the back-right lane; her companion nods and they turn and take two small walking steps away together. The artisan continues one slow controlled stroke of the same wooden hand plane along the same fixed plank. Near the end the child makes a small step toward the right edge of the low sign and looks at it, setting up the next close shot. A barely perceptible lateral camera move, around two percent of frame width, settles toward the stall by the end; no zoom, cuts or angle change. Preserve anatomy, clothing, backpacks, five-person count, buildings, apples and tools. The wooden sign must remain readable as exactly あおもり throughout; no characters vanish in this normal-morning shot. Natural small movements only; no morphing, extra limbs or added people. NO subtitles, captions, dialogue text, speech bubbles, UI, title or watermark. NO speech or audio. End on intact ordinary morning, child ready to read the sign."
+  },
+  "continuity": {
+    "c01End": "Travelers depart two steps back-right; child moves to right of intact sign and looks at lettering. Settle camera toward stall.",
+    "c02Source": "assets/cinematics/storyboards/v00-v1/c02-b06-b10-3d-v2.png",
+    "c02Start": "Same child, vendor, awning and low sign; face/finger/lettering visible together. Text loss begins in C02, not C01."
+  },
+  "providerChecks": {
+    "fal": {
+      "operation": "recommend_model/get_model_schema/get_pricing succeeded; submit_job attempted once",
+      "result": "CONNECTED; BILLING_BLOCK",
+      "previousError": "UNAUTHORIZED before user reconnected",
+      "endpoint": "fal-ai/kling-video/v3/pro/image-to-video",
+      "selectionReason": "Explicit generate_audio=false control verified in live schema; five-second single-shot image-to-video and reference still supported. H3 recommendation lacks an explicit audio-off field.",
+      "price": {
+        "unitPriceUSD": 0.14,
+        "unit": "seconds",
+        "requestedSeconds": 5,
+        "rateTimesDurationUSD": 0.7,
+        "finalChargeGuaranteed": false
+      },
+      "inputMetadata": {
+        "start_image_url": "Original generated PNG as data URI; binary omitted from saved record",
+        "prompt": "V00 C01: a single continuous five-second shot of the ordinary morning BEFORE the knowledge loss. Animate the uploaded first-frame image without redesigning anything. Soft rounded matte 3D RPG-film rendering and warm upper-left morning light stay identical. Exactly five people: rust-blouse cream-apron apple vendor left, mustard-shirt dark-bob child by the sign, gray-haired navy-clothed artisan at central bench, sage-green-coat woman and red-jacket backpack man right. At first the vendor gently lowers the apple she already holds into the same basket, then relaxes her empty hands. The woman on the right briefly gestures toward the back-right lane; her companion nods and they turn and take two small walking steps away together. The artisan continues one slow controlled stroke of the same wooden hand plane along the same fixed plank. Near the end the child makes a small step toward the right edge of the low sign and looks at it, setting up the next close shot. A barely perceptible lateral camera move, around two percent of frame width, settles toward the stall by the end; no zoom, cuts or angle change. Preserve anatomy, clothing, backpacks, five-person count, buildings, apples and tools. The wooden sign must remain readable as exactly あおもり throughout; no characters vanish in this normal-morning shot. Natural small movements only; no morphing, extra limbs or added people. NO subtitles, captions, dialogue text, speech bubbles, UI, title or watermark. NO speech or audio. End on intact ordinary morning, child ready to read the sign.",
+        "duration": "5",
+        "generate_audio": false,
+        "shot_type": "customize",
+        "negative_prompt": "subtitles, captions, dialogue text, speech bubbles, UI, title cards, panel borders, watermark, scene cuts, changed clothes, changed architecture, disappearing sign text, extra people, extra limbs, fused hands, warped faces, flicker",
+        "cfg_scale": 0.5,
+        "enable_safety_checker": true
+      },
+      "inputSource": "Original built-in generated PNG passed as base64 data URI per fal file-input documentation; no standalone CDN upload",
+      "submissionAttempted": true,
+      "generationSubmitted": false,
+      "requestId": null,
+      "rejection": {
+        "httpStatus": 403,
+        "failureKind": "billing_block",
+        "upstreamReason": "balance_exhausted",
+        "retryable": false,
+        "acceptedJob": false
+      },
+      "nextAction": "Wait for user to add credits to the connected fal account, then call check_account_status once before retrying the blocked step. Do not auto-retry, reconnect again, change accounts or switch providers."
+    },
+    "higgsfield": {
+      "readOnlyDiscovery": true,
+      "model": "seedance_2_5",
+      "mode": "omni_reference",
+      "durationSeconds": 5,
+      "resolution": "1080p",
+      "generateAudio": false,
+      "bitrateMode": "high",
+      "quotedCredits": 80,
+      "generationSubmitted": false,
+      "mediaUploaded": false,
+      "userDecision": "Do not proceed; reconnect fal first."
+    },
+    "omniRoute": {
+      "assessed": true,
+      "recommended": false,
+      "reasons": [
+        "Need verified video-reference and audio-off controls, current provider pricing/terms and per-shot job results.",
+        "An additional route introduces another data-sharing hop and reliability/latency validation.",
+        "No claim of a free tier or provider-terms compatibility was verified; do not infer one."
+      ],
+      "credentialsAdded": false,
+      "projectPromptsRouted": false
+    },
+    "huggingFace": {
+      "record": "docs/cinematics/V00_WAN2_FREE_TRIAL_V1.json",
+      "freeAttempts": 2,
+      "outputs": 1,
+      "failedAttempts": 1,
+      "sourceImageUploads": 1,
+      "trial": "assets/cinematics/v00-production-v1/wan2-free-v1/c01-wan2-free-v1.mp4",
+      "productionApproved": false,
+      "paidFallback": false
+    }
+  },
+  "paidVideoJobsSubmitted": 0,
+  "providerMediaUploads": 1,
+  "endFrameGenerated": false,
+  "nextSteps": [
+    "User reviews free trial before further generation.",
+    "Do not retry paid fal/Higgsfield work.",
+    "For further free attempts verify demo readiness and available allowance without bypassing limits.",
+    "Preserve 1080p production target; do not mark V00 complete.",
+    "Check model/LoRA/demo usage conditions before production adoption."
+  ],
+  "videoSubmissionAttempts": 1,
+  "updatedDate": "2026-10-21",
+  "freeVideoAttempts": 2,
+  "successfulFreeTrialVideos": 1
+}

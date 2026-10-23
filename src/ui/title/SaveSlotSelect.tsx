@@ -61,6 +61,7 @@ export function SaveSlotSelect({
             key={slot.slot}
             type="button"
             disabled={mode === 'continue' && !slot.exists}
+            onPointerEnter={(event) => event.currentTarget.focus({ preventScroll: true })}
             onClick={() => onPick(slot.slot)}
           >
             <strong>{t('saveSlots.slot', { n: slot.slot })}</strong>
@@ -78,7 +79,6 @@ export function SaveSlotSelect({
           </button>
         ))}
       </div>
-      <p class="nq-save-slots-hint">{t('saveSlots.keyboardHint')}</p>
       <button type="button" class="nq-save-slots-back" onClick={onCancel}>
         {t('ui.back')}
       </button>

@@ -6,9 +6,9 @@
 
 **Acceptance criteria:**
 
-- [ ] 新規プロローグ完了時だけpendingになる。
-- [ ] 既存セーブや完了済みセーブでは表示対象にならない。
-- [ ] 完了処理は冪等で、元のGameStateを破壊しない。
+- [x] 新規プロローグ完了時だけpendingになる。
+- [x] 既存セーブや完了済みセーブでは表示対象にならない。
+- [x] 完了処理は冪等で、元のGameStateを破壊しない。
 
 **Verification:** `pnpm vitest run tests/unit/battleTutorial.test.ts`
 
@@ -27,9 +27,9 @@
 
 **Acceptance criteria:**
 
-- [ ] 敵との遭遇、わざと問題、教科ゲージ、逃走を順に説明する。
-- [ ] 「どうぐ」「いれかえ」を初回説明へ含めない。
-- [ ] 文言をコードへ直書きしない。
+- [x] 敵との遭遇、わざと問題、教科ゲージ、逃走を順に説明する。
+- [x] 「どうぐ」「いれかえ」を初回説明へ含めない。
+- [x] 文言をコードへ直書きしない。
 
 **Verification:** 文言キーのユニットテストと `pnpm validate:content`
 
@@ -49,9 +49,9 @@
 
 **Acceptance criteria:**
 
-- [ ] ストーリーを通常終了・スキップした両方で表示される。
-- [ ] 中断時は次回の青森フィールドで再表示される。
-- [ ] 完了後は同じセーブで再表示されない。
+- [x] ストーリーを通常終了・スキップした両方で表示される。
+- [x] 中断時は次回の青森フィールドで再表示される。
+- [x] 完了後は同じセーブで再表示されない。
 
 **Verification:** `pnpm vitest run tests/unit/battleTutorial.test.ts tests/unit/storyFlow.test.ts`
 
@@ -67,8 +67,8 @@
 
 ## Checkpoint: Integrated behavior
 
-- [ ] 純粋ロジックと物語導線のテストが通る。
-- [ ] 既存のプロローグ・名前決定動作が変わらない。
+- [x] 純粋ロジックと物語導線のテストが通る。
+- [x] 既存のプロローグ・名前決定動作が変わらない。
 
 ## Task 4: 新規ゲームE2E
 
@@ -76,18 +76,18 @@
 
 **Acceptance criteria:**
 
-- [ ] プロローグをスキップしても4項目が表示される。
-- [ ] 完了後にフィールド操作へ戻る。
-- [ ] 再読込後は表示されない。
-- [ ] 960×540とスマホ相当幅で見切れない。
+- [x] プロローグをスキップしても4項目が表示される。
+- [x] 完了後にフィールド操作へ戻る。
+- [x] 再読込後は表示されない。
+- [x] 960×540とスマホ相当幅で見切れない。
 
-**Verification:** `pnpm exec playwright test tests/e2e/battle-tutorial.spec.ts`
+**Verification:** `pnpm exec playwright test tests/e2e/opening-cutscene.spec.ts`
 
 **Dependencies:** Task 3
 
 **Files likely touched:**
 
-- `tests/e2e/battle-tutorial.spec.ts`
+- `tests/e2e/opening-cutscene.spec.ts`
 - 必要な場合のみ `tests/e2e/newGame.ts`
 
 **Estimated scope:** Medium
@@ -98,9 +98,9 @@
 
 **Acceptance criteria:**
 
-- [ ] 全必須検査が成功する、または今回と無関係な既知失敗を明示する。
-- [ ] 正しさ・可読性・構造・安全性・性能の必須指摘が残らない。
-- [ ] 最新版を4174番で表示する。
+- [x] 全必須検査が成功する、または今回と無関係な既知失敗を明示する。
+- [x] 正しさ・可読性・構造・安全性・性能の必須指摘が残らない。
+- [x] 最新版を4174番で表示する。
 
 **Verification:** リポジトリ既定の全検査
 
