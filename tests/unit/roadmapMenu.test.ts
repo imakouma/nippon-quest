@@ -424,6 +424,9 @@ describe('学習ロードマップの単元選択', () => {
     });
 
     expect(container.querySelectorAll('.nq-roadmap-edge')).toHaveLength(1);
+    const route = container.querySelector('.nq-roadmap-edge');
+    expect(route?.getAttribute('d')).toMatch(/^M [\d.]+ [\d.]+ L [\d.]+ [\d.]+$/);
+    expect(route?.getAttribute('d')).not.toContain(' C ');
     expect(container.querySelector('.nq-roadmap-frontier')?.getAttribute('aria-label')).toContain(
       'まだ 見えない',
     );

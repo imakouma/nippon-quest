@@ -317,7 +317,6 @@ export function RoadmapGraph({
               const y1 = from.y + 50;
               const x2 = to.x + NODE_W / 2;
               const y2 = to.y + 8;
-              const bend = Math.max(32, (y2 - y1) / 2);
               const hidden = source.visibility === 'hidden' || target.visibility === 'hidden';
               const frontier = source.visibility === 'frontier' || target.visibility === 'frontier';
               const active = source.id === selectedNode?.id || target.id === selectedNode?.id;
@@ -325,7 +324,7 @@ export function RoadmapGraph({
                 <path
                   key={`${source.id}->${target.id}`}
                   class={`nq-roadmap-edge${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}${active ? ' nq-roadmap-edge-active' : ''}`}
-                  d={`M ${x1} ${y1} C ${x1} ${y1 + bend}, ${x2} ${y2 - bend}, ${x2} ${y2}`}
+                  d={`M ${x1} ${y1} L ${x2} ${y2}`}
                 />
               );
             })}
