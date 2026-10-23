@@ -112,7 +112,6 @@ for (const interrupt of [false, true]) {
     await info.attach('skill-music-state', { body: JSON.stringify(result), contentType: 'application/json' });
   });
 }
-
 test('タイトル・各マップ・通常戦・ボス戦・勝敗で音源を切り替え、探索へ復帰する', async ({ page }, info) => {
   test.setTimeout(180_000);
   const errors: string[] = [];

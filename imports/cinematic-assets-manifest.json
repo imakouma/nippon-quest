@@ -1,0 +1,2930 @@
+{
+  "version": 1,
+  "policy": {
+    "paths": "relative",
+    "digest": "sha256",
+    "binariesTrackedInGit": false
+  },
+  "summary": {
+    "fileCount": 483,
+    "totalBytes": 1374177689,
+    "maxFile": { "path": "prologue-michiru/edit/base.mp4", "bytes": 275194570 },
+    "overRegularGitLimit": 2,
+    "byExtension": {
+      ".ass": { "files": 1, "bytes": 1925 },
+      ".ffconcat": { "files": 1, "bytes": 965 },
+      ".ffscript": { "files": 11, "bytes": 13222 },
+      ".html": { "files": 1, "bytes": 17989 },
+      ".jpg": { "files": 10, "bytes": 1439090 },
+      ".json": { "files": 2, "bytes": 5512 },
+      ".md": { "files": 2, "bytes": 3727 },
+      ".mp3": { "files": 8, "bytes": 999689 },
+      ".mp4": { "files": 24, "bytes": 702816257 },
+      ".png": { "files": 416, "bytes": 668832098 },
+      ".svg": { "files": 3, "bytes": 41705 },
+      ".swift": { "files": 1, "bytes": 3031 },
+      ".txt": { "files": 1, "bytes": 252 },
+      ".vtt": { "files": 2, "bytes": 2227 }
+    }
+  },
+  "files": [
+    {
+      "path": "background-concepts/boss-arenas-batch-01/01-tohoku-six-winters-v2.png",
+      "bytes": 3565096,
+      "sha256": "7076105de1789d144a0d2edb6d86199b2b7be9942888d449c5376816f321fc0e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/01-tohoku-six-winters-v3.png",
+      "bytes": 2958426,
+      "sha256": "2a2ab22167eb0b0294243207b17b53dcbd5c98e708431ca69beb1da381eaa7f5",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/01-tohoku-six-winters.png",
+      "bytes": 3039955,
+      "sha256": "bb3e12b4de0ab9c7ffdbbe829db39745aeef0faa4afd9fba6bb248825d2ab997",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/02-hokkaido-silver-eagle-v2.png",
+      "bytes": 3418314,
+      "sha256": "219ace9069cafb0a6e25523ef37f0b75c7353661322132c14f7931cbeabbb17a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/02-hokkaido-silver-eagle-v3.png",
+      "bytes": 3086026,
+      "sha256": "ea0fe5ec5108e2658ee7548a41c1c83fb89d759b53a68f57ad9773dc4bc16915",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/02-hokkaido-silver-eagle.png",
+      "bytes": 3300551,
+      "sha256": "275a267d45e7b4bf77e43d9ccd40be3044b909616bfab72a47f084a5a7f09ddd",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/03-kanto-seven-shadows-v2.png",
+      "bytes": 3622074,
+      "sha256": "915287cb9430ac07194fa40938491cfba05e7600c7acd97bff9c5abdb0a017b1",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/03-kanto-seven-shadows-v3.png",
+      "bytes": 2914757,
+      "sha256": "a3edfe10dbc24b5857960a4e049671fdeeea72e838381db1b7b4a6c4d32310ba",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/03-kanto-seven-shadows.png",
+      "bytes": 2914619,
+      "sha256": "7b2a14523a05174701c14a998d5a9c57d6178838f6e10fab97204d88bc908a40",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/04-hokuriku-mirror-reflection-v2.png",
+      "bytes": 3838537,
+      "sha256": "12dda5362a9779632cf4fa1eb3fe4f129a38a9b88849c95dabeab732294b2cdd",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/04-hokuriku-mirror-reflection-v3.png",
+      "bytes": 3409122,
+      "sha256": "587e4d0af8529458c41b0b372edac8d5b6a251ffded033858cba7d10b96f6987",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/04-hokuriku-mirror-reflection.png",
+      "bytes": 3373121,
+      "sha256": "dc90219de65c7a8d0688950d3ffc53df3a7133383ba444ee4eeac8645cb03977",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/05-koshinetsu-thousand-rings-v2.png",
+      "bytes": 4010760,
+      "sha256": "dccee8697058ceabc2dc6847abeaf0caedc750ed91f9220d50193aca6f26aa47",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/05-koshinetsu-thousand-rings-v3.png",
+      "bytes": 3067831,
+      "sha256": "4c8c81a97816ad0236b4c063779a26005e62fde1a41ab6d323961805986f2dec",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/05-koshinetsu-thousand-rings.png",
+      "bytes": 3407971,
+      "sha256": "39798250a300dca4055ed6ece2fb97347f2be6ad86c21d622cd3102479111cc4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/06-tokai-severed-flow-v2.png",
+      "bytes": 4038019,
+      "sha256": "7f118c37031660a7dbbb5b53e75952c83d5bdd614b731c9472f0b158e491242f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/06-tokai-severed-flow-v3.png",
+      "bytes": 3198861,
+      "sha256": "5cd35e07fd9d8c69f8c59c59db2d3e110c5cdc0646e3b3e65ccb7fac9efbe179",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/06-tokai-severed-flow.png",
+      "bytes": 3384958,
+      "sha256": "39f4590589c5e28faae22a65a9ca8a06d30c1d4061b98f202c8bd8e651a5aa6e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/07-kinki-six-key-cage-v2.png",
+      "bytes": 3890692,
+      "sha256": "f499c8ebcae5ce7ec1407d2c74fa5de9bf285c9810749ab12f932ebb19ac7ab4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/07-kinki-six-key-cage-v3.png",
+      "bytes": 2909582,
+      "sha256": "1e045320992117b8e06f63a40198fb4ee637589dc7aee9527a5902c032db7eb8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/07-kinki-six-key-cage.png",
+      "bytes": 3257732,
+      "sha256": "09a1eba7ad03892cf4be72b2f79804e4e359988c4b4db288a209de9bad815494",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/08-chugoku-five-storytellers-v2.png",
+      "bytes": 3990551,
+      "sha256": "cb99834286deddef7eb9104e983dfd516b4bb1ad27d349ebe5973cdc456ec2e2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/08-chugoku-five-storytellers-v3.png",
+      "bytes": 3141143,
+      "sha256": "da670156132ab3fe8ae30d7ceafbe439fdbd720de5efbfddd6496bcb7512a5ea",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/08-chugoku-five-storytellers.png",
+      "bytes": 3358349,
+      "sha256": "85a7a468bddaa2138c544c36917dea2854ebf9df2c0182b2eb7d4730f67cf163",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/09-shikoku-four-scales-v2.png",
+      "bytes": 3867587,
+      "sha256": "6b1966cf11e4b0a018382d6fe6af54a88fa60abb89f8fe518e4469e1b713040d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/09-shikoku-four-scales-v3.png",
+      "bytes": 3303964,
+      "sha256": "ccc882397cb301945127c630d3cdd7534638ba14d56834b7303f4cd8fcdfe213",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/09-shikoku-four-scales.png",
+      "bytes": 3309706,
+      "sha256": "87978121fbf6ba9bb5d81b2f314266f9a261bade42eafba7e71a203db6e78195",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/10-kyushu-okinawa-knowledge-eater-v2.png",
+      "bytes": 3867015,
+      "sha256": "0eb5fa3b31738febbe83ff66c364305c33f83852808fa43697c75850e8cac7b1",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/10-kyushu-okinawa-knowledge-eater-v3.png",
+      "bytes": 2923835,
+      "sha256": "cc534602c2c9df2f47d2e0e754a52a1b4b2d33464d44515cf2158a9e9a71b4e4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/10-kyushu-okinawa-knowledge-eater.png",
+      "bytes": 3479031,
+      "sha256": "201c84333dcf4b10735c5fb02296e81a646339a71e89249eda077a078409ae69",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/11-final-knowledge-convergence-v1.png",
+      "bytes": 3657843,
+      "sha256": "3298a39458a8ebf323308069ca9fc2ae6d82372e40b613060af87591980e0b40",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/11-final-knowledge-convergence-v2.png",
+      "bytes": 3865075,
+      "sha256": "5f4c247efb869239437a2118c1ae0ceafb3d07905a6e04a93c1d53bab0edd8b2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/11-final-knowledge-convergence-v3.png",
+      "bytes": 2560861,
+      "sha256": "6d531f6deced0fd7eecf70105f46fe44ce818067ed257dcde7dda01d3289a7b6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/boss-arenas-batch-01/README.md",
+      "bytes": 1410,
+      "sha256": "65db9cec19812b48a1dc9ce1a2bb105823cf0fa77a3a9841eda3485d12e1a930",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/01-battle-aomori-apple-orchard-day.png",
+      "bytes": 2351376,
+      "sha256": "cc63aaf2524262e76f8c5a036ca1dc5ad3824bb93bd4dc457ceff81695602a68",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/02-battle-aomori-apple-orchard-sunset.png",
+      "bytes": 2365390,
+      "sha256": "e5ec4d6833bb795d979843deeef63155818be890c307842c34872c71e63cf984",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/03-battle-aomori-festival-night.png",
+      "bytes": 2249760,
+      "sha256": "e24e3e080e1a7a758bfd90be35b3c5410c9b8576d786f3e619d7c934d08e22f7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/04-battle-hakkoda-snow.png",
+      "bytes": 2242948,
+      "sha256": "a4dff35a32e13868214dd56b986e6d3b806ea2da1fbe2f871c79fa9ff7bf66e9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/05-battle-lake-towada.png",
+      "bytes": 2608032,
+      "sha256": "5cea4aa0bac5520e4d0077d76f43c2a0d26b83387835ff8af77887bc6d7ab249",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/06-battle-oirase-stream.png",
+      "bytes": 2769224,
+      "sha256": "72b55b15e7851ffb91020237e746d0eea2136d75e532fc500be90d5b060c8833",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/07-battle-mount-iwate.png",
+      "bytes": 2570641,
+      "sha256": "972ef038fbd9886fced00b3036d99023ba16b360c05049dea24bb5ea4cddcbd9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/08-battle-ryusendo-cave.png",
+      "bytes": 2427982,
+      "sha256": "fee01f585fbd94489b919c20ffc96af691fab37789f9cf97a693c4731ad45d98",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/09-battle-golden-cedar-forest.png",
+      "bytes": 2405101,
+      "sha256": "95a58920adbec17f6f8e7737a4d7338d06a335701cf8b8341a697f6f53da8232",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/10-battle-tono-rice-fields.png",
+      "bytes": 2877090,
+      "sha256": "d8c9556674271421aa5b631df51e260226040ce2a7606232fc14c18ef2fcf6ee",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/11-battle-morioka-castle-ruins.png",
+      "bytes": 2617111,
+      "sha256": "8377e5d6ca616285e396f9e1519629b00b99f633c300d28f3b0dce2521f78c3c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/12-battle-knowledge-void.png",
+      "bytes": 2030952,
+      "sha256": "e6d42542dc71d6e31e3c56c452be25cec873fe4f18d3ef9a95dd7f0d42778350",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/13-dialogue-awakening-meadow.png",
+      "bytes": 2232103,
+      "sha256": "617b0fede9ca64128f6d81df03be38a46cc0788aaab77e3bf3db475d6f47406f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/14-dialogue-first-village.png",
+      "bytes": 2487809,
+      "sha256": "5bb753874bf188ced0369099de1e087dd3b831ecf56cc331c045ab549699e7af",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/15-dialogue-road-sunset.png",
+      "bytes": 2371937,
+      "sha256": "a29b8e2a9f64d27cb7a5778b6e612214b44869ec4706fd3d464b690841336d28",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/16-dialogue-inn.png",
+      "bytes": 1986832,
+      "sha256": "d8aeea0b7f4b9c3d1afc952c0b8f83d49e73525bc7e7f1319ffdd435977be560",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/17-dialogue-item-shop.png",
+      "bytes": 2014290,
+      "sha256": "95d479face3080b417fea41d858352acc13fbfda478edea4e0de85f971480129",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/18-dialogue-school.png",
+      "bytes": 1810135,
+      "sha256": "abecee9c01af2b92b075a743efd6860071e6b57bb873b445140d5f4455c7bc3f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/19-dialogue-companion-sanctuary.png",
+      "bytes": 2684447,
+      "sha256": "bbedb6a0545df035c406db414e158da424c2d955e8ac363d1baa347281e96aae",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/20-dialogue-michiru-clearing.png",
+      "bytes": 2432657,
+      "sha256": "6bc1ace5d28bf2eaa976aa8e254444840f1e0e03b082d8089262b7b25e396caa",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/21-dialogue-apple-farm-yard.png",
+      "bytes": 2440085,
+      "sha256": "00d1f13122f06d10f7fbe4d72eed0db32bf43da204f5762f15a0d15b5eb548a4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/22-dialogue-festival-backstage.png",
+      "bytes": 2131780,
+      "sha256": "e75898f1cff4b865ab337553bfbcd61fada18babc0086c490a771995081f1207",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/23-dialogue-cave-rest.png",
+      "bytes": 2159031,
+      "sha256": "3e5aee2f9afbec6d86d495491a5d55fada5797860958af1193b63cec14015405",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/24-dialogue-iwate-overlook.png",
+      "bytes": 2602464,
+      "sha256": "c683f53fe6ff7a12669060893fd64b7ab5cee3b049388418a4415b30b4299453",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/25-keyart-title-panorama-v2.png",
+      "bytes": 2393406,
+      "sha256": "d6c0bd7d97e24a55729dd77f930fb5037d21f1b1d4dd706648b68f476f2ab1b3",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/25-keyart-title-panorama-v3.png",
+      "bytes": 2338087,
+      "sha256": "3676447dc719212554718e1c96e4902bdb0b65047c30e12dcfd5a06ac7213a9c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/25-keyart-title-panorama.png",
+      "bytes": 2503462,
+      "sha256": "b3235923affefc571e69614b8b178c4fe469e0e0fd8aaa229f754f88e73fa445",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/25a-keyart-japan-perspective-low-aerial.png",
+      "bytes": 2395065,
+      "sha256": "8debd187411e6f73613e4d82d7024ead145c695c7374f6027456932e20509e8e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/25b-keyart-japan-perspective-high-aerial.png",
+      "bytes": 2601793,
+      "sha256": "cabcacb6dffa9615835a1a9fcc461185f8d18e73f231fda141ff1ac18ddfd6c4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/25c-keyart-japan-perspective-coastal.png",
+      "bytes": 2875817,
+      "sha256": "d06b8d61f9f5e7099a1c1c9a4c4a39d30698fd03eb4264556e7fbb8e4e497b75",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/26-keyart-aomori-opening.png",
+      "bytes": 2482640,
+      "sha256": "206d70eb4c54bbdd8e64afb8d0dc5ec755f82187f598ad7ee8faa34ae4ec11a0",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/27-keyart-aomori-clear.png",
+      "bytes": 2362461,
+      "sha256": "03a04267fd91bd10b26b7a6592b1468c67a6a8d8ecda841d051139b965d92fad",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/28-keyart-iwate-arrival-v2.png",
+      "bytes": 3040464,
+      "sha256": "a228f628895cdcd9dcd7dd3177c0fba1865cb228402ad0a403081abd0a264cc3",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/28-keyart-iwate-arrival.png",
+      "bytes": 3057751,
+      "sha256": "82a4787818f423a120f595bfecb366c6d62b5240cf080831bd019084f2251baa",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/29-keyart-companion-selection.png",
+      "bytes": 2609511,
+      "sha256": "5ff815fe04fd4fca08cf9d06dcb9ce0ac52f4c15287a2b515ae6326407b311b7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/30-keyart-tohoku-finale.png",
+      "bytes": 2549144,
+      "sha256": "f248e7b918771a6021d7dd1e429839ca06be959d22ed3b38ca8b501c730bcc10",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "background-concepts/evaluation-batch-01/index.html",
+      "bytes": 17989,
+      "sha256": "01062c2c68df140ea34795ee05bef9ebd7e48c32ad7b9ff95e1b20a868dfb1c5",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "characters/ensemble-lineup-v1.png",
+      "bytes": 1873915,
+      "sha256": "ca51f00375678b6d2f903f33b49b764f7d807aac937c5cd53982351f40002eab",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/kanae/concept-01-long-coat.png",
+      "bytes": 1818412,
+      "sha256": "2c7c9168ffc7ab7320b6d6e331377afad06851ee1703b1813805298a107f886b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/kanae/concept-02-wrap-tunic.png",
+      "bytes": 1752467,
+      "sha256": "1da258c68a5ad502ba6663a83153fc6bfb9d4296926b87ce4aa029ebde34491f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/kanae/concept-03-observer-cape.png",
+      "bytes": 1795387,
+      "sha256": "c697844ac845624da9bff256644e0f2d0236c80fda95e79dade5f09f9fd7b4d9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/kanae/model-sheet-v1-approved.png",
+      "bytes": 2030204,
+      "sha256": "d069563150d87ba778935befe6a4225e24b85a66a657f6cc939600077f38a82d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/knowledge-devourer/concept-options-v1.png",
+      "bytes": 1904074,
+      "sha256": "52b695c3b3b393f3e5ba2942d950277c330c1c2940fcd804125351ab000c8ff9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/knowledge-devourer/model-sheet-awakened-v1.png",
+      "bytes": 2047873,
+      "sha256": "0039642e0947617aa0d6b38f71085ed2f98f26c9af6c9c19362bf85132669346",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/knowledge-devourer/model-sheet-normal-v1.png",
+      "bytes": 2022833,
+      "sha256": "651fb851e247490286de241141b01195be772edc9534deeeaa9c60d938000175",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/knowledge-devourer/normal-awakened-v1.png",
+      "bytes": 1935931,
+      "sha256": "417459037573b204576b66a29b152672cd16a170943c7b841d54c3e31c0a4d0b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/CHARACTER.md",
+      "bytes": 2317,
+      "sha256": "f268fdbee2a60349695e3f94eaa28a3ffda515cd4f005a5ec5f6c2e1c2ec8140",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-01-hooded-poncho.png",
+      "bytes": 1859955,
+      "sha256": "5f0ddd36eb8f46ee07c0897090850d431ef00dbbc73b72de67dcd86ef86680c0",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-02-bob-and-satchel.png",
+      "bytes": 1744690,
+      "sha256": "e44be0d29d0b7b2a0c50b022d2eb0b8d9980ba91e5e60dc4463d22851096cf04",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-03-bell-dress.png",
+      "bytes": 1721723,
+      "sha256": "5f0468f62936b364aa15bd08cddd1f17f910ea6281587b1a7a1b5fadfc44ccd4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-04-cocoon-cape.png",
+      "bytes": 1728763,
+      "sha256": "c7a510fc525f4d9db207348dab48d2cd51ab3a2a4562d3308d869e1c4a6729e2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-05-loop-scarf.png",
+      "bytes": 1733494,
+      "sha256": "3446907fd6b21f4e7ce47a5c31891f3d5a5c721342cb0d581430baf26481a52f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-06-traveler-cap.png",
+      "bytes": 1718034,
+      "sha256": "b720a687424540168802812bf37ab83dbe57f870b103d01cee4cded4d957efab",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-07-leaf-cape.png",
+      "bytes": 1681732,
+      "sha256": "75b0a3d0d0a844e26ca1d4798fe6885fefba62ad13af4ef72df610397861353a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-08-balloon-coat.png",
+      "bytes": 1785725,
+      "sha256": "667f47c40bad5f1a423cbcb1929cc09adf184f9ee42280a7ea24eca8bbf3239c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-09-explorer-jacket.png",
+      "bytes": 1706505,
+      "sha256": "c8a7751e9b182527e1ae2b9d68dbb902afac201e95c8d5fda036281ed9e7b87f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/concepts-simple-3d/michiru-10-wing-flower.png",
+      "bytes": 1700335,
+      "sha256": "79f073fb6fa887309167b8128f1b0dce04aaffa57c028a46529bf2906c99d2a2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/model-sheet-v1.png",
+      "bytes": 2772280,
+      "sha256": "f99b9e6c5a071d38191b5c102c456dd723aa58e3306f7df77802db13e8cbc6e8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/model-sheet-v2-candidate.png",
+      "bytes": 2415994,
+      "sha256": "3afa7fb866de1bc69646c877650f516d1569e83e99369e5d584b2533734126c0",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/michiru/model-sheet-v3-approved.png",
+      "bytes": 1984749,
+      "sha256": "f80dd13faa6ff90c07414e726122527a33ef157daee5463132ca7d6819f270e2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/protagonist/model-sheet-v1-approved.png",
+      "bytes": 1933631,
+      "sha256": "85df908b89d0019bf35993ff50926b11699c13c3ce1acee95b12c5ed7a9de038",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/protagonist/modular-lineup-v1-candidate.png",
+      "bytes": 1872120,
+      "sha256": "40bf99238bf8a15d9e45ddf4c91438f2db78fdd3a6e27e87ffbaa64dde8ea8df",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/shiori/concept-v1-candidate.png",
+      "bytes": 1629376,
+      "sha256": "3912ea438d8588001e006f160ed54d3467597056737e0348037fc062ea6d7a8a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/shiori/model-sheet-v1-rejected-too-similar.png",
+      "bytes": 1926944,
+      "sha256": "4474aaf3ac565ad7e657f59a9e66b8a57734f79d1281034d457e21e8624be2fb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/shiori/model-sheet-v2-approved.png",
+      "bytes": 2020238,
+      "sha256": "0f13adee31836bba3cc5dea7186f72167ef7d9e52d0a9a5670a24ca3297172c6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/shiori/redesign-01-side-ponytail.png",
+      "bytes": 1831446,
+      "sha256": "b4896b6727180cc375f7077af76d99b16a1ac977cb69a995bcc1ca714cca5c27",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/shiori/redesign-02-beret-overalls.png",
+      "bytes": 1858526,
+      "sha256": "60acd1e8afb14ad1045e54ff2413f3e6dac8df76326a88d713048e0dadf67292",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/shiori/redesign-03-twin-buns-tunic.png",
+      "bytes": 1773765,
+      "sha256": "e5530d4a1463698cc9fbaa907d1a02d7dedb9490b841d7c50acd17aff1802e23",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/concept-01-otter.png",
+      "bytes": 1932315,
+      "sha256": "b764a78f20e41fbb9b8223ef0903cf52aa6638a91a26633526cf2795dc9aed3f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/concept-02-salamander.png",
+      "bytes": 1784630,
+      "sha256": "af9dafe59447e9e38fd17b977063d271f450558a7a961afbba00b0f9b2083386",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/concept-03-frog.png",
+      "bytes": 1977682,
+      "sha256": "69667c3604b67412c22331920ffac6988e8b2e804ee788da2572000527fcf626",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/concept-04-cave-turtle.png",
+      "bytes": 1827156,
+      "sha256": "d418122763295838bac6dc94dc29fa08b9fef00b636377ed71b70b055162ba1a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/concept-05-waterbird.png",
+      "bytes": 1818057,
+      "sha256": "451bdc104e532e922e7030f63e4257f15df41b48257c365905098326c0b25cd7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/evolution-line-v1.png",
+      "bytes": 1707588,
+      "sha256": "092f0c8ca588265e0dda82ddc81dc23ccc6d6f2cd0ea903a80215cc40018cb9c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/evolution-line-v2.png",
+      "bytes": 1753679,
+      "sha256": "262b79c19e7a8dc3353f334fe5fe0167689db23ce6cef218c5531babd62f1285",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/evolution-ray-v1.png",
+      "bytes": 1800219,
+      "sha256": "e0d01faae556408d12e0a3f9947a30441524ed3715bcc7eb6739a16747ec4726",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/evolution-ray-v2.png",
+      "bytes": 1780243,
+      "sha256": "f7d8d773f20a345409d2b68ad2641c5d1a31b1adafff3a985eb19e57180e6837",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/locomotion-options-v1.png",
+      "bytes": 1941153,
+      "sha256": "3bc4f9e168ed25e7782ff2b5b76f43364a5e2dbe6e82d51c24f0d35379ca46ed",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/model-sheets/ray-stage-01-v1.png",
+      "bytes": 1731773,
+      "sha256": "fd674c0d8e370fc6767082754183d490604cd9cc6d4955e191357aa36487f963",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/model-sheets/ray-stage-02-v1.png",
+      "bytes": 1845741,
+      "sha256": "c1cf52c9b53700c7cfb37778b24069c4dd7b022614e24be00c526ccd56678b3e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/model-sheets/ray-stage-02-v2.png",
+      "bytes": 1739449,
+      "sha256": "6fcb03c2217f9767f9492029e430333677d399fde88118114c105733a44a62f5",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/model-sheets/ray-stage-03-v1.png",
+      "bytes": 1794385,
+      "sha256": "658c223f46dc110ac4dc16b0aa8c1726b241b69003e9f5c12c70300a41a2bf6f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/model-sheets/stage-01-v1.png",
+      "bytes": 1813432,
+      "sha256": "5e94f84ef0e9726068669df185de229fb3f45ab5793dfc4b7ba12f0a1c6e43e6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/model-sheets/stage-02-v1.png",
+      "bytes": 1808374,
+      "sha256": "340905fa9ee9bf9d5c4da5ac691d9e88e0dc4f208a6a4ff677095d81a9d678ba",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/model-sheets/stage-03-v1.png",
+      "bytes": 1924428,
+      "sha256": "1bd9256de25dafb00cc763c79cbe79c8f1e5ef00f0aeb4dde8efa688f8f7a6a8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/stage-01-jellyfish-v1.png",
+      "bytes": 1659470,
+      "sha256": "97c66bcad94f89da7e83fc4a60062a0c5eb8e315aba758548bd983e33909e460",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/stage-01-ray-option-01-v1.png",
+      "bytes": 1680050,
+      "sha256": "d946227d66e0f2229b7615eb432e4519c25143dfe695633cfb4e11340090c577",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/stage-01-ray-option-02-v1.png",
+      "bytes": 1706387,
+      "sha256": "48e56b3da0bbd8e02f9e5fd190da2179349b236a529b896650587261c15d8019",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/stage-01-ray-option-03-v1.png",
+      "bytes": 1661007,
+      "sha256": "63842e4f9e961d6691fb7f16f9b2277851af61d322b5870a4459885356dd6db4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/stage-01-ray-option-04-v1.png",
+      "bytes": 1683320,
+      "sha256": "a7020c2b82d8c4cfb56e95e9005e2bbdea360957ab31e02f24a955183716587f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/izumiko/stage-01-ray-v1.png",
+      "bytes": 1723021,
+      "sha256": "5cb6456b834b33698d7c2b2d58b908ea149cf4dc8bd14dba213b1870ccdbaa67",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/concept-01-fox.png",
+      "bytes": 2038785,
+      "sha256": "2de1d515ad44385688c5870115e40ac8d370de77358637b9f2e9ff017896f761",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/concept-02-lion-dog.png",
+      "bytes": 1955337,
+      "sha256": "62bd67225078940f59ad660a614b619df65436cd7dde9710c18474816c228632",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/concept-03-mountain-goat.png",
+      "bytes": 1858245,
+      "sha256": "d85c4c63166cf83a429e4c1558cfd9e321050ee6066de14e9d7c9d1f400a84aa",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/concept-04-firebird.png",
+      "bytes": 1838399,
+      "sha256": "48fea9989c07cce0523c57ef90da2a487edf1680c53b48642660a560e14bdeb4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/concept-05-forest-guardian.png",
+      "bytes": 1900374,
+      "sha256": "3dd85085763ef5e1665264838627b1e945d5a8bbf4a61e7ce33a73bc408ad4fa",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/evolution-line-v1.png",
+      "bytes": 1864763,
+      "sha256": "55ead190db11f8547a0b6102b7c40586ca9a9fa90acd244edc7a6ae7e940fff2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/evolution-line-v2.png",
+      "bytes": 1894494,
+      "sha256": "e2838d5f50f1a1e67df99a40c4a7678a6524b7d926856327dda8630f9b2a0ea2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/model-sheets/stage-01-v1.png",
+      "bytes": 1859499,
+      "sha256": "c12e7d2afd030ba6d06bfb760dfd22243a5907abda698d40a1f13066e2417173",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/model-sheets/stage-02-v1.png",
+      "bytes": 1963270,
+      "sha256": "79c2ff57ef12434b68543af43d028b1973595c431a2ddf2ceee77a58e02913a6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kagurabi/model-sheets/stage-03-v1.png",
+      "bytes": 1937697,
+      "sha256": "27b69ec35dc6dac88d573db912e56ac8520c4e1921b4ad71e8c664016459321e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/concept-01-fawn.png",
+      "bytes": 1861775,
+      "sha256": "ddd25da6af01140f3ff125b49425e41d37957533d7611c104c4958482b341690",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/concept-02-dormouse.png",
+      "bytes": 1914270,
+      "sha256": "edfa44080d24bed60ef353791b153c7b4179b576acc87e23b7b4c3c4e8f70378",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/concept-03-moss-turtle.png",
+      "bytes": 2132669,
+      "sha256": "afd809d79461df823c4e68725caf1ce8cd51d0ee03dd14e8e65ad455a101f860",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/concept-04-tree-owl.png",
+      "bytes": 2033179,
+      "sha256": "67030509dc95f00681b4ed2ac77989dc970f914654392500bff0005acb04f53b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/concept-05-forest-boar.png",
+      "bytes": 1888430,
+      "sha256": "738b8e9ff222640a362b0cffffdd2ed8a9fa4b3d347ccbd7ef97a7367369550b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/evolution-line-v1.png",
+      "bytes": 2050700,
+      "sha256": "8ec21a584dabb41fd074d07aae1ec64d25281317472fcd09b80b989fb5148bb2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/evolution-line-v2.png",
+      "bytes": 2036574,
+      "sha256": "310817c1645ae4ca005563b29645d663706673f91fe576291d50bea5235674a0",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/evolution-owl-v1.png",
+      "bytes": 1986844,
+      "sha256": "22b554d6c1524afb141ead2ad70e1516f21961560dff4a97f105f572bfa62f6c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/evolution-owl-v2.png",
+      "bytes": 1989173,
+      "sha256": "849496fd01105330badc2941b909734a7059eb3a803fb18485c02de36109e7e5",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/locomotion-options-v1.png",
+      "bytes": 2023079,
+      "sha256": "86b827e59ed28457ae082755e30c1215a5dd11cd22e53a63a1f0709146b6df55",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/model-sheets/owl-stage-01-v1.png",
+      "bytes": 2055654,
+      "sha256": "d49ab049978d2bba0a9a7680dba5b9b82bc8ad8d0a84250092890be78cd8e055",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/model-sheets/owl-stage-02-v1.png",
+      "bytes": 1958420,
+      "sha256": "a32357264494502b0fd0f2a3190e8cfbf6fa4d2397055a4ee5a330b70e4bc053",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/model-sheets/owl-stage-03-v1.png",
+      "bytes": 2326233,
+      "sha256": "c9fffcf8a3e975375cc7236f3906372ded802a297f98a0eeafac09eaccf4423e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/model-sheets/stage-01-v1.png",
+      "bytes": 1969940,
+      "sha256": "f5cbd15a21e20a14683c3778e77652e52751f9b6414d9933744770808371b97f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/model-sheets/stage-02-v1.png",
+      "bytes": 2091355,
+      "sha256": "2c1688f1a188cc8639a52e7b89119e39661c6de7e31d1a62f4001840bf0b2e9a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/model-sheets/stage-03-v1.png",
+      "bytes": 2468824,
+      "sha256": "4cf7fe5e8fd2069e499e52655a9af98d2f122f0274557b2569f35bbe966ab8c7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/stage-01-owl-option-01-v1.png",
+      "bytes": 1800018,
+      "sha256": "ea8ab3d86d17dbd29bf481b12d97059971a7003600cc726537c804b2d11d3bec",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/stage-01-owl-option-02-v1.png",
+      "bytes": 1759297,
+      "sha256": "74600ea0db68dbc9b1baa2df3ec2acd964d6a7d784a8762ce68565d0afd5dd4b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/stage-01-owl-option-03-v1.png",
+      "bytes": 1827712,
+      "sha256": "13d5308d015a132fda454ec483b84cec4d64bb96cf09599f9e5564f352c8f664",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/stage-01-owl-option-04-v1.png",
+      "bytes": 1846223,
+      "sha256": "e5f81622b42c740543f63c99c57548ce0540b66d26652cdb3b472f0cd36bb502",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "characters/starters/kodamaru/stage-01-owl-v1.png",
+      "bytes": 1799398,
+      "sha256": "12104ff9ea7919b14bd041ef1631a17c425740f10e99dd3c4df4341c5ea58a32",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/aomori-dogu-jin/turnaround-v1.png",
+      "bytes": 1912817,
+      "sha256": "956fc85aac4df14335bf7bcd5f7c11a71947098457ac4da23e112f9d1c094b79",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/aomori-dogu-jin/turnaround-v2.png",
+      "bytes": 1834456,
+      "sha256": "aa8cd32c26cb595de70af26935561ab1f93a31bc46fcf89c22e0fa70ed518733",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/aomori-nebuta-musha/turnaround-v1.png",
+      "bytes": 1768838,
+      "sha256": "e80c69ba17ab994e43377152aa44e46aa819f1c1593ed98ef21fb84aed3607c7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/aomori-sakurapon/turnaround-v1.png",
+      "bytes": 1714494,
+      "sha256": "bf1d7d2d176273f5ebbac9e9ea066ba6f65dd2ffa343478b6d71b00163d7edd6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/aomori-senbein/turnaround-v1.png",
+      "bytes": 1783360,
+      "sha256": "22adf1fb645c05d5d069fa74e6666f840a8b971b505541d82275391b2a2fd9be",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/aomori-umineko-taicho/turnaround-v1.png",
+      "bytes": 1684934,
+      "sha256": "bf4119089774e49da3a3c75cd8e2cf1fc22d7e2caaea2404842c384e1c36c264",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/aomori-umineko-taicho/turnaround-v2.png",
+      "bytes": 1607770,
+      "sha256": "4180c3fdeb319c93a45555991134d9362bf54cfd3ed1b14f82a52000090ce438",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/pixel-references/aomori-dogu-jin.png",
+      "bytes": 6160,
+      "sha256": "516b73bd94d8aec06860415ab9c7d9494646833a8c4a0e90f8f74113b611b3df",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/pixel-references/aomori-nebuta-musha.png",
+      "bytes": 5658,
+      "sha256": "5fff0bc7af7e1cd92c7ec83dc6df98f4b4a082d3e2d3af0e00dace85fcf33c0a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/pixel-references/aomori-sakurapon.png",
+      "bytes": 3670,
+      "sha256": "7bbfaea7dabace40b772da40df838c223290136103ba8f74ad510b605cc20bae",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/pixel-references/aomori-senbein.png",
+      "bytes": 3535,
+      "sha256": "b2b3f36b7626c5222752674d4c0cdba16ae2d3739cde8d0d6310b44178e1b452",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v2/pixel-references/aomori-umineko-taicho.png",
+      "bytes": 4520,
+      "sha256": "4859fe18243d7b6977fe3a0487af2a60f584226fb1ae8c8045db0138a5d2a536",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/aomori-bunakko/turnaround-v1.png",
+      "bytes": 1779721,
+      "sha256": "dd93b1ff42663f3c22fef85507e0cbad996636b0b699bea089c0461baa42a32a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/aomori-himemassu/turnaround-v1.png",
+      "bytes": 1724840,
+      "sha256": "86921d61659ebbcfe7bd77b4e23815346ed5e1d62b15a2a6fe32728dae387264",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/aomori-himemassu/turnaround-v2.png",
+      "bytes": 1671204,
+      "sha256": "a1dd44ea0176925a977f7ba68d5871d8c3d46f1b559307814fe5b13721c0b800",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/aomori-itakodori/turnaround-v1.png",
+      "bytes": 1711641,
+      "sha256": "26e24b2b5a49fb20251163a85c41b161db7ebb7a7d125d0803476b02070794ae",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/aomori-itakodori/turnaround-v2.png",
+      "bytes": 1642708,
+      "sha256": "f158393378ad9afaeeb96ecf6fbcdaff8d374c092af967e88c103044561ad582",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/aomori-kokeppi/turnaround-v1.png",
+      "bytes": 1919069,
+      "sha256": "cdba6dd79fe2329ebfe0ff0f719b887c91d3c1710b310a58c53ee49a53f211c0",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/aomori-magurodo/turnaround-v1.png",
+      "bytes": 1729699,
+      "sha256": "c55e8cb114022d97050bcb289e4c69045acd76e53f271460295e8cdfe1d9e315",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/pixel-references/aomori-bunakko.png",
+      "bytes": 5019,
+      "sha256": "d574d61c18bd958fde1bf2c4aa6681a5b23fe9f180e401a6356e4d1e17b3e8d6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/pixel-references/aomori-himemassu.png",
+      "bytes": 3568,
+      "sha256": "7414e78c0c11a0780fe69b976cef9d39d878afc80f031b988ce19d4a4b260ebd",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/pixel-references/aomori-itakodori.png",
+      "bytes": 4999,
+      "sha256": "39f8c8e44aef5f2871d719feda9ec8bc86eb3f0eded89dcbe7157bfea0cf59ac",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/pixel-references/aomori-kokeppi.png",
+      "bytes": 3520,
+      "sha256": "d20e49f1446aa52c8b244277f7fa552c612a3409923576a7fed2e6003fa16952",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/aomori-turnarounds-v3/pixel-references/aomori-magurodo.png",
+      "bytes": 4435,
+      "sha256": "8be94395a3d6a379115d49d55b1ec3cdb4603a8d11f0f7eceb2d390ba903fa0e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/akita-akitainu/concept-v1.png",
+      "bytes": 1739891,
+      "sha256": "429a7556f3532d511cb08c2463ef49b9502c6ed198b2cd171b085e762c3ef038",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/akita-akitainu/turnaround-v1.png",
+      "bytes": 1724937,
+      "sha256": "ca223a882634e8964a4033ea0310025d5911f49667eb03942b71b8511c252535",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-doguukun/concept-v1.png",
+      "bytes": 2010516,
+      "sha256": "211b7488b359126bb9bfe8ccfa3df470cc1903db3b6a8c44fb291e94e81659d6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-doguukun/turnaround-v1.png",
+      "bytes": 1919041,
+      "sha256": "70df7f35c82233aa28ac26fce44e16974b33de4698f5b204d59d828ffda24394",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-nebutan/concept-v1.png",
+      "bytes": 1839034,
+      "sha256": "0184616549d6d13131d9a64c6bca52fcbf129f00c905f0ec4a6a673e2e94ff6a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-nebutan/turnaround-v1.png",
+      "bytes": 1784489,
+      "sha256": "0830be238bd6111fdd96d43dacdbb9239e3296cbb7d112af9457e0a8580f0e11",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-ringoron/concept-v1.png",
+      "bytes": 1771737,
+      "sha256": "9d2ebf4d88a52a0a3f7dc7442fe9e4792039139ab7304d2be064f9d400ceef9a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-ringoron/concept-v2-face.png",
+      "bytes": 1741998,
+      "sha256": "042d9e7ba2237225bd4f11a00d699e0c1fe387a7105020c282186ec7b7374848",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+      "bytes": 1777712,
+      "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-umi-nyan/concept-v1.png",
+      "bytes": 1681491,
+      "sha256": "d42a73a9c3cccbf5f86068961afb2d2cee6219b1be0c59e897a2878e0c7ae002",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/aomori-umi-nyan/turnaround-v1.png",
+      "bytes": 1662126,
+      "sha256": "88d2b94d24d8fe172353de6251eb75248b863aa50ab29c824f1eddf44e26480d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/fukushima-akabekon/concept-v1.png",
+      "bytes": 1799000,
+      "sha256": "950c0827937848aaca6bd823f6871f4b9064ce99c0166bb03f913156a0bed5da",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/fukushima-akabekon/turnaround-v1.png",
+      "bytes": 1784369,
+      "sha256": "6faacc7ecd38977d4beacc4c27058d79dca25991ad0b32b9acab783099a6b9b6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/iwate-tono-kappa/concept-v1.png",
+      "bytes": 1787265,
+      "sha256": "aba66a673c830a234410ccd3dadcf47c33d0ec0c64c263a6311d57ef072f1116",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/iwate-tono-kappa/turnaround-v1.png",
+      "bytes": 1788259,
+      "sha256": "7a0678d47de7e1d2bcb15cfac1745d55d441df1b65ca5e9fd18f483046ce9a36",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/iwate-wankosobat/concept-v1.png",
+      "bytes": 1794776,
+      "sha256": "a0f39e7da71ac663756d6003d05ec6bbc37484433819c5a034900ab4d65b382a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/iwate-wankosobat/turnaround-v1.png",
+      "bytes": 1815159,
+      "sha256": "31270402b53185c630ea740ab564d21922fb853e3a72f1ecedc42f2968c7f1bf",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/miyagi-zundamaru/concept-v1.png",
+      "bytes": 1790880,
+      "sha256": "8769fb765fe061ffb3718b1c81cd9038c03c0686a4a813d0fa2efee05e0f1ec0",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/miyagi-zundamaru/turnaround-v1.png",
+      "bytes": 1805220,
+      "sha256": "168216b3ccb93a9022c86bf261d36858808d354eaf5f05392e945dc0e7fbdc16",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/akita-akitainu.png",
+      "bytes": 4554,
+      "sha256": "9017f9728f3c19dd431af03eb351aebf5e2b999bb6045b1f71b9414eef55e2fd",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/aomori-doguukun.png",
+      "bytes": 4907,
+      "sha256": "2a6459a4b0f805738071f16457ed2121e161b9324138dc21df1b5def598ce728",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/aomori-nebutan.png",
+      "bytes": 4364,
+      "sha256": "ba9096c0fd385f16b02141b78df7d4db892b2c3e0a9a156f4cb0932fa1721d4e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/aomori-ringoron.png",
+      "bytes": 3837,
+      "sha256": "6ff3c91def560a30a7f401187a5f6f58418aa476322607992f8a599b6b9bb4e5",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/aomori-umi-nyan.png",
+      "bytes": 4535,
+      "sha256": "024af0eaeb3b4946ee33bfdd8e6eb0c313ca280e9b67801bc4228fe36cbf78e3",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/fukushima-akabekon.png",
+      "bytes": 4580,
+      "sha256": "71c24950d43c8558e2f365ed2fdaf010547934ce3285baafa7705088f88c3178",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/iwate-tono-kappa.png",
+      "bytes": 4764,
+      "sha256": "263e1fc54dea621400daf9728b87e575c833c337720b44c0832dd066d659dfac",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/iwate-wankosobat.png",
+      "bytes": 4090,
+      "sha256": "2366c62f8ec6889d8694e6bfe11cf0b65d090b1e5cd974667faf45f39cd85f04",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/miyagi-zundamaru.png",
+      "bytes": 4298,
+      "sha256": "7adfd2820140b2ecc3e99bad4e11129d5c266e931ac9f9db94e682faeee32724",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/pixel-references/yamagata-shogi-commander.png",
+      "bytes": 4881,
+      "sha256": "ac0e8782acda4c6c6fe573996d8efc9ed8b9fe0c0db01ff6df2df98e23c553da",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/yamagata-shogi-commander/concept-v1.png",
+      "bytes": 1922710,
+      "sha256": "3853471d25ffd04197cb461a1a0ecda4052c7e64ae41f54e759a039ed14ea6bc",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-roster-v1/yamagata-shogi-commander/turnaround-v1.png",
+      "bytes": 1775743,
+      "sha256": "4c5b94ab96d469013a000d80d78fc5ac4cc367f4a6efc75d00f36c52e87b9caf",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v1.png",
+      "bytes": 1809605,
+      "sha256": "babb7b414ac1cce01c9db422124cb39d03b3fb5ea414f5563d23d151313dc40d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v2.png",
+      "bytes": 1754763,
+      "sha256": "9c8e325264378554c9068c7b97949f68834904d86aa9a3a9bb26e6a023b2581b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-buna-taiju/turnaround-v1.png",
+      "bytes": 1754991,
+      "sha256": "8086caa4bc4f10efcc21e61246487aa3f37c2023b8e02027e49e4d0822835de8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v1.png",
+      "bytes": 1819062,
+      "sha256": "3a01fc6804734d4946049ed8bfe9cf99cf98079740206a8aa5464c4e7cb5185f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v2.png",
+      "bytes": 1717766,
+      "sha256": "2e387d047b66bb1fdf419de84f899b605a5626b910a20d0f3c341f3007402705",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v3.png",
+      "bytes": 1720809,
+      "sha256": "7acb1bb053043ef04fc1f8d7fb42038b059f511f809fae0f014730ee44927206",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-hanaikada/turnaround-v1.png",
+      "bytes": 1734330,
+      "sha256": "5a8c9d84d2ebb42caa47ccfb4e4121e191bcb34db8df12d2180255d4c65c01ac",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-himemasu-lord/turnaround-v1.png",
+      "bytes": 1700067,
+      "sha256": "f93a1b0670f78792480aef354bf5407012c10b5e11bb93ff12c10911cb5533a3",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-kaza-mimizuku/turnaround-v1.png",
+      "bytes": 1778243,
+      "sha256": "30ccc2003aa4f05ddcde5f483d8bedaf3236572fb4d765ab82e114ea6c4a99e6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-kuro-magurodo/turnaround-v1.png",
+      "bytes": 1676029,
+      "sha256": "1222a12ad1673e8bd08beb75ee9a1a871303a5d81744c126eebbe787eb021504",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-lastboss-tsugaru-tamenobu/turnaround-v1.png",
+      "bytes": 1731852,
+      "sha256": "46d7471ab6dad2862473c50f70dffa72900d5af8d0d028f6e3f9a6befc3b068b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-nabe-shogun/turnaround-v1.png",
+      "bytes": 1764033,
+      "sha256": "c0c7a0075dd0254a0e6a0057670b5c772a7306969ba318777b60daadf61afd74",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-nebuta-taisho/turnaround-v1.png",
+      "bytes": 1846528,
+      "sha256": "c0ce499dc4d760102b5aa37831d32b36fd29b5d2967cd6409cf694a2ff23554b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-nuri-kagayaki/turnaround-v1.png",
+      "bytes": 1821022,
+      "sha256": "293f9ecb81d5a5a791a3ae12bd9b4d890c4a9416d063c36fadca02991dacedc7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v1.png",
+      "bytes": 1884484,
+      "sha256": "041e021461faec4917b56c4995f25f28d5756354f80672b4352a5f81004a534d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v2.png",
+      "bytes": 1785613,
+      "sha256": "c6b519be416b136a04fcaa0464d49751a325ffb14b5f24989c5d9ab6d23d04e7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v1.png",
+      "bytes": 1654573,
+      "sha256": "fa0834e509888ea47c0929d5c97bb52d0fc7a424446239c330951ea23e3e623a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v2.png",
+      "bytes": 1670919,
+      "sha256": "f45f0b4bb2a6d89adad16151363832a2ed5f2c1879efe5ece626ba315843ce48",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-ringo-knight/turnaround-v1.png",
+      "bytes": 1767261,
+      "sha256": "b6d259b66ca5234705b68529c4336559505c07be56cc0796179cb5885a0a945b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v1.png",
+      "bytes": 1707195,
+      "sha256": "7a8573e26be84efd76eb274174a96c87d29e12f020a1e0ddb878c8b4c18c4672",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v2.png",
+      "bytes": 1674594,
+      "sha256": "7e723d7c39c803c8f1515115168d9198335839f9902a4236e02cd75bfe3991b5",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/iwate-iwa-kamoshika/turnaround-v1.png",
+      "bytes": 1795194,
+      "sha256": "32dbc9909205144631f2a822fa36bcb314824803afac86a7e38fca2fe8763f76",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v1.png",
+      "bytes": 1782284,
+      "sha256": "6167cbcafa9d7d3d84df57b4c85e07c1426dcc9d6b9a32022de7f3b299754896",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v2.png",
+      "bytes": 1754718,
+      "sha256": "46dc2e0afde393d9fc291800b2a0cc898db4334a023c2c7862119577858582fb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v1.png",
+      "bytes": 1754154,
+      "sha256": "9287bcacfce0c9b965d205583605ca529d0893221a69e64495fa5738849b58bb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v2.png",
+      "bytes": 1668935,
+      "sha256": "a8fe6e3613e5f5d66f4738e4140087d26456f5b7868cd0495918fd6ea6d9a35b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/iwate-ryusen-uo/turnaround-v1.png",
+      "bytes": 1672601,
+      "sha256": "b4dff720f26dff68fdd4c8ca66a9d3cb9fa6b343aea0d1faa93bd26a2c670c9b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/iwate-wakamekko/turnaround-v1.png",
+      "bytes": 1750032,
+      "sha256": "c68701ce4e4737a1b5c1721a5ad9d7c8a257b49a0b45fe75f3d239158abafca8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-boss-tsugaru-no-nushi.png",
+      "bytes": 12133,
+      "sha256": "126369b5c6d9a72791ddc8b349bb1d860c11eb28fd1e48486e0da0261c8b17d7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-buna-taiju.png",
+      "bytes": 5424,
+      "sha256": "4c98654d66f618c03ac227aa4e2daa470308c4db9e8d528f0a69287a56c9b8a3",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-hachiro-ryu.png",
+      "bytes": 5216,
+      "sha256": "5291551dcea0ab5b6ffde79b4b9582955acaecf32163c2f0d4fdec1f943e951c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-hanaikada.png",
+      "bytes": 3844,
+      "sha256": "71071bc0460ad62a746d3b1eb91b58f438c600edb09e9e6fc34bd6dba4fa750f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-himemasu-lord.png",
+      "bytes": 3779,
+      "sha256": "479d44c9369301d1734af1ce672e5452871bda7c1f103900fc60003b3c9970dd",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-kaza-mimizuku.png",
+      "bytes": 6474,
+      "sha256": "331d99dad2346c3181c8de4c2259ffe7b8ab9f68030fc11138d937836c8be5f5",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-kuro-magurodo.png",
+      "bytes": 4657,
+      "sha256": "448a2c83793a2df2d8f4ed46fbbfd82152aaf97cd44d886b53546721733ff707",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-lastboss-tsugaru-tamenobu.png",
+      "bytes": 8456,
+      "sha256": "04e6f001be5c3a178cff4d3f0c655cfef445236feeca9ca5252d87a984dd6306",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-nabe-shogun.png",
+      "bytes": 4687,
+      "sha256": "b56951b1ecd3501f7ece194319ee2dbd57f664229badf10b9ab25d9427c4ae9b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-nebuta-taisho.png",
+      "bytes": 6570,
+      "sha256": "a4455e90ff9fbea3f94af8188feea23bee5fcd1c2463d4ff57cf7c9f813bc3cc",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-nuri-kagayaki.png",
+      "bytes": 5694,
+      "sha256": "73ef7d28d6ea23199c9a28f1d3904fb1100e9709d2da011106de92d9bd90b504",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-oirase-kokejin.png",
+      "bytes": 4898,
+      "sha256": "6e2f8444fb2a84ff90fb53047120b31e2c3143b7f4b817dce4a748459a607285",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-oka-musha.png",
+      "bytes": 4700,
+      "sha256": "5035fe0c7e97419e457269f47b38ad0666ecc675fa12fecf9be263349b73453c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-ringo-knight.png",
+      "bytes": 4623,
+      "sha256": "1f0442792e183580db530d45d13f9dd7d9d32c95bd470ab7bc01c549c947f160",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/aomori-tsugaru-nurin.png",
+      "bytes": 4578,
+      "sha256": "0d48ebe302f1ace0a6611fdbe286247be2ea2f8d967f533c0158b126a5f9c330",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/iwate-iwa-kamoshika.png",
+      "bytes": 4848,
+      "sha256": "6cbb217efa125979ab20b9f0e264e47279b32146df1c6fa2fa14536804f27420",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/iwate-okawari-bat.png",
+      "bytes": 5362,
+      "sha256": "efc45b68ba4748a8158a2c97d4252ac72779b4dd07c89f81bce3efee28add564",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/iwate-oo-kappa.png",
+      "bytes": 5259,
+      "sha256": "bf40cfe61e0ceece650ac8bef068637e5ea91865dfceb2cb0ec8ce70a8d4db7b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/iwate-ryusen-uo.png",
+      "bytes": 4090,
+      "sha256": "0c897677db0937f0470c1e50b59d98c635299f5ec32895fe26daf1ef6bdf4569",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v4/pixel-references/iwate-wakamekko.png",
+      "bytes": 3770,
+      "sha256": "734a3503fb79906c668bb30ef6b424931c0c2ded58be4696c7c525f67579429c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/akita-chuken-maru/turnaround-v1.png",
+      "bytes": 1726659,
+      "sha256": "87b8cc12ad0b6769dbb946cee366e42bc297178b82bc11dfcc3897bbeed5e20f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/aomori-midboss-nebuta-taisho/turnaround-v1.png",
+      "bytes": 1889741,
+      "sha256": "935af81fa33927ea1bdeffd3adaca5c32f3a30e7df84ac44242440807c24e516",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/iwate-boss-konjiki-no-tora/turnaround-v1.png",
+      "bytes": 1849742,
+      "sha256": "784855ccb962ece8062892b8a2d31b5f23aecd681be321ef14fbc761f1c8c0a5",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/iwate-dragon-blue/turnaround-v1.png",
+      "bytes": 1680855,
+      "sha256": "e4edf794a55273c731616d8382322772a00f59242c2e226dcb354d20059b73eb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/iwate-hayate-kamoshika/turnaround-v1.png",
+      "bytes": 1753496,
+      "sha256": "0610c21e726bc497575e3e99d6cc3675bd4c37608a1436f79f0f3e87383e3df7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/iwate-lastboss-minamoto-yoshitsune/turnaround-v1.png",
+      "bytes": 1657406,
+      "sha256": "36ab2248bd609bbd33a0616162a2f5156b70226dec9b26951fb33c7649062aa8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/iwate-midboss-tetsubin-game/turnaround-v1.png",
+      "bytes": 1877941,
+      "sha256": "a5c79b655699705406f39bac55102ae48b4815c754c5f79ecad0bf19bc97da4a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/iwate-wakame-ryu/turnaround-v1.png",
+      "bytes": 1686078,
+      "sha256": "20bf8e31a18c2079da75bc33d74f9d10d89c6749a55a0d43e97f7e0bf51252d5",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-boss-mikazuki-shogun/turnaround-v1.png",
+      "bytes": 1809954,
+      "sha256": "fc9febfe8919e480973d48ba25d579a6a62c8b6f43c41e83c0fb93990bab8fc3",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-kokeshi-hime/turnaround-v1.png",
+      "bytes": 1711737,
+      "sha256": "8fcc057512ac326ef48a05c82e0976a8bcefd165d0645261cb8caed4038e5410",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-kokeshina/turnaround-v1.png",
+      "bytes": 1742582,
+      "sha256": "c17725f0a3d38776183ef99bb5eb99a6bd0f350a417c733cff8b04975061d1c8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-lastboss-date-masamune/turnaround-v1.png",
+      "bytes": 1690544,
+      "sha256": "1438643bdc25e72d028fd00cd32019f2ed8acaba4954cec4fada407062c7975d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-midboss-tanabata-dori/turnaround-v1.png",
+      "bytes": 1741770,
+      "sha256": "ea0c808b012dde9099e25b5ce95c9b8eeb7848b8e94ec9df24fd1b72c682fcba",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-oo-sumibitan/turnaround-v1.png",
+      "bytes": 1705184,
+      "sha256": "d84afa3f4a0da38064bd8b134a911e8926582f82cc50d7649e5b44a1a6db348a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-oohakucho/turnaround-v1.png",
+      "bytes": 1577128,
+      "sha256": "9020914618cf424f6d3f2f2a450446dbe08e8e15db9d969e115730763b9657c6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-oohakucho/turnaround-v2.png",
+      "bytes": 1578376,
+      "sha256": "8290e7fe36ec5a580d94c12d11fdd10755c91cb67a7bdf9cf7b2be08edd18b1c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-sasakama-bushi/turnaround-v1.png",
+      "bytes": 1672874,
+      "sha256": "7d894c831bb4f6b4056b0017fcac210a6fb8b82789a9850e1ba9e41036e0345b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-sasakama-bushi/turnaround-v2.png",
+      "bytes": 1604900,
+      "sha256": "ab2bb9bd0f80b4bd0e6db5d9ca44f687388d9991505ed0b255edad2362463079",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-sasakama-uo/turnaround-v1.png",
+      "bytes": 1655283,
+      "sha256": "1e4d9cea68bc33b981d05ca2a801c56854f28a5e4482324ce6609c7fc67c261a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-shiratorin/turnaround-v1.png",
+      "bytes": 1605443,
+      "sha256": "bc95c63e79a7b0a3af8ffcd4d0f32ff9032e81c441f2b72dcb9482a68325c4b4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-tanyakki/turnaround-v1.png",
+      "bytes": 1699159,
+      "sha256": "29cd5e10f2532483fc7ca4e7609766847bf395f556a2a8b799f64f51092a8884",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/miyagi-zundagon/turnaround-v1.png",
+      "bytes": 1762511,
+      "sha256": "c7241f0112bdabbb2c315332e9038ad7b8497646fec66701fb157bea0535ab21",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/akita-chuken-maru.png",
+      "bytes": 5359,
+      "sha256": "e4c4b4b1794732cee11f6dc8a0ea24be57fe1dedeb26b1f92f1250472489570b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/aomori-midboss-nebuta-taisho.png",
+      "bytes": 9578,
+      "sha256": "15433914330a245f00d7a948ddb957be187068c2c788f15d7bf7f144324409f4",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/iwate-boss-konjiki-no-tora.png",
+      "bytes": 14243,
+      "sha256": "d8b48c1684e6541ef004fdf6701ccb1280695a9abac6d8917c74f76531760c6f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/iwate-dragon-blue.png",
+      "bytes": 5171,
+      "sha256": "9dbdc7a558ecff7f67a06a5b613f6830dc7c0b78793a7ca5ab94a15e7bb6339a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/iwate-hayate-kamoshika.png",
+      "bytes": 5582,
+      "sha256": "48ed90780e4af5c1f1af2c22a8db72341786ca75619e94dae43aa34a50ff8fba",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/iwate-lastboss-minamoto-yoshitsune.png",
+      "bytes": 9226,
+      "sha256": "246915a85243fd320844ed44986cc5303a4316aae463175912836eaa078c7e78",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/iwate-midboss-tetsubin-game.png",
+      "bytes": 8412,
+      "sha256": "ef9ef7c4a868468deb71a362160b4e71b71113e3709b2868891b90cde15a9321",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/iwate-wakame-ryu.png",
+      "bytes": 4431,
+      "sha256": "604186a931e1455a27951ee07bc2568d9df69565878fa826c8a9d18a7f4e4eb8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-boss-mikazuki-shogun.png",
+      "bytes": 12248,
+      "sha256": "d22834c91684b3d8de749bf4dc66d30084009a005da9b163049b9af9f1383d9c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-kokeshi-hime.png",
+      "bytes": 5178,
+      "sha256": "2a786ac5e28e24e588409699248036b110efe7ca1e502637c25990f746ce48eb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-kokeshina.png",
+      "bytes": 4433,
+      "sha256": "5e24a02cbf4d3655e419733f4c94d125089a6b889c8f78d529efaeb13eb11c4b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-lastboss-date-masamune.png",
+      "bytes": 8675,
+      "sha256": "b2708a9d511fbd474a338f0e03a4eda804b04238cc91cbfb8dac75523e54efc1",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-midboss-tanabata-dori.png",
+      "bytes": 8405,
+      "sha256": "c1f65d15b864732c750c2d8fed15ee3bf9170500d9092b18a95e41bb842b8038",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-oo-sumibitan.png",
+      "bytes": 5208,
+      "sha256": "a22c319273afafd0d93b564618f71ffae9d6c5f9942c2cff685c576b295c04e1",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-oohakucho.png",
+      "bytes": 5556,
+      "sha256": "70da3719943292541b0eb86cdec9d1b028b7b5bf9dfe78782226b720e9ec7074",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-sasakama-bushi.png",
+      "bytes": 4795,
+      "sha256": "0df8e467f686da17afc6f2a23a08b2f0cf723839c7ce12f0db8ea3bc49764bdb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-sasakama-uo.png",
+      "bytes": 3719,
+      "sha256": "6e79c0e885b028763ef59108046fa98b8b00ebb3b6d7c098ec9a2e57614d1712",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-shiratorin.png",
+      "bytes": 3358,
+      "sha256": "e9e5097b915d896b4f4b4e745f18cd8b49a56580e7fb46f644fbdb56bb2021be",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-tanyakki.png",
+      "bytes": 4086,
+      "sha256": "193c0969b99899913ff16d079b3fd725198c501a30b77ac26039655de3b5c78a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v5/pixel-references/miyagi-zundagon.png",
+      "bytes": 4762,
+      "sha256": "7d446a9dc5e9b0732f36689248427b79dd8c469c82ae982d6c02e1dc3d8d6d95",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-boss-namahage-ou.png",
+      "bytes": 11752,
+      "sha256": "ed49e21e0ca5e649f5e62f994cc3e025c56102e991f3df4962d99afcea8f0b6c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-hanabii.png",
+      "bytes": 4061,
+      "sha256": "06b42ddc010dc16adcd7def2eef8352715fb9e9d2de85311a1cf62278f79627f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-kiritanpo-nabe.png",
+      "bytes": 5184,
+      "sha256": "0747f2b9d028e198b70b7385d5d7b8ecef91eca457854931a44af7a344c3139b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-kiritanpon.png",
+      "bytes": 3327,
+      "sha256": "0c139de913b04c25c164407f2e36c14d926c5413f7624cee6f14b98eb0883a28",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-lastboss-satake-yoshinobu.png",
+      "bytes": 8589,
+      "sha256": "6865a6f671d8c2b0b29eeeaa4f3f81810a518f3129eb7d09c6109acd6b34e695",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-magewappan.png",
+      "bytes": 5137,
+      "sha256": "41fb8fb5b514ede3a8871939192e55ccc1d37084292cb1d18925c06e381b03cb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-midboss-kanto-man.png",
+      "bytes": 6876,
+      "sha256": "fdfc588d40a8b62920a45bd979efaa7f17588813f2e4b253ac1f911d078ccc2a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-oodama-hanabi.png",
+      "bytes": 5526,
+      "sha256": "dea49d1c3d175e88603e0a1ea8ebd137a9a9c444ed85d526bfc168fc9e854557",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/akita-wappa-toride.png",
+      "bytes": 4758,
+      "sha256": "1e5bc0df8ad40a2a158453ca5f3b4e5a94ca5f0d4905a90e497a9ce0195acef1",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/fukushima-akabeko-don.png",
+      "bytes": 5297,
+      "sha256": "fb05316f871b55297e890bb926e5d01909a7b7db6b634d8d818f8c6a3c8640d8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-boss-juhyo-no-kami.png",
+      "bytes": 11530,
+      "sha256": "c810d78600cdf460828b38869982e2fc20bb2bb1a3b42e4c151b4c724ed43c14",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-double-cherry.png",
+      "bytes": 5291,
+      "sha256": "e2fd70297e162a6076d6c4fbc2494bcb4effd35e3e7a800bc4c4f8301e53dc4f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-imoni-nabe.png",
+      "bytes": 4793,
+      "sha256": "8bd0ad5225bfee4d35d6cddd3b18e574f45f9c201ae2af871e900c0c7d555298",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-jumbo-imoni.png",
+      "bytes": 5182,
+      "sha256": "fe3d6b0853e74136bc6292e7874b626e035a5f268d4daf6dbb456789c29f84ae",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-lastboss-matsuo-basho.png",
+      "bytes": 9092,
+      "sha256": "ef5abc78d10c2b652aea84a089a8b339a6087e839090d3553b843459d61482d2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-midboss-juhyon.png",
+      "bytes": 8652,
+      "sha256": "e58db86b91168a52c56306b91848207a02294665ac09e5e894d111a701fd1345",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-ryuo-koma.png",
+      "bytes": 4811,
+      "sha256": "6e49ffcd67989d109d52ff09054b83a39e3f714ee0f27d075f78f8357e024bb0",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-sakuranboy.png",
+      "bytes": 4821,
+      "sha256": "127b3a69ca5f210884b91925c6ef512593d0108cb45768745543dbbc0646f55b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-yukemurin.png",
+      "bytes": 4085,
+      "sha256": "c0f088ada7724f895a38f04c81b3d9676a491f2df7483194d0d20d19220a0590",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "monsters/tohoku-turnarounds-v6/pixel-references/yamagata-yunohana-ryu.png",
+      "bytes": 4330,
+      "sha256": "250140f646519f1513ea7da1618bb768ef356b6d89769af22f4c25e50db4c4f9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/audio/dialogue/01-protagonist.mp3",
+      "bytes": 92830,
+      "sha256": "74cbfdc371a2b3e0f59b3bf8f43ed6e5d4c549f2c330e735b506ad105923943c",
+      "mediaType": "audio/mpeg"
+    },
+    {
+      "path": "prologue-michiru/audio/dialogue/02-protagonist.mp3",
+      "bytes": 102862,
+      "sha256": "8561505238ffae0237547c9978eb8cf8240aa9b08dffc7ddaeeb8faffd6152eb",
+      "mediaType": "audio/mpeg"
+    },
+    {
+      "path": "prologue-michiru/audio/dialogue/03-michiru.mp3",
+      "bytes": 104742,
+      "sha256": "e22da0d8fa798f9fa6d2a1c3f89223efb22b58d7946526114e52431f0f36b561",
+      "mediaType": "audio/mpeg"
+    },
+    {
+      "path": "prologue-michiru/audio/dialogue/04-michiru.mp3",
+      "bytes": 200664,
+      "sha256": "cb49ed679dd465b3125f0e02718c41fabab158d364517d4803beec463de696aa",
+      "mediaType": "audio/mpeg"
+    },
+    {
+      "path": "prologue-michiru/audio/dialogue/05-michiru.mp3",
+      "bytes": 131701,
+      "sha256": "54a9d1eab79d611cbcc4de93af539081aff6103964e7c38417e52d89023f2e8f",
+      "mediaType": "audio/mpeg"
+    },
+    {
+      "path": "prologue-michiru/audio/dialogue/06-michiru.mp3",
+      "bytes": 121670,
+      "sha256": "34f6549d8506d51a1fe99aaa4fb5f847a34f7e00b533404c04885d68a19609e7",
+      "mediaType": "audio/mpeg"
+    },
+    {
+      "path": "prologue-michiru/audio/dialogue/07-michiru.mp3",
+      "bytes": 123550,
+      "sha256": "029358e0221031a5f90d4a62cdd98489c8058260b60f723f1580b7ecba2b9c94",
+      "mediaType": "audio/mpeg"
+    },
+    {
+      "path": "prologue-michiru/audio/dialogue/08-michiru.mp3",
+      "bytes": 121670,
+      "sha256": "bb33df476922a586ec1c45d7990d16ecf20a50d806f9c77d8c1455164fe396ee",
+      "mediaType": "audio/mpeg"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-01.mp4",
+      "bytes": 22128964,
+      "sha256": "49adc58600bf2c0c009f0e6d1bf3f3934456ca5baa269c0983ddc1122056a83b",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-02.mp4",
+      "bytes": 28775568,
+      "sha256": "b30529e1669d62346da4e81a410264e7bf8500bc93b3abce004f72f5ffe7b74d",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-03.mp4",
+      "bytes": 17577272,
+      "sha256": "dec80565b105251efbfd3a964358b8fde196e5aa9b324ebbff7b807320d3a749",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-04.mp4",
+      "bytes": 35471110,
+      "sha256": "d8711ee2aeec4281dbb87d35b31ef355f2a873ee589a457a193ec398981e6fde",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-05.mp4",
+      "bytes": 34220456,
+      "sha256": "58a9c41c3c9123ba7a146b9d2b24b3b2f49c2c4c1717144d7448ac100a2ad565",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-06.mp4",
+      "bytes": 41515651,
+      "sha256": "59319cbec9405ce01337368585dd5db38cf3938920bdc99f35da2e4fb5c74f0d",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-07.mp4",
+      "bytes": 30718633,
+      "sha256": "d382eb7cd1fc222d278d89207e622eb7ea28b44d4ace12723a7633db68ca2b18",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-08.mp4",
+      "bytes": 38026899,
+      "sha256": "e20648cffb656f247ac9f38f8fe67feee336ff57f3d138f2354208ecca32a783",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/clips/shot-09.mp4",
+      "bytes": 27299356,
+      "sha256": "553426ceb8a8ee19ffb0036f1365a803878b4e291a568b11ab1c01120d761e09",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/edit/base.mp4",
+      "bytes": 275194570,
+      "sha256": "08212c97111e47c32ac7b6093b291aa26293ed3cf574430c63a896b8fe984f11",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/edit/concat.txt",
+      "bytes": 252,
+      "sha256": "65f4162d49af8c409bafd432a5dbee5f75fd97196c21ab04b39ec781c682cd24",
+      "mediaType": "text/plain"
+    },
+    {
+      "path": "prologue-michiru/edit/dialogue.ass",
+      "bytes": 1925,
+      "sha256": "d644a83f00f165c361df36901a1f5454c7e52048f0bd689c32eba5f61535c10e",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "prologue-michiru/prologue-michiru-ja.mp4",
+      "bytes": 124318606,
+      "sha256": "81626234e98ba756539c107a6080739dd9abdf94ed904d6bd502775f5055e7f7",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "prologue-michiru/prologue-michiru-ja.vtt",
+      "bytes": 1054,
+      "sha256": "feb25f6b65affb5db49bcd012631bbe42b97ca9daf53d2729d501b099883fb5a",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "prologue-michiru/qa/contact-sheet.jpg",
+      "bytes": 174495,
+      "sha256": "af2bf26386e43c087794105b3e8274382fdc87da162d6dbc44da756cf50175af",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-01-mid.jpg",
+      "bytes": 143394,
+      "sha256": "b9efdee2aff9a4e88a49bce3345ca3695b5ea667f107c36dddc38c5fcc541cf4",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-02-mid.jpg",
+      "bytes": 140438,
+      "sha256": "db2a0a0a13c1ca0d866a115a154f407f7e3fd3960ee9e7cb7e73184224364c25",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-03-mid.jpg",
+      "bytes": 97780,
+      "sha256": "0d37553de0dc13e50ab5dec8caa38cc7abb8a1f0b6c39de4bb400c1b3bff806e",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-04-mid.jpg",
+      "bytes": 146991,
+      "sha256": "7788d264b6cc8b60cbd0379f214e2069ed3d2cd4f134d19f9b7c4f26b3810e05",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-05-mid.jpg",
+      "bytes": 155143,
+      "sha256": "835025258196e622bb6ed8c14a0276c28d0b1bee5b52495126f4864f0d1622ba",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-06-mid.jpg",
+      "bytes": 147084,
+      "sha256": "95dc45974e98401206cdb088e0624e07a3389bd78ca78bd9892ef2ef7e1c107e",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-07-mid.jpg",
+      "bytes": 119961,
+      "sha256": "9da1086ac3e9adb06ee3220e7bbfb6da558d02606aef8c25f3b98a4aaaa9a660",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-08-mid.jpg",
+      "bytes": 155814,
+      "sha256": "a513933f41aa68efe29a7dc8734e1044f20fab013de3027cc4d15044b3bd7a23",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/qa/shot-09-mid.jpg",
+      "bytes": 157990,
+      "sha256": "0d8771073c1c48437a091c39cd02e2fb7bfc359ccca23e7bf62b4cb41544f32d",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-01.png",
+      "bytes": 2367042,
+      "sha256": "fefd2c8f2df7b70f1d2bb159dd3f497b58db1dc929da33648e18667de72db175",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-02.png",
+      "bytes": 2839990,
+      "sha256": "dd0c06d837c04b12050d0081e53af75ea15c8226d2c1f1c9604f8ff3111f757d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-03.png",
+      "bytes": 2579398,
+      "sha256": "57e0d5fe2891306d773e793bb78373aea183ba0bbd826c9eca5be5b4900d5c7b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-04.png",
+      "bytes": 2788726,
+      "sha256": "7fbe29dffa2dd3e97c884c1a7a4a595d5480801acf1b475d050ca64a20c87d58",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-05.png",
+      "bytes": 2664016,
+      "sha256": "f8b00e2c63e3ba12854a567ce31bbf39ab49e8b0cbd7f2a839eccf4e117861b7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-06.png",
+      "bytes": 2965112,
+      "sha256": "002a58ebe575ad1566ff010c432d825b3d797d15a3b342fcdfbceed250593cad",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-07.png",
+      "bytes": 2681390,
+      "sha256": "cdb0fe26aabc6cea18658e9ff50a3045573a58bcb48a007c03d7a038cec80eca",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-08.png",
+      "bytes": 3112373,
+      "sha256": "a16359f485dc47e5419dee9b4bac85ddb3391e2bacd4ece0c7b9e01b4ae11233",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "prologue-michiru/storyboard/shot-09.png",
+      "bytes": 2748937,
+      "sha256": "3c4f3409bd9cba45b580e09f3cb9592ca3aac7580d36fa917443e7d14ae76ddb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/starter-meeting-v1.png",
+      "bytes": 2868270,
+      "sha256": "9e3af6d81b9b0ca7fb434a92abda85d85b5c69f3898775f56aec28085ee87391",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c01-b01-b05-dialogue-v1.png",
+      "bytes": 2199702,
+      "sha256": "3528b30b06d8d7ac7c5b93d1d16a4edd1b0ae42dcc84be8236dda720e03d3559",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c01-b01-b05-dialogue-v2.png",
+      "bytes": 2107085,
+      "sha256": "2545ef54828c457d479c630b71a368ea0a92de9f6b54341d224137e45283f5ea",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c02-b06-b10-dialogue-v1.png",
+      "bytes": 2238476,
+      "sha256": "6dfc43728c249b67db03561f9135b032cd0475dab26485630ac58cb7dc3bcb35",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c03-b11-b15-dialogue-v1.png",
+      "bytes": 1878081,
+      "sha256": "02ea35a98b0f04c94c73e849af0a453de38e2487e50b2d978209d1cd8e2efb84",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c04-b16-b20-dialogue-v1.png",
+      "bytes": 1889739,
+      "sha256": "7fffeccbbc5b69ca2e5687c1267af1956004bb358bf00c7eff12ccebc32c730e",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c05-b21-b25-dialogue-v1.png",
+      "bytes": 2208291,
+      "sha256": "e7f9a1516a3740d19b95b7359a1d6c5d631c5a9f5cfca7d37718f18682816706",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c06-b26-b30-dialogue-v1.png",
+      "bytes": 2010218,
+      "sha256": "6cf047135498ac12e85acc9a3593a345304e64f044b9cd4622e3f97e0f9c5067",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c07-b31-b35-dialogue-v1.png",
+      "bytes": 2065941,
+      "sha256": "0298a2b93838eb62f7a445974d421be98310b2b05b04fa6dc42233e3e6515516",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-dialogue-v1/c08-b36-b39-dialogue-v1.png",
+      "bytes": 1947036,
+      "sha256": "039aacd007ef360dd353213604ea34e2c85aa489daa66ff32b0ec4f4989e12fe",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c01-b01-b05-3d-v4.png",
+      "bytes": 2387742,
+      "sha256": "f86158e1a3be1f36abfe4632a6c4ff7f0a7ed81a2074810377eab68bad1764c2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c01-b01-b05-v1-sign-draft.png",
+      "bytes": 2605336,
+      "sha256": "6a135c38d21a3a15ac3a1200ccf3192ea766f1eecfd9284484b0f329207a7a90",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c01-b01-b05-v2.png",
+      "bytes": 2617030,
+      "sha256": "c68d36c0bfe934b11116fb11c21417cee923f52e6d0f80ada41cf529d457bc69",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c01-b01-b05-v3.png",
+      "bytes": 2779300,
+      "sha256": "83d3647c966183f4677eb10846be103c4c1e07aae50964d0d3bf77b3b9b0be44",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c02-b06-b10-3d-v2.png",
+      "bytes": 2281062,
+      "sha256": "55e0a5d426db57927f9239c2f45808a12d913205f5b27a3f0d52986b406fd27c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c02-b06-b10-v1.png",
+      "bytes": 2612297,
+      "sha256": "5280461ba03e1451a1e53fa4883c5aa7b495e48153a8e0783e6c9f817eb5cf1b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c03-b11-b15-3d-v3.png",
+      "bytes": 2007804,
+      "sha256": "c93b99a1856a259e63f43e990c35731fc390cc759410849ce0791cc95f74f57b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c03-b11-b15-v1.png",
+      "bytes": 2272597,
+      "sha256": "c7402db4ccf727332dcf440c4aa0e35b5fcf15a441c010fab549cdff77e0c737",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c03-b11-b15-v2.png",
+      "bytes": 2223015,
+      "sha256": "8031df89095afae9ba90657b790c335cbbfaff2ce2f62b08d406b0e799bf5dae",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c04-b16-b20-3d-v4.png",
+      "bytes": 1977113,
+      "sha256": "adacdbc55b52e719ded007271fc5a444d74e5128a76d1914d35f14c0e900c7b6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c04-b16-b20-v1-layout-draft.png",
+      "bytes": 2299545,
+      "sha256": "a0187d8356e3ed9f433f072f511d57b9bdbc96325cc2b83e5377e10c6dba8c7b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c04-b16-b20-v2.png",
+      "bytes": 2258979,
+      "sha256": "b5b8233de5df7c32e169fe63a0e6fa2456dc462f22666cacd8b587d29165c67a",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c04-b16-b20-v3.png",
+      "bytes": 2152390,
+      "sha256": "ae1fc3e49752375bbe757be3400e26dc0e601a5e74d1688dd812719e429d3e7d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c05-b21-b25-3d-v4.png",
+      "bytes": 2367502,
+      "sha256": "d2d055fc21da6ef2bdf367fa9990bbc510c7c30d6e687e8733d0e31b252c8b96",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c05-b21-b25-3d-v5.png",
+      "bytes": 2282931,
+      "sha256": "9fe6112bf87bcab32d5f025735e854ab3c031f7a9b67d70cabcefc3d315992a9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c05-b21-b25-v1-layout-draft.png",
+      "bytes": 3088659,
+      "sha256": "c94ae9df623ef530d62d11a49cf461d4a2acce93d3fc0221f6d952c62cbe36a7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c05-b21-b25-v2.png",
+      "bytes": 2773075,
+      "sha256": "8fbfb94a0d9f364db318e1f83b7409eae80f2822bd9efe2a6b6b43c215fa8643",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c05-b21-b25-v3.png",
+      "bytes": 2725284,
+      "sha256": "59a1d43180499893d8975d03b69a0b8ee7196579c9b6d59ebbecdb364be287e2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+      "bytes": 1992157,
+      "sha256": "0539d384094e6cdd910e146a1caebdcc7b55130b2cf9b4dd74e8fd116152fa7d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c06-b26-b30-v1.png",
+      "bytes": 2969164,
+      "sha256": "1699eb6e774f06b40fd259279be4826bf78026e37dfdddc1d0b2c87e16f91507",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c07-b31-b35-links-3d-v2.png",
+      "bytes": 2321741,
+      "sha256": "dde6cbfbc0215c7453c63c8b6ab06522c577805605e863d3c6aba2365455b64c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c07-b31-b35-links-3d-v3.png",
+      "bytes": 2235972,
+      "sha256": "ca6a576f93c521192ba343d8ec48cd24e978a88ae58da4fabd5736a51a3a3d3d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c07-b31-b35-v1.png",
+      "bytes": 308051,
+      "sha256": "20bc4f0084e9b66c0e180ab7f6f46ff126e7a29ab6c5500bb909f944d6add208",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c07-b31-b35-v1.svg",
+      "bytes": 40095,
+      "sha256": "86363071f5c2f6973da6e2c6006df8ba6b89829b232bba2ef512c0f828a066a2",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "storyboards/v00-v1/c07-b31-b35-v1.svg.png",
+      "bytes": 308051,
+      "sha256": "20bc4f0084e9b66c0e180ab7f6f46ff126e7a29ab6c5500bb909f944d6add208",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c08-b36-b39-notebook-3d-v4.png",
+      "bytes": 2136221,
+      "sha256": "2ff46c7bc0bad5c06a978836880279a66ce844c715427736f5a9d81f868d3d7b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c08-b36-b39-v1-props-draft.png",
+      "bytes": 2118160,
+      "sha256": "4fb415484206c762062a159aaf3c98a0bc43d8a45cba90674105fffe71e8bd0c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c08-b36-b39-v2.png",
+      "bytes": 1978069,
+      "sha256": "4456ef8b1069d0fc890796409879a4c186b013cb783572c7f913f15843813026",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c08-b36-b39-v3.png",
+      "bytes": 1573375,
+      "sha256": "ff9cbeda350b6f1ea1816875d95cc1baafe9a84a5d7a7df98860e66a3ad9fc25",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c09-b40-transition-v3.png",
+      "bytes": 1604579,
+      "sha256": "35d886a169f0721a2ee8a50658af4adad78d38de2fcdc4128686cc59f16633f6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c09-b40-v1.svg",
+      "bytes": 805,
+      "sha256": "7261181160e439eeb754150fafd1db992ffa4ec0de297530907f5280b3911b1e",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "storyboards/v00-v1/c09-b40-v1.svg.png",
+      "bytes": 135120,
+      "sha256": "c9beb35e5eed08bbac0dade850e1f6bc1d5423e4d8ea4b8353d36c8e9efb9f3c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c09-b40-v2.png",
+      "bytes": 115685,
+      "sha256": "23a60b35b13ed19eef4b31acfe25f87704d1592e2ae34ba64c720fd864769f46",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "storyboards/v00-v1/c09-b40-v2.svg",
+      "bytes": 805,
+      "sha256": "6319cb9691cc3b875b77a0280ba7c095f28ca978a6270780b6f6586942bb3a91",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "storyboards/v00-v1/c09-b40-v2.svg.png",
+      "bytes": 115685,
+      "sha256": "23a60b35b13ed19eef4b31acfe25f87704d1592e2ae34ba64c720fd864769f46",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/clips/c01-base-v1.mp4",
+      "bytes": 813728,
+      "sha256": "de97a6b40bf85a96569e30da36027cd5afbcb1d62e43726571978f8fd1b2df55",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/clips/c02-base-v1.mp4",
+      "bytes": 827104,
+      "sha256": "ca650be63ead6ac37574d93773f5a60ed32eb13c66925e81ffdb5f112ac3a979",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/clips/c03-base-v1.mp4",
+      "bytes": 629791,
+      "sha256": "4fabec9a606c80789403011b612ef8a5c1aa95dfff53710a65c70268505f6fd8",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/clips/c04-base-v1.mp4",
+      "bytes": 613395,
+      "sha256": "943e4e09070627bff4d4de25db818857f4b565af970520f9018da0a0d4f01590",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/clips/c05-base-v1.mp4",
+      "bytes": 800491,
+      "sha256": "adf1480470902aafc374b6649d748b50bedc40f0d8f8534051bd0f16aaef7f91",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/clips/c06-base-v1.mp4",
+      "bytes": 645224,
+      "sha256": "c6209feaf493805bbdad8bec75ac2f75d0019f4d9219ec136dc2773d1a1cb6a4",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/clips/c07-base-v1.mp4",
+      "bytes": 1163898,
+      "sha256": "57c2b181bcdd043d2d1b21cce15dbed80313b398f3fade11c9279a435db4edeb",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/clips/c08-base-v1.mp4",
+      "bytes": 962459,
+      "sha256": "2b2f35d7241e0b37377f2f4ce4e670056dd71289c18cd0f9b58771f9be5ddc9e",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c01.ffscript",
+      "bytes": 1519,
+      "sha256": "4d294e603abe404e92173b53c222005a3dad4885f08e437e1747b582b70f1fed",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c02.ffscript",
+      "bytes": 1453,
+      "sha256": "77bda7aeb965dab54ecdb4068334713eb4c39e35094e3889a47ce7008ff9c300",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c03.ffscript",
+      "bytes": 1453,
+      "sha256": "4ef68bc00920817e981b8f465ef69731d154d6105bcfd20a5fa3c0ea943c5292",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c04.ffscript",
+      "bytes": 1453,
+      "sha256": "ba6151fbbedbd36e6c2129b8433c51aaa6223b2479e4075ceac24e468873c263",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c05-proof.ffscript",
+      "bytes": 138,
+      "sha256": "27dc0921880d4314deed447df56ed984936b167498461031ba229dca855dda9e",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c05.ffscript",
+      "bytes": 1453,
+      "sha256": "f42c0bee0a57afcf7018883b0a553958fe458dda845c4ccf3ab1bfc0b94e4df9",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c06.ffscript",
+      "bytes": 1453,
+      "sha256": "d87da49f3a1c2bd5f1b256945369a366717cd1c657b55ab88f326848006f5acc",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c07.ffscript",
+      "bytes": 1453,
+      "sha256": "b34f6d5549c373659b266787d7e4a662142ab7c159c7a63d2c4a797275ab3939",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/c08.ffscript",
+      "bytes": 1184,
+      "sha256": "42ae33b6586be73b4d6dcf37ffdb0a5e8a5c16ff29d91df0aaf444d13090d23d",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/caption-corrections.json",
+      "bytes": 736,
+      "sha256": "fdfaf2356d340bdbfcc42b931b3d511cc1f4b6d182ca2e956af579aea8558253",
+      "mediaType": "application/json"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions-corrected/L07.png",
+      "bytes": 25327,
+      "sha256": "bf7af258d7fa3841989d8d5c61d8620f0abeff9a25a046b42d911a4c4ed2d114",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions-corrected/L09.png",
+      "bytes": 29630,
+      "sha256": "4280f485f65bf27c836f040071fc78264302f3ccc9f037795fb31a06331c5a67",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L01.png",
+      "bytes": 15171,
+      "sha256": "21b6b091b44b1d49ed31c463af6562f4ad9bdf4e3112d754325bd86f98c7ea4c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L02.png",
+      "bytes": 21598,
+      "sha256": "3970230f13ac7bb99b943805d0b3508a692b19ef3dbdf9900d43c093794a8d54",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L03.png",
+      "bytes": 15400,
+      "sha256": "b8c8849ff1f326347982b1e1ea9da472299f5f3a274a5ee6c6c96050d6ee5699",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L04.png",
+      "bytes": 19632,
+      "sha256": "4ae713caac6c9ed20b9a335af0daf0c3e1d393315d183d7bc2c292bd0a1618ca",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L05.png",
+      "bytes": 16774,
+      "sha256": "ac715dca411723316dccb07a21619ca205c717e9d54f2b4db5dfd8c9ac605909",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L06.png",
+      "bytes": 14767,
+      "sha256": "5c25f9dfd95d7777541efd40600c6267ffb5e93ff0feecea32269444919a7e21",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L07.png",
+      "bytes": 23641,
+      "sha256": "d9b96844dc7cbbca8f16250335f15ad16be4b5139613c52255974fdeb69bfc35",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L08.png",
+      "bytes": 22121,
+      "sha256": "8e3eb7680f82ba7bfb8d257d950b5082f50424a779646d88bec36e94ba918bfd",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L09.png",
+      "bytes": 26099,
+      "sha256": "cc33ebb13e46098a5c96c00627c531d5cc6f2920b3d977daad468e7322280631",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L10.png",
+      "bytes": 15043,
+      "sha256": "e919e97eed5f95914bcf4574e41bf4e2b7b8c1f7e33a63ea8d9f0a1033edb321",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L11.png",
+      "bytes": 27906,
+      "sha256": "0f521554fa78a30fb55ec9223a7ce1e6e8d39857b5a3fbc9685bae1b8771a8fa",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L12.png",
+      "bytes": 44180,
+      "sha256": "62f97f7781d2f890c4835ce96b0d46c2c76bfe2deb663cd2ed82e987ca4302ca",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/captions/L13.png",
+      "bytes": 34542,
+      "sha256": "356165e371186b5ff8da03f035f4e891ae2f3fcd2013634e299e251cc5c62e9f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/edit/render-captions.swift",
+      "bytes": 3031,
+      "sha256": "747ccc42b1915ffe7b9a0ccaba5c8265e89726264784471b5815cf73f40360e2",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/sequence.ffconcat",
+      "bytes": 965,
+      "sha256": "b8080b6ead51c98c7a52ca212937f2436a12ecfb30ace7644c87db5c0ac0e7b8",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/subtitles-square.ffscript",
+      "bytes": 836,
+      "sha256": "c4c715cf4fc654b9e66186c2092a48e7d2483daa075fcbdeaebfd2d723b3f8ad",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/subtitles.ffscript",
+      "bytes": 827,
+      "sha256": "a4be65fada24d2ce152d32fbf76a4f2cbfa4d6bfc7610d23b217ed9f05454861",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-animatic-v1/edit/subtitles.json",
+      "bytes": 4776,
+      "sha256": "fa5bf0bd29853e50a23ed4b8a6694d9cf1c6bdbabfc1af599da13f8c71b46ef7",
+      "mediaType": "application/json"
+    },
+    {
+      "path": "v00-animatic-v1/edit/v00-base-v1.mp4",
+      "bytes": 6450414,
+      "sha256": "49305bf3c44399a6bfba6950cf7cc3a2ced9cf6a65eb700d2d8cd0046f992926",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/qa/c05-proof-2_5.png",
+      "bytes": 1143396,
+      "sha256": "0d636e2a8775376e317fd5f9331f5472d70e9c2c8f760e1fc8b572c7b1ea64b7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/c05-subtitle-proof-v1.mp4",
+      "bytes": 815391,
+      "sha256": "f4b1a48df18d6fabb37c1f2652b8362cffc2174709eca1f7b2df2edc834236df",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/qa/contact-sheet-v1.png",
+      "bytes": 5347897,
+      "sha256": "07017db5bd174f796ace2e4836aa5db18cb841e1827c93bc6979e03b210265e1",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-01.png",
+      "bytes": 1158144,
+      "sha256": "040974972c460cff1fc6ad106ecbef02841e958e55c33fc7c15eab8fe1d795cd",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-02.png",
+      "bytes": 1166948,
+      "sha256": "e006dcd118c154a0d92c850f3b299019a32782ce53a7926286e668af52b2d3b6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-03.png",
+      "bytes": 1101913,
+      "sha256": "ec5ce0087a5e3a18a2fdd48d413fc19ab03384def0e2eb2753adee9de520cfcb",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-04.png",
+      "bytes": 1085365,
+      "sha256": "86d1a220ef81b45f712374b1b4804f0788aeaeb88926ba22bab7ba4e7ca5fde9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-05.png",
+      "bytes": 855952,
+      "sha256": "395a9a71fbbf687d50e8fdfd88e086a86881d2a9a460da87bfbd1c9ee455e2f6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-06.png",
+      "bytes": 901713,
+      "sha256": "54b619b305756b197ee9c90ac1db69d4886ca0b36be2f21cc220fc75fce0a2df",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-07.png",
+      "bytes": 924491,
+      "sha256": "b533ffae5cd001dd5f68fc109f08bcb562d7870ae7b6bb392fa73845153d18d8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-08.png",
+      "bytes": 1092940,
+      "sha256": "d1b5308d11013b2c63e20a2a9e402b103098fb1b01c9425bd0ad52c256607a9f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-09.png",
+      "bytes": 1143143,
+      "sha256": "832e2ab721876b45f7d3ce15420c2e95a95338a1d96607403524323f0441af30",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-10.png",
+      "bytes": 919308,
+      "sha256": "4e19c1fae08a4dc5bee633a2beb59e24ce31f12b406f273b07c7a97a603021a1",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-11.png",
+      "bytes": 960671,
+      "sha256": "65e814947f06d9ac027b95d861905defe6f8b62254f668b5aad70419dce69065",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-12.png",
+      "bytes": 986719,
+      "sha256": "8550d3f1cadcec196f54e192a07e98867192f9c5358bf938c65b07af98463d5d",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-13.png",
+      "bytes": 1130735,
+      "sha256": "0202380d87e837982799eb463f9a7726b601b0a93ff8456d3d15438f5c06dc5c",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-14.png",
+      "bytes": 788253,
+      "sha256": "e485877d83fbf18723cc3c8e0024b2fdd87510b7db57d4c781d70441e1fbf07b",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-15.png",
+      "bytes": 782145,
+      "sha256": "0cb37c1d064bd37f1f51fe5e6653d3f633a4ba8cec5e0545f1ee00ae02774259",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-16.png",
+      "bytes": 556985,
+      "sha256": "98ac0ae6ae1b5e4265c7fe7a8b730e6cc82691aaa352923dce8701583303c7b9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-17.png",
+      "bytes": 4348,
+      "sha256": "a1006d5a0ac254fcb798752511babe031036cb266499be498da9e5c326c91191",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/qa/frame-18.png",
+      "bytes": 4348,
+      "sha256": "a1006d5a0ac254fcb798752511babe031036cb266499be498da9e5c326c91191",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-animatic-v1/v00-subtitled-animatic-v1.mp4",
+      "bytes": 6456425,
+      "sha256": "2bfdabf211a15e422b656c9802f7c50a08def10f7b0ff18bf789e8efb114ce52",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/v00-subtitled-animatic-v2.mp4",
+      "bytes": 6456421,
+      "sha256": "342f75c16c0681095d0ba5695de458b5c5eaa30fa258bcb76b2c8e49ba83f7b1",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-animatic-v1/v00-subtitles.vtt",
+      "bytes": 1173,
+      "sha256": "4545e1e903a27b42887d7b5fbe8d28da41a7f62e0dc9ac56e18521d44e31a424",
+      "mediaType": "application/octet-stream"
+    },
+    {
+      "path": "v00-production-v1/c01-start-v1.png",
+      "bytes": 2409263,
+      "sha256": "0f8ef5efdfe35071d50ae83816f8c4ea58d64c995ee9542c5147d4f08ba33241",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-production-v1/wan2-free-v1/c01-wan2-free-v1.mp4",
+      "bytes": 934431,
+      "sha256": "e09786abb94ccd4e392c4b7bc6742fdc9c517767ceb2a85e02ac7654904f3fbd",
+      "mediaType": "video/mp4"
+    },
+    {
+      "path": "v00-production-v1/wan2-free-v1/qa/contact-sheet-v1.png",
+      "bytes": 3522772,
+      "sha256": "85f6ec73ceaaa285d030a85c3978e81efad6b1d78fa488251c85683fdd23dba7",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-production-v1/wan2-free-v1/qa/generation-result.png",
+      "bytes": 153260,
+      "sha256": "6fba5d30b5af6debba8bd406e1a654d25df055649f5cae7bc071f61c177373d8",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/01-village-street-v1.png",
+      "bytes": 2843042,
+      "sha256": "eb4d995656a1e2a43c732392bf63bdb95579bf7e5fdfe5165cb3fd13840ed9fd",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/02-residents-cast-v1.png",
+      "bytes": 2019934,
+      "sha256": "1335f8797295c9cc4fc64e2aab72ba33e7bae20b020cd3a8c0b90504d23bbc45",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/03-woodworking-workshop-v1.png",
+      "bytes": 2510047,
+      "sha256": "f0385d8edef43604f96145a1268d02078c1e265148dcf30c6c9c8e9b770b01f6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/04-village-crossroads-v1.png",
+      "bytes": 3362161,
+      "sha256": "03db4c1364aa9a91c7169dbe361ba7d0b26c88ca8482b95f330f42b3b6300ad2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/05-beech-forest-path-v1.png",
+      "bytes": 3308779,
+      "sha256": "2ae37be5bcc4591b1a48610eb8e6e4e65b815142757c2e340f910d3af032724f",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/06-bunakko-states-sheet-v1.png",
+      "bytes": 2013314,
+      "sha256": "d8f9fdbf52d6d6221d99531388a214a748840d3502bb48363caf1ff6000995a9",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/07-everyday-props-sheet-v1-count-rejected.png",
+      "bytes": 1972907,
+      "sha256": "79f186a3d3931105d795dbfd7d382c25f8b1e919cc43d0b40f97ca32274f47d6",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/07-everyday-props-sheet-v2.png",
+      "bytes": 1887691,
+      "sha256": "1832745db4741de130ef601448d8c0dfd11f510bfc5e42c82feda5b2131a1aa2",
+      "mediaType": "image/png"
+    },
+    {
+      "path": "v00-reference-pack-v1/08-village-cast-scale-test-v1.png",
+      "bytes": 2734718,
+      "sha256": "58acfb35817c0f6cb5de9c2b8a24d2f49746c78b41c61a97d1ddc44e290a8f8c",
+      "mediaType": "image/png"
+    }
+  ]
+}

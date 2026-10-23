@@ -1,5 +1,5 @@
 /**
- * タイトル画面のメニュー（黒い窓＋白い太枠、♥ カーソル）。
+ * タイトル画面のメニュー。選択中の項目は文字色と下線で示す。
  * 操作：↑↓ で選ぶ / Z・Enter・Space で決定。えらべない項目は理由を下に出す。
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
@@ -116,7 +116,6 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
               choose(i);
             }}
           >
-            <span class="nq-cur">{cursor === i ? <span class="nq-heart">♥</span> : null}</span>
             <RubyLabel text={it.label} />
           </button>
         ))}

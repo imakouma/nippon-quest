@@ -123,8 +123,8 @@ test('バトル：報酬のあとに、キャラが動く仲間加入演出を�
 
 test('バトル：ターン表示を出さず、こちらが動くと次のコマンド選択へ戻る', async ({ page }) => {
   test.setTimeout(60_000);
-  // lv は敵レベル。初期パーティが一撃で全滅しない条件で、1ターンの完走を確認する。
-  await start(page, 1);
+  // lv は敵レベル。初期パーティが1ターン耐え、敵も最初の一撃を耐える条件で完走を確認する。
+  await start(page, 8);
   await expect(page.locator('.nq-turn-stage')).toHaveCount(0);
   await expect(page.locator('.nq-sgauge')).toBeVisible();
   await expect(page.locator('.nq-cmd[data-cmd="skill"]')).toBeVisible({ timeout: 20_000 });
