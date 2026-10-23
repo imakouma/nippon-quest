@@ -133,7 +133,215 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "kokugo.g3.kanji.consolidation-b",
+      "to": "kokugo.g4.kanji.foundation",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「漢字[かんじ]の定着[ていちゃく]⑥」の知識・技能が「第4学年[だいよんがくねん]の漢字[かんじ]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.kanji.foundation",
+      "to": "kokugo.g4.kanji.prefectures-a",
+      "kind": "chronological",
+      "strength": 0.65,
+      "rationale": "同じ領域を「第4学年[だいよんがくねん]の漢字[かんじ]」から「都道府県[とどうふけん]の漢字[かんじ]①」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.kanji.prefectures-a",
+      "to": "kokugo.g4.kanji.prefectures-b",
+      "kind": "chronological",
+      "strength": 0.65,
+      "rationale": "同じ領域を「都道府県[とどうふけん]の漢字[かんじ]①」から「都道府県[とどうふけん]の漢字[かんじ]②」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.kanji.foundation",
+      "to": "kokugo.g4.kanji.confusables",
+      "kind": "component",
+      "strength": 0.75,
+      "rationale": "「第4学年[だいよんがくねん]の漢字[かんじ]」の力は「間違[まちが]えやすい漢字[かんじ]」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.kanji.foundation",
+      "to": "kokugo.g4.kanji.consolidation-a",
+      "kind": "chronological",
+      "strength": 0.65,
+      "rationale": "同じ領域を「第4学年[だいよんがくねん]の漢字[かんじ]」から「漢字[かんじ]のまとめ①」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.kanji.consolidation-a",
+      "to": "kokugo.g4.kanji.consolidation-b",
+      "kind": "chronological",
+      "strength": 0.65,
+      "rationale": "同じ領域を「漢字[かんじ]のまとめ①」から「漢字[かんじ]のまとめ②」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.kanji.confusables",
+      "to": "kokugo.g4.kanji.consolidation-b",
+      "kind": "component",
+      "strength": 0.75,
+      "rationale": "「間違[まちが]えやすい漢字[かんじ]」の力は「漢字[かんじ]のまとめ②」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.reading.expository-links",
+      "to": "kokugo.g4.grammar.connectives-a",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "「説明[せつめい]文[ぶん]のつながり」で身に付ける力を「つなぎ言葉[ことば]の働[はたら]き」の異なる言語活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.grammar.connectives-a",
+      "to": "kokugo.g4.grammar.sentence-links",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「つなぎ言葉[ことば]の働[はたら]き」の知識・技能が「文[ぶん]のつながり」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.grammar.sentence-links",
+      "to": "kokugo.g4.grammar.connectives-b",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「文[ぶん]のつながり」の知識・技能が「つなぎ言葉[ことば]の活用[かつよう]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.grammar.modifiers",
+      "to": "kokugo.g4.grammar.sentence-structure",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「修飾語[しゅうしょくご]の関係[かんけい]」の知識・技能が「文[ぶん]の組[く]み立[た]て」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.parts-applied",
+      "to": "kokugo.g4.vocabulary.compound-structure",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "「へんとつくりの活用[かつよう]」で身に付ける力を「熟語[じゅくご]の組[く]み立[た]て」の異なる言語活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.dictionary.use",
+      "to": "kokugo.g4.vocabulary.meaning",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "「国語[こくご]辞典[じてん]の使[つか]い方[かた]」で身に付ける力を「語句[ごく]の意味[いみ]」の異なる言語活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.culture.proverbs-idioms",
+      "to": "kokugo.g4.culture.proverbs-idioms-a",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "「ことわざの意味[いみ]と使[つか]い方[かた]」で身に付ける力を「ことわざと慣用句[かんようく]」の異なる言語活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.culture.proverbs-idioms-a",
+      "to": "kokugo.g4.culture.proverbs-idioms-b",
+      "kind": "chronological",
+      "strength": 0.65,
+      "rationale": "同じ領域を「ことわざと慣用句[かんようく]」から「ことわざと故事成語[こじせいご]」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.culture.haiku",
+      "to": "kokugo.g4.culture.tanka-haiku",
+      "kind": "related",
+      "strength": 0.55,
+      "rationale": "「俳句[はいく]の響[ひび]きとリズム」と「短歌[たんか]と俳句[はいく]」は共通する言語能力を扱うため、関連する学びとして結ぶ。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.culture.tanka",
+      "to": "kokugo.g4.culture.tanka-haiku",
+      "kind": "related",
+      "strength": 0.55,
+      "rationale": "「短歌[たんか]の情景[じょうけい]とリズム」と「短歌[たんか]と俳句[はいく]」は共通する言語能力を扱うため、関連する学びとして結ぶ。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.reading.character-feelings",
+      "to": "kokugo.g4.reading.story-a",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "叙述[じょじゅつ]を基[もと]に登場[とうじょう]人物[じんぶつ]の気持[きも]ちを捉[とら]える力[ちから]は、物語[ものがたり]教材[きょうざい]で人物像[じんぶつぞう]を読[よ]む基礎[きそ]となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.reading.story-a",
+      "to": "kokugo.g4.reading.story-b",
+      "kind": "chronological",
+      "strength": 0.65,
+      "rationale": "物語[ものがたり]教材[きょうざい]で人物[じんぶつ]の行動[こうどう]や気持[きも]ちを捉[とら]える力[ちから]を、場面[ばめん]を通[とお]した人物[じんぶつ]の変化[へんか]へ広[ひろ]げる（指導順[しどうじゅん]を固定[こてい]しない）。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.reading.expository-links",
+      "to": "kokugo.g4.reading.expository-a",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "文[ぶん]や段落[だんらく]のつながりを捉[とら]える力[ちから]は、具体的[ぐたいてき]な説明[せつめい]文[ぶん]教材[きょうざい]を読[よ]む基礎[きそ]となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.reading.expository-a",
+      "to": "kokugo.g4.reading.expository-b",
+      "kind": "chronological",
+      "strength": 0.65,
+      "rationale": "具体的[ぐたいてき]な説明[せつめい]文[ぶん]教材[きょうざい]でつながりを捉[とら]える力[ちから]を、文章全体[ぶんしょうぜんたい]の要点[ようてん]の把握[はあく]へ広[ひろ]げる（指導順[しどうじゅん]を固定[こてい]しない）。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.grammar.connectives-b",
+      "to": "kokugo.g4.reading.expository-b",
+      "kind": "component",
+      "strength": 0.75,
+      "rationale": "「つなぎ言葉[ことば]の活用[かつよう]」の力は「説明[せつめい]文[ぶん]の要点[ようてん]」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.writing.observe-and-order",
+      "to": "kokugo.g4.writing.manuscript-paper",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "「観察[かんさつ]した事実[じじつ]を順序[じゅんじょ]立[だ]てて書[か]く」で身に付ける力を「作文[さくぶん]と原稿用紙[げんこうようし]」の異なる言語活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "legacy.kokugo.g4.jpn-4-1.0a9170d4f677",

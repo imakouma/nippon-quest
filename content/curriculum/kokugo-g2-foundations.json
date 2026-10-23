@@ -199,7 +199,98 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "kokugo.g1.script.grade1-kanji",
+      "to": "kokugo.g2.kanji.context",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "第1学年の漢字を文で使う経験は、第2学年の漢字を文脈に応じて使うための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.vocabulary.semantic-groups",
+      "to": "kokugo.g2.vocabulary.groups-opposites",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "意味で言葉をまとめる力を、仲間の言葉や反対の意味の言葉を捉える活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.sentence.subject-predicate",
+      "to": "kokugo.g2.grammar.subject-predicate-particles",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "第1学年で文の主語と述語を捉えることは、助詞との関係まで考えるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.reading.basic-comprehension",
+      "to": "kokugo.g2.reading.sequence-and-evidence",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "順序や場面を捉えて読む力は、時間的な順序と叙述を根拠に読むための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.speaking-listening.basic-dialogue",
+      "to": "kokugo.g2.communication.listen-and-retell",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "大切なことを話し聞く力を、相手の話を聞いて要点を伝え返す活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.expression.sequence-revision",
+      "to": "kokugo.g2.writing.observe-and-order",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "伝える順序を考えて読み直す力を、観察したことを順序立てて書く活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.grammar.subject-predicate-particles",
+      "to": "kokugo.g2.grammar.subject-predicate",
+      "kind": "related",
+      "strength": 0.55,
+      "rationale": "二つの単元は主語と述語を扱う同等領域のため、重複ロックではなく関連する学びとして結ぶ。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.grammar.subject-predicate-particles",
+      "to": "kokugo.g2.writing.sentence-order",
+      "kind": "component",
+      "strength": 0.75,
+      "rationale": "主語・述語・助詞の関係を捉える力は、文の順序を整えて書く過程の構成要素となる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.communication.listen-and-retell",
+      "to": "kokugo.g2.language.polite-style",
+      "kind": "component",
+      "strength": 0.75,
+      "rationale": "相手の話を聞いて伝え返す活動は、丁寧な言葉を相手に応じて使う過程の構成要素となる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.reading.sequence-and-evidence",
+      "to": "kokugo.g2.writing.observe-and-order",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "文章の順序を捉えて読む力を、観察したことを順序立てて書く活動へ転移して用いる。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "legacy.kokugo.g2.jpn-2-1.14d484aebcb1",
