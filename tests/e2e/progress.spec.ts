@@ -93,7 +93,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(selection).toContainText('10までのかず');
   await expect(currentUnit).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('.nq-roadmap-practice')).toBeVisible();
-  const frontier = page.getByRole('button', { name: /ひらく じょうけん 0\/3/ });
+  const frontier = page.getByRole('button', { name: /ひらく じょうけん 0\/3/ }).first();
   await expect(frontier).toBeEnabled();
   await expect(frontier).toHaveAttribute('aria-label', /0\/3/);
   await frontier.focus();
