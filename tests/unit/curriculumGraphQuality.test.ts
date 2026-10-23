@@ -134,4 +134,40 @@ describe('curriculum graph quality', () => {
     expect(report.bySubject.sansu).toMatchObject({ edges: 5, hardEdges: 4, isolated: [] });
     expect(report.prerequisiteEdges).toHaveLength(4);
   });
+
+  it('単元集約後の必須・補助線重複と未確認・出典なし表示線を検出する', () => {
+    const broken = structuredClone(graph);
+    broken.relations.push({
+      from: 'sansu.g1.base.concept',
+      to: 'sansu.g1.add.concept',
+      kind: 'transfer',
+      strength: 0.7,
+      rationale: '重複表示線',
+      sourceIds: [],
+      reviewStatus: 'draft',
+    });
+
+    const report = buildCurriculumGraphQuality({ units, graph: broken });
+
+    expect(report.overlappingUnitEdges).toEqual(['sansu.g1.base->sansu.g1.add']);
+    expect(report.unreviewedDisplayRelations).toHaveLength(1);
+    expect(report.displayRelationsWithoutSources).toHaveLength(1);
+  });
+
+  it('単一教科画面では見えない教科横断の補助線を検出する', () => {
+    const broken = structuredClone(graph);
+    broken.relations.push({
+      from: 'kokugo.g2.read.concept',
+      to: 'sansu.g2.isolated.concept',
+      kind: 'transfer',
+      strength: 0.7,
+      rationale: '単一教科表示では見えない線',
+      sourceIds: ['source'],
+      reviewStatus: 'source-checked',
+    });
+
+    const report = buildCurriculumGraphQuality({ units, graph: broken });
+
+    expect(report.crossSubjectDisplayEdges).toHaveLength(1);
+  });
 });

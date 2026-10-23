@@ -327,6 +327,7 @@ export function RoadmapGraph({
               );
 
             const fogged = node.visibility === 'frontier';
+            const unavailable = fogged || node.state === 'locked';
             const label = fogged ? t('field.roadmapFog') : node.name;
             const blockedBy = node.blockedByNames?.[0];
             const blockedRest = Math.max(0, (node.blockedByNames?.length ?? 1) - 1);
@@ -343,8 +344,9 @@ export function RoadmapGraph({
                 class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}`}
                 style={{ left: pos.x, top: pos.y }}
                 aria-label={displayText(blockedLabel ? `${label} ${blockedLabel}` : label)}
-                disabled={fogged || node.state === 'locked'}
+                aria-disabled={unavailable || undefined}
                 onClick={() => {
+                  if (unavailable) return;
                   playSfx('select');
                   onSelect(node.id);
                 }}

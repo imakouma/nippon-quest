@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Unit } from '../../src/core/content/schemas';
-import type { CurriculumGraph } from '../../src/core/learning';
+import { initialConceptState, type CurriculumGraph } from '../../src/core/learning';
 import type { QuestionBase } from '../../src/questions/contracts';
 import { QuestionBank } from '../../src/questions/engine';
 import { buildRoadmapNodes } from '../../src/scenes/overworld/roadmap';
@@ -319,6 +319,180 @@ describe('buildRoadmapNodes', () => {
     expect(nodes.find((node) => node.id === target.id)?.prerequisiteIds).toEqual([canonical.id]);
   });
 
+  it('旧単元IDへ保存された習熟を正規単元と前提解放へ引き継ぐ', () => {
+    const canonical = units.find((unit) => unit.id === 'sansu.g1.tashizan')!;
+    const legacy = units.find((unit) => unit.id === 'sansu.g1.legacy-math-1-2')!;
+    const target = graphUnits.find((unit) => unit.id === 'sansu.g1.map-application')!;
+    const legacyGraph = structuredClone(curriculum);
+    legacyGraph.concepts = [
+      { ...legacyGraph.concepts[0]!, id: 'legacy-add', unit: legacy.id },
+      { ...legacyGraph.concepts[1]!, id: 'application', unit: target.id },
+    ];
+    legacyGraph.relations = [
+      {
+        from: 'legacy-add',
+        to: 'application',
+        kind: 'prerequisite',
+        strength: 1,
+        rationale: '旧セーブ引き継ぎテスト',
+        sourceIds: [],
+        reviewStatus: 'draft',
+      },
+    ];
+
+    const nodes = buildRoadmapNodes({
+      units: [canonical, legacy, target],
+      curriculum: legacyGraph,
+      conceptStates: {},
+      mastery: { [legacy.id]: { value: 0.9, n: 3, lastAt: 1 } },
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === canonical.id)).toMatchObject({
+      mastery: 0.9,
+      attempts: 3,
+      state: 'cleared',
+    });
+    expect(nodes.find((node) => node.id === target.id)?.state).toBe('current');
+  });
+
+  it('複数概念の一部だけ成功しても単元全体と後続を解放しない', () => {
+    const [base, target] = [graphUnits[0]!, graphUnits[3]!];
+    const multiConceptGraph = structuredClone(curriculum);
+    multiConceptGraph.concepts = [
+      { ...multiConceptGraph.concepts[0]!, id: 'base-a', unit: base.id },
+      { ...multiConceptGraph.concepts[0]!, id: 'base-b', unit: base.id },
+      { ...multiConceptGraph.concepts[1]!, id: 'target', unit: target.id },
+    ];
+    multiConceptGraph.relations = [
+      {
+        from: 'base-a',
+        to: 'target',
+        kind: 'prerequisite',
+        strength: 1,
+        rationale: '複数概念テスト',
+        sourceIds: [],
+        reviewStatus: 'draft',
+      },
+    ];
+    const learned = {
+      ...initialConceptState(1),
+      understanding: 0.9,
+      retention: 0.9,
+      attempts: 3,
+      independentSuccesses: 2,
+    };
+
+    const nodes = buildRoadmapNodes({
+      units: [base, target],
+      curriculum: multiConceptGraph,
+      conceptStates: { 'base-a': learned },
+      mastery: { [base.id]: { value: 1, n: 3, lastAt: 1 } },
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === base.id)?.state).not.toBe('cleared');
+    expect(nodes.find((node) => node.id === target.id)?.state).toBe('locked');
+  });
+
+  it('導入前に習得済みだった単元は概念状態が一部でも再ロックしない', () => {
+    const [base, target] = [graphUnits[0]!, graphUnits[3]!];
+    const multiConceptGraph = structuredClone(curriculum);
+    multiConceptGraph.concepts = [
+      { ...multiConceptGraph.concepts[0]!, id: 'base-a', unit: base.id },
+      { ...multiConceptGraph.concepts[0]!, id: 'base-b', unit: base.id },
+      { ...multiConceptGraph.concepts[1]!, id: 'target', unit: target.id },
+    ];
+    multiConceptGraph.relations = [
+      {
+        from: 'base-a',
+        to: 'target',
+        kind: 'prerequisite',
+        strength: 1,
+        rationale: '既得進捗テスト',
+        sourceIds: [],
+        reviewStatus: 'draft',
+      },
+    ];
+    const learned = {
+      ...initialConceptState(1),
+      understanding: 0.9,
+      retention: 0.9,
+      attempts: 3,
+      independentSuccesses: 2,
+    };
+
+    const nodes = buildRoadmapNodes({
+      units: [base, target],
+      curriculum: multiConceptGraph,
+      conceptStates: { 'base-a': learned },
+      mastery: { [base.id]: { value: 1, n: 3, lastAt: 1 } },
+      grandfatheredUnitIds: [base.id],
+      now: 1,
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === base.id)?.state).toBe('cleared');
+    expect(nodes.find((node) => node.id === target.id)?.state).toBe('current');
+  });
+
+  it('問題が割り当てられていない補助概念は単元の達成条件に含めない', () => {
+    const [base, target] = [graphUnits[0]!, graphUnits[3]!];
+    const assessableGraph = structuredClone(curriculum);
+    assessableGraph.concepts = [
+      { ...assessableGraph.concepts[0]!, id: 'base-assessable', unit: base.id },
+      { ...assessableGraph.concepts[0]!, id: 'base-umbrella', unit: base.id },
+      { ...assessableGraph.concepts[1]!, id: 'target', unit: target.id },
+    ];
+    assessableGraph.relations = [
+      {
+        from: 'base-assessable',
+        to: 'target',
+        kind: 'prerequisite',
+        strength: 1,
+        rationale: '評価可能概念テスト',
+        sourceIds: [],
+        reviewStatus: 'draft',
+      },
+    ];
+    assessableGraph.questionLinks = [
+      {
+        questionId: 'base-question',
+        concepts: [{ conceptId: 'base-assessable', weight: 1, role: 'primary' }],
+        diagnosticValue: 1,
+        reviewStatus: 'draft',
+        misconceptionSignals: [],
+      },
+    ];
+    const learned = {
+      ...initialConceptState(1),
+      understanding: 0.9,
+      retention: 0.9,
+      attempts: 3,
+      independentSuccesses: 2,
+    };
+
+    const nodes = buildRoadmapNodes({
+      units: [base, target],
+      curriculum: assessableGraph,
+      conceptStates: { 'base-assessable': learned },
+      mastery: { [base.id]: { value: 1, n: 3, lastAt: 1 } },
+      now: 1,
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === base.id)?.state).toBe('cleared');
+    expect(nodes.find((node) => node.id === target.id)?.state).toBe('current');
+  });
+
   it('非ロック関係は線として残すが、解放条件にはしない', () => {
     const [base, application] = [graphUnits[0]!, graphUnits[3]!];
     const softGraph = structuredClone(curriculum);
@@ -352,6 +526,49 @@ describe('buildRoadmapNodes', () => {
       prerequisiteIds: [],
       supportingLinks: [{ sourceId: base.id, kind: 'transfer' }],
       state: 'current',
+    });
+  });
+
+  it('同じ単元ペアに必須線がある場合は補助線を重ねない', () => {
+    const [base, application] = [graphUnits[0]!, graphUnits[3]!];
+    const mixedGraph = structuredClone(curriculum);
+    mixedGraph.concepts = [
+      { ...mixedGraph.concepts[0]!, id: 'base', unit: base.id },
+      { ...mixedGraph.concepts[1]!, id: 'application', unit: application.id },
+    ];
+    mixedGraph.relations = [
+      {
+        from: 'base',
+        to: 'application',
+        kind: 'prerequisite',
+        strength: 1,
+        rationale: '必須線',
+        sourceIds: [],
+        reviewStatus: 'draft',
+      },
+      {
+        from: 'base',
+        to: 'application',
+        kind: 'transfer',
+        strength: 0.7,
+        rationale: '補助線',
+        sourceIds: [],
+        reviewStatus: 'draft',
+      },
+    ];
+
+    const nodes = buildRoadmapNodes({
+      units: [base, application],
+      curriculum: mixedGraph,
+      mastery: {},
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === application.id)).toMatchObject({
+      prerequisiteIds: [base.id],
+      supportingLinks: [],
     });
   });
 });

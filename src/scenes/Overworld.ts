@@ -16,6 +16,7 @@ import {
 import { groundOfTile, isRoadTile, type Ground } from '../core/world/ground';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
+import { roadmapGrandfatheredUnitIds } from '../core/state/roadmapSnapshot';
 import {
   activeEquipment,
   adjacencyBonus,
@@ -2803,7 +2804,6 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  /** 単元習熟度を唯一の進捗源として、ロードマップ表示用へ変換する。 */
   private roadmapNodes(): RoadmapNode[] {
     const c = this.content()!;
     const gs = this.gs()!;
@@ -2811,6 +2811,7 @@ export class OverworldScene extends Phaser.Scene {
       units: c.units.values(),
       mastery: gs.learning.mastery,
       conceptStates: gs.learning.conceptStates,
+      grandfatheredUnitIds: roadmapGrandfatheredUnitIds(gs),
       playerGrade: gs.learning.grade,
       challengeHigher: gs.learning.challengeHigher,
       subjectLabel: (subject) => t(`subjects.${subject}`),

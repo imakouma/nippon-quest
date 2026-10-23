@@ -41,9 +41,13 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
   const duplicateRelations: string[] = [];
   const relationKeys = new Set<string>();
   const crossSubjectEdges: CurriculumUnitEdge[] = [];
+  const crossSubjectDisplayEdges: CurriculumUnitEdge[] = [];
   const reverseGradeEdges: CurriculumUnitEdge[] = [];
   const prerequisiteEdges = new Map<string, CurriculumUnitEdge>();
   const displayEdges = new Map<string, CurriculumUnitEdge>();
+  const displayKindsByUnitEdge = new Map<string, Set<string>>();
+  const unreviewedDisplayRelations: string[] = [];
+  const displayRelationsWithoutSources: string[] = [];
   let unreviewedPrerequisites = 0;
   const relationReviews = { draft: 0, sourceChecked: 0, expertReviewed: 0 };
 
@@ -63,8 +67,16 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
       fromConcept: relation.from,
       toConcept: relation.to,
     };
-    if (['prerequisite', 'component', 'transfer', 'related', 'chronological'].includes(relation.kind))
-      displayEdges.set(`${from.id}->${to.id}`, edge);
+    if (['prerequisite', 'component', 'transfer', 'related', 'chronological'].includes(relation.kind)) {
+      const unitEdgeKey = `${from.id}->${to.id}`;
+      displayEdges.set(unitEdgeKey, edge);
+      const kinds = displayKindsByUnitEdge.get(unitEdgeKey) ?? new Set<string>();
+      kinds.add(relation.kind);
+      displayKindsByUnitEdge.set(unitEdgeKey, kinds);
+      if (relation.reviewStatus === 'draft') unreviewedDisplayRelations.push(relationKey);
+      if (relation.sourceIds.length === 0) displayRelationsWithoutSources.push(relationKey);
+      if (from.subject !== to.subject) crossSubjectDisplayEdges.push(edge);
+    }
     if (relation.kind !== 'prerequisite') continue;
     if (relation.reviewStatus === 'draft') unreviewedPrerequisites++;
     if (from.subject !== to.subject) crossSubjectEdges.push(edge);
@@ -108,10 +120,17 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
     prerequisiteEdges: [...prerequisiteEdges.values()],
     duplicateRelations,
     crossSubjectEdges,
+    crossSubjectDisplayEdges,
     reverseGradeEdges,
+    overlappingUnitEdges: [...displayKindsByUnitEdge.entries()]
+      .filter(([, kinds]) => kinds.has('prerequisite') && kinds.size > 1)
+      .map(([edge]) => edge)
+      .sort(),
     unitCycles: findCycles(requiredUnits.keys(), outgoing),
     prerequisiteCycles: findCycles(requiredUnits.keys(), hardAdjacency.outgoing),
     unreviewedPrerequisites,
+    unreviewedDisplayRelations: unreviewedDisplayRelations.sort(),
+    displayRelationsWithoutSources: displayRelationsWithoutSources.sort(),
     relationReviews,
   };
 }

@@ -48,7 +48,7 @@ Constraints: Phaser + Preact, existing pixel-RPG palette, RubyText, keyboard/tou
 1. `content/curriculum/` の関係を概念単位の教育的な正とし、`prerequisite` だけを解放条件に使う。
 2. `component`、`transfer`、`related`、`chronological` は学びのつながりを示す非ロック線として表示する。
 3. 純粋関数で概念関係を単元関係へ集約し、循環のない表示グラフを作る。
-4. `GameState.learning.mastery` と `conceptStates` から単元の状態と霧の可視範囲を決める。
+4. `GameState.learning.mastery` と `conceptStates` から単元の状態と霧の可視範囲を決める。導入前に習得済みだった単元は既存の進行カウンターへ一度だけ記録し、新しい概念完全性の判定で巻き戻さない。
 5. Scene が表示専用モデルをUIへ渡し、UIは保存先や学習ロジックへ依存しない。
 6. 接続線はSVG、操作ノードはネイティブ`button`で描画する。
 
@@ -109,7 +109,7 @@ Visibility is independent from learning state:
 ## Not Doing
 
 - 自動レイアウト用の外部ライブラリ導入。
-- 教科横断関係によるハードロック。生活科から理科・社会などは `transfer` の補助線だけにする。
+- 教科横断関係によるハードロック、および単一教科画面から見えない教科横断線。将来追加する場合は境界ノードか複数教科表示を先に設計する。
 - 保護者画面の全面再設計。
 
 ## Academic Review Boundary

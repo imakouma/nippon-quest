@@ -5,6 +5,11 @@ import { SCHEMA_VERSION, gameStateSchema } from '../../src/core/state/schema';
 import { normalizeLevelCaps } from '../../src/core/state/levelCaps';
 import { exportJson, importJson, summarizeSlot } from '../../src/core/state/save';
 import { recordPlayDuration, recordPlayMinute } from '../../src/core/state/playTime';
+import {
+  ROADMAP_GRANDFATHERED_PREFIX,
+  ROADMAP_MASTERY_SNAPSHOT_COUNTER,
+  roadmapGrandfatheredUnitIds,
+} from '../../src/core/state/roadmapSnapshot';
 
 const fresh = () => createNewGame({ name: 'ハル', grade: 3 });
 
@@ -53,6 +58,20 @@ describe('GameState', () => {
     expect(state.player.levelCap).toBe(10);
     expect(state.learning.masteredRewardUnits).toEqual([]);
     expect(state.learning.correctedRewardQuestionIds).toEqual([]);
+    expect(state.progress.counters[ROADMAP_MASTERY_SNAPSHOT_COUNTER]).toBe(1);
+  });
+
+  it('スキルツリー導入前の習得済み単元を一度だけ既得進捗として保存する', () => {
+    const legacy = fresh();
+    delete legacy.progress.counters[ROADMAP_MASTERY_SNAPSHOT_COUNTER];
+    legacy.learning.mastery['sansu.g1.tashizan'] = { value: 0.9, n: 3, lastAt: 123 };
+
+    const migrated = migrate(legacy).state;
+
+    expect(roadmapGrandfatheredUnitIds(migrated)).toEqual(['sansu.g1.tashizan']);
+    expect(migrated.progress.counters[`${ROADMAP_GRANDFATHERED_PREFIX}sansu.g1.tashizan`]).toBe(1);
+    expect(migrated.learning.masteredRewardUnits).toEqual([]);
+    expect(migrate(migrated).state).toEqual(migrated);
   });
   it('安全整数を超える進行値をセーブデータとして受け入れない', () => {
     const state = fresh();

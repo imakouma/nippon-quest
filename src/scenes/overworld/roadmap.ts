@@ -6,7 +6,7 @@ import {
   type CurriculumGraph,
 } from '../../core/learning';
 import { canonicalUnitId, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
-import type { MasteryData } from '../../questions/engine/mastery';
+import type { MasteryData, MasteryRecord } from '../../questions/engine/mastery';
 import type { RoadmapNode } from '../../shared/menuModel';
 import type { RoadmapSupportingKind } from '../../shared/menuModel';
 
@@ -25,6 +25,7 @@ export interface RoadmapInput {
   mastery: MasteryData;
   curriculum?: CurriculumGraph;
   conceptStates?: ConceptStateData;
+  grandfatheredUnitIds?: Iterable<string>;
   now?: number;
   playerGrade: number;
   challengeHigher: boolean;
@@ -70,18 +71,58 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     if (displayIdByUnitId.has(canonicalId)) displayIdByUnitId.set(unit.id, canonicalId);
   }
 
+  const grandfatheredDisplayUnits = new Set<string>();
+  for (const savedId of input.grandfatheredUnitIds ?? []) {
+    const canonicalId = LEGACY_UNIT_ALIASES[savedId] ?? canonicalUnitId(savedId);
+    const displayId = displayIdByUnitId.get(savedId) ?? displayIdByUnitId.get(canonicalId);
+    if (displayId) grandfatheredDisplayUnits.add(displayId);
+  }
+
+  const masteryKeysByDisplayUnit = new Map<string, Set<string>>();
+  for (const unit of allUnits) {
+    const displayId = displayIdByUnitId.get(unit.id) ?? displayIdByUnitId.get(masteryId(unit));
+    if (!displayId) continue;
+    const keys = masteryKeysByDisplayUnit.get(displayId) ?? new Set<string>();
+    keys.add(displayId);
+    keys.add(unit.id);
+    keys.add(masteryId(unit));
+    if (unit.legacyNode) keys.add(unit.legacyNode);
+    masteryKeysByDisplayUnit.set(displayId, keys);
+  }
+  const mergedMastery = (displayId: string): MasteryRecord | undefined => {
+    const records = [...(masteryKeysByDisplayUnit.get(displayId) ?? [displayId])]
+      .map((key) => input.mastery[key])
+      .filter((record): record is MasteryRecord => record !== undefined);
+    if (!records.length) return undefined;
+    const weightedAttempts = records.reduce((sum, record) => sum + Math.max(1, record.n), 0);
+    return {
+      value:
+        records.reduce((sum, record) => sum + record.value * Math.max(1, record.n), 0) / weightedAttempts,
+      n: records.reduce((sum, record) => sum + record.n, 0),
+      lastAt: Math.max(...records.map((record) => record.lastAt)),
+    };
+  };
+
   const prerequisiteIds = new Map<string, Set<string>>();
   const supportingLinks = new Map<string, Map<string, { sourceId: string; kind: RoadmapSupportingKind }>>();
   const conceptsByUnit = new Map<string, string[]>();
   if (input.curriculum) {
+    const assessableConceptIds = new Set(
+      input.curriculum.questionLinks.flatMap((link) => link.concepts.map((concept) => concept.conceptId)),
+    );
+    const allConceptsByUnit = new Map<string, string[]>();
     const displayUnitByConcept = new Map<string, string>();
     for (const concept of input.curriculum.concepts) {
       const displayUnitId = displayIdByUnitId.get(concept.unit);
       if (!displayUnitId || concept.kind === 'misconception') continue;
       displayUnitByConcept.set(concept.id, displayUnitId);
-      const ids = conceptsByUnit.get(displayUnitId) ?? [];
+      const ids = allConceptsByUnit.get(displayUnitId) ?? [];
       ids.push(concept.id);
-      conceptsByUnit.set(displayUnitId, ids);
+      allConceptsByUnit.set(displayUnitId, ids);
+    }
+    for (const [unitId, conceptIds] of allConceptsByUnit) {
+      const assessable = conceptIds.filter((id) => assessableConceptIds.has(id));
+      conceptsByUnit.set(unitId, assessable.length > 0 ? assessable : conceptIds);
     }
     for (const relation of input.curriculum.relations) {
       const from = displayUnitByConcept.get(relation.from);
@@ -105,16 +146,30 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     const currentUnit = unit.legacyNode
       ? unitById.get(LEGACY_UNIT_ALIASES[unit.legacyNode] ?? '')
       : undefined;
-    const record = input.mastery[masteryId(unit)];
-    const conceptStates = (conceptsByUnit.get(unit.id) ?? [])
+    const record = mergedMastery(unit.id);
+    const conceptIds = conceptsByUnit.get(unit.id) ?? [];
+    const conceptStates = conceptIds
       .map((id) => input.conceptStates?.[id])
       .filter((state) => state !== undefined);
+    const grandfathered = grandfatheredDisplayUnits.has(unit.id);
     const conceptMastery = average(conceptStates.map((state) => state.understanding));
-    const mastery = record?.value ?? conceptMastery;
-    const attempts = record?.n ?? conceptStates.reduce((sum, state) => sum + state.attempts, 0);
+    const hasConceptEvidence = conceptStates.length > 0;
+    const mastery =
+      grandfathered && record ? record.value : hasConceptEvidence ? conceptMastery : (record?.value ?? 0);
+    const attempts =
+      grandfathered && record
+        ? record.n
+        : hasConceptEvidence
+          ? conceptStates.reduce((sum, state) => sum + state.attempts, 0)
+          : (record?.n ?? 0);
+    const hasCompleteConceptEvidence = conceptIds.length > 0 && conceptStates.length === conceptIds.length;
     const learnedFromConcepts =
-      conceptStates.length > 0 && conceptStates.every((state) => state.independentSuccesses >= 2);
-    const cleared = (mastery >= 0.8 && attempts >= 3) || learnedFromConcepts;
+      hasCompleteConceptEvidence && conceptStates.every((state) => state.independentSuccesses >= 2);
+    const cleared =
+      grandfathered ||
+      (hasConceptEvidence
+        ? hasCompleteConceptEvidence && ((mastery >= 0.8 && attempts >= 3) || learnedFromConcepts)
+        : record !== undefined && record.value >= 0.8 && record.n >= 3);
     const retention = conceptStates.length
       ? average(conceptStates.map((state) => estimatedRetention(state, now)))
       : mastery;
@@ -126,13 +181,23 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     const prerequisites = [...(prerequisiteIds.get(unit.id) ?? [])].sort();
     const gradeOpen = unit.grade <= input.playerGrade || input.challengeHigher;
     const prerequisitesOpen = prerequisites.every((id) => {
-      const prerequisiteUnit = unitById.get(id);
-      const prerequisite = input.mastery[prerequisiteUnit ? masteryId(prerequisiteUnit) : id];
-      if (prerequisite?.value !== undefined) return prerequisite.value >= 0.8 && prerequisite.n >= 3;
-      const linked = (conceptsByUnit.get(id) ?? [])
+      if (grandfatheredDisplayUnits.has(id)) return true;
+      const linkedIds = conceptsByUnit.get(id) ?? [];
+      const linked = linkedIds
         .map((conceptId) => input.conceptStates?.[conceptId])
         .filter((state) => state !== undefined);
-      return linked.length > 0 && linked.every((state) => state.independentSuccesses >= 2);
+      if (linked.length > 0) {
+        const complete = linkedIds.length > 0 && linked.length === linkedIds.length;
+        const linkedMastery = average(linked.map((state) => state.understanding));
+        const linkedAttempts = linked.reduce((sum, state) => sum + state.attempts, 0);
+        return (
+          complete &&
+          ((linkedMastery >= 0.8 && linkedAttempts >= 3) ||
+            linked.every((state) => state.independentSuccesses >= 2))
+        );
+      }
+      const prerequisite = mergedMastery(id);
+      return prerequisite !== undefined && prerequisite.value >= 0.8 && prerequisite.n >= 3;
     });
     return {
       id: unit.id,
@@ -146,9 +211,9 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
       attempts,
       retention,
       prerequisiteIds: prerequisites,
-      supportingLinks: [...(supportingLinks.get(unit.id)?.values() ?? [])].sort(
-        (a, b) => a.sourceId.localeCompare(b.sourceId) || a.kind.localeCompare(b.kind),
-      ),
+      supportingLinks: [...(supportingLinks.get(unit.id)?.values() ?? [])]
+        .filter((link) => !prerequisites.includes(link.sourceId))
+        .sort((a, b) => a.sourceId.localeCompare(b.sourceId) || a.kind.localeCompare(b.kind)),
       x: 0,
       y: 0,
       visibility: 'revealed' as const,

@@ -377,7 +377,8 @@ describe('学習ロードマップの単元選択', () => {
       subjectButton(container, 'sansu').click();
     });
     const locked = container.querySelector<HTMLButtonElement>('.nq-roadmap-frontier');
-    expect(locked?.disabled).toBe(true);
+    expect(locked?.disabled).toBe(false);
+    expect(locked?.getAttribute('aria-disabled')).toBe('true');
     locked!.click();
 
     expect(onRoadmapSelect).not.toHaveBeenCalled();

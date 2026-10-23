@@ -74,15 +74,6 @@
       "reviewStatus": "source-checked"
     },
     {
-      "from": "rika.g3.plants.growth",
-      "to": "rika.g3.plants.observe-care",
-      "kind": "related",
-      "strength": 0.7,
-      "rationale": "植物[しょくぶつ]の成長[せいちょう]を測[はか]り、変化[へんか]に合[あ]わせて世話[せわ]を続[つづ]ける。",
-      "sourceIds": ["mext-h29-rika-progression"],
-      "reviewStatus": "source-checked"
-    },
-    {
       "from": "rika.g3.insects.growth",
       "to": "rika.g3.insects.body",
       "kind": "prerequisite",
