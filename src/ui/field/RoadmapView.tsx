@@ -9,6 +9,7 @@ import { RoadmapGraph } from './RoadmapGraph';
 type RoadmapTerm = 'all' | 1 | 2 | 3;
 const PERIODS_PER_GRADE = 3;
 const PRIMARY_SCHOOL_PERIODS = 6 * PERIODS_PER_GRADE;
+const SUBJECT_ORDER = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'];
 
 function periodSelection(index: number): { grade: number | 'all'; term: RoadmapTerm } {
   if (index <= 0) return { grade: 'all', term: 'all' };
@@ -30,6 +31,20 @@ function subjectIcon(subject: string, label: string): string {
   return tOpt(`field.roadmapSubjectShort.${subject}`) ?? displayText(label).slice(0, 1);
 }
 
+function subjectLongLabel(subject: string, label: string): string {
+  return tOpt(`field.roadmapSubjectLong.${subject}`) ?? label;
+}
+
+function currentLearningGrade(nodes: RoadmapNode[]): number {
+  const current = nodes.find((node) => node.state === 'current');
+  if (current) return current.grade;
+  const open = nodes.find((node) => node.state === 'open' && node.visibility === 'revealed');
+  if (open) return open.grade;
+  const completedGrades = nodes.filter(isCompleted).map((node) => node.grade);
+  if (completedGrades.length) return Math.max(...completedGrades);
+  return Math.min(...nodes.map((node) => node.grade));
+}
+
 export function RoadmapView({
   nodes,
   onSelect,
@@ -41,8 +56,17 @@ export function RoadmapView({
   const [periodIndex, setPeriodIndex] = useState(0);
   const { grade, term } = periodSelection(periodIndex);
   const gradeNodes = grade === 'all' ? nodes : nodes.filter((node) => node.grade === grade);
-  const termNodes = gradeNodes.filter((node) => isNodeInTerm(node, term));
-  const subjects = [...new Map(termNodes.map((node) => [node.subject, node.subjectLabel])).entries()];
+  const showLongSubjectNames = grade !== 'all' && grade <= 2;
+  const subjectGradeNodes = showLongSubjectNames
+    ? gradeNodes.filter((node) => node.courseKind !== 'supplementary')
+    : gradeNodes;
+  const termNodes = subjectGradeNodes.filter((node) => isNodeInTerm(node, term));
+  const subjects = [
+    ...new Map(subjectGradeNodes.map((node) => [node.subject, node.subjectLabel])).entries(),
+  ].sort(
+    ([left], [right]) =>
+      SUBJECT_ORDER.indexOf(left) - SUBJECT_ORDER.indexOf(right) || left.localeCompare(right),
+  );
   const activeSubject = subjects.some(([key]) => key === subject) ? subject : 'all';
   const shown =
     activeSubject === 'all' ? termNodes : termNodes.filter((node) => node.subject === activeSubject);
@@ -85,7 +109,7 @@ export function RoadmapView({
           </span>
         </label>
         <div
-          class="nq-roadmap-subjects"
+          class={`nq-roadmap-subjects ${showLongSubjectNames ? 'nq-roadmap-subjects-lower' : ''}`}
           role="group"
           aria-label={displayText(t('field.roadmapSubjectFilter'))}
         >
@@ -94,26 +118,44 @@ export function RoadmapView({
             class={`nq-opt nq-roadmap-subject ${activeSubject === 'all' ? 'nq-focus' : ''}`}
             aria-label={displayText(t('field.roadmapAllSubjects'))}
             aria-pressed={activeSubject === 'all'}
+            data-subject="all"
             data-subject-icon={displayText(t('field.roadmapSubjectShort.all'))}
             title={displayText(t('field.roadmapAllSubjects'))}
             onClick={() => (playSfx('move'), setSubject('all'))}
           >
-            <span aria-hidden="true">{displayText(t('field.roadmapSubjectShort.all'))}</span>
+            <span class="nq-roadmap-subject-name" aria-hidden="true">
+              {displayText(t('field.roadmapSubjectShort.all'))}
+            </span>
           </button>
-          {subjects.map(([key, label]) => (
-            <button
-              key={key}
-              type="button"
-              class={`nq-opt nq-roadmap-subject ${key === activeSubject ? 'nq-focus' : ''}`}
-              aria-label={displayText(label)}
-              aria-pressed={key === activeSubject}
-              data-subject-icon={displayText(subjectIcon(key, label))}
-              title={displayText(label)}
-              onClick={() => (playSfx('move'), setSubject(key))}
-            >
-              <span aria-hidden="true">{displayText(subjectIcon(key, label))}</span>
-            </button>
-          ))}
+          {subjects.map(([key, label]) => {
+            const longLabel = subjectLongLabel(key, label);
+            const levelGrade = currentLearningGrade(nodes.filter((node) => node.subject === key));
+            const buttonLabel = t('field.roadmapSubjectCurrentGrade', {
+              subject: displayText(longLabel),
+              grade: levelGrade,
+            });
+            return (
+              <button
+                key={key}
+                type="button"
+                class={`nq-opt nq-roadmap-subject ${showLongSubjectNames ? 'nq-roadmap-subject-long' : ''} ${key === activeSubject ? 'nq-focus' : ''}`}
+                aria-label={displayText(buttonLabel)}
+                aria-pressed={key === activeSubject}
+                data-current-grade={levelGrade}
+                data-subject={key}
+                data-subject-icon={displayText(subjectIcon(key, label))}
+                title={displayText(buttonLabel)}
+                onClick={() => (playSfx('move'), setSubject(key))}
+              >
+                <span class="nq-roadmap-subject-name" aria-hidden="true">
+                  {displayText(showLongSubjectNames ? longLabel : subjectIcon(key, label))}
+                </span>
+                <span class="nq-roadmap-subject-grade" aria-hidden="true">
+                  {displayText(t('field.roadmapSubjectGradeShort', { grade: levelGrade }))}
+                </span>
+              </button>
+            );
+          })}
           <span class="nq-roadmap-score" role="status" aria-live="polite">
             ★ {completed}/{progressNodes.length}
           </span>
