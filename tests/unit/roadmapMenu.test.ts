@@ -400,6 +400,23 @@ describe('学習ロードマップの単元選択', () => {
     expect(onRoadmapSelect).not.toHaveBeenCalled();
   });
 
+  it('地図の背景を押すと単元選択と詳細パネルを閉じる', async () => {
+    const container = await showRoadmap(vi.fn());
+
+    await act(async () => {
+      subjectButton(container, 'sansu').click();
+    });
+
+    const current = container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!;
+    expect(current.getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-selection')).not.toBeNull();
+
+    await act(async () => container.querySelector<HTMLElement>('.nq-roadmap-map')!.click());
+
+    expect(current.getAttribute('aria-pressed')).toBe('false');
+    expect(container.querySelector('.nq-roadmap-selection')).toBeNull();
+  });
+
   it('ロック中の単元を選ぶと、不足している前提条件を確認できるが問題は開始できない', async () => {
     const onRoadmapSelect = vi.fn();
     const container = await showRoadmap(onRoadmapSelect);

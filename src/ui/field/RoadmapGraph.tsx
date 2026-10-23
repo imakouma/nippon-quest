@@ -77,8 +77,9 @@ export function RoadmapGraph({
       ? focusNode
       : nodes.find((node) => node.visibility === 'revealed' && node.state !== 'locked');
   const [selectedId, setSelectedId] = useState(selectableFocusNode?.id ?? '');
-  const selectedNode =
-    nodes.find((node) => node.id === selectedId && node.visibility !== 'hidden') ?? selectableFocusNode;
+  const selectedNode = selectedId
+    ? nodes.find((node) => node.id === selectedId && node.visibility !== 'hidden')
+    : undefined;
   const selectedPrerequisites = selectedNode
     ? selectedNode.prerequisiteIds
         .map((id) => byId.get(id))
@@ -125,8 +126,8 @@ export function RoadmapGraph({
   }, [focusNode?.id, offsetX, offsetY, width, height]);
 
   useEffect(() => {
-    if (selectedNode?.id !== selectedId) setSelectedId(selectedNode?.id ?? '');
-  }, [selectedId, selectedNode?.id]);
+    if (selectedId && !selectedNode) setSelectedId(selectableFocusNode?.id ?? '');
+  }, [selectableFocusNode?.id, selectedId, selectedNode?.id]);
 
   if (!nodes.length) return <RubyLabel text={t('field.roadmapEmpty')} />;
 
@@ -310,6 +311,10 @@ export function RoadmapGraph({
           event.preventDefault();
           event.stopPropagation();
           drag.current.moved = false;
+        }}
+        onClick={(event) => {
+          if ((event.target as Element).closest('.nq-roadmap-node')) return;
+          setSelectedId('');
         }}
       >
         <div
