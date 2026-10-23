@@ -7,7 +7,7 @@ import { playSfx } from '../sfx';
 
 const NODE_W = 136;
 const NODE_H = 118;
-const MIN_ZOOM = 0.6;
+const MIN_ZOOM = 0.2;
 const MAX_ZOOM = 1.6;
 const ZOOM_STEP = 0.2;
 
@@ -32,6 +32,7 @@ export function RoadmapGraph({
   onSelect: (unitId: string) => void;
 }) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const focusRef = useRef<HTMLButtonElement>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState<Point>({ x: 0, y: 0 });
   const view = useRef({ zoom, pan });
@@ -69,10 +70,8 @@ export function RoadmapGraph({
     if (!viewport?.clientWidth || !viewport.clientHeight) return next;
     const scaledWidth = width * atZoom;
     const scaledHeight = height * atZoom;
-    const clampAxis = (value: number, viewportSize: number, canvasSize: number) => {
-      if (canvasSize <= viewportSize) return (viewportSize - canvasSize) / 2;
-      return Math.max(viewportSize - canvasSize, Math.min(0, value));
-    };
+    const clampAxis = (value: number, viewportSize: number, canvasSize: number) =>
+      Math.max(viewportSize / 2 - canvasSize, Math.min(viewportSize / 2, value));
     return {
       x: clampAxis(next.x, viewport.clientWidth, scaledWidth),
       y: clampAxis(next.y, viewport.clientHeight, scaledHeight),
@@ -90,9 +89,11 @@ export function RoadmapGraph({
     const viewport = viewportRef.current;
     if (!viewport || !focusNode) return;
     const target = position(focusNode);
+    const focusWidth = focusRef.current?.offsetWidth || NODE_W;
+    const focusHeight = focusRef.current?.offsetHeight || NODE_H;
     updateView(nextZoom, {
-      x: viewport.clientWidth / 2 - (target.x + NODE_W / 2) * nextZoom,
-      y: viewport.clientHeight / 2 - (target.y + NODE_H / 2) * nextZoom,
+      x: viewport.clientWidth / 2 - (target.x + focusWidth / 2) * nextZoom,
+      y: viewport.clientHeight / 2 - (target.y + focusHeight / 2) * nextZoom,
     });
   };
 
@@ -327,6 +328,7 @@ export function RoadmapGraph({
             return (
               <button
                 key={node.id}
+                ref={node.id === focusNode?.id ? focusRef : undefined}
                 type="button"
                 class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}`}
                 style={{ left: pos.x, top: pos.y }}

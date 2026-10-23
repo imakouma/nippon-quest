@@ -472,4 +472,40 @@ describe('学習ロードマップの単元選択', () => {
     });
     expect(canvas.style.transform).not.toBe(beforePan);
   });
+
+  it('地図を20%まで縮小できる', async () => {
+    const container = await showRoadmap(vi.fn());
+
+    await act(async () => {
+      subjectButton(container, 'sansu').click();
+    });
+
+    const zoomOut = container.querySelector<HTMLButtonElement>('.nq-roadmap-zoom-out')!;
+    const value = () => container.querySelector('.nq-roadmap-zoom-value')?.textContent;
+
+    for (let step = 0; step < 4; step += 1) await act(async () => zoomOut.click());
+
+    expect(value()).toContain('20%');
+    expect(zoomOut.disabled).toBe(true);
+  });
+
+  it('端にある現在の単元も周囲の余白を使って画面中央へ戻せる', async () => {
+    const container = await showRoadmap(vi.fn());
+
+    await act(async () => {
+      subjectButton(container, 'sansu').click();
+    });
+
+    const map = container.querySelector<HTMLElement>('.nq-roadmap-map')!;
+    Object.defineProperties(map, {
+      clientWidth: { configurable: true, value: 800 },
+      clientHeight: { configurable: true, value: 300 },
+    });
+
+    await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-reset')!.click());
+
+    expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toContain(
+      'translate(292px, 51px)',
+    );
+  });
 });

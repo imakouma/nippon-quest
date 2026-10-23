@@ -96,6 +96,24 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(zoom).toHaveText('120%');
   await reset.click();
   await expect(zoom).toHaveText('100%');
+  const zoomOut = page.locator('.nq-roadmap-zoom-out');
+  for (let step = 0; step < 4; step += 1) await zoomOut.click();
+  await expect(zoom).toHaveText('20%');
+  await expect(zoomOut).toBeDisabled();
+  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-20-percent.png') });
+  await reset.click();
+  const [mapBox, currentNodeBox] = await Promise.all([
+    map.boundingBox(),
+    page.getByRole('button', { name: '10までのかず' }).boundingBox(),
+  ]);
+  expect(mapBox).not.toBeNull();
+  expect(currentNodeBox).not.toBeNull();
+  expect(
+    Math.abs(currentNodeBox!.x + currentNodeBox!.width / 2 - (mapBox!.x + mapBox!.width / 2)),
+  ).toBeLessThan(2);
+  expect(
+    Math.abs(currentNodeBox!.y + currentNodeBox!.height / 2 - (mapBox!.y + mapBox!.height / 2)),
+  ).toBeLessThan(2);
 
   const beforeWheel = await canvas.getAttribute('style');
   await map.dispatchEvent('wheel', { deltaX: 32, deltaY: 48 });
