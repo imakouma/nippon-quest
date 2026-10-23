@@ -96,7 +96,7 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
 
   return (
     <div class="nq-title">
-      <div class="nq-title-menu" role="menu" aria-label="メインメニュー">
+      <div class="nq-win nq-title-menu" role="menu" aria-label="メインメニュー">
         {items.map((it, i) => (
           <button
             key={it.label}
