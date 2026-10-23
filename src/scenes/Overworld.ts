@@ -2701,7 +2701,6 @@ export class OverworldScene extends Phaser.Scene {
           message,
           focusKey,
           initialHome,
-          keys: t('field.menuKeys'),
           onTab: (next: MenuTab) => draw(next),
           onBag: () => {
             render(null, root);
