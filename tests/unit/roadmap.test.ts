@@ -241,6 +241,49 @@ describe('buildRoadmapNodes', () => {
     );
   });
 
+  it('子ノードを親の並びへ寄せ、独立した枝同士の交差を避ける', () => {
+    const familyUnits: Unit[] = [
+      { id: 'sansu.g1.root-a', name: '根A', subject: 'sansu', grade: 1 },
+      { id: 'sansu.g1.root-b', name: '根B', subject: 'sansu', grade: 1 },
+      { id: 'sansu.g1.child-a', name: '子A', subject: 'sansu', grade: 1 },
+      { id: 'sansu.g1.child-b', name: '子B', subject: 'sansu', grade: 1 },
+    ];
+    const familyGraph: CurriculumGraph = {
+      ...curriculum,
+      concepts: familyUnits.map((unit) => ({
+        ...curriculum.concepts[0]!,
+        id: `${unit.id}.concept`,
+        unit: unit.id,
+        name: unit.name,
+      })),
+      relations: [
+        ['sansu.g1.root-a', 'sansu.g1.child-b'],
+        ['sansu.g1.root-b', 'sansu.g1.child-a'],
+      ].map(([from, to]) => ({
+        from: `${from}.concept`,
+        to: `${to}.concept`,
+        kind: 'prerequisite' as const,
+        strength: 1,
+        rationale: '交差回避テスト',
+        sourceIds: [],
+        reviewStatus: 'draft' as const,
+      })),
+    };
+
+    const nodes = buildRoadmapNodes({
+      units: familyUnits,
+      curriculum: familyGraph,
+      mastery: {},
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+    const x = (id: string) => nodes.find((node) => node.id === id)!.x;
+
+    expect(x('sansu.g1.root-a')).toBeLessThan(x('sansu.g1.root-b'));
+    expect(x('sansu.g1.child-b')).toBeLessThan(x('sansu.g1.child-a'));
+  });
+
   it('旧単元を指す概念と関係を正規単元へ集約する', () => {
     const canonical = units.find((unit) => unit.id === 'sansu.g1.tashizan')!;
     const legacy = units.find((unit) => unit.id === 'sansu.g1.legacy-math-1-2')!;

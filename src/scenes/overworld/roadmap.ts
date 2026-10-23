@@ -234,12 +234,31 @@ function layoutNodes(nodes: RoadmapNode[]): void {
       levels.set(depth, level);
     }
     const widest = Math.max(1, ...[...levels.values()].map((level) => level.length));
-    for (const [depth, level] of levels) {
-      level.sort((a, b) => a.grade - b.grade || a.id.localeCompare(b.id));
+    const placedX = new Map<string, number>();
+    for (const depth of [...levels.keys()].sort((a, b) => a - b)) {
+      const level = levels.get(depth)!;
+      const parentCenter = (node: RoadmapNode): number | undefined => {
+        const positions = [
+          ...node.prerequisiteIds,
+          ...(node.supportingLinks ?? []).map((link) => link.sourceId),
+        ]
+          .map((id) => placedX.get(id))
+          .filter((x): x is number => x !== undefined);
+        return positions.length ? average(positions) : undefined;
+      };
+      level.sort((a, b) => {
+        const aCenter = parentCenter(a);
+        const bCenter = parentCenter(b);
+        if (aCenter !== undefined && bCenter !== undefined && aCenter !== bCenter) return aCenter - bCenter;
+        if (aCenter !== undefined && bCenter === undefined) return -1;
+        if (aCenter === undefined && bCenter !== undefined) return 1;
+        return a.grade - b.grade || a.id.localeCompare(b.id);
+      });
       const inset = ((widest - level.length) * 180) / 2;
       level.forEach((node, index) => {
         node.x = 72 + inset + index * 180;
         node.y = 64 + depth * 148;
+        placedX.set(node.id, node.x);
       });
     }
   }
