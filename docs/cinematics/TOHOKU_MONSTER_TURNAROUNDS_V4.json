@@ -1,0 +1,1439 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-21",
+  "mode": "built-in image_gen",
+  "batchNumber": 3,
+  "userRequest": "5体ずつではなく、新規20体分を制作",
+  "requestedImageCount": 20,
+  "selectedImageCount": 20,
+  "initialGenerationCalls": 20,
+  "targetedCorrectionCalls": 8,
+  "generatedVariantFiles": 28,
+  "paidVideoJobs": 0,
+  "gameRuntimeChanged": false,
+  "existingAssetsOverwritten": false,
+  "userApproved": false,
+  "status": "generated-visually-reviewed-awaiting-user",
+  "scope": {
+    "aomori": 15,
+    "iwate": 5,
+    "duplicatePreviousCharacters": 0
+  },
+  "layout": {
+    "width": 1536,
+    "height": 1024,
+    "grid": "2x2",
+    "views": ["front", "three-quarter", "right-facing-profile", "back"]
+  },
+  "progress": {
+    "priorFourViewSheets": 20,
+    "added": 20,
+    "totalFourViewSheets": 40,
+    "nationwideComplete": false,
+    "note": "修正版は追加キャラとして数えない。御三家・主要人物等の別形式資料はこの40枚とは別に再利用する。"
+  },
+  "plan": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/tasks/character-turnarounds-plan.md",
+  "review": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/docs/cinematics/TOHOKU_MONSTER_TURNAROUNDS_REVIEW_V4.md",
+  "pixelProvenance": {
+    "registry": "src/rendering/monsters/index.ts: MONSTER_DESIGNS",
+    "designs": ["src/rendering/monsters/aomori.ts", "src/rendering/monsters/iwate.ts"],
+    "rasterizer": "src/rendering/monsters/design.ts: designGrid()",
+    "method": "元32または48pxドットに4px余白を加え、nearest-neighbor12倍の透明PNGへ出力。480×480または672×672。元コードとドットを改変していない。"
+  },
+  "reviewMethod": "主担当が20体の元ドットと生成・修正画像を表示して目視照合。追加の独立エージェントレビューは未実施。PNG寸法とSHA-256、生成元と保存先の一致を検証。",
+  "limitations": [
+    "映像用外観参照であり、精密な正投影・3Dメッシュ・リグではない。",
+    "側背面の未描写部は保守的補完。実モデル化時は構造を改めて固定する。",
+    "人物型ボスはゲーム造形であり歴史人物の正確な肖像ではない。"
+  ],
+  "pendingNotCovered": [
+    "aomori-midboss-nebuta-taisho（40pxの中ボス版。今回の32px仲間版と元ドットが異なるため別途制作）",
+    "岩手以降の未制作形態・ボス・人物等。全体未完了。"
+  ],
+  "jobs": [
+    {
+      "id": "aomori-ringo-knight",
+      "name": "リンゴナイト",
+      "index": 1,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-ringo-knight.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-ringo-knight/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-b70f1596-b515-4f7b-9d53-fc71bb581f61.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-ringo-knight/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1767261,
+        "sha256": "b6d259b66ca5234705b68529c4336559505c07be56cc0796179cb5885a0a945b"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: RINGO KNIGHT: a RED APPLE warrior, brown stem and ONE green leaf at top; squat apple torso with dark brown two boots, narrow red-brown waist band with plain golden center. Red-brown simple brow headband with small gold center, rectangular white eyes/dark inner pupils, small smiling mouth, pink cheeks. Hold ONE simple GREEN LEAF-BLADE SWORD upright with gold guard in anatomical LEFT hand (front viewer RIGHT, back viewer LEFT). Hold ONE oval GREEN LEAF SHIELD with short red center band in anatomical RIGHT hand (front viewer LEFT, back viewer RIGHT). Two small red/brown arms, no metal armor, no cape or helmet. Apple remains apple-shaped, not a red human. Sword, shield, stem, leaf, legs all persist coherently.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-ringo-knight.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-ringo-knight/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-b70f1596-b515-4f7b-9d53-fc71bb581f61.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-ringo-knight/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1767261,
+          "sha256": "b6d259b66ca5234705b68529c4336559505c07be56cc0796179cb5885a0a945b"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-ringo-knight.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 4623,
+          "sha256": "1f0442792e183580db530d45d13f9dd7d9d32c95bd470ab7bc01c549c947f160"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "葉の剣と盾、2本脚、頭の葉を照合。剣は正面右／背面左、盾は反対側を保持。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-nabe-shogun",
+      "name": "ナベショウグン",
+      "index": 2,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-nabe-shogun.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nabe-shogun/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-0a6c0509-98fe-43d7-9c61-2237c2b1765b.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nabe-shogun/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1764033,
+        "sha256": "c0c7a0075dd0254a0e6a0057670b5c772a7306969ba318777b60daadf61afd74"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: NABE SHOGUN: cute upright tan biscuit/food general with broad charcoal-gray upside-down cooking POT HELMET and a small handle at each side; exactly TWO short pale wisps of STEAM rise above helmet, not horns or blades. Canonical cream rectangular dark-pupil eyes and straight dark mouth. Golden-orange circular/rounded breast armor with sparse RED small markings, brown mitten-like two arms, red lower trousers and dark slate TWO boots. No sword, human hair or new flag. Cookpot helmet rotates coherently, rear no face, back simply continue orange armor/red base.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-nabe-shogun.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v2/aomori-senbein/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nabe-shogun/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-0a6c0509-98fe-43d7-9c61-2237c2b1765b.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nabe-shogun/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1764033,
+          "sha256": "c0c7a0075dd0254a0e6a0057670b5c772a7306969ba318777b60daadf61afd74"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-nabe-shogun.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 4687,
+          "sha256": "b56951b1ecd3501f7ece194319ee2dbd57f664229badf10b9ab25d9427c4ae9b"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v2/aomori-senbein/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1783360,
+          "sha256": "22adf1fb645c05d5d069fa74e6666f840a8b971b505541d82275391b2a2fd9be"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "鍋兜・2本の湯気・橙色の汁の鎧・茶色い腕・赤い下衣と2本脚を照合。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-hanaikada",
+      "name": "ハナイカダ",
+      "index": 3,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-hanaikada.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hanaikada/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-8982894e-f034-4bc8-bdaa-e0153ff440b8.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hanaikada/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1734330,
+        "sha256": "5a8c9d84d2ebb42caa47ccfb4e4121e191bcb34db8df12d2180255d4c65c01ac"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: HANAIKADA: ONE large rounded PINK cherry-blossom creature seated IN a simple shallow BROWN WOODEN RAFT/HULL. Pink round scalloped blossom body, tiny green sprout at top center, sparse darker-pink blossom flecks, white rectangular dark-pupil eyes, tiny straight horizontal dark mouth. Brown hull has a few broad seams, no oars. A compact shallow blue WATER BASE with thin pale-blue foamy rim sits immediately beneath hull and travels with it as a water-shaped miniature pedestal, not a large scene. Do not add human legs, arms, boat sails or new petals. Complete hull and water base in every view; back flower no face.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-hanaikada.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v2/aomori-sakurapon/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hanaikada/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-8982894e-f034-4bc8-bdaa-e0153ff440b8.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hanaikada/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1734330,
+          "sha256": "5a8c9d84d2ebb42caa47ccfb4e4121e191bcb34db8df12d2180255d4c65c01ac"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-hanaikada.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 3844,
+          "sha256": "71071bc0460ad62a746d3b1eb91b58f438c600edb09e9e6fc34bd6dba4fa750f"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v2/aomori-sakurapon/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1714494,
+          "sha256": "bf1d7d2d176273f5ebbac9e9ea066ba6f65dd2ffa343478b6d71b00163d7edd6"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "桜形の体・木製の筏・青い水の台座を4方向で保持。背面に顔なし。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-oka-musha",
+      "name": "オウカムシャ",
+      "index": 4,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-oka-musha.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v2.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-462b9110-09fb-48c7-b685-d3ac3d2c21d0.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1670919,
+        "sha256": "f45f0b4bb2a6d89adad16151363832a2ed5f2c1879efe5ece626ba315843ce48"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: OKA MUSHA: a compact cherry-blossom samurai, not a tree. TAN human-like rectangular friendly face, white rectangular eyes/dark pupils, small straight mouth. Very wide dark NAVY KABUTO helmet with simple golden three-point crest. A small white/pink blossom accent at character anatomical LEFT helmet edge (viewer RIGHT in front). Broad bright PINK lamellar torso armor with few large darker-rose plate marks, pink waist apron, TWO tan arms at sides, TWO dark-brown/navy boots. Preserve the simple broad sprite proportions and colors. No invented sword, shield, elaborate cloth or flowing hair. Blossom location must reverse onscreen in back.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-oka-musha.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-de2041b7-097c-466d-accc-49eaf6ea593e.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1654573,
+          "sha256": "fa0834e509888ea47c0929d5c97bb52d0fc7a424446239c330951ea23e3e623a"
+        },
+        "status": "superseded-not-selected"
+      },
+      "edits": [
+        {
+          "prompt": "Use case: precise-object-edit. Input1 edit target four-view pink-armored samurai sheet; input2 canonical pixel design for the blossom branch. Correct ONLY the cherry-blossom BRANCH: it must be held in the character's ANATOMICAL LEFT HAND, not attached to the helmet. Remove the old flower/short stalk from the helmet entirely, leave navy helmet edge plain. Put ONE slender BROWN flowering twig in left hand, with ONE small white/pink blossom cluster at its upper end at about temple height, a slight gap from helmet so visibly hand-held. Front/3quarter: branch hand is viewer RIGHT. Back: same branch is viewer LEFT. Side profile: correct occlusion allowed, but branch not glued to head. Stem must visibly connect to the gripping hand. Keep all other aspects unchanged: face, golden crest, helmet, armor, colors, two arms/two feet, four poses/layout, lighting/gray background. No sword, extra branch, extra flowers, labels or watermarks.",
+          "references": [
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v1.png",
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-oka-musha.png"
+          ],
+          "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-462b9110-09fb-48c7-b685-d3ac3d2c21d0.png",
+          "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v2.png",
+          "file": {
+            "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oka-musha/turnaround-v2.png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 1670919,
+            "sha256": "f45f0b4bb2a6d89adad16151363832a2ed5f2c1879efe5ece626ba315843ce48"
+          },
+          "reason": "元ドットの桜の枝を兜飾りではなく手持ちへ修正",
+          "status": "selected"
+        }
+      ],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-oka-musha.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 4700,
+          "sha256": "5035fe0c7e97419e457269f47b38ad0666ecc675fa12fecf9be263349b73453c"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "桜の枝を兜飾りから左手持ちへ修正。正面右／背面左の手で同じ1本を保持。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-tsugaru-nurin",
+      "name": "ツガルヌリン",
+      "index": 5,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-tsugaru-nurin.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v2.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-2c17c035-900a-48aa-8470-9ab8e15a1160.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1674594,
+        "sha256": "7e723d7c39c803c8f1515115168d9198335839f9902a4236e02cd75bfe3991b5"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: TSUGARU NURIN: small upright rounded DARK BROWN lacquer-pot creature, not a cookie or bear. Broad golden-yellow shallow cap on top; golden rim at top and ONE golden band encircling lower third of body. Sparse red and gold fleck inlay, white narrow rectangular eyes/dark pupils, pink cheeks, tiny smiling dark mouth. TWO short brown foot stubs, NO arms or ears. Refined restrained satin lacquer rather than mirror chrome, rounded primitive body. Gold band wraps all sides; no face on rear, no new jewelry.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-tsugaru-nurin.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-4ddbe078-5829-43c1-a405-718d0fbc53bb.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1707195,
+          "sha256": "7a8573e26be84efd76eb274174a96c87d29e12f020a1e0ddb878c8b4c18c4672"
+        },
+        "status": "superseded-not-selected"
+      },
+      "edits": [
+        {
+          "prompt": "Use case: precise-object-edit. Input is edit target 2x2 dark brown gold-banded lacquer-pot creature sheet. Change ONLY the BOTTOM LEFT SIDE VIEW: redraw the same pot in true SIDE PROFILE with its face/front pointing to the viewer's RIGHT instead of LEFT. Keep the profile in its same position/scale, with correct gray studio lighting, same pot shape, golden lid/band, inlay colors, feet, one visible eye/cheek and edge of mouth on RIGHT edge. Keep top-left front, top-right3quarter and bottom-rightback unchanged. No new ornament or text. Do not flip the entire sheet or change other quadrants.",
+          "references": [
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v1.png"
+          ],
+          "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-2c17c035-900a-48aa-8470-9ab8e15a1160.png",
+          "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v2.png",
+          "file": {
+            "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-tsugaru-nurin/turnaround-v2.png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 1674594,
+            "sha256": "7e723d7c39c803c8f1515115168d9198335839f9902a4236e02cd75bfe3991b5"
+          },
+          "reason": "側面を右向きへ統一",
+          "status": "selected"
+        }
+      ],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-tsugaru-nurin.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 4578,
+          "sha256": "0d48ebe302f1ace0a6611fdbe286247be2ea2f8d967f533c0158b126a5f9c330"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "茶色い漆器・赤金の斑点・金帯と蓋を照合。側面を右向きへ修正。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-nuri-kagayaki",
+      "name": "ヌリカガヤキ",
+      "index": 6,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-nuri-kagayaki.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nuri-kagayaki/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-a0008ec9-2a10-4f66-8bbe-14b1a4d87d7d.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nuri-kagayaki/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1821022,
+        "sha256": "293f9ecb81d5a5a791a3ae12bd9b4d890c4a9416d063c36fadca02991dacedc7"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: NURI KAGAYAKI: larger evolved dark brown lacquer-pot spirit. Broad crown-like GOLD rim/lid with low simple pointed golden silhouette. TWO broad gold encircling bands in lower half with darkbrown strip/red flecks between them; sparse red and gold inlay. Rectangular white eyes/dark pupils, pink cheeks, small smiling mouth, TWO brown feet, NO arms. Keep same core lacquer-pot anatomy, not a new animal. Sprite's little light sparkles are lighting glints rather than extra attached limbs/stars: a few restrained white highlights okay, no busy particle field or floating ornaments. Back has bands and restrained inlay but NO face.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-nuri-kagayaki.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nuri-kagayaki/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-a0008ec9-2a10-4f66-8bbe-14b1a4d87d7d.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nuri-kagayaki/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1821022,
+          "sha256": "293f9ecb81d5a5a791a3ae12bd9b4d890c4a9416d063c36fadca02991dacedc7"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-nuri-kagayaki.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 5694,
+          "sha256": "73ef7d28d6ea23199c9a28f1d3904fb1100e9709d2da011106de92d9bd90b504"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "進化後の金の蓋と2本の金帯、漆器の体、2本脚を保持。星は追加パーツでなく控えめな艶として扱う。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-oirase-kokejin",
+      "name": "オイラセコケジン",
+      "index": 7,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-oirase-kokejin.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v2.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-8fac5476-c9a7-4be9-b496-e40bc275e1e5.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1785613,
+        "sha256": "c6b519be416b136a04fcaa0464d49751a325ffb14b5f24989c5d9ab6d23d04e7"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: OIRASE KOKEJIN: sturdy squat gray STONE GOLEM humanoid with a flat broad rectangular head, TWO thick gray arms, TWO short separated thick stone legs. Bright-green MOSS across top of head, shoulder/collar bar, outside arms and feet, not green hair. Two small GOLD eyes with dark inward pupils and a short straight dark mouth. ONE vertical pale-sky-blue WATERFALL rectangle on CENTER FRONT chest with a few large light water highlights; a slightly inset water panel rather than a loose necktie. Keep water only on front, rear plain mossy stone. Smooth chunky stone, no fine cracks, giant fists, extra jewels or weapons.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-oirase-kokejin.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-kokeppi/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-b73e0df4-74e0-4149-9224-f3d3a6482330.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1884484,
+          "sha256": "041e021461faec4917b56c4995f25f28d5756354f80672b4352a5f81004a534d"
+        },
+        "status": "superseded-not-selected"
+      },
+      "edits": [
+        {
+          "prompt": "Use case: precise-object-edit. Edit target is the provided 2x2 moss-covered gray golem sheet. Correct ONLY lower pelvis/leg junction in ALL FOUR VIEWS: remove the central hanging rectangular stone flap/block between the two legs, which incorrectly looks like a third leg. The golem has exactly TWO thick short legs, a simple normal compact pelvis above them, and a clear empty U-shaped gap between legs. Let torso bottom finish higher than feet; no hanging codpiece, tail, loincloth or third limb. Keep gray stone/moss materials and original proportions as close as possible. Preserve everything else: rectangular head, gold eyes, moss cap/collar, blue waterfall chest panel, arms, two feet, four angles, lighting, layout and background. No text or other additions.",
+          "references": [
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v1.png"
+          ],
+          "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-8fac5476-c9a7-4be9-b496-e40bc275e1e5.png",
+          "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v2.png",
+          "file": {
+            "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-oirase-kokejin/turnaround-v2.png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 1785613,
+            "sha256": "c6b519be416b136a04fcaa0464d49751a325ffb14b5f24989c5d9ab6d23d04e7"
+          },
+          "reason": "股下の中央突起をなくして2本脚を明確化",
+          "status": "selected"
+        }
+      ],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-oirase-kokejin.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 4898,
+          "sha256": "6e2f8444fb2a84ff90fb53047120b31e2c3143b7f4b817dce4a748459a607285"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-kokeppi/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1919069,
+          "sha256": "cdba6dd79fe2329ebfe0ff0f719b887c91d3c1710b310a58c53ee49a53f211c0"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "灰色の石・緑の苔・前胸の水・腕2本を照合。中央の垂れた突起を除き、2本脚と股下を明確化。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-buna-taiju",
+      "name": "ブナタイジュ",
+      "index": 8,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-buna-taiju.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-buna-taiju/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-5644c769-7fdd-49d5-b72f-e3618b101d6a.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-buna-taiju/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1754991,
+        "sha256": "8086caa4bc4f10efcc21e61246487aa3f37c2023b8e02027e49e4d0822835de8"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: BUNA TAIJU: a mature beech-tree spirit with a THICK SILVER-GRAY trunk and TWO TIERS of dense rounded green foliage: one high crown and one broad lower canopy collar. Face is on trunk: calm dark angled eyes/brows and a broad dark gentle smile, not the basic baby's rectangular white eyes. Sparse large white bark patches, short brown lateral branch arms, broad splayed brown roots at ground. ONE TINY BLUE BIRD with pale belly and tan beak is PERCHED on upper crown at anatomical LEFT (front viewer RIGHT, rear viewer LEFT), a canonical attached scene detail, exception to no extra creature rule. Same bird/perch in all views, may be occluded from side but don't relocate it. No new fruit, mushrooms, clothes or forest scenery. Heavy root-base not human legs; keep two-level canopy obvious.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-buna-taiju.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-bunakko/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-buna-taiju/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-5644c769-7fdd-49d5-b72f-e3618b101d6a.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-buna-taiju/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1754991,
+          "sha256": "8086caa4bc4f10efcc21e61246487aa3f37c2023b8e02027e49e4d0822835de8"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-buna-taiju.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 5424,
+          "sha256": "4c98654d66f618c03ac227aa4e2daa470308c4db9e8d528f0a69287a56c9b8a3"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-bunakko/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1779721,
+          "sha256": "dd93b1ff42663f3c22fef85507e0cbad996636b0b699bea089c0461baa42a32a"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "2段の樹冠、太い灰色の幹、根、頭上の小鳥1羽を照合。小鳥は正面右／背面左。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-himemasu-lord",
+      "name": "ヒメマスロード",
+      "index": 9,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-himemasu-lord.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-himemasu-lord/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-b670684d-8200-47c5-a880-ce1449b7caa3.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-himemasu-lord/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1700067,
+        "sha256": "f93a1b0670f78792480aef354bf5407012c10b5e11bb93ff12c10911cb5533a3"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: HIMEMASU LORD: evolved plump upright fish with GREEN rounded upper head, broad RED middle torso/cheek band and pale SILVER-WHITE lower belly. One simple small GOLD crest/crown fin at top center, two azure side fins and TWO azure fin feet. White rectangular eyes/dark pupils, tiny dark center mouth at junction of green head and red band. Two small curved pink cheek accents on red front band, not eyes. Broad smooth color regions, no stair-step pixel edges. No added arms, clothes, cape, fancy jewelry, huge tail, mustache or human face. Keep fish family continuity but do NOT use baby's all-silver head or pink stripe.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-himemasu-lord.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-himemassu/turnaround-v2.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-himemasu-lord/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-b670684d-8200-47c5-a880-ce1449b7caa3.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-himemasu-lord/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1700067,
+          "sha256": "f93a1b0670f78792480aef354bf5407012c10b5e11bb93ff12c10911cb5533a3"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-himemasu-lord.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 3779,
+          "sha256": "479d44c9369301d1734af1ce672e5452871bda7c1f103900fc60003b3c9970dd"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-himemassu/turnaround-v2.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1671204,
+          "sha256": "a1dd44ea0176925a977f7ba68d5871d8c3d46f1b559307814fe5b13721c0b800"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "緑・赤・銀白の3色、金の頭頂ひれ、青い横ひれと足を保持。頬模様は前面のみ。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-hachiro-ryu",
+      "name": "ハチロウリュウ",
+      "index": 10,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-hachiro-ryu.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v3.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-32ca620d-6a6a-48af-adf9-cd7decf15f48.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v3.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1720809,
+        "sha256": "7acb1bb053043ef04fc1f8d7fb42038b059f511f809fae0f014730ee44927206"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: HACHIRO RYU: compact powerful TEAL GREEN dragon, bulky navy back and navy mane-like side cheek panels, TWO long golden horn antlers curving up-out, TWO white cheek tusk-like spikes each side? Follow source carefully: one broad WHITE pointed protrusion on each side of jaw, two total. Red-pupil eyes in pale sclera, wide cream blunt muzzle with two dark nostrils and a few small white teeth. Cream belly patch. FOUR stout teal legs ending in golden claws, maintain all four, don't turn to biped or add wings. Short thick conservative dragon tail behind body, not a giant new serpentine silhouette. Cute weighty guardian, simplified large surfaces, not realistic reptile scales or horror.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-hachiro-ryu.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-aedbb1fe-b8a8-4d9e-8e9c-99d7bb1aa3a5.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1819062,
+          "sha256": "3a01fc6804734d4946049ed8bfe9cf99cf98079740206a8aa5464c4e7cb5185f"
+        },
+        "status": "superseded-not-selected"
+      },
+      "edits": [
+        {
+          "prompt": "Use case: precise-object-edit. Edit target four-view teal dragon with navy mane, two golden horns, cream muzzle and four legs. Correct ONLY the TWO WHITE CHEEK PROTRUSIONS: they should be LONG slender gently curved WHITE WHISKERS, not thick short triangular ear-tusks. Replace each chunky white cheek tusk with one smooth thin white whisker growing at that side of the muzzle and curving outward/down along the cheek, two whiskers total. Keep them attached in the same consistent place, natural occlusion in profile/back, don't add extras. Preserve all other features exactly: golden horns, existing eyes, snout teeth, body, four legs, tail, navy mane, cream belly, gray background, layout and lighting. Whisker tips must not be cropped or cross neighboring views. No text.",
+          "references": [
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v1.png"
+          ],
+          "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-32ce6fb6-54fc-43b7-8bec-c3145c3b6260.png",
+          "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v2.png",
+          "file": {
+            "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v2.png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 1717766,
+            "sha256": "2e387d047b66bb1fdf419de84f899b605a5626b910a20d0f3c341f3007402705"
+          },
+          "reason": "頬の白い牙を元ドットの長い白ひげへ修正",
+          "status": "superseded-not-selected"
+        },
+        {
+          "prompt": "Use case: precise-object-edit. Input1 edit target four-view teal dragon; input2 canonical game pixel. Final source-faithfulness correction: the character is a JAPANESE LAKE DRAGON with a compact COILED lower body, not a horizontal stocky four-legged land animal. Preserve the SAME huge teal head, TWO golden horns, red eyes, cream rectangular muzzle/teeth, TWO long thin white whiskers, navy mane and matte studio style. Change ONLY the body construction below the head in all four views: head held upright above a short cream-front neck/torso; ONE thick connected teal serpent body curls into ONE or TWO broad compact loops at the base with a navy ridge along back. Small golden-clawed limb stubs sit naturally on the coil; preserve exactly four small limbs with natural rear occlusion, not four tall weight-bearing animal legs. Tail must be connected to the coiled body, one short curled tip, no duplicate tails. Keep squat friendly proportions and width, do not make huge thin long dragon, no new wings, crown, finfrills or borrowed designs from other creatures. Same 2x2 front/45degree/RIGHT-facingprofile/back layout, all full bodies and whiskers uncropped, same gray background, light and materials. Back must show coherent coiled body/mane, no face. No text or extra creature.",
+          "references": [
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v2.png",
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-hachiro-ryu.png"
+          ],
+          "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v3.png",
+          "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-32ca620d-6a6a-48af-adf9-cd7decf15f48.png",
+          "reason": "元の設定コメントにある、とぐろを巻く湖の竜の胴へ補正",
+          "file": {
+            "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v3.png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 1720809,
+            "sha256": "7acb1bb053043ef04fc1f8d7fb42038b059f511f809fae0f014730ee44927206"
+          },
+          "status": "selected"
+        }
+      ],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-hachiro-ryu.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 5216,
+          "sha256": "5291551dcea0ab5b6ffde79b4b9582955acaecf32163c2f0d4fdec1f943e951c"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "金角・赤い目・青緑・紺のたてがみ・長い白ひげを照合。設定の『とぐろを巻く竜』に合わせて胴を補正したv3を選定。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-kaza-mimizuku",
+      "name": "カザミミズク",
+      "index": 11,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-kaza-mimizuku.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kaza-mimizuku/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-68d7e20e-8863-4ff6-8730-41b54d1c07f7.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kaza-mimizuku/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1778243,
+        "sha256": "30ccc2003aa4f05ddcde5f483d8bedaf3236572fb4d765ab82e114ea6c4a99e6"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: KAZA MIMIZUKU: evolved upright PURPLE OWL, tall swept-up pointed ear tufts, TWO broad purple WINGS spread out at shoulder height in neutral symmetrical stance, lavender face patches and breast bib. Focused narrow golden eyes with dark pupils, small golden beak, golden-brown TWO feet. TWO simple smooth dark-purple V chevrons on breast, no pixel stair-steps. Exactly THREE four-color PINWHEELS with broad red/yellow/blue/green blades: one on short pole at center crown, one fixed near each outer wing/shoulder. Both wing pinwheels rotate with wings on correct sides; not extra hands. Head pinwheel tall enough not intersecting ears. Short owl rear tail. Sprite's tiny white swirls signify WIND, not attached limbs; omit floating wind graphics from this reference sheet. No fourth pinwheel, human robes or ornate feather texture.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-kaza-mimizuku.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-itakodori/turnaround-v2.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kaza-mimizuku/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-68d7e20e-8863-4ff6-8730-41b54d1c07f7.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kaza-mimizuku/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1778243,
+          "sha256": "30ccc2003aa4f05ddcde5f483d8bedaf3236572fb4d765ab82e114ea6c4a99e6"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-kaza-mimizuku.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 6474,
+          "sha256": "331d99dad2346c3181c8de4c2259ffe7b8ab9f68030fc11138d937836c8be5f5"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-itakodori/turnaround-v2.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1642708,
+          "sha256": "f158393378ad9afaeeb96ecf6fbcdaff8d374c092af967e88c103044561ad582"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "高い耳羽、広げた翼2枚、頭と左右翼の風車3個、胸の2本のV模様を保持。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-kuro-magurodo",
+      "name": "クロマグロード",
+      "index": 12,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-kuro-magurodo.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kuro-magurodo/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-7b3ce364-b220-4c7b-96a4-bf47ab07ebd1.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kuro-magurodo/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1676029,
+        "sha256": "1222a12ad1673e8bd08beb75ee9a1a871303a5d81744c126eebbe787eb021504"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: KURO MAGURODO: evolved upright BLUE TUNA swordsman with dark NAVY back, azure front, short top dorsal fin, two fin arms, TWO navy fin-feet and ONE large blue crescent tail behind lower body as basic relative. White cloth HEADBAND tied at character anatomical RIGHT temple (front viewer LEFT), two short ends, maintain side so rear knot viewer RIGHT. Focused white rectangular dark-pupil eyes, pink cheek dabs, small determined mouth. Broad rectangular SILVER chest ARMOR with simple two or three broad gray plates and plain GOLD rim across top and bottom. ONE long straight SILVER SWORD raised in anatomical LEFT fin (front RIGHT, back LEFT), gold guard navy grip. ONE small RED-WHITE fishing FLOAT hanging at anatomical RIGHT hip (front LEFT, back RIGHT), not a second sword. No new cloak, helmet, human fingers or extra fins. Never lose tail, sword or float.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-kuro-magurodo.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-magurodo/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kuro-magurodo/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-7b3ce364-b220-4c7b-96a4-bf47ab07ebd1.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kuro-magurodo/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1676029,
+          "sha256": "1222a12ad1673e8bd08beb75ee9a1a871303a5d81744c126eebbe787eb021504"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-kuro-magurodo.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 4657,
+          "sha256": "448a2c83793a2df2d8f4ed46fbbfd82152aaf97cd44d886b53546721733ff707"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v3/aomori-magurodo/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1729699,
+          "sha256": "c55e8cb114022d97050bcb289e4c69045acd76e53f271460295e8cdfe1d9e315"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "銀の胸当て・鉢巻・浮き・刀・三日月尾を照合。刀と浮き、鉢巻の結び目の左右を保持。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-nebuta-taisho",
+      "name": "ネブタイショウ",
+      "index": 13,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-nebuta-taisho.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nebuta-taisho/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-7f156fb7-803b-416a-8276-d8f8b35b57ea.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nebuta-taisho/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1846528,
+        "sha256": "c0ce499dc4d760102b5aa37831d32b36fd29b5d2967cd6409cf694a2ff23554b"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: NEBUTA TAISHO ALLY: compact but commanding festival-lantern SAMURAI monster in strong red/blue/gold blocks, NOT a human face. Navy kabuto with TWO tall gold U-shaped antler prongs and small central red/gold crest. Broad square lantern MASK: bold CREAM brow/cheek fields surrounding a dark black central face with white rectangular eyes and a small red mouth, as sprite. Very wide angular gold/red flame-like shoulder lantern panels, blue chest plate with gold/red center and red waist skirt, two darkblue boots, two arms. ONE long dark pole with large pale-silver upward curved sword/naginata blade rises at anatomical LEFT side (front viewer RIGHT, rear viewer LEFT), keep grip side. Rear minimally continue lantern-and-armor construction, no second face. Few small fire highlights allowed only as restrained light, no floating fire props. Do not copy smaller relative's red friendly face or hip-sheathed sword in place of this silhouette.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-nebuta-taisho.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v2/aomori-nebuta-musha/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nebuta-taisho/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-7f156fb7-803b-416a-8276-d8f8b35b57ea.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-nebuta-taisho/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1846528,
+          "sha256": "c0ce499dc4d760102b5aa37831d32b36fd29b5d2967cd6409cf694a2ff23554b"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-nebuta-taisho.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 6570,
+          "sha256": "a4455e90ff9fbea3f94af8188feea23bee5fcd1c2463d4ff57cf7c9f813bc3cc"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/aomori-turnarounds-v2/aomori-nebuta-musha/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1768838,
+          "sha256": "e80c69ba17ab994e43377152aa44e46aa819f1c1593ed98ef21fb84aed3607c7"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "仲間版の元ドットを参照。金角、白黒の面、赤青金の灯籠鎧、大刀を保持。背面へ顔を複製していない。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-boss-tsugaru-no-nushi",
+      "name": "ツガルのぬし",
+      "index": 14,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-boss-tsugaru-no-nushi.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v2.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-70069f6c-a277-451d-9258-ecbc87f5d346.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1754763,
+        "sha256": "9c8e325264378554c9068c7b97949f68834904d86aa9a3a9bb26e6a023b2581b"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: TSUGARU NO NUSHI: majestic dark BLUE serpentine water dragon with NO legs or wings. Tall upright neck and head emerge from TWO OR THREE broad low COILS of one continuous navy-blue serpent body, with simple broad TEAL rope-like accents on coils, pale-blue segmented neck/belly front. ONE GOLD crown with plain red center jewel and TWO tiny red apple accents with green leaves on sides. TWO pale icy antler horns rising behind crown, broad branching blue fin frills flaring symmetrically at sides of head, white rectangular alert eyes, wide dark-blue muzzle with nostrils and TWO small white teeth at lower lip. ONE tail tip rises at anatomical LEFT side (front viewer RIGHT, back viewer LEFT), attached continuously to coils. Keep the crown/horns/frills/tail connected and complete in each view. Back no belly plate or face. Simplified proud mythical guardian, not scary photoreal dragon scales, no new flames or scenery.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-boss-tsugaru-no-nushi.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-02a3cb8e-df32-44fb-8559-5dd658168a21.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1809605,
+          "sha256": "babb7b414ac1cce01c9db422124cb39d03b3fb5ea414f5563d23d151313dc40d"
+        },
+        "status": "superseded-not-selected"
+      },
+      "edits": [
+        {
+          "prompt": "Use case: precise-object-edit. Edit target is the 2x2 coiled BLUE water-dragon sheet. Change ONLY BOTTOM LEFT SIDE VIEW to a true side profile whose SNOUT POINTS TO VIEWER RIGHT, not left. Redraw same entire connected dragon, not a new species, retain crown with two red apples, TWO pale horns, fin frills, segmented pale front neck, three low coils and single raised attached tail. Keep same anatomical tail side as other views, natural occlusion allowed. Same image scale/position, background, lighting and material. TOP LEFT front, TOP RIGHT three-quarter and BOTTOM RIGHT back must remain unchanged. Do not mirror the entire sheet. No new appendages or text.",
+          "references": [
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v1.png"
+          ],
+          "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-70069f6c-a277-451d-9258-ecbc87f5d346.png",
+          "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v2.png",
+          "file": {
+            "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v2.png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 1754763,
+            "sha256": "9c8e325264378554c9068c7b97949f68834904d86aa9a3a9bb26e6a023b2581b"
+          },
+          "reason": "側面を右向きへ統一",
+          "status": "selected"
+        }
+      ],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-boss-tsugaru-no-nushi.png",
+          "width": 672,
+          "height": 672,
+          "bytes": 12133,
+          "sha256": "126369b5c6d9a72791ddc8b349bb1d860c11eb28fd1e48486e0da0261c8b17d7"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "王冠とりんご2個、角2本、左右のひれ、首、とぐろと尾を保持。側面を右向きへ修正。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "aomori-lastboss-tsugaru-tamenobu",
+      "name": "津軽為信",
+      "index": 15,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/aomori-lastboss-tsugaru-tamenobu.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-lastboss-tsugaru-tamenobu/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-ee181d67-b9c5-4e94-bf11-d0b7095a4446.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-lastboss-tsugaru-tamenobu/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1731852,
+        "sha256": "46d7471ab6dad2862473c50f70dffa72900d5af8d0d028f6e3f9a6befc3b068b"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: TSUGARU TAMENOBU: stylized ADULT samurai commander from game sprite, not a realistic historical portrait. Short stocky chibi proportions, broad rectangular tan face, stern dark eyes under brow, very simple dark mustache/beard band across lower face. Brick RED kabuto with TWO long GOLD crescent-like upward-and-outward prongs forming a wide V, attached to helmet, not floating. Brick-red/red lamellar chest armor with a few broad golden trim bands, large red shoulder guards, darkbrown forearm armor with TWO hands resting at sides, red waist skirt plates, TWO darkbrown boots with red toe caps. Deep brown sash. Keep confident neutral stance, no new sword, flag, cape, ornate engravings or modern details. Sprite's floating fire flecks are omitted for a clean reference. Rear shows simple red helmet nape and armor back, no face. Smooth matte miniature consistent with other sheets, not a real person photo.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-lastboss-tsugaru-tamenobu.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-lastboss-tsugaru-tamenobu/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-ee181d67-b9c5-4e94-bf11-d0b7095a4446.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-lastboss-tsugaru-tamenobu/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1731852,
+          "sha256": "46d7471ab6dad2862473c50f70dffa72900d5af8d0d028f6e3f9a6befc3b068b"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-lastboss-tsugaru-tamenobu.png",
+          "width": 672,
+          "height": 672,
+          "bytes": 8456,
+          "sha256": "04e6f001be5c3a178cff4d3f0c655cfef445236feeca9ca5252d87a984dd6306"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "赤金の兜と鎧、広い金の前立て、成人武将の顔、腕2本・脚2本を照合。実在人物の正確な肖像ではなくゲーム造形。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-iwa-kamoshika",
+      "name": "イワカモシカ",
+      "index": 16,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/iwate-iwa-kamoshika.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-iwa-kamoshika/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-c91d64fd-5633-48c9-af09-88fa692f99b1.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-iwa-kamoshika/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1795194,
+        "sha256": "32dbc9909205144631f2a822fa36bcb314824803afac86a7e38fca2fe8763f76"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: IWA KAMOSHIKA: squat FOUR-LEGGED gray Japanese serow mountain-goat creature. Broad slate-gray head with TWO short sharp charcoal-black upright horns and TWO side ears with tan-brown insides; a few broad pale-gray rocky forehead shapes. Simple narrow white rectangular eyes/dark pupils, pink cheek dabs, broad darkbrown triangular nose, tiny dark mouth. A broad pale silver-white cheek/chest ruff surrounds muzzle and upper chest in large smooth tufts, NOT realistic hair filaments. Gray stone-like body, FOUR stubby gray legs ending in darkbrown/black HOOVES, not a biped or bear paws. Short conservative goat tail on center back, not bushy. Keep horns/ears/four hooves consistent and visible naturally with occlusion.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-iwa-kamoshika.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-iwa-kamoshika/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-c91d64fd-5633-48c9-af09-88fa692f99b1.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-iwa-kamoshika/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1795194,
+          "sha256": "32dbc9909205144631f2a822fa36bcb314824803afac86a7e38fca2fe8763f76"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-iwa-kamoshika.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 4848,
+          "sha256": "6cbb217efa125979ab20b9f0e264e47279b32146df1c6fa2fa14536804f27420"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "角2本・耳2枚・白い頬胸・灰色の体・4本のひづめ脚と短い尾を照合。側面では奥の脚が自然に重なる。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-ryusen-uo",
+      "name": "リュウセンウオ",
+      "index": 17,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/iwate-ryusen-uo.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-ryusen-uo/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-5f3bcf96-8546-43e7-a60b-54ddb6634f82.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-ryusen-uo/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1672601,
+        "sha256": "b4dff720f26dff68fdd4c8ca66a9d3cb9fa6b343aea0d1faa93bd26a2c670c9b"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: RYUSEN UO: small upright hovering translucent AZURE-BLUE cave-lake dragonfish. Rounded elongated oval fish body, pale sky-blue belly panel with a few mint highlights, simple white rectangular dark-pupil eyes, pink cheek dots, tiny dark central mouth. Exactly TWO short gold head horns flank ONE tall pale icy-blue central dorsal crest. TWO short pale-blue CURVED WHISKERS extend from mouth to cheeks, TWO pale icy pectoral side fins. ONE forked pale icy-blue tail at bottom/rear, split into two pointed lobes; those are TAIL LOBES not feet. No human legs, no arms/hands, no crown jewelry, no huge evolved-dragon horns. Subtle watery material, not strong glow. Hover just above ground with soft shadow, keep same fish anatomy in all views; backside no face or duplicate whiskers.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-ryusen-uo.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-ryusen-uo/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-5f3bcf96-8546-43e7-a60b-54ddb6634f82.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-ryusen-uo/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1672601,
+          "sha256": "b4dff720f26dff68fdd4c8ca66a9d3cb9fa6b343aea0d1faa93bd26a2c670c9b"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-ryusen-uo.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 4090,
+          "sha256": "0c897677db0937f0470c1e50b59d98c635299f5ec32895fe26daf1ef6bdf4569"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "角2本、中央の頭頂ひれ、左右のひれ・ひげ、二股尾を照合。尾は脚ではなく1本の魚の尾として補完。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-wakamekko",
+      "name": "ワカメッコ",
+      "index": 18,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/iwate-wakamekko.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-wakamekko/turnaround-v1.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-0e207bf1-a629-4038-9d33-29aa0261ebab.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-wakamekko/turnaround-v1.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1750032,
+        "sha256": "c68701ce4e4737a1b5c1721a5ad9d7c8a257b49a0b45fe75f3d239158abafca8"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: WAKAMEKKO: a small friendly WAKAME SEAWEED LEAF creature, an upright dark-green flattened leaf-shaped body with broad softly wavy edges, slightly asymmetrical natural leaf contour but no new spikes. Two simple white rectangular dark-pupil eyes, small U smile, pink cheeks. Two tiny pale-green side frond-arms and TWO short green stalk feet. A single broad lighter-green patch on lower front at anatomical RIGHT side (viewer LEFT front), no busy veins. Source's tiny blue bubbles are atmospheric accents, omit them as unattached scenery in this reference sheet. No hat, stem sprout, human costume, face on rear or added animal tail. Side must reveal modest leaf-body THINNESS, not a thick pear. Matte soft 3D plant character.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-wakamekko.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-wakamekko/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-0e207bf1-a629-4038-9d33-29aa0261ebab.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-wakamekko/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1750032,
+          "sha256": "c68701ce4e4737a1b5c1721a5ad9d7c8a257b49a0b45fe75f3d239158abafca8"
+        },
+        "status": "selected"
+      },
+      "edits": [],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-wakamekko.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 3770,
+          "sha256": "734a3503fb79906c668bb30ef6b424931c0c2ded58be4696c7c525f67579429c"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "海藻の輪郭・細い側面・葉の腕・2本脚・前面の淡緑の斑点を照合。浮遊する泡は体のパーツにしない。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-oo-kappa",
+      "name": "オオカッパ",
+      "index": 19,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/iwate-oo-kappa.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v2.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-177664eb-a6c8-4ed6-a082-0b149bc6762f.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1668935,
+        "sha256": "a8fe6e3613e5f5d66f4738e4140087d26456f5b7868cd0495918fd6ea6d9a35b"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: OO KAPPA: evolved muscular GREEN kappa. Broad powerful two-armed biped with TWO webbed feet, TWO thick arms. Head narrower than shoulders, a shallow recessed WHITE-RIMMED BLUE WATER DISH on top bordered by darkgreen hair spikes. Focused white rectangular dark-pupil eyes, wide flat YELLOW bird-like beak; pale yellow-green oval belly with THREE pairs of large simple rectangular abdominal accents, not human skin. ONE large brown turtle SHELL centered on back, thicker than basic relative, with just a few broad scute seams. Anatomical LEFT hand holds ONE upright large GREEN CUCUMBER CLUB (front viewer RIGHT, rear viewer LEFT) with pale green broad bumps and a plain small yellow cut tip. Anatomical RIGHT arm flexed but neutral not punching. No weapons beyond cucumber, no duplicated shells or floating dish. Preserve dish water, shell, club, two arms/two feet across all views.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-oo-kappa.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/iwate-tono-kappa/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-97cb84d9-c12f-4ffa-997b-ab0b0e9fd3fc.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1754154,
+          "sha256": "9287bcacfce0c9b965d205583605ca529d0893221a69e64495fa5738849b58bb"
+        },
+        "status": "superseded-not-selected"
+      },
+      "edits": [
+        {
+          "prompt": "Use case: precise-object-edit. Input edit target: four-view muscular green kappa with cucumber club. Change ONLY the pale green belly markings: there must be exactly SIX small green rounded rectangular marks arranged THREE ROWS of TWO, not the current four marks/two rows. Keep all marks inside the existing yellow-green belly patch, match existing style and color. Front and 3quarter show three rows; profile has natural visibility/occlusion, back has NO belly markings. Preserve everything else exactly: face, head-water-dish, TWO arms, shell, club in same hand, legs/feet, pose, colors, lighting, background and all four view positions. No text or extra objects.",
+          "references": [
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v1.png"
+          ],
+          "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-177664eb-a6c8-4ed6-a082-0b149bc6762f.png",
+          "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v2.png",
+          "file": {
+            "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v2.png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 1668935,
+            "sha256": "a8fe6e3613e5f5d66f4738e4140087d26456f5b7868cd0495918fd6ea6d9a35b"
+          },
+          "reason": "腹部の模様を元デザイン指定の3対へ統一",
+          "status": "selected"
+        }
+      ],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-oo-kappa.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 5259,
+          "sha256": "bf40cfe61e0ceece650ac8bef068637e5ea91865dfceb2cb0ec8ce70a8d4db7b"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/iwate-tono-kappa/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1788259,
+          "sha256": "7a0678d47de7e1d2bcb15cfac1745d55d441df1b65ca5e9fd18f483046ce9a36"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "皿と水、甲羅、腕2本・足2本、きゅうり棍棒を照合。腹部の模様を3対に統一。棍棒は正面右／背面左。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    },
+    {
+      "id": "iwate-okawari-bat",
+      "name": "オカワリバット",
+      "index": 20,
+      "sourceContent": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/content/monsters/iwate-okawari-bat.json",
+      "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v2.png",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-1efb2cf5-3f3f-4b5b-b3c2-db537e5db61a.png",
+      "file": {
+        "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v2.png",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 1754718,
+        "sha256": "46dc2e0afde393d9fc291800b2a0cc898db4334a023c2c7862119577858582fb"
+      },
+      "initial": {
+        "prompt": "Use case: stylized-concept. Asset: ONE cinematic character-reference sheet for an existing NIHON QUEST creature, not a mesh. Input1 is the exact canonical pixel sprite: identity, silhouette, facial shape, colors, part counts and props. Input2 is the approved Ringoron sheet: ONLY its warm gray studio background, soft matte rounded sculpted3D game-miniature finish, restrained detail and layout. If Input3 exists it is a smaller family relative for palette/material continuity ONLY; do NOT copy its anatomy instead of the evolved sprite. Render ONE character in FOUR complete uncropped full-body neutral views in a clean 2x2 landscape 3:2 image: top-left straight FRONT; top-right clear 45degree THREE-QUARTER; bottom-left TRUE SIDE facing image RIGHT; bottom-right direct BACK. Same fixed design and proportions in all views. Keep props on the same ANATOMICAL side; screen-left/right reverses for back. Natural occlusion allowed, not deletion. No front face or front-only marking on rear. Every horn, tail, wing, foot and held item fits with generous margins; no overlaps. Gentle near-orthographic studio camera, soft upper-left light, tiny contact shadows. Broad smooth rounded forms and clean curved surfaces; transform pixel stair-step contours into smooth 3D curves, never voxel/pixel geometry. Preserve the canonical simple rectangular eye style where present. No text, names, numbers, labels, logos, watermarks, borders, pose/expression strips, scenery, extra creatures, glitter or unrequested decorations. Unseen backs minimally extrapolated. Identity lock: OKAWARI BAT: evolved bat made of a STACK OF FOUR dark charcoal-lacquer BOWLS with RED rims; top bowl is the FACE, bottom three bowls form narrowing torso. Exactly FOUR bowl tiers total in every view, not three/five. Top bowl brimming with a large mound of soft tan SOBA NOODLES, two small teal bat ears at sides, square white eyes/dark pupils, small open smiling red mouth with one pale tooth, pink cheek dabs. TWO broad teal/aqua BAT WINGS rise at sides, broad simple scalloped membrane shapes not bird feathers; TWO short teal feet at bottom. ONE pair of BROWN CHOPSTICKS held together in anatomical LEFT wing (front viewer RIGHT, rear viewer LEFT), raised over noodle mound with a small strand lifted. Same grip and chopstick position logically rotate; not stuck into skull. A couple noodle strands drape over top bowl rim; keep all connected. No text or new extra bowls. Back bowl plain with red rims, no face; wings, bowl stack, noodles and chopsticks persist.",
+        "references": [
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-okawari-bat.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/iwate-wankosobat/turnaround-v1.png"
+        ],
+        "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v1.png",
+        "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-6c72139d-6db1-42cf-b722-340e191428b6.png",
+        "file": {
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1782284,
+          "sha256": "6167cbcafa9d7d3d84df57b4c85e07c1426dcc9d6b9a32022de7f3b299754896"
+        },
+        "status": "superseded-not-selected"
+      },
+      "edits": [
+        {
+          "prompt": "Use case: precise-object-edit. Edit target: 2x2 soba bat sheet. Make TWO linked consistency corrections across views. First the body is exactly FOUR dark charcoal lacquer BOWL TIERS with bright red rims, not the current THREE. Keep the top face/noodle bowl unchanged; add one small matching bowl tier under the face and above feet so there are four clearly countable red rim levels in EVERY view. Same narrowing stack and overall proportions, enough room for full feet. Second chopsticks remain held by the same anatomical LEFT wing: front is viewer RIGHT, but in BACK view grip and chopsticks must be viewer LEFT, not current viewer RIGHT. Move ONLY the rear-view gripping wing/chopsticks and lifted noodle strand to rear viewer LEFT, leaving opposite wing without grip. Keep front/3quarter/profile grip as is. Wings, face, ear tufts, noodle mound and two feet stay the same; count exactly TWO chopsticks and keep strands connected to noodle mound. Preserve studio lighting/background/layout/material, no new props/text.",
+          "references": [
+            "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v1.png"
+          ],
+          "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-1efb2cf5-3f3f-4b5b-b3c2-db537e5db61a.png",
+          "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v2.png",
+          "file": {
+            "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v2.png",
+            "width": 1536,
+            "height": 1024,
+            "bytes": 1754718,
+            "sha256": "46dc2e0afde393d9fc291800b2a0cc898db4334a023c2c7862119577858582fb"
+          },
+          "reason": "器を4段へ修正し、背面の箸の持ち側を統一",
+          "status": "selected"
+        }
+      ],
+      "referenceFiles": [
+        {
+          "role": "canonical-pixel-identity",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-okawari-bat.png",
+          "width": 480,
+          "height": 480,
+          "bytes": 5362,
+          "sha256": "efc45b68ba4748a8158a2c97d4252ac72779b4dd07c89f81bce3efee28add564"
+        },
+        {
+          "role": "style-and-layout-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1777712,
+          "sha256": "f12ad198af8c070c45ce46b9322cb3030f3d1d874050200d3e859e5acef4710d"
+        },
+        {
+          "role": "basic-family-continuity-only",
+          "path": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/iwate-wankosobat/turnaround-v1.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1815159,
+          "sha256": "31270402b53185c630ea740ab564d21922fb853e3a72f1ecedc42f2968c7f1bf"
+        }
+      ],
+      "visualReview": {
+        "result": "PASS-as-visual-reference",
+        "notes": "器を全方向4段へ修正。翼2枚と足2本、そば、箸2本を保持。箸の持ち側を正面右／背面左で統一。"
+      },
+      "userApproved": false,
+      "status": "awaiting-user-review"
+    }
+  ]
+}

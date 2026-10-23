@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-18",
+  "mode": "built-in image_gen",
+  "videoId": "V00",
+  "cutId": "C06",
+  "intervalSeconds": [
+    26,
+    32
+  ],
+  "panelCount": 5,
+  "totalVideoCutCount": 9,
+  "totalVideoPanelCount": 40,
+  "totalVideoSeconds": 48,
+  "status": "drawn-internally-reviewed-user-review-pending",
+  "userApproved": false,
+  "decision": "Use approved-direction Ringoron (corrected face v2) for storyboard candidate; replace former Bunakko/forest-guide draft with ordinary greeting interrupted by knowledge loss. C05 already shows loss of direction. No species lore, first-enemy lock or game change.",
+  "sourceRefs": [
+    "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/concept-v2-face.png",
+    "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/monsters/tohoku-roster-v1/aomori-ringoron/turnaround-v1.png",
+    "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/v00-reference-pack-v1/02-residents-cast-v1.png",
+    "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/background-concepts/evaluation-batch-01/21-dialogue-apple-farm-yard.png"
+  ],
+  "sourceRoles": [
+    "Ringoron corrected face identity anchor",
+    "Ringoron angle continuity",
+    "Child only: second figure of NPC candidate sheet",
+    "Orchard village environment candidate only"
+  ],
+  "prompt": "Use case: illustration-story.\nAsset type: NIHON QUEST V00 C06 revised rough storyboard page, five consecutive animation beats within ONE uninterrupted six-second shot, NOT five different camera cuts. This is a storyboard draft to review, not final video frames.\nInput images: Image 1 is the APPROVED Ringoron character and corrected FACE identity reference. Image 2 is the same character's approved-direction turnaround, for anatomical continuity only. Image 3 is an NPC cast reference: use ONLY the SECOND full-body figure (the short bob-haired CHILD in mustard tunic and brown shorts), no other people. Image 4 is an UNAPPROVED background/style candidate only: borrow simple apple orchard / timber village materials, but do not claim exact geography. No other cast or creature.\nLayout: square white storyboard page, FIVE landscape 16:9 panels in a clean TWO-column, THREE-row grid. Panels 1/2 top row, 3/4 middle row, panel 5 bottom-left; bottom-right cell blank white (not a sixth panel). Clear black rectangular frame for each panel, same size each. Exact small black heading above grid: \"V00 / C06 / 26-32s\". Panel IDs printed BELOW each frame in page margins, exactly \"B26\", \"B27\", \"B28\", \"B29\", \"B30\" in reading order; no lettering inside the actual scenes, no dialogue balloons, no other captions. No arrows inside the scenes.\nScene and fixed camera: the edge of the SAME little timber-and-stone village at an apple orchard entrance, one simple dirt lane continuing into the distance, a short low wooden fence, soft apple-tree foliage and a small timber shed in the background. No fork, no signpost, no destination board, no stream or beech forest. Simple matte sculpted high-resolution 3D miniature style MATCHING the Ringoron and child references, NOT watercolor/anime 2D illustration. Restrained warm morning light, same background layout and light in all FIVE panels, orchard softly out of focus. Avoid loose apples, baskets or fallen fruit in foreground so the creature is unambiguous.\nBlocking and scale: fixed medium-wide low camera at the child's crouched height. Child stays crouched on the LEFT, torso/face and greeting hand visible, looking toward Ringoron. Ringoron stands on the RIGHT facing slightly left toward the child, entire body/stem/leaf/two small feet visible. Ringoron is roughly knee-high relative to this child standing; with child crouched it is large enough to read facial expression. Same camera lens, crop, scale and ground landmarks in every panel. Do not alternate closeups or reverse shots. No camera movement in this shot.\nRingoron lock: plump red apple body, ONE short brown stem, ONE green leaf on its anatomical left, exactly TWO tiny integrated foot stubs, NO ARMS, hands, wings or tail. Face starts as small white upright rounded-rectangle eyes with lower INNER black pupils and a SMALL U-shaped mouth, pink cheek patches, as Image 1; do not revert to large dark oval eyes or big laughing mouth. Emotion uses small lid/pupil/mouth changes and body tilt only. Preserve stem, leaf, body size, materials and foot count across all panels, including distressed panel.\nChild lock: same black bob haircut, mustard short plain tunic with small neck tie, brown short trousers and simple brown low shoes from the SECOND figure of Image 3, same face/clothing/body across all panels. One child only. Crouched posture stays fixed, no lunging, grabbing or touching the creature.\nFIVE beats:\nB26: child makes a small friendly open-hand greeting from the left; Ringoron is relaxed, looks at child and has its approved tiny U smile, feet on dirt.\nB27: Ringoron gives a small friendly whole-body tilt/bob in answer, still touching ground (no high jump), smile remains. Child's greeting continues unchanged. Ringoron NEVER waves a hand because it has no arms.\nB28: the bob stops halfway; Ringoron's pupils and tiny mouth become uncertain, the small smile fades; no change to species/body. Child's raised hand pauses and child notices.\nB29: Ringoron gently shuffles backward ONE short step to the RIGHT, away from child, with slight backward body lean, eyes uncertain. Its position is only a little farther right than before. Child remains on left and lowers the hand slightly, worried, does not chase.\nB30: Ringoron settles at that SAME backed-away position; a very thin translucent smoky gray INK FILM hugs just the lower red body/feet, red remains visible through it. Face, leaf, stem and both feet remain clear. Tiny worried mouth, confused eyes, no angry face, no fangs or red glowing eyes. Child stays left with worried face and a lowered hand. This is loss of familiar response and beginning of wasuremono condition, not violence, death, rotting fruit or an evolution.\nConstraints: exact same two individuals and location in every panel. No tree-spirit/Bunakko, no third person, no protagonist/Michiru/starters, no villain/hands/crystal/magic source, no new lore role such as guide species. No duplicated body, extra limbs, missing feet/leaf, explosive effects, glitter, logos or watermark. Keep subject positions and visible props consistent. Scene actions read without dialogue. Outside the panels only the heading and five specified panel IDs.",
+  "actions": [
+    {
+      "id": "B26",
+      "approximateStartSeconds": 26,
+      "action": "りんご園入口の一本道。画面左の子どもが手を振り、右のリンゴロンが笑顔で顔を向ける。"
+    },
+    {
+      "id": "B27",
+      "approximateStartSeconds": 27,
+      "action": "リンゴロンが身体を小さく傾け、挨拶に応じかける。腕は追加しない。"
+    },
+    {
+      "id": "B28",
+      "approximateStartSeconds": 28.2,
+      "action": "リンゴロンの動きが途切れ、笑顔と目の生気が弱まる。子どもの手が止まる。"
+    },
+    {
+      "id": "B29",
+      "approximateStartSeconds": 29.3,
+      "action": "リンゴロンが戸惑い、子どもから離れる向きへ小さく一歩後ずさる。子どもは追わない。"
+    },
+    {
+      "id": "B30",
+      "approximateStartSeconds": 30.4,
+      "action": "リンゴロンの下半身に薄い墨膜が現れ、不安な姿勢で止まる。顔・葉・ヘタ・二つの足は消さず、攻撃しない。"
+    }
+  ],
+  "destination": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+  "historicalImage": "/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-v1/c06-b26-b30-v1.png",
+  "verification": {
+    "independentVisualReview": "PASS; five poses and reference identity retained; no major missing parts or unintended text",
+    "productionDocsReviewed": true,
+    "videoCount": 35,
+    "totalScriptShotCount": 182,
+    "totalScriptSeconds": 1013,
+    "v00Cuts": 9,
+    "v00Panels": 40,
+    "v00Seconds": 48,
+    "selectedPageAndPanelPathsMatch": true,
+    "checkedLocalDocumentLinks": 66,
+    "pngSize": "1254x1254",
+    "pngCrcAndIdatValid": true,
+    "workspaceCopyMatchesGeneratedOriginal": true,
+    "sha256": "0539d384094e6cdd910e146a1caebdcc7b55130b2cf9b4dd74e8fd116152fa7d"
+  },
+  "audioGenerated": false,
+  "videoGenerated": false,
+  "runtimeChanged": false,
+  "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-84975c5d-feb4-44d0-91ec-89f828a56433.png",
+  "visualCheck": "Five panels B26-B30; revised face family, one leaf/stem, two feet and no arms retained. Child consistent; greeting/tilt/stoppage/retreat/ink-film progression readable. Small background/position differences accepted as rough poses, not pixel-registered animation frames."
+}

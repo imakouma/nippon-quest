@@ -1,0 +1,284 @@
+{
+  "date": "2026-10-18",
+  "request": "C01〜05をC06の柔らかい3D調へ統一。C07の模式地図を具体的な町と航路の分断へ変更。見聞帳を旅のノートへ表現統一、C08は紙面内の記録消失へ単純化。",
+  "tool": "built-in-image_gen",
+  "useCase": "style-transfer / stylized-concept",
+  "status": "internal-visual-and-structure-checks-complete; user-review-pending; not-final-key-art",
+  "scope": {
+    "cutCount": 9,
+    "panelCount": 40,
+    "provisionalSeconds": 48,
+    "replacedCuts": [
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05",
+      "C07",
+      "C08"
+    ],
+    "unchangedCuts": [
+      "C06",
+      "C09"
+    ],
+    "runtimeChanges": false,
+    "audioGenerated": false
+  },
+  "styleAuthority": "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+  "terminology": {
+    "old": "見聞帳",
+    "new": "旅のノート",
+    "scope": "映像制作の現行台本・計画・確認資料。ゲームコードとcontentの既存名称は変更しない。"
+  },
+  "jobs": [
+    {
+      "cut": "C01",
+      "supersedes": "assets/cinematics/storyboards/v00-v1/c01-b01-b05-v3.png",
+      "output": "assets/cinematics/storyboards/v00-v1/c01-b01-b05-3d-v4.png",
+      "references": [
+        "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+        "assets/cinematics/v00-reference-pack-v1/02-residents-cast-v1.png",
+        "assets/cinematics/storyboards/v00-v1/c01-b01-b05-v3.png"
+      ],
+      "prompt": "Use case: style-transfer.\nAsset type: one square storyboard review page for NIHON QUEST. Re-render scenes as a polished soft 3D animated-game miniature, NOT anime illustration.\nSTYLE AUTHORITY: reference image 1, the C06 child-and-apple storyboard. Match its rounded sculpted 3D bodies, solid dimensional faces, broad sculpted hair clumps, soft matte cloth, real contact shadows, warm morning sunlight, blue sky and gentle depth of field. Everything including background is fully rendered 3D. No ink contours, no painterly watercolor, no flat illustrated faces, no gritty photorealism, no glitter or ornate details.\nReference image 2 when provided is the five-person identity sheet: apple shopkeeper woman with dark low bun, rust shirt, cream apron, brown pants; child with black bob, mustard tie-neck tunic, brown shorts, low brown shoes; gray-haired gray-bearded craftsman navy shirt ochre apron; woman traveler sage green coat cream dress brown crossbody bag; man traveler rust jacket dark gray pants rolled brown backpack. Preserve these identities and attire. Do NOT copy the apple creature from the style reference into other scenes.\nLAYOUT: square white page with five equally-sized wide 16:9 black-bordered scene frames arranged two columns and three rows, final bottom-right cell empty white. Read left to right then downward. Short page heading at top. Only panel IDs below their frames, on white margin. No arrows, captions, callouts or English words INSIDE the scenes. Exactly five images, not six. These are five moments in ONE continuous shot, preserve camera axis, lens, scale, world layout and prop identity. No cutting between wide and closeup. Make the changes in action unmistakable, while conserving all objects and people.\nImage 3 is OLD staging only; its painted/anime style is rejected. Rebuild it entirely in the C06 3D rendering.\nHeading exactly \"V00 / C01 / 0-5s\". Frame IDs B01 B02 B03 B04 B05.\nA peaceful small timber-and-stone Japanese-inspired fantasy village morning. Fixed continuous street-wide view with only slight horizontal camera drift. Left foreground an apple stall with dull red cloth awning and low horizontal shop sign mounted below counter height at child's eye level. Beside it, an open-front carpenter's workshop and workbench, same street extending toward right. Hills and simple greenery background. Exactly five residents: shopkeeper behind left stall, craftsman at neighboring bench, two adult travelers in street on right, child near stall. All five visible or naturally occluded in the same spatial arrangement, no duplicates, no crowd. Before any magic; no erasure here.\nB01: establish daily life, shopkeeper sorting apples, craftsman calmly planing, two travelers discussing their route, child approaching low sign.\nB02: same wide framing, keeper gently puts an apple into her basket, other residents continue.\nB03: same wide framing, sage-coated woman traveler points down the street and backpack man nods.\nB04: same wide framing, travelers begin one small step down the same street while craftsman continues planing; child reaches shop sign.\nB05: same wide framing, child looks at low shop sign while the adults continue their routines. The sign has the simple Japanese place name \"あおもり\", a temporary storyboard lettering cue. Keep sign on stall front, do not make child point at high awning.\nPriority: warm rounded 3D cast and 3D village matching C06; legible everyday actions, not a panoramic painted village.",
+      "userApproved": false,
+      "status": "selected; root-and-secondary-visual-review-complete; user-review-pending",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-2fcead7c-9502-418f-b8be-a5a51ddb29be.png"
+    },
+    {
+      "cut": "C02",
+      "supersedes": "assets/cinematics/storyboards/v00-v1/c02-b06-b10-v1.png",
+      "output": "assets/cinematics/storyboards/v00-v1/c02-b06-b10-3d-v2.png",
+      "references": [
+        "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+        "assets/cinematics/v00-reference-pack-v1/02-residents-cast-v1.png",
+        "assets/cinematics/storyboards/v00-v1/c02-b06-b10-v1.png"
+      ],
+      "prompt": "Use case: style-transfer.\nAsset type: one square storyboard review page for NIHON QUEST. Re-render scenes as a polished soft 3D animated-game miniature, NOT anime illustration.\nSTYLE AUTHORITY: reference image 1, the C06 child-and-apple storyboard. Match its rounded sculpted 3D bodies, solid dimensional faces, broad sculpted hair clumps, soft matte cloth, real contact shadows, warm morning sunlight, blue sky and gentle depth of field. Everything including background is fully rendered 3D. No ink contours, no painterly watercolor, no flat illustrated faces, no gritty photorealism, no glitter or ornate details.\nReference image 2 when provided is the five-person identity sheet: apple shopkeeper woman with dark low bun, rust shirt, cream apron, brown pants; child with black bob, mustard tie-neck tunic, brown shorts, low brown shoes; gray-haired gray-bearded craftsman navy shirt ochre apron; woman traveler sage green coat cream dress brown crossbody bag; man traveler rust jacket dark gray pants rolled brown backpack. Preserve these identities and attire. Do NOT copy the apple creature from the style reference into other scenes.\nLAYOUT: square white page with five equally-sized wide 16:9 black-bordered scene frames arranged two columns and three rows, final bottom-right cell empty white. Read left to right then downward. Short page heading at top. Only panel IDs below their frames, on white margin. No arrows, captions, callouts or English words INSIDE the scenes. Exactly five images, not six. These are five moments in ONE continuous shot, preserve camera axis, lens, scale, world layout and prop identity. No cutting between wide and closeup. Make the changes in action unmistakable, while conserving all objects and people.\nImage 3 is OLD staging only, not a style reference. Heading \"V00 / C02 / 5-10s\". IDs B06 B07 B08 B09 B10.\nSame village apple stall. FIXED medium view: child on RIGHT in three-quarter view, low horizontal wooden shop sign in CENTER at child's eye height, same bun-haired cream-apron shopkeeper LEFT behind wooden counter. Red apples in background basket, muted red awning above. Show face, pointing finger and complete low sign together in every frame. C06 child's 3D identity exactly, no anime flat face.\nB06: low sign clearly reads \"あおもり\", child reads it with relaxed smile.\nB07: sign still reads \"あおもり\", child traces along it with one index finger, mouth gently speaking.\nB08: exactly same letters fade pale gray against the same intact wood, finger freezes, smile begins to vanish.\nB09: ALL letters now disappeared, perfectly blank intact wooden sign. Child's finger remains frozen, mouth hesitates, worried brows.\nB10: sign remains BLANK, child tilts head puzzled; shopkeeper notices and looks toward child with mild concern. Keep both people, counter, sign same size and location; never restore erased lettering.\nThe literal lettering is only storyboard cue, not final video typography. The story is forgetting how to read, not breaking the sign. No symbol debris, no sparks.",
+      "userApproved": false,
+      "status": "selected; root-and-secondary-visual-review-complete; user-review-pending",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-6fa9d6f1-6960-4016-9b07-bc73104360b1.png"
+    },
+    {
+      "cut": "C03",
+      "supersedes": "assets/cinematics/storyboards/v00-v1/c03-b11-b15-v2.png",
+      "output": "assets/cinematics/storyboards/v00-v1/c03-b11-b15-3d-v3.png",
+      "references": [
+        "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+        "assets/cinematics/v00-reference-pack-v1/02-residents-cast-v1.png",
+        "assets/cinematics/storyboards/v00-v1/c03-b11-b15-v2.png"
+      ],
+      "prompt": "Use case: style-transfer.\nAsset type: one square storyboard review page for NIHON QUEST. Re-render scenes as a polished soft 3D animated-game miniature, NOT anime illustration.\nSTYLE AUTHORITY: reference image 1, the C06 child-and-apple storyboard. Match its rounded sculpted 3D bodies, solid dimensional faces, broad sculpted hair clumps, soft matte cloth, real contact shadows, warm morning sunlight, blue sky and gentle depth of field. Everything including background is fully rendered 3D. No ink contours, no painterly watercolor, no flat illustrated faces, no gritty photorealism, no glitter or ornate details.\nReference image 2 when provided is the five-person identity sheet: apple shopkeeper woman with dark low bun, rust shirt, cream apron, brown pants; child with black bob, mustard tie-neck tunic, brown shorts, low brown shoes; gray-haired gray-bearded craftsman navy shirt ochre apron; woman traveler sage green coat cream dress brown crossbody bag; man traveler rust jacket dark gray pants rolled brown backpack. Preserve these identities and attire. Do NOT copy the apple creature from the style reference into other scenes.\nLAYOUT: square white page with five equally-sized wide 16:9 black-bordered scene frames arranged two columns and three rows, final bottom-right cell empty white. Read left to right then downward. Short page heading at top. Only panel IDs below their frames, on white margin. No arrows, captions, callouts or English words INSIDE the scenes. Exactly five images, not six. These are five moments in ONE continuous shot, preserve camera axis, lens, scale, world layout and prop identity. No cutting between wide and closeup. Make the changes in action unmistakable, while conserving all objects and people.\nImage 3 is old staging only. Heading \"V00 / C03 / 10-16s\". IDs B11 B12 B13 B14 B15.\nFixed medium slightly overhead three-quarter view of same bun-haired shopkeeper behind wooden counter: face and both hands visible. Rust shirt cream apron. THREE and only THREE red apples on viewer-LEFT, arranged stable triangle with one back-left, one back-right, one front-center. ONE small white paper centered on counter. ONE EMPTY wicker basket viewer-RIGHT with interior clearly visible. Same warm 3D apple shop environment as C06's timber orchard world.\nB11: calm shopkeeper points at back-LEFT apple with index finger. Paper has three pencil tally strokes \"|||\".\nB12: finger points to back-RIGHT apple (different apple, readable movement). Three apples unmoved. Three paper tally strokes still visible.\nB13: finger stops hovering before front apple. Paper tally strokes fade away. Keeper's eyebrows tense with confusion.\nB14: paper completely BLANK; eyes shift from three apples toward EMPTY basket. Hand hovering uncertain, confused expression.\nB15: same BLANK paper; keeper draws hand back, concerned, unable to work out the count. All three apples stay in their original positions, basket remains empty.\nCRITICAL every single frame: exactly THREE loose apples, ONE EMPTY basket, ONE sheet of paper. No transfers, no extra apples in background, no baskets full of fruit, no missing apple. The physical objects do not vanish. No sweat-symbol drawing or question marks in scene.",
+      "userApproved": false,
+      "status": "selected; root-and-secondary-visual-review-complete; user-review-pending",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-a0ce9c12-98bf-44f9-aef7-6a856f5bfdf8.png"
+    },
+    {
+      "cut": "C04",
+      "supersedes": "assets/cinematics/storyboards/v00-v1/c04-b16-b20-v3.png",
+      "output": "assets/cinematics/storyboards/v00-v1/c04-b16-b20-3d-v4.png",
+      "references": [
+        "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+        "assets/cinematics/v00-reference-pack-v1/02-residents-cast-v1.png",
+        "assets/cinematics/storyboards/v00-v1/c04-b16-b20-v3.png"
+      ],
+      "prompt": "Use case: style-transfer.\nAsset type: one square storyboard review page for NIHON QUEST. Re-render scenes as a polished soft 3D animated-game miniature, NOT anime illustration.\nSTYLE AUTHORITY: reference image 1, the C06 child-and-apple storyboard. Match its rounded sculpted 3D bodies, solid dimensional faces, broad sculpted hair clumps, soft matte cloth, real contact shadows, warm morning sunlight, blue sky and gentle depth of field. Everything including background is fully rendered 3D. No ink contours, no painterly watercolor, no flat illustrated faces, no gritty photorealism, no glitter or ornate details.\nReference image 2 when provided is the five-person identity sheet: apple shopkeeper woman with dark low bun, rust shirt, cream apron, brown pants; child with black bob, mustard tie-neck tunic, brown shorts, low brown shoes; gray-haired gray-bearded craftsman navy shirt ochre apron; woman traveler sage green coat cream dress brown crossbody bag; man traveler rust jacket dark gray pants rolled brown backpack. Preserve these identities and attire. Do NOT copy the apple creature from the style reference into other scenes.\nLAYOUT: square white page with five equally-sized wide 16:9 black-bordered scene frames arranged two columns and three rows, final bottom-right cell empty white. Read left to right then downward. Short page heading at top. Only panel IDs below their frames, on white margin. No arrows, captions, callouts or English words INSIDE the scenes. Exactly five images, not six. These are five moments in ONE continuous shot, preserve camera axis, lens, scale, world layout and prop identity. No cutting between wide and closeup. Make the changes in action unmistakable, while conserving all objects and people.\nImage 3 is old staging only. Heading \"V00 / C04 / 16-21s\". IDs B16 B17 B18 B19 B20.\nFixed medium three-quarter camera. Same gray-haired, gray-mustached and bearded craftsman in navy simple workshirt and ochre apron behind timber bench. One long wooden plank across bench front, one traditional Japanese rectangular WOODEN hand plane (kanna) with small dark blade embedded in wood, wood shavings on left. Timber workshop with glimpse of sunlit village beyond. Smooth sculpted 3D face, no drawn outlines.\nB16: craftsman confidently slides kanna flat along plank. Both hands safely grip WOODEN BODY, underside touching wood, fingers never on blade.\nB17: same plank/tool placement, hands stop mid-stroke, slight puzzled brow.\nB18: looking down at grip, fingers gently adjust wooden body while plane stays flat on plank.\nB19: looks between plane and wood, visibly cannot remember how to use it, hands still on safe wood body.\nB20: plane placed quietly on bench to the left of plank, hands withdraw and open, worried expression; both wood and tool stay intact.\nKeep same bench, same plank ends, same lighting and camera. One plane only, no axes/saws/power tools, no second floating plane, no blade held by hand, no broken wood.",
+      "userApproved": false,
+      "status": "selected; root-and-secondary-visual-review-complete; user-review-pending",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-47f19751-0bf3-485d-bf33-52a5bd4351fb.png"
+    },
+    {
+      "cut": "C05",
+      "supersedes": "assets/cinematics/storyboards/v00-v1/c05-b21-b25-v3.png",
+      "output": "assets/cinematics/storyboards/v00-v1/c05-b21-b25-3d-v4.png",
+      "references": [
+        "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+        "assets/cinematics/v00-reference-pack-v1/02-residents-cast-v1.png",
+        "assets/cinematics/storyboards/v00-v1/c05-b21-b25-v3.png"
+      ],
+      "prompt": "Use case: style-transfer.\nAsset type: one square storyboard review page for NIHON QUEST. Re-render scenes as a polished soft 3D animated-game miniature, NOT anime illustration.\nSTYLE AUTHORITY: reference image 1, the C06 child-and-apple storyboard. Match its rounded sculpted 3D bodies, solid dimensional faces, broad sculpted hair clumps, soft matte cloth, real contact shadows, warm morning sunlight, blue sky and gentle depth of field. Everything including background is fully rendered 3D. No ink contours, no painterly watercolor, no flat illustrated faces, no gritty photorealism, no glitter or ornate details.\nReference image 2 when provided is the five-person identity sheet: apple shopkeeper woman with dark low bun, rust shirt, cream apron, brown pants; child with black bob, mustard tie-neck tunic, brown shorts, low brown shoes; gray-haired gray-bearded craftsman navy shirt ochre apron; woman traveler sage green coat cream dress brown crossbody bag; man traveler rust jacket dark gray pants rolled brown backpack. Preserve these identities and attire. Do NOT copy the apple creature from the style reference into other scenes.\nLAYOUT: square white page with five equally-sized wide 16:9 black-bordered scene frames arranged two columns and three rows, final bottom-right cell empty white. Read left to right then downward. Short page heading at top. Only panel IDs below their frames, on white margin. No arrows, captions, callouts or English words INSIDE the scenes. Exactly five images, not six. These are five moments in ONE continuous shot, preserve camera axis, lens, scale, world layout and prop identity. No cutting between wide and closeup. Make the changes in action unmistakable, while conserving all objects and people.\nImage 3 is old staging only. Heading \"V00 / C05 / 21-26s\". IDs B21 B22 B23 B24 B25.\nFIXED medium-wide camera at village-edge fork, village timber roofs on left behind, trees on right. ONE vertical wooden signpost CENTER with exactly TWO opposing horizontal arrow boards. Sage-green-coated woman traveler LEFT, rust-jacketed male traveler RIGHT wearing rolled brown backpack. Rounded 3D cast from reference2.\nB21: both check post; top left-pointing arrow reads \"まち\", lower right-pointing arrow reads \"もり\". Storyboard placeholder lettering, no other signs.\nB22: writing still legible, woman points toward right road; man lifts one foot about to step toward it.\nB23: same lettering fades to barely visible gray; pointing hand hesitates and lifted foot stops mid-step; worried expressions.\nB24: both arrows now completely BLANK; woman's hand lowers; man sets foot down in same place, they turn toward one another, confused.\nB25: same TWO BLANK boards, both remain stalled, no progress along either path, quiet uncertainty.\nNo extra boards, no writing reappears, no extra person, no dramatic lighting/weather change. Do not make five different angles or insert closeups.",
+      "userApproved": false,
+      "status": "superseded-by-targeted-edit; initial-attempt-retained",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-57a5a81f-d24d-4b91-bb90-c2787aecb6c0.png"
+    },
+    {
+      "cut": "C07",
+      "supersedes": "assets/cinematics/storyboards/v00-v1/c07-b31-b35-v1.png",
+      "output": "assets/cinematics/storyboards/v00-v1/c07-b31-b35-links-3d-v2.png",
+      "references": [
+        "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png"
+      ],
+      "prompt": "Use case: stylized-concept.\nAsset type: a square storyboard page, FIVE moments of one continuous fixed shot for NIHON QUEST.\nPrimary request: replace an unreadable flat map diagram with a concrete understandable 3D scene: knowledge connections and a sea route vanish, leaving towns unable to connect. No maps or technical diagrams.\nReference image1 C06 is STYLE ONLY: match warm morning sun, smooth matte miniature 3D, rounded simple timber buildings and trees, blue sea, gentle depth of field. Do not add child or apple character.\nLayout square white page, heading \"V00 / C07 / 32-38s\". Five equally-sized 16:9 black-bordered panels, 2columns x3rows, bottom-right cell empty white. IDs BELOW frames on white: B31 B32 B33 B34 B35. No other words, no diagrams, no arrows.\nONE IDENTICAL FIXED elevated three-quarter 3D coastal diorama in every panel. Large foreground island on left with a small timber harbor village and wooden pier; a second small harbor settlement on right across a short narrow channel, another small cluster deeper inland on left. A winding real dirt road joins the two left settlements. A SINGLE small wooden passenger boat near left pier, bow pointing toward right shore. Shores, buildings, trees, real dirt road and piers stay completely intact at exactly same positions across all five. Frame close enough to read boat and villages, not a distant Japan map. No globe, no prefecture lines. This is a fictional miniature setting, not accurate named geography.\nStory sequence:\nB31: normal warm connected world. A clearly visible golden luminous trace follows the left dirt road and crosses the sea channel from left pier to right harbor, like a thin glowing ribbon laid onto the real road/water. One boat starts from left pier. No barriers.\nB32: middle of the overland luminous ribbon develops a clear LARGE dark gap. Underlying dirt road still intact. Boat slightly further from left pier. Sea ribbon still intact.\nB33: the golden ribbons fade out entirely along road AND sea. Roads, towns, water remain unchanged and unharmed. Boat near mid-channel, not at destination.\nB34: a tall thin translucent pale-blue curved curtain across the channel becomes visible ahead of boat, boat halts safely just before it. NO crash, NO sinking. Barrier is clearly distinct from normal blue water and blocks travel, not a wave.\nB35: same halted boat, same quiet translucent curtain across channel, no golden connections anywhere. Towns remain on same land, physically undamaged but disconnected. Hold.\nThe five images must have visibly different connectivity states without shrinking the scene or destroying terrain. Keep exact world layout and warm 3D art direction throughout. No fantasy castle, technology, monsters, villain, text overlay, flat graphics, English instructions or tiny map dots.",
+      "userApproved": false,
+      "status": "superseded-by-targeted-edit; initial-attempt-retained",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-94cb88d3-9398-4063-b571-03872090cf52.png"
+    },
+    {
+      "cut": "C08",
+      "supersedes": "assets/cinematics/storyboards/v00-v1/c08-b36-b39-v3.png",
+      "output": "assets/cinematics/storyboards/v00-v1/c08-b36-b39-notebook-3d-v4.png",
+      "references": [
+        "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png"
+      ],
+      "prompt": "Use case: stylized-concept.\nAsset type: square storyboard page of FOUR moments of one continuous shot for NIHON QUEST.\nPrimary request: an ordinary travel notebook's written memories disappear, leaving blank paper. Immediately readable, not a magical artifact or flying scraps.\nReference image1 C06 is STYLE ONLY: same warm sunlit matte miniature 3D, soft round material edges, subtle cloth/paper grain, real contact shadows; no painted illustration and no characters.\nLAYOUT: square white page, heading \"V00 / C08 / 38-44s\". Four wide 16:9 black-bordered scene frames arranged TWO columns TWO rows, with generous white margins. IDs below frames only: B36 B37 B38 B39. No other captions.\nIDENTICAL fixed three-quarter overhead CLOSE view of a small ordinary OPEN travel notebook centered on a timber desk, red-brown plain soft cover, ONE brass button clasp at outer right edge, two cream paper pages. No gold ornament. A simple graphite pencil beside notebook at left, a single loose blank page at right, positions fixed. Same angle/scale/lighting in all four. Show enough of notebook for book object to read clearly; marks visibly lie FLAT on paper.\nB36: both notebook pages visibly contain handwritten simple notes and sketches: on left one small pencil apple drawing and below it readable Japanese \"りんご 3こ\"; on right one simple hill/river route sketch and the short word \"かわ\". Gray graphite, all flat.\nB37: exact SAME markings at exact same positions become pale and partially erased; apple outline and words recognizably thinning; physical book remains solid.\nB38: almost all marks gone, only a faint part of apple outline and a few pale pencil strokes remain, no new writing.\nB39: BOTH pages fully BLANK cream paper, same notebook and desk unchanged. Hold on erased record.\nCRITICAL: no paper fragments, no floating letters, no shards, no chess pieces, no flying objects, no glows, no magical rays, no ink entering book, no mysterious hand/villain, no people. Text on early panel is storyboard cue only. Disappearance happens IN PLACE, on paper, and never reverses. This is a plain travel NOTEBOOK, not a lore object requiring explanation.",
+      "userApproved": false,
+      "status": "selected; root-and-secondary-visual-review-complete; user-review-pending",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-896fc18b-89d5-4129-a8bb-493671490950.png"
+    }
+  ],
+  "targetedEdits": [
+    {
+      "cut": "C07",
+      "output": "assets/cinematics/storyboards/v00-v1/c07-b31-b35-links-3d-v3.png",
+      "references": [
+        "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-94cb88d3-9398-4063-b571-03872090cf52.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Edit this existing storyboard page only. Preserve the beautiful soft matte 3D coastal diorama, FIVE panel grid, IDs B31-B35, typography, towns, camera and all scene composition.\nONE CRITICAL CORRECTION: B32 (top-right frame) currently has an explosion-like black crater/cloud on the dirt road. REMOVE the entire black cloud, black hole, sparks, smoke and any damage. Restore a complete normal continuous tan dirt road and normal grass/fence exactly like B31 in that spot. The ONLY change from B31 to B32 should be that a short middle segment of the GOLDEN GLOWING LINE is no longer glowing. It is a GAP IN LIGHT laid over an INTACT normal road, not a physical gap in land. Keep gold line before and after the gap and across the sea in B32. No dark particles, no black smoke, no explosion, no scorched ground, no portal.\nSECOND SMALL CORRECTION: B35 (bottom-left) is a held pose of B34 (middle-right), so keep the stopped boat and pale-blue sea curtain at the SAME world positions and scale as B34, with no boat traveling backwards and no curtain shifting closer. Towns and intact road remain unchanged.\nAll other frames B31/B33/B34 should be preserved. No arrows or captions. Output the full edited square storyboard page, not one crop.",
+      "status": "selected; root-and-secondary-visual-review-complete; user-review-pending",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-d7b90c7b-5772-496c-9353-bbfc123e6f60.png"
+    },
+    {
+      "cut": "C05",
+      "output": "assets/cinematics/storyboards/v00-v1/c05-b21-b25-3d-v5.png",
+      "references": [
+        "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-57a5a81f-d24d-4b91-bb90-c2787aecb6c0.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Make ONE small correction to this existing square five-panel storyboard page, preserving absolutely the 3D cast, layout, poses, background, heading, frame IDs, signpost and wood material.\nIn B24 (middle-right) and B25 (bottom-left), REMOVE ALL remaining faded Japanese lettering from BOTH wooden arrow boards. Currently there are ghostly traces; replace their traces with perfectly clean continuous natural wood grain. Both boards must be completely blank with absolutely no gray or indented letters, but boards remain intact.\nLeave B21 and B22 with readable \"まち\"/\"もり\" and B23 with fading text, unchanged. Keep the two worried travelers and their poses unchanged. Do not modify numbers or add panels. Return the whole page, same beautiful warm matte 3D rendering.",
+      "status": "selected; root-and-secondary-visual-review-complete; user-review-pending",
+      "generatedSource": "/Users/imamurakouma/.codex/generated_images/01a13a3a-7f72-7d20-845f-d95873fc8839/exec-93c1eef6-dc72-49a1-a77a-07d0d2ab1285.png"
+    }
+  ],
+  "knownRoughBoardLimitations": [
+    "C01 B03の道を教える指先方向は本番原画で調整する。",
+    "C04 B20で木材の位置に微差がある。完成連番として扱わない。",
+    "C05 B24〜25の文字はほぼ消えているが薄い字形の残りがある。本番では文字別レイヤーで完全消去する。",
+    "C07 B34〜35の船と結界に位置・サイズの差が残る。本番原画では同一画で保持する。",
+    "C08の枠は16:9未達。4コマの読みやすさを優先したラフで、本番16:9画角を別途確定する。"
+  ],
+  "selectedOutputs": [
+    {
+      "cut": "C01",
+      "file": "assets/cinematics/storyboards/v00-v1/c01-b01-b05-3d-v4.png"
+    },
+    {
+      "cut": "C02",
+      "file": "assets/cinematics/storyboards/v00-v1/c02-b06-b10-3d-v2.png"
+    },
+    {
+      "cut": "C03",
+      "file": "assets/cinematics/storyboards/v00-v1/c03-b11-b15-3d-v3.png"
+    },
+    {
+      "cut": "C04",
+      "file": "assets/cinematics/storyboards/v00-v1/c04-b16-b20-3d-v4.png"
+    },
+    {
+      "cut": "C05",
+      "file": "assets/cinematics/storyboards/v00-v1/c05-b21-b25-3d-v5.png"
+    },
+    {
+      "cut": "C07",
+      "file": "assets/cinematics/storyboards/v00-v1/c07-b31-b35-links-3d-v3.png"
+    },
+    {
+      "cut": "C08",
+      "file": "assets/cinematics/storyboards/v00-v1/c08-b36-b39-notebook-3d-v4.png"
+    }
+  ],
+  "verification": {
+    "status": "pass",
+    "selectedPages": 9,
+    "panels": 40,
+    "v00Seconds": 48,
+    "scripts": 35,
+    "shots": 182,
+    "totalSeconds": 1013,
+    "inlineGallery": "9 selected pages in order",
+    "oldAssets": "retained",
+    "terminology": "active scripts/plans use 旅のノート",
+    "images": [
+      {
+        "cut": "C01",
+        "file": "assets/cinematics/storyboards/v00-v1/c01-b01-b05-3d-v4.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "f86158e1a3be1f36abfe4632a6c4ff7f0a7ed81a2074810377eab68bad1764c2",
+        "pngCrcAndInflate": "pass"
+      },
+      {
+        "cut": "C02",
+        "file": "assets/cinematics/storyboards/v00-v1/c02-b06-b10-3d-v2.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "55e0a5d426db57927f9239c2f45808a12d913205f5b27a3f0d52986b406fd27c",
+        "pngCrcAndInflate": "pass"
+      },
+      {
+        "cut": "C03",
+        "file": "assets/cinematics/storyboards/v00-v1/c03-b11-b15-3d-v3.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "c93b99a1856a259e63f43e990c35731fc390cc759410849ce0791cc95f74f57b",
+        "pngCrcAndInflate": "pass"
+      },
+      {
+        "cut": "C04",
+        "file": "assets/cinematics/storyboards/v00-v1/c04-b16-b20-3d-v4.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "adacdbc55b52e719ded007271fc5a444d74e5128a76d1914d35f14c0e900c7b6",
+        "pngCrcAndInflate": "pass"
+      },
+      {
+        "cut": "C05",
+        "file": "assets/cinematics/storyboards/v00-v1/c05-b21-b25-3d-v5.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "9fe6112bf87bcab32d5f025735e854ab3c031f7a9b67d70cabcefc3d315992a9",
+        "pngCrcAndInflate": "pass"
+      },
+      {
+        "cut": "C06",
+        "file": "assets/cinematics/storyboards/v00-v1/c06-b26-b30-ringoron-v2.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "0539d384094e6cdd910e146a1caebdcc7b55130b2cf9b4dd74e8fd116152fa7d",
+        "pngCrcAndInflate": "pass"
+      },
+      {
+        "cut": "C07",
+        "file": "assets/cinematics/storyboards/v00-v1/c07-b31-b35-links-3d-v3.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "ca6a576f93c521192ba343d8ec48cd24e978a88ae58da4fabd5736a51a3a3d3d",
+        "pngCrcAndInflate": "pass"
+      },
+      {
+        "cut": "C08",
+        "file": "assets/cinematics/storyboards/v00-v1/c08-b36-b39-notebook-3d-v4.png",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "2ff46c7bc0bad5c06a978836880279a66ce844c715427736f5a9d81f868d3d7b",
+        "pngCrcAndInflate": "pass"
+      },
+      {
+        "cut": "C09",
+        "file": "assets/cinematics/storyboards/v00-v1/c09-b40-v2.png",
+        "width": 1800,
+        "height": 1800,
+        "sha256": "23a60b35b13ed19eef4b31acfe25f87704d1592e2ae34ba64c720fd864769f46",
+        "pngCrcAndInflate": "pass"
+      }
+    ],
+    "visualReview": "root plus read-only secondary reviewer; no additional major readability or identity failure",
+    "documentReview": "secondary read-only review passed: current C07/C08 descriptions synchronized; old diagram provenance explicitly historical",
+    "formatting": "pnpm exec prettier --check passed for eight root-edited cinematic documents and JSON files",
+    "runtimeTests": "not run: image and cinematic-document-only task; no runtime changes",
+    "appPreview": "requested opening V00_STORYBOARD_REVIEW.md; app returned queued, live panel rendering not verified",
+    "git": {
+      "branch": "codex/ui-polish-next",
+      "baseCommit": "d3570f30e67fdbfc910679f9c9786b731f31d9ef",
+      "commit": "not created; pre-existing dirty checkout preserved"
+    }
+  }
+}
