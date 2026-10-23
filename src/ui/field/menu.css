@@ -190,8 +190,8 @@
   align-items: center;
   gap: 6px;
   padding: 4px 8px;
-  border: 3px solid #14192d;
-  background: #18223b;
+  border: 2px solid #263759;
+  background: #111a31;
 }
 .nq-roadmap-period {
   display: grid;
@@ -209,11 +209,41 @@
   white-space: nowrap;
 }
 .nq-roadmap-period-range {
+  appearance: none;
   width: 100%;
   height: 48px;
   margin: 0;
   cursor: pointer;
-  accent-color: var(--nq-yellow);
+  background: transparent;
+}
+.nq-roadmap-period-range::-webkit-slider-runnable-track {
+  height: 10px;
+  border: 2px solid #0b0e19;
+  background: #31436b;
+  box-shadow: inset 0 2px 0 #1d2946;
+}
+.nq-roadmap-period-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px;
+  height: 30px;
+  margin-top: -12px;
+  border: 3px solid #513b2b;
+  border-radius: 3px;
+  background: var(--nq-yellow);
+  box-shadow: 0 4px 0 #2d211a;
+}
+.nq-roadmap-period-range::-moz-range-track {
+  height: 6px;
+  border: 2px solid #0b0e19;
+  background: #31436b;
+}
+.nq-roadmap-period-range::-moz-range-thumb {
+  width: 18px;
+  height: 26px;
+  border: 3px solid #513b2b;
+  border-radius: 3px;
+  background: var(--nq-yellow);
+  box-shadow: 0 4px 0 #2d211a;
 }
 .nq-roadmap-period-range:focus-visible {
   outline: 3px solid var(--nq-yellow);
@@ -392,9 +422,9 @@
   align-items: center;
   gap: 2px;
   padding: 3px;
-  border: 3px solid #0b0e19;
-  background: rgba(24, 34, 59, 0.94);
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.45);
+  border: 2px solid #263759;
+  background: rgba(11, 14, 25, 0.86);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.32);
 }
 .nq-roadmap-map-button {
   display: grid;
@@ -406,8 +436,8 @@
   font: inherit;
   font-size: 20px;
   cursor: pointer;
-  border: 2px solid #62739b;
-  background: #263759;
+  border: 2px solid #475a85;
+  background: #18223b;
 }
 .nq-roadmap-map-button:hover,
 .nq-roadmap-map-button:focus-visible {
@@ -483,6 +513,11 @@
   stroke-linejoin: round;
   filter: drop-shadow(0 3px 0 #775d2d) drop-shadow(0 0 4px rgba(255, 233, 137, 0.45));
 }
+.nq-roadmap-edge-active {
+  stroke: #fff1a8;
+  stroke-width: 11;
+  filter: drop-shadow(0 3px 0 #775d2d) drop-shadow(0 0 9px rgba(255, 233, 137, 0.72));
+}
 .nq-roadmap-edge-frontier {
   stroke: #9caed3;
   stroke-dasharray: 10 12;
@@ -517,6 +552,7 @@
   outline-offset: 4px;
 }
 .nq-roadmap-step {
+  position: relative;
   display: grid;
   place-items: center;
   width: 58px;
@@ -529,6 +565,15 @@
   box-shadow:
     0 4px 0 #2d211a,
     0 0 0 4px rgba(244, 229, 165, 0.16);
+}
+.nq-roadmap-selected .nq-roadmap-step::after {
+  position: absolute;
+  content: '';
+  inset: -10px;
+  border: 4px solid var(--nq-yellow);
+  border-radius: 5px;
+  box-shadow: 0 0 12px rgba(255, 214, 77, 0.72);
+  transform: rotate(45deg);
 }
 .nq-roadmap-cleared .nq-roadmap-step {
   color: #513b00;
@@ -543,13 +588,21 @@
     0 0 12px rgba(131, 221, 244, 0.65);
 }
 .nq-roadmap-current .nq-roadmap-step {
+  width: 68px;
+  height: 68px;
   color: #fff;
+  border-color: #fff1a8;
   background: var(--nq-roadmap-subject);
+  background: color-mix(in srgb, var(--nq-roadmap-subject) 68%, #fff);
   box-shadow:
     0 4px 0 #2d211a,
     0 0 0 5px rgba(255, 255, 255, 0.32),
     0 0 18px var(--nq-roadmap-subject);
   animation: nq-wmap-blink 1s steps(2) infinite;
+}
+.nq-roadmap-selected .nq-roadmap-node-name {
+  color: var(--nq-yellow);
+  text-shadow: 0 2px 0 #0b0e19;
 }
 .nq-roadmap-locked {
   opacity: 0.72;
@@ -639,6 +692,109 @@
   display: block;
   height: 100%;
   background: var(--nq-roadmap-subject);
+}
+.nq-roadmap-selection {
+  position: absolute;
+  z-index: 6;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  display: grid;
+  min-height: 82px;
+  padding: 8px 10px;
+  align-items: center;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  gap: 10px;
+  color: #fff;
+  border: 3px solid #6e80aa;
+  background: rgba(17, 26, 49, 0.96);
+  box-shadow:
+    0 5px 0 rgba(6, 9, 18, 0.86),
+    inset 0 0 0 2px #263759;
+}
+.nq-roadmap-selection::before {
+  position: absolute;
+  content: '';
+  top: -3px;
+  bottom: -3px;
+  left: -3px;
+  width: 8px;
+  background: var(--nq-roadmap-subject);
+  box-shadow: 0 0 12px var(--nq-roadmap-subject);
+}
+.nq-roadmap-selection-marker {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: #16213e;
+  font-size: 22px;
+  border: 3px solid #513b2b;
+  border-radius: 50%;
+  background: var(--nq-yellow);
+  box-shadow: 0 3px 0 #2d211a;
+}
+.nq-roadmap-selection-copy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+.nq-roadmap-selection-state {
+  color: var(--nq-yellow);
+  font-size: 13px;
+  line-height: 16px;
+}
+.nq-roadmap-selection-name {
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 22px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.nq-roadmap-selection-meta {
+  display: flex;
+  gap: 12px;
+  color: #bfcbea;
+  font-size: 13px;
+  line-height: 16px;
+}
+.nq-roadmap-practice {
+  min-width: 156px;
+  min-height: 52px;
+  padding: 4px 12px;
+  color: #16213e;
+  font: inherit;
+  font-size: 17px;
+  cursor: pointer;
+  border: 3px solid #513b2b;
+  background: var(--nq-yellow);
+  box-shadow: 0 4px 0 #2d211a;
+}
+.nq-roadmap-practice:hover,
+.nq-roadmap-practice:focus-visible {
+  color: #111525;
+  outline: 4px solid #fff;
+  outline-offset: 2px;
+  background: #fff1a8;
+}
+.nq-roadmap-map-shell[data-zoom-detail='overview'] .nq-roadmap-node-name,
+.nq-roadmap-map-shell[data-zoom-detail='overview'] .nq-roadmap-node-tags,
+.nq-roadmap-map-shell[data-zoom-detail='overview'] .nq-roadmap-meter {
+  visibility: hidden;
+}
+.nq-roadmap-map-shell[data-zoom-detail='overview'] .nq-roadmap-step {
+  transform: scale(2.1);
+  transform-origin: top center;
+}
+.nq-roadmap-map-shell[data-zoom-detail='overview'] .nq-roadmap-current .nq-roadmap-step,
+.nq-roadmap-map-shell[data-zoom-detail='overview'] .nq-roadmap-selected .nq-roadmap-step {
+  transform: scale(2.45);
+}
+.nq-roadmap-map-shell[data-zoom-detail='overview'] .nq-roadmap-edge {
+  stroke-width: 18;
+}
+.nq-roadmap-map-shell[data-zoom-detail='overview'] .nq-roadmap-edge-active {
+  stroke-width: 24;
 }
 .nq-roadmap-help {
   position: static;

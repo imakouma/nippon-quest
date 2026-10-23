@@ -24,6 +24,13 @@ function marker(node: RoadmapNode): string {
 
 const clampZoom = (value: number) => Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, value));
 
+function questState(node: RoadmapNode): string {
+  if (node.state === 'current') return t('field.roadmapQuestCurrent');
+  if (node.state === 'review') return t('field.roadmapQuestReview');
+  if (node.state === 'cleared') return t('field.roadmapQuestCleared');
+  return t('field.roadmapQuestOpen');
+}
+
 export function RoadmapGraph({
   nodes,
   onSelect,
@@ -64,6 +71,15 @@ export function RoadmapGraph({
     nodes.find((node) => node.state === 'current') ??
     nodes.find((node) => node.visibility === 'revealed' && node.state === 'open') ??
     nodes.find((node) => node.visibility === 'revealed');
+  const selectableFocusNode =
+    focusNode?.visibility === 'revealed' && focusNode.state !== 'locked'
+      ? focusNode
+      : nodes.find((node) => node.visibility === 'revealed' && node.state !== 'locked');
+  const [selectedId, setSelectedId] = useState(selectableFocusNode?.id ?? '');
+  const selectedNode =
+    nodes.find(
+      (node) => node.id === selectedId && node.visibility === 'revealed' && node.state !== 'locked',
+    ) ?? selectableFocusNode;
 
   const clampPan = (next: Point, atZoom: number): Point => {
     const viewport = viewportRef.current;
@@ -100,6 +116,10 @@ export function RoadmapGraph({
   useEffect(() => {
     centerOnFocus(1);
   }, [focusNode?.id, offsetX, offsetY, width, height]);
+
+  useEffect(() => {
+    if (selectedNode?.id !== selectedId) setSelectedId(selectedNode?.id ?? '');
+  }, [selectedId, selectedNode?.id]);
 
   if (!nodes.length) return <RubyLabel text={t('field.roadmapEmpty')} />;
 
@@ -241,7 +261,7 @@ export function RoadmapGraph({
   };
 
   return (
-    <div class="nq-roadmap-map-shell">
+    <div class="nq-roadmap-map-shell" data-zoom-detail={zoom < 0.5 ? 'overview' : 'detail'}>
       <div class="nq-roadmap-map-tools" role="group" aria-label={displayText(t('field.roadmapZoomTools'))}>
         <button
           type="button"
@@ -300,10 +320,11 @@ export function RoadmapGraph({
               const bend = Math.max(32, (y2 - y1) / 2);
               const hidden = source.visibility === 'hidden' || target.visibility === 'hidden';
               const frontier = source.visibility === 'frontier' || target.visibility === 'frontier';
+              const active = source.id === selectedNode?.id || target.id === selectedNode?.id;
               return (
                 <path
                   key={`${source.id}->${target.id}`}
-                  class={`nq-roadmap-edge${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}`}
+                  class={`nq-roadmap-edge${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}${active ? ' nq-roadmap-edge-active' : ''}`}
                   d={`M ${x1} ${y1} C ${x1} ${y1 + bend}, ${x2} ${y2 - bend}, ${x2} ${y2}`}
                 />
               );
@@ -325,18 +346,21 @@ export function RoadmapGraph({
 
             const fogged = node.visibility === 'frontier';
             const label = fogged ? t('field.roadmapFog') : node.name;
+            const selected = node.id === selectedNode?.id;
             return (
               <button
                 key={node.id}
                 ref={node.id === focusNode?.id ? focusRef : undefined}
                 type="button"
-                class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}`}
+                class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}${selected ? ' nq-roadmap-selected' : ''}`}
                 style={{ left: pos.x, top: pos.y }}
                 aria-label={displayText(label)}
+                aria-current={node.state === 'current' ? 'step' : undefined}
+                aria-pressed={fogged || node.state === 'locked' ? undefined : selected}
                 disabled={fogged || node.state === 'locked'}
                 onClick={() => {
                   playSfx('select');
-                  onSelect(node.id);
+                  setSelectedId(node.id);
                 }}
                 title={
                   fogged ? displayText(label) : `${displayText(node.name)} ${Math.round(node.mastery * 100)}%`
@@ -372,6 +396,39 @@ export function RoadmapGraph({
           })}
         </div>
       </div>
+      {selectedNode && (
+        <aside
+          class={`nq-roadmap-selection nq-roadmap-selection-${selectedNode.state}`}
+          aria-label={displayText(t('field.roadmapSelection'))}
+        >
+          <span class="nq-roadmap-selection-marker" aria-hidden="true">
+            {marker(selectedNode)}
+          </span>
+          <span class="nq-roadmap-selection-copy">
+            <RubyLabel text={questState(selectedNode)} class="nq-roadmap-selection-state" />
+            <RubyLabel text={selectedNode.name} class="nq-roadmap-selection-name" />
+            <span class="nq-roadmap-selection-meta">
+              <RubyLabel text={t('field.roadmapGradeName', { n: selectedNode.grade })} />
+              <RubyLabel
+                text={t('field.roadmapQuestMastery', {
+                  percent: Math.round(selectedNode.mastery * 100),
+                })}
+              />
+            </span>
+          </span>
+          <button
+            type="button"
+            class="nq-roadmap-practice"
+            onClick={() => {
+              playSfx('select');
+              onSelect(selectedNode.id);
+            }}
+          >
+            <RubyLabel text={t('field.roadmapQuestStart')} />
+            <span aria-hidden="true"> ▶</span>
+          </button>
+        </aside>
+      )}
     </div>
   );
 }

@@ -351,7 +351,7 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.querySelector('.nq-menu-home')).toBeNull();
   });
 
-  it('開いている単元を押すと、その単元の問題開始を通知する', async () => {
+  it('開いている単元を選び、主要ボタンを押したときだけ問題開始を通知する', async () => {
     const onRoadmapSelect = vi.fn();
     const container = await showRoadmap(onRoadmapSelect);
 
@@ -365,7 +365,39 @@ describe('学習ロードマップの単元選択', () => {
 
     await act(async () => unit!.click());
 
+    expect(onRoadmapSelect).not.toHaveBeenCalled();
+    expect(unit!.getAttribute('aria-pressed')).toBe('true');
+    const selection = container.querySelector<HTMLElement>('.nq-roadmap-selection')!;
+    expect(selection.textContent).toContain('10までのかず');
+    expect(selection.textContent).toContain('1ねん');
+    expect(selection.textContent).toContain('いまの もくひょう');
+
+    await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-practice')!.click());
+
     expect(onRoadmapSelect).toHaveBeenCalledWith('sansu.g1.kazu-10');
+  });
+
+  it('開いた直後は現在の単元を選び、別の単元へ選択を切り替えられる', async () => {
+    const onRoadmapSelect = vi.fn();
+    const container = await showRoadmap(onRoadmapSelect);
+
+    await act(async () => {
+      subjectButton(container, 'sansu').click();
+    });
+
+    const current = container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!;
+    expect(current.getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-selection')?.textContent).toContain('10までのかず');
+
+    const open = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-open')].find((button) =>
+      button.textContent?.includes('じき未設定'),
+    )!;
+    await act(async () => open.click());
+
+    expect(current.getAttribute('aria-pressed')).toBe('false');
+    expect(open.getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-selection')?.textContent).toContain('じき未設定');
+    expect(onRoadmapSelect).not.toHaveBeenCalled();
   });
 
   it('ロック中の単元は問題を開始できない', async () => {
@@ -487,6 +519,9 @@ describe('学習ロードマップの単元選択', () => {
 
     expect(value()).toContain('20%');
     expect(zoomOut.disabled).toBe(true);
+    expect(container.querySelector('.nq-roadmap-map-shell')?.getAttribute('data-zoom-detail')).toBe(
+      'overview',
+    );
   });
 
   it('端にある現在の単元も周囲の余白を使って画面中央へ戻せる', async () => {

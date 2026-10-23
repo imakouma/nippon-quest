@@ -87,7 +87,14 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(allSubjectsOverview).toContainText('つぎ：');
   await page.getByRole('button', { name: /^さんすう・いまは/ }).click();
   await expect(roadmap).toContainText('10までのかず');
+  const selection = page.locator('.nq-roadmap-selection');
+  const currentUnit = page.getByRole('button', { name: '10までのかず' });
+  await expect(selection).toContainText('いまの もくひょう');
+  await expect(selection).toContainText('10までのかず');
+  await expect(currentUnit).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.nq-roadmap-practice')).toBeVisible();
   const map = page.locator('.nq-roadmap-map');
+  const mapShell = page.locator('.nq-roadmap-map-shell');
   const canvas = page.locator('.nq-roadmap-canvas');
   const zoom = page.locator('.nq-roadmap-zoom-value');
   const reset = page.locator('.nq-roadmap-reset');
@@ -100,8 +107,11 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   for (let step = 0; step < 4; step += 1) await zoomOut.click();
   await expect(zoom).toHaveText('20%');
   await expect(zoomOut).toBeDisabled();
+  await expect(mapShell).toHaveAttribute('data-zoom-detail', 'overview');
+  await expect(currentUnit.locator('.nq-roadmap-node-name')).toBeHidden();
   await page.screenshot({ path: testInfo.outputPath('learning-roadmap-20-percent.png') });
   await reset.click();
+  await expect(mapShell).toHaveAttribute('data-zoom-detail', 'detail');
   const [mapBox, currentNodeBox] = await Promise.all([
     map.boundingBox(),
     page.getByRole('button', { name: '10までのかず' }).boundingBox(),
