@@ -36,7 +36,7 @@ Constraints: Phaser + Preact, existing pixel-RPG palette, RubyText, keyboard/tou
 - Adapt: 小学生向けに大きい押下領域、文字量を減らしたラベル、状態を色だけに依存しない記号、霧による段階開示。
 - Reject: 一画面への全ラベル詰め込み、固定の一本線、他作品の固有アイコン・文言・レイアウトの複製。
 
-### Proposed visual target refinement (2026-10-23, pending approval)
+### Approved visual target refinement (2026-10-23)
 
 今回の添付画像を、見た目の装飾ではなく「ツリーの読み方」の一次参照にする。
 
@@ -162,9 +162,9 @@ Visibility is independent from learning state:
 - `expert-reviewed` は教員・教材監修者による確認後だけ設定する。
 - 構造検査が通っても学術監修済みとは表示しない。未監修の関係は監査レポートへ明示する。
 
-## Open Questions
+## Resolved Decisions
 
-承認時に次の前提を確定する。
+2026-10-23に次の前提で承認済み。
 
 1. 学習の進行方向は、添付画像に合わせて「下が基礎、上が発展」とする。
 2. 通常ノードの長い単元名は常時表示せず、現在地・選択中・フォーカス中と詳細パネルで表示する。
