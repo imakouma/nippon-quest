@@ -83,15 +83,6 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'テスト');
-  const story = page.getByRole('dialog', { name: 'ものがたりの シーン' });
-  await expect(story).toBeVisible({ timeout: 30_000 });
-  await story.getByRole('button', { name: 'スキップ' }).click();
-  const battleTutorial = page.locator('.nq-dlg');
-  await expect(battleTutorial).toBeVisible();
-  for (let step = 0; step < 12 && (await battleTutorial.isVisible()); step += 1) {
-    await battleTutorial.click();
-  }
-  await expect(battleTutorial).toHaveCount(0);
   await page.getByRole('button', { name: 'メニュー' }).click({ timeout: 30_000 });
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');

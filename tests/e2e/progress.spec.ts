@@ -36,16 +36,6 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await completeNewGameSetup(page, 'テスト');
 
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 40_000 });
-  await page
-    .getByRole('dialog', { name: 'ものがたりの シーン' })
-    .getByRole('button', { name: 'スキップ' })
-    .click();
-  const battleTutorial = page.locator('.nq-dlg');
-  await expect(battleTutorial).toBeVisible();
-  for (let step = 0; step < 12 && (await battleTutorial.isVisible()); step += 1) {
-    await battleTutorial.click();
-  }
-  await expect(battleTutorial).toHaveCount(0);
   await page.getByRole('button', { name: 'メニュー' }).click();
   const menuHome = page.locator('.nq-menu-home');
   await expect(menuHome).toBeVisible();

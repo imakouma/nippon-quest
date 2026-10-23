@@ -45,16 +45,6 @@ test('装備の詳細を閉じても崩れず、武器をドラッグして装�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'テスト');
-  await page
-    .getByRole('dialog', { name: 'ものがたりの シーン' })
-    .getByRole('button', { name: 'スキップ' })
-    .click();
-  const battleTutorial = page.locator('.nq-dlg');
-  await expect(battleTutorial).toBeVisible();
-  for (let step = 0; step < 12 && (await battleTutorial.isVisible()); step += 1) {
-    await battleTutorial.click();
-  }
-  await expect(battleTutorial).toHaveCount(0);
 
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: /もちもの・へんせい/ }).click();

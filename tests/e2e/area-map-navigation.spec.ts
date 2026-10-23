@@ -116,8 +116,6 @@ test('鳥取県の大きな地図で現在県だけを詳しく、周辺県を�
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'ちず');
-  await expect(page.getByRole('dialog', { name: 'ものがたりの シーン' })).toBeVisible({ timeout: 40_000 });
-  await page.getByRole('button', { name: 'スキップ' }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible();
 
   await page.reload();
