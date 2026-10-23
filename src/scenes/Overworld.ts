@@ -2656,7 +2656,7 @@ export class OverworldScene extends Phaser.Scene {
     return isLocalDevelopmentUrl(url, import.meta.env.DEV) || url.searchParams.has('dev');
   }
 
-  /** 開発者モード中：ぜんぶの 県・町・ダンジョン・島・名所へ ワープできる（セーブの counters の dev:all） */
+  /** 開発者モード中：全地域へ移動でき、教材ロードマップも全開放する（counters の dev:all）。 */
   private devAll(): boolean {
     return (this.gs()?.progress.counters[DEV_ALL_KEY] ?? 0) > 0;
   }
@@ -2787,7 +2787,6 @@ export class OverworldScene extends Phaser.Scene {
   private heroStats(gs: GameState) {
     return partyFromGameState(gs, this.content()!).hero.stats;
   }
-
   /** タブの 中身 */
   private menuView(tab: MenuTab): { entries: MenuEntry[]; summary?: string; empty: string } {
     const c = this.content()!;
@@ -2812,6 +2811,7 @@ export class OverworldScene extends Phaser.Scene {
       mastery: gs.learning.mastery,
       conceptStates: gs.learning.conceptStates,
       grandfatheredUnitIds: roadmapGrandfatheredUnitIds(gs),
+      revealAll: this.devAll(),
       playerGrade: gs.learning.grade,
       challengeHigher: gs.learning.challengeHigher,
       subjectLabel: (subject) => t(`subjects.${subject}`),

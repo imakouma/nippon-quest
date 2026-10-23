@@ -26,6 +26,7 @@ export interface RoadmapInput {
   curriculum?: CurriculumGraph;
   conceptStates?: ConceptStateData;
   grandfatheredUnitIds?: Iterable<string>;
+  revealAll?: boolean;
   now?: number;
   playerGrade: number;
   challengeHigher: boolean;
@@ -179,26 +180,28 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
         (state) => state.attempts > 0 && state.dueAt <= now && estimatedRetention(state, now) < 0.65,
       );
     const prerequisites = [...(prerequisiteIds.get(unit.id) ?? [])].sort();
-    const gradeOpen = unit.grade <= input.playerGrade || input.challengeHigher;
-    const prerequisitesOpen = prerequisites.every((id) => {
-      if (grandfatheredDisplayUnits.has(id)) return true;
-      const linkedIds = conceptsByUnit.get(id) ?? [];
-      const linked = linkedIds
-        .map((conceptId) => input.conceptStates?.[conceptId])
-        .filter((state) => state !== undefined);
-      if (linked.length > 0) {
-        const complete = linkedIds.length > 0 && linked.length === linkedIds.length;
-        const linkedMastery = average(linked.map((state) => state.understanding));
-        const linkedAttempts = linked.reduce((sum, state) => sum + state.attempts, 0);
-        return (
-          complete &&
-          ((linkedMastery >= 0.8 && linkedAttempts >= 3) ||
-            linked.every((state) => state.independentSuccesses >= 2))
-        );
-      }
-      const prerequisite = mergedMastery(id);
-      return prerequisite !== undefined && prerequisite.value >= 0.8 && prerequisite.n >= 3;
-    });
+    const gradeOpen = input.revealAll || unit.grade <= input.playerGrade || input.challengeHigher;
+    const prerequisitesOpen =
+      input.revealAll ||
+      prerequisites.every((id) => {
+        if (grandfatheredDisplayUnits.has(id)) return true;
+        const linkedIds = conceptsByUnit.get(id) ?? [];
+        const linked = linkedIds
+          .map((conceptId) => input.conceptStates?.[conceptId])
+          .filter((state) => state !== undefined);
+        if (linked.length > 0) {
+          const complete = linkedIds.length > 0 && linked.length === linkedIds.length;
+          const linkedMastery = average(linked.map((state) => state.understanding));
+          const linkedAttempts = linked.reduce((sum, state) => sum + state.attempts, 0);
+          return (
+            complete &&
+            ((linkedMastery >= 0.8 && linkedAttempts >= 3) ||
+              linked.every((state) => state.independentSuccesses >= 2))
+          );
+        }
+        const prerequisite = mergedMastery(id);
+        return prerequisite !== undefined && prerequisite.value >= 0.8 && prerequisite.n >= 3;
+      });
     return {
       id: unit.id,
       name: unit.name,
@@ -229,13 +232,15 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
 
   const byId = new Map(draft.map((node) => [node.id, node]));
   for (const node of draft)
-    node.blockedByNames = node.prerequisiteIds
-      .filter((id) => {
-        const prerequisite = byId.get(id);
-        return prerequisite?.state !== 'cleared' && prerequisite?.state !== 'review';
-      })
-      .map((id) => byId.get(id)?.name)
-      .filter((name): name is string => name !== undefined);
+    node.blockedByNames = input.revealAll
+      ? []
+      : node.prerequisiteIds
+          .filter((id) => {
+            const prerequisite = byId.get(id);
+            return prerequisite?.state !== 'cleared' && prerequisite?.state !== 'review';
+          })
+          .map((id) => byId.get(id)?.name)
+          .filter((name): name is string => name !== undefined);
   const firstOpen = new Set<string>();
   for (const node of draft) {
     if (node.state !== 'open' || firstOpen.has(node.subject)) continue;
@@ -243,7 +248,7 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     firstOpen.add(node.subject);
   }
 
-  const progressiveReveal = Boolean(input.curriculum);
+  const progressiveReveal = Boolean(input.curriculum) && !input.revealAll;
   for (const node of draft) {
     if (!progressiveReveal || node.state !== 'locked' || node.attempts > 0) {
       node.visibility = 'revealed';

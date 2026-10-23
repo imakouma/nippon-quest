@@ -222,6 +222,35 @@ describe('buildRoadmapNodes', () => {
     });
   });
 
+  it('開発者モードでは全単元を名前付きで表示し、学年と前提に関係なく選択可能にする', () => {
+    const higherGradeUnits: Unit[] = graphUnits.map((unit, index) => ({
+      ...unit,
+      grade: index < 2 ? 1 : 6,
+    }));
+    const higherGradeGraph: CurriculumGraph = {
+      ...curriculum,
+      concepts: curriculum.concepts.map((concept, index) => ({
+        ...concept,
+        grade: index < 2 ? 1 : 6,
+      })),
+    };
+
+    const nodes = buildRoadmapNodes({
+      units: higherGradeUnits,
+      curriculum: higherGradeGraph,
+      conceptStates: {},
+      mastery: {},
+      playerGrade: 1,
+      challengeHigher: false,
+      revealAll: true,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.every((node) => node.visibility === 'revealed')).toBe(true);
+    expect(nodes.every((node) => node.state !== 'locked')).toBe(true);
+    expect(nodes.every((node) => node.blockedByNames?.length === 0)).toBe(true);
+  });
+
   it('同じ入力から安定した分岐レイアウト座標を作る', () => {
     const input = {
       units: graphUnits,
