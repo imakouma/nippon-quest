@@ -61,6 +61,7 @@ export function SaveSlotSelect({
             key={slot.slot}
             type="button"
             disabled={mode === 'continue' && !slot.exists}
+            onPointerEnter={(event) => event.currentTarget.focus({ preventScroll: true })}
             onClick={() => onPick(slot.slot)}
           >
             <strong>{t('saveSlots.slot', { n: slot.slot })}</strong>
