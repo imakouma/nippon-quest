@@ -194,45 +194,18 @@
     {
       "from": "sansu.g1.legacy.number-basics",
       "to": "sansu.g1.legacy.addition-within-ten",
-      "kind": "prerequisite",
-      "strength": 0.8,
-      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "10までの数の構成を、加法の意味や計算へ生かす。加法と減法は互いを前提にせず並行して学べるため、解放条件にはしない。",
       "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
       "reviewStatus": "source-checked"
     },
     {
-      "from": "sansu.g1.legacy.addition-within-ten",
+      "from": "sansu.g1.legacy.number-basics",
       "to": "sansu.g1.legacy.subtraction-within-ten",
-      "kind": "prerequisite",
-      "strength": 0.8,
-      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
-      "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "sansu.g1.legacy.subtraction-within-ten",
-      "to": "sansu.g1.legacy.numbers-to-twenty",
-      "kind": "prerequisite",
-      "strength": 0.8,
-      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
-      "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "sansu.g1.legacy.numbers-to-twenty",
-      "to": "sansu.g1.legacy.carrying-borrowing",
-      "kind": "prerequisite",
-      "strength": 0.8,
-      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
-      "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "sansu.g1.legacy.carrying-borrowing",
-      "to": "sansu.g1.legacy.numbers-to-one-twenty",
-      "kind": "prerequisite",
-      "strength": 0.8,
-      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "10までの数の構成を、減法の意味や計算へ生かす。加法の習得を減法の必須条件にはしない。",
       "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
       "reviewStatus": "source-checked"
     },
