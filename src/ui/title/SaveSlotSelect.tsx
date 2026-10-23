@@ -78,7 +78,6 @@ export function SaveSlotSelect({
           </button>
         ))}
       </div>
-      <p class="nq-save-slots-hint">{t('saveSlots.keyboardHint')}</p>
       <button type="button" class="nq-save-slots-back" onClick={onCancel}>
         {t('ui.back')}
       </button>
