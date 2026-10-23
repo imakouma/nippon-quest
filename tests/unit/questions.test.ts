@@ -72,6 +72,14 @@ describe('QuestionBank', () => {
     expect(questions.every((question) => question.grade === 1)).toBe(true);
   });
 
+  it('1年生の旧問題は表示材料不足を通常警告へ残さず、復元不能分だけ明示的に隔離する', async () => {
+    const questions = (await read('questions/legacy/sansu/g1.json')) as QuestionBase[];
+    const { report } = await QuestionBank.load(['questions/legacy/sansu/g1.json'], async () => questions);
+
+    expect(report.omitted).toBe(0);
+    expect(report).toMatchObject({ quarantined: 13 });
+  });
+
   it('式も図もない旧入力問題を出題候補へ入れない', async () => {
     const broken = q('broken.0001', {
       type: 'text-input',
@@ -87,6 +95,30 @@ describe('QuestionBank', () => {
     expect(bank.all().map((question) => question.id)).toEqual(['playable.0001']);
     expect(report.omitted).toBe(1);
     expect(report.skipped).toEqual([]);
+  });
+
+  it('出典欠損を確認済みの旧問題は通常の表示材料不足と区別して隔離する', async () => {
+    const quarantined = q('legacy.quarantined.0001', {
+      type: 'text-input',
+      tags: ['source:legacy-autonomy-game', 'runtime:quarantined-missing-context'],
+      payload: { prompt: 'つぎの けいさんを しましょう。', answers: ['10'] },
+    });
+    const unexpected = q('modern.broken.0001', {
+      type: 'text-input',
+      tags: ['runtime:quarantined-missing-context'],
+      payload: { prompt: 'つぎの けいさんを しましょう。', answers: ['8'] },
+    });
+
+    const playable = q('playable.0002');
+    const { bank, report } = await QuestionBank.load(['legacy.json'], async () => [
+      quarantined,
+      unexpected,
+      playable,
+    ]);
+
+    expect(bank.all().map((question) => question.id)).toEqual(['playable.0002']);
+    expect(report.omitted).toBe(1);
+    expect(report).toMatchObject({ quarantined: 1 });
   });
 
   it('_samples は既定で除外される', async () => {

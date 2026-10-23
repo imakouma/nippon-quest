@@ -6,6 +6,7 @@ import { h, render } from 'preact';
 import { act } from 'preact/test-utils';
 import type { RoadmapNode } from '../../src/shared/menuModel';
 import { MenuOverlay } from '../../src/ui/field/MenuOverlay';
+import { RoadmapGraph } from '../../src/ui/field/RoadmapGraph';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
 
 vi.mock('../../src/ui/sfx', () => ({ playSfx: vi.fn() }));
@@ -460,6 +461,28 @@ describe('学習ロードマップの単元選択', () => {
     );
   });
 
+  it('選択中の進路だけを強調し、ほかの前提線は背景へ下げる', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    const chain: RoadmapNode[] = [
+      nodes.find((node) => node.id === 'sansu.g1.kazu-10')!,
+      {
+        ...nodes.find((node) => node.id === 'sansu.g2.kakezan')!,
+        visibility: 'revealed',
+        state: 'open',
+      },
+      {
+        ...nodes.find((node) => node.id === 'sansu.g3.warizan')!,
+        prerequisiteIds: ['sansu.g2.kakezan'],
+        visibility: 'frontier',
+      },
+    ];
+    await act(async () => render(h(RoadmapGraph, { nodes: chain, onSelect: vi.fn() }), container));
+
+    expect(container.querySelectorAll('.nq-roadmap-edge-active').length).toBeGreaterThan(0);
+    expect(container.querySelectorAll('.nq-roadmap-edge-muted').length).toBeGreaterThan(0);
+  });
+
   it('学年とおすすめ時期を1本のバーで絞り込める', async () => {
     const container = await showRoadmap(vi.fn());
     const period = container.querySelector<HTMLInputElement>('.nq-roadmap-period-range')!;
@@ -567,7 +590,7 @@ describe('学習ロードマップの単元選択', () => {
     );
   });
 
-  it('端にある現在の単元も周囲の余白を使って画面中央へ戻せる', async () => {
+  it('端にある現在の単元も詳細パネルより上の中央へ戻せる', async () => {
     const container = await showRoadmap(vi.fn());
 
     await act(async () => {
@@ -579,11 +602,14 @@ describe('学習ロードマップの単元選択', () => {
       clientWidth: { configurable: true, value: 800 },
       clientHeight: { configurable: true, value: 300 },
     });
+    map.getBoundingClientRect = () => ({ top: 0, height: 300, width: 800 }) as unknown as DOMRect;
+    container.querySelector<HTMLElement>('.nq-roadmap-selection')!.getBoundingClientRect = () =>
+      ({ top: 200, height: 82, width: 776 }) as unknown as DOMRect;
 
     await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-reset')!.click());
 
     expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toContain(
-      'translate(312px, 64px)',
+      'translate(312px, 14px)',
     );
   });
 });

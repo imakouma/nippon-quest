@@ -41,8 +41,11 @@ export function RoadmapGraph({
 }) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const focusRef = useRef<HTMLButtonElement>(null);
+  const selectedNodeRef = useRef<HTMLButtonElement>(null);
+  const selectionRef = useRef<HTMLElement>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState<Point>({ x: 0, y: 0 });
+  const [recenterRequest, setRecenterRequest] = useState(0);
   const view = useRef({ zoom, pan });
   view.current = { zoom, pan };
   const drag = useRef({ pointerId: -1, x: 0, y: 0, panX: 0, panY: 0, moved: false });
@@ -89,41 +92,75 @@ export function RoadmapGraph({
     (node) => node.state === 'cleared' || node.state === 'review',
   ).length;
 
+  const visibleViewportHeight = (viewport: HTMLElement): number => {
+    const selectionElement =
+      selectionRef.current ?? viewport.parentElement?.querySelector<HTMLElement>('.nq-roadmap-selection');
+    if (!selectionElement) return viewport.clientHeight;
+    const viewportBox = viewport.getBoundingClientRect();
+    const selectionBox = selectionElement.getBoundingClientRect();
+    const scaleY = viewportBox.height ? viewport.clientHeight / viewportBox.height : 1;
+    return Math.max(0, (selectionBox.top - viewportBox.top) * scaleY);
+  };
+
   const clampPan = (next: Point, atZoom: number): Point => {
     const viewport = viewportRef.current;
     if (!viewport?.clientWidth || !viewport.clientHeight) return next;
     const scaledWidth = width * atZoom;
     const scaledHeight = height * atZoom;
-    const clampAxis = (value: number, viewportSize: number, canvasSize: number) =>
-      Math.max(viewportSize / 2 - canvasSize, Math.min(viewportSize / 2, value));
+    const clampAxis = (value: number, viewportCenter: number, canvasSize: number) =>
+      Math.max(viewportCenter - canvasSize, Math.min(viewportCenter, value));
     return {
-      x: clampAxis(next.x, viewport.clientWidth, scaledWidth),
-      y: clampAxis(next.y, viewport.clientHeight, scaledHeight),
+      x: clampAxis(next.x, viewport.clientWidth / 2, scaledWidth),
+      y: clampAxis(next.y, visibleViewportHeight(viewport) / 2, scaledHeight),
     };
   };
 
   const updateView = (nextZoom: number, nextPan: Point) => {
+    const viewport = viewportRef.current;
+    if (viewport) {
+      viewport.scrollLeft = 0;
+      viewport.scrollTop = 0;
+    }
     const clampedPan = clampPan(nextPan, nextZoom);
     view.current = { zoom: nextZoom, pan: clampedPan };
     setZoom(nextZoom);
     setPan(clampedPan);
   };
 
-  const centerOnFocus = (nextZoom: number) => {
+  const centerOnNode = (node: RoadmapNode, nextZoom: number) => {
     const viewport = viewportRef.current;
-    if (!viewport || !focusNode) return;
-    const target = position(focusNode);
-    const focusWidth = focusRef.current?.offsetWidth || NODE_W;
-    const focusHeight = focusRef.current?.offsetHeight || NODE_H;
+    if (!viewport) return;
+    const target = position(node);
+    const nodeElement =
+      node.id === focusNode?.id
+        ? focusRef.current
+        : node.id === selectedNode?.id
+          ? selectedNodeRef.current
+          : null;
+    const nodeWidth = nodeElement?.offsetWidth || NODE_W;
+    const nodeHeight = nodeElement?.offsetHeight || NODE_H;
+    const visibleHeight = visibleViewportHeight(viewport);
     updateView(nextZoom, {
-      x: viewport.clientWidth / 2 - (target.x + focusWidth / 2) * nextZoom,
-      y: viewport.clientHeight / 2 - (target.y + focusHeight / 2) * nextZoom,
+      x: viewport.clientWidth / 2 - (target.x + nodeWidth / 2) * nextZoom,
+      y: visibleHeight / 2 - (target.y + nodeHeight / 2) * nextZoom,
     });
+  };
+
+  const centerOnFocus = (nextZoom: number) => {
+    if (focusNode) centerOnNode(focusNode, nextZoom);
   };
 
   useEffect(() => {
     centerOnFocus(1);
   }, [focusNode?.id, offsetX, offsetY, width, height]);
+
+  useEffect(() => {
+    if (selectedNode) centerOnNode(selectedNode, view.current.zoom);
+  }, [selectedNode?.id]);
+
+  useEffect(() => {
+    if (recenterRequest > 0) centerOnFocus(1);
+  }, [recenterRequest]);
 
   useEffect(() => {
     if (selectedId && !selectedNode) setSelectedId(selectableFocusNode?.id ?? '');
@@ -165,7 +202,7 @@ export function RoadmapGraph({
 
   const resetView = () => {
     playSfx('move');
-    centerOnFocus(1);
+    setRecenterRequest((request) => request + 1);
   };
 
   const onPointerDown = (event: PointerEvent) => {
@@ -331,11 +368,12 @@ export function RoadmapGraph({
               const y2 = to.y + 25;
               const hidden = source.visibility === 'hidden' || target.visibility === 'hidden';
               const frontier = source.visibility === 'frontier' || target.visibility === 'frontier';
-              const active = source.id === selectedNode?.id || target.id === selectedNode?.id;
+              const active = !hidden && (source.id === selectedNode?.id || target.id === selectedNode?.id);
+              const muted = Boolean(selectedNode) && !active;
               return (
                 <path
                   key={`${source.id}->${target.id}`}
-                  class={`nq-roadmap-edge${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}${active ? ' nq-roadmap-edge-active' : ''}`}
+                  class={`nq-roadmap-edge${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}${active ? ' nq-roadmap-edge-active' : ''}${muted ? ' nq-roadmap-edge-muted' : ''}`}
                   d={`M ${x1} ${y1} L ${x2} ${y2}`}
                 />
               );
@@ -376,7 +414,7 @@ export function RoadmapGraph({
             return (
               <button
                 key={node.id}
-                ref={node.id === focusNode?.id ? focusRef : undefined}
+                ref={node.id === focusNode?.id ? focusRef : selected ? selectedNodeRef : undefined}
                 type="button"
                 class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}${selected ? ' nq-roadmap-selected' : ''}`}
                 style={{ left: pos.x, top: pos.y }}
@@ -423,6 +461,7 @@ export function RoadmapGraph({
       </div>
       {selectedNode && (
         <aside
+          ref={selectionRef}
           class={`nq-roadmap-selection nq-roadmap-selection-${selectedNode.state}`}
           aria-label={displayText(t('field.roadmapSelection'))}
         >

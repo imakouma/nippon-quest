@@ -30,7 +30,7 @@ async function expectEightStatsFit(page: Page) {
 
 test('新規ゲームから2Dロードマップを開き、セーブ後に同じスロットを続行できる', async ({ page }, testInfo) => {
   test.setTimeout(180_000);
-  await page.goto('/');
+  await page.goto('/?preview=roadmap-tree&resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 3/ }).click();
   await completeNewGameSetup(page, 'テスト');
@@ -103,7 +103,19 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(selection.locator('.nq-roadmap-prerequisites')).toContainText('0/1');
   await expect(selection.locator('.nq-roadmap-prerequisites')).toContainText('まだ');
   await expect(page.locator('.nq-roadmap-practice')).toHaveCount(0);
+  const [lockedMapBox, lockedNodeBox, lockedSelectionBox] = await Promise.all([
+    page.locator('.nq-roadmap-map').boundingBox(),
+    frontier.boundingBox(),
+    selection.boundingBox(),
+  ]);
+  expect(lockedMapBox).not.toBeNull();
+  expect(lockedNodeBox).not.toBeNull();
+  expect(lockedSelectionBox).not.toBeNull();
+  expect(
+    Math.abs(lockedNodeBox!.y + lockedNodeBox!.height / 2 - (lockedMapBox!.y + lockedSelectionBox!.y) / 2),
+  ).toBeLessThan(2);
   await page.screenshot({ path: testInfo.outputPath('learning-roadmap-locked-condition.png') });
+  await page.locator('.nq-roadmap-reset').click();
   await currentUnit.click();
   await expect(page.locator('.nq-roadmap-practice')).toBeVisible();
   const map = page.locator('.nq-roadmap-map');
@@ -125,17 +137,20 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await page.screenshot({ path: testInfo.outputPath('learning-roadmap-20-percent.png') });
   await reset.click();
   await expect(mapShell).toHaveAttribute('data-zoom-detail', 'detail');
-  const [mapBox, currentNodeBox] = await Promise.all([
+  const [mapBox, currentNodeBox, selectionBox] = await Promise.all([
     map.boundingBox(),
     page.getByRole('button', { name: '10までのかず' }).boundingBox(),
+    selection.boundingBox(),
   ]);
   expect(mapBox).not.toBeNull();
   expect(currentNodeBox).not.toBeNull();
+  expect(selectionBox).not.toBeNull();
   expect(
     Math.abs(currentNodeBox!.x + currentNodeBox!.width / 2 - (mapBox!.x + mapBox!.width / 2)),
   ).toBeLessThan(2);
+  const visibleMapBottom = selectionBox!.y;
   expect(
-    Math.abs(currentNodeBox!.y + currentNodeBox!.height / 2 - (mapBox!.y + mapBox!.height / 2)),
+    Math.abs(currentNodeBox!.y + currentNodeBox!.height / 2 - (mapBox!.y + visibleMapBottom) / 2),
   ).toBeLessThan(2);
 
   const beforeWheel = await canvas.getAttribute('style');

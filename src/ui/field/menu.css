@@ -469,7 +469,7 @@
   flex: 1;
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
+  overflow: clip;
   overscroll-behavior: contain;
   touch-action: none;
   user-select: none;
@@ -500,16 +500,12 @@
 }
 .nq-roadmap-edge {
   fill: none;
-  stroke: #f2dd83;
-  stroke-width: 4;
+  stroke: #8493b7;
+  stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 2px 0 #775d2d) drop-shadow(0 0 4px rgba(255, 233, 137, 0.45));
-}
-.nq-roadmap-edge-active {
-  stroke: #fff1a8;
-  stroke-width: 6;
-  filter: drop-shadow(0 2px 0 #775d2d) drop-shadow(0 0 8px rgba(255, 233, 137, 0.72));
+  opacity: 0.72;
+  filter: drop-shadow(0 2px 0 #29344f);
 }
 .nq-roadmap-edge-frontier {
   stroke: #9caed3;
@@ -520,6 +516,17 @@
   stroke: #586583;
   opacity: 0.24;
   filter: none;
+}
+.nq-roadmap-edge-muted:not(.nq-roadmap-edge-hidden) {
+  stroke: #6f7d9f;
+  opacity: 0.42;
+  filter: none;
+}
+.nq-roadmap-edge-active {
+  stroke: #fff1a8;
+  stroke-width: 6;
+  opacity: 1;
+  filter: drop-shadow(0 2px 0 #775d2d) drop-shadow(0 0 8px rgba(255, 233, 137, 0.72));
 }
 .nq-roadmap-node {
   position: absolute;
