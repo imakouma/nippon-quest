@@ -1,5 +1,5 @@
 /*
- * タイトル画面のメニュー。窓（.nq-win）と ♥（.nq-heart）は app.css の共通部品。
+ * タイトル画面のメニュー。
  * 文字は 12 / 24 / 36px（PixelMplus12 のマス目の倍数）。
  */
 .nq-title {
@@ -9,10 +9,10 @@
 }
 .nq-title-menu {
   position: absolute;
-  left: 400px;
+  left: 376px;
   top: 304px;
   box-sizing: border-box;
-  width: 320px;
+  width: 288px;
   height: 120px;
   padding: 8px 16px;
   display: flex;
@@ -24,7 +24,6 @@
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 8px;
   height: 48px;
   padding: 0 4px;
   background: transparent;
@@ -34,12 +33,15 @@
   text-align: left;
   cursor: pointer;
 }
-.nq-title-opt .nq-cur {
-  width: 28px;
-  font-size: 24px;
-}
 .nq-title-opt.nq-focus {
   color: var(--nq-yellow);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.nq-title-opt:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 .nq-title-opt.nq-off {
   color: #6b6f80;
