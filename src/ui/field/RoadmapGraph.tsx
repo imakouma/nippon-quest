@@ -300,14 +300,16 @@ export function RoadmapGraph({
               const y1 = from.y + 50;
               const x2 = to.x + NODE_W / 2;
               const y2 = to.y + 8;
-              const bend = Math.max(32, (y2 - y1) / 2);
               const hidden = source.visibility === 'hidden' || target.visibility === 'hidden';
               const frontier = source.visibility === 'frontier' || target.visibility === 'frontier';
               return (
-                <path
+                <line
                   key={`${kind}:${source.id}->${target.id}`}
                   class={`nq-roadmap-edge nq-roadmap-edge-${kind}${kind !== 'prerequisite' ? ' nq-roadmap-edge-supporting' : ''}${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}`}
-                  d={`M ${x1} ${y1} C ${x1} ${y1 + bend}, ${x2} ${y2 - bend}, ${x2} ${y2}`}
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
                 />
               );
             })}
