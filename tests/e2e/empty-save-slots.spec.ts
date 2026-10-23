@@ -58,6 +58,8 @@ test('ローカル確認URLで古いセーブを消し、3枠とも新規作成�
     'background-color',
     'rgb(49, 92, 148)',
   );
+  await slots.nth(1).hover();
+  await expect(slots.nth(1)).toHaveCSS('border-color', 'rgb(255, 212, 71)');
   for (let index = 0; index < 3; index += 1) {
     await expect(slots.nth(index)).toContainText('あたらしく はじめる');
     await expect(slots.nth(index)).not.toContainText(/Lv|★|うわがき/);

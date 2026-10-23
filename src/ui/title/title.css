@@ -131,9 +131,16 @@
   background: #18203a;
   font: inherit;
   text-align: left;
+  cursor: pointer;
+}
+.nq-save-slots > div > button:hover:not(:disabled),
+.nq-save-slots > div > button:focus-visible:not(:disabled) {
+  border-color: var(--nq-yellow);
+  box-shadow: inset 0 0 0 3px #fff3a3;
 }
 .nq-save-slots > div > button:disabled {
   opacity: 0.65;
+  cursor: not-allowed;
 }
 .nq-save-slots strong {
   color: var(--nq-yellow);
