@@ -7,6 +7,17 @@ import type { CurriculumGraph } from '../src/core/learning/model';
 
 const root = resolve(import.meta.dirname, '..');
 
+function numberArg(name: string): number | undefined {
+  const inline = process.argv.find((value) => value.startsWith(`${name}=`));
+  const index = process.argv.indexOf(name);
+  const raw = inline?.slice(name.length + 1) ?? (index >= 0 ? process.argv[index + 1] : undefined);
+  if (raw === undefined) return undefined;
+  const value = Number(raw);
+  if (!Number.isInteger(value) || value < 1 || value > 6)
+    throw new Error(`${name} は1〜6の整数で指定してください`);
+  return value;
+}
+
 function jsonFiles(dir: string): string[] {
   return readdirSync(dir).flatMap((name) => {
     const path = resolve(dir, name);
@@ -29,7 +40,19 @@ if (!merged.graph) throw new Error(merged.errors.join('\n'));
 const units = unitSchema
   .array()
   .parse(JSON.parse(readFileSync(resolve(root, 'content/units.json'), 'utf8')) as unknown);
-const report = buildCurriculumGraphQuality({ units, graph: merged.graph });
+const grade = numberArg('--grade');
+const maxGrade = numberArg('--max-grade');
+if (grade !== undefined && maxGrade !== undefined)
+  throw new Error('--grade と --max-grade は同時に指定できません');
+const grades =
+  grade !== undefined
+    ? [grade]
+    : maxGrade !== undefined
+      ? Array.from({ length: maxGrade }, (_, index) => index + 1)
+      : undefined;
+const report = buildCurriculumGraphQuality({ units, graph: merged.graph, grades });
+
+if (grades) console.log(`scope: grade ${grades.join(', ')}`);
 
 for (const [subject, quality] of Object.entries(report.bySubject))
   console.log(

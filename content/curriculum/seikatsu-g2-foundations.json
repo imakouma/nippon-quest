@@ -318,7 +318,89 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "seikatsu.g1.self.first-year-growth",
+      "to": "seikatsu.g2.seasons.spring-change",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "一年生で季節と自分の成長を振り返った経験を、二年生の春の変化を見付ける活動へつなぐ。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.living-things.observe-and-care",
+      "to": "seikatsu.g2.nature.vegetable-care",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "一年生で生き物を継続して世話した経験を、野菜の成長に合う世話と記録へ広げる。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.living-things.observe-and-care",
+      "to": "seikatsu.g2.nature.growth-care",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "一年生の飼育と観察を、生命や成長に着目した二年生の継続観察へ発展させる。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.school.safe-life",
+      "to": "seikatsu.g2.community.explore-safely",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "学校や通学路で安全に行動する経験を、安全な町探検の基礎とする。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.community.people-places",
+      "to": "seikatsu.g2.community.public-use",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "町探検で地域の場所と人々の関わりを調べた後、公共施設の働きと使い方へ学びを広げる。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2", "tokyo-shoseki-r6-seikatsu-g2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.nature.vegetable-care",
+      "to": "seikatsu.g2.communication.choose-method",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "野菜の世話と記録で得た発見を、相手に合う方法で伝える活動の題材とする。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.community.public-use",
+      "to": "seikatsu.g2.communication.choose-method",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "公共施設について調べたことを、相手に合う方法で伝える活動へつなぐ。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.nature.observe-record",
+      "to": "seikatsu.g2.communication.choose-method",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "生き物の成長を観察して記録したことを、相手に合う方法で伝える活動へつなぐ。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.communication.relate-exchange",
+      "to": "seikatsu.g2.self.growth-evidence",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "活動で伝え合った記録や作品を、自分の成長を見付ける証拠として振り返る。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "seikatsu.g2.spring.0001",

@@ -101,7 +101,62 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g1.script.katakana",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "片仮名は、平仮名の読み書きに慣れた後に段階的に扱う。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g1.reading.basic-comprehension",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "短い文を読んで順序や場面を捉えるために、平仮名を読めることを基礎とする。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.sound.syllable",
+      "to": "kokugo.g1.reading.basic-comprehension",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "音節と文字の対応への気付きが、語や短い文をまとまりとして読む基礎になる。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.reading.basic-comprehension",
+      "to": "kokugo.g1.expression.sequence-revision",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "順序を捉えて読む経験を、事柄の順序を考えて伝える活動へつなぐ。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.speaking-listening.basic-dialogue",
+      "to": "kokugo.g1.expression.sequence-revision",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "大切な事柄を選んで話し聞く経験を、順序よく伝える活動へつなぐ。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.writing.basic-format",
+      "to": "kokugo.g1.expression.sequence-revision",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "文の区切りと書き出しを使えることを、文章を読み直して整える基礎とする。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "kokugo.g1.katakana.0001",

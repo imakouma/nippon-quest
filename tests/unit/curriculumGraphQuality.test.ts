@@ -77,6 +77,19 @@ describe('curriculum graph quality', () => {
     expect(report.bySubject.kokugo?.isolated).toEqual(['kokugo.g2.read']);
   });
 
+  it('確認したい学年だけに限定して品質を集計できる', () => {
+    const report = buildCurriculumGraphQuality({ units, graph, grades: [1] });
+
+    expect(report.bySubject.sansu).toMatchObject({
+      units: 4,
+      edges: 4,
+      branches: 1,
+      merges: 1,
+      isolated: [],
+    });
+    expect(report.bySubject.kokugo).toBeUndefined();
+  });
+
   it('逆学年、教科横断、単元循環、重複関係を検出する', () => {
     const broken = structuredClone(graph);
     broken.relations.push(

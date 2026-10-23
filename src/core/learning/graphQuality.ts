@@ -20,10 +20,16 @@ export interface SubjectGraphQuality {
 }
 
 /** 前提関係を単元へ集約し、ロードマップとしての構造品質を測る。 */
-export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; graph: CurriculumGraph }) {
+export function buildCurriculumGraphQuality(input: {
+  units: readonly Unit[];
+  graph: CurriculumGraph;
+  grades?: readonly number[];
+}) {
+  const gradeScope = input.grades ? new Set(input.grades) : undefined;
   const allUnitIds = new Set(input.units.map((unit) => unit.id));
   const requiredUnits = new Map<string, Unit>();
   for (const unit of input.units) {
+    if (gradeScope && !gradeScope.has(unit.grade)) continue;
     if (!unit.courseKind || !isRequiredCourse({ ...unit, courseKind: unit.courseKind })) continue;
     const canonical = canonicalUnitId(unit.id);
     if (canonical !== unit.id && allUnitIds.has(canonical)) continue;
@@ -44,13 +50,14 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
   let unreviewedPrerequisites = 0;
 
   for (const relation of input.graph.relations) {
+    const from = conceptUnits.get(relation.from);
+    const to = conceptUnits.get(relation.to);
+    if (gradeScope && (!from || !to)) continue;
     const relationKey = `${relation.kind}:${relation.from}->${relation.to}`;
     if (relationKeys.has(relationKey)) duplicateRelations.push(relationKey);
     relationKeys.add(relationKey);
     if (relation.kind !== 'prerequisite') continue;
     if (relation.reviewStatus === 'draft') unreviewedPrerequisites++;
-    const from = conceptUnits.get(relation.from);
-    const to = conceptUnits.get(relation.to);
     if (!from || !to || from.id === to.id) continue;
     const edge = {
       from: from.id,
