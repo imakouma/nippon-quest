@@ -400,7 +400,7 @@ describe('学習ロードマップの単元選択', () => {
     expect(onRoadmapSelect).not.toHaveBeenCalled();
   });
 
-  it('ロック中の単元は問題を開始できない', async () => {
+  it('ロック中の単元を選ぶと、不足している前提条件を確認できるが問題は開始できない', async () => {
     const onRoadmapSelect = vi.fn();
     const container = await showRoadmap(onRoadmapSelect);
 
@@ -408,12 +408,20 @@ describe('学習ロードマップの単元選択', () => {
       subjectButton(container, 'sansu').click();
     });
     const locked = container.querySelector<HTMLButtonElement>('.nq-roadmap-frontier');
-    expect(locked?.disabled).toBe(true);
-    locked!.click();
+    expect(locked?.disabled).toBe(false);
+    expect(locked?.getAttribute('aria-disabled')).toBeNull();
+    expect(locked?.getAttribute('aria-label')).toContain('0/1');
+    await act(async () => locked!.click());
 
     expect(onRoadmapSelect).not.toHaveBeenCalled();
+    expect(locked!.getAttribute('aria-pressed')).toBe('true');
     expect(locked!.textContent).not.toContain('かけ算');
     expect(locked!.textContent).toContain('？');
+    const conditions = container.querySelector<HTMLElement>('.nq-roadmap-prerequisites');
+    expect(conditions?.textContent).toContain('0/1');
+    expect(conditions?.textContent).toContain('10までのかず');
+    expect(conditions?.textContent).toContain('まだ');
+    expect(container.querySelector('.nq-roadmap-practice')).toBeNull();
   });
 
   it('前提関係を接続線で描き、霧の向こうの単元名は読み上げない', async () => {
@@ -452,6 +460,21 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.querySelectorAll('.nq-roadmap-toolbar')).toHaveLength(1);
     expect(container.querySelector('.nq-roadmap-grade-row')).toBeNull();
     expect(container.querySelector('.nq-roadmap-term-row')).toBeNull();
+  });
+
+  it('学年で絞り込んでも、対象単元へつながる前提ノードと線を残す', async () => {
+    const container = await showRoadmap(vi.fn());
+    const period = container.querySelector<HTMLInputElement>('.nq-roadmap-period-range')!;
+
+    await act(async () => {
+      period.value = '5';
+      period.dispatchEvent(new Event('input', { bubbles: true }));
+      subjectButton(container, 'sansu').click();
+    });
+
+    expect(container.querySelectorAll('.nq-roadmap-node')).toHaveLength(2);
+    expect(container.querySelectorAll('.nq-roadmap-edge')).toHaveLength(1);
+    expect(container.textContent).toContain('10までのかず');
   });
 
   it('1・2年生では補助教材を教科一覧と必修進捗に含めない', async () => {
@@ -543,7 +566,7 @@ describe('学習ロードマップの単元選択', () => {
     await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-reset')!.click());
 
     expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toContain(
-      'translate(292px, 51px)',
+      'translate(312px, 64px)',
     );
   });
 });

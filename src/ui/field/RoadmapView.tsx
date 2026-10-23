@@ -70,6 +70,19 @@ export function RoadmapView({
   const activeSubject = subjects.some(([key]) => key === subject) ? subject : 'all';
   const shown =
     activeSubject === 'all' ? termNodes : termNodes.filter((node) => node.subject === activeSubject);
+  const shownIds = new Set(shown.map((node) => node.id));
+  const graphNodes =
+    activeSubject === 'all'
+      ? shown
+      : [
+          ...shown,
+          ...nodes.filter(
+            (node) =>
+              node.subject === activeSubject &&
+              !shownIds.has(node.id) &&
+              shown.some((target) => target.prerequisiteIds.includes(node.id)),
+          ),
+        ];
   const progressNodes =
     activeSubject === 'all' ? shown.filter((node) => node.courseKind !== 'supplementary') : shown;
   const completed = progressNodes.filter(isCompleted).length;
@@ -209,7 +222,7 @@ export function RoadmapView({
           })}
         </div>
       ) : (
-        <RoadmapGraph nodes={shown} onSelect={onSelect} />
+        <RoadmapGraph nodes={graphNodes} onSelect={onSelect} />
       )}
       <RubyLabel class="nq-wmap-keys nq-roadmap-help" text={t('field.roadmapLegend')} />
     </section>

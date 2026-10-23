@@ -5,8 +5,8 @@ import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 
-const NODE_W = 136;
-const NODE_H = 118;
+const NODE_W = 96;
+const NODE_H = 92;
 const MIN_ZOOM = 0.2;
 const MAX_ZOOM = 1.6;
 const ZOOM_STEP = 0.2;
@@ -25,6 +25,7 @@ function marker(node: RoadmapNode): string {
 const clampZoom = (value: number) => Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, value));
 
 function questState(node: RoadmapNode): string {
+  if (node.state === 'locked') return t('field.roadmapQuestLocked');
   if (node.state === 'current') return t('field.roadmapQuestCurrent');
   if (node.state === 'review') return t('field.roadmapQuestReview');
   if (node.state === 'cleared') return t('field.roadmapQuestCleared');
@@ -77,9 +78,15 @@ export function RoadmapGraph({
       : nodes.find((node) => node.visibility === 'revealed' && node.state !== 'locked');
   const [selectedId, setSelectedId] = useState(selectableFocusNode?.id ?? '');
   const selectedNode =
-    nodes.find(
-      (node) => node.id === selectedId && node.visibility === 'revealed' && node.state !== 'locked',
-    ) ?? selectableFocusNode;
+    nodes.find((node) => node.id === selectedId && node.visibility !== 'hidden') ?? selectableFocusNode;
+  const selectedPrerequisites = selectedNode
+    ? selectedNode.prerequisiteIds
+        .map((id) => byId.get(id))
+        .filter((node): node is RoadmapNode => node !== undefined)
+    : [];
+  const completedPrerequisites = selectedPrerequisites.filter(
+    (node) => node.state === 'cleared' || node.state === 'review',
+  ).length;
 
   const clampPan = (next: Point, atZoom: number): Point => {
     const viewport = viewportRef.current;
@@ -314,9 +321,9 @@ export function RoadmapGraph({
               const from = position(source);
               const to = position(target);
               const x1 = from.x + NODE_W / 2;
-              const y1 = from.y + 50;
+              const y1 = from.y + 25;
               const x2 = to.x + NODE_W / 2;
-              const y2 = to.y + 8;
+              const y2 = to.y + 25;
               const hidden = source.visibility === 'hidden' || target.visibility === 'hidden';
               const frontier = source.visibility === 'frontier' || target.visibility === 'frontier';
               const active = source.id === selectedNode?.id || target.id === selectedNode?.id;
@@ -346,6 +353,21 @@ export function RoadmapGraph({
             const fogged = node.visibility === 'frontier';
             const label = fogged ? t('field.roadmapFog') : node.name;
             const selected = node.id === selectedNode?.id;
+            const nodePrerequisites = node.prerequisiteIds
+              .map((id) => byId.get(id))
+              .filter((item): item is RoadmapNode => item !== undefined);
+            const nodeCompletedPrerequisites = nodePrerequisites.filter(
+              (item) => item.state === 'cleared' || item.state === 'review',
+            ).length;
+            const accessibleLabel =
+              node.state === 'locked' && nodePrerequisites.length > 0
+                ? `${displayText(label)} ${displayText(
+                    t('field.roadmapPrerequisiteProgress', {
+                      done: nodeCompletedPrerequisites,
+                      total: nodePrerequisites.length,
+                    }),
+                  )}`
+                : displayText(label);
             return (
               <button
                 key={node.id}
@@ -353,10 +375,9 @@ export function RoadmapGraph({
                 type="button"
                 class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}${selected ? ' nq-roadmap-selected' : ''}`}
                 style={{ left: pos.x, top: pos.y }}
-                aria-label={displayText(label)}
+                aria-label={accessibleLabel}
                 aria-current={node.state === 'current' ? 'step' : undefined}
-                aria-pressed={fogged || node.state === 'locked' ? undefined : selected}
-                disabled={fogged || node.state === 'locked'}
+                aria-pressed={selected}
                 onClick={() => {
                   playSfx('select');
                   setSelectedId(node.id);
@@ -414,18 +435,53 @@ export function RoadmapGraph({
                 })}
               />
             </span>
+            {selectedPrerequisites.length > 0 && (
+              <span class="nq-roadmap-prerequisites">
+                <RubyLabel
+                  text={t('field.roadmapPrerequisiteProgress', {
+                    done: completedPrerequisites,
+                    total: selectedPrerequisites.length,
+                  })}
+                  class="nq-roadmap-prerequisite-title"
+                />
+                <span class="nq-roadmap-prerequisite-list">
+                  {selectedPrerequisites.map((prerequisite) => {
+                    const done = prerequisite.state === 'cleared' || prerequisite.state === 'review';
+                    return (
+                      <span
+                        key={prerequisite.id}
+                        class={`nq-roadmap-prerequisite ${
+                          done ? 'nq-roadmap-prerequisite-done' : 'nq-roadmap-prerequisite-missing'
+                        }`}
+                      >
+                        <span aria-hidden="true">{done ? '✓' : '○'}</span>
+                        <RubyLabel text={prerequisite.name} />
+                        <RubyLabel
+                          text={t(
+                            done ? 'field.roadmapPrerequisiteDone' : 'field.roadmapPrerequisiteMissing',
+                          )}
+                          class="nq-roadmap-prerequisite-status"
+                        />
+                      </span>
+                    );
+                  })}
+                </span>
+              </span>
+            )}
           </span>
-          <button
-            type="button"
-            class="nq-roadmap-practice"
-            onClick={() => {
-              playSfx('select');
-              onSelect(selectedNode.id);
-            }}
-          >
-            <RubyLabel text={t('field.roadmapQuestStart')} />
-            <span aria-hidden="true"> ▶</span>
-          </button>
+          {selectedNode.state !== 'locked' && (
+            <button
+              type="button"
+              class="nq-roadmap-practice"
+              onClick={() => {
+                playSfx('select');
+                onSelect(selectedNode.id);
+              }}
+            >
+              <RubyLabel text={t('field.roadmapQuestStart')} />
+              <span aria-hidden="true"> ▶</span>
+            </button>
+          )}
         </aside>
       )}
     </div>

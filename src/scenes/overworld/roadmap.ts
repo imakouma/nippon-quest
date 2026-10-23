@@ -8,6 +8,7 @@ import {
 import { LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
 import type { MasteryData } from '../../questions/engine/mastery';
 import type { RoadmapNode } from '../../shared/menuModel';
+import { layoutRoadmapNodes } from './roadmapLayout';
 
 export { LEGACY_QUESTION_UNIT_ALIASES, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
 
@@ -161,51 +162,10 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     node.visibility = touchesRevealed || nextGradeRoot ? 'frontier' : 'hidden';
   }
 
-  layoutNodes(draft);
+  layoutRoadmapNodes(draft);
   return draft;
 }
 
 function average(values: readonly number[]): number {
   return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
-}
-
-/** 学年を縦の進行、同じ深さの分岐を横並びにする決定論的レイアウト。 */
-function layoutNodes(nodes: RoadmapNode[]): void {
-  for (const subject of new Set(nodes.map((node) => node.subject))) {
-    const subjectNodes = nodes.filter((node) => node.subject === subject);
-    const byId = new Map(subjectNodes.map((node) => [node.id, node]));
-    const depths = new Map<string, number>();
-    const visiting = new Set<string>();
-    const depthOf = (node: RoadmapNode): number => {
-      const known = depths.get(node.id);
-      if (known !== undefined) return known;
-      const gradeBase = (node.grade - 1) * 3;
-      if (visiting.has(node.id)) return gradeBase;
-      visiting.add(node.id);
-      const prerequisiteDepths = node.prerequisiteIds
-        .map((id) => byId.get(id))
-        .filter((item) => item !== undefined)
-        .map((item) => depthOf(item) + 1);
-      visiting.delete(node.id);
-      const depth = Math.max(gradeBase, ...prerequisiteDepths);
-      depths.set(node.id, depth);
-      return depth;
-    };
-    const levels = new Map<number, RoadmapNode[]>();
-    for (const node of subjectNodes) {
-      const depth = depthOf(node);
-      const level = levels.get(depth) ?? [];
-      level.push(node);
-      levels.set(depth, level);
-    }
-    const widest = Math.max(1, ...[...levels.values()].map((level) => level.length));
-    for (const [depth, level] of levels) {
-      level.sort((a, b) => a.grade - b.grade || a.id.localeCompare(b.id));
-      const inset = ((widest - level.length) * 180) / 2;
-      level.forEach((node, index) => {
-        node.x = 72 + inset + index * 180;
-        node.y = 64 + depth * 148;
-      });
-    }
-  }
 }

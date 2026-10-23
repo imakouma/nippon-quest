@@ -77,6 +77,7 @@ const graphUnits: Unit[] = [
   { id: 'sansu.g1.map-base', name: 'かず', subject: 'sansu', grade: 1 },
   { id: 'sansu.g1.map-add', name: 'たしざん', subject: 'sansu', grade: 1 },
   { id: 'sansu.g1.map-subtract', name: 'ひきざん', subject: 'sansu', grade: 1 },
+  { id: 'sansu.g1.map-shape', name: 'かたち', subject: 'sansu', grade: 1 },
   { id: 'sansu.g1.map-application', name: 'たしひきの おうよう', subject: 'sansu', grade: 1 },
   { id: 'sansu.g1.map-challenge', name: 'つぎの ちょうせん', subject: 'sansu', grade: 1 },
 ];
@@ -110,8 +111,10 @@ const curriculum: CurriculumGraph = {
   relations: [
     ['sansu.g1.map-base', 'sansu.g1.map-add'],
     ['sansu.g1.map-base', 'sansu.g1.map-subtract'],
+    ['sansu.g1.map-base', 'sansu.g1.map-shape'],
     ['sansu.g1.map-add', 'sansu.g1.map-application'],
     ['sansu.g1.map-subtract', 'sansu.g1.map-application'],
+    ['sansu.g1.map-shape', 'sansu.g1.map-application'],
     ['sansu.g1.map-application', 'sansu.g1.map-challenge'],
   ].map(([from, to]) => ({
     from: `${from}.concept`,
@@ -172,11 +175,12 @@ describe('buildRoadmapNodes', () => {
       mastery: {
         'sansu.g1.map-base': { value: 0.9, n: 3, lastAt: 1 },
         'sansu.g1.map-add': { value: 0.9, n: 3, lastAt: 2 },
+        'sansu.g1.map-subtract': { value: 0.9, n: 3, lastAt: 3 },
       },
     });
 
     expect(before.find((node) => node.id === 'sansu.g1.map-application')).toMatchObject({
-      prerequisiteIds: ['sansu.g1.map-add', 'sansu.g1.map-subtract'],
+      prerequisiteIds: ['sansu.g1.map-add', 'sansu.g1.map-shape', 'sansu.g1.map-subtract'],
       state: 'locked',
       visibility: 'frontier',
     });
@@ -187,6 +191,7 @@ describe('buildRoadmapNodes', () => {
         'sansu.g1.map-base': { value: 0.9, n: 3, lastAt: 1 },
         'sansu.g1.map-add': { value: 0.9, n: 3, lastAt: 2 },
         'sansu.g1.map-subtract': { value: 0.9, n: 3, lastAt: 3 },
+        'sansu.g1.map-shape': { value: 0.9, n: 3, lastAt: 4 },
       },
     });
 
@@ -237,6 +242,15 @@ describe('buildRoadmapNodes', () => {
     expect(first.map(({ id, x, y }) => ({ id, x, y }))).toEqual(second.map(({ id, x, y }) => ({ id, x, y })));
     expect(first.find((node) => node.id === 'sansu.g1.map-add')?.x).not.toBe(
       first.find((node) => node.id === 'sansu.g1.map-subtract')?.x,
+    );
+    expect(first.find((node) => node.id === 'sansu.g1.map-subtract')?.x).not.toBe(
+      first.find((node) => node.id === 'sansu.g1.map-shape')?.x,
+    );
+    expect(first.find((node) => node.id === 'sansu.g1.map-base')!.y).toBeGreaterThan(
+      first.find((node) => node.id === 'sansu.g1.map-add')!.y,
+    );
+    expect(first.find((node) => node.id === 'sansu.g1.map-application')!.y).toBeLessThan(
+      first.find((node) => node.id === 'sansu.g1.map-add')!.y,
     );
   });
 });
