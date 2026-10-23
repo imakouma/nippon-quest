@@ -110,6 +110,11 @@ describe('curriculum graph quality', () => {
     expect(report.reverseGradeEdges).toHaveLength(1);
     expect(report.unitCycles.length).toBeGreaterThan(0);
     expect(report.unreviewedPrerequisites).toBe(2);
+    expect(report.relationReviews).toEqual({
+      draft: 2,
+      sourceChecked: 5,
+      expertReviewed: 0,
+    });
   });
 
   it('非ロック関係も表示上の接続として数える', () => {

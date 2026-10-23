@@ -36,7 +36,7 @@ for (const [subject, quality] of Object.entries(report.bySubject))
     `${subject}: ${quality.units} units / ${quality.edges} visible edges (${quality.hardEdges} hard) / ${quality.branches} branches / ${quality.merges} merges (${quality.hardMerges} hard) / ${quality.isolated.length} isolated / ${quality.roots.length} roots`,
   );
 console.log(
-  `global: ${report.duplicateRelations.length} duplicate relations / ${report.crossSubjectEdges.length} cross-subject hard edges / ${report.reverseGradeEdges.length} reverse-grade hard edges / ${report.unitCycles.length} display cycles / ${report.prerequisiteCycles.length} hard cycles / ${report.unreviewedPrerequisites} draft prerequisites`,
+  `global: ${report.duplicateRelations.length} duplicate relations / ${report.crossSubjectEdges.length} cross-subject hard edges / ${report.reverseGradeEdges.length} reverse-grade hard edges / ${report.unitCycles.length} display cycles / ${report.prerequisiteCycles.length} hard cycles / ${report.unreviewedPrerequisites} draft prerequisites / relation reviews ${report.relationReviews.draft} draft, ${report.relationReviews.sourceChecked} source-checked, ${report.relationReviews.expertReviewed} expert-reviewed`,
 );
 
 if (process.argv.includes('--json')) console.log(JSON.stringify(report, null, 2));
@@ -56,5 +56,7 @@ if (process.argv.includes('--strict')) {
   if (report.unitCycles.length) failures.push(`表示単元循環 ${report.unitCycles.length}件`);
   if (report.prerequisiteCycles.length)
     failures.push(`ハードロック単元循環 ${report.prerequisiteCycles.length}件`);
+  if (report.unreviewedPrerequisites)
+    failures.push(`未確認のハードロック ${report.unreviewedPrerequisites}件`);
   if (failures.length) throw new Error(`ロードマップグラフ監査に失敗しました:\n${failures.join('\n')}`);
 }

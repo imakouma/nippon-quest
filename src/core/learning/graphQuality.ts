@@ -45,8 +45,12 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
   const prerequisiteEdges = new Map<string, CurriculumUnitEdge>();
   const displayEdges = new Map<string, CurriculumUnitEdge>();
   let unreviewedPrerequisites = 0;
+  const relationReviews = { draft: 0, sourceChecked: 0, expertReviewed: 0 };
 
   for (const relation of input.graph.relations) {
+    if (relation.reviewStatus === 'draft') relationReviews.draft++;
+    else if (relation.reviewStatus === 'source-checked') relationReviews.sourceChecked++;
+    else relationReviews.expertReviewed++;
     const relationKey = `${relation.kind}:${relation.from}->${relation.to}`;
     if (relationKeys.has(relationKey)) duplicateRelations.push(relationKey);
     relationKeys.add(relationKey);
@@ -108,6 +112,7 @@ export function buildCurriculumGraphQuality(input: { units: readonly Unit[]; gra
     unitCycles: findCycles(requiredUnits.keys(), outgoing),
     prerequisiteCycles: findCycles(requiredUnits.keys(), hardAdjacency.outgoing),
     unreviewedPrerequisites,
+    relationReviews,
   };
 }
 
