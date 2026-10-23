@@ -67,14 +67,69 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(roadmap).toBeVisible();
   const allSubjects = page.getByRole('button', { name: 'ぜんきょうか' });
   const allSubjectsOverview = page.locator('.nq-roadmap-overview');
+  const period = page.locator('.nq-roadmap-period-range');
   await expect(allSubjects).toHaveAttribute('aria-pressed', 'true');
   await expect(allSubjectsOverview).toBeVisible();
+  await expect(page.locator('.nq-roadmap-toolbar')).toBeVisible();
+  await expect(page.locator('.nq-roadmap-grade-row, .nq-roadmap-term-row')).toHaveCount(0);
+  await period.evaluate((input: HTMLInputElement) => {
+    input.value = '1';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  await expect(page.locator('.nq-roadmap-period-value')).toContainText('1ねん・1がっき');
+  await period.evaluate((input: HTMLInputElement) => {
+    input.value = '0';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  });
   for (const label of ['こくご', 'さんすう', 'りか', 'しゃかい', 'せいかつ', 'えいご']) {
     await expect(page.getByRole('button', { name: new RegExp(`^${label} `) })).toBeVisible();
   }
   await expect(allSubjectsOverview).toContainText('つぎ：');
-  await page.getByRole('button', { name: 'さんすう', exact: true }).click();
+  await page.getByRole('button', { name: /^さんすう・いまは/ }).click();
   await expect(roadmap).toContainText('10までのかず');
+  const map = page.locator('.nq-roadmap-map');
+  const canvas = page.locator('.nq-roadmap-canvas');
+  const zoom = page.locator('.nq-roadmap-zoom-value');
+  const reset = page.locator('.nq-roadmap-reset');
+  await expect(zoom).toHaveText('100%');
+  await page.locator('.nq-roadmap-zoom-in').click();
+  await expect(zoom).toHaveText('120%');
+  await reset.click();
+  await expect(zoom).toHaveText('100%');
+
+  const beforeWheel = await canvas.getAttribute('style');
+  await map.dispatchEvent('wheel', { deltaX: 32, deltaY: 48 });
+  await expect.poll(() => canvas.getAttribute('style')).not.toBe(beforeWheel);
+  await map.dispatchEvent('wheel', { ctrlKey: true, deltaY: -20, clientX: 240, clientY: 200 });
+  await expect(zoom).toHaveText('110%');
+  await reset.click();
+
+  await map.dispatchEvent('pointerdown', {
+    pointerId: 1,
+    pointerType: 'touch',
+    button: 0,
+    clientX: 180,
+    clientY: 200,
+  });
+  await map.dispatchEvent('pointerdown', {
+    pointerId: 2,
+    pointerType: 'touch',
+    button: 0,
+    clientX: 280,
+    clientY: 200,
+  });
+  await map.dispatchEvent('pointermove', {
+    pointerId: 2,
+    pointerType: 'touch',
+    clientX: 320,
+    clientY: 200,
+  });
+  await expect(zoom).toHaveText('140%');
+  await map.dispatchEvent('pointerup', { pointerId: 2, pointerType: 'touch' });
+  await map.dispatchEvent('pointerup', { pointerId: 1, pointerType: 'touch' });
+  await reset.click();
+  await expect(zoom).toHaveText('100%');
+  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-controls.png') });
   await allSubjects.click();
   await expect(allSubjectsOverview).toBeVisible();
   await page.setViewportSize({ width: 640, height: 540 });
