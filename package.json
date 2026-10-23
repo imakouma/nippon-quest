@@ -26,8 +26,10 @@
     "format": "prettier --write .",
     "pretest": "pnpm gen:manifest",
     "test": "vitest run",
+    "test:unit": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "pnpm test:e2e:app && pnpm test:e2e:progression && pnpm test:e2e:audit",
+    "test:e2e": "playwright test --grep-invert '全問題をバトル問題枠'",
+    "test:e2e:full": "playwright test",
     "test:e2e:app": "pnpm test:e2e:field && pnpm test:e2e:bag && pnpm test:e2e:battle && pnpm test:e2e:onboarding && pnpm test:e2e:tools && pnpm test:e2e:flows",
     "test:e2e:field": "playwright test tests/e2e/aomori-boss-distance.spec.ts tests/e2e/area-map-navigation.spec.ts",
     "test:e2e:bag": "playwright test tests/e2e/bag-interactions.spec.ts",
@@ -53,6 +55,8 @@
     "audit:assets": "tsx scripts/audit-assets.ts",
     "audit:academic-review": "tsx scripts/audit-academic-review.ts",
     "audit:academic-review:strict": "tsx scripts/audit-academic-review.ts --strict",
+    "academic-review:record": "tsx scripts/record-academic-review.ts",
+    "inventory:cinematics": "tsx scripts/inventory-cinematic-assets.ts",
     "audit:worldmap": "tsx scripts/audit-worldmap.ts",
     "audit:battle-balance": "tsx scripts/audit-battle-balance.ts",
     "import:legacy-questions": "tsx scripts/import-legacy-questions.ts",
@@ -64,7 +68,7 @@
     "scaffold:all-areas": "tsx scripts/scaffold-area.ts --all",
     "scaffold:maps": "tsx scripts/scaffold-maps.ts",
     "gen:terrain": "tsx scripts/gen-terrain.ts",
-    "check": "pnpm lint && pnpm check:architecture && pnpm audit:curriculum --strict && pnpm audit:curriculum-model --strict && pnpm audit:worldmap && pnpm test && pnpm validate:content && pnpm validate:curriculum-graph && pnpm build"
+    "check": "pnpm lint && pnpm check:architecture && pnpm gen:manifest && pnpm gen:schemas && pnpm audit:curriculum --strict && pnpm audit:curriculum-model --strict && pnpm audit:worldmap && pnpm test:unit && pnpm validate:content && pnpm validate:curriculum-graph && pnpm exec tsc --noEmit && pnpm exec vite build"
   },
   "dependencies": {
     "localforage": "^1.10.0",

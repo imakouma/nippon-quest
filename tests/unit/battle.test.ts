@@ -145,7 +145,6 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
     expect(statsAtLevel(base, growth, 200, 0.25)).toEqual(stats(856));
     expect(statsAtLevel(base, growth, 200)).toEqual(stats(1366));
   });
-
   it('score の表：1.0 = CRITICAL ×2.0 / 0.5〜0.99 = GREAT ×1.2 / 0.01〜0.49 = GOOD ×0.8 / 0 = MISS ×0.55', () => {
     expect(D.settings.scoreMultipliers).toEqual({ perfect: 2, good: 1.2, weak: 0.8, miss: 0.55 });
     const table: [number, string, number][] = [
