@@ -38,4 +38,5 @@ test('タイトルメニューは黒い背景を保ったまま左寄せし、�
   await expect(menu.locator('.nq-title-opt').first()).toHaveCSS('outline-style', 'none');
 
   await expect(menu).toHaveCSS('left', '376px');
+  await expect(menu).toHaveCSS('width', '192px');
 });
