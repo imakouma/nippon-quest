@@ -104,6 +104,24 @@
   "relations": [
     {
       "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g1.script.grade1-kanji",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "平仮名の読み書きを基礎として、第1学年の漢字を文の中で読む・書く学習へ進む。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g1.grammar.particles",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "平仮名の読み書きを基礎として、助詞「は」「へ」「を」を文の中で使い分ける学習へ進む。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.script.hiragana",
       "to": "kokugo.g1.script.katakana",
       "kind": "prerequisite",
       "strength": 0.8,
