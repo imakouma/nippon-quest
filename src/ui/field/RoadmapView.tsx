@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 import type { RoadmapNode } from '../../shared/menuModel';
-import { t } from '../i18n';
+import { t, tOpt } from '../i18n';
 import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
@@ -25,6 +25,10 @@ function isNodeInTerm(node: RoadmapNode, term: RoadmapTerm): boolean {
 }
 
 const isCompleted = (node: RoadmapNode) => node.state === 'cleared' || node.state === 'review';
+
+function subjectIcon(subject: string, label: string): string {
+  return tOpt(`field.roadmapSubjectShort.${subject}`) ?? displayText(label).slice(0, 1);
+}
 
 export function RoadmapView({
   nodes,
@@ -88,20 +92,26 @@ export function RoadmapView({
           <button
             type="button"
             class={`nq-opt nq-roadmap-subject ${activeSubject === 'all' ? 'nq-focus' : ''}`}
+            aria-label={displayText(t('field.roadmapAllSubjects'))}
             aria-pressed={activeSubject === 'all'}
+            data-subject-icon={displayText(t('field.roadmapSubjectShort.all'))}
+            title={displayText(t('field.roadmapAllSubjects'))}
             onClick={() => (playSfx('move'), setSubject('all'))}
           >
-            <RubyLabel text={t('field.roadmapAllSubjects')} />
+            <span aria-hidden="true">{displayText(t('field.roadmapSubjectShort.all'))}</span>
           </button>
           {subjects.map(([key, label]) => (
             <button
               key={key}
               type="button"
               class={`nq-opt nq-roadmap-subject ${key === activeSubject ? 'nq-focus' : ''}`}
+              aria-label={displayText(label)}
               aria-pressed={key === activeSubject}
+              data-subject-icon={displayText(subjectIcon(key, label))}
+              title={displayText(label)}
               onClick={() => (playSfx('move'), setSubject(key))}
             >
-              <RubyLabel text={label} />
+              <span aria-hidden="true">{displayText(subjectIcon(key, label))}</span>
             </button>
           ))}
           <span class="nq-roadmap-score" role="status" aria-live="polite">

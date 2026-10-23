@@ -137,6 +137,21 @@ async function showRoadmap(
 }
 
 describe('学習ロードマップの単元選択', () => {
+  it('教科を一文字アイコンで表示し、読み上げでは教科名を伝える', async () => {
+    const container = await showRoadmap(vi.fn());
+    const subjectButtons = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-subject')];
+
+    expect(subjectButtons.map((button) => button.dataset.subjectIcon)).toEqual(['全', '算', '理', '英']);
+    expect(subjectButtons.map((button) => button.textContent)).toEqual(['全', '算', '理', '英']);
+    expect(subjectButtons.map((button) => button.getAttribute('aria-label'))).toEqual([
+      '全教科',
+      '算数',
+      '理科',
+      '英語',
+    ]);
+    expect(subjectButtons.every((button) => button.title === button.getAttribute('aria-label'))).toBe(true);
+  });
+
   it('未到達の教科をクリア済みと表示しない', async () => {
     const container = await showRoadmap(vi.fn());
     const science = container.querySelector<HTMLButtonElement>('.nq-roadmap-summary-rika');
