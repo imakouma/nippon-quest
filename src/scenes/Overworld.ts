@@ -89,7 +89,11 @@ import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
 import { bagCells } from '../ui/field/bagLayout';
 import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
-import { isImportedLocationValid, rememberLocationState, resolveSpawn } from './overworld/importedLocation';
+import {
+  isImportedLocationValid,
+  isSavedFieldTileWalkable,
+  rememberLocationState,
+} from './overworld/importedLocation';
 import { WorldMapOverlay, type MapRegionInfo, type WorldMapData } from '../ui/field/WorldMapOverlay';
 import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
@@ -154,6 +158,12 @@ import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
+import { resolveMapEntry } from './overworld/mapEntry';
+import {
+  runMapTransition,
+  type MapTransitionPorts,
+  type MapTransitionRequest,
+} from './overworld/mapTransitionPipeline';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
 import { musubiDamaPurchaseLines } from './overworld/storyScenes';
@@ -204,6 +214,7 @@ interface OverworldSceneData {
   /** 地図のワープ：このマス（のとなりの歩けるマス）に立つ。spawnName より優先 */
   spawnTile?: [number, number];
   exactSpawn?: boolean;
+  transitionRequest?: MapTransitionRequest;
   /** ?debug=battle のとき、マップに入ってすぐバトルを始める */
   debugBattle?: DebugBattle | null;
 }
@@ -296,6 +307,7 @@ export class OverworldScene extends Phaser.Scene {
   private spawnName = 'spawn';
   private spawnTile: [number, number] | null = null;
   private exactSpawn = false;
+  private entryRequest: MapTransitionRequest = { targetMap: 'aomori-field', reason: 'script' };
   private pendingDebugBattle: DebugBattle | null = null;
   private map!: Phaser.Tilemaps.Tilemap;
   private colLayer: Phaser.Tilemaps.TilemapLayer | null = null;
@@ -361,10 +373,18 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   init(data?: OverworldSceneData): void {
-    if (data?.mapKey) this.mapKey = data.mapKey;
+    if (data?.transitionRequest) this.mapKey = data.transitionRequest.targetMap;
+    else if (data?.mapKey) this.mapKey = data.mapKey;
     this.spawnName = data?.spawnName ?? 'spawn';
     this.spawnTile = data?.spawnTile ?? null;
     this.exactSpawn = data?.exactSpawn ?? false;
+    this.entryRequest = data?.transitionRequest ?? {
+      targetMap: this.mapKey,
+      spawnName: this.spawnName,
+      ...(this.spawnTile ? { tile: this.spawnTile } : {}),
+      ...(this.exactSpawn ? { exactSpawn: true } : {}),
+      reason: 'script',
+    };
     this.pendingDebugBattle = data?.debugBattle ?? null;
   }
 
@@ -517,19 +537,38 @@ export class OverworldScene extends Phaser.Scene {
   // ───────────────────────── 主人公と移動 ─────────────────────────
 
   private findSpawn(layer: Phaser.Tilemaps.ObjectLayer | null): [number, number] {
-    const resolved = resolveSpawn({
-      spawnTile: this.spawnTile,
-      exactSpawn: this.exactSpawn,
-      width: this.map.width,
-      height: this.map.height,
-      fieldGroundRequired: this.kind() === 'field' || this.kind() === 'enclave',
-      terrainAt: (x, y) => this.map.getTileAt(x, y, true, 'background')?.index,
-      blocked: (x, y) => !this.inside(x, y) || this.isBlocked(x, y),
-      objects: layer?.objects ?? [],
-      spawnName: this.spawnName,
+    const saved = this.gs()?.progress;
+    const fieldGroundRequired = this.kind() === 'field' || this.kind() === 'enclave';
+    const entry = resolveMapEntry({
+      request: this.entryRequest,
+      map: {
+        key: this.mapKey,
+        width: this.map.width,
+        height: this.map.height,
+        objects: (layer?.objects ?? []).map((object) => ({
+          name: object.name,
+          type: object.type,
+          x: object.x,
+          y: object.y,
+        })),
+        isWalkable: (x, y) =>
+          !this.isBlocked(x, y) &&
+          (!fieldGroundRequired ||
+            isSavedFieldTileWalkable(this.map.getTileAt(x, y, true, 'background')?.index)),
+        tileSize: TILE,
+      },
+      ...(saved
+        ? {
+            saved: {
+              mapKey: saved.currentMap,
+              x: Math.floor(saved.position.x / TILE),
+              y: Math.floor(saved.position.y / TILE),
+            },
+          }
+        : {}),
     });
-    if (resolved.faceUp) this.facing = 'up';
-    return resolved.tile;
+    this.facing = entry.facing;
+    return [entry.x, entry.y];
   }
 
   private createHero(tx: number, ty: number): void {
@@ -3381,21 +3420,36 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private switchMap(target: string, spawn = 'spawn', tile?: [number, number], exactSpawn = false): void {
-    this.busy = true;
-    render(null, this.root('dialogue'));
-    const cam = this.cameras.main;
-    // タブが うしろに あると フェードアウトが 終わらず、画面が 黒い ままで マップが かわらない。
-    // 時間でも かならず すすめる（window の タイマーは タブが うしろでも 動く）
-    let moved = false;
-    const go = () => {
-      if (moved) return;
-      moved = true;
-      this.scene.restart({ mapKey: target, spawnName: spawn, spawnTile: tile, exactSpawn });
+    const request: MapTransitionRequest = {
+      targetMap: target,
+      spawnName: spawn,
+      ...(tile ? { tile } : {}),
+      ...(exactSpawn ? { exactSpawn: true } : {}),
+      reason: 'script',
     };
-    cam.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, go);
-    const guard = window.setTimeout(go, 600);
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => window.clearTimeout(guard));
-    cam.fadeOut(250, 0, 0, 0);
+    void this.fieldFlow.run('map-transition', ({ signal }) =>
+      runMapTransition(request, this.mapTransitionPorts(), signal),
+    );
+  }
+
+  private mapTransitionPorts(): MapTransitionPorts {
+    return {
+      closeTransientUi: () => this.cleanupTransientUi(),
+      fadeOut: (signal) =>
+        new Promise<void>((resolve) => {
+          const camera = this.cameras.main;
+          const event = Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE;
+          const finish = () => {
+            camera.off(event, finish);
+            signal.removeEventListener('abort', finish);
+            resolve();
+          };
+          camera.once(event, finish);
+          signal.addEventListener('abort', finish, { once: true });
+          camera.fadeOut(250, 0, 0, 0);
+        }),
+      restart: (request) => this.scene.restart({ transitionRequest: request }),
+    };
   }
 
   /**
