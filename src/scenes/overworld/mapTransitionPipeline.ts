@@ -29,9 +29,8 @@ export async function runMapTransition(
 
   await new Promise<void>((resolve, reject) => {
     let finished = false;
-    let timeout: ReturnType<typeof globalThis.setTimeout> | undefined;
     const cleanup = () => {
-      if (timeout !== undefined) globalThis.clearTimeout(timeout);
+      globalThis.clearTimeout(timeout);
       signal.removeEventListener('abort', onAbort);
     };
     const settle = (finish: () => void) => {
@@ -56,7 +55,7 @@ export async function runMapTransition(
     const onAbort = () => complete(false);
 
     signal.addEventListener('abort', onAbort, { once: true });
-    timeout = globalThis.setTimeout(() => complete(true), MAP_TRANSITION_FADE_FALLBACK_MS);
+    const timeout = globalThis.setTimeout(() => complete(true), MAP_TRANSITION_FADE_FALLBACK_MS);
     try {
       void ports.fadeOut(signal).then(
         () => complete(true),
