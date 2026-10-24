@@ -197,12 +197,6 @@ export function AreaMapOverlay({
     setZoom(level);
     setPan(nextPan);
   };
-  const resetView = () => {
-    playSfx('move');
-    setZoom(1);
-    setPan({ x: 0, y: 0 });
-  };
-
   // 地方地図の現在県の範囲を、詳細地形の陸地の範囲へ合わせる。
   // 周辺県はこの変換を共有するため、県同士の位置関係を保った暗いシルエットになる。
   const regionRef = useRef<HTMLCanvasElement>(null);
@@ -442,9 +436,6 @@ export function AreaMapOverlay({
               >
                 −
               </button>
-              <span class="nq-amap-zoom-value" aria-live="polite">
-                {Math.round(zoom * 100)}%
-              </span>
               <button
                 type="button"
                 class="nq-wmap-arrow"
@@ -453,9 +444,6 @@ export function AreaMapOverlay({
                 onClick={() => changeZoom(zoom + 0.5)}
               >
                 ＋
-              </button>
-              <button type="button" class="nq-opt nq-amap-reset" onClick={resetView}>
-                {t('field.areaMapReset')}
               </button>
             </div>
           </div>
