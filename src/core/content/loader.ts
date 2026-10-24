@@ -454,14 +454,16 @@ export function findBrokenReferences(c: ContentIndex): string[] {
         errs.push(
           `area "${a.id}": event "${ev.id}" の motifId "${ev.motifId}" がこの県の motifs にありません`,
         );
-      checkUnique(
-        ev.rewardByScore.map((tier) => String(tier.min)),
-        `area "${a.id}": event "${ev.id}" reward min`,
-      );
-      if (!ev.rewardByScore.some((tier) => tier.min === 0))
-        errs.push(`area "${a.id}": event "${ev.id}" の rewardByScore に min: 0 がありません`);
-      for (const r of ev.rewardByScore)
-        errs.push(...checkRewardReferences(r.reward, c, `area "${a.id}" event "${ev.id}"`));
+      if ('rewardByScore' in ev) {
+        checkUnique(
+          ev.rewardByScore.map((tier) => String(tier.min)),
+          `area "${a.id}": event "${ev.id}" reward min`,
+        );
+        if (!ev.rewardByScore.some((tier) => tier.min === 0))
+          errs.push(`area "${a.id}": event "${ev.id}" の rewardByScore に min: 0 がありません`);
+        for (const r of ev.rewardByScore)
+          errs.push(...checkRewardReferences(r.reward, c, `area "${a.id}" event "${ev.id}"`));
+      }
     }
     const npcIds = new Set((a.town?.npcs ?? []).map((n) => n.id));
     for (const ms of a.missions) {

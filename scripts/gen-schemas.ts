@@ -18,7 +18,12 @@ mkdirSync(`${OUT}questions`, { recursive: true });
 let count = 0;
 for (const [kind, def] of Object.entries(contentKinds)) {
   const schema = def.array ? z.array(def.schema) : def.schema;
-  const json = zodToJsonSchema(schema, { name: kind, $refStrategy: 'none' });
+  const json = zodToJsonSchema(schema, {
+    name: kind,
+    // Event branches are recursive. Keep their generated command items as a
+    // JSON Schema reference instead of degrading nested steps to `{}`.
+    $refStrategy: kind === 'prefectures' ? 'root' : 'none',
+  });
   writeFileSync(`${OUT}${kind}.schema.json`, JSON.stringify(json, null, 2) + '\n');
   count++;
 }

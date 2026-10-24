@@ -9,6 +9,7 @@ import {
   type FileReader,
 } from '../../src/core/content/loader';
 import {
+  areaEventSchema,
   itemSchema,
   missionConditionSchema,
   monsterSchema,
@@ -35,6 +36,47 @@ function loadContent(reader: FileReader, opts?: Parameters<typeof loadContentFro
 afterEach(() => vi.unstubAllGlobals());
 
 describe('content loader', () => {
+  it('legacy と scripted のイベント形式を検証する', () => {
+    const scripted = {
+      id: 'aomori-ev-scripted-proof',
+      motifId: 'ringo',
+      trigger: { map: 'aomori-field', objectName: 'ev_scripted_proof' },
+      once: true,
+      steps: [
+        { type: 'dialogue', lines: [{ text: 'りんごを 数[かぞ]えよう。' }] },
+        {
+          type: 'choice',
+          key: 'challenge',
+          lines: [{ text: 'ちょうせん する？' }],
+          choices: ['はい', 'いいえ'],
+        },
+        {
+          type: 'branch',
+          condition: { type: 'choice', key: 'challenge', equals: 0 },
+          then: [
+            {
+              type: 'question',
+              key: 'score',
+              request: { subject: 'sansu', gradeRange: [1, 2], tags: ['theme:apple'] },
+            },
+            {
+              type: 'reward',
+              scoreKey: 'score',
+              table: [{ min: 0, reward: { xp: 5 } }],
+            },
+            { type: 'set-flag', flag: 'aomori-ev-scripted-proof' },
+          ],
+          else: [{ type: 'dialogue', lines: [{ text: 'また あとでね。' }] }],
+        },
+      ],
+    };
+
+    expect(areaEventSchema.safeParse(scripted).success).toBe(true);
+    expect(areaEventSchema.safeParse({ ...scripted, steps: [{ type: 'unknown-command' }] }).success).toBe(
+      false,
+    );
+  });
+
   it('47都道府県と10島を読み込める', async () => {
     const c = await loadContent(read);
     expect(c.areas.size).toBe(47);
@@ -617,7 +659,8 @@ describe('content loader', () => {
   it('イベント報酬は score 0 でも必ずある（GDD §7）', async () => {
     const c = await loadContent(read);
     for (const a of c.areas.values())
-      for (const e of a.events) expect(e.rewardByScore.some((r) => r.min === 0)).toBe(true);
+      for (const e of a.events)
+        if ('rewardByScore' in e) expect(e.rewardByScore.some((r) => r.min === 0)).toBe(true);
   });
 
   it('報酬・価格・制作個数は安全整数の範囲だけを受け入れる', () => {
