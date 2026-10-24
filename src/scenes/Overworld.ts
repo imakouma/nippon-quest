@@ -1490,50 +1490,50 @@ export class OverworldScene extends Phaser.Scene {
 
   /** イベント：（はじめてなら カットイン → ★ が黄色に → スタンプ）→ 会話 → ちょうせんする？ → 問題 → ごほうび → お礼 */
   private async runEvent(area: Area, ev: AreaEvent, motif: Motif | undefined, sign: Sign): Promise<void> {
-    if (this.busy) return;
-    this.busy = true;
-    this.standStill();
-    const stampLine = await this.arriveAt(area, motif, sign);
-    if (ev.once && this.gs()?.progress.eventsDone.includes(ev.id)) {
-      await this.talk([
-        { speaker: t('field.landmarkSpeaker'), text: motif?.blurb ?? '' },
-        ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
-      ]);
+    await this.fieldFlow.run('area-event', async ({ throwIfCancelled }) => {
+      this.standStill();
+      const stampLine = await this.arriveAt(area, motif, sign);
+      throwIfCancelled();
+      if (ev.once && this.gs()?.progress.eventsDone.includes(ev.id)) {
+        await this.talk([
+          { speaker: t('field.landmarkSpeaker'), text: motif?.blurb ?? '' },
+          ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
+        ]);
+        throwIfCancelled();
+        await this.checkMeisan();
+        return;
+      }
+      const host = ev.dialogue[ev.dialogue.length - 1]?.speaker;
+      const go = await this.choose(
+        [...stampLine, ...ev.dialogue, { speaker: host, text: t('field.eventAsk') }],
+        [t('ui.yes'), t('ui.no')],
+      );
+      throwIfCancelled();
+      if (go !== 0) {
+        await this.talk([{ speaker: host, text: t('field.eventLater') }]);
+        throwIfCancelled();
+        await this.checkMeisan();
+        return;
+      }
+      const score = await this.quiz(ev, motif);
+      throwIfCancelled();
+      const gs = this.gs();
+      if (!gs) return;
+      const applied = applyReward(gs, pickReward(ev.rewardByScore, score));
+      // once でないイベントも「チャレンジした」ことは残す（★ を金色にする。何度でも遊べるのは同じ）
+      this.setGame(markDone(applied.state, { eventId: ev.id, stamp: sign.stamp }));
+      sign.refresh();
+      playSfx('recruit');
+      const out: DialogueLine[] = applied.lines.map((l) => ({
+        speaker: t('field.rewardSpeaker'),
+        text: this.rewardText(l),
+      }));
+      out.push(...(ev.afterDialogue ?? []));
+      this.renderHud();
+      await this.talk(out);
+      throwIfCancelled();
       await this.checkMeisan();
-      this.busy = false;
-      return;
-    }
-    const host = ev.dialogue[ev.dialogue.length - 1]?.speaker;
-    const go = await this.choose(
-      [...stampLine, ...ev.dialogue, { speaker: host, text: t('field.eventAsk') }],
-      [t('ui.yes'), t('ui.no')],
-    );
-    if (go !== 0) {
-      await this.talk([{ speaker: host, text: t('field.eventLater') }]);
-      await this.checkMeisan();
-      this.busy = false;
-      return;
-    }
-    const score = await this.quiz(ev, motif);
-    const gs = this.gs();
-    if (!gs) {
-      this.busy = false;
-      return;
-    }
-    const applied = applyReward(gs, pickReward(ev.rewardByScore, score));
-    // once でないイベントも「チャレンジした」ことは残す（★ を金色にする。何度でも遊べるのは同じ）
-    this.setGame(markDone(applied.state, { eventId: ev.id, stamp: sign.stamp }));
-    sign.refresh();
-    playSfx('recruit');
-    const out: DialogueLine[] = applied.lines.map((l) => ({
-      speaker: t('field.rewardSpeaker'),
-      text: this.rewardText(l),
-    }));
-    out.push(...(ev.afterDialogue ?? []));
-    this.renderHud();
-    await this.talk(out);
-    await this.checkMeisan();
-    this.busy = false;
+    });
   }
 
   private rewardText(l: RewardLine): string {
