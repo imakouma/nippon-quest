@@ -38,6 +38,7 @@ async function teleport(page: Page, tile: [number, number]): Promise<void> {
   await jsonBox.fill(JSON.stringify(state));
   await page.getByRole('button', { name: 'JSONを読みこむ' }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  await page.waitForTimeout(750);
 }
 
 async function interactByKeyAndTap(page: Page): Promise<void> {
