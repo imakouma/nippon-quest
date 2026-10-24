@@ -345,6 +345,12 @@ describe('学習ロードマップの単元選択', () => {
     expect(science?.textContent).not.toContain('クリア');
   });
 
+  it('ロードマップ下部に状態の凡例を表示しない', async () => {
+    const container = await showRoadmap(vi.fn());
+
+    expect(container.querySelector('.nq-roadmap-help')).toBeNull();
+  });
+
   it('問題の回答後はロードマップへ直接戻せる', async () => {
     const container = await showRoadmap(vi.fn(), false);
 
