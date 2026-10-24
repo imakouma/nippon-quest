@@ -304,9 +304,6 @@ const kana = (ruby: string): string => stripRuby(ruby, 'kana');
 
 export class OverworldScene extends Phaser.Scene {
   private mapKey = 'aomori-field';
-  private spawnName = 'spawn';
-  private spawnTile: [number, number] | null = null;
-  private exactSpawn = false;
   private entryRequest: MapTransitionRequest = { targetMap: 'aomori-field', reason: 'script' };
   private pendingDebugBattle: DebugBattle | null = null;
   private map!: Phaser.Tilemaps.Tilemap;
@@ -375,14 +372,11 @@ export class OverworldScene extends Phaser.Scene {
   init(data?: OverworldSceneData): void {
     if (data?.transitionRequest) this.mapKey = data.transitionRequest.targetMap;
     else if (data?.mapKey) this.mapKey = data.mapKey;
-    this.spawnName = data?.spawnName ?? 'spawn';
-    this.spawnTile = data?.spawnTile ?? null;
-    this.exactSpawn = data?.exactSpawn ?? false;
     this.entryRequest = data?.transitionRequest ?? {
       targetMap: this.mapKey,
-      spawnName: this.spawnName,
-      ...(this.spawnTile ? { tile: this.spawnTile } : {}),
-      ...(this.exactSpawn ? { exactSpawn: true } : {}),
+      spawnName: data?.spawnName ?? 'spawn',
+      ...(data?.spawnTile ? { tile: data.spawnTile } : {}),
+      ...(data?.exactSpawn ? { exactSpawn: true } : {}),
       reason: 'script',
     };
     this.pendingDebugBattle = data?.debugBattle ?? null;
@@ -780,7 +774,7 @@ export class OverworldScene extends Phaser.Scene {
     if (tr && this.canWarp) {
       this.canWarp = false;
       playEntranceSound(this.mapKey, tr.map);
-      this.switchMap(tr.map, tr.spawn);
+      this.switchMap({ targetMap: tr.map, spawnName: tr.spawn, reason: 'door' });
       return;
     }
     if (this.warp && i === this.warp.tile) {
@@ -1043,7 +1037,7 @@ export class OverworldScene extends Phaser.Scene {
     }
     await this.talk([{ speaker: npc.name, text: t('field.ferryGo') }]);
     playSfx('select');
-    this.switchMap(f.map, f.spawn);
+    this.switchMap({ targetMap: f.map, spawnName: f.spawn, reason: 'warp' });
     return true;
   }
 
@@ -1893,7 +1887,7 @@ export class OverworldScene extends Phaser.Scene {
       duration: 800,
       ease: 'Quad.easeIn',
     });
-    this.switchMap(w.to.mapKey, 'spawn');
+    this.switchMap({ targetMap: w.to.mapKey, spawnName: 'spawn', reason: 'warp' });
   }
 
   // ───────────────────────── 町の人・宝箱 ─────────────────────────
@@ -2551,8 +2545,15 @@ export class OverworldScene extends Phaser.Scene {
     if (p.outcome === 'defeat') {
       // 最後に泊まった宿屋へ。まだ泊まっていなければ今のマップの出発地点へ。
       const inn = this.gs()?.progress.lastInn;
-      if (inn) this.switchMap(inn.map, 'spawn', [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)], true);
-      else this.switchMap(this.mapKey, 'spawn');
+      if (inn)
+        this.switchMap({
+          targetMap: inn.map,
+          spawnName: 'spawn',
+          tile: [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)],
+          exactSpawn: true,
+          reason: 'defeat',
+        });
+      else this.switchMap({ targetMap: this.mapKey, spawnName: 'spawn', reason: 'defeat' });
       return;
     }
     if (wasMidBoss && p.outcome === 'victory') void this.midBossDefeated();
@@ -2802,12 +2803,13 @@ export class OverworldScene extends Phaser.Scene {
     const normalized = normalizeLevelCaps(next, content.monsters, content.settings.levelCaps.heroInitial);
     this.setGame(normalized);
     const { x, y } = normalized.progress.position;
-    this.switchMap(
-      normalized.progress.currentMap,
-      'spawn',
-      [Math.floor(x / TILE), Math.floor(y / TILE)],
-      true,
-    );
+    this.switchMap({
+      targetMap: normalized.progress.currentMap,
+      spawnName: 'spawn',
+      tile: [Math.floor(x / TILE), Math.floor(y / TILE)],
+      exactSpawn: true,
+      reason: 'script',
+    });
   }
 
   private heroStats(gs: GameState) {
@@ -3273,7 +3275,7 @@ export class OverworldScene extends Phaser.Scene {
           close();
           playSfx('warp');
           this.cameras.main.flash(200, 255, 255, 255);
-          this.switchMap(p.map, p.spawn, p.tile);
+          this.switchMap({ targetMap: p.map, spawnName: p.spawn, tile: p.tile, reason: 'world-map' });
         },
         // 左上の地図から にほんちずへ（ほかの県へ ワープ）
         worldLabel: t('field.worldMap'),
@@ -3326,7 +3328,11 @@ export class OverworldScene extends Phaser.Scene {
         here: this.whereAmI(),
         onGo: (areaId: string) => {
           close();
-          this.switchMap(this.content()?.areas.get(areaId)?.mapKeys?.field ?? `${areaId}-field`, 'spawn');
+          this.switchMap({
+            targetMap: this.content()?.areas.get(areaId)?.mapKeys?.field ?? `${areaId}-field`,
+            spawnName: 'spawn',
+            reason: 'world-map',
+          });
         },
         onChallengeIslandBoss: (islandId: string) => {
           close();
@@ -3419,14 +3425,7 @@ export class OverworldScene extends Phaser.Scene {
     return { areaId, at: [(px - x0 + 0.5) / (x1 - x0 + 1), (py - y0 + 0.5) / (y1 - y0 + 1)] };
   }
 
-  private switchMap(target: string, spawn = 'spawn', tile?: [number, number], exactSpawn = false): void {
-    const request: MapTransitionRequest = {
-      targetMap: target,
-      spawnName: spawn,
-      ...(tile ? { tile } : {}),
-      ...(exactSpawn ? { exactSpawn: true } : {}),
-      reason: 'script',
-    };
+  private switchMap(request: MapTransitionRequest): void {
     void this.fieldFlow.run('map-transition', ({ signal }) =>
       runMapTransition(request, this.mapTransitionPorts(), signal),
     );

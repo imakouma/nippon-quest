@@ -90,6 +90,100 @@ async function savedState(page: Page): Promise<SavedFieldState> {
   });
 }
 
+async function walkOneTile(page: Page, key: 'ArrowUp' | 'ArrowDown'): Promise<void> {
+  await page.keyboard.down(key);
+  await page.waitForTimeout(80);
+  await page.keyboard.up(key);
+  await page.waitForTimeout(220);
+}
+
+async function suppressFadeCompletionAndCountRestarts(page: Page): Promise<void> {
+  await page.evaluate(() => {
+    const browser = window as unknown as {
+      Phaser: {
+        Events: { EventEmitter: { prototype: { emit: (event: string, ...args: unknown[]) => boolean } } };
+        Scenes: { ScenePlugin: { prototype: { restart: (...args: unknown[]) => unknown } } };
+      };
+      __mapTransitionRestarts?: number;
+    };
+    const emitter = browser.Phaser.Events.EventEmitter.prototype;
+    const originalEmit = emitter.emit;
+    emitter.emit = function (event: string, ...args: unknown[]) {
+      if (event === 'camerafadeoutcomplete') return false;
+      return originalEmit.call(this, event, ...args);
+    };
+
+    const scenePlugin = browser.Phaser.Scenes.ScenePlugin.prototype;
+    const originalRestart = scenePlugin.restart;
+    browser.__mapTransitionRestarts = 0;
+    scenePlugin.restart = function (...args: unknown[]) {
+      browser.__mapTransitionRestarts = (browser.__mapTransitionRestarts ?? 0) + 1;
+      return originalRestart.apply(this, args);
+    };
+  });
+}
+
+test('フィールドと町を往復すると対応する入口へ配置されて操作が戻る', async ({ page }) => {
+  test.setTimeout(90_000);
+  await startField(page);
+
+  await walkOneTile(page, 'ArrowUp');
+  await walkOneTile(page, 'ArrowUp');
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
+
+  await page.waitForTimeout(450);
+  await walkOneTile(page, 'ArrowDown');
+  await walkOneTile(page, 'ArrowDown');
+  await walkOneTile(page, 'ArrowDown');
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'aomori-field', position: { x: 976, y: 1088 } });
+
+  await page.waitForTimeout(450);
+  await walkOneTile(page, 'ArrowUp');
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
+});
+
+test('fade 完了がなく連打されても fallback で一度だけ町へ移動する', async ({ page }) => {
+  test.setTimeout(90_000);
+  await startField(page);
+  await suppressFadeCompletionAndCountRestarts(page);
+
+  await walkOneTile(page, 'ArrowUp');
+  await page.keyboard.down('ArrowUp');
+  await page.waitForTimeout(180);
+  await page.keyboard.up('ArrowUp');
+  await page.keyboard.press('ArrowUp');
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('ArrowUp');
+
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
+  expect(
+    await page.evaluate(
+      () => (window as unknown as { __mapTransitionRestarts?: number }).__mapTransitionRestarts,
+    ),
+  ).toBe(1);
+});
+
+test('にほんちずで移動した後に入力が戻る', async ({ page }) => {
+  test.setTimeout(90_000);
+  await startField(page);
+
+  await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click();
+  await page.getByRole('button', { name: 'にほんちず' }).click();
+  await page.getByRole('button', { name: 'ここへ いく' }).click();
+  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 10_000 });
+  await page.waitForTimeout(700);
+  await page.getByRole('button', { name: 'メニュー' }).click();
+  await expect(page.getByRole('region', { name: 'がくしゅうロードマップ' })).toBeVisible();
+});
+
 test('名所はキーとタップを重ねても一度だけ始まり、閉じた後に移動できる', async ({ page }) => {
   test.setTimeout(120_000);
   await startField(page);
