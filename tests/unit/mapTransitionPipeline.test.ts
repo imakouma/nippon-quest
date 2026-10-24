@@ -1,5 +1,9 @@
-import { describe, expect, it, vi } from 'vitest';
-import type { MapTransitionRequest } from '../../src/scenes/overworld/mapTransitionPipeline';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  runMapTransition,
+  type MapTransitionPorts,
+  type MapTransitionRequest,
+} from '../../src/scenes/overworld/mapTransitionPipeline';
 import { resolveMapEntry, type MapEntryMap } from '../../src/scenes/overworld/mapEntry';
 
 const request = (overrides: Partial<MapTransitionRequest> = {}): MapTransitionRequest => ({
@@ -19,6 +23,8 @@ const map = (overrides: Partial<MapEntryMap> = {}): MapEntryMap => ({
   isWalkable: () => true,
   ...overrides,
 });
+
+afterEach(() => vi.useRealTimers());
 
 describe('resolveMapEntry', () => {
   it('uses a walkable exact tile before every other candidate', () => {
@@ -88,5 +94,117 @@ describe('resolveMapEntry', () => {
         map: map({ objects: [], isWalkable: () => false }),
       }),
     ).toThrow('test-map has no walkable entry');
+  });
+});
+
+describe('runMapTransition', () => {
+  const ports = (overrides: Partial<MapTransitionPorts> = {}): MapTransitionPorts => ({
+    closeTransientUi: vi.fn(),
+    fadeOut: vi.fn().mockResolvedValue(undefined),
+    restart: vi.fn(),
+    ...overrides,
+  });
+
+  it('closes transient UI, waits for fade, then restarts in order', async () => {
+    const phases: string[] = [];
+    let finishFade: (() => void) | undefined;
+    const transition = runMapTransition(
+      request(),
+      ports({
+        closeTransientUi: () => phases.push('close'),
+        fadeOut: () =>
+          new Promise<void>((resolve) => {
+            phases.push('fade');
+            finishFade = resolve;
+          }),
+        restart: () => phases.push('restart'),
+      }),
+      new AbortController().signal,
+    );
+
+    expect(phases).toEqual(['close', 'fade']);
+    finishFade?.();
+    await transition;
+    expect(phases).toEqual(['close', 'fade', 'restart']);
+  });
+
+  it('restarts once when fade completion races the 600ms fallback', async () => {
+    vi.useFakeTimers();
+    let finishFade: (() => void) | undefined;
+    const transitionPorts = ports({
+      fadeOut: () => new Promise<void>((resolve) => (finishFade = resolve)),
+    });
+    const transition = runMapTransition(request(), transitionPorts, new AbortController().signal);
+
+    await vi.advanceTimersByTimeAsync(600);
+    await transition;
+    finishFade?.();
+    await Promise.resolve();
+
+    expect(transitionPorts.restart).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not begin or restart when already aborted', async () => {
+    const controller = new AbortController();
+    controller.abort();
+    const transitionPorts = ports();
+
+    await runMapTransition(request(), transitionPorts, controller.signal);
+
+    expect(transitionPorts.closeTransientUi).not.toHaveBeenCalled();
+    expect(transitionPorts.fadeOut).not.toHaveBeenCalled();
+    expect(transitionPorts.restart).not.toHaveBeenCalled();
+  });
+
+  it('does not restart when aborted during fade', async () => {
+    vi.useFakeTimers();
+    const controller = new AbortController();
+    const transitionPorts = ports({ fadeOut: () => new Promise<void>(() => undefined) });
+    const transition = runMapTransition(request(), transitionPorts, controller.signal);
+
+    controller.abort();
+    await transition;
+    await vi.advanceTimersByTimeAsync(600);
+
+    expect(transitionPorts.restart).not.toHaveBeenCalled();
+  });
+
+  it('propagates fade failures without restarting', async () => {
+    const error = new Error('fade failed');
+    const transitionPorts = ports({ fadeOut: vi.fn().mockRejectedValue(error) });
+
+    await expect(runMapTransition(request(), transitionPorts, new AbortController().signal)).rejects.toBe(
+      error,
+    );
+    expect(transitionPorts.restart).not.toHaveBeenCalled();
+  });
+
+  it('does not treat an undefined rejection value as a successful fade', async () => {
+    const transitionPorts = ports({ fadeOut: vi.fn().mockRejectedValue(undefined) });
+
+    await expect(
+      runMapTransition(request(), transitionPorts, new AbortController().signal),
+    ).rejects.toBeUndefined();
+    expect(transitionPorts.restart).not.toHaveBeenCalled();
+  });
+
+  it('restarts with the request values captured at invocation time', async () => {
+    let finishFade: (() => void) | undefined;
+    const mutable: MapTransitionRequest = request({ tile: [1, 2] });
+    const transitionPorts = ports({
+      fadeOut: () => new Promise<void>((resolve) => (finishFade = resolve)),
+    });
+    const transition = runMapTransition(mutable, transitionPorts, new AbortController().signal);
+
+    mutable.targetMap = 'changed-map';
+    mutable.tile = [3, 0];
+    finishFade?.();
+    await transition;
+
+    expect(transitionPorts.restart).toHaveBeenCalledWith({
+      targetMap: 'test-map',
+      reason: 'door',
+      tile: [1, 2],
+    });
   });
 });
