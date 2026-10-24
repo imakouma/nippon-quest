@@ -436,9 +436,6 @@ export function AreaMapOverlay({
               >
                 −
               </button>
-              <span class="nq-amap-zoom-value" aria-live="polite">
-                {Math.round(zoom * 100)}%
-              </span>
               <button
                 type="button"
                 class="nq-wmap-arrow"
