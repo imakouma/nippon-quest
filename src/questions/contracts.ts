@@ -4,7 +4,7 @@
  *
  * このファイルは Phaser にも Preact にも依存しない。
  */
-import { z, type ZodTypeAny } from 'zod';
+import { z, type ZodTypeAny } from 'zod/v3';
 
 export type Subject = 'kokugo' | 'sansu' | 'rika' | 'shakai' | 'seikatsu' | 'eigo';
 export type Grade = 1 | 2 | 3 | 4 | 5 | 6;

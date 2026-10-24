@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 const prediction = z.object({
   prompt: z.string().min(1),

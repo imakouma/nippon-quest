@@ -6,7 +6,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { z } from 'zod';
+import { z } from 'zod/v3';
 import { contentKinds } from '../src/core/content/schemas';
 import { curriculumGraphSchema } from '../src/core/learning/model';
 import { questionBaseSchema } from '../src/questions/contracts';

@@ -97,6 +97,6 @@ describe('境界5: contracts.ts は独立している', () => {
   it('contracts.ts は zod 以外を import しない', () => {
     const src = readFileSync(join(ROOT, 'src/questions/contracts.ts'), 'utf8');
     const imports = [...src.matchAll(/from\s+['"]([^'"]+)['"]/g)].map((m) => m[1]!);
-    expect(imports.filter((i) => i !== 'zod')).toEqual([]);
+    expect(imports.filter((i) => i !== 'zod' && !i.startsWith('zod/'))).toEqual([]);
   });
 });

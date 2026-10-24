@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 const common = {
   prompt: z.string().min(1).describe('問題文（RubyText）'),

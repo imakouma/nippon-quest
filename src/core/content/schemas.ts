@@ -3,7 +3,7 @@
  * - ここを変えたら `pnpm gen:schemas` で schemas/*.schema.json を再生成し、docs/04 も更新する。
  * - 問題（questions）の payload スキーマはここではなく各レンダラーが所有する（docs/01 §3.3）。
  */
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 export const safeNonnegativeIntegerSchema = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 export const safePositiveIntegerSchema = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);

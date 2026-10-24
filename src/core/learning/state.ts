@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod/v3';
 import { addProgressValue } from '../../shared/safeInteger';
 import type { QuestionConceptLink } from './model';
 

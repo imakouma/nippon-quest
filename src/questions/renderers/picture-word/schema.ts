@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod/v3';
 import { PICTURE_KEYS } from '../shared/pictures';
 
 const word = z.object({

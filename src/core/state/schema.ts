@@ -2,7 +2,7 @@
  * セーブデータ（GameState）。子どものセーブを壊さないよう schemaVersion + マイグレーションを持つ。
  * 個人情報は一切入れない（GDD §8：ログイン不要・端末内保存）。
  */
-import { z } from 'zod';
+import { z } from 'zod/v3';
 import {
   gradeSchema,
   idSchema,

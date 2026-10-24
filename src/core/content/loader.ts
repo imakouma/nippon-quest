@@ -2,7 +2,7 @@
  * content/ の読み込み・検証・索引。ブラウザ（fetch）と Node（fs）の両方から使える。
  * 実ファイル一覧は content/manifest.json（`pnpm gen:manifest` が生成）に従う。
  */
-import { z, type ZodTypeAny } from 'zod';
+import { z, type ZodTypeAny } from 'zod/v3';
 import {
   contentKinds,
   elementSchema,
