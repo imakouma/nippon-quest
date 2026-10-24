@@ -1475,16 +1475,17 @@ export class OverworldScene extends Phaser.Scene {
 
   /** 名所スタンプ：（はじめてなら カットイン → ★ が黄色に）→ 名所の説明 → スタンプ */
   private async visitLandmark(area: Area, motif: Motif, sign: Sign): Promise<void> {
-    if (this.busy) return;
-    this.busy = true;
-    this.standStill();
-    const stampLine = await this.arriveAt(area, motif, sign);
-    await this.talk([
-      { speaker: t('field.landmarkSpeaker'), text: motif.blurb },
-      ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
-    ]);
-    await this.checkMeisan();
-    this.busy = false;
+    await this.fieldFlow.run('landmark', async ({ throwIfCancelled }) => {
+      this.standStill();
+      const stampLine = await this.arriveAt(area, motif, sign);
+      throwIfCancelled();
+      await this.talk([
+        { speaker: t('field.landmarkSpeaker'), text: motif.blurb },
+        ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
+      ]);
+      throwIfCancelled();
+      await this.checkMeisan();
+    });
   }
 
   /** イベント：（はじめてなら カットイン → ★ が黄色に → スタンプ）→ 会話 → ちょうせんする？ → 問題 → ごほうび → お礼 */
