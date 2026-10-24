@@ -4,11 +4,12 @@
  *  (e) 画像キー → assets/ の実ファイル存在（warning）
  * 問題があれば非0で終了。
  */
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { findBrokenReferences, loadContent, type FileReader } from '../src/core/content/loader';
+import { validateScriptedAreaEvent } from '../src/core/events/validation';
 import {
   academicReviewLedgerSchema,
   assessAcademicReviews,
@@ -54,6 +55,21 @@ const content = await loadContent(read, {
 
 if (content) {
   errors.push(...findBrokenReferences(content));
+
+  const eventReferences = {
+    maps: new Set(
+      readdirSync(`${ROOT}maps/`)
+        .filter((file) => file.endsWith('.json'))
+        .map((file) => file.slice(0, -'.json'.length)),
+    ),
+    monsters: new Set(content.monsters.keys()),
+    items: new Set(content.items.keys()),
+    skills: new Set(content.skills.keys()),
+    recipes: new Set(content.recipes.keys()),
+  };
+  for (const area of content.areas.values())
+    for (const event of area.events)
+      if ('steps' in event) errors.push(...validateScriptedAreaEvent(event, eventReferences));
 
   // 問題 JSON
   const seen = new Map<string, string>();
