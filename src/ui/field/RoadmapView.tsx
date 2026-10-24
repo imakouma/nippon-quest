@@ -224,7 +224,6 @@ export function RoadmapView({
       ) : (
         <RoadmapGraph nodes={graphNodes} onSelect={onSelect} />
       )}
-      <RubyLabel class="nq-wmap-keys nq-roadmap-help" text={t('field.roadmapLegend')} />
     </section>
   );
 }
