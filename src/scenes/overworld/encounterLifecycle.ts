@@ -1,13 +1,6 @@
-import type { BattleEndPayload, BattleSceneData } from '../Battle';
-
-export type EncounterSource =
-  | { type: 'random' }
-  | { type: 'mid-boss' }
-  | { type: 'area-boss' }
-  | { type: 'last-boss' }
-  | { type: 'region-boss'; regionId: string }
-  | { type: 'island-boss'; islandId: string }
-  | { type: 'arena'; opponentId: string };
+import type { BattleEndPayload, BattleSceneData, EncounterSource } from '../battle/contracts';
+import type { FieldFlowContext, FieldFlowRuntime } from './fieldFlowRuntime';
+export type { EncounterSource } from '../battle/contracts';
 
 export interface EncounterContext {
   id: string;
@@ -42,16 +35,8 @@ export function encounterResultPolicy(
   }
 }
 
-/** `field-flow-runtime` の公開契約だけを表すport。完成コミット取込後に実装を接続する。 */
-export interface EncounterFlowContext {
-  readonly signal: AbortSignal;
-  throwIfCancelled(): void;
-}
-
-export interface EncounterFlowRuntimePort {
-  run<T>(reason: string, action: (context: EncounterFlowContext) => Promise<T>): Promise<T | undefined>;
-  cancel(reason?: unknown): void;
-}
+export type EncounterFlowContext = FieldFlowContext;
+export type EncounterFlowRuntimePort = Pick<FieldFlowRuntime, 'run' | 'cancel'>;
 
 export interface EncounterLifecyclePorts {
   flow: EncounterFlowRuntimePort;
@@ -80,6 +65,8 @@ interface ActiveEncounter {
   resolveResult: (result: EncounterResult) => void;
   completed: Promise<void>;
   resolveCompleted: () => void;
+  restoreRequired: boolean;
+  restore: Promise<void> | null;
 }
 
 function deferred<T>(): { promise: Promise<T>; resolve: (value: T) => void } {
@@ -134,6 +121,8 @@ class DefaultEncounterLifecycle implements EncounterLifecycle {
       resolveResult: result.resolve,
       completed: completed.promise,
       resolveCompleted: completed.resolve,
+      restoreRequired: false,
+      restore: null,
     };
     this.current = active;
     let started = false;
@@ -142,16 +131,14 @@ class DefaultEncounterLifecycle implements EncounterLifecycle {
       await this.ports.flow.run(`encounter-${context.source.type}`, async (flow) => {
         started = true;
         active.enteredFlow = true;
-        let restore: Promise<void> | null = null;
-        let needsRestore = false;
         const restoreOnce = () =>
-          (restore ??= Promise.resolve()
+          (active.restore ??= Promise.resolve()
             .then(() => this.ports.restoreField(context))
             .then(() => undefined));
 
         try {
           flow.throwIfCancelled();
-          needsRestore = true;
+          active.restoreRequired = true;
           await this.ports.prepareField(context);
           flow.throwIfCancelled();
           await this.ports.launchBattle(context);
@@ -164,11 +151,17 @@ class DefaultEncounterLifecycle implements EncounterLifecycle {
             encounterResultPolicy(context.source, battleResult),
           );
         } finally {
-          if (needsRestore) await restoreOnce();
+          if (active.restoreRequired) await restoreOnce();
         }
       });
       return started;
     } finally {
+      if (active.restoreRequired) {
+        active.restore ??= Promise.resolve()
+          .then(() => this.ports.restoreField(context))
+          .then(() => undefined);
+        await active.restore;
+      }
       if (this.current === active) this.current = null;
       active.acceptingResult = false;
       active.resolveCompleted();
@@ -184,9 +177,16 @@ class DefaultEncounterLifecycle implements EncounterLifecycle {
   }
 
   cancel(): void {
-    if (!this.current) return;
-    this.current.acceptingResult = false;
-    if (this.current.enteredFlow) this.ports.flow.cancel();
+    const active = this.current;
+    if (!active) return;
+    active.acceptingResult = false;
+    if (active.enteredFlow) {
+      if (active.restoreRequired)
+        active.restore ??= Promise.resolve()
+          .then(() => this.ports.restoreField(active.context))
+          .then(() => undefined);
+      this.ports.flow.cancel();
+    }
   }
 }
 

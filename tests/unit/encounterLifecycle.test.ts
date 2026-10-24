@@ -174,6 +174,25 @@ describe('encounter lifecycle', () => {
     expect(flow.releases).toBe(1);
   });
 
+  it('準備中のcancelでもstartの完了前にfieldを一度だけ復帰する', async () => {
+    let finishPrepare!: () => void;
+    const preparing = new Promise<void>((resolve) => {
+      finishPrepare = resolve;
+    });
+    const { lifecycle, ports } = lifecycleHarness({
+      prepareField: vi.fn(() => preparing),
+    });
+    const started = lifecycle.start(context('enc-1'));
+
+    await vi.waitFor(() => expect(ports.prepareField).toHaveBeenCalledTimes(1));
+    lifecycle.cancel();
+    finishPrepare();
+    await expect(started).resolves.toBe(true);
+
+    expect(ports.restoreField).toHaveBeenCalledTimes(1);
+    expect(ports.launchBattle).not.toHaveBeenCalled();
+  });
+
   it('Battle起動に失敗してもfieldを復帰し、次のencounterを開始できる', async () => {
     let launches = 0;
     const { lifecycle, ports, flow } = lifecycleHarness({
