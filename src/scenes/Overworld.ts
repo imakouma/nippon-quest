@@ -159,11 +159,8 @@ import { buildStructureArt, structureKey, type StructureKind } from '../renderin
 import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
 import { resolveMapEntry } from './overworld/mapEntry';
-import {
-  runMapTransition,
-  type MapTransitionPorts,
-  type MapTransitionRequest,
-} from './overworld/mapTransitionPipeline';
+import { runMapTransition, type MapTransitionRequest } from './overworld/mapTransitionPipeline';
+import { createPhaserMapTransitionPorts } from './overworld/phaserMapTransitionPorts';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
 import { musubiDamaPurchaseLines } from './overworld/storyScenes';
@@ -3427,28 +3424,12 @@ export class OverworldScene extends Phaser.Scene {
 
   private switchMap(request: MapTransitionRequest): void {
     void this.fieldFlow.run('map-transition', ({ signal }) =>
-      runMapTransition(request, this.mapTransitionPorts(), signal),
+      runMapTransition(
+        request,
+        createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+        signal,
+      ),
     );
-  }
-
-  private mapTransitionPorts(): MapTransitionPorts {
-    return {
-      closeTransientUi: () => this.cleanupTransientUi(),
-      fadeOut: (signal) =>
-        new Promise<void>((resolve) => {
-          const camera = this.cameras.main;
-          const event = Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE;
-          const finish = () => {
-            camera.off(event, finish);
-            signal.removeEventListener('abort', finish);
-            resolve();
-          };
-          camera.once(event, finish);
-          signal.addEventListener('abort', finish, { once: true });
-          camera.fadeOut(250, 0, 0, 0);
-        }),
-      restart: (request) => this.scene.restart({ transitionRequest: request }),
-    };
   }
 
   /**
