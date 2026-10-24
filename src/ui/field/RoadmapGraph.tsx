@@ -9,7 +9,6 @@ const NODE_W = 96;
 const NODE_H = 92;
 const MIN_ZOOM = 0.2;
 const MAX_ZOOM = 1.6;
-const ZOOM_STEP = 0.2;
 
 type Point = { x: number; y: number };
 
@@ -44,7 +43,6 @@ export function RoadmapGraph({
   const selectedNodeRef = useRef<HTMLButtonElement>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState<Point>({ x: 0, y: 0 });
-  const [recenterRequest, setRecenterRequest] = useState(0);
   const view = useRef({ zoom, pan });
   view.current = { zoom, pan };
   const drag = useRef({ pointerId: -1, x: 0, y: 0, panX: 0, panY: 0, moved: false });
@@ -147,10 +145,6 @@ export function RoadmapGraph({
   }, [selectedNode?.id]);
 
   useEffect(() => {
-    if (recenterRequest > 0) centerOnFocus(1);
-  }, [recenterRequest]);
-
-  useEffect(() => {
     if (selectedId && !selectedNode) setSelectedId(selectableFocusNode?.id ?? '');
   }, [selectableFocusNode?.id, selectedId, selectedNode?.id]);
 
@@ -176,21 +170,6 @@ export function RoadmapGraph({
       x: point.x - worldX * level,
       y: point.y - worldY * level,
     });
-  };
-
-  const changeZoom = (amount: number) => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-    playSfx('move');
-    zoomAt(view.current.zoom + amount, {
-      x: viewport.clientWidth / 2,
-      y: viewport.clientHeight / 2,
-    });
-  };
-
-  const resetView = () => {
-    playSfx('move');
-    setRecenterRequest((request) => request + 1);
   };
 
   const onPointerDown = (event: PointerEvent) => {
@@ -298,32 +277,6 @@ export function RoadmapGraph({
       class={`nq-roadmap-map-shell${selectedNode ? ' nq-roadmap-map-shell-with-selection' : ''}`}
       data-zoom-detail={zoom < 0.5 ? 'overview' : 'detail'}
     >
-      <div class="nq-roadmap-map-tools" role="group" aria-label={displayText(t('field.roadmapZoomTools'))}>
-        <button
-          type="button"
-          class="nq-roadmap-map-button nq-roadmap-zoom-out"
-          aria-label={displayText(t('field.roadmapZoomOut'))}
-          disabled={zoom <= MIN_ZOOM + 0.001}
-          onClick={() => changeZoom(-ZOOM_STEP)}
-        >
-          −
-        </button>
-        <span class="nq-roadmap-zoom-value" aria-live="polite">
-          {Math.round(zoom * 100)}%
-        </span>
-        <button
-          type="button"
-          class="nq-roadmap-map-button nq-roadmap-zoom-in"
-          aria-label={displayText(t('field.roadmapZoomIn'))}
-          disabled={zoom >= MAX_ZOOM - 0.001}
-          onClick={() => changeZoom(ZOOM_STEP)}
-        >
-          ＋
-        </button>
-        <button type="button" class="nq-roadmap-map-button nq-roadmap-reset" onClick={resetView}>
-          <RubyLabel text={t('field.roadmapCenter')} />
-        </button>
-      </div>
       <div
         ref={viewportRef}
         class="nq-roadmap-map"
