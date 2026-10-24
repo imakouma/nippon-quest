@@ -70,13 +70,24 @@ describe('curriculum graph quality', () => {
     expect(report.bySubject.sansu).toMatchObject({
       units: 5,
       edges: 4,
-      hardEdges: 4,
       branches: 1,
       merges: 1,
-      hardMerges: 1,
       isolated: ['sansu.g2.isolated'],
     });
     expect(report.bySubject.kokugo?.isolated).toEqual(['kokugo.g2.read']);
+  });
+
+  it('確認したい学年だけに限定して品質を集計できる', () => {
+    const report = buildCurriculumGraphQuality({ units, graph, grades: [1] });
+
+    expect(report.bySubject.sansu).toMatchObject({
+      units: 4,
+      edges: 4,
+      branches: 1,
+      merges: 1,
+      isolated: [],
+    });
+    expect(report.bySubject.kokugo).toBeUndefined();
   });
 
   it('逆学年、教科横断、単元循環、重複関係を検出する', () => {
@@ -110,64 +121,5 @@ describe('curriculum graph quality', () => {
     expect(report.reverseGradeEdges).toHaveLength(1);
     expect(report.unitCycles.length).toBeGreaterThan(0);
     expect(report.unreviewedPrerequisites).toBe(2);
-    expect(report.relationReviews).toEqual({
-      draft: 2,
-      sourceChecked: 5,
-      expertReviewed: 0,
-    });
-  });
-
-  it('非ロック関係も表示上の接続として数える', () => {
-    const connected = structuredClone(graph);
-    connected.relations.push({
-      from: 'sansu.g1.apply.concept',
-      to: 'sansu.g2.isolated.concept',
-      kind: 'transfer',
-      strength: 0.7,
-      rationale: '学年間の転移',
-      sourceIds: ['source'],
-      reviewStatus: 'source-checked',
-    });
-
-    const report = buildCurriculumGraphQuality({ units, graph: connected });
-
-    expect(report.bySubject.sansu).toMatchObject({ edges: 5, hardEdges: 4, isolated: [] });
-    expect(report.prerequisiteEdges).toHaveLength(4);
-  });
-
-  it('単元集約後の必須・補助線重複と未確認・出典なし表示線を検出する', () => {
-    const broken = structuredClone(graph);
-    broken.relations.push({
-      from: 'sansu.g1.base.concept',
-      to: 'sansu.g1.add.concept',
-      kind: 'transfer',
-      strength: 0.7,
-      rationale: '重複表示線',
-      sourceIds: [],
-      reviewStatus: 'draft',
-    });
-
-    const report = buildCurriculumGraphQuality({ units, graph: broken });
-
-    expect(report.overlappingUnitEdges).toEqual(['sansu.g1.base->sansu.g1.add']);
-    expect(report.unreviewedDisplayRelations).toHaveLength(1);
-    expect(report.displayRelationsWithoutSources).toHaveLength(1);
-  });
-
-  it('単一教科画面では見えない教科横断の補助線を検出する', () => {
-    const broken = structuredClone(graph);
-    broken.relations.push({
-      from: 'kokugo.g2.read.concept',
-      to: 'sansu.g2.isolated.concept',
-      kind: 'transfer',
-      strength: 0.7,
-      rationale: '単一教科表示では見えない線',
-      sourceIds: ['source'],
-      reviewStatus: 'source-checked',
-    });
-
-    const report = buildCurriculumGraphQuality({ units, graph: broken });
-
-    expect(report.crossSubjectDisplayEdges).toHaveLength(1);
   });
 });

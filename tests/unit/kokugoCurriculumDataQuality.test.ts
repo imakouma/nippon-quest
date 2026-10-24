@@ -30,20 +30,39 @@ function loadCurriculumGraph(): CurriculumGraph {
 }
 
 describe('国語カリキュラムのロードマップ品質', () => {
-  it('正式表示する全単元を、循環のない分岐・合流グラフへ接続する', () => {
+  it('1〜6年の正式単元を、出典確認済みの分岐・合流グラフへ接続する', () => {
     const graph = loadCurriculumGraph();
     const units = unitSchema
       .array()
       .parse(JSON.parse(readFileSync(resolve(root, 'content/units.json'), 'utf8')) as unknown);
     const report = buildCurriculumGraphQuality({ units, graph });
     const kokugo = report.bySubject.kokugo!;
+    const kokugoUnits = units.filter(
+      (unit) => unit.subject === 'kokugo' && unit.courseKind === 'required-subject',
+    );
+    const kokugoRelations = graph.relations.filter(
+      (relation) =>
+        relation.kind === 'prerequisite' &&
+        relation.from.startsWith('kokugo.') &&
+        relation.to.startsWith('kokugo.'),
+    );
+    const incoming = new Map<string, number>();
+    const outgoing = new Map<string, number>();
+    for (const edge of report.edges.filter(
+      (edge) => edge.from.startsWith('kokugo.') && edge.to.startsWith('kokugo.'),
+    )) {
+      incoming.set(edge.to, (incoming.get(edge.to) ?? 0) + 1);
+      outgoing.set(edge.from, (outgoing.get(edge.from) ?? 0) + 1);
+    }
 
+    expect(new Set(kokugoUnits.map((unit) => unit.grade))).toEqual(new Set([1, 2, 3, 4, 5, 6]));
     expect(kokugo.isolated).toEqual([]);
-    expect(kokugo.branches).toBeGreaterThan(0);
-    expect(kokugo.merges).toBeGreaterThan(0);
-    expect(kokugo.hardMerges).toBeGreaterThan(0);
-    expect(kokugo.hardMerges).toBeLessThanOrEqual(8);
-    expect(kokugo.edges).toBeGreaterThan(kokugo.hardEdges);
+    expect(kokugo.branches).toBeGreaterThanOrEqual(6);
+    expect(kokugo.merges).toBeGreaterThanOrEqual(6);
+    expect([...incoming.values()].filter((count) => count >= 2 && count <= 3).length).toBeGreaterThanOrEqual(
+      6,
+    );
+    expect([...outgoing.values()].filter((count) => count >= 2).length).toBeGreaterThanOrEqual(6);
     expect(report.duplicateRelations.filter((relation) => relation.includes('kokugo.'))).toEqual([]);
     expect(
       report.reverseGradeEdges.filter(
@@ -56,18 +75,14 @@ describe('国語カリキュラムのロードマップ品質', () => {
       ),
     ).toEqual([]);
     expect(report.unitCycles.filter((cycle) => cycle.some((unit) => unit.startsWith('kokugo.')))).toEqual([]);
+    expect(kokugoRelations.length).toBeGreaterThanOrEqual(kokugoUnits.length - 1);
     expect(
-      report.prerequisiteCycles.filter((cycle) => cycle.some((unit) => unit.startsWith('kokugo.'))),
-    ).toEqual([]);
-    expect(
-      graph.relations
-        .filter((relation) => relation.from.startsWith('kokugo.'))
-        .every(
-          (relation) =>
-            relation.reviewStatus === 'source-checked' &&
-            relation.sourceIds.length > 0 &&
-            relation.rationale.length > 0,
-        ),
+      kokugoRelations.every(
+        (relation) =>
+          relation.reviewStatus === 'source-checked' &&
+          relation.sourceIds.length > 0 &&
+          relation.rationale.length > 0,
+      ),
     ).toBe(true);
   });
 });

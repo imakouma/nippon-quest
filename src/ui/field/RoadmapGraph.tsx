@@ -5,9 +5,9 @@ import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 
-const NODE_W = 136;
-const NODE_H = 118;
-const MIN_ZOOM = 0.6;
+const NODE_W = 96;
+const NODE_H = 92;
+const MIN_ZOOM = 0.2;
 const MAX_ZOOM = 1.6;
 const ZOOM_STEP = 0.2;
 
@@ -24,6 +24,14 @@ function marker(node: RoadmapNode): string {
 
 const clampZoom = (value: number) => Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, value));
 
+function questState(node: RoadmapNode): string {
+  if (node.state === 'locked') return t('field.roadmapQuestLocked');
+  if (node.state === 'current') return t('field.roadmapQuestCurrent');
+  if (node.state === 'review') return t('field.roadmapQuestReview');
+  if (node.state === 'cleared') return t('field.roadmapQuestCleared');
+  return t('field.roadmapQuestOpen');
+}
+
 export function RoadmapGraph({
   nodes,
   onSelect,
@@ -32,8 +40,12 @@ export function RoadmapGraph({
   onSelect: (unitId: string) => void;
 }) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const focusRef = useRef<HTMLButtonElement>(null);
+  const selectedNodeRef = useRef<HTMLButtonElement>(null);
+  const selectionRef = useRef<HTMLElement>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState<Point>({ x: 0, y: 0 });
+  const [recenterRequest, setRecenterRequest] = useState(0);
   const view = useRef({ zoom, pan });
   view.current = { zoom, pan };
   const drag = useRef({ pointerId: -1, x: 0, y: 0, panX: 0, panY: 0, moved: false });
@@ -53,56 +65,106 @@ export function RoadmapGraph({
   const position = (node: RoadmapNode) => ({ x: node.x - offsetX, y: node.y - offsetY });
   const width = Math.max(720, ...nodes.map((node) => position(node).x + NODE_W + 40));
   const height = Math.max(460, ...nodes.map((node) => position(node).y + NODE_H + 40));
-  const edges = nodes.flatMap((target) => [
-    ...target.prerequisiteIds.flatMap((sourceId) => {
+  const edges = nodes.flatMap((target) =>
+    target.prerequisiteIds.flatMap((sourceId) => {
       const source = byId.get(sourceId);
-      return source ? [{ source, target, kind: 'prerequisite' as const }] : [];
+      return source ? [{ source, target }] : [];
     }),
-    ...(target.supportingLinks ?? []).flatMap(({ sourceId, kind }) => {
-      const source = byId.get(sourceId);
-      return source ? [{ source, target, kind }] : [];
-    }),
-  ]);
+  );
   const focusNode =
     nodes.find((node) => node.state === 'current') ??
     nodes.find((node) => node.visibility === 'revealed' && node.state === 'open') ??
     nodes.find((node) => node.visibility === 'revealed');
+  const selectableFocusNode =
+    focusNode?.visibility === 'revealed' && focusNode.state !== 'locked'
+      ? focusNode
+      : nodes.find((node) => node.visibility === 'revealed' && node.state !== 'locked');
+  const [selectedId, setSelectedId] = useState(selectableFocusNode?.id ?? '');
+  const selectedNode = selectedId
+    ? nodes.find((node) => node.id === selectedId && node.visibility !== 'hidden')
+    : undefined;
+  const selectedPrerequisites = selectedNode
+    ? selectedNode.prerequisiteIds
+        .map((id) => byId.get(id))
+        .filter((node): node is RoadmapNode => node !== undefined)
+    : [];
+  const completedPrerequisites = selectedPrerequisites.filter(
+    (node) => node.state === 'cleared' || node.state === 'review',
+  ).length;
+
+  const visibleViewportHeight = (viewport: HTMLElement): number => {
+    const selectionElement =
+      selectionRef.current ?? viewport.parentElement?.querySelector<HTMLElement>('.nq-roadmap-selection');
+    if (!selectionElement) return viewport.clientHeight;
+    const viewportBox = viewport.getBoundingClientRect();
+    const selectionBox = selectionElement.getBoundingClientRect();
+    const scaleY = viewportBox.height ? viewport.clientHeight / viewportBox.height : 1;
+    return Math.max(0, (selectionBox.top - viewportBox.top) * scaleY);
+  };
 
   const clampPan = (next: Point, atZoom: number): Point => {
     const viewport = viewportRef.current;
     if (!viewport?.clientWidth || !viewport.clientHeight) return next;
     const scaledWidth = width * atZoom;
     const scaledHeight = height * atZoom;
-    const clampAxis = (value: number, viewportSize: number, canvasSize: number) => {
-      if (canvasSize <= viewportSize) return (viewportSize - canvasSize) / 2;
-      return Math.max(viewportSize - canvasSize, Math.min(0, value));
-    };
+    const clampAxis = (value: number, viewportCenter: number, canvasSize: number) =>
+      Math.max(viewportCenter - canvasSize, Math.min(viewportCenter, value));
     return {
-      x: clampAxis(next.x, viewport.clientWidth, scaledWidth),
-      y: clampAxis(next.y, viewport.clientHeight, scaledHeight),
+      x: clampAxis(next.x, viewport.clientWidth / 2, scaledWidth),
+      y: clampAxis(next.y, visibleViewportHeight(viewport) / 2, scaledHeight),
     };
   };
 
   const updateView = (nextZoom: number, nextPan: Point) => {
+    const viewport = viewportRef.current;
+    if (viewport) {
+      viewport.scrollLeft = 0;
+      viewport.scrollTop = 0;
+    }
     const clampedPan = clampPan(nextPan, nextZoom);
     view.current = { zoom: nextZoom, pan: clampedPan };
     setZoom(nextZoom);
     setPan(clampedPan);
   };
 
-  const centerOnFocus = (nextZoom: number) => {
+  const centerOnNode = (node: RoadmapNode, nextZoom: number) => {
     const viewport = viewportRef.current;
-    if (!viewport || !focusNode) return;
-    const target = position(focusNode);
+    if (!viewport) return;
+    const target = position(node);
+    const nodeElement =
+      node.id === focusNode?.id
+        ? focusRef.current
+        : node.id === selectedNode?.id
+          ? selectedNodeRef.current
+          : null;
+    const nodeWidth = nodeElement?.offsetWidth || NODE_W;
+    const nodeHeight = nodeElement?.offsetHeight || NODE_H;
+    const visibleHeight = visibleViewportHeight(viewport);
     updateView(nextZoom, {
-      x: viewport.clientWidth / 2 - (target.x + NODE_W / 2) * nextZoom,
-      y: viewport.clientHeight / 2 - (target.y + NODE_H / 2) * nextZoom,
+      x: viewport.clientWidth / 2 - (target.x + nodeWidth / 2) * nextZoom,
+      y: visibleHeight / 2 - (target.y + nodeHeight / 2) * nextZoom,
     });
+  };
+
+  const centerOnFocus = (nextZoom: number) => {
+    if (focusNode) centerOnNode(focusNode, nextZoom);
   };
 
   useEffect(() => {
     centerOnFocus(1);
   }, [focusNode?.id, offsetX, offsetY, width, height]);
+
+  useEffect(() => {
+    if (selectedNode) centerOnNode(selectedNode, view.current.zoom);
+  }, [selectedNode?.id]);
+
+  useEffect(() => {
+    if (recenterRequest > 0) centerOnFocus(1);
+  }, [recenterRequest]);
+
+  useEffect(() => {
+    if (selectedId && !selectedNode) setSelectedId(selectableFocusNode?.id ?? '');
+  }, [selectableFocusNode?.id, selectedId, selectedNode?.id]);
 
   if (!nodes.length) return <RubyLabel text={t('field.roadmapEmpty')} />;
 
@@ -140,7 +202,7 @@ export function RoadmapGraph({
 
   const resetView = () => {
     playSfx('move');
-    centerOnFocus(1);
+    setRecenterRequest((request) => request + 1);
   };
 
   const onPointerDown = (event: PointerEvent) => {
@@ -244,7 +306,7 @@ export function RoadmapGraph({
   };
 
   return (
-    <div class="nq-roadmap-map-shell">
+    <div class="nq-roadmap-map-shell" data-zoom-detail={zoom < 0.5 ? 'overview' : 'detail'}>
       <div class="nq-roadmap-map-tools" role="group" aria-label={displayText(t('field.roadmapZoomTools'))}>
         <button
           type="button"
@@ -287,29 +349,32 @@ export function RoadmapGraph({
           event.stopPropagation();
           drag.current.moved = false;
         }}
+        onClick={(event) => {
+          if ((event.target as Element).closest('.nq-roadmap-node')) return;
+          setSelectedId('');
+        }}
       >
         <div
           class="nq-roadmap-canvas"
           style={{ width, height, transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}
         >
           <svg class="nq-roadmap-edges" width={width} height={height} aria-hidden="true">
-            {edges.map(({ source, target, kind }) => {
+            {edges.map(({ source, target }) => {
               const from = position(source);
               const to = position(target);
               const x1 = from.x + NODE_W / 2;
-              const y1 = from.y + 50;
+              const y1 = from.y + 25;
               const x2 = to.x + NODE_W / 2;
-              const y2 = to.y + 8;
+              const y2 = to.y + 25;
               const hidden = source.visibility === 'hidden' || target.visibility === 'hidden';
               const frontier = source.visibility === 'frontier' || target.visibility === 'frontier';
+              const active = !hidden && (source.id === selectedNode?.id || target.id === selectedNode?.id);
+              const muted = Boolean(selectedNode) && !active;
               return (
-                <line
-                  key={`${kind}:${source.id}->${target.id}`}
-                  class={`nq-roadmap-edge nq-roadmap-edge-${kind}${kind !== 'prerequisite' ? ' nq-roadmap-edge-supporting' : ''}${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}`}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
+                <path
+                  key={`${source.id}->${target.id}`}
+                  class={`nq-roadmap-edge${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}${active ? ' nq-roadmap-edge-active' : ''}${muted ? ' nq-roadmap-edge-muted' : ''}`}
+                  d={`M ${x1} ${y1} L ${x2} ${y2}`}
                 />
               );
             })}
@@ -329,28 +394,36 @@ export function RoadmapGraph({
               );
 
             const fogged = node.visibility === 'frontier';
-            const unavailable = fogged || node.state === 'locked';
             const label = fogged ? t('field.roadmapFog') : node.name;
-            const blockedBy = node.blockedByNames?.[0];
-            const blockedRest = Math.max(0, (node.blockedByNames?.length ?? 1) - 1);
-            const blockedLabel = blockedBy
-              ? t(blockedRest ? 'field.roadmapNeedsMore' : 'field.roadmapNeeds', {
-                  name: blockedBy,
-                  n: blockedRest,
-                })
-              : undefined;
+            const selected = node.id === selectedNode?.id;
+            const nodePrerequisites = node.prerequisiteIds
+              .map((id) => byId.get(id))
+              .filter((item): item is RoadmapNode => item !== undefined);
+            const nodeCompletedPrerequisites = nodePrerequisites.filter(
+              (item) => item.state === 'cleared' || item.state === 'review',
+            ).length;
+            const accessibleLabel =
+              node.state === 'locked' && nodePrerequisites.length > 0
+                ? `${displayText(label)} ${displayText(
+                    t('field.roadmapPrerequisiteProgress', {
+                      done: nodeCompletedPrerequisites,
+                      total: nodePrerequisites.length,
+                    }),
+                  )}`
+                : displayText(label);
             return (
               <button
                 key={node.id}
+                ref={node.id === focusNode?.id ? focusRef : selected ? selectedNodeRef : undefined}
                 type="button"
-                class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}`}
+                class={`nq-roadmap-node nq-roadmap-${node.state}${fogged ? ' nq-roadmap-frontier' : ''}${selected ? ' nq-roadmap-selected' : ''}`}
                 style={{ left: pos.x, top: pos.y }}
-                aria-label={displayText(blockedLabel ? `${label} ${blockedLabel}` : label)}
-                aria-disabled={unavailable || undefined}
+                aria-label={accessibleLabel}
+                aria-current={node.state === 'current' ? 'step' : undefined}
+                aria-pressed={selected}
                 onClick={() => {
-                  if (unavailable) return;
                   playSfx('select');
-                  onSelect(node.id);
+                  setSelectedId(node.id);
                 }}
                 title={
                   fogged ? displayText(label) : `${displayText(node.name)} ${Math.round(node.mastery * 100)}%`
@@ -369,7 +442,6 @@ export function RoadmapGraph({
                         <RubyLabel text={t('field.roadmapSupplementary')} class="nq-roadmap-node-extra" />
                       )}
                     </span>
-                    {blockedLabel && <RubyLabel text={blockedLabel} class="nq-roadmap-blocked-by" />}
                     <span
                       class="nq-roadmap-meter"
                       role="meter"
@@ -387,6 +459,75 @@ export function RoadmapGraph({
           })}
         </div>
       </div>
+      {selectedNode && (
+        <aside
+          ref={selectionRef}
+          class={`nq-roadmap-selection nq-roadmap-selection-${selectedNode.state}`}
+          aria-label={displayText(t('field.roadmapSelection'))}
+        >
+          <span class="nq-roadmap-selection-marker" aria-hidden="true">
+            {marker(selectedNode)}
+          </span>
+          <span class="nq-roadmap-selection-copy">
+            <RubyLabel text={questState(selectedNode)} class="nq-roadmap-selection-state" />
+            <RubyLabel text={selectedNode.name} class="nq-roadmap-selection-name" />
+            <span class="nq-roadmap-selection-meta">
+              <RubyLabel text={t('field.roadmapGradeName', { n: selectedNode.grade })} />
+              <RubyLabel
+                text={t('field.roadmapQuestMastery', {
+                  percent: Math.round(selectedNode.mastery * 100),
+                })}
+              />
+            </span>
+            {selectedPrerequisites.length > 0 && (
+              <span class="nq-roadmap-prerequisites">
+                <RubyLabel
+                  text={t('field.roadmapPrerequisiteProgress', {
+                    done: completedPrerequisites,
+                    total: selectedPrerequisites.length,
+                  })}
+                  class="nq-roadmap-prerequisite-title"
+                />
+                <span class="nq-roadmap-prerequisite-list">
+                  {selectedPrerequisites.map((prerequisite) => {
+                    const done = prerequisite.state === 'cleared' || prerequisite.state === 'review';
+                    return (
+                      <span
+                        key={prerequisite.id}
+                        class={`nq-roadmap-prerequisite ${
+                          done ? 'nq-roadmap-prerequisite-done' : 'nq-roadmap-prerequisite-missing'
+                        }`}
+                      >
+                        <span aria-hidden="true">{done ? '✓' : '○'}</span>
+                        <RubyLabel text={prerequisite.name} />
+                        <RubyLabel
+                          text={t(
+                            done ? 'field.roadmapPrerequisiteDone' : 'field.roadmapPrerequisiteMissing',
+                          )}
+                          class="nq-roadmap-prerequisite-status"
+                        />
+                      </span>
+                    );
+                  })}
+                </span>
+              </span>
+            )}
+          </span>
+          {selectedNode.state !== 'locked' && (
+            <button
+              type="button"
+              class="nq-roadmap-practice"
+              onClick={() => {
+                playSfx('select');
+                onSelect(selectedNode.id);
+              }}
+            >
+              <RubyLabel text={t('field.roadmapQuestStart')} />
+              <span aria-hidden="true"> ▶</span>
+            </button>
+          )}
+        </aside>
+      )}
     </div>
   );
 }

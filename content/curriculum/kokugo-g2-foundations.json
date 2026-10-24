@@ -212,9 +212,9 @@
     {
       "from": "kokugo.g1.vocabulary.semantic-groups",
       "to": "kokugo.g2.vocabulary.groups-opposites",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
-      "rationale": "意味で言葉をまとめる力を、仲間の言葉や反対の意味の言葉を捉える活動へ転移して用いる。",
+      "rationale": "意味で言葉をまとめる力を基礎として、仲間の言葉や反対の意味の言葉を捉える学習へ進む。",
       "sourceIds": ["mext-h29-kokugo-g1-2"],
       "reviewStatus": "source-checked"
     },
@@ -239,34 +239,34 @@
     {
       "from": "kokugo.g1.speaking-listening.basic-dialogue",
       "to": "kokugo.g2.communication.listen-and-retell",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
-      "rationale": "大切なことを話し聞く力を、相手の話を聞いて要点を伝え返す活動へ転移して用いる。",
+      "rationale": "大切なことを話し聞く力を基礎として、相手の話を聞いて要点を伝え返す学習へ進む。",
       "sourceIds": ["mext-h29-kokugo-g1-2"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g1.expression.sequence-revision",
       "to": "kokugo.g2.writing.observe-and-order",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
-      "rationale": "伝える順序を考えて読み直す力を、観察したことを順序立てて書く活動へ転移して用いる。",
+      "rationale": "伝える順序を考えて読み直す力を基礎として、観察したことを順序立てて書く学習へ進む。",
       "sourceIds": ["mext-h29-kokugo-g1-2"],
       "reviewStatus": "source-checked"
     },
     {
-      "from": "kokugo.g2.grammar.subject-predicate-particles",
+      "from": "kokugo.g1.sentence.subject-predicate",
       "to": "kokugo.g2.grammar.subject-predicate",
-      "kind": "related",
+      "kind": "prerequisite",
       "strength": 0.55,
-      "rationale": "二つの単元は主語と述語を扱う同等領域のため、重複ロックではなく関連する学びとして結ぶ。",
+      "rationale": "第1学年で主語と述語の関係を捉えることを基礎として、第2学年で文の関係を詳しく確かめる。",
       "sourceIds": ["mext-h29-kokugo-g1-2"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g2.grammar.subject-predicate-particles",
       "to": "kokugo.g2.writing.sentence-order",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "主語・述語・助詞の関係を捉える力は、文の順序を整えて書く過程の構成要素となる。",
       "sourceIds": ["mext-h29-kokugo-g1-2"],
@@ -275,7 +275,7 @@
     {
       "from": "kokugo.g2.communication.listen-and-retell",
       "to": "kokugo.g2.language.polite-style",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "相手の話を聞いて伝え返す活動は、丁寧な言葉を相手に応じて使う過程の構成要素となる。",
       "sourceIds": ["mext-h29-kokugo-g1-2"],
@@ -284,9 +284,9 @@
     {
       "from": "kokugo.g2.reading.sequence-and-evidence",
       "to": "kokugo.g2.writing.observe-and-order",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
-      "rationale": "文章の順序を捉えて読む力を、観察したことを順序立てて書く活動へ転移して用いる。",
+      "rationale": "文章の順序を捉えて読む力を基礎として、観察したことを順序立てて書く学習へ進む。",
       "sourceIds": ["mext-h29-kokugo-g1-2"],
       "reviewStatus": "source-checked"
     }

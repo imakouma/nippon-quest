@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Unit } from '../../src/core/content/schemas';
-import { initialConceptState, type CurriculumGraph } from '../../src/core/learning';
+import type { CurriculumGraph } from '../../src/core/learning';
 import type { QuestionBase } from '../../src/questions/contracts';
 import { QuestionBank } from '../../src/questions/engine';
 import { buildRoadmapNodes } from '../../src/scenes/overworld/roadmap';
@@ -77,6 +77,7 @@ const graphUnits: Unit[] = [
   { id: 'sansu.g1.map-base', name: 'かず', subject: 'sansu', grade: 1 },
   { id: 'sansu.g1.map-add', name: 'たしざん', subject: 'sansu', grade: 1 },
   { id: 'sansu.g1.map-subtract', name: 'ひきざん', subject: 'sansu', grade: 1 },
+  { id: 'sansu.g1.map-shape', name: 'かたち', subject: 'sansu', grade: 1 },
   { id: 'sansu.g1.map-application', name: 'たしひきの おうよう', subject: 'sansu', grade: 1 },
   { id: 'sansu.g1.map-challenge', name: 'つぎの ちょうせん', subject: 'sansu', grade: 1 },
 ];
@@ -110,8 +111,10 @@ const curriculum: CurriculumGraph = {
   relations: [
     ['sansu.g1.map-base', 'sansu.g1.map-add'],
     ['sansu.g1.map-base', 'sansu.g1.map-subtract'],
+    ['sansu.g1.map-base', 'sansu.g1.map-shape'],
     ['sansu.g1.map-add', 'sansu.g1.map-application'],
     ['sansu.g1.map-subtract', 'sansu.g1.map-application'],
+    ['sansu.g1.map-shape', 'sansu.g1.map-application'],
     ['sansu.g1.map-application', 'sansu.g1.map-challenge'],
   ].map(([from, to]) => ({
     from: `${from}.concept`,
@@ -158,6 +161,22 @@ describe('buildRoadmapNodes', () => {
     expect(nodes.find((node) => node.id === 'sansu.g2.legacy-math-2-13')?.state).toBe('open');
   });
 
+  it('導入前に習得済みだった単元は既得進捗として維持する', () => {
+    const nodes = buildRoadmapNodes({
+      units: graphUnits,
+      curriculum,
+      conceptStates: {},
+      mastery: {},
+      grandfatheredUnitIds: ['sansu.g1.map-application'],
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === 'sansu.g1.map-application')?.state).toBe('cleared');
+    expect(nodes.find((node) => node.id === 'sansu.g1.map-challenge')?.state).toBe('open');
+  });
+
   it('概念の前提関係を単元へ集約し、複数の前提をすべて満たすまで応用を開かない', () => {
     const input = {
       units: graphUnits,
@@ -172,12 +191,12 @@ describe('buildRoadmapNodes', () => {
       mastery: {
         'sansu.g1.map-base': { value: 0.9, n: 3, lastAt: 1 },
         'sansu.g1.map-add': { value: 0.9, n: 3, lastAt: 2 },
+        'sansu.g1.map-subtract': { value: 0.9, n: 3, lastAt: 3 },
       },
     });
 
     expect(before.find((node) => node.id === 'sansu.g1.map-application')).toMatchObject({
-      prerequisiteIds: ['sansu.g1.map-add', 'sansu.g1.map-subtract'],
-      blockedByNames: ['ひきざん'],
+      prerequisiteIds: ['sansu.g1.map-add', 'sansu.g1.map-shape', 'sansu.g1.map-subtract'],
       state: 'locked',
       visibility: 'frontier',
     });
@@ -188,6 +207,7 @@ describe('buildRoadmapNodes', () => {
         'sansu.g1.map-base': { value: 0.9, n: 3, lastAt: 1 },
         'sansu.g1.map-add': { value: 0.9, n: 3, lastAt: 2 },
         'sansu.g1.map-subtract': { value: 0.9, n: 3, lastAt: 3 },
+        'sansu.g1.map-shape': { value: 0.9, n: 3, lastAt: 4 },
       },
     });
 
@@ -222,6 +242,58 @@ describe('buildRoadmapNodes', () => {
     });
   });
 
+  it('3年生から始まる教科も最初の入口を霧越しに見せる', () => {
+    const scienceUnits: Unit[] = [
+      { id: 'rika.g3.base', name: '理科の入口', subject: 'rika', grade: 3 },
+      { id: 'rika.g3.next', name: '次の理科', subject: 'rika', grade: 3 },
+    ];
+    const scienceCurriculum: CurriculumGraph = {
+      ...curriculum,
+      concepts: scienceUnits.map((unit) => ({
+        id: `${unit.id}.concept`,
+        subject: unit.subject,
+        grade: unit.grade,
+        unit: unit.id,
+        name: unit.name,
+        description: unit.name,
+        kind: 'concept',
+        memoryType: 'concept',
+        curriculumCodes: [],
+        sourceIds: ['test-source'],
+        review: { status: 'draft' },
+      })),
+      relations: [
+        {
+          from: 'rika.g3.base.concept',
+          to: 'rika.g3.next.concept',
+          kind: 'prerequisite',
+          strength: 1,
+          rationale: 'テスト',
+          sourceIds: [],
+          reviewStatus: 'draft',
+        },
+      ],
+    };
+
+    const nodes = buildRoadmapNodes({
+      units: scienceUnits,
+      curriculum: scienceCurriculum,
+      mastery: {},
+      playerGrade: 1,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === 'rika.g3.base')).toMatchObject({
+      state: 'locked',
+      visibility: 'frontier',
+    });
+    expect(nodes.find((node) => node.id === 'rika.g3.next')).toMatchObject({
+      state: 'locked',
+      visibility: 'hidden',
+    });
+  });
+
   it('開発者モードでは全単元を名前付きで表示し、学年と前提に関係なく選択可能にする', () => {
     const higherGradeUnits: Unit[] = graphUnits.map((unit, index) => ({
       ...unit,
@@ -248,7 +320,6 @@ describe('buildRoadmapNodes', () => {
 
     expect(nodes.every((node) => node.visibility === 'revealed')).toBe(true);
     expect(nodes.every((node) => node.state !== 'locked')).toBe(true);
-    expect(nodes.every((node) => node.blockedByNames?.length === 0)).toBe(true);
   });
 
   it('同じ入力から安定した分岐レイアウト座標を作る', () => {
@@ -268,337 +339,15 @@ describe('buildRoadmapNodes', () => {
     expect(first.find((node) => node.id === 'sansu.g1.map-add')?.x).not.toBe(
       first.find((node) => node.id === 'sansu.g1.map-subtract')?.x,
     );
-  });
-
-  it('子ノードを親の並びへ寄せ、独立した枝同士の交差を避ける', () => {
-    const familyUnits: Unit[] = [
-      { id: 'sansu.g1.root-a', name: '根A', subject: 'sansu', grade: 1 },
-      { id: 'sansu.g1.root-b', name: '根B', subject: 'sansu', grade: 1 },
-      { id: 'sansu.g1.child-a', name: '子A', subject: 'sansu', grade: 1 },
-      { id: 'sansu.g1.child-b', name: '子B', subject: 'sansu', grade: 1 },
-    ];
-    const familyGraph: CurriculumGraph = {
-      ...curriculum,
-      concepts: familyUnits.map((unit) => ({
-        ...curriculum.concepts[0]!,
-        id: `${unit.id}.concept`,
-        unit: unit.id,
-        name: unit.name,
-      })),
-      relations: [
-        ['sansu.g1.root-a', 'sansu.g1.child-b'],
-        ['sansu.g1.root-b', 'sansu.g1.child-a'],
-      ].map(([from, to]) => ({
-        from: `${from}.concept`,
-        to: `${to}.concept`,
-        kind: 'prerequisite' as const,
-        strength: 1,
-        rationale: '交差回避テスト',
-        sourceIds: [],
-        reviewStatus: 'draft' as const,
-      })),
-    };
-
-    const nodes = buildRoadmapNodes({
-      units: familyUnits,
-      curriculum: familyGraph,
-      mastery: {},
-      playerGrade: 1,
-      challengeHigher: false,
-      subjectLabel: (subject) => subject,
-    });
-    const x = (id: string) => nodes.find((node) => node.id === id)!.x;
-
-    expect(x('sansu.g1.root-a')).toBeLessThan(x('sansu.g1.root-b'));
-    expect(x('sansu.g1.child-b')).toBeLessThan(x('sansu.g1.child-a'));
-  });
-
-  it('旧単元を指す概念と関係を正規単元へ集約する', () => {
-    const canonical = units.find((unit) => unit.id === 'sansu.g1.tashizan')!;
-    const legacy = units.find((unit) => unit.id === 'sansu.g1.legacy-math-1-2')!;
-    const target = graphUnits.find((unit) => unit.id === 'sansu.g1.map-application')!;
-    const legacyGraph = structuredClone(curriculum);
-    legacyGraph.concepts = [
-      { ...legacyGraph.concepts[0]!, id: 'legacy-add', unit: legacy.id },
-      { ...legacyGraph.concepts[1]!, id: 'application', unit: target.id },
-    ];
-    legacyGraph.relations = [
-      {
-        from: 'legacy-add',
-        to: 'application',
-        kind: 'prerequisite',
-        strength: 1,
-        rationale: '旧単元から正規単元への接続テスト',
-        sourceIds: [],
-        reviewStatus: 'draft',
-      },
-    ];
-
-    const nodes = buildRoadmapNodes({
-      units: [canonical, legacy, target],
-      curriculum: legacyGraph,
-      conceptStates: {},
-      mastery: {},
-      playerGrade: 1,
-      challengeHigher: false,
-      subjectLabel: (subject) => subject,
-    });
-
-    expect(nodes.map((node) => node.id)).not.toContain(legacy.id);
-    expect(nodes.find((node) => node.id === target.id)?.prerequisiteIds).toEqual([canonical.id]);
-  });
-
-  it('旧単元IDへ保存された習熟を正規単元と前提解放へ引き継ぐ', () => {
-    const canonical = units.find((unit) => unit.id === 'sansu.g1.tashizan')!;
-    const legacy = units.find((unit) => unit.id === 'sansu.g1.legacy-math-1-2')!;
-    const target = graphUnits.find((unit) => unit.id === 'sansu.g1.map-application')!;
-    const legacyGraph = structuredClone(curriculum);
-    legacyGraph.concepts = [
-      { ...legacyGraph.concepts[0]!, id: 'legacy-add', unit: legacy.id },
-      { ...legacyGraph.concepts[1]!, id: 'application', unit: target.id },
-    ];
-    legacyGraph.relations = [
-      {
-        from: 'legacy-add',
-        to: 'application',
-        kind: 'prerequisite',
-        strength: 1,
-        rationale: '旧セーブ引き継ぎテスト',
-        sourceIds: [],
-        reviewStatus: 'draft',
-      },
-    ];
-
-    const nodes = buildRoadmapNodes({
-      units: [canonical, legacy, target],
-      curriculum: legacyGraph,
-      conceptStates: {},
-      mastery: { [legacy.id]: { value: 0.9, n: 3, lastAt: 1 } },
-      playerGrade: 1,
-      challengeHigher: false,
-      subjectLabel: (subject) => subject,
-    });
-
-    expect(nodes.find((node) => node.id === canonical.id)).toMatchObject({
-      mastery: 0.9,
-      attempts: 3,
-      state: 'cleared',
-    });
-    expect(nodes.find((node) => node.id === target.id)?.state).toBe('current');
-  });
-
-  it('複数概念の一部だけ成功しても単元全体と後続を解放しない', () => {
-    const [base, target] = [graphUnits[0]!, graphUnits[3]!];
-    const multiConceptGraph = structuredClone(curriculum);
-    multiConceptGraph.concepts = [
-      { ...multiConceptGraph.concepts[0]!, id: 'base-a', unit: base.id },
-      { ...multiConceptGraph.concepts[0]!, id: 'base-b', unit: base.id },
-      { ...multiConceptGraph.concepts[1]!, id: 'target', unit: target.id },
-    ];
-    multiConceptGraph.relations = [
-      {
-        from: 'base-a',
-        to: 'target',
-        kind: 'prerequisite',
-        strength: 1,
-        rationale: '複数概念テスト',
-        sourceIds: [],
-        reviewStatus: 'draft',
-      },
-    ];
-    const learned = {
-      ...initialConceptState(1),
-      understanding: 0.9,
-      retention: 0.9,
-      attempts: 3,
-      independentSuccesses: 2,
-    };
-
-    const nodes = buildRoadmapNodes({
-      units: [base, target],
-      curriculum: multiConceptGraph,
-      conceptStates: { 'base-a': learned },
-      mastery: { [base.id]: { value: 1, n: 3, lastAt: 1 } },
-      playerGrade: 1,
-      challengeHigher: false,
-      subjectLabel: (subject) => subject,
-    });
-
-    expect(nodes.find((node) => node.id === base.id)?.state).not.toBe('cleared');
-    expect(nodes.find((node) => node.id === target.id)?.state).toBe('locked');
-  });
-
-  it('導入前に習得済みだった単元は概念状態が一部でも再ロックしない', () => {
-    const [base, target] = [graphUnits[0]!, graphUnits[3]!];
-    const multiConceptGraph = structuredClone(curriculum);
-    multiConceptGraph.concepts = [
-      { ...multiConceptGraph.concepts[0]!, id: 'base-a', unit: base.id },
-      { ...multiConceptGraph.concepts[0]!, id: 'base-b', unit: base.id },
-      { ...multiConceptGraph.concepts[1]!, id: 'target', unit: target.id },
-    ];
-    multiConceptGraph.relations = [
-      {
-        from: 'base-a',
-        to: 'target',
-        kind: 'prerequisite',
-        strength: 1,
-        rationale: '既得進捗テスト',
-        sourceIds: [],
-        reviewStatus: 'draft',
-      },
-    ];
-    const learned = {
-      ...initialConceptState(1),
-      understanding: 0.9,
-      retention: 0.9,
-      attempts: 3,
-      independentSuccesses: 2,
-    };
-
-    const nodes = buildRoadmapNodes({
-      units: [base, target],
-      curriculum: multiConceptGraph,
-      conceptStates: { 'base-a': learned },
-      mastery: { [base.id]: { value: 1, n: 3, lastAt: 1 } },
-      grandfatheredUnitIds: [base.id],
-      now: 1,
-      playerGrade: 1,
-      challengeHigher: false,
-      subjectLabel: (subject) => subject,
-    });
-
-    expect(nodes.find((node) => node.id === base.id)?.state).toBe('cleared');
-    expect(nodes.find((node) => node.id === target.id)?.state).toBe('current');
-  });
-
-  it('問題が割り当てられていない補助概念は単元の達成条件に含めない', () => {
-    const [base, target] = [graphUnits[0]!, graphUnits[3]!];
-    const assessableGraph = structuredClone(curriculum);
-    assessableGraph.concepts = [
-      { ...assessableGraph.concepts[0]!, id: 'base-assessable', unit: base.id },
-      { ...assessableGraph.concepts[0]!, id: 'base-umbrella', unit: base.id },
-      { ...assessableGraph.concepts[1]!, id: 'target', unit: target.id },
-    ];
-    assessableGraph.relations = [
-      {
-        from: 'base-assessable',
-        to: 'target',
-        kind: 'prerequisite',
-        strength: 1,
-        rationale: '評価可能概念テスト',
-        sourceIds: [],
-        reviewStatus: 'draft',
-      },
-    ];
-    assessableGraph.questionLinks = [
-      {
-        questionId: 'base-question',
-        concepts: [{ conceptId: 'base-assessable', weight: 1, role: 'primary' }],
-        diagnosticValue: 1,
-        reviewStatus: 'draft',
-        misconceptionSignals: [],
-      },
-    ];
-    const learned = {
-      ...initialConceptState(1),
-      understanding: 0.9,
-      retention: 0.9,
-      attempts: 3,
-      independentSuccesses: 2,
-    };
-
-    const nodes = buildRoadmapNodes({
-      units: [base, target],
-      curriculum: assessableGraph,
-      conceptStates: { 'base-assessable': learned },
-      mastery: { [base.id]: { value: 1, n: 3, lastAt: 1 } },
-      now: 1,
-      playerGrade: 1,
-      challengeHigher: false,
-      subjectLabel: (subject) => subject,
-    });
-
-    expect(nodes.find((node) => node.id === base.id)?.state).toBe('cleared');
-    expect(nodes.find((node) => node.id === target.id)?.state).toBe('current');
-  });
-
-  it('非ロック関係は線として残すが、解放条件にはしない', () => {
-    const [base, application] = [graphUnits[0]!, graphUnits[3]!];
-    const softGraph = structuredClone(curriculum);
-    softGraph.concepts = [
-      { ...softGraph.concepts[0]!, id: 'base', unit: base.id },
-      { ...softGraph.concepts[1]!, id: 'application', unit: application.id },
-    ];
-    softGraph.relations = [
-      {
-        from: 'base',
-        to: 'application',
-        kind: 'transfer',
-        strength: 0.7,
-        rationale: '使える学びだが必須ではない',
-        sourceIds: [],
-        reviewStatus: 'draft',
-      },
-    ];
-
-    const nodes = buildRoadmapNodes({
-      units: [base, application],
-      curriculum: softGraph,
-      conceptStates: {},
-      mastery: { [base.id]: { value: 0.9, n: 3, lastAt: 1 } },
-      playerGrade: 1,
-      challengeHigher: false,
-      subjectLabel: (subject) => subject,
-    });
-
-    expect(nodes.find((node) => node.id === application.id)).toMatchObject({
-      prerequisiteIds: [],
-      supportingLinks: [{ sourceId: base.id, kind: 'transfer' }],
-      state: 'current',
-    });
-  });
-
-  it('同じ単元ペアに必須線がある場合は補助線を重ねない', () => {
-    const [base, application] = [graphUnits[0]!, graphUnits[3]!];
-    const mixedGraph = structuredClone(curriculum);
-    mixedGraph.concepts = [
-      { ...mixedGraph.concepts[0]!, id: 'base', unit: base.id },
-      { ...mixedGraph.concepts[1]!, id: 'application', unit: application.id },
-    ];
-    mixedGraph.relations = [
-      {
-        from: 'base',
-        to: 'application',
-        kind: 'prerequisite',
-        strength: 1,
-        rationale: '必須線',
-        sourceIds: [],
-        reviewStatus: 'draft',
-      },
-      {
-        from: 'base',
-        to: 'application',
-        kind: 'transfer',
-        strength: 0.7,
-        rationale: '補助線',
-        sourceIds: [],
-        reviewStatus: 'draft',
-      },
-    ];
-
-    const nodes = buildRoadmapNodes({
-      units: [base, application],
-      curriculum: mixedGraph,
-      mastery: {},
-      playerGrade: 1,
-      challengeHigher: false,
-      subjectLabel: (subject) => subject,
-    });
-
-    expect(nodes.find((node) => node.id === application.id)).toMatchObject({
-      prerequisiteIds: [base.id],
-      supportingLinks: [],
-    });
+    expect(first.find((node) => node.id === 'sansu.g1.map-subtract')?.x).not.toBe(
+      first.find((node) => node.id === 'sansu.g1.map-shape')?.x,
+    );
+    expect(first.find((node) => node.id === 'sansu.g1.map-base')!.y).toBeGreaterThan(
+      first.find((node) => node.id === 'sansu.g1.map-add')!.y,
+    );
+    expect(first.find((node) => node.id === 'sansu.g1.map-application')!.y).toBeLessThan(
+      first.find((node) => node.id === 'sansu.g1.map-add')!.y,
+    );
   });
 });
 

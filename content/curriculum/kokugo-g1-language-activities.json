@@ -104,29 +104,11 @@
   "relations": [
     {
       "from": "kokugo.g1.script.hiragana",
-      "to": "kokugo.g1.script.katakana",
-      "kind": "chronological",
-      "strength": 0.65,
-      "rationale": "同じ文字領域の内容を平仮名から片仮名へ広げる見通しを示す（指導順を固定しない）。",
-      "sourceIds": ["mext-82v12-kokugo-g1-2"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "kokugo.g1.script.hiragana",
       "to": "kokugo.g1.script.grade1-kanji",
       "kind": "prerequisite",
       "strength": 0.9,
-      "rationale": "平仮名の読み書きは、第1学年の漢字を文の中で読む・書くための基礎となる。",
-      "sourceIds": ["mext-82v12-kokugo-g1-2"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "kokugo.g1.script.hiragana",
-      "to": "kokugo.g1.reading.basic-comprehension",
-      "kind": "prerequisite",
-      "strength": 0.9,
-      "rationale": "平仮名を読めることは、文章の順序や場面を捉える課題に取り組むための基礎となる。",
-      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "rationale": "平仮名の読み書きを基礎として、第1学年の漢字を文の中で読む・書く学習へ進む。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
       "reviewStatus": "source-checked"
     },
     {
@@ -134,26 +116,62 @@
       "to": "kokugo.g1.grammar.particles",
       "kind": "prerequisite",
       "strength": 0.9,
-      "rationale": "平仮名の読み書きは、助詞「は」「へ」「を」を文の中で使い分けるための基礎となる。",
-      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "rationale": "平仮名の読み書きを基礎として、助詞「は」「へ」「を」を文の中で使い分ける学習へ進む。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g1.script.katakana",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "片仮名は、平仮名の読み書きに慣れた後に段階的に扱う。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g1.reading.basic-comprehension",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "短い文を読んで順序や場面を捉えるために、平仮名を読めることを基礎とする。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.sound.syllable",
+      "to": "kokugo.g1.reading.basic-comprehension",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "音節と文字の対応への気付きが、語や短い文をまとまりとして読む基礎になる。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g1.reading.basic-comprehension",
       "to": "kokugo.g1.expression.sequence-revision",
-      "kind": "transfer",
-      "strength": 0.7,
-      "rationale": "読んで順序や場面を捉える力を、伝える順序を考えて読み直す活動へ転移して用いる。",
-      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "順序を捉えて読む経験を、事柄の順序を考えて伝える活動へつなぐ。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g1.speaking-listening.basic-dialogue",
       "to": "kokugo.g1.expression.sequence-revision",
-      "kind": "component",
-      "strength": 0.75,
-      "rationale": "大切なことを話し聞く力は、相手に伝わる順序を考えて表現する過程の構成要素となる。",
-      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "大切な事柄を選んで話し聞く経験を、順序よく伝える活動へつなぐ。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.writing.basic-format",
+      "to": "kokugo.g1.expression.sequence-revision",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "文の区切りと書き出しを使えることを、文章を読み直して整える基礎とする。",
+      "sourceIds": ["mext-82v12-kokugo-g1-activities"],
       "reviewStatus": "source-checked"
     }
   ],

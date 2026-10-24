@@ -177,79 +177,79 @@
     {
       "from": "kokugo.g6.concept.jpn-6-kanji-1",
       "to": "kokugo.g6.concept.jpn-6-kanji-2",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.65,
-      "rationale": "同じ領域を「6年生の漢字（読み）1〜25」から「6年生の漢字（読み）26〜50」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "rationale": "同じ領域を「6年生の漢字（読み）1〜25」から「6年生の漢字（読み）26〜50」へ段階的に広げるための基礎となる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g6.concept.jpn-6-kanji-2",
       "to": "kokugo.g6.concept.jpn-6-kanji-3",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.65,
-      "rationale": "同じ領域を「6年生の漢字（読み）26〜50」から「6年生の漢字（読み）51〜75」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "rationale": "同じ領域を「6年生の漢字（読み）26〜50」から「6年生の漢字（読み）51〜75」へ段階的に広げるための基礎となる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g6.concept.jpn-6-kanji-3",
       "to": "kokugo.g6.concept.jpn-6-kanji-4",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.65,
-      "rationale": "同じ領域を「6年生の漢字（読み）51〜75」から「6年生の漢字（読み）76〜100」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "rationale": "同じ領域を「6年生の漢字（読み）51〜75」から「6年生の漢字（読み）76〜100」へ段階的に広げるための基礎となる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g6.concept.jpn-6-kanji-4",
       "to": "kokugo.g6.concept.jpn-6-kanji-6",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.65,
-      "rationale": "同じ領域を「6年生の漢字（読み）76〜100」から「6年生の漢字（読み）後半①」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "rationale": "同じ領域を「6年生の漢字（読み）76〜100」から「6年生の漢字（読み）後半①」へ段階的に広げるための基礎となる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g6.concept.jpn-6-kanji-6",
       "to": "kokugo.g6.concept.jpn-6-kanji-7",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.65,
-      "rationale": "同じ領域を「6年生の漢字（読み）後半①」から「6年生の漢字（読み）後半②」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "rationale": "同じ領域を「6年生の漢字（読み）後半①」から「6年生の漢字（読み）後半②」へ段階的に広げるための基礎となる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g6.concept.jpn-6-kanji-7",
       "to": "kokugo.g6.concept.jpn-6-kanji-8",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.65,
-      "rationale": "同じ領域を「6年生の漢字（読み）後半②」から「6年生の漢字（読み）後半③」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "rationale": "同じ領域を「6年生の漢字（読み）後半②」から「6年生の漢字（読み）後半③」へ段階的に広げるための基礎となる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g6.concept.jpn-6-kanji-8",
       "to": "kokugo.g6.concept.jpn-6-kanji-9",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.65,
-      "rationale": "同じ領域を「6年生の漢字（読み）後半③」から「6年生の漢字（読み）後半④」へ段階的に広げる見通しを示す（指導順を固定しない）。",
+      "rationale": "同じ領域を「6年生の漢字（読み）後半③」から「6年生の漢字（読み）後半④」へ段階的に広げるための基礎となる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g2.language.polite-style",
       "to": "kokugo.g6.concept.jpn-6-2",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
-      "rationale": "「丁寧[ていねい]な言葉[ことば]と敬体[けいたい]」で身に付ける力を「敬語[けいご]のつかい分[わ]け」の異なる言語活動へ転移して用いる。",
+      "rationale": "「丁寧[ていねい]な言葉[ことば]と敬体[けいたい]」で身に付ける力を基礎として、「敬語[けいご]のつかい分[わ]け」の学習へ発展させる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "kokugo.g5.kanji.review",
       "to": "kokugo.g6.concept.jpn-6-3",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "「配当漢字[はいとうかんじ]の読[よ]み・総復習[そうふくしゅう]」の力は「四[よん]字[じ]熟語[じゅくご]のせかい」の学習過程を構成する要素として生かされる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
@@ -267,9 +267,9 @@
     {
       "from": "kokugo.g5.writing.evidence",
       "to": "kokugo.g6.concept.jpn-6-4",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
-      "rationale": "「事実[じじつ]と意見[いけん]を区別[くべつ]して書[か]く」で身に付ける力を「文章[ぶんしょう]のくみたて」の異なる言語活動へ転移して用いる。",
+      "rationale": "「事実[じじつ]と意見[いけん]を区別[くべつ]して書[か]く」で身に付ける力を基礎として、「文章[ぶんしょう]のくみたて」の学習へ発展させる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
       "reviewStatus": "source-checked"
     },
@@ -303,7 +303,7 @@
     {
       "from": "kokugo.g5.discussion.listening",
       "to": "kokugo.g6.concept.discussion-consensus",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "「立場[たちば]と意図[いと]を明確[めいかく]にした話合[はなしあ]い」の力は「立場[たちば]を比[くら]べて合意[ごうい]をつくる」の学習過程を構成する要素として生かされる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
@@ -312,7 +312,7 @@
     {
       "from": "kokugo.g6.concept.reading-multiple-sources",
       "to": "kokugo.g6.concept.discussion-consensus",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "「複数[ふくすう]の文章[ぶんしょう]と資料[しりょう]を関係[かんけい]付[づ]けて読[よ]む」の力は「立場[たちば]を比[くら]べて合意[ごうい]をつくる」の学習過程を構成する要素として生かされる。",
       "sourceIds": ["mext-h29-kokugo-g56"],
@@ -321,7 +321,7 @@
     {
       "from": "kokugo.g6.concept.jpn-6-2",
       "to": "kokugo.g6.concept.discussion-consensus",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "「敬語[けいご]のつかい分[わ]け」の力は「立場[たちば]を比[くら]べて合意[ごうい]をつくる」の学習過程を構成する要素として生かされる。",
       "sourceIds": ["mext-h29-kokugo-g56"],

@@ -194,18 +194,45 @@
     {
       "from": "sansu.g1.legacy.number-basics",
       "to": "sansu.g1.legacy.addition-within-ten",
-      "kind": "transfer",
-      "strength": 0.7,
-      "rationale": "10までの数の構成を、加法の意味や計算へ生かす。加法と減法は互いを前提にせず並行して学べるため、解放条件にはしない。",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
       "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.legacy.number-basics",
       "to": "sansu.g1.legacy.subtraction-within-ten",
-      "kind": "transfer",
-      "strength": 0.7,
+      "kind": "prerequisite",
+      "strength": 0.8,
       "rationale": "10までの数の構成を、減法の意味や計算へ生かす。加法の習得を減法の必須条件にはしない。",
+      "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.legacy.subtraction-within-ten",
+      "to": "sansu.g1.legacy.numbers-to-twenty",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
+      "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.legacy.numbers-to-twenty",
+      "to": "sansu.g1.legacy.carrying-borrowing",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
+      "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.legacy.carrying-borrowing",
+      "to": "sansu.g1.legacy.numbers-to-one-twenty",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
       "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
       "reviewStatus": "source-checked"
     },
@@ -219,11 +246,29 @@
       "reviewStatus": "source-checked"
     },
     {
-      "from": "sansu.g1.legacy.simple-two-digit-calculation",
+      "from": "sansu.g1.addition.single-digit",
+      "to": "sansu.g1.legacy.word-problems-equal-groups",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "生活場面の文章題で加法を選び使うには、一位数の加法の意味と計算を既習とする。",
+      "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.subtraction.single-digit",
+      "to": "sansu.g1.legacy.word-problems-equal-groups",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "生活場面の文章題で減法を選び使うには、一位数の減法の意味と計算を既習とする。",
+      "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.number.to-twenty",
       "to": "sansu.g1.legacy.word-problems-equal-groups",
       "kind": "prerequisite",
       "strength": 0.8,
-      "rationale": "数[かず]の範囲[はんい]と計算[けいさん]の意味[いみ]を段階的[だんかいてき]に広[ひろ]げる。",
+      "rationale": "文章題の数量を捉えて式に表すために、20までの数を10と端数で扱えることを基礎とする。",
       "sourceIds": ["mext-h29-sansu-g1-legacy-review"],
       "reviewStatus": "source-checked"
     }

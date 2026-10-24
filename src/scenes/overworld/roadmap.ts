@@ -8,17 +8,11 @@ import {
 import { canonicalUnitId, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
 import type { MasteryData, MasteryRecord } from '../../questions/engine/mastery';
 import type { RoadmapNode } from '../../shared/menuModel';
-import type { RoadmapSupportingKind } from '../../shared/menuModel';
+import { layoutRoadmapNodes } from './roadmapLayout';
 
 export { LEGACY_QUESTION_UNIT_ALIASES, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
 
 const SUBJECT_ORDER = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'];
-const SUPPORTING_KINDS = new Set<RoadmapSupportingKind>([
-  'component',
-  'transfer',
-  'related',
-  'chronological',
-]);
 
 export interface RoadmapInput {
   units: Iterable<Unit>;
@@ -105,40 +99,26 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   };
 
   const prerequisiteIds = new Map<string, Set<string>>();
-  const supportingLinks = new Map<string, Map<string, { sourceId: string; kind: RoadmapSupportingKind }>>();
   const conceptsByUnit = new Map<string, string[]>();
   if (input.curriculum) {
-    const assessableConceptIds = new Set(
-      input.curriculum.questionLinks.flatMap((link) => link.concepts.map((concept) => concept.conceptId)),
-    );
-    const allConceptsByUnit = new Map<string, string[]>();
     const displayUnitByConcept = new Map<string, string>();
     for (const concept of input.curriculum.concepts) {
-      const displayUnitId = displayIdByUnitId.get(concept.unit);
+      const displayUnitId =
+        displayIdByUnitId.get(canonicalUnitId(concept.unit)) ?? displayIdByUnitId.get(concept.unit);
       if (!displayUnitId || concept.kind === 'misconception') continue;
       displayUnitByConcept.set(concept.id, displayUnitId);
-      const ids = allConceptsByUnit.get(displayUnitId) ?? [];
+      const ids = conceptsByUnit.get(displayUnitId) ?? [];
       ids.push(concept.id);
-      allConceptsByUnit.set(displayUnitId, ids);
-    }
-    for (const [unitId, conceptIds] of allConceptsByUnit) {
-      const assessable = conceptIds.filter((id) => assessableConceptIds.has(id));
-      conceptsByUnit.set(unitId, assessable.length > 0 ? assessable : conceptIds);
+      conceptsByUnit.set(displayUnitId, ids);
     }
     for (const relation of input.curriculum.relations) {
+      if (relation.kind !== 'prerequisite') continue;
       const from = displayUnitByConcept.get(relation.from);
       const to = displayUnitByConcept.get(relation.to);
       if (!from || !to || from === to) continue;
-      if (relation.kind === 'prerequisite') {
-        const ids = prerequisiteIds.get(to) ?? new Set<string>();
-        ids.add(from);
-        prerequisiteIds.set(to, ids);
-      } else if (SUPPORTING_KINDS.has(relation.kind as RoadmapSupportingKind)) {
-        const links = supportingLinks.get(to) ?? new Map();
-        const kind = relation.kind as RoadmapSupportingKind;
-        links.set(`${from}:${kind}`, { sourceId: from, kind });
-        supportingLinks.set(to, links);
-      }
+      const ids = prerequisiteIds.get(to) ?? new Set<string>();
+      ids.add(from);
+      prerequisiteIds.set(to, ids);
     }
   }
 
@@ -214,9 +194,6 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
       attempts,
       retention,
       prerequisiteIds: prerequisites,
-      supportingLinks: [...(supportingLinks.get(unit.id)?.values() ?? [])]
-        .filter((link) => !prerequisites.includes(link.sourceId))
-        .sort((a, b) => a.sourceId.localeCompare(b.sourceId) || a.kind.localeCompare(b.kind)),
       x: 0,
       y: 0,
       visibility: 'revealed' as const,
@@ -231,16 +208,6 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   });
 
   const byId = new Map(draft.map((node) => [node.id, node]));
-  for (const node of draft)
-    node.blockedByNames = input.revealAll
-      ? []
-      : node.prerequisiteIds
-          .filter((id) => {
-            const prerequisite = byId.get(id);
-            return prerequisite?.state !== 'cleared' && prerequisite?.state !== 'review';
-          })
-          .map((id) => byId.get(id)?.name)
-          .filter((name): name is string => name !== undefined);
   const firstOpen = new Set<string>();
   for (const node of draft) {
     if (node.state !== 'open' || firstOpen.has(node.subject)) continue;
@@ -249,87 +216,30 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   }
 
   const progressiveReveal = Boolean(input.curriculum) && !input.revealAll;
+  const firstGradeBySubject = new Map<string, number>();
+  for (const node of draft) {
+    firstGradeBySubject.set(
+      node.subject,
+      Math.min(firstGradeBySubject.get(node.subject) ?? Number.MAX_SAFE_INTEGER, node.grade),
+    );
+  }
   for (const node of draft) {
     if (!progressiveReveal || node.state !== 'locked' || node.attempts > 0) {
       node.visibility = 'revealed';
       continue;
     }
-    const incomingIds = [
-      ...node.prerequisiteIds,
-      ...(node.supportingLinks ?? []).map((link) => link.sourceId),
-    ];
-    const touchesRevealed = incomingIds.some((id) => byId.get(id)?.state !== 'locked');
-    const nextGradeRoot = incomingIds.length === 0 && node.grade === Math.min(6, input.playerGrade + 1);
-    node.visibility = touchesRevealed || nextGradeRoot ? 'frontier' : 'hidden';
+    const touchesRevealed = node.prerequisiteIds.some((id) => byId.get(id)?.state !== 'locked');
+    const nextGradeRoot =
+      node.prerequisiteIds.length === 0 && node.grade === Math.min(6, input.playerGrade + 1);
+    const subjectEntryRoot =
+      node.prerequisiteIds.length === 0 && node.grade === firstGradeBySubject.get(node.subject);
+    node.visibility = touchesRevealed || nextGradeRoot || subjectEntryRoot ? 'frontier' : 'hidden';
   }
 
-  layoutNodes(draft);
+  layoutRoadmapNodes(draft);
   return draft;
 }
 
 function average(values: readonly number[]): number {
   return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
-}
-
-/** 学年を縦の進行、同じ深さの分岐を横並びにする決定論的レイアウト。 */
-function layoutNodes(nodes: RoadmapNode[]): void {
-  for (const subject of new Set(nodes.map((node) => node.subject))) {
-    const subjectNodes = nodes.filter((node) => node.subject === subject);
-    const byId = new Map(subjectNodes.map((node) => [node.id, node]));
-    const depths = new Map<string, number>();
-    const visiting = new Set<string>();
-    const depthOf = (node: RoadmapNode): number => {
-      const known = depths.get(node.id);
-      if (known !== undefined) return known;
-      const gradeBase = (node.grade - 1) * 3;
-      if (visiting.has(node.id)) return gradeBase;
-      visiting.add(node.id);
-      const prerequisiteDepths = [
-        ...node.prerequisiteIds,
-        ...(node.supportingLinks ?? []).map((link) => link.sourceId),
-      ]
-        .map((id) => byId.get(id))
-        .filter((item) => item !== undefined)
-        .map((item) => depthOf(item) + 1);
-      visiting.delete(node.id);
-      const depth = Math.max(gradeBase, ...prerequisiteDepths);
-      depths.set(node.id, depth);
-      return depth;
-    };
-    const levels = new Map<number, RoadmapNode[]>();
-    for (const node of subjectNodes) {
-      const depth = depthOf(node);
-      const level = levels.get(depth) ?? [];
-      level.push(node);
-      levels.set(depth, level);
-    }
-    const widest = Math.max(1, ...[...levels.values()].map((level) => level.length));
-    const placedX = new Map<string, number>();
-    for (const depth of [...levels.keys()].sort((a, b) => a - b)) {
-      const level = levels.get(depth)!;
-      const parentCenter = (node: RoadmapNode): number | undefined => {
-        const positions = [
-          ...node.prerequisiteIds,
-          ...(node.supportingLinks ?? []).map((link) => link.sourceId),
-        ]
-          .map((id) => placedX.get(id))
-          .filter((x): x is number => x !== undefined);
-        return positions.length ? average(positions) : undefined;
-      };
-      level.sort((a, b) => {
-        const aCenter = parentCenter(a);
-        const bCenter = parentCenter(b);
-        if (aCenter !== undefined && bCenter !== undefined && aCenter !== bCenter) return aCenter - bCenter;
-        if (aCenter !== undefined && bCenter === undefined) return -1;
-        if (aCenter === undefined && bCenter !== undefined) return 1;
-        return a.grade - b.grade || a.id.localeCompare(b.id);
-      });
-      const inset = ((widest - level.length) * 180) / 2;
-      level.forEach((node, index) => {
-        node.x = 72 + inset + index * 180;
-        node.y = 64 + depth * 148;
-        placedX.set(node.id, node.x);
-      });
-    }
-  }
 }

@@ -14,24 +14,24 @@
   ],
   "concepts": [
     {
-      "id": "sansu.g1.number.one-to-one",
+      "id": "sansu.g1.number.two-digit-place-value",
       "subject": "sansu",
       "grade": 1,
       "unit": "sansu.g1.kazu-100",
-      "name": "ものとものの対応[たいおう]",
-      "description": "ものを一[ひと]つずつ対応[たいおう]させて個数[こすう]を比[くら]べる。",
-      "kind": "skill",
-      "memoryType": "concept",
-      "curriculumCodes": ["8250213111100000"],
+      "name": "2位数[にいすう]と10のまとまり",
+      "description": "2位数[にいすう]を10のまとまりと端数[はすう]で表[あらわ]し、十[じゅう]を単位[たんい]として捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213111500000", "8250213111700000"],
       "recommendedWindow": {
-        "stage": "early",
+        "stage": "middle",
         "status": "reference",
-        "note": "学年内時期は教科書会社の年間指導計画による確認が必要。"
+        "note": "入門[にゅうもん]の数[かず]の合成[ごうせい]・分解[ぶんかい]より後[あと]に扱[あつか]う。"
       },
       "sourceIds": ["mext-h29-sansu-commentary"],
       "review": {
         "status": "source-checked",
-        "reviewedAt": "2026-10-03",
+        "reviewedAt": "2026-10-10",
         "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
       }
     }
@@ -40,7 +40,7 @@
     {
       "from": "sansu.g1.number.count-represent",
       "to": "sansu.g1.data.picture-counts",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "個数を正しく数えて表す力を、種類ごとに絵や図へ整理する活動に用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -49,7 +49,7 @@
     {
       "from": "sansu.g1.number.one-to-one",
       "to": "sansu.g1.measure.compare-quantities",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "一対一対応による比較の見方を、長さ・広さ・かさの直接比較や間接比較へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -76,7 +76,7 @@
     {
       "from": "sansu.g1.geometry.shape-position",
       "to": "sansu.g2.geometry.triangles-quadrilaterals",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "身の回りの形を捉えて構成する経験を、三角形・四角形の構成要素の理解へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -85,7 +85,7 @@
     {
       "from": "sansu.g1.measure.clock-hour-half-hour",
       "to": "sansu.g2.measure.time",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "生活時刻を読む経験を、日・時・分の関係や時間の理解へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -103,7 +103,7 @@
     {
       "from": "sansu.g1.data.picture-counts",
       "to": "sansu.g2.data.tables-graphs",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "絵や図で整理した個数を、表やグラフを用いる整理と読み取りへ発展させる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -112,7 +112,7 @@
     {
       "from": "sansu.g1.measure.compare-quantities",
       "to": "sansu.g2.measure.length",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "量を比べる経験を、長さの普遍単位と測定の理解へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -121,7 +121,7 @@
     {
       "from": "sansu.g1.measure.compare-quantities",
       "to": "sansu.g2.measure.capacity",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "かさを比べる経験を、かさの単位と測定の理解へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -130,7 +130,7 @@
     {
       "from": "sansu.g1.number.two-digit-place-value",
       "to": "sansu.g2.number.over-100",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "十のまとまりと位取りの理解を、100をこえる数の表し方へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -139,7 +139,7 @@
     {
       "from": "sansu.g2.calculation.column-method",
       "to": "sansu.g2.add.two-two",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "位をそろえる筆算の仕組みを、二位数どうしの加法へ適用する。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -148,7 +148,7 @@
     {
       "from": "sansu.g2.calculation.column-method",
       "to": "sansu.g2.subtract.three-two",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "位をそろえる筆算の仕組みを、三位数を含む減法へ適用する。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -175,7 +175,7 @@
     {
       "from": "sansu.g2.number.over-100",
       "to": "sansu.g2.number.over-1000",
-      "kind": "chronological",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "100をこえる数の位取りを、千・百・十・一で構成する数へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -193,7 +193,7 @@
     {
       "from": "sansu.g2.geometry.triangles-quadrilaterals",
       "to": "sansu.g2.geometry.boxes",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.6,
       "rationale": "平面図形の構成要素を見る経験を、箱の面を構成する図形の観察へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -202,7 +202,7 @@
     {
       "from": "sansu.g1.legacy.word-problems-equal-groups",
       "to": "sansu.g2.multiply.meaning-facts",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "同じ数ずつのまとまりを見る経験を、一つ分の大きさと幾つ分で捉える乗法へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -220,7 +220,7 @@
     {
       "from": "sansu.g1.legacy.word-problems-equal-groups",
       "to": "sansu.g2.number.simple-fractions",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.6,
       "rationale": "同じ大きさに分ける経験を、二分の一や三分の一など簡単な分数の理解へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -247,7 +247,7 @@
     {
       "from": "sansu.g2.multiply.properties",
       "to": "sansu.g3.multiply.review-properties",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.9,
       "rationale": "第2学年の九九と乗法の性質を、第3学年での乗法の活用と除法の導入に生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -283,7 +283,7 @@
     {
       "from": "sansu.g3.add-subtract.column",
       "to": "sansu.g3.add-subtract.mental",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "位取りと計算過程の理解を、数の構成を使う暗算の工夫へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -292,7 +292,7 @@
     {
       "from": "sansu.g2.number.over-1000",
       "to": "sansu.g3.number.large",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.9,
       "rationale": "千をこえる数の位取りを、万・億の単位を用いる大きな数へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -301,7 +301,7 @@
     {
       "from": "sansu.g2.data.tables-graphs",
       "to": "sansu.g3.data.tally-tables",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "表やグラフで整理して読む経験を、正の字による集計と棒グラフの分析へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -310,7 +310,7 @@
     {
       "from": "sansu.g2.measure.time",
       "to": "sansu.g3.measure.time-seconds",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.9,
       "rationale": "時・分の関係と時間の理解を、秒を含む時刻・時間の計算へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -328,7 +328,7 @@
     {
       "from": "sansu.g2.geometry.triangles-quadrilaterals",
       "to": "sansu.g3.geometry.triangles-angles",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "三角形・四角形と直角の理解を、二等辺三角形・正三角形と角の考察へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -337,7 +337,7 @@
     {
       "from": "sansu.g2.number.simple-fractions",
       "to": "sansu.g3.fractions.meaning-calculation",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "簡単な分数の見方を、分数の意味・表し方と同分母の計算へ発展させる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -346,7 +346,7 @@
     {
       "from": "sansu.g2.number.over-1000",
       "to": "sansu.g3.decimals.tenths",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "十進位取り記数法の見方を、一より小さい量を0.1単位で表す小数へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -382,7 +382,7 @@
     {
       "from": "sansu.g2.application.word-problems",
       "to": "sansu.g3.expressions.unknown-box",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "図と式で数量関係を表す経験を、未知の数量を□で表す式へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -400,16 +400,16 @@
     {
       "from": "sansu.g1.geometry.shape-position",
       "to": "sansu.g3.geometry.circles-spheres",
-      "kind": "related",
-      "strength": 0.5,
-      "rationale": "形の特徴を観察して構成する見方を、円と球の性質を調べる活動にも用いる。",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "形の特徴を観察して構成する基礎を用いて、円と球の性質を調べる活動へ進む。",
       "sourceIds": ["mext-h29-sansu-progression"],
       "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.measure.compare-quantities",
       "to": "sansu.g3.measure.weight",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.6,
       "rationale": "量を比べる経験を、重さの単位と測定の理解へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -418,7 +418,7 @@
     {
       "from": "sansu.g3.number.large",
       "to": "sansu.g4.unit-1",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.9,
       "rationale": "万・億の位取りを、億・兆までの整数の表し方へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -445,7 +445,7 @@
     {
       "from": "sansu.g3.decimals.tenths",
       "to": "sansu.g4.unit-6",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.9,
       "rationale": "0.1の位までの小数理解を、小数の位取りと加法・減法へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -454,7 +454,7 @@
     {
       "from": "sansu.g3.fractions.meaning-calculation",
       "to": "sansu.g4.unit-14",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "分数の意味と同分母の計算を、真分数・仮分数・帯分数の関係へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -463,7 +463,7 @@
     {
       "from": "sansu.g3.geometry.triangles-angles",
       "to": "sansu.g4.unit-4",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "三角形の角を調べる経験を、回転の大きさとしての角とその測定へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -490,7 +490,7 @@
     {
       "from": "sansu.g3.data.tables-bar-graphs",
       "to": "sansu.g4.unit-2",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "棒グラフで数量を比較する経験を、時間変化を表す折れ線グラフへ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -517,7 +517,7 @@
     {
       "from": "sansu.g4.unit-1",
       "to": "sansu.g4.unit-10",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "大きな整数の位取りを、四捨五入による概数と見積りに用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -526,7 +526,7 @@
     {
       "from": "sansu.g2.geometry.boxes",
       "to": "sansu.g4.unit-16",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.65,
       "rationale": "箱の形を構成する経験を、直方体・立方体の面や辺の関係へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -535,7 +535,7 @@
     {
       "from": "sansu.g4.unit-5",
       "to": "sansu.g4.unit-16",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "平行・垂直や四角形の性質を、直方体・立方体の面と辺の観察に用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -544,7 +544,7 @@
     {
       "from": "sansu.g2.measure.metre",
       "to": "sansu.g4.unit-11",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.65,
       "rationale": "長さの単位と測定を、正方形・長方形の面積の単位と測定へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -598,7 +598,7 @@
     {
       "from": "sansu.g4.unit-8",
       "to": "sansu.g4.unit-9",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "乗除の関係と計算のきまりを、何倍かという二量の関係の考察へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -607,7 +607,7 @@
     {
       "from": "sansu.g4.unit-2",
       "to": "sansu.g4.unit-15",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "時間変化をグラフで捉える見方を、二つの数量の変わり方の考察へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -616,7 +616,7 @@
     {
       "from": "sansu.g4.unit-8",
       "to": "sansu.g4.unit-15",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.65,
       "rationale": "式と計算のきまりを、伴って変わる二量の関係を式で表す活動へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -625,7 +625,7 @@
     {
       "from": "sansu.g3.number.large",
       "to": "sansu.g4.unit-10",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "大きな整数の位取りと大小を捉える力を、概数と見積りの学習へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -634,7 +634,7 @@
     {
       "from": "sansu.g4.unit-6",
       "to": "sansu.g5.math-5-1",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "小数の位取りと加法・減法の理解を、整数と小数の十進位取りの統合的な理解へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -661,7 +661,7 @@
     {
       "from": "sansu.g4.unit-15",
       "to": "sansu.g5.math-5-3",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "伴って変わる二つの数量を表や式で捉える経験を、比例の関係の理解へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -706,7 +706,7 @@
     {
       "from": "sansu.g4.unit-4",
       "to": "sansu.g5.math-5-6",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "角の測定と構成の経験を、合同な図形の対応する角や多角形の内角の考察に用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -715,7 +715,7 @@
     {
       "from": "sansu.g4.unit-5",
       "to": "sansu.g5.math-5-6",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "三角形・四角形の辺と角の性質を、合同条件と内角の考察へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -751,7 +751,7 @@
     {
       "from": "sansu.g5.math-5-1",
       "to": "sansu.g5.math-5-9",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "整数と小数の位取りの理解を、分数と小数の相互変換の考察に生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -787,7 +787,7 @@
     {
       "from": "sansu.g5.math-5-3",
       "to": "sansu.g5.math-5-11",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "二量の対応を捉える見方を、平均と単位量当たりの大きさの比較へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -805,7 +805,7 @@
     {
       "from": "sansu.g5.math-5-3",
       "to": "sansu.g5.math-5-12",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "距離と時間の対応を捉える見方を、速さを一定とみなす考察に用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -823,7 +823,7 @@
     {
       "from": "sansu.g4.unit-9",
       "to": "sansu.g5.math-5-13",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "何倍かという二量の関係の見方を、基準量・比較量・割合の関係へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -832,7 +832,7 @@
     {
       "from": "sansu.g5.math-5-3",
       "to": "sansu.g5.math-5-13",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "二量の対応を表や式で捉える見方を、割合の問題場面へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -850,7 +850,7 @@
     {
       "from": "sansu.g4.unit-2",
       "to": "sansu.g5.math-5-15",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "グラフから変化や特徴を読み取る経験を、帯グラフと円グラフの読解へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -868,7 +868,7 @@
     {
       "from": "sansu.g5.math-5-3",
       "to": "sansu.g5.math-5-16",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "比例する二量を表と式で捉える見方を、数量の変わり方を調べる活動へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -877,7 +877,7 @@
     {
       "from": "sansu.g5.math-5-6",
       "to": "sansu.g5.math-5-17",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "合同と内角の理解を、正多角形の構成や性質の考察へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -886,7 +886,7 @@
     {
       "from": "sansu.g4.unit-16",
       "to": "sansu.g5.math-5-18",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "直方体・立方体の面と辺の関係を、角柱と円柱の構成要素の観察へ広げる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -895,7 +895,7 @@
     {
       "from": "sansu.g5.math-5-6",
       "to": "sansu.g5.math-5-18",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.65,
       "rationale": "合同な面の対応に着目する見方を、角柱・円柱の底面と側面の構成理解に用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -904,7 +904,7 @@
     {
       "from": "sansu.g5.math-5-6",
       "to": "sansu.g6.math-6-1",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "合同な図形の対応を捉える力を、線対称・点対称な図形の対応の考察へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -913,7 +913,7 @@
     {
       "from": "sansu.g5.math-5-16",
       "to": "sansu.g6.math-6-2",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "変わる数量を表や式で表す経験を、未知数を文字で表す式へつなぐ。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -922,7 +922,7 @@
     {
       "from": "sansu.g5.math-5-4",
       "to": "sansu.g6.math-6-3",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "小数の乗法で数量関係を捉えた考えを、分数の乗法の意味と計算へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -940,7 +940,7 @@
     {
       "from": "sansu.g5.math-5-5",
       "to": "sansu.g6.math-6-4",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "小数の除法で数量関係を捉えた考えを、分数の除法の意味へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -958,7 +958,7 @@
     {
       "from": "sansu.g5.math-5-3",
       "to": "sansu.g6.math-6-5",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "二量の対応関係を捉える見方を、比で二量の割合を表す学習へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -967,7 +967,7 @@
     {
       "from": "sansu.g5.math-5-9",
       "to": "sansu.g6.math-6-5",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.7,
       "rationale": "分数と小数を相互に表す力を、比の値を多様な数で表す活動に用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -976,7 +976,7 @@
     {
       "from": "sansu.g5.math-5-6",
       "to": "sansu.g6.math-6-6",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "対応する辺と角を捉える理解を、拡大図・縮図の対応関係へ生かす。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -985,7 +985,7 @@
     {
       "from": "sansu.g6.math-6-5",
       "to": "sansu.g6.math-6-6",
-      "kind": "transfer",
+      "kind": "prerequisite",
       "strength": 0.8,
       "rationale": "比で二量の関係を表す理解を、拡大・縮小の倍率の考察に用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -994,7 +994,7 @@
     {
       "from": "sansu.g5.math-5-10",
       "to": "sansu.g6.math-6-7",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "図形の分割・変形で面積公式を作る考えを、円の面積公式の考察へ用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -1003,7 +1003,7 @@
     {
       "from": "sansu.g5.math-5-18",
       "to": "sansu.g6.math-6-7",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.85,
       "rationale": "角柱・円柱の構成要素の理解を、柱体の体積を底面積と高さから求める考察へ用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -1039,7 +1039,7 @@
     {
       "from": "sansu.g5.math-5-16",
       "to": "sansu.g6.math-6-9",
-      "kind": "component",
+      "kind": "prerequisite",
       "strength": 0.75,
       "rationale": "数量の変わり方を表と式で調べる経験を、比例・反比例の特徴の比較に用いる。",
       "sourceIds": ["mext-h29-sansu-progression"],
@@ -1048,9 +1048,9 @@
     {
       "from": "sansu.g6.math-6-8",
       "to": "sansu.g6.math-6-10",
-      "kind": "related",
-      "strength": 0.6,
-      "rationale": "資料を分類・整理して傾向を捉える見方を、起こり得る場合を落ちや重なりなく整理する活動にも用いる。",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "資料を分類・整理する見方を基礎に、起こり得る場合を落ちや重なりなく順序よく整理する。",
       "sourceIds": ["mext-h29-sansu-progression"],
       "reviewStatus": "source-checked"
     }

@@ -352,7 +352,7 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.querySelector('.nq-menu-home')).toBeNull();
   });
 
-  it('開いている単元を押すと、その単元の問題開始を通知する', async () => {
+  it('開いている単元を選び、主要ボタンを押したときだけ問題開始を通知する', async () => {
     const onRoadmapSelect = vi.fn();
     const container = await showRoadmap(onRoadmapSelect);
 
@@ -366,10 +366,59 @@ describe('学習ロードマップの単元選択', () => {
 
     await act(async () => unit!.click());
 
+    expect(onRoadmapSelect).not.toHaveBeenCalled();
+    expect(unit!.getAttribute('aria-pressed')).toBe('true');
+    const selection = container.querySelector<HTMLElement>('.nq-roadmap-selection')!;
+    expect(selection.textContent).toContain('10までのかず');
+    expect(selection.textContent).toContain('1ねん');
+    expect(selection.textContent).toContain('いまの もくひょう');
+
+    await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-practice')!.click());
+
     expect(onRoadmapSelect).toHaveBeenCalledWith('sansu.g1.kazu-10');
   });
 
-  it('ロック中の単元は問題を開始できない', async () => {
+  it('開いた直後は現在の単元を選び、別の単元へ選択を切り替えられる', async () => {
+    const onRoadmapSelect = vi.fn();
+    const container = await showRoadmap(onRoadmapSelect);
+
+    await act(async () => {
+      subjectButton(container, 'sansu').click();
+    });
+
+    const current = container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!;
+    expect(current.getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-selection')?.textContent).toContain('10までのかず');
+
+    const open = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-open')].find((button) =>
+      button.textContent?.includes('じき未設定'),
+    )!;
+    await act(async () => open.click());
+
+    expect(current.getAttribute('aria-pressed')).toBe('false');
+    expect(open.getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-selection')?.textContent).toContain('じき未設定');
+    expect(onRoadmapSelect).not.toHaveBeenCalled();
+  });
+
+  it('地図の背景を押すと単元選択と詳細パネルを閉じる', async () => {
+    const container = await showRoadmap(vi.fn());
+
+    await act(async () => {
+      subjectButton(container, 'sansu').click();
+    });
+
+    const current = container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!;
+    expect(current.getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-selection')).not.toBeNull();
+
+    await act(async () => container.querySelector<HTMLElement>('.nq-roadmap-map')!.click());
+
+    expect(current.getAttribute('aria-pressed')).toBe('false');
+    expect(container.querySelector('.nq-roadmap-selection')).toBeNull();
+  });
+
+  it('ロック中の単元を選ぶと、不足している前提条件を確認できるが問題は開始できない', async () => {
     const onRoadmapSelect = vi.fn();
     const container = await showRoadmap(onRoadmapSelect);
 
@@ -378,12 +427,19 @@ describe('学習ロードマップの単元選択', () => {
     });
     const locked = container.querySelector<HTMLButtonElement>('.nq-roadmap-frontier');
     expect(locked?.disabled).toBe(false);
-    expect(locked?.getAttribute('aria-disabled')).toBe('true');
-    locked!.click();
+    expect(locked?.getAttribute('aria-disabled')).toBeNull();
+    expect(locked?.getAttribute('aria-label')).toContain('0/1');
+    await act(async () => locked!.click());
 
     expect(onRoadmapSelect).not.toHaveBeenCalled();
+    expect(locked!.getAttribute('aria-pressed')).toBe('true');
     expect(locked!.textContent).not.toContain('かけ算');
     expect(locked!.textContent).toContain('？');
+    const conditions = container.querySelector<HTMLElement>('.nq-roadmap-prerequisites');
+    expect(conditions?.textContent).toContain('0/1');
+    expect(conditions?.textContent).toContain('10までのかず');
+    expect(conditions?.textContent).toContain('まだ');
+    expect(container.querySelector('.nq-roadmap-practice')).toBeNull();
   });
 
   it('前提関係を接続線で描き、霧の向こうの単元名は読み上げない', async () => {
@@ -394,14 +450,37 @@ describe('学習ロードマップの単元選択', () => {
     });
 
     expect(container.querySelectorAll('.nq-roadmap-edge')).toHaveLength(1);
-    expect(container.querySelector('line.nq-roadmap-edge')).not.toBeNull();
-    expect(container.querySelector('path.nq-roadmap-edge')).toBeNull();
+    const route = container.querySelector('.nq-roadmap-edge');
+    expect(route?.getAttribute('d')).toMatch(/^M [\d.]+ [\d.]+ L [\d.]+ [\d.]+$/);
+    expect(route?.getAttribute('d')).not.toContain(' C ');
     expect(container.querySelector('.nq-roadmap-frontier')?.getAttribute('aria-label')).toContain(
       'まだ 見えない',
     );
     expect(container.querySelector('.nq-roadmap-frontier')?.getAttribute('aria-label')).not.toContain(
       'かけ算',
     );
+  });
+
+  it('選択中の進路だけを強調し、ほかの前提線は背景へ下げる', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    const chain: RoadmapNode[] = [
+      nodes.find((node) => node.id === 'sansu.g1.kazu-10')!,
+      {
+        ...nodes.find((node) => node.id === 'sansu.g2.kakezan')!,
+        visibility: 'revealed',
+        state: 'open',
+      },
+      {
+        ...nodes.find((node) => node.id === 'sansu.g3.warizan')!,
+        prerequisiteIds: ['sansu.g2.kakezan'],
+        visibility: 'frontier',
+      },
+    ];
+    await act(async () => render(h(RoadmapGraph, { nodes: chain, onSelect: vi.fn() }), container));
+
+    expect(container.querySelectorAll('.nq-roadmap-edge-active').length).toBeGreaterThan(0);
+    expect(container.querySelectorAll('.nq-roadmap-edge-muted').length).toBeGreaterThan(0);
   });
 
   it('学年とおすすめ時期を1本のバーで絞り込める', async () => {
@@ -421,6 +500,21 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.querySelectorAll('.nq-roadmap-toolbar')).toHaveLength(1);
     expect(container.querySelector('.nq-roadmap-grade-row')).toBeNull();
     expect(container.querySelector('.nq-roadmap-term-row')).toBeNull();
+  });
+
+  it('学年で絞り込んでも、対象単元へつながる前提ノードと線を残す', async () => {
+    const container = await showRoadmap(vi.fn());
+    const period = container.querySelector<HTMLInputElement>('.nq-roadmap-period-range')!;
+
+    await act(async () => {
+      period.value = '5';
+      period.dispatchEvent(new Event('input', { bubbles: true }));
+      subjectButton(container, 'sansu').click();
+    });
+
+    expect(container.querySelectorAll('.nq-roadmap-node')).toHaveLength(2);
+    expect(container.querySelectorAll('.nq-roadmap-edge')).toHaveLength(1);
+    expect(container.textContent).toContain('10までのかず');
   });
 
   it('1・2年生では補助教材を教科一覧と必修進捗に含めない', async () => {
@@ -477,31 +571,45 @@ describe('学習ロードマップの単元選択', () => {
     expect(canvas.style.transform).not.toBe(beforePan);
   });
 
-  it('非ロックの学習関係を点線で描き、未達の前提単元を表示する', () => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    const base = { ...nodes[3]!, x: 72, y: 64 };
-    const target: RoadmapNode = {
-      ...nodes[5]!,
-      id: 'sansu.g1.application',
-      name: 'たしひきの おうよう',
-      x: 252,
-      y: 212,
-      state: 'locked',
-      visibility: 'revealed',
-      prerequisiteIds: ['sansu.g1.hikizan'],
-      supportingLinks: [{ sourceId: base.id, kind: 'transfer' }],
-      blockedByNames: ['ひき算[ざん]'],
-    };
+  it('地図を20%まで縮小できる', async () => {
+    const container = await showRoadmap(vi.fn());
 
-    render(h(RoadmapGraph, { nodes: [base, target], onSelect: vi.fn() }), container);
+    await act(async () => {
+      subjectButton(container, 'sansu').click();
+    });
 
-    expect(container.querySelector('.nq-roadmap-edge-transfer')).not.toBeNull();
-    expect(container.querySelector('.nq-roadmap-blocked-by')?.textContent).toContain('さきに：ひき算');
-    expect(
-      [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-node')]
-        .find((node) => node.textContent?.includes('たしひき'))
-        ?.getAttribute('aria-label'),
-    ).toContain('さきに：ひき算');
+    const zoomOut = container.querySelector<HTMLButtonElement>('.nq-roadmap-zoom-out')!;
+    const value = () => container.querySelector('.nq-roadmap-zoom-value')?.textContent;
+
+    for (let step = 0; step < 4; step += 1) await act(async () => zoomOut.click());
+
+    expect(value()).toContain('20%');
+    expect(zoomOut.disabled).toBe(true);
+    expect(container.querySelector('.nq-roadmap-map-shell')?.getAttribute('data-zoom-detail')).toBe(
+      'overview',
+    );
+  });
+
+  it('端にある現在の単元も詳細パネルより上の中央へ戻せる', async () => {
+    const container = await showRoadmap(vi.fn());
+
+    await act(async () => {
+      subjectButton(container, 'sansu').click();
+    });
+
+    const map = container.querySelector<HTMLElement>('.nq-roadmap-map')!;
+    Object.defineProperties(map, {
+      clientWidth: { configurable: true, value: 800 },
+      clientHeight: { configurable: true, value: 300 },
+    });
+    map.getBoundingClientRect = () => ({ top: 0, height: 300, width: 800 }) as unknown as DOMRect;
+    container.querySelector<HTMLElement>('.nq-roadmap-selection')!.getBoundingClientRect = () =>
+      ({ top: 200, height: 82, width: 776 }) as unknown as DOMRect;
+
+    await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-reset')!.click());
+
+    expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toContain(
+      'translate(312px, 14px)',
+    );
   });
 });

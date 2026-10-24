@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
@@ -18,9 +18,17 @@ import {
 } from '../../src/core/learning';
 import { stripRuby } from '../../src/ui/ruby';
 
-const path = fileURLToPath(new URL('../../content/curriculum/sansu-g1-foundations.json', import.meta.url));
-const raw = JSON.parse(readFileSync(path, 'utf8')) as unknown;
-const result = validateCurriculumGraph(raw);
+const curriculumDirectory = fileURLToPath(new URL('../../content/curriculum/', import.meta.url));
+const curriculumPaths = readdirSync(curriculumDirectory)
+  .filter((name) => name.startsWith('sansu-') && name.endsWith('.json'))
+  .sort()
+  .map((name) => `${curriculumDirectory}/${name}`);
+const fragments = curriculumPaths.map((path) =>
+  parseCurriculumGraphFragment(JSON.parse(readFileSync(path, 'utf8')) as unknown),
+);
+const fragmentErrors = fragments.flatMap((fragment) => fragment.errors);
+if (fragmentErrors.length > 0) throw new Error(fragmentErrors.join('\n'));
+const result = mergeCurriculumGraphs(fragments.map((fragment) => fragment.graph!));
 if (!result.graph) throw new Error(result.errors.join('\n'));
 const graph = result.graph;
 

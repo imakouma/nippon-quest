@@ -30,7 +30,7 @@ async function expectEightStatsFit(page: Page) {
 
 test('新規ゲームから2Dロードマップを開き、セーブ後に同じスロットを続行できる', async ({ page }, testInfo) => {
   test.setTimeout(180_000);
-  await page.goto('/');
+  await page.goto('/?preview=roadmap-tree&resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 3/ }).click();
   await completeNewGameSetup(page, 'テスト');
@@ -87,7 +87,39 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(allSubjectsOverview).toContainText('つぎ：');
   await page.getByRole('button', { name: /^さんすう・いまは/ }).click();
   await expect(roadmap).toContainText('10までのかず');
+  const selection = page.locator('.nq-roadmap-selection');
+  const currentUnit = page.getByRole('button', { name: '10までのかず' });
+  await expect(selection).toContainText('いまの もくひょう');
+  await expect(selection).toContainText('10までのかず');
+  await expect(currentUnit).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.nq-roadmap-practice')).toBeVisible();
+  await expect(page.getByRole('button', { name: /20までの かず/ })).toHaveCount(0);
+  const frontier = page.getByRole('button', { name: /ひらく じょうけん 0\/1/ }).first();
+  await expect(frontier).toBeEnabled();
+  await expect(frontier).toHaveAttribute('aria-label', /0\/1/);
+  await frontier.focus();
+  await page.keyboard.press('Enter');
+  await expect(frontier).toHaveAttribute('aria-pressed', 'true');
+  await expect(selection.locator('.nq-roadmap-prerequisites')).toContainText('0/1');
+  await expect(selection.locator('.nq-roadmap-prerequisites')).toContainText('まだ');
+  await expect(page.locator('.nq-roadmap-practice')).toHaveCount(0);
+  const [lockedMapBox, lockedNodeBox, lockedSelectionBox] = await Promise.all([
+    page.locator('.nq-roadmap-map').boundingBox(),
+    frontier.boundingBox(),
+    selection.boundingBox(),
+  ]);
+  expect(lockedMapBox).not.toBeNull();
+  expect(lockedNodeBox).not.toBeNull();
+  expect(lockedSelectionBox).not.toBeNull();
+  expect(
+    Math.abs(lockedNodeBox!.y + lockedNodeBox!.height / 2 - (lockedMapBox!.y + lockedSelectionBox!.y) / 2),
+  ).toBeLessThan(2);
+  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-locked-condition.png') });
+  await page.locator('.nq-roadmap-reset').click();
+  await currentUnit.click();
+  await expect(page.locator('.nq-roadmap-practice')).toBeVisible();
   const map = page.locator('.nq-roadmap-map');
+  const mapShell = page.locator('.nq-roadmap-map-shell');
   const canvas = page.locator('.nq-roadmap-canvas');
   const zoom = page.locator('.nq-roadmap-zoom-value');
   const reset = page.locator('.nq-roadmap-reset');
@@ -96,6 +128,30 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(zoom).toHaveText('120%');
   await reset.click();
   await expect(zoom).toHaveText('100%');
+  const zoomOut = page.locator('.nq-roadmap-zoom-out');
+  for (let step = 0; step < 4; step += 1) await zoomOut.click();
+  await expect(zoom).toHaveText('20%');
+  await expect(zoomOut).toBeDisabled();
+  await expect(mapShell).toHaveAttribute('data-zoom-detail', 'overview');
+  await expect(currentUnit.locator('.nq-roadmap-node-name')).toBeHidden();
+  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-20-percent.png') });
+  await reset.click();
+  await expect(mapShell).toHaveAttribute('data-zoom-detail', 'detail');
+  const [mapBox, currentNodeBox, selectionBox] = await Promise.all([
+    map.boundingBox(),
+    page.getByRole('button', { name: '10までのかず' }).boundingBox(),
+    selection.boundingBox(),
+  ]);
+  expect(mapBox).not.toBeNull();
+  expect(currentNodeBox).not.toBeNull();
+  expect(selectionBox).not.toBeNull();
+  expect(
+    Math.abs(currentNodeBox!.x + currentNodeBox!.width / 2 - (mapBox!.x + mapBox!.width / 2)),
+  ).toBeLessThan(2);
+  const visibleMapBottom = selectionBox!.y;
+  expect(
+    Math.abs(currentNodeBox!.y + currentNodeBox!.height / 2 - (mapBox!.y + visibleMapBottom) / 2),
+  ).toBeLessThan(2);
 
   const beforeWheel = await canvas.getAttribute('style');
   await map.dispatchEvent('wheel', { deltaX: 32, deltaY: 48 });
