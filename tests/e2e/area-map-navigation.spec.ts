@@ -59,11 +59,10 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await expect(unavailableWarp.locator('ruby')).toHaveCount(1);
   await expect(unavailableWarp).not.toContainText('[');
   await expect(areaMapDialog.getByRole('button', { name: 'にほんちず' })).toBeFocused();
-  const zoomOut = areaMapDialog.getByRole('button', { name: 'ちずを ちいさくする' });
-  const zoomIn = areaMapDialog.getByRole('button', { name: 'ちずを おおきくする' });
+  await expect(areaMapDialog.locator('.nq-amap-tools')).toHaveCount(0);
   await expect(areaMapDialog.locator('.nq-amap-zoom-value')).toHaveCount(0);
   await expect(areaMapDialog.locator('.nq-amap-reset')).toHaveCount(0);
-  await expect(zoomOut).toBeDisabled();
+  await expect(areaMapDialog.getByRole('button', { name: /ちずを (おおきく|ちいさく)する/ })).toHaveCount(0);
 
   const box = await mapView.boundingBox();
   expect(box).not.toBeNull();
@@ -72,15 +71,6 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await page.mouse.wheel(0, -100);
   await page.keyboard.up('Control');
   await expect(mapCanvas).toHaveCSS('transform', /matrix\(1\.5, 0, 0, 1\.5,/);
-  await expect(zoomOut).toBeEnabled();
-  await page.keyboard.down('Control');
-  await page.mouse.wheel(0, 100);
-  await page.keyboard.up('Control');
-  await expect(mapCanvas).toHaveCSS('transform', /matrix\(1, 0, 0, 1, 0, 0\)/);
-  await expect(zoomOut).toBeDisabled();
-
-  await zoomIn.click();
-  await expect(mapCanvas).toHaveCSS('transform', /matrix\(1\.5, 0, 0, 1\.5,/);
 
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
   await page.mouse.down();
@@ -88,7 +78,9 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   await page.mouse.up();
   await expect(mapCanvas).not.toHaveCSS('transform', /matrix\(1\.5, 0, 0, 1\.5, 0, 0\)/);
 
-  await zoomOut.click();
+  await page.keyboard.down('Control');
+  await page.mouse.wheel(0, 100);
+  await page.keyboard.up('Control');
   await expect(mapCanvas).toHaveCSS('transform', /matrix\(1, 0, 0, 1, 0, 0\)/);
 
   // 県のしるしがそろうまでは、地方ボスの存在・名前・城を先に見せない。

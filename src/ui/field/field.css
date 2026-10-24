@@ -172,36 +172,6 @@
 .nq-wmap-left {
   position: relative;
 }
-.nq-amap-tools {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  height: 44px;
-  padding: 2px 4px;
-  color: var(--nq-white);
-  background: var(--nq-night);
-  border: 2px solid var(--nq-slate);
-}
-.nq-amap-zoom-group {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex: none;
-}
-.nq-amap-tools .nq-wmap-arrow {
-  width: 44px;
-  height: 44px;
-  border-width: 2px;
-  font-size: 24px;
-}
-.nq-amap-tools .nq-wmap-arrow:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
-.nq-wmap-view.nq-amap-view {
-  height: 352px;
-}
 .nq-amap-pan-hint {
   position: absolute;
   z-index: 6;
