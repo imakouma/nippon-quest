@@ -1,9 +1,9 @@
 /*
- * フィールドの DOM 部品（場所の窓・県名・名所カットイン・にほんちず）。
+ * フィールドの DOM 部品（ミニ地図・名所カットイン・にほんちず）。
  * 文字は 12 / 24 / 36 / 48px だけ（PixelMplus12 のマス目の倍数。ほかの大きさはにじむ）。
  */
 
-/* ───── いまいる場所 ───── */
+/* ───── フィールドHUD ───── */
 .nq-fhud {
   position: absolute;
   left: 16px;
@@ -65,24 +65,6 @@
     display: block;
   }
 }
-.nq-fhud-loc {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding: 4px 12px 12px;
-  font-size: 24px;
-  line-height: 36px;
-}
-/* 場所の名前・種類・スタンプ。地図（144px）の幅で折り返して、窓を地図の幅に そろえる（右に黒い すきまを作らない） */
-.nq-fhud-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 12px;
-  max-width: 144px;
-}
-
 /* ───── 左上の小さな地図（いまいる地方を、主人公を まん中に拡大）。144px の正方形。タップで県の大きな地図 ───── */
 .nq-mini {
   position: relative;
@@ -93,7 +75,10 @@
   padding: 0;
   overflow: hidden;
   background: #3d8ef0;
-  border: 2px solid #000;
+  border: 4px solid var(--nq-white);
+  box-shadow:
+    0 0 0 4px #000,
+    6px 6px 0 4px rgba(0, 0, 0, 0.35);
   cursor: pointer;
   pointer-events: auto;
 }
@@ -272,21 +257,6 @@
 .nq-amap-empty-icon .nq-picon {
   width: 48px;
   height: 48px;
-}
-.nq-fhud-title {
-  color: var(--nq-yellow);
-  white-space: nowrap;
-}
-.nq-fhud-sub {
-  font-size: 16px;
-  color: var(--nq-cloud);
-}
-.nq-fhud-stamp {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 24px;
-  color: var(--nq-yellow);
 }
 /* 右上の ボタンは 小さく・うすく（地図の じゃまを しない） */
 .nq-fhud-btn {

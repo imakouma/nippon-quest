@@ -166,9 +166,12 @@ test('メニューと保護者画面はモーダルとしてフォーカスを�
   expect(openerBox).not.toBeNull();
   expect(openerBox!.height).toBeGreaterThanOrEqual(48);
   await expect(opener).toHaveCSS('opacity', '1');
+  await expect(page.locator('.nq-fhud-sub')).toHaveCount(0);
   expect(
-    Number.parseFloat(await page.locator('.nq-fhud-sub').evaluate((node) => getComputedStyle(node).fontSize)),
-  ).toBeGreaterThanOrEqual(16);
+    Number.parseFloat(
+      await page.locator('.nq-mini-open').evaluate((node) => getComputedStyle(node).fontSize),
+    ),
+  ).toBeGreaterThanOrEqual(12);
   await opener.focus();
   await opener.click();
 

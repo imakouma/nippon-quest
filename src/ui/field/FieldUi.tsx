@@ -1,5 +1,5 @@
 /**
- * フィールドの DOM 部品：いまいる場所の窓（HUD）、移動したときの場所の名前、名所のカットイン。
+ * フィールドの DOM 部品：地図ボタン（HUD）、移動したときの場所の名前、名所のカットイン。
  * ロジックは持たない。Overworld シーンが props を渡して render する。
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
@@ -12,12 +12,9 @@ import { VirtualStick, type VirtualStickDirection } from './VirtualStick';
 import './field.css';
 
 export interface FieldHudProps {
-  title: string;
-  sub: string;
-  stamps: { n: number; total: number } | null;
-  stampLabel: string;
   /** 左上の小さな地図（いまいる地方。行ったことのある県だけ はっきり）。タップで県の大きな地図 */
   map: RegionMiniView | null;
+  mapName: string;
   mapLabel: string;
   onAreaMap: () => void;
   /** メニュー（ずかん・どうぐ・そうび）を ひらく */
@@ -29,11 +26,8 @@ export interface FieldHudProps {
 }
 
 export function FieldHud({
-  title,
-  sub,
-  stamps,
-  stampLabel,
   map,
+  mapName,
   mapLabel,
   onAreaMap,
   menuLabel,
@@ -44,19 +38,7 @@ export function FieldHud({
   return (
     <div class="nq-fhud">
       <VirtualStick label={t('field.moveStick')} onDirection={onMove} />
-      <div class="nq-win nq-fhud-loc">
-        <div class="nq-fhud-row">
-          <RubyLabel text={title} class="nq-fhud-title" />
-          <RubyLabel text={sub} class="nq-fhud-sub" />
-          {stamps && (
-            <span class="nq-fhud-stamp" aria-label={stampLabel}>
-              <PixelIcon name="star" scale={2} />
-              {stamps.n}/{stamps.total}
-            </span>
-          )}
-        </div>
-        {map && <RegionMiniMap region={map} label={mapLabel} onOpen={onAreaMap} />}
-      </div>
+      {map && <RegionMiniMap region={map} label={mapLabel} displayLabel={mapName} onOpen={onAreaMap} />}
       <div class="nq-fhud-right">
         {dev && (
           <button

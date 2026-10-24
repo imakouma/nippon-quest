@@ -41,10 +41,12 @@ function drawDetail(canvas: HTMLCanvasElement, detail: NonNullable<RegionMiniVie
 export function RegionMiniMap({
   region,
   label,
+  displayLabel,
   onOpen,
 }: {
   region: RegionMiniView;
   label: string;
+  displayLabel: string;
   onOpen: () => void;
 }) {
   const box = useRef<HTMLButtonElement>(null);
@@ -113,7 +115,7 @@ export function RegionMiniMap({
       </div>
       {region.hero && <span class="nq-mini-hero" style={{ left: viewWidth / 2, top: viewHeight / 2 }} />}
       <span class="nq-mini-open" aria-hidden="true">
-        {label}
+        {displayText(displayLabel)}
       </span>
     </button>
   );

@@ -2611,15 +2611,12 @@ export class OverworldScene extends Phaser.Scene {
       render(null, root);
       return;
     }
-    const { title, sub } = this.placeName();
+    const mapName = this.currentArea()?.name ?? this.placeName().title;
     render(
       h(FieldHud, {
-        title,
-        sub,
-        stamps: this.kind() === 'field' && this.stampIds.length ? this.stampCount() : null,
-        stampLabel: t('field.stamps'),
         map: this.regionMiniView(),
-        mapLabel: t('field.areaMapOpen'),
+        mapName,
+        mapLabel: t('field.areaMapOpenFor', { area: mapName }),
         onAreaMap: () => this.openAreaMap(),
         menuLabel: t('field.menu'),
         onMenu: () => this.openMenu(),

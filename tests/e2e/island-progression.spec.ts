@@ -122,10 +122,10 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await seedTohokuBossReady(page);
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
   await page.getByRole('button', { name: /スロット 3 Lv/ }).click();
-  await expect(page.getByRole('button', { name: 'ちずを ひらく', exact: true })).toBeVisible({
+  await expect(page.getByRole('button', { name: /の ちずを ひらく$/, exact: true })).toBeVisible({
     timeout: 30_000,
   });
-  await page.getByRole('button', { name: 'ちずを ひらく', exact: true }).click();
+  await page.getByRole('button', { name: /の ちずを ひらく$/, exact: true }).click();
   await page.getByRole('button', { name: 'にほんちず' }).click();
   await page.getByRole('button', { name: /この ちほうを くわしく みる/ }).click();
 
@@ -186,10 +186,10 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.waitForTimeout(500);
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
   await page.getByRole('button', { name: /スロット 3 Lv/ }).click();
-  await expect(page.getByRole('button', { name: 'ちずを ひらく', exact: true })).toBeVisible({
+  await expect(page.getByRole('button', { name: /の ちずを ひらく$/, exact: true })).toBeVisible({
     timeout: 30_000,
   });
-  await page.getByRole('button', { name: 'ちずを ひらく', exact: true }).click();
+  await page.getByRole('button', { name: /の ちずを ひらく$/, exact: true }).click();
   await page.getByRole('button', { name: 'にほんちず' }).click();
   await page.getByRole('button', { name: /この ちほうを くわしく みる/ }).click();
   await expect(page.getByRole('button', { name: /(?:浄化|じょうか).*ずみ/ })).toBeDisabled();

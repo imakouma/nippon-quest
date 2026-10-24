@@ -1,18 +1,21 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
-test('歩行中も場所名とミニマップが残り、県マップを拡大してドラッグ移動できる', async ({ page }, testInfo) => {
+test('歩行中も県名付きミニマップが残り、県マップを拡大してドラッグ移動できる', async ({ page }, testInfo) => {
   test.setTimeout(150_000);
   await page.goto('/?resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'ちず');
 
-  const miniMap = page.getByRole('button', { name: 'ちずを ひらく', exact: true });
+  const miniMap = page.getByRole('button', { name: '青森県の ちずを ひらく', exact: true });
   await expect(miniMap).toBeVisible({ timeout: 40_000 });
   await expect(miniMap).toHaveAttribute('aria-keyshortcuts', 'M');
   await expect(page.getByRole('button', { name: 'メニュー' })).toHaveAttribute('aria-keyshortcuts', 'I');
-  await expect(miniMap.locator('.nq-mini-open')).toHaveText('ちずを ひらく');
+  await expect(miniMap.locator('.nq-mini-open')).toHaveText('青森県');
+  await expect(page.locator('.nq-fhud-loc')).toHaveCount(0);
+  await expect(page.locator('.nq-fhud-row')).toHaveCount(0);
+  await expect(page.locator('.nq-fhud-stamp')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'かいはつしゃ' })).toBeVisible();
   const skip = page.getByRole('button', { name: 'スキップ', exact: true });
   if (await skip.isVisible()) await skip.click();
@@ -22,16 +25,12 @@ test('歩行中も場所名とミニマップが残り、県マップを拡大�
   }
   await expect(page.locator('.nq-dlg')).toHaveCount(0);
 
-  const place = page.locator('.nq-fhud-row');
   const player = page.locator('canvas[data-player-tile]');
   const tileBeforeWalking = await player.getAttribute('data-player-tile');
-  await expect(place).toContainText(/青森/);
   await page.keyboard.down('ArrowRight');
   await page.waitForTimeout(80);
-  await expect(place).toBeVisible();
-  await expect(place).toHaveCSS('opacity', '1');
-  await expect(place).toContainText(/青森/);
   await expect(miniMap).toBeVisible();
+  await expect(miniMap.locator('.nq-mini-open')).toHaveText('青森県');
   await page.keyboard.up('ArrowRight');
   await expect.poll(() => player.getAttribute('data-player-tile')).not.toBe(tileBeforeWalking);
   const surroundingPixels = await page
@@ -147,8 +146,9 @@ test('鳥取県の大きな地図で現在県だけを詳しく、周辺県を�
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
   await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
 
-  const miniMap = page.getByRole('button', { name: 'ちずを ひらく', exact: true });
+  const miniMap = page.getByRole('button', { name: '鳥取県の ちずを ひらく', exact: true });
   await expect(miniMap).toBeVisible({ timeout: 40_000 });
+  await expect(miniMap.locator('.nq-mini-open')).toHaveText('鳥取県');
   await miniMap.click();
   await expect(page.locator('.nq-amap-view')).toBeVisible();
   await expect(page.locator('.nq-amap-region-context')).toBeVisible();
