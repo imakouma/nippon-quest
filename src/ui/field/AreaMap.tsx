@@ -171,12 +171,6 @@ export function AreaMapOverlay({
       y: Math.max(-maxY, Math.min(maxY, next.y)),
     };
   };
-  const changeZoom = (next: number) => {
-    const level = Math.max(1, Math.min(3, next));
-    playSfx('move');
-    setZoom(level);
-    setPan((current) => clampPan(current, level));
-  };
   const zoomAt = (next: number, x: number, y: number) => {
     const current = view.current;
     const level = Math.max(1, Math.min(3, next));
@@ -424,28 +418,6 @@ export function AreaMapOverlay({
               <PixelIcon name="map" scale={2} />
               {worldLabel}
             </button>
-          </div>
-          <div class="nq-amap-tools">
-            <div class="nq-amap-zoom-group">
-              <button
-                type="button"
-                class="nq-wmap-arrow"
-                aria-label={t('field.areaMapZoomOut')}
-                disabled={zoom === 1}
-                onClick={() => changeZoom(zoom - 0.5)}
-              >
-                −
-              </button>
-              <button
-                type="button"
-                class="nq-wmap-arrow"
-                aria-label={t('field.areaMapZoomIn')}
-                disabled={zoom === 3}
-                onClick={() => changeZoom(zoom + 0.5)}
-              >
-                ＋
-              </button>
-            </div>
           </div>
           <div
             class={`nq-wmap-view nq-amap-view ${zoom > 1 ? 'nq-amap-pannable' : ''}`}
