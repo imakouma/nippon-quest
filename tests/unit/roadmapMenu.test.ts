@@ -411,11 +411,21 @@ describe('学習ロードマップの単元選択', () => {
     const current = container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!;
     expect(current.getAttribute('aria-pressed')).toBe('true');
     expect(container.querySelector('.nq-roadmap-selection')).not.toBeNull();
+    expect(
+      container
+        .querySelector('.nq-roadmap-map-shell')
+        ?.classList.contains('nq-roadmap-map-shell-with-selection'),
+    ).toBe(true);
 
     await act(async () => container.querySelector<HTMLElement>('.nq-roadmap-map')!.click());
 
     expect(current.getAttribute('aria-pressed')).toBe('false');
     expect(container.querySelector('.nq-roadmap-selection')).toBeNull();
+    expect(
+      container
+        .querySelector('.nq-roadmap-map-shell')
+        ?.classList.contains('nq-roadmap-map-shell-with-selection'),
+    ).toBe(false);
   });
 
   it('ロック中の単元を選ぶと、不足している前提条件を確認できるが問題は開始できない', async () => {
@@ -590,7 +600,7 @@ describe('学習ロードマップの単元選択', () => {
     );
   });
 
-  it('端にある現在の単元も詳細パネルより上の中央へ戻せる', async () => {
+  it('端にある現在の単元も右側の地図全体の中央へ戻せる', async () => {
     const container = await showRoadmap(vi.fn());
 
     await act(async () => {
@@ -602,14 +612,10 @@ describe('学習ロードマップの単元選択', () => {
       clientWidth: { configurable: true, value: 800 },
       clientHeight: { configurable: true, value: 300 },
     });
-    map.getBoundingClientRect = () => ({ top: 0, height: 300, width: 800 }) as unknown as DOMRect;
-    container.querySelector<HTMLElement>('.nq-roadmap-selection')!.getBoundingClientRect = () =>
-      ({ top: 200, height: 82, width: 776 }) as unknown as DOMRect;
-
     await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-reset')!.click());
 
     expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toContain(
-      'translate(312px, 14px)',
+      'translate(312px, 64px)',
     );
   });
 });

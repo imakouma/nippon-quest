@@ -42,7 +42,6 @@ export function RoadmapGraph({
   const viewportRef = useRef<HTMLDivElement>(null);
   const focusRef = useRef<HTMLButtonElement>(null);
   const selectedNodeRef = useRef<HTMLButtonElement>(null);
-  const selectionRef = useRef<HTMLElement>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState<Point>({ x: 0, y: 0 });
   const [recenterRequest, setRecenterRequest] = useState(0);
@@ -92,16 +91,6 @@ export function RoadmapGraph({
     (node) => node.state === 'cleared' || node.state === 'review',
   ).length;
 
-  const visibleViewportHeight = (viewport: HTMLElement): number => {
-    const selectionElement =
-      selectionRef.current ?? viewport.parentElement?.querySelector<HTMLElement>('.nq-roadmap-selection');
-    if (!selectionElement) return viewport.clientHeight;
-    const viewportBox = viewport.getBoundingClientRect();
-    const selectionBox = selectionElement.getBoundingClientRect();
-    const scaleY = viewportBox.height ? viewport.clientHeight / viewportBox.height : 1;
-    return Math.max(0, (selectionBox.top - viewportBox.top) * scaleY);
-  };
-
   const clampPan = (next: Point, atZoom: number): Point => {
     const viewport = viewportRef.current;
     if (!viewport?.clientWidth || !viewport.clientHeight) return next;
@@ -111,7 +100,7 @@ export function RoadmapGraph({
       Math.max(viewportCenter - canvasSize, Math.min(viewportCenter, value));
     return {
       x: clampAxis(next.x, viewport.clientWidth / 2, scaledWidth),
-      y: clampAxis(next.y, visibleViewportHeight(viewport) / 2, scaledHeight),
+      y: clampAxis(next.y, viewport.clientHeight / 2, scaledHeight),
     };
   };
 
@@ -139,10 +128,9 @@ export function RoadmapGraph({
           : null;
     const nodeWidth = nodeElement?.offsetWidth || NODE_W;
     const nodeHeight = nodeElement?.offsetHeight || NODE_H;
-    const visibleHeight = visibleViewportHeight(viewport);
     updateView(nextZoom, {
       x: viewport.clientWidth / 2 - (target.x + nodeWidth / 2) * nextZoom,
-      y: visibleHeight / 2 - (target.y + nodeHeight / 2) * nextZoom,
+      y: viewport.clientHeight / 2 - (target.y + nodeHeight / 2) * nextZoom,
     });
   };
 
@@ -306,7 +294,10 @@ export function RoadmapGraph({
   };
 
   return (
-    <div class="nq-roadmap-map-shell" data-zoom-detail={zoom < 0.5 ? 'overview' : 'detail'}>
+    <div
+      class={`nq-roadmap-map-shell${selectedNode ? ' nq-roadmap-map-shell-with-selection' : ''}`}
+      data-zoom-detail={zoom < 0.5 ? 'overview' : 'detail'}
+    >
       <div class="nq-roadmap-map-tools" role="group" aria-label={displayText(t('field.roadmapZoomTools'))}>
         <button
           type="button"
@@ -461,7 +452,6 @@ export function RoadmapGraph({
       </div>
       {selectedNode && (
         <aside
-          ref={selectionRef}
           class={`nq-roadmap-selection nq-roadmap-selection-${selectedNode.state}`}
           aria-label={displayText(t('field.roadmapSelection'))}
         >

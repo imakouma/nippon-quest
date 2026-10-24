@@ -111,8 +111,14 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   expect(lockedMapBox).not.toBeNull();
   expect(lockedNodeBox).not.toBeNull();
   expect(lockedSelectionBox).not.toBeNull();
+  const lockedShellBox = await page.locator('.nq-roadmap-map-shell').boundingBox();
+  expect(lockedShellBox).not.toBeNull();
+  expect(lockedSelectionBox!.x + lockedSelectionBox!.width).toBeLessThanOrEqual(lockedMapBox!.x);
+  expect(Math.abs(lockedSelectionBox!.height - lockedMapBox!.height)).toBeLessThan(2);
+  expect(lockedSelectionBox!.width / lockedShellBox!.width).toBeGreaterThan(0.18);
+  expect(lockedSelectionBox!.width / lockedShellBox!.width).toBeLessThan(0.23);
   expect(
-    Math.abs(lockedNodeBox!.y + lockedNodeBox!.height / 2 - (lockedMapBox!.y + lockedSelectionBox!.y) / 2),
+    Math.abs(lockedNodeBox!.y + lockedNodeBox!.height / 2 - (lockedMapBox!.y + lockedMapBox!.height / 2)),
   ).toBeLessThan(2);
   await page.screenshot({ path: testInfo.outputPath('learning-roadmap-locked-condition.png') });
   await page.locator('.nq-roadmap-reset').click();
@@ -148,10 +154,21 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   expect(
     Math.abs(currentNodeBox!.x + currentNodeBox!.width / 2 - (mapBox!.x + mapBox!.width / 2)),
   ).toBeLessThan(2);
-  const visibleMapBottom = selectionBox!.y;
   expect(
-    Math.abs(currentNodeBox!.y + currentNodeBox!.height / 2 - (mapBox!.y + visibleMapBottom) / 2),
+    Math.abs(currentNodeBox!.y + currentNodeBox!.height / 2 - (mapBox!.y + mapBox!.height / 2)),
   ).toBeLessThan(2);
+
+  await map.click({ position: { x: 12, y: 12 } });
+  await expect(selection).toHaveCount(0);
+  const [expandedMapBox, expandedShellBox] = await Promise.all([
+    map.boundingBox(),
+    mapShell.boundingBox(),
+  ]);
+  expect(expandedMapBox).not.toBeNull();
+  expect(expandedShellBox).not.toBeNull();
+  expect(Math.abs(expandedMapBox!.width - expandedShellBox!.width)).toBeLessThan(2);
+  await currentUnit.click();
+  await expect(selection).toBeVisible();
 
   const beforeWheel = await canvas.getAttribute('style');
   await map.dispatchEvent('wheel', { deltaX: 32, deltaY: 48 });
