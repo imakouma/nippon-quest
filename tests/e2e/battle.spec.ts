@@ -118,6 +118,7 @@ test('バトル：報酬のあとに、キャラが動く仲間加入演出を�
   await page.screenshot({ path: testInfo.outputPath('recruit-offer.png'), fullPage: true });
   await recruit.locator('.nq-result-btns .nq-cmd').nth(1).click();
   await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 10_000 });
+  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 10_000 });
   expect(errors).toEqual([]);
 });
 
