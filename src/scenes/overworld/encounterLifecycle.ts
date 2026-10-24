@@ -16,6 +16,16 @@ export type EncounterResultPolicy =
   | { type: 'respawn' }
   | { type: 'complete-arena'; won: boolean };
 
+export interface EncounterResultHandlers {
+  respawn(): Promise<void> | void;
+  completeArena(opponentId: string, won: boolean): Promise<void> | void;
+  completeMidBoss(): Promise<void> | void;
+  completeAreaBoss(): Promise<void> | void;
+  completeLastBoss(): Promise<void> | void;
+  completeRegionBoss(regionId: string): Promise<void> | void;
+  completeIslandBoss(islandId: string): Promise<void> | void;
+}
+
 export function encounterResultPolicy(
   source: EncounterSource,
   result: EncounterResult,
@@ -32,6 +42,34 @@ export function encounterResultPolicy(
     case 'island-boss':
       if (result.outcome === 'victory') return { type: 'complete-source' };
       return result.outcome === 'defeat' ? { type: 'respawn' } : { type: 'continue' };
+  }
+}
+
+export async function applyEncounterResultPolicy(
+  context: EncounterContext,
+  policy: EncounterResultPolicy,
+  handlers: EncounterResultHandlers,
+): Promise<void> {
+  if (policy.type === 'continue') return;
+  if (policy.type === 'respawn') return handlers.respawn();
+  if (policy.type === 'complete-arena') {
+    if (context.source.type === 'arena') await handlers.completeArena(context.source.opponentId, policy.won);
+    return;
+  }
+  switch (context.source.type) {
+    case 'mid-boss':
+      return handlers.completeMidBoss();
+    case 'area-boss':
+      return handlers.completeAreaBoss();
+    case 'last-boss':
+      return handlers.completeLastBoss();
+    case 'region-boss':
+      return handlers.completeRegionBoss(context.source.regionId);
+    case 'island-boss':
+      return handlers.completeIslandBoss(context.source.islandId);
+    case 'random':
+    case 'arena':
+      return;
   }
 }
 

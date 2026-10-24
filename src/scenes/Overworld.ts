@@ -158,11 +158,11 @@ import { runMapTransition, type MapTransitionRequest } from './overworld/mapTran
 import { createPhaserMapTransitionPorts } from './overworld/phaserMapTransitionPorts';
 import { mapTransitionRequestFromSceneData, resolveOverworldMapEntry } from './overworld/mapSceneEntry';
 import {
+  applyEncounterResultPolicy,
   createEncounterLifecycle,
   type EncounterContext,
   type EncounterLifecycle,
-  type EncounterResult,
-  type EncounterResultPolicy,
+  type EncounterResultHandlers,
   type EncounterSource,
 } from './overworld/encounterLifecycle';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
@@ -323,6 +323,30 @@ export class OverworldScene extends Phaser.Scene {
   private fieldFlow!: FieldFlowRuntime;
   private encounters!: EncounterLifecycle;
   private encounterSequence = 0;
+  private readonly encounterResults: EncounterResultHandlers = {
+    respawn: () => {
+      const inn = this.gs()?.progress.lastInn;
+      if (inn)
+        this.switchMap({
+          targetMap: inn.map,
+          spawnName: 'spawn',
+          tile: [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)],
+          exactSpawn: true,
+          reason: 'defeat',
+        });
+      else this.switchMap({ targetMap: this.mapKey, spawnName: 'spawn', reason: 'defeat' });
+      return new Promise<void>(() => undefined);
+    },
+    completeArena: (opponentId, won) => this.arenaAfter(opponentId, won),
+    completeMidBoss: () => this.midBossDefeated(),
+    completeAreaBoss: () => this.areaBossDefeated(),
+    completeLastBoss: () => this.lastBossDefeated(),
+    completeRegionBoss: async (regionId) => {
+      const boss = [...this.regionBosses.values()].find((candidate) => candidate.regionId === regionId);
+      if (boss) await this.regionBossDefeated(boss);
+    },
+    completeIslandBoss: (islandId) => this.islandBossDefeated(islandId),
+  };
   // ↓ マップが変わるたびに resetMapState() で作り直す
   private moving = false;
   private busy = false;
@@ -401,7 +425,8 @@ export class OverworldScene extends Phaser.Scene {
       prepareField: (context) => this.prepareEncounter(context),
       launchBattle: (context) => this.launchEncounter(context),
       restoreField: () => this.restoreEncounter(),
-      applyResult: (context, result, policy) => this.applyEncounterResult(context, result, policy),
+      applyResult: (context, _result, policy) =>
+        applyEncounterResultPolicy(context, policy, this.encounterResults),
     });
     for (const r of ['hud', 'title', 'fx', 'dialogue', 'travel'] as const) this.root(r);
 
@@ -2483,14 +2508,12 @@ export class OverworldScene extends Phaser.Scene {
     const [x, y] = this.playerTile();
     return groundOfTile(this.map.getTileAt(x, y, true, 'background')?.index);
   }
-
   /** 白く 2 回ちらついてから 暗転 → バトルへ（画面は回さない。Overworld は pause して下に残す） */
   private startBattle(data: BattleSceneData, source: EncounterSource = { type: 'random' }): void {
     if (this.inBattle || this.encounters.active) return;
     const id = `${this.mapKey}:${++this.encounterSequence}`;
     void this.encounters.start({ id, battle: data, source });
   }
-
   /** フィールドを止め、白い点滅から暗転までの演出を完了する。 */
   private async prepareEncounter(_context: EncounterContext): Promise<void> {
     this.inBattle = true;
@@ -2505,7 +2528,6 @@ export class OverworldScene extends Phaser.Scene {
     this.time.delayedCall(360, () => cam.fade(360, 0, 0, 0));
     await this.wait(760);
   }
-
   /** encounter id/source を Battle に渡し、Overworld を下層で停止する。 */
   private launchEncounter(context: EncounterContext): void {
     const launch: BattleLaunchData = {
@@ -2517,7 +2539,6 @@ export class OverworldScene extends Phaser.Scene {
     this.scene.launch('Battle', launch);
     this.scene.pause();
   }
-
   /** 結果に関係なくフィールドの見た目と入力状態を一度だけ戻す。 */
   private restoreEncounter(): void {
     if (this.scene.isActive('Battle') || this.scene.isPaused('Battle')) this.scene.stop('Battle');
@@ -2531,58 +2552,6 @@ export class OverworldScene extends Phaser.Scene {
     cam.fadeIn(300, 0, 0, 0);
     this.renderHud();
   }
-
-  /** Battle の結果を source ごとの進行へ一度だけ反映する。 */
-  private async applyEncounterResult(
-    context: EncounterContext,
-    _result: EncounterResult,
-    policy: EncounterResultPolicy,
-  ): Promise<void> {
-    if (policy.type === 'continue') return;
-    if (policy.type === 'complete-arena') {
-      if (context.source.type === 'arena') await this.arenaAfter(context.source.opponentId, policy.won);
-      return;
-    }
-    if (policy.type === 'respawn') {
-      const inn = this.gs()?.progress.lastInn;
-      if (inn)
-        this.switchMap({
-          targetMap: inn.map,
-          spawnName: 'spawn',
-          tile: [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)],
-          exactSpawn: true,
-          reason: 'defeat',
-        });
-      else this.switchMap({ targetMap: this.mapKey, spawnName: 'spawn', reason: 'defeat' });
-      // Scene restart がこの flow を cancel するまで、旧 Scene の入力ロックを保持する。
-      await new Promise<void>(() => undefined);
-      return;
-    }
-    switch (context.source.type) {
-      case 'mid-boss':
-        await this.midBossDefeated();
-        break;
-      case 'area-boss':
-        await this.areaBossDefeated();
-        break;
-      case 'last-boss':
-        await this.lastBossDefeated();
-        break;
-      case 'region-boss': {
-        const { regionId } = context.source;
-        const boss = [...this.regionBosses.values()].find((candidate) => candidate.regionId === regionId);
-        if (boss) await this.regionBossDefeated(boss);
-        break;
-      }
-      case 'island-boss':
-        await this.islandBossDefeated(context.source.islandId);
-        break;
-      case 'random':
-      case 'arena':
-        break;
-    }
-  }
-
   // ───────────────────────── 画面（DOM） ─────────────────────────
 
   root(name: RootName): HTMLDivElement {

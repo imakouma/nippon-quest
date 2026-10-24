@@ -1,12 +1,14 @@
 import { describe, expect, it, vi } from 'vitest';
 import type { BattleEndPayload, BattleSceneData } from '../../src/scenes/Battle';
 import {
+  applyEncounterResultPolicy,
   createEncounterLifecycle,
   encounterResultPolicy,
   type EncounterContext,
   type EncounterFlowContext,
   type EncounterFlowRuntimePort,
   type EncounterLifecyclePorts,
+  type EncounterResultHandlers,
   type EncounterSource,
 } from '../../src/scenes/overworld/encounterLifecycle';
 
@@ -114,6 +116,38 @@ describe('encounter result policy', () => {
     const expected = source.type === 'arena' ? { type: 'complete-arena', won: false } : { type: 'continue' };
     expect(encounterResultPolicy(source, result('fled'))).toEqual(expected);
     expect(encounterResultPolicy(source, result('recruited'))).toEqual(expected);
+  });
+
+  it('typed source の完了処理を対応する callback だけへ委譲する', async () => {
+    const handlers: EncounterResultHandlers = {
+      respawn: vi.fn(),
+      completeArena: vi.fn(),
+      completeMidBoss: vi.fn(),
+      completeAreaBoss: vi.fn(),
+      completeLastBoss: vi.fn(),
+      completeRegionBoss: vi.fn(),
+      completeIslandBoss: vi.fn(),
+    };
+
+    await applyEncounterResultPolicy(context('random'), { type: 'continue' }, handlers);
+    await applyEncounterResultPolicy(context('defeat'), { type: 'respawn' }, handlers);
+    await applyEncounterResultPolicy(
+      context('arena', { type: 'arena', opponentId: 'rival-1' }),
+      { type: 'complete-arena', won: true },
+      handlers,
+    );
+    for (const source of sources.filter(
+      (candidate) => candidate.type !== 'random' && candidate.type !== 'arena',
+    ))
+      await applyEncounterResultPolicy(context(source.type, source), { type: 'complete-source' }, handlers);
+
+    expect(handlers.respawn).toHaveBeenCalledTimes(1);
+    expect(handlers.completeArena).toHaveBeenCalledWith('rival-1', true);
+    expect(handlers.completeMidBoss).toHaveBeenCalledTimes(1);
+    expect(handlers.completeAreaBoss).toHaveBeenCalledTimes(1);
+    expect(handlers.completeLastBoss).toHaveBeenCalledTimes(1);
+    expect(handlers.completeRegionBoss).toHaveBeenCalledWith('aomori-nebuta');
+    expect(handlers.completeIslandBoss).toHaveBeenCalledWith('tohoku');
   });
 });
 
