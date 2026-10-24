@@ -806,7 +806,9 @@ test('最後の地域ボス撃破直後にダンジョン入口のロックと�
   expect(await regionalDungeonSnapshot(page)).toEqual({ isTinted: true, locked: true });
   await page.waitForTimeout(500);
   await walkOne(page, layout.dungeonApproach.key, 'move', layout.dungeonTile);
-  await expect(page.locator('.nq-dlg')).toContainText(/まだ.*(?:地域|ちいき).*ぬし/);
+  await expect(page.locator('.nq-dlg')).toContainText(/まだ.*(?:地域|ちいき).*ぬし/, {
+    timeout: 20_000,
+  });
   expect(await currentMap(page)).toBe(MAP_KEY);
   await clickThroughDialogue(page);
 

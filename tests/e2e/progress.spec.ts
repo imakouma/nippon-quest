@@ -160,10 +160,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
 
   await map.click({ position: { x: 12, y: 12 } });
   await expect(selection).toHaveCount(0);
-  const [expandedMapBox, expandedShellBox] = await Promise.all([
-    map.boundingBox(),
-    mapShell.boundingBox(),
-  ]);
+  const [expandedMapBox, expandedShellBox] = await Promise.all([map.boundingBox(), mapShell.boundingBox()]);
   expect(expandedMapBox).not.toBeNull();
   expect(expandedShellBox).not.toBeNull();
   expect(Math.abs(expandedMapBox!.width - expandedShellBox!.width)).toBeLessThan(2);
