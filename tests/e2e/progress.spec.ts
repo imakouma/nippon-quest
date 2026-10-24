@@ -92,7 +92,22 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(selection).toContainText('いまの もくひょう');
   await expect(selection).toContainText('10までのかず');
   await expect(currentUnit).toHaveAttribute('aria-pressed', 'true');
-  await expect(page.locator('.nq-roadmap-practice')).toBeVisible();
+  const practice = page.locator('.nq-roadmap-practice');
+  await expect(practice).toBeVisible();
+  const [currentSelectionBox, practiceBox, currentShellBox] = await Promise.all([
+    selection.boundingBox(),
+    practice.boundingBox(),
+    page.locator('.nq-roadmap-map-shell').boundingBox(),
+  ]);
+  expect(currentSelectionBox).not.toBeNull();
+  expect(practiceBox).not.toBeNull();
+  expect(currentShellBox).not.toBeNull();
+  expect(practiceBox!.x).toBeGreaterThanOrEqual(currentSelectionBox!.x);
+  expect(practiceBox!.x + practiceBox!.width).toBeLessThanOrEqual(
+    currentSelectionBox!.x + currentSelectionBox!.width,
+  );
+  expect(currentSelectionBox!.width / currentShellBox!.width).toBeGreaterThan(0.26);
+  expect(currentSelectionBox!.width / currentShellBox!.width).toBeLessThan(0.31);
   await expect(page.getByRole('button', { name: /20までの かず/ })).toHaveCount(0);
   const frontier = page.getByRole('button', { name: /ひらく じょうけん 0\/1/ }).first();
   await expect(frontier).toBeEnabled();
@@ -115,8 +130,8 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   expect(lockedShellBox).not.toBeNull();
   expect(lockedSelectionBox!.x + lockedSelectionBox!.width).toBeLessThanOrEqual(lockedMapBox!.x);
   expect(Math.abs(lockedSelectionBox!.height - lockedMapBox!.height)).toBeLessThan(2);
-  expect(lockedSelectionBox!.width / lockedShellBox!.width).toBeGreaterThan(0.18);
-  expect(lockedSelectionBox!.width / lockedShellBox!.width).toBeLessThan(0.23);
+  expect(lockedSelectionBox!.width / lockedShellBox!.width).toBeGreaterThan(0.26);
+  expect(lockedSelectionBox!.width / lockedShellBox!.width).toBeLessThan(0.31);
   expect(
     Math.abs(lockedNodeBox!.y + lockedNodeBox!.height / 2 - (lockedMapBox!.y + lockedMapBox!.height / 2)),
   ).toBeLessThan(2);

@@ -512,8 +512,10 @@ export function RoadmapGraph({
                 onSelect(selectedNode.id);
               }}
             >
-              <RubyLabel text={t('field.roadmapQuestStart')} />
-              <span aria-hidden="true"> ▶</span>
+              <RubyLabel text={t('field.roadmapQuestStart')} class="nq-roadmap-practice-label" />
+              <span class="nq-roadmap-practice-arrow" aria-hidden="true">
+                ▶
+              </span>
             </button>
           )}
         </aside>

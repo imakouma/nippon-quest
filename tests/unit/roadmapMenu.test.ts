@@ -378,6 +378,8 @@ describe('学習ロードマップの単元選択', () => {
     expect(selection.textContent).toContain('10までのかず');
     expect(selection.textContent).toContain('1ねん');
     expect(selection.textContent).toContain('いまの もくひょう');
+    expect(selection.querySelector('.nq-roadmap-practice-label')?.textContent).toContain('ここを');
+    expect(selection.querySelector('.nq-roadmap-practice-arrow')?.getAttribute('aria-hidden')).toBe('true');
 
     await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-practice')!.click());
 

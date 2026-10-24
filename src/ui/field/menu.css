@@ -415,7 +415,7 @@
   grid-template-columns: minmax(0, 1fr);
 }
 .nq-roadmap-map-shell-with-selection {
-  grid-template-columns: minmax(176px, 20%) minmax(0, 1fr);
+  grid-template-columns: minmax(240px, 28%) minmax(0, 1fr);
   gap: 8px;
 }
 .nq-roadmap-map-tools {
@@ -744,15 +744,15 @@
   display: grid;
   min-width: 0;
   min-height: 0;
-  padding: 8px 10px;
-  overflow-y: auto;
-  align-content: end;
+  padding: 16px 12px 12px 16px;
+  overflow: hidden;
+  align-content: stretch;
   align-items: start;
   grid-column: 1;
   grid-row: 1;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto auto auto;
-  gap: 8px;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 12px;
   color: #fff;
   border: 3px solid #6e80aa;
   background: rgba(17, 26, 49, 0.96);
@@ -785,8 +785,10 @@
 .nq-roadmap-selection-copy {
   display: grid;
   min-width: 0;
-  align-self: center;
-  gap: 2px;
+  min-height: 0;
+  align-content: start;
+  gap: 4px;
+  overflow-y: auto;
 }
 .nq-roadmap-prerequisites {
   display: grid;
@@ -824,40 +826,50 @@
 }
 .nq-roadmap-selection-state {
   color: var(--nq-yellow);
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 12px;
+  line-height: 18px;
 }
 .nq-roadmap-selection-name {
-  overflow: hidden;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 24px;
+  line-height: 32px;
+  word-break: keep-all;
   overflow-wrap: anywhere;
 }
 .nq-roadmap-selection-meta {
   display: grid;
-  gap: 2px;
+  gap: 4px;
   color: #bfcbea;
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 12px;
+  line-height: 18px;
 }
 .nq-roadmap-practice {
   display: flex;
   width: 100%;
   min-width: 0;
-  min-height: 52px;
-  padding: 4px 6px;
+  min-height: 60px;
+  padding: 6px 12px;
   align-items: center;
-  justify-content: center;
-  gap: 2px;
+  justify-content: space-between;
+  gap: 12px;
   color: #16213e;
   font: inherit;
-  font-size: 14px;
-  white-space: nowrap;
+  font-size: 24px;
+  line-height: 32px;
   cursor: pointer;
   border: 3px solid #513b2b;
   background: var(--nq-yellow);
   box-shadow: 0 4px 0 #2d211a;
   grid-column: 1 / -1;
+}
+.nq-roadmap-practice-label {
+  min-width: 0;
+  text-align: left;
+  word-break: keep-all;
+}
+.nq-roadmap-practice-arrow {
+  flex: none;
+  font-size: 24px;
+  line-height: 24px;
 }
 .nq-roadmap-practice:hover,
 .nq-roadmap-practice:focus-visible {
