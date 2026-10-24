@@ -4,13 +4,14 @@
  */
 import { questionBaseSchema, type QuestionBase } from '../contracts';
 import { getRenderer } from '../renderers/registry';
-import { questionHasAnswerContext } from './questionQuality';
+import { questionHasAnswerContext, questionIsMissingContextQuarantined } from './questionQuality';
 
 export type QuestionFileReader = (relPath: string) => Promise<unknown>;
 
 export interface BankLoadReport {
   loaded: number;
   omitted: number;
+  quarantined: number;
   skipped: { file: string; index: number; reason: string }[];
 }
 
@@ -24,7 +25,7 @@ export class QuestionBank {
     opts: { includeSamples?: boolean } = {},
   ): Promise<{ bank: QuestionBank; report: BankLoadReport }> {
     const bank = new QuestionBank();
-    const report: BankLoadReport = { loaded: 0, omitted: 0, skipped: [] };
+    const report: BankLoadReport = { loaded: 0, omitted: 0, quarantined: 0, skipped: [] };
     const targets = files.filter((file) => opts.includeSamples || !file.startsWith('questions/_samples/'));
     // 問題ファイルは互いに独立している。順番に待つと旧版移行後の数十ファイルぶん
     // 起動時間が伸びるため、読み込みだけ並列化し、登録順は manifest 順に保つ。
@@ -71,8 +72,10 @@ export class QuestionBank {
               });
             } else {
               const question = { ...base.data, payload: p.data } as QuestionBase;
-              if (!questionHasAnswerContext(question)) report.omitted++;
-              else {
+              if (!questionHasAnswerContext(question)) {
+                if (questionIsMissingContextQuarantined(question)) report.quarantined++;
+                else report.omitted++;
+              } else {
                 bank.add(question);
                 report.loaded++;
               }

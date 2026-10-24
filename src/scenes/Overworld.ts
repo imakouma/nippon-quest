@@ -16,6 +16,7 @@ import {
 import { groundOfTile, isRoadTile, type Ground } from '../core/world/ground';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
+import { roadmapGrandfatheredUnitIds } from '../core/state/roadmapSnapshot';
 import {
   activeEquipment,
   adjacencyBonus,
@@ -132,7 +133,7 @@ import {
   type MapPlace,
   type TiledMapSource,
 } from './overworld/mapModels';
-import { buildRoadmapNodes } from './overworld/roadmap';
+import { buildGameRoadmapNodes } from './overworld/roadmap';
 import { runRoadmapPractice } from './overworld/roadmapPractice';
 import { buildMenuView, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
 import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
@@ -2655,7 +2656,7 @@ export class OverworldScene extends Phaser.Scene {
     return isLocalDevelopmentUrl(url, import.meta.env.DEV) || url.searchParams.has('dev');
   }
 
-  /** 開発者モード中：ぜんぶの 県・町・ダンジョン・島・名所へ ワープできる（セーブの counters の dev:all） */
+  /** 開発者モード中：全地域へ移動でき、教材ロードマップも全開放する（counters の dev:all）。 */
   private devAll(): boolean {
     return (this.gs()?.progress.counters[DEV_ALL_KEY] ?? 0) > 0;
   }
@@ -2701,7 +2702,6 @@ export class OverworldScene extends Phaser.Scene {
           message,
           focusKey,
           initialHome,
-          keys: t('field.menuKeys'),
           onTab: (next: MenuTab) => draw(next),
           onBag: () => {
             render(null, root);
@@ -2787,7 +2787,6 @@ export class OverworldScene extends Phaser.Scene {
   private heroStats(gs: GameState) {
     return partyFromGameState(gs, this.content()!).hero.stats;
   }
-
   /** タブの 中身 */
   private menuView(tab: MenuTab): { entries: MenuEntry[]; summary?: string; empty: string } {
     const c = this.content()!;
@@ -2804,13 +2803,15 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  /** 単元習熟度を唯一の進捗源として、ロードマップ表示用へ変換する。 */
   private roadmapNodes(): RoadmapNode[] {
     const c = this.content()!;
     const gs = this.gs()!;
-    return buildRoadmapNodes({
+    return buildGameRoadmapNodes({
       units: c.units.values(),
       mastery: gs.learning.mastery,
+      conceptStates: gs.learning.conceptStates,
+      grandfatheredUnitIds: roadmapGrandfatheredUnitIds(gs),
+      revealAll: this.devAll(),
       playerGrade: gs.learning.grade,
       challengeHigher: gs.learning.challengeHigher,
       subjectLabel: (subject) => t(`subjects.${subject}`),

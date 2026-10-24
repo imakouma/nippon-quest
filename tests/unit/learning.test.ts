@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
@@ -10,15 +10,25 @@ import {
   dueReviewQuestions,
   estimatedRetention,
   initialConceptState,
+  mergeCurriculumGraphs,
+  parseCurriculumGraphFragment,
   pickDiagnosticQuestion,
   validateCurriculumGraph,
   type AttemptEvent,
 } from '../../src/core/learning';
 import { stripRuby } from '../../src/ui/ruby';
 
-const path = fileURLToPath(new URL('../../content/curriculum/sansu-g1-foundations.json', import.meta.url));
-const raw = JSON.parse(readFileSync(path, 'utf8')) as unknown;
-const result = validateCurriculumGraph(raw);
+const curriculumDirectory = fileURLToPath(new URL('../../content/curriculum/', import.meta.url));
+const curriculumPaths = readdirSync(curriculumDirectory)
+  .filter((name) => name.startsWith('sansu-') && name.endsWith('.json'))
+  .sort()
+  .map((name) => `${curriculumDirectory}/${name}`);
+const fragments = curriculumPaths.map((path) =>
+  parseCurriculumGraphFragment(JSON.parse(readFileSync(path, 'utf8')) as unknown),
+);
+const fragmentErrors = fragments.flatMap((fragment) => fragment.errors);
+if (fragmentErrors.length > 0) throw new Error(fragmentErrors.join('\n'));
+const result = mergeCurriculumGraphs(fragments.map((fragment) => fragment.graph!));
 if (!result.graph) throw new Error(result.errors.join('\n'));
 const graph = result.graph;
 
@@ -68,6 +78,53 @@ describe('学習知識グラフ', () => {
     const checked = validateCurriculumGraph(broken);
     expect(checked.errors.some((error) => error.includes('存在しません'))).toBe(true);
     expect(checked.errors.some((error) => error.includes('cycle'))).toBe(true);
+  });
+
+  it('別ファイルの概念を参照する関係は、fragmentを統合した後に検証する', () => {
+    const source = graph.sources[0]!;
+    const from = graph.concepts[0]!;
+    const to = graph.concepts.find((concept) => concept.id !== from.id)!;
+    const first = parseCurriculumGraphFragment({
+      schemaVersion: 1,
+      sources: [source],
+      concepts: [from],
+      relations: [
+        {
+          from: from.id,
+          to: to.id,
+          kind: 'prerequisite',
+          strength: 1,
+          rationale: '別ファイルへ続く系統を表す',
+          sourceIds: [source.id],
+          reviewStatus: 'source-checked',
+        },
+      ],
+      questionLinks: [],
+    });
+    const second = parseCurriculumGraphFragment({
+      schemaVersion: 1,
+      sources: [source],
+      concepts: [to],
+      relations: [],
+      questionLinks: [],
+    });
+
+    expect(first.errors).toEqual([]);
+    expect(second.errors).toEqual([]);
+    const merged = mergeCurriculumGraphs([first.graph!, second.graph!]);
+    expect(merged.errors).toEqual([]);
+    expect(merged.graph?.relations).toHaveLength(1);
+  });
+
+  it('統合時に内容が異なる同一概念IDを拒否する', () => {
+    const first = structuredClone(graph);
+    const second = structuredClone(graph);
+    second.concepts[0]!.name = '競合する名前';
+
+    const merged = mergeCurriculumGraphs([first, second]);
+
+    expect(merged.graph).toBeNull();
+    expect(merged.errors).toContain(`概念ID ${first.concepts[0]!.id} が複数ファイルで競合しています`);
   });
 });
 

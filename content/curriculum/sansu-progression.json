@@ -1,0 +1,1059 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-sansu-progression",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 算数[さんすう]編[へん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+      "published": "平成29年7月（文部科学省公開PDFは2021-11-02版）",
+      "checkedAt": "2026-10-23",
+      "locator": "第2章 算数科の目標及び内容、第3章 第2節から第7節 各学年の目標及び内容"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "sansu.g1.number.two-digit-place-value",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "2位数[にいすう]と10のまとまり",
+      "description": "2位数[にいすう]を10のまとまりと端数[はすう]で表[あらわ]し、十[じゅう]を単位[たんい]として捉[とら]える。",
+      "kind": "concept",
+      "memoryType": "mixed",
+      "curriculumCodes": ["8250213111500000", "8250213111700000"],
+      "recommendedWindow": {
+        "stage": "middle",
+        "status": "reference",
+        "note": "入門[にゅうもん]の数[かず]の合成[ごうせい]・分解[ぶんかい]より後[あと]に扱[あつか]う。"
+      },
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "sansu.g1.number.count-represent",
+      "to": "sansu.g1.data.picture-counts",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "個数を正しく数えて表す力を、種類ごとに絵や図へ整理する活動に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.number.one-to-one",
+      "to": "sansu.g1.measure.compare-quantities",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "一対一対応による比較の見方を、長さ・広さ・かさの直接比較や間接比較へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.addition.single-digit",
+      "to": "sansu.g1.operation.make-ten-strategy",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "10をつくる加法方略には、一位数の加法を確実に行う力が必要になる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.subtraction.single-digit",
+      "to": "sansu.g1.operation.make-ten-strategy",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "10のまとまりを使う減法方略には、一位数の減法を確実に行う力が必要になる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.geometry.shape-position",
+      "to": "sansu.g2.geometry.triangles-quadrilaterals",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "身の回りの形を捉えて構成する経験を、三角形・四角形の構成要素の理解へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.measure.clock-hour-half-hour",
+      "to": "sansu.g2.measure.time",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "生活時刻を読む経験を、日・時・分の関係や時間の理解へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.legacy.simple-two-digit-calculation",
+      "to": "sansu.g2.calculation.column-method",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "簡単な二位数の加法・減法を基に、位をそろえる筆算の仕組みを理解する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.data.picture-counts",
+      "to": "sansu.g2.data.tables-graphs",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "絵や図で整理した個数を、表やグラフを用いる整理と読み取りへ発展させる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.measure.compare-quantities",
+      "to": "sansu.g2.measure.length",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "量を比べる経験を、長さの普遍単位と測定の理解へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.measure.compare-quantities",
+      "to": "sansu.g2.measure.capacity",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "かさを比べる経験を、かさの単位と測定の理解へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.number.two-digit-place-value",
+      "to": "sansu.g2.number.over-100",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "十のまとまりと位取りの理解を、100をこえる数の表し方へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.calculation.column-method",
+      "to": "sansu.g2.add.two-two",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "位をそろえる筆算の仕組みを、二位数どうしの加法へ適用する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.calculation.column-method",
+      "to": "sansu.g2.subtract.three-two",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "位をそろえる筆算の仕組みを、三位数を含む減法へ適用する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.add.two-two",
+      "to": "sansu.g2.calculation.properties",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "加法の計算経験を、交換法則・結合法則を用いる計算の工夫へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.subtract.three-two",
+      "to": "sansu.g2.calculation.properties",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "減法の筆算経験を、加法と減法の相互関係や計算の確かめへ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.number.over-100",
+      "to": "sansu.g2.number.over-1000",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "100をこえる数の位取りを、千・百・十・一で構成する数へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.measure.length",
+      "to": "sansu.g2.measure.metre",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "長さの単位と測定を理解した上で、メートルを用いる長さへ単位の範囲を広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.geometry.triangles-quadrilaterals",
+      "to": "sansu.g2.geometry.boxes",
+      "kind": "prerequisite",
+      "strength": 0.6,
+      "rationale": "平面図形の構成要素を見る経験を、箱の面を構成する図形の観察へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.legacy.word-problems-equal-groups",
+      "to": "sansu.g2.multiply.meaning-facts",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "同じ数ずつのまとまりを見る経験を、一つ分の大きさと幾つ分で捉える乗法へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.multiply.meaning-facts",
+      "to": "sansu.g2.multiply.properties",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "乗法の意味と九九を基に、九九のきまりや交換法則を調べて活用する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.legacy.word-problems-equal-groups",
+      "to": "sansu.g2.number.simple-fractions",
+      "kind": "prerequisite",
+      "strength": 0.6,
+      "rationale": "同じ大きさに分ける経験を、二分の一や三分の一など簡単な分数の理解へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.calculation.properties",
+      "to": "sansu.g2.application.word-problems",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "加法・減法の関係と計算の工夫を、図と式で数量関係を解く活動に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.multiply.properties",
+      "to": "sansu.g2.application.word-problems",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "乗法の意味と性質を、図と式で数量関係を解く活動に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.multiply.properties",
+      "to": "sansu.g3.multiply.review-properties",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "第2学年の九九と乗法の性質を、第3学年での乗法の活用と除法の導入に生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.divide.extended",
+      "to": "sansu.g3.divide.remainders",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "九九を用いる基本的な除法を理解した上で、余りが生じる除法へ範囲を広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.add.two-two",
+      "to": "sansu.g3.add-subtract.column",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "二位数どうしの加法筆算を、三位数・四位数の加法筆算へ拡張する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.subtract.three-two",
+      "to": "sansu.g3.add-subtract.column",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "三位数を含む減法筆算を、より大きい数の加法・減法筆算へ拡張する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.add-subtract.column",
+      "to": "sansu.g3.add-subtract.mental",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "位取りと計算過程の理解を、数の構成を使う暗算の工夫へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.number.over-1000",
+      "to": "sansu.g3.number.large",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "千をこえる数の位取りを、万・億の単位を用いる大きな数へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.data.tables-graphs",
+      "to": "sansu.g3.data.tally-tables",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "表やグラフで整理して読む経験を、正の字による集計と棒グラフの分析へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.measure.time",
+      "to": "sansu.g3.measure.time-seconds",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "時・分の関係と時間の理解を、秒を含む時刻・時間の計算へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.measure.metre",
+      "to": "sansu.g3.measure.kilometres",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "メートルを用いる長さの測定を基に、キロメートルとの単位関係を理解する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.geometry.triangles-quadrilaterals",
+      "to": "sansu.g3.geometry.triangles-angles",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "三角形・四角形と直角の理解を、二等辺三角形・正三角形と角の考察へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.number.simple-fractions",
+      "to": "sansu.g3.fractions.meaning-calculation",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "簡単な分数の見方を、分数の意味・表し方と同分母の計算へ発展させる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.number.over-1000",
+      "to": "sansu.g3.decimals.tenths",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "十進位取り記数法の見方を、一より小さい量を0.1単位で表す小数へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.multiply.review-properties",
+      "to": "sansu.g3.multiply.by-one-digit",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "九九と乗法の性質は、二位数・三位数に一位数をかける計算を構成する基礎になる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.number.large",
+      "to": "sansu.g3.multiply.by-one-digit",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "多桁の位取りを理解することは、位ごとに処理する乗法筆算の前提になる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.multiply.by-one-digit",
+      "to": "sansu.g3.multiply.by-two-digits",
+      "kind": "prerequisite",
+      "strength": 0.95,
+      "rationale": "一位数をかける筆算を組み合わせて、二位数をかける筆算を構成する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.application.word-problems",
+      "to": "sansu.g3.expressions.unknown-box",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "図と式で数量関係を表す経験を、未知の数量を□で表す式へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.divide.remainders",
+      "to": "sansu.g3.word-problems.relationships",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "余りを含む除法場面を判断する力を、数量関係を用いる文章題へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.geometry.shape-position",
+      "to": "sansu.g3.geometry.circles-spheres",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "形の特徴を観察して構成する基礎を用いて、円と球の性質を調べる活動へ進む。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.measure.compare-quantities",
+      "to": "sansu.g3.measure.weight",
+      "kind": "prerequisite",
+      "strength": 0.6,
+      "rationale": "量を比べる経験を、重さの単位と測定の理解へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.number.large",
+      "to": "sansu.g4.unit-1",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "万・億の位取りを、億・兆までの整数の表し方へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.divide.remainders",
+      "to": "sansu.g4.unit-3",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "除法の意味と余りの理解を基に、除数が一位数の除法筆算を構成する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-3",
+      "to": "sansu.g4.unit-7",
+      "kind": "prerequisite",
+      "strength": 0.95,
+      "rationale": "一位数で割る筆算の仕組みを、二位数で割る筆算へ拡張する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.decimals.tenths",
+      "to": "sansu.g4.unit-6",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "0.1の位までの小数理解を、小数の位取りと加法・減法へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.fractions.meaning-calculation",
+      "to": "sansu.g4.unit-14",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "分数の意味と同分母の計算を、真分数・仮分数・帯分数の関係へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.geometry.triangles-angles",
+      "to": "sansu.g4.unit-4",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "三角形の角を調べる経験を、回転の大きさとしての角とその測定へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.geometry.triangles-angles",
+      "to": "sansu.g4.unit-5",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "三角形と角の構成要素への着目を、平行・垂直と四角形の性質の考察に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-4",
+      "to": "sansu.g4.unit-5",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "角の大きさと測定の理解を、直線の位置関係や四角形の角の考察に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.data.tables-bar-graphs",
+      "to": "sansu.g4.unit-2",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "棒グラフで数量を比較する経験を、時間変化を表す折れ線グラフへ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.multiply.by-two-digits",
+      "to": "sansu.g4.unit-8",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "多桁の乗法で用いた分配法則などを、四則計算のきまりとして整理する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-7",
+      "to": "sansu.g4.unit-8",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "除法筆算と除法の性質を、四則計算のきまりとして整理する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-1",
+      "to": "sansu.g4.unit-10",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "大きな整数の位取りを、四捨五入による概数と見積りに用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.geometry.boxes",
+      "to": "sansu.g4.unit-16",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "箱の形を構成する経験を、直方体・立方体の面や辺の関係へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-5",
+      "to": "sansu.g4.unit-16",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "平行・垂直や四角形の性質を、直方体・立方体の面と辺の観察に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.measure.metre",
+      "to": "sansu.g4.unit-11",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "長さの単位と測定を、正方形・長方形の面積の単位と測定へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-5",
+      "to": "sansu.g4.unit-11",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "長方形・正方形を辺の関係で捉えることを、面積公式の理解に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.multiply.by-two-digits",
+      "to": "sansu.g4.unit-12",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "整数の乗法の意味と計算方法を、小数に整数をかける計算へ用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-6",
+      "to": "sansu.g4.unit-12",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "小数の位取りと加法・減法の理解を、小数に整数をかける計算に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-3",
+      "to": "sansu.g4.unit-13",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "整数の除法筆算の意味と手順を、小数を整数で割る計算へ用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-6",
+      "to": "sansu.g4.unit-13",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "小数の位取りの理解を、小数を整数で割る計算に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-8",
+      "to": "sansu.g4.unit-9",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "乗除の関係と計算のきまりを、何倍かという二量の関係の考察へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-2",
+      "to": "sansu.g4.unit-15",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "時間変化をグラフで捉える見方を、二つの数量の変わり方の考察へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-8",
+      "to": "sansu.g4.unit-15",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "式と計算のきまりを、伴って変わる二量の関係を式で表す活動へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.number.large",
+      "to": "sansu.g4.unit-10",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "大きな整数の位取りと大小を捉える力を、概数と見積りの学習へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-6",
+      "to": "sansu.g5.math-5-1",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "小数の位取りと加法・減法の理解を、整数と小数の十進位取りの統合的な理解へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-11",
+      "to": "sansu.g5.math-5-2",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "面積を単位の幾つ分として測る理解を、体積を立方単位の幾つ分として測る考えへ用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-16",
+      "to": "sansu.g5.math-5-2",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "直方体・立方体の面、辺、頂点の理解を、体積公式の構成に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-15",
+      "to": "sansu.g5.math-5-3",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "伴って変わる二つの数量を表や式で捉える経験を、比例の関係の理解へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-12",
+      "to": "sansu.g5.math-5-4",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "小数に整数をかける意味と計算方法を、小数同士の乗法へ拡張する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-1",
+      "to": "sansu.g5.math-5-4",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "小数の十進位取りを基に、積の小数点の位置を説明する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-13",
+      "to": "sansu.g5.math-5-5",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "小数を整数で割る意味と計算方法を、小数同士の除法へ拡張する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-1",
+      "to": "sansu.g5.math-5-5",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "小数の十進位取りを基に、商の小数点の位置を説明する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-4",
+      "to": "sansu.g5.math-5-6",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "角の測定と構成の経験を、合同な図形の対応する角や多角形の内角の考察に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-5",
+      "to": "sansu.g5.math-5-6",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "三角形・四角形の辺と角の性質を、合同条件と内角の考察へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g3.multiply.review-properties",
+      "to": "sansu.g5.math-5-7",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "乗法九九と乗法の性質を、倍数と約数を見付ける活動に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-14",
+      "to": "sansu.g5.math-5-8",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "分数の大きさと同分母の計算の理解を、等しい分数、約分、通分へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-7",
+      "to": "sansu.g5.math-5-8",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "倍数と約数の理解を、公倍数による通分と公約数による約分に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-1",
+      "to": "sansu.g5.math-5-9",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "整数と小数の位取りの理解を、分数と小数の相互変換の考察に生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-8",
+      "to": "sansu.g5.math-5-9",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "等しい分数を作る理解を、分数を十進小数で表す方法の説明に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-11",
+      "to": "sansu.g5.math-5-10",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "長方形・正方形の面積を基に、三角形や四角形へ変形して公式を構成する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-6",
+      "to": "sansu.g5.math-5-10",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "合同な図形の対応と構成の理解を、図形の分割・移動による面積公式の説明に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-3",
+      "to": "sansu.g5.math-5-11",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "二量の対応を捉える見方を、平均と単位量当たりの大きさの比較へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-5",
+      "to": "sansu.g5.math-5-11",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "小数を含む除法を、合計を個数でならす平均や単位量当たりの値の計算に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-3",
+      "to": "sansu.g5.math-5-12",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "距離と時間の対応を捉える見方を、速さを一定とみなす考察に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-11",
+      "to": "sansu.g5.math-5-12",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "単位量当たりの大きさとして、単位時間当たりに進む道のりを速さとして捉える。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-9",
+      "to": "sansu.g5.math-5-13",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "何倍かという二量の関係の見方を、基準量・比較量・割合の関係へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-3",
+      "to": "sansu.g5.math-5-13",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "二量の対応を表や式で捉える見方を、割合の問題場面へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-13",
+      "to": "sansu.g5.math-5-14",
+      "kind": "prerequisite",
+      "strength": 0.95,
+      "rationale": "割合を小数で表す理解を、百分率と歩合という表し方へ拡張する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-2",
+      "to": "sansu.g5.math-5-15",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "グラフから変化や特徴を読み取る経験を、帯グラフと円グラフの読解へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-14",
+      "to": "sansu.g5.math-5-15",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "百分率で全体と部分の関係を表す理解を、帯グラフと円グラフの作成・読解に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-3",
+      "to": "sansu.g5.math-5-16",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "比例する二量を表と式で捉える見方を、数量の変わり方を調べる活動へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-6",
+      "to": "sansu.g5.math-5-17",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "合同と内角の理解を、正多角形の構成や性質の考察へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g4.unit-16",
+      "to": "sansu.g5.math-5-18",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "直方体・立方体の面と辺の関係を、角柱と円柱の構成要素の観察へ広げる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-6",
+      "to": "sansu.g5.math-5-18",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "合同な面の対応に着目する見方を、角柱・円柱の底面と側面の構成理解に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-6",
+      "to": "sansu.g6.math-6-1",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "合同な図形の対応を捉える力を、線対称・点対称な図形の対応の考察へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-16",
+      "to": "sansu.g6.math-6-2",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "変わる数量を表や式で表す経験を、未知数を文字で表す式へつなぐ。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-4",
+      "to": "sansu.g6.math-6-3",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "小数の乗法で数量関係を捉えた考えを、分数の乗法の意味と計算へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-8",
+      "to": "sansu.g6.math-6-3",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "約分・通分と等しい分数の理解を、分数の乗法計算と約分に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-5",
+      "to": "sansu.g6.math-6-4",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "小数の除法で数量関係を捉えた考えを、分数の除法の意味へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g6.math-6-3",
+      "to": "sansu.g6.math-6-4",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "分数の乗法と逆数の関係を、分数で割る計算方法の構成に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-3",
+      "to": "sansu.g6.math-6-5",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "二量の対応関係を捉える見方を、比で二量の割合を表す学習へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-9",
+      "to": "sansu.g6.math-6-5",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "分数と小数を相互に表す力を、比の値を多様な数で表す活動に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-6",
+      "to": "sansu.g6.math-6-6",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "対応する辺と角を捉える理解を、拡大図・縮図の対応関係へ生かす。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g6.math-6-5",
+      "to": "sansu.g6.math-6-6",
+      "kind": "prerequisite",
+      "strength": 0.8,
+      "rationale": "比で二量の関係を表す理解を、拡大・縮小の倍率の考察に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-10",
+      "to": "sansu.g6.math-6-7",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "図形の分割・変形で面積公式を作る考えを、円の面積公式の考察へ用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-18",
+      "to": "sansu.g6.math-6-7",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "角柱・円柱の構成要素の理解を、柱体の体積を底面積と高さから求める考察へ用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-11",
+      "to": "sansu.g6.math-6-8",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "平均で資料の代表値を捉える理解を、データの分布や代表値の考察に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-15",
+      "to": "sansu.g6.math-6-8",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "割合をグラフで表し読み取る経験を、目的に応じたデータ表現の選択と考察に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-3",
+      "to": "sansu.g6.math-6-9",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "比例の意味と表・式の表し方を、比例の性質の深化と反比例との比較に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g5.math-5-16",
+      "to": "sansu.g6.math-6-9",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "数量の変わり方を表と式で調べる経験を、比例・反比例の特徴の比較に用いる。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g6.math-6-8",
+      "to": "sansu.g6.math-6-10",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "資料を分類・整理する見方を基礎に、起こり得る場合を落ちや重なりなく順序よく整理する。",
+      "sourceIds": ["mext-h29-sansu-progression"],
+      "reviewStatus": "source-checked"
+    }
+  ],
+  "questionLinks": []
+}

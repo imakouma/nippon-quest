@@ -19,6 +19,15 @@
       "published": "平成29年告示版",
       "checkedAt": "2026-10-12",
       "locator": "小学校学習指導要領コード 82V12・第3学年及び第4学年外国語活動"
+    },
+    {
+      "id": "mext-h29-eigo-progression",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 外国語活動[がいこくごかつどう]・外国語編[がいこくごへん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/content/20220614-mxt_kyoiku02-100002607_11.pdf",
+      "published": "平成29年7月",
+      "checkedAt": "2026-10-24",
+      "locator": "第2章 外国語活動の目標及び内容、第3章 外国語科の目標及び内容（音声で十分に慣れ親しんだ語句や表現を読んだり書いたりする段階性）"
     }
   ],
   "concepts": [
@@ -45,7 +54,206 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "eigo.g1.supplementary.greeting-sounds",
+      "to": "eigo.g3.interaction.greetings-preferences",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "挨拶[あいさつ]や気持[きも]ちの英語[えいご]の音[おと]に親[した]しむ体験[たいけん]を、挨拶[あいさつ]と好[す]きなものを伝[つた]え合[あ]う活動[かつどう]へつなぐ。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g1.supplementary.fruit-sounds",
+      "to": "eigo.g3.listen.familiar-words",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "果物[くだもの]の英語[えいご]の音[おと]に親[した]しむ体験[たいけん]を、身近[みぢか]な語[ご]を聞[き]いて意味[いみ]と結[むす]び付[つ]ける活動[かつどう]へつなぐ。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g2.supplementary.animals",
+      "to": "eigo.g3.listen.familiar-words",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "動物[どうぶつ]の英語[えいご]の音[おと]に親[した]しむ体験[たいけん]を、身近[みぢか]な語[ご]を聞[き]いて意味[いみ]と結[むす]び付[つ]ける活動[かつどう]へつなぐ。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g2.supplementary.alphabet-order",
+      "to": "eigo.g2.supplementary.alphabet-order-middle",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "前半[ぜんはん]の文字[もじ]の並[なら]びに親[した]しんだ経験[けいけん]を、中盤[ちゅうばん]の文字[もじ]の音[おと]と形[かたち]の遊[あそ]びへ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g2.supplementary.alphabet-order-middle",
+      "to": "eigo.g2.supplementary.alphabet-order-late",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "中盤[ちゅうばん]の文字[もじ]の並[なら]びに親[した]しんだ経験[けいけん]を、後半[こうはん]の文字[もじ]の音[おと]と形[かたち]の遊[あそ]びへ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g2.supplementary.alphabet-order-late",
+      "to": "eigo.g3.listen.letters",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "文字[もじ]の並[なら]びに親[した]しむ体験[たいけん]を、第三学年[だいさんがくねん]で活字体[かつじたい]の読[よ]み方[かた]を聞[き]く活動[かつどう]へつなぐ。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g3.listen.familiar-words",
+      "to": "eigo.g3.interaction.greetings-preferences",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "身近[みぢか]な語[ご]を聞[き]いて意味[いみ]を捉[とら]える力[ちから]を、挨拶[あいさつ]や好[す]きなもののやり取[と]りで使[つか]う。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g3.interaction.greetings-preferences",
+      "to": "eigo.g4.interaction.actions",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "短[みじか]いやり取[と]りに慣[な]れた経験[けいけん]を、動作[どうさ]を尋[たず]ねて答[こた]える活動[かつどう]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g3.interaction.greetings-preferences",
+      "to": "eigo.g4.interaction.days-time-routines",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "好[す]きなものを伝[つた]え合[あ]う経験[けいけん]を、曜日[ようび]・時刻[じこく]・生活[せいかつ]を伝[つた]える活動[かつどう]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g3.interaction.greetings-preferences",
+      "to": "eigo.g4.interaction.directions-requests",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "相手[あいて]に応[おう]じてやり取[と]りする経験[けいけん]を、道案内[みちあんない]やお願[ねが]いをする活動[かつどう]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g3.listen.letters",
+      "to": "eigo.g5.communication.alphabet-self-introduction",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "活字体[かつじたい]の読[よ]み方[かた]を聞[き]き分[わ]ける力[ちから]を、アルファベットを読[よ]んだり書[か]いたりする学習[がくしゅう]の基礎[きそ]にする。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g3.interaction.greetings-preferences",
+      "to": "eigo.g5.communication.alphabet-self-introduction",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "口頭[こうとう]で自分[じぶん]の好[す]きなものを伝[つた]える経験[けいけん]を、自己紹介[じこしょうかい]を話[はな]し、読[よ]み、書[か]く活動[かつどう]の基礎[きそ]にする。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g4.interaction.actions",
+      "to": "eigo.g5.communication.daily-life-shopping",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "動作[どうさ]を尋[たず]ねて答[こた]える表現[ひょうげん]を、日課[にっか]や買物[かいもの]について伝[つた]え合[あ]う活動[かつどう]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g4.interaction.days-time-routines",
+      "to": "eigo.g5.communication.daily-life-shopping",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "曜日[ようび]・時刻[じこく]・生活[せいかつ]を口頭[こうとう]で伝[つた]える経験[けいけん]を、日課[にっか]や買物[かいもの]の表現[ひょうげん]へ発展[はってん]させる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g4.interaction.directions-requests",
+      "to": "eigo.g5.communication.town-abilities-writing",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "道案内[みちあんない]やお願[ねが]いのやり取[と]りを、町[まち]を案内[あんない]して必要[ひつよう]な情報[じょうほう]を書[か]く活動[かつどう]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g5.communication.alphabet-self-introduction",
+      "to": "eigo.g5.communication.town-abilities-writing",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "アルファベットと自己紹介[じこしょうかい]で短[みじか]い文[ぶん]を読[よ]み書[か]きする力[ちから]を、町[まち]やできることを書[か]く活動[かつどう]へ使[つか]う。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g5.communication.alphabet-self-introduction",
+      "to": "eigo.g6.communication.school-life-past",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "自己紹介[じこしょうかい]で自分[じぶん]のことを伝[つた]える力[ちから]を、学校生活[がっこうせいかつ]や思[おも]い出[で]を伝[つた]える活動[かつどう]の基礎[きそ]にする。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g5.communication.daily-life-shopping",
+      "to": "eigo.g6.communication.school-life-past",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "日課[にっか]や時刻[じこく]を伝[つた]える表現[ひょうげん]を、学校生活[がっこうせいかつ]や過去[かこ]の思[おも]い出[で]を伝[つた]える活動[かつどう]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g5.communication.alphabet-self-introduction",
+      "to": "eigo.g6.communication.culture-travel-reading",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "身近[みぢか]な内容[ないよう]の短[みじか]い文[ぶん]を読[よ]む力[ちから]を、文化[ぶんか]や旅行[りょこう]の案内[あんない]を読[よ]む活動[かつどう]の基礎[きそ]にする。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g5.communication.town-abilities-writing",
+      "to": "eigo.g6.communication.culture-travel-reading",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "町案内[まちあんない]の情報[じょうほう]を読[よ]み書[か]きする力[ちから]を、文化[ぶんか]や旅行[りょこう]の案内[あんない]を読[よ]む活動[かつどう]へ使[つか]う。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g6.communication.school-life-past",
+      "to": "eigo.g6.communication.dreams-global-writing",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "学校生活[がっこうせいかつ]や思[おも]い出[で]を文[ぶん]で伝[つた]える力[ちから]を、将来[しょうらい]や自分[じぶん]の考[かんが]えを書[か]く活動[かつどう]の基礎[きそ]にする。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "eigo.g6.communication.culture-travel-reading",
+      "to": "eigo.g6.communication.dreams-global-writing",
+      "kind": "prerequisite",
+      "strength": 1,
+      "rationale": "文化[ぶんか]や世界[せかい]について案内[あんない]を読[よ]む力[ちから]を、世界[せかい]と自分[じぶん]の考[かんが]えを書[か]く活動[かつどう]の基礎[きそ]にする。",
+      "sourceIds": ["mext-h29-eigo-progression"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "eigo.g3.sea.0004",

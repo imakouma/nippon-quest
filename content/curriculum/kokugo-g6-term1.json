@@ -155,7 +155,179 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "kokugo.g5.kanji.review",
+      "to": "kokugo.g6.concept.jpn-6-1",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「配当漢字[はいとうかんじ]の読[よ]み・総復習[そうふくしゅう]」の知識・技能が「6年生[ねんせい]の漢字[かんじ]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.kanji.review",
+      "to": "kokugo.g6.concept.jpn-6-kanji-1",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「配当漢字[はいとうかんじ]の読[よ]み・総復習[そうふくしゅう]」の知識・技能が「6年生の漢字（読み）1〜25」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-kanji-1",
+      "to": "kokugo.g6.concept.jpn-6-kanji-2",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「6年生の漢字（読み）1〜25」から「6年生の漢字（読み）26〜50」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-kanji-2",
+      "to": "kokugo.g6.concept.jpn-6-kanji-3",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「6年生の漢字（読み）26〜50」から「6年生の漢字（読み）51〜75」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-kanji-3",
+      "to": "kokugo.g6.concept.jpn-6-kanji-4",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「6年生の漢字（読み）51〜75」から「6年生の漢字（読み）76〜100」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-kanji-4",
+      "to": "kokugo.g6.concept.jpn-6-kanji-6",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「6年生の漢字（読み）76〜100」から「6年生の漢字（読み）後半①」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-kanji-6",
+      "to": "kokugo.g6.concept.jpn-6-kanji-7",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「6年生の漢字（読み）後半①」から「6年生の漢字（読み）後半②」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-kanji-7",
+      "to": "kokugo.g6.concept.jpn-6-kanji-8",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「6年生の漢字（読み）後半②」から「6年生の漢字（読み）後半③」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-kanji-8",
+      "to": "kokugo.g6.concept.jpn-6-kanji-9",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「6年生の漢字（読み）後半③」から「6年生の漢字（読み）後半④」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.language.polite-style",
+      "to": "kokugo.g6.concept.jpn-6-2",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「丁寧[ていねい]な言葉[ことば]と敬体[けいたい]」で身に付ける力を基礎として、「敬語[けいご]のつかい分[わ]け」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.kanji.review",
+      "to": "kokugo.g6.concept.jpn-6-3",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「配当漢字[はいとうかんじ]の読[よ]み・総復習[そうふくしゅう]」の力は「四[よん]字[じ]熟語[じゅくご]のせかい」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.vocabulary.relations",
+      "to": "kokugo.g6.concept.jpn-6-3",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「類義語[るいぎご]・対義語[たいぎご]」の知識・技能が「四[よん]字[じ]熟語[じゅくご]のせかい」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.writing.evidence",
+      "to": "kokugo.g6.concept.jpn-6-4",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「事実[じじつ]と意見[いけん]を区別[くべつ]して書[か]く」で身に付ける力を基礎として、「文章[ぶんしょう]のくみたて」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.reading.evidence",
+      "to": "kokugo.g6.concept.reading-multiple-sources",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「叙述[じょじゅつ]と図表[ずひょう]を根拠[こんきょ]に読[よ]む」の知識・技能が「複数[ふくすう]の文章[ぶんしょう]と資料[しりょう]を関係[かんけい]付[づ]けて読[よ]む」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-4",
+      "to": "kokugo.g6.concept.writing-quotation-argument",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「文章[ぶんしょう]のくみたて」の知識・技能が「引用[いんよう]と根拠[こんきょ]を用[もち]いて書[か]く」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.reading-multiple-sources",
+      "to": "kokugo.g6.concept.writing-quotation-argument",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「複数[ふくすう]の文章[ぶんしょう]と資料[しりょう]を関係[かんけい]付[づ]けて読[よ]む」の知識・技能が「引用[いんよう]と根拠[こんきょ]を用[もち]いて書[か]く」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.discussion.listening",
+      "to": "kokugo.g6.concept.discussion-consensus",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「立場[たちば]と意図[いと]を明確[めいかく]にした話合[はなしあ]い」の力は「立場[たちば]を比[くら]べて合意[ごうい]をつくる」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.reading-multiple-sources",
+      "to": "kokugo.g6.concept.discussion-consensus",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「複数[ふくすう]の文章[ぶんしょう]と資料[しりょう]を関係[かんけい]付[づ]けて読[よ]む」の力は「立場[たちば]を比[くら]べて合意[ごうい]をつくる」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g6.concept.jpn-6-2",
+      "to": "kokugo.g6.concept.discussion-consensus",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「敬語[けいご]のつかい分[わ]け」の力は「立場[たちば]を比[くら]べて合意[ごうい]をつくる」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "legacy.kokugo.g6.jpn-6-1.09dd1ee86d54",

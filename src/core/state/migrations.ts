@@ -6,6 +6,7 @@ import { SCHEMA_VERSION, gameStateSchema, type GameState } from './schema';
 import { STARTER_EQUIPMENT_ID } from './starter';
 import { addProgressValue } from '../../shared/safeInteger';
 import { provisionalLevelCap } from '../progression/levelCap';
+import { ensureRoadmapMasterySnapshot } from './roadmapSnapshot';
 
 type Migration = (s: Record<string, unknown>) => Record<string, unknown>;
 
@@ -201,5 +202,8 @@ export function migrate(raw: unknown): MigrateResult {
     throw new Error(
       `セーブデータが壊れています: ${parsed.error.issues.map((i) => i.path.join('.')).join(', ')}`,
     );
-  return { state: parsed.data, migratedFrom: from === SCHEMA_VERSION ? null : from };
+  return {
+    state: ensureRoadmapMasterySnapshot(parsed.data),
+    migratedFrom: from === SCHEMA_VERSION ? null : from,
+  };
 }

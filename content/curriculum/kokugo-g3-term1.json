@@ -177,7 +177,224 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "kokugo.g2.kanji.context",
+      "to": "kokugo.g3.kanji.foundation",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「文[ぶん]の中[なか]で2年[ねん]の漢字[かんじ]を読[よ]み書[か]きする」の知識・技能が「第3学年[だいさんがくねん]の漢字[かんじ]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.foundation",
+      "to": "kokugo.g3.kanji.parts",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「第3学年[だいさんがくねん]の漢字[かんじ]」の知識・技能が「へんとつくり」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.foundation",
+      "to": "kokugo.g3.kanji.onyomi-kunyomi",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「第3学年[だいさんがくねん]の漢字[かんじ]」の知識・技能が「漢字[かんじ]の音読[おんよ]みと訓読[くんよ]み」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.parts",
+      "to": "kokugo.g3.kanji.parts-applied",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「へんとつくり」の知識・技能が「へんとつくりの活用[かつよう]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.foundation",
+      "to": "kokugo.g3.kanji.expansion-a",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「第3学年[だいさんがくねん]の漢字[かんじ]」から「漢字[かんじ]の読[よ]み書[か]き③」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.expansion-a",
+      "to": "kokugo.g3.kanji.expansion-b",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「漢字[かんじ]の読[よ]み書[か]き③」から「漢字[かんじ]の読[よ]み書[か]き④」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.parts-applied",
+      "to": "kokugo.g3.kanji.contextual-choice",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「へんとつくりの活用[かつよう]」の知識・技能が「漢字[かんじ]の使[つか]い分[わ]け」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.onyomi-kunyomi",
+      "to": "kokugo.g3.kanji.contextual-choice",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「漢字[かんじ]の音読[おんよ]みと訓読[くんよ]み」の知識・技能が「漢字[かんじ]の使[つか]い分[わ]け」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.contextual-choice",
+      "to": "kokugo.g3.kanji.consolidation-a",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「漢字[かんじ]の使[つか]い分[わ]け」から「漢字[かんじ]の定着[ていちゃく]⑤」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.kanji.consolidation-a",
+      "to": "kokugo.g3.kanji.consolidation-b",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「漢字[かんじ]の定着[ていちゃく]⑤」から「漢字[かんじ]の定着[ていちゃく]⑥」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.vocabulary.groups-opposites",
+      "to": "kokugo.g3.dictionary.use",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「意味[いみ]による言葉[ことば]のまとまり」で身に付ける力を基礎として、「国語[こくご]辞典[じてん]の使[つか]い方[かた]」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.grammar.subject-predicate-particles",
+      "to": "kokugo.g3.grammar.reference-modification",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「主語[しゅご]・述語[じゅつご]と助詞[じょし]」の知識・技能が「指示語[しじご]と修飾語[しゅうしょくご]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.grammar.reference-modification",
+      "to": "kokugo.g3.grammar.demonstratives",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「指示語[しじご]と修飾語[しゅうしょくご]」の力は「こそあど言葉[ことば]」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.grammar.reference-modification",
+      "to": "kokugo.g3.grammar.modifiers",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「指示語[しじご]と修飾語[しゅうしょくご]」の知識・技能が「修飾語[しゅうしょくご]の関係[かんけい]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.reading.sequence-and-evidence",
+      "to": "kokugo.g3.reading.expository-paragraphs",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「順序[じゅんじょ]と大事[だいじ]な言葉[ことば]を確[たし]かめて読[よ]む」の知識・技能が「説明[せつめい]文[ぶん]の段落[だんらく]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.reading.sequence-and-evidence",
+      "to": "kokugo.g3.reading.character-traits",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「順序[じゅんじょ]と大事[だいじ]な言葉[ことば]を確[たし]かめて読[よ]む」の知識・技能が「登場[とうじょう]人物[じんぶつ]の特徴[とくちょう]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.reading.expository-paragraphs",
+      "to": "kokugo.g3.reading.expository-links",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「説明[せつめい]文[ぶん]の段落[だんらく]」の力は「説明[せつめい]文[ぶん]のつながり」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.grammar.demonstratives",
+      "to": "kokugo.g3.reading.expository-links",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「こそあど言葉[ことば]」の力は「説明[せつめい]文[ぶん]のつながり」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.reading.character-traits",
+      "to": "kokugo.g3.reading.character-feelings",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「登場[とうじょう]人物[じんぶつ]の特徴[とくちょう]」の知識・技能が「登場[とうじょう]人物[じんぶつ]の気持[きも]ち」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g3.romanization",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「平仮名[ひらがな]を読[よ]み書[か]く」で身に付ける力を基礎として、「ローマ字[じ]の読[よ]み書[か]き」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.vocabulary.groups-opposites",
+      "to": "kokugo.g3.culture.proverbs-idioms",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「意味[いみ]による言葉[ことば]のまとまり」で身に付ける力を基礎として、「ことわざの意味[いみ]と使[つか]い方[かた]」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.culture.proverbs-idioms",
+      "to": "kokugo.g3.culture.idiomatic-phrases",
+      "kind": "prerequisite",
+      "strength": 0.55,
+      "rationale": "ことわざの意味[いみ]と使[つか]い方[かた]を捉える力を基礎として、慣用句[かんようく]を文脈[ぶんみゃく]に応じて理解[りかい]する学習へ進む。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.reading.sequence-and-evidence",
+      "to": "kokugo.g3.culture.haiku",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「順序[じゅんじょ]と大事[だいじ]な言葉[ことば]を確[たし]かめて読[よ]む」で身に付ける力を基礎として、「俳句[はいく]の響[ひび]きとリズム」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.reading.sequence-and-evidence",
+      "to": "kokugo.g3.culture.tanka",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「順序[じゅんじょ]と大事[だいじ]な言葉[ことば]を確[たし]かめて読[よ]む」で身に付ける力を基礎として、「短歌[たんか]の情景[じょうけい]とリズム」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "legacy.kokugo.g3.jpn-3-1.02203273d62d",

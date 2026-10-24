@@ -14,55 +14,55 @@
 
 0〜5秒・B01〜B05
 
-![C01 いつも通りの町](../../assets/cinematics/storyboards/v00-dialogue-v1/c01-b01-b05-dialogue-v2.png)
+![C01 いつも通りの町](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-dialogue-v1/c01-b01-b05-dialogue-v2.png)
 
 ## C02｜読めなくなる看板
 
 5〜10秒・B06〜B10
 
-![C02 読めなくなる看板](../../assets/cinematics/storyboards/v00-dialogue-v1/c02-b06-b10-dialogue-v1.png)
+![C02 読めなくなる看板](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-dialogue-v1/c02-b06-b10-dialogue-v1.png)
 
 ## C03｜数え方を忘れる店主
 
 10〜16秒・B11〜B15
 
-![C03 数え方を忘れる店主](../../assets/cinematics/storyboards/v00-dialogue-v1/c03-b11-b15-dialogue-v1.png)
+![C03 数え方を忘れる店主](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-dialogue-v1/c03-b11-b15-dialogue-v1.png)
 
 ## C04｜道具の使い方を忘れる職人
 
 16〜21秒・B16〜B20
 
-![C04 道具の使い方を忘れる職人](../../assets/cinematics/storyboards/v00-dialogue-v1/c04-b16-b20-dialogue-v1.png)
+![C04 道具の使い方を忘れる職人](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-dialogue-v1/c04-b16-b20-dialogue-v1.png)
 
 ## C05｜帰る道が分からない旅人
 
 21〜26秒・B21〜B25
 
-![C05 帰る道が分からない旅人](../../assets/cinematics/storyboards/v00-dialogue-v1/c05-b21-b25-dialogue-v1.png)
+![C05 帰る道が分からない旅人](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-dialogue-v1/c05-b21-b25-dialogue-v1.png)
 
 ## C06｜挨拶に応じられなくなるリンゴロン
 
 26〜32秒・B26〜B30
 
-![C06 挨拶に応じられなくなるリンゴロン](../../assets/cinematics/storyboards/v00-dialogue-v1/c06-b26-b30-dialogue-v1.png)
+![C06 挨拶に応じられなくなるリンゴロン](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-dialogue-v1/c06-b26-b30-dialogue-v1.png)
 
 ## C07｜町と町を行き来できなくなる
 
 32〜38秒・B31〜B35
 
-![C07 町と町を行き来できなくなる](../../assets/cinematics/storyboards/v00-dialogue-v1/c07-b31-b35-dialogue-v1.png)
+![C07 町と町を行き来できなくなる](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-dialogue-v1/c07-b31-b35-dialogue-v1.png)
 
 ## C08｜ノートに書いた記録が消える
 
 38〜44秒・B36〜B39
 
-![C08 ノートに書いた記録が消える](../../assets/cinematics/storyboards/v00-dialogue-v1/c08-b36-b39-dialogue-v1.png)
+![C08 ノートに書いた記録が消える](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-dialogue-v1/c08-b36-b39-dialogue-v1.png)
 
 ## C09｜ノートから次の場面へのつなぎ
 
 44〜48秒・B40。白紙のノート → 暗くなる途中 → 暗転 → 次の草原、を並べた接続確認ページです。最初のC08と最後のV01は前後の参考で、新しいカットではありません。
 
-![C09 白紙ノートから暗転し次の草原へつながる日本語絵コンテ](../../assets/cinematics/storyboards/v00-v1/c09-b40-transition-v3.png)
+![C09 白紙ノートから暗転し次の草原へつながる日本語絵コンテ](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/storyboards/v00-v1/c09-b40-transition-v3.png)
 
 ## 今回の変更
 

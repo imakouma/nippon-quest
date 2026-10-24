@@ -1,0 +1,159 @@
+{
+  "$schema": "../../schemas/curriculum-graph.schema.json",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "mext-h29-seikatsu-progression",
+      "title": "小学校[しょうがっこう]学習[がくしゅう]指導[しどう]要領[ようりょう]（平成[へいせい]29年[ねん]告示[こくじ]）解説[かいせつ] 生活編[せいかつへん]",
+      "publisher": "文部科学省",
+      "url": "https://www.mext.go.jp/component/a_menu/education/micro_detail/__icsFiles/afieldfile/2019/03/18/1387017_006.pdf",
+      "published": "平成29年7月",
+      "checkedAt": "2026-10-23",
+      "locator": "第3章 内容、第5章 4 幼児期の教育や中学年以降の学習との関わり"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "seikatsu.g1.school.safe-life",
+      "subject": "seikatsu",
+      "grade": 1,
+      "unit": "seikatsu.g1.legacy-cur-1801-01",
+      "name": "学校[がっこう]で安全[あんぜん]に生活[せいかつ]する",
+      "description": "学校[がっこう]の施設[しせつ]や支[ささ]える人々[ひとびと]、通学路[つうがくろ]を知[し]り、安全[あんぜん]に行動[こうどう]する。",
+      "kind": "skill",
+      "memoryType": "mixed",
+      "curriculumCodes": ["82702A3110000000"],
+      "recommendedWindow": {
+        "stage": "early",
+        "status": "reference",
+        "note": "入学期[にゅうがくき]の学校[がっこう]探検[たんけん]と安全[あんぜん]指導[しどう]。"
+      },
+      "sourceIds": ["mext-82v12-seikatsu-g1-2", "kyoiku-shuppan-r6-seikatsu"],
+      "review": {
+        "status": "source-checked",
+        "reviewedAt": "2026-10-10",
+        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "seikatsu.g1.nature.observe-seasons",
+      "to": "seikatsu.g1.home.try-and-reflect",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "身近[みぢか]な自然[しぜん]への気付[きづ]きと家庭[かてい]で試[ため]す活動[かつどう]を、生活[せいかつ]を工夫[くふう]する並行[へいこう]した学[まな]びとして結[むす]ぶ。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.nature.observe-seasons",
+      "to": "seikatsu.g1.living-things.observe-and-care",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "自然[しぜん]の変化[へんか]に気付[きづ]く経験[けいけん]を、生[い]き物[もの]の継続的[けいぞくてき]な世話[せわ]と観察[かんさつ]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.home.continue-and-reflect",
+      "to": "seikatsu.g1.self.first-year-growth",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "家庭[かてい]で続[つづ]けたことの振[ふ]り返[かえ]りを、一年間[いちねんかん]の成長[せいちょう]を見付[みつ]ける材料[ざいりょう]にする。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.living-things.observe-and-care",
+      "to": "seikatsu.g1.self.first-year-growth",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "生[い]き物[もの]と関[かか]わり続[つづ]けた経験[けいけん]を、自分[じぶん]の成長[せいちょう]の振[ふ]り返[かえ]りへ結[むす]ぶ。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.self.first-year-growth",
+      "to": "seikatsu.g2.seasons.spring-change",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "一年生[いちねんせい]の成長[せいちょう]を振[ふ]り返[かえ]り、二年生[にねんせい]で春[はる]の自然[しぜん]と生活[せいかつ]を新[あら]たに比[くら]べる。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.seasons.spring-change",
+      "to": "seikatsu.g2.nature.vegetable-care",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "春[はる]の自然[しぜん]と生活[せいかつ]の変化[へんか]への気付[きづ]きを、野菜[やさい]の育成[いくせい]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.seasons.spring-change",
+      "to": "seikatsu.g2.community.explore-safely",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "春[はる]の地域[ちいき]の様子[ようす]に目[め]を向[む]け、安全[あんぜん]な町探検[まちたんけん]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.nature.vegetable-care",
+      "to": "seikatsu.g2.nature.growth-care",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "植物[しょくぶつ]の世話[せわ]と記録[きろく]の経験[けいけん]を、生[い]き物[もの]の成長[せいちょう]を捉[とら]える活動[かつどう]へ広[ひろ]げる。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.community.people-places",
+      "to": "seikatsu.g2.community.public-use",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "町探検[まちたんけん]で出会[であ]う人々[ひとびと]や場所[ばしょ]への気付[きづ]きを、公共物[こうきょうぶつ]・公共施設[こうきょうしせつ]の働[はたら]きの理解[りかい]へ結[むす]ぶ。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.community.people-places",
+      "to": "seikatsu.g2.communication.choose-method",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "地域[ちいき]の人々[ひとびと]との関[かか]わりを、相手[あいて]に合[あ]う伝[つた]え方[かた]を選[えら]ぶ活動[かつどう]へ結[むす]ぶ。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.community.public-use",
+      "to": "seikatsu.g2.communication.choose-method",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "公共施設[こうきょうしせつ]で学[まな]んだことを、相手[あいて]を意識[いしき]して伝[つた]える活動[かつどう]へ結[むす]ぶ。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.nature.growth-care",
+      "to": "seikatsu.g2.self.growth-evidence",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "生[い]き物[もの]を育[そだ]てた記録[きろく]を、自分[じぶん]の成長[せいちょう]を見付[みつ]ける資料[しりょう]として振[ふ]り返[かえ]る。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.communication.relate-exchange",
+      "to": "seikatsu.g2.self.growth-evidence",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "人々[ひとびと]と伝[つた]え合[あ]った経験[けいけん]を、自分[じぶん]の成長[せいちょう]の振[ふ]り返[かえ]りへ結[むす]ぶ。",
+      "sourceIds": ["mext-h29-seikatsu-progression"],
+      "reviewStatus": "source-checked"
+    }
+  ],
+  "questionLinks": []
+}

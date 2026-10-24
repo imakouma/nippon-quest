@@ -31,7 +31,6 @@ export interface MenuOverlayProps {
   message: string | null;
   focusKey?: string;
   initialHome?: boolean;
-  keys: string;
   onTab: (tab: MenuTab) => void;
   onBag: () => void;
   onAct: (key: string) => void;
@@ -97,7 +96,6 @@ export function MenuOverlay({
   message,
   focusKey,
   initialHome = true,
-  keys,
   onTab,
   onBag,
   onAct,
@@ -355,7 +353,6 @@ export function MenuOverlay({
             <PixelIcon name="cmd-item" scale={2} />
             {t('field.menu')}
           </span>
-          {home && <span class="nq-menu-key-hint">{t('field.menuKeys')}</span>}
           {!home && (
             <span class="nq-menu-section-title">
               <PixelIcon name={tabs[tabIdx]?.icon ?? 'star'} scale={1} />
@@ -516,7 +513,6 @@ export function MenuOverlay({
                     </button>
                   </div>
                 )}
-                {!isDex && <RubyLabel class="nq-wmap-keys" text={keys} />}
               </div>
             </div>
           </>

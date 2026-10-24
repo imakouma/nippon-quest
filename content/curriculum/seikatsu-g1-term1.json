@@ -348,6 +348,51 @@
       "rationale": "学校[がっこう]や通学路[つうがくろ]の探検[たんけん]は身近[みぢか]な自然[しぜん]へ目[め]を向[む]ける機会[きかい]になる。",
       "sourceIds": ["mext-82v12-seikatsu-g1-2"],
       "reviewStatus": "draft"
+    },
+    {
+      "from": "seikatsu.g1.school.safe-life",
+      "to": "seikatsu.g1.home.try-and-reflect",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "学校生活で自分にできることへ気付く経験を、家庭で役割を試す活動へつなぐ。",
+      "sourceIds": ["mext-82v12-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.school.safe-life",
+      "to": "seikatsu.g1.living-things.observe-and-care",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "安全に活動する基礎を、生き物を継続して世話し観察する活動へつなぐ。",
+      "sourceIds": ["mext-82v12-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.home.continue-and-reflect",
+      "to": "seikatsu.g1.self.first-year-growth",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "家庭で続けたことの記録を、一年間の自分の成長を振り返る材料とする。",
+      "sourceIds": ["mext-82v12-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.living-things.observe-and-care",
+      "to": "seikatsu.g1.self.first-year-growth",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "生き物の世話を続けた経験を、自分ができるようになったことの振り返りへつなぐ。",
+      "sourceIds": ["mext-82v12-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.communication.share-findings",
+      "to": "seikatsu.g1.self.first-year-growth",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "見付けたことを伝え合った経験を、自分の成長と次の目標を表す活動へつなぐ。",
+      "sourceIds": ["mext-82v12-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
     }
   ],
   "questionLinks": [

@@ -12,6 +12,10 @@ content/questions-bundle.json
 content/questions-g*-bundle.json
 raw/**
 !raw/.gitkeep
+# 制作原本と独立Sites checkoutはゲーム本体のGit・配布物へ含めない。
+assets/cinematics/
+sites/
+background-evaluation.html
 .DS_Store
 *.log
 .vercel

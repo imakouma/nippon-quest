@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { extname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { isGameAssetPath } from './game-asset-policy';
 
 const ROOT = resolve('.');
 const LEDGER = 'assets/rights/tohoku-release-ledger.json';
@@ -48,11 +49,12 @@ interface Ledger {
   groups: Group[];
 }
 
-function walk(directory: string): string[] {
+function walk(directory: string, include: (path: string) => boolean = () => true): string[] {
   if (!existsSync(resolve(ROOT, directory))) return [];
   return readdirSync(resolve(ROOT, directory), { withFileTypes: true }).flatMap((entry) => {
     const path = `${directory}/${entry.name}`;
-    return entry.isDirectory() ? walk(path) : [path];
+    if (!include(path)) return [];
+    return entry.isDirectory() ? walk(path, include) : [path];
   });
 }
 
@@ -63,7 +65,9 @@ function sha256(path: string): string {
 }
 
 function mediaFiles(): string[] {
-  const copiedAssets = walk('assets').filter((path) => MEDIA_EXTENSIONS.has(extname(path).toLowerCase()));
+  const copiedAssets = walk('assets', isGameAssetPath).filter((path) =>
+    MEDIA_EXTENSIONS.has(extname(path).toLowerCase()),
+  );
   const bundledFonts = walk('src/ui/fonts').filter((path) =>
     MEDIA_EXTENSIONS.has(extname(path).toLowerCase()),
   );
@@ -174,7 +178,7 @@ export async function auditTohokuAssetsRights() {
       audioFiles: audioFiles.length,
     },
     runtime: {
-      assetsDirectoryCopiedWholeByVite: true,
+      assetsDirectoryCopiedWholeByVite: false,
       generatedPixelArt:
         'Phaser/TypeScript source generates field, character, monster and UI graphics at runtime',
       speechFallbackPresent,

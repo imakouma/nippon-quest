@@ -173,7 +173,7 @@ test('メニューと保護者画面はモーダルとしてフォーカスを�
   await opener.click();
 
   const menu = page.getByRole('dialog', { name: 'メニュー' });
-  await expect(menu.locator('.nq-menu-key-hint')).toContainText('メニューを タップして えらぶ');
+  await expect(menu.getByText('メニューを タップして えらぶ')).toHaveCount(0);
   await expect(menu).toBeVisible();
   await expect(menu).toHaveAttribute('aria-modal', 'true');
   await expect(menu.getByRole('group', { name: 'メニュー' })).toBeVisible();

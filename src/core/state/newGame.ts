@@ -2,6 +2,7 @@ import type { Grade } from '../content/schemas';
 import { freshSeed } from '../rng';
 import { SCHEMA_VERSION, type GameState } from './schema';
 import { STARTER_EQUIPMENT_ID } from './starter';
+import { ensureRoadmapMasterySnapshot } from './roadmapSnapshot';
 
 export interface NewGameOptions {
   name: string;
@@ -12,7 +13,7 @@ export interface NewGameOptions {
 export const UNNAMED_HERO = '？？？';
 
 export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLevelCap = 10): GameState {
-  return {
+  return ensureRoadmapMasterySnapshot({
     schemaVersion: SCHEMA_VERSION,
     createdAt: now,
     updatedAt: now,
@@ -84,5 +85,5 @@ export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLe
     },
     arena: { badges: 0, ghostParty: null },
     settings: { bgmVolume: 0.6, seVolume: 0.8, timeLimitScale: 1 },
-  };
+  });
 }

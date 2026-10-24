@@ -1,7 +1,8 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { unitSchema } from '../src/core/content/schemas';
-import { validateCurriculumGraph } from '../src/core/learning/graph';
+import { mergeCurriculumGraphs, parseCurriculumGraphFragment } from '../src/core/learning/graph';
+import type { CurriculumGraph } from '../src/core/learning/model';
 import { validateCurriculumConceptUnits, validateCurriculumUnits } from '../src/core/learning/validation';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -54,12 +55,14 @@ errors.push(...validateCurriculumUnits(units, classifiableQuestions));
 let graphs = 0;
 let concepts = 0;
 let links = 0;
+const fragments: CurriculumGraph[] = [];
 for (const file of jsonFiles(resolve(ROOT, 'content/curriculum'))) {
-  const checked = validateCurriculumGraph(JSON.parse(readFileSync(file, 'utf8')) as unknown);
+  const checked = parseCurriculumGraphFragment(JSON.parse(readFileSync(file, 'utf8')) as unknown);
   if (!checked.graph) {
     errors.push(...checked.errors.map((error) => `${file}: ${error}`));
     continue;
   }
+  fragments.push(checked.graph);
   graphs++;
   concepts += checked.graph.concepts.length;
   links += checked.graph.questionLinks.length;
@@ -93,6 +96,11 @@ for (const file of jsonFiles(resolve(ROOT, 'content/curriculum'))) {
         errors.push(`${file}: 問題 ${link.questionId} の正解 ${signal.answerId} を誤答として登録しています`);
     }
   }
+}
+
+if (fragments.length) {
+  const merged = mergeCurriculumGraphs(fragments);
+  errors.push(...merged.errors.map((error) => `統合グラフ: ${error}`));
 }
 
 if (errors.length) {

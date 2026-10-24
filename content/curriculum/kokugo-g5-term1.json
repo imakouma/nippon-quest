@@ -133,7 +133,134 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "kokugo.g4.kanji.consolidation-b",
+      "to": "kokugo.g5.kanji.use",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「漢字[かんじ]のまとめ②」の知識・技能が「漢字[かんじ]の書[か]きと活用[かつよう]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.kanji.consolidation-b",
+      "to": "kokugo.g5.kanji.reading-early",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「漢字[かんじ]のまとめ②」の知識・技能が「配当漢字[はいとうかんじ]の読[よ]み・前半[ぜんはん]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.kanji.reading-early",
+      "to": "kokugo.g5.kanji.reading-middle",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「配当漢字[はいとうかんじ]の読[よ]み・前半[ぜんはん]」から「配当漢字[はいとうかんじ]の読[よ]み・中盤[ちゅうばん]」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.kanji.reading-middle",
+      "to": "kokugo.g5.kanji.reading-late",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「配当漢字[はいとうかんじ]の読[よ]み・中盤[ちゅうばん]」から「配当漢字[はいとうかんじ]の読[よ]み・後半[こうはん]」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.kanji.reading-late",
+      "to": "kokugo.g5.kanji.review",
+      "kind": "prerequisite",
+      "strength": 0.65,
+      "rationale": "同じ領域を「配当漢字[はいとうかんじ]の読[よ]み・後半[こうはん]」から「配当漢字[はいとうかんじ]の読[よ]み・総復習[そうふくしゅう]」へ段階的に広げるための基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.kanji.reading-late",
+      "to": "kokugo.g5.kanji.homophones",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「配当漢字[はいとうかんじ]の読[よ]み・後半[こうはん]」の力は「同音異義語[どうおんいぎご]」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.vocabulary.meaning",
+      "to": "kokugo.g5.vocabulary.relations",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "「語句[ごく]の意味[いみ]」の知識・技能が「類義語[るいぎご]・対義語[たいぎご]」の課題遂行に不可欠な基礎となる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.vocabulary.compound-structure",
+      "to": "kokugo.g5.vocabulary.origins",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「熟語[じゅくご]の組[く]み立[た]て」で身に付ける力を基礎として、「和語[わご]・漢語[かんご]・外来語[がいらいご]」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.culture.tanka-haiku",
+      "to": "kokugo.g5.language.culture",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「短歌[たんか]と俳句[はいく]」で身に付ける力を基礎として、「言葉[ことば]の歴史[れきし]と古典[こてん]」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.reading.expository-b",
+      "to": "kokugo.g5.reading.evidence",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「説明[せつめい]文[ぶん]の要点[ようてん]」で身に付ける力を基礎として、「叙述[じょじゅつ]と図表[ずひょう]を根拠[こんきょ]に読[よ]む」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.reading.story-b",
+      "to": "kokugo.g5.reading.evidence",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「物語[ものがたり]の人物[じんぶつ]と変化[へんか]」で身に付ける力を基礎として、「叙述[じょじゅつ]と図表[ずひょう]を根拠[こんきょ]に読[よ]む」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g4.writing.manuscript-paper",
+      "to": "kokugo.g5.writing.evidence",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「作文[さくぶん]と原稿用紙[げんこうようし]」の力は「事実[じじつ]と意見[いけん]を区別[くべつ]して書[か]く」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g5.reading.evidence",
+      "to": "kokugo.g5.writing.evidence",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "「叙述[じょじゅつ]と図表[ずひょう]を根拠[こんきょ]に読[よ]む」の力は「事実[じじつ]と意見[いけん]を区別[くべつ]して書[か]く」の学習過程を構成する要素として生かされる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.communication.listen-and-retell",
+      "to": "kokugo.g5.discussion.listening",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "「大事[だいじ]なことを聞[き]き、順序[じゅんじょ]よく伝[つた]える」で身に付ける力を基礎として、「立場[たちば]と意図[いと]を明確[めいかく]にした話合[はなしあ]い」の学習へ発展させる。",
+      "sourceIds": ["mext-h29-kokugo-g56"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "legacy.kokugo.g5.jpn-5-1.072f103e43e5",

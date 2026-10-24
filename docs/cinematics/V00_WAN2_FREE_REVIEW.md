@@ -2,7 +2,7 @@
 
 2026-10-21。Wan2.2公開デモで、開始画像から人物が動く動画を生成・保存した。静止画のパンではない。セリフ・字幕・音声なし、看板の文字は映像に残す。
 
-![C01 無料動画の試作](../../assets/cinematics/v00-production-v1/wan2-free-v1/c01-wan2-free-v1.mp4)
+![C01 無料動画の試作](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/v00-production-v1/wan2-free-v1/c01-wan2-free-v1.mp4)
 
 832×480・16fps・81フレーム・約5.06秒。元の出力を保存し、全フレームのデコード成功と音声トラックなしを確認。8時点の画像を目視確認した。
 
@@ -12,4 +12,4 @@
 
 [全プロンプト・設定・検品](V00_WAN2_FREE_TRIAL_V1.json)／[使用したデモ](https://huggingface.co/spaces/zerogpu-aoti/wan2-2-fp8da-aoti-faster)。モデル・LoRA・デモの利用条件確認は本番採用前に行う。
 
-![8時点の確認画像](../../assets/cinematics/v00-production-v1/wan2-free-v1/qa/contact-sheet-v1.png)
+![8時点の確認画像](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/v00-production-v1/wan2-free-v1/qa/contact-sheet-v1.png)

@@ -2,7 +2,7 @@
 
 48秒／1280×720／30fps／音声なし。静止画のキーポーズ・短いディゾルブ・保持時間で、芝居とテンポを確認するアニマティックです。自然に動く本番映像ではありません。
 
-![V00 日本から知識が消えた日・字幕付き仮動画](../../assets/cinematics/v00-animatic-v1/v00-subtitled-animatic-v2.mp4)
+![V00 日本から知識が消えた日・字幕付き仮動画](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/v00-animatic-v1/v00-subtitled-animatic-v2.mp4)
 
 ## 確認するところ
 

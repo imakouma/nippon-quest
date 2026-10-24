@@ -26,7 +26,7 @@
       "id": "sansu.g1.number.one-to-one",
       "subject": "sansu",
       "grade": 1,
-      "unit": "sansu.g1.kazu-100",
+      "unit": "sansu.g1.legacy-math-1-1",
       "name": "ものとものの対応[たいおう]",
       "description": "ものを一[ひと]つずつ対応[たいおう]させて個数[こすう]を比[くら]べる。",
       "kind": "skill",
@@ -48,7 +48,7 @@
       "id": "sansu.g1.number.count-represent",
       "subject": "sansu",
       "grade": 1,
-      "unit": "sansu.g1.kazu-100",
+      "unit": "sansu.g1.legacy-math-1-1",
       "name": "個数[こすう]と順番[じゅんばん]を数[かぞ]えて表[あらわ]す",
       "description": "個数[こすう]や順番[じゅんばん]を正[ただ]しく数[かぞ]え、数字[すうじ]などで表[あらわ]す。",
       "kind": "skill",
@@ -70,7 +70,7 @@
       "id": "sansu.g1.number.order",
       "subject": "sansu",
       "grade": 1,
-      "unit": "sansu.g1.kazu-100",
+      "unit": "sansu.g1.legacy-math-1-1",
       "name": "数[かず]の大小[だいしょう]と順序[じゅんじょ]",
       "description": "数[かず]の大小[だいしょう]や順序[じゅんじょ]を考[かんが]え、数[かず]の系列[けいれつ]や数[すう]直線[ちょくせん]で表[あらわ]す。",
       "kind": "concept",
@@ -92,7 +92,7 @@
       "id": "sansu.g1.number.compose-decompose",
       "subject": "sansu",
       "grade": 1,
-      "unit": "sansu.g1.kazu-100",
+      "unit": "sansu.g1.legacy-math-1-1",
       "name": "数[かず]の合成[ごうせい]と分解[ぶんかい]",
       "description": "一[ひと]つの数[かず]を、ほかの数[かず]の和[わ]や差[さ]として関係付[かんけいづ]けて見[み]る。",
       "kind": "concept",
@@ -111,32 +111,10 @@
       }
     },
     {
-      "id": "sansu.g1.number.two-digit-place-value",
-      "subject": "sansu",
-      "grade": 1,
-      "unit": "sansu.g1.kazu-100",
-      "name": "2位数[にいすう]と10のまとまり",
-      "description": "2位数[にいすう]を10のまとまりと端数[はすう]で表[あらわ]し、十[じゅう]を単位[たんい]として捉[とら]える。",
-      "kind": "concept",
-      "memoryType": "mixed",
-      "curriculumCodes": ["8250213111500000", "8250213111700000"],
-      "recommendedWindow": {
-        "stage": "middle",
-        "status": "reference",
-        "note": "入門[にゅうもん]の数[かず]の合成[ごうせい]・分解[ぶんかい]より後[あと]に扱[あつか]う。"
-      },
-      "sourceIds": ["mext-h29-sansu-commentary"],
-      "review": {
-        "status": "source-checked",
-        "reviewedAt": "2026-10-10",
-        "reviewer": "Codex（一次資料照合。教員レビュー未実施）"
-      }
-    },
-    {
       "id": "sansu.g1.number.make-ten",
       "subject": "sansu",
       "grade": 1,
-      "unit": "sansu.g1.kazu-100",
+      "unit": "sansu.g1.legacy-math-1-1",
       "name": "10のまとまり",
       "description": "数[かず]を10のまとまりとして捉[とら]え、10になる組合[くみあわ]せを使[つか]う。",
       "kind": "concept",
@@ -376,7 +354,7 @@
       "strength": 0.8,
       "rationale": "対応による個数比較は、正しく数え表す活動の基礎になる。",
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
+      "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.number.count-represent",
@@ -385,7 +363,7 @@
       "strength": 0.8,
       "rationale": "数を表す理解を、大小・順序の理解へ接続する。",
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
+      "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.number.count-represent",
@@ -394,7 +372,7 @@
       "strength": 0.9,
       "rationale": "数を数えて表せることを、数同士の関係を見る前提候補とする。",
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
+      "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.number.compose-decompose",
@@ -403,7 +381,7 @@
       "strength": 0.9,
       "rationale": "10を作る組合せには数の合成・分解を用いる。",
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
+      "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.number.compose-decompose",
@@ -412,7 +390,7 @@
       "strength": 0.7,
       "rationale": "数を和として見ることが加法の意味理解を支える。",
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
+      "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.addition.meaning",
@@ -421,16 +399,7 @@
       "strength": 0.85,
       "rationale": "式を用いる場面の理解と計算技能を関連付ける。",
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
-    },
-    {
-      "from": "sansu.g1.number.make-ten",
-      "to": "sansu.g1.addition.single-digit",
-      "kind": "component",
-      "strength": 0.8,
-      "rationale": "10のまとまりは一位数加法の方略の一つとして使う。",
-      "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
+      "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.number.compose-decompose",
@@ -439,7 +408,7 @@
       "strength": 0.7,
       "rationale": "数[かず]を差[さ]として見[み]ることが減法[げんぽう]の意味[いみ]理解[りかい]を支[ささ]える。",
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
+      "reviewStatus": "source-checked"
     },
     {
       "from": "sansu.g1.subtraction.meaning",
@@ -448,7 +417,7 @@
       "strength": 0.85,
       "rationale": "減法[げんぽう]場面[ばめん]の理解[りかい]と計算[けいさん]技能[ぎのう]を関連付[かんれんづ]ける。",
       "sourceIds": ["mext-h29-sansu-commentary"],
-      "reviewStatus": "draft"
+      "reviewStatus": "source-checked"
     }
   ],
   "questionLinks": [

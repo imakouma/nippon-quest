@@ -6,7 +6,7 @@
 
 ## C01 開始画像
 
-![C01 いつも通りの町・本番開始画候補](../../assets/cinematics/v00-production-v1/c01-start-v1.png)
+![C01 いつも通りの町・本番開始画候補](/Users/imamurakouma/Documents/ChatGPT/education-2d-RPG/assets/cinematics/v00-production-v1/c01-start-v1.png)
 
 内蔵image_genで新規に本番開始画候補を制作。1672×941px。絵コンテの約600pxコマの拡大ではない。5人の住民、町の配置、柔らかいマット3D調、読める「あおもり」の看板を内部確認。セリフ・字幕・B番号・白い枠はない。静止画であり、動く映像や全8場面の本番原画完成とは数えない。
 

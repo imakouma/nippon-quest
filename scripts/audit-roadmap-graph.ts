@@ -1,0 +1,81 @@
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { unitSchema } from '../src/core/content/schemas';
+import { mergeCurriculumGraphs, parseCurriculumGraphFragment } from '../src/core/learning/graph';
+import { buildCurriculumGraphQuality } from '../src/core/learning/graphQuality';
+import type { CurriculumGraph } from '../src/core/learning/model';
+
+const root = resolve(import.meta.dirname, '..');
+
+function numberArg(name: string): number | undefined {
+  const inline = process.argv.find((value) => value.startsWith(`${name}=`));
+  const index = process.argv.indexOf(name);
+  const raw = inline?.slice(name.length + 1) ?? (index >= 0 ? process.argv[index + 1] : undefined);
+  if (raw === undefined) return undefined;
+  const value = Number(raw);
+  if (!Number.isInteger(value) || value < 1 || value > 6)
+    throw new Error(`${name} は1〜6の整数で指定してください`);
+  return value;
+}
+
+function jsonFiles(dir: string): string[] {
+  return readdirSync(dir).flatMap((name) => {
+    const path = resolve(dir, name);
+    if (statSync(path).isDirectory()) return jsonFiles(path);
+    return name.endsWith('.json') ? [path] : [];
+  });
+}
+
+const fragments: CurriculumGraph[] = [];
+const parseErrors: string[] = [];
+for (const file of jsonFiles(resolve(root, 'content/curriculum'))) {
+  const parsed = parseCurriculumGraphFragment(JSON.parse(readFileSync(file, 'utf8')) as unknown);
+  if (!parsed.graph) parseErrors.push(...parsed.errors.map((error) => `${file}: ${error}`));
+  else fragments.push(parsed.graph);
+}
+if (parseErrors.length) throw new Error(parseErrors.join('\n'));
+
+const merged = mergeCurriculumGraphs(fragments);
+if (!merged.graph) throw new Error(merged.errors.join('\n'));
+const units = unitSchema
+  .array()
+  .parse(JSON.parse(readFileSync(resolve(root, 'content/units.json'), 'utf8')) as unknown);
+const grade = numberArg('--grade');
+const maxGrade = numberArg('--max-grade');
+if (grade !== undefined && maxGrade !== undefined)
+  throw new Error('--grade と --max-grade は同時に指定できません');
+const grades =
+  grade !== undefined
+    ? [grade]
+    : maxGrade !== undefined
+      ? Array.from({ length: maxGrade }, (_, index) => index + 1)
+      : undefined;
+const report = buildCurriculumGraphQuality({ units, graph: merged.graph, grades });
+
+if (grades) console.log(`scope: grade ${grades.join(', ')}`);
+
+for (const [subject, quality] of Object.entries(report.bySubject))
+  console.log(
+    `${subject}: ${quality.units} units / ${quality.edges} edges / ${quality.branches} branches / ${quality.merges} merges / ${quality.isolated.length} isolated / ${quality.roots.length} roots`,
+  );
+console.log(
+  `global: ${report.duplicateRelations.length} duplicate relations / ${report.crossSubjectEdges.length} cross-subject edges / ${report.reverseGradeEdges.length} reverse-grade edges / ${report.unitCycles.length} unit cycles / ${report.unreviewedPrerequisites} draft prerequisites`,
+);
+
+if (process.argv.includes('--json')) console.log(JSON.stringify(report, null, 2));
+
+if (process.argv.includes('--strict')) {
+  const failures: string[] = [];
+  for (const [subject, quality] of Object.entries(report.bySubject)) {
+    if (quality.isolated.length)
+      failures.push(`${subject}: 孤立単元 ${quality.isolated.length}件 (${quality.isolated.join(', ')})`);
+    if (quality.branches === 0) failures.push(`${subject}: 分岐がありません`);
+    if (quality.merges === 0) failures.push(`${subject}: 合流がありません`);
+  }
+  if (report.duplicateRelations.length) failures.push(`重複関係 ${report.duplicateRelations.length}件`);
+  if (report.crossSubjectEdges.length)
+    failures.push(`教科横断ハードロック ${report.crossSubjectEdges.length}件`);
+  if (report.reverseGradeEdges.length) failures.push(`逆学年線 ${report.reverseGradeEdges.length}件`);
+  if (report.unitCycles.length) failures.push(`単元循環 ${report.unitCycles.length}件`);
+  if (failures.length) throw new Error(`ロードマップグラフ監査に失敗しました:\n${failures.join('\n')}`);
+}
