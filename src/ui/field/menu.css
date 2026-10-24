@@ -418,57 +418,6 @@
   grid-template-columns: minmax(240px, 28%) minmax(0, 1fr);
   gap: 8px;
 }
-.nq-roadmap-map-tools {
-  position: absolute;
-  z-index: 5;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  padding: 3px;
-  border: 2px solid #263759;
-  background: rgba(11, 14, 25, 0.86);
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.32);
-}
-.nq-roadmap-map-button {
-  display: grid;
-  min-width: 48px;
-  height: 48px;
-  padding: 0 8px;
-  place-items: center;
-  color: #fff;
-  font: inherit;
-  font-size: 20px;
-  cursor: pointer;
-  border: 2px solid #475a85;
-  background: #18223b;
-}
-.nq-roadmap-map-button:hover,
-.nq-roadmap-map-button:focus-visible {
-  color: var(--nq-yellow);
-  outline: 3px solid var(--nq-yellow);
-  outline-offset: -3px;
-}
-.nq-roadmap-map-button:disabled {
-  color: #78859f;
-  cursor: not-allowed;
-  background: #202a43;
-}
-.nq-roadmap-reset {
-  min-width: 72px;
-  font-size: 14px;
-}
-.nq-roadmap-zoom-value {
-  display: grid;
-  width: 58px;
-  height: 48px;
-  place-items: center;
-  color: var(--nq-yellow);
-  font-size: 14px;
-  border-block: 2px solid #62739b;
-  background: #111a31;
-}
 .nq-roadmap-map {
   position: relative;
   grid-column: 1;

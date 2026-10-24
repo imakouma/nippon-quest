@@ -549,24 +549,21 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.querySelector('.nq-roadmap-score')?.textContent).toContain('0/4');
   });
 
-  it('地図をボタンとトラックパッド操作で拡大し、現在地へ100%で戻せる', async () => {
+  it('操作ボタンを置かず、トラックパッドで拡大と移動ができる', async () => {
     const container = await showRoadmap(vi.fn());
 
     await act(async () => {
       subjectButton(container, 'sansu').click();
     });
 
-    const zoomIn = container.querySelector<HTMLButtonElement>('.nq-roadmap-zoom-in')!;
-    const reset = container.querySelector<HTMLButtonElement>('.nq-roadmap-reset')!;
-    const value = () => container.querySelector('.nq-roadmap-zoom-value')?.textContent;
-
-    expect(value()).toContain('100%');
-    await act(async () => zoomIn.click());
-    expect(value()).toContain('120%');
-    await act(async () => reset.click());
-    expect(value()).toContain('100%');
+    expect(container.querySelector('.nq-roadmap-map-tools')).toBeNull();
+    expect(container.querySelector('.nq-roadmap-zoom-out')).toBeNull();
+    expect(container.querySelector('.nq-roadmap-zoom-value')).toBeNull();
+    expect(container.querySelector('.nq-roadmap-zoom-in')).toBeNull();
+    expect(container.querySelector('.nq-roadmap-reset')).toBeNull();
 
     const map = container.querySelector<HTMLElement>('.nq-roadmap-map')!;
+    const canvas = container.querySelector<HTMLElement>('.nq-roadmap-canvas')!;
     await act(async () => {
       map.dispatchEvent(
         new WheelEvent('wheel', {
@@ -579,9 +576,8 @@ describe('学習ロードマップの単元選択', () => {
         }),
       );
     });
-    expect(value()).toContain('110%');
+    expect(canvas.style.transform).toContain('scale(1.1)');
 
-    const canvas = container.querySelector<HTMLElement>('.nq-roadmap-canvas')!;
     const beforePan = canvas.style.transform;
     await act(async () => {
       map.dispatchEvent(new WheelEvent('wheel', { bubbles: true, cancelable: true, deltaX: 20, deltaY: 10 }));
@@ -596,19 +592,29 @@ describe('学習ロードマップの単元選択', () => {
       subjectButton(container, 'sansu').click();
     });
 
-    const zoomOut = container.querySelector<HTMLButtonElement>('.nq-roadmap-zoom-out')!;
-    const value = () => container.querySelector('.nq-roadmap-zoom-value')?.textContent;
+    const map = container.querySelector<HTMLElement>('.nq-roadmap-map')!;
+    await act(async () => {
+      map.dispatchEvent(
+        new WheelEvent('wheel', {
+          bubbles: true,
+          cancelable: true,
+          clientX: 100,
+          clientY: 100,
+          ctrlKey: true,
+          deltaY: 500,
+        }),
+      );
+    });
 
-    for (let step = 0; step < 4; step += 1) await act(async () => zoomOut.click());
-
-    expect(value()).toContain('20%');
-    expect(zoomOut.disabled).toBe(true);
+    expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toContain(
+      'scale(0.2)',
+    );
     expect(container.querySelector('.nq-roadmap-map-shell')?.getAttribute('data-zoom-detail')).toBe(
       'overview',
     );
   });
 
-  it('端にある現在の単元も右側の地図全体の中央へ戻せる', async () => {
+  it('単元を選ぶと右側の地図全体の中央へ寄せる', async () => {
     const container = await showRoadmap(vi.fn());
 
     await act(async () => {
@@ -620,7 +626,14 @@ describe('学習ロードマップの単元選択', () => {
       clientWidth: { configurable: true, value: 800 },
       clientHeight: { configurable: true, value: 300 },
     });
-    await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-reset')!.click());
+    const openNode = container.querySelector<HTMLButtonElement>(
+      '.nq-roadmap-node[aria-label="じき未設定の単元"]',
+    )!;
+    const currentNode = container.querySelector<HTMLButtonElement>(
+      '.nq-roadmap-node[aria-label="10までのかず"]',
+    )!;
+    await act(async () => openNode.click());
+    await act(async () => currentNode.click());
 
     expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toContain(
       'translate(312px, 64px)',
