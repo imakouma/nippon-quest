@@ -2345,33 +2345,30 @@ export class OverworldScene extends Phaser.Scene {
     if (chest.specialty) return this.openSpecialty(chest, chest.specialty);
     const gs = this.gs();
     if (!gs) return;
-    this.busy = true;
-    this.standStill();
-    const speaker = t('field.chest');
-    if (gs.progress.chestsOpened.includes(chest.key)) {
-      await this.talk([{ speaker, text: t('field.chestEmpty') }]);
-      this.busy = false;
-      return;
-    }
-    const item = this.chestItem(chest);
-    const name = item?.name ?? chest.itemName;
-    chest.sprite.setTexture('fld.chest.open');
-    playSfx('chest');
-    await this.itemCutin(item, name);
-    const current = this.gs();
-    if (!current || current.progress.chestsOpened.includes(chest.key)) {
-      this.busy = false;
-      return;
-    }
-    const next = applyChestReward(current, chest, item);
-    this.setGame(next);
-    playSfx('select');
-    // 説明（どうぐの blurb）を先に出してから、アイテムを わたす
-    const lines: DialogueLine[] = [];
-    if (item?.blurb) lines.push({ speaker, text: item.blurb });
-    lines.push({ speaker, text: t('field.chestOpen', { item: name, n: chest.count }) });
-    await this.talk(lines);
-    this.busy = false;
+    await this.fieldFlow.run('chest', async ({ throwIfCancelled }) => {
+      this.standStill();
+      const speaker = t('field.chest');
+      if (gs.progress.chestsOpened.includes(chest.key)) {
+        await this.talk([{ speaker, text: t('field.chestEmpty') }]);
+        return;
+      }
+      const item = this.chestItem(chest);
+      const name = item?.name ?? chest.itemName;
+      chest.sprite.setTexture('fld.chest.open');
+      playSfx('chest');
+      await this.itemCutin(item, name);
+      throwIfCancelled();
+      const current = this.gs();
+      if (!current || current.progress.chestsOpened.includes(chest.key)) return;
+      const next = applyChestReward(current, chest, item);
+      this.setGame(next);
+      playSfx('select');
+      // 説明（どうぐの blurb）を先に出してから、アイテムを わたす
+      const lines: DialogueLine[] = [];
+      if (item?.blurb) lines.push({ speaker, text: item.blurb });
+      lines.push({ speaker, text: t('field.chestOpen', { item: name, n: chest.count }) });
+      await this.talk(lines);
+    });
   }
 
   /**
@@ -2405,51 +2402,49 @@ export class OverworldScene extends Phaser.Scene {
   private async openSpecialty(chest: Chest, sp: NonNullable<Chest['specialty']>): Promise<void> {
     const gs = this.gs();
     if (!gs) return;
-    this.busy = true;
-    this.standStill();
-    const guide: DialogueLine = { speaker: t('field.specialtySpeaker'), text: sp.motif.blurb };
-    const box = t('field.chest');
-    if (gs.dex.motifs.includes(sp.stamp)) {
-      await this.talk([guide, { speaker: box, text: t('field.chestEmpty') }]);
-      this.busy = false;
-      return;
-    }
-    playSfx('discover');
-    // 特産品の カットインの絵は、その どうぐの アイコン
-    const spItem = this.content()?.items.get(chest.itemId);
-    await this.cutin(
-      sp.area.id,
-      sp.motif,
-      t('field.specialtyFound'),
-      spItem ? itemIconUrl(spItem) : undefined,
-    );
-    const item = this.content()?.items.get(chest.itemId);
-    const current = this.gs();
-    if (!current || current.dex.motifs.includes(sp.stamp)) {
-      this.busy = false;
-      return;
-    }
-    const content = this.content();
-    const gain = content ? specialtyTreasureGain(current, chest.itemId, content.areas, content.items) : null;
-    const next = applyChestReward(current, chest, item);
-    this.setGame(next);
-    playSfx('chest');
-    chest.sprite.setTexture('fld.chest.open');
-    this.renderHud();
-    // 説明を先に出してから、アイテムを わたす
-    const lines = specialtyRewardLines({
-      guide,
-      box,
-      itemName: chest.itemName,
-      count: chest.count,
-      heal: item?.use?.heal,
-      stampCount: this.stampCount(),
-      gain,
-      translate: t,
+    await this.fieldFlow.run('chest', async ({ throwIfCancelled }) => {
+      this.standStill();
+      const guide: DialogueLine = { speaker: t('field.specialtySpeaker'), text: sp.motif.blurb };
+      const box = t('field.chest');
+      if (gs.dex.motifs.includes(sp.stamp)) {
+        await this.talk([guide, { speaker: box, text: t('field.chestEmpty') }]);
+        return;
+      }
+      playSfx('discover');
+      // 特産品の カットインの絵は、その どうぐの アイコン
+      const spItem = this.content()?.items.get(chest.itemId);
+      await this.cutin(
+        sp.area.id,
+        sp.motif,
+        t('field.specialtyFound'),
+        spItem ? itemIconUrl(spItem) : undefined,
+      );
+      throwIfCancelled();
+      const item = this.content()?.items.get(chest.itemId);
+      const current = this.gs();
+      if (!current || current.dex.motifs.includes(sp.stamp)) return;
+      const content = this.content();
+      const gain = content ? specialtyTreasureGain(current, chest.itemId, content.areas, content.items) : null;
+      const next = applyChestReward(current, chest, item);
+      this.setGame(next);
+      playSfx('chest');
+      chest.sprite.setTexture('fld.chest.open');
+      this.renderHud();
+      // 説明を先に出してから、アイテムを わたす
+      const lines = specialtyRewardLines({
+        guide,
+        box,
+        itemName: chest.itemName,
+        count: chest.count,
+        heal: item?.use?.heal,
+        stampCount: this.stampCount(),
+        gain,
+        translate: t,
+      });
+      await this.talk(lines);
+      throwIfCancelled();
+      await this.checkMeisan();
     });
-    await this.talk(lines);
-    await this.checkMeisan();
-    this.busy = false;
   }
 
   // ───────────────────────── バトル ─────────────────────────
