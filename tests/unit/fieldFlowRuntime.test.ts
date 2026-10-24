@@ -106,6 +106,19 @@ describe('field flow runtime', () => {
     await expect(runtime.run('landmark', async () => 'next')).resolves.toBe('next');
   });
 
+  it('settles the run promise on cancellation even when the action ignores the signal', async () => {
+    const runtime = createFieldFlowRuntime(hooks());
+    const running = runtime.run('event', async () => new Promise<never>(() => undefined));
+
+    runtime.cancel('scene-shutdown');
+
+    const outcome = await Promise.race([
+      running.then(() => 'settled'),
+      new Promise<'timeout'>((resolve) => setTimeout(() => resolve('timeout'), 20)),
+    ]);
+    expect(outcome).toBe('settled');
+  });
+
   it('does not clean up twice when cancellation races action completion', async () => {
     const effects = hooks();
     const runtime = createFieldFlowRuntime(effects);

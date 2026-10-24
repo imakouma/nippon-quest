@@ -53,10 +53,20 @@ export function createFieldFlowRuntime(hooks: FieldFlowHooks): FieldFlowRuntime 
       active = flow;
       try {
         hooks.lockInput(reason);
-        return await action({
+        const context: FieldFlowContext = {
           signal: flow.controller.signal,
           throwIfCancelled: () => flow.controller.signal.throwIfAborted(),
+        };
+        let rejectCancelled!: () => void;
+        const cancelled = new Promise<never>((_resolve, reject) => {
+          rejectCancelled = () => reject(flow.controller.signal.reason);
+          flow.controller.signal.addEventListener('abort', rejectCancelled, { once: true });
         });
+        try {
+          return await Promise.race([action(context), cancelled]);
+        } finally {
+          flow.controller.signal.removeEventListener('abort', rejectCancelled);
+        }
       } catch (error) {
         if (!flow.controller.signal.aborted) hooks.reportError(error, reason);
         return undefined;
