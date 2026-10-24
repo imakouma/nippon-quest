@@ -136,28 +136,26 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
     Math.abs(lockedNodeBox!.y + lockedNodeBox!.height / 2 - (lockedMapBox!.y + lockedMapBox!.height / 2)),
   ).toBeLessThan(2);
   await page.screenshot({ path: testInfo.outputPath('learning-roadmap-locked-condition.png') });
-  await page.locator('.nq-roadmap-reset').click();
   await currentUnit.click();
   await expect(page.locator('.nq-roadmap-practice')).toBeVisible();
   const map = page.locator('.nq-roadmap-map');
   const mapShell = page.locator('.nq-roadmap-map-shell');
   const canvas = page.locator('.nq-roadmap-canvas');
-  const zoom = page.locator('.nq-roadmap-zoom-value');
-  const reset = page.locator('.nq-roadmap-reset');
-  await expect(zoom).toHaveText('100%');
-  await page.locator('.nq-roadmap-zoom-in').click();
-  await expect(zoom).toHaveText('120%');
-  await reset.click();
-  await expect(zoom).toHaveText('100%');
-  const zoomOut = page.locator('.nq-roadmap-zoom-out');
-  for (let step = 0; step < 4; step += 1) await zoomOut.click();
-  await expect(zoom).toHaveText('20%');
-  await expect(zoomOut).toBeDisabled();
+  await expect(page.locator('.nq-roadmap-map-tools')).toHaveCount(0);
+  await expect(page.locator('.nq-roadmap-zoom-out')).toHaveCount(0);
+  await expect(page.locator('.nq-roadmap-zoom-value')).toHaveCount(0);
+  await expect(page.locator('.nq-roadmap-zoom-in')).toHaveCount(0);
+  await expect(page.locator('.nq-roadmap-reset')).toHaveCount(0);
+  await map.dispatchEvent('wheel', { ctrlKey: true, deltaY: 500, clientX: 240, clientY: 200 });
+  await expect(canvas).toHaveAttribute('style', /scale\(0\.2\)/);
   await expect(mapShell).toHaveAttribute('data-zoom-detail', 'overview');
   await expect(currentUnit.locator('.nq-roadmap-node-name')).toBeHidden();
   await page.screenshot({ path: testInfo.outputPath('learning-roadmap-20-percent.png') });
-  await reset.click();
+  await map.dispatchEvent('wheel', { ctrlKey: true, deltaY: -160, clientX: 240, clientY: 200 });
+  await expect(canvas).toHaveAttribute('style', /scale\(1\)/);
   await expect(mapShell).toHaveAttribute('data-zoom-detail', 'detail');
+  await frontier.dispatchEvent('click');
+  await currentUnit.dispatchEvent('click');
   const [mapBox, currentNodeBox, selectionBox] = await Promise.all([
     map.boundingBox(),
     page.getByRole('button', { name: '10までのかず' }).boundingBox(),
@@ -186,8 +184,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await map.dispatchEvent('wheel', { deltaX: 32, deltaY: 48 });
   await expect.poll(() => canvas.getAttribute('style')).not.toBe(beforeWheel);
   await map.dispatchEvent('wheel', { ctrlKey: true, deltaY: -20, clientX: 240, clientY: 200 });
-  await expect(zoom).toHaveText('110%');
-  await reset.click();
+  await expect(canvas).toHaveAttribute('style', /scale\(1\.1\)/);
 
   await map.dispatchEvent('pointerdown', {
     pointerId: 1,
@@ -209,12 +206,10 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
     clientX: 320,
     clientY: 200,
   });
-  await expect(zoom).toHaveText('140%');
+  await expect(canvas).toHaveAttribute('style', /scale\(1\.5/);
   await map.dispatchEvent('pointerup', { pointerId: 2, pointerType: 'touch' });
   await map.dispatchEvent('pointerup', { pointerId: 1, pointerType: 'touch' });
-  await reset.click();
-  await expect(zoom).toHaveText('100%');
-  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-controls.png') });
+  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-gestures.png') });
   await allSubjects.click();
   await expect(allSubjectsOverview).toBeVisible();
   await page.setViewportSize({ width: 640, height: 540 });
