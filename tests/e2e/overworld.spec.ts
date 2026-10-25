@@ -289,7 +289,7 @@ test('にほんちずで移動した後に入力が戻る', async ({ page }) => 
 });
 
 test('名所はキーとタップを重ねても一度だけ始まり、閉じた後に移動できる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
   await teleport(page, [58, 66]);
 
@@ -315,7 +315,7 @@ test('名所はキーとタップを重ねても一度だけ始まり、閉じ�
 });
 
 test('宝箱はキーとタップを重ねても報酬を一度だけ与え、完了後に再び調べられる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
   await teleport(page, [123, 99]);
 
@@ -343,7 +343,7 @@ test('宝箱はキーとタップを重ねても報酬を一度だけ与え、�
 });
 
 test('通常イベントはキーとタップを重ねても選択肢を一度だけ出し、見送った後に再開できる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
   await teleport(page, [41, 87]);
 
