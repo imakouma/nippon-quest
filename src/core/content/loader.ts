@@ -185,11 +185,9 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
   }
   const unlockableMonsters = new Set<string>();
   for (const area of areas.values()) {
-    for (const event of area.events) {
-      if (!('rewardByScore' in event)) continue;
+    for (const event of area.events.filter((entry) => 'rewardByScore' in entry))
       for (const tier of event.rewardByScore)
         for (const monsterId of tier.reward.unlockMonsters ?? []) unlockableMonsters.add(monsterId);
-    }
     for (const mission of area.missions)
       for (const monsterId of mission.reward.unlockMonsters ?? []) unlockableMonsters.add(monsterId);
   }

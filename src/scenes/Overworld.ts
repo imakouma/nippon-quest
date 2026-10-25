@@ -3,7 +3,8 @@ import Phaser from 'phaser';
 import { isLocalDevelopmentUrl } from '../core/localDevelopment';
 import { h, render, type ComponentChild } from 'preact';
 import type { ContentIndex } from '../core/content/loader';
-import type { Area, Item, LegacyAreaEvent, Monster, Motif, Region } from '../core/content/schemas';
+import type { Area, Item, Monster, Motif, Region } from '../core/content/schemas';
+import type { LegacyAreaEvent as FieldEvent } from '../core/content/schemas';
 import { makeMonster } from '../core/battle/factory';
 import {
   encounterLevel,
@@ -1490,12 +1491,7 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   /** イベント：（はじめてなら カットイン → ★ が黄色に → スタンプ）→ 会話 → ちょうせんする？ → 問題 → ごほうび → お礼 */
-  private async runEvent(
-    area: Area,
-    ev: LegacyAreaEvent,
-    motif: Motif | undefined,
-    sign: Sign,
-  ): Promise<void> {
+  private async runEvent(area: Area, ev: FieldEvent, motif: Motif | undefined, sign: Sign): Promise<void> {
     await this.fieldFlow.run('area-event', async ({ throwIfCancelled }) => {
       this.standStill();
       const stampLine = await this.arriveAt(area, motif, sign);
@@ -1540,7 +1536,7 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   /** 名所の問題。出せる問題が無いときは 0 点あつかい（ごほうびは必ずもらえる：GDD §7） */
-  private async quiz(ev: LegacyAreaEvent, motif: Motif | undefined): Promise<number> {
+  private async quiz(ev: FieldEvent, motif: Motif | undefined): Promise<number> {
     const content = this.content();
     const bank = this.registry.get('bank') as QuestionBank | undefined;
     const gs = this.gs();

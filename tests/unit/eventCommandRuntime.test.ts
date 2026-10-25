@@ -11,12 +11,21 @@ function makePorts(overrides: Partial<EventRuntimePorts> = {}): EventRuntimePort
     setFlag: vi.fn(),
     battle: vi.fn(async () => 'victory' as const),
     warp: vi.fn(async () => undefined),
+    movement: vi.fn(async () => undefined),
     ...overrides,
   };
 }
 
 function signal(): AbortSignal {
   return new AbortController().signal;
+}
+
+function deferred<T>() {
+  let resolve!: (value: T | PromiseLike<T>) => void;
+  const promise = new Promise<T>((onResolve) => {
+    resolve = onResolve;
+  });
+  return { promise, resolve };
 }
 
 describe('executeEventCommands', () => {
@@ -231,5 +240,44 @@ describe('executeEventCommands', () => {
     await expect(executeEventCommands(commands, makePorts(), { signal: signal() })).rejects.toMatchObject({
       code: 'STEP_LIMIT',
     });
+  });
+
+  it('movement commandを同じAbortSignalでawaitしてから次commandへ進む', async () => {
+    const controller = new AbortController();
+    const gate = deferred<void>();
+    const calls: string[] = [];
+    const movement = vi.fn(async (_command, activeSignal: AbortSignal) => {
+      expect(activeSignal).toBe(controller.signal);
+      calls.push('movement:start');
+      await gate.promise;
+      calls.push('movement:end');
+    });
+    const dialogue = vi.fn(async () => {
+      calls.push('dialogue');
+    });
+    const running = executeEventCommands(
+      [
+        {
+          type: 'movement',
+          objectId: 'npc-guide',
+          commands: [
+            { type: 'face', direction: 'up' },
+            { type: 'walk', direction: 'up' },
+          ],
+        },
+        { type: 'dialogue', lines: [{ text: 'ついた。' }] },
+      ],
+      makePorts({ movement, dialogue }),
+      { signal: controller.signal },
+    );
+
+    await Promise.resolve();
+    expect(calls).toEqual(['movement:start']);
+    expect(dialogue).not.toHaveBeenCalled();
+
+    gate.resolve();
+    const result = await running;
+    expect(calls).toEqual(['movement:start', 'movement:end', 'dialogue']);
+    expect(result.executedSteps).toBe(2);
   });
 });

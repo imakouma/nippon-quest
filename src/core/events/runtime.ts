@@ -124,6 +124,9 @@ async function executeList(
       case 'warp':
         await ports.warp(command);
         break;
+      case 'movement':
+        await ports.movement(command, options.signal);
+        break;
       case 'branch': {
         if (branchDepth >= EVENT_BRANCH_DEPTH_LIMIT)
           throw new EventRuntimeError(

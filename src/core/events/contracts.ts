@@ -1,4 +1,5 @@
 import type { Grade, RubyText, Subject } from '../../questions/contracts';
+import type { MapObjectMovementCommand } from './mapObjectMovementRuntime';
 
 export interface EventDialogueLine {
   speaker?: RubyText;
@@ -71,6 +72,12 @@ export interface WarpCommand {
   spawn?: string;
 }
 
+export interface MovementCommand {
+  type: 'movement';
+  objectId: string;
+  commands: readonly MapObjectMovementCommand[];
+}
+
 export type EventCondition =
   | { type: 'choice'; key: string; equals: number }
   | { type: 'score'; key: string; min: number; max?: number }
@@ -92,6 +99,7 @@ export type FieldEventCommand =
   | SetFlagCommand
   | BattleCommand
   | WarpCommand
+  | MovementCommand
   | BranchCommand;
 
 export interface ScriptedAreaEvent {
@@ -118,6 +126,7 @@ export interface EventRuntimePorts {
   setFlag(flag: string): void;
   battle(command: BattleCommand): Promise<BattleOutcome>;
   warp(command: WarpCommand): Promise<void>;
+  movement(command: MovementCommand, signal: AbortSignal): Promise<void>;
 }
 
 export interface EventRuntimeOptions {
