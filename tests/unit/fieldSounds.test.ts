@@ -24,7 +24,8 @@ describe('探索の効果音', () => {
 
   it('実際に着いたタイルの地面で一回再生する', () => {
     playFieldFootstep('aomori-field', 147);
-    expect(playSfx).toHaveBeenCalledExactlyOnceWith('step-sand');
+    expect(playSfx).toHaveBeenCalledTimes(1);
+    expect(playSfx).toHaveBeenCalledWith('step-sand');
   });
 
   it('町・洞窟・裏ステージの入口/出口だけで扉音を鳴らす', () => {

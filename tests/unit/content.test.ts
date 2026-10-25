@@ -535,7 +535,10 @@ describe('content loader', () => {
     const c = await loadContent(read);
     const areas = new Map(c.areas);
     const aomori = structuredClone(areas.get('aomori')!);
-    const event = aomori.events.find((entry) => entry.rewardByScore.length >= 2)!;
+    const event = aomori.events.find(
+      (entry) => 'rewardByScore' in entry && entry.rewardByScore.length >= 2,
+    );
+    if (!event || !('rewardByScore' in event)) throw new Error('段階報酬イベントがありません');
     event.rewardByScore = event.rewardByScore.filter((tier) => tier.min !== 0);
     event.rewardByScore[1]!.min = event.rewardByScore[0]!.min;
     areas.set(aomori.id, aomori);
@@ -551,9 +554,12 @@ describe('content loader', () => {
     const c = await loadContent(read);
     const areas = new Map(c.areas);
     const aomori = structuredClone(areas.get('aomori')!);
-    const event = aomori.events.find((entry) =>
-      entry.rewardByScore.some((tier) => (tier.reward.items?.length ?? 0) > 0),
+    const event = aomori.events.find(
+      (entry) =>
+        'rewardByScore' in entry &&
+        entry.rewardByScore.some((tier) => (tier.reward.items?.length ?? 0) > 0),
     )!;
+    if (!('rewardByScore' in event)) throw new Error('アイテム報酬イベントがありません');
     const tier = event.rewardByScore.find((entry) => (entry.reward.items?.length ?? 0) > 0)!;
     const item = structuredClone(tier.reward.items![0]!);
     tier.reward.items!.push(item);
@@ -625,6 +631,7 @@ describe('content loader', () => {
   it('恐山イベント後は成績にかかわらずイタコドリが出現する', async () => {
     const c = await loadContent(read);
     const event = c.areas.get('aomori')!.events.find((entry) => entry.id === 'aomori-ev-osorezan')!;
+    if (!('rewardByScore' in event)) throw new Error('恐山イベントが段階報酬ではありません');
 
     for (const tier of event.rewardByScore)
       expect(tier.reward.unlockMonsters, `score ${tier.min}`).toContain('aomori-itakodori');
