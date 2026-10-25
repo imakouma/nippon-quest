@@ -22,41 +22,41 @@
 
 ### Phase 1: Contract and RED
 
-- [ ] Task 1: 完成済み event-command-runtime のcoreコミットを最小統合する。
-- [ ] Task 2: movement runtimeのpublic contractと失敗するfake-portテストを追加する。
+- [x] Task 1: 完成済み event-command-runtime のcoreコミットを最小統合する。
+- [x] Task 2: movement runtimeのpublic contractと失敗するfake-portテストを追加する。
 
 ### Checkpoint: Contract
 
-- [ ] runtime未実装によりfocused testが期待どおり失敗する。
-- [ ] Phaser/Scene importがcoreへ入っていない。
+- [x] runtime未実装によりfocused testが期待どおり失敗する。
+- [x] Phaser/Scene importがcoreへ入っていない。
 
 ### Phase 2: Runtime Slices
 
-- [ ] Task 3: happy path、状態遷移、逐次await、正常cleanupを実装する。
-- [ ] Task 4: reservation、abort、timeout、step/time limit、例外cleanupを実装する。
-- [ ] Task 5: event runtimeへ `movement` command dispatchを追加する。
+- [x] Task 3: happy path、状態遷移、逐次await、正常cleanupを実装する。
+- [x] Task 4: reservation、abort、timeout、step/time limit、例外cleanupを実装する。
+- [x] Task 5: event runtimeへ `movement` command dispatchを追加する。
 
 ### Checkpoint: Behavior
 
-- [ ] focused unit testsが成功する。
-- [ ] `npcWander.ts` が未変更である。
+- [x] focused unit testsが成功する。
+- [x] `npcWander.ts` が未変更である。
 
 ### Phase 3: Review and Delivery
 
-- [ ] Task 6: five-axis reviewとmutation checkを行い、必須指摘を解消する。
-- [ ] Task 7: Graphify code-only graphを更新し、全必須検査を実行する。
-- [ ] Task 8: 一時previewを4175で起動し、アプリ初期表示とconsoleを確認して停止する。
-- [ ] Task 9: walkthroughを記録し、コミットする。
+- [x] Task 6: five-axis reviewとmutation checkを行い、必須指摘を解消する。
+- [x] Task 7: Graphify code-only graphを更新し、全必須検査を実行する。
+- [x] Task 8: 一時previewを4175で起動し、アプリ初期表示とconsoleを確認して停止する。
+- [x] Task 9: walkthroughを記録し、コミットする。
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-| --- | --- | --- |
-| event runtimeのparallel branchと競合 | 中 | core prerequisiteとmovement差分を別commitにし、cherry-pick順を明記する |
-| portがAbortSignalを無視してPromiseが残る | 高 | runtime自身のabort/timeout raceで外側Promiseをsettleする |
-| walk失敗で予約が残る | 高 | active reservationをfinally相当の単一cleanup経路でreleaseする |
-| 汎用VMへ拡大する | 中 | 6種類の有限commandとevent wrapperだけに固定する |
-| Scene側の衝突実装が未統合 | 中 | reservation contractとfake-port試験を完成させ、production adapterは後続sliceに限定する |
+| Risk                                     | Impact | Mitigation                                                                             |
+| ---------------------------------------- | ------ | -------------------------------------------------------------------------------------- |
+| event runtimeのparallel branchと競合     | 中     | core prerequisiteとmovement差分を別commitにし、cherry-pick順を明記する                 |
+| portがAbortSignalを無視してPromiseが残る | 高     | runtime自身のabort/timeout raceで外側Promiseをsettleする                               |
+| walk失敗で予約が残る                     | 高     | active reservationをfinally相当の単一cleanup経路でreleaseする                          |
+| 汎用VMへ拡大する                         | 中     | 6種類の有限commandとevent wrapperだけに固定する                                        |
+| Scene側の衝突実装が未統合                | 中     | reservation contractとfake-port試験を完成させ、production adapterは後続sliceに限定する |
 
 ## Open Questions
 
