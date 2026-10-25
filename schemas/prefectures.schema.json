@@ -561,26 +561,7 @@
                               "$ref": "#/definitions/prefectures/properties/id"
                             },
                             "table": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "min": {
-                                    "type": "number",
-                                    "minimum": 0,
-                                    "maximum": 1
-                                  },
-                                  "reward": {
-                                    "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/rewardByScore/items/properties/reward"
-                                  }
-                                },
-                                "required": [
-                                  "min",
-                                  "reward"
-                                ],
-                                "additionalProperties": false
-                              },
-                              "minItems": 1
+                              "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/rewardByScore"
                             }
                           },
                           "required": [
