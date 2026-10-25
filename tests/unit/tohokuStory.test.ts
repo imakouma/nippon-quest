@@ -29,21 +29,41 @@ describe('東北編の節目会話', () => {
   });
 
   it('青森の全名所イベントが、序章と見聞帳へつながる前後会話を持つ', () => {
+    interface Line {
+      speaker?: string;
+    }
+    interface Step {
+      type: string;
+      lines?: Line[];
+      then?: Step[];
+      else?: Step[];
+    }
+    const scriptedDialogue = (steps: Step[]): Line[][] =>
+      steps.flatMap((step) => [
+        step.lines ?? [],
+        ...scriptedDialogue(step.then ?? []),
+        ...scriptedDialogue(step.else ?? []),
+      ]);
     const aomori = JSON.parse(
       readFileSync(new URL('../../content/prefectures/aomori.json', import.meta.url), 'utf8'),
     ) as {
-      events: Array<{
-        dialogue: Array<{ speaker?: string }>;
-        afterDialogue?: Array<{ speaker?: string }>;
-      }>;
+      events: Array<{ dialogue: Line[]; afterDialogue?: Line[] } | { steps: Step[] }>;
     };
     expect(aomori.events).toHaveLength(5);
     for (const event of aomori.events) {
-      expect(event.dialogue.length).toBeGreaterThanOrEqual(2);
-      expect(event.afterDialogue?.length).toBeGreaterThanOrEqual(2);
+      const dialogue =
+        'steps' in event
+          ? scriptedDialogue(event.steps).filter((lines) => lines.length > 0)
+          : [event.dialogue, event.afterDialogue ?? []];
+      expect(dialogue[0]?.length).toBeGreaterThanOrEqual(2);
+      expect(dialogue.slice(1).some((lines) => lines.length >= 2)).toBe(true);
     }
     expect(
-      aomori.events.some((event) => event.afterDialogue?.some((line) => line.speaker?.includes('シオリ'))),
+      aomori.events.some((event) =>
+        ('steps' in event ? scriptedDialogue(event.steps).flat() : (event.afterDialogue ?? [])).some((line) =>
+          line.speaker?.includes('シオリ'),
+        ),
+      ),
     ).toBe(true);
   });
 
