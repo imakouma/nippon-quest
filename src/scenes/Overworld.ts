@@ -789,7 +789,7 @@ export class OverworldScene extends Phaser.Scene {
           this.inBattle ||
           this.moving ||
           this.fieldFlow.isRunning ||
-          this.time.now < this.inputLockUntil,
+          (intent !== 'menu' && this.time.now < this.inputLockUntil),
         frame,
         lastHandledFrame: this.lastInteractionFrame,
       },

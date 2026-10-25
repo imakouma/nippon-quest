@@ -29,4 +29,7 @@ export async function completeNewGameSetup(page: Page, name = 'ハル'): Promise
   await expect(tutorial).toBeVisible({ timeout: 30_000 });
   for (let step = 0; step < 16 && (await tutorial.isVisible()); step += 1) await tutorial.click();
   await expect(tutorial).toHaveCount(0);
+  await expect(page.locator('#game-root canvas')).toHaveAttribute('data-input-ready', 'true', {
+    timeout: 10_000,
+  });
 }
