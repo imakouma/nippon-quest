@@ -5,15 +5,14 @@ import { h, render, type ComponentChild } from 'preact';
 import type { ContentIndex } from '../core/content/loader';
 import type { Area, AreaEvent, Item, Monster, Motif, Region } from '../core/content/schemas';
 import { makeMonster } from '../core/battle/factory';
+import { encounterLevel, enemyScalingLevel, partyFromGameState } from '../core/battle/setup';
+import { zoneForMap } from '../core/encounter/contentAdapter';
 import {
-  encounterLevel,
-  encounterTable,
-  enemyScalingLevel,
-  partyFromGameState,
-  pickFromTable,
-  zoneForMap,
-} from '../core/battle/setup';
-import { groundOfTile, isRoadTile, type Ground } from '../core/world/ground';
+  beginEncounterCooldown,
+  createEncounterPolicyState,
+  type EncounterPolicyState,
+} from '../core/encounter/policy';
+import { groundOfTile, type Ground } from '../core/world/ground';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
 import { roadmapGrandfatheredUnitIds } from '../core/state/roadmapSnapshot';
@@ -136,6 +135,7 @@ import { areaIdFromMapKey, mapKind, type MapKind } from './overworld/geography';
 import { isTransitionLocked, syncTransitionLocks, transitionLock } from './overworld/transitionLock';
 import { mapMusicTrack } from './overworld/music';
 import { attachFieldSounds, playFieldFootstep, playEntranceSound } from './overworld/sounds';
+import { resolveEncounterStep } from './overworld/encounterLifecycle';
 import { attachSceneMusic } from './shared/music';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
@@ -357,7 +357,7 @@ export class OverworldScene extends Phaser.Scene {
   private inputLockUntil = 0;
   private lastInteractionFrame: number | null = null;
   private lastBump = 0;
-  private stepCount = 0;
+  private encounterPolicyState: EncounterPolicyState = createEncounterPolicyState();
   private blocked = new Set<number>();
   private transitions = new Map<number, { map: string; spawn: string }>();
   private triggers = new Map<number, FieldTrigger>();
@@ -525,7 +525,7 @@ export class OverworldScene extends Phaser.Scene {
     this.waitRelease = false;
     this.inputLockUntil = 0;
     this.lastInteractionFrame = null;
-    this.stepCount = 0;
+    this.encounterPolicyState = createEncounterPolicyState();
     this.blocked = new Set();
     this.transitions = new Map();
     this.triggers = new Map();
@@ -744,7 +744,6 @@ export class OverworldScene extends Phaser.Scene {
       duration: STEP_MS,
       onComplete: () => {
         this.moving = false;
-        this.stepCount++;
         playFieldFootstep(this.mapKey, this.map.getTileAt(nx, ny, true, 'background')?.index);
         this.rememberLocation(nx, ny);
         this.renderHud(); // 左上の地図の主人公を動かす
@@ -851,6 +850,7 @@ export class OverworldScene extends Phaser.Scene {
         if (!trigger || trigger.id !== id) return;
         this.insideTrigger = trigger.id;
         void trigger.run();
+        this.checkRandomEncounter(true);
       },
       battle: (type, tile) => {
         if (type === 'mid-boss') void this.confrontMidBoss();
@@ -2437,33 +2437,34 @@ export class OverworldScene extends Phaser.Scene {
   // ───────────────────────── バトル ─────────────────────────
 
   /** 歩数エンカウント。フィールドでは現在の地面に対応する出現表を使う。 */
-  private checkRandomEncounter(): void {
+  private checkRandomEncounter(suppressed = false): void {
     // 開発者モード中は ふつうの モンスターと 出会わない（中ボス・県ボス・ラスボスは そのまま）
     if (this.devAll()) return;
-    const mapZone = zoneForMap(this.mapKey);
     const area = this.currentArea();
-    if (!mapZone || !area) return;
+    const gs = this.gs();
+    if (!area || !gs) return;
     const [x, y] = this.playerTile();
     const backgroundTile = this.map.getTileAt(x, y, true, 'background')?.index;
-    if (mapZone === 'field' && isRoadTile(backgroundTile)) return;
-    const ground = mapZone === 'field' ? this.groundHere() : null;
-    // 名所エリアの ある フィールドは エリアの 表（エリアの 名所に ちなんだ モンスター）
-    const table = encounterTable(area, mapZone, ground, this.currentRegion);
-    if (!table) return;
-    if (this.stepCount % table.stepsPerCheck !== 0 || !this.rng.chance(table.rate)) return;
-    const gs = this.gs();
-    if (!gs) return;
-    const enemyId = pickFromTable(table, this.rng, {
-      gated: this.content()!.unlockableMonsters,
-      unlocked: gs.progress.unlockedMonsters,
+    const ground = zoneForMap(this.mapKey) === 'field' ? this.groundHere() : null;
+    const result = resolveEncounterStep({
+      state: this.encounterPolicyState,
+      context: {
+        mapKey: this.mapKey,
+        area,
+        backgroundTile,
+        ground,
+        region: this.currentRegion,
+        unlocks: {
+          gated: this.content()!.unlockableMonsters,
+          unlocked: gs.progress.unlockedMonsters,
+        },
+      },
+      rng: this.rng,
+      heroLevel: this.heroLevel(),
+      suppressed,
     });
-    if (enemyId)
-      this.startBattle({
-        enemyId,
-        level: encounterLevel(this.heroLevel(), this.rng),
-        zone: mapZone,
-        ...(ground ? { ground } : {}),
-      });
+    this.encounterPolicyState = result.state;
+    if (result.battle) this.startBattle(result.battle);
   }
 
   /** 立っている マスの 地面（フィールド・島だけ。町・ダンジョンは null） */
@@ -2509,7 +2510,7 @@ export class OverworldScene extends Phaser.Scene {
     if (this.scene.isActive('Battle') || this.scene.isPaused('Battle')) this.scene.stop('Battle');
     if (this.scene.isPaused()) this.scene.resume();
     this.inBattle = false;
-    this.stepCount = 0;
+    this.encounterPolicyState = beginEncounterCooldown(this.encounterPolicyState);
     const cam = this.cameras.main;
     cam.resetFX();
     cam.setRotation(0);

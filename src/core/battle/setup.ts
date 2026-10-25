@@ -4,14 +4,27 @@
  */
 import type { ContentIndex } from '../content/loader';
 import type { Area } from '../content/schemas';
+import {
+  encounterCandidates,
+  selectEncounterTable,
+  type EncounterUnlocks,
+  type EncounterZone,
+} from '../encounter/contentAdapter';
 import { activeEquipment, adjacencyBonus, bagContext, battleRosterUids } from '../progression/bag';
 import { heroLevel } from '../progression/battleResult';
 import { applySpecialtyTreasureBonus, specialtyTreasureBonus } from '../progression/specialty';
 import type { Rng } from '../rng';
 import type { GameState } from '../state/schema';
-import type { Ground } from '../world/ground';
 import { makeHero, makeMonster, makeParty } from './factory';
 import type { Party } from './types';
+
+export {
+  selectEncounterTable as encounterTable,
+  zoneForGround,
+  zoneForMap,
+  type EncounterUnlocks,
+  type EncounterZone,
+} from '../encounter/contentAdapter';
 
 export function partyFromGameState(
   gs: GameState,
@@ -65,72 +78,20 @@ export function partyFromGameState(
   return party;
 }
 
-/** field（くさはら）・dungeon と、フィールドの 地面ごとの 出現表（src/core/world/ground.ts） */
-export type EncounterZone = 'field' | 'dungeon' | Exclude<Ground, 'grass'>;
-
-/** マップキー（"aomori-field" など）から出現ゾーンを決める。町・島マップではエンカウントしない */
-export function zoneForMap(mapKey: string): EncounterZone | null {
-  if (mapKey.endsWith('-field')) return 'field';
-  if (mapKey.endsWith('-dungeon')) return 'dungeon';
-  return null;
-}
-
-/**
- * フィールドでは 立っている 地面（すなはま・もり・やま …）の 出現表を つかう。
- * くさはらと、その県に 表の 無い 地面は ふつうの field。ダンジョンは そのまま
- */
-export function zoneForGround(
-  area: Pick<Area, 'encounters'>,
-  zone: EncounterZone,
-  ground: Ground | null,
-): EncounterZone {
-  if (zone !== 'field' || !ground || ground === 'grass') return zone;
-  return area.encounters.some((e) => !e.region && e.zone === ground) ? ground : 'field';
-}
-
 /** 県の encounters テーブルから 1 体抽選。テーブルが無ければ null */
 export function pickEncounter(area: Pick<Area, 'encounters'>, zone: EncounterZone, rng: Rng): string | null {
-  const table = area.encounters.find((e) => !e.region && e.zone === zone)?.table;
-  if (!table?.length) return null;
-  return rng.weighted(table.map((t) => ({ item: t.monsterId, weight: t.weight })));
-}
-
-type EncounterTable = Area['encounters'][number];
-
-export interface EncounterUnlocks {
-  gated: ReadonlySet<string>;
-  unlocked: readonly string[];
-}
-
-/**
- * いま つかう 出現表。名所エリア（region）の ある フィールドでは、その エリアの 表（地面の 表 → エリアの field の 表）。
- * エリアの 表が 無ければ ふつうの 表（地面 → field）
- */
-export function encounterTable(
-  area: Pick<Area, 'encounters'>,
-  zone: EncounterZone,
-  ground: Ground | null,
-  region: string | null,
-): EncounterTable | null {
-  if (region && zone === 'field') {
-    const mine = area.encounters.filter((e) => e.region === region);
-    if (mine.length)
-      return (
-        (ground && ground !== 'grass' ? mine.find((e) => e.zone === ground) : undefined) ??
-        mine.find((e) => e.zone === 'field') ??
-        null
-      );
-  }
-  const z = zoneForGround(area, zone, ground);
-  return area.encounters.find((e) => !e.region && e.zone === z) ?? null;
+  const table = selectEncounterTable(area, zone, null, null);
+  if (!table) return null;
+  return rng.weighted(table.table.map((entry) => ({ item: entry.monsterId, weight: entry.weight })));
 }
 
 /** 表から 1 体。報酬で解放されるモンスターは、解放済みになるまで候補から除く。 */
-export function pickFromTable(table: EncounterTable, rng: Rng, unlocks?: EncounterUnlocks): string | null {
-  const unlocked = unlocks ? new Set(unlocks.unlocked) : null;
-  const candidates = unlocks
-    ? table.table.filter((entry) => !unlocks.gated.has(entry.monsterId) || unlocked!.has(entry.monsterId))
-    : table.table;
+export function pickFromTable(
+  table: Area['encounters'][number],
+  rng: Rng,
+  unlocks?: EncounterUnlocks,
+): string | null {
+  const candidates = encounterCandidates(table, unlocks);
   if (!candidates.length) return null;
   return rng.weighted(candidates.map((entry) => ({ item: entry.monsterId, weight: entry.weight })));
 }
