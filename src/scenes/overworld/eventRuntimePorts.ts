@@ -164,9 +164,10 @@ export function createEventRuntimePorts(options: EventRuntimePortOptions): Event
   };
 }
 
-interface AreaEventFlowOptions extends Omit<EventRuntimePortOptions, 'flow'> {
+interface AreaEventFlowOptions extends Omit<EventRuntimePortOptions, 'flow' | 'transitions'> {
   event: AreaEvent;
   flowRuntime: FieldFlowRuntime;
+  transitions(flow: FieldFlowContext): MapTransitionPorts;
   motifBlurb: RubyText;
   standStill(): void;
   arrive(): Promise<EventDialogueLine[]>;
@@ -199,7 +200,7 @@ export async function runAreaEventFlow(options: AreaEventFlowOptions): Promise<v
         : legacyAreaEventCommands(options.event, options.legacyPrompt);
     await executeEventCommands(
       stampLine.length ? [{ type: 'dialogue', lines: stampLine }, ...commands] : commands,
-      createEventRuntimePorts({ ...options, flow }),
+      createEventRuntimePorts({ ...options, flow, transitions: options.transitions(flow) }),
       { signal: flow.signal, flags: new Set(game.progress.eventsDone) },
     );
     flow.throwIfCancelled();

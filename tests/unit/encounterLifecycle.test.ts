@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { createEffectScope } from '../../src/core/lifecycle/effectScope';
 import type { BattleEndPayload, BattleSceneData } from '../../src/scenes/Battle';
 import {
   applyEncounterResultPolicy,
@@ -49,10 +50,12 @@ function flowHarness(): EncounterFlowRuntimePort & { releases: number; errors: u
       if (running) return undefined;
       running = true;
       controller = new AbortController();
+      const scope = createEffectScope({ signal: controller.signal });
       try {
         return await action({
-          signal: controller.signal,
-          throwIfCancelled: () => controller?.signal.throwIfAborted(),
+          signal: scope.signal,
+          scope,
+          throwIfCancelled: () => scope.signal.throwIfAborted(),
         });
       } catch (error) {
         harness.errors.push(error);
@@ -126,9 +129,11 @@ describe('encounter result policy', () => {
 
   it('typed source の完了処理を対応する callback だけへ委譲する', async () => {
     const controller = new AbortController();
+    const scope = createEffectScope({ signal: controller.signal });
     const flow: EncounterFlowContext = {
-      signal: controller.signal,
-      throwIfCancelled: () => controller.signal.throwIfAborted(),
+      signal: scope.signal,
+      scope,
+      throwIfCancelled: () => scope.signal.throwIfAborted(),
     };
     const handlers: EncounterResultHandlers = {
       respawn: vi.fn(),
@@ -173,9 +178,11 @@ describe('encounter lifecycle', () => {
   it('取得済み field flow 内では再取得せず、同じ lifecycle から戦闘結果を返す', async () => {
     const { lifecycle, flow, calls } = lifecycleHarness();
     const controller = new AbortController();
+    const scope = createEffectScope({ signal: controller.signal });
     const running = lifecycle.startInFlow(context('script-1', { type: 'script' }), {
-      signal: controller.signal,
-      throwIfCancelled: () => controller.signal.throwIfAborted(),
+      signal: scope.signal,
+      scope,
+      throwIfCancelled: () => scope.signal.throwIfAborted(),
     });
 
     await vi.waitFor(() => expect(lifecycle.active?.id).toBe('script-1'));

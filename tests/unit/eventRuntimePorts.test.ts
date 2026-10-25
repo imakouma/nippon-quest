@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createNewGame } from '../../src/core/state/newGame';
+import { createEffectScope } from '../../src/core/lifecycle/effectScope';
 import type { GameState } from '../../src/core/state/schema';
 import { createEventRuntimePorts } from '../../src/scenes/overworld/eventRuntimePorts';
 import type { EncounterLifecycle } from '../../src/scenes/overworld/encounterLifecycle';
@@ -9,9 +10,11 @@ import type { MapTransitionPorts } from '../../src/scenes/overworld/mapTransitio
 function harness() {
   let game: GameState = createNewGame({ name: 'ハル', grade: 1 }, 0);
   const controller = new AbortController();
+  const scope = createEffectScope({ signal: controller.signal });
   const flow: FieldFlowContext = {
-    signal: controller.signal,
-    throwIfCancelled: () => controller.signal.throwIfAborted(),
+    signal: scope.signal,
+    scope,
+    throwIfCancelled: () => scope.signal.throwIfAborted(),
   };
   const encounter: EncounterLifecycle = {
     active: null,
@@ -111,7 +114,7 @@ describe('event runtime scene ports', () => {
     await h.ports.warp({ type: 'warp', map: 'aomori-town', spawn: 'door_field' });
 
     expect(h.transitions.closeTransientUi).toHaveBeenCalledTimes(1);
-    expect(h.transitions.fadeOut).toHaveBeenCalledWith(h.controller.signal);
+    expect(h.transitions.fadeOut).toHaveBeenCalledWith(h.flow.signal);
     expect(h.transitions.restart).toHaveBeenCalledWith({
       targetMap: 'aomori-town',
       spawnName: 'door_field',

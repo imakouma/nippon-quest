@@ -1,12 +1,12 @@
 import type { EventRuntimePorts } from '../../core/events/contracts';
 import { executeEventCommands } from '../../core/events/runtime';
-import type { FieldFlowRuntime } from './fieldFlowRuntime';
+import type { FieldFlowContext, FieldFlowRuntime } from './fieldFlowRuntime';
 import type { FieldInteractionCandidate, FieldInteractionDecision } from './fieldInteractionRouter';
 import { runMapTransition, type MapTransitionPorts } from './mapTransitionPipeline';
 
 export interface FieldInteractionExecutionPorts {
   flow: FieldFlowRuntime;
-  mapTransition: MapTransitionPorts;
+  mapTransition(flow: FieldFlowContext): MapTransitionPorts;
   eventCommands?: { ports: EventRuntimePorts; flags?: ReadonlySet<string> };
   beforeMapTransition?(candidate: Extract<FieldInteractionCandidate, { kind: 'map-transition' }>): void;
   dispatch(candidate: FieldInteractionCandidate): void | Promise<void>;
@@ -20,9 +20,9 @@ export async function executeFieldInteractionDecision(
   if (decision.kind === 'none') return false;
   const { candidate } = decision;
   if (candidate.kind === 'map-transition') {
-    const result = await ports.flow.run('map-transition', async ({ signal }) => {
+    const result = await ports.flow.run('map-transition', async (flow) => {
       ports.beforeMapTransition?.(candidate);
-      await runMapTransition(candidate.request, ports.mapTransition, signal);
+      await runMapTransition(candidate.request, ports.mapTransition(flow), flow.signal);
       return true;
     });
     return result === true;

@@ -329,10 +329,10 @@ export class OverworldScene extends Phaser.Scene {
     {
       lastInn: () => this.gs()?.progress.lastInn,
       currentMap: () => this.mapKey,
-      transition: (request, { signal }) =>
+      transition: (request, { signal, scope }) =>
         runMapTransition(
           request,
-          createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+          createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi(), scope),
           signal,
         ),
       completeArena: (opponentId, won) => this.arenaAfter(opponentId, won),
@@ -800,7 +800,8 @@ export class OverworldScene extends Phaser.Scene {
     this.lastInteractionFrame = frame;
     void executeFieldInteractionDecision(decision, {
       flow: this.fieldFlow,
-      mapTransition: createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+      mapTransition: ({ scope }) =>
+        createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi(), scope),
       beforeMapTransition: ({ request }) => {
         this.canWarp = false;
         playEntranceSound(this.mapKey, request.targetMap);
@@ -1529,7 +1530,8 @@ export class OverworldScene extends Phaser.Scene {
         later: t('field.eventLater'),
       },
       encounter: this.encounters,
-      transitions: createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+      transitions: ({ scope }) =>
+        createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi(), scope),
       eventId: ev.id,
       stamp: sign.stamp,
       getGame: () => this.gs(),

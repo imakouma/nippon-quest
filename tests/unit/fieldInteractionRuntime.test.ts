@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import type { EventRuntimePorts } from '../../src/core/events/contracts';
+import type { MapTransitionPorts } from '../../src/scenes/overworld/mapTransitionPipeline';
 import { createFieldFlowRuntime } from '../../src/scenes/overworld/fieldFlowRuntime';
 import {
   executeFieldInteractionDecision,
@@ -20,7 +21,16 @@ function eventPorts(): EventRuntimePorts {
   };
 }
 
-function ports(): FieldInteractionExecutionPorts {
+type RuntimePortsHarness = FieldInteractionExecutionPorts & {
+  transitionPorts: MapTransitionPorts;
+};
+
+function ports(): RuntimePortsHarness {
+  const transitionPorts: MapTransitionPorts = {
+    closeTransientUi: vi.fn(),
+    fadeOut: vi.fn(async () => undefined),
+    restart: vi.fn(),
+  };
   return {
     flow: createFieldFlowRuntime({
       lockInput: vi.fn(),
@@ -28,11 +38,8 @@ function ports(): FieldInteractionExecutionPorts {
       cleanupTransientUi: vi.fn(),
       reportError: vi.fn(),
     }),
-    mapTransition: {
-      closeTransientUi: vi.fn(),
-      fadeOut: vi.fn(async () => undefined),
-      restart: vi.fn(),
-    },
+    mapTransition: () => transitionPorts,
+    transitionPorts,
     eventCommands: { ports: eventPorts() },
     dispatch: vi.fn(async () => undefined),
   };
@@ -62,7 +69,7 @@ describe('executeFieldInteractionDecision', () => {
     };
 
     expect(await executeFieldInteractionDecision(decision, runtimePorts)).toBe(true);
-    expect(runtimePorts.mapTransition.restart).toHaveBeenCalledWith(request);
+    expect(runtimePorts.transitionPorts.restart).toHaveBeenCalledWith(request);
     expect(runtimePorts.dispatch).not.toHaveBeenCalled();
   });
 
@@ -85,7 +92,7 @@ describe('executeFieldInteractionDecision', () => {
 
     expect(await executeFieldInteractionDecision(decision, runtimePorts)).toBe(false);
     expect(beforeMapTransition).not.toHaveBeenCalled();
-    expect(runtimePorts.mapTransition.restart).not.toHaveBeenCalled();
+    expect(runtimePorts.transitionPorts.restart).not.toHaveBeenCalled();
     release();
     await active;
   });
