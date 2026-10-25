@@ -38,6 +38,7 @@ export function validateScriptedAreaEvent(
 ): string[] {
   const errors: string[] = [];
   const resultKeys = new Set<string>();
+  const choiceSizes = new Map<string, number>();
   let stepCount = 0;
   let maxBranchDepth = 0;
   const report = (message: string): void => {
@@ -61,6 +62,11 @@ export function validateScriptedAreaEvent(
     switch (condition.type) {
       case 'choice':
         requireLocal(condition.key, 'choice', locals);
+        if (
+          locals.get(condition.key) === 'choice' &&
+          condition.equals >= (choiceSizes.get(condition.key) ?? 0)
+        )
+          report(`choice 条件 ${condition.key} の equals ${condition.equals} は choices の範囲外です`);
         break;
       case 'score':
         requireLocal(condition.key, 'score', locals);
@@ -97,12 +103,20 @@ export function validateScriptedAreaEvent(
           break;
         case 'choice':
           defineLocal(command.key, 'choice', locals);
+          choiceSizes.set(command.key, command.choices.length);
           break;
         case 'question':
           defineLocal(command.key, 'score', locals);
           break;
         case 'reward':
           requireLocal(command.scoreKey, 'score', locals);
+          {
+            const minimums = new Set<number>();
+            for (const row of command.table) {
+              if (minimums.has(row.min)) report(`reward の min ${row.min} が重複しています`);
+              minimums.add(row.min);
+            }
+          }
           for (const row of command.table) validateReward(row.reward, references, report);
           break;
         case 'battle':

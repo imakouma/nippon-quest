@@ -130,6 +130,42 @@ describe('scripted area event validation', () => {
     );
   });
 
+  it('choice の範囲外条件と reward の最低点重複を拒否する', () => {
+    const event = scripted([
+      {
+        type: 'choice',
+        key: 'route',
+        lines: [{ text: 'どちら？' }],
+        choices: ['ひだり', 'みぎ'],
+      },
+      {
+        type: 'branch',
+        condition: { type: 'choice', key: 'route', equals: 2 },
+        then: [],
+      },
+      {
+        type: 'question',
+        key: 'score',
+        request: { subject: 'sansu', gradeRange: [1, 2] },
+      },
+      {
+        type: 'reward',
+        scoreKey: 'score',
+        table: [
+          { min: 0, reward: { xp: 1 } },
+          { min: 0, reward: { xp: 2 } },
+        ],
+      },
+    ]);
+
+    expect(validateScriptedAreaEvent(event, references)).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining('choice 条件 route の equals 2 は choices の範囲外です'),
+        expect.stringContaining('reward の min 0 が重複しています'),
+      ]),
+    );
+  });
+
   it('静的な総ステップ数と分岐深さの上限を検証する', () => {
     const tooMany = scripted(
       Array.from({ length: 129 }, () => ({

@@ -71,6 +71,9 @@ export default defineConfig({
         // Phaser は大きく更新頻度が低い。ゲーム本体と分離して、更新時にブラウザキャッシュを再利用する。
         manualChunks(id) {
           if (id.includes('/node_modules/.pnpm/phaser@')) return 'phaser';
+          // 教材 JSON は共有チャンクを肥大化させるため、教科ごとに分割して安定したデータを再利用する。
+          const curriculum = id.match(/\/content\/curriculum\/([^/]+)\.json$/)?.[1];
+          if (curriculum) return `curriculum-${curriculum.split('-')[0]}`;
           // 手描きドット絵は TypeScript の宣言データが大きい。機能コードと分離し、
           // 県の絵を直しただけでゲーム進行コードのキャッシュを無効にしない。
           const monster = id.match(/\/src\/rendering\/monsters\/([^/]+)\.ts$/)?.[1];
