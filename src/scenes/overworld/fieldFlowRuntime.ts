@@ -1,3 +1,5 @@
+import { createEffectScope, type EffectScope } from '../../core/lifecycle/effectScope';
+
 export interface FieldFlowHooks {
   lockInput(reason: string): void;
   releaseInput(reason: string): void;
@@ -7,6 +9,7 @@ export interface FieldFlowHooks {
 
 export interface FieldFlowContext {
   readonly signal: AbortSignal;
+  readonly scope: EffectScope;
   throwIfCancelled(): void;
 }
 
@@ -19,18 +22,18 @@ export interface FieldFlowRuntime {
 
 interface ActiveFlow {
   readonly reason: string;
-  readonly controller: AbortController;
+  readonly scope: EffectScope;
   finished: boolean;
 }
 
-export function createFieldFlowRuntime(hooks: FieldFlowHooks): FieldFlowRuntime {
+export function createFieldFlowRuntime(hooks: FieldFlowHooks, parentScope?: EffectScope): FieldFlowRuntime {
   let active: ActiveFlow | null = null;
 
   const finish = (flow: ActiveFlow): void => {
     if (flow.finished) return;
     flow.finished = true;
     try {
-      hooks.cleanupTransientUi();
+      flow.scope.dispose('flow-finished');
     } finally {
       try {
         hooks.releaseInput(flow.reason);
@@ -49,26 +52,34 @@ export function createFieldFlowRuntime(hooks: FieldFlowHooks): FieldFlowRuntime 
     },
     async run<T>(reason: string, action: (context: FieldFlowContext) => Promise<T>): Promise<T | undefined> {
       if (active) return undefined;
-      const flow: ActiveFlow = { reason, controller: new AbortController(), finished: false };
+      const scope = createEffectScope({
+        signal: parentScope?.signal,
+        onCleanupError: (error) => hooks.reportError(error, reason),
+      });
+      if (scope.disposed) return undefined;
+      scope.register(hooks.cleanupTransientUi);
+      const flow: ActiveFlow = { reason, scope, finished: false };
       active = flow;
       try {
         hooks.lockInput(reason);
         const context: FieldFlowContext = {
-          signal: flow.controller.signal,
-          throwIfCancelled: () => flow.controller.signal.throwIfAborted(),
+          signal: scope.signal,
+          scope,
+          throwIfCancelled: () => scope.signal.throwIfAborted(),
         };
         let rejectCancelled!: () => void;
         const cancelled = new Promise<never>((_resolve, reject) => {
-          rejectCancelled = () => reject(flow.controller.signal.reason);
-          flow.controller.signal.addEventListener('abort', rejectCancelled, { once: true });
+          rejectCancelled = () => reject(scope.signal.reason);
+          if (scope.signal.aborted) rejectCancelled();
+          else scope.signal.addEventListener('abort', rejectCancelled, { once: true });
         });
         try {
           return await Promise.race([action(context), cancelled]);
         } finally {
-          flow.controller.signal.removeEventListener('abort', rejectCancelled);
+          scope.signal.removeEventListener('abort', rejectCancelled);
         }
       } catch (error) {
-        if (!flow.controller.signal.aborted) hooks.reportError(error, reason);
+        if (!scope.signal.aborted) hooks.reportError(error, reason);
         return undefined;
       } finally {
         finish(flow);
@@ -77,7 +88,7 @@ export function createFieldFlowRuntime(hooks: FieldFlowHooks): FieldFlowRuntime 
     cancel(reason?: unknown) {
       if (!active) return;
       const flow = active;
-      flow.controller.abort(reason);
+      flow.scope.dispose(reason);
       finish(flow);
     },
   };

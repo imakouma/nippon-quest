@@ -3386,10 +3386,10 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private switchMap(request: MapTransitionRequest): void {
-    void this.fieldFlow.run('map-transition', ({ signal }) =>
+    void this.fieldFlow.run('map-transition', ({ signal, scope }) =>
       runMapTransition(
         request,
-        createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+        createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi(), scope),
         signal,
       ),
     );

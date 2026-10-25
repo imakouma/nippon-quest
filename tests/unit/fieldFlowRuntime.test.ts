@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { createEffectScope, type EffectScope } from '../../src/core/lifecycle/effectScope';
 import { createFieldFlowRuntime, type FieldFlowHooks } from '../../src/scenes/overworld/fieldFlowRuntime';
 
 function hooks() {
@@ -24,9 +25,12 @@ describe('field flow runtime', () => {
   it('locks once, returns the action value, and always releases to idle', async () => {
     const effects = hooks();
     const runtime = createFieldFlowRuntime(effects);
+    let flowScope: EffectScope | undefined;
 
     const result = await runtime.run('landmark', async (context) => {
+      flowScope = context.scope;
       expect(context.signal.aborted).toBe(false);
+      expect(context.scope.signal).toBe(context.signal);
       context.throwIfCancelled();
       expect(runtime.activeReason).toBe('landmark');
       expect(runtime.isRunning).toBe(true);
@@ -40,6 +44,7 @@ describe('field flow runtime', () => {
     expect(effects.releaseInput).toHaveBeenCalledOnce();
     expect(effects.releaseInput).toHaveBeenCalledWith('landmark');
     expect(effects.reportError).not.toHaveBeenCalled();
+    expect(flowScope?.disposed).toBe(true);
     expect(runtime.activeReason).toBeNull();
     expect(runtime.isRunning).toBe(false);
   });
@@ -112,6 +117,57 @@ describe('field flow runtime', () => {
       new Promise<'timeout'>((resolve) => setTimeout(() => resolve('timeout'), 20)),
     ]);
     expect(outcome).toBe('settled');
+  });
+
+  it('settles and cleans up when the parent scene scope is disposed', async () => {
+    const effects = hooks();
+    const sceneScope = createEffectScope();
+    const runtime = createFieldFlowRuntime(effects, sceneScope);
+    let flowSignal: AbortSignal | undefined;
+    const running = runtime.run('event', async ({ signal }) => {
+      flowSignal = signal;
+      return new Promise<never>(() => undefined);
+    });
+
+    sceneScope.dispose('scene-shutdown');
+    await running;
+
+    expect(flowSignal?.aborted).toBe(true);
+    expect(flowSignal?.reason).toBe('scene-shutdown');
+    expect(effects.cleanupTransientUi).toHaveBeenCalledOnce();
+    expect(effects.releaseInput).toHaveBeenCalledOnce();
+    expect(effects.reportError).not.toHaveBeenCalled();
+    expect(runtime.isRunning).toBe(false);
+  });
+
+  it('reports resource cleanup failures and still releases input', async () => {
+    const effects = hooks();
+    const runtime = createFieldFlowRuntime(effects);
+    const error = new Error('timer cleanup failed');
+
+    await runtime.run('event', async ({ scope }) => {
+      scope.register(() => {
+        throw error;
+      });
+    });
+
+    expect(effects.reportError).toHaveBeenCalledWith(error, 'event');
+    expect(effects.cleanupTransientUi).toHaveBeenCalledOnce();
+    expect(effects.releaseInput).toHaveBeenCalledOnce();
+    expect(runtime.isRunning).toBe(false);
+  });
+
+  it('neutralizes a guarded completion callback after the flow finishes', async () => {
+    const runtime = createFieldFlowRuntime(hooks());
+    const completed = vi.fn();
+    let lateCompletion: (() => void) | undefined;
+
+    await runtime.run('event', async ({ scope }) => {
+      lateCompletion = scope.guard(completed);
+    });
+    lateCompletion?.();
+
+    expect(completed).not.toHaveBeenCalled();
   });
 
   it('does not clean up twice when cancellation races action completion', async () => {
