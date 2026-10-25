@@ -17,7 +17,7 @@ export type EncounterResultPolicy =
   | { type: 'complete-arena'; won: boolean };
 
 export interface EncounterResultHandlers {
-  respawn(): Promise<void> | void;
+  respawn(flow: EncounterFlowContext): Promise<void> | void;
   completeArena(opponentId: string, won: boolean): Promise<void> | void;
   completeMidBoss(): Promise<void> | void;
   completeAreaBoss(): Promise<void> | void;
@@ -33,6 +33,8 @@ export function encounterResultPolicy(
   switch (source.type) {
     case 'arena':
       return { type: 'complete-arena', won: result.outcome === 'victory' };
+    case 'script':
+      return { type: 'continue' };
     case 'random':
       return result.outcome === 'defeat' ? { type: 'respawn' } : { type: 'continue' };
     case 'mid-boss':
@@ -49,9 +51,10 @@ export async function applyEncounterResultPolicy(
   context: EncounterContext,
   policy: EncounterResultPolicy,
   handlers: EncounterResultHandlers,
+  flow: EncounterFlowContext,
 ): Promise<void> {
   if (policy.type === 'continue') return;
-  if (policy.type === 'respawn') return handlers.respawn();
+  if (policy.type === 'respawn') return handlers.respawn(flow);
   if (policy.type === 'complete-arena') {
     if (context.source.type === 'arena') await handlers.completeArena(context.source.opponentId, policy.won);
     return;
@@ -69,6 +72,7 @@ export async function applyEncounterResultPolicy(
       return handlers.completeIslandBoss(context.source.islandId);
     case 'random':
     case 'arena':
+    case 'script':
       return;
   }
 }
@@ -85,12 +89,14 @@ export interface EncounterLifecyclePorts {
     context: EncounterContext,
     result: EncounterResult,
     policy: EncounterResultPolicy,
+    flow: EncounterFlowContext,
   ): Promise<void> | void;
 }
 
 export interface EncounterLifecycle {
   readonly active: EncounterContext | null;
   start(context: EncounterContext): Promise<boolean>;
+  startInFlow(context: EncounterContext, flow: EncounterFlowContext): Promise<EncounterResult | null>;
   finish(encounterId: string, result: EncounterResult): Promise<void>;
   cancel(): void;
 }
@@ -146,9 +152,8 @@ class DefaultEncounterLifecycle implements EncounterLifecycle {
     return this.current?.context ?? null;
   }
 
-  async start(context: EncounterContext): Promise<boolean> {
-    if (this.current) return false;
-
+  private activate(context: EncounterContext): ActiveEncounter | null {
+    if (this.current) return null;
     const result = deferred<EncounterResult>();
     const completed = deferred<void>();
     const active: ActiveEncounter = {
@@ -163,46 +168,73 @@ class DefaultEncounterLifecycle implements EncounterLifecycle {
       restore: null,
     };
     this.current = active;
+    return active;
+  }
+
+  private async runActive(active: ActiveEncounter, flow: EncounterFlowContext): Promise<EncounterResult> {
+    const { context } = active;
+    active.enteredFlow = true;
+    const restoreOnce = () =>
+      (active.restore ??= Promise.resolve()
+        .then(() => this.ports.restoreField(context))
+        .then(() => undefined));
+
+    try {
+      flow.throwIfCancelled();
+      active.restoreRequired = true;
+      await this.ports.prepareField(context);
+      flow.throwIfCancelled();
+      await this.ports.launchBattle(context);
+      const battleResult = await waitForResult(active, flow.signal);
+      flow.throwIfCancelled();
+      await restoreOnce();
+      await this.ports.applyResult(
+        context,
+        battleResult,
+        encounterResultPolicy(context.source, battleResult),
+        flow,
+      );
+      return battleResult;
+    } finally {
+      if (active.restoreRequired) await restoreOnce();
+    }
+  }
+
+  private async complete(active: ActiveEncounter): Promise<void> {
+    if (active.restoreRequired) {
+      active.restore ??= Promise.resolve()
+        .then(() => this.ports.restoreField(active.context))
+        .then(() => undefined);
+      await active.restore;
+    }
+    if (this.current === active) this.current = null;
+    active.acceptingResult = false;
+    active.resolveCompleted();
+  }
+
+  async start(context: EncounterContext): Promise<boolean> {
+    const active = this.activate(context);
+    if (!active) return false;
     let started = false;
 
     try {
       await this.ports.flow.run(`encounter-${context.source.type}`, async (flow) => {
         started = true;
-        active.enteredFlow = true;
-        const restoreOnce = () =>
-          (active.restore ??= Promise.resolve()
-            .then(() => this.ports.restoreField(context))
-            .then(() => undefined));
-
-        try {
-          flow.throwIfCancelled();
-          active.restoreRequired = true;
-          await this.ports.prepareField(context);
-          flow.throwIfCancelled();
-          await this.ports.launchBattle(context);
-          const battleResult = await waitForResult(active, flow.signal);
-          flow.throwIfCancelled();
-          await restoreOnce();
-          await this.ports.applyResult(
-            context,
-            battleResult,
-            encounterResultPolicy(context.source, battleResult),
-          );
-        } finally {
-          if (active.restoreRequired) await restoreOnce();
-        }
+        await this.runActive(active, flow);
       });
       return started;
     } finally {
-      if (active.restoreRequired) {
-        active.restore ??= Promise.resolve()
-          .then(() => this.ports.restoreField(context))
-          .then(() => undefined);
-        await active.restore;
-      }
-      if (this.current === active) this.current = null;
-      active.acceptingResult = false;
-      active.resolveCompleted();
+      await this.complete(active);
+    }
+  }
+
+  async startInFlow(context: EncounterContext, flow: EncounterFlowContext): Promise<EncounterResult | null> {
+    const active = this.activate(context);
+    if (!active) return null;
+    try {
+      return await this.runActive(active, flow);
+    } finally {
+      await this.complete(active);
     }
   }
 

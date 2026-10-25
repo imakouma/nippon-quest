@@ -112,6 +112,12 @@ describe('encounter result policy', () => {
     expect(encounterResultPolicy(arena, result('defeat'))).toEqual({ type: 'complete-arena', won: false });
   });
 
+  it('script 戦闘は結果を呼び出し元へ返し、通常の復帰・進行 policy を追加しない', () => {
+    const scripted: EncounterSource = { type: 'script' };
+    expect(encounterResultPolicy(scripted, result('victory'))).toEqual({ type: 'continue' });
+    expect(encounterResultPolicy(scripted, result('defeat'))).toEqual({ type: 'continue' });
+  });
+
   it.each(sources)('$type の逃走・仲間化は追加の進行や敗北ワープを行わない', (source) => {
     const expected = source.type === 'arena' ? { type: 'complete-arena', won: false } : { type: 'continue' };
     expect(encounterResultPolicy(source, result('fled'))).toEqual(expected);
@@ -119,6 +125,11 @@ describe('encounter result policy', () => {
   });
 
   it('typed source の完了処理を対応する callback だけへ委譲する', async () => {
+    const controller = new AbortController();
+    const flow: EncounterFlowContext = {
+      signal: controller.signal,
+      throwIfCancelled: () => controller.signal.throwIfAborted(),
+    };
     const handlers: EncounterResultHandlers = {
       respawn: vi.fn(),
       completeArena: vi.fn(),
@@ -129,19 +140,26 @@ describe('encounter result policy', () => {
       completeIslandBoss: vi.fn(),
     };
 
-    await applyEncounterResultPolicy(context('random'), { type: 'continue' }, handlers);
-    await applyEncounterResultPolicy(context('defeat'), { type: 'respawn' }, handlers);
+    await applyEncounterResultPolicy(context('random'), { type: 'continue' }, handlers, flow);
+    await applyEncounterResultPolicy(context('defeat'), { type: 'respawn' }, handlers, flow);
     await applyEncounterResultPolicy(
       context('arena', { type: 'arena', opponentId: 'rival-1' }),
       { type: 'complete-arena', won: true },
       handlers,
+      flow,
     );
     for (const source of sources.filter(
       (candidate) => candidate.type !== 'random' && candidate.type !== 'arena',
     ))
-      await applyEncounterResultPolicy(context(source.type, source), { type: 'complete-source' }, handlers);
+      await applyEncounterResultPolicy(
+        context(source.type, source),
+        { type: 'complete-source' },
+        handlers,
+        flow,
+      );
 
     expect(handlers.respawn).toHaveBeenCalledTimes(1);
+    expect(handlers.respawn).toHaveBeenCalledWith(flow);
     expect(handlers.completeArena).toHaveBeenCalledWith('rival-1', true);
     expect(handlers.completeMidBoss).toHaveBeenCalledTimes(1);
     expect(handlers.completeAreaBoss).toHaveBeenCalledTimes(1);
@@ -152,6 +170,28 @@ describe('encounter result policy', () => {
 });
 
 describe('encounter lifecycle', () => {
+  it('取得済み field flow 内では再取得せず、同じ lifecycle から戦闘結果を返す', async () => {
+    const { lifecycle, flow, calls } = lifecycleHarness();
+    const controller = new AbortController();
+    const running = lifecycle.startInFlow(context('script-1', { type: 'script' }), {
+      signal: controller.signal,
+      throwIfCancelled: () => controller.signal.throwIfAborted(),
+    });
+
+    await vi.waitFor(() => expect(lifecycle.active?.id).toBe('script-1'));
+    const finished = lifecycle.finish('script-1', result('victory'));
+    await expect(running).resolves.toEqual(result('victory'));
+    await finished;
+
+    expect(flow.releases).toBe(0);
+    expect(calls).toEqual([
+      'prepare:script-1',
+      'launch:script-1',
+      'restore:script-1',
+      'apply:script-1:continue',
+    ]);
+  });
+
   it('同時に二つのencounterを開始しない', async () => {
     const { lifecycle } = lifecycleHarness();
     const first = lifecycle.start(context('enc-1'));

@@ -3,7 +3,9 @@ import Phaser from 'phaser';
 import { isLocalDevelopmentUrl } from '../core/localDevelopment';
 import { h, render, type ComponentChild } from 'preact';
 import type { ContentIndex } from '../core/content/loader';
-import type { Area, Item, LegacyAreaEvent, Monster, Motif, Region } from '../core/content/schemas';
+import type { Area, AreaEvent, Item, Monster, Motif, Region } from '../core/content/schemas';
+import { legacyAreaEventCommands } from '../core/events/legacyAreaEvent';
+import { executeEventCommands } from '../core/events/runtime';
 import { makeMonster } from '../core/battle/factory';
 import {
   encounterLevel,
@@ -59,7 +61,6 @@ import { recordMusubiDamaPurchase } from '../core/progression/musubiDamaOnboardi
 import {
   markDone,
   applyReward,
-  pickReward,
   rewardAreaBoss,
   rewardMarkedBoss,
 } from '../core/progression/eventReward';
@@ -154,6 +155,7 @@ import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
+import { askEventQuestion, createEventRuntimePorts } from './overworld/eventRuntimePorts';
 import { runMapTransition, type MapTransitionRequest } from './overworld/mapTransitionPipeline';
 import { createPhaserMapTransitionPorts } from './overworld/phaserMapTransitionPorts';
 import { mapTransitionRequestFromSceneData, resolveOverworldMapEntry } from './overworld/mapSceneEntry';
@@ -165,7 +167,7 @@ import {
   type EncounterResultHandlers,
   type EncounterSource,
 } from './overworld/encounterLifecycle';
-import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
+import { buildAskEnv } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
 import { musubiDamaPurchaseLines } from './overworld/storyScenes';
 import { hasStoryCompanion, storyCompanionId } from '../core/progression/storyCompanion';
@@ -324,18 +326,21 @@ export class OverworldScene extends Phaser.Scene {
   private encounters!: EncounterLifecycle;
   private encounterSequence = 0;
   private readonly encounterResults: EncounterResultHandlers = {
-    respawn: () => {
+    respawn: async ({ signal }) => {
       const inn = this.gs()?.progress.lastInn;
-      if (inn)
-        this.switchMap({
-          targetMap: inn.map,
-          spawnName: 'spawn',
-          tile: [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)],
-          exactSpawn: true,
-          reason: 'defeat',
-        });
-      else this.switchMap({ targetMap: this.mapKey, spawnName: 'spawn', reason: 'defeat' });
-      return new Promise<void>(() => undefined);
+      await runMapTransition(
+        inn
+          ? {
+              targetMap: inn.map,
+              spawnName: 'spawn',
+              tile: [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)],
+              exactSpawn: true,
+              reason: 'defeat',
+            }
+          : { targetMap: this.mapKey, spawnName: 'spawn', reason: 'defeat' },
+        createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+        signal,
+      );
     },
     completeArena: (opponentId, won) => this.arenaAfter(opponentId, won),
     completeMidBoss: () => this.midBossDefeated(),
@@ -425,8 +430,8 @@ export class OverworldScene extends Phaser.Scene {
       prepareField: (context) => this.prepareEncounter(context),
       launchBattle: (context) => this.launchEncounter(context),
       restoreField: () => this.restoreEncounter(),
-      applyResult: (context, _result, policy) =>
-        applyEncounterResultPolicy(context, policy, this.encounterResults),
+      applyResult: (context, _result, policy, flow) =>
+        applyEncounterResultPolicy(context, policy, this.encounterResults, flow),
     });
     for (const r of ['hud', 'title', 'fx', 'dialogue', 'travel'] as const) this.root(r);
 
@@ -1405,7 +1410,6 @@ export class OverworldScene extends Phaser.Scene {
   private addEvent(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const ev = area?.events.find((e) => e.trigger.map === this.mapKey && e.trigger.objectName === obj.name);
     if (!area || !ev) return;
-    if ('steps' in ev) return;
     const motif = area.motifs.find((m) => m.id === ev.motifId);
     const challenged = () => this.gs()?.progress.eventsDone.includes(ev.id) ?? false;
     const done = () => ev.once && challenged();
@@ -1499,7 +1503,6 @@ export class OverworldScene extends Phaser.Scene {
 
   // ───────────────────────── 名所イベント ─────────────────────────
 
-  /** 名所に着いた：はじめてなら、カットインを出して見つけたことにする。スタンプの一言を返す（見つけ済みなら空） */
   private async arriveAt(area: Area, motif: Motif | undefined, sign: Sign): Promise<DialogueLine[]> {
     if (sign.found()) return [];
     playSfx('discover');
@@ -1507,7 +1510,6 @@ export class OverworldScene extends Phaser.Scene {
     return this.discover(sign) ? [{ text: t('field.stampGet', this.stampCount()) }] : [];
   }
 
-  /** 名所スタンプ：（はじめてなら カットイン → ★ が黄色に）→ 名所の説明 → スタンプ */
   private async visitLandmark(area: Area, motif: Motif, sign: Sign): Promise<void> {
     await this.fieldFlow.run('landmark', async ({ throwIfCancelled }) => {
       this.standStill();
@@ -1522,97 +1524,81 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  /** イベント：（はじめてなら カットイン → ★ が黄色に → スタンプ）→ 会話 → ちょうせんする？ → 問題 → ごほうび → お礼 */
-  private async runEvent(
-    area: Area,
-    ev: LegacyAreaEvent,
-    motif: Motif | undefined,
-    sign: Sign,
-  ): Promise<void> {
-    await this.fieldFlow.run('area-event', async ({ throwIfCancelled }) => {
+  private async runEvent(area: Area, ev: AreaEvent, motif: Motif | undefined, sign: Sign): Promise<void> {
+    await this.fieldFlow.run('area-event', async (flow) => {
       this.standStill();
       const stampLine = await this.arriveAt(area, motif, sign);
-      throwIfCancelled();
+      flow.throwIfCancelled();
       if (ev.once && this.gs()?.progress.eventsDone.includes(ev.id)) {
         await this.talk([
           { speaker: t('field.landmarkSpeaker'), text: motif?.blurb ?? '' },
           ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
         ]);
-        throwIfCancelled();
+        flow.throwIfCancelled();
         await this.checkMeisan();
         return;
       }
-      const host = ev.dialogue[ev.dialogue.length - 1]?.speaker;
-      const go = await this.choose(
-        [...stampLine, ...ev.dialogue, { speaker: host, text: t('field.eventAsk') }],
-        [t('ui.yes'), t('ui.no')],
-      );
-      throwIfCancelled();
-      if (go !== 0) {
-        await this.talk([{ speaker: host, text: t('field.eventLater') }]);
-        throwIfCancelled();
-        await this.checkMeisan();
-        return;
-      }
-      const score = await this.quiz(ev, motif);
-      throwIfCancelled();
       const gs = this.gs();
       if (!gs) return;
-      const applied = applyReward(gs, pickReward(ev.rewardByScore, score));
-      // once でないイベントも「チャレンジした」ことは残す（★ を金色にする。何度でも遊べるのは同じ）
-      this.setGame(markDone(applied.state, { eventId: ev.id, stamp: sign.stamp }));
-      sign.refresh();
-      playSfx('recruit');
-      const out: DialogueLine[] = fieldRewardDialogue(applied.lines, this.content());
-      out.push(...(ev.afterDialogue ?? []));
-      this.renderHud();
-      await this.talk(out);
-      throwIfCancelled();
+      const commands =
+        'steps' in ev
+          ? ev.steps
+          : legacyAreaEventCommands(ev, {
+              ask: t('field.eventAsk'),
+              choices: [t('ui.yes'), t('ui.no')],
+              later: t('field.eventLater'),
+            });
+      const ports = createEventRuntimePorts({
+        flow,
+        encounter: this.encounters,
+        transitions: createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+        eventId: ev.id,
+        stamp: sign.stamp,
+        getGame: () => this.gs(),
+        setGame: (next) => this.setGame(next),
+        dialogue: (lines) => this.talk([...lines]),
+        choose: (lines, choices) => this.choose([...lines], [...choices]),
+        question: (request) =>
+          askEventQuestion({
+            request,
+            title: motif?.name ?? '',
+            hint: t('field.questionHint'),
+            root: this.root('fx'),
+            game: this.gs(),
+            content: this.content(),
+            bank: this.registry.get('bank') as QuestionBank | undefined,
+            rng: this.rng,
+            speak: this.speak,
+            noQuestion: () => this.talk([{ text: t('field.noQuestion') }]),
+          }),
+        showReward: async (lines) => {
+          playSfx('recruit');
+          this.renderHud();
+          await this.talk(fieldRewardDialogue(lines, this.content()));
+        },
+        onFlagSet: (flag) => {
+          if (flag === ev.id) sign.refresh();
+          this.renderHud();
+        },
+        nextEncounterId: () => `${this.mapKey}:event:${++this.encounterSequence}`,
+        battleData: (command) => ({
+          enemyId: command.enemyId,
+          level: command.level ?? encounterLevel(this.heroLevel(), this.rng),
+          zone: zoneForMap(this.mapKey) ?? 'field',
+          ...(this.groundHere() ? { ground: this.groundHere()! } : {}),
+          ...(command.isBoss !== undefined ? { isBoss: command.isBoss } : {}),
+        }),
+      });
+      await executeEventCommands(
+        stampLine.length ? [{ type: 'dialogue', lines: stampLine }, ...commands] : commands,
+        ports,
+        { signal: flow.signal, flags: new Set(gs.progress.eventsDone) },
+      );
+      flow.throwIfCancelled();
       await this.checkMeisan();
     });
   }
 
-  /** 名所の問題。出せる問題が無いときは 0 点あつかい（ごほうびは必ずもらえる：GDD §7） */
-  private async quiz(ev: LegacyAreaEvent, motif: Motif | undefined): Promise<number> {
-    const content = this.content();
-    const bank = this.registry.get('bank') as QuestionBank | undefined;
-    const gs = this.gs();
-    if (!content || !bank || !gs) return 0;
-    const host = document.createElement('div');
-    host.className = 'nq-bq-slot';
-    const root = this.root('fx');
-    render(
-      h(QuestionFrame, {
-        host,
-        title: motif?.name ?? '',
-        subject: ev.question.subject,
-        hint: t('field.questionHint'),
-      }),
-      root,
-    );
-    const env = buildAskEnv({
-      host,
-      gs,
-      content,
-      bank,
-      mastery: new MasteryStore(gs.learning.mastery),
-      rng: this.rng,
-      speak: this.speak,
-      reason: 'event',
-      getGame: () => this.gs() ?? gs,
-    });
-    let score: number | null = null;
-    try {
-      score = await askFirst(env, relaxedQueries(ev.question));
-    } finally {
-      render(null, root);
-    }
-    if (score === null) {
-      await this.talk([{ text: t('field.noQuestion') }]);
-      return 0;
-    }
-    return score;
-  }
   /** image を わたすと その絵（特産品は どうぐの アイコン）。無ければ 名所の絵 assets/motifs/<県>/<id>.png */
   private cutin(
     areaId: string,

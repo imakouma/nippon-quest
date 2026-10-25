@@ -11,7 +11,8 @@ export type EncounterSource =
   | { type: 'last-boss' }
   | { type: 'region-boss'; regionId: string }
   | { type: 'island-boss'; islandId: string }
-  | { type: 'arena'; opponentId: string };
+  | { type: 'arena'; opponentId: string }
+  | { type: 'script' };
 
 export interface BattleSceneData {
   enemyId: string;
