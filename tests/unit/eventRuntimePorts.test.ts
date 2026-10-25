@@ -7,7 +7,7 @@ import type { FieldFlowContext } from '../../src/scenes/overworld/fieldFlowRunti
 import type { MapTransitionPorts } from '../../src/scenes/overworld/mapTransitionPipeline';
 
 function harness() {
-  let game: GameState = createNewGame({ name: 'ハル', starterMonsterId: 'aomori-nebutan', grade: 1 }, 0);
+  let game: GameState = createNewGame({ name: 'ハル', grade: 1 }, 0);
   const controller = new AbortController();
   const flow: FieldFlowContext = {
     signal: controller.signal,

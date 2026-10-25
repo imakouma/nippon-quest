@@ -4,8 +4,6 @@ import { isLocalDevelopmentUrl } from '../core/localDevelopment';
 import { h, render, type ComponentChild } from 'preact';
 import type { ContentIndex } from '../core/content/loader';
 import type { Area, AreaEvent, Item, Monster, Motif, Region } from '../core/content/schemas';
-import { legacyAreaEventCommands } from '../core/events/legacyAreaEvent';
-import { executeEventCommands } from '../core/events/runtime';
 import { makeMonster } from '../core/battle/factory';
 import {
   encounterLevel,
@@ -58,12 +56,7 @@ import {
   villagerGift,
 } from '../core/progression/town';
 import { recordMusubiDamaPurchase } from '../core/progression/musubiDamaOnboarding';
-import {
-  markDone,
-  applyReward,
-  rewardAreaBoss,
-  rewardMarkedBoss,
-} from '../core/progression/eventReward';
+import { markDone, applyReward, rewardAreaBoss, rewardMarkedBoss } from '../core/progression/eventReward';
 import {
   allRegionBossesDefeated,
   areaBossFlag,
@@ -155,7 +148,7 @@ import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
-import { askEventQuestion, createEventRuntimePorts } from './overworld/eventRuntimePorts';
+import { askEventQuestion, runAreaEventFlow } from './overworld/eventRuntimePorts';
 import { runMapTransition, type MapTransitionRequest } from './overworld/mapTransitionPipeline';
 import { createPhaserMapTransitionPorts } from './overworld/phaserMapTransitionPorts';
 import { mapTransitionRequestFromSceneData, resolveOverworldMapEntry } from './overworld/mapSceneEntry';
@@ -164,9 +157,9 @@ import {
   createEncounterLifecycle,
   type EncounterContext,
   type EncounterLifecycle,
-  type EncounterResultHandlers,
   type EncounterSource,
 } from './overworld/encounterLifecycle';
+import { createEncounterResultHandlers } from './overworld/encounterResultHandlers';
 import { buildAskEnv } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
 import { musubiDamaPurchaseLines } from './overworld/storyScenes';
@@ -325,33 +318,28 @@ export class OverworldScene extends Phaser.Scene {
   private fieldFlow!: FieldFlowRuntime;
   private encounters!: EncounterLifecycle;
   private encounterSequence = 0;
-  private readonly encounterResults: EncounterResultHandlers = {
-    respawn: async ({ signal }) => {
-      const inn = this.gs()?.progress.lastInn;
-      await runMapTransition(
-        inn
-          ? {
-              targetMap: inn.map,
-              spawnName: 'spawn',
-              tile: [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)],
-              exactSpawn: true,
-              reason: 'defeat',
-            }
-          : { targetMap: this.mapKey, spawnName: 'spawn', reason: 'defeat' },
-        createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
-        signal,
-      );
+  private readonly encounterResults = createEncounterResultHandlers(
+    {
+      lastInn: () => this.gs()?.progress.lastInn,
+      currentMap: () => this.mapKey,
+      transition: (request, { signal }) =>
+        runMapTransition(
+          request,
+          createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+          signal,
+        ),
+      completeArena: (opponentId, won) => this.arenaAfter(opponentId, won),
+      completeMidBoss: () => this.midBossDefeated(),
+      completeAreaBoss: () => this.areaBossDefeated(),
+      completeLastBoss: () => this.lastBossDefeated(),
+      completeRegionBoss: async (regionId) => {
+        const boss = [...this.regionBosses.values()].find((candidate) => candidate.regionId === regionId);
+        if (boss) await this.regionBossDefeated(boss);
+      },
+      completeIslandBoss: (islandId) => this.islandBossDefeated(islandId),
     },
-    completeArena: (opponentId, won) => this.arenaAfter(opponentId, won),
-    completeMidBoss: () => this.midBossDefeated(),
-    completeAreaBoss: () => this.areaBossDefeated(),
-    completeLastBoss: () => this.lastBossDefeated(),
-    completeRegionBoss: async (regionId) => {
-      const boss = [...this.regionBosses.values()].find((candidate) => candidate.regionId === regionId);
-      if (boss) await this.regionBossDefeated(boss);
-    },
-    completeIslandBoss: (islandId) => this.islandBossDefeated(islandId),
-  };
+    TILE,
+  );
   // ↓ マップが変わるたびに resetMapState() で作り直す
   private moving = false;
   private busy = false;
@@ -1525,80 +1513,60 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private async runEvent(area: Area, ev: AreaEvent, motif: Motif | undefined, sign: Sign): Promise<void> {
-    await this.fieldFlow.run('area-event', async (flow) => {
-      this.standStill();
-      const stampLine = await this.arriveAt(area, motif, sign);
-      flow.throwIfCancelled();
-      if (ev.once && this.gs()?.progress.eventsDone.includes(ev.id)) {
-        await this.talk([
-          { speaker: t('field.landmarkSpeaker'), text: motif?.blurb ?? '' },
-          ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
-        ]);
-        flow.throwIfCancelled();
-        await this.checkMeisan();
-        return;
-      }
-      const gs = this.gs();
-      if (!gs) return;
-      const commands =
-        'steps' in ev
-          ? ev.steps
-          : legacyAreaEventCommands(ev, {
-              ask: t('field.eventAsk'),
-              choices: [t('ui.yes'), t('ui.no')],
-              later: t('field.eventLater'),
-            });
-      const ports = createEventRuntimePorts({
-        flow,
-        encounter: this.encounters,
-        transitions: createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
-        eventId: ev.id,
-        stamp: sign.stamp,
-        getGame: () => this.gs(),
-        setGame: (next) => this.setGame(next),
-        dialogue: (lines) => this.talk([...lines]),
-        choose: (lines, choices) => this.choose([...lines], [...choices]),
-        question: (request) =>
-          askEventQuestion({
-            request,
-            title: motif?.name ?? '',
-            hint: t('field.questionHint'),
-            root: this.root('fx'),
-            game: this.gs(),
-            content: this.content(),
-            bank: this.registry.get('bank') as QuestionBank | undefined,
-            rng: this.rng,
-            speak: this.speak,
-            noQuestion: () => this.talk([{ text: t('field.noQuestion') }]),
-          }),
-        showReward: async (lines) => {
-          playSfx('recruit');
-          this.renderHud();
-          await this.talk(fieldRewardDialogue(lines, this.content()));
-        },
-        onFlagSet: (flag) => {
-          if (flag === ev.id) sign.refresh();
-          this.renderHud();
-        },
-        nextEncounterId: () => `${this.mapKey}:event:${++this.encounterSequence}`,
-        battleData: (command) => ({
-          enemyId: command.enemyId,
-          level: command.level ?? encounterLevel(this.heroLevel(), this.rng),
-          zone: zoneForMap(this.mapKey) ?? 'field',
-          ...(this.groundHere() ? { ground: this.groundHere()! } : {}),
-          ...(command.isBoss !== undefined ? { isBoss: command.isBoss } : {}),
+    await runAreaEventFlow({
+      event: ev,
+      flowRuntime: this.fieldFlow,
+      motifBlurb: motif?.blurb ?? '',
+      standStill: () => this.standStill(),
+      arrive: () => this.arriveAt(area, motif, sign),
+      checkSpecialty: () => this.checkMeisan(),
+      landmarkSpeaker: t('field.landmarkSpeaker'),
+      stampOwned: t('field.stampHave'),
+      legacyPrompt: {
+        ask: t('field.eventAsk'),
+        choices: [t('ui.yes'), t('ui.no')],
+        later: t('field.eventLater'),
+      },
+      encounter: this.encounters,
+      transitions: createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+      eventId: ev.id,
+      stamp: sign.stamp,
+      getGame: () => this.gs(),
+      setGame: (next) => this.setGame(next),
+      dialogue: (lines) => this.talk([...lines]),
+      choose: (lines, choices) => this.choose([...lines], [...choices]),
+      question: (request) =>
+        askEventQuestion({
+          request,
+          title: motif?.name ?? '',
+          hint: t('field.questionHint'),
+          root: this.root('fx'),
+          game: this.gs(),
+          content: this.content(),
+          bank: this.registry.get('bank') as QuestionBank | undefined,
+          rng: this.rng,
+          speak: this.speak,
+          noQuestion: () => this.talk([{ text: t('field.noQuestion') }]),
         }),
-      });
-      await executeEventCommands(
-        stampLine.length ? [{ type: 'dialogue', lines: stampLine }, ...commands] : commands,
-        ports,
-        { signal: flow.signal, flags: new Set(gs.progress.eventsDone) },
-      );
-      flow.throwIfCancelled();
-      await this.checkMeisan();
+      showReward: async (lines) => {
+        playSfx('recruit');
+        this.renderHud();
+        await this.talk(fieldRewardDialogue(lines, this.content()));
+      },
+      onFlagSet: (flag) => {
+        if (flag === ev.id) sign.refresh();
+        this.renderHud();
+      },
+      nextEncounterId: () => `${this.mapKey}:event:${++this.encounterSequence}`,
+      battleData: (command) => ({
+        enemyId: command.enemyId,
+        level: command.level ?? encounterLevel(this.heroLevel(), this.rng),
+        zone: zoneForMap(this.mapKey) ?? 'field',
+        ...(this.groundHere() ? { ground: this.groundHere()! } : {}),
+        ...(command.isBoss !== undefined ? { isBoss: command.isBoss } : {}),
+      }),
     });
   }
-
   /** image を わたすと その絵（特産品は どうぐの アイコン）。無ければ 名所の絵 assets/motifs/<県>/<id>.png */
   private cutin(
     areaId: string,
@@ -1626,7 +1594,6 @@ export class OverworldScene extends Phaser.Scene {
       }),
     );
   }
-
   /** 名所スタンプの数。県のフィールドと離島の ★ 看板ぜんぶ（にほんちずと同じ数え方。地図データが無ければ このマップだけ） */
   private stampCount(): { n: number; total: number } {
     const have = this.gs()?.dex.motifs ?? [];
@@ -1636,13 +1603,11 @@ export class OverworldScene extends Phaser.Scene {
     const all = area && entry ? entry.stamps.map((m) => motifStamp(area.id, m)) : this.stampIds;
     return { n: all.filter((s) => have.includes(s)).length, total: all.length };
   }
-
   /** その県の 名所スタンプ（★）の motif id ぜんぶ（にほんちずと 同じ） */
   private stampsOf(areaId: string): readonly string[] {
     const data = this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined;
     return data?.regions.flatMap((r) => r.areas).find((a) => a.id === areaId)?.stamps ?? [];
   }
-
   /** 県の ★ が ぜんぶ そろったら めいさんひんの そうびを わたす（カットイン → ひとこと） */
   private async checkMeisan(): Promise<void> {
     const c = this.content();
@@ -1659,7 +1624,6 @@ export class OverworldScene extends Phaser.Scene {
       ]);
     }
   }
-
   // ───────────────────────── 中ボスとワープホール ─────────────────────────
 
   private async confrontMidBoss(): Promise<void> {
@@ -1673,7 +1637,6 @@ export class OverworldScene extends Phaser.Scene {
       { type: 'mid-boss' },
     );
   }
-
   private async confrontAreaBoss(): Promise<void> {
     const ab = this.areaBoss;
     if (!ab || this.busy || this.inBattle) return;

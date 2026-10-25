@@ -14,12 +14,10 @@
           "description": "RubyText: \"漢字[かんじ]\" 形式"
         },
         "island": {
-          "type": "string",
-          "pattern": "^[a-z0-9][a-z0-9.-]*$",
-          "description": "一意なID（小文字英数字・ドット・ハイフン）"
+          "$ref": "#/definitions/prefectures/properties/id"
         },
         "capital": {
-          "type": "string",
+          "$ref": "#/definitions/prefectures/properties/name",
           "description": "RubyText: \"漢字[かんじ]\" 形式"
         },
         "status": {
@@ -56,13 +54,10 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "string",
-                "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                "$ref": "#/definitions/prefectures/properties/id"
               },
               "name": {
-                "type": "string",
-                "description": "RubyText: \"漢字[かんじ]\" 形式"
+                "$ref": "#/definitions/prefectures/properties/name"
               },
               "kind": {
                 "type": "string",
@@ -76,8 +71,7 @@
                 ]
               },
               "blurb": {
-                "type": "string",
-                "description": "RubyText: \"漢字[かんじ]\" 形式"
+                "$ref": "#/definitions/prefectures/properties/name"
               },
               "imageKey": {
                 "type": "string"
@@ -103,8 +97,7 @@
                 "description": "field / dungeon / マップ固有ゾーン名"
               },
               "region": {
-                "type": "string",
-                "pattern": "^[a-z0-9][a-z0-9.-]*$",
+                "$ref": "#/definitions/prefectures/properties/id",
                 "description": "名所エリア（regions の id）。あれば その エリアの 中だけで つかう（エリアの 表が 無い 地面は region なしの 表）"
               },
               "table": {
@@ -113,9 +106,7 @@
                   "type": "object",
                   "properties": {
                     "monsterId": {
-                      "type": "string",
-                      "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                      "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                      "$ref": "#/definitions/prefectures/properties/id"
                     },
                     "weight": {
                       "type": "number",
@@ -157,9 +148,7 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "string",
-                "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                "$ref": "#/definitions/prefectures/properties/id"
               },
               "name": {
                 "type": "string",
@@ -168,9 +157,7 @@
               "motifs": {
                 "type": "array",
                 "items": {
-                  "type": "string",
-                  "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                  "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                  "$ref": "#/definitions/prefectures/properties/id"
                 },
                 "description": "この エリアの 名所（motifs の id）"
               },
@@ -178,17 +165,13 @@
                 "type": "object",
                 "properties": {
                   "monsterId": {
-                    "type": "string",
-                    "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                    "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                    "$ref": "#/definitions/prefectures/properties/id"
                   },
                   "level": {
-                    "type": "integer",
-                    "exclusiveMinimum": 0,
-                    "maximum": 9007199254740991
+                    "$ref": "#/definitions/prefectures/properties/encounters/items/properties/stepsPerCheck"
                   },
                   "line": {
-                    "type": "string",
+                    "$ref": "#/definitions/prefectures/properties/name",
                     "description": "はなしかけた ときの ぬしの ひとこと"
                   }
                 },
@@ -225,14 +208,10 @@
                 "maxItems": 2,
                 "items": [
                   {
-                    "type": "string",
-                    "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                    "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                    "$ref": "#/definitions/prefectures/properties/id"
                   },
                   {
-                    "type": "string",
-                    "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                    "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                    "$ref": "#/definitions/prefectures/properties/id"
                   }
                 ]
               },
@@ -251,256 +230,573 @@
           "default": []
         },
         "boss": {
-          "type": "string",
-          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "$ref": "#/definitions/prefectures/properties/id",
           "description": "一意なID（小文字英数字・ドット・ハイフン）"
         },
         "midBoss": {
-          "type": "string",
-          "pattern": "^[a-z0-9][a-z0-9.-]*$",
+          "$ref": "#/definitions/prefectures/properties/id",
           "description": "フィールドに立つ中ボス（monsters の id）。倒すと次の県へのワープホールが開く"
         },
         "events": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                "description": "一意なID（小文字英数字・ドット・ハイフン）"
-              },
-              "motifId": {
-                "type": "string",
-                "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                "description": "一意なID（小文字英数字・ドット・ハイフン）"
-              },
-              "trigger": {
+            "anyOf": [
+              {
                 "type": "object",
                 "properties": {
-                  "map": {
-                    "type": "string"
+                  "id": {
+                    "$ref": "#/definitions/prefectures/properties/id"
                   },
-                  "objectName": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "map",
-                  "objectName"
-                ],
-                "additionalProperties": false
-              },
-              "once": {
-                "type": "boolean",
-                "default": true
-              },
-              "cutinImageKey": {
-                "type": "string"
-              },
-              "dialogue": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "speaker": {
-                      "type": "string",
-                      "description": "RubyText: \"漢字[かんじ]\" 形式"
-                    },
-                    "face": {
-                      "type": "string"
-                    },
-                    "text": {
-                      "type": "string",
-                      "description": "RubyText: \"漢字[かんじ]\" 形式"
-                    }
+                  "motifId": {
+                    "$ref": "#/definitions/prefectures/properties/id"
                   },
-                  "required": [
-                    "text"
-                  ],
-                  "additionalProperties": false
-                },
-                "minItems": 1
-              },
-              "question": {
-                "type": "object",
-                "properties": {
-                  "subject": {
-                    "type": "string",
-                    "enum": [
-                      "kokugo",
-                      "sansu",
-                      "rika",
-                      "shakai",
-                      "seikatsu",
-                      "eigo"
-                    ]
-                  },
-                  "gradeRange": {
-                    "type": "array",
-                    "minItems": 2,
-                    "maxItems": 2,
-                    "items": [
-                      {
-                        "type": "number",
-                        "enum": [
-                          1,
-                          2,
-                          3,
-                          4,
-                          5,
-                          6
-                        ]
+                  "trigger": {
+                    "type": "object",
+                    "properties": {
+                      "map": {
+                        "type": "string"
                       },
-                      {
-                        "type": "number",
-                        "enum": [
-                          1,
-                          2,
-                          3,
-                          4,
-                          5,
-                          6
-                        ]
+                      "objectName": {
+                        "type": "string"
                       }
-                    ]
+                    },
+                    "required": [
+                      "map",
+                      "objectName"
+                    ],
+                    "additionalProperties": false
                   },
-                  "tags": {
+                  "once": {
+                    "type": "boolean",
+                    "default": true
+                  },
+                  "cutinImageKey": {
+                    "type": "string"
+                  },
+                  "dialogue": {
                     "type": "array",
                     "items": {
-                      "type": "string"
-                    }
+                      "type": "object",
+                      "properties": {
+                        "speaker": {
+                          "$ref": "#/definitions/prefectures/properties/name",
+                          "description": "RubyText: \"漢字[かんじ]\" 形式"
+                        },
+                        "face": {
+                          "type": "string"
+                        },
+                        "text": {
+                          "$ref": "#/definitions/prefectures/properties/name"
+                        }
+                      },
+                      "required": [
+                        "text"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 1
                   },
-                  "type": {
-                    "type": "string",
-                    "description": "省略時はエンジンが選ぶ"
+                  "question": {
+                    "type": "object",
+                    "properties": {
+                      "subject": {
+                        "type": "string",
+                        "enum": [
+                          "kokugo",
+                          "sansu",
+                          "rika",
+                          "shakai",
+                          "seikatsu",
+                          "eigo"
+                        ]
+                      },
+                      "gradeRange": {
+                        "type": "array",
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": [
+                          {
+                            "type": "number",
+                            "enum": [
+                              1,
+                              2,
+                              3,
+                              4,
+                              5,
+                              6
+                            ]
+                          },
+                          {
+                            "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/question/properties/gradeRange/items/0"
+                          }
+                        ]
+                      },
+                      "tags": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "省略時はエンジンが選ぶ"
+                      }
+                    },
+                    "required": [
+                      "subject",
+                      "gradeRange"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "rewardByScore": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "min": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "reward": {
+                          "type": "object",
+                          "properties": {
+                            "gold": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "xp": {
+                              "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/rewardByScore/items/properties/reward/properties/gold"
+                            },
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "itemId": {
+                                    "$ref": "#/definitions/prefectures/properties/id"
+                                  },
+                                  "n": {
+                                    "$ref": "#/definitions/prefectures/properties/encounters/items/properties/stepsPerCheck",
+                                    "default": 1
+                                  }
+                                },
+                                "required": [
+                                  "itemId"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "skills": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/prefectures/properties/id"
+                              }
+                            },
+                            "recipes": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/prefectures/properties/id"
+                              }
+                            },
+                            "unlockMonsters": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/prefectures/properties/id"
+                              }
+                            },
+                            "title": {
+                              "$ref": "#/definitions/prefectures/properties/name",
+                              "description": "RubyText: \"漢字[かんじ]\" 形式"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "min",
+                        "reward"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 1
+                  },
+                  "afterDialogue": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/dialogue/items"
+                    }
                   }
                 },
                 "required": [
-                  "subject",
-                  "gradeRange"
+                  "id",
+                  "motifId",
+                  "trigger",
+                  "dialogue",
+                  "question",
+                  "rewardByScore"
                 ],
                 "additionalProperties": false
               },
-              "rewardByScore": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "min": {
-                      "type": "number",
-                      "minimum": 0,
-                      "maximum": 1
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/prefectures/properties/id"
+                  },
+                  "motifId": {
+                    "$ref": "#/definitions/prefectures/properties/id"
+                  },
+                  "trigger": {
+                    "type": "object",
+                    "properties": {
+                      "map": {
+                        "type": "string"
+                      },
+                      "objectName": {
+                        "type": "string"
+                      }
                     },
-                    "reward": {
-                      "type": "object",
-                      "properties": {
-                        "gold": {
-                          "type": "integer",
-                          "minimum": 0,
-                          "maximum": 9007199254740991
-                        },
-                        "xp": {
-                          "type": "integer",
-                          "minimum": 0,
-                          "maximum": 9007199254740991
-                        },
-                        "items": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "itemId": {
-                                "type": "string",
-                                "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                    "required": [
+                      "map",
+                      "objectName"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "once": {
+                    "type": "boolean",
+                    "default": true
+                  },
+                  "cutinImageKey": {
+                    "type": "string"
+                  },
+                  "steps": {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "dialogue"
+                            },
+                            "lines": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/dialogue/items"
                               },
-                              "n": {
-                                "type": "integer",
-                                "exclusiveMinimum": 0,
-                                "maximum": 9007199254740991,
-                                "default": 1
+                              "minItems": 1
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "lines"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "choice"
+                            },
+                            "key": {
+                              "$ref": "#/definitions/prefectures/properties/id"
+                            },
+                            "lines": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/dialogue/items"
+                              },
+                              "minItems": 1
+                            },
+                            "choices": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/prefectures/properties/name"
+                              },
+                              "minItems": 1
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "key",
+                            "lines",
+                            "choices"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "question"
+                            },
+                            "key": {
+                              "$ref": "#/definitions/prefectures/properties/id"
+                            },
+                            "request": {
+                              "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/question"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "key",
+                            "request"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "reward"
+                            },
+                            "scoreKey": {
+                              "$ref": "#/definitions/prefectures/properties/id"
+                            },
+                            "table": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "min": {
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 1
+                                  },
+                                  "reward": {
+                                    "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/rewardByScore/items/properties/reward"
+                                  }
+                                },
+                                "required": [
+                                  "min",
+                                  "reward"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "minItems": 1
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "scoreKey",
+                            "table"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "set-flag"
+                            },
+                            "flag": {
+                              "$ref": "#/definitions/prefectures/properties/id"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "flag"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "battle"
+                            },
+                            "key": {
+                              "$ref": "#/definitions/prefectures/properties/id"
+                            },
+                            "enemyId": {
+                              "$ref": "#/definitions/prefectures/properties/id"
+                            },
+                            "level": {
+                              "$ref": "#/definitions/prefectures/properties/encounters/items/properties/stepsPerCheck"
+                            },
+                            "isBoss": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "key",
+                            "enemyId"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "warp"
+                            },
+                            "map": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "spawn": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "map"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "const": "branch"
+                            },
+                            "condition": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "const": "choice"
+                                    },
+                                    "key": {
+                                      "$ref": "#/definitions/prefectures/properties/id"
+                                    },
+                                    "equals": {
+                                      "type": "integer",
+                                      "minimum": 0
+                                    }
+                                  },
+                                  "required": [
+                                    "type",
+                                    "key",
+                                    "equals"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "const": "score"
+                                    },
+                                    "key": {
+                                      "$ref": "#/definitions/prefectures/properties/id"
+                                    },
+                                    "min": {
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 1
+                                    },
+                                    "max": {
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "type",
+                                    "key",
+                                    "min"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "const": "battle"
+                                    },
+                                    "key": {
+                                      "$ref": "#/definitions/prefectures/properties/id"
+                                    },
+                                    "outcome": {
+                                      "type": "string",
+                                      "enum": [
+                                        "victory",
+                                        "defeat"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "type",
+                                    "key",
+                                    "outcome"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "const": "flag"
+                                    },
+                                    "flag": {
+                                      "$ref": "#/definitions/prefectures/properties/id"
+                                    },
+                                    "isSet": {
+                                      "type": "boolean",
+                                      "default": true
+                                    }
+                                  },
+                                  "required": [
+                                    "type",
+                                    "flag"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              ]
+                            },
+                            "then": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/prefectures/properties/events/items/anyOf/1/properties/steps/items"
                               }
                             },
-                            "required": [
-                              "itemId"
-                            ],
-                            "additionalProperties": false
-                          }
-                        },
-                        "skills": {
-                          "type": "array",
-                          "items": {
-                            "type": "string",
-                            "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                            "description": "一意なID（小文字英数字・ドット・ハイフン）"
-                          }
-                        },
-                        "recipes": {
-                          "type": "array",
-                          "items": {
-                            "type": "string",
-                            "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                            "description": "一意なID（小文字英数字・ドット・ハイフン）"
-                          }
-                        },
-                        "unlockMonsters": {
-                          "type": "array",
-                          "items": {
-                            "type": "string",
-                            "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                            "description": "一意なID（小文字英数字・ドット・ハイフン）"
-                          }
-                        },
-                        "title": {
-                          "type": "string",
-                          "description": "RubyText: \"漢字[かんじ]\" 形式"
+                            "else": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/definitions/prefectures/properties/events/items/anyOf/1/properties/steps/items"
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "condition",
+                            "then"
+                          ],
+                          "additionalProperties": false
                         }
-                      },
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "min",
-                    "reward"
-                  ],
-                  "additionalProperties": false
+                      ]
+                    },
+                    "minItems": 1
+                  }
                 },
-                "minItems": 1
-              },
-              "afterDialogue": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "speaker": {
-                      "type": "string",
-                      "description": "RubyText: \"漢字[かんじ]\" 形式"
-                    },
-                    "face": {
-                      "type": "string"
-                    },
-                    "text": {
-                      "type": "string",
-                      "description": "RubyText: \"漢字[かんじ]\" 形式"
-                    }
-                  },
-                  "required": [
-                    "text"
-                  ],
-                  "additionalProperties": false
-                }
+                "required": [
+                  "id",
+                  "motifId",
+                  "trigger",
+                  "steps"
+                ],
+                "additionalProperties": false
               }
-            },
-            "required": [
-              "id",
-              "motifId",
-              "trigger",
-              "dialogue",
-              "question",
-              "rewardByScore"
-            ],
-            "additionalProperties": false
+            ]
           },
           "default": []
         },
@@ -510,14 +806,10 @@
             "type": "object",
             "properties": {
               "itemId": {
-                "type": "string",
-                "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                "$ref": "#/definitions/prefectures/properties/id"
               },
               "price": {
-                "type": "integer",
-                "exclusiveMinimum": 0,
-                "maximum": 9007199254740991
+                "$ref": "#/definitions/prefectures/properties/encounters/items/properties/stepsPerCheck"
               }
             },
             "required": [
@@ -534,92 +826,23 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "string",
-                "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                "$ref": "#/definitions/prefectures/properties/id"
               },
               "title": {
-                "type": "string",
-                "description": "RubyText: \"漢字[かんじ]\" 形式"
+                "$ref": "#/definitions/prefectures/properties/name"
               },
               "giverNpc": {
-                "type": "string",
-                "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                "$ref": "#/definitions/prefectures/properties/id"
               },
               "condition": {
                 "type": "string",
                 "pattern": "^(?:(?:defeat|collect):[a-z0-9.-]+:[1-9]\\d*|perfect:(?:kokugo|sansu|rika|shakai|seikatsu|eigo):[1-9]\\d*|(?:event|recruit):[a-z0-9.-]+)$"
               },
               "reward": {
-                "type": "object",
-                "properties": {
-                  "gold": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "maximum": 9007199254740991
-                  },
-                  "xp": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "maximum": 9007199254740991
-                  },
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "itemId": {
-                          "type": "string",
-                          "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                          "description": "一意なID（小文字英数字・ドット・ハイフン）"
-                        },
-                        "n": {
-                          "type": "integer",
-                          "exclusiveMinimum": 0,
-                          "maximum": 9007199254740991,
-                          "default": 1
-                        }
-                      },
-                      "required": [
-                        "itemId"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "skills": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                      "description": "一意なID（小文字英数字・ドット・ハイフン）"
-                    }
-                  },
-                  "recipes": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                      "description": "一意なID（小文字英数字・ドット・ハイフン）"
-                    }
-                  },
-                  "unlockMonsters": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                      "description": "一意なID（小文字英数字・ドット・ハイフン）"
-                    }
-                  },
-                  "title": {
-                    "type": "string",
-                    "description": "RubyText: \"漢字[かんじ]\" 形式"
-                  }
-                },
-                "additionalProperties": false
+                "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/rewardByScore/items/properties/reward"
               },
               "hint": {
-                "type": "string",
+                "$ref": "#/definitions/prefectures/properties/name",
                 "description": "RubyText: \"漢字[かんじ]\" 形式"
               }
             },
@@ -638,8 +861,7 @@
           "type": "object",
           "properties": {
             "name": {
-              "type": "string",
-              "description": "RubyText: \"漢字[かんじ]\" 形式"
+              "$ref": "#/definitions/prefectures/properties/name"
             },
             "npcs": {
               "type": "array",
@@ -647,13 +869,10 @@
                 "type": "object",
                 "properties": {
                   "id": {
-                    "type": "string",
-                    "pattern": "^[a-z0-9][a-z0-9.-]*$",
-                    "description": "一意なID（小文字英数字・ドット・ハイフン）"
+                    "$ref": "#/definitions/prefectures/properties/id"
                   },
                   "name": {
-                    "type": "string",
-                    "description": "RubyText: \"漢字[かんじ]\" 形式"
+                    "$ref": "#/definitions/prefectures/properties/name"
                   },
                   "spriteKey": {
                     "type": "string"
@@ -676,24 +895,7 @@
                   "dialogue": {
                     "type": "array",
                     "items": {
-                      "type": "object",
-                      "properties": {
-                        "speaker": {
-                          "type": "string",
-                          "description": "RubyText: \"漢字[かんじ]\" 形式"
-                        },
-                        "face": {
-                          "type": "string"
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "RubyText: \"漢字[かんじ]\" 形式"
-                        }
-                      },
-                      "required": [
-                        "text"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/definitions/prefectures/properties/events/items/anyOf/0/properties/dialogue/items"
                     },
                     "minItems": 1
                   }

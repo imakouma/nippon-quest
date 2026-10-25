@@ -4,8 +4,7 @@
  * - 問題（questions）の payload スキーマはここではなく各レンダラーが所有する（docs/01 §3.3）。
  */
 import { z } from 'zod/v3';
-import type { FieldEventCommand } from '../events/contracts';
-
+import { createAreaEventSchemas } from './areaEventSchemas';
 export const safeNonnegativeIntegerSchema = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 export const safePositiveIntegerSchema = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
 
@@ -162,79 +161,20 @@ export const questionRequestSchema = z.object({
   tags: z.array(z.string()).optional(),
   type: z.string().optional().describe('省略時はエンジンが選ぶ'),
 });
-
-export const legacyAreaEventSchema = z.object({
+export const {
+  legacyAreaEventSchema,
+  eventConditionSchema,
+  fieldEventCommandSchema,
+  scriptedAreaEventSchema,
+  areaEventSchema,
+} = createAreaEventSchemas({
   id: idSchema,
-  motifId: idSchema,
-  trigger: z.object({ map: z.string(), objectName: z.string() }),
-  once: z.boolean().default(true),
-  cutinImageKey: z.string().optional(),
-  dialogue: z.array(dialogueLineSchema).min(1),
-  question: questionRequestSchema,
-  rewardByScore: z
-    .array(z.object({ min: z.number().min(0).max(1), reward: rewardSchema }))
-    .min(1)
-    .refine((r) => r.some((x) => x.min === 0), 'score 0 でも報酬があること（GDD §7）'),
-  afterDialogue: z.array(dialogueLineSchema).optional(),
+  rubyText: rubyTextSchema,
+  dialogueLine: dialogueLineSchema,
+  questionRequest: questionRequestSchema,
+  reward: rewardSchema,
+  safePositiveInteger: safePositiveIntegerSchema,
 });
-
-const rewardByScoreSchema = z
-  .array(z.object({ min: z.number().min(0).max(1), reward: rewardSchema }))
-  .min(1)
-  .refine((r) => r.some((x) => x.min === 0), 'score 0 でも報酬があること（GDD §7）');
-
-export const eventConditionSchema = z.discriminatedUnion('type', [
-  z.object({ type: z.literal('choice'), key: idSchema, equals: z.number().int().nonnegative() }),
-  z.object({
-    type: z.literal('score'),
-    key: idSchema,
-    min: z.number().min(0).max(1),
-    max: z.number().min(0).max(1).optional(),
-  }),
-  z.object({ type: z.literal('battle'), key: idSchema, outcome: z.enum(['victory', 'defeat']) }),
-  z.object({ type: z.literal('flag'), flag: idSchema, isSet: z.boolean().default(true) }),
-]);
-
-export const fieldEventCommandSchema: z.ZodType<FieldEventCommand, z.ZodTypeDef, unknown> = z.lazy(() =>
-  z.discriminatedUnion('type', [
-    z.object({ type: z.literal('dialogue'), lines: z.array(dialogueLineSchema).min(1) }),
-    z.object({
-      type: z.literal('choice'),
-      key: idSchema,
-      lines: z.array(dialogueLineSchema).min(1),
-      choices: z.array(rubyTextSchema).min(1),
-    }),
-    z.object({ type: z.literal('question'), key: idSchema, request: questionRequestSchema }),
-    z.object({ type: z.literal('reward'), scoreKey: idSchema, table: rewardByScoreSchema }),
-    z.object({ type: z.literal('set-flag'), flag: idSchema }),
-    z.object({
-      type: z.literal('battle'),
-      key: idSchema,
-      enemyId: idSchema,
-      level: safePositiveIntegerSchema.optional(),
-      isBoss: z.boolean().optional(),
-    }),
-    z.object({ type: z.literal('warp'), map: z.string().min(1), spawn: z.string().min(1).optional() }),
-    z.object({
-      type: z.literal('branch'),
-      condition: eventConditionSchema,
-      then: z.array(fieldEventCommandSchema),
-      else: z.array(fieldEventCommandSchema).optional(),
-    }),
-  ]),
-);
-
-export const scriptedAreaEventSchema = z.object({
-  id: idSchema,
-  motifId: idSchema,
-  trigger: z.object({ map: z.string(), objectName: z.string() }),
-  once: z.boolean().default(true),
-  cutinImageKey: z.string().optional(),
-  steps: z.array(fieldEventCommandSchema).min(1),
-});
-
-export const areaEventSchema = z.union([legacyAreaEventSchema, scriptedAreaEventSchema]);
-
 export const shopEntrySchema = z.object({ itemId: idSchema, price: safePositiveIntegerSchema });
 
 export const missionConditionSchema = z

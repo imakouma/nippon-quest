@@ -71,7 +71,8 @@ describe('境界3: ゲーム本体は問題タイプを知らない', () => {
     for (const s of questionTypeSources)
       for (const t of TYPES) {
         const count = s.src.match(new RegExp(`['"\`]${t}['"\`]`, 'g'))?.length ?? 0;
-        const allowedEventDiscriminants = s.file === 'src/core/content/schemas.ts' && t === 'choice' ? 2 : 0;
+        const allowedEventDiscriminants =
+          s.file === 'src/core/content/areaEventSchemas.ts' && t === 'choice' ? 2 : 0;
         if (count > allowedEventDiscriminants) bad.push(`${s.file}: "${t}"`);
       }
     expect(bad).toEqual([]);

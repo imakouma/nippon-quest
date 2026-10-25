@@ -1,5 +1,8 @@
 import { h, render } from 'preact';
 import type { ContentIndex } from '../../core/content/loader';
+import type { AreaEvent } from '../../core/content/schemas';
+import { legacyAreaEventCommands } from '../../core/events/legacyAreaEvent';
+import { executeEventCommands } from '../../core/events/runtime';
 import { applyReward, markDone, pickReward, type RewardLine } from '../../core/progression/eventReward';
 import type { GameState } from '../../core/state/schema';
 import type {
@@ -16,7 +19,7 @@ import { QuestionFrame } from '../../ui/QuestionFrame';
 import type { BattleSceneData } from '../battle/contracts';
 import { askFirst, buildAskEnv, relaxedQueries } from '../shared/askEnv';
 import type { EncounterLifecycle } from './encounterLifecycle';
-import type { FieldFlowContext } from './fieldFlowRuntime';
+import type { FieldFlowContext, FieldFlowRuntime } from './fieldFlowRuntime';
 import { runMapTransition, type MapTransitionPorts } from './mapTransitionPipeline';
 
 export interface EventQuestionPortOptions {
@@ -67,6 +70,7 @@ export async function askEventQuestion(options: EventQuestionPortOptions): Promi
         rng: options.rng,
         speak: options.speak,
         reason: 'event',
+        getGame: () => game,
       }),
       relaxedQueries(query),
     );
@@ -157,5 +161,46 @@ export function createEventRuntimePorts(options: EventRuntimePortOptions): Event
       ),
   };
 }
-import { h, render } from 'preact';
-import type { ContentIndex } from '../../core/content/loader';
+
+interface AreaEventFlowOptions extends Omit<EventRuntimePortOptions, 'flow'> {
+  event: AreaEvent;
+  flowRuntime: FieldFlowRuntime;
+  motifBlurb: RubyText;
+  standStill(): void;
+  arrive(): Promise<EventDialogueLine[]>;
+  checkSpecialty(): Promise<void>;
+  landmarkSpeaker: RubyText;
+  stampOwned: RubyText;
+  legacyPrompt: { ask: RubyText; choices: [RubyText, RubyText]; later: RubyText };
+}
+
+/** Runs both legacy and scripted area events under one exclusive field-flow lifecycle. */
+export async function runAreaEventFlow(options: AreaEventFlowOptions): Promise<void> {
+  await options.flowRuntime.run('area-event', async (flow) => {
+    options.standStill();
+    const stampLine = await options.arrive();
+    flow.throwIfCancelled();
+    const game = options.getGame();
+    if (options.event.once && game?.progress.eventsDone.includes(options.event.id)) {
+      await options.dialogue([
+        { speaker: options.landmarkSpeaker, text: options.motifBlurb },
+        ...(stampLine.length ? stampLine : [{ text: options.stampOwned }]),
+      ]);
+      flow.throwIfCancelled();
+      await options.checkSpecialty();
+      return;
+    }
+    if (!game) return;
+    const commands =
+      'steps' in options.event
+        ? options.event.steps
+        : legacyAreaEventCommands(options.event, options.legacyPrompt);
+    await executeEventCommands(
+      stampLine.length ? [{ type: 'dialogue', lines: stampLine }, ...commands] : commands,
+      createEventRuntimePorts({ ...options, flow }),
+      { signal: flow.signal, flags: new Set(game.progress.eventsDone) },
+    );
+    flow.throwIfCancelled();
+    await options.checkSpecialty();
+  });
+}
