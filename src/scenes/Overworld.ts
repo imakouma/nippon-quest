@@ -62,7 +62,6 @@ import {
   pickReward,
   rewardAreaBoss,
   rewardMarkedBoss,
-  type RewardLine,
 } from '../core/progression/eventReward';
 import {
   allRegionBossesDefeated,
@@ -153,6 +152,7 @@ import { applyChestReward, chestModel, specialtyChestModel } from './overworld/c
 import { itemKindPresentation, specialtyRewardLines } from './overworld/treasurePresentation';
 import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
+import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
@@ -1524,10 +1524,7 @@ export class OverworldScene extends Phaser.Scene {
       this.setGame(markDone(applied.state, { eventId: ev.id, stamp: sign.stamp }));
       sign.refresh();
       playSfx('recruit');
-      const out: DialogueLine[] = applied.lines.map((l) => ({
-        speaker: t('field.rewardSpeaker'),
-        text: this.rewardText(l),
-      }));
+      const out: DialogueLine[] = fieldRewardDialogue(applied.lines, this.content());
       out.push(...(ev.afterDialogue ?? []));
       this.renderHud();
       await this.talk(out);
@@ -1536,27 +1533,6 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  private rewardText(l: RewardLine): string {
-    const c = this.content();
-    switch (l.kind) {
-      case 'xp':
-        return t('field.rewardXp', { n: l.n });
-      case 'gold':
-        return t('field.rewardGold', { n: l.n });
-      case 'item':
-        return t('field.rewardItem', { item: c?.items.get(l.id)?.name ?? l.id, n: l.n });
-      case 'skill':
-        return t('field.rewardSkill', { skill: c?.skills.get(l.id)?.name ?? l.id });
-      case 'recipe': {
-        const r = c?.recipes.get(l.id);
-        return t('field.rewardRecipe', { item: (r && c?.items.get(r.result.itemId)?.name) ?? l.id });
-      }
-      case 'title':
-        return t('field.rewardTitle', { title: l.id });
-      case 'monster':
-        return t('field.rewardMonster');
-    }
-  }
   /** 名所の問題。出せる問題が無いときは 0 点あつかい（ごほうびは必ずもらえる：GDD §7） */
   private async quiz(ev: AreaEvent, motif: Motif | undefined): Promise<number> {
     const content = this.content();
@@ -1999,7 +1975,7 @@ export class OverworldScene extends Phaser.Scene {
     playSfx('select');
     const out: DialogueLine[] = [];
     if (item?.blurb) out.push({ speaker: npc.name, text: item.blurb });
-    out.push(...applied.lines.map((l) => ({ speaker: t('field.rewardSpeaker'), text: this.rewardText(l) })));
+    out.push(...fieldRewardDialogue(applied.lines, this.content()));
     await this.talk(out);
   }
 
@@ -2153,9 +2129,7 @@ export class OverworldScene extends Phaser.Scene {
         }
         this.setGame(done.state);
         playSfx('recruit');
-        rewards.push(
-          ...done.lines.map((l) => ({ speaker: t('field.rewardSpeaker'), text: this.rewardText(l) })),
-        );
+        rewards.push(...fieldRewardDialogue(done.lines, this.content()));
         return t('field.townThanks');
       },
     );
@@ -2276,7 +2250,7 @@ export class OverworldScene extends Phaser.Scene {
       playSfx('recruit');
       out.push(
         { speaker, text: t('field.townDexReward') },
-        ...got.lines.map((l) => ({ speaker: t('field.rewardSpeaker'), text: this.rewardText(l) })),
+        ...fieldRewardDialogue(got.lines, this.content()),
       );
     }
     if (p.found >= p.total) out.push({ speaker, text: t('field.townDexAll') });
