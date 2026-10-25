@@ -27,7 +27,6 @@ function deferred<T>() {
   });
   return { promise, resolve };
 }
-
 describe('executeEventCommands', () => {
   it('8 command を順番に実行して typed local result を保持する', async () => {
     const calls: string[] = [];
@@ -241,7 +240,6 @@ describe('executeEventCommands', () => {
       code: 'STEP_LIMIT',
     });
   });
-
   it('movement commandを同じAbortSignalでawaitしてから次commandへ進む', async () => {
     const controller = new AbortController();
     const gate = deferred<void>();
