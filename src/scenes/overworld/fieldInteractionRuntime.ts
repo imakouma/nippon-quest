@@ -20,21 +20,23 @@ export async function executeFieldInteractionDecision(
   if (decision.kind === 'none') return false;
   const { candidate } = decision;
   if (candidate.kind === 'map-transition') {
-    ports.beforeMapTransition?.(candidate);
-    await ports.flow.run('map-transition', ({ signal }) =>
-      runMapTransition(candidate.request, ports.mapTransition, signal),
-    );
-    return true;
+    const result = await ports.flow.run('map-transition', async ({ signal }) => {
+      ports.beforeMapTransition?.(candidate);
+      await runMapTransition(candidate.request, ports.mapTransition, signal);
+      return true;
+    });
+    return result === true;
   }
   if (candidate.kind === 'event-command') {
-    if (!ports.eventCommands) throw new Error('event-command interaction requires event runtime ports');
-    await ports.flow.run('event-command', ({ signal }) =>
-      executeEventCommands(candidate.commands, ports.eventCommands!.ports, {
+    const eventCommands = ports.eventCommands;
+    if (!eventCommands) throw new Error('event-command interaction requires event runtime ports');
+    const result = await ports.flow.run('event-command', ({ signal }) =>
+      executeEventCommands(candidate.commands, eventCommands.ports, {
         signal,
-        flags: candidate.flags ?? ports.eventCommands!.flags,
+        flags: candidate.flags ?? eventCommands.flags,
       }),
     );
-    return true;
+    return result !== undefined;
   }
   await ports.dispatch(candidate);
   return true;

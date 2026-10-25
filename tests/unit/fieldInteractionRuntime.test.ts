@@ -65,6 +65,30 @@ describe('executeFieldInteractionDecision', () => {
     expect(runtimePorts.dispatch).not.toHaveBeenCalled();
   });
 
+  it('別のfield flowが実行中ならtransition副作用を始めない', async () => {
+    const runtimePorts = ports();
+    const beforeMapTransition = vi.fn();
+    runtimePorts.beforeMapTransition = beforeMapTransition;
+    let release!: () => void;
+    const active = runtimePorts.flow.run('active', () => new Promise<void>((resolve) => (release = resolve)));
+    const decision: FieldInteractionDecision = {
+      kind: 'action',
+      candidate: {
+        id: 'door',
+        kind: 'map-transition',
+        activation: 'underfoot',
+        position: { x: 1, y: 1 },
+        request: { targetMap: 'aomori-town', reason: 'door' },
+      },
+    };
+
+    expect(await executeFieldInteractionDecision(decision, runtimePorts)).toBe(false);
+    expect(beforeMapTransition).not.toHaveBeenCalled();
+    expect(runtimePorts.mapTransition.restart).not.toHaveBeenCalled();
+    release();
+    await active;
+  });
+
   it('event commandsをfield flowとevent command runtimeへ委譲する', async () => {
     const runtimePorts = ports();
     const decision: FieldInteractionDecision = {

@@ -33,8 +33,8 @@ export interface DialogueCommand {
   lines: readonly EventDialogueLine[];
 }
 
-export interface ChoiceCommand {
-  type: 'choice';
+export interface SelectionCommand {
+  type: 'selection';
   key: string;
   lines: readonly EventDialogueLine[];
   choices: readonly RubyText[];
@@ -72,7 +72,7 @@ export interface WarpCommand {
 }
 
 export type EventCondition =
-  | { type: 'choice'; key: string; equals: number }
+  | { type: 'selection'; key: string; equals: number }
   | { type: 'score'; key: string; min: number; max?: number }
   | { type: 'battle'; key: string; outcome: BattleOutcome }
   | { type: 'flag'; flag: string; isSet?: boolean };
@@ -86,7 +86,7 @@ export interface BranchCommand {
 
 export type FieldEventCommand =
   | DialogueCommand
-  | ChoiceCommand
+  | SelectionCommand
   | QuestionCommand
   | RewardCommand
   | SetFlagCommand
@@ -97,7 +97,7 @@ export type FieldEventCommand =
 export type BattleOutcome = 'victory' | 'defeat';
 
 export type EventLocalResult =
-  | { type: 'choice'; value: number }
+  | { type: 'selection'; value: number }
   | { type: 'score'; value: number }
   | { type: 'battle'; value: BattleOutcome };
 

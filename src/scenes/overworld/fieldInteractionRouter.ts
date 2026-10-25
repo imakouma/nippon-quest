@@ -57,7 +57,7 @@ const PRIORITY: Record<FieldInteractionIntent, Partial<Record<FieldInteractionCa
     sign: 40,
     'field-event': 40,
     'event-command': 40,
-    background: 50,
+    background: 40,
   },
   arrive: {
     'locked-transition': 10,
@@ -105,7 +105,14 @@ export function resolveFieldInteraction(input: FieldInteractionInput): FieldInte
   let selectedPriority = Number.POSITIVE_INFINITY;
   for (const candidate of input.candidates) {
     const priority = PRIORITY[input.intent][candidate.kind];
-    const offset = candidate.activation === 'counter' ? 1 : candidate.activation === 'nearby' ? 2 : 0;
+    const offset =
+      input.intent === 'interact'
+        ? candidate.activation === 'counter'
+          ? 1
+          : candidate.activation === 'nearby' || candidate.activation === 'underfoot'
+            ? 2
+            : 0
+        : 0;
     const candidatePriority = priority === undefined ? undefined : priority + offset;
     if (
       candidatePriority === undefined ||

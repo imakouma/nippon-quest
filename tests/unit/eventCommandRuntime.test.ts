@@ -48,7 +48,7 @@ describe('executeEventCommands', () => {
     });
     const commands: FieldEventCommand[] = [
       { type: 'dialogue', lines: [{ text: 'はじめよう。' }] },
-      { type: 'choice', key: 'route', lines: [{ text: 'どちら？' }], choices: ['ひだり', 'みぎ'] },
+      { type: 'selection', key: 'route', lines: [{ text: 'どちら？' }], choices: ['ひだり', 'みぎ'] },
       {
         type: 'question',
         key: 'score',
@@ -60,7 +60,7 @@ describe('executeEventCommands', () => {
       { type: 'warp', map: 'aomori-town', spawn: 'spawn' },
       {
         type: 'branch',
-        condition: { type: 'choice', key: 'route', equals: 1 },
+        condition: { type: 'selection', key: 'route', equals: 1 },
         then: [{ type: 'dialogue', lines: [{ text: 'みぎへ すすむ。' }] }],
       },
     ];
@@ -78,7 +78,7 @@ describe('executeEventCommands', () => {
       'dialogue',
     ]);
     expect(result.executedSteps).toBe(9);
-    expect(result.locals.get('route')).toEqual({ type: 'choice', value: 1 });
+    expect(result.locals.get('route')).toEqual({ type: 'selection', value: 1 });
     expect(result.locals.get('score')).toEqual({ type: 'score', value: 0 });
     expect(result.locals.get('fight')).toEqual({ type: 'battle', value: 'victory' });
     expect(result.flags.has('event.done')).toBe(true);
@@ -195,7 +195,7 @@ describe('executeEventCommands', () => {
     {
       name: 'local type 不一致',
       commands: [
-        { type: 'choice', key: 'answer', lines: [{ text: '?' }], choices: ['a'] },
+        { type: 'selection', key: 'answer', lines: [{ text: '?' }], choices: ['a'] },
         { type: 'reward', scoreKey: 'answer', table: [{ min: 0, reward: { xp: 1 } }] },
       ],
       code: 'LOCAL_RESULT_TYPE',

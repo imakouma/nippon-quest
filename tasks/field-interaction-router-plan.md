@@ -8,7 +8,7 @@ pure resolverを契約先行・TDDで追加し、runtime adapterを通して既�
 
 - `intent + spatial activation + typed candidate` をresolverの唯一の入力とする。
 - frame dedupeはresolver入力に直前処理frameを渡し、Sceneが非none decision時だけ更新する。
-- event-command dependencyは `189e66ea` / `64ee1eda` の公開core filesだけを取り込む。schema/content/encounter変更は本タスクへ混ぜない。
+- event-command dependencyは `189e66ea` / `64ee1eda` の公開core filesだけを取り込む。schema/content/encounter変更は本タスクへ混ぜず、問題タイプ名との境界衝突を避けるため選択commandの識別子は `selection` とする。
 - executorはmap/eventのみruntimeへ直接委譲し、既存Scene固有処理はtyped dispatch portへ戻す。
 
 ## Dependency Graph

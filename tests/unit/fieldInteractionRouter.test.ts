@@ -79,6 +79,30 @@ describe('resolveFieldInteraction', () => {
     });
   });
 
+  it('足元と周囲のsign/background fallbackは同順位で候補順を保つ', () => {
+    const background: FieldInteractionCandidate = {
+      id: 'ground',
+      kind: 'background',
+      activation: 'underfoot',
+      position: position(4, 5),
+    };
+    const sign: FieldInteractionCandidate = {
+      id: 'landmark',
+      kind: 'sign',
+      activation: 'nearby',
+      position: position(3, 5),
+    };
+
+    expect(resolveFieldInteraction(input([background, sign]))).toEqual({
+      kind: 'action',
+      candidate: background,
+    });
+    expect(resolveFieldInteraction(input([sign, background]))).toEqual({
+      kind: 'action',
+      candidate: sign,
+    });
+  });
+
   it('requiredFacingが一致する候補だけを選ぶ', () => {
     const wrong: FieldInteractionCandidate = {
       id: 'wrong',

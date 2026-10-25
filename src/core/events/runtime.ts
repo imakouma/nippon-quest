@@ -58,8 +58,8 @@ function setLocal(state: RuntimeState, key: string, result: EventLocalResult): v
 
 function conditionMatches(condition: EventCondition, state: RuntimeState): boolean {
   switch (condition.type) {
-    case 'choice':
-      return localResult(state, condition.key, 'choice').value === condition.equals;
+    case 'selection':
+      return localResult(state, condition.key, 'selection').value === condition.equals;
     case 'score': {
       const score = localResult(state, condition.key, 'score').value;
       return score >= condition.min && (condition.max === undefined || score <= condition.max);
@@ -91,11 +91,11 @@ async function executeList(
       case 'dialogue':
         await ports.dialogue(command.lines);
         break;
-      case 'choice': {
+      case 'selection': {
         const choice = await ports.choose(command.lines, command.choices);
         if (!Number.isInteger(choice) || choice < 0 || choice >= command.choices.length)
           invalidPortResult(`choice port returned invalid index ${choice}`);
-        setLocal(state, command.key, { type: 'choice', value: choice });
+        setLocal(state, command.key, { type: 'selection', value: choice });
         break;
       }
       case 'question': {
