@@ -2424,7 +2424,9 @@ export class OverworldScene extends Phaser.Scene {
       const current = this.gs();
       if (!current || current.dex.motifs.includes(sp.stamp)) return;
       const content = this.content();
-      const gain = content ? specialtyTreasureGain(current, chest.itemId, content.areas, content.items) : null;
+      const gain = content
+        ? specialtyTreasureGain(current, chest.itemId, content.areas, content.items)
+        : null;
       const next = applyChestReward(current, chest, item);
       this.setGame(next);
       playSfx('chest');
