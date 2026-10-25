@@ -49,12 +49,12 @@
 
 **Acceptance criteria:**
 
-- [ ] Battle.ts の独自 playing/chain/play を削除する。
-- [ ] shutdown と error recovery が runtime cleanup を通る。
+- [x] Battle.ts の独自 playing/chain/play を削除する。
+- [x] shutdown と error recovery が runtime cleanup を通る。
 
 **Verification:**
 
-- [ ] `pnpm vitest run tests/unit/battleUi.test.ts tests/unit/battlePresentationRuntime.test.ts`
+- [x] `pnpm exec vitest run tests/unit/battleUi.test.ts tests/unit/battlePresentationRuntime.test.ts`
 
 **Dependencies:** Task 2
 
@@ -69,13 +69,13 @@
 
 **Acceptance criteria:**
 
-- [ ] BattleEvent の視覚演出が隣接 port 実装へ移る。
-- [ ] Battle.ts が 1,730 行未満になる。
-- [ ] 既存 animation diagnostic entry point を維持する。
+- [x] BattleEvent の視覚演出が隣接 port 実装へ移る。
+- [x] Battle.ts が 1,730 行未満になる（1,579 行）。
+- [x] 既存 animation diagnostic entry point を維持する。
 
 **Verification:**
 
-- [ ] battle unit test、typecheck、battle E2E が通る。
+- [x] battle unit test、typecheck、battle E2E が通る。
 
 **Dependencies:** Task 3
 
@@ -88,8 +88,8 @@
 
 ## Checkpoint: Integration
 
-- [ ] battle unit/E2E が通る。
-- [ ] Battle.ts の責務と行数が減る。
+- [x] battle unit/E2E が通る。
+- [x] Battle.ts の責務と行数が減る。
 
 ## Task 5: Full verification and review
 
