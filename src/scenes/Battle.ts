@@ -43,7 +43,7 @@ import { toCanvas } from '../rendering/grid';
 import { motifArtGrid } from '../rendering/motifArt';
 import { skillLook } from '../rendering/battle/skillLook';
 import { normalizeEvents, type NarrateCtx } from './battle/narrate';
-import { playBattleEvents } from './battle/eventPlayback';
+import { BattlePresentationRuntime } from './battle/presentationRuntime';
 import { specialtyRewardViews } from './battle/specialtyRewards';
 import {
   ELEMENT_FX,
@@ -76,7 +76,7 @@ import { hasStoryCompanion } from '../core/progression/storyCompanion';
 import { monsterDisplaySize, monsterMenuArtUrl } from '../rendering/menuArt';
 import { BATTLE_SCALE as S, battleLayout, type BattleLayout, OFF_RIGHT, READY_STEP } from './battle/layout';
 import { createBattleClouds, createBattleWinds, moveBattleClouds, moveBattleWinds } from './battle/clouds';
-import { attachBattleBgm, finishBattleBgm } from './battle/bgm';
+import { attachBattleBgm, finishBattleBgm, withBattleMusicDucked } from './battle/bgm';
 import {
   BAND_TEXT,
   battleSkillStillUsable,
@@ -85,6 +85,7 @@ import {
   type MenuAction,
   type Phase,
 } from './battle/sceneModel';
+import { BattleEventAnimator } from './battle/eventAnimator';
 type Sprite = Phaser.GameObjects.Image;
 export class BattleScene extends Phaser.Scene {
   private content!: ContentIndex;
@@ -119,6 +120,7 @@ export class BattleScene extends Phaser.Scene {
   private lastMotif: MotifFx | null = null;
   /** 攻撃・必殺技などの 動き（battle/motions.ts） */
   private fx!: Motions;
+  private animator!: BattleEventAnimator;
   /** 動きを かわりばんこに するための 回数 */
   private swings = 0;
   private enemyAttacks = 0;
@@ -128,9 +130,7 @@ export class BattleScene extends Phaser.Scene {
 
   // ── ターンの 進行 ──
   private phase: Phase = 'intro';
-  /** 再生を 待って いる・再生中の 演出の 数 */
-  private playing = 0;
-  private chain: Promise<void> = Promise.resolve();
+  private presentation!: BattlePresentationRuntime;
   /** 主人公の 行動（問題・演出）を 実行中 */
   private busy = false;
   private overResolve: (() => void) | null = null;
@@ -169,8 +169,6 @@ export class BattleScene extends Phaser.Scene {
     this.lastEnemyStyle = 'claw';
     this.victory = null;
     this.phase = 'intro';
-    this.playing = 0;
-    this.chain = Promise.resolve();
     this.busy = false;
     this.overResolve = null;
     this.abort = null;
@@ -178,6 +176,27 @@ export class BattleScene extends Phaser.Scene {
     this.cmdCursor = 0;
     this.stopped = false;
     this.recovering = false;
+    this.presentation = new BattlePresentationRuntime(
+      {
+        text: {
+          log: (text) => this.log(text),
+          say: (text, mode) => this.say(text, mode),
+        },
+        clock: {
+          wait: (ms) => this.wait(ms),
+        },
+        visual: {
+          play: ({ event, next }) => this.animate(event, next),
+        },
+        audio: {
+          withDucked: (play) => withBattleMusicDucked(play),
+        },
+        lifecycle: {
+          cleanup: () => this.cleanupPresentation(),
+        },
+      },
+      { onIdle: () => this.afterPlay() },
+    );
   }
 
   create(): void {
@@ -226,6 +245,7 @@ export class BattleScene extends Phaser.Scene {
     this.fx = new Motions(this, (x, y, tint, texture, count, gravityY) =>
       this.burst(x, y, tint, texture, count, gravityY),
     );
+    this.animator = this.createEventAnimator();
     this.buildStage(isBoss);
     this.mountHud();
     // タブを ほかに して いる あいだは Phaser の フェードや タイマーが とまるので、もどったら 立て直す
@@ -407,6 +427,7 @@ export class BattleScene extends Phaser.Scene {
 
   private teardown(): void {
     this.stopped = true;
+    void this.presentation.dispose('shutdown');
     document.removeEventListener('visibilitychange', this.onVisible);
     window.removeEventListener('focus', this.onVisible);
     this.abort?.abort();
@@ -418,6 +439,18 @@ export class BattleScene extends Phaser.Scene {
       this.hudRoot.remove();
       this.hudRoot = null;
     }
+  }
+
+  /** runtime の中断時に、Phaser 側へ残った演出だけを安全な見た目へ戻す。 */
+  private cleanupPresentation(): void {
+    this.tweens?.killAll();
+    this.cameras?.main?.resetFX();
+    for (const sprite of [this.enemySprite, this.heroSprite, this.palSprite]) {
+      if (!sprite?.active) continue;
+      sprite.clearTint();
+      sprite.setFlipX(false);
+    }
+    this.hud.set({ banner: null, popups: [], stripPops: [], shake: 0 });
   }
 
   private onUi(a: UiAction): void {
@@ -632,19 +665,11 @@ export class BattleScene extends Phaser.Scene {
 
   /** 演出を じゅんばんに 再生する */
   private enqueue(events: BattleEvent[]): Promise<void> {
-    this.playing++;
-    const run = this.chain.then(() => this.play(normalizeEvents(events)));
-    this.chain = run
-      .catch((e: unknown) => console.error('[battle] 演出で エラー', e))
-      .then(() => {
-        this.playing--;
-        this.afterPlay();
-      });
-    return this.chain;
+    return this.presentation.enqueue(normalizeEvents(events), this.narrateCtx());
   }
 
   private afterPlay(): void {
-    if (this.playing > 0 || this.phase === 'over') return;
+    if (this.presentation.activeTaskCount > 0 || this.phase === 'over') return;
     this.syncViews();
     if (this.state.outcome !== 'ongoing') {
       this.checkOver();
@@ -676,7 +701,12 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private checkOver(): void {
-    if (this.state.outcome === 'ongoing' || this.playing > 0 || this.busy || this.phase === 'question')
+    if (
+      this.state.outcome === 'ongoing' ||
+      this.presentation.activeTaskCount > 0 ||
+      this.busy ||
+      this.phase === 'question'
+    )
       return;
     const resolve = this.overResolve;
     this.overResolve = null;
@@ -684,7 +714,12 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private canActNow(): boolean {
-    return isHeroReady(this.state) && this.playing === 0 && !this.busy && this.phase === 'command';
+    return (
+      isHeroReady(this.state) &&
+      this.presentation.activeTaskCount === 0 &&
+      !this.busy &&
+      this.phase === 'command'
+    );
   }
 
   /** コマンドの 窓を 出す（主人公の 行動の あと・もどる） */
@@ -701,7 +736,7 @@ export class BattleScene extends Phaser.Scene {
 
   /** 主人公が たおれて いる ターン：コマンドを 出さずに ターンだけ すすめる */
   private async waitTurn(): Promise<void> {
-    if (this.busy || this.playing > 0 || this.phase !== 'command') return;
+    if (this.busy || this.presentation.activeTaskCount > 0 || this.phase !== 'command') return;
     this.busy = true;
     this.hud.set({ menu: 'none', actorId: null });
     try {
@@ -722,10 +757,10 @@ export class BattleScene extends Phaser.Scene {
     const s = this.state;
     if (s.outcome !== 'ongoing' || this.phase !== 'command' || this.busy) return;
     const hero = s.ally.hero;
-    const ready = isHeroReady(s) && this.playing === 0;
+    const ready = isHeroReady(s) && this.presentation.activeTaskCount === 0;
     this.setStep(ready);
     this.hud.set({ actorId: ready ? hero.id : null, commands: this.commandOptions() });
-    if (this.playing > 0) return;
+    if (this.presentation.activeTaskCount > 0) return;
     const giftId = this.recruitGiftId();
     const recruitHint = giftId
       ? t('battle.recruitGiftHint', { item: this.content.items.get(giftId)?.name ?? giftId })
@@ -874,15 +909,6 @@ export class BattleScene extends Phaser.Scene {
     await this.enqueue(events);
   }
 
-  private async play(events: BattleEvent[]): Promise<void> {
-    await playBattleEvents(events, this.narrateCtx(), {
-      log: (text) => this.log(text),
-      say: (text, mode) => this.say(text, mode),
-      wait: (ms) => this.wait(ms),
-      animate: (event, next) => this.animate(event, next),
-    });
-  }
-
   // ───────────────────────── 問題 ─────────────────────────
 
   /**
@@ -969,268 +995,89 @@ export class BattleScene extends Phaser.Scene {
     return { x: sp.x, y: sp.y - sp.displayHeight * 0.6 };
   }
 
-  private async animate(e: BattleEvent, next?: BattleEvent): Promise<void> {
-    const s = this.state;
-    switch (e.t) {
-      case 'act': {
-        // この 行動を うける キャラクター（act の あとに つづく ダメージ・回復・まもりの あいて）
-        const targetId =
-          next && (next.t === 'damage' || next.t === 'heal' || next.t === 'buff') ? next.targetId : undefined;
-        const sp = this.spriteOf(e.actorId);
-        const sk = e.skillId ? this.content.skills.get(e.skillId) : undefined;
-        const actorEl = e.side === 'enemy' ? s.enemy.element : this.allyElement(e.actorId);
-        this.lastElement = sk?.element ?? actorEl;
-        // 主人公の ターン（auto で ない 味方の 行動）は、オトモの わざを えらんでも 主人公から うつ
-        const heroTurn = e.side === 'ally' && !e.auto;
-        const def = heroTurn ? undefined : this.monsterDefOf(e.actorId);
-        this.lastMotif = def ? this.motifFx(def) : null;
-        if (!sp) return;
-        if (e.command === 'defend') {
-          playSfx('buff');
-          void this.fx.guardRing(this.anchorOf(e.actorId), 0x80c6ff);
-          await this.flash(sp, 0x80c6ff, 2);
-        } else if (e.command === 'skill') {
-          await this.skillMotion(
-            heroTurn ? s.ally.hero.id : e.actorId,
-            e.side === 'enemy',
-            heroTurn ? this.heroSprite : sp,
-            sk?.gauge ?? 1,
-            targetId,
-            sk,
-            this.tierOf(def),
-            this.lastMotif,
-          );
-        } else if (e.command === 'scan') {
-          playSfx('scan');
-          const a = this.anchorOf(s.enemy.id);
-          this.burst(a.x, a.y, 0xc8f4ff, 'bt.fx.star', 10, 0);
-          await this.wait(350);
-        } else if (e.command === 'attack') {
-          if (e.side === 'enemy') await this.enemyAttack(sp);
-          else if (sp === this.heroSprite) await this.heroAttack();
-          else await this.partnerTackle(sp);
-        }
-        return;
-      }
-      case 'damage': {
-        // かいしん・クリティカル（問題が かんぺき）は 大きく
-        const big = e.critical || e.scoreBand === 'perfect';
-        const target = e.side === 'enemy' ? this.enemySprite : this.spriteOf(e.targetId);
-        const a = e.side === 'enemy' ? this.anchorOf(s.enemy.id) : this.anchorOf(e.targetId);
-        if (e.side === 'enemy') {
-          playSfx(big ? 'crit' : 'hit');
-          this.burst(a.x, a.y, ELEMENT_FX[this.lastElement], big ? 'bt.fx.star' : 'bt.fx.px', big ? 18 : 14);
-          this.fx.hit(a, this.lastElement, big);
-          if (this.lastMotif) this.fx.motifPop(a, this.lastMotif);
-          // かいしんは ふつうの こうげきより すこし だけ はでに（小さく ゆれる）
-          if (big) this.cameras.main.shake(120, 0.006);
-          this.popup(a.x, a.y, String(e.amount), big ? 'crit' : 'damage');
-          this.patchEnemy({ hp: Math.max(0, (this.hud.get().enemy?.hp ?? 0) - e.amount) });
-          await Promise.all([
-            this.flash(this.enemySprite, 0xffffff, 2),
-            this.shake(this.enemySprite, big ? 16 : 10),
-          ]);
-        } else {
-          playSfx('hurt');
-          this.cameras.main.shake(180, 0.008);
-          this.fx.enemyHit(a, this.lastEnemyStyle, s.enemy.element);
-          if (this.lastMotif) this.fx.motifPop(a, this.lastMotif);
-          this.popup(a.x, a.y, String(e.amount), 'hurt');
-          this.patchAllyHp(e.targetId, -e.amount);
-          if (target) {
-            const hero = target === this.heroSprite;
-            if (hero) target.setFrame(BATTLE_POSE.hurt);
-            await Promise.all([this.blink(target), this.knock(target, 12)]);
-            if (hero && s.ally.hero.hp > 0) target.setFrame(BATTLE_POSE.idle);
-          }
-        }
-        await this.wait(big ? 300 : 220);
-        return;
-      }
-      case 'heal': {
-        playSfx('heal');
-        const a = this.anchorOf(e.targetId);
-        this.burst(a.x, a.y + 30, 0x8fe36f, 'bt.fx.star', 12, -160);
-        this.fx.healRing(a, 0x8fe36f);
-        this.popup(a.x, a.y, `+${e.amount}`, 'heal');
-        if (e.side === 'enemy')
-          this.patchEnemy({ hp: Math.min(s.enemy.stats.hp, (this.hud.get().enemy?.hp ?? 0) + e.amount) });
-        else this.patchAllyHp(e.targetId, e.amount);
-        await this.wait(500);
-        return;
-      }
-      case 'buff': {
-        playSfx(e.mult >= 1 ? 'buff' : 'miss');
-        const sp = e.side === 'enemy' ? this.enemySprite : this.spriteOf(e.targetId);
-        const a = e.side === 'enemy' ? this.anchorOf(s.enemy.id) : this.anchorOf(e.targetId);
-        this.burst(a.x, a.y, e.mult >= 1 ? 0x80c6ff : 0xa28be6, 'bt.fx.px', 10, e.mult >= 1 ? -200 : 200);
-        if (e.mult >= 1) void this.fx.guardRing(a, 0x80c6ff);
-        if (e.side === 'enemy') this.patchEnemy({ defMult: e.mult });
-        if (sp) await this.flash(sp, e.mult >= 1 ? 0x80c6ff : 0xa28be6, 1);
-        return;
-      }
-      case 'status': {
-        // 敵の うごきが おそく なった：青い 光の わと きらめき
-        playSfx('scan');
-        const a = this.anchorOf(s.enemy.id);
-        this.burst(a.x, a.y, 0x80c6ff, 'bt.fx.star', 12, 60);
-        void this.fx.guardRing(a, 0x80c6ff);
-        await this.flash(this.enemySprite, 0x80c6ff, 2);
-        return;
-      }
-      case 'weaknessRevealed': {
-        playSfx('scan');
-        this.patchEnemy({ weaknessRevealed: true, weakness: e.element });
-        await this.flash(this.enemySprite, ELEMENT_FX[e.element], 3);
-        return;
-      }
-      case 'scanFailed':
-      case 'gaugeShort':
-        playSfx('miss');
-        await this.wait(200);
-        return;
-      case 'turnStart':
-        this.hud.set({ turn: e.turn });
-        return;
-      case 'skipTurn': {
-        // 休んで いて 動けない：ちいさく ゆれて 青く 光る
-        playSfx('miss');
-        void this.fx.guardRing(this.anchorOf(e.targetId), 0x80c6ff);
-        await this.shake(this.enemySprite, 6);
-        return;
-      }
-      case 'combo':
-        playSfx('combo');
-        await this.showBanner(
-          'combo',
-          t('battle.comboBanner', { n: e.count }),
-          t('battle.comboPower', { p: Math.round((e.bonus - 1) * 100) }),
-          undefined,
-          800,
-        );
-        return;
-      case 'gaugeCharge':
-        playSfx(e.unlocked.length > 0 || e.value >= e.max ? 'combo' : 'select');
-        this.patchGauge(e.subject, e.value, e.amount);
-        await this.wait(150);
-        return;
-      case 'gaugeUse':
-        playSfx('buff');
-        this.patchGauge(e.subject, e.value);
-        return;
-      case 'itemUsed':
-        playSfx('select');
-        return;
-      case 'recruitGift':
-        playSfx('select');
-        return;
-      case 'swap': {
-        // 今の相棒は右へさがり、次の相棒が右から出てくる
-        const old = this.palSprite;
-        if (old) {
-          await this.walk(old, OFF_RIGHT, 300);
-          this.destroySprite(old);
-        }
-        this.palSprite = this.makePartnerSprite(OFF_RIGHT);
-        this.syncViews();
-        if (this.palSprite) {
-          await this.walk(this.palSprite, this.layout.partner.x, 360);
-          this.idleBob(this.palSprite, this.layout.partner.y);
-        }
-        return;
-      }
-      case 'recruitAttempt': {
-        const a = this.anchorOf(s.enemy.id);
-        this.burst(a.x, a.y, 0xff8fb1, 'bt.fx.heart', 10, -80);
-        playSfx(e.success ? 'recruit' : 'miss');
-        if (!e.success) await this.shake(this.enemySprite, 8);
-        await this.wait(400);
-        return;
-      }
-      case 'recruited': {
-        const a = this.anchorOf(s.enemy.id);
-        this.burst(a.x, a.y, 0xff8fb1, 'bt.fx.heart', 18, -120);
-        await this.tweenP({
-          targets: this.enemySprite,
-          y: this.layout.enemy.y - 26,
-          duration: 160,
-          yoyo: true,
-          repeat: 1,
-        });
-        return;
-      }
-      case 'fleeAttempt': {
-        if (!e.success) {
-          playSfx('miss');
-          await this.shake(this.heroSprite, 6);
-          return;
-        }
-        // うしろを向いて、右へ走ってにげる
-        playSfx('run');
-        this.heroSprite.setFlipX(true);
-        const out = [this.heroSprite, this.palSprite].filter((x): x is Sprite => !!x);
-        await Promise.all(out.map((sp) => this.walk(sp, sp.x + 420, 450)));
-        return;
-      }
-      case 'ko': {
-        playSfx('ko');
-        if (e.side === 'enemy') {
-          // 白くなって、ちりになって消える
-          const sp = this.enemySprite;
-          this.tweens.killTweensOf(sp);
-          sp.setTintFill(0xffffff);
-          const a = this.anchorOf(s.enemy.id);
-          this.burst(a.x, a.y + 20, 0xd2d7e2, 'bt.fx.px', 36, -140);
-          await this.tweenP({
-            targets: sp,
-            scaleY: 0,
-            alpha: 0,
-            duration: 700,
-            ease: 'Stepped',
-            easeParams: [7],
-          });
-        } else {
-          const sp = this.spriteOf(e.targetId);
-          if (!sp) return;
-          const hero = sp === this.heroSprite;
-          this.stopBob(sp, hero ? this.layout.hero.y : this.layout.partner.y);
-          if (hero) sp.setFrame(BATTLE_POSE.hurt);
-          sp.setTint(0x6b6f80);
-          await this.tweenP({ targets: sp, alpha: hero ? 0.7 : 0.3, y: sp.y + 2 * S, duration: 320 });
-        }
-        return;
-      }
-      case 'bossPhase': {
-        playSfx('crit');
-        this.cameras.main.flash(420, 229, 72, 77);
-        this.cameras.main.shake(420, 0.014);
-        await this.shake(this.enemySprite, 14);
-        const key = this.monsterTexture(
-          this.enemyDef,
-          s.enemy.element,
-          this.enemySize,
-          true,
-          `.p${e.phaseIndex}`,
-        );
-        this.enemySprite.setTexture(key);
-        this.patchEnemy({ element: s.enemy.element });
-        await this.flash(this.enemySprite, 0xffffff, 2);
-        return;
-      }
-      case 'victory':
-        this.victory = e;
-        return;
-      case 'defeat':
-        finishBattleBgm('defeat');
-        this.cameras.main.fadeOut(900, 0, 0, 0);
-        await this.wait(900);
-        return;
-      case 'fled':
-        return;
-    }
+  private createEventAnimator(): BattleEventAnimator {
+    return new BattleEventAnimator({
+      state: () => this.state,
+      layout: () => this.layout,
+      enemyDefinition: () => this.enemyDef,
+      skill: (id) => this.content.skills.get(id),
+      allyElement: (id) => this.allyElement(id),
+      monsterDefinition: (id) => this.monsterDefOf(id),
+      tier: (definition) => this.tierOf(definition),
+      motif: (definition) => this.motifFx(definition),
+      lastEnemyStyle: () => this.lastEnemyStyle,
+      setLastElement: (element) => (this.lastElement = element),
+      lastElement: () => this.lastElement,
+      setLastMotif: (motif) => (this.lastMotif = motif),
+      lastMotif: () => this.lastMotif,
+      sprites: {
+        enemy: () => this.enemySprite,
+        hero: () => this.heroSprite,
+        partner: () => this.palSprite,
+        setPartner: (sprite) => (this.palSprite = sprite),
+        of: (id) => this.spriteOf(id),
+        anchor: (id) => this.anchorOf(id),
+        makePartner: (x) => this.makePartnerSprite(x),
+        destroy: (sprite) => this.destroySprite(sprite),
+        walk: (sprite, x, ms) => this.walk(sprite, x, ms),
+        stopBob: (sprite, baseY) => this.stopBob(sprite, baseY),
+        idleBob: (sprite, baseY) => this.idleBob(sprite, baseY),
+        flash: (sprite, color, times) => this.flash(sprite, color, times),
+        shake: (sprite, amount) => this.shake(sprite, amount),
+        blink: (sprite) => this.blink(sprite),
+        knock: (sprite, dx) => this.knock(sprite, dx),
+        tween: (config) => this.tweenP(config),
+        killTweens: (sprite) => this.tweens.killTweensOf(sprite),
+        monsterTexture: (definition, boss, suffix) =>
+          this.monsterTexture(definition, this.state.enemy.element, this.enemySize, boss, suffix),
+      },
+      motion: {
+        effects: () => this.fx,
+        heroAttack: () => this.heroAttack(),
+        partnerAttack: (sprite) => this.partnerTackle(sprite),
+        enemyAttack: (sprite) => this.enemyAttack(sprite),
+        skill: (actorId, enemySide, sprite, stars, targetId, skill, tier, motif) =>
+          this.skillMotion(actorId, enemySide, sprite, stars, targetId, skill, tier, motif),
+      },
+      hud: {
+        popup: (x, y, text, kind) => this.popup(x, y, text, kind),
+        currentEnemyHp: () => this.hud.get().enemy?.hp ?? 0,
+        patchEnemy: (patch) => this.patchEnemy(patch),
+        patchAllyHp: (id, delta) => this.patchAllyHp(id, delta),
+        patchGauge: (subject, value, gain) => this.patchGauge(subject, value, gain),
+        setTurn: (turn) => this.hud.set({ turn }),
+        showCombo: (count, powerPercent) =>
+          this.showBanner(
+            'combo',
+            t('battle.comboBanner', { n: count }),
+            t('battle.comboPower', { p: powerPercent }),
+            undefined,
+            800,
+          ),
+        sync: () => this.syncViews(),
+      },
+      effects: {
+        burst: (x, y, tint, texture, count, gravityY) => this.burst(x, y, tint, texture, count, gravityY),
+      },
+      camera: {
+        shake: (duration, intensity) => this.cameras.main.shake(duration, intensity),
+        flash: (duration, red, green, blue) => this.cameras.main.flash(duration, red, green, blue),
+        fadeOut: (duration, red, green, blue) => this.cameras.main.fadeOut(duration, red, green, blue),
+      },
+      audio: {
+        play: (name) => playSfx(name),
+        finish: (outcome) => finishBattleBgm(outcome),
+      },
+      clock: {
+        wait: (ms) => this.wait(ms),
+      },
+      setVictory: (event) => (this.victory = event),
+    });
   }
 
-  /** 主人公の「たたかう」：敵の前まで走って斬り、元の位置へとびのく */
+  private animate(event: BattleEvent, next?: BattleEvent): Promise<void> {
+    return this.animator.play(event, next);
+  }
   private async heroSlash(): Promise<void> {
     const sp = this.heroSprite;
     await this.walk(sp, this.layout.enemy.x + 136, 260);
