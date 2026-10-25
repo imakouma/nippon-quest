@@ -354,11 +354,104 @@ test('通常イベントはキーとタップを重ねても選択肢を一度�
   await expect(page.locator('.nq-dlg-choices')).toHaveCount(1);
   await page.getByRole('menuitem', { name: 'いいえ' }).click();
   await finishDialogue(page);
-  expect((await savedState(page)).progress.eventsDone).not.toContain('aomori.ringoen');
+  expect((await savedState(page)).progress.eventsDone).not.toContain('aomori-ev-ringoen');
 
   await page.waitForTimeout(300);
   await interactByKeyAndTap(page);
   await expect(page.locator('.nq-cutin')).toHaveCount(0);
   await reachChoices(page);
   await expect(page.locator('.nq-dlg-choices')).toHaveCount(1);
+});
+
+test('scripted イベントは選択→問題→score 0 報酬→完了 flag を実行する', async ({ page }) => {
+  test.setTimeout(120_000);
+  await startField(page);
+  await teleport(page, [41, 87]);
+
+  await interactByKeyAndTap(page);
+  await page.locator('.nq-cutin').click();
+  await reachChoices(page);
+  await page.getByRole('menuitem', { name: 'はい' }).click();
+  await expect(page.locator('.nq-q')).toBeVisible({ timeout: 20_000 });
+  await page.getByRole('button', { name: 'こたえる' }).click();
+  await expect(page.locator('.nq-q')).toHaveCount(0, { timeout: 10_000 });
+  await expect(page.locator('.nq-dlg')).toBeVisible();
+  await finishDialogue(page);
+
+  await expect
+    .poll(async () => {
+      const state = await savedState(page);
+      return {
+        apples: state.inventory['aomori-ringo'] ?? 0,
+        completed: state.progress.eventsDone.includes('aomori-ev-ringoen'),
+      };
+    })
+    .toEqual({ apples: 1, completed: true });
+});
+
+test('scripted battle→warp は encounter lifecycle と transition pipeline を一度ずつ通る', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await startField(page);
+  await teleport(page, [41, 87]);
+  await suppressFadeCompletionAndCountRestarts(page);
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const content = game.registry.get('content') as {
+      areas: Map<string, { events: Array<Record<string, unknown>> }>;
+    };
+    const event = content.areas
+      .get('aomori')!
+      .events.find((candidate) => candidate.id === 'aomori-ev-ringoen')!;
+    event.steps = [
+      {
+        type: 'battle',
+        key: 'fight',
+        enemyId: 'aomori-ringoron',
+        level: 1,
+        isBoss: true,
+      },
+      {
+        type: 'branch',
+        condition: { type: 'battle', key: 'fight', outcome: 'victory' },
+        then: [{ type: 'warp', map: 'aomori-town', spawn: 'door_field' }],
+      },
+    ];
+  });
+
+  await interactByKeyAndTap(page);
+  await page.locator('.nq-cutin').click();
+  await expect(page.locator('.nq-dlg')).toBeVisible();
+  await finishDialogue(page);
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+        const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+          encounters: { active: { id: string } | null };
+        };
+        return scene.encounters.active?.id ?? null;
+      }),
+    )
+    .not.toBeNull();
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+      encounters: { active: { id: string } | null };
+    };
+    const encounterId = scene.encounters.active!.id;
+    const result = { encounterId, result: { outcome: 'victory', goldLost: 0 } };
+    game.events.emit('battle:end', result);
+    game.events.emit('battle:end', result);
+  });
+
+  await expect
+    .poll(async () => (await savedState(page)).progress.currentMap, { timeout: 15_000 })
+    .toBe('aomori-town');
+  expect(
+    await page.evaluate(
+      () => (window as unknown as { __mapTransitionRestarts?: number }).__mapTransitionRestarts,
+    ),
+  ).toBe(1);
 });

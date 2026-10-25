@@ -473,74 +473,114 @@
       },
       "once": false,
       "cutinImageKey": "motif.aomori.ringo",
-      "dialogue": [
+      "steps": [
         {
-          "speaker": "りんご屋[や]の おばあちゃん",
-          "face": "face.npc-aomori-shop",
-          "text": "りんごの 数[かず]と、どの 木[き]から とったのかを みんな 忘[わす]れてしまってね。しゅうかくを 手伝[てつだ]って くれるかい？"
+          "type": "dialogue",
+          "lines": [
+            {
+              "speaker": "りんご屋[や]の おばあちゃん",
+              "face": "face.npc-aomori-shop",
+              "text": "りんごの 数[かず]と、どの 木[き]から とったのかを みんな 忘[わす]れてしまってね。しゅうかくを 手伝[てつだ]って くれるかい？"
+            },
+            {
+              "speaker": "ミチル",
+              "text": "数[かず]を 取[と]りもどせば、りんごを 待[ま]つ 人[ひと]へ きちんと 分[わ]けられるよ。木[き]の 名前[なまえ]も いっしょに たしかめよう。"
+            }
+          ]
         },
         {
-          "speaker": "ミチル",
-          "text": "数[かず]を 取[と]りもどせば、りんごを 待[ま]つ 人[ひと]へ きちんと 分[わ]けられるよ。木[き]の 名前[なまえ]も いっしょに たしかめよう。"
-        }
-      ],
-      "question": {
-        "subject": "sansu",
-        "gradeRange": [
-          1,
-          2
-        ],
-        "tags": [
-          "theme:ringo"
-        ],
-        "type": "number-build"
-      },
-      "rewardByScore": [
+          "type": "choice",
+          "key": "challenge",
+          "lines": [
+            {
+              "speaker": "りんご屋[や]の おばあちゃん",
+              "text": "ちょうせん する？"
+            }
+          ],
+          "choices": ["はい", "いいえ"]
+        },
         {
-          "min": 1,
-          "reward": {
-            "items": [
-              {
-                "itemId": "aomori-ringo",
-                "n": 5
+          "type": "branch",
+          "condition": { "type": "choice", "key": "challenge", "equals": 0 },
+          "then": [
+            {
+              "type": "question",
+              "key": "score",
+              "request": {
+                "subject": "sansu",
+                "gradeRange": [1, 2],
+                "tags": ["theme:ringo"],
+                "type": "number-build"
               }
-            ],
-            "xp": 20
-          }
-        },
-        {
-          "min": 0.5,
-          "reward": {
-            "items": [
-              {
-                "itemId": "aomori-ringo",
-                "n": 3
-              }
-            ],
-            "xp": 10
-          }
-        },
-        {
-          "min": 0,
-          "reward": {
-            "items": [
-              {
-                "itemId": "aomori-ringo",
-                "n": 1
-              }
-            ],
-            "xp": 5
-          }
-        }
-      ],
-      "afterDialogue": [
-        {
-          "speaker": "りんご屋[や]の おばあちゃん",
-          "text": "ありがとうねえ。数[かず]も 木[き]の 名前[なまえ]も もどったから、だれの りんごか まちがえずに とどけられるよ。"
-        },
-        {
-          "speaker": "見聞帳[けんぶんちょう]の シオリ",
-          "text": "最初[さいしょ]の ページに 書[か]くよ。『名前[なまえ]と 数[かず]が もどると、町[まち]の 仕事[しごと]が また 動[うご]きだした』って。"
+            },
+            {
+              "type": "reward",
+              "scoreKey": "score",
+              "table": [
+                {
+                  "min": 1,
+                  "reward": {
+                    "items": [
+                      {
+                        "itemId": "aomori-ringo",
+                        "n": 5
+                      }
+                    ],
+                    "xp": 20
+                  }
+                },
+                {
+                  "min": 0.5,
+                  "reward": {
+                    "items": [
+                      {
+                        "itemId": "aomori-ringo",
+                        "n": 3
+                      }
+                    ],
+                    "xp": 10
+                  }
+                },
+                {
+                  "min": 0,
+                  "reward": {
+                    "items": [
+                      {
+                        "itemId": "aomori-ringo",
+                        "n": 1
+                      }
+                    ],
+                    "xp": 5
+                  }
+                }
+              ]
+            },
+            { "type": "set-flag", "flag": "aomori-ev-ringoen" },
+            {
+              "type": "dialogue",
+              "lines": [
+                {
+                  "speaker": "りんご屋[や]の おばあちゃん",
+                  "text": "ありがとうねえ。数[かず]も 木[き]の 名前[なまえ]も もどったから、だれの りんごか まちがえずに とどけられるよ。"
+                },
+                {
+                  "speaker": "見聞帳[けんぶんちょう]の シオリ",
+                  "text": "最初[さいしょ]の ページに 書[か]くよ。『名前[なまえ]と 数[かず]が もどると、町[まち]の 仕事[しごと]が また 動[うご]きだした』って。"
+                }
+              ]
+            }
+          ],
+          "else": [
+            {
+              "type": "dialogue",
+              "lines": [
+                {
+                  "speaker": "りんご屋[や]の おばあちゃん",
+                  "text": "また きてね！"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
