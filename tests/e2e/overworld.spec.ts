@@ -1,9 +1,10 @@
 import { expect, test, type Page } from '@playwright/test';
-import { finishHeroIntroduction } from './helpers/onboarding';
+import { completeNewGameSetup } from './newGame';
 
 interface SavedFieldState {
   inventory: Record<string, number>;
   progress: {
+    currentIsland: string;
     currentArea: string;
     currentMap: string;
     position: { x: number; y: number };
@@ -18,36 +19,64 @@ async function startField(page: Page): Promise<void> {
   await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 30_000 });
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
+  await completeNewGameSetup(page);
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
-  await finishHeroIntroduction(page);
 }
 
 async function teleport(
   page: Page,
   tile: [number, number],
-  destination: { area: string; map: string } = { area: 'aomori', map: 'aomori-field' },
+  destination: { area: string; map: string; island?: string } = {
+    area: 'aomori',
+    map: 'aomori-field',
+  },
 ): Promise<void> {
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');
   await page.getByRole('button', { name: 'ひらく', exact: true }).click();
-  await page.getByRole('button', { name: 'JSONを表示' }).click();
+  await page.getByRole('button', { name: /JSONを(?:表示|ひょうじ)/ }).click();
   const jsonBox = page.getByLabel('セーブデータJSON');
   const state = JSON.parse(await jsonBox.inputValue()) as SavedFieldState;
+  if (destination.island) state.progress.currentIsland = destination.island;
   state.progress.currentArea = destination.area;
   state.progress.currentMap = destination.map;
   state.progress.position = { x: tile[0] * 16, y: tile[1] * 16 };
   state.progress.counters['story.prologue'] = 1;
+  state.progress.counters['dev:all'] = 1;
   await jsonBox.fill(JSON.stringify(state));
-  await page.getByRole('button', { name: 'JSONを読みこむ' }).click();
-  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
-  await page.waitForTimeout(750);
+  await page.getByRole('button', { name: /JSONを(?:読みこむ|よみこむ)/ }).click();
+  await expect(page.getByRole('heading', { name: /ほごしゃメニュー/ })).toHaveCount(0, {
+    timeout: 30_000,
+  });
+  await expect(page.locator('#game-root canvas')).toHaveAttribute(
+    'data-player-tile',
+    `${tile[0]},${tile[1]}`,
+    { timeout: 30_000 },
+  );
+  await page.waitForTimeout(450);
 }
 
 async function interactByKeyAndTap(page: Page): Promise<void> {
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
   await page.locator('#game-root canvas').click({ position: { x: 480, y: 270 } });
   await page.keyboard.press('Enter');
+}
+
+async function takeBattleTurn(page: Page): Promise<void> {
+  await page.locator('.nq-cmd[data-cmd="skill"]').click();
+  await page.locator('[data-skill]:not(.nq-opt-off)').first().click();
+  const choice = page.locator('.nq-choice').first();
+  const input = page.locator('.nq-q-input input').first();
+  await expect(choice.or(input).or(page.locator('.nq-nb-submit, .nq-map-tap')).first()).toBeVisible({
+    timeout: 20_000,
+  });
+  if (await choice.isVisible()) await choice.click();
+  else if (await input.isVisible()) {
+    await input.fill('0');
+    await page.getByRole('button', { name: 'こたえる' }).click();
+  } else if (await page.locator('.nq-nb-submit').isVisible()) await page.locator('.nq-nb-submit').click();
+  else await page.locator('.nq-map-tap').click({ position: { x: 20, y: 20 } });
 }
 
 async function finishDialogue(page: Page): Promise<void> {
@@ -69,7 +98,7 @@ async function reachChoices(page: Page): Promise<void> {
 }
 
 async function areaMapHeroPosition(page: Page): Promise<{ x: number; y: number }> {
-  await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click();
+  await page.getByRole('button', { name: /ちずを ひらく/ }).click();
   const hero = page.locator('.nq-wmap-hero');
   await expect(hero).toBeVisible();
   const box = await hero.boundingBox();
@@ -100,6 +129,15 @@ async function walkOneTile(page: Page, key: 'ArrowUp' | 'ArrowDown'): Promise<vo
   await page.waitForTimeout(80);
   await page.keyboard.up(key);
   await page.waitForTimeout(220);
+}
+
+async function skipArrivalStory(page: Page): Promise<void> {
+  const story = page.getByRole('dialog', { name: 'ものがたりの シーン' });
+  await expect(story).toBeVisible({ timeout: 10_000 });
+  await story.getByRole('button', { name: 'スキップ' }).click();
+  await expect(story).toHaveCount(0);
+  await expect(page.locator('.nq-dlg')).toBeVisible({ timeout: 10_000 });
+  await finishDialogue(page);
 }
 
 async function suppressFadeCompletionAndCountRestarts(page: Page): Promise<void> {
@@ -137,6 +175,7 @@ test('フィールドと町を往復すると対応する入口へ配置され�
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
+  await skipArrivalStory(page);
 
   await page.waitForTimeout(450);
   await walkOneTile(page, 'ArrowDown');
@@ -172,10 +211,14 @@ test('フィールドとダンジョンを往復すると対応する入口へ�
     .toMatchObject({ currentMap: 'aomori-field', position: { x: 1344, y: 384 } });
 });
 
-test('船頭に頼んで県フィールドから離島へ移動する', async ({ page }) => {
+test('県フィールドから離島へ移動する', async ({ page }) => {
   test.setTimeout(90_000);
   await startField(page);
-  await teleport(page, [35, 48], { area: 'kagoshima', map: 'kagoshima-field' });
+  await teleport(page, [28, 61], {
+    area: 'kagoshima',
+    map: 'kagoshima-field',
+    island: 'kyushu-okinawa',
+  });
 
   await walkOneTile(page, 'ArrowUp');
   await interactByKeyAndTap(page);
@@ -183,7 +226,6 @@ test('船頭に頼んで県フィールドから離島へ移動する', async ({
   await reachChoices(page);
   await page.getByRole('menuitem', { name: 'はい' }).click();
   await finishDialogue(page);
-
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'kagoshima-enclave', position: { x: 128, y: 528 } });
@@ -192,11 +234,11 @@ test('船頭に頼んで県フィールドから離島へ移動する', async ({
 test('敗北後はフィールドの出発地点へ戻って入力が復帰する', async ({ page }) => {
   test.setTimeout(120_000);
   await page.goto('/?debug=battle&enemy=aomori-ringoron&lv=99');
-  const attack = page.locator('.nq-cmd[data-cmd="attack"]:not([disabled])');
+  const skill = page.locator('.nq-cmd[data-cmd="skill"]:not([disabled])');
   const result = page.locator('.nq-result');
   const deadline = Date.now() + 90_000;
   while (Date.now() < deadline && !(await result.isVisible())) {
-    if (await attack.isVisible()) await attack.click({ force: true });
+    if (await skill.isVisible()) await takeBattleTurn(page);
     else if (await page.locator('.nq-box').isVisible()) await page.locator('.nq-box').click({ force: true });
     await page.waitForTimeout(200);
   }
@@ -204,9 +246,9 @@ test('敗北後はフィールドの出発地点へ戻って入力が復帰す�
   await expect(result).toHaveAttribute('aria-label', 'まけてしまった…');
   await page.locator('[data-result-close]').click();
   await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 20_000 });
-  await page.waitForTimeout(1_000);
+  await skipArrivalStory(page);
   await page.getByRole('button', { name: 'メニュー' }).click();
-  await expect(page.getByRole('region', { name: 'がくしゅうロードマップ' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'メニュー' })).toBeVisible();
 });
 
 test('fade 完了がなく連打されても fallback で一度だけ町へ移動する', async ({ page }) => {
@@ -236,13 +278,14 @@ test('にほんちずで移動した後に入力が戻る', async ({ page }) => 
   test.setTimeout(90_000);
   await startField(page);
 
-  await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click();
+  await page.getByRole('button', { name: /ちずを ひらく/ }).click();
   await page.getByRole('button', { name: 'にほんちず' }).click();
+  await page.getByRole('button', { name: /この ちほうを くわしく みる/ }).click();
   await page.getByRole('button', { name: 'ここへ いく' }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 10_000 });
   await page.waitForTimeout(700);
   await page.getByRole('button', { name: 'メニュー' }).click();
-  await expect(page.getByRole('region', { name: 'がくしゅうロードマップ' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'メニュー' })).toBeVisible();
 });
 
 test('名所はキーとタップを重ねても一度だけ始まり、閉じた後に移動できる', async ({ page }) => {
@@ -274,7 +317,7 @@ test('名所はキーとタップを重ねても一度だけ始まり、閉じ�
 test('宝箱はキーとタップを重ねても報酬を一度だけ与え、完了後に再び調べられる', async ({ page }) => {
   test.setTimeout(120_000);
   await startField(page);
-  await teleport(page, [63, 38]);
+  await teleport(page, [123, 99]);
 
   await interactByKeyAndTap(page);
   await expect(page.locator('.nq-cutin')).toHaveCount(1);

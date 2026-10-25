@@ -89,11 +89,7 @@ import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
 import { bagCells } from '../ui/field/bagLayout';
 import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
-import {
-  isImportedLocationValid,
-  isSavedFieldTileWalkable,
-  rememberLocationState,
-} from './overworld/importedLocation';
+import { isImportedLocationValid, rememberLocationState } from './overworld/importedLocation';
 import { WorldMapOverlay, type MapRegionInfo, type WorldMapData } from '../ui/field/WorldMapOverlay';
 import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
@@ -158,9 +154,9 @@ import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
-import { resolveMapEntry } from './overworld/mapEntry';
 import { runMapTransition, type MapTransitionRequest } from './overworld/mapTransitionPipeline';
 import { createPhaserMapTransitionPorts } from './overworld/phaserMapTransitionPorts';
+import { mapTransitionRequestFromSceneData, resolveOverworldMapEntry } from './overworld/mapSceneEntry';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
 import { musubiDamaPurchaseLines } from './overworld/storyScenes';
@@ -367,15 +363,8 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   init(data?: OverworldSceneData): void {
-    if (data?.transitionRequest) this.mapKey = data.transitionRequest.targetMap;
-    else if (data?.mapKey) this.mapKey = data.mapKey;
-    this.entryRequest = data?.transitionRequest ?? {
-      targetMap: this.mapKey,
-      spawnName: data?.spawnName ?? 'spawn',
-      ...(data?.spawnTile ? { tile: data.spawnTile } : {}),
-      ...(data?.exactSpawn ? { exactSpawn: true } : {}),
-      reason: 'script',
-    };
+    this.entryRequest = mapTransitionRequestFromSceneData(data, this.mapKey);
+    this.mapKey = this.entryRequest.targetMap;
     this.pendingDebugBattle = data?.debugBattle ?? null;
   }
 
@@ -528,35 +517,16 @@ export class OverworldScene extends Phaser.Scene {
   // ───────────────────────── 主人公と移動 ─────────────────────────
 
   private findSpawn(layer: Phaser.Tilemaps.ObjectLayer | null): [number, number] {
-    const saved = this.gs()?.progress;
-    const fieldGroundRequired = this.kind() === 'field' || this.kind() === 'enclave';
-    const entry = resolveMapEntry({
+    const entry = resolveOverworldMapEntry({
       request: this.entryRequest,
-      map: {
-        key: this.mapKey,
-        width: this.map.width,
-        height: this.map.height,
-        objects: (layer?.objects ?? []).map((object) => ({
-          name: object.name,
-          type: object.type,
-          x: object.x,
-          y: object.y,
-        })),
-        isWalkable: (x, y) =>
-          !this.isBlocked(x, y) &&
-          (!fieldGroundRequired ||
-            isSavedFieldTileWalkable(this.map.getTileAt(x, y, true, 'background')?.index)),
-        tileSize: TILE,
-      },
-      ...(saved
-        ? {
-            saved: {
-              mapKey: saved.currentMap,
-              x: Math.floor(saved.position.x / TILE),
-              y: Math.floor(saved.position.y / TILE),
-            },
-          }
-        : {}),
+      key: this.mapKey,
+      width: this.map.width,
+      height: this.map.height,
+      objects: (layer?.objects ?? []).map(({ name, type, x, y }) => ({ name, type, x, y })),
+      isBlocked: (x, y) => this.isBlocked(x, y),
+      terrainAt: (x, y) => this.map.getTileAt(x, y, true, 'background')?.index,
+      fieldGroundRequired: this.kind() === 'field' || this.kind() === 'enclave',
+      saved: this.gs()?.progress,
     });
     this.facing = entry.facing;
     return [entry.x, entry.y];
@@ -2702,7 +2672,14 @@ export class OverworldScene extends Phaser.Scene {
     this.standStill();
     void this.talk([{ text: t(on ? 'field.devEnabled' : 'field.devDisabled') }]).then(() => {
       this.busy = false;
-      if (this.kind() === 'field') this.switchMap(this.mapKey, 'spawn', this.playerTile(), true);
+      if (this.kind() === 'field')
+        this.switchMap({
+          targetMap: this.mapKey,
+          spawnName: 'spawn',
+          tile: this.playerTile(),
+          exactSpawn: true,
+          reason: 'script',
+        });
     });
   }
 

@@ -5,6 +5,7 @@ import {
   type MapTransitionRequest,
 } from '../../src/scenes/overworld/mapTransitionPipeline';
 import { resolveMapEntry, type MapEntryMap } from '../../src/scenes/overworld/mapEntry';
+import { mapTransitionRequestFromSceneData } from '../../src/scenes/overworld/mapSceneEntry';
 
 const request = (overrides: Partial<MapTransitionRequest> = {}): MapTransitionRequest => ({
   targetMap: 'test-map',
@@ -25,6 +26,25 @@ const map = (overrides: Partial<MapEntryMap> = {}): MapEntryMap => ({
 });
 
 afterEach(() => vi.useRealTimers());
+
+describe('mapTransitionRequestFromSceneData', () => {
+  it('preserves typed requests and converts legacy scene data', () => {
+    const typed = request({ reason: 'defeat' });
+    expect(mapTransitionRequestFromSceneData({ transitionRequest: typed }, 'fallback')).toBe(typed);
+    expect(
+      mapTransitionRequestFromSceneData(
+        { mapKey: 'legacy-map', spawnName: 'door', spawnTile: [2, 3], exactSpawn: true },
+        'fallback',
+      ),
+    ).toEqual({
+      targetMap: 'legacy-map',
+      spawnName: 'door',
+      tile: [2, 3],
+      exactSpawn: true,
+      reason: 'script',
+    });
+  });
+});
 
 describe('resolveMapEntry', () => {
   it('uses a walkable exact tile before every other candidate', () => {
