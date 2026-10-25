@@ -1,5 +1,5 @@
 import type { BattleSummary } from '../../core/progression/battleResult';
-import type { EncounterZone } from '../../core/battle/setup';
+import type { EncounterZone } from '../../core/encounter/contentAdapter';
 import type { Ground } from '../../core/world/ground';
 import type { BattlePresentation } from './layout';
 
