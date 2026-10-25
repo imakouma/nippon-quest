@@ -33,3 +33,12 @@
 - [x] Graphify code-only graphを更新する。
 - [x] 4175 previewを確認して停止する。
 - [x] walkthroughとコミット情報を記録する。
+
+## Task 5: Production integration follow-up
+
+- [ ] 完成済みevent runtime releaseをmergeする。
+- [ ] Phaser adapterのRED fixture testを追加する。
+- [ ] 既存NPC・衝突判定・Tweenへmovement portsを接続する。
+- [ ] production event runtimeからmovement完了をawaitする。
+- [ ] focused testとmutation checkを完了する。
+- [ ] 全必須検査、Graphify更新、4175 previewを完了する。

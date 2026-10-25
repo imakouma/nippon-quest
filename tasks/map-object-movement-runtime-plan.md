@@ -61,3 +61,25 @@
 ## Open Questions
 
 なし。
+
+## Production Integration Follow-up
+
+### Phase 4: Dependency and RED
+
+- [ ] Task 10: `codex/event-command-runtime-release` を現在の専用ブランチへmergeする。
+- [ ] Task 11: production movement port のfixture testを追加し、未接続のREDを確認する。
+
+### Phase 5: Scene Adapter
+
+- [ ] Task 12: 既存 NPC map / blocked set / Tween を使う最小 Phaser adapterを追加する。
+- [ ] Task 13: `createEventRuntimePorts` と `Overworld.runEvent` へmovement portを接続する。
+
+### Checkpoint: Production Path
+
+- [ ] scripted event → event runtime → movement runtime → Phaser NPC のfocused testが成功する。
+- [ ] `npcWander.ts` が未変更である。
+
+### Phase 6: Delivery
+
+- [ ] Task 14: five-axis review、mutation check、Graphify更新を行う。
+- [ ] Task 15: 必須検査と4175 previewを完了し、walkthroughを更新する。

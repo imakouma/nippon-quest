@@ -16,8 +16,8 @@ NPC と動的 map object に対して、有限の `walk` / `face` / `wait` / `em
 2. 対象 object は文字列 id で識別し、座標・Sprite・Tween は port 実装だけが知る。
 3. 歩行衝突は予約 port が判定し、予約できない場合は script を失敗させる。
 4. event-command-runtime の完成済み core 契約を前提に、`movement` command を加算的に追加する。
-5. 現在の基点には production event runtime port が未統合のため、今回は pure runtime と event runtime の
-   typed port 接続までを完成させる。Phaser adapter は event runtime production integration 側の責務とする。
+5. 完成済み `codex/event-command-runtime-release` を依存として取り込み、production event runtime port から
+   Phaser adapter を呼び出す。adapter は既存 NPC map、blocked set、Tween を再利用する。
 
 ## Tech Stack
 
@@ -40,8 +40,11 @@ NPC と動的 map object に対して、有限の `walk` / `face` / `wait` / `em
 - `src/core/events/mapObjectMovementRuntime.ts`: Phaser 非依存のコマンド、状態、port、実行器
 - `src/core/events/contracts.ts`: event-command-runtime の `movement` command と port 契約
 - `src/core/events/runtime.ts`: `movement` command の逐次dispatch
+- `src/scenes/overworld/mapObjectMovementPorts.ts`: 既存 Phaser NPC を movement port へ適合
+- `src/scenes/overworld/eventRuntimePorts.ts`: scripted event から movement runtime を呼ぶproduction接続
 - `tests/unit/mapObjectMovementRuntime.test.ts`: 状態、順序、中断、上限、予約、cleanup、完了契約
 - `tests/unit/eventCommandRuntime.test.ts`: event runtime から movement port への接続
+- `tests/unit/mapObjectMovementPorts.test.ts`: NPC検索、予約、移動、向き、表示、中断のScene adapter契約
 - `tasks/map-object-movement-runtime-*.md`: spec、plan、進捗、review/walkthrough
 
 ## Code Style
@@ -120,8 +123,10 @@ await runMapObjectMovement('npc-guide', commands, ports, { signal });
 - 未settle portでもabort/timeoutによりruntime Promiseがsettleする。
 - event-command-runtimeの `movement` commandがtyped portへdispatchされる。
 - `npcWander.ts` を変更しない。
+- production area event が実在 NPC を id で選び、既存衝突判定を使ってmovement列を完了できる。
+- scripted movement 中は wander と同じ NPC を二重に動かさず、終了後に操作可能状態へ戻す。
 - focused testとリポジトリ必須検査が成功する。
 
 ## Open Questions
 
-なし。Phaser adapter と実データ投入は、production event runtime integration が基点へ入った後の別sliceとする。
+なし。実データ投入は別sliceとし、このsliceではproduction adapterをfixtureで検証する。
