@@ -23,7 +23,11 @@ async function startField(page: Page): Promise<void> {
   await finishHeroIntroduction(page);
 }
 
-async function teleport(page: Page, tile: [number, number]): Promise<void> {
+async function teleport(
+  page: Page,
+  tile: [number, number],
+  destination: { area: string; map: string } = { area: 'aomori', map: 'aomori-field' },
+): Promise<void> {
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');
@@ -31,8 +35,8 @@ async function teleport(page: Page, tile: [number, number]): Promise<void> {
   await page.getByRole('button', { name: 'JSONを表示' }).click();
   const jsonBox = page.getByLabel('セーブデータJSON');
   const state = JSON.parse(await jsonBox.inputValue()) as SavedFieldState;
-  state.progress.currentArea = 'aomori';
-  state.progress.currentMap = 'aomori-field';
+  state.progress.currentArea = destination.area;
+  state.progress.currentMap = destination.map;
   state.progress.position = { x: tile[0] * 16, y: tile[1] * 16 };
   state.progress.counters['story.prologue'] = 1;
   await jsonBox.fill(JSON.stringify(state));
@@ -147,6 +151,62 @@ test('フィールドと町を往復すると対応する入口へ配置され�
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
+});
+
+test('フィールドとダンジョンを往復すると対応する入口へ配置される', async ({ page }) => {
+  test.setTimeout(90_000);
+  await startField(page);
+  await teleport(page, [84, 24]);
+
+  await walkOneTile(page, 'ArrowUp');
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'aomori-dungeon', position: { x: 400, y: 560 } });
+
+  await page.waitForTimeout(450);
+  await walkOneTile(page, 'ArrowDown');
+  await walkOneTile(page, 'ArrowDown');
+  await walkOneTile(page, 'ArrowDown');
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'aomori-field', position: { x: 1344, y: 384 } });
+});
+
+test('船頭に頼んで県フィールドから離島へ移動する', async ({ page }) => {
+  test.setTimeout(90_000);
+  await startField(page);
+  await teleport(page, [35, 48], { area: 'kagoshima', map: 'kagoshima-field' });
+
+  await walkOneTile(page, 'ArrowUp');
+  await interactByKeyAndTap(page);
+  await expect(page.locator('.nq-dlg')).toBeVisible();
+  await reachChoices(page);
+  await page.getByRole('menuitem', { name: 'はい' }).click();
+  await finishDialogue(page);
+
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'kagoshima-enclave', position: { x: 128, y: 528 } });
+});
+
+test('敗北後はフィールドの出発地点へ戻って入力が復帰する', async ({ page }) => {
+  test.setTimeout(120_000);
+  await page.goto('/?debug=battle&enemy=aomori-ringoron&lv=99');
+  const attack = page.locator('.nq-cmd[data-cmd="attack"]:not([disabled])');
+  const result = page.locator('.nq-result');
+  const deadline = Date.now() + 90_000;
+  while (Date.now() < deadline && !(await result.isVisible())) {
+    if (await attack.isVisible()) await attack.click({ force: true });
+    else if (await page.locator('.nq-box').isVisible()) await page.locator('.nq-box').click({ force: true });
+    await page.waitForTimeout(200);
+  }
+
+  await expect(result).toHaveAttribute('aria-label', 'まけてしまった…');
+  await page.locator('[data-result-close]').click();
+  await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 20_000 });
+  await page.waitForTimeout(1_000);
+  await page.getByRole('button', { name: 'メニュー' }).click();
+  await expect(page.getByRole('region', { name: 'がくしゅうロードマップ' })).toBeVisible();
 });
 
 test('fade 完了がなく連打されても fallback で一度だけ町へ移動する', async ({ page }) => {
