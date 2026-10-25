@@ -121,19 +121,23 @@ export async function runMapObjectMovement(
     `map object movement exceeded ${maxDurationMs}ms`,
   );
   const timeout = globalThis.setTimeout(() => controller.abort(timeoutError), timeoutDelay);
-  let rejectAbort!: (reason?: unknown) => void;
-  const aborted = new Promise<never>((_resolve, reject) => {
-    rejectAbort = () => reject(controller.signal.reason);
-    if (controller.signal.aborted) rejectAbort();
-    else controller.signal.addEventListener('abort', rejectAbort, { once: true });
-  });
-  const bounded = <T>(operation: () => Promise<T>): Promise<T> => {
+  const bounded = async <T>(operation: () => Promise<T>): Promise<T> => {
     controller.signal.throwIfAborted();
-    return Promise.race([operation(), aborted]);
+    let rejectAbort!: () => void;
+    const aborted = new Promise<never>((_resolve, reject) => {
+      rejectAbort = () => reject(controller.signal.reason);
+      controller.signal.addEventListener('abort', rejectAbort, { once: true });
+    });
+    try {
+      return await Promise.race([operation(), aborted]);
+    } finally {
+      controller.signal.removeEventListener('abort', rejectAbort);
+    }
   };
 
   try {
     emit({ phase: 'INIT' });
+    controller.signal.throwIfAborted();
     positiveLimit(maxSteps, 'maxSteps');
     positiveLimit(maxDurationMs, 'maxDurationMs');
     if (!objectId) throw new MapObjectMovementError('INVALID_OPTIONS', 'objectId must not be empty');
@@ -201,7 +205,6 @@ export async function runMapObjectMovement(
   } finally {
     globalThis.clearTimeout(timeout);
     options.signal.removeEventListener('abort', abortFromCaller);
-    controller.signal.removeEventListener('abort', rejectAbort);
     const cleanupErrors: unknown[] = [];
     const releaseError = releaseReservation(activeReservation);
     if (releaseError !== undefined) cleanupErrors.push(releaseError);

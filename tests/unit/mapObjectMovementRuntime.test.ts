@@ -203,10 +203,12 @@ describe('runMapObjectMovement', () => {
   it('portがsignalを無視してもcaller abortでsettleし、cleanupを1回だけ行う', async () => {
     const controller = new AbortController();
     const cleanup = vi.fn();
+    const started = deferred<void>();
     let portSignal: AbortSignal | undefined;
     const ports = makePorts({
       face: async (_objectId, _direction, activeSignal) => {
         portSignal = activeSignal;
+        started.resolve();
         return new Promise<never>(() => undefined);
       },
       cleanup,
@@ -214,8 +216,7 @@ describe('runMapObjectMovement', () => {
     const running = runMapObjectMovement('npc-guide', [{ type: 'face', direction: 'down' }], ports, {
       signal: controller.signal,
     });
-    await Promise.resolve();
-    await Promise.resolve();
+    await started.promise;
 
     const reason = new Error('scene shutdown');
     controller.abort(reason);
@@ -224,6 +225,24 @@ describe('runMapObjectMovement', () => {
     expect(portSignal?.aborted).toBe(true);
     expect(cleanup).toHaveBeenCalledOnce();
     expect(cleanup).toHaveBeenCalledWith('npc-guide', reason);
+  });
+
+  it('開始前にabort済みならportを呼ばず同じreasonでrejectする', async () => {
+    const controller = new AbortController();
+    const reason = new Error('already stopped');
+    controller.abort(reason);
+    const cleanup = vi.fn();
+    const ports = makePorts({ cleanup });
+
+    await expect(
+      runMapObjectMovement('npc-guide', [{ type: 'show' }, { type: 'hide' }], ports, {
+        signal: controller.signal,
+        maxSteps: 1,
+      }),
+    ).rejects.toBe(reason);
+    expect(ports.prepare).not.toHaveBeenCalled();
+    expect(ports.setVisible).not.toHaveBeenCalled();
+    expect(cleanup).toHaveBeenCalledOnce();
   });
 
   it('最大時間で未settle portをTIME_LIMITとして停止する', async () => {
