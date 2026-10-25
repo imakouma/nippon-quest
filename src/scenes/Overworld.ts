@@ -117,9 +117,7 @@ import { monsterMenuArtUrl } from '../rendering/menuArt';
 import { addSheet } from '../rendering/sheet';
 import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
 import { buildFieldTextures, WARP_FRAMES } from '../rendering/overworld/fieldArt';
-import { overworldView } from '../rendering/overworld/overworldView';
-import { buildViewTexture } from '../rendering/overworld/viewTiles';
-import { buildEntranceIcons } from '../rendering/overworld/entranceIcons';
+import { addOverworldViewLayer } from '../rendering/overworld/viewLayer';
 import {
   areaMapView,
   mapPlaces,
@@ -154,6 +152,14 @@ import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
+import { resolveFieldInteraction, type FieldInteractionIntent } from './overworld/fieldInteractionRouter';
+import { executeFieldInteractionDecision } from './overworld/fieldInteractionRuntime';
+import {
+  collectOverworldFieldInteractionCandidates,
+  dispatchOverworldFieldInteraction,
+  fieldGateIcon,
+  isHarborTransition,
+} from './overworld/overworldFieldInteraction';
 import { runMapTransition, type MapTransitionRequest } from './overworld/mapTransitionPipeline';
 import { createPhaserMapTransitionPorts } from './overworld/phaserMapTransitionPorts';
 import { mapTransitionRequestFromSceneData, resolveOverworldMapEntry } from './overworld/mapSceneEntry';
@@ -321,6 +327,7 @@ export class OverworldScene extends Phaser.Scene {
   private canWarp = false;
   private waitRelease = false;
   private inputLockUntil = 0;
+  private lastInteractionFrame: number | null = null;
   private lastBump = 0;
   private stepCount = 0;
   private blocked = new Set<number>();
@@ -419,7 +426,7 @@ export class OverworldScene extends Phaser.Scene {
     }
     this.map.createLayer('background', tileset, 0, 0);
     // フィールド・離島は 見た目用の レイヤーを 上に しく（データの background は そのまま。地面の 判定に つかう）
-    if (this.kind() === 'field' || this.kind() === 'enclave') this.addViewLayer();
+    if (this.kind() === 'field' || this.kind() === 'enclave') addOverworldViewLayer(this, this.map, TILE);
     // 町・ダンジョンの 木・かざり・たいまつ など（地面の上に重ねる）
     if (this.map.getLayer('decor')) this.map.createLayer('decor', tileset, 0, 0);
     this.colLayer = this.map.createLayer('collision', tileset, 0, 0);
@@ -486,6 +493,7 @@ export class OverworldScene extends Phaser.Scene {
     this.canWarp = false;
     this.waitRelease = false;
     this.inputLockUntil = 0;
+    this.lastInteractionFrame = null;
     this.stepCount = 0;
     this.blocked = new Set();
     this.transitions = new Map();
@@ -600,15 +608,17 @@ export class OverworldScene extends Phaser.Scene {
     if (kb) {
       this.cursors = kb.createCursorKeys();
       this.wasd = kb.addKeys('W,A,S,D') as Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
-      for (const ev of ['keydown-SPACE', 'keydown-ENTER', 'keydown-Z']) kb.on(ev, () => this.interact());
+      for (const ev of ['keydown-SPACE', 'keydown-ENTER', 'keydown-Z'])
+        kb.on(ev, () => this.routeFieldInteraction('interact'));
       kb.on('keydown-M', () => this.openAreaMap());
-      kb.on('keydown-I', () => this.openMenu());
+      kb.on('keydown-I', () => this.routeFieldInteraction('menu'));
     }
     // タップ：主人公のすぐ近くなら「しらべる」。はなれた所をおしっぱなしにすると、その方向へ歩く（update）
     this.input.on('pointerdown', (p: Phaser.Input.Pointer) => {
       if (this.busy || this.inBattle) return;
       const w = p.positionToCamera(this.cameras.main) as Phaser.Math.Vector2;
-      if (Phaser.Math.Distance.Between(this.player.x, this.player.y - 4, w.x, w.y) < 20) this.interact();
+      if (Phaser.Math.Distance.Between(this.player.x, this.player.y - 4, w.x, w.y) < 20)
+        this.routeFieldInteraction('interact');
     });
   }
 
@@ -729,113 +739,111 @@ export class OverworldScene extends Phaser.Scene {
     this.player.setFrame(walkFrame(this.facing, 1));
   }
 
-  /** 1 マス歩き終えたとき：入口 → ワープホール → 名所 → エンカウント の順に調べる */
+  /** 1 マス歩き終えたときの候補をrouterへ渡し、一件だけ実行する。 */
   private arrive(x: number, y: number): void {
-    const i = this.idx(x, y);
     this.enterRegion(x, y);
-    const tr = this.transitions.get(i);
-    if (tr && this.canWarp && this.isLocked(i)) {
-      void this.talkLocked(i);
-      return;
-    }
-    if (tr && this.canWarp) {
-      this.canWarp = false;
-      playEntranceSound(this.mapKey, tr.map);
-      this.switchMap({ targetMap: tr.map, spawnName: tr.spawn, reason: 'door' });
-      return;
-    }
-    if (this.warp && i === this.warp.tile) {
-      void this.enterWarp();
-      return;
-    }
-    if (this.checkTrigger(i)) return;
-    this.checkRandomEncounter();
+    this.routeFieldInteraction('arrive', { x, y });
   }
 
-  private checkTrigger(i: number): boolean {
-    const tr = this.triggers.get(i);
-    if (!tr) {
-      this.insideTrigger = null;
-      return false;
-    }
-    if (tr.id === this.insideTrigger) return false;
-    this.insideTrigger = tr.id;
-    if (!tr.auto()) return false;
-    void tr.run();
-    return true;
+  private routeFieldInteraction(intent: FieldInteractionIntent, position?: { x: number; y: number }): void {
+    const [playerX, playerY] = this.playerTile();
+    const player = position ?? { x: playerX, y: playerY };
+    const [dx, dy] = DELTA[this.facing];
+    const frontTile = { x: player.x + dx, y: player.y + dy };
+    const frame = this.game.loop.frame;
+    const decision = resolveFieldInteraction({
+      intent,
+      player: { position: player, facing: this.facing },
+      frontTile: {
+        position: frontTile,
+        isCounter: this.colLayer?.getTileAt(frontTile.x, frontTile.y)?.index === BLOCK_TILE,
+      },
+      flow: {
+        locked:
+          this.busy ||
+          this.inBattle ||
+          this.moving ||
+          this.fieldFlow.isRunning ||
+          this.time.now < this.inputLockUntil,
+        frame,
+        lastHandledFrame: this.lastInteractionFrame,
+      },
+      candidates: this.fieldInteractionCandidates(intent, player, frontTile),
+    });
+    if (decision.kind === 'none') return;
+    this.lastInteractionFrame = frame;
+    void executeFieldInteractionDecision(decision, {
+      flow: this.fieldFlow,
+      mapTransition: createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+      beforeMapTransition: ({ request }) => {
+        this.canWarp = false;
+        playEntranceSound(this.mapKey, request.targetMap);
+      },
+      dispatch: (candidate) => this.dispatchFieldInteraction(candidate),
+    });
   }
 
-  private interact(): void {
-    if (this.busy || this.inBattle || this.moving || this.time.now < this.inputLockUntil) return;
-    const [x, y] = this.playerTile();
-    const front = this.idx(x + DELTA[this.facing][0], y + DELTA[this.facing][1]);
-    if (this.midBoss && front === this.midBoss.tile) {
-      void this.confrontMidBoss();
-      return;
-    }
-    const rb = this.regionBosses.get(front);
-    if (rb) {
-      void this.confrontRegionBoss(rb);
-      return;
-    }
-    if (this.areaBoss && front === this.areaBoss.tile) {
-      void this.confrontAreaBoss();
-      return;
-    }
-    if (this.lastBoss && front === this.lastBoss.tile) {
-      void this.confrontLastBoss();
-      return;
-    }
-    const around = [front, this.idx(x, y)];
-    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) around.push(this.idx(x + dx, y + dy));
-    for (const i of around) {
-      const npc = this.npcs.get(i);
-      if (npc) {
-        void this.talkNpc(npc);
-        return;
-      }
-      const chest = this.chests.get(i);
-      if (chest) {
-        void this.openChest(chest);
-        return;
-      }
-      const sign = this.signs.get(i);
-      if (sign) {
-        void sign();
-        return;
-      }
-    }
-  }
-
-  /** 入口の しるし：フィールドでは 行き先の 絵（町・どうくつ・お城・港）、町・ダンジョンの 中の 出口は 光る 床 */
-  private gateIcon(target: string): string {
-    if (this.kind() !== 'field' && this.kind() !== 'enclave') return 'fld.gate';
-    if (target.endsWith('-town')) return 'fld.icon.town';
-    if (target.endsWith('-dungeon')) return 'fld.icon.cave';
-    if (target.endsWith('-secret')) return 'fld.icon.castle';
-    return 'fld.icon.port';
-  }
-  private addViewLayer(): void {
-    buildViewTexture(this);
-    buildEntranceIcons(this);
-    const bg = this.map.getLayer('background');
-    if (!bg) return;
-    const w = this.map.width;
-    const h = this.map.height;
-    // Tiled の 地図には あとから タイルセットを 足せないので、見た目だけの タイルマップを 別に つくって 上に しく
-    const vmap = this.make.tilemap({ tileWidth: TILE, tileHeight: TILE, width: w, height: h });
-    const tiles = vmap.addTilesetImage('overworld-view', 'overworld-view', TILE, TILE, 0, 0, 0);
-    const layer = tiles ? vmap.createBlankLayer('view', tiles, 0, 0) : null;
-    if (!layer) return;
-    const ids = overworldView(
-      bg.data.flatMap((row) => row.map((t) => t.index)),
-      w,
-      h,
+  private fieldInteractionCandidates(
+    intent: FieldInteractionIntent,
+    player: { x: number; y: number },
+    front: { x: number; y: number },
+  ): ReturnType<typeof collectOverworldFieldInteractionCandidates>['candidates'] {
+    const collected = collectOverworldFieldInteractionCandidates(
+      {
+        width: this.map.width,
+        canWarp: this.canWarp,
+        transitions: this.transitions,
+        isLocked: (tile) => this.isLocked(tile),
+        warpTile: this.warp?.tile ?? null,
+        triggers: this.triggers,
+        insideTrigger: this.insideTrigger,
+        midBossTile: this.midBoss?.tile ?? null,
+        regionBosses: this.regionBosses,
+        areaBossTile: this.areaBoss?.tile ?? null,
+        lastBossTile: this.lastBoss?.tile ?? null,
+        npcs: this.npcs,
+        chests: this.chests,
+        signs: this.signs,
+      },
+      intent,
+      player,
+      front,
     );
-    const rows: number[][] = [];
-    for (let y = 0; y < h; y++) rows.push(ids.slice(y * w, (y + 1) * w));
-    layer.putTilesAt(rows, 0, 0);
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => vmap.destroy());
+    this.insideTrigger = collected.insideTrigger;
+    return collected.candidates;
+  }
+
+  private dispatchFieldInteraction(candidate: Parameters<typeof dispatchOverworldFieldInteraction>[0]): void {
+    dispatchOverworldFieldInteraction(candidate, {
+      menu: () => this.openMenu(),
+      lockedTransition: (tile) => void this.talkLocked(tile),
+      warp: () => void this.enterWarp(),
+      fieldEvent: (id) => {
+        const [x, y] = this.playerTile();
+        const trigger = this.triggers.get(this.idx(x, y));
+        if (!trigger || trigger.id !== id) return;
+        this.insideTrigger = trigger.id;
+        void trigger.run();
+      },
+      battle: (type, tile) => {
+        if (type === 'mid-boss') void this.confrontMidBoss();
+        else if (type === 'region-boss') {
+          const boss = this.regionBosses.get(tile);
+          if (boss) void this.confrontRegionBoss(boss);
+        } else if (type === 'area-boss') void this.confrontAreaBoss();
+        else if (type === 'last-boss') void this.confrontLastBoss();
+        else this.checkRandomEncounter();
+      },
+      npc: (tile) => {
+        const npc = this.npcs.get(tile);
+        if (npc) void this.talkNpc(npc);
+      },
+      chest: (tile) => {
+        const chest = this.chests.get(tile);
+        if (chest) void this.openChest(chest);
+      },
+      sign: (tile) => void this.signs.get(tile)?.(),
+    });
   }
 
   // ───────────────────────── マップの物体 ─────────────────────────
@@ -864,7 +872,7 @@ export class OverworldScene extends Phaser.Scene {
     if (typeof target !== 'string') return;
     const spawn = String(prop(obj, 'targetSpawn') ?? 'spawn');
     // 県 ⇄ 離島 は ふむと ワープ ではなく、港の せんどうさんに たのんで 船で わたる
-    if (this.isHarborGate(target)) {
+    if (isHarborTransition(this.kind(), target, ENCLAVES)) {
       this.addHarbor(tx, ty, target, spawn);
       return;
     }
@@ -881,7 +889,7 @@ export class OverworldScene extends Phaser.Scene {
       const i = this.idx(tx + k, ty);
       this.transitions.set(i, { map: target, spawn });
       if (typeof lock === 'string') this.lockedGates.set(i, lock);
-      const icon = this.gateIcon(target);
+      const icon = fieldGateIcon(this.kind(), target);
       const isTown = icon === 'fld.icon.town';
       const pad = this.add
         .image((tx + k) * TILE + 8, (ty + 1) * TILE, icon)
@@ -906,14 +914,6 @@ export class OverworldScene extends Phaser.Scene {
         easeParams: [3],
       });
     }
-  }
-
-  /** 県の フィールド → 離島、離島 → 県の フィールド の 入口か（離島の 中の 船は ちがう） */
-  private isHarborGate(target: string): boolean {
-    const k = this.kind();
-    if (k === 'field') return ENCLAVES.some((e) => e.enclaveId === target);
-    if (k === 'enclave') return target.endsWith('-field');
-    return false;
   }
 
   /**
@@ -2616,7 +2616,7 @@ export class OverworldScene extends Phaser.Scene {
         mapLabel: t('field.areaMapOpenFor', { area: mapName }),
         onAreaMap: () => this.openAreaMap(),
         menuLabel: t('field.menu'),
-        onMenu: () => this.openMenu(),
+        onMenu: () => this.routeFieldInteraction('menu'),
         onMove: (direction) => {
           this.touchDir = direction;
         },

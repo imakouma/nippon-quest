@@ -65,6 +65,20 @@ describe('resolveFieldInteraction', () => {
     ).toEqual({ kind: 'action', candidate: npc });
   });
 
+  it('正面・counterが無ければ周囲1マスの対象を互換fallbackとして選ぶ', () => {
+    const nearby: FieldInteractionCandidate = {
+      id: 'landmark',
+      kind: 'sign',
+      activation: 'nearby',
+      position: position(3, 4),
+    };
+    expect(resolveFieldInteraction(input([nearby]))).toEqual({ kind: 'action', candidate: nearby });
+    expect(resolveFieldInteraction(input([{ ...nearby, position: position(2, 4) }], {}))).toEqual({
+      kind: 'none',
+      reason: 'no-target',
+    });
+  });
+
   it('requiredFacingが一致する候補だけを選ぶ', () => {
     const wrong: FieldInteractionCandidate = {
       id: 'wrong',

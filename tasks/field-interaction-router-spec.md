@@ -50,9 +50,11 @@ const decision = resolveFieldInteraction({
 | interact |       10 | battle                             | 正面（中ボス・地域ボス・県ボス・裏ボス） |
 | interact |       20 | npc                                | 正面                                     |
 | interact |       21 | npc                                | 正面タイルがcounterで、その1マス先       |
+| interact |       22 | npc                                | 周囲1マスの互換fallback                  |
 | interact |       30 | chest                              | 正面                                     |
+| interact |       32 | chest                              | 足元または周囲1マスの互換fallback        |
 | interact |       40 | sign / field-event / event-command | 正面                                     |
-| interact |       50 | background                         | 足元                                     |
+| interact |       42 | sign / background                  | 足元または周囲1マスの互換fallback        |
 | arrive   |       10 | locked-transition                  | 足元                                     |
 | arrive   |       20 | map-transition                     | 足元                                     |
 | arrive   |       30 | warp                               | 足元                                     |

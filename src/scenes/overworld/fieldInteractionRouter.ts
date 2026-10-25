@@ -3,7 +3,7 @@ import type { MapTransitionRequest } from './mapTransitionPipeline';
 
 export type FieldDirection = 'down' | 'left' | 'right' | 'up';
 export type FieldInteractionIntent = 'arrive' | 'interact' | 'menu';
-export type FieldActivation = 'counter' | 'front' | 'menu' | 'underfoot';
+export type FieldActivation = 'counter' | 'front' | 'menu' | 'nearby' | 'underfoot';
 
 export interface FieldPosition {
   x: number;
@@ -79,6 +79,14 @@ function candidateMatches(candidate: FieldInteractionCandidate, input: FieldInte
   if (candidate.activation === 'menu') return false;
   if (candidate.activation === 'front') return samePosition(candidate.position, input.frontTile.position);
   if (candidate.activation === 'underfoot') return samePosition(candidate.position, input.player.position);
+  if (candidate.activation === 'nearby')
+    return (
+      !!candidate.position &&
+      Math.max(
+        Math.abs(candidate.position.x - input.player.position.x),
+        Math.abs(candidate.position.y - input.player.position.y),
+      ) <= 1
+    );
   if (!input.frontTile.isCounter) return false;
   const beyondCounter = {
     x: input.frontTile.position.x + (input.frontTile.position.x - input.player.position.x),
@@ -97,11 +105,16 @@ export function resolveFieldInteraction(input: FieldInteractionInput): FieldInte
   let selectedPriority = Number.POSITIVE_INFINITY;
   for (const candidate of input.candidates) {
     const priority = PRIORITY[input.intent][candidate.kind];
-    if (priority === undefined || priority >= selectedPriority || !candidateMatches(candidate, input))
+    const offset = candidate.activation === 'counter' ? 1 : candidate.activation === 'nearby' ? 2 : 0;
+    const candidatePriority = priority === undefined ? undefined : priority + offset;
+    if (
+      candidatePriority === undefined ||
+      candidatePriority >= selectedPriority ||
+      !candidateMatches(candidate, input)
+    )
       continue;
     selected = candidate;
-    selectedPriority =
-      candidate.kind === 'npc' && candidate.activation === 'counter' ? priority + 1 : priority;
+    selectedPriority = candidatePriority;
   }
   return selected ? { kind: 'action', candidate: selected } : { kind: 'none', reason: 'no-target' };
 }
