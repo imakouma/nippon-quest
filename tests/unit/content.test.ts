@@ -535,9 +535,7 @@ describe('content loader', () => {
     const c = await loadContent(read);
     const areas = new Map(c.areas);
     const aomori = structuredClone(areas.get('aomori')!);
-    const event = aomori.events.find(
-      (entry) => 'rewardByScore' in entry && entry.rewardByScore.length >= 2,
-    );
+    const event = aomori.events.find((entry) => 'rewardByScore' in entry && entry.rewardByScore.length >= 2);
     if (!event || !('rewardByScore' in event)) throw new Error('段階報酬イベントがありません');
     event.rewardByScore = event.rewardByScore.filter((tier) => tier.min !== 0);
     event.rewardByScore[1]!.min = event.rewardByScore[0]!.min;
@@ -556,8 +554,7 @@ describe('content loader', () => {
     const aomori = structuredClone(areas.get('aomori')!);
     const event = aomori.events.find(
       (entry) =>
-        'rewardByScore' in entry &&
-        entry.rewardByScore.some((tier) => (tier.reward.items?.length ?? 0) > 0),
+        'rewardByScore' in entry && entry.rewardByScore.some((tier) => (tier.reward.items?.length ?? 0) > 0),
     )!;
     if (!('rewardByScore' in event)) throw new Error('アイテム報酬イベントがありません');
     const tier = event.rewardByScore.find((entry) => (entry.reward.items?.length ?? 0) > 0)!;

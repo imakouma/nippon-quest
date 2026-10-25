@@ -65,9 +65,16 @@ describe('境界3: ゲーム本体は問題タイプを知らない', () => {
   ];
 
   it('問題タイプ名で分岐しない', () => {
+    // core/events の "choice" は field event command の識別子で、問題 renderer の type ではない。
+    const questionTypeSources = sources.filter((source) => !source.file.startsWith('src/core/events/'));
     const bad: string[] = [];
-    for (const s of sources)
-      for (const t of TYPES) if (new RegExp(`['"\`]${t}['"\`]`).test(s.src)) bad.push(`${s.file}: "${t}"`);
+    for (const s of questionTypeSources)
+      for (const t of TYPES) {
+        const count = s.src.match(new RegExp(`['"\`]${t}['"\`]`, 'g'))?.length ?? 0;
+        const allowedEventDiscriminants =
+          s.file === 'src/core/content/areaEventSchemas.ts' && t === 'choice' ? 2 : 0;
+        if (count > allowedEventDiscriminants) bad.push(`${s.file}: "${t}"`);
+      }
     expect(bad).toEqual([]);
   });
 
