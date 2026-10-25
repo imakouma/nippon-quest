@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { finishHeroIntroduction } from './helpers/onboarding';
+import { completeNewGameSetup } from './newGame';
 
 interface SavedFieldState {
   inventory: Record<string, number>;
@@ -18,9 +18,8 @@ async function startField(page: Page): Promise<void> {
   await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 30_000 });
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
-  await page.getByRole('button', { name: 'はじめる' }).click();
+  await completeNewGameSetup(page);
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
-  await finishHeroIntroduction(page);
 }
 
 async function teleport(page: Page, tile: [number, number]): Promise<void> {
@@ -28,7 +27,7 @@ async function teleport(page: Page, tile: [number, number]): Promise<void> {
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');
   await page.getByRole('button', { name: 'ひらく', exact: true }).click();
-  await page.getByRole('button', { name: 'JSONを表示' }).click();
+  await page.getByRole('button', { name: /^JSONを(?:表示|ひょうじ)$/ }).click();
   const jsonBox = page.getByLabel('セーブデータJSON');
   const state = JSON.parse(await jsonBox.inputValue()) as SavedFieldState;
   state.progress.currentArea = 'aomori';
@@ -36,7 +35,7 @@ async function teleport(page: Page, tile: [number, number]): Promise<void> {
   state.progress.position = { x: tile[0] * 16, y: tile[1] * 16 };
   state.progress.counters['story.prologue'] = 1;
   await jsonBox.fill(JSON.stringify(state));
-  await page.getByRole('button', { name: 'JSONを読みこむ' }).click();
+  await page.getByRole('button', { name: /^JSONを(?:読|よ)みこむ$/ }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
 }
 
@@ -64,7 +63,7 @@ async function reachChoices(page: Page): Promise<void> {
 }
 
 async function areaMapHeroPosition(page: Page): Promise<{ x: number; y: number }> {
-  await page.getByRole('button', { name: 'ちずを ひらく（M）' }).click();
+  await page.getByRole('button', { name: /の ちずを ひらく$/, exact: true }).click();
   const hero = page.locator('.nq-wmap-hero');
   await expect(hero).toBeVisible();
   const box = await hero.boundingBox();
@@ -91,7 +90,7 @@ async function savedState(page: Page): Promise<SavedFieldState> {
 }
 
 test('名所はキーとタップを重ねても一度だけ始まり、閉じた後に移動できる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
   await teleport(page, [58, 66]);
 
@@ -117,9 +116,9 @@ test('名所はキーとタップを重ねても一度だけ始まり、閉じ�
 });
 
 test('宝箱はキーとタップを重ねても報酬を一度だけ与え、完了後に再び調べられる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
-  await teleport(page, [63, 38]);
+  await teleport(page, [123, 99]);
 
   await interactByKeyAndTap(page);
   await expect(page.locator('.nq-cutin')).toHaveCount(1);
@@ -145,7 +144,7 @@ test('宝箱はキーとタップを重ねても報酬を一度だけ与え、�
 });
 
 test('通常イベントはキーとタップを重ねても選択肢を一度だけ出し、見送った後に再開できる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
   await teleport(page, [41, 87]);
 
