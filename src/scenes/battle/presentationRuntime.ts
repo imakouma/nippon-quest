@@ -161,7 +161,7 @@ export class BattlePresentationRuntime {
       if (settled) return;
       settled = true;
       this.activeTasks--;
-      if (this.activeTasks === 0) this.options.onIdle?.();
+      if (this.activeTasks === 0 && !this.controller.signal.aborted) this.options.onIdle?.();
     });
   }
 

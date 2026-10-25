@@ -20,7 +20,7 @@ const ctx: NarrateCtx = {
 };
 
 beforeAll(() => {
-  setDictionary({ battle: { attack: '{name} attacks' } } as I18nDict);
+  setDictionary({ battle: { attack: '{name} attacks', defeat: 'Defeat' } } as I18nDict);
 });
 
 function createPort(overrides: Partial<BattlePresentationPort> = {}): BattlePresentationPort {
@@ -149,10 +149,11 @@ describe('BattlePresentationRuntime', () => {
   });
 
   it('scene shutdown aborts pending work, cleans up once, and rejects new work', async () => {
+    const onIdle = vi.fn();
     const port = createPort({
       visual: { play: vi.fn(() => new Promise<void>(() => undefined)) },
     });
-    const runtime = new BattlePresentationRuntime(port);
+    const runtime = new BattlePresentationRuntime(port, { onIdle });
     const pending = runtime.enqueue([turn(1)], ctx);
 
     await runtime.dispose('shutdown');
@@ -161,6 +162,7 @@ describe('BattlePresentationRuntime', () => {
     await expect(runtime.enqueue([turn(2)], ctx)).rejects.toBeInstanceOf(BattlePresentationCancelledError);
     expect(port.lifecycle.cleanup).toHaveBeenCalledTimes(1);
     expect(port.lifecycle.cleanup).toHaveBeenCalledWith('shutdown', undefined);
+    expect(onIdle).not.toHaveBeenCalled();
   });
 
   it('fast-forward skips automatic waits but keeps text and visual state application', async () => {
@@ -172,6 +174,17 @@ describe('BattlePresentationRuntime', () => {
 
     expect(port.text.log).toHaveBeenCalledWith('hero attacks');
     expect(port.clock.wait).not.toHaveBeenCalled();
+    expect(port.visual.play).toHaveBeenCalledTimes(1);
+  });
+
+  it('fast-forward never skips manual-confirmation text', async () => {
+    const port = createPort();
+    const runtime = new BattlePresentationRuntime(port);
+    runtime.setFastForward(true);
+
+    await runtime.enqueue([{ t: 'defeat' }], ctx);
+
+    expect(port.text.say).toHaveBeenCalledWith('Defeat', 'wait', expect.any(AbortSignal));
     expect(port.visual.play).toHaveBeenCalledTimes(1);
   });
 
