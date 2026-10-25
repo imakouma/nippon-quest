@@ -623,6 +623,9 @@ describe('content loader', () => {
     expect(aomori.boss).toBe('aomori-boss-tsugaru-no-nushi');
     expect(aomori.events.length).toBeGreaterThanOrEqual(4);
     expect(aomori.town?.npcs.length).toBeGreaterThanOrEqual(5);
+    expect(aomori.events.filter((event) => 'steps' in event).map((event) => event.id)).toEqual([
+      'aomori-ev-ringoen',
+    ]);
   });
 
   it('恐山イベント後は成績にかかわらずイタコドリが出現する', async () => {

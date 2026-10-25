@@ -19,7 +19,7 @@ interface MutableQuestionRequest {
 interface MutableReward {
   gold?: number;
   xp?: number;
-  items?: { itemId: string; n: number }[];
+  items?: { itemId: string; n?: number }[];
   skills?: string[];
   recipes?: string[];
   unlockMonsters?: string[];
@@ -31,7 +31,7 @@ interface AreaEventSchemaDependencies {
   rubyText: z.ZodType<string>;
   dialogueLine: z.ZodType<MutableDialogueLine>;
   questionRequest: z.ZodType<MutableQuestionRequest>;
-  reward: z.ZodType<MutableReward, z.ZodTypeDef, unknown>;
+  reward: z.ZodType<MutableReward>;
   safeNonnegativeInteger: z.ZodType<number>;
   safePositiveInteger: z.ZodType<number>;
 }

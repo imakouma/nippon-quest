@@ -10,12 +10,17 @@
 - AbortSignal、最大 step 数、最大実行時間、port 例外、cleanup 例外を扱い、外側 Promise を必ず settle する。
 - field event command に `movement` を追加し、同じ AbortSignal を movement port へ渡して完了を待つ。
 - content schema と生成済み JSON Schema に6種類の movement command を反映した。
+- production field event runtimeを統合し、既存NPC map / blocked set / Phaser Tweenへmovement portを接続した。
+- 移動先を先行予約し、Tweenが中間点を越えた時点でoccupancyを移し、失敗・中断時は見た目とoccupancyを復元する。
+- Phaser実体を使うE2Eで scripted eventから1マス移動し、完了後に入力ロックが解放されることを確認した。
 - `npcWander.ts` は変更していない。
 
 ## TDD Evidence
 
 - runtime module 未実装で focused test が失敗する RED を確認した。
 - event runtime が `movement` を unknown command として拒否する RED を確認した。
+- production adapter module未実装とmovement port未接続のREDを確認した。
+- `isBlocked` 判定を意図的に反転するmutationでadapterの3テストが失敗することを確認し、直ちに復元した。
 - step-limit 条件を意図的に反転する mutation で10テストの失敗を確認し、直ちに復元した。
 - review 中に pre-aborted signal と事前 validation が重なると未処理 rejection が残るケースを再現し、
   operation ごとの abort race と開始直後の abort check で修正した。
@@ -32,16 +37,15 @@
 
 - `pnpm lint`
 - `pnpm check:architecture`
-- `pnpm test` — 139 files / 1483 tests passed
+- `pnpm test` — 144 files / 1523 tests passed
 - `pnpm validate:content`
 - `pnpm build`
-- focused tests — 3 files / 35 tests passed
-- Playwright title smoke — 1 passed
-- Graphify code-only graph updated — 42488 nodes / 51010 edges
-- `127.0.0.1:4175` の production preview でタイトル画面を確認し、browser error / warn は0件。確認後に停止した。
+- focused movement tests — 5 files / 38 tests passed
+- Playwright scripted event regression — 3 passed（movement、報酬/flag、battle→warp）
+- Graphify code-only graph updated — 42651 nodes / 51435 links
+- `127.0.0.1:4179` の production previewでタイトル画面を確認し、browser error / warn は0件。確認後に停止した。
 
 ## Integration Boundary
 
-基点には production の field-event command adapter が無かったため、この slice は純粋 runtime、content schema、
-event runtime dispatch、fake-port tests までを完成境界とした。後続統合では Scene 側 adapter が既存の衝突判定と
-オブジェクト描画を ports に接続する。`npcWander` とは統合せず、別機構のまま維持する。
+production adapterまで統合済み。実コンテンツへのmovement command配置は教材・演出設計を伴うためこのsliceには含めず、
+E2E fixtureで実行経路を検証した。`npcWander` は用途とライフサイクルが異なるため、別機構のまま維持する。

@@ -3,8 +3,7 @@ import Phaser from 'phaser';
 import { isLocalDevelopmentUrl } from '../core/localDevelopment';
 import { h, render, type ComponentChild } from 'preact';
 import type { ContentIndex } from '../core/content/loader';
-import type { Area, Item, Monster, Motif, Region } from '../core/content/schemas';
-import type { LegacyAreaEvent as FieldEvent } from '../core/content/schemas';
+import type { Area, AreaEvent, Item, Monster, Motif, Region } from '../core/content/schemas';
 import { makeMonster } from '../core/battle/factory';
 import {
   encounterLevel,
@@ -57,13 +56,7 @@ import {
   villagerGift,
 } from '../core/progression/town';
 import { recordMusubiDamaPurchase } from '../core/progression/musubiDamaOnboarding';
-import {
-  markDone,
-  applyReward,
-  pickReward,
-  rewardAreaBoss,
-  rewardMarkedBoss,
-} from '../core/progression/eventReward';
+import { markDone, applyReward, rewardAreaBoss, rewardMarkedBoss } from '../core/progression/eventReward';
 import {
   allRegionBossesDefeated,
   areaBossFlag,
@@ -116,7 +109,7 @@ import { giveMeisan, meisanEarned } from '../core/progression/meisan';
 import { motifArtUrl } from '../rendering/motifArt';
 import { monsterMenuArtUrl } from '../rendering/menuArt';
 import { addSheet } from '../rendering/sheet';
-import type { BattleEndPayload, BattleSceneData } from './battle/contracts';
+import type { BattleEndEvent, BattleLaunchData, BattleSceneData } from './battle/contracts';
 import { buildFieldTextures, WARP_FRAMES } from '../rendering/overworld/fieldArt';
 import { overworldView } from '../rendering/overworld/overworldView';
 import { buildViewTexture } from '../rendering/overworld/viewTiles';
@@ -155,10 +148,20 @@ import { movementDecision } from './overworld/movementDecision';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
+import { askEventQuestion, runAreaEventFlow } from './overworld/eventRuntimePorts';
+import { createPhaserMapObjectMovementRunner } from './overworld/phaserMapObjectMovementPorts';
 import { runMapTransition, type MapTransitionRequest } from './overworld/mapTransitionPipeline';
 import { createPhaserMapTransitionPorts } from './overworld/phaserMapTransitionPorts';
 import { mapTransitionRequestFromSceneData, resolveOverworldMapEntry } from './overworld/mapSceneEntry';
-import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
+import {
+  applyEncounterResultPolicy,
+  createEncounterLifecycle,
+  type EncounterContext,
+  type EncounterLifecycle,
+  type EncounterSource,
+} from './overworld/encounterLifecycle';
+import { createEncounterResultHandlers } from './overworld/encounterResultHandlers';
+import { buildAskEnv } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
 import { musubiDamaPurchaseLines } from './overworld/storyScenes';
 import { hasStoryCompanion, storyCompanionId } from '../core/progression/storyCompanion';
@@ -314,6 +317,30 @@ export class OverworldScene extends Phaser.Scene {
   readonly speak = createSpeaker();
   private readonly roots = new Map<RootName, HTMLDivElement>();
   private fieldFlow!: FieldFlowRuntime;
+  private encounters!: EncounterLifecycle;
+  private encounterSequence = 0;
+  private readonly encounterResults = createEncounterResultHandlers(
+    {
+      lastInn: () => this.gs()?.progress.lastInn,
+      currentMap: () => this.mapKey,
+      transition: (request, { signal }) =>
+        runMapTransition(
+          request,
+          createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+          signal,
+        ),
+      completeArena: (opponentId, won) => this.arenaAfter(opponentId, won),
+      completeMidBoss: () => this.midBossDefeated(),
+      completeAreaBoss: () => this.areaBossDefeated(),
+      completeLastBoss: () => this.lastBossDefeated(),
+      completeRegionBoss: async (regionId) => {
+        const boss = [...this.regionBosses.values()].find((candidate) => candidate.regionId === regionId);
+        if (boss) await this.regionBossDefeated(boss);
+      },
+      completeIslandBoss: (islandId) => this.islandBossDefeated(islandId),
+    },
+    TILE,
+  );
   // ↓ マップが変わるたびに resetMapState() で作り直す
   private moving = false;
   private busy = false;
@@ -333,7 +360,6 @@ export class OverworldScene extends Phaser.Scene {
   private chests = new Map<number, Chest>();
   private midBoss: MidBoss | null = null;
   private warp: Warp | null = null;
-  private pendingMidBoss = false;
   /** 名所エリア（マップの regions：エリアの id と、マスごとの エリアの 文字 a, b, …） */
   private regionIds: string[] = [];
   private regionRows: string[] = [];
@@ -341,21 +367,15 @@ export class OverworldScene extends Phaser.Scene {
   private currentRegion: string | null = null;
   private regionGates = new Map<number, RegionGate>();
   private regionBosses = new Map<number, RegionBoss>();
-  private pendingRegionBoss: RegionBoss | null = null;
-  private pendingIslandBoss: string | null = null;
   /** ダンジョンの おくに いる 県ボス（中ボスと同じ「？」マーク） */
   /** 裏ステージの ラスボス（歴史上の 人物） */
   private lastBoss: MidBoss | null = null;
-  private pendingLastBoss = false;
-  /** かぎの かかった入口（マス → 何でひらくか） */
+  /** かぎの かかった 入口（マス → 何で ひらくか。'areaSign' は その県の 県ボスを 倒すと） */
   private lockedGates = new Map<number, string>();
   /** ロック解除時に、入口の暗い色をその場で戻すための画像。 */
   private transitionIcons = new Map<number, Phaser.GameObjects.Image>();
   private areaBoss: MidBoss | null = null;
-  private pendingAreaBoss = false;
   /** 右上の 表示に 出している 地面（かわったら かきなおす） */
-  /** たいせんじょうの しょうぶ中（かったら しょうきん）。値は 船長の名前 */
-  private pendingArena: string | null = null;
   private stampIds: string[] = [];
   private baseMap: BaseMap | null = null;
 
@@ -394,9 +414,18 @@ export class OverworldScene extends Phaser.Scene {
       cleanupTransientUi: () => this.cleanupTransientUi(),
       reportError: (error, reason) => console.error(`[Overworld] field flow failed: ${reason}`, error),
     });
+    this.encounters = createEncounterLifecycle({
+      flow: this.fieldFlow,
+      prepareField: (context) => this.prepareEncounter(context),
+      launchBattle: (context) => this.launchEncounter(context),
+      restoreField: () => this.restoreEncounter(),
+      applyResult: (context, _result, policy, flow) =>
+        applyEncounterResultPolicy(context, policy, this.encounterResults, flow),
+    });
     for (const r of ['hud', 'title', 'fx', 'dialogue', 'travel'] as const) this.root(r);
 
-    const onBattleEnd = (p: BattleEndPayload) => this.onBattleEnd(p);
+    const onBattleEnd = (event: BattleEndEvent) =>
+      void this.encounters.finish(event.encounterId, event.result);
     this.game.events.on('battle:end', onBattleEnd);
     // タブが うしろに あると Phaser の カメラの フェードも 時間も 止まり、黒い まくが かかった ままに なる。
     // 画面に もどってきたら 消す（Phaser の タイマーは 止まるので、DOM の イベントで 受ける）
@@ -405,6 +434,7 @@ export class OverworldScene extends Phaser.Scene {
     window.addEventListener('focus', onVisible);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       const hadFieldFlow = this.fieldFlow.isRunning;
+      this.encounters.cancel();
       this.fieldFlow.cancel('scene-shutdown');
       this.game.events.off('battle:end', onBattleEnd);
       document.removeEventListener('visibilitychange', onVisible);
@@ -497,18 +527,13 @@ export class OverworldScene extends Phaser.Scene {
     this.chests = new Map();
     this.midBoss = null;
     this.warp = null;
-    this.pendingMidBoss = false;
     this.regionIds = [];
     this.regionRows = [];
     this.currentRegion = null;
     this.regionGates = new Map();
     this.regionBosses = new Map();
-    this.pendingRegionBoss = null;
-    this.pendingIslandBoss = null;
     this.areaBoss = null;
-    this.pendingAreaBoss = false;
     this.lastBoss = null;
-    this.pendingLastBoss = false;
     this.lockedGates = new Map();
     this.transitionIcons = new Map();
     this.stampIds = [];
@@ -1201,13 +1226,15 @@ export class OverworldScene extends Phaser.Scene {
       return;
     }
     this.busy = false;
-    this.pendingRegionBoss = rb;
-    this.startBattle({
-      enemyId: rb.boss.def.id,
-      level: Math.max(rb.region.boss?.level ?? 1, this.heroLevel()),
-      zone: 'field',
-      isBoss: true,
-    });
+    this.startBattle(
+      {
+        enemyId: rb.boss.def.id,
+        level: Math.max(rb.region.boss?.level ?? 1, this.heroLevel()),
+        zone: 'field',
+        isBoss: true,
+      },
+      { type: 'region-boss', regionId: rb.regionId },
+    );
   }
 
   /** ぬしを たおした：しるしを つけ、この エリアが openedBy の 関所を ひらく */
@@ -1236,7 +1263,6 @@ export class OverworldScene extends Phaser.Scene {
     }
     if (dungeonOpened) lines.push({ text: t('field.dungeonOpened') });
     await this.talk(lines);
-    this.busy = false;
   }
 
   /** エリアに 入った：名前を 出す（おなじ エリアの 中では 出さない） */
@@ -1373,7 +1399,6 @@ export class OverworldScene extends Phaser.Scene {
   private addEvent(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const ev = area?.events.find((e) => e.trigger.map === this.mapKey && e.trigger.objectName === obj.name);
     if (!area || !ev) return;
-    if ('steps' in ev) return;
     const motif = area.motifs.find((m) => m.id === ev.motifId);
     const challenged = () => this.gs()?.progress.eventsDone.includes(ev.id) ?? false;
     const done = () => ev.once && challenged();
@@ -1467,7 +1492,6 @@ export class OverworldScene extends Phaser.Scene {
 
   // ───────────────────────── 名所イベント ─────────────────────────
 
-  /** 名所に着いた：はじめてなら、カットインを出して見つけたことにする。スタンプの一言を返す（見つけ済みなら空） */
   private async arriveAt(area: Area, motif: Motif | undefined, sign: Sign): Promise<DialogueLine[]> {
     if (sign.found()) return [];
     playSfx('discover');
@@ -1475,7 +1499,6 @@ export class OverworldScene extends Phaser.Scene {
     return this.discover(sign) ? [{ text: t('field.stampGet', this.stampCount()) }] : [];
   }
 
-  /** 名所スタンプ：（はじめてなら カットイン → ★ が黄色に）→ 名所の説明 → スタンプ */
   private async visitLandmark(area: Area, motif: Motif, sign: Sign): Promise<void> {
     await this.fieldFlow.run('landmark', async ({ throwIfCancelled }) => {
       this.standStill();
@@ -1490,91 +1513,73 @@ export class OverworldScene extends Phaser.Scene {
     });
   }
 
-  /** イベント：（はじめてなら カットイン → ★ が黄色に → スタンプ）→ 会話 → ちょうせんする？ → 問題 → ごほうび → お礼 */
-  private async runEvent(area: Area, ev: FieldEvent, motif: Motif | undefined, sign: Sign): Promise<void> {
-    await this.fieldFlow.run('area-event', async ({ throwIfCancelled }) => {
-      this.standStill();
-      const stampLine = await this.arriveAt(area, motif, sign);
-      throwIfCancelled();
-      if (ev.once && this.gs()?.progress.eventsDone.includes(ev.id)) {
-        await this.talk([
-          { speaker: t('field.landmarkSpeaker'), text: motif?.blurb ?? '' },
-          ...(stampLine.length ? stampLine : [{ text: t('field.stampHave') }]),
-        ]);
-        throwIfCancelled();
-        await this.checkMeisan();
-        return;
-      }
-      const host = ev.dialogue[ev.dialogue.length - 1]?.speaker;
-      const go = await this.choose(
-        [...stampLine, ...ev.dialogue, { speaker: host, text: t('field.eventAsk') }],
-        [t('ui.yes'), t('ui.no')],
-      );
-      throwIfCancelled();
-      if (go !== 0) {
-        await this.talk([{ speaker: host, text: t('field.eventLater') }]);
-        throwIfCancelled();
-        await this.checkMeisan();
-        return;
-      }
-      const score = await this.quiz(ev, motif);
-      throwIfCancelled();
-      const gs = this.gs();
-      if (!gs) return;
-      const applied = applyReward(gs, pickReward(ev.rewardByScore, score));
-      // once でないイベントも「チャレンジした」ことは残す（★ を金色にする。何度でも遊べるのは同じ）
-      this.setGame(markDone(applied.state, { eventId: ev.id, stamp: sign.stamp }));
-      sign.refresh();
-      playSfx('recruit');
-      const out: DialogueLine[] = fieldRewardDialogue(applied.lines, this.content());
-      out.push(...(ev.afterDialogue ?? []));
-      this.renderHud();
-      await this.talk(out);
-      throwIfCancelled();
-      await this.checkMeisan();
-    });
-  }
-
-  /** 名所の問題。出せる問題が無いときは 0 点あつかい（ごほうびは必ずもらえる：GDD §7） */
-  private async quiz(ev: FieldEvent, motif: Motif | undefined): Promise<number> {
-    const content = this.content();
-    const bank = this.registry.get('bank') as QuestionBank | undefined;
-    const gs = this.gs();
-    if (!content || !bank || !gs) return 0;
-    const host = document.createElement('div');
-    host.className = 'nq-bq-slot';
-    const root = this.root('fx');
-    render(
-      h(QuestionFrame, {
-        host,
-        title: motif?.name ?? '',
-        subject: ev.question.subject,
-        hint: t('field.questionHint'),
+  private async runEvent(area: Area, ev: AreaEvent, motif: Motif | undefined, sign: Sign): Promise<void> {
+    await runAreaEventFlow({
+      event: ev,
+      flowRuntime: this.fieldFlow,
+      motifBlurb: motif?.blurb ?? '',
+      standStill: () => this.standStill(),
+      arrive: () => this.arriveAt(area, motif, sign),
+      checkSpecialty: () => this.checkMeisan(),
+      landmarkSpeaker: t('field.landmarkSpeaker'),
+      stampOwned: t('field.stampHave'),
+      legacyPrompt: {
+        ask: t('field.eventAsk'),
+        choices: [t('ui.yes'), t('ui.no')],
+        later: t('field.eventLater'),
+      },
+      encounter: this.encounters,
+      transitions: createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi()),
+      eventId: ev.id,
+      stamp: sign.stamp,
+      getGame: () => this.gs(),
+      setGame: (next) => this.setGame(next),
+      dialogue: (lines) => this.talk([...lines]),
+      choose: (lines, choices) => this.choose([...lines], [...choices]),
+      question: (request) =>
+        askEventQuestion({
+          request,
+          title: motif?.name ?? '',
+          hint: t('field.questionHint'),
+          root: this.root('fx'),
+          game: this.gs(),
+          content: this.content(),
+          bank: this.registry.get('bank') as QuestionBank | undefined,
+          rng: this.rng,
+          speak: this.speak,
+          noQuestion: () => this.talk([{ text: t('field.noQuestion') }]),
+        }),
+      movement: createPhaserMapObjectMovementRunner({
+        scene: this,
+        objects: this.npcs,
+        blocked: this.blocked,
+        tileSize: TILE,
+        stepMs: STEP_MS,
+        inside: (x, y) => this.inside(x, y),
+        indexOf: (x, y) => this.idx(x, y),
+        isBlocked: (x, y) => this.isBlocked(x, y),
+        isTransition: (tile) => this.transitions.has(tile),
+        playerTile: () => this.playerTile(),
+        frame: walkFrame,
       }),
-      root,
-    );
-    const env = buildAskEnv({
-      host,
-      gs,
-      content,
-      bank,
-      mastery: new MasteryStore(gs.learning.mastery),
-      rng: this.rng,
-      speak: this.speak,
-      reason: 'event',
-      getGame: () => this.gs() ?? gs,
+      showReward: async (lines) => {
+        playSfx('recruit');
+        this.renderHud();
+        await this.talk(fieldRewardDialogue(lines, this.content()));
+      },
+      onFlagSet: (flag) => {
+        if (flag === ev.id) sign.refresh();
+        this.renderHud();
+      },
+      nextEncounterId: () => `${this.mapKey}:event:${++this.encounterSequence}`,
+      battleData: (command) => ({
+        enemyId: command.enemyId,
+        level: command.level ?? encounterLevel(this.heroLevel(), this.rng),
+        zone: zoneForMap(this.mapKey) ?? 'field',
+        ...(this.groundHere() ? { ground: this.groundHere()! } : {}),
+        ...(command.isBoss !== undefined ? { isBoss: command.isBoss } : {}),
+      }),
     });
-    let score: number | null = null;
-    try {
-      score = await askFirst(env, relaxedQueries(ev.question));
-    } finally {
-      render(null, root);
-    }
-    if (score === null) {
-      await this.talk([{ text: t('field.noQuestion') }]);
-      return 0;
-    }
-    return score;
   }
   /** image を わたすと その絵（特産品は どうぐの アイコン）。無ければ 名所の絵 assets/motifs/<県>/<id>.png */
   private cutin(
@@ -1603,7 +1608,6 @@ export class OverworldScene extends Phaser.Scene {
       }),
     );
   }
-
   /** 名所スタンプの数。県のフィールドと離島の ★ 看板ぜんぶ（にほんちずと同じ数え方。地図データが無ければ このマップだけ） */
   private stampCount(): { n: number; total: number } {
     const have = this.gs()?.dex.motifs ?? [];
@@ -1613,13 +1617,11 @@ export class OverworldScene extends Phaser.Scene {
     const all = area && entry ? entry.stamps.map((m) => motifStamp(area.id, m)) : this.stampIds;
     return { n: all.filter((s) => have.includes(s)).length, total: all.length };
   }
-
   /** その県の 名所スタンプ（★）の motif id ぜんぶ（にほんちずと 同じ） */
   private stampsOf(areaId: string): readonly string[] {
     const data = this.cache.json.get(WORLD_MAP_KEY) as WorldMapData | undefined;
     return data?.regions.flatMap((r) => r.areas).find((a) => a.id === areaId)?.stamps ?? [];
   }
-
   /** 県の ★ が ぜんぶ そろったら めいさんひんの そうびを わたす（カットイン → ひとこと） */
   private async checkMeisan(): Promise<void> {
     const c = this.content();
@@ -1636,7 +1638,6 @@ export class OverworldScene extends Phaser.Scene {
       ]);
     }
   }
-
   // ───────────────────────── 中ボスとワープホール ─────────────────────────
 
   private async confrontMidBoss(): Promise<void> {
@@ -1645,18 +1646,21 @@ export class OverworldScene extends Phaser.Scene {
     const area = this.currentArea();
     if (area && !(await this.requireRegionBosses(area))) return;
     if (!(await this.askBossBattle(mb.def))) return;
-    this.pendingMidBoss = true;
-    this.startBattle({ enemyId: mb.def.id, level: this.heroLevel(), zone: 'field', isBoss: true });
+    this.startBattle(
+      { enemyId: mb.def.id, level: this.heroLevel(), zone: 'field', isBoss: true },
+      { type: 'mid-boss' },
+    );
   }
-
   private async confrontAreaBoss(): Promise<void> {
     const ab = this.areaBoss;
     if (!ab || this.busy || this.inBattle) return;
     const area = this.currentArea();
     if (area && !(await this.requireRegionBosses(area))) return;
     if (!(await this.askBossBattle(ab.def))) return;
-    this.pendingAreaBoss = true;
-    this.startBattle({ enemyId: ab.def.id, level: this.heroLevel(), zone: 'dungeon', isBoss: true });
+    this.startBattle(
+      { enemyId: ab.def.id, level: this.heroLevel(), zone: 'dungeon', isBoss: true },
+      { type: 'area-boss' },
+    );
   }
 
   /** 地域制のある県では、すべての地域のぬしを倒すまで本編ボス戦を始めない。 */
@@ -1722,7 +1726,6 @@ export class OverworldScene extends Phaser.Scene {
       { text: t('field.trialCoreReward', { n: 1 }) },
       { text: t('field.warpAppear', { name: this.warp?.toName ?? '' }) },
     ]);
-    this.busy = false;
   }
 
   /** 県ボスを倒した：県のしるし（progress.areaSigns）を もらう。「？」は 消えて、さいだんの 前が 通れるように なる */
@@ -1744,7 +1747,6 @@ export class OverworldScene extends Phaser.Scene {
       { text: t('field.areaSign', { name: area.name }) },
       { text: t('field.trialCoreReward', { n: 2 }) },
     ]);
-    this.busy = false;
   }
 
   private storyCompanion(): { id: string; name: string } | undefined {
@@ -1776,8 +1778,10 @@ export class OverworldScene extends Phaser.Scene {
     if (choice !== 0) await this.talk([{ text: t('field.bossLater') }]);
     this.busy = false;
     if (choice !== 0) return;
-    this.pendingLastBoss = true;
-    this.startBattle({ enemyId: lb.def.id, level: this.heroLevel(), zone: 'dungeon', isBoss: true });
+    this.startBattle(
+      { enemyId: lb.def.id, level: this.heroLevel(), zone: 'dungeon', isBoss: true },
+      { type: 'last-boss' },
+    );
   }
 
   /** ラスボスに かった：しるし（progress.eventsDone）を のこして「？」を けす */
@@ -1799,7 +1803,6 @@ export class OverworldScene extends Phaser.Scene {
       { text: t('field.lastBossDown', { name: lb.def.name, stage: area.secret?.name ?? area.name }) },
       { text: t('field.trialCoreReward', { n: 3 }) },
     ]);
-    this.busy = false;
   }
 
   /** かぎの かかった入口がまだ開いていないか。 */
@@ -2296,24 +2299,28 @@ export class OverworldScene extends Phaser.Scene {
         }),
       },
     ]);
-    this.pendingArena = speaker;
     this.busy = false;
-    this.startBattle({ enemyId: lead.monsterId, level: lead.level, zone: 'field' });
+    this.startBattle(
+      { enemyId: lead.monsterId, level: lead.level, zone: 'field' },
+      { type: 'arena', opponentId: rival.id },
+    );
     return true;
   }
 
-  private async arenaAfter(speaker: string, won: boolean): Promise<void> {
-    this.busy = true;
+  private async arenaAfter(opponentId: string, won: boolean): Promise<void> {
     await this.wait(350);
     const gs = this.gs();
     if (won && gs) {
       this.setGame(applyArenaVictory(gs, ARENA_PRIZE));
       playSfx('recruit');
     }
+    const speaker =
+      [...this.npcs.values()].find((npc) => npc.role === 'arena')?.name ??
+      this.content()?.rivals.get(opponentId)?.name ??
+      opponentId;
     await this.talk([
       { speaker, text: won ? t('field.townArenaWin', { n: ARENA_PRIZE }) : t('field.townArenaLose') },
     ]);
-    this.busy = false;
   }
 
   /** 宝箱：なにが出ても 特産品と同じように カットイン「たからもの ゲット！」→ どうぐの説明 → てに いれた！ */
@@ -2464,10 +2471,14 @@ export class OverworldScene extends Phaser.Scene {
     const [x, y] = this.playerTile();
     return groundOfTile(this.map.getTileAt(x, y, true, 'background')?.index);
   }
-
   /** 白く 2 回ちらついてから 暗転 → バトルへ（画面は回さない。Overworld は pause して下に残す） */
-  private startBattle(data: BattleSceneData): void {
-    if (this.inBattle) return;
+  private startBattle(data: BattleSceneData, source: EncounterSource = { type: 'random' }): void {
+    if (this.inBattle || this.encounters.active) return;
+    const id = `${this.mapKey}:${++this.encounterSequence}`;
+    void this.encounters.start({ id, battle: data, source });
+  }
+  /** フィールドを止め、白い点滅から暗転までの演出を完了する。 */
+  private async prepareEncounter(_context: EncounterContext): Promise<void> {
     this.inBattle = true;
     this.moving = false;
     this.standStill();
@@ -2478,14 +2489,23 @@ export class OverworldScene extends Phaser.Scene {
     cam.flash(90, 255, 255, 255);
     this.time.delayedCall(180, () => cam.flash(90, 255, 255, 255));
     this.time.delayedCall(360, () => cam.fade(360, 0, 0, 0));
-    this.time.delayedCall(760, () => {
-      this.scene.launch('Battle', { ...data, devMode: this.devAll() });
-      this.scene.pause();
-    });
+    await this.wait(760);
   }
-
-  private onBattleEnd(p: BattleEndPayload): void {
-    this.scene.resume();
+  /** encounter id/source を Battle に渡し、Overworld を下層で停止する。 */
+  private launchEncounter(context: EncounterContext): void {
+    const launch: BattleLaunchData = {
+      ...context.battle,
+      encounterId: context.id,
+      encounterSource: context.source,
+      devMode: this.devAll(),
+    };
+    this.scene.launch('Battle', launch);
+    this.scene.pause();
+  }
+  /** 結果に関係なくフィールドの見た目と入力状態を一度だけ戻す。 */
+  private restoreEncounter(): void {
+    if (this.scene.isActive('Battle') || this.scene.isPaused('Battle')) this.scene.stop('Battle');
+    if (this.scene.isPaused()) this.scene.resume();
     this.inBattle = false;
     this.stepCount = 0;
     const cam = this.cameras.main;
@@ -2494,44 +2514,7 @@ export class OverworldScene extends Phaser.Scene {
     cam.setZoom(ZOOM);
     cam.fadeIn(300, 0, 0, 0);
     this.renderHud();
-    const wasMidBoss = this.pendingMidBoss;
-    const wasAreaBoss = this.pendingAreaBoss;
-    const wasLastBoss = this.pendingLastBoss;
-    const wasRegionBoss = this.pendingRegionBoss;
-    const wasIslandBoss = this.pendingIslandBoss;
-    this.pendingRegionBoss = null;
-    this.pendingIslandBoss = null;
-    this.pendingMidBoss = false;
-    this.pendingAreaBoss = false;
-    this.pendingLastBoss = false;
-    // たいせんじょうの しょうぶは 負けても やどやに もどらない
-    const arena = this.pendingArena;
-    this.pendingArena = null;
-    if (arena) {
-      void this.arenaAfter(arena, p.outcome === 'victory');
-      return;
-    }
-    if (p.outcome === 'defeat') {
-      // 最後に泊まった宿屋へ。まだ泊まっていなければ今のマップの出発地点へ。
-      const inn = this.gs()?.progress.lastInn;
-      if (inn)
-        this.switchMap({
-          targetMap: inn.map,
-          spawnName: 'spawn',
-          tile: [Math.floor(inn.x / TILE), Math.floor(inn.y / TILE)],
-          exactSpawn: true,
-          reason: 'defeat',
-        });
-      else this.switchMap({ targetMap: this.mapKey, spawnName: 'spawn', reason: 'defeat' });
-      return;
-    }
-    if (wasMidBoss && p.outcome === 'victory') void this.midBossDefeated();
-    if (wasAreaBoss && p.outcome === 'victory') void this.areaBossDefeated();
-    if (wasLastBoss && p.outcome === 'victory') void this.lastBossDefeated();
-    if (wasRegionBoss && p.outcome === 'victory') void this.regionBossDefeated(wasRegionBoss);
-    if (wasIslandBoss && p.outcome === 'victory') void this.islandBossDefeated(wasIslandBoss);
   }
-
   // ───────────────────────── 画面（DOM） ─────────────────────────
 
   root(name: RootName): HTMLDivElement {
@@ -3339,9 +3322,11 @@ export class OverworldScene extends Phaser.Scene {
       this.busy = false;
       return;
     }
-    this.pendingIslandBoss = islandId;
     this.busy = false;
-    this.startBattle({ enemyId: boss.id, level: Math.max(1, this.heroLevel()), zone: 'field', isBoss: true });
+    this.startBattle(
+      { enemyId: boss.id, level: Math.max(1, this.heroLevel()), zone: 'field', isBoss: true },
+      { type: 'island-boss', islandId },
+    );
   }
   /** 地方ボス勝利時だけ島クリアを記録する。バッグ寸法は islandsCleared に連動して広がる。 */
   private async islandBossDefeated(islandId: string): Promise<void> {
@@ -3366,7 +3351,6 @@ export class OverworldScene extends Phaser.Scene {
       }),
       { text: t('field.trialCoreReward', { n: reward.awarded }) },
     ]);
-    this.busy = false;
   }
   /** にほんちずの地方と県。地図は public/worldmap.json、名前は content、進みぐあいはセーブから */
   private worldMapRegions(): MapRegionInfo[] {

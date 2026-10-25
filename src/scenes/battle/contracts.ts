@@ -4,6 +4,16 @@ import type { Ground } from '../../core/world/ground';
 import type { BattlePresentation } from './layout';
 
 /** Overworld から Battle Scene へ渡す、表示層間の安定した契約。 */
+export type EncounterSource =
+  | { type: 'random' }
+  | { type: 'mid-boss' }
+  | { type: 'area-boss' }
+  | { type: 'last-boss' }
+  | { type: 'region-boss'; regionId: string }
+  | { type: 'island-boss'; islandId: string }
+  | { type: 'arena'; opponentId: string }
+  | { type: 'script' };
+
 export interface BattleSceneData {
   enemyId: string;
   level: number;
@@ -20,8 +30,18 @@ export interface BattleSceneData {
   presentation?: BattlePresentation;
 }
 
+export interface BattleLaunchData extends BattleSceneData {
+  encounterId: string;
+  encounterSource: EncounterSource;
+}
+
 /** Battle Scene が終了時に通知する最小限の結果。 */
 export interface BattleEndPayload {
   outcome: BattleSummary['outcome'];
   goldLost: number;
+}
+
+export interface BattleEndEvent {
+  encounterId: string;
+  result: BattleEndPayload;
 }

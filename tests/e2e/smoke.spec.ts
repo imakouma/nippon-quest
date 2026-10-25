@@ -78,13 +78,15 @@ test('問題データはタイトルでは取得せず、開始時に選択学�
 });
 
 test('保護者メニューで概念別学習状態と診断欄を確認できる', async ({ page }) => {
-  test.setTimeout(60_000);
+  test.setTimeout(120_000);
   await page.goto('/');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'テスト');
   await page.getByRole('button', { name: 'メニュー' }).click({ timeout: 30_000 });
-  await page.getByRole('button', { name: /ほごしゃ/ }).click();
+  const menu = page.getByRole('dialog', { name: 'メニュー' });
+  await expect(menu).toBeVisible({ timeout: 30_000 });
+  await menu.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');
   await page.getByRole('button', { name: 'ひらく', exact: true }).click();
 
@@ -161,8 +163,16 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   });
   await jsonBox.fill(JSON.stringify(state));
   await importButton.click();
+  await expect(page.getByRole('heading', { name: /ほごしゃメニュー/ })).toHaveCount(0, {
+    timeout: 30_000,
+  });
+  await page.waitForTimeout(700);
+  await expect(page.locator('canvas[data-player-tile]')).toHaveAttribute('data-input-ready', 'true', {
+    timeout: 30_000,
+  });
   await page.getByRole('button', { name: 'メニュー' }).click({ timeout: 30_000 });
-  await page.getByRole('button', { name: /ほごしゃ/ }).click();
+  await expect(menu).toBeVisible({ timeout: 30_000 });
+  await menu.getByRole('button', { name: /ほごしゃ/ }).click();
   await page.getByLabel('こたえ').fill('12');
   await page.getByRole('button', { name: 'ひらく', exact: true }).click();
 

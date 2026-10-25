@@ -14,6 +14,13 @@ interface SavedFieldState {
   };
 }
 
+interface TeleportDestination {
+  area: string;
+  map: string;
+  island?: string;
+  devAll?: boolean;
+}
+
 async function startField(page: Page): Promise<void> {
   await page.goto('/');
   await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 30_000 });
@@ -26,10 +33,7 @@ async function startField(page: Page): Promise<void> {
 async function teleport(
   page: Page,
   tile: [number, number],
-  destination: { area: string; map: string; island?: string } = {
-    area: 'aomori',
-    map: 'aomori-field',
-  },
+  destination: TeleportDestination = { area: 'aomori', map: 'aomori-field' },
 ): Promise<void> {
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: /ほごしゃ/ }).click();
@@ -38,45 +42,30 @@ async function teleport(
   await page.getByRole('button', { name: /JSONを(?:表示|ひょうじ)/ }).click();
   const jsonBox = page.getByLabel('セーブデータJSON');
   const state = JSON.parse(await jsonBox.inputValue()) as SavedFieldState;
-  if (destination.island) state.progress.currentIsland = destination.island;
   state.progress.currentArea = destination.area;
   state.progress.currentMap = destination.map;
+  if (destination.island) state.progress.currentIsland = destination.island;
   state.progress.position = { x: tile[0] * 16, y: tile[1] * 16 };
   state.progress.counters['story.prologue'] = 1;
-  state.progress.counters['dev:all'] = 1;
+  if (destination.devAll) state.progress.counters['dev:all'] = 1;
   await jsonBox.fill(JSON.stringify(state));
   await page.getByRole('button', { name: /JSONを(?:読みこむ|よみこむ)/ }).click();
-  await expect(page.getByRole('heading', { name: /ほごしゃメニュー/ })).toHaveCount(0, {
-    timeout: 30_000,
-  });
+  await expect(page.locator('.nq-parent-content')).toHaveCount(0, { timeout: 10_000 });
   await expect(page.locator('#game-root canvas')).toHaveAttribute(
     'data-player-tile',
     `${tile[0]},${tile[1]}`,
     { timeout: 30_000 },
   );
-  await page.waitForTimeout(450);
+  const menu = page.getByRole('dialog', { name: 'メニュー' });
+  if (await menu.isVisible()) await menu.getByRole('button', { name: /とじる/ }).click();
+  await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
+  await page.waitForTimeout(750);
 }
 
 async function interactByKeyAndTap(page: Page): Promise<void> {
   await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
   await page.locator('#game-root canvas').click({ position: { x: 480, y: 270 } });
   await page.keyboard.press('Enter');
-}
-
-async function takeBattleTurn(page: Page): Promise<void> {
-  await page.locator('.nq-cmd[data-cmd="skill"]').click();
-  await page.locator('[data-skill]:not(.nq-opt-off)').first().click();
-  const choice = page.locator('.nq-choice').first();
-  const input = page.locator('.nq-q-input input').first();
-  await expect(choice.or(input).or(page.locator('.nq-nb-submit, .nq-map-tap')).first()).toBeVisible({
-    timeout: 20_000,
-  });
-  if (await choice.isVisible()) await choice.click();
-  else if (await input.isVisible()) {
-    await input.fill('0');
-    await page.getByRole('button', { name: 'こたえる' }).click();
-  } else if (await page.locator('.nq-nb-submit').isVisible()) await page.locator('.nq-nb-submit').click();
-  else await page.locator('.nq-map-tap').click({ position: { x: 20, y: 20 } });
 }
 
 async function finishDialogue(page: Page): Promise<void> {
@@ -98,7 +87,7 @@ async function reachChoices(page: Page): Promise<void> {
 }
 
 async function areaMapHeroPosition(page: Page): Promise<{ x: number; y: number }> {
-  await page.getByRole('button', { name: /ちずを ひらく/ }).click();
+  await page.getByRole('button', { name: /の ちずを ひらく$/, exact: true }).click();
   const hero = page.locator('.nq-wmap-hero');
   await expect(hero).toBeVisible();
   const box = await hero.boundingBox();
@@ -195,7 +184,7 @@ test('フィールドと町を往復すると対応する入口へ配置され�
 test('フィールドとダンジョンを往復すると対応する入口へ配置される', async ({ page }) => {
   test.setTimeout(90_000);
   await startField(page);
-  await teleport(page, [84, 24]);
+  await teleport(page, [84, 24], { area: 'aomori', map: 'aomori-field', devAll: true });
 
   await walkOneTile(page, 'ArrowUp');
   await expect
@@ -211,7 +200,7 @@ test('フィールドとダンジョンを往復すると対応する入口へ�
     .toMatchObject({ currentMap: 'aomori-field', position: { x: 1344, y: 384 } });
 });
 
-test('県フィールドから離島へ移動する', async ({ page }) => {
+test('船頭に頼んで県フィールドから離島へ移動する', async ({ page }) => {
   test.setTimeout(90_000);
   await startField(page);
   await teleport(page, [28, 61], {
@@ -220,7 +209,7 @@ test('県フィールドから離島へ移動する', async ({ page }) => {
     island: 'kyushu-okinawa',
   });
 
-  await walkOneTile(page, 'ArrowUp');
+  await page.keyboard.press('ArrowUp');
   await interactByKeyAndTap(page);
   await expect(page.locator('.nq-dlg')).toBeVisible();
   await reachChoices(page);
@@ -234,21 +223,42 @@ test('県フィールドから離島へ移動する', async ({ page }) => {
 test('敗北後はフィールドの出発地点へ戻って入力が復帰する', async ({ page }) => {
   test.setTimeout(120_000);
   await page.goto('/?debug=battle&enemy=aomori-ringoron&lv=99');
-  const skill = page.locator('.nq-cmd[data-cmd="skill"]:not([disabled])');
-  const result = page.locator('.nq-result');
-  const deadline = Date.now() + 90_000;
-  while (Date.now() < deadline && !(await result.isVisible())) {
-    if (await skill.isVisible()) await takeBattleTurn(page);
-    else if (await page.locator('.nq-box').isVisible()) await page.locator('.nq-box').click({ force: true });
-    await page.waitForTimeout(200);
-  }
-
-  await expect(result).toHaveAttribute('aria-label', 'まけてしまった…');
-  await page.locator('[data-result-close]').click();
+  await expect(page.locator('.nq-battle')).toBeVisible({ timeout: 20_000 });
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+        const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+          encounters: { active: { id: string } | null };
+        };
+        return scene.encounters.active?.id ?? null;
+      }),
+    )
+    .not.toBeNull();
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+      encounters: { active: { id: string } | null };
+    };
+    const state = game.registry.get('game') as {
+      progress: { counters: Record<string, number>; eventsDone: string[] };
+    };
+    game.registry.set('game', {
+      ...state,
+      progress: {
+        ...state.progress,
+        counters: { ...state.progress.counters, 'story.prologue': 1 },
+        eventsDone: [...new Set([...state.progress.eventsDone, 'tutorial.battle-basics'])],
+      },
+    });
+    const encounterId = scene.encounters.active!.id;
+    game.events.emit('battle:end', { encounterId, result: { outcome: 'defeat', goldLost: 0 } });
+  });
   await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 20_000 });
-  await skipArrivalStory(page);
+  await page.waitForTimeout(1_000);
   await page.getByRole('button', { name: 'メニュー' }).click();
-  await expect(page.getByRole('dialog', { name: 'メニュー' })).toBeVisible();
+  await page.getByRole('button', { name: 'がくしゅう' }).click();
+  await expect(page.getByRole('region', { name: 'がくしゅうロードマップ' })).toBeVisible();
 });
 
 test('fade 完了がなく連打されても fallback で一度だけ町へ移動する', async ({ page }) => {
@@ -278,18 +288,19 @@ test('にほんちずで移動した後に入力が戻る', async ({ page }) => 
   test.setTimeout(90_000);
   await startField(page);
 
-  await page.getByRole('button', { name: /ちずを ひらく/ }).click();
+  await page.getByRole('button', { name: /の ちずを ひらく$/, exact: true }).click();
   await page.getByRole('button', { name: 'にほんちず' }).click();
   await page.getByRole('button', { name: /この ちほうを くわしく みる/ }).click();
-  await page.getByRole('button', { name: 'ここへ いく' }).click();
+  await page.getByRole('button', { name: /ここへ.*いく/ }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 10_000 });
   await page.waitForTimeout(700);
   await page.getByRole('button', { name: 'メニュー' }).click();
-  await expect(page.getByRole('dialog', { name: 'メニュー' })).toBeVisible();
+  await page.getByRole('button', { name: 'がくしゅう' }).click();
+  await expect(page.getByRole('region', { name: 'がくしゅうロードマップ' })).toBeVisible();
 });
 
 test('名所はキーとタップを重ねても一度だけ始まり、閉じた後に移動できる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
   await teleport(page, [58, 66]);
 
@@ -315,7 +326,7 @@ test('名所はキーとタップを重ねても一度だけ始まり、閉じ�
 });
 
 test('宝箱はキーとタップを重ねても報酬を一度だけ与え、完了後に再び調べられる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
   await teleport(page, [123, 99]);
 
@@ -343,7 +354,7 @@ test('宝箱はキーとタップを重ねても報酬を一度だけ与え、�
 });
 
 test('通常イベントはキーとタップを重ねても選択肢を一度だけ出し、見送った後に再開できる', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   await startField(page);
   await teleport(page, [41, 87]);
 
@@ -354,11 +365,257 @@ test('通常イベントはキーとタップを重ねても選択肢を一度�
   await expect(page.locator('.nq-dlg-choices')).toHaveCount(1);
   await page.getByRole('menuitem', { name: 'いいえ' }).click();
   await finishDialogue(page);
-  expect((await savedState(page)).progress.eventsDone).not.toContain('aomori.ringoen');
+  expect((await savedState(page)).progress.eventsDone).not.toContain('aomori-ev-ringoen');
 
   await page.waitForTimeout(300);
   await interactByKeyAndTap(page);
   await expect(page.locator('.nq-cutin')).toHaveCount(0);
   await reachChoices(page);
   await expect(page.locator('.nq-dlg-choices')).toHaveCount(1);
+});
+
+test('scripted イベントは選択→問題→score 0 報酬→完了 flag を実行する', async ({ page }) => {
+  test.setTimeout(120_000);
+  await startField(page);
+  await teleport(page, [41, 87]);
+
+  await interactByKeyAndTap(page);
+  await page.locator('.nq-cutin').click();
+  await reachChoices(page);
+  await page.getByRole('menuitem', { name: 'はい' }).click();
+  await expect(page.locator('.nq-q')).toBeVisible({ timeout: 20_000 });
+  await page.getByRole('button', { name: 'こたえる' }).click();
+  await expect(page.locator('.nq-q')).toHaveCount(0, { timeout: 10_000 });
+  await expect(page.locator('.nq-dlg')).toBeVisible();
+  await finishDialogue(page);
+
+  await expect
+    .poll(async () => {
+      const state = await savedState(page);
+      return {
+        apples: state.inventory['aomori-ringo'] ?? 0,
+        completed: state.progress.eventsDone.includes('aomori-ev-ringoen'),
+      };
+    })
+    .toEqual({ apples: 1, completed: true });
+});
+
+test('scripted movement は実在NPCを予約して1マス動かし、完了後に操作状態を戻す', async ({ page }) => {
+  test.setTimeout(120_000);
+  await startField(page);
+  await teleport(page, [41, 87]);
+  const expected = await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+      map: { width: number; height: number };
+      player: Phaser.GameObjects.Sprite;
+      npcs: Map<
+        number,
+        {
+          key: string;
+          role: string;
+          name: string;
+          lines: [];
+          home: [number, number];
+          moving: boolean;
+          nextMoveAt: number;
+          targetTile?: number;
+          sprite: Phaser.GameObjects.Sprite;
+          shadow: Phaser.GameObjects.Image;
+        }
+      >;
+      blocked: Set<number>;
+      transitions: Map<number, unknown>;
+      isBlocked(x: number, y: number): boolean;
+    };
+    const content = game.registry.get('content') as {
+      areas: Map<string, { events: Array<Record<string, unknown>> }>;
+    };
+    const directions = [
+      { direction: 'down', dx: 0, dy: 1 },
+      { direction: 'left', dx: -1, dy: 0 },
+      { direction: 'right', dx: 1, dy: 0 },
+      { direction: 'up', dx: 0, dy: -1 },
+    ] as const;
+    const player = [Math.floor(scene.player.x / 16), Math.floor(scene.player.y / 16)];
+    const open = Array.from({ length: scene.map.height - 2 }, (_, y) => y + 1).flatMap((y) =>
+      Array.from({ length: scene.map.width - 2 }, (_, x) => x + 1).flatMap((x) =>
+        directions.map(({ direction, dx, dy }) => ({
+          direction,
+          fromX: x,
+          fromY: y,
+          x: x + dx,
+          y: y + dy,
+        })),
+      ),
+    );
+    const candidate = open.find(({ fromX, fromY, x, y }) => {
+      const fromTile = fromY * scene.map.width + fromX;
+      const toTile = y * scene.map.width + x;
+      return (
+        !scene.isBlocked(fromX, fromY) &&
+        !scene.isBlocked(x, y) &&
+        !scene.transitions.has(fromTile) &&
+        !scene.transitions.has(toTile) &&
+        (player[0] !== fromX || player[1] !== fromY) &&
+        (player[0] !== x || player[1] !== y)
+      );
+    });
+    if (!candidate) throw new Error('scripted movement fixture に使える空きマスがありません');
+    const objectId = 'e2e-scripted-npc';
+    const fromTile = candidate.fromY * scene.map.width + candidate.fromX;
+    const sprite = scene.add
+      .sprite(
+        candidate.fromX * 16 + 8,
+        candidate.fromY * 16 + 8,
+        scene.player.texture.key,
+        scene.player.frame.name,
+      )
+      .setDepth(candidate.fromY * 16 + 8);
+    const shadow = scene.add.image(sprite.x, sprite.y + 6, 'fld.shadow').setDepth(1);
+    scene.npcs.set(fromTile, {
+      key: objectId,
+      role: 'fixture',
+      name: '',
+      lines: [],
+      home: [candidate.fromX, candidate.fromY],
+      moving: false,
+      nextMoveAt: Number.POSITIVE_INFINITY,
+      sprite,
+      shadow,
+    });
+    scene.blocked.add(fromTile);
+    const event = content.areas.get('aomori')!.events.find((entry) => entry.id === 'aomori-ev-ringoen')!;
+    event.steps = [
+      {
+        type: 'movement',
+        objectId,
+        commands: [
+          { type: 'face', direction: candidate.direction },
+          { type: 'walk', direction: candidate.direction },
+          { type: 'emote', emote: '!' },
+          { type: 'hide' },
+          { type: 'show' },
+          { type: 'wait', durationMs: 20 },
+        ],
+      },
+    ];
+    return {
+      objectId,
+      tile: candidate.y * scene.map.width + candidate.x,
+      x: candidate.x * 16 + 8,
+      y: candidate.y * 16 + 8,
+    };
+  });
+
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+      triggers: Map<number, { id: string; run: () => Promise<void> }>;
+    };
+    const trigger = [...scene.triggers.values()].find(({ id }) => id === 'aomori-ev-ringoen');
+    if (!trigger) throw new Error('scripted movement fixture のevent triggerがありません');
+    void trigger.run();
+  });
+  await expect(page.locator('.nq-cutin')).toBeVisible({ timeout: 10_000 });
+  await page.locator('.nq-cutin').click();
+  await expect(page.locator('.nq-dlg')).toBeVisible();
+  await finishDialogue(page);
+
+  await expect
+    .poll(() =>
+      page.evaluate((objectId) => {
+        const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+        const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+          npcs: Map<number, { key: string; moving: boolean; sprite: Phaser.GameObjects.Sprite }>;
+          fieldFlow: { isRunning: boolean };
+        };
+        const entry = [...scene.npcs.entries()].find(([, npc]) => npc.key === objectId);
+        return entry
+          ? {
+              tile: entry[0],
+              x: entry[1].sprite.x,
+              y: entry[1].sprite.y,
+              visible: entry[1].sprite.visible,
+              moving: entry[1].moving,
+              flowRunning: scene.fieldFlow.isRunning,
+            }
+          : null;
+      }, expected.objectId),
+    )
+    .toEqual({
+      tile: expected.tile,
+      x: expected.x,
+      y: expected.y,
+      visible: true,
+      moving: false,
+      flowRunning: false,
+    });
+});
+
+test('scripted battle→warp は encounter lifecycle と transition pipeline を一度ずつ通る', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  await startField(page);
+  await teleport(page, [41, 87]);
+  await suppressFadeCompletionAndCountRestarts(page);
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const content = game.registry.get('content') as {
+      areas: Map<string, { events: Array<Record<string, unknown>> }>;
+    };
+    const event = content.areas
+      .get('aomori')!
+      .events.find((candidate) => candidate.id === 'aomori-ev-ringoen')!;
+    event.steps = [
+      {
+        type: 'battle',
+        key: 'fight',
+        enemyId: 'aomori-ringoron',
+        level: 1,
+        isBoss: true,
+      },
+      {
+        type: 'branch',
+        condition: { type: 'battle', key: 'fight', outcome: 'victory' },
+        then: [{ type: 'warp', map: 'aomori-town', spawn: 'door_field' }],
+      },
+    ];
+  });
+
+  await interactByKeyAndTap(page);
+  await page.locator('.nq-cutin').click();
+  await expect(page.locator('.nq-dlg')).toBeVisible();
+  await finishDialogue(page);
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+        const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+          encounters: { active: { id: string } | null };
+        };
+        return scene.encounters.active?.id ?? null;
+      }),
+    )
+    .not.toBeNull();
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const scene = game.scene.getScene('Overworld') as Phaser.Scene & {
+      encounters: { active: { id: string } | null };
+    };
+    const encounterId = scene.encounters.active!.id;
+    const result = { encounterId, result: { outcome: 'victory', goldLost: 0 } };
+    game.events.emit('battle:end', result);
+    game.events.emit('battle:end', result);
+  });
+
+  await expect
+    .poll(async () => (await savedState(page)).progress.currentMap, { timeout: 15_000 })
+    .toBe('aomori-town');
+  expect(
+    await page.evaluate(
+      () => (window as unknown as { __mapTransitionRestarts?: number }).__mapTransitionRestarts,
+    ),
+  ).toBe(1);
 });

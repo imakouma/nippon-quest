@@ -5,10 +5,8 @@
  */
 import { z } from 'zod/v3';
 import { createAreaEventSchemas } from './areaEventSchemas';
-
 export const safeNonnegativeIntegerSchema = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 export const safePositiveIntegerSchema = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
-
 export const idSchema = z
   .string()
   .regex(/^[a-z0-9][a-z0-9.-]*$/, 'id は小文字英数字・ドット・ハイフンのみ')
@@ -162,8 +160,13 @@ export const questionRequestSchema = z.object({
   tags: z.array(z.string()).optional(),
   type: z.string().optional().describe('省略時はエンジンが選ぶ'),
 });
-
-export const { fieldEventCommandSchema, areaEventSchema } = createAreaEventSchemas({
+export const {
+  legacyAreaEventSchema,
+  eventConditionSchema,
+  fieldEventCommandSchema,
+  scriptedAreaEventSchema,
+  areaEventSchema,
+} = createAreaEventSchemas({
   id: idSchema,
   rubyText: rubyTextSchema,
   dialogueLine: dialogueLineSchema,
@@ -172,7 +175,6 @@ export const { fieldEventCommandSchema, areaEventSchema } = createAreaEventSchem
   safeNonnegativeInteger: safeNonnegativeIntegerSchema,
   safePositiveInteger: safePositiveIntegerSchema,
 });
-
 export const shopEntrySchema = z.object({ itemId: idSchema, price: safePositiveIntegerSchema });
 
 export const missionConditionSchema = z
@@ -619,8 +621,8 @@ export type Recipe = z.infer<typeof recipeSchema>;
 export type Skill = z.infer<typeof skillSchema>;
 export type Mission = z.infer<typeof missionSchema>;
 export type AreaEvent = z.infer<typeof areaEventSchema>;
-export type LegacyAreaEvent = Extract<AreaEvent, { dialogue: unknown }>;
-export type ScriptedAreaEvent = Extract<AreaEvent, { steps: unknown }>;
+export type LegacyAreaEvent = z.infer<typeof legacyAreaEventSchema>;
+export type ScriptedAreaEvent = z.infer<typeof scriptedAreaEventSchema>;
 export type Npc = z.infer<typeof npcSchema>;
 export type Reward = z.infer<typeof rewardSchema>;
 export type XpTable = z.infer<typeof xpTableSchema>;

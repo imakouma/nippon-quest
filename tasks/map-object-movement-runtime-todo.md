@@ -36,9 +36,9 @@
 
 ## Task 5: Production integration follow-up
 
-- [ ] 完成済みevent runtime releaseをmergeする。
-- [ ] Phaser adapterのRED fixture testを追加する。
-- [ ] 既存NPC・衝突判定・Tweenへmovement portsを接続する。
-- [ ] production event runtimeからmovement完了をawaitする。
-- [ ] focused testとmutation checkを完了する。
-- [ ] 全必須検査、Graphify更新、4175 previewを完了する。
+- [x] 完成済みevent runtime releaseをmergeする。
+- [x] Phaser adapterのRED fixture testを追加する。
+- [x] 既存NPC・衝突判定・Tweenへmovement portsを接続する。
+- [x] production event runtimeからmovement完了をawaitする。
+- [x] focused testとmutation checkを完了する。
+- [x] 全必須検査、Graphify更新、専用ポートのpreviewを完了する。

@@ -15,7 +15,7 @@
 - runtimeは `src/core/events/` に置き、表示層をimportしない。
 - command列自体を唯一の反復単位にし、command内の回数・分岐・loopを持たせない。
 - reservation objectが `commit` / `release` を所有し、runtimeは予約のライフサイクルだけを調停する。
-- production event runtime portが基点に無いため、今回はcore dispatchまでを統合境界にする。
+- production adapterは既存のNPC map、blocked set、Tweenを薄く包み、wander実装とは分離する。
 - timeoutはruntime Promiseのsettlementを保証し、port実装のabort対応だけに依存しない。
 
 ## Task List
@@ -66,20 +66,20 @@
 
 ### Phase 4: Dependency and RED
 
-- [ ] Task 10: `codex/event-command-runtime-release` を現在の専用ブランチへmergeする。
-- [ ] Task 11: production movement port のfixture testを追加し、未接続のREDを確認する。
+- [x] Task 10: `codex/event-command-runtime-release` を現在の専用ブランチへmergeする。
+- [x] Task 11: production movement port のfixture testを追加し、未接続のREDを確認する。
 
 ### Phase 5: Scene Adapter
 
-- [ ] Task 12: 既存 NPC map / blocked set / Tween を使う最小 Phaser adapterを追加する。
-- [ ] Task 13: `createEventRuntimePorts` と `Overworld.runEvent` へmovement portを接続する。
+- [x] Task 12: 既存 NPC map / blocked set / Tween を使う最小 Phaser adapterを追加する。
+- [x] Task 13: `createEventRuntimePorts` と `Overworld.runEvent` へmovement portを接続する。
 
 ### Checkpoint: Production Path
 
-- [ ] scripted event → event runtime → movement runtime → Phaser NPC のfocused testが成功する。
-- [ ] `npcWander.ts` が未変更である。
+- [x] scripted event → event runtime → movement runtime → Phaser NPC のfocused testが成功する。
+- [x] `npcWander.ts` が未変更である。
 
 ### Phase 6: Delivery
 
-- [ ] Task 14: five-axis review、mutation check、Graphify更新を行う。
-- [ ] Task 15: 必須検査と4175 previewを完了し、walkthroughを更新する。
+- [x] Task 14: five-axis review、mutation check、Graphify更新を行う。
+- [x] Task 15: 必須検査と専用ポートのpreviewを完了し、walkthroughを更新する。
