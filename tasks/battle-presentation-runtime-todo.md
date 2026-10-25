@@ -70,7 +70,7 @@
 **Acceptance criteria:**
 
 - [x] BattleEvent の視覚演出が隣接 port 実装へ移る。
-- [x] Battle.ts が 1,730 行未満になる（1,579 行）。
+- [x] Battle.ts が 1,730 行未満になる（1,577 行）。
 - [x] 既存 animation diagnostic entry point を維持する。
 
 **Verification:**
@@ -95,17 +95,17 @@
 
 **Acceptance criteria:**
 
-- [ ] 必須5検査、preview、五軸レビューが完了する。
-- [ ] Graphify code-only graph が更新される。
-- [ ] walkthrough とコミット情報を残す。
+- [x] 必須5検査、preview、五軸レビューが完了する。
+- [x] Graphify code-only graph が更新される。
+- [x] walkthrough とコミット情報を残す。
 
 **Verification:**
 
-- [ ] `pnpm lint`
-- [ ] `pnpm check:architecture`
-- [ ] `pnpm test`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm build`
+- [x] `pnpm lint`
+- [x] `pnpm check:architecture`
+- [x] `pnpm test`
+- [x] `pnpm validate:content`
+- [x] `pnpm build`
 
 **Dependencies:** Task 4
 
