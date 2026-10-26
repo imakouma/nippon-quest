@@ -2642,7 +2642,6 @@ export class OverworldScene extends Phaser.Scene {
   private devAll(): boolean {
     return (this.gs()?.progress.counters[DEV_ALL_KEY] ?? 0) > 0;
   }
-
   private toggleDev(): void {
     const gs = this.gs();
     if (!gs || this.busy || this.inBattle || this.moving) return;
