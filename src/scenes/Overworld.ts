@@ -184,6 +184,7 @@ import { haruDialogue } from './overworld/haruDialogue';
 import { advanceWanderingNpcs, type WanderingNpc as Npc } from './overworld/npcWander';
 import { FieldResumeRuntime } from './overworld/fieldResumeRuntime';
 import { prepareResumeGame } from './overworld/fieldMapCatalog';
+import { createPhaserHarbor } from './overworld/phaserHarbor';
 import { addNpcRoleSign, createPhaserNpc } from './overworld/phaserNpc';
 
 const TILE = 16;
@@ -193,7 +194,6 @@ const ZOOM = 3;
 /** 人物の絵（16×24）の中で、マスの中心にあたる高さ（足もとがマスの下のふちに来る） */
 const DELTA: Record<Dir, [number, number]> = { down: [0, 1], left: [-1, 0], right: [1, 0], up: [0, -1] };
 const BLOCK_TILE = 3;
-const WATER_TILE = 3;
 const TRIGGER_RADIUS = 1;
 /** にほんちずの地図データ（scripts/scaffold-maps.ts が public/worldmap.json に作る）の cache キー */
 const WORLD_MAP_KEY = 'worldmap';
@@ -967,57 +967,17 @@ export class OverworldScene extends Phaser.Scene {
     const place = back
       ? (this.content()?.areas.get(enclave?.prefId ?? '')?.name ?? target)
       : (enclave?.name ?? target);
-    // 海の 向き：となりから 水の マスが いちばん 長く つづく 向き
-    const bg = this.map.getLayer('background');
-    const water = (x: number, y: number) => this.inside(x, y) && bg?.data[y]?.[x]?.index === WATER_TILE;
-    let sea: Dir = 'down';
-    let run = -1;
-    for (const d of DIRS) {
-      let n = 0;
-      while (n < 4 && water(tx + DELTA[d][0] * (n + 1), ty + DELTA[d][1] * (n + 1))) n++;
-      if (n > run) {
-        run = n;
-        sea = d;
-      }
-    }
-    const [dx, dy] = DELTA[sea];
-    if (run > 0) {
-      // さんばし（水の 上に 2 マスまで）と、その先の 船（ゆらゆら）
-      const len = Math.min(2, run - 1);
-      for (let k = 1; k <= len; k++)
-        this.add
-          .image((tx + dx * k) * TILE + 8, (ty + dy * k) * TILE + 8, dx ? 'fld.pier.h' : 'fld.pier.v')
-          .setDepth(2);
-      const sx = (tx + dx * (len + 1)) * TILE + 8;
-      const sy = (ty + dy * (len + 1)) * TILE + 8;
-      const ship = this.add
-        .image(sx, sy, 'fld.ship')
-        .setFlipX(dx > 0)
-        .setDepth(sy + 12);
-      this.tweens.add({
-        targets: ship,
-        y: sy - 1,
-        yoyo: true,
-        repeat: -1,
-        duration: 900,
-        ease: 'Stepped',
-        easeParams: [2],
-      });
-    }
-    const land: Dir = sea === 'up' ? 'down' : sea === 'down' ? 'up' : sea === 'left' ? 'right' : 'left';
     const i = this.idx(tx, ty);
     this.blocked.add(i);
-    const npc = createPhaserNpc(this, {
-      key: `ferry_${target}`,
+    const npc = createPhaserHarbor(this, {
+      map: this.map,
       tile: [tx, ty],
-      mapWidth: this.map.width,
-      facing: land,
-      persistState: false,
-      role: 'ferry',
-      name: t('field.roleFerry'),
-      lines: [],
-      nextMoveAt: Number.POSITIVE_INFINITY,
-      ferry: { map: target, spawn, place, back },
+      target,
+      spawn,
+      place,
+      back,
+      ferryName: t('field.roleFerry'),
+      inside: (x, y) => this.inside(x, y),
     });
     this.npcs.set(i, npc);
     this.npcObjects.set(npc.key, npc);
