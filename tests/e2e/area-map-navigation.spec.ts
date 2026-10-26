@@ -13,6 +13,8 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
   await expect(miniMap).toHaveAttribute('aria-keyshortcuts', 'M');
   await expect(page.getByRole('button', { name: 'メニュー' })).toHaveAttribute('aria-keyshortcuts', 'I');
   await expect(miniMap.locator('.nq-mini-open')).toHaveText('青森県');
+  await expect(miniMap).toHaveCSS('width', '168px');
+  await expect(miniMap).toHaveCSS('height', '168px');
   await expect(page.locator('.nq-fhud-loc')).toHaveCount(0);
   await expect(page.locator('.nq-fhud-row')).toHaveCount(0);
   await expect(page.locator('.nq-fhud-stamp')).toHaveCount(0);
@@ -63,6 +65,10 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
   await expect(areaMapDialog.locator('.nq-amap-reset')).toHaveCount(0);
   await expect(areaMapDialog.getByRole('button', { name: /ちずを (おおきく|ちいさく)する/ })).toHaveCount(0);
 
+  const terrain = areaMapDialog.locator('.nq-amap-terrain');
+  const overviewResolution = await terrain.evaluate((canvas) => (canvas as HTMLCanvasElement).width);
+  await expect(terrain).toHaveAttribute('data-detail-scale', '1');
+
   const box = await mapView.boundingBox();
   expect(box).not.toBeNull();
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
@@ -70,6 +76,10 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
   await page.mouse.wheel(0, -100);
   await page.keyboard.up('Control');
   await expect(mapCanvas).toHaveCSS('transform', /matrix\(1\.5, 0, 0, 1\.5,/);
+  await expect(terrain).toHaveAttribute('data-detail-scale', '4');
+  await expect
+    .poll(() => terrain.evaluate((canvas) => (canvas as HTMLCanvasElement).width))
+    .toBe(overviewResolution * 4);
 
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
   await page.mouse.down();
