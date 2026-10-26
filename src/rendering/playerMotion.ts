@@ -50,8 +50,8 @@ export function playerMotionPose(state: PlayerMotionState): PlayerMotionPose {
     return {
       frame: walkFrame(state.facing, state.leadFoot === 'a' ? 0 : 2),
       offsetX: 0,
-      offsetY: -1,
-      shadowScale: 0.875,
+      offsetY: 0,
+      shadowScale: 1,
     };
   }
 
