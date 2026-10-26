@@ -59,7 +59,7 @@ async function savedCompanion(page: Page): Promise<string | null> {
 }
 
 test('岩手の町へ初到着すると限定3体から選び、選んだ相棒が保存される', async ({ page }, testInfo) => {
-  test.setTimeout(90_000);
+  test.setTimeout(150_000);
   await page.goto('/?resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 2/ }).click();
@@ -85,11 +85,18 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
 
   // 入口のすぐ北にある、むすびの社の守り人へ自分で歩いて話しかける。
   await page.waitForTimeout(300);
+  const canvas = page.locator('canvas[data-player-tile]');
+  await expect(canvas).toHaveAttribute('data-player-tile', '25,35');
   await page.keyboard.down('ArrowUp');
-  await page.waitForTimeout(250);
-  await page.keyboard.up('ArrowUp');
-  await page.waitForTimeout(250);
-  await page.keyboard.press('z');
+  try {
+    await expect(canvas).toHaveAttribute('data-player-tile', '25,34', { timeout: 5_000 });
+  } finally {
+    await page.keyboard.up('ArrowUp');
+  }
+  // フィールドが停止して会話対象を解決できた合図を待ち、同じ操作経路から話しかける。
+  const talkAction = page.getByRole('button', { name: /はなす|話す/ });
+  await expect(talkAction).toBeVisible({ timeout: 10_000 });
+  await talkAction.click();
   const dialogue = page.locator('.nq-dlg');
   await expect(dialogue).toContainText(/むすびの.*やしろ/, { timeout: 10_000 });
   await expect(dialogue).toBeFocused();

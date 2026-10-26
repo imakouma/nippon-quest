@@ -13,6 +13,7 @@ interface CreatePhaserNpcInput {
   mapWidth: number;
   facing: Dir;
   persistState: boolean;
+  wanders: boolean;
   nextMoveAt: number;
   ferry?: WanderingNpc['ferry'];
 }
@@ -37,6 +38,7 @@ export function createPhaserNpc(scene: Phaser.Scene, input: CreatePhaserNpcInput
     tile: tileY * input.mapWidth + tileX,
     facing: input.facing,
     persistState: input.persistState,
+    wanders: input.wanders,
     role: input.role,
     name: input.name,
     lines: input.lines,

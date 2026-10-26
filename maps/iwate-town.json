@@ -337,7 +337,10 @@
           "y": 528,
           "width": 16,
           "height": 16,
-          "properties": [{ "name": "role", "type": "string", "value": "talk" }]
+          "properties": [
+            { "name": "role", "type": "string", "value": "talk" },
+            { "name": "wander", "type": "bool", "value": false }
+          ]
         },
         {
           "id": 8,

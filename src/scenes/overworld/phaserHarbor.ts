@@ -76,6 +76,7 @@ export function createPhaserHarbor(scene: Phaser.Scene, input: CreatePhaserHarbo
     mapWidth: input.map.width,
     facing: land,
     persistState: false,
+    wanders: false,
     role: 'ferry',
     name: input.ferryName,
     lines: [],
