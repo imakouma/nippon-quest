@@ -451,6 +451,7 @@ export function AreaMapOverlay({
                 width: mapWidth,
                 height: mapHeight,
                 transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+                '--nq-amap-marker-scale': 1 / zoom,
               }}
               onClick={onMapClick}
             >
