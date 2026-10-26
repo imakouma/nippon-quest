@@ -393,14 +393,29 @@ interface FrameOpts {
   size: FrameSize;
   view: CostumeView;
   pose: CostumePose;
+  walkColumn?: 0 | 1 | 2;
   /** 右向き：左向きで 描いてから 左右反転 */
   mirror?: boolean;
+}
+
+function swingHands(g: Grid, l: Look, sideView: boolean, column: 0 | 1 | 2): void {
+  if (column === 1) return;
+  const moved: { x: number; y: number; dy: number }[] = [];
+  for (let y = 20; y <= 25; y++)
+    for (let x = 0; x < g[y]!.length; x++) {
+      if (g[y]![x] !== l.skin) continue;
+      const firstSide = sideView || x < g[y]!.length / 2;
+      moved.push({ x, y, dy: (column === 0) === firstSide ? -1 : 1 });
+    }
+  for (const pixel of moved) g[pixel.y]![pixel.x] = null;
+  for (const pixel of moved) g[pixel.y + pixel.dy]![pixel.x] = l.skin;
 }
 
 function frame(top: Rows, legs: Rows, l: Look, colors: Record<string, string>, o: FrameOpts): Grid {
   const costumes = l.costumes ?? [];
   const g = makeGrid(o.size.w, o.size.h);
   paint(g, [...top, ...dressLegs(legs, costumes)], colors, o.size.ox, o.size.oy);
+  if (o.walkColumn !== undefined) swingHands(g, l, o.view === 'side', o.walkColumn);
   for (const c of costumes) c.draw?.(g, o.view, o.pose, colors);
   outline(g, NQ.ink);
   if (o.mirror) for (const row of g) row.reverse();
@@ -458,9 +473,16 @@ export function walkFrames(l: Look, hero = false): Grid[] {
   const t = tops(l);
   const size = hero ? HERO_FRAME : NPC_FRAME;
   return DIRS.flatMap((d) =>
-    legs(d).map((lg) =>
-      frame(t[d], lg, l, colors, { size, view: VIEW[d], pose: 'walk', mirror: d === 'right' }),
-    ),
+    legs(d).map((lg, walkColumn) => {
+      const column = walkColumn as 0 | 1 | 2;
+      return frame(t[d], lg, l, colors, {
+        size,
+        view: VIEW[d],
+        pose: hero ? (column === 0 ? 'stepA' : column === 2 ? 'stepB' : 'walk') : 'walk',
+        mirror: d === 'right',
+        walkColumn: hero ? column : undefined,
+      });
+    }),
   );
 }
 
