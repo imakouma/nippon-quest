@@ -417,15 +417,19 @@ async function walkOne(
   const canvas = page.locator('canvas[data-player-tile]');
   const before = await canvas.getAttribute('data-player-tile');
   let decision: string | null = null;
-  for (let attempt = 0; attempt < 10 && decision !== expected; attempt += 1) {
+  let completed = false;
+  for (let attempt = 0; attempt < 10 && !completed; attempt += 1) {
     await canvas.evaluate((element) => delete (element as HTMLElement).dataset.lastMovement);
-    await page.keyboard.down(key);
-    await page.waitForTimeout(60);
-    await page.keyboard.up(key);
-    await page.waitForTimeout(140);
+    await pulseDirection(page, key);
+    await page.waitForTimeout(300);
     decision = await canvas.getAttribute('data-last-movement');
+    if (decision !== expected) continue;
+    completed =
+      expected === 'move'
+        ? (await canvas.getAttribute('data-player-tile')) !== before
+        : await page.locator('.nq-dlg').isVisible();
   }
-  expect(decision, `${before} から ${key} の移動判定`).toBe(expected);
+  expect(completed, `${before} から ${key} の ${expected} を完了`).toBe(true);
   if (expected === 'midboss' || expected === 'regionBoss') {
     await expect(canvas).toHaveAttribute('data-player-tile', before ?? '');
     return;
@@ -439,16 +443,34 @@ async function walkOne(
 
 async function walkIntoTransition(page: Page, key: ArrowKey): Promise<void> {
   const canvas = page.locator('canvas[data-player-tile]');
+  const before = await canvas.getAttribute('data-player-tile');
   let decision: string | null = null;
-  for (let attempt = 0; attempt < 10 && decision !== 'move'; attempt += 1) {
+  let moved = false;
+  for (let attempt = 0; attempt < 10 && !moved; attempt += 1) {
     await canvas.evaluate((element) => delete (element as HTMLElement).dataset.lastMovement);
-    await page.keyboard.down(key);
-    await page.waitForTimeout(60);
-    await page.keyboard.up(key);
-    await page.waitForTimeout(140);
+    await pulseDirection(page, key);
+    await page.waitForTimeout(300);
     decision = await canvas.getAttribute('data-last-movement');
+    moved = decision === 'move' && (await canvas.getAttribute('data-player-tile')) !== before;
   }
-  expect(decision, `入口へ ${key} で移動`).toBe('move');
+  expect(moved, `入口へ ${key} で移動`).toBe(true);
+}
+
+async function pulseDirection(page: Page, key: ArrowKey): Promise<void> {
+  await page.evaluate(async (arrow) => {
+    const direction = {
+      ArrowLeft: 'left',
+      ArrowRight: 'right',
+      ArrowUp: 'up',
+      ArrowDown: 'down',
+    }[arrow] as 'down' | 'left' | 'right' | 'up';
+    const field = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+      fieldInput: { setTouchDirection(direction: 'down' | 'left' | 'right' | 'up' | null): void };
+    };
+    field.fieldInput.setTouchDirection(direction);
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    field.fieldInput.setTouchDirection(null);
+  }, key);
 }
 
 async function clickThroughDialogue(page: Page): Promise<string[]> {

@@ -14,6 +14,11 @@ interface Field extends Phaser.Scene {
   inBattle: boolean;
   canWarp: boolean;
   inputLockUntil: number;
+  playerLocomotion: {
+    logicalTile: { x: number; y: number };
+    present(): void;
+  };
+  fieldInput: { setTouchDirection(direction: 'right' | null): void };
   isBlocked(x: number, y: number): boolean;
   arrive(x: number, y: number): void;
   openChest(chest: unknown): Promise<void>;
@@ -40,6 +45,8 @@ async function prepareWalk(page: Page, tile = 1, wall = false): Promise<void> {
           )
             continue;
           field.player.setPosition(x * 16 + 8, y * 16 + 8);
+          field.playerLocomotion.logicalTile = { x, y };
+          field.playerLocomotion.present();
           field.map.putTileAt(tile, x + 1, y, false, 'background');
           field.busy = false;
           field.inBattle = false;
@@ -53,6 +60,20 @@ async function prepareWalk(page: Page, tile = 1, wall = false): Promise<void> {
     },
     { tile, wall },
   );
+}
+
+async function playOneStep(page: Page, before: number): Promise<void> {
+  for (let attempt = 0; attempt < 10; attempt += 1) {
+    await page.evaluate(async () => {
+      const field = window.__nq.scene.getScene('Overworld') as Field;
+      field.fieldInput.setTouchDirection('right');
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+      field.fieldInput.setTouchDirection(null);
+    });
+    await page.waitForTimeout(300);
+    if ((await page.evaluate(() => window.__fieldPlayed.length)) > before) return;
+  }
+  throw new Error('一歩分の効果音が再生されませんでした');
 }
 
 test('実音源をデコードし、歩行・停止・壁・消音・入口・宝箱へ効果音を同期する', async ({ page }, info) => {
@@ -135,9 +156,7 @@ test('実音源をデコードし、歩行・停止・壁・消音・入口・�
   ] as const) {
     await prepareWalk(page, tile);
     const before = await page.evaluate(() => window.__fieldPlayed.length);
-    await page.keyboard.down('ArrowRight');
-    await expect.poll(() => page.evaluate(() => window.__fieldPlayed.length)).toBeGreaterThan(before);
-    await page.keyboard.up('ArrowRight');
+    await playOneStep(page, before);
     expect(await page.evaluate((i) => window.__fieldPlayed[i]?.name, before)).toBe(name);
     await expect
       .poll(() => page.evaluate(() => (window.__nq.scene.getScene('Overworld') as Field).moving))
@@ -147,9 +166,8 @@ test('実音源をデコードし、歩行・停止・壁・消音・入口・�
   await page.waitForTimeout(400);
   expect(await page.evaluate(() => window.__fieldPlayed.length)).toBe(stopped);
   await prepareWalk(page, 1, true);
-  await page.keyboard.down('ArrowRight');
+  await page.keyboard.press('ArrowRight');
   await page.waitForTimeout(400);
-  await page.keyboard.up('ArrowRight');
   expect(await page.evaluate(() => window.__fieldPlayed.length)).toBe(stopped);
   await page.evaluate(() => {
     const game = window.__nq;
@@ -157,9 +175,8 @@ test('実音源をデコードし、歩行・停止・壁・消音・入口・�
     game.registry.set('game', { ...state, settings: { ...state.settings, seVolume: 0 } });
   });
   await prepareWalk(page);
-  await page.keyboard.down('ArrowRight');
+  await page.keyboard.press('ArrowRight');
   await page.waitForTimeout(400);
-  await page.keyboard.up('ArrowRight');
   await expect
     .poll(() => page.evaluate(() => (window.__nq.scene.getScene('Overworld') as Field).moving))
     .toBe(false);
