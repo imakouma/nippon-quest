@@ -14,6 +14,7 @@ import {
   zoneForMap,
 } from '../core/battle/setup';
 import { groundOfTile, isRoadTile, type Ground } from '../core/world/ground';
+import type { LocomotionEvent } from '../core/world/playerLocomotion';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
@@ -121,6 +122,10 @@ import { overworldView } from '../rendering/overworld/overworldView';
 import { buildViewTexture } from '../rendering/overworld/viewTiles';
 import { buildEntranceIcons } from '../rendering/overworld/entranceIcons';
 import {
+  attachPlayerContactEffects,
+  type PlayerContactEffects,
+} from '../rendering/overworld/playerContactEffects';
+import {
   areaMapView,
   mapPlaces,
   mapBaseFromTiled,
@@ -151,6 +156,11 @@ import { npcModel } from './overworld/npcModel';
 import { applyChestReward, chestModel, specialtyChestModel } from './overworld/chestModel';
 import { itemKindPresentation, specialtyRewardLines } from './overworld/treasurePresentation';
 import { movementDecision } from './overworld/movementDecision';
+import { locomotionCommandFromDecision } from './overworld/playerLocomotionAdapter';
+import { PlayerLocomotionController } from './overworld/playerLocomotionController';
+import { FieldInputController } from './overworld/fieldInput';
+import { attachFieldCamera, type FieldCameraController } from './overworld/fieldCameraController';
+import { FieldContextActions } from './overworld/fieldContextActions';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { askFirst, buildAskEnv, relaxedQueries } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
@@ -173,8 +183,6 @@ import { advanceWanderingNpcs, type WanderingNpc as Npc } from './overworld/npcW
 
 const TILE = 16;
 const STEP_MS = 160;
-/** 3 倍（1 マス 48px。見える はんいを しぼって、ドラクエのように 1 つ 1 つを 大きく） */
-const ZOOM = 3;
 /** 人物の絵（16×24）の中で、マスの中心にあたる高さ（足もとがマスの下のふちに来る） */
 const FEET_ORIGIN_Y = 16 / CHAR_H;
 const DELTA: Record<Dir, [number, number]> = { down: [0, 1], left: [-1, 0], right: [1, 0], up: [0, -1] };
@@ -300,16 +308,17 @@ export class OverworldScene extends Phaser.Scene {
   private player!: Phaser.GameObjects.Sprite;
   private shadow!: Phaser.GameObjects.Image;
   private michiru!: Phaser.GameObjects.Sprite;
+  private contactEffects!: PlayerContactEffects;
+  private fieldCamera!: FieldCameraController;
   private heroTex = '';
   private facing: Dir = 'down';
-  private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
-  private wasd?: Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
-  private touchDir: Dir | null = null;
+  private playerLocomotion!: PlayerLocomotionController;
+  private fieldInput!: FieldInputController;
+  private fieldActions!: FieldContextActions<Npc, Chest, RegionBoss>;
   readonly rng: Rng = createRng(freshSeed());
   readonly speak = createSpeaker();
   private readonly roots = new Map<RootName, HTMLDivElement>();
   // ↓ マップが変わるたびに resetMapState() で作り直す
-  private moving = false;
   private busy = false;
   private awaitingPrologue = false;
   private inBattle = false;
@@ -352,6 +361,10 @@ export class OverworldScene extends Phaser.Scene {
   private pendingArena: string | null = null;
   private stampIds: string[] = [];
   private baseMap: BaseMap | null = null;
+
+  private get moving(): boolean {
+    return this.playerLocomotion?.moving ?? false;
+  }
 
   constructor() {
     super('Overworld');
@@ -414,16 +427,41 @@ export class OverworldScene extends Phaser.Scene {
     const [sx, sy] = this.findSpawn(objects);
     this.createHero(sx, sy);
     this.createMichiru();
+    this.contactEffects = attachPlayerContactEffects(this);
     this.setupObjects(objects);
+    this.fieldActions = new FieldContextActions({
+      playerTile: () => this.playerTile(),
+      facing: () => this.facing,
+      indexOf: (x, y) => this.idx(x, y),
+      phase: () => this.playerLocomotion.phase,
+      busy: () => this.busy,
+      inBattle: () => this.inBattle,
+      inputLocked: () => this.time.now < this.inputLockUntil,
+      overlayOwnsInput: () =>
+        (['dialogue', 'travel', 'fx'] as const).some(
+          (name) => (this.roots.get(name)?.childElementCount ?? 0) > 0,
+        ),
+      npcs: () => this.npcs,
+      chests: () => this.chests,
+      signs: () => this.signs,
+      midBoss: () => this.midBoss,
+      regionBosses: () => this.regionBosses,
+      areaBoss: () => this.areaBoss,
+      lastBoss: () => this.lastBoss,
+      chestOpened: (chest) => this.chestOpened(chest),
+      activateNpc: (npc) => void this.talkNpc(npc),
+      activateChest: (chest) => void this.openChest(chest),
+      activateMidBoss: () => void this.confrontMidBoss(),
+      activateRegionBoss: (boss) => void this.confrontRegionBoss(boss),
+      activateAreaBoss: () => void this.confrontAreaBoss(),
+      activateLastBoss: () => void this.confrontLastBoss(),
+    });
     // はじめに いる 名所エリア（名前は 出さない。HUD の 場所の 窓に 出る）
     this.enterRegion(sx, sy);
     this.insideTrigger = this.triggers.get(this.idx(sx, sy))?.id ?? null;
 
     const cam = this.cameras.main;
-    cam.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-    cam.setZoom(ZOOM);
-    cam.setRotation(0);
-    cam.startFollow(this.player, true, 0.2, 0.2);
+    this.fieldCamera = attachFieldCamera(this, this.player, this.map);
     // 前の 画面の フェードが のこっていたら 消してから 明るくする
     cam.resetFX();
     cam.fadeIn(250, 0, 0, 0);
@@ -437,7 +475,13 @@ export class OverworldScene extends Phaser.Scene {
       !this.gs()?.progress.counters['story.prologue'];
     this.game.canvas.dataset.inputReady = this.awaitingPrologue ? 'false' : 'true';
     if (this.awaitingPrologue) this.busy = true;
-    this.setupInput();
+    this.fieldInput = new FieldInputController(this, {
+      canInteract: () => !this.busy && !this.inBattle,
+      player: () => this.player,
+      onInteract: () => this.interact(),
+      onAreaMap: () => this.openAreaMap(),
+      onMenu: () => this.openMenu(),
+    });
     this.time.delayedCall(400, () => (this.canWarp = true));
     this.rememberLocation(sx, sy);
     this.markVisited();
@@ -464,7 +508,6 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   private resetMapState(): void {
-    this.moving = false;
     this.busy = false;
     this.awaitingPrologue = false;
     this.inBattle = false;
@@ -529,6 +572,14 @@ export class OverworldScene extends Phaser.Scene {
       .sprite(x, y, this.heroTex, walkFrame(this.facing, 1))
       .setOrigin(0.5, HERO_FEET_ORIGIN_Y);
     this.player.setDepth(y);
+    this.playerLocomotion = new PlayerLocomotionController(
+      this.player,
+      this.shadow,
+      TILE,
+      this.facing,
+      { x: tx, y: ty },
+      this.heroTex,
+    );
   }
 
   private createMichiru(): void {
@@ -547,7 +598,6 @@ export class OverworldScene extends Phaser.Scene {
     const eq = gs ? activeEquipment(gs) : {};
     const key = heroKey(look, eq);
     addSheet(this.textures, key, walkSheet(heroLook(look, eq), true), HERO_W, HERO_H);
-    this.ensureWalkAnims(key);
     return key;
   }
 
@@ -557,9 +607,7 @@ export class OverworldScene extends Phaser.Scene {
     const key = this.heroSheet();
     if (key === this.heroTex) return;
     this.heroTex = key;
-    const walking = this.player.anims.isPlaying;
-    this.player.setTexture(key, walkFrame(this.facing, 1));
-    if (walking) this.player.anims.play(`${key}:${this.facing}`, true);
+    this.playerLocomotion.setTexture(key);
   }
 
   /** みための 見本（正面の 立ち絵）を data URL に */
@@ -567,62 +615,35 @@ export class OverworldScene extends Phaser.Scene {
     return this.textures.getBase64(this.heroSheet(ap), walkFrame('down', 1)) as string;
   }
 
-  private ensureWalkAnims(tex: string): void {
-    for (const d of DIRS) {
-      const key = `${tex}:${d}`;
-      if (this.anims.exists(key)) continue;
-      this.anims.create({
-        key,
-        frames: ([0, 1, 2, 1] as const).map((c) => ({ key: tex, frame: walkFrame(d, c) })),
-        frameRate: 10,
-        repeat: -1,
-      });
-    }
-  }
-
-  private setupInput(): void {
-    const kb = this.input.keyboard;
-    if (kb) {
-      this.cursors = kb.createCursorKeys();
-      this.wasd = kb.addKeys('W,A,S,D') as Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
-      for (const ev of ['keydown-SPACE', 'keydown-ENTER', 'keydown-Z']) kb.on(ev, () => this.interact());
-      kb.on('keydown-M', () => this.openAreaMap());
-      kb.on('keydown-I', () => this.openMenu());
-    }
-    // タップ：主人公のすぐ近くなら「しらべる」。はなれた所をおしっぱなしにすると、その方向へ歩く（update）
-    this.input.on('pointerdown', (p: Phaser.Input.Pointer) => {
-      if (this.busy || this.inBattle) return;
-      const w = p.positionToCamera(this.cameras.main) as Phaser.Math.Vector2;
-      if (Phaser.Math.Distance.Between(this.player.x, this.player.y - 4, w.x, w.y) < 20) this.interact();
-    });
-  }
-
-  private readDir(): Dir | null {
-    const c = this.cursors;
-    const k = this.wasd;
-    if (c?.left.isDown || k?.A.isDown) return 'left';
-    if (c?.right.isDown || k?.D.isDown) return 'right';
-    if (c?.up.isDown || k?.W.isDown) return 'up';
-    if (c?.down.isDown || k?.S.isDown) return 'down';
-    if (this.touchDir) return this.touchDir;
-    const p = this.input.activePointer;
-    if (p.isDown && p.getDuration() > 150) {
-      const w = p.positionToCamera(this.cameras.main) as Phaser.Math.Vector2;
-      const dx = w.x - this.player.x;
-      const dy = w.y - (this.player.y - 4);
-      if (Math.max(Math.abs(dx), Math.abs(dy)) < 12) return null;
-      return Math.abs(dx) > Math.abs(dy) ? (dx < 0 ? 'left' : 'right') : dy < 0 ? 'up' : 'down';
-    }
-    return null;
-  }
-  override update(time: number): void {
+  override update(time: number, delta: number): void {
     if (!this.player?.active) return;
-    this.player.setDepth(this.player.y);
-    this.shadow.setPosition(this.player.x, this.player.y + 6);
+    const inputLocked = this.inBattle || this.busy;
+    if (
+      inputLocked &&
+      this.playerLocomotion.phase !== 'frozen' &&
+      this.playerLocomotion.phase !== 'scripted'
+    ) {
+      this.applyLocomotion(this.playerLocomotion.dispatch({ type: 'freeze' }));
+    } else if (
+      !inputLocked &&
+      (this.playerLocomotion.phase === 'frozen' || this.playerLocomotion.phase === 'scripted')
+    ) {
+      this.applyLocomotion(this.playerLocomotion.dispatch({ type: 'resume' }));
+    }
+    this.syncContextAction();
+    if (inputLocked) {
+      this.playerLocomotion.present();
+      return;
+    }
+
+    if (this.moving) this.applyLocomotion(this.playerLocomotion.advance(delta));
+    this.playerLocomotion.present();
     if (this.michiru?.active) positionMichiruFollower(this.michiru, this.player, this.facing, time);
-    if (this.inBattle || this.busy || this.moving) return;
+    if (this.moving) return;
+
     this.updateWanderingNpcs(time);
-    const dir = this.readDir();
+    this.syncContextAction();
+    const dir = this.fieldInput.readDirection();
     if (this.waitRelease) {
       // 会話を閉じたキーをおしたままでも、すぐに次の会話が始まらないように、いちど はなすまで待つ
       if (dir) return;
@@ -633,7 +654,6 @@ export class OverworldScene extends Phaser.Scene {
       this.standStill();
       return;
     }
-    this.face(dir);
     const decision = movementDecision({
       from: this.playerTile(),
       delta: DELTA[dir],
@@ -648,10 +668,24 @@ export class OverworldScene extends Phaser.Scene {
       blocked: (x, y) => this.isBlocked(x, y),
     });
     this.game.canvas.dataset.lastMovement = decision.kind;
+    const command = locomotionCommandFromDecision(dir, this.playerTile(), decision);
+    if (command) {
+      this.applyLocomotion(this.playerLocomotion.dispatch(command));
+      if (
+        decision.kind === 'blocked' &&
+        this.playerLocomotion.phase === 'bumping' &&
+        this.time.now - this.lastBump > 300
+      ) {
+        this.lastBump = this.time.now;
+        playSfx('bump');
+      }
+      return;
+    }
+    if (dir !== this.facing) {
+      this.applyLocomotion(this.playerLocomotion.dispatch({ type: 'bump', direction: dir }));
+      return;
+    }
     switch (decision.kind) {
-      case 'stand':
-        this.standStill();
-        return;
       case 'midboss':
         this.standStill();
         void this.confrontMidBoss();
@@ -671,49 +705,46 @@ export class OverworldScene extends Phaser.Scene {
         this.standStill();
         void this.confrontLastBoss();
         return;
+      case 'stand':
       case 'blocked':
-        this.standStill();
-        if (this.time.now - this.lastBump > 300) {
-          this.lastBump = this.time.now;
-          playSfx('bump');
-        }
-        return;
       case 'move':
-        this.walkTo(decision.x, decision.y);
+        return;
     }
   }
-
-  private walkTo(nx: number, ny: number): void {
-    this.moving = true;
-    this.player.anims.play(`${this.heroTex}:${this.facing}`, true);
-    this.tweens.add({
-      targets: this.player,
-      x: nx * TILE + 8,
-      y: ny * TILE + 8,
-      duration: STEP_MS,
-      onComplete: () => {
-        this.moving = false;
-        this.stepCount++;
-        playFieldFootstep(this.mapKey, this.map.getTileAt(nx, ny, true, 'background')?.index);
-        this.rememberLocation(nx, ny);
-        this.renderHud(); // 左上の地図の主人公を動かす
-        this.arrive(nx, ny);
-      },
-    });
+  private applyLocomotion(events: LocomotionEvent[]): void {
+    this.facing = this.playerLocomotion.facing;
+    for (const event of events) this.handleLocomotionEvent(event);
+    this.syncContextAction();
   }
-
+  private handleLocomotionEvent(event: LocomotionEvent): void {
+    if (event.type === 'footPlanted') {
+      const tile = this.map.getTileAt(event.at.x, event.at.y, true, 'background')?.index;
+      playFieldFootstep(this.mapKey, tile);
+      this.contactEffects.present({
+        type: 'footPlanted',
+        ground: this.kind() === 'field' || this.kind() === 'enclave' ? groundOfTile(tile) : null,
+        x: event.at.x * TILE + TILE / 2,
+        y: (event.at.y + 1) * TILE,
+      });
+      return;
+    }
+    if (event.type !== 'stepCompleted') return;
+    this.stepCount++;
+    this.rememberLocation(event.to.x, event.to.y);
+    this.renderHud(); // 左上の地図の主人公を動かす
+    this.arrive(event.to.x, event.to.y);
+  }
   private face(dir: Dir): void {
-    if (dir === this.facing) return;
-    this.facing = dir;
-    if (this.player.anims.isPlaying) this.player.anims.play(`${this.heroTex}:${dir}`, true);
-    else this.player.setFrame(walkFrame(dir, 1));
+    if (dir === this.facing && this.playerLocomotion.phase === 'scripted') return;
+    this.applyLocomotion(this.playerLocomotion.dispatch({ type: 'script', facing: dir }));
   }
-
   private standStill(): void {
-    if (this.player.anims.isPlaying) this.player.anims.stop();
-    this.player.setFrame(walkFrame(this.facing, 1));
+    if (!this.busy && !this.inBattle) {
+      this.playerLocomotion.present();
+      return;
+    }
+    this.applyLocomotion(this.playerLocomotion.dispatch({ type: 'freeze' }));
   }
-
   /** 1 マス歩き終えたとき：入口 → ワープホール → 名所 → エンカウント の順に調べる */
   private arrive(x: number, y: number): void {
     const i = this.idx(x, y);
@@ -736,7 +767,6 @@ export class OverworldScene extends Phaser.Scene {
     if (this.checkTrigger(i)) return;
     this.checkRandomEncounter();
   }
-
   private checkTrigger(i: number): boolean {
     const tr = this.triggers.get(i);
     if (!tr) {
@@ -749,49 +779,19 @@ export class OverworldScene extends Phaser.Scene {
     void tr.run();
     return true;
   }
-
   private interact(): void {
-    if (this.busy || this.inBattle || this.moving || this.time.now < this.inputLockUntil) return;
-    const [x, y] = this.playerTile();
-    const front = this.idx(x + DELTA[this.facing][0], y + DELTA[this.facing][1]);
-    if (this.midBoss && front === this.midBoss.tile) {
-      void this.confrontMidBoss();
-      return;
-    }
-    const rb = this.regionBosses.get(front);
-    if (rb) {
-      void this.confrontRegionBoss(rb);
-      return;
-    }
-    if (this.areaBoss && front === this.areaBoss.tile) {
-      void this.confrontAreaBoss();
-      return;
-    }
-    if (this.lastBoss && front === this.lastBoss.tile) {
-      void this.confrontLastBoss();
-      return;
-    }
-    const around = [front, this.idx(x, y)];
-    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) around.push(this.idx(x + dx, y + dy));
-    for (const i of around) {
-      const npc = this.npcs.get(i);
-      if (npc) {
-        void this.talkNpc(npc);
-        return;
-      }
-      const chest = this.chests.get(i);
-      if (chest) {
-        void this.openChest(chest);
-        return;
-      }
-      const sign = this.signs.get(i);
-      if (sign) {
-        void sign();
-        return;
-      }
-    }
+    this.activateContextAction();
   }
-
+  private readonly activateContextAction = (): void => {
+    if (this.fieldActions.activate()) this.renderHud();
+  };
+  private chestOpened(chest: Chest): boolean {
+    if (chest.specialty) return this.gs()?.dex.motifs.includes(chest.specialty.stamp) ?? false;
+    return this.gs()?.progress.chestsOpened.includes(chest.key) ?? false;
+  }
+  private syncContextAction(): void {
+    if (this.fieldActions.sync()) this.renderHud();
+  }
   /** 入口の しるし：フィールドでは 行き先の 絵（町・どうくつ・お城・港）、町・ダンジョンの 中の 出口は 光る 床 */
   private gateIcon(target: string): string {
     if (this.kind() !== 'field' && this.kind() !== 'enclave') return 'fld.gate';
@@ -2480,7 +2480,6 @@ export class OverworldScene extends Phaser.Scene {
   private startBattle(data: BattleSceneData): void {
     if (this.inBattle) return;
     this.inBattle = true;
-    this.moving = false;
     this.standStill();
     render(null, this.root('dialogue'));
     this.renderHud();
@@ -2501,8 +2500,9 @@ export class OverworldScene extends Phaser.Scene {
     this.stepCount = 0;
     const cam = this.cameras.main;
     cam.resetFX();
-    cam.setRotation(0);
-    cam.setZoom(ZOOM);
+    this.fieldCamera.resetForMap();
+    this.fieldCamera.followPlayer(this.player);
+    this.applyLocomotion(this.playerLocomotion.dispatch({ type: 'resume' }));
     cam.fadeIn(300, 0, 0, 0);
     this.renderHud();
     const wasMidBoss = this.pendingMidBoss;
@@ -2611,6 +2611,7 @@ export class OverworldScene extends Phaser.Scene {
       return;
     }
     const { title, sub } = this.placeName();
+    const action = this.player?.active ? this.fieldActions.view(t, this.activateContextAction) : null;
     render(
       h(FieldHud, {
         title,
@@ -2623,8 +2624,9 @@ export class OverworldScene extends Phaser.Scene {
         menuLabel: t('field.menu'),
         onMenu: () => this.openMenu(),
         onMove: (direction) => {
-          this.touchDir = direction;
+          this.fieldInput.setTouchDirection(direction);
         },
+        action,
         dev: this.devAvailable()
           ? {
               label: t(this.devAll() ? 'field.devOn' : 'field.devLabel'),
@@ -3473,7 +3475,7 @@ export class OverworldScene extends Phaser.Scene {
     return x >= 0 && y >= 0 && x < this.map.width && y < this.map.height;
   }
   private playerTile(): [number, number] {
-    return [Math.floor(this.player.x / TILE), Math.floor(this.player.y / TILE)];
+    return this.playerLocomotion.tile();
   }
   private isBlocked(x: number, y: number): boolean {
     if (this.blocked.has(this.idx(x, y))) return true;

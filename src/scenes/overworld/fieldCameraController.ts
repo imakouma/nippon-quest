@@ -117,3 +117,19 @@ export class PhaserFieldCameraController implements FieldCameraController {
 
   private readonly onShutdown = (): void => this.destroy();
 }
+
+export function attachFieldCamera(
+  scene: Phaser.Scene,
+  player: Phaser.GameObjects.Components.Transform,
+  map: Pick<Phaser.Tilemaps.Tilemap, 'widthInPixels' | 'heightInPixels'>,
+): FieldCameraController {
+  const controller = new PhaserFieldCameraController(scene, () => ({
+    x: 0,
+    y: 0,
+    width: map.widthInPixels,
+    height: map.heightInPixels,
+  }));
+  controller.resetForMap();
+  controller.followPlayer(player);
+  return controller;
+}
