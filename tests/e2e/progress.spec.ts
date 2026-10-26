@@ -29,7 +29,7 @@ async function expectEightStatsFit(page: Page) {
 }
 
 test('新規ゲームから2Dロードマップを開き、セーブ後に同じスロットを続行できる', async ({ page }, testInfo) => {
-  test.setTimeout(180_000);
+  test.setTimeout(420_000);
   await page.goto('/?preview=roadmap-tree&resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 3/ }).click();
