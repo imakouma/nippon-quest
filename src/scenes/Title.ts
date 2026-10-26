@@ -64,6 +64,7 @@ export class TitleScene extends Phaser.Scene {
     this.addPetals();
     this.addLogo();
     this.mountMenu();
+    this.game.events.emit('title:ready');
     void this.checkSave();
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.unmountMenu());
     this.cameras.main.fadeIn(700, 0, 0, 0);

@@ -72,6 +72,19 @@ pnpm validate:content
 pnpm build
 ```
 
+## 検査の速度と所有権
+
+- 作業中は `pnpm check:fast` と、変更したソースを渡す
+  `pnpm test:related <files...>` を使う。データ全件監査が必要な変更だけ
+  `pnpm test:data` を追加する。
+- `pnpm check:full` は統合担当が統合後の状態で一度実行する。複数チャットで
+  `pnpm check:full`、`pnpm test`、`pnpm build` を同時実行しない。
+- `test:fast` は日常の回帰検査、`test:data` はマップ・コンテンツ・描画資産の
+  全件監査である。どちらも `pnpm test` の代替ではなく、完全ゲートでは全件を実行する。
+- `assets/cinematics/` は制作原本、`graphify-out/`、`dist/`、`test-results/` は生成物である。
+  通常の整形・監視・エージェント探索対象に含めない。削除やリポジトリ外への移動は
+  所有者の明示指示がある場合だけ行う。
+
 ## 修正完了時のプレビュー
 
 - ユーザー向けの修正が完了したら、検査だけで終えず `pnpm nrd` などで最新版の確認用サーバーを起動する。

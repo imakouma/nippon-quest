@@ -20,6 +20,8 @@ export default defineConfig({
   use: {
     baseURL: `http://localhost:${port}`,
     viewport: { width: 960, height: 540 },
+    // Network failure tests must observe the real request instead of a service-worker cache hit.
+    serviceWorkers: 'block',
     ...(preinstalled ? { launchOptions: { executablePath: preinstalled } } : {}),
   },
   webServer: {
