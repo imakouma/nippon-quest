@@ -33,6 +33,9 @@ export const npcWanderTile = (from: number, to: number, progress: number): numbe
 
 export interface WanderingNpc {
   key: string;
+  tile: number;
+  facing: NpcWanderDir;
+  persistState: boolean;
   role: string;
   name: string;
   lines: DialogueLine[];
@@ -61,6 +64,7 @@ export function advanceWanderingNpcs<T extends WanderingNpc>(input: {
   frame: (dir: NpcWanderDir, step: 0 | 1 | 2) => number;
   tweens: Phaser.Tweens.TweenManager;
   now: () => number;
+  onSettled?(npc: T): void;
 }): void {
   for (const [tile, npc] of [...input.npcs]) {
     if (npc.role !== 'talk' || npc.moving || input.time < npc.nextMoveAt) continue;
@@ -90,6 +94,7 @@ export function advanceWanderingNpcs<T extends WanderingNpc>(input: {
     }
     const nextTile = input.indexOf(step.x, step.y);
     npc.moving = true;
+    npc.facing = step.dir;
     npc.targetTile = nextTile;
     let occupiedTile = tile;
     const occupy = (next: number) => {
@@ -98,6 +103,7 @@ export function advanceWanderingNpcs<T extends WanderingNpc>(input: {
       input.blocked.delete(occupiedTile);
       input.npcs.set(next, npc);
       input.blocked.add(next);
+      npc.tile = next;
       occupiedTile = next;
     };
     npc.sprite.setFrame(input.frame(step.dir, 0));
@@ -117,6 +123,7 @@ export function advanceWanderingNpcs<T extends WanderingNpc>(input: {
         npc.moving = false;
         npc.targetTile = undefined;
         npc.nextMoveAt = input.now() + input.randomInt(1400, 3200);
+        input.onSettled?.(npc);
       },
     });
   }

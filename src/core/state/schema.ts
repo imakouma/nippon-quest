@@ -13,7 +13,34 @@ import {
 } from '../content/schemas';
 import { attemptEventSchema, conceptStateSchema } from '../learning/state';
 
-export const SCHEMA_VERSION = 11;
+export const SCHEMA_VERSION = 12;
+
+export const fieldFacingSchema = z.enum(['down', 'left', 'right', 'up']);
+
+export const persistedFieldObjectSchema = z.object({
+  map: z.string().min(1),
+  tileX: safeNonnegativeIntegerSchema,
+  tileY: safeNonnegativeIntegerSchema,
+  facing: fieldFacingSchema,
+  visible: z.boolean(),
+});
+
+const persistedFieldObjectsSchema = z.preprocess(
+  (value) => {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+    return Object.fromEntries(
+      Object.entries(value).filter(
+        ([key, entry]) => key.length > 0 && persistedFieldObjectSchema.safeParse(entry).success,
+      ),
+    );
+  },
+  z.record(z.string(), persistedFieldObjectSchema),
+);
+
+export const fieldResumeSnapshotSchema = z.object({
+  facing: fieldFacingSchema.default('down'),
+  objects: persistedFieldObjectsSchema.default({}),
+});
 
 export const equipmentSchema = z
   .object({ weapon: idSchema, head: idSchema, chest: idSchema, legs: idSchema, feet: idSchema })
@@ -101,6 +128,7 @@ export const gameStateSchema = z.object({
     counters: z
       .record(z.string(), safeNonnegativeIntegerSchema)
       .describe('defeat:<id> / perfect:<subject> / collect:<id> などの集計'),
+    fieldSnapshot: fieldResumeSnapshotSchema,
   }),
   dex: z.object({ monsters: z.array(idSchema), items: z.array(idSchema), motifs: z.array(z.string()) }),
   learning: z.object({
@@ -127,3 +155,5 @@ export const gameStateSchema = z.object({
 
 export type GameState = z.infer<typeof gameStateSchema>;
 export type OwnedMonster = z.infer<typeof ownedMonsterSchema>;
+export type FieldResumeSnapshot = z.infer<typeof fieldResumeSnapshotSchema>;
+export type PersistedFieldObject = z.infer<typeof persistedFieldObjectSchema>;

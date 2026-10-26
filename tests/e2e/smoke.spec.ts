@@ -119,15 +119,26 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
   state.progress.currentMap = 'missing-map';
   await jsonBox.fill(JSON.stringify(state));
   await importButton.click();
-  await expect(importError).toBeVisible();
-  await exportButton.click();
-  const unchanged = JSON.parse(await jsonBox.inputValue()) as { progress: { currentMap: string } };
-  expect(unchanged.progress.currentMap).toBe(currentMap);
+  await expect(page.locator('.nq-parent-content')).toHaveCount(0, { timeout: 10_000 });
+  await expect
+    .poll(() => page.evaluate(() => window.__nq.registry.get('game').progress.currentMap))
+    .toBe('aomori-field');
 
   state.progress.currentMap = currentMap;
+  const menuButton = page.getByRole('button', { name: 'メニュー' });
+  await expect(menuButton).toBeVisible({ timeout: 30_000 });
+  await page.waitForTimeout(750);
+  await menuButton.click();
+  const reopenedMenu = page.getByRole('dialog', { name: 'メニュー' });
+  await expect(reopenedMenu).toBeVisible({ timeout: 30_000 });
+  await reopenedMenu.getByRole('button', { name: /ほごしゃ/ }).click();
+  await page.getByLabel('こたえ').fill('12');
+  await page.getByRole('button', { name: 'ひらく', exact: true }).click();
+  await page.getByRole('button', { name: /^JSONを(?:表示|ひょうじ)$/ }).click();
+  const reopenedJsonBox = page.getByLabel('セーブデータJSON');
   state.progress.lastInn = { map: 'missing-map', x: 0, y: 0 };
-  await jsonBox.fill(JSON.stringify(state));
-  await importButton.click();
+  await reopenedJsonBox.fill(JSON.stringify(state));
+  await page.getByRole('button', { name: /^JSONを(?:読|よ)みこむ$/ }).click();
   await expect(importError).toBeVisible();
 
   state.progress.lastInn = null;
@@ -161,8 +172,8 @@ test('保護者メニューで概念別学習状態と診断欄を確認でき�
     reason: 'battle',
     appVersion: 'e2e',
   });
-  await jsonBox.fill(JSON.stringify(state));
-  await importButton.click();
+  await reopenedJsonBox.fill(JSON.stringify(state));
+  await page.getByRole('button', { name: /^JSONを(?:読|よ)みこむ$/ }).click();
   await expect(page.getByRole('heading', { name: /ほごしゃメニュー/ })).toHaveCount(0, {
     timeout: 30_000,
   });

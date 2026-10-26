@@ -11,6 +11,7 @@ import {
 export interface PhaserMapObjectMovementOptions<T extends WanderingNpc & ScriptedMapObject> {
   scene: Phaser.Scene;
   objects: Map<number, T>;
+  objectsById?: ReadonlyMap<string, T>;
   blocked: Set<number>;
   tileSize: number;
   stepMs: number;
@@ -20,6 +21,7 @@ export interface PhaserMapObjectMovementOptions<T extends WanderingNpc & Scripte
   isTransition(tile: number): boolean;
   playerTile(): readonly [number, number];
   frame(direction: MapObjectDirection, step: 0 | 1 | 2): number;
+  onComplete?(): void;
 }
 
 function aborted(signal: AbortSignal): unknown {
@@ -132,5 +134,6 @@ export function createPhaserMapObjectMovementRunner<T extends WanderingNpc & Scr
       animateWalk: (input) => animateWalk(options.scene, options.stepMs, input),
     });
     await runMapObjectMovement(command.objectId, command.commands, ports, { signal });
+    options.onComplete?.();
   };
 }

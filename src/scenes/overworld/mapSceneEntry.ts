@@ -1,5 +1,5 @@
 import { isSavedFieldTileWalkable } from './importedLocation';
-import { resolveMapEntry, type MapEntry, type MapEntryObject } from './mapEntry';
+import { resolveMapEntry, type MapEntry, type MapEntryFacing, type MapEntryObject } from './mapEntry';
 import type { MapTransitionRequest } from './mapTransitionPipeline';
 
 export interface LegacyMapSceneEntryData {
@@ -33,7 +33,11 @@ export function resolveOverworldMapEntry(input: {
   isBlocked(x: number, y: number): boolean;
   terrainAt(x: number, y: number): number | undefined;
   fieldGroundRequired: boolean;
-  saved?: { currentMap: string; position: { x: number; y: number } };
+  saved?: {
+    currentMap: string;
+    position: { x: number; y: number };
+    fieldSnapshot?: { facing: MapEntryFacing };
+  };
 }): MapEntry {
   return resolveMapEntry({
     request: input.request,
@@ -53,6 +57,7 @@ export function resolveOverworldMapEntry(input: {
             mapKey: input.saved.currentMap,
             x: Math.floor(input.saved.position.x / 16),
             y: Math.floor(input.saved.position.y / 16),
+            facing: input.saved.fieldSnapshot?.facing,
           },
         }
       : {}),

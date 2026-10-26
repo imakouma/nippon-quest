@@ -67,6 +67,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLe
       titles: [],
       missions: {},
       counters: { 'story.prologue': 0 },
+      fieldSnapshot: { facing: 'down', objects: {} },
     },
     dex: { monsters: [], items: [], motifs: [] },
     learning: {

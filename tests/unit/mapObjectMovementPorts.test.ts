@@ -39,6 +39,8 @@ function harness() {
   const shadow = displayObject(24, 30);
   const object: ScriptedMapObject = {
     key: 'npc-guide',
+    tile: 11,
+    facing: 'down',
     sprite,
     shadow,
     moving: false,
@@ -50,6 +52,7 @@ function harness() {
   const delay = vi.fn(async () => undefined);
   const scene: MapObjectMovementScene<ScriptedMapObject> = {
     objects,
+    objectsById: new Map([[object.key, object]]),
     blocked,
     tileSize,
     stepMs: 120,
@@ -100,6 +103,8 @@ describe('map object movement scene ports', () => {
     expect(h.emote).toHaveBeenCalledWith(h.object, '!', expect.any(AbortSignal));
     expect(h.delay).toHaveBeenCalledWith(40, expect.any(AbortSignal));
     expect(h.object.moving).toBe(false);
+    expect(h.object.tile).toBe(12);
+    expect(h.object.facing).toBe('right');
   });
 
   it('衝突中の到着マスは予約せず、元マスを維持する', async () => {
@@ -115,6 +120,20 @@ describe('map object movement scene ports', () => {
     expect([...h.objects.keys()]).toEqual([11]);
     expect(h.blocked.has(11)).toBe(true);
     expect(h.object.moving).toBe(false);
+    expect(h.object.tile).toBe(11);
+  });
+
+  it('非表示中は interaction と collision の占有を外し、再表示で元マスへ戻す', async () => {
+    const h = harness();
+    const signal = new AbortController().signal;
+
+    await h.ports.setVisible('npc-guide', false, signal);
+    expect([...h.objects.keys()]).toEqual([]);
+    expect([...h.blocked]).toEqual([]);
+
+    await h.ports.setVisible('npc-guide', true, signal);
+    expect([...h.objects.keys()]).toEqual([11]);
+    expect([...h.blocked]).toEqual([11]);
   });
 
   it('歩行中断時は見た目とoccupancyを出発マスへ戻す', async () => {

@@ -27,6 +27,8 @@ import { normalizeLevelCaps } from './core/state/levelCaps';
 import { BOOTSTRAP_JA } from './ui/bootstrapI18n';
 import { enableMobileFullscreen, registerAppServiceWorker } from './ui/mobileAppShell';
 import { showLearningRewardNotice, type LearningRewardNotice } from './ui/learningRewardNotice';
+import { ENCLAVES } from '../scripts/data/prefectures';
+import { prepareResumeGame } from './scenes/overworld/fieldMapCatalog';
 
 // 通常辞書を読み込めない起動失敗でも、再試行画面だけは日本語で表示する。
 setDictionary(BOOTSTRAP_JA);
@@ -35,7 +37,6 @@ registerAppServiceWorker();
 
 /** デバッグ起動で初期設定画面を通らない場合の既定値。 */
 const DEV_NEW_GAME = { name: 'ハル', grade: 1 } as const;
-const TILE_SIZE = 16;
 const PLAY_DATE_FORMATTER = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Asia/Tokyo',
   year: 'numeric',
@@ -296,7 +297,9 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
       }
       await Promise.all([ensureGameplayScenes(game), ensureQuestionBank(loaded.learning.grade)]);
       const content = game.registry.get('content') as ContentIndex;
-      const saved = normalizeLevelCaps(loaded, content.monsters, content.settings.levelCaps.heroInitial);
+      const normalized = normalizeLevelCaps(loaded, content.monsters, content.settings.levelCaps.heroInitial);
+      const resume = prepareResumeGame(normalized, content.areas, ENCLAVES);
+      const saved = resume.game;
       activeSlot = slot;
       setSfxVolume(saved.settings.seVolume);
       game.registry.set('game', saved);
@@ -306,13 +309,11 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
       hideLoading();
       game.scene.stop('Title');
       game.scene.start('Overworld', {
-        mapKey: saved.progress.currentMap,
-        spawnName: 'spawn',
-        spawnTile: [
-          Math.floor(saved.progress.position.x / TILE_SIZE),
-          Math.floor(saved.progress.position.y / TILE_SIZE),
-        ],
-        exactSpawn: true,
+        transitionRequest: {
+          targetMap: resume.mapKey,
+          ...(resume.usedFallback ? { spawnName: 'spawn' } : {}),
+          reason: 'script',
+        },
       });
     },
     retry,

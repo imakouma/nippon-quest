@@ -328,7 +328,9 @@ test('名所はキーとタップを重ねても一度だけ始まり、閉じ�
 test('宝箱はキーとタップを重ねても報酬を一度だけ与え、完了後に再び調べられる', async ({ page }) => {
   test.setTimeout(180_000);
   await startField(page);
-  await teleport(page, [123, 99]);
+  // 宝箱そのもののマスは動的 collision で復帰先にしない。左の道から右を向いて調べる。
+  await teleport(page, [122, 99]);
+  await page.keyboard.press('ArrowRight');
 
   await interactByKeyAndTap(page);
   await expect(page.locator('.nq-cutin')).toHaveCount(1);

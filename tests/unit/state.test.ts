@@ -54,6 +54,7 @@ describe('GameState', () => {
   it('新規ゲームがスキーマを満たす', () => {
     const state = fresh();
     expect(gameStateSchema.safeParse(state).success).toBe(true);
+    expect(state.progress.fieldSnapshot).toEqual({ facing: 'down', objects: {} });
     expect(state.inventory['common-renshu-no-bou']).toBe(1);
     expect(state.player.levelCap).toBe(10);
     expect(state.learning.masteredRewardUnits).toEqual([]);
@@ -98,6 +99,93 @@ describe('GameState', () => {
     const r = migrate(fresh());
     expect(r.migratedFrom).toBeNull();
     expect(r.state.schemaVersion).toBe(SCHEMA_VERSION);
+  });
+  it.each(Array.from({ length: 12 }, (_, version) => version))(
+    'v%d のセーブが現行 schema まで移行する',
+    (version) => {
+      const legacy = structuredClone(fresh()) as unknown as Record<string, unknown> & {
+        progress: Record<string, unknown>;
+      };
+      if (version === 0) delete legacy.schemaVersion;
+      else legacy.schemaVersion = version;
+      delete legacy.progress.fieldSnapshot;
+
+      const migrated = migrate(legacy);
+
+      expect(migrated.migratedFrom).toBe(version === SCHEMA_VERSION ? null : version);
+      expect(migrated.state.schemaVersion).toBe(SCHEMA_VERSION);
+      expect(migrated.state.progress.fieldSnapshot).toEqual({ facing: 'down', objects: {} });
+    },
+  );
+  it('schemaVersion のない初期形式を v0 として進行を保ったまま移行する', () => {
+    const legacy = structuredClone(fresh()) as unknown as Record<string, unknown> & {
+      schemaVersion?: number;
+      player: {
+        baseStats: Record<string, number>;
+        hp: number;
+        mp: number;
+        levelCap?: number;
+        appearance: { hairStyle?: number; eyes?: number };
+      };
+      party: { reserve?: unknown; bagPlacements?: unknown; bagItems?: unknown };
+      progress: {
+        unlockedMonsters?: unknown;
+        titles?: unknown;
+        fieldSnapshot?: unknown;
+        eventsDone: string[];
+      };
+      learning: {
+        attempts?: unknown;
+        conceptStates?: unknown;
+        masteredRewardUnits?: unknown;
+        correctedRewardQuestionIds?: unknown;
+      };
+    };
+    delete legacy.schemaVersion;
+    legacy.player.baseStats = { hp: 40, mp: 10, atk: 8, def: 6, spd: 7, wis: 5 };
+    legacy.player.hp = 20;
+    legacy.player.mp = 5;
+    delete legacy.player.levelCap;
+    delete legacy.player.appearance.hairStyle;
+    delete legacy.player.appearance.eyes;
+    delete legacy.party.reserve;
+    delete legacy.party.bagPlacements;
+    delete legacy.party.bagItems;
+    delete legacy.progress.unlockedMonsters;
+    delete legacy.progress.titles;
+    delete legacy.progress.fieldSnapshot;
+    delete legacy.learning.attempts;
+    delete legacy.learning.conceptStates;
+    delete legacy.learning.masteredRewardUnits;
+    delete legacy.learning.correctedRewardQuestionIds;
+    legacy.progress.eventsDone = ['aomori-legacy-progress'];
+
+    const migrated = migrate(legacy);
+
+    expect(migrated.migratedFrom).toBe(0);
+    expect(migrated.state.schemaVersion).toBe(SCHEMA_VERSION);
+    expect(migrated.state.progress.eventsDone).toEqual(['aomori-legacy-progress']);
+    expect(migrated.state.progress.fieldSnapshot).toEqual({ facing: 'down', objects: {} });
+  });
+  it('v11 の現在地を保ったまま安全なフィールド復帰状態を追加する', () => {
+    const legacy = structuredClone(fresh()) as unknown as Record<string, unknown> & {
+      progress: Record<string, unknown>;
+    };
+    legacy.schemaVersion = 11;
+    legacy.progress.currentMap = 'aomori-town';
+    legacy.progress.position = { x: 0, y: 48 };
+    legacy.progress.eventsDone = ['aomori-legacy-progress'];
+    delete legacy.progress.fieldSnapshot;
+
+    const migrated = migrate(legacy);
+
+    expect(migrated.migratedFrom).toBe(11);
+    expect(migrated.state.progress).toMatchObject({
+      currentMap: 'aomori-town',
+      position: { x: 0, y: 48 },
+      eventsDone: ['aomori-legacy-progress'],
+      fieldSnapshot: { facing: 'down', objects: {} },
+    });
   });
   it('v6 のセーブにバトル持ち込み用の空バッグを追加する', () => {
     const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
@@ -202,7 +290,7 @@ describe('GameState', () => {
     const migrated = migrate(legacy);
 
     expect(migrated.migratedFrom).toBe(10);
-    expect(migrated.state.schemaVersion).toBe(11);
+    expect(migrated.state.schemaVersion).toBe(SCHEMA_VERSION);
     expect(migrated.state.player).toMatchObject({ level: 37, xp: 12_345, levelCap: 40 });
     expect(migrated.state.party.owned).toEqual([
       {

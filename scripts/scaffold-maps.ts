@@ -104,8 +104,8 @@ type Pt = [number, number];
 
 interface Prop {
   name: string;
-  type: 'string' | 'int';
-  value: string | number;
+  type: 'string' | 'int' | 'bool';
+  value: string | number | boolean;
 }
 
 interface MapObject {
@@ -130,6 +130,7 @@ interface ObjDef {
 
 const str = (name: string, value: string): Prop => ({ name, type: 'string', value });
 const int = (name: string, value: number): Prop => ({ name, type: 'int', value });
+const bool = (name: string, value: boolean): Prop => ({ name, type: 'bool', value });
 
 /**
  * 宝箱の 中身：その県の 名産の たべもの（HP が かいふくする。名所・特産品の じゅんで さいしょの もの）。
@@ -2193,7 +2194,10 @@ function townMap(prefId: string): object {
         name: talk[k]?.id ?? `npc_talk_${k + 1}`,
         type: 'npc',
         at,
-        properties: [str('role', 'talk')],
+        properties: [
+          str('role', 'talk'),
+          ...(prefId === 'aomori' && k === 0 ? [bool('persistState', true)] : []),
+        ],
       }),
     );
     room.objects.push(
@@ -2393,7 +2397,10 @@ function townMap(prefId: string): object {
       name: talk[k]?.id ?? `npc_talk_${k + 1}`,
       type: 'npc',
       at,
-      properties: [str('role', 'talk')],
+      properties: [
+        str('role', 'talk'),
+        ...(prefId === 'aomori' && k === 0 ? [bool('persistState', true)] : []),
+      ],
     }),
   );
   room.objects.push(

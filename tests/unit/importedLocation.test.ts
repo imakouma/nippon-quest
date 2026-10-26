@@ -7,6 +7,7 @@ import {
   rememberLocationState,
   resolveSpawn,
 } from '../../src/scenes/overworld/importedLocation';
+import { resolveResumeMap } from '../../src/scenes/overworld/fieldMapCatalog';
 
 const areas = new Map([
   [
@@ -49,12 +50,19 @@ describe('インポートした現在地の参照整合性', () => {
     expect(isImportedLocationValid({ currentIsland, currentArea, currentMap }, areas, enclaves)).toBe(true);
   });
 
+  it('削除済みの未知マップは安全な復帰先へフォールバックできるため受け入れる', () => {
+    expect(
+      isImportedLocationValid(
+        { currentIsland: 'tohoku', currentArea: 'aomori', currentMap: 'missing-map' },
+        areas,
+        enclaves,
+      ),
+    ).toBe(true);
+  });
+
   it.each([
-    ['missing-map', 'tohoku', 'aomori'],
     ['aomori-field', 'kanto', 'aomori'],
-    ['iwate-field', 'tohoku', 'aomori'],
-    ['aomori-enclave', 'tohoku', 'aomori'],
-    ['niigata-secret', 'hokuriku', 'niigata'],
+    ['niigata-field', 'tohoku', 'aomori'],
   ])('%s と現在地が食い違うセーブを拒否する', (currentMap, currentIsland, currentArea) => {
     expect(isImportedLocationValid({ currentIsland, currentArea, currentMap }, areas, enclaves)).toBe(false);
   });
@@ -87,6 +95,22 @@ describe('インポートした現在地の参照整合性', () => {
         enclaves,
       ),
     ).toBe(false);
+  });
+});
+
+describe('削除済みマップからの安全な復帰先', () => {
+  it('現エリアの field を優先し、座標を使い回さないことを通知する', () => {
+    expect(resolveResumeMap('missing-map', 'aomori', areas, enclaves)).toEqual({
+      mapKey: 'aomori-field',
+      usedFallback: true,
+    });
+  });
+
+  it('実在する離島や通常マップはそのまま使う', () => {
+    expect(resolveResumeMap('niigata-enclave', 'niigata', areas, enclaves)).toEqual({
+      mapKey: 'niigata-enclave',
+      usedFallback: false,
+    });
   });
 });
 

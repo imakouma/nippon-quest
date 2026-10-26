@@ -90,15 +90,12 @@ import { QuestionFrame } from '../ui/QuestionFrame';
 import { stripRuby } from '../ui/ruby';
 import { playSfx } from '../ui/sfx';
 import {
-  CHAR_H,
-  CHAR_W,
   DIRS,
   HERO_FEET_ORIGIN_Y,
   HERO_H,
   HERO_W,
   heroKey,
   heroLook,
-  NPC_LOOKS,
   walkFrame,
   walkSheet,
   type Dir,
@@ -185,13 +182,15 @@ import { createMichiruFollower, positionMichiruFollower } from './overworld/mich
 import { fieldPlaceName } from './overworld/placeName';
 import { haruDialogue } from './overworld/haruDialogue';
 import { advanceWanderingNpcs, type WanderingNpc as Npc } from './overworld/npcWander';
+import { FieldResumeRuntime } from './overworld/fieldResumeRuntime';
+import { prepareResumeGame } from './overworld/fieldMapCatalog';
+import { addNpcRoleSign, createPhaserNpc } from './overworld/phaserNpc';
 
 const TILE = 16;
 const STEP_MS = 160;
 /** 3 倍（1 マス 48px。見える はんいを しぼって、ドラクエのように 1 つ 1 つを 大きく） */
 const ZOOM = 3;
 /** 人物の絵（16×24）の中で、マスの中心にあたる高さ（足もとがマスの下のふちに来る） */
-const FEET_ORIGIN_Y = 16 / CHAR_H;
 const DELTA: Record<Dir, [number, number]> = { down: [0, 1], left: [-1, 0], right: [1, 0], up: [0, -1] };
 const BLOCK_TILE = 3;
 const WATER_TILE = 3;
@@ -323,18 +322,21 @@ export class OverworldScene extends Phaser.Scene {
   readonly speak = createSpeaker();
   private readonly roots = new Map<RootName, HTMLDivElement>();
   private fieldFlow!: FieldFlowRuntime;
+  private readonly fieldResume = new FieldResumeRuntime();
   private encounters!: EncounterLifecycle;
   private encounterSequence = 0;
   private readonly encounterResults = createEncounterResultHandlers(
     {
       lastInn: () => this.gs()?.progress.lastInn,
       currentMap: () => this.mapKey,
-      transition: (request, { signal, scope }) =>
-        runMapTransition(
+      transition: (request, { signal, scope }) => {
+        this.checkpointField();
+        return runMapTransition(
           request,
           createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi(), scope),
           signal,
-        ),
+        );
+      },
       completeArena: (opponentId, won) => this.arenaAfter(opponentId, won),
       completeMidBoss: () => this.midBossDefeated(),
       completeAreaBoss: () => this.areaBossDefeated(),
@@ -364,6 +366,7 @@ export class OverworldScene extends Phaser.Scene {
   private insideTrigger: string | null = null;
   private signs = new Map<number, () => Promise<void>>();
   private npcs = new Map<number, Npc>();
+  private readonly npcObjects = new Map<string, Npc>();
   private chests = new Map<number, Chest>();
   private midBoss: MidBoss | null = null;
   private warp: Warp | null = null;
@@ -464,11 +467,18 @@ export class OverworldScene extends Phaser.Scene {
     this.colLayer?.setVisible(this.map.getLayer('collision')?.visible ?? true);
 
     const objects = this.map.getObjectLayer('objects');
+    this.setupObjects(objects);
+    this.fieldResume.restorePhaser({
+      mapKey: this.mapKey,
+      map: this.map,
+      objects: objects?.objects ?? [],
+      collision: this.colLayer,
+      fieldGroundRequired: this.kind() === 'field' || this.kind() === 'enclave',
+      progress: this.gs()?.progress,
+    });
     const [sx, sy] = this.findSpawn(objects);
     this.createHero(sx, sy);
     this.createMichiru();
-    this.setupObjects(objects);
-    // はじめに いる 名所エリア（名前は 出さない。HUD の 場所の 窓に 出る）
     this.enterRegion(sx, sy);
     this.insideTrigger = this.triggers.get(this.idx(sx, sy))?.id ?? null;
 
@@ -532,6 +542,7 @@ export class OverworldScene extends Phaser.Scene {
     this.insideTrigger = null;
     this.signs = new Map();
     this.npcs = new Map();
+    this.npcObjects.clear();
     this.chests = new Map();
     this.midBoss = null;
     this.warp = null;
@@ -546,6 +557,7 @@ export class OverworldScene extends Phaser.Scene {
     this.transitionIcons = new Map();
     this.stampIds = [];
     this.baseMap = null;
+    this.fieldResume.reset();
   }
 
   // ───────────────────────── 主人公と移動 ─────────────────────────
@@ -757,6 +769,7 @@ export class OverworldScene extends Phaser.Scene {
     this.facing = dir;
     if (this.player.anims.isPlaying) this.player.anims.play(`${this.heroTex}:${dir}`, true);
     else this.player.setFrame(walkFrame(dir, 1));
+    this.checkpointField();
   }
 
   private standStill(): void {
@@ -802,6 +815,7 @@ export class OverworldScene extends Phaser.Scene {
       mapTransition: ({ scope }) =>
         createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi(), scope),
       beforeMapTransition: ({ request }) => {
+        this.checkpointField();
         this.canWarp = false;
         playEntranceSound(this.mapKey, request.targetMap);
       },
@@ -990,33 +1004,25 @@ export class OverworldScene extends Phaser.Scene {
         easeParams: [2],
       });
     }
-    // せんどうさん（陸の 方を 向く）
-    const tex = 'char.npc.ferry';
-    addSheet(this.textures, tex, walkSheet(NPC_LOOKS.ferry!), CHAR_W, CHAR_H);
-    const x = tx * TILE + 8;
-    const y = ty * TILE + 8;
-    const shadow = this.add
-      .image(x, y + 6, 'fld.shadow')
-      .setAlpha(0.3)
-      .setDepth(1);
     const land: Dir = sea === 'up' ? 'down' : sea === 'down' ? 'up' : sea === 'left' ? 'right' : 'left';
-    const sprite = this.add.sprite(x, y, tex, walkFrame(land, 1)).setOrigin(0.5, FEET_ORIGIN_Y).setDepth(y);
     const i = this.idx(tx, ty);
     this.blocked.add(i);
-    this.npcs.set(i, {
+    const npc = createPhaserNpc(this, {
       key: `ferry_${target}`,
+      tile: [tx, ty],
+      mapWidth: this.map.width,
+      facing: land,
+      persistState: false,
       role: 'ferry',
       name: t('field.roleFerry'),
       lines: [],
-      sprite,
-      shadow,
-      home: [tx, ty],
-      moving: false,
       nextMoveAt: Number.POSITIVE_INFINITY,
       ferry: { map: target, spawn, place, back },
     });
+    this.npcs.set(i, npc);
+    this.npcObjects.set(npc.key, npc);
+    this.fieldResume.registerNpc(this.map.width, npc, this.npcs, this.blocked);
   }
-
   /** せんどうさん：「〇〇ゆきの ふねが でるよ。のっていくかい？」→ はい で 船に のって わたる。わたったら true */
   private async ferryTalk(npc: Npc): Promise<boolean> {
     const f = npc.ferry;
@@ -1034,43 +1040,27 @@ export class OverworldScene extends Phaser.Scene {
     this.switchMap({ targetMap: f.map, spawnName: f.spawn, reason: 'warp' });
     return true;
   }
-
   private addNpc(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const model = npcModel({ area, objectName: obj.name, objectRole: prop(obj, 'role'), text: t });
     const r = model.role;
-    const tex = `char.npc.${NPC_LOOKS[r] ? r : 'talk'}`;
-    addSheet(this.textures, tex, walkSheet(NPC_LOOKS[r] ?? NPC_LOOKS.talk!), CHAR_W, CHAR_H);
-    const x = tx * TILE + 8;
-    const y = ty * TILE + 8;
-    const shadow = this.add
-      .image(x, y + 6, 'fld.shadow')
-      .setAlpha(0.3)
-      .setDepth(1);
-    const sprite = this.add.sprite(x, y, tex, walkFrame('down', 1)).setOrigin(0.5, FEET_ORIGIN_Y).setDepth(y);
     const i = this.idx(tx, ty);
     this.blocked.add(i);
-    this.npcs.set(i, {
+    const npc = createPhaserNpc(this, {
       key: obj.name,
+      tile: [tx, ty],
+      mapWidth: this.map.width,
+      facing: 'down',
+      persistState: prop(obj, 'persistState') === true,
       role: r,
       name: model.name,
       lines: model.lines,
-      sprite,
-      shadow,
-      home: [tx, ty],
-      moving: false,
       nextMoveAt: this.time.now + this.rng.int(600, 1800),
     });
-    // お店の かべの 看板（木の板に お店の アイコン）
-    const sx = prop(obj, 'signX');
-    const sy = prop(obj, 'signY');
-    if (typeof sx === 'number' && typeof sy === 'number' && this.textures.exists(`ico.role-${r}`)) {
-      const px = sx * TILE + 8;
-      const py = sy * TILE + 8;
-      this.add.image(px, py, 'fld.plate').setDepth(sy * TILE + 1);
-      this.add.image(px, py + 1, `ico.role-${r}`).setDepth(sy * TILE + 2);
-    }
+    this.npcs.set(i, npc);
+    this.npcObjects.set(npc.key, npc);
+    this.fieldResume.registerNpc(this.map.width, npc, this.npcs, this.blocked);
+    addNpcRoleSign(this, r, prop(obj, 'signX'), prop(obj, 'signY'));
   }
-
   private addChest(obj: TiledObject, tx: number, ty: number): void {
     const model = chestModel({
       mapKey: this.mapKey,
@@ -1530,8 +1520,10 @@ export class OverworldScene extends Phaser.Scene {
         later: t('field.eventLater'),
       },
       encounter: this.encounters,
-      transitions: ({ scope }) =>
-        createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi(), scope),
+      transitions: ({ scope }) => {
+        this.checkpointField();
+        return createPhaserMapTransitionPorts(this, () => this.cleanupTransientUi(), scope);
+      },
       eventId: ev.id,
       stamp: sign.stamp,
       getGame: () => this.gs(),
@@ -1554,6 +1546,7 @@ export class OverworldScene extends Phaser.Scene {
       movement: createPhaserMapObjectMovementRunner({
         scene: this,
         objects: this.npcs,
+        objectsById: this.npcObjects,
         blocked: this.blocked,
         tileSize: TILE,
         stepMs: STEP_MS,
@@ -1563,6 +1556,7 @@ export class OverworldScene extends Phaser.Scene {
         isTransition: (tile) => this.transitions.has(tile),
         playerTile: () => this.playerTile(),
         frame: walkFrame,
+        onComplete: () => this.checkpointField(),
       }),
       showReward: async (lines) => {
         playSfx('recruit');
@@ -1874,6 +1868,7 @@ export class OverworldScene extends Phaser.Scene {
     const toward: Dir =
       Math.abs(px - nx) > Math.abs(py - ny) ? (px < nx ? 'left' : 'right') : py < ny ? 'up' : 'down';
     npc.sprite.setFrame(walkFrame(toward, 1));
+    npc.facing = toward;
     const currentGame = this.gs();
     const sourceLines = (currentGame && haruDialogue(npc.key, currentGame)) ?? npc.lines;
     const lines = sourceLines.map((l) => ({ ...l, speaker: l.speaker ?? npc.name }));
@@ -1896,6 +1891,7 @@ export class OverworldScene extends Phaser.Scene {
         });
       }
       npc.sprite.setFrame(walkFrame('down', 1));
+      npc.facing = 'down';
       this.busy = false;
       return;
     }
@@ -1937,6 +1933,7 @@ export class OverworldScene extends Phaser.Scene {
         await this.villagerGiftTalk(npc);
     }
     npc.sprite.setFrame(walkFrame('down', 1));
+    npc.facing = 'down';
     this.busy = false;
   }
 
@@ -1958,6 +1955,9 @@ export class OverworldScene extends Phaser.Scene {
       frame: walkFrame,
       tweens: this.tweens,
       now: () => this.time.now,
+      onSettled: (npc) => {
+        if (npc.persistState) this.checkpointField();
+      },
     });
   }
 
@@ -2477,6 +2477,7 @@ export class OverworldScene extends Phaser.Scene {
   /** 白く 2 回ちらついてから 暗転 → バトルへ（画面は回さない。Overworld は pause して下に残す） */
   private startBattle(data: BattleSceneData, source: EncounterSource = { type: 'random' }): void {
     if (this.inBattle || this.encounters.active) return;
+    this.checkpointField();
     const id = `${this.mapKey}:${++this.encounterSequence}`;
     void this.encounters.start({ id, battle: data, source });
   }
@@ -2763,15 +2764,12 @@ export class OverworldScene extends Phaser.Scene {
       throw new Error('Imported save points to an unknown location');
     }
     const normalized = normalizeLevelCaps(next, content.monsters, content.settings.levelCaps.heroInitial);
-    this.setGame(normalized);
-    const { x, y } = normalized.progress.position;
-    this.switchMap({
-      targetMap: normalized.progress.currentMap,
-      spawnName: 'spawn',
-      tile: [Math.floor(x / TILE), Math.floor(y / TILE)],
-      exactSpawn: true,
-      reason: 'script',
-    });
+    const resume = prepareResumeGame(normalized, content.areas, ENCLAVES);
+    this.registry.set('game', resume.game);
+    this.switchMap(
+      { targetMap: resume.mapKey, ...(resume.usedFallback ? { spawnName: 'spawn' } : {}), reason: 'script' },
+      false,
+    );
   }
 
   private heroStats(gs: GameState) {
@@ -3388,7 +3386,8 @@ export class OverworldScene extends Phaser.Scene {
     return { areaId, at: [(px - x0 + 0.5) / (x1 - x0 + 1), (py - y0 + 0.5) / (y1 - y0 + 1)] };
   }
 
-  private switchMap(request: MapTransitionRequest): void {
+  private switchMap(request: MapTransitionRequest, checkpoint = true): void {
+    if (checkpoint) this.checkpointField();
     void this.fieldFlow.run('map-transition', ({ signal, scope }) =>
       runMapTransition(
         request,
@@ -3419,7 +3418,8 @@ export class OverworldScene extends Phaser.Scene {
 
   private setGame(gs: GameState): void {
     const xp = this.content()?.xp.hero;
-    this.registry.set('game', xp ? syncHeroLevel(gs, xp) : gs);
+    const next = this.captureFieldState(xp ? syncHeroLevel(gs, xp) : gs);
+    this.registry.set('game', next);
     // 見た目・めいさんひんの そうびが かわったら 主人公の 絵も
     this.refreshHeroLook();
   }
@@ -3437,9 +3437,22 @@ export class OverworldScene extends Phaser.Scene {
       y,
       now: Date.now(),
     });
-    if (next !== gs) this.registry.set('game', next);
+    if (next !== gs) this.registry.set('game', this.captureFieldState(next, x, y));
   }
-
+  private captureFieldState(gs: GameState, x?: number, y?: number): GameState {
+    if (!this.player?.active) return gs;
+    const [tileX, tileY] = x === undefined || y === undefined ? this.playerTile() : [x, y];
+    return this.fieldResume.captureGameState(gs, {
+      mapKey: this.mapKey,
+      currentArea: this.areaId(),
+      position: { x: tileX * TILE, y: tileY * TILE },
+      facing: this.facing,
+    });
+  }
+  private checkpointField(): void {
+    const game = this.gs();
+    if (game) this.registry.set('game', this.captureFieldState(game));
+  }
   private heroLevel(): number {
     const gs = this.gs();
     const xp = this.content()?.xp.hero;

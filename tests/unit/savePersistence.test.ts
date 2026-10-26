@@ -57,6 +57,26 @@ beforeEach(() => {
 });
 
 describe('セーブ永続化', () => {
+  it('向きと opt-in object を保存・読み込みで round-trip する', async () => {
+    const state = fresh(10);
+    state.progress.fieldSnapshot = {
+      facing: 'right',
+      objects: {
+        'aomori-field:test-object': {
+          map: 'aomori-field',
+          tileX: 0,
+          tileY: 0,
+          facing: 'left',
+          visible: false,
+        },
+      },
+    };
+
+    await save(1, state);
+
+    expect((await load(1))?.progress.fieldSnapshot).toEqual(state.progress.fieldSnapshot);
+  });
+
   it('並行保存を呼び出し順に直列化し、直前の正常状態をバックアップする', async () => {
     await save(1, fresh(10));
     await Promise.all([save(1, fresh(20)), save(1, fresh(30))]);

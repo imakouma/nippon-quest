@@ -2,7 +2,7 @@
  * セーブデータのマイグレーション。
  * 仕様変更でスキーマを変えるときは、必ずここに v(n) → v(n+1) を足す。子どものセーブを壊さない。
  */
-import { SCHEMA_VERSION, gameStateSchema, type GameState } from './schema';
+import { SCHEMA_VERSION, fieldFacingSchema, gameStateSchema, type GameState } from './schema';
 import { STARTER_EQUIPMENT_ID } from './starter';
 import { addProgressValue } from '../../shared/safeInteger';
 import { provisionalLevelCap } from '../progression/levelCap';
@@ -17,6 +17,7 @@ const NEBUTA_APPRENTICE_TITLE = 'ねぶた見習[みなら]い';
 
 /** index = 移行元バージョン。migrations[1] は v1 → v2 */
 const migrations: Record<number, Migration> = {
+  0: (s) => ({ ...s, schemaVersion: 1 }),
   1: (s) => {
     const party = (s.party ?? {}) as Record<string, unknown>;
     const team = Array.isArray(party.team) ? (party.team as string[]) : [];
@@ -176,6 +177,22 @@ const migrations: Record<number, Migration> = {
         ...learning,
         masteredRewardUnits: [],
         correctedRewardQuestionIds: [],
+      },
+    };
+  },
+  11: (s) => {
+    const progress = (s.progress ?? {}) as Record<string, unknown>;
+    const previous = (progress.fieldSnapshot ?? {}) as Record<string, unknown>;
+    const facing = fieldFacingSchema.safeParse(previous.facing);
+    return {
+      ...s,
+      schemaVersion: 12,
+      progress: {
+        ...progress,
+        fieldSnapshot: {
+          facing: facing.success ? facing.data : 'down',
+          objects: previous.objects ?? {},
+        },
       },
     };
   },

@@ -1,5 +1,6 @@
 import type { GameState } from '../../core/state/schema';
 import { groundOfTile, isRoadTile } from '../../core/world/ground';
+import { availableResumeMaps } from './fieldMapCatalog';
 
 interface ImportedProgressLocation {
   currentIsland: string;
@@ -151,5 +152,8 @@ export function isImportedLocationValid(
   const areaMaps = area.mapKeys ? Object.values(area.mapKeys) : [];
   if (areaMaps.includes(progress.currentMap)) return true;
   if (area.secret && progress.currentMap === `${area.id}-secret`) return true;
-  return enclaves.some((enclave) => enclave.prefId === area.id && enclave.enclaveId === progress.currentMap);
+  if (enclaves.some((enclave) => enclave.prefId === area.id && enclave.enclaveId === progress.currentMap))
+    return true;
+  // 既知の別エリアへは移さない。カタログから消えた未知マップだけは、呼び出し側で安全な field へ戻す。
+  return !availableResumeMaps(areas, enclaves).includes(progress.currentMap);
 }

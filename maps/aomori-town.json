@@ -342,7 +342,10 @@
           "y": 240,
           "width": 16,
           "height": 16,
-          "properties": [{ "name": "role", "type": "string", "value": "talk" }]
+          "properties": [
+            { "name": "role", "type": "string", "value": "talk" },
+            { "name": "persistState", "type": "bool", "value": true }
+          ]
         },
         {
           "id": 8,

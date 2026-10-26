@@ -7,6 +7,7 @@ import type {
 interface DisplayObjectPort {
   x: number;
   y: number;
+  visible: boolean;
   setDepth(depth: number): unknown;
   setFrame(frame: number): unknown;
   setPosition(x: number, y: number): unknown;
@@ -15,6 +16,8 @@ interface DisplayObjectPort {
 
 export interface ScriptedMapObject {
   key: string;
+  tile: number;
+  facing: MapObjectDirection;
   sprite: DisplayObjectPort;
   shadow: DisplayObjectPort;
   moving: boolean;
@@ -33,6 +36,7 @@ export interface MapObjectWalkAnimation<T extends ScriptedMapObject> {
 
 export interface MapObjectMovementScene<T extends ScriptedMapObject> {
   objects: Map<number, T>;
+  objectsById?: ReadonlyMap<string, T>;
   blocked: Set<number>;
   tileSize: number;
   stepMs: number;
@@ -73,9 +77,17 @@ export function createMapObjectMovementPorts<T extends ScriptedMapObject>(
 ): MapObjectMovementPorts {
   const reservations = new WeakMap<MapObjectMovementReservation, SceneReservation<T>>();
   const reservedTiles = new Set<number>();
+  const knownObjects = new Map<string, { tile: number; object: T }>([
+    ...[...(scene.objectsById?.values() ?? [])].map(
+      (object) => [object.key, { tile: object.tile, object }] as const,
+    ),
+    ...[...scene.objects].map(([tile, object]) => [object.key, { tile, object }] as const),
+  ]);
 
-  const locate = (objectId: string): [number, T] | undefined =>
-    [...scene.objects].find(([, object]) => object.key === objectId);
+  const locate = (objectId: string): [number, T] | undefined => {
+    const known = knownObjects.get(objectId);
+    return known ? [known.object.tile ?? known.tile, known.object] : undefined;
+  };
   const find = (objectId: string): [number, T] => {
     const entry = locate(objectId);
     if (!entry) throw new Error(`map object "${objectId}" was not found`);
@@ -87,8 +99,11 @@ export function createMapObjectMovementPorts<T extends ScriptedMapObject>(
       scene.objects.delete(reservation.occupiedTile);
       scene.blocked.delete(reservation.occupiedTile);
     }
-    scene.objects.set(tile, reservation.object);
-    scene.blocked.add(tile);
+    reservation.object.tile = tile;
+    if (reservation.object.sprite.visible) {
+      scene.objects.set(tile, reservation.object);
+      scene.blocked.add(tile);
+    }
     reservation.occupiedTile = tile;
   };
   const resetVisual = (reservation: SceneReservation<T>) => {
@@ -169,6 +184,7 @@ export function createMapObjectMovementPorts<T extends ScriptedMapObject>(
         throw new Error('map object movement received an invalid reservation');
       const toX = active.fromX + DELTA[direction][0] * scene.tileSize;
       const toY = active.fromY + DELTA[direction][1] * scene.tileSize;
+      active.object.facing = direction;
       active.object.sprite.setFrame(scene.frame(direction, 0));
       try {
         await scene.animateWalk({
@@ -192,15 +208,27 @@ export function createMapObjectMovementPorts<T extends ScriptedMapObject>(
     },
     async face(objectId, direction, signal) {
       signal.throwIfAborted();
-      find(objectId)[1].sprite.setFrame(scene.frame(direction, 1));
+      const object = find(objectId)[1];
+      object.facing = direction;
+      object.sprite.setFrame(scene.frame(direction, 1));
     },
     wait: (durationMs, signal) => scene.delay(durationMs, signal),
     emote: (objectId, emote, signal) => scene.emote(find(objectId)[1], emote, signal),
     async setVisible(objectId, visible, signal) {
       signal.throwIfAborted();
-      const object = find(objectId)[1];
+      const [tile, object] = find(objectId);
+      const occupant = scene.objects.get(tile);
+      if (visible && ((occupant && occupant !== object) || (!occupant && scene.blocked.has(tile))))
+        throw new Error(`map object "${objectId}" cannot become visible on an occupied tile`);
       object.sprite.setVisible(visible);
       object.shadow.setVisible(visible);
+      if (visible) {
+        scene.objects.set(tile, object);
+        scene.blocked.add(tile);
+      } else if (occupant === object) {
+        scene.objects.delete(tile);
+        scene.blocked.delete(tile);
+      }
     },
     cleanup(objectId) {
       const object = locate(objectId)?.[1];
