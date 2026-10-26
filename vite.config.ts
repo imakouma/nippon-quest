@@ -65,6 +65,7 @@ export default defineConfig({
         main: resolve(root, 'index.html'),
         playground: resolve(root, 'playground.html'),
         battleQuestionAudit: resolve(root, 'battle-question-audit.html'),
+        contextActionAudit: resolve(root, 'context-action-audit.html'),
         editor: resolve(root, 'editor.html'),
       },
       output: {
