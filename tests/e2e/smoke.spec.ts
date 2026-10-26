@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
-test('タイトル画面が立ち上がり、コンテンツが読み込まれる', async ({ page }) => {
+test('タイトル画面が立ち上がり、必要な初期データが読み込まれる', async ({ page }) => {
   const errors: string[] = [];
   const contentRequests: string[] = [];
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
@@ -18,7 +18,33 @@ test('タイトル画面が立ち上がり、コンテンツが読み込まれ�
     .poll(() => page.evaluate(() => Boolean((window as unknown as { __nq?: unknown }).__nq)))
     .toBe(true);
   expect(errors.filter((e) => !e.includes('favicon'))).toEqual([]);
-  expect(contentRequests).toEqual(['/content/content-bundle.json']);
+  expect(contentRequests).toEqual(
+    expect.arrayContaining([
+      '/content/i18n/ja.json',
+      '/content/i18n/kanji-grades.json',
+      '/content/i18n/proper-nouns.json',
+    ]),
+  );
+  expect(
+    contentRequests.filter((path) => path === '/content/content-bundle.json').length,
+  ).toBeLessThanOrEqual(1);
+  await expect
+    .poll(() => page.evaluate(() => performance.getEntriesByName('nq:title-ready', 'mark').length))
+    .toBe(1);
+});
+
+test('タイトル画面は全ゲームコンテンツの読込を待たない', async ({ page }) => {
+  test.setTimeout(60_000);
+  const requests: string[] = [];
+  await page.route('**/content/content-bundle.json', async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 5_000));
+    await route.continue();
+  });
+  page.on('request', (request) => requests.push(new URL(request.url()).pathname));
+
+  await page.goto('/');
+  await expect(page.getByRole('menuitem', { name: /はじめから/ })).toBeVisible({ timeout: 3_000 });
+  await expect.poll(() => requests.includes('/content/content-bundle.json')).toBe(true);
 });
 
 test('Playground で choice 問題を解くと QuestionResult が返る', async ({ page }) => {
@@ -72,6 +98,14 @@ test('問題データはタイトルでは取得せず、開始時に選択学�
   await completeNewGameSetup(page, 'テスト');
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
   await expect(page.locator('.nq-loading')).toHaveCount(0);
+  await expect
+    .poll(() =>
+      page.evaluate(() => ({
+        content: performance.getEntriesByName('nq:content-ready', 'mark').length,
+        gameplay: performance.getEntriesByName('nq:gameplay-ready', 'mark').length,
+      })),
+    )
+    .toEqual({ content: 1, gameplay: 1 });
   expect(requests.filter((path) => path === '/content/questions-g1-bundle.json')).toHaveLength(1);
   expect(requests).not.toContain('/content/questions-bundle.json');
   expect(requests.filter((path) => /questions-g[2-6]-bundle\.json$/.test(path))).toEqual([]);

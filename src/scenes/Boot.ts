@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { loadContent, bundledFetchReader, fetchReader, type ContentIndex } from '../core/content/loader';
+import { fetchReader } from '../core/content/loader';
 import { PIXEL_FONT_NAME } from '../ui/fonts';
 import type { GameState } from '../core/state/schema';
 import { setDictionary, type I18nDict } from '../ui/i18n';
@@ -41,33 +41,28 @@ export class BootScene extends Phaser.Scene {
 
   async create(): Promise<void> {
     const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-    // Dev keeps reading the source JSON files so edits appear after a reload.
-    // Production uses the generated bundle to avoid roughly 1,000 HTTP requests.
-    const read = import.meta.env.DEV ? fetchReader(`${base}/content`) : bundledFetchReader(`${base}/content`);
+    // タイトルに必要な小さい設定だけを読む。全ゲームコンテンツはタイトル表示後に
+    // main.ts が単一Promiseで背景読込し、開始・続行時に同じ結果を再利用する。
+    const read = fetchReader(`${base}/content`);
     try {
-      const [content, dict, grades, proper, assets]: [ContentIndex, unknown, unknown, unknown, AssetCatalog] =
-        await Promise.all([
-          loadContent(read),
-          read('i18n/ja.json'),
-          read('i18n/kanji-grades.json'),
-          read('i18n/proper-nouns.json'),
-          fetch(`${base}/assets/catalog.json`, { cache: 'no-cache' })
-            .then(async (response) => (response.ok ? ((await response.json()) as AssetCatalog) : {}))
-            .catch(() => ({})),
-        ]);
+      const [dict, grades, proper, assets]: [unknown, unknown, unknown, AssetCatalog] = await Promise.all([
+        read('i18n/ja.json'),
+        read('i18n/kanji-grades.json'),
+        read('i18n/proper-nouns.json'),
+        fetch(`${base}/assets/catalog.json`, { cache: 'no-cache' })
+          .then(async (response) => (response.ok ? ((await response.json()) as AssetCatalog) : {}))
+          .catch(() => ({})),
+      ]);
       setAssetCatalog(assets, base);
       setDictionary(dict as I18nDict);
       this.watchKanjiLevel(
         kanjiGradeTable((grades as { byGrade: Record<string, string> }).byGrade),
         new Set((proper as { names: string[] }).names),
       );
-      this.registry.set('content', content);
-      this.registry.set('questionFiles', content.questionFiles);
-      this.registry.set('questionFilesByGrade', content.questionFilesByGrade);
       this.game.events.emit('boot:stage', 'もうすぐ はじまるよ…');
       await waitForFont();
       this.game.events.emit('boot:progress', 1);
-      this.game.events.emit('boot:done', { areas: content.areas.size });
+      this.game.events.emit('boot:done');
       this.scene.start('Title');
     } catch (e) {
       this.game.events.emit('boot:error', e);
