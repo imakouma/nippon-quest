@@ -1047,7 +1047,7 @@ export class OverworldScene extends Phaser.Scene {
       tile: [tx, ty],
       mapWidth: this.map.width,
       facing: 'down',
-      persistState: shouldPersistNpcState(r, prop(obj, 'persistState')),
+      persistState: shouldPersistNpcState(prop(obj, 'persistState')),
       role: r,
       name: model.name,
       lines: model.lines,

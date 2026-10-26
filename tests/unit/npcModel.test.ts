@@ -17,15 +17,9 @@ describe('町NPCの表示モデル', () => {
     expect(villager.lines[1]?.text).toBeTruthy();
   });
 
-  it('歩き回る町人は既定で保存し、明示 false だけを除外する', () => {
-    expect(shouldPersistNpcState('talk', undefined)).toBe(true);
-    expect(shouldPersistNpcState('talk', false)).toBe(false);
-    expect(shouldPersistNpcState('talk', true)).toBe(true);
-  });
-
-  it('固定役割のNPCは明示 true のときだけ保存する', () => {
-    expect(shouldPersistNpcState('shop', undefined)).toBe(false);
-    expect(shouldPersistNpcState('shop', false)).toBe(false);
-    expect(shouldPersistNpcState('shop', true)).toBe(true);
+  it('persistState: true を明示した NPC だけを保存する', () => {
+    expect(shouldPersistNpcState(undefined)).toBe(false);
+    expect(shouldPersistNpcState(false)).toBe(false);
+    expect(shouldPersistNpcState(true)).toBe(true);
   });
 });
