@@ -34,7 +34,7 @@ describe('主人公の移動ポーズ', () => {
     });
   });
 
-  it('歩行中は足だけを交互にし、体と影は地面から浮かせない', () => {
+  it('歩行中は旧アニメーションと同じく左足・中央・右足・中央の順で描く', () => {
     const step = (leadFoot: 'a' | 'b', progress: number): PlayerMotionState => ({
       phase: 'stepping',
       facing: 'right',
@@ -42,14 +42,19 @@ describe('主人公の移動ポーズ', () => {
       leadFoot,
     });
 
-    expect(playerMotionPose(step('a', 0.001)).frame).toBe(walkFrame('right', 0));
-    expect(playerMotionPose(step('a', 0.5))).toMatchObject({
+    expect(playerMotionPose(step('a', 0.25))).toMatchObject({
       frame: walkFrame('right', 0),
       offsetY: 0,
       shadowScale: 1,
     });
-    expect(playerMotionPose(step('b', 0.999)).frame).toBe(walkFrame('right', 2));
-    expect(playerMotionPose(step('a', 0.5)).frame).not.toBe(playerMotionPose(step('b', 0.5)).frame);
+    expect(playerMotionPose(step('a', 0.75)).frame).toBe(walkFrame('right', 1));
+    expect(playerMotionPose(step('b', 0.1)).frame).toBe(walkFrame('right', 1));
+    expect(playerMotionPose(step('b', 0.5))).toMatchObject({
+      frame: walkFrame('right', 2),
+      offsetY: 0,
+      shadowScale: 1,
+    });
+    expect(playerMotionPose(step('b', 0.95)).frame).toBe(walkFrame('right', 1));
   });
 
   it('方向転換と壁衝突は論理位置を変えず、1px以内の整数オフセットになる', () => {
@@ -179,7 +184,7 @@ describe('playerMotionPresenter', () => {
     const state: PlayerMotionState = {
       phase: 'stepping',
       facing: 'left',
-      progress: 0.5,
+      progress: 0.25,
       leadFoot: 'b',
     };
 

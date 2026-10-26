@@ -47,8 +47,10 @@ export function playerMotionPose(state: PlayerMotionState): PlayerMotionPose {
 
   if (state.phase === 'stepping') {
     if (state.progress <= 0 || state.progress >= 1) return plantedPose(state.facing);
+    const cycle = state.progress + (state.leadFoot === 'b' ? 1 : 0);
+    const column = cycle < 0.625 ? 0 : cycle < 1.25 ? 1 : cycle < 1.875 ? 2 : 1;
     return {
-      frame: walkFrame(state.facing, state.leadFoot === 'a' ? 0 : 2),
+      frame: walkFrame(state.facing, column),
       offsetX: 0,
       offsetY: 0,
       shadowScale: 1,
