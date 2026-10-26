@@ -84,11 +84,17 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(arrival).toHaveCount(0);
 
   // 入口のすぐ北にある、むすびの社の守り人へ自分で歩いて話しかける。
-  await page.waitForTimeout(300);
-  await page.keyboard.down('ArrowUp');
-  await page.waitForTimeout(250);
-  await page.keyboard.up('ArrowUp');
-  await page.waitForTimeout(250);
+  const player = page.locator('canvas[data-player-tile]');
+  await expect(player).toHaveAttribute('data-input-ready', 'true');
+  for (
+    let attempt = 0;
+    attempt < 10 && (await player.getAttribute('data-player-tile')) !== '25,34';
+    attempt += 1
+  ) {
+    await page.keyboard.press('ArrowUp');
+    await page.waitForTimeout(300);
+  }
+  await expect(player).toHaveAttribute('data-player-tile', '25,34');
   await page.keyboard.press('z');
   const dialogue = page.locator('.nq-dlg');
   await expect(dialogue).toContainText(/むすびの.*やしろ/, { timeout: 10_000 });
