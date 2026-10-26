@@ -98,7 +98,7 @@ export function RoadmapView({
       class={`nq-roadmap nq-roadmap-subject-${activeSubject}`}
       aria-label={displayText(t('field.roadmapAria'))}
     >
-      <div class="nq-roadmap-toolbar">
+      <div class={`nq-roadmap-toolbar${developerMode ? '' : ' nq-roadmap-toolbar-compact'}`}>
         {developerMode && (
           <div class="nq-roadmap-filter-row">
             <div

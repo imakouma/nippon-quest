@@ -74,6 +74,15 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(page.locator('.nq-roadmap-filter-row')).toHaveCount(0);
   await expect(page.locator('.nq-roadmap-grade-row')).toHaveCount(0);
   await expect(page.locator('.nq-roadmap-term-row')).toHaveCount(0);
+  const [toolbarBox, subjectTabsBox] = await Promise.all([
+    page.locator('.nq-roadmap-toolbar').boundingBox(),
+    page.locator('.nq-roadmap-subjects').boundingBox(),
+  ]);
+  expect(toolbarBox).not.toBeNull();
+  expect(subjectTabsBox).not.toBeNull();
+  expect(
+    toolbarBox!.y + toolbarBox!.height - (subjectTabsBox!.y + subjectTabsBox!.height),
+  ).toBeLessThanOrEqual(8);
   await expect(page.locator('.nq-roadmap-subject-name')).toContainText([
     'ぜんきょうか',
     'こくご',

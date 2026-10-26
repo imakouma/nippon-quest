@@ -293,6 +293,7 @@ describe('学習ロードマップの単元選択', () => {
     const container = await showRoadmap(vi.fn());
 
     expect(container.querySelector('.nq-roadmap-filter-row')).toBeNull();
+    expect(container.querySelector('.nq-roadmap-toolbar-compact')).not.toBeNull();
     expect(container.querySelector('.nq-roadmap-period-note')).toBeNull();
   });
 
@@ -574,6 +575,7 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.textContent).not.toContain('かけ算');
     expect(container.textContent).toContain('じき未設定');
     expect(container.querySelectorAll('.nq-roadmap-toolbar')).toHaveLength(1);
+    expect(container.querySelector('.nq-roadmap-toolbar-compact')).toBeNull();
     expect(container.querySelector('.nq-roadmap-period-range')).toBeNull();
     expect(container.querySelectorAll('.nq-roadmap-grade')).toHaveLength(7);
     expect(container.querySelectorAll('.nq-roadmap-term')).toHaveLength(4);
