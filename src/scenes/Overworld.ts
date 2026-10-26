@@ -2642,7 +2642,6 @@ export class OverworldScene extends Phaser.Scene {
   private devAll(): boolean {
     return (this.gs()?.progress.counters[DEV_ALL_KEY] ?? 0) > 0;
   }
-
   private toggleDev(): void {
     const gs = this.gs();
     if (!gs || this.busy || this.inBattle || this.moving) return;
@@ -2686,6 +2685,7 @@ export class OverworldScene extends Phaser.Scene {
           tabs: menuTabs(this.gs()?.learning.mistakes.length ?? 0),
           entries: view.entries,
           roadmap: this.roadmapNodes(),
+          developerMode: this.devAll(),
           summary: view.summary,
           empty: view.empty,
           message,

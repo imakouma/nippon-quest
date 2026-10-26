@@ -228,6 +228,7 @@ const nodes: RoadmapNode[] = [
 async function showRoadmap(
   onRoadmapSelect: (unitId: string) => void,
   initialHome = true,
+  developerMode = false,
 ): Promise<HTMLElement> {
   const container = document.createElement('div');
   document.body.append(container);
@@ -237,6 +238,7 @@ async function showRoadmap(
       tabs: [{ key: 'roadmap', label: 'がくしゅう', icon: 'star' }],
       entries: [],
       roadmap: nodes,
+      developerMode,
       empty: '',
       message: null,
       initialHome,
@@ -269,7 +271,7 @@ function termButton(container: HTMLElement, term: string): HTMLButtonElement {
 }
 
 describe('学習ロードマップの単元選択', () => {
-  it('全学年でも教科名を全文表示し、現在学んでいる学年も伝える', async () => {
+  it('通常モードでは解放済み教科だけを全文表示し、現在学んでいる学年も伝える', async () => {
     const container = await showRoadmap(vi.fn());
     const subjectButtons = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-subject')];
 
@@ -277,22 +279,39 @@ describe('学習ロードマップの単元選択', () => {
       'all',
       'kokugo',
       'sansu',
-      'rika',
-      'shakai',
       'seikatsu',
-      'eigo',
     ]);
     expect(
       subjectButtons.map((button) => button.querySelector('.nq-roadmap-subject-name')?.textContent),
-    ).toEqual(['全教科', '国語', '算数', '理科', '社会', '生活科', '英語']);
+    ).toEqual(['全教科', '国語', '算数', '生活科']);
     expect(subjectButton(container, 'sansu').textContent).toContain('1年');
-    expect(subjectButton(container, 'rika').textContent).toContain('3年');
     expect(subjectButton(container, 'sansu').getAttribute('aria-label')).toBe('算数・いまは 1年生');
     expect(subjectButtons.every((button) => button.title === button.getAttribute('aria-label'))).toBe(true);
   });
 
-  it('1・2年生では国語・算数・生活科だけを全文で表示する', async () => {
+  it('通常モードでは学年・おすすめ時期の開発用フィルタを表示しない', async () => {
     const container = await showRoadmap(vi.fn());
+
+    expect(container.querySelector('.nq-roadmap-filter-row')).toBeNull();
+    expect(container.querySelector('.nq-roadmap-toolbar-compact')).not.toBeNull();
+    expect(container.querySelector('.nq-roadmap-period-note')).toBeNull();
+  });
+
+  it('開発者モードでは学年・時期フィルタと全教科を表示する', async () => {
+    const container = await showRoadmap(vi.fn(), true, true);
+
+    expect(container.querySelector('.nq-roadmap-filter-row')).not.toBeNull();
+    expect(container.querySelectorAll('.nq-roadmap-grade')).toHaveLength(7);
+    expect(container.querySelectorAll('.nq-roadmap-term')).toHaveLength(4);
+    expect(
+      [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-subject')].map(
+        (button) => button.dataset.subject,
+      ),
+    ).toEqual(['all', 'kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo']);
+  });
+
+  it('1・2年生では国語・算数・生活科だけを全文で表示する', async () => {
+    const container = await showRoadmap(vi.fn(), true, true);
 
     for (const value of ['1', '2']) {
       await act(async () => {
@@ -316,7 +335,7 @@ describe('学習ロードマップの単元選択', () => {
   });
 
   it('3〜6年生でも教科名を全文表示する', async () => {
-    const container = await showRoadmap(vi.fn());
+    const container = await showRoadmap(vi.fn(), true, true);
 
     await act(async () => {
       gradeButton(container, '3').click();
@@ -352,7 +371,7 @@ describe('学習ロードマップの単元選択', () => {
   });
 
   it('時期の説明をタッチ・キーボードで開閉できるボタンとして表示する', async () => {
-    const container = await showRoadmap(vi.fn());
+    const container = await showRoadmap(vi.fn(), true, true);
     const info = container.querySelector<HTMLButtonElement>('.nq-roadmap-period-note')!;
 
     expect(info.tagName).toBe('BUTTON');
@@ -367,7 +386,7 @@ describe('学習ロードマップの単元選択', () => {
   });
 
   it('未到達の教科をクリア済みと表示しない', async () => {
-    const container = await showRoadmap(vi.fn());
+    const container = await showRoadmap(vi.fn(), true, true);
     const science = container.querySelector<HTMLButtonElement>('.nq-roadmap-summary-rika');
 
     expect(science?.textContent).toContain('まだ');
@@ -544,7 +563,7 @@ describe('学習ロードマップの単元選択', () => {
   });
 
   it('学年とおすすめ時期を別々のボタンで絞り込める', async () => {
-    const container = await showRoadmap(vi.fn());
+    const container = await showRoadmap(vi.fn(), true, true);
 
     await act(async () => {
       subjectButton(container, 'sansu').click();
@@ -556,6 +575,7 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.textContent).not.toContain('かけ算');
     expect(container.textContent).toContain('じき未設定');
     expect(container.querySelectorAll('.nq-roadmap-toolbar')).toHaveLength(1);
+    expect(container.querySelector('.nq-roadmap-toolbar-compact')).toBeNull();
     expect(container.querySelector('.nq-roadmap-period-range')).toBeNull();
     expect(container.querySelectorAll('.nq-roadmap-grade')).toHaveLength(7);
     expect(container.querySelectorAll('.nq-roadmap-term')).toHaveLength(4);
@@ -564,7 +584,7 @@ describe('学習ロードマップの単元選択', () => {
   });
 
   it('学年で絞り込んでも、対象単元へつながる前提ノードと線を残す', async () => {
-    const container = await showRoadmap(vi.fn());
+    const container = await showRoadmap(vi.fn(), true, true);
     await act(async () => {
       gradeButton(container, '2').click();
       termButton(container, '2').click();
@@ -577,7 +597,7 @@ describe('学習ロードマップの単元選択', () => {
   });
 
   it('1・2年生では補助教材を教科一覧と必修進捗に含めない', async () => {
-    const container = await showRoadmap(vi.fn());
+    const container = await showRoadmap(vi.fn(), true, true);
     await act(async () => {
       gradeButton(container, '1').click();
     });
