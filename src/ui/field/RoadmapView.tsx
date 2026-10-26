@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import { availableRoadmapSubjects, ROADMAP_SUBJECT_ORDER } from '../../core/learning/subjectUnlocks';
 import type { RoadmapNode } from '../../shared/menuModel';
 import { t, tOpt } from '../i18n';
 import { RubyLabel } from '../RubyLabel';
@@ -10,8 +11,6 @@ type RoadmapTerm = 'all' | 1 | 2 | 3;
 type RoadmapGrade = 'all' | 1 | 2 | 3 | 4 | 5 | 6;
 const GRADES: RoadmapGrade[] = ['all', 1, 2, 3, 4, 5, 6];
 const TERMS: RoadmapTerm[] = ['all', 1, 2, 3];
-const SUBJECT_ORDER = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'];
-
 function isNodeInTerm(node: RoadmapNode, term: RoadmapTerm): boolean {
   if (term === 'all') return true;
   const terms = node.recommendedTerms;
@@ -37,15 +36,19 @@ function currentLearningGrade(nodes: RoadmapNode[]): number {
 export function RoadmapView({
   nodes,
   onSelect,
+  developerMode = false,
 }: {
   nodes: RoadmapNode[];
   onSelect: (unitId: string) => void;
+  developerMode?: boolean;
 }) {
   const [subject, setSubject] = useState('all');
   const [grade, setGrade] = useState<RoadmapGrade>('all');
   const [term, setTerm] = useState<RoadmapTerm>('all');
   const [showTermNote, setShowTermNote] = useState(false);
-  const gradeNodes = grade === 'all' ? nodes : nodes.filter((node) => node.grade === grade);
+  const availableSubjects = availableRoadmapSubjects(nodes, developerMode);
+  const availableNodes = nodes.filter((node) => availableSubjects.has(node.subject));
+  const gradeNodes = grade === 'all' ? availableNodes : availableNodes.filter((node) => node.grade === grade);
   const subjectGradeNodes =
     grade !== 'all' && grade <= 2
       ? gradeNodes.filter((node) => node.courseKind !== 'supplementary')
@@ -55,7 +58,9 @@ export function RoadmapView({
     ...new Map(subjectGradeNodes.map((node) => [node.subject, node.subjectLabel])).entries(),
   ].sort(
     ([left], [right]) =>
-      SUBJECT_ORDER.indexOf(left) - SUBJECT_ORDER.indexOf(right) || left.localeCompare(right),
+      ROADMAP_SUBJECT_ORDER.indexOf(left as (typeof ROADMAP_SUBJECT_ORDER)[number]) -
+        ROADMAP_SUBJECT_ORDER.indexOf(right as (typeof ROADMAP_SUBJECT_ORDER)[number]) ||
+      left.localeCompare(right),
   );
   const activeSubject = subjects.some(([key]) => key === subject) ? subject : 'all';
   const shown =
@@ -66,7 +71,7 @@ export function RoadmapView({
       ? shown
       : [
           ...shown,
-          ...nodes.filter(
+          ...availableNodes.filter(
             (node) =>
               node.subject === activeSubject &&
               !shownIds.has(node.id) &&
@@ -76,7 +81,7 @@ export function RoadmapView({
   const progressNodes =
     activeSubject === 'all' ? shown.filter((node) => node.courseKind !== 'supplementary') : shown;
   const completed = progressNodes.filter(isCompleted).length;
-  const recommendationCandidates = SUBJECT_ORDER.flatMap((key) =>
+  const recommendationCandidates = ROADMAP_SUBJECT_ORDER.flatMap((key) =>
     termNodes.filter((node) => node.subject === key),
   );
   const recommendation =
@@ -94,75 +99,79 @@ export function RoadmapView({
       aria-label={displayText(t('field.roadmapAria'))}
     >
       <div class="nq-roadmap-toolbar">
-        <div class="nq-roadmap-filter-row">
-          <div
-            class="nq-roadmap-filter-group nq-roadmap-grade-row"
-            role="group"
-            aria-label={displayText(t('field.roadmapGradeFilter'))}
-          >
-            <RubyLabel class="nq-roadmap-filter-title" text={t('field.roadmapGrade')} />
-            {GRADES.map((value) => (
-              <button
-                key={value}
-                type="button"
-                class={`nq-roadmap-filter-option nq-roadmap-grade${grade === value ? ' nq-focus' : ''}`}
-                data-grade={value}
-                aria-pressed={grade === value}
-                onClick={() => {
-                  playSfx('move');
-                  setGrade(value);
-                }}
-              >
-                <RubyLabel
-                  text={
-                    value === 'all' ? t('field.roadmapAllGrades') : t('field.roadmapGradeName', { n: value })
-                  }
-                />
-              </button>
-            ))}
-          </div>
-          <div
-            class="nq-roadmap-filter-group nq-roadmap-term-row"
-            role="group"
-            aria-label={displayText(t('field.roadmapTermFilter'))}
-          >
-            <RubyLabel class="nq-roadmap-filter-title" text={t('field.roadmapRecommendedTerm')} />
-            {TERMS.map((value) => (
-              <button
-                key={value}
-                type="button"
-                class={`nq-roadmap-filter-option nq-roadmap-term${term === value ? ' nq-focus' : ''}`}
-                data-term={value}
-                aria-pressed={term === value}
-                onClick={() => {
-                  playSfx('move');
-                  setTerm(value);
-                }}
-              >
-                <RubyLabel
-                  text={
-                    value === 'all' ? t('field.roadmapAllTerms') : t('field.roadmapTermName', { n: value })
-                  }
-                />
-              </button>
-            ))}
-          </div>
-          <button
-            type="button"
-            class="nq-roadmap-period-note"
-            aria-label={displayText(t('field.roadmapTermHelp'))}
-            aria-expanded={showTermNote}
-            aria-controls="nq-roadmap-period-help"
-            onClick={() => setShowTermNote((shown) => !shown)}
-          >
-            ⓘ
-          </button>
-          {showTermNote && (
-            <div id="nq-roadmap-period-help" class="nq-roadmap-period-help" role="note">
-              <RubyLabel text={t('field.roadmapTermNote')} />
+        {developerMode && (
+          <div class="nq-roadmap-filter-row">
+            <div
+              class="nq-roadmap-filter-group nq-roadmap-grade-row"
+              role="group"
+              aria-label={displayText(t('field.roadmapGradeFilter'))}
+            >
+              <RubyLabel class="nq-roadmap-filter-title" text={t('field.roadmapGrade')} />
+              {GRADES.map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  class={`nq-roadmap-filter-option nq-roadmap-grade${grade === value ? ' nq-focus' : ''}`}
+                  data-grade={value}
+                  aria-pressed={grade === value}
+                  onClick={() => {
+                    playSfx('move');
+                    setGrade(value);
+                  }}
+                >
+                  <RubyLabel
+                    text={
+                      value === 'all'
+                        ? t('field.roadmapAllGrades')
+                        : t('field.roadmapGradeName', { n: value })
+                    }
+                  />
+                </button>
+              ))}
             </div>
-          )}
-        </div>
+            <div
+              class="nq-roadmap-filter-group nq-roadmap-term-row"
+              role="group"
+              aria-label={displayText(t('field.roadmapTermFilter'))}
+            >
+              <RubyLabel class="nq-roadmap-filter-title" text={t('field.roadmapRecommendedTerm')} />
+              {TERMS.map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  class={`nq-roadmap-filter-option nq-roadmap-term${term === value ? ' nq-focus' : ''}`}
+                  data-term={value}
+                  aria-pressed={term === value}
+                  onClick={() => {
+                    playSfx('move');
+                    setTerm(value);
+                  }}
+                >
+                  <RubyLabel
+                    text={
+                      value === 'all' ? t('field.roadmapAllTerms') : t('field.roadmapTermName', { n: value })
+                    }
+                  />
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              class="nq-roadmap-period-note"
+              aria-label={displayText(t('field.roadmapTermHelp'))}
+              aria-expanded={showTermNote}
+              aria-controls="nq-roadmap-period-help"
+              onClick={() => setShowTermNote((shown) => !shown)}
+            >
+              ⓘ
+            </button>
+            {showTermNote && (
+              <div id="nq-roadmap-period-help" class="nq-roadmap-period-help" role="note">
+                <RubyLabel text={t('field.roadmapTermNote')} />
+              </div>
+            )}
+          </div>
+        )}
         <div
           class="nq-roadmap-subjects"
           role="group"
@@ -183,7 +192,7 @@ export function RoadmapView({
           </button>
           {subjects.map(([key, label]) => {
             const longLabel = subjectLongLabel(key, label);
-            const levelGrade = currentLearningGrade(nodes.filter((node) => node.subject === key));
+            const levelGrade = currentLearningGrade(availableNodes.filter((node) => node.subject === key));
             const buttonLabel = t('field.roadmapSubjectCurrentGrade', {
               subject: displayText(longLabel),
               grade: levelGrade,

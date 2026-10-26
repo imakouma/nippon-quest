@@ -82,6 +82,30 @@ const graphUnits: Unit[] = [
   { id: 'sansu.g1.map-challenge', name: 'つぎの ちょうせん', subject: 'sansu', grade: 1 },
 ];
 
+const foundationUnits: Unit[] = [
+  { id: 'kokugo.g1.base', name: 'こくご1', subject: 'kokugo', grade: 1, courseKind: 'required-subject' },
+  { id: 'kokugo.g2.base', name: 'こくご2', subject: 'kokugo', grade: 2, courseKind: 'required-subject' },
+  { id: 'sansu.g1.base', name: 'さんすう1', subject: 'sansu', grade: 1, courseKind: 'required-subject' },
+  { id: 'sansu.g2.base', name: 'さんすう2', subject: 'sansu', grade: 2, courseKind: 'required-subject' },
+  {
+    id: 'seikatsu.g1.base',
+    name: 'せいかつ1',
+    subject: 'seikatsu',
+    grade: 1,
+    courseKind: 'required-activity',
+  },
+  {
+    id: 'seikatsu.g2.base',
+    name: 'せいかつ2',
+    subject: 'seikatsu',
+    grade: 2,
+    courseKind: 'required-activity',
+  },
+  { id: 'rika.g3.base', name: 'りか3', subject: 'rika', grade: 3, courseKind: 'required-subject' },
+  { id: 'shakai.g3.base', name: 'しゃかい3', subject: 'shakai', grade: 3, courseKind: 'required-subject' },
+  { id: 'eigo.g1.base', name: 'えいご1', subject: 'eigo', grade: 1, courseKind: 'supplementary' },
+];
+
 const curriculum: CurriculumGraph = {
   schemaVersion: 1,
   sources: [
@@ -159,6 +183,38 @@ describe('buildRoadmapNodes', () => {
       subjectLabel: (subject) => subject,
     });
     expect(nodes.find((node) => node.id === 'sansu.g2.legacy-math-2-13')?.state).toBe('open');
+  });
+
+  it('生活科2年までの必修完了後は、2年生設定でも理科と社会の入口を開く', () => {
+    const mastery = Object.fromEntries(
+      ['seikatsu.g1.base', 'seikatsu.g2.base'].map((id, index) => [
+        id,
+        { value: 0.9, n: 3, lastAt: index + 1 },
+      ]),
+    );
+    const nodes = buildRoadmapNodes({
+      units: foundationUnits,
+      mastery,
+      playerGrade: 2,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === 'rika.g3.base')?.state).toBe('current');
+    expect(nodes.find((node) => node.id === 'shakai.g3.base')?.state).toBe('current');
+  });
+
+  it('生活科2年までが未完了なら、2年生設定では理科と社会を開かない', () => {
+    const nodes = buildRoadmapNodes({
+      units: foundationUnits,
+      mastery: { 'seikatsu.g1.base': { value: 0.9, n: 3, lastAt: 1 } },
+      playerGrade: 2,
+      challengeHigher: false,
+      subjectLabel: (subject) => subject,
+    });
+
+    expect(nodes.find((node) => node.id === 'rika.g3.base')?.state).toBe('locked');
+    expect(nodes.find((node) => node.id === 'shakai.g3.base')?.state).toBe('locked');
   });
 
   it('導入前に習得済みだった単元は既得進捗として維持する', () => {

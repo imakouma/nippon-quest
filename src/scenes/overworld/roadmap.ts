@@ -5,6 +5,7 @@ import {
   type ConceptStateData,
   type CurriculumGraph,
 } from '../../core/learning';
+import { availableRoadmapSubjects, isCompletedRoadmapProgress } from '../../core/learning/subjectUnlocks';
 import { canonicalUnitId, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
 import type { MasteryData, MasteryRecord } from '../../questions/engine/mastery';
 import type { RoadmapNode } from '../../shared/menuModel';
@@ -208,6 +209,30 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   });
 
   const byId = new Map(draft.map((node) => [node.id, node]));
+  const firstGradeBySubject = new Map<string, number>();
+  for (const node of draft) {
+    firstGradeBySubject.set(
+      node.subject,
+      Math.min(firstGradeBySubject.get(node.subject) ?? Number.MAX_SAFE_INTEGER, node.grade),
+    );
+  }
+  const availableSubjects = availableRoadmapSubjects(draft);
+  for (const node of draft) {
+    if (
+      node.state !== 'locked' ||
+      !availableSubjects.has(node.subject) ||
+      node.grade !== firstGradeBySubject.get(node.subject)
+    )
+      continue;
+    if (
+      node.prerequisiteIds.every((id) => {
+        const prerequisite = byId.get(id);
+        return prerequisite !== undefined && isCompletedRoadmapProgress(prerequisite);
+      })
+    ) {
+      node.state = 'open';
+    }
+  }
   const firstOpen = new Set<string>();
   for (const node of draft) {
     if (node.state !== 'open' || firstOpen.has(node.subject)) continue;
@@ -216,13 +241,6 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   }
 
   const progressiveReveal = Boolean(input.curriculum) && !input.revealAll;
-  const firstGradeBySubject = new Map<string, number>();
-  for (const node of draft) {
-    firstGradeBySubject.set(
-      node.subject,
-      Math.min(firstGradeBySubject.get(node.subject) ?? Number.MAX_SAFE_INTEGER, node.grade),
-    );
-  }
   for (const node of draft) {
     if (!progressiveReveal || node.state !== 'locked' || node.attempts > 0) {
       node.visibility = 'revealed';

@@ -2686,6 +2686,7 @@ export class OverworldScene extends Phaser.Scene {
           tabs: menuTabs(this.gs()?.learning.mistakes.length ?? 0),
           entries: view.entries,
           roadmap: this.roadmapNodes(),
+          developerMode: this.devAll(),
           summary: view.summary,
           empty: view.empty,
           message,
