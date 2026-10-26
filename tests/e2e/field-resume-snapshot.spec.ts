@@ -67,6 +67,7 @@ test('歩行位置・向き・歩き回る町人の位置/向き/表示を保存
         number,
         {
           key: string;
+          persistState: boolean;
           tile: number;
           home: [number, number];
           facing: 'down' | 'left' | 'right' | 'up';
@@ -80,8 +81,8 @@ test('歩行位置・向き・歩き回る町人の位置/向き/表示を保存
       isBlocked(x: number, y: number): boolean;
       checkpointField(): void;
     };
-    const npc = [...field.npcs.values()].find((candidate) => candidate.key === 'npc_talk_2');
-    if (!npc) throw new Error('wandering NPC was not registered');
+    const npc = [...field.npcs.values()].find((candidate) => candidate.persistState);
+    if (!npc) throw new Error('persistState: true の NPC was not registered');
     const homeTiles = new Set([...field.npcs.values()].map((candidate) => field.idx(...candidate.home)));
     let target: [number, number] | undefined;
     for (let y = 1; y < field.map.height - 1 && !target; y += 1)
@@ -102,7 +103,7 @@ test('歩行位置・向き・歩き回る町人の位置/向き/表示を保存
     npc.shadow.setPosition(target[0] * 16 + 8, target[1] * 16 + 14).setVisible(false);
     field.face('right');
     field.checkpointField();
-    return { tileX: target[0], tileY: target[1] };
+    return { name: npc.key, tileX: target[0], tileY: target[1] };
   });
 
   await expect
@@ -113,7 +114,13 @@ test('歩行位置・向き・歩き回る町人の位置/向き/表示を保存
       fieldSnapshot: {
         facing: 'right',
         objects: {
-          'aomori-town:npc_talk_2': { ...expected, map: 'aomori-town', facing: 'left', visible: false },
+          [`aomori-town:${expected.name}`]: {
+            map: 'aomori-town',
+            tileX: expected.tileX,
+            tileY: expected.tileY,
+            facing: 'left',
+            visible: false,
+          },
         },
       },
     });
@@ -124,7 +131,7 @@ test('歩行位置・向き・歩き回る町人の位置/向き/表示を保存
   });
   await expect
     .poll(() =>
-      page.evaluate(() => {
+      page.evaluate((name) => {
         const field = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
           facing: string;
           fieldResume: {
@@ -133,13 +140,20 @@ test('歩行位置・向き・歩き回る町人の位置/向き/表示を保存
         };
         return {
           facing: field.facing,
-          npc: field.fieldResume.objects.find((object) => object.definition.name === 'npc_talk_2')?.read(),
+          npc: field.fieldResume.objects.find((object) => object.definition.name === name)?.read(),
         };
-      }),
+      }, expected.name),
     )
     .toEqual({
       facing: 'right',
-      npc: { name: 'npc_talk_2', persistState: true, ...expected, facing: 'left', visible: false },
+      npc: {
+        name: expected.name,
+        persistState: true,
+        tileX: expected.tileX,
+        tileY: expected.tileY,
+        facing: 'left',
+        visible: false,
+      },
     });
 });
 

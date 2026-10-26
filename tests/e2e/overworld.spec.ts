@@ -114,10 +114,17 @@ async function savedState(page: Page): Promise<SavedFieldState> {
 }
 
 async function walkOneTile(page: Page, key: 'ArrowUp' | 'ArrowDown'): Promise<void> {
-  await page.keyboard.down(key);
-  await page.waitForTimeout(80);
-  await page.keyboard.up(key);
-  await page.waitForTimeout(220);
+  const canvas = page.locator('canvas[data-player-tile]');
+  const before = await canvas.getAttribute('data-player-tile');
+  for (let attempt = 0; attempt < 10; attempt += 1) {
+    await canvas.evaluate((element) => delete (element as HTMLElement).dataset.lastMovement);
+    await page.keyboard.press(key);
+    await page.waitForTimeout(300);
+    const decision = await canvas.getAttribute('data-last-movement');
+    const after = await canvas.getAttribute('data-player-tile');
+    if (decision === 'move' && after !== before) return;
+  }
+  throw new Error(`${before} から ${key} で一歩進めませんでした`);
 }
 
 async function skipArrivalStory(page: Page): Promise<void> {
