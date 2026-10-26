@@ -9,6 +9,9 @@ const NODE_W = 96;
 const NODE_H = 92;
 const MIN_ZOOM = 0.2;
 const MAX_ZOOM = 1.6;
+const VIEWPORT_MARGIN = 24;
+
+let hasDismissedRoadmapGestureHint = false;
 
 type Point = { x: number; y: number };
 
@@ -43,6 +46,7 @@ export function RoadmapGraph({
   const selectedNodeRef = useRef<HTMLButtonElement>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState<Point>({ x: 0, y: 0 });
+  const [showGestureHint, setShowGestureHint] = useState(!hasDismissedRoadmapGestureHint);
   const view = useRef({ zoom, pan });
   view.current = { zoom, pan };
   const drag = useRef({ pointerId: -1, x: 0, y: 0, panX: 0, panY: 0, moved: false });
@@ -136,12 +140,41 @@ export function RoadmapGraph({
     if (focusNode) centerOnNode(focusNode, nextZoom);
   };
 
+  const ensureNodeVisible = (node: RoadmapNode, nextZoom: number) => {
+    const viewport = viewportRef.current;
+    if (!viewport?.clientWidth || !viewport.clientHeight) return;
+    const target = position(node);
+    const nodeElement = node.id === selectedNode?.id ? selectedNodeRef.current : null;
+    const nodeWidth = nodeElement?.offsetWidth || NODE_W;
+    const nodeHeight = nodeElement?.offsetHeight || NODE_H;
+    const current = view.current;
+    const left = target.x * nextZoom + current.pan.x;
+    const top = target.y * nextZoom + current.pan.y;
+    const right = left + nodeWidth * nextZoom;
+    const bottom = top + nodeHeight * nextZoom;
+    let dx = 0;
+    let dy = 0;
+    if (left < VIEWPORT_MARGIN) dx = VIEWPORT_MARGIN - left;
+    else if (right > viewport.clientWidth - VIEWPORT_MARGIN)
+      dx = viewport.clientWidth - VIEWPORT_MARGIN - right;
+    if (top < VIEWPORT_MARGIN) dy = VIEWPORT_MARGIN - top;
+    else if (bottom > viewport.clientHeight - VIEWPORT_MARGIN)
+      dy = viewport.clientHeight - VIEWPORT_MARGIN - bottom;
+    if (dx || dy) updateView(nextZoom, { x: current.pan.x + dx, y: current.pan.y + dy });
+  };
+
+  const dismissGestureHint = () => {
+    if (!showGestureHint) return;
+    hasDismissedRoadmapGestureHint = true;
+    setShowGestureHint(false);
+  };
+
   useEffect(() => {
     centerOnFocus(1);
   }, [focusNode?.id, offsetX, offsetY, width, height]);
 
   useEffect(() => {
-    if (selectedNode) centerOnNode(selectedNode, view.current.zoom);
+    if (selectedNode) ensureNodeVisible(selectedNode, view.current.zoom);
   }, [selectedNode?.id]);
 
   useEffect(() => {
@@ -174,6 +207,7 @@ export function RoadmapGraph({
 
   const onPointerDown = (event: PointerEvent) => {
     if (event.button !== 0) return;
+    dismissGestureHint();
     const viewport = event.currentTarget as HTMLElement;
     const points = gesture.current.pointers;
     points.set(event.pointerId, { x: event.clientX, y: event.clientY });
@@ -255,6 +289,7 @@ export function RoadmapGraph({
 
   const onWheel = (event: WheelEvent) => {
     event.preventDefault();
+    dismissGestureHint();
     const viewport = event.currentTarget as HTMLElement;
     const box = viewport.getBoundingClientRect();
     const scaleX = box.width ? viewport.clientWidth / box.width : 1;
@@ -298,6 +333,11 @@ export function RoadmapGraph({
           setSelectedId('');
         }}
       >
+        {showGestureHint && (
+          <div class="nq-roadmap-gesture-hint" role="status">
+            <RubyLabel text={t('field.roadmapGestureHint')} />
+          </div>
+        )}
         <div
           class="nq-roadmap-canvas"
           style={{ width, height, transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}
@@ -353,8 +393,8 @@ export function RoadmapGraph({
                       done: nodeCompletedPrerequisites,
                       total: nodePrerequisites.length,
                     }),
-                  )}`
-                : displayText(label);
+                  )}${selected ? ` ${displayText(t('field.roadmapSelected'))}` : ''}`
+                : `${displayText(label)}${selected ? ` ${displayText(t('field.roadmapSelected'))}` : ''}`;
             return (
               <button
                 key={node.id}
@@ -364,7 +404,6 @@ export function RoadmapGraph({
                 style={{ left: pos.x, top: pos.y }}
                 aria-label={accessibleLabel}
                 aria-current={node.state === 'current' ? 'step' : undefined}
-                aria-pressed={selected}
                 onClick={() => {
                   playSfx('select');
                   setSelectedId(node.id);
@@ -413,7 +452,10 @@ export function RoadmapGraph({
           </span>
           <span class="nq-roadmap-selection-copy">
             <RubyLabel text={questState(selectedNode)} class="nq-roadmap-selection-state" />
-            <RubyLabel text={selectedNode.name} class="nq-roadmap-selection-name" />
+            <RubyLabel
+              text={selectedNode.visibility === 'frontier' ? t('field.roadmapFog') : selectedNode.name}
+              class="nq-roadmap-selection-name"
+            />
             <span class="nq-roadmap-selection-meta">
               <RubyLabel text={t('field.roadmapGradeName', { n: selectedNode.grade })} />
               <RubyLabel
@@ -435,11 +477,19 @@ export function RoadmapGraph({
                   {selectedPrerequisites.map((prerequisite) => {
                     const done = prerequisite.state === 'cleared' || prerequisite.state === 'review';
                     return (
-                      <span
+                      <button
                         key={prerequisite.id}
+                        type="button"
                         class={`nq-roadmap-prerequisite ${
                           done ? 'nq-roadmap-prerequisite-done' : 'nq-roadmap-prerequisite-missing'
                         }`}
+                        aria-label={displayText(
+                          t('field.roadmapGoToPrerequisite', { name: prerequisite.name }),
+                        )}
+                        onClick={() => {
+                          playSfx('move');
+                          setSelectedId(prerequisite.id);
+                        }}
                       >
                         <span aria-hidden="true">{done ? '✓' : '○'}</span>
                         <RubyLabel text={prerequisite.name} />
@@ -449,7 +499,7 @@ export function RoadmapGraph({
                           )}
                           class="nq-roadmap-prerequisite-status"
                         />
-                      </span>
+                      </button>
                     );
                   })}
                 </span>

@@ -67,31 +67,51 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(roadmap).toBeVisible();
   const allSubjects = page.getByRole('button', { name: 'ぜんきょうか' });
   const allSubjectsOverview = page.locator('.nq-roadmap-overview');
-  const period = page.locator('.nq-roadmap-period-range');
   await expect(allSubjects).toHaveAttribute('aria-pressed', 'true');
   await expect(allSubjectsOverview).toBeVisible();
   await expect(page.locator('.nq-roadmap-toolbar')).toBeVisible();
-  await expect(page.locator('.nq-roadmap-grade-row, .nq-roadmap-term-row')).toHaveCount(0);
-  await period.evaluate((input: HTMLInputElement) => {
-    input.value = '1';
-    input.dispatchEvent(new Event('input', { bubbles: true }));
-  });
-  await expect(page.locator('.nq-roadmap-period-value')).toContainText('1ねん・1がっき');
-  await period.evaluate((input: HTMLInputElement) => {
-    input.value = '0';
-    input.dispatchEvent(new Event('input', { bubbles: true }));
-  });
+  await expect(page.locator('.nq-roadmap-period-range')).toHaveCount(0);
+  await expect(page.locator('.nq-roadmap-grade-row')).toBeVisible();
+  await expect(page.locator('.nq-roadmap-term-row')).toBeVisible();
+  await expect(page.locator('.nq-roadmap-grade')).toHaveCount(7);
+  await expect(page.locator('.nq-roadmap-term')).toHaveCount(4);
+  await page.locator('.nq-roadmap-grade[data-grade="1"]').click();
+  await page.locator('.nq-roadmap-term[data-term="1"]').click();
+  await expect(page.locator('.nq-roadmap-grade[data-grade="1"]')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.nq-roadmap-term[data-term="1"]')).toHaveAttribute('aria-pressed', 'true');
+  const periodHelp = page.locator('.nq-roadmap-period-note');
+  await expect(periodHelp).toHaveAttribute('aria-expanded', 'false');
+  await periodHelp.click();
+  await expect(periodHelp).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('.nq-roadmap-period-help')).toContainText('かわります');
+  await periodHelp.click();
+  await page.locator('.nq-roadmap-grade[data-grade="all"]').click();
+  await page.locator('.nq-roadmap-term[data-term="all"]').click();
   for (const label of ['こくご', 'さんすう', 'りか', 'しゃかい', 'せいかつ', 'えいご']) {
     await expect(page.getByRole('button', { name: new RegExp(`^${label} `) })).toBeVisible();
   }
+  await expect(page.locator('.nq-roadmap-subject-name')).toContainText([
+    'ぜんきょうか',
+    'こくご',
+    'さんすう',
+    'りか',
+    'しゃかい',
+    'せいかつか',
+    'えいご',
+  ]);
+  const recommendation = page.locator('.nq-roadmap-recommendation');
+  await expect(recommendation).toContainText('つぎの おすすめ');
   await expect(allSubjectsOverview).toContainText('つぎ：');
+  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-overview.png') });
   await page.getByRole('button', { name: /^さんすう・いまは/ }).click();
   await expect(roadmap).toContainText('10までのかず');
   const selection = page.locator('.nq-roadmap-selection');
-  const currentUnit = page.getByRole('button', { name: '10までのかず' });
+  const currentUnit = page.locator('.nq-roadmap-current');
   await expect(selection).toContainText('いまの もくひょう');
   await expect(selection).toContainText('10までのかず');
-  await expect(currentUnit).toHaveAttribute('aria-pressed', 'true');
+  await expect(currentUnit).not.toHaveAttribute('aria-pressed', /.+/);
+  await expect(currentUnit).toHaveAttribute('aria-label', /えらんでいる/);
+  await expect(page.locator('.nq-roadmap-gesture-hint')).toContainText('ドラッグ');
   const practice = page.locator('.nq-roadmap-practice');
   await expect(practice).toBeVisible();
   const [currentSelectionBox, practiceBox, currentShellBox] = await Promise.all([
@@ -114,9 +134,12 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(frontier).toHaveAttribute('aria-label', /0\/1/);
   await frontier.focus();
   await page.keyboard.press('Enter');
-  await expect(frontier).toHaveAttribute('aria-pressed', 'true');
+  await expect(frontier).not.toHaveAttribute('aria-pressed', /.+/);
+  await expect(frontier).toHaveAttribute('aria-label', /えらんでいる/);
   await expect(selection.locator('.nq-roadmap-prerequisites')).toContainText('0/1');
   await expect(selection.locator('.nq-roadmap-prerequisites')).toContainText('まだ');
+  await expect(selection.locator('.nq-roadmap-selection-name')).toContainText('まだ');
+  await expect(selection.locator('.nq-roadmap-prerequisite')).toHaveRole('button');
   await expect(page.locator('.nq-roadmap-practice')).toHaveCount(0);
   const [lockedMapBox, lockedNodeBox, lockedSelectionBox] = await Promise.all([
     page.locator('.nq-roadmap-map').boundingBox(),
@@ -132,9 +155,12 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   expect(Math.abs(lockedSelectionBox!.height - lockedMapBox!.height)).toBeLessThan(2);
   expect(lockedSelectionBox!.width / lockedShellBox!.width).toBeGreaterThan(0.26);
   expect(lockedSelectionBox!.width / lockedShellBox!.width).toBeLessThan(0.31);
-  expect(
-    Math.abs(lockedNodeBox!.y + lockedNodeBox!.height / 2 - (lockedMapBox!.y + lockedMapBox!.height / 2)),
-  ).toBeLessThan(2);
+  expect(lockedNodeBox!.x).toBeGreaterThanOrEqual(lockedMapBox!.x);
+  expect(lockedNodeBox!.x + lockedNodeBox!.width).toBeLessThanOrEqual(lockedMapBox!.x + lockedMapBox!.width);
+  expect(lockedNodeBox!.y).toBeGreaterThanOrEqual(lockedMapBox!.y);
+  expect(lockedNodeBox!.y + lockedNodeBox!.height).toBeLessThanOrEqual(
+    lockedMapBox!.y + lockedMapBox!.height,
+  );
   await page.screenshot({ path: testInfo.outputPath('learning-roadmap-locked-condition.png') });
   await currentUnit.click();
   await expect(page.locator('.nq-roadmap-practice')).toBeVisible();
@@ -147,6 +173,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(page.locator('.nq-roadmap-zoom-in')).toHaveCount(0);
   await expect(page.locator('.nq-roadmap-reset')).toHaveCount(0);
   await map.dispatchEvent('wheel', { ctrlKey: true, deltaY: 500, clientX: 240, clientY: 200 });
+  await expect(page.locator('.nq-roadmap-gesture-hint')).toHaveCount(0);
   await expect(canvas).toHaveAttribute('style', /scale\(0\.2\)/);
   await expect(mapShell).toHaveAttribute('data-zoom-detail', 'overview');
   await expect(currentUnit.locator('.nq-roadmap-node-name')).toBeHidden();
@@ -158,18 +185,16 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await currentUnit.dispatchEvent('click');
   const [mapBox, currentNodeBox, selectionBox] = await Promise.all([
     map.boundingBox(),
-    page.getByRole('button', { name: '10までのかず' }).boundingBox(),
+    currentUnit.boundingBox(),
     selection.boundingBox(),
   ]);
   expect(mapBox).not.toBeNull();
   expect(currentNodeBox).not.toBeNull();
   expect(selectionBox).not.toBeNull();
   expect(
-    Math.abs(currentNodeBox!.x + currentNodeBox!.width / 2 - (mapBox!.x + mapBox!.width / 2)),
-  ).toBeLessThan(2);
-  expect(
-    Math.abs(currentNodeBox!.y + currentNodeBox!.height / 2 - (mapBox!.y + mapBox!.height / 2)),
-  ).toBeLessThan(2);
+    Math.abs(currentNodeBox!.x + currentNodeBox!.width / 2 - (mapBox!.x + mapBox!.width / 2)) +
+      Math.abs(currentNodeBox!.y + currentNodeBox!.height / 2 - (mapBox!.y + mapBox!.height / 2)),
+  ).toBeGreaterThan(8);
 
   await map.click({ position: { x: 12, y: 12 } });
   await expect(selection).toHaveCount(0);
