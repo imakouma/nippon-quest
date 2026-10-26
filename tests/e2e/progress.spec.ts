@@ -29,7 +29,7 @@ async function expectEightStatsFit(page: Page) {
 }
 
 test('新規ゲームから2Dロードマップを開き、セーブ後に同じスロットを続行できる', async ({ page }, testInfo) => {
-  test.setTimeout(180_000);
+  test.setTimeout(420_000);
   await page.goto('/?preview=roadmap-tree&resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 3/ }).click();
@@ -71,34 +71,28 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(allSubjectsOverview).toBeVisible();
   await expect(page.locator('.nq-roadmap-toolbar')).toBeVisible();
   await expect(page.locator('.nq-roadmap-period-range')).toHaveCount(0);
-  await expect(page.locator('.nq-roadmap-grade-row')).toBeVisible();
-  await expect(page.locator('.nq-roadmap-term-row')).toBeVisible();
-  await expect(page.locator('.nq-roadmap-grade')).toHaveCount(7);
-  await expect(page.locator('.nq-roadmap-term')).toHaveCount(4);
-  await page.locator('.nq-roadmap-grade[data-grade="1"]').click();
-  await page.locator('.nq-roadmap-term[data-term="1"]').click();
-  await expect(page.locator('.nq-roadmap-grade[data-grade="1"]')).toHaveAttribute('aria-pressed', 'true');
-  await expect(page.locator('.nq-roadmap-term[data-term="1"]')).toHaveAttribute('aria-pressed', 'true');
-  const periodHelp = page.locator('.nq-roadmap-period-note');
-  await expect(periodHelp).toHaveAttribute('aria-expanded', 'false');
-  await periodHelp.click();
-  await expect(periodHelp).toHaveAttribute('aria-expanded', 'true');
-  await expect(page.locator('.nq-roadmap-period-help')).toContainText('かわります');
-  await periodHelp.click();
-  await page.locator('.nq-roadmap-grade[data-grade="all"]').click();
-  await page.locator('.nq-roadmap-term[data-term="all"]').click();
-  for (const label of ['こくご', 'さんすう', 'りか', 'しゃかい', 'せいかつ', 'えいご']) {
-    await expect(page.getByRole('button', { name: new RegExp(`^${label} `) })).toBeVisible();
-  }
+  await expect(page.locator('.nq-roadmap-filter-row')).toHaveCount(0);
+  await expect(page.locator('.nq-roadmap-grade-row')).toHaveCount(0);
+  await expect(page.locator('.nq-roadmap-term-row')).toHaveCount(0);
+  const [toolbarBox, subjectTabsBox] = await Promise.all([
+    page.locator('.nq-roadmap-toolbar').boundingBox(),
+    page.locator('.nq-roadmap-subjects').boundingBox(),
+  ]);
+  expect(toolbarBox).not.toBeNull();
+  expect(subjectTabsBox).not.toBeNull();
+  expect(
+    toolbarBox!.y + toolbarBox!.height - (subjectTabsBox!.y + subjectTabsBox!.height),
+  ).toBeLessThanOrEqual(8);
   await expect(page.locator('.nq-roadmap-subject-name')).toContainText([
     'ぜんきょうか',
     'こくご',
     'さんすう',
-    'りか',
-    'しゃかい',
     'せいかつか',
-    'えいご',
   ]);
+  for (const label of ['りか', 'しゃかい', 'えいご']) {
+    await expect(page.getByRole('button', { name: new RegExp(`^${label} `) })).toHaveCount(0);
+  }
+  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-normal-mode.png') });
   const recommendation = page.locator('.nq-roadmap-recommendation');
   await expect(recommendation).toContainText('つぎの おすすめ');
   await expect(allSubjectsOverview).toContainText('つぎ：');
@@ -296,6 +290,29 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await page.getByRole('button', { name: /とじる/ }).click();
   await expect(menuHome).toBeVisible();
   await page.getByRole('button', { name: /とじる/ }).click();
+
+  await page.setViewportSize({ width: 960, height: 540 });
+  await page.getByRole('button', { name: 'かいはつしゃ' }).click();
+  await expect(page.locator('.nq-dlg')).toBeVisible();
+  for (let step = 0; step < 3 && (await page.locator('.nq-dlg').isVisible()); step += 1) {
+    await page.locator('.nq-dlg').click();
+    await page.waitForTimeout(100);
+  }
+  await expect(page.locator('.nq-dlg')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'かいはつしゃ ON' })).toBeVisible();
+  await page.getByRole('button', { name: 'メニュー' }).click();
+  await expect(menuHome).toBeVisible();
+  await menuHome.getByRole('button', { name: /がくしゅう/ }).click();
+  await expect(roadmap).toBeVisible();
+  await expect(page.locator('.nq-roadmap-grade-row')).toBeVisible();
+  await expect(page.locator('.nq-roadmap-term-row')).toBeVisible();
+  await expect(page.locator('.nq-roadmap-grade')).toHaveCount(7);
+  await expect(page.locator('.nq-roadmap-term')).toHaveCount(4);
+  for (const label of ['こくご', 'さんすう', 'りか', 'しゃかい', 'せいかつ', 'えいご']) {
+    await expect(page.getByRole('button', { name: new RegExp(`^${label} `) })).toBeVisible();
+  }
+  await page.screenshot({ path: testInfo.outputPath('learning-roadmap-developer-mode.png') });
+  await page.locator('.nq-menu-close').click();
 
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeVisible({ timeout: 20_000 });

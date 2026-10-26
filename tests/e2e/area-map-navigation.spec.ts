@@ -67,7 +67,9 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
 
   const terrain = areaMapDialog.locator('.nq-amap-terrain');
   const heroMarker = areaMapDialog.locator('.nq-wmap-hero img');
+  const mapMarkers = areaMapDialog.locator('.nq-amap-pin');
   await expect(heroMarker).toBeVisible();
+  await expect(mapMarkers.first()).toBeVisible();
   await expect
     .poll(() =>
       heroMarker.evaluate((image) => ({
@@ -78,6 +80,13 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
     .toEqual({ width: 24, height: 32 });
   const heroOverviewBox = await heroMarker.boundingBox();
   expect(heroOverviewBox).not.toBeNull();
+  const markerOverviewBoxes = await mapMarkers.evaluateAll((markers) =>
+    markers.map((marker) => {
+      const box = marker.getBoundingClientRect();
+      return { width: box.width, height: box.height };
+    }),
+  );
+  expect(markerOverviewBoxes.length).toBeGreaterThan(0);
   const overviewResolution = await terrain.evaluate((canvas) => (canvas as HTMLCanvasElement).width);
   await expect(terrain).toHaveAttribute('data-detail-scale', '1');
 
@@ -94,10 +103,28 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
     .toBe(overviewResolution * 4);
   await expect
     .poll(() => heroMarker.evaluate((image) => image.getBoundingClientRect().width))
-    .toBeCloseTo(heroOverviewBox!.width * 1.5, 1);
+    .toBeCloseTo(heroOverviewBox!.width, 1);
   await expect
     .poll(() => heroMarker.evaluate((image) => image.getBoundingClientRect().height))
-    .toBeCloseTo(heroOverviewBox!.height * 1.5, 1);
+    .toBeCloseTo(heroOverviewBox!.height, 1);
+  await expect
+    .poll(async () => {
+      const zoomedBoxes = await mapMarkers.evaluateAll((markers) =>
+        markers.map((marker) => {
+          const box = marker.getBoundingClientRect();
+          return { width: box.width, height: box.height };
+        }),
+      );
+      return zoomedBoxes.every((box, index) => {
+        const overview = markerOverviewBoxes[index];
+        return (
+          overview &&
+          Math.abs(box.width - overview.width) < 0.25 &&
+          Math.abs(box.height - overview.height) < 0.25
+        );
+      });
+    })
+    .toBe(true);
 
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
   await page.mouse.down();

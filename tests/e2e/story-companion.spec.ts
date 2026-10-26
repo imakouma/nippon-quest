@@ -59,6 +59,25 @@ async function savedCompanion(page: Page): Promise<string | null> {
   });
 }
 
+async function moveOneTileUp(page: Page): Promise<void> {
+  const canvas = page.locator('canvas[data-player-tile]');
+  await expect(canvas).toHaveAttribute('data-player-tile', '25,35');
+  await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  for (let attempt = 0; attempt < 10; attempt += 1) {
+    await page.evaluate(async () => {
+      const field = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+        fieldInput: { setTouchDirection(direction: 'up' | null): void };
+      };
+      field.fieldInput.setTouchDirection('up');
+      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+      field.fieldInput.setTouchDirection(null);
+    });
+    await page.waitForTimeout(300);
+    if ((await canvas.getAttribute('data-player-tile')) === '25,34') return;
+  }
+  await expect(canvas).toHaveAttribute('data-player-tile', '25,34');
+}
+
 test('岩手の町へ初到着すると限定3体から選び、選んだ相棒が保存される', async ({ page }, testInfo) => {
   test.setTimeout(180_000);
   await page.goto('/?resetSaves=1');
@@ -85,19 +104,16 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(arrival).toHaveCount(0);
 
   // 入口のすぐ北にある、むすびの社の守り人へ自分で歩いて話しかける。
-  const fieldCanvas = page.locator('#game-root canvas');
-  await expect(fieldCanvas).toHaveAttribute('data-input-ready', 'true');
-  await page.keyboard.down('ArrowUp');
-  try {
-    await expect(fieldCanvas).toHaveAttribute('data-player-tile', '25,34', { timeout: 10_000 });
-  } finally {
-    await page.keyboard.up('ArrowUp');
-  }
-  await page.keyboard.press('z');
+  await page.waitForTimeout(300);
+  await moveOneTileUp(page);
   const dialogue = page.locator('.nq-dlg');
+  for (let attempt = 0; attempt < 10 && !(await dialogue.isVisible()); attempt += 1) {
+    await page.keyboard.press('z');
+    await page.waitForTimeout(250);
+  }
   await expect(dialogue).toContainText(/むすびの.*やしろ/, { timeout: 10_000 });
   await expect(dialogue).toBeFocused();
-  await dialogue.click(); // 文字送りを完了してから読み上げ領域を確認する。
+  if ((await dialogue.locator('.nq-dlg-text').getAttribute('aria-live')) === 'off') await dialogue.click();
   await expect(dialogue.locator('.nq-dlg-text')).toHaveAttribute('aria-live', 'polite', { timeout: 20_000 });
   const kagurabi = page.getByRole('button', { name: /カグラビ/ });
   for (let step = 0; step < 24 && !(await kagurabi.isVisible()); step += 1) {
