@@ -34,7 +34,7 @@ async function savedProgress(page: Page): Promise<Record<string, unknown>> {
   });
 }
 
-test('歩行位置・向き・opt-in NPC の位置/向き/表示を保存して再読込する', async ({ page }) => {
+test('歩行位置・向き・歩き回る町人の位置/向き/表示を保存して再読込する', async ({ page }) => {
   test.setTimeout(120_000);
   await startField(page);
 
@@ -80,8 +80,8 @@ test('歩行位置・向き・opt-in NPC の位置/向き/表示を保存して�
       isBlocked(x: number, y: number): boolean;
       checkpointField(): void;
     };
-    const npc = [...field.npcs.values()].find((candidate) => candidate.key === 'npc_talk_1');
-    if (!npc) throw new Error('opt-in NPC was not registered');
+    const npc = [...field.npcs.values()].find((candidate) => candidate.key === 'npc_talk_2');
+    if (!npc) throw new Error('wandering NPC was not registered');
     const homeTiles = new Set([...field.npcs.values()].map((candidate) => field.idx(...candidate.home)));
     let target: [number, number] | undefined;
     for (let y = 1; y < field.map.height - 1 && !target; y += 1)
@@ -113,7 +113,7 @@ test('歩行位置・向き・opt-in NPC の位置/向き/表示を保存して�
       fieldSnapshot: {
         facing: 'right',
         objects: {
-          'aomori-town:npc_talk_1': { ...expected, map: 'aomori-town', facing: 'left', visible: false },
+          'aomori-town:npc_talk_2': { ...expected, map: 'aomori-town', facing: 'left', visible: false },
         },
       },
     });
@@ -133,13 +133,13 @@ test('歩行位置・向き・opt-in NPC の位置/向き/表示を保存して�
         };
         return {
           facing: field.facing,
-          npc: field.fieldResume.objects.find((object) => object.definition.name === 'npc_talk_1')?.read(),
+          npc: field.fieldResume.objects.find((object) => object.definition.name === 'npc_talk_2')?.read(),
         };
       }),
     )
     .toEqual({
       facing: 'right',
-      npc: { name: 'npc_talk_1', persistState: true, ...expected, facing: 'left', visible: false },
+      npc: { name: 'npc_talk_2', persistState: true, ...expected, facing: 'left', visible: false },
     });
 });
 
