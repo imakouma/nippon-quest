@@ -260,8 +260,16 @@ function subjectButton(container: HTMLElement, subject: string): HTMLButtonEleme
   return container.querySelector<HTMLButtonElement>(`.nq-roadmap-subject[data-subject="${subject}"]`)!;
 }
 
+function gradeButton(container: HTMLElement, grade: string): HTMLButtonElement {
+  return container.querySelector<HTMLButtonElement>(`.nq-roadmap-grade[data-grade="${grade}"]`)!;
+}
+
+function termButton(container: HTMLElement, term: string): HTMLButtonElement {
+  return container.querySelector<HTMLButtonElement>(`.nq-roadmap-term[data-term="${term}"]`)!;
+}
+
 describe('学習ロードマップの単元選択', () => {
-  it('全学年では教科を一文字で表示し、現在学んでいる学年も伝える', async () => {
+  it('全学年でも教科名を全文表示し、現在学んでいる学年も伝える', async () => {
     const container = await showRoadmap(vi.fn());
     const subjectButtons = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-subject')];
 
@@ -276,7 +284,7 @@ describe('学習ロードマップの単元選択', () => {
     ]);
     expect(
       subjectButtons.map((button) => button.querySelector('.nq-roadmap-subject-name')?.textContent),
-    ).toEqual(['全', '国', '算', '理', '社', '生', '英']);
+    ).toEqual(['全教科', '国語', '算数', '理科', '社会', '生活科', '英語']);
     expect(subjectButton(container, 'sansu').textContent).toContain('1年');
     expect(subjectButton(container, 'rika').textContent).toContain('3年');
     expect(subjectButton(container, 'sansu').getAttribute('aria-label')).toBe('算数・いまは 1年生');
@@ -285,12 +293,10 @@ describe('学習ロードマップの単元選択', () => {
 
   it('1・2年生では国語・算数・生活科だけを全文で表示する', async () => {
     const container = await showRoadmap(vi.fn());
-    const period = container.querySelector<HTMLInputElement>('.nq-roadmap-period-range')!;
 
-    for (const value of ['1', '4']) {
+    for (const value of ['1', '2']) {
       await act(async () => {
-        period.value = value;
-        period.dispatchEvent(new Event('input', { bubbles: true }));
+        gradeButton(container, value).click();
       });
 
       const subjectButtons = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-subject')];
@@ -302,23 +308,18 @@ describe('学習ロードマップの単元選択', () => {
       ]);
       expect(
         subjectButtons.map((button) => button.querySelector('.nq-roadmap-subject-name')?.textContent),
-      ).toEqual(['全', '国語', '算数', '生活科']);
+      ).toEqual(['全教科', '国語', '算数', '生活科']);
       expect(
         subjectButtons.slice(1).every((button) => button.classList.contains('nq-roadmap-subject-long')),
-      ).toBe(true);
-      expect(
-        container.querySelector('.nq-roadmap-subjects')?.classList.contains('nq-roadmap-subjects-lower'),
       ).toBe(true);
     }
   });
 
-  it('3〜6年生では教科を一文字で表示する', async () => {
+  it('3〜6年生でも教科名を全文表示する', async () => {
     const container = await showRoadmap(vi.fn());
-    const period = container.querySelector<HTMLInputElement>('.nq-roadmap-period-range')!;
 
     await act(async () => {
-      period.value = '7';
-      period.dispatchEvent(new Event('input', { bubbles: true }));
+      gradeButton(container, '3').click();
     });
 
     const subjectButtons = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-subject')];
@@ -331,10 +332,38 @@ describe('学習ロードマップの単元選択', () => {
     ]);
     expect(
       subjectButtons.map((button) => button.querySelector('.nq-roadmap-subject-name')?.textContent),
-    ).toEqual(['全', '国', '算', '理', '社']);
+    ).toEqual(['全教科', '国語', '算数', '理科', '社会']);
     expect(
       subjectButtons.slice(1).every((button) => button.classList.contains('nq-roadmap-subject-long')),
-    ).toBe(false);
+    ).toBe(true);
+  });
+
+  it('全教科の先頭に次のおすすめを表示し、押すと該当教科へ移動する', async () => {
+    const container = await showRoadmap(vi.fn());
+    const recommendation = container.querySelector<HTMLButtonElement>('.nq-roadmap-recommendation')!;
+
+    expect(recommendation.textContent).toContain('つぎの おすすめ');
+    expect(recommendation.textContent).toContain('ひらがな');
+
+    await act(async () => recommendation.click());
+
+    expect(subjectButton(container, 'kokugo').getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-map')).not.toBeNull();
+  });
+
+  it('時期の説明をタッチ・キーボードで開閉できるボタンとして表示する', async () => {
+    const container = await showRoadmap(vi.fn());
+    const info = container.querySelector<HTMLButtonElement>('.nq-roadmap-period-note')!;
+
+    expect(info.tagName).toBe('BUTTON');
+    expect(info.getAttribute('aria-expanded')).toBe('false');
+    expect(container.querySelector('.nq-roadmap-period-help')).toBeNull();
+
+    await act(async () => info.click());
+
+    expect(info.getAttribute('aria-expanded')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-period-help')?.textContent).toContain('学校');
+    expect(container.querySelector('.nq-roadmap-period-help')?.textContent).toContain('かわります');
   });
 
   it('未到達の教科をクリア済みと表示しない', async () => {
@@ -373,7 +402,8 @@ describe('学習ロードマップの単元選択', () => {
     await act(async () => unit!.click());
 
     expect(onRoadmapSelect).not.toHaveBeenCalled();
-    expect(unit!.getAttribute('aria-pressed')).toBe('true');
+    expect(unit!.hasAttribute('aria-pressed')).toBe(false);
+    expect(unit!.getAttribute('aria-label')).toContain('えらんでいる');
     const selection = container.querySelector<HTMLElement>('.nq-roadmap-selection')!;
     expect(selection.textContent).toContain('10までのかず');
     expect(selection.textContent).toContain('1ねん');
@@ -395,7 +425,8 @@ describe('学習ロードマップの単元選択', () => {
     });
 
     const current = container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!;
-    expect(current.getAttribute('aria-pressed')).toBe('true');
+    expect(current.hasAttribute('aria-pressed')).toBe(false);
+    expect(current.getAttribute('aria-label')).toContain('えらんでいる');
     expect(container.querySelector('.nq-roadmap-selection')?.textContent).toContain('10までのかず');
 
     const open = [...container.querySelectorAll<HTMLButtonElement>('.nq-roadmap-open')].find((button) =>
@@ -403,8 +434,10 @@ describe('学習ロードマップの単元選択', () => {
     )!;
     await act(async () => open.click());
 
-    expect(current.getAttribute('aria-pressed')).toBe('false');
-    expect(open.getAttribute('aria-pressed')).toBe('true');
+    expect(current.hasAttribute('aria-pressed')).toBe(false);
+    expect(current.getAttribute('aria-label')).not.toContain('えらんでいる');
+    expect(open.hasAttribute('aria-pressed')).toBe(false);
+    expect(open.getAttribute('aria-label')).toContain('えらんでいる');
     expect(container.querySelector('.nq-roadmap-selection')?.textContent).toContain('じき未設定');
     expect(onRoadmapSelect).not.toHaveBeenCalled();
   });
@@ -417,7 +450,7 @@ describe('学習ロードマップの単元選択', () => {
     });
 
     const current = container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!;
-    expect(current.getAttribute('aria-pressed')).toBe('true');
+    expect(current.getAttribute('aria-label')).toContain('えらんでいる');
     expect(container.querySelector('.nq-roadmap-selection')).not.toBeNull();
     expect(
       container
@@ -427,7 +460,7 @@ describe('学習ロードマップの単元選択', () => {
 
     await act(async () => container.querySelector<HTMLElement>('.nq-roadmap-map')!.click());
 
-    expect(current.getAttribute('aria-pressed')).toBe('false');
+    expect(current.getAttribute('aria-label')).not.toContain('えらんでいる');
     expect(container.querySelector('.nq-roadmap-selection')).toBeNull();
     expect(
       container
@@ -450,14 +483,23 @@ describe('学習ロードマップの単元選択', () => {
     await act(async () => locked!.click());
 
     expect(onRoadmapSelect).not.toHaveBeenCalled();
-    expect(locked!.getAttribute('aria-pressed')).toBe('true');
+    expect(locked!.hasAttribute('aria-pressed')).toBe(false);
+    expect(locked!.getAttribute('aria-label')).toContain('えらんでいる');
     expect(locked!.textContent).not.toContain('かけ算');
     expect(locked!.textContent).toContain('？');
     const conditions = container.querySelector<HTMLElement>('.nq-roadmap-prerequisites');
     expect(conditions?.textContent).toContain('0/1');
     expect(conditions?.textContent).toContain('10までのかず');
     expect(conditions?.textContent).toContain('まだ');
+    expect(container.querySelector('.nq-roadmap-selection-name')?.textContent).toContain('まだ');
+    expect(container.querySelector('.nq-roadmap-selection-name')?.textContent).toContain('見');
+    expect(container.querySelector('.nq-roadmap-selection-name')?.textContent).not.toContain('かけ算');
     expect(container.querySelector('.nq-roadmap-practice')).toBeNull();
+
+    const prerequisite = container.querySelector<HTMLButtonElement>('.nq-roadmap-prerequisite')!;
+    expect(prerequisite.tagName).toBe('BUTTON');
+    await act(async () => prerequisite.click());
+    expect(container.querySelector('.nq-roadmap-selection-name')?.textContent).toContain('10までのかず');
   });
 
   it('前提関係を接続線で描き、霧の向こうの単元名は読み上げない', async () => {
@@ -501,32 +543,31 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.querySelectorAll('.nq-roadmap-edge-muted').length).toBeGreaterThan(0);
   });
 
-  it('学年とおすすめ時期を1本のバーで絞り込める', async () => {
+  it('学年とおすすめ時期を別々のボタンで絞り込める', async () => {
     const container = await showRoadmap(vi.fn());
-    const period = container.querySelector<HTMLInputElement>('.nq-roadmap-period-range')!;
 
     await act(async () => {
       subjectButton(container, 'sansu').click();
-      period.value = '1';
-      period.dispatchEvent(new Event('input', { bubbles: true }));
+      gradeButton(container, '1').click();
+      termButton(container, '1').click();
     });
 
     expect(container.textContent).toContain('10までのかず');
     expect(container.textContent).not.toContain('かけ算');
     expect(container.textContent).toContain('じき未設定');
-    expect(container.querySelector('.nq-roadmap-period-value')?.textContent).toContain('1ねん・1がっき');
     expect(container.querySelectorAll('.nq-roadmap-toolbar')).toHaveLength(1);
-    expect(container.querySelector('.nq-roadmap-grade-row')).toBeNull();
-    expect(container.querySelector('.nq-roadmap-term-row')).toBeNull();
+    expect(container.querySelector('.nq-roadmap-period-range')).toBeNull();
+    expect(container.querySelectorAll('.nq-roadmap-grade')).toHaveLength(7);
+    expect(container.querySelectorAll('.nq-roadmap-term')).toHaveLength(4);
+    expect(gradeButton(container, '1').getAttribute('aria-pressed')).toBe('true');
+    expect(termButton(container, '1').getAttribute('aria-pressed')).toBe('true');
   });
 
   it('学年で絞り込んでも、対象単元へつながる前提ノードと線を残す', async () => {
     const container = await showRoadmap(vi.fn());
-    const period = container.querySelector<HTMLInputElement>('.nq-roadmap-period-range')!;
-
     await act(async () => {
-      period.value = '5';
-      period.dispatchEvent(new Event('input', { bubbles: true }));
+      gradeButton(container, '2').click();
+      termButton(container, '2').click();
       subjectButton(container, 'sansu').click();
     });
 
@@ -537,11 +578,8 @@ describe('学習ロードマップの単元選択', () => {
 
   it('1・2年生では補助教材を教科一覧と必修進捗に含めない', async () => {
     const container = await showRoadmap(vi.fn());
-    const period = container.querySelector<HTMLInputElement>('.nq-roadmap-period-range')!;
-
     await act(async () => {
-      period.value = '1';
-      period.dispatchEvent(new Event('input', { bubbles: true }));
+      gradeButton(container, '1').click();
     });
 
     expect(container.querySelector('.nq-roadmap-subject[data-subject="eigo"]')).toBeNull();
@@ -549,7 +587,7 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.querySelector('.nq-roadmap-score')?.textContent).toContain('0/4');
   });
 
-  it('操作ボタンを置かず、トラックパッドで拡大と移動ができる', async () => {
+  it('操作ボタンを置かず、初回ヒントを操作後に消して拡大と移動ができる', async () => {
     const container = await showRoadmap(vi.fn());
 
     await act(async () => {
@@ -564,6 +602,7 @@ describe('学習ロードマップの単元選択', () => {
 
     const map = container.querySelector<HTMLElement>('.nq-roadmap-map')!;
     const canvas = container.querySelector<HTMLElement>('.nq-roadmap-canvas')!;
+    expect(container.querySelector('.nq-roadmap-gesture-hint')?.textContent).toContain('ドラッグ');
     await act(async () => {
       map.dispatchEvent(
         new WheelEvent('wheel', {
@@ -577,6 +616,7 @@ describe('学習ロードマップの単元選択', () => {
       );
     });
     expect(canvas.style.transform).toContain('scale(1.1)');
+    expect(container.querySelector('.nq-roadmap-gesture-hint')).toBeNull();
 
     const beforePan = canvas.style.transform;
     await act(async () => {
@@ -614,7 +654,7 @@ describe('学習ロードマップの単元選択', () => {
     );
   });
 
-  it('単元を選ぶと右側の地図全体の中央へ寄せる', async () => {
+  it('表示中の単元を選び替えても地図位置を動かさない', async () => {
     const container = await showRoadmap(vi.fn());
 
     await act(async () => {
@@ -629,14 +669,44 @@ describe('学習ロードマップの単元選択', () => {
     const openNode = container.querySelector<HTMLButtonElement>(
       '.nq-roadmap-node[aria-label="じき未設定の単元"]',
     )!;
-    const currentNode = container.querySelector<HTMLButtonElement>(
-      '.nq-roadmap-node[aria-label="10までのかず"]',
-    )!;
+    const currentNode = container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!;
+    await act(async () => map.click());
+    await act(async () => currentNode.click());
+    const before = container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform;
     await act(async () => openNode.click());
+    expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toBe(before);
     await act(async () => currentNode.click());
 
-    expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toContain(
-      'translate(312px, 64px)',
-    );
+    expect(container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform).toBe(before);
+  });
+
+  it('画面外の単元は中央ではなく、全体が見える位置までだけ動かす', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    const distantNodes: RoadmapNode[] = [
+      { ...nodes.find((node) => node.id === 'sansu.g1.kazu-10')!, x: 0, y: 64 },
+      {
+        ...nodes.find((node) => node.id === 'sansu.g1.legacy')!,
+        x: 1200,
+        y: 64,
+      },
+    ];
+    await act(async () => render(h(RoadmapGraph, { nodes: distantNodes, onSelect: vi.fn() }), container));
+    const map = container.querySelector<HTMLElement>('.nq-roadmap-map')!;
+    Object.defineProperties(map, {
+      clientWidth: { configurable: true, value: 800 },
+      clientHeight: { configurable: true, value: 300 },
+    });
+
+    await act(async () => map.click());
+    await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-current')!.click());
+    await act(async () => container.querySelector<HTMLButtonElement>('.nq-roadmap-open')!.click());
+
+    const transform = container.querySelector<HTMLElement>('.nq-roadmap-canvas')!.style.transform;
+    const translateX = Number(transform.match(/translate\((-?[\d.]+)px/)?.[1]);
+    const distantLeft = 1240 + translateX;
+    const distantRight = distantLeft + 96;
+    expect(distantLeft).toBeGreaterThan(400);
+    expect(distantRight).toBe(800 - 24);
   });
 });
