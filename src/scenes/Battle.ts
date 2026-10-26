@@ -386,7 +386,7 @@ export class BattleScene extends Phaser.Scene {
   private startIdle(): void {
     this.tweens.add({
       targets: this.enemySprite,
-      scaleY: this.enemyScale * 0.95,
+      scaleY: this.enemySprite.scaleY * 0.95,
       duration: 460,
       yoyo: true,
       repeat: -1,

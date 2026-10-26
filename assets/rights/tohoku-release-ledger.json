@@ -7,6 +7,29 @@
   },
   "groups": [
     {
+      "id": "approved-design-starter-pixel-images",
+      "paths": [
+        "assets/sprites/monsters/iwate-kagurabi.png",
+        "assets/sprites/monsters/iwate-izumiko.png",
+        "assets/sprites/monsters/iwate-kodamaru.png"
+      ],
+      "status": "hold",
+      "origin": "2026-10-26 ユーザーが採用した御三家デザインを内蔵imagegenで透過抽出",
+      "author": "NIHON QUEST project（AI-assisted generation）",
+      "source": "tasks/starter-approved-pixels-runtime.md",
+      "license": "AI生成物。公開前の利用条件・参照素材の権利確認は未完了",
+      "licenseEvidence": "tasks/starter-approved-pixels-runtime.md",
+      "modificationAllowed": null,
+      "redistributionAllowed": null,
+      "creditRequired": null,
+      "releaseAction": "公開リリース前に生成サービスの利用条件と参照素材の権利を人間が確認する。デザイン採用を権利承認と混同しない",
+      "sha256": {
+        "assets/sprites/monsters/iwate-kagurabi.png": "bc563a55706c02a2a2754d060ba3ed271d6bbe18b2b0e0caaf086b68e0c0294c",
+        "assets/sprites/monsters/iwate-izumiko.png": "d2f3476c3034bc85ecce0b0b485f80cf42fc90f5ff648e5c05b51be32b1a0c5c",
+        "assets/sprites/monsters/iwate-kodamaru.png": "6339290967235f6da6487707af0c667413b83fe26b3d90b514325f816b4f241a"
+      }
+    },
+    {
       "id": "pixel-mplus-fonts",
       "paths": ["src/ui/fonts/PixelMplus12-Bold.woff2", "src/ui/fonts/PixelMplus12-Regular.woff2"],
       "status": "approved",
