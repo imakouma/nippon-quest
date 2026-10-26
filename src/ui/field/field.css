@@ -65,12 +65,12 @@
     display: block;
   }
 }
-/* ───── 左上の小さな地図（いまいる地方を、主人公を まん中に拡大）。144px の正方形。タップで県の大きな地図 ───── */
+/* ───── 左上の小さな地図（いまいる地方を、主人公を まん中に拡大）。タップで県の大きな地図 ───── */
 .nq-mini {
   position: relative;
   display: block;
-  width: 144px;
-  height: 144px;
+  width: 168px;
+  height: 168px;
   flex: none;
   padding: 0;
   overflow: hidden;

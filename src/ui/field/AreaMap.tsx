@@ -8,6 +8,7 @@
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { NQ } from '../../rendering/palette';
+import { overworldTilesetCanvas } from '../../rendering/overworld/fieldArt';
 import { LOCKED_REGION_TILE } from '../../shared/regionVisibility';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
@@ -15,7 +16,7 @@ import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
-import { areaMapTerrainColor } from './areaMapTerrain';
+import { areaMapTerrainColor, terrainDetailScale } from './areaMapTerrain';
 import type { RegionMiniView } from './RegionMiniMap';
 import { drawRegionContext } from './regionContext';
 import './field.css';
@@ -67,20 +68,33 @@ export interface PlaceOption {
 const AREA_VIEW = 344;
 
 /**
- * 地形を 1 マス = 1 ドットでかく（CSS で整数倍に広げる）。
+ * 等倍では1マス1ドット、拡大時はフィールド本編のタイル原画で細かく描き直す。
  * 海（3）は かかない（枠の青が見える。県の外の陸は海の色なので、下に かさねた地方の地図のとなりの県が見える）
  */
-function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView): void {
-  canvas.width = map.width;
-  canvas.height = map.height;
+function drawTerrain(canvas: HTMLCanvasElement, map: AreaMapView, detailScale: 1 | 4 | 8): void {
+  canvas.width = map.width * detailScale;
+  canvas.height = map.height * detailScale;
   const ctx = canvas.getContext('2d')!;
+  ctx.imageSmoothingEnabled = false;
+  const tileset = detailScale > 1 ? overworldTilesetCanvas() : null;
   for (let y = 0; y < map.height; y++)
     for (let x = 0; x < map.width; x++) {
       const tile = map.tiles[y * map.width + x] ?? 0;
       if (tile === 3) continue;
+      const left = x * detailScale;
+      const top = y * detailScale;
+      if (tileset && tile > 0 && tile !== LOCKED_REGION_TILE) {
+        const source = tile - 1;
+        const sourceX = (source % 8) * 16;
+        const sourceY = Math.floor(source / 8) * 16;
+        if (sourceY < tileset.height) {
+          ctx.drawImage(tileset, sourceX, sourceY, 16, 16, left, top, detailScale, detailScale);
+          continue;
+        }
+      }
       ctx.fillStyle =
         tile === LOCKED_REGION_TILE && (x * 5 + y * 3) % 7 === 0 ? NQ.night : areaMapTerrainColor(tile);
-      ctx.fillRect(x, y, 1, 1);
+      ctx.fillRect(left, top, detailScale, detailScale);
     }
 }
 
@@ -89,11 +103,11 @@ const cellCenter = (x: number, y: number, cell: number) => ({
   top: y * cell + cell / 2,
 });
 
-function useTerrain(map: AreaMapView) {
+function useTerrain(map: AreaMapView, detailScale: 1 | 4 | 8) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
-    if (ref.current) drawTerrain(ref.current, map);
-  }, [map.key]);
+    if (ref.current) drawTerrain(ref.current, map, detailScale);
+  }, [map.key, detailScale]);
   return ref;
 }
 
@@ -143,9 +157,10 @@ export function AreaMapOverlay({
   const cell = Math.max(2, Math.floor(Math.min(AREA_VIEW / map.width, AREA_VIEW / map.height)));
   const mapWidth = map.width * cell;
   const mapHeight = map.height * cell;
-  const ref = useTerrain(map);
   const [sel, setSel] = useState(0);
   const [zoom, setZoom] = useState(1);
+  const detailScale = terrainDetailScale(zoom);
+  const ref = useTerrain(map, detailScale);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const place = places[sel];
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -437,7 +452,7 @@ export function AreaMapOverlay({
               onClick={onMapClick}
             >
               {regionBox && <canvas ref={regionRef} class="nq-amap-region-context" style={regionBox} />}
-              <canvas ref={ref} />
+              <canvas ref={ref} class="nq-amap-terrain" data-detail-scale={detailScale} />
               {map.marks.map((m, i) => (
                 <span key={i} class="nq-amap-pin" style={cellCenter(m.x, m.y, cell)}>
                   <MarkIcon kind={m.kind} />

@@ -788,6 +788,14 @@ function tilesetCanvas(): HTMLCanvasElement {
   return c;
 }
 
+let cachedTileset: HTMLCanvasElement | null = null;
+
+/** フィールド本編と地図UIで共有する、16pxタイルの原画。呼び出しごとに作り直さない。 */
+export function overworldTilesetCanvas(): HTMLCanvasElement {
+  cachedTileset ??= tilesetCanvas();
+  return cachedTileset;
+}
+
 const gridCanvas = (rows: readonly string[], colors: Record<string, string>): HTMLCanvasElement => {
   const g = makeGrid(rows[0]!.length, rows.length);
   paint(g, rows, { o: NQ.ink, ...colors });
@@ -1021,7 +1029,7 @@ export function michiruCanvas(): HTMLCanvasElement {
 /** フィールドで使うテクスチャをまとめて用意する（何度呼んでもよい） */
 export function buildFieldTextures(scene: Phaser.Scene): void {
   const tx = scene.textures;
-  addImage(tx, 'overworld-tiles', tilesetCanvas());
+  addImage(tx, 'overworld-tiles', overworldTilesetCanvas());
   for (const name of Object.keys(ICONS)) {
     const c = iconCanvas(name);
     if (c) addImage(tx, `ico.${name}`, c);

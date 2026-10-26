@@ -58,3 +58,9 @@ const TILE_COLOR: Record<number, string> = {
 };
 
 export const areaMapTerrainColor = (tile: number): string => TILE_COLOR[tile] ?? NQ.leaf;
+
+/**
+ * 拡大率に応じた1マスあたりの描画画素数。
+ * CSSで同じ粗い絵を伸ばさず、段階ごとに細かなタイル原画へ描き直す。
+ */
+export const terrainDetailScale = (zoom: number): 1 | 4 | 8 => (zoom >= 2 ? 8 : zoom >= 1.5 ? 4 : 1);
