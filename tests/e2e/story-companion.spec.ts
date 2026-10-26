@@ -173,7 +173,10 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
     .getByRole('dialog', { name: 'もちもの・へんせい' })
     .getByRole('button', { name: /とじる/ })
     .click();
-  await page.getByRole('dialog', { name: 'メニュー' }).getByRole('button', { name: /とじる/ }).click();
+  await page
+    .getByRole('dialog', { name: 'メニュー' })
+    .getByRole('button', { name: /とじる/ })
+    .click();
   await page.evaluate(() => {
     const game = (window as unknown as { __nq: Phaser.Game }).__nq;
     const field = game.scene.getScene('Overworld') as unknown as {
