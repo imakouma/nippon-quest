@@ -189,7 +189,8 @@
 }
 .nq-amap-pin {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(var(--nq-amap-marker-scale, 1));
+  transform-origin: center;
   line-height: 0;
   pointer-events: none;
 }
@@ -202,7 +203,8 @@
   z-index: 1;
   width: 28px;
   height: 28px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(var(--nq-amap-marker-scale, 1));
+  transform-origin: center;
   border: 4px solid var(--nq-yellow);
   pointer-events: none;
   animation: nq-wmap-blink 1s linear infinite;
@@ -1045,6 +1047,10 @@
 .nq-wmap-hero {
   z-index: 2;
   animation: nq-wmap-bob 0.8s steps(1) infinite;
+}
+.nq-amap-view .nq-wmap-hero {
+  transform: translate(-50%, -100%) scale(var(--nq-amap-marker-scale, 1));
+  transform-origin: center bottom;
 }
 .nq-wmap-hero-art {
   display: block;

@@ -25,6 +25,8 @@ export interface MenuOverlayProps {
   tabs: { key: MenuHomeKey; label: string; icon: string; count?: string; group?: string }[];
   entries: MenuEntry[];
   roadmap?: RoadmapNode[];
+  /** 開発者向けの教材フィルタと未解放教科を表示する。 */
+  developerMode?: boolean;
   /** リストの上に出す 行（そうびの タブの ステータス など） */
   summary?: string;
   empty: string;
@@ -91,6 +93,7 @@ export function MenuOverlay({
   tabs,
   entries,
   roadmap = [],
+  developerMode = false,
   summary,
   empty,
   message,
@@ -407,7 +410,7 @@ export function MenuOverlay({
             </div>
           </>
         ) : tab === 'roadmap' ? (
-          <RoadmapView nodes={roadmap} onSelect={onRoadmapSelect} />
+          <RoadmapView nodes={roadmap} onSelect={onRoadmapSelect} developerMode={developerMode} />
         ) : (
           <>
             {(tab === 'monsters' || tab === 'specialties') && (
