@@ -101,6 +101,13 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   }
 
   await expect(kagurabi).toBeVisible();
+  const starterImages = page.locator('.nq-musubi-card img');
+  for (const [index, id] of ['iwate-kagurabi', 'iwate-izumiko', 'iwate-kodamaru'].entries()) {
+    await expect(starterImages.nth(index)).toHaveAttribute('src', `/assets/sprites/monsters/${id}.png`);
+    await expect
+      .poll(() => starterImages.nth(index).evaluate((img) => (img as HTMLImageElement).naturalWidth))
+      .toBeGreaterThan(32);
+  }
   await expect(page.getByRole('button', { name: /イズミコ/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /コダマル/ })).toBeVisible();
   const companionChoice = page.getByRole('dialog', { name: /むすび/ });
