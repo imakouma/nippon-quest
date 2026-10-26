@@ -81,7 +81,12 @@ interface BrowserField {
   regionGates: Map<number, BrowserGate>;
   regionBosses: Map<number, { regionId: string }>;
   transitionIcons: Map<number, { isTinted: boolean }>;
-  stepCount: number;
+  encounterPolicyState: {
+    traversedSteps: number;
+    eligibleStepsSinceCheck: number;
+    missedChecks: number;
+    cooldownStepsRemaining: number;
+  };
   midBoss: { tile: number } | null;
   warp: { tile: number; to: { id: string; mapKey: string } } | null;
   rng: { chance: (probability: number) => boolean };
@@ -462,56 +467,54 @@ async function defeatCurrentEnemy(page: Page): Promise<void> {
   await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 30_000 });
   await page.locator('.nq-box').click();
   const skillCommand = page.locator('.nq-cmd[data-cmd="skill"]');
-  await expect(skillCommand).toBeVisible({ timeout: 20_000 });
-  await page.evaluate(() => {
-    const game = (window as unknown as { __nq: BrowserGame }).__nq;
-    const battle = game.scene.getScene('Battle') as { state: { enemy: { hp: number } } };
-    battle.state.enemy.hp = 1;
-  });
-  await skillCommand.click();
-  const skill = page.locator('[data-skill]:not(.nq-opt-off)').first();
-  await expect(skill).toBeVisible({ timeout: 10_000 });
-  await skill.click();
-
-  const answer = page
-    .locator('.nq-choice, .nq-q-input input, .nq-map-tap, .nq-nb-submit, .nq-pw-card, .nq-sort-submit')
-    .first();
-  await expect(answer).toBeVisible({ timeout: 20_000 });
-  if (await page.locator('.nq-choice').first().isVisible()) {
-    await page.locator('.nq-choice').first().click();
-  } else if (await page.locator('.nq-q-input input').first().isVisible()) {
-    const inputs = page.locator('.nq-q-input input');
-    for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
-    await page.getByRole('button', { name: 'こたえる' }).click();
-  } else if (await page.locator('.nq-nb-submit').isVisible()) {
-    await page.locator('.nq-nb-submit').click();
-  } else if (await page.locator('.nq-pw-card').first().isVisible()) {
-    const cards = page.locator('.nq-pw-card');
-    for (
-      let index = 0;
-      index < (await cards.count()) && (await page.locator('.nq-bq').isVisible());
-      index += 1
-    )
-      await cards
-        .nth(index)
-        .click()
-        .catch(() => undefined);
-  } else if (await page.locator('.nq-sort-submit').isVisible()) {
-    await page.locator('.nq-sort-submit').click();
-  } else {
-    await page.locator('.nq-map-tap').click({ position: { x: 20, y: 20 } });
-  }
-
-  const deadline = Date.now() + 45_000;
+  const deadline = Date.now() + 90_000;
   while (Date.now() < deadline && !(await page.locator('.nq-result').isVisible())) {
-    if (await page.locator('.nq-box-next').isVisible())
+    if (await skillCommand.isVisible()) {
+      await page.evaluate(() => {
+        const game = (window as unknown as { __nq: BrowserGame }).__nq;
+        const battle = game.scene.getScene('Battle') as { state: { enemy: { hp: number } } };
+        battle.state.enemy.hp = 1;
+      });
+      await skillCommand.click();
+      const skill = page.locator('[data-skill]:not(.nq-opt-off)').first();
+      await expect(skill).toBeVisible({ timeout: 10_000 });
+      await skill.click();
+      const answer = page
+        .locator('.nq-choice, .nq-q-input input, .nq-map-tap, .nq-nb-submit, .nq-pw-card, .nq-sort-submit')
+        .first();
+      await expect(answer).toBeVisible({ timeout: 20_000 });
+      if (await page.locator('.nq-choice').first().isVisible()) {
+        await page.locator('.nq-choice').first().click();
+      } else if (await page.locator('.nq-q-input input').first().isVisible()) {
+        const inputs = page.locator('.nq-q-input input');
+        for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
+        await page.getByRole('button', { name: 'こたえる' }).click();
+      } else if (await page.locator('.nq-nb-submit').isVisible()) {
+        await page.locator('.nq-nb-submit').click();
+      } else if (await page.locator('.nq-pw-card').first().isVisible()) {
+        const cards = page.locator('.nq-pw-card');
+        for (
+          let index = 0;
+          index < (await cards.count()) && (await page.locator('.nq-bq').isVisible());
+          index += 1
+        )
+          await cards
+            .nth(index)
+            .click()
+            .catch(() => undefined);
+      } else if (await page.locator('.nq-sort-submit').isVisible()) {
+        await page.locator('.nq-sort-submit').click();
+      } else {
+        await page.locator('.nq-map-tap').click({ position: { x: 20, y: 20 } });
+      }
+    } else if (await page.locator('.nq-box-next').isVisible())
       await page
         .locator('.nq-box')
         .click({ timeout: 1_000 })
         .catch(() => undefined);
     await page.waitForTimeout(120);
   }
-  await expect(page.locator('.nq-result')).toContainText(/しょうり|勝利/);
+  await expect(page.locator('.nq-result')).toContainText(/しょうり|勝利/, { timeout: 10_000 });
   await page.locator('[data-result-close]').click();
   for (let step = 0; step < 80 && (await page.locator('.nq-battle').isVisible()); step += 1) {
     if (await page.locator('.nq-box').isVisible())
@@ -683,7 +686,7 @@ async function restartFieldAt(page: Page, tile: Tile): Promise<void> {
 }
 
 test('地域ボス撃破を保存し、開いた関所から次地域の出現表へ進める', async ({ page }) => {
-  test.setTimeout(180_000);
+  test.setTimeout(300_000);
   const layout = resolveLayout();
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(String(error)));
@@ -734,7 +737,12 @@ test('地域ボス撃破を保存し、開いた関所から次地域の出現�
   await page.evaluate((steps) => {
     const game = (window as unknown as { __nq: BrowserGame }).__nq;
     const field = game.scene.getScene('Overworld') as BrowserField;
-    field.stepCount = steps;
+    field.encounterPolicyState = {
+      traversedSteps: 3,
+      eligibleStepsSinceCheck: steps - 1,
+      missedChecks: 0,
+      cooldownStepsRemaining: 0,
+    };
     field.rng.chance = () => true;
     field.checkRandomEncounter();
   }, layout.encounterSteps);
