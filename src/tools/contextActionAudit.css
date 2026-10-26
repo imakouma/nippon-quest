@@ -1,0 +1,48 @@
+#ui-layer {
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: none !important;
+}
+
+#audit-ground {
+  position: fixed;
+  inset: 0;
+}
+
+.audit-mini,
+.audit-menu,
+.audit-stick {
+  position: fixed;
+  border: 2px solid var(--nq-slate);
+  pointer-events: none;
+}
+
+.audit-mini {
+  top: 16px;
+  left: 16px;
+  width: 144px;
+  height: 144px;
+}
+
+.audit-menu {
+  top: 16px;
+  right: 16px;
+  width: 120px;
+  height: 48px;
+}
+
+.audit-stick {
+  bottom: 24px;
+  left: 24px;
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+}
+
+#activation-count {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

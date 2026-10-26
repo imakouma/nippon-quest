@@ -293,6 +293,41 @@
   gap: 12px;
 }
 
+/* 右下：近くにある一件だけを、キーボードと同じ callback で実行する。 */
+.nq-context-action {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 13;
+  display: inline-flex;
+  min-width: 144px;
+  min-height: 72px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 16px;
+  color: var(--nq-white);
+  font-size: 24px;
+  line-height: 36px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.nq-context-action:hover,
+.nq-context-action:focus-visible {
+  color: var(--nq-yellow);
+  border-color: var(--nq-yellow);
+}
+.nq-context-action .nq-picon {
+  width: 32px;
+  height: 32px;
+}
+@media (max-width: 480px) {
+  .nq-context-action {
+    right: 16px;
+    bottom: 184px;
+  }
+}
+
 /* ───── チーム編成（なかま）。枠は にほんちずと同じ ───── */
 .nq-party-list {
   display: flex;

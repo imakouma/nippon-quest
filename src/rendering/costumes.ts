@@ -18,7 +18,7 @@ import { NQ } from './palette';
 export const HERO_FRAME = { w: 24, h: 32, ox: 5, oy: 9 } as const;
 
 export type CostumeView = 'front' | 'back' | 'side';
-export type CostumePose = 'walk' | 'attack' | 'hurt' | 'victory';
+export type CostumePose = 'walk' | 'stepA' | 'stepB' | 'attack' | 'hurt' | 'victory';
 export type CostumeSlot = 'head' | 'chest' | 'legs' | 'feet';
 
 type Colors = Readonly<Record<string, string>>;
@@ -94,16 +94,18 @@ function hands(g: Grid, view: CostumeView, pose: CostumePose, base: Colors, reac
   if (pose === 'victory') return;
   const skin = base.S ?? NQ.skinLight;
   const cx = cxOf(view);
+  const step = pose === 'stepA' ? -1 : pose === 'stepB' ? 1 : 0;
   if (view === 'side') {
-    const hy = pose === 'attack' ? 21 : 23;
+    const hy = pose === 'attack' ? 21 : 23 + step;
     const hx = Math.ceil(cx - reach) - 1;
     put(g, hx, hy, skin);
     if (pose === 'attack') put(g, hx - 1, hy, skin);
     return;
   }
   for (const hx of [Math.ceil(cx - reach) - 1, Math.floor(cx + reach) + 1]) {
-    put(g, hx, 23, skin);
-    put(g, hx, 24, skin);
+    const dy = hx < cx ? step : -step;
+    put(g, hx, 23 + dy, skin);
+    put(g, hx, 24 + dy, skin);
   }
 }
 
