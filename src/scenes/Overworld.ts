@@ -1039,7 +1039,6 @@ export class OverworldScene extends Phaser.Scene {
   }
   private addNpc(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const model = npcModel({ area, objectName: obj.name, objectRole: prop(obj, 'role'), text: t });
-    const r = model.role;
     const i = this.idx(tx, ty);
     this.blocked.add(i);
     const npc = createPhaserNpc(this, {
@@ -1049,7 +1048,7 @@ export class OverworldScene extends Phaser.Scene {
       facing: 'down',
       persistState: shouldPersistNpcState(prop(obj, 'persistState')),
       wanders: shouldNpcWander(prop(obj, 'wander')),
-      role: r,
+      role: model.role,
       name: model.name,
       lines: model.lines,
       nextMoveAt: this.time.now + this.rng.int(600, 1800),
@@ -1057,7 +1056,7 @@ export class OverworldScene extends Phaser.Scene {
     this.npcs.set(i, npc);
     this.npcObjects.set(npc.key, npc);
     this.fieldResume.registerNpc(this.map.width, npc, this.npcs, this.blocked);
-    addNpcRoleSign(this, r, prop(obj, 'signX'), prop(obj, 'signY'));
+    addNpcRoleSign(this, model.role, prop(obj, 'signX'), prop(obj, 'signY'));
   }
   private addChest(obj: TiledObject, tx: number, ty: number): void {
     const model = chestModel({
