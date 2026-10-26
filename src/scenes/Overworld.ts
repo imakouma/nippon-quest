@@ -136,7 +136,7 @@ import { resolveEncounterStep } from './overworld/encounterLifecycle';
 import { attachSceneMusic } from './shared/music';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
-import { npcModel } from './overworld/npcModel';
+import { npcModel, shouldPersistNpcState } from './overworld/npcModel';
 import { applyChestReward, chestModel, specialtyChestModel } from './overworld/chestModel';
 import { itemKindPresentation, specialtyRewardLines } from './overworld/treasurePresentation';
 import { movementDecision } from './overworld/movementDecision';
@@ -1050,7 +1050,7 @@ export class OverworldScene extends Phaser.Scene {
       tile: [tx, ty],
       mapWidth: this.map.width,
       facing: 'down',
-      persistState: prop(obj, 'persistState') === true,
+      persistState: shouldPersistNpcState(r, prop(obj, 'persistState')),
       role: r,
       name: model.name,
       lines: model.lines,

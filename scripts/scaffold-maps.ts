@@ -2194,10 +2194,7 @@ function townMap(prefId: string): object {
         name: talk[k]?.id ?? `npc_talk_${k + 1}`,
         type: 'npc',
         at,
-        properties: [
-          str('role', 'talk'),
-          ...(prefId === 'aomori' && k === 0 ? [bool('persistState', true)] : []),
-        ],
+        properties: [str('role', 'talk'), bool('persistState', true)],
       }),
     );
     room.objects.push(
@@ -2397,10 +2394,7 @@ function townMap(prefId: string): object {
       name: talk[k]?.id ?? `npc_talk_${k + 1}`,
       type: 'npc',
       at,
-      properties: [
-        str('role', 'talk'),
-        ...(prefId === 'aomori' && k === 0 ? [bool('persistState', true)] : []),
-      ],
+      properties: [str('role', 'talk'), bool('persistState', true)],
     }),
   );
   room.objects.push(

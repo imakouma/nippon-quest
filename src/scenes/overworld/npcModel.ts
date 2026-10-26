@@ -28,6 +28,11 @@ export interface NpcModel {
   lines: DialogueLine[];
 }
 
+/** 歩き回る町人は既定で再開対象にし、マップ側の明示設定を優先する。 */
+export function shouldPersistNpcState(role: string, configured: unknown): boolean {
+  return typeof configured === 'boolean' ? configured : role === 'talk';
+}
+
 /** マップ上の NPC と content の会話を突き合わせ、表示する役割・名前・会話を決める。 */
 export function npcModel(input: {
   area: Area | undefined;
