@@ -58,6 +58,7 @@ export default defineConfig({
   resolve: { alias: { '@': resolve(root, 'src') } },
   build: {
     target: 'es2022',
+    manifest: true,
     // Phaser は専用vendorチャンクへ分離済み（約1.48MB）。ゲーム側チャンクの肥大化とは区別する。
     chunkSizeWarningLimit: 1500,
     rollupOptions: {
@@ -95,6 +96,18 @@ export default defineConfig({
   server: {
     port: 5173,
     open: false,
+    // 制作映像の原本と生成物はゲームのHMR対象ではない。巨大ファイルの
+    // 追加・更新でwatcherと並行チャットのI/Oを飽和させない。
+    watch: {
+      ignored: [
+        '**/assets/cinematics/**',
+        '**/.worktrees/**',
+        '**/graphify-out/**',
+        '**/dist/**',
+        '**/test-results/**',
+        '**/tests/fixtures/**',
+      ],
+    },
     // 初回の「はじめから／つづきから」で大きい Scene を変換すると、
     // 低速環境では dynamic import がタイムアウトする。サーバー起動時に
     // 変換を済ませ、タイトルからの遷移を安定させる。
