@@ -136,6 +136,8 @@ export interface AreaMapOverlayProps {
   map: AreaMapView;
   /** 地図の名前（RubyText） */
   title: string;
+  /** フィールド本編と同じ主人公の正面絵（24×32）。拡大しても汎用アイコンに見えないようにする。 */
+  heroArt: string;
   places: PlaceOption[];
   onGo: (id: string) => void;
   /** にほんちず（ほかの県へ）を ひらく。左上の地図から えらべるように */
@@ -148,6 +150,7 @@ export interface AreaMapOverlayProps {
 export function AreaMapOverlay({
   map,
   title,
+  heroArt,
   places,
   onGo,
   worldLabel,
@@ -461,7 +464,7 @@ export function AreaMapOverlay({
               {place?.at && <span class="nq-amap-sel" style={cellCenter(place.at[0], place.at[1], cell)} />}
               {map.hero && (
                 <span class="nq-wmap-pin nq-wmap-hero" style={cellCenter(map.hero[0], map.hero[1], cell)}>
-                  <PixelIcon name="hero" scale={2} />
+                  <img class="nq-wmap-hero-art" src={heroArt} alt="" aria-hidden="true" />
                 </span>
               )}
             </div>

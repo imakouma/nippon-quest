@@ -66,6 +66,18 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
   await expect(areaMapDialog.getByRole('button', { name: /ちずを (おおきく|ちいさく)する/ })).toHaveCount(0);
 
   const terrain = areaMapDialog.locator('.nq-amap-terrain');
+  const heroMarker = areaMapDialog.locator('.nq-wmap-hero img');
+  await expect(heroMarker).toBeVisible();
+  await expect
+    .poll(() =>
+      heroMarker.evaluate((image) => ({
+        width: (image as HTMLImageElement).naturalWidth,
+        height: (image as HTMLImageElement).naturalHeight,
+      })),
+    )
+    .toEqual({ width: 24, height: 32 });
+  const heroOverviewBox = await heroMarker.boundingBox();
+  expect(heroOverviewBox).not.toBeNull();
   const overviewResolution = await terrain.evaluate((canvas) => (canvas as HTMLCanvasElement).width);
   await expect(terrain).toHaveAttribute('data-detail-scale', '1');
 
@@ -80,6 +92,12 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
   await expect
     .poll(() => terrain.evaluate((canvas) => (canvas as HTMLCanvasElement).width))
     .toBe(overviewResolution * 4);
+  await expect
+    .poll(() => heroMarker.evaluate((image) => image.getBoundingClientRect().width))
+    .toBeCloseTo(heroOverviewBox!.width * 1.5, 1);
+  await expect
+    .poll(() => heroMarker.evaluate((image) => image.getBoundingClientRect().height))
+    .toBeCloseTo(heroOverviewBox!.height * 1.5, 1);
 
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
   await page.mouse.down();

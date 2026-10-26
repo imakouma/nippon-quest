@@ -1046,6 +1046,12 @@
   z-index: 2;
   animation: nq-wmap-bob 0.8s steps(1) infinite;
 }
+.nq-wmap-hero-art {
+  display: block;
+  width: 16px;
+  height: auto;
+  image-rendering: pixelated;
+}
 @keyframes nq-wmap-bob {
   50% {
     margin-top: -4px;
