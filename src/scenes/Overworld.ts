@@ -3171,6 +3171,8 @@ export class OverworldScene extends Phaser.Scene {
   /** ひらいた地図：県の全体を見て、いったことの ある ばしょ へワープする */
   private openAreaMap(): void {
     if (this.busy || this.inBattle || this.moving) return;
+    const gs = this.gs();
+    if (!gs) return;
     const map = this.areaMapView();
     if (!map || !this.baseMap) return;
     const places = this.places();
@@ -3188,6 +3190,7 @@ export class OverworldScene extends Phaser.Scene {
       h(AreaMapOverlay, {
         map,
         title: t('field.areaMap', { name: this.baseMap.name }),
+        heroArt: this.heroFrameUrl(gs.player.appearance),
         places,
         onGo: (id: string) => {
           const p = places.find((q) => q.id === id);
