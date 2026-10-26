@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { npcWanderCandidates, npcWanderTile } from '../../src/scenes/overworld/npcWander';
+import { npcCanWander, npcWanderCandidates, npcWanderTile } from '../../src/scenes/overworld/npcWander';
 
 describe('町の人の歩行候補', () => {
   it('上下左右の隣のマスを候補にする', () => {
@@ -20,5 +20,11 @@ describe('町の人の歩行候補', () => {
     expect(npcWanderTile(10, 11, 0.49)).toBe(10);
     expect(npcWanderTile(10, 11, 0.5)).toBe(11);
     expect(npcWanderTile(10, 11, 1)).toBe(11);
+  });
+
+  it('一般の町人だけが歩き、定位置指定や別の役割は歩かない', () => {
+    expect(npcCanWander({ role: 'talk', wanders: true })).toBe(true);
+    expect(npcCanWander({ role: 'talk', wanders: false })).toBe(false);
+    expect(npcCanWander({ role: 'shop', wanders: true })).toBe(false);
   });
 });

@@ -140,7 +140,7 @@ import { resolveEncounterStep } from './overworld/encounterLifecycle';
 import { attachSceneMusic } from './shared/music';
 import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
 import { dispatchMapObjects } from './overworld/objectDispatch';
-import { npcModel, shouldPersistNpcState } from './overworld/npcModel';
+import { npcModel, shouldNpcWander, shouldPersistNpcState } from './overworld/npcModel';
 import { applyChestReward, chestModel, specialtyChestModel } from './overworld/chestModel';
 import { itemKindPresentation, specialtyRewardLines } from './overworld/treasurePresentation';
 import { movementDecision } from './overworld/movementDecision';
@@ -1039,7 +1039,6 @@ export class OverworldScene extends Phaser.Scene {
   }
   private addNpc(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const model = npcModel({ area, objectName: obj.name, objectRole: prop(obj, 'role'), text: t });
-    const r = model.role;
     const i = this.idx(tx, ty);
     this.blocked.add(i);
     const npc = createPhaserNpc(this, {
@@ -1048,7 +1047,8 @@ export class OverworldScene extends Phaser.Scene {
       mapWidth: this.map.width,
       facing: 'down',
       persistState: shouldPersistNpcState(prop(obj, 'persistState')),
-      role: r,
+      wanders: shouldNpcWander(prop(obj, 'wander')),
+      role: model.role,
       name: model.name,
       lines: model.lines,
       nextMoveAt: this.time.now + this.rng.int(600, 1800),
@@ -1056,7 +1056,7 @@ export class OverworldScene extends Phaser.Scene {
     this.npcs.set(i, npc);
     this.npcObjects.set(npc.key, npc);
     this.fieldResume.registerNpc(this.map.width, npc, this.npcs, this.blocked);
-    addNpcRoleSign(this, r, prop(obj, 'signX'), prop(obj, 'signY'));
+    addNpcRoleSign(this, model.role, prop(obj, 'signX'), prop(obj, 'signY'));
   }
   private addChest(obj: TiledObject, tx: number, ty: number): void {
     const model = chestModel({

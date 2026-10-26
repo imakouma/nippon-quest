@@ -105,11 +105,11 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   // 入口のすぐ北にある、むすびの社の守り人へ自分で歩いて話しかける。
   await page.waitForTimeout(300);
   await moveOneTileUp(page);
+  // フィールドが停止して会話対象を解決できた合図を待ち、同じ操作経路から話しかける。
+  const talkAction = page.getByRole('button', { name: /はなす|話す/ });
+  await expect(talkAction).toBeVisible({ timeout: 10_000 });
+  await talkAction.click();
   const dialogue = page.locator('.nq-dlg');
-  for (let attempt = 0; attempt < 10 && !(await dialogue.isVisible()); attempt += 1) {
-    await page.keyboard.press('z');
-    await page.waitForTimeout(250);
-  }
   await expect(dialogue).toContainText(/むすびの.*やしろ/, { timeout: 10_000 });
   await expect(dialogue).toBeFocused();
   if ((await dialogue.locator('.nq-dlg-text').getAttribute('aria-live')) === 'off') await dialogue.click();

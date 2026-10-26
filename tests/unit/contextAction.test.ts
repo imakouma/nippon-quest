@@ -158,4 +158,32 @@ describe('FieldContextActions', () => {
     expect(activate).toHaveBeenCalledOnce();
     expect(directSign).not.toHaveBeenCalled();
   });
+
+  it('resolved action and last rendered action are tracked separately', () => {
+    const actions = new FieldContextActions({
+      playerTile: () => [5, 5] as const,
+      facing: () => 'up' as const,
+      indexOf: (x: number, y: number) => y * 10 + x,
+      isCounter: () => false,
+      phase: () => 'idle' as const,
+      busy: () => false,
+      inBattle: () => false,
+      inputLocked: () => false,
+      overlayOwnsInput: () => false,
+      npcs: () => new Map([[45, { id: 'guide' }]]),
+      chests: () => new Map<number, { opened: boolean }>(),
+      signs: () => new Map<number, () => void>(),
+      midBoss: () => null,
+      regionBosses: () => new Map<number, { tile: number }>(),
+      areaBoss: () => null,
+      lastBoss: () => null,
+      chestOpened: (chest: { opened: boolean }) => chest.opened,
+      activate: vi.fn(),
+    });
+
+    expect(actions.refresh()?.kind).toBe('talk');
+    expect(actions.sync()).toBe(true);
+    expect(actions.view((key) => key, vi.fn())?.kind).toBe('talk');
+    expect(actions.sync()).toBe(false);
+  });
 });

@@ -37,6 +37,7 @@ const DELTA: Record<Dir, readonly [number, number]> = {
 /** Keeps one canonical nearby-target resolver for DOM buttons and keyboard input. */
 export class FieldContextActions<TNpc, TChest, TRegionBoss> {
   current: ResolvedContextAction | null = null;
+  private presentedKind: ResolvedContextAction['kind'] | null = null;
 
   constructor(private readonly source: FieldContextActionSources<TNpc, TChest, TRegionBoss>) {}
 
@@ -46,8 +47,7 @@ export class FieldContextActions<TNpc, TChest, TRegionBoss> {
   }
 
   sync(): boolean {
-    const previousKind = this.current?.kind;
-    return this.refresh()?.kind !== previousKind;
+    return (this.refresh()?.kind ?? null) !== this.presentedKind;
   }
 
   activate(): boolean {
@@ -59,6 +59,7 @@ export class FieldContextActions<TNpc, TChest, TRegionBoss> {
 
   view(translate: (key: string) => string, onActivate: () => void): ContextActionView | null {
     const action = this.refresh();
+    this.presentedKind = action?.kind ?? null;
     const key =
       action?.kind === 'talk'
         ? 'field.contextTalk'

@@ -36,6 +36,7 @@ export interface WanderingNpc {
   tile: number;
   facing: NpcWanderDir;
   persistState: boolean;
+  wanders: boolean;
   role: string;
   name: string;
   lines: DialogueLine[];
@@ -46,6 +47,10 @@ export interface WanderingNpc {
   nextMoveAt: number;
   targetTile?: number;
   ferry?: { map: string; spawn: string; place: string; back: boolean };
+}
+
+export function npcCanWander(npc: Pick<WanderingNpc, 'role' | 'wanders'>): boolean {
+  return npc.role === 'talk' && npc.wanders;
 }
 
 /** 到着マスを予約し、見た目の歩行に合わせて当たり判定も1マス動かす。 */
@@ -67,7 +72,7 @@ export function advanceWanderingNpcs<T extends WanderingNpc>(input: {
   onSettled?(npc: T): void;
 }): void {
   for (const [tile, npc] of [...input.npcs]) {
-    if (npc.role !== 'talk' || npc.moving || input.time < npc.nextMoveAt) continue;
+    if (!npcCanWander(npc) || npc.moving || input.time < npc.nextMoveAt) continue;
     const at: [number, number] = [
       Math.floor(npc.sprite.x / input.tileSize),
       Math.floor(npc.sprite.y / input.tileSize),

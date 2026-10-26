@@ -33,6 +33,11 @@ export function shouldPersistNpcState(configured: unknown): boolean {
   return configured === true;
 }
 
+/** wander: false を明示した案内役・物語NPCは定位置に留める。 */
+export function shouldNpcWander(configured: unknown): boolean {
+  return configured !== false;
+}
+
 /** マップ上の NPC と content の会話を突き合わせ、表示する役割・名前・会話を決める。 */
 export function npcModel(input: {
   area: Area | undefined;

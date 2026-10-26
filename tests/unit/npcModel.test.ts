@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { npcModel, shouldPersistNpcState } from '../../src/scenes/overworld/npcModel';
+import { npcModel, shouldNpcWander, shouldPersistNpcState } from '../../src/scenes/overworld/npcModel';
 import { content } from './helpers';
 
 const text = (key: string, vars?: Record<string, string>) => `${key}:${JSON.stringify(vars ?? {})}`;
@@ -21,5 +21,11 @@ describe('町NPCの表示モデル', () => {
     expect(shouldPersistNpcState(undefined)).toBe(false);
     expect(shouldPersistNpcState(false)).toBe(false);
     expect(shouldPersistNpcState(true)).toBe(true);
+  });
+
+  it('wander: false を明示した NPC だけを定位置に留める', () => {
+    expect(shouldNpcWander(undefined)).toBe(true);
+    expect(shouldNpcWander(true)).toBe(true);
+    expect(shouldNpcWander(false)).toBe(false);
   });
 });
