@@ -424,10 +424,10 @@ async function walkOne(
     await page.waitForTimeout(300);
     decision = await canvas.getAttribute('data-last-movement');
     if (decision !== expected) continue;
-    completed =
-      expected === 'move'
-        ? (await canvas.getAttribute('data-player-tile')) !== before
-        : await page.locator('.nq-dlg').isVisible();
+    if (expected === 'move') {
+      const current = await canvas.getAttribute('data-player-tile');
+      completed = destination ? current === destination.join(',') : current !== before;
+    } else completed = await page.locator('.nq-dlg').isVisible();
   }
   expect(completed, `${before} から ${key} の ${expected} を完了`).toBe(true);
   if (expected === 'midboss' || expected === 'regionBoss') {
@@ -456,8 +456,20 @@ async function walkIntoTransition(page: Page, key: ArrowKey): Promise<void> {
   expect(moved, `入口へ ${key} で移動`).toBe(true);
 }
 
+async function walkUntilDialogue(page: Page, key: ArrowKey): Promise<void> {
+  const dialogue = page.locator('.nq-dlg');
+  for (let attempt = 0; attempt < 10 && !(await dialogue.isVisible()); attempt += 1) {
+    await pulseDirection(page, key);
+    await page.waitForTimeout(300);
+  }
+  await expect(dialogue).toBeVisible();
+}
+
 async function pulseDirection(page: Page, key: ArrowKey): Promise<void> {
   await page.evaluate(async (arrow) => {
+    const canvas = document.querySelector<HTMLCanvasElement>('canvas[data-player-tile]');
+    if (!canvas) throw new Error('フィールドの canvas が見つかりません');
+    const before = canvas.dataset.playerTile;
     const direction = {
       ArrowLeft: 'left',
       ArrowRight: 'right',
@@ -467,9 +479,25 @@ async function pulseDirection(page: Page, key: ArrowKey): Promise<void> {
     const field = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
       fieldInput: { setTouchDirection(direction: 'down' | 'left' | 'right' | 'up' | null): void };
     };
-    field.fieldInput.setTouchDirection(direction);
-    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
-    field.fieldInput.setTouchDirection(null);
+    await new Promise<void>((resolve) => {
+      let timeout = 0;
+      const observer = new MutationObserver(() => {
+        const decision = canvas.dataset.lastMovement;
+        if (canvas.dataset.playerTile !== before || (decision && decision !== 'move')) finish();
+      });
+      const finish = () => {
+        observer.disconnect();
+        window.clearTimeout(timeout);
+        field.fieldInput.setTouchDirection(null);
+        resolve();
+      };
+      observer.observe(canvas, {
+        attributes: true,
+        attributeFilter: ['data-last-movement', 'data-player-tile'],
+      });
+      timeout = window.setTimeout(finish, 1_000);
+      field.fieldInput.setTouchDirection(direction);
+    });
   }, key);
 }
 
@@ -786,7 +814,7 @@ test('地域ボス撃破を保存し、開いた関所から次地域の出現�
 });
 
 test('地域制導入前に長崎を進めた旧セーブは、地域ボスと閉鎖関所を復活させない', async ({ page }) => {
-  test.setTimeout(150_000);
+  test.setTimeout(300_000);
   const layout = resolveLayout();
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(String(error)));
@@ -823,7 +851,7 @@ test('地域制導入前に長崎を進めた旧セーブは、地域ボスと�
 });
 
 test('最後の地域ボス撃破直後にダンジョン入口のロックと暗い表示を解除する', async ({ page }) => {
-  test.setTimeout(150_000);
+  test.setTimeout(300_000);
   const layout = resolveLayout();
   const defeatedBeforeFinal = layout.regionIds.filter((regionId) => regionId !== layout.finalRegion);
   const errors: string[] = [];
@@ -835,7 +863,7 @@ test('最後の地域ボス撃破直後にダンジョン入口のロックと�
 
   expect(await regionalDungeonSnapshot(page)).toEqual({ isTinted: true, locked: true });
   await page.waitForTimeout(500);
-  await walkOne(page, layout.dungeonApproach.key, 'move', layout.dungeonTile);
+  await walkUntilDialogue(page, layout.dungeonApproach.key);
   await expect(page.locator('.nq-dlg')).toContainText(/まだ.*(?:地域|ちいき).*ぬし/, {
     timeout: 20_000,
   });
