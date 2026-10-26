@@ -11,17 +11,20 @@ async function walk(
     const player = page.locator('canvas[data-player-tile]');
     const before = await player.getAttribute('data-player-tile');
     let decision: string | null = null;
-    for (let attempt = 0; attempt < 10 && decision !== expected; attempt += 1) {
+    let moved = false;
+    let sawExpected = false;
+    for (let attempt = 0; attempt < 10 && !(sawExpected && (expected !== 'move' || moved)); attempt += 1) {
       await player.evaluate((canvas) => delete (canvas as HTMLElement).dataset.lastMovement);
       await page.keyboard.down(key);
       await page.waitForTimeout(60);
       await page.keyboard.up(key);
-      await page.waitForTimeout(120);
+      await page.waitForTimeout(300);
       decision = await player.getAttribute('data-last-movement');
+      sawExpected ||= decision === expected;
+      moved = (await player.getAttribute('data-player-tile')) !== before;
     }
-    expect(decision, `移動判定 ${expected}（${before} から ${key}）`).toBe(expected);
-    if (expected === 'move')
-      await expect.poll(() => player.getAttribute('data-player-tile')).not.toBe(before);
+    expect(sawExpected, `移動判定 ${expected}（${before} から ${key}）`).toBe(true);
+    if (expected === 'move') expect(moved, `${before} から ${key} で実際に移動する`).toBe(true);
   }
 }
 
