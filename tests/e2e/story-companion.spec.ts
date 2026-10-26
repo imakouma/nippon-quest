@@ -61,6 +61,7 @@ async function savedCompanion(page: Page): Promise<string | null> {
 async function moveOneTileUp(page: Page): Promise<void> {
   const canvas = page.locator('canvas[data-player-tile]');
   await expect(canvas).toHaveAttribute('data-player-tile', '25,35');
+  await expect(canvas).toHaveAttribute('data-input-ready', 'true');
   for (let attempt = 0; attempt < 10; attempt += 1) {
     await page.evaluate(async () => {
       const field = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
