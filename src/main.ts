@@ -18,7 +18,7 @@ import {
 import { AutosaveCoordinator } from './core/state/autosave';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
-import { bundledFetchReader, type ContentIndex } from './core/content/loader';
+import { bundledFetchReader, fetchReader, loadContent, type ContentIndex } from './core/content/loader';
 import { QuestionBank } from './questions/engine/bank';
 import { isLocalDevelopmentUrl } from './core/localDevelopment';
 import { setDictionary, t } from './ui/i18n';
@@ -208,6 +208,30 @@ function reportSaveFailure(
       .catch((nextError) => reportSaveFailure(context, nextError, slot, state));
   });
 }
+let contentPromise: Promise<ContentIndex> | undefined;
+function ensureContent(): Promise<ContentIndex> {
+  const loaded = game.registry.get('content') as ContentIndex | undefined;
+  if (loaded) return Promise.resolve(loaded);
+  if (contentPromise) return contentPromise;
+  performance.mark('nq:content-load-start');
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const read = import.meta.env.DEV ? fetchReader(`${base}/content`) : bundledFetchReader(`${base}/content`);
+  const pending = loadContent(read)
+    .then((content) => {
+      game.registry.set('content', content);
+      game.registry.set('questionFiles', content.questionFiles);
+      game.registry.set('questionFilesByGrade', content.questionFilesByGrade);
+      performance.mark('nq:content-ready');
+      performance.measure('nq:content-load', 'nq:content-load-start', 'nq:content-ready');
+      return content;
+    })
+    .catch((error) => {
+      if (contentPromise === pending) contentPromise = undefined;
+      throw error;
+    });
+  contentPromise = pending;
+  return pending;
+}
 let bankPromise: { grade: NewGameOptions['grade']; promise: Promise<QuestionBank> } | undefined;
 function ensureQuestionBank(grade: NewGameOptions['grade']): Promise<QuestionBank> {
   const loadedGrade = game.registry.get('bankGrade') as NewGameOptions['grade'] | undefined;
@@ -215,9 +239,10 @@ function ensureQuestionBank(grade: NewGameOptions['grade']): Promise<QuestionBan
     return Promise.resolve(game.registry.get('bank') as QuestionBank);
   if (bankPromise?.grade === grade) return bankPromise.promise;
   const promise = (async () => {
+    const content = await ensureContent();
     const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     const read = bundledFetchReader(`${base}/content`, `questions-g${grade}-bundle.json`);
-    const filesByGrade = game.registry.get('questionFilesByGrade') as Record<string, string[]>;
+    const filesByGrade = content.questionFilesByGrade ?? {};
     const files = filesByGrade[String(grade)] ?? [];
     const { bank, report } = await QuestionBank.load(files, read);
     if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
@@ -233,6 +258,14 @@ function ensureQuestionBank(grade: NewGameOptions['grade']): Promise<QuestionBan
     throw error;
   });
 }
+
+game.events.on('title:ready', () => {
+  performance.mark('nq:title-ready');
+  performance.measure('nq:title-ready-time', 'nq:boot-start', 'nq:title-ready');
+  // 本番は設定画面を操作している間にbundleを背景読込する。開発時は編集直後の
+  // 個別JSONを開始時に読み、タイトル確認だけで約1,000リクエストを発生させない。
+  if (import.meta.env.PROD) setTimeout(() => void ensureContent().catch(() => undefined), 0);
+});
 
 let titleAction: Promise<void> | null = null;
 
@@ -259,9 +292,12 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
   runTitleAction(
     'もんだいを よみこんでいるよ…',
     async () => {
-      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank(selectedOptions.grade)]);
+      const [content] = await Promise.all([
+        ensureContent(),
+        ensureGameplayScenes(game),
+        ensureQuestionBank(selectedOptions.grade),
+      ]);
       activeSlot = slot;
-      const content = game.registry.get('content') as ContentIndex;
       const next = createNewGame(selectedOptions, Date.now(), content.settings.levelCaps.heroInitial);
       setSfxVolume(next.settings.seVolume);
       game.registry.set('game', next);
@@ -273,6 +309,7 @@ game.events.on('title:start', async (options?: NewGameOptions, slot: SlotId = 1)
         reportSaveFailure('はじめのセーブ', error, activeSlot, next);
         return;
       }
+      performance.mark('nq:gameplay-ready');
       hideLoading();
       game.scene.stop('Title');
       game.scene.start('Overworld', {
@@ -295,8 +332,11 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
         hideLoading();
         return;
       }
-      await Promise.all([ensureGameplayScenes(game), ensureQuestionBank(loaded.learning.grade)]);
-      const content = game.registry.get('content') as ContentIndex;
+      const [content] = await Promise.all([
+        ensureContent(),
+        ensureGameplayScenes(game),
+        ensureQuestionBank(loaded.learning.grade),
+      ]);
       const normalized = normalizeLevelCaps(loaded, content.monsters, content.settings.levelCaps.heroInitial);
       const resume = prepareResumeGame(normalized, content.areas, ENCLAVES);
       const saved = resume.game;
@@ -306,6 +346,7 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
       void autosave
         .request(activeSlot, saved)
         .catch((error) => reportSaveFailure('移行後のセーブ', error, activeSlot, saved));
+      performance.mark('nq:gameplay-ready');
       hideLoading();
       game.scene.stop('Title');
       game.scene.start('Overworld', {
