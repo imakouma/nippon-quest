@@ -81,7 +81,6 @@ interface BrowserField {
   regionGates: Map<number, BrowserGate>;
   regionBosses: Map<number, { regionId: string }>;
   transitionIcons: Map<number, { isTinted: boolean }>;
-  stepCount: number;
   midBoss: { tile: number } | null;
   warp: { tile: number; to: { id: string; mapKey: string } } | null;
   rng: { chance: (probability: number) => boolean };
@@ -683,7 +682,8 @@ async function restartFieldAt(page: Page, tile: Tile): Promise<void> {
 }
 
 test('地域ボス撃破を保存し、開いた関所から次地域の出現表へ進める', async ({ page }) => {
-  test.setTimeout(180_000);
+  // CIでは全96件を直列実行するため、後半のScene再起動と出現判定に余裕を持たせる。
+  test.setTimeout(300_000);
   const layout = resolveLayout();
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(String(error)));
@@ -724,26 +724,32 @@ test('地域ボス撃破を保存し、開いた関所から次地域の出現�
   await walkOne(page, layout.gate.enterKey, 'move');
   await walkOne(page, layout.gate.exitKey, 'move', layout.gate.nextSide);
   await expect
-    .poll(() => fieldSnapshot(page, layout.gate.openedBy).then((snapshot) => snapshot.currentRegion))
+    .poll(() => fieldSnapshot(page, layout.gate.openedBy).then((snapshot) => snapshot.currentRegion), {
+      timeout: 20_000,
+    })
     .toBe(layout.nextRegion);
 
   await restartFieldAt(page, layout.encounterTile);
   await expect
-    .poll(() => fieldSnapshot(page, layout.gate.openedBy).then((snapshot) => snapshot.currentRegion))
+    .poll(() => fieldSnapshot(page, layout.gate.openedBy).then((snapshot) => snapshot.currentRegion), {
+      timeout: 20_000,
+    })
     .toBe(layout.nextRegion);
   await page.evaluate((steps) => {
     const game = (window as unknown as { __nq: BrowserGame }).__nq;
     const field = game.scene.getScene('Overworld') as BrowserField;
-    field.stepCount = steps;
     field.rng.chance = () => true;
-    field.checkRandomEncounter();
+    // Scene再起動直後の3歩抑止を越え、現在のEncounterPolicyの間隔まで進める。
+    for (let step = 0; step < steps + 3; step += 1) field.checkRandomEncounter();
   }, layout.encounterSteps);
   await expect
-    .poll(() =>
-      page.evaluate(() => {
-        const game = (window as unknown as { __nq: BrowserGame }).__nq;
-        return game.scene.isActive('Battle');
-      }),
+    .poll(
+      () =>
+        page.evaluate(() => {
+          const game = (window as unknown as { __nq: BrowserGame }).__nq;
+          return game.scene.isActive('Battle');
+        }),
+      { timeout: 20_000 },
     )
     .toBe(true);
   const encountered = await page.evaluate(() => {
