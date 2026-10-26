@@ -34,7 +34,7 @@ describe('主人公の移動ポーズ', () => {
     });
   });
 
-  it('歩行中は足だけを交互にし、体と影は地面から浮かせない', () => {
+  it('歩行中は進行率から接地足を選び、連続する一歩で左右を交互にする', () => {
     const step = (leadFoot: 'a' | 'b', progress: number): PlayerMotionState => ({
       phase: 'stepping',
       facing: 'right',
@@ -45,8 +45,7 @@ describe('主人公の移動ポーズ', () => {
     expect(playerMotionPose(step('a', 0.001)).frame).toBe(walkFrame('right', 0));
     expect(playerMotionPose(step('a', 0.5))).toMatchObject({
       frame: walkFrame('right', 0),
-      offsetY: 0,
-      shadowScale: 1,
+      offsetY: -1,
     });
     expect(playerMotionPose(step('b', 0.999)).frame).toBe(walkFrame('right', 2));
     expect(playerMotionPose(step('a', 0.5)).frame).not.toBe(playerMotionPose(step('b', 0.5)).frame);
