@@ -102,8 +102,10 @@ for (const viewport of [
       const skillId = battle.content.monsters.get('aomori-ringoron')!.skills[0]!;
       await battle.animate({
         t: 'act',
+        actionId: 'turn:1:action:0',
         side: 'enemy',
         actorId: battle.state.enemy.id,
+        targetIds: [battle.state.ally.hero.id],
         command: 'skill',
         skillId,
       });
@@ -112,7 +114,12 @@ for (const viewport of [
     expect(attacks.after).toBeGreaterThan(attacks.before);
     await page.evaluate(async () => {
       const battle = window.__nq.scene.getScene('Battle') as Battle;
-      await battle.animate({ t: 'ko', side: 'enemy', targetId: battle.state.enemy.id });
+      await battle.animate({
+        t: 'ko',
+        actionId: 'turn:1:action:0',
+        side: 'enemy',
+        targetId: battle.state.enemy.id,
+      });
     });
     expect(
       await page.evaluate(() => {

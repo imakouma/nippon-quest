@@ -40,7 +40,6 @@ import { createSpeaker } from '../ui/overlay';
 import { playSfx, prepareBattleSfx } from '../ui/sfx';
 import { BATTLE_POSE, battleSheet, HERO_H, HERO_W, heroKey, heroLook } from '../rendering/characters';
 import { itemIconGrid, itemIconUrl } from '../rendering/itemIcons';
-import { designedMonsterArt } from '../rendering/monsters';
 import { addImage, addSheet } from '../rendering/sheet';
 import { Motions, type EnemyStyle, type MotifFx, type SwingKind } from './battle/motions';
 import { toCanvas } from '../rendering/grid';
@@ -54,7 +53,6 @@ import {
   ELEMENT_FX,
   MONSTER_SIZE,
   backdropArt,
-  monsterArt,
   particleArt,
   shadowArt,
   slashSheet,
@@ -82,13 +80,14 @@ import { recruitGiftId } from './battle/recruitFlow';
 import { runBattleQuestion } from './battle/questionFlow';
 import { BattleHudFlow } from './battle/hudFlow';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
-import { monsterDisplaySize, monsterMenuArtUrl } from '../rendering/menuArt';
+import { monsterMenuArtUrl } from '../rendering/menuArt';
 import { monsterImageScale } from '../rendering/monsterImageScale';
 import { preloadMonsterImages } from './battle/preloadMonsterImages';
 import {
   createMonsterSprite,
   playMonsterAttack,
   playMonsterIdle,
+  startMonsterIdle,
   stopMonsterAnimation,
 } from './battle/monsterAnimation';
 import { BATTLE_SCALE as S, battleLayout, type BattleLayout, OFF_RIGHT, READY_STEP } from './battle/layout';
@@ -106,6 +105,7 @@ import { BattleEventAnimator } from './battle/eventAnimator';
 import { resolveBattleLaunchRuleset } from './battle/rulesetSetup';
 import { BattleResumeRuntime, resumeLaunch, runCheckpointedBattleCommand } from './battle/resumeRuntime';
 import { buildBattleHistoryView } from './battle/statusHistoryViews';
+import { ensureMonsterTexture, monsterStageScale, monsterStageSize } from './battle/monsterStage';
 type Sprite = Phaser.GameObjects.Image;
 export class BattleScene extends Phaser.Scene {
   private content!: ContentIndex;
@@ -368,9 +368,9 @@ export class BattleScene extends Phaser.Scene {
     addSheet(this.textures, 'bt.fx.slash', slashSheet(), 32, 32);
 
     const def = this.enemyDef;
-    this.enemySize = this.sizeOf(def, isBoss);
-    this.enemyScale = this.scaleOf(this.enemySize, isBoss);
-    const eKey = this.monsterTexture(def, this.state.enemy.element, this.enemySize, isBoss);
+    this.enemySize = monsterStageSize(def, this.content, isBoss);
+    this.enemyScale = monsterStageScale(this.enemySize, isBoss, this.layout);
+    const eKey = ensureMonsterTexture(this.textures, def, this.state.enemy.element, this.enemySize, isBoss);
     this.enemySprite = createMonsterSprite(this, def.id, this.layout.enemy.x, this.layout.enemy.y, eKey)
       .setOrigin(0.5, 1)
       .setDepth(10);
@@ -396,39 +396,6 @@ export class BattleScene extends Phaser.Scene {
     this.palSprite = this.makePartnerSprite(this.layout.partner.x);
   }
 
-  /**
-   * モンスターの絵の大きさ：地方ボス 56 / 中ボス 40 / 県ボス 48 / 通常 32。
-   * 地方ボスは area が「県には無い 地方の id」の モンスター（北海道のように 県 id と 地方 id が
-   * 同じ ところが あるので、県に ある id は 県あつかい）
-   */
-  private sizeOf(def: Monster, isBoss: boolean): number {
-    const size = monsterDisplaySize(def, this.content);
-    return size === MONSTER_SIZE.normal && isBoss ? MONSTER_SIZE.boss : size;
-  }
-
-  /**
-   * 敵の絵の倍率。ボス戦だけ一回り大きく（×4 → ×5。1 ドット = 5px の整数倍なのでにじまない）。
-   * 上の窓にかからないよう、レイアウトごとの上限をこえるボスは拡大しない。
-   */
-  private scaleOf(size: number, isBoss: boolean): number {
-    const base = Math.max(2, S + this.layout.enemy.scaleStep);
-    return isBoss && size * (base + 1) <= this.layout.bossMaxHeight ? base + 1 : base;
-  }
-
-  /**
-   * 本番の PNG が同じキー（mon.<id>）で読み込まれていればそれを使い、無ければ仮のドット絵を作る
-   * （手描きの絵 art/monsters があればそれ、無ければ属性の形で自動生成）。ボスの第 2 形態などは `<key>.p<番号>`。
-   */
-  private monsterTexture(def: Monster, element: Element, size: number, boss: boolean, suffix = ''): string {
-    const key = `${def.spriteKey}${suffix}`;
-    if (!this.textures.exists(key))
-      this.textures.addCanvas(
-        key,
-        designedMonsterArt(def.id, suffix) ?? monsterArt(`${def.id}${suffix}`, { element, size, boss }),
-      );
-    return key;
-  }
-
   private makePartnerSprite(x: number): Sprite | null {
     const m = this.state.ally.monsters[this.state.ally.activeMonsterIndex];
     const def = m && this.content.monsters.get(m.refId);
@@ -438,7 +405,7 @@ export class BattleScene extends Phaser.Scene {
       def.id,
       x,
       this.layout.partner.y,
-      this.monsterTexture(def, def.element, MONSTER_SIZE.normal, false),
+      ensureMonsterTexture(this.textures, def, def.element, MONSTER_SIZE.normal, false),
     )
       .setOrigin(0.5, 1)
       .setDepth(11)
@@ -465,16 +432,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private startIdle(): void {
-    if (!playMonsterIdle(this.enemySprite))
-      this.tweens.add({
-        targets: this.enemySprite,
-        scaleY: this.enemySprite.scaleY * 0.95,
-        duration: 460,
-        yoyo: true,
-        repeat: -1,
-        ease: 'Stepped',
-        easeParams: [1],
-      });
+    startMonsterIdle(this, this.enemySprite);
     this.idleBob(this.heroSprite, this.layout.hero.y);
     if (this.palSprite) this.idleBob(this.palSprite, this.layout.partner.y);
   }
@@ -1183,7 +1141,14 @@ export class BattleScene extends Phaser.Scene {
           this.tweens.killTweensOf(sprite);
         },
         monsterTexture: (definition, boss, suffix) =>
-          this.monsterTexture(definition, this.state.enemy.element, this.enemySize, boss, suffix),
+          ensureMonsterTexture(
+            this.textures,
+            definition,
+            this.state.enemy.element,
+            this.enemySize,
+            boss,
+            suffix,
+          ),
       },
       motion: {
         effects: () => this.fx,
