@@ -3,8 +3,8 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 80体。
-- 未着手: 30体（割当110体から下記完了80体を除いたもの）。
+- 完了: 90体。
+- 未着手: 20体（割当110体から下記完了90体を除いたもの）。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
@@ -160,10 +160,23 @@
 - `osaka-hafuhafu-yaki`: 茶の焼き玉、炎3、串1、手袋腕1を固定。炎待機、熱い回転体当たり。出力 `exec-f0649774-7a54-4306-a9c8-56188369f5b0.png`。
 - `osaka-momiji-fubuki`: 紅葉体、葉腕、幹を固定。葉待機、紅葉の回転斬撃。出力 `exec-91280230-c64d-471b-854a-8dcab0de73ac.png`。
 
+### 追加10体（佐賀〜静岡）
+
+- `saga-chakoron`: 茶葉体、頬の渦、頭葉を固定。葉待機、茶葉の回転打撃。出力 `exec-8c4eefd7-d415-40dc-bb3e-834b02f3eaad.png`。
+- `saga-pyongoro`: 蛙体、青い前脚、木台を固定。屈伸待機、跳躍突進。出力 `exec-54ce3055-cf65-41ec-a96b-f0886980f048.png`。
+- `saitama-dai-barissen`: 丸い煎餅体、炎冠3、緑帯を固定。炎待機、前傾体当たり。出力 `exec-80a06e2e-1669-4e42-8123-5ccd23d6e3c4.png`。
+- `saitama-negi-boya`: 白い葱体、二股葉、根脚を固定。葉待機、葉の回転打撃。出力 `exec-ad15937c-cd7f-4190-b228-0405b457bc73.png`。
+- `shiga-funazushi-maru`: 魚体、青鰭、米腹、茶の盾を固定。鰭待機、鰭と盾の突進。出力 `exec-cf04bed8-eb91-4e0e-978c-eef3219084e7.png`。
+- `shiga-midboss-ponpoko-oyabun`: 冠狸、大腹、腕2を固定。腹待機、腹鼓打撃。出力 `exec-e78d29f1-af28-4a45-b8de-6a13beda978e.png`。
+- `shimane-boss-kagura-orochi`: 三頭の緑大蛇、冠、蛇腹を固定。三頭待機、同時咆哮突進。出力 `exec-0719a4f6-030f-4c16-af0d-b8cf5879cbf0.png`。
+- `shimane-rosokun`: 蝋燭体2体、炎2、二股脚を固定。炎待機、双体の炎突進。出力 `exec-622e0d00-0b3d-4a7f-b159-4b804de589a3.png`。
+- `shimane-yuhi-shijimi`: 蜆兜、橙青の殻、青い腕を固定。殻待機、殻と腕の回転打撃。出力 `exec-6529b48c-868e-4ea3-9f9b-fc66c35206e7.png`。
+- `shizuoka-lastboss-tokugawa-ieyasu`: 金前立て、濃紺鎧、赤帯を固定。鎧待機、前腕の踏み込み打撃。出力 `exec-38dbb799-1f7b-44a9-aea1-a879c20bff6b.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 80体とも512×256、RGBA、4列2行の契約。
+- PNG: 90体とも512×256、RGBA、4列2行の契約。
 - 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
 
 ## 統合担当への提案

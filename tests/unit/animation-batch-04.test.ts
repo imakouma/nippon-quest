@@ -8,7 +8,7 @@ const manifestPath = 'assets/sprites/animations/batch-04/manifest.json';
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8')) as MonsterAnimationSpec[];
 
 describe('batch-04 のモンスターアニメーション', () => {
-  it('制作済み80体を担当内の完成素材として登録する', () => {
+  it('制作済み90体を担当内の完成素材として登録する', () => {
     expect(manifest.map((spec) => spec.id)).toEqual([
       'aichi-denkikun',
       'aichi-lastboss-oda-nobunaga',
@@ -90,6 +90,16 @@ describe('batch-04 のモンスターアニメーション', () => {
       'okinawa-yanbaru-kakeru',
       'osaka-hafuhafu-yaki',
       'osaka-momiji-fubuki',
+      'saga-chakoron',
+      'saga-pyongoro',
+      'saitama-dai-barissen',
+      'saitama-negi-boya',
+      'shiga-funazushi-maru',
+      'shiga-midboss-ponpoko-oyabun',
+      'shimane-boss-kagura-orochi',
+      'shimane-rosokun',
+      'shimane-yuhi-shijimi',
+      'shizuoka-lastboss-tokugawa-ieyasu',
     ]);
   });
 
