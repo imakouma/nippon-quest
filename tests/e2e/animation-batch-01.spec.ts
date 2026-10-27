@@ -11,7 +11,14 @@ type Battle = Phaser.Scene & {
   animate(event: BattleEvent): Promise<void>;
 };
 
-const monsters = ['iwate-kagurabi', 'iwate-izumiko', 'iwate-kodamaru'] as const;
+const monsters = [
+  'aomori-bunakko',
+  'aomori-doguukun',
+  'aomori-nebutan',
+  'iwate-kagurabi',
+  'iwate-izumiko',
+  'iwate-kodamaru',
+] as const;
 
 for (const viewport of [
   { width: 960, height: 540 },
@@ -104,7 +111,10 @@ for (const viewport of [
         const count = () =>
           (sprite.getData('observedAnimations') as string[]).filter((key) => key.endsWith('.attack')).length;
         const before = count();
-        const skillId = battle.content.monsters.get(id)!.skills[0]!;
+        const monster = battle.content.monsters.get(id)!;
+        const skillId =
+          monster.skills.find((candidate) => battle.content.skills.get(candidate)?.effect === 'damage') ??
+          'sk-hinoko';
         await battle.animate({
           t: 'act',
           side: 'enemy',

@@ -22,6 +22,60 @@ Style: crisp medium-coarse hand-pixelled game art matching Image 3, limited pale
 Constraints: preserve identical face, proportions, palette, curl placement, ears, four legs, paws, and single flame tail in every frame; real pose differences, not whole-image translation or scaling; transparent background; no shadows; no labels; no grid lines; no text; no extra limbs; no humanoid hands; no weapons; no effects extending outside a cell.
 ```
 
+## aomori-bunakko
+
+- 出力: `assets/sprites/animations/batch-01/aomori-bunakko-v1.png`
+- 参照: `pixels/aomori-bunakko.png`, `sheets/aomori-bunakko.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI BUNAKKO. Preserve a cheerful squat beech-tree spirit with a pale gray-white tapering trunk body, simple black rectangular eyes and smiling mouth, pink cheeks, four tan spreading root feet, two short brown branch arms each ending in one bright green leaf, white bark patches, and a single huge rounded bright-green leafy crown with horn-like leaf-shadow shapes above the forehead.
+Top row: cheerful neutral, breath with crown and leaves lifting, blink with crown compression, return. Bottom row: planted wind-up, trunk twist, real root-and-branch body bash, rooted recovery.
+Constraints: preserve face, trunk, bark patches, two branch arms with one leaf each, four root feet and one crown; real pose differences; transparent background; no shadow, text, grid, human hands, extra limbs, trunks, faces or loose effects.
+```
+
+## aomori-doguukun
+
+- 出力: `assets/sprites/animations/batch-01/aomori-doguukun-v1.png`
+- 参照: `pixels/aomori-doguukun.png`, `sheets/aomori-doguukun.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+- 初回出力の待機2枚目左右に黒い破片状ノイズがあったため不採用。`aomori-doguukun-generated-source-rejected-v1.png` として保存し、修正版ではキャラクターを変えず透過へ除去した。
+
+初回不採用プロンプト:
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI DOGUUKUN. Preserve a squat warm terracotta clay dogu figure with a very wide rounded head, three small crown-like clay nubs on top, huge cream slit-lidded goggle eyes outlined dark, one tiny round O mouth, pink cheeks, short thick arms, two separated blocky legs with dark brown foot bands, and two dark pixel-pattern bands across the belly plus one small leg marking.
+Top row: sleepy neutral, slow inhale with arms lifting, full blink and head dip, return. Bottom row: wide planted wind-up, torso turn and step, real heavy clay shoulder slam, planted recovery.
+Constraints: preserve dogu face, top nubs, slit eyes, O mouth, cheeks, patterns, two arms and two legs; real pose differences; transparent background; no shadow, text, grid, weapons, human fingers, extra limbs or loose effects.
+```
+
+採用版修正プロンプト:
+
+```text
+Use case: precise-object-edit
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Clean Image 1 while preserving the exact same AOMORI DOGUUKUN character, all eight poses, exact 4-column by 2-row layout, pixel style, proportions, colors and true transparent background.
+Change only: remove the two loose black/brown debris or scribble clusters floating immediately to the left and right of the character in top-row frame 2. Fill those areas with full transparency. Do not change the character.
+Preserve: squat terracotta dogu body, wide head, three top nubs, cream slit eyes, O mouth, pink cheeks, two arms, two legs, foot bands, belly patterns, leg marking, poses and expressions.
+Constraints: crisp hard pixel edges; empty transparent space; no debris, particles, aura, shadow, cross-cell trails, text, grid, extra limbs or crop.
+```
+
+## aomori-nebutan
+
+- 出力: `assets/sprites/animations/batch-01/aomori-nebutan-v1.png`
+- 参照: `pixels/aomori-nebutan.png`, `sheets/aomori-nebutan.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+- 原本の完全透明に見える角画素がalpha 1だったため、ランタイム版のみalpha 16未満を0へ正規化した。キャラクター画素と原本は変更していない。
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI NEBUTAN. Preserve a cheerful squat red-orange Nebuta festival lantern child with square red face, black-and-white rectangular eyes, tiny smiling mouth with one tooth, pink cheeks, blue headband with yellow trim, exactly three yellow-orange top flames, two enormous round side lantern panels patterned cream/blue/red in dark frames, orange belly panel, short arms, red legs, belt and dark red shoes.
+Top row: cheerful neutral, lantern bounce with three flames lifting, blink with panels tilting, return. Bottom row: braced wind-up, festival stomp, real spinning lantern body-check, balanced recovery.
+Constraints: preserve face, headband, exactly three attached flames, exactly two patterned side panels, belly, belt, two arms and two legs; real pose differences; transparent background; no shadow, text, grid, loose fire aura, extra lanterns, flames, limbs, weapons or loose effects.
+```
+
 ## iwate-izumiko
 
 - 出力: `assets/sprites/animations/batch-01/iwate-izumiko-v1.png`
