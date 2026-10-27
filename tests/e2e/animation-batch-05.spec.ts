@@ -117,7 +117,12 @@ for (const viewport of [
 
       await page.evaluate(async () => {
         const battle = window.__nq.scene.getScene('Battle') as Battle;
-        await battle.animate({ t: 'ko', side: 'enemy', targetId: battle.state.enemy.id });
+        await battle.animate({
+          t: 'ko',
+          actionId: 'turn:1:action:1',
+          side: 'enemy',
+          targetId: battle.state.enemy.id,
+        });
       });
       expect(
         await page.evaluate(() => {

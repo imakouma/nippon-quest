@@ -66,7 +66,7 @@ for (const viewport of [
     }
 
     for (let index = 1; index < observed.length; index += 1) {
-      expect(observed[index].bodyHeight).toBeGreaterThanOrEqual(observed[index - 1].bodyHeight - 0.001);
+      expect(observed[index]!.bodyHeight).toBeGreaterThanOrEqual(observed[index - 1]!.bodyHeight - 0.001);
     }
     expect(observed.find(({ id }) => id === 'yamanashi-suzuri-tatsujin')!.bodyHeight).toBeGreaterThan(
       observed.find(({ id }) => id === 'yamanashi-suzurin')!.bodyHeight * 1.7,
