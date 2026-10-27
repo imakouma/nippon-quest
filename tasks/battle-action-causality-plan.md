@@ -52,13 +52,13 @@
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| event fixture が多数型エラーになる | Medium | action-scoped fixture 用 test helper を最小限導入し、既存 payload は変えない |
-| ID 生成で RNG/replay が変わる | High | 純粋な turn + ordinal 文字列のみを使い、RNG を呼ばない test を追加する |
-| KO / victory が直前 action から外れる | High | `finishIfOver` と `allyDown` まで同じ context を引き回す |
-| item/recruit の helper 境界で ID が落ちる | Medium | `useMusubiDama` 引数に action context を必須化する |
-| presentation の見た目が変わる | High | `targetIds` を engine で明示し、既存 event 順と animator branch は維持する |
+| Risk                                               | Impact | Mitigation                                                                                 |
+| -------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------ |
+| event fixture が多数型エラーになる                 | Medium | action-scoped fixture 用 test helper を最小限導入し、既存 payload は変えない               |
+| ID 生成で RNG/replay が変わる                      | High   | 純粋な turn + ordinal 文字列のみを使い、RNG を呼ばない test を追加する                     |
+| KO / victory が直前 action から外れる              | High   | `finishIfOver` と `allyDown` まで同じ context を引き回す                                   |
+| item/recruit の helper 境界で ID が落ちる          | Medium | `useMusubiDama` 引数に action context を必須化する                                         |
+| presentation の見た目が変わる                      | High   | `targetIds` を engine で明示し、既存 event 順と animator branch は維持する                 |
 | 並行 module と `types.ts` / `engine.ts` が競合する | Medium | commit を小さく保ち、統合時は event payload と action context の両方を内容ベースで解消する |
 
 ## Verification Checkpoints
