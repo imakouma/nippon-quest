@@ -5,11 +5,11 @@
 - Branch: `codex/animation-batch-05`
 - Assignment source: `tasks/animation-batch-assignments.json` (`batch-05.ids`)
 - Total: 110
-- Generated and normalized: 70
-- Manifest registered: 70
-- Browser verified: 0
+- Generated and normalized: 110
+- Manifest registered: 110
+- Browser verified: 3 representative monsters at 2 viewport sizes (6/6 scenarios)
 - Failed: 0
-- Not started: 40
+- Not started: 0
 
 ## Completed production assets
 
@@ -83,18 +83,50 @@
 - [x] `nara-lastboss-shotoku-taishi` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
 - [x] `nara-sumiryu` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
 - [x] `niigata-hisui-koro` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `niigata-midboss-sanjaku-don` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `oita-kabosu-daisho` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `oita-sekiajiro` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `okayama-bizen-ootsubo` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `okayama-fukuromomo` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `okinawa-boss-dairyuchu` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `okinawa-midboss-eisa-daiko` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `okinawa-yanbaru-totto` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `osaka-juwanasu` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `osaka-sakusaku-momiji` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `saga-higata-taisho` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `saga-sometsubon` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `saitama-haniwa-musha` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `saitama-negi-lancer` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `shiga-ibuki-no-oyama` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `shiga-naminori-tsuburi` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `shimane-chidorin` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `shimane-shijimin` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `shizuoka-boss-fujimine-ou` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `shizuoka-midboss-yogan-gani` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `shizuoka-wasabikko` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `tochigi-gyozan` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `tokai-islandboss-nagaretae` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `tokushima-lastboss-hachisuka-iemasa` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `tokushima-sudachi-musha` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `tokyo-kirariko` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `tokyo-tsukiyo-musasabi` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `tottori-midboss-dosshiri-dozo` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `tottori-rakkyon` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `toyama-lastboss-sassa-narimasa` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `toyama-oo-masuzushi` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `wakayama-kankantan` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `wakayama-morimori-mikan` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `yamagata-double-cherry` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `yamagata-ryuo-koma` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `yamaguchi-boss-akiyoshi-daiou` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `yamaguchi-mikan-daimyo` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `yamaguchi-pukufuku` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `yamanashi-houtoun` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `yamanashi-suzurin` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
 
 ## Remaining assignment
 
-The following 40 ids are not complete:
-
-`niigata-midboss-sanjaku-don`, `oita-kabosu-daisho`, `oita-sekiajiro`, `okayama-bizen-ootsubo`,
-`okayama-fukuromomo`, `okinawa-boss-dairyuchu`, `okinawa-midboss-eisa-daiko`, `okinawa-yanbaru-totto`, `osaka-juwanasu`, `osaka-sakusaku-momiji`,
-`saga-higata-taisho`, `saga-sometsubon`, `saitama-haniwa-musha`, `saitama-negi-lancer`, `shiga-ibuki-no-oyama`, `shiga-naminori-tsuburi`,
-`shimane-chidorin`, `shimane-shijimin`, `shizuoka-boss-fujimine-ou`, `shizuoka-midboss-yogan-gani`, `shizuoka-wasabikko`, `tochigi-gyozan`,
-`tokai-islandboss-nagaretae`, `tokushima-lastboss-hachisuka-iemasa`, `tokushima-sudachi-musha`, `tokyo-kirariko`, `tokyo-tsukiyo-musasabi`, `tottori-midboss-dosshiri-dozo`,
-`tottori-rakkyon`, `toyama-lastboss-sassa-narimasa`, `toyama-oo-masuzushi`, `wakayama-kankantan`, `wakayama-morimori-mikan`, `yamagata-double-cherry`,
-`yamagata-ryuo-koma`, `yamaguchi-boss-akiyoshi-daiou`, `yamaguchi-mikan-daimyo`, `yamaguchi-pukufuku`, `yamanashi-houtoun`, `yamanashi-suzurin`.
+None. All 110 assigned ids are complete.
 
 ## Process and verification log
 
@@ -104,6 +136,7 @@ The following 40 ids are not complete:
 - 2026-10-27: used built-in imagegen only; no fal, external API, credentials, or OmniRoute.
 - 2026-10-27: preserved originals under `docs/verification/animation-batch-05/generated-sources/` and normalized with nearest-neighbor scaling.
 - 2026-10-27: RED confirmed with empty manifest; GREEN confirmed incrementally with dedicated and shared manifest units.
+- 2026-10-27: Playwright verified idle, attack, recovery, skill, and KO behavior for 3 representative monsters at 960×540 and 640×360 (6/6 passed).
 
 ## Integration notes
 
