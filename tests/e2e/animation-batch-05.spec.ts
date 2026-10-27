@@ -64,8 +64,7 @@ for (const viewport of [
         const battle = window.__nq.scene.getScene('Battle') as Battle;
         const sprite = battle.enemySprite;
         const count = () =>
-          (sprite.getData('observedAnimations') as string[]).filter((key) => key.endsWith('.attack'))
-            .length;
+          (sprite.getData('observedAnimations') as string[]).filter((key) => key.endsWith('.attack')).length;
         const before = count();
         await battle.animate({
           t: 'act',

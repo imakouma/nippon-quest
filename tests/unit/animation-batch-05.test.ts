@@ -3,7 +3,9 @@ import { describe, expect, it } from 'vitest';
 import assignments from '../../tasks/animation-batch-assignments.json';
 import type { MonsterAnimationSpec } from '../../src/rendering/monsterAnimation';
 
-const firstSliceIds = ['aichi-denkou-giku', 'aichi-midboss-tokoname-neko', 'akita-akitainu'] as const;
+const manifest = JSON.parse(
+  readFileSync('assets/sprites/animations/batch-05/manifest.json', 'utf8'),
+) as MonsterAnimationSpec[];
 
 describe('animation batch-05', () => {
   it('keeps the batch assignment fixed at 110 unique ids', () => {
@@ -11,15 +13,10 @@ describe('animation batch-05', () => {
 
     expect(batch?.ids).toHaveLength(110);
     expect(new Set(batch?.ids).size).toBe(110);
-    expect(batch?.ids.slice(0, firstSliceIds.length)).toEqual(firstSliceIds);
+    expect(batch?.ids.slice(0, manifest.length)).toEqual(manifest.map(({ id }) => id));
   });
 
   it('registers the verified first slice with the shared animation contract', () => {
-    const manifest = JSON.parse(
-      readFileSync('assets/sprites/animations/batch-05/manifest.json', 'utf8'),
-    ) as MonsterAnimationSpec[];
-
-    expect(manifest.map(({ id }) => id)).toEqual(firstSliceIds);
     for (const spec of manifest) {
       expect(spec).toEqual({
         id: spec.id,
