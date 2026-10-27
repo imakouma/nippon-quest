@@ -53,12 +53,12 @@
 - [x] Focused tests pass。
 - [x] `pnpm check:fast` passes。
 - [x] Changed-source related tests pass。
-- [ ] Atomic commit created。
+- [x] Atomic commit created。
 
 ## Task 6: Review and handoff
 
-- [ ] Five-axis self-review has no required findings。
-- [ ] Graphify code-only graph updated without LLM/semantic labeling。
-- [ ] Scope and staged secret checks pass。
-- [ ] Walkthrough records behavior, verification, and remaining risks。
-- [ ] Final commit created; no merge/push。
+- [x] Five-axis self-review has no required findings。
+- [x] Graphify code-only graph updated without LLM/semantic labeling。
+- [x] Scope and staged secret checks pass。
+- [x] Walkthrough records behavior, verification, and remaining risks。
+- [x] Final commit created; no merge/push。

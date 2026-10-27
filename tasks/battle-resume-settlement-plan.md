@@ -52,13 +52,13 @@
 - [x] Focused Battle/encounter/save tests pass.
 - [x] `pnpm check:fast` passes.
 - [x] Changed-source `pnpm test:related` passes.
-- [ ] Runtime changes are committed.
+- [x] Runtime changes are committed.
 
 ### Phase 4: Review and handoff
 
-- [ ] Task 8: five-axis self-review、Graphify code-only update、scope/diff確認を行う。
-- [ ] Task 9: focused tests、`pnpm check:fast`、変更sourceの`pnpm test:related`を最終実行する。
-- [ ] Task 10: walkthroughを記録し、最終コミットを作る。
+- [x] Task 8: five-axis self-review、Graphify code-only update、scope/diff確認を行う。
+- [x] Task 9: focused tests、`pnpm check:fast`、変更sourceの`pnpm test:related`を最終実行する。
+- [x] Task 10: walkthroughを記録し、最終コミットを作る。
 
 ## Risks and mitigations
 
