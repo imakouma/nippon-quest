@@ -105,6 +105,7 @@ export interface EncounterLifecycle {
   readonly active: EncounterContext | null;
   start(context: EncounterContext): Promise<boolean>;
   startInFlow(context: EncounterContext, flow: EncounterFlowContext): Promise<EncounterResult | null>;
+  resumeResult(context: EncounterContext, result: EncounterResult): Promise<boolean>;
   finish(encounterId: string, result: EncounterResult): Promise<void>;
   cancel(): void;
 }
@@ -252,6 +253,16 @@ class DefaultEncounterLifecycle implements EncounterLifecycle {
     active.acceptingResult = false;
     active.resolveResult(result);
     await active.completed;
+  }
+
+  async resumeResult(context: EncounterContext, result: EncounterResult): Promise<boolean> {
+    if (this.current) return false;
+    let resumed = false;
+    await this.ports.flow.run(`encounter-result-${context.source.type}`, async (flow) => {
+      resumed = true;
+      await this.ports.applyResult(context, result, encounterResultPolicy(context.source, result), flow);
+    });
+    return resumed;
   }
 
   cancel(): void {

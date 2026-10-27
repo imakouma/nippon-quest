@@ -1,5 +1,6 @@
 import { z } from 'zod/v3';
-import type { BattleState, Command } from '../battle/types';
+import type { BattleState, Command, Party } from '../battle/types';
+import type { QuestionQuery } from '../../questions/contracts';
 import {
   elementSchema,
   safeNonnegativeIntegerSchema,
@@ -49,6 +50,52 @@ const combatantSchema = z.object({
 
 const enemySchema = combatantSchema.extend({ skipTurns: safeNonnegativeIntegerSchema });
 
+const partySchema = z.object({
+  hero: combatantSchema,
+  monsters: z.array(combatantSchema),
+  activeMonsterIndex: safeNonnegativeIntegerSchema,
+  items: z.record(z.string(), safeNonnegativeIntegerSchema),
+});
+
+const enemyTacticsSchema = z.object({
+  id: z.string().min(1),
+  lowHp: z.object({
+    threshold: z.number().finite().min(0).max(1),
+    action: z.enum(['prefer-heal', 'weighted']),
+  }),
+  weights: z.object({
+    attack: z.number().finite().nonnegative(),
+    skill: z.number().finite().nonnegative(),
+    defend: z.number().finite().nonnegative(),
+  }),
+});
+
+const battleRulesetSchema = z.object({
+  id: z.enum(['normal', 'boss', 'tutorial', 'event']),
+  enemyTactics: enemyTacticsSchema,
+  flee: z.discriminatedUnion('mode', [
+    z.object({ mode: z.literal('speed-check') }),
+    z.object({ mode: z.literal('blocked') }),
+    z.object({ mode: z.literal('guaranteed') }),
+  ]),
+  recruitment: z.discriminatedUnion('mode', [
+    z.object({ mode: z.literal('standard') }),
+    z.object({ mode: z.literal('disabled') }),
+  ]),
+  rewards: z.discriminatedUnion('mode', [
+    z.object({ mode: z.literal('standard') }),
+    z.object({ mode: z.literal('none') }),
+  ]),
+  questions: z.discriminatedUnion('mode', [
+    z.object({ mode: z.literal('skill-driven') }),
+    z.object({ mode: z.literal('scripted') }),
+  ]),
+  party: z.discriminatedUnion('source', [
+    z.object({ source: z.literal('saved'), persistence: z.literal('standard') }),
+    z.object({ source: z.literal('provided'), persistence: z.literal('discard') }),
+  ]),
+});
+
 const subjectGaugesSchema = z.object({
   kokugo: safeNonnegativeIntegerSchema,
   sansu: safeNonnegativeIntegerSchema,
@@ -71,12 +118,7 @@ const companionSchema = z
 
 export const battleStateResumeSchema = z.object({
   turn: safePositiveIntegerSchema,
-  ally: z.object({
-    hero: combatantSchema,
-    monsters: z.array(combatantSchema),
-    activeMonsterIndex: safeNonnegativeIntegerSchema,
-    items: z.record(z.string(), safeNonnegativeIntegerSchema),
-  }),
+  ally: partySchema,
   enemy: enemySchema,
   player: z.object({
     subjectGauges: subjectGaugesSchema,
@@ -88,7 +130,7 @@ export const battleStateResumeSchema = z.object({
   seed: z.string().min(1),
   outcome: z.enum(['ongoing', 'victory', 'defeat', 'fled', 'recruited']),
   isBossBattle: z.boolean(),
-  canFleeBoss: z.boolean().optional(),
+  ruleset: battleRulesetSchema,
   log: z.preprocess(() => [], z.array(z.never())),
 });
 
@@ -136,6 +178,23 @@ const encounterSourceSchema = z.discriminatedUnion('type', [
 const groundSchema = z.enum(['grass', 'forest', 'mountain', 'beach', 'shore', 'farm']);
 const encounterZoneSchema = z.enum(['field', 'dungeon', 'forest', 'mountain', 'beach', 'shore', 'farm']);
 
+const gradeSchema = z.union([
+  z.literal(1),
+  z.literal(2),
+  z.literal(3),
+  z.literal(4),
+  z.literal(5),
+  z.literal(6),
+]);
+
+const questionQuerySchema = z.object({
+  subject: subjectSchema,
+  gradeRange: z.tuple([gradeSchema, gradeSchema]),
+  tags: z.array(z.string()).optional(),
+  excludeIds: z.array(z.string()).optional(),
+  preferUnits: z.array(z.string()).optional(),
+});
+
 const battleLaunchSchema = z.object({
   enemyId: z.string().min(1),
   level: safePositiveIntegerSchema,
@@ -145,6 +204,9 @@ const battleLaunchSchema = z.object({
   devMode: z.boolean().optional(),
   forceRecruitOffer: z.boolean().optional(),
   presentation: z.enum(['side', 'depth']).optional(),
+  kind: z.enum(['normal', 'boss', 'tutorial', 'event']).optional(),
+  party: partySchema.optional(),
+  scriptedQuestions: z.array(questionQuerySchema).min(1).optional(),
   encounterId: z.string().min(1),
   encounterSource: encounterSourceSchema,
 });
@@ -157,13 +219,41 @@ const battleEndPayloadSchema = z.object({
 export type BattleResumePhase =
   | { kind: 'awaiting-command' }
   | { kind: 'resolved-command'; command: Command }
-  | { kind: 'awaiting-result' }
+  | {
+      kind: 'awaiting-result';
+      victory?: PersistedVictoryEvent;
+      recruitAccepted?: boolean;
+    }
   | { kind: 'settled'; result: PersistedBattleEndPayload };
+
+export interface PersistedVictoryEvent {
+  t: 'victory';
+  xp: number;
+  gold: number;
+  drops: string[];
+  recruitOffer: boolean;
+  bonus: number;
+  maxCombo: number;
+}
+
+const victoryEventSchema: z.ZodType<PersistedVictoryEvent> = z.object({
+  t: z.literal('victory'),
+  xp: safeNonnegativeIntegerSchema,
+  gold: safeNonnegativeIntegerSchema,
+  drops: z.array(z.string().min(1)),
+  recruitOffer: z.boolean(),
+  bonus: z.number().finite().nonnegative(),
+  maxCombo: safeNonnegativeIntegerSchema,
+});
 
 const battleResumePhaseSchema: z.ZodType<BattleResumePhase> = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('awaiting-command') }),
   z.object({ kind: z.literal('resolved-command'), command: commandSchema }),
-  z.object({ kind: z.literal('awaiting-result') }),
+  z.object({
+    kind: z.literal('awaiting-result'),
+    victory: victoryEventSchema.optional(),
+    recruitAccepted: z.boolean().optional(),
+  }),
   z.object({ kind: z.literal('settled'), result: battleEndPayloadSchema }),
 ]);
 
@@ -198,6 +288,9 @@ export interface PersistedBattleLaunch {
   devMode?: boolean;
   forceRecruitOffer?: boolean;
   presentation?: 'side' | 'depth';
+  kind?: 'normal' | 'boss' | 'tutorial' | 'event';
+  party?: Party;
+  scriptedQuestions?: readonly QuestionQuery[];
   encounterId: string;
   encounterSource: PersistedEncounterSource;
 }
@@ -277,7 +370,7 @@ export function beginBattleResume<T extends BattleResumeOwner>(
     formatVersion: BATTLE_RESUME_FORMAT_VERSION,
     battleId,
     sequence,
-    launch: { ...input.launch, encounterId: battleId },
+    launch: input.launch,
     battleState: normalizedBattleState(input.battleState),
     questionSeed: input.questionSeed,
     questionRngState: normalizedQuestionRngState(input.questionRngState),

@@ -12,9 +12,11 @@ import { partyFromGameState, resolveBattleParty } from '../core/battle/setup';
 import type { ActionResult, BattleEvent, BattleState, Command } from '../core/battle/types';
 import { applyBattleResult } from '../core/progression/battleResult';
 import { evolutionStage } from '../core/progression/bag';
-import { settleBattleBag, type BattleSettlement } from '../core/progression/battleSettlement';
+import type { BattleSettlement } from '../core/progression/battleSettlement';
 import { withSpecialtyDrops } from '../core/progression/specialty';
-import { createRng, freshSeed } from '../core/rng';
+import { createRng, freshSeed, type Rng } from '../core/rng';
+import type { ActiveBattleResume, BattleResumePhase } from '../core/state/battleResume';
+import { GAME_PERSISTENCE_PORT_KEY, type GamePersistencePort } from '../core/state/persistence';
 import type { GameState } from '../core/state/schema';
 import { scoreBand, type QuestionQuery } from '../questions/contracts';
 import { filterCandidates, MasteryStore, type QuestionBank } from '../questions/engine';
@@ -93,6 +95,7 @@ import {
 } from './battle/sceneModel';
 import { BattleEventAnimator } from './battle/eventAnimator';
 import { resolveBattleLaunchRuleset } from './battle/rulesetSetup';
+import { BattleResumeRuntime, runCheckpointedBattleCommand } from './battle/resumeRuntime';
 type Sprite = Phaser.GameObjects.Image;
 export class BattleScene extends Phaser.Scene {
   private content!: ContentIndex;
@@ -103,7 +106,9 @@ export class BattleScene extends Phaser.Scene {
   private opts!: BattleLaunchData;
   private mastery!: MasteryStore;
   private readonly speak = createSpeaker();
-  private readonly qRng = createRng(freshSeed());
+  private qRng!: Rng;
+  private resumeRuntime!: BattleResumeRuntime;
+  private resumeSnapshot: ActiveBattleResume | null = null;
 
   // ↓ シーンのインスタンスは使い回されるので、1 戦ごとに init() で作り直す
   private hud = new HudStore();
@@ -185,6 +190,7 @@ export class BattleScene extends Phaser.Scene {
     this.cmdCursor = 0;
     this.stopped = false;
     this.recovering = false;
+    this.resumeSnapshot = null;
     this.presentation = new BattlePresentationRuntime(
       {
         text: {
@@ -212,8 +218,28 @@ export class BattleScene extends Phaser.Scene {
     this.content = this.registry.get('content') as ContentIndex;
     this.bank = this.registry.get('bank') as QuestionBank;
     this.gs = this.registry.get('game') as GameState;
+    const persistence = this.registry.get(GAME_PERSISTENCE_PORT_KEY) as GamePersistencePort | undefined;
+    const active = this.gs?.battle.active;
+    if (active?.phase.kind === 'settled' && active.launch.encounterId === this.opts.encounterId) {
+      this.scene.stop();
+      this.game.events.emit('battle:end', {
+        encounterId: active.launch.encounterId,
+        result: active.phase.result,
+      } satisfies BattleEndEvent);
+      return;
+    }
+    if (active && active.launch.encounterId !== this.opts.encounterId) {
+      console.error('[battle] 別の進行中戦闘があります', active.battleId);
+      this.scene.stop();
+      this.game.events.emit('battle:end', {
+        encounterId: this.opts.encounterId,
+        result: { outcome: 'fled', goldLost: 0 },
+      } satisfies BattleEndEvent);
+      return;
+    }
+    if (active) this.opts = { ...active.launch, presentation: active.launch.presentation ?? 'depth' };
     const def = this.content?.monsters.get(this.opts.enemyId);
-    if (!def || !this.gs) {
+    if (!def || !this.gs || !persistence) {
       console.error('[battle] 敵かセーブデータが見つかりません', this.opts);
       this.scene.stop();
       this.game.events.emit('battle:end', {
@@ -233,6 +259,7 @@ export class BattleScene extends Phaser.Scene {
       // モンスターは その県の特産品も落とす（合わせて settings.specialtyDropRate の確率）
       monsters: withSpecialtyDrops(c.monsters, c.areas, c.items, c.settings.specialtyDropRate),
     };
+    this.resumeRuntime = new BattleResumeRuntime(() => this.syncGame(), persistence);
     this.mastery = new MasteryStore(this.gs.learning.mastery);
     void prepareBattleSfx(this.gs.settings.seVolume);
 
@@ -243,20 +270,28 @@ export class BattleScene extends Phaser.Scene {
       isBoss,
       devMode: this.opts.devMode,
     });
-    this.state = createBattle(
-      {
-        ally: resolveBattleParty(ruleset, {
-          saved: () => partyFromGameState(this.gs, c),
-          provided: this.opts.party,
-        }),
-        enemy: makeMonster(def, this.opts.level, 'enemy'),
-        seed: freshSeed(),
-        isBossBattle: isBoss,
-        ruleset,
-      },
-      this.deps,
-    );
-    if (this.opts.forceRecruitOffer) this.state.enemy.hp = 1;
+    const questionSeed = active?.questionSeed ?? freshSeed();
+    this.qRng = createRng(questionSeed, active?.questionRngState);
+    if (active) {
+      this.state = structuredClone(active.battleState);
+      this.perfectBySubject = { ...active.perfectBySubject };
+      this.resumeSnapshot = active;
+    } else {
+      this.state = createBattle(
+        {
+          ally: resolveBattleParty(ruleset, {
+            saved: () => partyFromGameState(this.gs, c),
+            provided: this.opts.party,
+          }),
+          enemy: makeMonster(def, this.opts.level, 'enemy'),
+          seed: freshSeed(),
+          isBossBattle: isBoss,
+          ruleset,
+        },
+        this.deps,
+      );
+      if (this.opts.forceRecruitOffer) this.state.enemy.hp = 1;
+    }
 
     this.cameras.main.setBackgroundColor('#000000');
     this.fx = new Motions(this, (x, y, tint, texture, count, gravityY) =>
@@ -269,9 +304,21 @@ export class BattleScene extends Phaser.Scene {
     document.addEventListener('visibilitychange', this.onVisible);
     window.addEventListener('focus', this.onVisible);
     attachBattleBgm(this, isBoss, () => this.teardown());
-    void this.run().catch((e: unknown) => {
-      void this.recoverFromError('進行中', e);
-    });
+    void this.resumeRuntime
+      .initialize({
+        launch: this.opts,
+        battleState: this.state,
+        questionSeed,
+        questionRngState: this.qRng.state(),
+        perfectBySubject: this.perfectBySubject,
+      })
+      .then(({ snapshot }) => {
+        this.resumeSnapshot = snapshot;
+        return this.run();
+      })
+      .catch((e: unknown) => {
+        void this.recoverFromError('進行中', e);
+      });
   }
 
   override update(_time: number, delta: number): void {
@@ -649,6 +696,9 @@ export class BattleScene extends Phaser.Scene {
   private async run(): Promise<void> {
     await this.intro();
     this.hud.set({ intro: false });
+    const resumePhase = this.resumeSnapshot?.phase;
+    if (resumePhase?.kind === 'awaiting-result') this.victory = resumePhase.victory ?? null;
+    if (resumePhase?.kind === 'resolved-command') await this.executeCommand(resumePhase.command, false);
     if (this.state.outcome === 'ongoing') {
       this.phase = 'command';
       this.syncViews();
@@ -767,14 +817,7 @@ export class BattleScene extends Phaser.Scene {
     this.busy = true;
     this.hud.set({ menu: 'none', actorId: null });
     try {
-      const { state, events } = act(
-        this.state,
-        { kind: 'wait' },
-        this.deps,
-        this.commandEvaluationContext('execution'),
-      );
-      this.state = state;
-      await this.enqueue(events);
+      await this.executeCommand({ kind: 'wait' });
     } catch (e) {
       await this.recoverFromError('ターンの すすめかた', e);
     } finally {
@@ -947,9 +990,45 @@ export class BattleScene extends Phaser.Scene {
         break;
       }
     }
-    const { state, events } = act(this.state, cmd, this.deps, this.commandEvaluationContext('execution'));
-    this.state = state;
-    await this.enqueue(events);
+    await this.executeCommand(cmd);
+  }
+
+  /** act/Tween中はresolved-commandを維持し、演出完了後だけ次の安全境界へ進める。 */
+  private async executeCommand(cmd: Command, persistResolved = true): Promise<void> {
+    this.state = await runCheckpointedBattleCommand({
+      command: cmd,
+      persistResolved,
+      checkpointResolved: (command) => this.checkpoint({ kind: 'resolved-command', command }),
+      resolve: () => {
+        const resolved = act(this.state, cmd, this.deps, this.commandEvaluationContext('execution'));
+        this.state = resolved.state;
+        return resolved;
+      },
+      present: (events) => this.enqueue(events),
+      checkpointSafe: async (state) => {
+        this.state = state;
+        await this.checkpoint(
+          state.outcome === 'ongoing'
+            ? { kind: 'awaiting-command' }
+            : { kind: 'awaiting-result', ...(this.victory ? { victory: this.victory } : {}) },
+        );
+      },
+    });
+  }
+
+  private async checkpoint(phase: BattleResumePhase): Promise<void> {
+    const snapshot = this.resumeSnapshot;
+    if (!snapshot) throw new Error('戦闘snapshotが初期化されていません');
+    this.gs = await this.resumeRuntime.checkpoint(snapshot.battleId, {
+      battleState: this.state,
+      questionRngState: this.qRng.state(),
+      perfectBySubject: this.perfectBySubject,
+      phase,
+    });
+    const active = this.gs.battle.active;
+    if (!active || active.battleId !== snapshot.battleId)
+      throw new Error('戦闘snapshotを更新できませんでした');
+    this.resumeSnapshot = active;
   }
 
   // ───────────────────────── 問題 ─────────────────────────
@@ -1509,7 +1588,10 @@ export class BattleScene extends Phaser.Scene {
     this.abort?.abort();
     this.hud.set({ result: null, message: null, menu: 'none', question: null, turn: null });
     try {
-      await this.leave('fled', 0);
+      const settled = this.syncGame().battle.active;
+      const result = settled?.phase.kind === 'settled' ? settled.phase.result : null;
+      if (!result && settled) this.gs = await this.resumeRuntime.discard(settled.battleId);
+      await this.leave(result?.outcome ?? 'fled', result?.goldLost ?? 0);
     } catch (leaveError) {
       console.error('[battle] エラーから戻れませんでした', leaveError);
       if (!this.stopped) {
@@ -1535,6 +1617,10 @@ export class BattleScene extends Phaser.Scene {
         ? { ...this.victory, recruitOffer: false }
         : this.victory;
     const summary = battleSummary(s, v, this.perfectBySubject);
+    const resultPhase = this.resumeSnapshot?.phase;
+    const savedRecruitDecision =
+      resultPhase?.kind === 'awaiting-result' ? resultPhase.recruitAccepted : undefined;
+    if (savedRecruitDecision !== undefined) summary.recruitAccepted = savedRecruitDecision;
     const outcome = summary.outcome;
     finishBattleBgm(outcome);
 
@@ -1566,11 +1652,16 @@ export class BattleScene extends Phaser.Scene {
         result: { ...result, recruitName: undefined, recruitArt: undefined },
       });
       await this.waitFor((x) => x.t === 'resultClose');
-      if (result.recruitName) {
+      if (result.recruitName && savedRecruitDecision === undefined) {
         playSfx('discover');
         this.hud.set({ cursor: 0, result: { ...result, recruitPhase: true } });
         const a = await this.waitFor((x) => x.t === 'recruitAnswer');
         summary.recruitAccepted = a.t === 'recruitAnswer' && a.yes;
+        await this.checkpoint({
+          kind: 'awaiting-result',
+          ...(v ? { victory: v } : {}),
+          recruitAccepted: summary.recruitAccepted,
+        });
         if (summary.recruitAccepted) {
           playSfx('recruit');
           this.hud.set({ result: null });
@@ -1590,17 +1681,28 @@ export class BattleScene extends Phaser.Scene {
     }
 
     if (!persist) {
+      const snapshot = this.resumeSnapshot;
+      if (!snapshot) throw new Error('戦闘snapshotが見つかりません');
+      this.gs = await this.resumeRuntime.discard(snapshot.battleId);
+      this.resumeSnapshot = this.gs.battle.active;
+      this.registry.set('game', this.gs);
       await this.leave(outcome, 0);
       return;
     }
 
-    const previous = this.syncGame();
-    const applied = applyBattleResult(previous, summary, this.content.settings);
-    const settled = settleBattleBag(previous, applied, this.content);
-    this.gs = settled.state;
-    this.registry.set('game', settled.state);
-    await this.announceSettlement(settled);
-    await this.leave(outcome, applied.goldLost);
+    const snapshot = this.resumeSnapshot;
+    if (!snapshot) throw new Error('戦闘snapshotが見つかりません');
+    const decision = await this.resumeRuntime.settle(
+      snapshot.battleId,
+      snapshot.sequence,
+      summary,
+      this.content,
+    );
+    if (!decision.result) throw new Error('戦闘結果を確定できませんでした');
+    this.gs = decision.state;
+    this.resumeSnapshot = decision.state.battle.active;
+    if (decision.settlement) await this.announceSettlement(decision.settlement);
+    await this.leave(decision.result.outcome, decision.result.goldLost);
   }
 
   /** バトル後の成長と、仲間のバッグ格納・預かりを知らせる。 */

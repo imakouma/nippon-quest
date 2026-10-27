@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { createBattle } from '../../src/core/battle/engine';
 import { makeMonster } from '../../src/core/battle/factory';
+import { TUTORIAL_BATTLE_RULESET } from '../../src/core/battle/ruleset';
 import { partyFromGameState } from '../../src/core/battle/setup';
 import { createRng } from '../../src/core/rng';
 import {
@@ -62,7 +63,7 @@ describe('battle resume snapshot', () => {
       sequence: 1,
       phase: { kind: 'awaiting-command' },
     });
-    expect(started.snapshot.launch.encounterId).toBe('resume-seed.battle.1');
+    expect(started.snapshot.launch.encounterId).toBe('temporary-field-id');
     expect(started.snapshot.battleState.log).toEqual([]);
     expect(started.state.battle.nextSequence).toBe(2);
     expect(started.state.battle.active).toEqual(started.snapshot);
@@ -146,6 +147,45 @@ describe('battle resume snapshot', () => {
     expect(discarded.battle).toEqual({ nextSequence: 2, finalizedThrough: 1, active: null });
   });
 
+  it('result境界で報酬eventと加入判断をround-tripする', async () => {
+    const { game, battle, questionRngState } = await battleFixture();
+    const started = beginBattleResume(game, {
+      launch: {
+        enemyId: 'aomori-nebutan',
+        level: 2,
+        zone: 'field',
+        encounterId: 'temporary-field-id',
+        encounterSource: { type: 'random' },
+      },
+      battleState: battle,
+      questionSeed: 'question-seed',
+      questionRngState,
+      perfectBySubject: {},
+    });
+    const terminal = { ...battle, outcome: 'victory' as const };
+    const result = checkpointBattleResume(started.state, started.snapshot.battleId, {
+      battleState: terminal,
+      questionRngState,
+      perfectBySubject: { sansu: 2 },
+      phase: {
+        kind: 'awaiting-result',
+        victory: {
+          t: 'victory',
+          xp: 12,
+          gold: 8,
+          drops: ['item-apple'],
+          recruitOffer: true,
+          bonus: 1.2,
+          maxCombo: 3,
+        },
+        recruitAccepted: true,
+      },
+    });
+
+    const parsed = gameStateSchema.parse(structuredClone(result));
+    expect(parsed.battle.active?.phase).toEqual(result.battle.active?.phase);
+  });
+
   it('壊れたactive snapshotだけをnullへ救済する', async () => {
     const { game } = await battleFixture();
     const parsed = gameStateSchema.parse({
@@ -158,5 +198,34 @@ describe('battle resume snapshot', () => {
     });
 
     expect(parsed.battle).toEqual({ nextSequence: 8, finalizedThrough: 6, active: null });
+  });
+
+  it('rulesetとscripted起動情報を保存後も維持する', async () => {
+    const { game, battle, questionRngState } = await battleFixture();
+    battle.ruleset = TUTORIAL_BATTLE_RULESET;
+    const query = { subject: 'sansu' as const, gradeRange: [2, 3] as const };
+    const started = beginBattleResume(game, {
+      launch: {
+        enemyId: 'aomori-nebutan',
+        level: 2,
+        zone: 'field',
+        encounterId: 'tutorial-id',
+        encounterSource: { type: 'script' },
+        kind: 'tutorial',
+        party: battle.ally,
+        scriptedQuestions: [query],
+      },
+      battleState: battle,
+      questionSeed: 'question-seed',
+      questionRngState,
+      perfectBySubject: {},
+    });
+
+    const parsed = gameStateSchema.parse(structuredClone(started.state));
+    expect(parsed.battle.active?.battleState.ruleset).toEqual(TUTORIAL_BATTLE_RULESET);
+    expect(parsed.battle.active?.launch).toMatchObject({
+      kind: 'tutorial',
+      scriptedQuestions: [query],
+    });
   });
 });

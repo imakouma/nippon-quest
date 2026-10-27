@@ -31,28 +31,28 @@
 
 - [x] Focused tests pass。
 - [x] Changed-source related tests pass。
-- [ ] Atomic commit created。
+- [x] Atomic commit created。
 
 ## Task 4: Persistence and Battle wiring
 
-- [ ] RED: save retry/safe checkpoint orchestration testsを追加する。
-- [ ] GREEN: await可能なcheckpoint portをcomposition rootとBattleへ接続する。
-- [ ] Tween中はsnapshotを書かず、resolved commandを再生する。
-- [ ] Verify: focused snapshot/persistence/Battle tests。
+- [x] RED: save retry/safe checkpoint orchestration testsを追加する。
+- [x] GREEN: await可能なcheckpoint portをcomposition rootとBattleへ接続する。
+- [x] Tween中はsnapshotを書かず、resolved commandを再生する。
+- [x] Verify: focused snapshot/persistence/Battle tests。
 - Files: `src/main.ts`, `src/scenes/Battle.ts`, `src/scenes/battle/*`, related tests。
 
 ## Task 5: Encounter and field resume
 
-- [ ] RED: active battle resume、settled result resume、duplicate end testsを追加する。
-- [ ] GREEN: Overworld/encounter lifecycleへresume/acknowledgementを接続する。
-- [ ] Verify: focused encounter tests。
+- [x] RED: active battle resume、settled result resume、duplicate end testsを追加する。
+- [x] GREEN: Overworld/encounter lifecycleへresume/acknowledgementを接続する。
+- [x] Verify: focused encounter tests。
 - Files: `src/scenes/Overworld.ts`, `src/scenes/overworld/encounterLifecycle.ts`, related tests。
 
 ## Checkpoint: Runtime
 
-- [ ] Focused tests pass。
-- [ ] `pnpm check:fast` passes。
-- [ ] Changed-source related tests pass。
+- [x] Focused tests pass。
+- [x] `pnpm check:fast` passes。
+- [x] Changed-source related tests pass。
 - [ ] Atomic commit created。
 
 ## Task 6: Review and handoff

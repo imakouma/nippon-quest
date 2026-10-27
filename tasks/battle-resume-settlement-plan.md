@@ -39,19 +39,19 @@
 
 - [x] Focused settlement/persistence tests pass.
 - [x] Changed-source `pnpm test:related` passes.
-- [ ] Settlement changes are committed.
+- [x] Settlement changes are committed.
 
 ### Phase 3: Runtime integration
 
-- [ ] Task 5: await可能なpersistence portとBattleの安全checkpointを接続する。
-- [ ] Task 6: load時のactive battle再開とsettled encounterのfield acknowledgementを接続する。
-- [ ] Task 7: Tween/問題/result各中断境界のruntime testsを追加する。
+- [x] Task 5: await可能なpersistence portとBattleの安全checkpointを接続する。
+- [x] Task 6: load時のactive battle再開とsettled encounterのfield acknowledgementを接続する。
+- [x] Task 7: Tween/問題/result各中断境界のruntime testsを追加する。
 
 ### Checkpoint: Runtime
 
-- [ ] Focused Battle/encounter/save tests pass.
-- [ ] `pnpm check:fast` passes.
-- [ ] Changed-source `pnpm test:related` passes.
+- [x] Focused Battle/encounter/save tests pass.
+- [x] `pnpm check:fast` passes.
+- [x] Changed-source `pnpm test:related` passes.
 - [ ] Runtime changes are committed.
 
 ### Phase 4: Review and handoff

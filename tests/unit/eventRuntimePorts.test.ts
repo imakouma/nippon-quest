@@ -20,6 +20,7 @@ function harness() {
     active: null,
     start: vi.fn(async () => true),
     startInFlow: vi.fn(async () => ({ outcome: 'victory' as const, goldLost: 0 })),
+    resumeResult: vi.fn(async () => true),
     finish: vi.fn(async () => undefined),
     cancel: vi.fn(),
   };
