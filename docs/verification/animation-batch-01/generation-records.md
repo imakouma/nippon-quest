@@ -115,6 +115,59 @@ Top row: sword-up guard idle, breath with tail/dorsal lift, blink and sword dip,
 Constraints: preserve tuna face, belly, fins, single crescent tail, flank marks and exactly one sword in the right fin; real pose differences; transparent background; no slash aura, particles, shadow, text, grid, humanoid hands, extra swords, fins, tails or crop.
 ```
 
+## aomori-sakurapon
+
+- 出力: `assets/sprites/animations/batch-01/aomori-sakurapon-v1.png`
+- 参照: `pixels/aomori-sakurapon.png`, `sheets/aomori-sakurapon.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI SAKURAPON. Preserve a soft flat pink cherry-blossom puff spirit shaped like one broad scalloped flower/cloud, with white rectangular eyes, tiny dash mouth, darker pink cheek bars, exactly one short bright-green top leaf/stem, and exactly two short dark-brown trunk-like legs; no arms.
+Top row: quiet neutral, soft petal breath with leaf lift, blink and scallop compression, return. Bottom row: planted compression, sideways spring, real fluffy body-bump, landed recovery.
+Constraints: preserve face, single scalloped pink body, one leaf/stem, two legs and no arms; real pose differences; transparent background; no loose petals, aura, particles, shadow, text, grid, hands, extra leaves, limbs, weapons or crop.
+```
+
+## aomori-senbein
+
+- 出力: `assets/sprites/animations/batch-01/aomori-senbein-v1.png`
+- 参照: `pixels/aomori-senbein.png`, `sheets/aomori-senbein.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI SENBEIN. Preserve a thick round golden-brown rice cracker mascot with pale raised toasted rim, many dark baked spots, white rectangular eyes, tiny dash mouth, pink cheek bars, and exactly two short dark-brown feet; no arms.
+Top row: upright neutral, crunchy body breath, blink and tilt, return. Bottom row: angled wind-up, edge-first roll, real spinning-cracker bash with side perspective, upright recovery.
+Constraints: preserve round cracker, rim, spots, face, two feet and no arms; real pose differences; transparent background; no crumbs, particles, aura, shadow, text, grid, hands, extra limbs, weapons, bites or crop.
+```
+
+## aomori-tsugaru-nurin
+
+- 出力: `assets/sprites/animations/batch-01/aomori-tsugaru-nurin-v1.png`
+- 参照: `pixels/aomori-tsugaru-nurin.png`, `sheets/aomori-tsugaru-nurin.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+- 初回出力の待機2枚目で蓋上に表面模様3粒が浮遊したため不採用。`aomori-tsugaru-nurin-generated-source-rejected-v1.png` に保存し、採用版ではキャラクターを変えず透過へ除去した。
+
+初回不採用プロンプト:
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI TSUGARU NURIN. Preserve a glossy dark-brown Tsugaru lacquerware jar spirit with round egg body, broad flat gold top lid/rim, one narrow gold middle band, attached square red/orange/gold lacquer flecks, white eyes, smiling mouth, pink cheeks, and exactly two tiny brown feet; no arms.
+Top row: cheerful neutral, breath with lid lifting slightly, blink and tilt, return. Bottom row: compressed wind-up, forward rotation, real lacquer-jar spin bash with lid secure, upright recovery.
+Constraints: preserve jar, one attached lid, one gold band, attached flecks, face, two feet and no arms; real pose differences; transparent background; no loose flecks, aura, particles, shadow, text, grid, hands, extra lids, limbs, weapons or crop.
+```
+
+採用版修正プロンプト:
+
+```text
+Use case: precise-object-edit
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Clean Image 1 while preserving the exact same AOMORI TSUGARU NURIN character, all eight poses, exact 4-column by 2-row layout, pixel style, proportions, colors and true transparent background.
+Change only: in top-row frame 2, remove the three loose red/orange/gold square flecks floating above the gold lid. Fill those areas with full transparency. Keep all square lacquer flecks attached to the brown jar surface. Do not change the character, lid or poses.
+Preserve: dark-brown egg-shaped jar, one attached gold lid, one middle gold band, all attached surface flecks, white eyes, smiling mouth, pink cheeks, exactly two feet, every pose and expression.
+Constraints: crisp hard pixel edges; empty transparent space; no floating flecks, particles, aura, shadow, cross-cell trails, text, grid, arms, hands, extra lids, limbs or crop.
+```
+
 ## iwate-izumiko
 
 - 出力: `assets/sprites/animations/batch-01/iwate-izumiko-v1.png`
