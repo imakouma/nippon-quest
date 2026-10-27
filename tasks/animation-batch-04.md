@@ -3,8 +3,8 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 30体。
-- 未着手: 80体（割当110体から下記完了30体を除いたもの）。
+- 完了: 40体。
+- 未着手: 70体（割当110体から下記完了40体を除いたもの）。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
@@ -95,10 +95,23 @@
 - `hokkaido-kitakon`: 橙の狐、耳2、四肢、尾1本、頭の飾りを固定。耳尾待機、跳躍と尾撃。出力 `exec-a786cc0f-dd75-4e99-b609-bb4262a6d174.png`。
 - `hokkaido-midboss-setsuzo-golem`: 氷雪ブロック、冠、腕2、脚2、台座を固定。拳待機、両拳の叩き付け。出力 `exec-28cee4e1-20ff-460e-8fcb-2c9b77d9afc2.png`。
 
+### 追加10体（兵庫〜香川）
+
+- `hyogo-boss-shirasagi-tenshu`: 白い三層城、黒屋根、金飾りを固定。構造の待機、城全体の体当たり。出力 `exec-e01a9602-6a46-472f-aadc-1bdba8a93bdc.png`。
+- `hyogo-midboss-tajima-mogyu`: 黒牛、角2本、四肢、鼻輪を固定。角の待機、頭を下げた突進。出力 `exec-f11c6483-d9b0-43ce-8150-193c6105f95d.png`。
+- `hyogo-takotsubo-daisho`: 橙のタコ、壺兜、触手8本を固定。触手待機、前方への触手打撃。出力 `exec-f41e96ea-5ddb-4696-8999-9254eb3f2683.png`。
+- `ibaraki-boss-tsukuba-gama-o`: 冠の大ガマ、四肢、腹を固定。喉腹の待機、跳躍体当たり。出力 `exec-6d33a575-0eba-4f64-ac60-9ab231c0785b.png`。
+- `ibaraki-lastboss-tokugawa-nariaki`: 紫鎧、花兜、軍配1本を固定。軍配待機、前方薙ぎ。出力 `exec-f21529b8-7849-4967-98c3-21ecb99ee283.png`。
+- `ibaraki-renkonta`: 接続した蓮根2体と各根足を固定。交互待機、双体回転突進。出力 `exec-7c6933e4-3f72-45af-8247-d3ed2143bbe8.png`。
+- `ishikawa-gosai-musha`: 彩色木偶、鉢巻、花模様、木台を固定。傾き待機、胴体打撃。出力 `exec-a181eae2-6143-44df-b5dc-bd8f2baeb8a4.png`。
+- `ishikawa-kinran-ageha`: 金の蝶、翼2枚、黒胴、天蓋を固定。羽ばたき待機、両翼の突風打撃。出力 `exec-b712a5fa-06cb-4bda-ae62-1dd9b87ff7e8.png`。
+- `ishikawa-wajimanurin`: 赤漆椀、金縁、台座を固定。椀の傾き待機、回転打撃。出力 `exec-2177c438-e20a-4615-ace9-3adcd003614b.png`。
+- `kagawa-lastboss-hiraga-gennai`: 紺の羽織、灰袴、髷を固定。袖の待機、火花を伴う掌打。出力 `exec-702b964a-14f7-4131-ae3f-92b920ff04b8.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 30体とも512×256、RGBA、4列2行の契約。
+- PNG: 40体とも512×256、RGBA、4列2行の契約。
 - 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
 
 ## 統合担当への提案
