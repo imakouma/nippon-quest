@@ -1,0 +1,67 @@
+{
+  "$ref": "#/definitions/characterBodySizes",
+  "definitions": {
+    "characterBodySizes": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "number",
+          "const": 1
+        },
+        "characters": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "heightKind": {
+                "type": "string",
+                "enum": [
+                  "height",
+                  "body-height"
+                ]
+              },
+              "heightCm": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "lengthCm": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "wingspanCm": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "heightKind",
+              "heightCm"
+            ],
+            "additionalProperties": false
+          },
+          "propertyNames": {
+            "pattern": "^[a-z0-9][a-z0-9.-]*$"
+          }
+        },
+        "aliases": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*$",
+            "description": "一意なID（小文字英数字・ドット・ハイフン）"
+          },
+          "propertyNames": {
+            "pattern": "^[a-z0-9][a-z0-9.-]*$"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "characters",
+        "aliases"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
