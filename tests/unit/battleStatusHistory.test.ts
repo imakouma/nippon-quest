@@ -3,6 +3,7 @@ import type { BattleEvent, BattleState, Combatant, EnemyUnit } from '../../src/c
 import { buildBattleHistoryView, buildStatusEffects } from '../../src/scenes/battle/statusHistoryViews';
 import type { NarrateCtx } from '../../src/scenes/battle/narrate';
 import { setDictionary } from '../../src/ui/i18n';
+import { NORMAL_BATTLE_RULESET } from '../../src/core/battle/ruleset';
 
 const stats = {
   hp: 20,
@@ -37,9 +38,17 @@ function combatant(id: string, name: string, hp: number): Combatant {
 
 const events: BattleEvent[] = [
   { t: 'turnStart', turn: 1 },
-  { t: 'act', side: 'ally', actorId: 'hero', command: 'attack' },
+  {
+    t: 'act',
+    actionId: 'turn:1:action:0',
+    side: 'ally',
+    actorId: 'hero',
+    targetIds: ['enemy'],
+    command: 'attack',
+  },
   {
     t: 'damage',
+    actionId: 'turn:1:action:0',
     side: 'enemy',
     targetId: 'enemy',
     amount: 5,
@@ -49,14 +58,30 @@ const events: BattleEvent[] = [
     scoreBand: null,
     comboMult: 1,
   },
-  { t: 'heal', side: 'ally', targetId: 'hero', amount: 3 },
+  { t: 'heal', actionId: 'turn:1:action:1', side: 'ally', targetId: 'hero', amount: 3 },
   { t: 'turnStart', turn: 2 },
-  { t: 'buff', side: 'enemy', targetId: 'enemy', stat: 'def', mult: 0.75, turns: 2 },
-  { t: 'status', targetId: 'enemy', turns: 1 },
-  { t: 'skipTurn', targetId: 'enemy', remain: 0 },
-  { t: 'act', side: 'enemy', actorId: 'enemy', command: 'attack' },
+  {
+    t: 'buff',
+    actionId: 'turn:2:action:0',
+    side: 'enemy',
+    targetId: 'enemy',
+    stat: 'def',
+    mult: 0.75,
+    turns: 2,
+  },
+  { t: 'status', actionId: 'turn:2:action:0', targetId: 'enemy', turns: 1 },
+  { t: 'skipTurn', actionId: 'turn:2:action:1', targetId: 'enemy', remain: 0 },
+  {
+    t: 'act',
+    actionId: 'turn:2:action:2',
+    side: 'enemy',
+    actorId: 'enemy',
+    targetIds: ['hero'],
+    command: 'attack',
+  },
   {
     t: 'damage',
+    actionId: 'turn:2:action:2',
     side: 'ally',
     targetId: 'hero',
     amount: 4,
@@ -85,6 +110,7 @@ function battle(log: BattleEvent[] = events): BattleState {
     seed: 'history-test',
     outcome: 'ongoing',
     isBossBattle: false,
+    ruleset: NORMAL_BATTLE_RULESET,
     log,
   };
 }

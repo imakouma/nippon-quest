@@ -104,7 +104,7 @@ describe('evaluateBattleCommand', () => {
     [
       'question-unavailable',
       { kind: 'skill', skillId: 'sk-tashizan-giri' } as const,
-      { questionSkillKeys: new Set() },
+      { questionSkillKeys: new Set<string>() },
     ],
     ['insufficient-gauge', { kind: 'skill', skillId: 'sk-kuku-rush' } as const, {}],
   ])('%s を理由つきで拒否する', async (reason, ref, over) => {

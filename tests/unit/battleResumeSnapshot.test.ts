@@ -171,6 +171,7 @@ describe('battle resume snapshot', () => {
         kind: 'awaiting-result',
         victory: {
           t: 'victory',
+          actionId: 'turn:1:action:0',
           xp: 12,
           gold: 8,
           drops: ['item-apple'],
@@ -203,7 +204,7 @@ describe('battle resume snapshot', () => {
   it('rulesetとscripted起動情報を保存後も維持する', async () => {
     const { game, battle, questionRngState } = await battleFixture();
     battle.ruleset = TUTORIAL_BATTLE_RULESET;
-    const query = { subject: 'sansu' as const, gradeRange: [2, 3] as const };
+    const query = { subject: 'sansu' as const, gradeRange: [2, 3] as [2, 3] };
     const started = beginBattleResume(game, {
       launch: {
         enemyId: 'aomori-nebutan',

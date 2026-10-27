@@ -1,5 +1,5 @@
 import { z } from 'zod/v3';
-import type { BattleState, Command, Party } from '../battle/types';
+import type { BattleActionId, BattleState, Command, Party } from '../battle/types';
 import type { QuestionQuery } from '../../questions/contracts';
 import {
   elementSchema,
@@ -195,7 +195,7 @@ const questionQuerySchema = z.object({
   preferUnits: z.array(z.string()).optional(),
 });
 
-const battleLaunchSchema = z.object({
+const battleLaunchBaseSchema = z.object({
   enemyId: z.string().min(1),
   level: safePositiveIntegerSchema,
   zone: encounterZoneSchema,
@@ -204,12 +204,22 @@ const battleLaunchSchema = z.object({
   devMode: z.boolean().optional(),
   forceRecruitOffer: z.boolean().optional(),
   presentation: z.enum(['side', 'depth']).optional(),
-  kind: z.enum(['normal', 'boss', 'tutorial', 'event']).optional(),
-  party: partySchema.optional(),
-  scriptedQuestions: z.array(questionQuerySchema).min(1).optional(),
   encounterId: z.string().min(1),
   encounterSource: encounterSourceSchema,
 });
+
+const battleLaunchSchema: z.ZodType<PersistedBattleLaunch> = z.union([
+  battleLaunchBaseSchema.extend({
+    kind: z.enum(['normal', 'boss', 'event']).optional(),
+    party: z.never().optional(),
+    scriptedQuestions: z.never().optional(),
+  }),
+  battleLaunchBaseSchema.extend({
+    kind: z.literal('tutorial'),
+    party: partySchema,
+    scriptedQuestions: z.array(questionQuerySchema).min(1),
+  }),
+]) as z.ZodType<PersistedBattleLaunch>;
 
 const battleEndPayloadSchema = z.object({
   outcome: z.enum(['victory', 'defeat', 'fled', 'recruited']),
@@ -228,6 +238,7 @@ export type BattleResumePhase =
 
 export interface PersistedVictoryEvent {
   t: 'victory';
+  actionId: BattleActionId;
   xp: number;
   gold: number;
   drops: string[];
@@ -238,6 +249,7 @@ export interface PersistedVictoryEvent {
 
 const victoryEventSchema: z.ZodType<PersistedVictoryEvent> = z.object({
   t: z.literal('victory'),
+  actionId: z.string().regex(/^turn:\d+:action:\d+$/) as z.ZodType<BattleActionId>,
   xp: safeNonnegativeIntegerSchema,
   gold: safeNonnegativeIntegerSchema,
   drops: z.array(z.string().min(1)),
@@ -279,7 +291,7 @@ export type PersistedEncounterSource =
   | { type: 'arena'; opponentId: string }
   | { type: 'script' };
 
-export interface PersistedBattleLaunch {
+interface PersistedBattleLaunchBase {
   enemyId: string;
   level: number;
   zone: 'field' | 'dungeon' | 'forest' | 'mountain' | 'beach' | 'shore' | 'farm';
@@ -288,12 +300,21 @@ export interface PersistedBattleLaunch {
   devMode?: boolean;
   forceRecruitOffer?: boolean;
   presentation?: 'side' | 'depth';
-  kind?: 'normal' | 'boss' | 'tutorial' | 'event';
-  party?: Party;
-  scriptedQuestions?: readonly QuestionQuery[];
   encounterId: string;
   encounterSource: PersistedEncounterSource;
 }
+
+export type PersistedBattleLaunch =
+  | (PersistedBattleLaunchBase & {
+      kind?: 'normal' | 'boss' | 'event';
+      party?: never;
+      scriptedQuestions?: never;
+    })
+  | (PersistedBattleLaunchBase & {
+      kind: 'tutorial';
+      party: Party;
+      scriptedQuestions: readonly [QuestionQuery, ...QuestionQuery[]];
+    });
 
 export interface PersistedBattleEndPayload {
   outcome: 'victory' | 'defeat' | 'fled' | 'recruited';

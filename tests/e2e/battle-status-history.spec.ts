@@ -46,6 +46,7 @@ test('状態チップと履歴は演出済みイベントだけを通常HUDへ�
     const battle = window.__nq.scene.getScene('Battle') as HistoryBattle;
     const event: BattleEvent = {
       t: 'damage',
+      actionId: 'turn:1:action:0',
       side: 'enemy',
       targetId: battle.state.enemy.id,
       amount: 1,
@@ -121,9 +122,17 @@ test('開発モードのタイムラインは詳細を表示しEscapeで元の�
     const before = battle.state.enemy.stats.hp;
     const events: BattleEvent[] = [
       { t: 'turnStart', turn: 1 },
-      { t: 'act', side: 'ally', actorId: battle.state.ally.hero.id, command: 'attack' },
+      {
+        t: 'act',
+        actionId: 'turn:1:action:0',
+        side: 'ally',
+        actorId: battle.state.ally.hero.id,
+        targetIds: [battle.state.enemy.id],
+        command: 'attack',
+      },
       {
         t: 'damage',
+        actionId: 'turn:1:action:0',
         side: 'enemy',
         targetId: battle.state.enemy.id,
         amount: 5,

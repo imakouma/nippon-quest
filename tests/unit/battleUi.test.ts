@@ -150,10 +150,10 @@ describe('Battle launch ruleset', () => {
 });
 
 describe('Battle question ruleset', () => {
-  const skillDriven = { subject: 'sansu' as const, gradeRange: [1, 2] as const };
+  const skillDriven = { subject: 'sansu' as const, gradeRange: [1, 2] as [1, 2] };
   const scripted = [
-    { subject: 'kokugo' as const, gradeRange: [1, 1] as const, tags: ['tutorial:first'] },
-    { subject: 'rika' as const, gradeRange: [2, 2] as const, tags: ['tutorial:second'] },
+    { subject: 'kokugo' as const, gradeRange: [1, 1] as [1, 1], tags: ['tutorial:first'] },
+    { subject: 'rika' as const, gradeRange: [2, 2] as [2, 2], tags: ['tutorial:second'] },
   ];
 
   it('skill-driven は従来 query、scripted は明示 query を順に使う', () => {

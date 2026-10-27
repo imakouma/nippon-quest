@@ -243,9 +243,11 @@ describe('battle engine ruleset integration', () => {
       }),
     ).toBe(false);
     expect(
-      buildCommandOptions({ state, deps: D, hasQuestion: () => true, itemCount: 0, canRecruit: false }).find(
-        (command) => command.kind === 'flee',
-      ),
+      buildCommandOptions({
+        state,
+        deps: D,
+        context: { storyCompanionUnlocked: true, questionSkillKeys: new Set(), phase: 'selection' },
+      }).find((command) => command.kind === 'flee'),
     ).toMatchObject({ kind: 'flee', disabled: true, blockReason: 'boss-flee-blocked' });
   });
 

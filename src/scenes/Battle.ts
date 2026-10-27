@@ -46,7 +46,8 @@ import { Motions, type EnemyStyle, type MotifFx, type SwingKind } from './battle
 import { toCanvas } from '../rendering/grid';
 import { motifArtGrid } from '../rendering/motifArt';
 import { skillLook } from '../rendering/battle/skillLook';
-import { normalizeEvents, type NarrateCtx } from './battle/narrate';
+import { normalizeEvents } from './battle/narrate';
+import { buildNarrateContext } from './battle/narrateContext';
 import { BattlePresentationRuntime } from './battle/presentationRuntime';
 import { specialtyRewardViews } from './battle/specialtyRewards';
 import {
@@ -657,10 +658,6 @@ export class BattleScene extends Phaser.Scene {
     };
   }
 
-  private recruitGiftId(): string | undefined {
-    return recruitGiftId(this.state, this.enemyDef);
-  }
-
   private itemOptions(): ItemOption[] {
     return buildItemOptions(this.state, this.content, this.commandEvaluationContext());
   }
@@ -676,7 +673,7 @@ export class BattleScene extends Phaser.Scene {
       deps: this.deps,
       context: this.commandEvaluationContext(),
       queryFor: (skill) => this.queryFor(skill),
-      nameOf: (id) => this.nameOf(id),
+      nameOf: (id) => combatantName(this.state, id),
       preparingLabel: t('battle.preparing'),
     });
   }
@@ -689,21 +686,8 @@ export class BattleScene extends Phaser.Scene {
     });
   }
 
-  private nameOf(id: string): string {
-    return combatantName(this.state, id);
-  }
-
-  private narrateCtx(): NarrateCtx {
-    const s = this.state;
-    return {
-      nameOf: (id) => this.nameOf(id),
-      skillName: (id) => this.content.skills.get(id)?.name ?? id,
-      itemName: (id) => this.content.items.get(id)?.name ?? id,
-      elementName: (el) => t(`elements.${el}`),
-      subjectName: (sub) => t(`subjects.${sub}`),
-      enemyName: s.enemy.name,
-      isBossBattle: s.isBossBattle,
-    };
+  private narrateCtx() {
+    return buildNarrateContext(this.state, this.content, (id) => combatantName(this.state, id));
   }
 
   // ───────────────────────── 進行 ─────────────────────────
@@ -856,7 +840,7 @@ export class BattleScene extends Phaser.Scene {
     this.setStep(ready);
     this.hud.set({ actorId: ready ? hero.id : null, commands });
     if (this.presentation.activeTaskCount > 0) return;
-    const giftId = this.recruitGiftId();
+    const giftId = recruitGiftId(this.state, this.enemyDef);
     const recruitHint = giftId
       ? t('battle.recruitGiftHint', { item: this.content.items.get(giftId)?.name ?? giftId })
       : t('battle.recruitHint');
@@ -970,7 +954,7 @@ export class BattleScene extends Phaser.Scene {
         cmd = { kind: 'swap', monsterIndex: intent.index };
         break;
       case 'recruit': {
-        const itemId = this.recruitGiftId();
+        const itemId = recruitGiftId(this.state, this.enemyDef);
         const result = itemId ? { score: 1, timeMs: 0, attempts: 0 } : await this.askRecruit();
         if (this.state.outcome !== 'ongoing') return;
         cmd = { kind: 'recruit', result, itemId };
