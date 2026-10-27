@@ -57,6 +57,19 @@ export function playMonsterIdle(sprite: BattleImage): boolean {
   return true;
 }
 
+export function startMonsterIdle(scene: Phaser.Scene, sprite: BattleImage): void {
+  if (playMonsterIdle(sprite)) return;
+  scene.tweens.add({
+    targets: sprite,
+    scaleY: sprite.scaleY * 0.95,
+    duration: 460,
+    yoyo: true,
+    repeat: -1,
+    ease: 'Stepped',
+    easeParams: [1],
+  });
+}
+
 export function playMonsterAttack(sprite: BattleImage): void {
   const key = sprite.getData('monsterAttack') as string | undefined;
   if (key && 'anims' in sprite) (sprite as Phaser.GameObjects.Sprite).play(key);

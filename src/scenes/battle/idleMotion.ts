@@ -22,19 +22,6 @@ export class BattleIdleMotion {
     this.bobs.delete(sprite);
   }
 
-  startEnemy(sprite: BattleImage): void {
-    if (playMonsterIdle(sprite)) return;
-    this.scene.tweens.add({
-      targets: sprite,
-      scaleY: sprite.scaleY * 0.95,
-      duration: 460,
-      yoyo: true,
-      repeat: -1,
-      ease: 'Stepped',
-      easeParams: [1],
-    });
-  }
-
   start(sprite: BattleImage, baseY: number): void {
     this.bobs.get(sprite)?.stop();
     sprite.y = baseY;
