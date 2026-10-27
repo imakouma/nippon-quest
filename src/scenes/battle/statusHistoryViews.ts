@@ -1,42 +1,11 @@
 import type { BattleEvent, BattleState, Combatant } from '../../core/battle/types';
+import type {
+  BattleHistoryView,
+  BattleTimelineEntry,
+  HpChangeView,
+  StatusEffectView,
+} from '../../ui/battle/store';
 import { narrate, normalizeEvents, type NarrateCtx } from './narrate';
-
-export interface StatusEffectView {
-  kind: 'attack' | 'defense' | 'stopped';
-  direction: 'up' | 'down' | 'neutral';
-  turns: number;
-}
-
-export interface BattleHistoryEntry {
-  /** `BattleState.log` 内の1始まりの位置。 */
-  eventIndex: number;
-  lines: string[];
-}
-
-export interface HpChangeView {
-  before: number;
-  after: number;
-  delta: number;
-}
-
-export interface BattleTimelineEntry {
-  eventIndex: number;
-  turn: number;
-  t: BattleEvent['t'];
-  actorId?: string;
-  targetId?: string;
-  command?: 'attack' | 'skill' | 'scan' | 'defend';
-  skillId?: string;
-  side?: 'ally' | 'enemy';
-  hp?: HpChangeView;
-}
-
-export interface BattleHistoryView {
-  recent: BattleHistoryEntry[];
-  timeline: BattleTimelineEntry[];
-  totalPresentedEvents: number;
-  omittedTimelineEvents: number;
-}
 
 const TIMELINE_LIMIT = 120;
 const RECENT_LIMIT = 4;

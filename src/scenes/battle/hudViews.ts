@@ -20,6 +20,7 @@ import type {
 } from '../../ui/battle/store';
 import { itemIconUrl } from '../../rendering/itemIcons';
 import { t } from '../../ui/i18n';
+import { buildStatusEffects } from './statusHistoryViews';
 
 const selectionContext = (context: BattleCommandEvaluationContext = {}): BattleCommandEvaluationContext => ({
   ...context,
@@ -57,6 +58,7 @@ export function buildEnemyView(state: BattleState, hp = state.enemy.hp): EnemyVi
     weaknessRevealed: enemy.weaknessRevealed,
     isBoss: state.isBossBattle,
     defMult: enemy.buffs.def?.mult ?? 1,
+    effects: buildStatusEffects(enemy, enemy.skipTurns),
   };
 }
 
@@ -73,6 +75,7 @@ export function buildAllyViews(state: BattleState, game: GameState, content: Con
     element: combatant.element,
     isHero: combatant.isHero,
     defMult: combatant.buffs.def?.mult ?? 1,
+    effects: buildStatusEffects(combatant),
     front: combatant.id === front.id,
     ...extra,
   });
