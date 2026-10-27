@@ -10,6 +10,7 @@
  *  - ActionResult    … 問題の成績。ロジックは score だけを使う（docs/01 §3.3）
  */
 import type { Element, Skill, Stats, Subject } from '../content/schemas';
+import type { BattleRuleset } from './ruleset';
 
 /** ぼうぎょ などの 上げ下げ（倍率と のこりターン数） */
 export interface Buff {
@@ -112,8 +113,8 @@ export interface BattleState {
   seed: string;
   outcome: 'ongoing' | 'victory' | 'defeat' | 'fled' | 'recruited';
   isBossBattle: boolean;
-  /** 開発者モードのとき true：ボス戦でも にげられる（ふだんの ボス戦は にげられない） */
-  canFleeBoss?: boolean;
+  /** 行動制約・報酬・問題・パーティ供給の唯一の戦闘ルール。 */
+  ruleset: BattleRuleset;
   log: BattleEvent[];
 }
 
@@ -202,4 +203,6 @@ export type BattleEvent =
   | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
   /** にげられないボスへの試行は成立行動ではないので actionId を持たない。 */
   | { t: 'fleeAttempt'; success: false; chance: 0 }
+  /** 仲間にできない戦闘での試行も成立行動ではないので actionId を持たない。 */
+  | { t: 'recruitAttempt'; targetId: string; success: false; chance: 0 }
   | (BattleActionEvent & BattleActionRef);

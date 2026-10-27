@@ -55,9 +55,9 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] normal/boss/tutorial/event preset が仕様表と一致する。
-- [ ] 旧 boss/dev 入力を互換 ruleset へ正規化できる。
-- [ ] bit flag と silent invalid fallback を使わない。
+- [x] normal/boss/tutorial/event preset が仕様表と一致する。
+- [x] 旧 boss/dev 入力を互換 ruleset へ正規化できる。
+- [x] bit flag と silent invalid fallback を使わない。
 
 **Verification:** `pnpm exec vitest run tests/unit/battleRuleset.test.ts`
 
@@ -73,9 +73,9 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] fixed-seed の標準戦闘 event log と最終状態が維持される。
-- [ ] blocked flee/recruitment と no rewards が engine で強制される。
-- [ ] boss dev flee と既存通常戦の挙動が維持される。
+- [x] fixed-seed の標準戦闘 event log と最終状態が維持される。
+- [x] blocked flee/recruitment と no rewards が engine で強制される。
+- [x] boss dev flee と既存通常戦の挙動が維持される。
 
 **Verification:** `pnpm exec vitest run tests/unit/battleRuleset.test.ts tests/unit/battle.test.ts`
 
@@ -87,7 +87,7 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 ## Checkpoint 2
 
-- [ ] Task 3〜4 の RED と GREEN を確認した。
+- [x] Task 3〜4 の RED と GREEN を確認した。
 - [ ] engine/ruleset slice をコミットした。
 
 ## Phase 3: Setup and Scene contracts

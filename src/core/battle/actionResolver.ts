@@ -3,6 +3,7 @@ import type { Skill } from '../content/schemas';
 import type { Rng } from '../rng';
 import { comboBonus, computeDamage } from './damage';
 import type { BattleDeps } from './dependencies';
+import { selectEnemyIntent } from './enemyPolicy';
 import type {
   BattleActionRef,
   BattleEvent,
@@ -146,15 +147,22 @@ export function finishAction(
   if (state.enemy.hp <= 0) {
     events.push({ t: 'ko', ...action, side: 'enemy', targetId: state.enemy.id });
     const monster = def.monsters.get(state.enemy.refId);
-    const drops = (monster?.drops ?? []).filter((drop) => rng.chance(drop.rate)).map((drop) => drop.itemId);
-    const recruitOffer = !state.enemy.isBoss && rng.chance(monster?.recruitRate ?? 0);
+    const rewards = state.ruleset.rewards.mode === 'standard';
+    const drops = rewards
+      ? (monster?.drops ?? []).filter((drop) => rng.chance(drop.rate)).map((drop) => drop.itemId)
+      : [];
+    const recruitOffer =
+      rewards &&
+      state.ruleset.recruitment.mode === 'standard' &&
+      !state.enemy.isBoss &&
+      rng.chance(monster?.recruitRate ?? 0);
     const bonus = comboBonus(state.player.maxCombo, def.settings);
     state.outcome = 'victory';
     events.push({
       t: 'victory',
       ...action,
-      xp: addProgressValue(0, Math.round((monster?.xp ?? 0) * bonus)),
-      gold: addProgressValue(0, Math.round((monster?.gold ?? 0) * bonus)),
+      xp: rewards ? addProgressValue(0, Math.round((monster?.xp ?? 0) * bonus)) : 0,
+      gold: rewards ? addProgressValue(0, Math.round((monster?.gold ?? 0) * bonus)) : 0,
       drops,
       recruitOffer,
       bonus,
@@ -184,10 +192,14 @@ export function resolveEnemyTurn(
   }
 
   const target = frontAlly(state);
-  const choice = rng.next();
   const skills = enemy.skills.map((id) => def.skills.get(id)).filter((skill): skill is Skill => !!skill);
-  const healSkill = skills.find((skill) => skill.effect === 'heal');
-  if (enemy.hp / enemy.stats.hp <= 0.3 && healSkill && enemy.mp >= healSkill.mp) {
+  const intent = selectEnemyIntent(
+    { hp: enemy.hp, maxHp: enemy.stats.hp, mp: enemy.mp, skills },
+    state.ruleset.enemyTactics,
+    rng,
+  );
+  if (intent.kind === 'heal') {
+    const healSkill = def.skills.get(intent.skillId)!;
     enemy.mp -= healSkill.mp;
     const before = enemy.hp;
     enemy.hp = Math.min(enemy.stats.hp, enemy.hp + Math.round(enemy.stats.hp * ENEMY_HEAL_RATIO));
@@ -204,9 +216,8 @@ export function resolveEnemyTurn(
     return;
   }
 
-  const usable = skills.filter((skill) => skill.effect === 'damage' && enemy.mp >= skill.mp);
-  if (choice < 0.3 && usable.length) {
-    const skill = rng.pick(usable);
+  if (intent.kind === 'skill') {
+    const skill = def.skills.get(intent.skillId)!;
     enemy.mp -= skill.mp;
     events.push({
       t: 'act',
@@ -226,7 +237,7 @@ export function resolveEnemyTurn(
     });
     return;
   }
-  if (choice < 0.9) {
+  if (intent.kind === 'attack') {
     events.push({
       t: 'act',
       ...action,

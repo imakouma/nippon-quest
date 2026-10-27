@@ -19,6 +19,7 @@ import {
   scoreMultiplier,
 } from '../../src/core/battle/damage';
 import { createRng } from '../../src/core/rng';
+import { resolveBattleRuleset } from '../../src/core/battle/ruleset';
 import type { Skill } from '../../src/core/content/schemas';
 import type { ActionResult, BattleState, Combatant, Command } from '../../src/core/battle/types';
 import { battleItemAvailability, buildItemOptions } from '../../src/scenes/battle/hudViews';
@@ -732,6 +733,7 @@ describe('コマンド', () => {
     state.ally.items[item.id] = 1;
     expect(battleItemAvailability(state, item, c).disabled).toBe(false);
     state.isBossBattle = true;
+    state.ruleset = resolveBattleRuleset({ isBossBattle: true });
     expect(battleItemAvailability(state, item, c)).toMatchObject({
       disabled: true,
       reason: expect.any(String),
@@ -808,6 +810,7 @@ describe('仲間化（GDD §4.6）', () => {
     const { state } = await setup({ seed: 'musubi-dama-unavailable' });
     state.ally.items['common-musubi-dama'] = 1;
     state.isBossBattle = true;
+    state.ruleset = resolveBattleRuleset({ isBossBattle: true });
     const boss = act(
       state,
       { kind: 'item', itemId: 'common-musubi-dama', result: R(1), timeLimitScale: 1 },
@@ -816,6 +819,7 @@ describe('仲間化（GDD §4.6）', () => {
     expect(boss.state.ally.items['common-musubi-dama']).toBe(1);
 
     state.isBossBattle = false;
+    state.ruleset = resolveBattleRuleset();
     const unanswered = act(state, { kind: 'item', itemId: 'common-musubi-dama' }, D);
     expect(unanswered.state.ally.items['common-musubi-dama']).toBe(1);
     expect(unanswered.state.turn).toBe(state.turn);

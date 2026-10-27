@@ -251,7 +251,7 @@ export function evaluateBattleCommand(
       if (item.kind !== 'consumable' || !item.use) return denied('item-unusable');
       if (item.use.recruit) {
         const monster = deps.monsters.get(state.enemy.refId);
-        if (state.isBossBattle || state.enemy.isBoss) return denied('boss-recruit-blocked');
+        if (state.ruleset.recruitment.mode === 'disabled') return denied('boss-recruit-blocked');
         if (!monster || monster.recruitRate <= 0) return denied('enemy-not-recruitable');
         if (state.enemy.hp <= 0) return denied('enemy-unavailable');
         if (context.phase !== 'selection' && ref.hasActionResult !== true) {
@@ -289,12 +289,12 @@ export function evaluateBattleCommand(
       ]);
     }
     case 'flee':
-      return state.isBossBattle && !state.canFleeBoss
+      return state.ruleset.flee.mode === 'blocked'
         ? denied('boss-flee-blocked')
         : allowed(state.ally.hero.id);
     case 'recruit': {
       if (context.storyCompanionUnlocked === false) return denied('recruit-locked');
-      if (state.isBossBattle || state.enemy.isBoss) return denied('boss-recruit-blocked');
+      if (state.ruleset.recruitment.mode === 'disabled') return denied('boss-recruit-blocked');
       const monster = deps.monsters.get(state.enemy.refId);
       if (!monster || monster.recruitRate <= 0) return denied('enemy-not-recruitable');
       if (state.enemy.hp <= 0) return denied('enemy-unavailable');

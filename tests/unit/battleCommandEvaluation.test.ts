@@ -8,6 +8,7 @@ import {
 } from '../../src/core/battle/commandEvaluation';
 import { act, createBattle, type BattleDeps } from '../../src/core/battle/engine';
 import { makeHero, makeMonster, makeParty } from '../../src/core/battle/factory';
+import { resolveBattleRuleset } from '../../src/core/battle/ruleset';
 import type { BattleState } from '../../src/core/battle/types';
 import {
   buildCommandOptions,
@@ -218,6 +219,7 @@ describe('evaluateBattleCommand', () => {
   it('ボス逃走をターン非消費で拒否する', async () => {
     const state = await setup();
     state.isBossBattle = true;
+    state.ruleset = resolveBattleRuleset({ isBossBattle: true });
 
     expect(evaluateBattleCommand(state, { kind: 'flee' }, D, context())).toMatchObject({
       allowed: false,
@@ -250,6 +252,7 @@ describe('evaluateBattleCommand', () => {
   it('ボス・仲間化不可・撃破済みの敵をそれぞれ拒否する', async () => {
     const boss = await setup();
     boss.isBossBattle = true;
+    boss.ruleset = resolveBattleRuleset({ isBossBattle: true });
     expect(evaluateBattleCommand(boss, { kind: 'recruit' }, D, context())).toMatchObject({
       allowed: false,
       reason: 'boss-recruit-blocked',
@@ -320,6 +323,7 @@ describe('HUD と engine の評価共有', () => {
   it('item・swap・親 command も evaluator の理由を保持する', async () => {
     const state = await setup();
     state.isBossBattle = true;
+    state.ruleset = resolveBattleRuleset({ isBossBattle: true });
     const ctx = context({ phase: 'selection' });
     const items = buildItemOptions(state, await content(), ctx);
     const swaps = buildSwapOptions(state, D, ctx);

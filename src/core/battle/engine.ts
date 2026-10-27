@@ -28,6 +28,7 @@ import { comboBonus, fleeChance, recruitChance, scoreBand, scoreMultiplier } fro
 import type { BattleDeps } from './dependencies';
 import { commandPriority, initiativeOrder } from './initiative';
 import { useMusubiDama } from './musubiDama';
+import { resolveBattleRuleset, type BattleRuleset } from './ruleset';
 import { clampBattleValue, cloneBattleValue, emptyGauges } from './utils';
 import type {
   BattleActionId,
@@ -74,6 +75,7 @@ export function createBattle(
     seed: string;
     isBossBattle?: boolean;
     canFleeBoss?: boolean;
+    ruleset?: BattleRuleset;
   },
   def: BattleDeps,
 ): BattleState {
@@ -83,6 +85,7 @@ export function createBattle(
 
   const enemy: EnemyUnit = { ...cloneBattleValue(opts.enemy), skipTurns: 0 };
 
+  const isBossBattle = opts.isBossBattle ?? enemy.isBoss;
   return {
     turn: 1,
     ally,
@@ -92,8 +95,8 @@ export function createBattle(
     rngState: undefined,
     seed: opts.seed,
     outcome: 'ongoing',
-    isBossBattle: opts.isBossBattle ?? enemy.isBoss,
-    canFleeBoss: opts.canFleeBoss ?? false,
+    isBossBattle,
+    ruleset: opts.ruleset ?? resolveBattleRuleset({ isBossBattle, canFleeBoss: opts.canFleeBoss ?? false }),
     log: [],
   };
 }
@@ -364,8 +367,8 @@ function heroCommand(
       return;
     }
     case 'flee': {
-      const chance = fleeChance(hero, s.enemy);
-      const success = rng.chance(chance);
+      const chance = s.ruleset.flee.mode === 'guaranteed' ? 1 : fleeChance(hero, s.enemy);
+      const success = s.ruleset.flee.mode === 'guaranteed' || rng.chance(chance);
       ev.push({ t: 'fleeAttempt', ...action, success, chance });
       if (success) {
         s.outcome = 'fled';
@@ -395,6 +398,9 @@ function rejectionEvents(
   }
   if (evaluation.reason === 'boss-flee-blocked') {
     return [{ t: 'fleeAttempt', success: false, chance: 0 }];
+  }
+  if (evaluation.reason === 'boss-recruit-blocked') {
+    return [{ t: 'recruitAttempt', targetId: state.enemy.id, success: false, chance: 0 }];
   }
   return [];
 }
