@@ -18,19 +18,19 @@
 
 - [x] Focused tests pass。
 - [x] `pnpm check:fast` passes。
-- [ ] Atomic commit created。
+- [x] Atomic commit created。
 
 ## Task 3: Idempotent settlement
 
-- [ ] RED: same result retry、stale ID、latest update保持、recruit uniqueness testsを追加する。
-- [ ] GREEN: `settleBattleOnce`を実装する。
-- [ ] Verify: `tests/unit/battleSettlement.test.ts`。
+- [x] RED: same result retry、stale ID、latest update保持、recruit uniqueness testsを追加する。
+- [x] GREEN: `settleBattleOnce`を実装する。
+- [x] Verify: `tests/unit/battleSettlement.test.ts`。
 - Files: `src/core/progression/{battleResult,battleSettlement}.ts`, related tests。
 
 ## Checkpoint: Settlement
 
-- [ ] Focused tests pass。
-- [ ] Changed-source related tests pass。
+- [x] Focused tests pass。
+- [x] Changed-source related tests pass。
 - [ ] Atomic commit created。
 
 ## Task 4: Persistence and Battle wiring

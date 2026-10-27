@@ -28,17 +28,17 @@
 
 - [x] Focused state/snapshot tests pass.
 - [x] `pnpm check:fast` passes.
-- [ ] Contract changes are committed.
+- [x] Contract changes are committed.
 
 ### Phase 2: Exactly-once settlement
 
-- [ ] Task 3: 同一battleId/sequenceを一度だけ反映するsettlement guardをTDDで追加する。
-- [ ] Task 4: 保存失敗再試行、最新learning/playtime保持、加入UID固定を検証する。
+- [x] Task 3: 同一battleId/sequenceを一度だけ反映するsettlement guardをTDDで追加する。
+- [x] Task 4: 保存失敗再試行、最新learning/playtime保持、加入UID固定を検証する。
 
 ### Checkpoint: Settlement
 
-- [ ] Focused settlement/persistence tests pass.
-- [ ] Changed-source `pnpm test:related` passes.
+- [x] Focused settlement/persistence tests pass.
+- [x] Changed-source `pnpm test:related` passes.
 - [ ] Settlement changes are committed.
 
 ### Phase 3: Runtime integration
