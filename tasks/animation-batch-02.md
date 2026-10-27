@@ -4,7 +4,7 @@
 - Base: `f31628f32a008dfc92ecb2ed4a7934e6d9d9516b`
 - Assignment source: `tasks/animation-batch-assignments.json` → `batch-02.ids`
 - Scope: 110 assigned monsters
-- Current counts: completed 59, failed 0, unstarted 51
+- Current counts: completed 76, failed 0, unstarted 34
 - Generator: built-in imagegen only; no paid fallback, provider credential, or OmniRoute use
 
 ## First quality slice
@@ -89,23 +89,23 @@ manifest file is part of this batch.
 - [x] `mie-gutsugutsu-don` — 完了
 - [x] `mie-midboss-oosansho-ou` — 完了
 - [x] `miyagi-kokeshina` — 完了
-- [ ] `miyagi-sasakama-bushi` — 未着手
-- [ ] `miyagi-zundamaru` — 未着手
-- [ ] `miyazaki-lastboss-komura-jutaro` — 未着手
-- [ ] `miyazaki-nanban-ondori` — 未着手
-- [ ] `nagano-midboss-karasu-jo` — 未着手
-- [ ] `nagano-yukemuri-oyabun` — 未着手
-- [ ] `nagasaki-fuwatera` — 未着手
-- [ ] `nagasaki-mogi-tawawa` — 未着手
-- [ ] `nara-chasenmaru` — 未着手
-- [ ] `nara-midboss-hitome-senbon` — 未着手
-- [ ] `niigata-akebono-toki` — 未着手
-- [ ] `niigata-kitakaze-zake` — 未着手
-- [ ] `niigata-shiobikin` — 未着手
-- [ ] `oita-lastboss-fukuzawa-yukichi` — 未着手
-- [ ] `oita-yubune-don` — 未着手
-- [ ] `okayama-boss-kibi-no-onio` — 未着手
-- [ ] `okayama-lastboss-ikeda-mitsumasa` — 未着手
+- [x] `miyagi-sasakama-bushi` — 生成・変換・目視確認済み
+- [x] `miyagi-zundamaru` — 生成・変換・目視確認済み
+- [x] `miyazaki-lastboss-komura-jutaro` — 生成・変換・目視確認済み
+- [x] `miyazaki-nanban-ondori` — 生成・変換・目視確認済み
+- [x] `nagano-midboss-karasu-jo` — 生成・変換・目視確認済み
+- [x] `nagano-yukemuri-oyabun` — 生成・変換・目視確認済み
+- [x] `nagasaki-fuwatera` — 生成・変換・目視確認済み
+- [x] `nagasaki-mogi-tawawa` — 生成・変換・目視確認済み
+- [x] `nara-chasenmaru` — 生成・変換・目視確認済み
+- [x] `nara-midboss-hitome-senbon` — 生成・変換・目視確認済み
+- [x] `niigata-akebono-toki` — 生成・変換・目視確認済み
+- [x] `niigata-kitakaze-zake` — 生成・変換・目視確認済み
+- [x] `niigata-shiobikin` — 生成・変換・目視確認済み
+- [x] `oita-lastboss-fukuzawa-yukichi` — 生成・変換・目視確認済み
+- [x] `oita-yubune-don` — 生成・変換・目視確認済み
+- [x] `okayama-boss-kibi-no-onio` — 生成・変換・目視確認済み
+- [x] `okayama-lastboss-ikeda-mitsumasa` — 生成・変換・目視確認済み
 - [ ] `okinawa-goya-musha` — 未着手
 - [ ] `okinawa-ougon-pine` — 未着手
 - [ ] `osaka-budomaru` — 未着手
