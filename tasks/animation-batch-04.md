@@ -3,8 +3,8 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 90体。
-- 未着手: 20体（割当110体から下記完了90体を除いたもの）。
+- 完了: 100体。
+- 未着手: 10体（割当110体から下記完了100体を除いたもの）。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
@@ -173,10 +173,23 @@
 - `shimane-yuhi-shijimi`: 蜆兜、橙青の殻、青い腕を固定。殻待機、殻と腕の回転打撃。出力 `exec-6529b48c-868e-4ea3-9f9b-fc66c35206e7.png`。
 - `shizuoka-lastboss-tokugawa-ieyasu`: 金前立て、濃紺鎧、赤帯を固定。鎧待機、前腕の踏み込み打撃。出力 `exec-38dbb799-1f7b-44a9-aea1-a879c20bff6b.png`。
 
+### 追加10体（静岡〜富山）
+
+- `shizuoka-unanyoro`: 紺の鰻体、緑鰭、S字胴を固定。胴待機、伸長突進。出力 `exec-98207477-30ff-4350-b052-26e57be32eb9.png`。
+- `tochigi-gyozamurai`: 餃子体、赤鉢巻、炎冠、拳1を固定。炎待機、拳の体当たり。出力 `exec-511639b9-67f9-42b0-95b4-607a2e213d8a.png`。
+- `tochigi-midboss-oyaishi-don`: 冠石垣体、巨大腕2を固定。肩待機、両腕の叩き付け。出力 `exec-611a687c-10d4-41e4-bf10-90896e4466fd.png`。
+- `tokushima-kintokin`: 赤紫の芋体、芽、短脚を固定。芽待機、回転体当たり。出力 `exec-9e9dc71c-f9de-4bf7-8002-0fa6950e398b.png`。
+- `tokushima-sorawatari`: 茶の滑空獣、緑の皮膜、青い先端を固定。皮膜待機、滑空突進。出力 `exec-f977d552-e064-494f-811e-8418f6bb7c07.png`。
+- `tokyo-kagayakiriko`: 青切子体、赤白帯、金縁笠を固定。輝き待機、切子の回転閃光。出力 `exec-bb349140-0c9d-41f6-9997-9457f3a9ab88.png`。
+- `tokyo-nerikon`: 白い根菜体、三又葉、腕2を固定。葉待機、根先の突進。出力 `exec-21e74dd6-c1de-4b99-8454-c60e973d239c.png`。
+- `tottori-lastboss-otomo-no-yakamochi`: 高帽、紫の大袖、文様を固定。袖待機、両袖の星光打撃。出力 `exec-247dcc00-cb8f-4bee-8eb6-936d2abb8a44.png`。
+- `tottori-rakkyo-musha`: 辣韭武者2体、黄赤笠、二股脚を固定。交互待機、双体突進。出力 `exec-87e9d66a-7cf7-4c1f-bc95-aed913d9da18.png`。
+- `toyama-ginga-ika`: 銀河色の烏賊、金輪、触腕を固定。触腕待機、全触腕の前方打撃。出力 `exec-af612e87-7225-4296-add6-edb9b02f2d32.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 90体とも512×256、RGBA、4列2行の契約。
+- PNG: 100体とも512×256、RGBA、4列2行の契約。
 - 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
 
 ## 統合担当への提案

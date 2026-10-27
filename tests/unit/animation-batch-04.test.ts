@@ -8,7 +8,7 @@ const manifestPath = 'assets/sprites/animations/batch-04/manifest.json';
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8')) as MonsterAnimationSpec[];
 
 describe('batch-04 のモンスターアニメーション', () => {
-  it('制作済み90体を担当内の完成素材として登録する', () => {
+  it('制作済み100体を担当内の完成素材として登録する', () => {
     expect(manifest.map((spec) => spec.id)).toEqual([
       'aichi-denkikun',
       'aichi-lastboss-oda-nobunaga',
@@ -100,6 +100,16 @@ describe('batch-04 のモンスターアニメーション', () => {
       'shimane-rosokun',
       'shimane-yuhi-shijimi',
       'shizuoka-lastboss-tokugawa-ieyasu',
+      'shizuoka-unanyoro',
+      'tochigi-gyozamurai',
+      'tochigi-midboss-oyaishi-don',
+      'tokushima-kintokin',
+      'tokushima-sorawatari',
+      'tokyo-kagayakiriko',
+      'tokyo-nerikon',
+      'tottori-lastboss-otomo-no-yakamochi',
+      'tottori-rakkyo-musha',
+      'toyama-ginga-ika',
     ]);
   });
 
