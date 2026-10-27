@@ -1,0 +1,32 @@
+[
+  {
+    "id": "protagonist",
+    "key": "char.animation.protagonist.v1",
+    "path": "sprites/animations/batch-01/protagonist-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0],
+    "integration": "customizable-reference"
+  },
+  {
+    "id": "michiru",
+    "key": "char.animation.michiru.v1",
+    "path": "sprites/animations/batch-01/michiru-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0],
+    "integration": "fixed-character"
+  },
+  {
+    "id": "shiori",
+    "key": "char.animation.shiori.v1",
+    "path": "sprites/animations/batch-01/shiori-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0],
+    "integration": "fixed-character"
+  }
+]
