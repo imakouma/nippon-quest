@@ -656,6 +656,114 @@ Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sh
 Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: samurai lord in dark navy and purple armor with gold trim and red details, domed helmet with two large golden antler-like crests, pale square face. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: place hands near waist, widen stance, draw both arms back, deliver a formal commanding forward strike, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
 ```
 
+## okinawa-goya-musha
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round dark-green bitter melon warrior with lime bumps, two leaf ears and brown stem, tan vine looping behind on screen-right, tan horizontal mouth guard, tiny green arms and feet. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: vine tightens, body crouches, swing the looped vine forward like a whip while leaning, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## okinawa-ougon-pine
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round golden pineapple creature with checker-textured yellow body, dark and bright green spiky crown leaves, square eyes, pink cheeks and tiny feet. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: crown leaves fan outward, crouch, spring into a rolling pineapple body-check, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## osaka-budomaru
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: plump purple grape-cluster creature made of rounded lobes, brown stem and two small green leaves, square eyes and pink cheeks. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: grape lobes compress, stem tilts, bounce forward in a heavy clustered body slam, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## osaka-lastboss-toyotomi-hideyoshi
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: samurai lord in brilliant gold armor with dark navy helmet, two very long upward gold horns, red crest, black moustache, red belt and dark skirt. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: brace, draw both arms back, step forward into a powerful armored command strike, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## saga-boss-akajishi-oh
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: large red lion-dance king shaped like a wheeled cart, dark navy curly mane with gold spirals, gold horns and crown, huge toothy grin, four brown wooden wheels. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: mane and crown bounce, wheels pull back, charge forward hard on spinning wheels, then brake and recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## saga-lastboss-nabeshima-naomasa
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: samurai lord in dark blue armor with gold trim and red details, helmet with huge gold crescent, holding a tall purple staff with gold-red head on screen-right. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: raise staff, turn shoulders, sweep the long staff strongly across the front, then recover with staff on screen-right. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## saga-yumonbou
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: squat red-orange shrine-gate creature with wide open arch between two legs, dark charcoal rounded roof, white rectangular face panel, two small dark-and-white roof ornaments. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: roof ornaments bounce, legs brace, hop and slam the shrine-gate body forward, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## saitama-lastboss-shibusawa-eiichi
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: elderly dignified man with bald peach head and gray side hair, round dark navy formal coat, white triangular collar, blue-gray patterned waist band, red badge on screen-left and brown plaque on screen-right. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: draw both arms inward, lean forward, present the badge-and-plaque side in a decisive formal shoulder strike, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## shiga-asanunon
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round ivory woven-cloth creature with pale-gray plaid grid over body, yellow-and-dark ear pads on both sides, square eyes, pink cheeks and gray base foot. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: cloth grid flexes, ear pads pull back, spin into a padded side bash, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## shiga-jofu-hime
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round ivory striped princess creature with gray horizontal bands, yellow cap and four small yellow cross-shaped ornaments around the sides, rectangular dark eyes. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: side ornaments lift, body compresses, rotate and strike forward with the yellow ornaments leading, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## shiga-tsuburin
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: plump brown bird creature with darker brown cap, red-orange cheeks, white-black eyes, small dark beak with yellow corners, tan belly and braided tan base, white-cyan wings and feet. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: wings rise, body crouches, flap into a forward beak-and-belly charge, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## shimane-midboss-shirogane-mogura
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: large round silver-gray mole king with small gold crown, black eye mask, square eyes, broad silver toothy grin, pale gray ear-paws and white claw patches. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: ear-paws lift, crouch, lunge forward with both silver paws in a digging strike, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## shimane-warigo-tower
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: stacked red round lunchbox tower creature with orange bands, brown textured topping, orange egg dome, green garnish, two striped chopsticks rising behind, white-black eyes and pink cheeks. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: chopsticks sway, stacked boxes compress, leap into a tall tower body slam, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## shizuoka-chatsumin
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round bright-green tea creature with three tea leaves on top, pale-green belly, small buck teeth, holding a tan square tea biscuit on screen-right. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: top leaves bob, draw biscuit back, swing the biscuit forward like a paddle, then recover on screen-right. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## shizuoka-tsuun-wasabi
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round layered-green wasabi bowl creature with alternating dark and lime flame-like leaves on top, dark green rim, square eyes and mint cross-shaped side puffs. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: wasabi leaves flare, puffs pull inward, lunge forward in a sharp head-and-leaf thrust, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## tochigi-boss-kegon-ryuo
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: large blue waterfall dragon king with gold antlers and crown, pale aqua drooping whisker-ears, cream snout and belly, blue arms, lower body flowing into a pale-blue checkered waterfall and wave base. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: antlers and whiskers lift, waterfall base gathers, surge forward with a powerful dragon claw and attached wave-body motion, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## tochigi-ichigoro
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round heart-shaped red strawberry creature with yellow seeds, big green leafy crown, square eyes, pink cheeks and small green feet. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: leaves flutter, crouch, spring into a fast strawberry headbutt, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## tochigi-boss-kegon-ryuo cleanup
+
+```text
+Keep the exact eight blue waterfall dragon king poses and identity, but remove every detached water droplet, splash particle, cyan blob, white spray, and stray pixel cluster outside the dragon and its continuous attached waterfall-wave base. Express attack motion only with the body, claws, whiskers, and connected wave base. Each cell must contain exactly one complete character and no detached effects, text, shadows, or debris. Preserve transparent background, exact 4-column by 2-row arrangement, hard pixel art, consistent scale and padding.
+```
+
 ## miyazaki-nanban-ondori cleanup
 
 ```text
@@ -666,4 +774,106 @@ Keep the eight chicken poses and their identity exactly, but remove every detach
 
 ```text
 Keep the eight hot-spring boss poses and their identity exactly, but remove every detached water droplet, steam puff, splash particle, white blob, cyan spray, and stray pixel cluster outside the main character and tub. Express the attack only by body and tub movement and attached water shapes. Each cell must contain only one complete character, no detached effects, text, shadows, or debris. Preserve transparent background, exact 4-column by 2-row arrangement, hard pixel art, consistent scale and padding.
+```
+
+## tokushima-hamagamen
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: squat bright-blue sea creature with several rounded lower lobes and side fins, pale striped small flippers near the feet, huge tan perforated rock-like cap, square eyes and pink cheeks. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: cap bobs, side fins spread, flatten then spring into a cap-first body slam, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## tokushima-oo-kintoki
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round deep-red sweet-potato warrior with pointed side silhouette, two green leaves on top, stern square eyes, tan bamboo pole held horizontally across the face. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: brace pole, draw it back while turning, thrust the bamboo pole strongly forward, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## tokyo-boss-mihara-no-nushi
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: massive charcoal-black volcanic stone king with gold crown, yellow rectangular eyes, orange mouth marks, huge long arms, red camellia flowers with green leaves on shoulders and chest, orange bead necklace. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: flowers and necklace lift, draw huge arms back, strike forward with both volcanic fists, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## tokyo-midboss-denpa-oh
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: red-orange Tokyo Tower robot with white bands, dark navy rectangular chest screen with yellow angular eyes, red lattice limbs, white gloves and shoes, central red-white antenna, two large turquoise-and-navy broadcast coils beside its head. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: broadcast coils tilt inward, fists rise, step forward into a double robot punch, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## tottori-beniyoroigani
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: bright red armored crab with cream belly, eight segmented legs, two giant raised red claws, two red eyestalks with white-black eyes, small cream spikes and gold-red shell trim. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: legs brace, claws open high, bring both giant claws inward in a crushing pincer strike, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## tottori-nijisseikishi
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round pale yellow-green pear knight with brown stem, green leaf and small white flower, green boots, leaf shield with white flower on screen-left and tall brown spear with green bud on screen-right. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: raise shield and spear, crouch behind shield, thrust spear strongly forward from screen-right while shield guards screen-left, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## toyama-boss-tateyama-ou
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: gray three-peaked mountain king with white snowcaps, gold crown on tall central peak, square eyes and two small fangs, green shrub patches, attached pale-blue waterfall descending on screen-right. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: snowcaps and crown shake, waterfall tightens, lean forward into a massive mountain shoulder slam while waterfall stays attached, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## toyama-masuzushin
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round cream trout-sushi creature with pink top band and square red marks, flat brown lid on top, brown lower band and feet, green leaf fins on both sides, square eyes and pink cheeks. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: leaf fins spread, body compresses, spin into a compact sushi body-check, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## toyama-tulipon
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: red tulip creature with three-pointed flower head, green curved leaves and stem, brown bulb base with small root-feet, square eyes and pink cheeks. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: petals open slightly, leaves pull back, spring forward in a petal-and-bulb headbutt, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## wakayama-lastboss-tokugawa-yoshimune
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: samurai lord in dark green armor with gold trim and red details, dark navy helmet with very long upward gold horns and gold front crest, pale square face. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: brace, draw arms back, step into a strong formal armored punch, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## wakayama-shibukin
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round pale-cyan rabbit-like water creature with two very long dark-outlined white-blue ears, blue side flippers, square eyes, pink cheeks and dark nose-mouth. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: ears sway upward, flippers pull back, leap into a fast ear-led body charge, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## yamagata-jumbo-imoni
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: huge round charcoal iron stew pot monster filled with white taro, brown meat and green vegetables, tilted dark lid with small flame on top, long dark ladle held on screen-right, orange fire below. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: stew and lid bounce, draw ladle back, swing the ladle downward in a heavy pot-warrior strike, then recover on screen-right. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## yamagata-shogi-commander
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: upright tan wooden shogi-piece commander with pointed top, square eyes and pink cheeks, red emblem on chest, red paddle held on screen-left and tall brown spear with silver tip on screen-right. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: raise both paddle and spear, widen wooden feet, thrust spear forward while paddle guards, then recover with original item sides. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## yamaguchi-kanmon-fuku
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round blue-and-white pufferfish creature with dark blue spots, tiny top fin, white belly, blue-white side fins, square eyes, pink cheeks and two buck teeth, sitting on attached blue wave base. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: inflate slightly, side fins spread, lunge forward in a puffed body slam, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## yamaguchi-natsumikan-bushi
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: round orange citrus warrior with two green top leaves, small brown freckles, square eyes and pink cheeks, dark navy crossed arm-and-leg armor wrapping the lower sides with green foot trim. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: crossed navy arms brace, leaves tilt, uncross and drive both armored arms forward in a punch, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## yamanashi-boss-suisho-ryu
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: large purple crystal dragon king with gold crown, icy blue-white crystal horns and huge crystal wings, lavender snout with two white fangs, yellow plated belly and claws, standing on gray base with blue crystals. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: crystal wings flare, crouch on base, lunge forward with both claws and wings angled, then recover; keep crystals attached. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
+```
+
+## yamanashi-midboss-sakasa-fujin
+
+```text
+Create an exact transparent 4-column by 2-row production pixel-art RPG sprite sheet of the same character from the two references; Image 1 is authoritative for identity/palette and Image 2 only supports shape. Subject: blue upside-down Mount Fuji spinning-top king with white snowy summit and gold crown, two upward blue arms capped with white snow fists, square eyes, pink cheeks, tiny fangs and pale-blue striped pointed lower cone. Crisp limited-palette Japanese RPG pixel art, hard pixels, no antialiasing. Exactly one complete centered front-facing character per equal cell, consistent scale/baseline, clear padding, no visible grid. Top idle frames: neutral; breathing with secondary parts lifting; natural blink and secondary motion; settle. Bottom attack frames: raise snow fists, cone twists, spin into a sharp forward top-body strike, then recover. Show real per-frame changes in eyes, silhouette, appendages/accessories and contact points while preserving identity, colors, item sides and anatomy. Transparent; no extra characters/limbs/items, detached projectiles, text, labels, effects, shadows, crop, blur or watermark.
 ```

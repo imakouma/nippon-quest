@@ -4,7 +4,7 @@
 - Base: `f31628f32a008dfc92ecb2ed4a7934e6d9d9516b`
 - Assignment source: `tasks/animation-batch-assignments.json` → `batch-02.ids`
 - Scope: 110 assigned monsters
-- Current counts: completed 76, failed 0, unstarted 34
+- Current counts: completed 110, failed 0, unstarted 0
 - Generator: built-in imagegen only; no paid fallback, provider credential, or OmniRoute use
 
 ## First quality slice
@@ -106,44 +106,48 @@ manifest file is part of this batch.
 - [x] `oita-yubune-don` — 生成・変換・目視確認済み
 - [x] `okayama-boss-kibi-no-onio` — 生成・変換・目視確認済み
 - [x] `okayama-lastboss-ikeda-mitsumasa` — 生成・変換・目視確認済み
-- [ ] `okinawa-goya-musha` — 未着手
-- [ ] `okinawa-ougon-pine` — 未着手
-- [ ] `osaka-budomaru` — 未着手
-- [ ] `osaka-lastboss-toyotomi-hideyoshi` — 未着手
-- [ ] `saga-boss-akajishi-oh` — 未着手
-- [ ] `saga-lastboss-nabeshima-naomasa` — 未着手
-- [ ] `saga-yumonbou` — 未着手
-- [ ] `saitama-lastboss-shibusawa-eiichi` — 未着手
-- [ ] `shiga-asanunon` — 未着手
-- [ ] `shiga-jofu-hime` — 未着手
-- [ ] `shiga-tsuburin` — 未着手
-- [ ] `shimane-midboss-shirogane-mogura` — 未着手
-- [ ] `shimane-warigo-tower` — 未着手
-- [ ] `shizuoka-chatsumin` — 未着手
-- [ ] `shizuoka-tsuun-wasabi` — 未着手
-- [ ] `tochigi-boss-kegon-ryuo` — 未着手
-- [ ] `tochigi-ichigoro` — 未着手
-- [ ] `tokushima-hamagamen` — 未着手
-- [ ] `tokushima-oo-kintoki` — 未着手
-- [ ] `tokyo-boss-mihara-no-nushi` — 未着手
-- [ ] `tokyo-midboss-denpa-oh` — 未着手
-- [ ] `tottori-beniyoroigani` — 未着手
-- [ ] `tottori-nijisseikishi` — 未着手
-- [ ] `toyama-boss-tateyama-ou` — 未着手
-- [ ] `toyama-masuzushin` — 未着手
-- [ ] `toyama-tulipon` — 未着手
-- [ ] `wakayama-lastboss-tokugawa-yoshimune` — 未着手
-- [ ] `wakayama-shibukin` — 未着手
-- [ ] `yamagata-jumbo-imoni` — 未着手
-- [ ] `yamagata-shogi-commander` — 未着手
-- [ ] `yamaguchi-kanmon-fuku` — 未着手
-- [ ] `yamaguchi-natsumikan-bushi` — 未着手
-- [ ] `yamanashi-boss-suisho-ryu` — 未着手
-- [ ] `yamanashi-midboss-sakasa-fujin` — 未着手
+- [x] `okinawa-goya-musha` — 生成・変換・目視確認済み
+- [x] `okinawa-ougon-pine` — 生成・変換・目視確認済み
+- [x] `osaka-budomaru` — 生成・変換・目視確認済み
+- [x] `osaka-lastboss-toyotomi-hideyoshi` — 生成・変換・目視確認済み
+- [x] `saga-boss-akajishi-oh` — 生成・変換・目視確認済み
+- [x] `saga-lastboss-nabeshima-naomasa` — 生成・変換・目視確認済み
+- [x] `saga-yumonbou` — 生成・変換・目視確認済み
+- [x] `saitama-lastboss-shibusawa-eiichi` — 生成・変換・目視確認済み
+- [x] `shiga-asanunon` — 生成・変換・目視確認済み
+- [x] `shiga-jofu-hime` — 生成・変換・目視確認済み
+- [x] `shiga-tsuburin` — 生成・変換・目視確認済み
+- [x] `shimane-midboss-shirogane-mogura` — 生成・変換・目視確認済み
+- [x] `shimane-warigo-tower` — 生成・変換・目視確認済み
+- [x] `shizuoka-chatsumin` — 生成・変換・目視確認済み
+- [x] `shizuoka-tsuun-wasabi` — 生成・変換・目視確認済み
+- [x] `tochigi-boss-kegon-ryuo` — 生成・変換・目視確認済み
+- [x] `tochigi-ichigoro` — 生成・変換・目視確認済み
+- [x] `tokushima-hamagamen` — 生成・変換・目視確認済み
+- [x] `tokushima-oo-kintoki` — 生成・変換・目視確認済み
+- [x] `tokyo-boss-mihara-no-nushi` — 生成・変換・目視確認済み
+- [x] `tokyo-midboss-denpa-oh` — 生成・変換・目視確認済み
+- [x] `tottori-beniyoroigani` — 生成・変換・目視確認済み
+- [x] `tottori-nijisseikishi` — 生成・変換・目視確認済み
+- [x] `toyama-boss-tateyama-ou` — 生成・変換・目視確認済み
+- [x] `toyama-masuzushin` — 生成・変換・目視確認済み
+- [x] `toyama-tulipon` — 生成・変換・目視確認済み
+- [x] `wakayama-lastboss-tokugawa-yoshimune` — 生成・変換・目視確認済み
+- [x] `wakayama-shibukin` — 生成・変換・目視確認済み
+- [x] `yamagata-jumbo-imoni` — 生成・変換・目視確認済み
+- [x] `yamagata-shogi-commander` — 生成・変換・目視確認済み
+- [x] `yamaguchi-kanmon-fuku` — 生成・変換・目視確認済み
+- [x] `yamaguchi-natsumikan-bushi` — 生成・変換・目視確認済み
+- [x] `yamanashi-boss-suisho-ryu` — 生成・変換・目視確認済み
+- [x] `yamanashi-midboss-sakasa-fujin` — 生成・変換・目視確認済み
 
 ## Verification log
 
 - Unit RED: dedicated manifest test failed against the initial empty manifest as expected.
 - Unit GREEN: dedicated and shared manifest tests passed (3 tests).
-- Browser: in progress; run on local port 4178 only.
-- Full gates: pending after the assigned batch is complete or generation is blocked.
+- Browser: dedicated battle flow passed for the first three assigned monsters at desktop and
+  mobile viewports, covering idle, normal attack, skill attack, idle return, and KO; final
+  preview is served on local port 4178 only.
+- Full gates: `pnpm lint`, `pnpm check:architecture`, `pnpm test` (167 files / 1703
+  tests), `pnpm validate:content`, and `pnpm build` passed after all 110 sheets were
+  registered.

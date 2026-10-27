@@ -3,17 +3,15 @@ import { describe, expect, it } from 'vitest';
 import assignments from '../../tasks/animation-batch-assignments.json';
 import type { MonsterAnimationSpec } from '../../src/rendering/monsterAnimation';
 
-const firstSliceIds = ['aichi-arimatsu-zome', 'aichi-hatchon', 'aichi-miso-yagura'];
-
 describe('animation batch-02', () => {
-  it('registers the verified first slice with the shared animation contract', () => {
+  it('registers every assigned monster with the shared animation contract', () => {
     const batch = assignments.batches.find((entry) => entry.batch === 'batch-02');
     const manifest = JSON.parse(
       readFileSync('assets/sprites/animations/batch-02/manifest.json', 'utf8'),
     ) as MonsterAnimationSpec[];
 
     expect(batch).toBeDefined();
-    expect(manifest.map((entry) => entry.id)).toEqual(expect.arrayContaining(firstSliceIds));
+    expect(manifest.map((entry) => entry.id)).toEqual(batch!.ids);
 
     for (const spec of manifest) {
       expect(batch!.ids).toContain(spec.id);
