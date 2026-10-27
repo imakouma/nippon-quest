@@ -85,12 +85,8 @@ import { hasStoryCompanion } from '../core/progression/storyCompanion';
 import { monsterDisplaySize, monsterMenuArtUrl } from '../rendering/menuArt';
 import { monsterImageScale } from '../rendering/monsterImageScale';
 import { preloadMonsterImages } from './battle/preloadMonsterImages';
-import {
-  createMonsterSprite,
-  playMonsterAttack,
-  playMonsterIdle,
-  stopMonsterAnimation,
-} from './battle/monsterAnimation';
+import { createMonsterSprite, playMonsterAttack, stopMonsterAnimation } from './battle/monsterAnimation';
+import { BattleIdleMotion } from './battle/idleMotion';
 import { BATTLE_SCALE as S, battleLayout, type BattleLayout, OFF_RIGHT, READY_STEP } from './battle/layout';
 import { createBattleClouds, createBattleWinds, moveBattleClouds, moveBattleWinds } from './battle/clouds';
 import { attachBattleBgm, finishBattleBgm, withBattleMusicDucked } from './battle/bgm';
@@ -135,7 +131,7 @@ export class BattleScene extends Phaser.Scene {
   private shadows = new Map<Sprite, Phaser.GameObjects.Image>();
   private clouds: Phaser.GameObjects.Image[] = [];
   private winds: Phaser.GameObjects.Image[] = [];
-  private bobs = new Map<Sprite, Phaser.Tweens.Tween>();
+  private readonly idleMotion = new BattleIdleMotion(this, S);
   private perfectBySubject: Record<string, number> = {};
   private lastElement: Element = 'none';
   /** いまの 行動の モンスターの モチーフ（主人公の 行動は null）。ふつうの こうげきが 当たった ときに アイコンが とぶ */
@@ -186,7 +182,7 @@ export class BattleScene extends Phaser.Scene {
     this.shadows = new Map();
     this.clouds = [];
     this.winds = [];
-    this.bobs = new Map();
+    this.idleMotion.reset();
     this.perfectBySubject = {};
     this.lastElement = 'none';
     this.swings = 0;
@@ -457,53 +453,25 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private destroySprite(sp: Sprite): void {
-    this.bobs.get(sp)?.stop();
-    this.bobs.delete(sp);
+    this.idleMotion.destroy(sp);
     this.shadows.get(sp)?.destroy();
     this.shadows.delete(sp);
     sp.destroy();
   }
 
   private startIdle(): void {
-    if (!playMonsterIdle(this.enemySprite))
-      this.tweens.add({
-        targets: this.enemySprite,
-        scaleY: this.enemySprite.scaleY * 0.95,
-        duration: 460,
-        yoyo: true,
-        repeat: -1,
-        ease: 'Stepped',
-        easeParams: [1],
-      });
+    this.idleMotion.startEnemy(this.enemySprite);
     this.idleBob(this.heroSprite, this.layout.hero.y);
     if (this.palSprite) this.idleBob(this.palSprite, this.layout.partner.y);
   }
 
   /** 待機中は 1 ドットだけ上下（コマ送り） */
   private idleBob(sp: Sprite, baseY: number): void {
-    this.bobs.get(sp)?.stop();
-    sp.y = baseY;
-    if (sp.alpha <= 0.35) return;
-    if (playMonsterIdle(sp)) return;
-    this.bobs.set(
-      sp,
-      this.tweens.add({
-        targets: sp,
-        y: baseY - S,
-        duration: 520,
-        yoyo: true,
-        repeat: -1,
-        ease: 'Stepped',
-        easeParams: [1],
-      }),
-    );
+    this.idleMotion.start(sp, baseY);
   }
 
   private stopBob(sp: Sprite, baseY: number): void {
-    stopMonsterAnimation(sp);
-    this.bobs.get(sp)?.stop();
-    this.bobs.delete(sp);
-    sp.y = baseY;
+    this.idleMotion.stop(sp, baseY);
   }
 
   // ───────────────────────── HUD ─────────────────────────

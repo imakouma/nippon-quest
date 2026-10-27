@@ -68,8 +68,10 @@ for (const viewport of [
         const before = count();
         await battle.animate({
           t: 'act',
+          actionId: 'turn:1:action:0',
           side: 'enemy',
           actorId: battle.state.enemy.id,
+          targetIds: [battle.state.ally.hero.id],
           command: 'attack',
         });
         return { before, after: count() };
@@ -100,8 +102,10 @@ for (const viewport of [
         const before = count();
         await battle.animate({
           t: 'act',
+          actionId: 'turn:1:action:1',
           side: 'enemy',
           actorId: battle.state.enemy.id,
+          targetIds: [battle.state.ally.hero.id],
           command: 'skill',
           // A known damaging skill proves the attack-skill rendering path even for
           // monsters whose own current move list contains only support skills.
