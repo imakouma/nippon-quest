@@ -240,11 +240,13 @@ const ctx: NarrateCtx = {
   isBossBattle: false,
 };
 
+const ACTION = { actionId: 'turn:1:action:0' as const };
+
 describe('メッセージ（narrate）', () => {
   it('どうぐ → かいふく の順に並べ替える', () => {
     const ev: BattleEvent[] = [
-      { t: 'heal', side: 'ally', targetId: 'hero', amount: 30 },
-      { t: 'itemUsed', itemId: 'aomori-ringo', targetId: 'hero' },
+      { t: 'heal', ...ACTION, side: 'ally', targetId: 'hero', amount: 30 },
+      { t: 'itemUsed', ...ACTION, itemId: 'aomori-ringo', targetId: 'hero' },
     ];
     expect(normalizeEvents(ev).map((e) => e.t)).toEqual(['itemUsed', 'heal']);
   });
@@ -253,6 +255,7 @@ describe('メッセージ（narrate）', () => {
     const lines = narrate(
       {
         t: 'damage',
+        ...ACTION,
         side: 'enemy',
         targetId: 'enemy',
         amount: 14,
@@ -271,6 +274,7 @@ describe('メッセージ（narrate）', () => {
     const lines = narrate(
       {
         t: 'damage',
+        ...ACTION,
         side: 'enemy',
         targetId: 'enemy',
         amount: 21,
@@ -286,9 +290,12 @@ describe('メッセージ（narrate）', () => {
   });
 
   it('コンボ・ゲージ・コマンドゲージの 文（いつも 出る ゲージの チャージは 文に しない）', () => {
-    expect(narrate({ t: 'combo', count: 3, bonus: 1.15 }, ctx)).toEqual(['3コンボ！ いりょく +15%']);
+    expect(narrate({ t: 'combo', ...ACTION, count: 3, bonus: 1.15 }, ctx)).toEqual([
+      '3コンボ！ いりょく +15%',
+    ]);
     const charge: Extract<BattleEvent, { t: 'gaugeCharge' }> = {
       t: 'gaugeCharge',
+      ...ACTION,
       subject: 'sansu',
       amount: 40,
       value: 40,
@@ -305,7 +312,7 @@ describe('メッセージ（narrate）', () => {
       'さんすうゲージが たりない！ あと 30 ためよう',
     ]);
     expect(narrate({ t: 'turnStart', turn: 2 }, ctx)).toEqual([]);
-    expect(narrate({ t: 'swap', from: 'pal', to: 'pal2', auto: true }, ctx)).toEqual([
+    expect(narrate({ t: 'swap', ...ACTION, from: 'pal', to: 'pal2', auto: true }, ctx)).toEqual([
       'pal2が まえに でた！',
     ]);
   });
@@ -317,9 +324,17 @@ describe('メッセージ（narrate）', () => {
   });
 
   it('「みを まもっている」の直後の防御アップは言い直さない', () => {
-    const act: BattleEvent = { t: 'act', side: 'enemy', actorId: 'enemy', command: 'defend' };
+    const act: BattleEvent = {
+      t: 'act',
+      ...ACTION,
+      side: 'enemy',
+      actorId: 'enemy',
+      targetIds: ['enemy'],
+      command: 'defend',
+    };
     const buff: BattleEvent = {
       t: 'buff',
+      ...ACTION,
       side: 'enemy',
       targetId: 'enemy',
       stat: 'def',
@@ -332,31 +347,56 @@ describe('メッセージ（narrate）', () => {
 
   it('全イベント型で例外を出さない', () => {
     const all: BattleEvent[] = [
-      { t: 'act', side: 'ally', actorId: 'hero', command: 'skill', skillId: 'sk' },
-      { t: 'act', side: 'ally', actorId: 'pal', command: 'attack', auto: true },
-      { t: 'heal', side: 'ally', targetId: 'hero', amount: 3 },
-      { t: 'buff', side: 'ally', targetId: 'hero', stat: 'def', mult: 1.3, turns: 3 },
-      { t: 'status', targetId: 'enemy', turns: 2 },
-      { t: 'skipTurn', targetId: 'enemy', remain: 0 },
+      {
+        t: 'act',
+        ...ACTION,
+        side: 'ally',
+        actorId: 'hero',
+        targetIds: ['enemy'],
+        command: 'skill',
+        skillId: 'sk',
+      },
+      {
+        t: 'act',
+        ...ACTION,
+        side: 'ally',
+        actorId: 'pal',
+        targetIds: ['enemy'],
+        command: 'attack',
+        auto: true,
+      },
+      { t: 'heal', ...ACTION, side: 'ally', targetId: 'hero', amount: 3 },
+      { t: 'buff', ...ACTION, side: 'ally', targetId: 'hero', stat: 'def', mult: 1.3, turns: 3 },
+      { t: 'status', ...ACTION, targetId: 'enemy', turns: 2 },
+      { t: 'skipTurn', ...ACTION, targetId: 'enemy', remain: 0 },
       { t: 'turnStart', turn: 3 },
-      { t: 'weaknessRevealed', targetId: 'enemy', element: 'hino' },
-      { t: 'scanFailed', targetId: 'enemy' },
-      { t: 'combo', count: 3, bonus: 1.15 },
-      { t: 'gaugeCharge', subject: 'kokugo', amount: 40, value: 100, max: 100, boosted: true, unlocked: [] },
-      { t: 'gaugeUse', subject: 'kokugo', amount: 50, value: 50 },
+      { t: 'weaknessRevealed', ...ACTION, targetId: 'enemy', element: 'hino' },
+      { t: 'scanFailed', ...ACTION, targetId: 'enemy' },
+      { t: 'combo', ...ACTION, count: 3, bonus: 1.15 },
+      {
+        t: 'gaugeCharge',
+        ...ACTION,
+        subject: 'kokugo',
+        amount: 40,
+        value: 100,
+        max: 100,
+        boosted: true,
+        unlocked: [],
+      },
+      { t: 'gaugeUse', ...ACTION, subject: 'kokugo', amount: 50, value: 50 },
       { t: 'gaugeShort', subject: 'rika', need: 100, have: 0 },
-      { t: 'itemUsed', itemId: 'aomori-ringo', targetId: 'pal' },
-      { t: 'itemUsed', itemId: 'common-musubi-dama', targetId: 'enemy', side: 'enemy' },
-      { t: 'recruitGift', itemId: 'aomori-ringo', targetId: 'enemy' },
-      { t: 'swap', from: 'pal', to: 'hero' },
-      { t: 'recruitAttempt', targetId: 'enemy', success: false, chance: 0.1 },
-      { t: 'recruited', monsterId: 'x' },
+      { t: 'itemUsed', ...ACTION, itemId: 'aomori-ringo', targetId: 'pal' },
+      { t: 'itemUsed', ...ACTION, itemId: 'common-musubi-dama', targetId: 'enemy', side: 'enemy' },
+      { t: 'recruitGift', ...ACTION, itemId: 'aomori-ringo', targetId: 'enemy' },
+      { t: 'swap', ...ACTION, from: 'pal', to: 'hero' },
+      { t: 'recruitAttempt', ...ACTION, targetId: 'enemy', success: false, chance: 0.1 },
+      { t: 'recruited', ...ACTION, monsterId: 'x' },
       { t: 'fleeAttempt', success: false, chance: 0.3 },
-      { t: 'fled' },
-      { t: 'ko', side: 'ally', targetId: 'pal' },
-      { t: 'bossPhase', phaseIndex: 1, line: 'がおー' },
-      { t: 'victory', xp: 1, gold: 1, drops: [], recruitOffer: false, bonus: 1, maxCombo: 0 },
-      { t: 'defeat' },
+      { t: 'fled', ...ACTION },
+      { t: 'ko', ...ACTION, side: 'ally', targetId: 'pal' },
+      { t: 'bossPhase', ...ACTION, phaseIndex: 1, line: 'がおー' },
+      { t: 'victory', ...ACTION, xp: 1, gold: 1, drops: [], recruitOffer: false, bonus: 1, maxCombo: 0 },
+      { t: 'defeat', ...ACTION },
     ];
     for (const e of all) for (const line of narrate(e, ctx)) expect(line).not.toMatch(/^battle\./);
   });

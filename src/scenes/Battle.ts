@@ -186,7 +186,7 @@ export class BattleScene extends Phaser.Scene {
           wait: (ms) => this.wait(ms),
         },
         visual: {
-          play: ({ event, next }) => this.animate(event, next),
+          play: ({ event }) => this.animate(event),
         },
         audio: {
           withDucked: (play) => withBattleMusicDucked(play),
@@ -1075,8 +1075,8 @@ export class BattleScene extends Phaser.Scene {
     });
   }
 
-  private animate(event: BattleEvent, next?: BattleEvent): Promise<void> {
-    return this.animator.play(event, next);
+  private animate(event: BattleEvent): Promise<void> {
+    return this.animator.play(event);
   }
   private async heroSlash(): Promise<void> {
     const sp = this.heroSprite;

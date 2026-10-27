@@ -119,17 +119,25 @@ export interface BattleState {
 
 export type ScoreBandName = 'perfect' | 'good' | 'weak' | 'miss';
 
-export type BattleEvent =
-  /** ターンの はじまり（主人公が 動く 前） */
-  | { t: 'turnStart'; turn: number }
+/** 1 回の成立行動を、event の並び順に依存せず束ねる決定論的 ID。 */
+export type BattleActionId = `turn:${number}:action:${number}`;
+
+export interface BattleActionRef {
+  actionId: BattleActionId;
+}
+
+type BattleActionEvent =
   /** auto = オトモの 自動こうげき */
   | {
       t: 'act';
       side: Side;
       actorId: string;
+      targetIds: readonly string[];
       command: 'attack' | 'skill' | 'scan' | 'defend';
       skillId?: string;
       auto?: boolean;
+      /** counter など、別行動から派生する action の発火元。 */
+      causedByActionId?: BattleActionId;
     }
   | {
       t: 'damage';
@@ -165,14 +173,11 @@ export type BattleEvent =
       unlocked: string[];
     }
   | { t: 'gaugeUse'; subject: Subject; amount: number; value: number }
-  /** 教科ゲージが たりなくて 打てない（ターンは すすまない） */
-  | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
   | { t: 'itemUsed'; itemId: string; targetId: string; side?: Side }
   | { t: 'recruitGift'; itemId: string; targetId: string }
   /** auto = オトモが たおれて、次の 仲間が 自動で 前に 出た */
   | { t: 'swap'; from: string; to: string; auto?: boolean }
   | { t: 'recruitAttempt'; targetId: string; success: boolean; chance: number }
-  | { t: 'fleeAttempt'; success: boolean; chance: number }
   | { t: 'ko'; side: Side; targetId: string }
   | { t: 'bossPhase'; phaseIndex: number; line?: string }
   /** xp・gold は コンボ ボーナス（bonus 倍）込み */
@@ -188,3 +193,12 @@ export type BattleEvent =
   | { t: 'defeat' }
   | { t: 'fled' }
   | { t: 'recruited'; monsterId: string };
+
+export type BattleEvent =
+  /** ターンの はじまり（主人公が 動く 前） */
+  | { t: 'turnStart'; turn: number }
+  /** 教科ゲージが たりなくて 打てない（ターンは すすまない） */
+  | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
+  /** にげられないボスへの試行は成立行動ではないので actionId を持たない。 */
+  | ({ t: 'fleeAttempt'; success: boolean; chance: number } & Partial<BattleActionRef>)
+  | (BattleActionEvent & BattleActionRef);

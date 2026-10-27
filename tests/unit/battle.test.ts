@@ -352,7 +352,7 @@ describe('ターンの すすみかた（優先度 → すばやさ → 同速�
     const result = act(almostDown, { kind: 'attack' }, D);
     expect(result.state.outcome).toBe('victory');
     expect(result.events.filter((event) => event.t === 'ko')).toEqual([
-      { t: 'ko', side: 'enemy', targetId: state.enemy.id },
+      { t: 'ko', actionId: 'turn:1:action:0', side: 'enemy', targetId: state.enemy.id },
     ]);
   });
 
@@ -806,6 +806,7 @@ describe('仲間化（GDD §4.6）', () => {
     expect(result.state.ally.items['aomori-ringo']).toBe(1);
     expect(result.events).toContainEqual({
       t: 'recruitGift',
+      actionId: 'turn:1:action:0',
       targetId: state.enemy.id,
       itemId: 'aomori-ringo',
     });

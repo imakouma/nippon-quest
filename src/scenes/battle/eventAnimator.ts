@@ -94,7 +94,7 @@ export interface BattleEventAnimationPort {
 export class BattleEventAnimator {
   constructor(private readonly port: BattleEventAnimationPort) {}
 
-  async play(event: BattleEvent, next?: BattleEvent): Promise<void> {
+  async play(event: BattleEvent): Promise<void> {
     const p = this.port;
     const state = p.state();
     const enemy = p.sprites.enemy();
@@ -104,8 +104,7 @@ export class BattleEventAnimator {
 
     switch (event.t) {
       case 'act': {
-        const targetId =
-          next && (next.t === 'damage' || next.t === 'heal' || next.t === 'buff') ? next.targetId : undefined;
+        const targetId = event.targetIds[0];
         const sprite = p.sprites.of(event.actorId);
         const skill = event.skillId ? p.skill(event.skillId) : undefined;
         const actorElement = event.side === 'enemy' ? state.enemy.element : p.allyElement(event.actorId);

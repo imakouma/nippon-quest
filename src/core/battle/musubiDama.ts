@@ -28,7 +28,7 @@ export function musubiDamaChance(input: MusubiDamaAttempt): number {
 }
 import type { Item, Monster } from '../content/schemas';
 import type { Rng } from '../rng';
-import type { BattleEvent, BattleState, Command } from './types';
+import type { BattleActionRef, BattleEvent, BattleState, Command } from './types';
 
 export function useMusubiDama(
   state: BattleState,
@@ -37,6 +37,7 @@ export function useMusubiDama(
   command: Extract<Command, { kind: 'item' }>,
   rng: Rng,
   events: BattleEvent[],
+  action: BattleActionRef,
 ): boolean {
   const count = state.ally.items[item.id] ?? 0;
   if (
@@ -52,7 +53,7 @@ export function useMusubiDama(
   )
     return false;
   state.ally.items[item.id] = count - 1;
-  events.push({ t: 'itemUsed', itemId: item.id, targetId: state.enemy.id, side: 'enemy' });
+  events.push({ t: 'itemUsed', ...action, itemId: item.id, targetId: state.enemy.id, side: 'enemy' });
   const chance = musubiDamaChance({
     baseRate: monster.recruitRate,
     hpRatio: state.enemy.hp / Math.max(1, state.enemy.stats.hp),
@@ -61,10 +62,10 @@ export function useMusubiDama(
     timeLimitScale: command.timeLimitScale ?? 1,
   });
   const success = chance > 0 && rng.chance(chance);
-  events.push({ t: 'recruitAttempt', targetId: state.enemy.id, success, chance });
+  events.push({ t: 'recruitAttempt', ...action, targetId: state.enemy.id, success, chance });
   if (success) {
     state.outcome = 'recruited';
-    events.push({ t: 'recruited', monsterId: state.enemy.refId });
+    events.push({ t: 'recruited', ...action, monsterId: state.enemy.refId });
   }
   return true;
 }
