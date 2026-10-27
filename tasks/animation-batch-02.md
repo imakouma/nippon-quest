@@ -4,7 +4,7 @@
 - Base: `f31628f32a008dfc92ecb2ed4a7934e6d9d9516b`
 - Assignment source: `tasks/animation-batch-assignments.json` → `batch-02.ids`
 - Scope: 110 assigned monsters
-- Current counts: completed 23, failed 0, unstarted 87
+- Current counts: completed 59, failed 0, unstarted 51
 - Generator: built-in imagegen only; no paid fallback, provider credential, or OmniRoute use
 
 ## First quality slice
@@ -53,42 +53,42 @@ manifest file is part of this batch.
 - [x] `gifu-oribe-musha` — 完了
 - [x] `gifu-washigamin` — 完了
 - [x] `gunma-kyabe-yoroi` — 完了
-- [ ] `gunma-midboss-yumomi-daisho` — 未着手
-- [ ] `hiroshima-kakigara-don` — 未着手
-- [ ] `hiroshima-midboss-fude-daisho` — 未着手
-- [ ] `hiroshima-teppan-double` — 未着手
-- [ ] `hokkaido-homura-gitsune` — 未着手
-- [ ] `hokkaido-jaga-goron` — 未着手
-- [ ] `hokkaido-lastboss-clark` — 未着手
-- [ ] `hokkaido-ryuhyo-tenshi` — 未着手
-- [ ] `hyogo-kuromamen` — 未着手
-- [ ] `hyogo-soroban-shogun` — 未着手
-- [ ] `hyogo-tamanegin` — 未着手
-- [ ] `ibaraki-hobiki-maru` — 未着手
-- [ ] `ibaraki-natton` — 未着手
-- [ ] `ishikawa-boss-yukitsuri-oomatsu` — 未着手
-- [ ] `ishikawa-kaga-nurimaru` — 未着手
-- [ ] `ishikawa-midboss-kiriko-taisho` — 未着手
-- [ ] `kagawa-boss-oudon-ryu` — 未着手
-- [ ] `kagawa-minoribu` — 未着手
-- [ ] `kagawa-tsumuji-uchiwa` — 未着手
-- [ ] `kagoshima-daikon-shogun` — 未着手
-- [ ] `kagoshima-midboss-tsubo-musha` — 未着手
-- [ ] `kagoshima-watari-zuru` — 未着手
-- [ ] `kanagawa-karakuri-jo` — 未着手
-- [ ] `kanagawa-pichirasu` — 未着手
-- [ ] `kochi-aburikatsuo` — 未着手
-- [ ] `kochi-kamiwashi` — 未着手
-- [ ] `kochi-yuzupika` — 未着手
-- [ ] `kumamoto-dai-karudera` — 未着手
-- [ ] `kumamoto-lastboss-kato-kiyomasa` — 未着手
-- [ ] `kumamoto-suikabuto` — 未着手
-- [ ] `kyoto-chatsumin` — 未着手
-- [ ] `kyoto-funayadokari` — 未着手
-- [ ] `kyoto-midboss-kayabuki-monban` — 未着手
-- [ ] `mie-gutsugutsu-don` — 未着手
-- [ ] `mie-midboss-oosansho-ou` — 未着手
-- [ ] `miyagi-kokeshina` — 未着手
+- [x] `gunma-midboss-yumomi-daisho` — 完了
+- [x] `hiroshima-kakigara-don` — 完了
+- [x] `hiroshima-midboss-fude-daisho` — 完了
+- [x] `hiroshima-teppan-double` — 完了
+- [x] `hokkaido-homura-gitsune` — 完了
+- [x] `hokkaido-jaga-goron` — 完了
+- [x] `hokkaido-lastboss-clark` — 完了
+- [x] `hokkaido-ryuhyo-tenshi` — 完了
+- [x] `hyogo-kuromamen` — 完了
+- [x] `hyogo-soroban-shogun` — 完了
+- [x] `hyogo-tamanegin` — 完了
+- [x] `ibaraki-hobiki-maru` — 完了
+- [x] `ibaraki-natton` — 完了
+- [x] `ishikawa-boss-yukitsuri-oomatsu` — 完了
+- [x] `ishikawa-kaga-nurimaru` — 完了
+- [x] `ishikawa-midboss-kiriko-taisho` — 完了
+- [x] `kagawa-boss-oudon-ryu` — 完了
+- [x] `kagawa-minoribu` — 完了
+- [x] `kagawa-tsumuji-uchiwa` — 完了
+- [x] `kagoshima-daikon-shogun` — 完了
+- [x] `kagoshima-midboss-tsubo-musha` — 完了
+- [x] `kagoshima-watari-zuru` — 完了
+- [x] `kanagawa-karakuri-jo` — 完了
+- [x] `kanagawa-pichirasu` — 完了
+- [x] `kochi-aburikatsuo` — 完了
+- [x] `kochi-kamiwashi` — 完了
+- [x] `kochi-yuzupika` — 完了
+- [x] `kumamoto-dai-karudera` — 完了
+- [x] `kumamoto-lastboss-kato-kiyomasa` — 完了
+- [x] `kumamoto-suikabuto` — 完了
+- [x] `kyoto-chatsumin` — 完了
+- [x] `kyoto-funayadokari` — 完了
+- [x] `kyoto-midboss-kayabuki-monban` — 完了
+- [x] `mie-gutsugutsu-don` — 完了
+- [x] `mie-midboss-oosansho-ou` — 完了
+- [x] `miyagi-kokeshina` — 完了
 - [ ] `miyagi-sasakama-bushi` — 未着手
 - [ ] `miyagi-zundamaru` — 未着手
 - [ ] `miyazaki-lastboss-komura-jutaro` — 未着手
