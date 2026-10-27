@@ -76,6 +76,12 @@ import { hasStoryCompanion } from '../core/progression/storyCompanion';
 import { monsterDisplaySize, monsterMenuArtUrl } from '../rendering/menuArt';
 import { monsterImageScale } from '../rendering/monsterImageScale';
 import { preloadMonsterImages } from './battle/preloadMonsterImages';
+import {
+  createMonsterSprite,
+  playMonsterAttack,
+  playMonsterIdle,
+  stopMonsterAnimation,
+} from './battle/monsterAnimation';
 import { BATTLE_SCALE as S, battleLayout, type BattleLayout, OFF_RIGHT, READY_STEP } from './battle/layout';
 import { createBattleClouds, createBattleWinds, moveBattleClouds, moveBattleWinds } from './battle/clouds';
 import { attachBattleBgm, finishBattleBgm, withBattleMusicDucked } from './battle/bgm';
@@ -296,8 +302,7 @@ export class BattleScene extends Phaser.Scene {
     this.enemySize = this.sizeOf(def, isBoss);
     this.enemyScale = this.scaleOf(this.enemySize, isBoss);
     const eKey = this.monsterTexture(def, this.state.enemy.element, this.enemySize, isBoss);
-    this.enemySprite = this.add
-      .image(this.layout.enemy.x, this.layout.enemy.y, eKey)
+    this.enemySprite = createMonsterSprite(this, def.id, this.layout.enemy.x, this.layout.enemy.y, eKey)
       .setOrigin(0.5, 1)
       .setDepth(10);
     this.enemySprite.setScale(
@@ -359,12 +364,19 @@ export class BattleScene extends Phaser.Scene {
     const m = this.state.ally.monsters[this.state.ally.activeMonsterIndex];
     const def = m && this.content.monsters.get(m.refId);
     if (!m || !def) return null;
-    const sp = this.add
-      .image(x, this.layout.partner.y, this.monsterTexture(def, def.element, MONSTER_SIZE.normal, false))
+    const sp = createMonsterSprite(
+      this,
+      def.id,
+      x,
+      this.layout.partner.y,
+      this.monsterTexture(def, def.element, MONSTER_SIZE.normal, false),
+    )
       .setOrigin(0.5, 1)
       .setDepth(11)
       .setAlpha(m.hp > 0 ? 1 : 0.35);
     sp.setScale(monsterImageScale(sp.width, sp.height, MONSTER_SIZE.normal, this.layout.partner.scale));
+    if (sp.getData('monsterIdle')) sp.setFlipX(true);
+    if (m.hp <= 0) stopMonsterAnimation(sp);
     this.addShadow(sp, this.layout.partner.y, 22);
     return sp;
   }
@@ -384,15 +396,16 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private startIdle(): void {
-    this.tweens.add({
-      targets: this.enemySprite,
-      scaleY: this.enemySprite.scaleY * 0.95,
-      duration: 460,
-      yoyo: true,
-      repeat: -1,
-      ease: 'Stepped',
-      easeParams: [1],
-    });
+    if (!playMonsterIdle(this.enemySprite))
+      this.tweens.add({
+        targets: this.enemySprite,
+        scaleY: this.enemySprite.scaleY * 0.95,
+        duration: 460,
+        yoyo: true,
+        repeat: -1,
+        ease: 'Stepped',
+        easeParams: [1],
+      });
     this.idleBob(this.heroSprite, this.layout.hero.y);
     if (this.palSprite) this.idleBob(this.palSprite, this.layout.partner.y);
   }
@@ -401,6 +414,8 @@ export class BattleScene extends Phaser.Scene {
   private idleBob(sp: Sprite, baseY: number): void {
     this.bobs.get(sp)?.stop();
     sp.y = baseY;
+    if (sp.alpha <= 0.35) return;
+    if (playMonsterIdle(sp)) return;
     this.bobs.set(
       sp,
       this.tweens.add({
@@ -416,6 +431,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private stopBob(sp: Sprite, baseY: number): void {
+    stopMonsterAnimation(sp);
     this.bobs.get(sp)?.stop();
     this.bobs.delete(sp);
     sp.y = baseY;
@@ -1035,7 +1051,10 @@ export class BattleScene extends Phaser.Scene {
         blink: (sprite) => this.blink(sprite),
         knock: (sprite, dx) => this.knock(sprite, dx),
         tween: (config) => this.tweenP(config),
-        killTweens: (sprite) => this.tweens.killTweensOf(sprite),
+        killTweens: (sprite) => {
+          stopMonsterAnimation(sprite);
+          this.tweens.killTweensOf(sprite);
+        },
         monsterTexture: (definition, boss, suffix) =>
           this.monsterTexture(definition, this.state.enemy.element, this.enemySize, boss, suffix),
       },
@@ -1174,6 +1193,7 @@ export class BattleScene extends Phaser.Scene {
   /** 仲間の「たたかう」：ぴょんと はねて 敵へ たいあたり。もどるのは ダメージの演出と同時 */
   private async partnerTackle(sp: Sprite): Promise<void> {
     this.stopBob(sp, this.layout.partner.y);
+    playMonsterAttack(sp);
     await this.fx.hopTo(sp, this.layout.enemy.x + 200, this.layout.partner.y, 16 * S, 260);
     void this.fx.hopTo(sp, this.layout.partner.x, this.layout.partner.y, 8 * S, 260).then(() => {
       if (sp.active) this.idleBob(sp, this.layout.partner.y);
@@ -1185,6 +1205,7 @@ export class BattleScene extends Phaser.Scene {
    * ボスは 2 回に 1 回、とびあがって ドシン（画面が ゆれて 地ひびき）。味方に 当たったときの しるしも これで かわる
    */
   private async enemyAttack(sp: Sprite): Promise<void> {
+    playMonsterAttack(sp);
     await this.flash(sp, 0xffffff, 2);
     const k = this.enemyAttacks++;
     if (this.state.isBossBattle && k % 2 === 1) {
@@ -1280,6 +1301,7 @@ export class BattleScene extends Phaser.Scene {
       this.stopBob(sp, baseY);
       await Promise.all([this.flash(sp, tint, 2), this.fx.hop(sp, baseY), charge]);
     }
+    if (!hero && attack) playMonsterAttack(sp);
     if (self)
       // まもり・かいふく・しらべる：あいて（自分・仲間・敵）に 光の わと 字の 演出
       await Promise.all([

@@ -7,6 +7,23 @@
   },
   "groups": [
     {
+      "id": "ringoron-animation-pilot",
+      "paths": ["assets/sprites/animations/aomori-ringoron-v1.png"],
+      "status": "hold",
+      "origin": "2026-10-27 既存のリンゴロンを参照して内蔵imagegenで8コマ生成、nearest-neighborで整形",
+      "author": "NIHON QUEST project（AI-assisted generation）",
+      "source": "tasks/ringoron-animation.md",
+      "license": "AI生成物。公開前の利用条件・参照素材の権利確認は未完了",
+      "licenseEvidence": "tasks/ringoron-animation.md",
+      "modificationAllowed": null,
+      "redistributionAllowed": null,
+      "creditRequired": null,
+      "releaseAction": "ローカル試作。公開前に生成サービスと参照素材の権利を人間が確認する",
+      "sha256": {
+        "assets/sprites/animations/aomori-ringoron-v1.png": "b050d84ab078f2f8fe798adf4017ef0a004d6defc8694652d3863c3c396f9d64"
+      }
+    },
+    {
       "id": "approved-design-starter-pixel-images",
       "paths": [
         "assets/sprites/monsters/iwate-kagurabi.png",
