@@ -3,8 +3,8 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 60体。
-- 未着手: 50体（割当110体から下記完了60体を除いたもの）。
+- 完了: 70体。
+- 未着手: 40体（割当110体から下記完了70体を除いたもの）。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
@@ -134,10 +134,23 @@
 - `miyagi-midboss-tanabata-dori`: 冠鳥、虹翼2、足2、吹流しを固定。虹翼待機、両翼の突風。出力 `exec-bd1ed016-bd10-405b-97f2-cb1ba6dd88ea.png`。
 - `miyagi-shiratorin`: 横向き白鳥、翼2、水面を固定。首水面待機、翼と水の突進。出力 `exec-69132318-afa7-44bc-851b-a6e866fae645.png`。
 
+### 追加10体（宮崎〜新潟）
+
+- `miyazaki-hyuga-maru`: 接続した柑橘2体、葉冠、根脚を固定。交互待機、双体回転突進。出力 `exec-a4195c59-a936-46ac-9b25-d88516165610.png`。
+- `miyazaki-midboss-sentaku-oni`: 青鬼、冠角、腕2、洗濯籠を固定。籠待機、籠の叩き付け。出力 `exec-935381b1-8835-43fc-ac54-773af67676b8.png`。
+- `nagano-boss-inazuma-raicho`: 冠雷鳥、翼2、脚2、雷飾りを固定。翼待機、雷の両翼打撃。出力 `exec-0632a293-22ef-4f41-be54-d1bbc98bcfad.png`。
+- `nagano-retasu-zamurai`: 緑の葉体、腕2、脚2を固定。葉待機、葉の回転斬撃。出力 `exec-1d4522bd-d6b5-4c9e-8894-5fcc67bd644e.png`。
+- `nagano-zaru-soban`: 青い蕎麦器、ざる、麺を固定。麺待機、器の回転打撃。出力 `exec-24581b45-f936-4443-99cd-c0dd54a63db6.png`。
+- `nagasaki-kurawanbou`: 接続した白い器2体、青帯、根脚を固定。交互待機、双体回転打撃。出力 `exec-73031621-0ee7-4c27-bd96-a1f016bac334.png`。
+- `nagasaki-yado-retto`: 青い宿体、茶屋根、腕2、脚2を固定。屋根待機、家の突進。出力 `exec-b90564cd-cc25-4f52-b914-c3ed1f87bee8.png`。
+- `nara-happazushi-yagura`: 緑の寿司櫓、橙上段、腕2、脚4を固定。層待機、櫓の体当たり。出力 `exec-69db1263-feec-4c8d-b61f-1e4d77064fa0.png`。
+- `nara-suminosuke`: 墨色の猫硯、耳2、腕2、紫台を固定。耳待機、墨の滑走打撃。出力 `exec-a77ed32b-2612-44c6-917d-88f266d56f64.png`。
+- `niigata-hisui-goro`: 灰石体、翡翠結晶、腕2、脚2を固定。結晶待機、翡翠の両拳打撃。出力 `exec-7353f429-5400-472d-bf12-315b705dd3dd.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 60体とも512×256、RGBA、4列2行の契約。
+- PNG: 70体とも512×256、RGBA、4列2行の契約。
 - 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
 
 ## 統合担当への提案
