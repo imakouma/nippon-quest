@@ -11,8 +11,8 @@ describe('モンスターのコマ差分', () => {
     expect(spec?.path).toBe('sprites/animations/aomori-ringoron-v1.png');
   });
 
-  it('他のキャラと進化形は既存の絵を保つ', () => {
-    expect(monsterAnimationSpec('iwate-izumiko')).toBeUndefined();
-    expect(monsterAnimationSpec('aomori-ringo-knight')).toBeUndefined();
+  it('未登録IDは既存の絵を保つ', () => {
+    expect(monsterAnimationSpec('not-in-game-character')).toBeUndefined();
+    expect(monsterAnimationSpec('unreleased-form-id')).toBeUndefined();
   });
 });
