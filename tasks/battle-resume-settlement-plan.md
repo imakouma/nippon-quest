@@ -21,13 +21,13 @@
 
 ### Phase 1: Persistent contract
 
-- [ ] Task 1: v13 schema、migration、新規ゲーム既定値をTDDで追加する。
-- [ ] Task 2: battle snapshotの生成・phase遷移・破棄判定を純粋関数で追加する。
+- [x] Task 1: v13 schema、migration、新規ゲーム既定値をTDDで追加する。
+- [x] Task 2: battle snapshotの生成・phase遷移・破棄判定を純粋関数で追加する。
 
 ### Checkpoint: Contract
 
-- [ ] Focused state/snapshot tests pass.
-- [ ] `pnpm check:fast` passes.
+- [x] Focused state/snapshot tests pass.
+- [x] `pnpm check:fast` passes.
 - [ ] Contract changes are committed.
 
 ### Phase 2: Exactly-once settlement

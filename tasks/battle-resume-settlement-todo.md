@@ -2,22 +2,22 @@
 
 ## Task 1: v13 state contract
 
-- [ ] RED: v12→v13 migration、新規既定値、round-trip testsを追加する。
-- [ ] GREEN: battle ledger/snapshot schemaとmigrationを実装する。
-- [ ] Verify: focused `state` / `savePersistence` tests。
+- [x] RED: v12→v13 migration、新規既定値、round-trip testsを追加する。
+- [x] GREEN: battle ledger/snapshot schemaとmigrationを実装する。
+- [x] Verify: focused `state` / `savePersistence` tests。
 - Files: `src/core/state/{schema,migrations,newGame,battleResume}.ts`, related tests。
 
 ## Task 2: Safe snapshot state machine
 
-- [ ] RED: command、resolved command、result、settled、invalid snapshot testsを追加する。
-- [ ] GREEN: capture/restore/phase helperを実装する。
-- [ ] Verify: `tests/unit/battleResumeSnapshot.test.ts`。
+- [x] RED: command、resolved command、result、settled、invalid snapshot testsを追加する。
+- [x] GREEN: capture/restore/phase helperを実装する。
+- [x] Verify: `tests/unit/battleResumeSnapshot.test.ts`。
 - Files: `src/core/state/battleResume.ts`, `tests/unit/battleResumeSnapshot.test.ts`。
 
 ## Checkpoint: Contract
 
-- [ ] Focused tests pass。
-- [ ] `pnpm check:fast` passes。
+- [x] Focused tests pass。
+- [x] `pnpm check:fast` passes。
 - [ ] Atomic commit created。
 
 ## Task 3: Idempotent settlement

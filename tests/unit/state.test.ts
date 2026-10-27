@@ -55,6 +55,7 @@ describe('GameState', () => {
     const state = fresh();
     expect(gameStateSchema.safeParse(state).success).toBe(true);
     expect(state.progress.fieldSnapshot).toEqual({ facing: 'down', objects: {} });
+    expect(state.battle).toEqual({ nextSequence: 1, finalizedThrough: 0, active: null });
     expect(state.inventory['common-renshu-no-bou']).toBe(1);
     expect(state.player.levelCap).toBe(10);
     expect(state.learning.masteredRewardUnits).toEqual([]);
@@ -100,7 +101,7 @@ describe('GameState', () => {
     expect(r.migratedFrom).toBeNull();
     expect(r.state.schemaVersion).toBe(SCHEMA_VERSION);
   });
-  it.each(Array.from({ length: 12 }, (_, version) => version))(
+  it.each(Array.from({ length: 13 }, (_, version) => version))(
     'v%d のセーブが現行 schema まで移行する',
     (version) => {
       const legacy = structuredClone(fresh()) as unknown as Record<string, unknown> & {
@@ -108,13 +109,14 @@ describe('GameState', () => {
       };
       if (version === 0) delete legacy.schemaVersion;
       else legacy.schemaVersion = version;
-      delete legacy.progress.fieldSnapshot;
+      if (version <= 11) delete legacy.progress.fieldSnapshot;
 
       const migrated = migrate(legacy);
 
       expect(migrated.migratedFrom).toBe(version === SCHEMA_VERSION ? null : version);
       expect(migrated.state.schemaVersion).toBe(SCHEMA_VERSION);
       expect(migrated.state.progress.fieldSnapshot).toEqual({ facing: 'down', objects: {} });
+      expect(migrated.state.battle).toEqual({ nextSequence: 1, finalizedThrough: 0, active: null });
     },
   );
   it('schemaVersion のない初期形式を v0 として進行を保ったまま移行する', () => {
@@ -186,6 +188,25 @@ describe('GameState', () => {
       eventsDone: ['aomori-legacy-progress'],
       fieldSnapshot: { facing: 'down', objects: {} },
     });
+  });
+  it('v12 の進行を保ったまま空のbattle ledgerを追加する', () => {
+    const legacy = structuredClone(fresh()) as unknown as Record<string, unknown> & {
+      battle?: unknown;
+      progress: Record<string, unknown>;
+    };
+    legacy.schemaVersion = 12;
+    delete legacy.battle;
+    legacy.progress.currentMap = 'aomori-town';
+    legacy.progress.eventsDone = ['aomori-legacy-progress'];
+
+    const migrated = migrate(legacy);
+
+    expect(migrated.migratedFrom).toBe(12);
+    expect(migrated.state.progress).toMatchObject({
+      currentMap: 'aomori-town',
+      eventsDone: ['aomori-legacy-progress'],
+    });
+    expect(migrated.state.battle).toEqual({ nextSequence: 1, finalizedThrough: 0, active: null });
   });
   it('v6 のセーブにバトル持ち込み用の空バッグを追加する', () => {
     const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
