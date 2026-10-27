@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import type Phaser from 'phaser';
 import { completeNewGameSetup } from './newGame';
 
 async function putPlayerInIwateTown(page: Page): Promise<void> {
@@ -78,7 +79,7 @@ async function moveOneTileUp(page: Page): Promise<void> {
 }
 
 test('岩手の町へ初到着すると限定3体から選び、選んだ相棒が保存される', async ({ page }, testInfo) => {
-  test.setTimeout(150_000);
+  test.setTimeout(180_000);
   await page.goto('/?resetSaves=1');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 2/ }).click();
@@ -113,7 +114,7 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(dialogue).toContainText(/むすびの.*やしろ/, { timeout: 10_000 });
   await expect(dialogue).toBeFocused();
   if ((await dialogue.locator('.nq-dlg-text').getAttribute('aria-live')) === 'off') await dialogue.click();
-  await expect(dialogue.locator('.nq-dlg-text')).toHaveAttribute('aria-live', 'polite');
+  await expect(dialogue.locator('.nq-dlg-text')).toHaveAttribute('aria-live', 'polite', { timeout: 20_000 });
   const kagurabi = page.getByRole('button', { name: /カグラビ/ });
   for (let step = 0; step < 24 && !(await kagurabi.isVisible()); step += 1) {
     if (await dialogue.isVisible()) await dialogue.click({ position: { x: 420, y: 410 } });
@@ -121,6 +122,13 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   }
 
   await expect(kagurabi).toBeVisible();
+  const starterImages = page.locator('.nq-musubi-card img');
+  for (const [index, id] of ['iwate-kagurabi', 'iwate-izumiko', 'iwate-kodamaru'].entries()) {
+    await expect(starterImages.nth(index)).toHaveAttribute('src', `/assets/sprites/monsters/${id}.png`);
+    await expect
+      .poll(() => starterImages.nth(index).evaluate((img) => (img as HTMLImageElement).naturalWidth))
+      .toBeGreaterThan(32);
+  }
   await expect(page.getByRole('button', { name: /イズミコ/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /コダマル/ })).toBeVisible();
   const companionChoice = page.getByRole('dialog', { name: /むすび/ });
@@ -130,7 +138,7 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(companionChoice).not.toContainText('[');
   await expect(kagurabi).toBeFocused();
   await page.screenshot({ path: testInfo.outputPath('musubi-tama-choice.png'), fullPage: true });
-  await page.setViewportSize({ width: 480, height: 720 });
+  await page.setViewportSize({ width: 844, height: 390 });
   await expect(kagurabi).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath('musubi-tama-choice-narrow.png'), fullPage: true });
   await page.setViewportSize({ width: 960, height: 540 });
@@ -153,4 +161,44 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(
     page.getByRole('dialog', { name: 'もちもの・へんせい' }).getByRole('button', { name: 'カグラビ' }),
   ).toBeVisible();
+  await expect(
+    page
+      .getByRole('dialog', { name: 'もちもの・へんせい' })
+      .locator('img[src="/assets/sprites/monsters/iwate-kagurabi.png"]')
+      .first(),
+  ).toBeVisible();
+
+  // 加入済みの同じセーブ状態を戦闘へ渡し、味方側も完成PNGで描画されることを確認。
+  await page
+    .getByRole('dialog', { name: 'もちもの・へんせい' })
+    .getByRole('button', { name: /とじる/ })
+    .click();
+  await page
+    .getByRole('dialog', { name: 'メニュー' })
+    .getByRole('button', { name: /とじる/ })
+    .click();
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const field = game.scene.getScene('Overworld') as unknown as {
+      startBattle: (data: { enemyId: string; level: number; presentation: 'depth' }) => void;
+    };
+    field.startBattle({ enemyId: 'aomori-ringoron', level: 3, presentation: 'depth' });
+  });
+  await expect(page.locator('.nq-box-text')).toBeVisible({ timeout: 30_000 });
+  const partner = await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const battle = game.scene.getScene('Battle');
+    const sprite = battle.children.list.find(
+      (child) =>
+        'texture' in child && (child as Phaser.GameObjects.Image).texture.key === 'mon.iwate-kagurabi',
+    ) as Phaser.GameObjects.Image;
+    return {
+      width: sprite.displayWidth,
+      height: sprite.displayHeight,
+      sourceWidth: (sprite.texture.getSourceImage() as HTMLImageElement).naturalWidth,
+    };
+  });
+  expect(partner.sourceWidth).toBeGreaterThan(32);
+  expect(Math.max(partner.width, partner.height)).toBeCloseTo(160);
+  await page.screenshot({ path: testInfo.outputPath('starter-partner-battle.png') });
 });

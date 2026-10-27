@@ -1,12 +1,13 @@
 {
   "source": "assets/",
-  "fileCount": 1585,
-  "totalBytes": 136356048,
+  "fileCount": 1594,
+  "totalBytes": 139056168,
   "categories": {
     "audio": { "fileCount": 25, "extensions": ["json", "md", "mp3"], "subdirectories": ["bgm", "se"] },
     "palette": { "fileCount": 2, "extensions": ["gpl", "hex"], "subdirectories": [] },
     "questions": { "fileCount": 1557, "extensions": ["jpg", "png"], "subdirectories": ["eigo", "legacy"] },
-    "rights": { "fileCount": 1, "extensions": ["json"], "subdirectories": [] }
+    "rights": { "fileCount": 1, "extensions": ["json"], "subdirectories": [] },
+    "sprites": { "fileCount": 9, "extensions": ["json", "png"], "subdirectories": ["animations", "monsters"] }
   },
   "files": [
     "audio/bgm/PROVENANCE.md",
@@ -1593,6 +1594,15 @@
     "questions/legacy/ff737b184136.jpg",
     "questions/legacy/ff8e66205d03.png",
     "questions/legacy/ffb22b7264ce.png",
-    "rights/tohoku-release-ledger.json"
+    "rights/tohoku-release-ledger.json",
+    "sprites/animations/aomori-ringoron-v1.png",
+    "sprites/animations/batch-01/manifest.json",
+    "sprites/animations/batch-02/manifest.json",
+    "sprites/animations/batch-03/manifest.json",
+    "sprites/animations/batch-04/manifest.json",
+    "sprites/animations/batch-05/manifest.json",
+    "sprites/monsters/iwate-izumiko.png",
+    "sprites/monsters/iwate-kagurabi.png",
+    "sprites/monsters/iwate-kodamaru.png"
   ]
 }
