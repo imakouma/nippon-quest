@@ -9,7 +9,6 @@ import {
   equipKinds,
   type Area,
   type ArenaRival,
-  type CharacterBodySizes,
   type ContentKind,
   type ElementTable,
   type EquipSet,
@@ -59,7 +58,6 @@ export class ContentError extends Error {
 }
 
 export interface ContentIndex {
-  characterBodySizes: CharacterBodySizes;
   world: World;
   areas: Map<string, Area>;
   monsters: Map<string, Monster>;
@@ -162,8 +160,7 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
       throw new ContentError(file, `id "${id}" が重複しています`);
     });
 
-  const [characterBodySizes, world, xp, elements, settings] = await Promise.all([
-    loadSingle<CharacterBodySizes>('characterBodySizes', manifest, read),
+  const [world, xp, elements, settings] = await Promise.all([
     loadSingle<World>('world', manifest, read),
     loadSingle<XpTable>('xp', manifest, read),
     loadSingle<ElementTable>('elements', manifest, read),
@@ -196,7 +193,6 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
       for (const monsterId of mission.reward.unlockMonsters ?? []) unlockableMonsters.add(monsterId);
   }
   return {
-    characterBodySizes,
     world,
     areas,
     monsters,
@@ -232,19 +228,6 @@ export function findBrokenReferences(c: ContentIndex): string[] {
   const islandIds = new Set<string>();
   const islandOrders = new Set<number>();
   const areaOwners = new Map<string, string[]>();
-
-  for (const [id, target] of Object.entries(c.characterBodySizes.aliases)) {
-    if (!c.monsters.has(id)) errs.push(`characterBodySizes: alias "${id}" は未知の monster です`);
-    if (!c.characterBodySizes.characters[target])
-      errs.push(`characterBodySizes: alias "${id}" の参照先 "${target}" がありません`);
-  }
-  for (const id of Object.keys(c.characterBodySizes.characters))
-    if (!c.monsters.has(id)) errs.push(`characterBodySizes: "${id}" は未知の monster です`);
-  for (const id of c.monsters.keys()) {
-    const target = c.characterBodySizes.aliases[id];
-    if (!c.characterBodySizes.characters[id] && !(target && c.characterBodySizes.characters[target]))
-      errs.push(`characterBodySizes: monster "${id}" の寸法がありません`);
-  }
 
   checkUnique(c.elements.elements, 'elements: element');
   for (const attack of elementSchema.options) {

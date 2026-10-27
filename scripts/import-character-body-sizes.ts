@@ -46,4 +46,6 @@ const output = {
   aliases,
 };
 writeFileSync(resolve(root, 'content/character-body-sizes.json'), `${JSON.stringify(output, null, 2)}\n`);
-console.log(`character body sizes: ${Object.keys(characters).length} direct + ${Object.keys(aliases).length} alias`);
+console.log(
+  `character body sizes: ${Object.keys(characters).length} direct + ${Object.keys(aliases).length} alias`,
+);

@@ -9,6 +9,7 @@ import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { findBrokenReferences, loadContent, type FileReader } from '../src/core/content/loader';
+import { findCharacterBodySizeReferenceErrors } from '../src/core/content/characterBodySizes';
 import { validateScriptedAreaEvent } from '../src/core/events/validation';
 import {
   academicReviewLedgerSchema,
@@ -55,6 +56,7 @@ const content = await loadContent(read, {
 
 if (content) {
   errors.push(...findBrokenReferences(content));
+  errors.push(...findCharacterBodySizeReferenceErrors(content.monsters));
 
   const eventReferences = {
     maps: new Set(

@@ -2,7 +2,7 @@
 
 ## Status
 
-Revised draft — user approval required before implementation planning or code changes.
+Approved on 2026-10-27; implementation in progress.
 
 2026-10-27の初稿は、進化段階によるバッグ占有サイズを体格の代理値にしていたため撤回する。本仕様は、すでに全キャラクターへ設定された身長・高さデータを直接使う。
 
@@ -88,12 +88,14 @@ const rawBodyHeight = referencePixels * Math.sqrt(heightCm / 100);
 const targetBodyHeight = clamp(rawBodyHeight, minBodyPixels, maxBodyPixels);
 ```
 
-レイアウトごとの初期値：
+Phaserの論理キャンバスはビューポート幅にかかわらず960×540であり、640×360表示ではCSSで約2/3へ縮小される。したがって、レイアウトごとの論理ピクセル値は次のとおりとする。
 
 | レイアウト           | 100cm基準 | 最小表示高 | 最大表示高 |
 | -------------------- | --------: | ---------: | ---------: |
-| `960x540` 標準       |      96px |       48px |      224px |
-| `640x360` コンパクト |      64px |       40px |      168px |
+| side view            |      96px |       48px |      224px |
+| canonical depth view |      96px |       60px |      188px |
+
+canonical depth viewの最小60論理pxは、640×360表示で約40画面pxになる。最大188論理pxは既存HUDの安全領域内に収める値である。
 
 この関数の性質：
 
@@ -206,9 +208,9 @@ tests/e2e/
 1. 全ランタイム敵IDが寸法データまたは明示的な互換フォールバックを持つ。
 2. `heightCm` は正の有限値で、取り込み元と一致する。
 3. 同じレイアウトでは `heightCm` が大きいほど目標身体高が小さくならない。
-4. 100cmが標準96px・コンパクト64pxになる。
-5. 10cmでも標準48px・コンパクト40pxを下回らない。
-6. 580cmでも標準224px・コンパクト168pxを超えない。
+4. 100cmが両レイアウトで96論理pxになる。
+5. 10cmでもside view 48論理px・canonical depth view 60論理pxを下回らない。
+6. 580cmでもside view 224論理px・canonical depth view 188論理pxを超えない。
 7. 32cm、38cm、120cm、350cmが仕様の許容誤差内になる。
 8. 画像解像度と透明余白が異なっても、同じ身体境界なら同じ表示高になる。
 9. 待機・攻撃フレームを切り替えても固定倍率と足元位置が変わらない。

@@ -56,7 +56,7 @@ for (const viewport of [
         };
       }, monsterId);
       expect(initial.key).toBe(initial.expected);
-      // Mid-boss display scale is intentionally larger than ordinary monsters.
+      // このアニメーション群は各キャラの設定身長を反映しても安全領域内に収まる。
       expect(initial.width).toBeLessThanOrEqual(160);
       expect(initial.height).toBeLessThanOrEqual(160);
 

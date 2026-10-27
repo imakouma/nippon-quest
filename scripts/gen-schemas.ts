@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { z } from 'zod/v3';
 import { contentKinds } from '../src/core/content/schemas';
+import { characterBodySizesSchema } from '../src/core/content/characterBodySizes';
 import { curriculumGraphSchema } from '../src/core/learning/model';
 import { questionBaseSchema } from '../src/questions/contracts';
 import { allRenderers } from '../src/questions/renderers/registry';
@@ -16,6 +17,12 @@ const OUT = fileURLToPath(new URL('../schemas/', import.meta.url));
 mkdirSync(`${OUT}questions`, { recursive: true });
 
 let count = 0;
+const bodySizesJson = zodToJsonSchema(characterBodySizesSchema, {
+  name: 'characterBodySizes',
+  $refStrategy: 'none',
+});
+writeFileSync(`${OUT}characterBodySizes.schema.json`, JSON.stringify(bodySizesJson, null, 2) + '\n');
+count++;
 for (const [kind, def] of Object.entries(contentKinds)) {
   const schema = def.array ? z.array(def.schema) : def.schema;
   const json = zodToJsonSchema(schema, {

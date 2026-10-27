@@ -58,20 +58,6 @@ const normalizeLegacyStats = (value: unknown): unknown => {
 export const statsSchema = z.preprocess(normalizeLegacyStats, academicStatsObjectSchema);
 export const partialStatsSchema = z.preprocess(normalizeLegacyStats, academicStatsObjectSchema.partial());
 
-// ───────────────────────── Character body sizes ─────────────────────────
-export const characterBodySizeSchema = z.object({
-  heightKind: z.enum(['height', 'body-height']),
-  heightCm: z.number().positive(),
-  lengthCm: z.number().positive().optional(),
-  wingspanCm: z.number().positive().optional(),
-});
-
-export const characterBodySizesSchema = z.object({
-  version: z.literal(1),
-  characters: z.record(idSchema, characterBodySizeSchema),
-  aliases: z.record(idSchema, idSchema),
-});
-
 const zeroStats = {
   hp: 0,
   mp: 0,
@@ -624,8 +610,6 @@ export type GradeRange = z.infer<typeof gradeRangeSchema>;
 export type Element = z.infer<typeof elementSchema>;
 export type Stats = z.infer<typeof statsSchema>;
 export type GrowthCurve = z.infer<typeof growthCurveSchema>;
-export type CharacterBodySize = z.infer<typeof characterBodySizeSchema>;
-export type CharacterBodySizes = z.infer<typeof characterBodySizesSchema>;
 export type World = z.infer<typeof worldSchema>;
 export type Island = z.infer<typeof islandSchema>;
 export type Area = z.infer<typeof areaSchema>;
@@ -650,11 +634,6 @@ export type RegionGate = z.infer<typeof regionGateSchema>;
 export type ArenaRival = z.infer<typeof arenaRivalSchema>;
 /** gen-schemas / validate-content が走査する「ファイル種別 → スキーマ」の対応表 */
 export const contentKinds = {
-  characterBodySizes: {
-    schema: characterBodySizesSchema,
-    glob: 'character-body-sizes.json',
-    array: false,
-  },
   world: { schema: worldSchema, glob: 'world/*.json', array: false },
   prefectures: { schema: areaSchema, glob: 'prefectures/*.json', array: false },
   monsters: { schema: monsterSchema, glob: 'monsters/*.json', array: false },

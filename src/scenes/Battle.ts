@@ -80,8 +80,9 @@ import { recruitGiftId } from './battle/recruitFlow';
 import { runBattleQuestion } from './battle/questionFlow';
 import { BattleHudFlow } from './battle/hudFlow';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
+import { resolveCharacterBodySize } from '../core/content/characterBodySizes';
 import { monsterMenuArtUrl } from '../rendering/menuArt';
-import { monsterImageScale } from '../rendering/monsterImageScale';
+import { monsterBodyImageScale, monsterBodyOrigin, monsterImageScale } from '../rendering/monsterImageScale';
 import { preloadMonsterImages } from './battle/preloadMonsterImages';
 import {
   createMonsterSprite,
@@ -105,7 +106,12 @@ import { BattleEventAnimator } from './battle/eventAnimator';
 import { resolveBattleLaunchRuleset } from './battle/rulesetSetup';
 import { BattleResumeRuntime, resumeLaunch, runCheckpointedBattleCommand } from './battle/resumeRuntime';
 import { buildBattleHistoryView } from './battle/statusHistoryViews';
-import { ensureMonsterTexture, monsterStageScale, monsterStageSize } from './battle/monsterStage';
+import {
+  ensureMonsterTexture,
+  monsterBodyTargetHeight,
+  monsterFrameVisibleBounds,
+  monsterStageSize,
+} from './battle/monsterStage';
 type Sprite = Phaser.GameObjects.Image;
 export class BattleScene extends Phaser.Scene {
   private content!: ContentIndex;
@@ -128,7 +134,7 @@ export class BattleScene extends Phaser.Scene {
   private heroSprite!: Sprite;
   private palSprite: Sprite | null = null;
   private enemySize: number = MONSTER_SIZE.normal;
-  /** 敵の絵の倍率。ボス戦だけ一回り大きく（scaleOf） */
+  /** 演出位置用。enemySizeとの積が、設定身長から求めた身体表示高になる。 */
   private enemyScale: number = S;
   private enemyDef!: Monster;
   private layout!: BattleLayout;
@@ -369,18 +375,37 @@ export class BattleScene extends Phaser.Scene {
 
     const def = this.enemyDef;
     this.enemySize = monsterStageSize(def, this.content, isBoss);
-    this.enemyScale = monsterStageScale(this.enemySize, isBoss, this.layout);
+    const bodySize = resolveCharacterBodySize(def.id);
+    if (!bodySize) throw new Error(`Missing character body size: ${def.id}`);
+    const targetBodyHeight = monsterBodyTargetHeight(bodySize.heightCm, this.layout);
+    this.enemyScale = targetBodyHeight / this.enemySize;
     const eKey = ensureMonsterTexture(this.textures, def, this.state.enemy.element, this.enemySize, isBoss);
-    this.enemySprite = createMonsterSprite(this, def.id, this.layout.enemy.x, this.layout.enemy.y, eKey)
-      .setOrigin(0.5, 1)
-      .setDepth(10);
-    this.enemySprite.setScale(
-      monsterImageScale(this.enemySprite.width, this.enemySprite.height, this.enemySize, this.enemyScale),
+    this.enemySprite = createMonsterSprite(
+      this,
+      def.id,
+      this.layout.enemy.x,
+      this.layout.enemy.y,
+      eKey,
+    ).setDepth(10);
+    const bodyBounds = monsterFrameVisibleBounds(
+      this.textures,
+      this.enemySprite.texture.key,
+      this.enemySprite.frame.name,
+      this.enemySprite.width,
+      this.enemySprite.height,
     );
+    const bodyOrigin = monsterBodyOrigin(bodyBounds, this.enemySprite.width, this.enemySprite.height);
+    const imageScale = monsterBodyImageScale(bodyBounds, targetBodyHeight);
+    this.enemySprite
+      .setOrigin(bodyOrigin.x, bodyOrigin.y)
+      .setScale(imageScale)
+      .setData('bodyHeightCm', bodySize.heightCm)
+      .setData('targetBodyHeight', targetBodyHeight)
+      .setData('visibleBodyBounds', bodyBounds);
     this.addShadow(
       this.enemySprite,
       this.layout.enemy.y,
-      Math.round((this.enemySize * 0.7 * this.enemyScale) / S),
+      Math.max(8, Math.round((bodyBounds.width * imageScale * 0.7) / S)),
     );
 
     const ap = this.gs.player.appearance;

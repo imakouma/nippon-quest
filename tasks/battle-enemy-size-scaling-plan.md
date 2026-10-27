@@ -39,20 +39,20 @@ Direct test consumers include `tests/unit/content.test.ts` and `tests/unit/monst
 
 TDD proof:
 
-- First add tests that fail because the new content kind and coverage do not exist.
-- Make the smallest schema/loader/data changes needed to pass.
+- First add tests that fail because the standalone body-size contract and coverage do not exist.
+- Make the smallest schema/data/import changes needed to pass.
 
 Focused verification:
 
 ```bash
-pnpm test:related src/core/content/schemas.ts src/core/content/loader.ts
+pnpm test:related src/core/content/characterBodySizes.ts
 pnpm validate:content
 ```
 
 ## Slice 2 — Physical-height compression and visible bounds
 
 1. Replace role-based stage scaling for enemies with a pure `heightCm → targetBodyHeight` function.
-2. Store body-size limits on `BattleLayout` so side and depth presentations have explicit reference, minimum, and maximum heights.
+2. Store logical-pixel body-size limits on `BattleLayout` so side and depth presentations have explicit reference, minimum, and maximum heights. The Phaser canvas remains 960×540; a 640×360 viewport scales those logical pixels by about 2/3.
 3. Add a pure alpha-bounds scanner that finds the neutral frame's visible body bounds.
 4. Convert target body height and visible body height into one stable Phaser scale.
 5. Preserve aspect ratio and compute an origin anchored to the visible body's bottom center.
