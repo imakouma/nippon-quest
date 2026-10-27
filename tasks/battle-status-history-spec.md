@@ -3,7 +3,7 @@
 ## Status
 
 - Module id: `battle-status-history`
-- Phase: Specify（承認待ち）
+- Phase: Approved（2026-10-27）
 - Owner scope: 状態異常・強化の残りターン表示、プレイヤー向け戦闘履歴、開発者向けイベントタイムライン
 - Source of truth: `docs/00_GAME_DESIGN.md` §4・§8、`docs/01_ARCHITECTURE.md` §5、`AGENTS.md`
 
