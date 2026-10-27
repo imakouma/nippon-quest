@@ -11,6 +11,6 @@
   - Acceptance: leaf option と親 command の disabled/reason が engine と一致する。
   - Verify: focused battle/UI tests、`pnpm test:related`、`pnpm check:fast`
 - [x] Checkpoint: 既存 BattleEvent、replay、ターン進行の回帰がないことを確認する。
-- [ ] Task 4: Graphify 更新、五軸自己レビュー、walkthrough、最終コミットを完了する。
+- [x] Task 4: Graphify 更新、五軸自己レビュー、walkthrough、最終コミットを完了する。
   - Acceptance: 必須指摘なし、担当外差分なし、作業ツリーがクリーン。
   - Verify: focused tests、`pnpm check:fast`、`pnpm test:related <changed files...>`、`git diff --check`
