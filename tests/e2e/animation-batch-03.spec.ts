@@ -42,6 +42,15 @@ const ids = [
   'hokkaido-hotaten',
   'hokkaido-jet-hotate',
   'hokkaido-lavendori',
+  'hokuriku-islandboss-kagamiutsushi',
+  'hyogo-lastboss-ikeda-terumasa',
+  'hyogo-sorobanban',
+  'ibaraki-aozora-hime',
+  'ibaraki-hobikin',
+  'ibaraki-nemofin',
+  'ishikawa-gosai-bon',
+  'ishikawa-kinpaku-cho',
+  'ishikawa-oo-hamashion',
 ] as const;
 
 for (const id of ids) {
@@ -64,7 +73,13 @@ for (const id of ids) {
       await expect(page.locator('.nq-box')).toBeVisible({ timeout: 60_000 });
       // 負荷の高いヘッドレス実行でもタイプライター完了を待ち続けず、実際のタップで全文表示する。
       await page.locator('.nq-box').click();
-      await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 30_000 });
+      const next = page.locator('.nq-box-next');
+      const skillCommand = page.locator('.nq-cmd[data-cmd="skill"]');
+      await expect
+        .poll(async () => (await next.isVisible()) || (await skillCommand.isVisible()), {
+          timeout: 30_000,
+        })
+        .toBe(true);
       const initial = await page.evaluate((monsterId) => {
         const battle = window.__nq.scene.getScene('Battle') as Battle;
         const sprite = battle.enemySprite;
@@ -101,7 +116,8 @@ for (const id of ids) {
       expect(idleFrames.playing).toBe(true);
       expect(idleFrames.current).toBe(`mon.animation.${id}.v1.idle`);
 
-      await page.locator('.nq-box').click();
+      if (await next.isVisible()) await page.locator('.nq-box').click();
+      await expect(skillCommand).toBeVisible({ timeout: 30_000 });
       await page.evaluate(() => {
         const battle = window.__nq.scene.getScene('Battle') as Battle;
         battle.askSkill = async () => ({ score: 0.6, timeMs: 1000, attempts: 1 });
@@ -110,7 +126,7 @@ for (const id of ids) {
         battle.state.rngState = undefined;
         battle.state.enemy.skills = [];
       });
-      await page.locator('.nq-cmd[data-cmd="skill"]').click();
+      await skillCommand.click();
       await page.locator('[data-skill]:not(.nq-opt-off)').first().click();
       await expect
         .poll(

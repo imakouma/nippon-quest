@@ -35,10 +35,19 @@ const producedIds = [
   'hokkaido-hotaten',
   'hokkaido-jet-hotate',
   'hokkaido-lavendori',
+  'hokuriku-islandboss-kagamiutsushi',
+  'hyogo-lastboss-ikeda-terumasa',
+  'hyogo-sorobanban',
+  'ibaraki-aozora-hime',
+  'ibaraki-hobikin',
+  'ibaraki-nemofin',
+  'ishikawa-gosai-bon',
+  'ishikawa-kinpaku-cho',
+  'ishikawa-oo-hamashion',
 ] as const;
 
 describe('animation batch-03', () => {
-  it('制作済み30体のシートをmanifestへ登録する', () => {
+  it('制作済み39体のシートをmanifestへ登録する', () => {
     const batch = assignments.batches.find((candidate) => candidate.batch === 'batch-03');
     expect(batch?.ids).toHaveLength(110);
 
