@@ -12,9 +12,9 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 重み境界と HP 30% 境界を fake Rng で再現できる。
-- [ ] 低 HP 回復でも現行どおり最初の抽選を消費する。
-- [ ] 標準と別戦術が同じ入力から異なる合法 intent を返す。
+- [x] 重み境界と HP 30% 境界を fake Rng で再現できる。
+- [x] 低 HP 回復でも現行どおり最初の抽選を消費する。
+- [x] 標準と別戦術が同じ入力から異なる合法 intent を返す。
 
 **Verification:** `pnpm exec vitest run tests/unit/enemyPolicy.test.ts`
 
@@ -30,9 +30,9 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 標準 policy が現行条件と fallback を再現する。
-- [ ] intent 選択は戦闘状態を変更しない。
-- [ ] `Math.random` と外部依存を使わない。
+- [x] 標準 policy が現行条件と fallback を再現する。
+- [x] intent 選択は戦闘状態を変更しない。
+- [x] `Math.random` と外部依存を使わない。
 
 **Verification:** `pnpm exec vitest run tests/unit/enemyPolicy.test.ts`
 
@@ -44,8 +44,8 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 ## Checkpoint 1
 
-- [ ] Task 1〜2 の RED と GREEN を確認した。
-- [ ] pure policy slice をコミットした。
+- [x] Task 1〜2 の RED と GREEN を確認した。
+- [x] pure policy slice をコミットした。
 
 ## Phase 2: Typed ruleset and engine
 
