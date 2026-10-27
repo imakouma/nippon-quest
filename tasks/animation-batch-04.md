@@ -3,8 +3,8 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 50体。
-- 未着手: 60体（割当110体から下記完了50体を除いたもの）。
+- 完了: 60体。
+- 未着手: 50体（割当110体から下記完了60体を除いたもの）。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
@@ -121,10 +121,23 @@
 - `kochi-midboss-narukomai`: 冠、赤衣、腕2、鳴子2、足3を固定。鳴子待機、両鳴子打撃。出力 `exec-6fe0645b-d827-46cf-a50b-7c5356f59b73.png`。
 - `koshinetsu-islandboss-senrin-utsuro`: 黒い術者、帽、扇4枚、台座を固定。扇待機、四扇の斬撃。出力 `exec-109bfdc6-8d19-4369-8951-882720a3e142.png`。
 
+### 追加10体（熊本〜宮城）
+
+- `kumamoto-ebiguruma`: 海老車、触角2、車輪、台車を固定。台車待機、車輪突進。出力 `exec-8439fdc9-b45c-4b0a-97f6-4cb610a07986.png`。
+- `kumamoto-oritatamin`: 接続した畳2枚と各脚を固定。交互折り待機、双体の開閉回転打撃。出力 `exec-8e228970-c600-4f84-aec5-67acb93cc277.png`。
+- `kyoto-boss-amano-hiryu`: 冠、角2、緑の側面飾り、雲台を固定。角待機、頭角の突進。出力 `exec-54866888-2f10-400b-9cc0-1d7553e797d2.png`。
+- `kyoto-chirimenko`: 桃色の布層、角2を固定。布層待機、布の旋回打撃。出力 `exec-ab102b4c-f43c-4b14-b154-1ac43f58b3be.png`。
+- `kyoto-karakunain`: 緑の野菜忍者、腕2、飾り2を固定。飾り待機、回転突進。出力 `exec-aa5b1ff4-faee-4d05-83fa-e6d79cbdf662.png`。
+- `mie-akoyan`: 茶の貝、真珠、側面飾りを固定。真珠待機、開閉と真珠閃光。出力 `exec-f217a554-db44-41dd-bb59-cd783e75601c.png`。
+- `mie-iganin`: 紫の頭巾忍者、腕2、頭巾角2を固定。頭巾待機、紫の回転斬撃。出力 `exec-f13819be-f9ec-43be-b6ce-27d1865b424a.png`。
+- `mie-shinkirou-gai`: 貝、台座、青紫の蜃気楼塔を固定。塔の待機、蜃気楼の伸長打撃。出力 `exec-dce55b83-7934-464a-9ea2-13a872525cca.png`。
+- `miyagi-midboss-tanabata-dori`: 冠鳥、虹翼2、足2、吹流しを固定。虹翼待機、両翼の突風。出力 `exec-bd1ed016-bd10-405b-97f2-cb1ba6dd88ea.png`。
+- `miyagi-shiratorin`: 横向き白鳥、翼2、水面を固定。首水面待機、翼と水の突進。出力 `exec-69132318-afa7-44bc-851b-a6e866fae645.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 50体とも512×256、RGBA、4列2行の契約。
+- PNG: 60体とも512×256、RGBA、4列2行の契約。
 - 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
 
 ## 統合担当への提案
