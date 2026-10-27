@@ -1,9 +1,9 @@
 # Battle Command Evaluation Tasks
 
-- [ ] Task 1: pure evaluator の RED テストを追加し、全 command kind の評価契約を実装する。
+- [x] Task 1: pure evaluator の RED テストを追加し、全 command kind の評価契約を実装する。
   - Acceptance: allowed/reason/resolvedTargets/costs/consumesTurn を決定論的に返す。
   - Verify: `pnpm exec vitest run tests/unit/battleCommandEvaluation.test.ts`
-- [ ] Checkpoint: evaluator が core-only の pure module であることを確認する。
+- [x] Checkpoint: evaluator が core-only の pure module であることを確認する。
 - [ ] Task 2: engine の preflight と実行を evaluator に接続する。
   - Acceptance: 無効入力を非破壊に拒否し、有効入力の既存挙動を維持する。
   - Verify: focused battle tests、`pnpm test:related`、`pnpm check:fast`

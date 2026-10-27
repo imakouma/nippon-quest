@@ -72,13 +72,13 @@ command evaluation types + pure evaluator
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-| --- | --- | --- |
-| UI-only 条件と core 条件が再び分岐する | 高 | 問題在庫・物語解放を typed value context にし、同じ evaluator へ渡す |
-| evaluator と executor が対象や消費を二重計算する | 高 | resolvedTargets/costs を実行側が直接消費する |
-| StepOutput 追加で呼び出し元が壊れる | 低 | additive field にし、既存 destructuring を維持する |
-| 無効入力の既存イベント表示が消える | 中 | gaugeShort とボス逃走禁止イベントの互換を focused test で固定する |
-| `engine.ts` がさらに肥大化する | 中 | 判定契約と helper を専用モジュールに置く |
+| Risk                                             | Impact | Mitigation                                                           |
+| ------------------------------------------------ | ------ | -------------------------------------------------------------------- |
+| UI-only 条件と core 条件が再び分岐する           | 高     | 問題在庫・物語解放を typed value context にし、同じ evaluator へ渡す |
+| evaluator と executor が対象や消費を二重計算する | 高     | resolvedTargets/costs を実行側が直接消費する                         |
+| StepOutput 追加で呼び出し元が壊れる              | 低     | additive field にし、既存 destructuring を維持する                   |
+| 無効入力の既存イベント表示が消える               | 中     | gaugeShort とボス逃走禁止イベントの互換を focused test で固定する    |
+| `engine.ts` がさらに肥大化する                   | 中     | 判定契約と helper を専用モジュールに置く                             |
 
 ## Open Questions
 
