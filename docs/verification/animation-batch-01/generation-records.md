@@ -106,3 +106,102 @@ Composition: exactly eight complete uncropped equally spaced full-body cells, le
 Style: crisp medium-coarse hand-pixelled game art matching Image 3; limited red/olive/cream/brown palette; hard pixel edges and dark pixel outline.
 Constraints: same child identity, bob hair, red beret, cream shirt, olive overalls, red shoes and exactly one book in every frame; real arm/book/cloth differences, not whole-image translation/scaling; transparent background; no shadow, labels, grid lines, text, weapon, extra book, extra limbs, oversized magic effect, cropped body, or adult proportions.
 ```
+
+## 進化資料室素材（visual-only）
+
+- 出力台帳: `assets/sprites/animations/batch-01/evolution-references.json`
+- 全6件ともゲーム用monster manifestや進化定義には登録しない。
+- 共通構図: 正確な4列×2行、各セル128×128相当。上段は待機4枚、下段は攻撃4枚。透過背景、文字・罫線・影なし。
+- 共通スタイル: 採用ドットを色・顔の基準、同形態の立体版を解剖・付属物の基準、リンゴロンを画素密度・余白・動きの基準にした、硬い輪郭の中粗密度ピクセルアート。
+
+### iwate-kagurabi-stage-2
+
+- 出力: `assets/sprites/animations/batch-01/iwate-kagurabi-stage-2-v1.png`
+- 参照: `pixels/iwate-kagurabi-stage-2-v3.png`, `sheets/iwate-kagurabi-stage-2-v2.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: visual-library-only 2D RPG pixel-art evolution animation sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for IWATE KAGURABI STAGE 2. Preserve a lean adolescent red fire canine with four long canine legs, pointed ears, amber eyes, cream curled cloud mane and back curls, a dark cloud collar with gold knot clasp, black paws, cream markings, and exactly one curled flame tail.
+Top row: alert neutral, breath with curls/flame lifting, blink and ear dip, return. Bottom row: low crouch, forceful stride, real leaping tackle, landed recovery.
+Constraints: real pose differences; preserve stage identity and anatomy; transparent background; no text, grid, shadow, aura, crop, human hands, extra tails, bell, or mature stage-3 foreleg armor. Visual-library-only; do not imply evolution registration.
+```
+
+### iwate-kagurabi-stage-3
+
+- 出力: `assets/sprites/animations/batch-01/iwate-kagurabi-stage-3-v1.png`
+- 参照: `pixels/iwate-kagurabi-stage-3-v3.png`, `sheets/iwate-kagurabi-stage-3-v2.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: visual-library-only 2D RPG pixel-art evolution animation sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for IWATE KAGURABI STAGE 3. Preserve a massive mature red guardian dog with four powerful legs, large dark cloud foreleg armor and paws, pointed ears, stern amber eyes, huge cream mane with horn-like eyebrow curls, dark cloud collar and large gold bell, and exactly one thick curled flame tail.
+Top row: heavy guardian neutral, deep breath, stern blink/head dip, return. Bottom row: planted charge, armored drive, real heavy lunge, braced recovery.
+Constraints: real pose differences; preserve bell, armor and mature silhouette; transparent background; no text, grid, shadow, aura, crop, human hands, extra tails, or small puppy proportions. Visual-library-only; do not imply evolution registration.
+```
+
+### iwate-izumiko-stage-2
+
+- 出力: `assets/sprites/animations/batch-01/iwate-izumiko-stage-2-v1.png`
+- 参照: `pixels/iwate-izumiko-stage-2-v3.png`, `sheets/iwate-izumiko-stage-2-v2.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: visual-library-only 2D RPG pixel-art evolution animation sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for IWATE IZUMIKO STAGE 2. Preserve a swift adolescent floating ray with narrow pointed head, teal eyes, dark-blue and cream body, two swept-back arrow-shaped cyan wings plus small steering fins, and exactly one long straight tail ending in a water droplet.
+Top row: level hover, gentle wing beat, blink with tips raised, return. Bottom row: fins drawn back, forward pitch, real water-dash silhouette, braking recovery.
+Constraints: real pose differences; transparent background; no text, grid, shadow, loose water effects, crop, legs, arms, tentacles, second tail, baby curl, or mature stage-3 ventral ribbons. Visual-library-only; do not imply evolution registration.
+```
+
+### iwate-izumiko-stage-3
+
+- 出力: `assets/sprites/animations/batch-01/iwate-izumiko-stage-3-v1.png`
+- 参照: `pixels/iwate-izumiko-stage-3-v3.png`, `sheets/iwate-izumiko-stage-3-v2.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+- 初回出力は全フレームの周囲に青い煙状アーティファクトがあったため不採用。`iwate-izumiko-stage-3-generated-source-rejected-v1.png` に保存し、下記の修正指示で除去した。
+
+初回不採用プロンプト:
+
+```text
+Use case: stylized-concept
+Asset type: visual-library-only 2D RPG pixel-art evolution animation sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for IWATE IZUMIKO STAGE 3. Preserve a mature broad guardian ray with angular cream mask, two wide scalloped cyan wave wings, a short central dark tail, and exactly two long cyan ventral water ribbons.
+Top row: calm broad hover, slow wing swell, blink/head dip, return. Bottom row: wings fold inward, body banks, real sweeping charge, composed recovery.
+Constraints: real pose differences; transparent background; no text, grid, shadow, loose water effects, crop, legs, arms, tentacles, single stage-2 droplet tail, baby tail, extra tails, or any ribbon count other than exactly two. Visual-library-only; do not imply evolution registration.
+```
+
+採用版修正プロンプト:
+
+```text
+Use case: precise-object-edit
+Asset type: visual-library-only 2D RPG pixel-art evolution animation sheet
+Primary request: Clean Image 1 while preserving the exact same IWATE IZUMIKO STAGE 3 character, eight poses, 4x2 layout, pixel style, proportions, colors, and true transparent background.
+Change only: remove every loose blue/cyan aura, smoky trail, stray particle, scribble and glow around all eight frames. Each frame must contain only the guardian ray body and attached anatomy. Preserve natural cyan inside the two wide scalloped wave wings and exactly two attached flowing ventral water ribbons.
+Preserve: mature broad flattened blue ray head, calm teal eyes, angular cream mask/underside, two wide scalloped cyan wave wings, short central dark tail, exactly two long ventral ribbons, poses and expression sequence.
+Constraints: crisp edges, empty transparent space, no aura, particles, cross-cell trails, text, grid, legs, feet, arms, hands, tentacles, extra tails or ribbons, and no crop. Visual-library-only; do not imply evolution registration.
+```
+
+### iwate-kodamaru-stage-2
+
+- 出力: `assets/sprites/animations/batch-01/iwate-kodamaru-stage-2-v1.png`
+- 参照: `pixels/iwate-kodamaru-stage-2-v3.png`, `sheets/iwate-kodamaru-stage-2-v2.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: visual-library-only 2D RPG pixel-art evolution animation sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for IWATE KODAMARU STAGE 2. Preserve a lean analytical owl with acorn head, heart-shaped face, amber eyes, bark beak, two long upright olive leaf ear tufts plus a two-leaf sprout, long folded leaf wings, long bird legs and talons, and a wedge-shaped tail.
+Top row: upright alert neutral, breath/leaf lift, blink/head tilt, return. Bottom row: wings opening, forward hop, real peck/wing strike, landed recovery.
+Constraints: real bird pose differences; transparent background; no text, grid, shadow, crop, human arms or hands, quadruped anatomy, baby proportions, mature antlers, or stage-3 fan wings. Visual-library-only; do not imply evolution registration.
+```
+
+### iwate-kodamaru-stage-3
+
+- 出力: `assets/sprites/animations/batch-01/iwate-kodamaru-stage-3-v1.png`
+- 参照: `pixels/iwate-kodamaru-stage-3-v3.png`, `sheets/iwate-kodamaru-stage-3-v2.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: visual-library-only 2D RPG pixel-art evolution animation sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for IWATE KODAMARU STAGE 3. Preserve a mature forest-oracle owl with wise eyes, ivory face, dark bark brow mask, branch eyebrows/antlers carrying broad leaves, moss shoulders, bark chest heart, huge fan-shaped oak-leaf wings, rooted bird feet, and a three-blade leaf tail.
+Top row: dignified neutral, slow breath and leaf lift, wise blink, return. Bottom row: fan wings spreading, rooted push, real sweeping wing charge, composed recovery.
+Constraints: real bird pose differences; preserve readable face and mature silhouette; transparent background; no text, grid, shadow, crop, human arms or hands, dense foliage/tree covering the face, young leaf ears, or baby proportions. Visual-library-only; do not imply evolution registration.
+```
