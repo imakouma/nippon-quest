@@ -729,6 +729,7 @@ describe('コマンド', () => {
   it('むすび玉は通常敵に表示し、ボス戦では理由つきで無効にする', async () => {
     const { state, c } = await setup();
     const item = c.items.get('common-musubi-dama')!;
+    state.ally.items[item.id] = 1;
     expect(battleItemAvailability(state, item, c).disabled).toBe(false);
     state.isBossBattle = true;
     expect(battleItemAvailability(state, item, c)).toMatchObject({

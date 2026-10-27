@@ -1,12 +1,20 @@
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
+
+vi.mock('../../src/rendering/itemIcons', () => ({ itemIconUrl: () => 'data:image/png;base64,' }));
 import {
   battleCommandRef,
   evaluateBattleCommand,
   type BattleCommandEvaluationContext,
 } from '../../src/core/battle/commandEvaluation';
-import { createBattle, type BattleDeps } from '../../src/core/battle/engine';
+import { act, createBattle, type BattleDeps } from '../../src/core/battle/engine';
 import { makeHero, makeMonster, makeParty } from '../../src/core/battle/factory';
 import type { BattleState } from '../../src/core/battle/types';
+import {
+  buildCommandOptions,
+  buildItemOptions,
+  buildSkillOptions,
+  buildSwapOptions,
+} from '../../src/scenes/battle/hudViews';
 import { content, deps } from './helpers';
 
 let D: BattleDeps;
@@ -217,6 +225,51 @@ describe('evaluateBattleCommand', () => {
     expect(evaluateBattleCommand(state, { kind: 'wait' }, D, context())).toMatchObject({
       allowed: false,
       reason: 'battle-over',
+    });
+  });
+});
+
+describe('HUD と engine の評価共有', () => {
+  it('必殺技 option と act が同じゲージ不足理由を使う', async () => {
+    const state = await setup();
+    const questionSkillKeys = new Set(['hero:sk-tashizan-giri', 'hero:sk-kuku-rush']);
+    const ctx = context({ phase: 'selection', questionSkillKeys });
+    const options = buildSkillOptions({
+      state,
+      deps: D,
+      context: ctx,
+      queryFor: (skill) => ({ subject: skill.subject, gradeRange: skill.gradeRange }),
+      nameOf: (id) => id,
+      preparingLabel: 'じゅんびちゅう',
+    });
+    const option = options.find((entry) => entry.id === 'sk-kuku-rush');
+    const execution = act(
+      state,
+      { kind: 'skill', skillId: 'sk-kuku-rush', result: { score: 1, timeMs: 1, attempts: 1 } },
+      D,
+      ctx,
+    );
+
+    expect(option).toMatchObject({ disabled: true, blockReason: 'insufficient-gauge' });
+    expect(execution.evaluation.reason).toBe(option?.blockReason);
+  });
+
+  it('item・swap・親 command も evaluator の理由を保持する', async () => {
+    const state = await setup();
+    state.isBossBattle = true;
+    const ctx = context({ phase: 'selection' });
+    const items = buildItemOptions(state, await content(), ctx);
+    const swaps = buildSwapOptions(state, D, ctx);
+    const commands = buildCommandOptions({ state, deps: D, context: ctx });
+
+    expect(items.find((item) => item.id === 'common-musubi-dama')).toMatchObject({
+      disabled: true,
+      blockReason: 'boss-recruit-blocked',
+    });
+    expect(swaps[0]).toMatchObject({ disabled: true, blockReason: 'already-active' });
+    expect(commands.find((command) => command.kind === 'flee')).toMatchObject({
+      disabled: true,
+      blockReason: 'boss-flee-blocked',
     });
   });
 });

@@ -5,6 +5,7 @@ import type { ContentIndex } from '../core/content/loader';
 import type { Element, Monster, Skill } from '../core/content/schemas';
 import { comboBonus } from '../core/battle/damage';
 import { act, battleSkills, createBattle, isHeroReady, type BattleDeps } from '../core/battle/engine';
+import type { BattleCommandEvaluationContext } from '../core/battle/commandEvaluation';
 import { makeMonster } from '../core/battle/factory';
 import { partyFromGameState } from '../core/battle/setup';
 import type { ActionResult, BattleEvent, BattleState, Command } from '../core/battle/types';
@@ -69,7 +70,7 @@ export type { BattleEndEvent, BattleEndPayload, BattleLaunchData, BattleSceneDat
 import { battleSummary, defeatResultView, victoryResultView } from './battle/resultView';
 import { questionQueryForSkill, recruitQuestionQuery } from './battle/questionQueries';
 import { prepareMusubiDamaCommand } from './battle/musubiDamaFlow';
-import { canRecruitByCommand, recruitGiftId } from './battle/recruitFlow';
+import { recruitGiftId } from './battle/recruitFlow';
 import { runBattleQuestion } from './battle/questionFlow';
 import { BattleHudFlow } from './battle/hudFlow';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
@@ -557,13 +558,19 @@ export class BattleScene extends Phaser.Scene {
     return filterCandidates(this.bank, this.queryFor(sk)).length > 0;
   }
 
-  private canRecruit(): boolean {
-    return canRecruitByCommand({
-      state: this.state,
-      enemy: this.enemyDef,
-      storyCompanion: hasStoryCompanion(this.gs),
-      hpThreshold: this.content.settings.recruitHpThreshold,
-    });
+  private commandEvaluationContext(
+    phase: BattleCommandEvaluationContext['phase'] = 'selection',
+  ): BattleCommandEvaluationContext {
+    const questionSkillKeys = new Set(
+      battleSkills(this.state, this.deps)
+        .filter(({ skill }) => this.hasQuestion(skill))
+        .map(({ actorId, skill }) => `${actorId}:${skill.id}`),
+    );
+    return {
+      phase,
+      questionSkillKeys,
+      storyCompanionUnlocked: hasStoryCompanion(this.gs),
+    };
   }
 
   private recruitGiftId(): string | undefined {
@@ -571,11 +578,11 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private itemOptions(): ItemOption[] {
-    return buildItemOptions(this.state, this.content);
+    return buildItemOptions(this.state, this.content, this.commandEvaluationContext());
   }
 
   private swapOptions(): SwapOption[] {
-    return buildSwapOptions(this.state, this.deps);
+    return buildSwapOptions(this.state, this.deps, this.commandEvaluationContext());
   }
 
   /** 必殺技の一覧（主人公・オトモの わざ・教科の 固有スキル）。教科ゲージが たりない 必殺技は 打てない */
@@ -583,8 +590,8 @@ export class BattleScene extends Phaser.Scene {
     return buildSkillOptions({
       state: this.state,
       deps: this.deps,
+      context: this.commandEvaluationContext(),
       queryFor: (skill) => this.queryFor(skill),
-      hasQuestion: (skill) => this.hasQuestion(skill),
       nameOf: (id) => this.nameOf(id),
       preparingLabel: t('battle.preparing'),
     });
@@ -594,9 +601,7 @@ export class BattleScene extends Phaser.Scene {
     return buildCommandOptions({
       state: this.state,
       deps: this.deps,
-      hasQuestion: (skill) => this.hasQuestion(skill),
-      itemCount: this.itemOptions().length,
-      canRecruit: this.canRecruit(),
+      context: this.commandEvaluationContext(),
     });
   }
 
@@ -740,7 +745,12 @@ export class BattleScene extends Phaser.Scene {
     this.busy = true;
     this.hud.set({ menu: 'none', actorId: null });
     try {
-      const { state, events } = act(this.state, { kind: 'wait' }, this.deps);
+      const { state, events } = act(
+        this.state,
+        { kind: 'wait' },
+        this.deps,
+        this.commandEvaluationContext('execution'),
+      );
       this.state = state;
       await this.enqueue(events);
     } catch (e) {
@@ -758,15 +768,19 @@ export class BattleScene extends Phaser.Scene {
     if (s.outcome !== 'ongoing' || this.phase !== 'command' || this.busy) return;
     const hero = s.ally.hero;
     const ready = isHeroReady(s) && this.presentation.activeTaskCount === 0;
+    const commands = this.commandOptions();
     this.setStep(ready);
-    this.hud.set({ actorId: ready ? hero.id : null, commands: this.commandOptions() });
+    this.hud.set({ actorId: ready ? hero.id : null, commands });
     if (this.presentation.activeTaskCount > 0) return;
     const giftId = this.recruitGiftId();
     const recruitHint = giftId
       ? t('battle.recruitGiftHint', { item: this.content.items.get(giftId)?.name ?? giftId })
       : t('battle.recruitHint');
     const text = ready
-      ? t('battle.whatWillDo', { name: hero.name }) + (this.canRecruit() ? `\n${recruitHint}` : '')
+      ? t('battle.whatWillDo', { name: hero.name }) +
+        (commands.some((command) => command.kind === 'recruit' && !command.disabled)
+          ? `\n${recruitHint}`
+          : '')
       : null;
     const cur = this.hud.get().message;
     if (text && !(cur?.mode === 'prompt' && cur.text === text)) this.hudFlow.prompt(text);
@@ -885,7 +899,14 @@ export class BattleScene extends Phaser.Scene {
         // 問題の あいだに 決着（オトモが たおした・全滅）したら、そのまま 決着の 演出へ
         if (this.state.outcome !== 'ongoing') return;
         // 問題の あいだに オトモが たおれて いたら、その オトモの 必殺技は もう 使えない
-        if (!battleSkillStillUsable(this.state, battleSkills(this.state, this.deps), intent.entry)) {
+        if (
+          !battleSkillStillUsable(
+            this.state,
+            intent.entry,
+            this.deps,
+            this.commandEvaluationContext('execution'),
+          )
+        ) {
           this.log(t('battle.skillGone'));
           await this.wait(900);
           return;
@@ -904,7 +925,7 @@ export class BattleScene extends Phaser.Scene {
         break;
       }
     }
-    const { state, events } = act(this.state, cmd, this.deps);
+    const { state, events } = act(this.state, cmd, this.deps, this.commandEvaluationContext('execution'));
     this.state = state;
     await this.enqueue(events);
   }

@@ -5,6 +5,7 @@
  */
 import { useEffect, useState } from 'preact/hooks';
 import type { Element } from '../../core/content/schemas';
+import type { BattleCommandBlockReason } from '../../core/battle/commandEvaluation';
 
 export type CommandKind = 'attack' | 'skill' | 'item' | 'swap' | 'flee' | 'recruit';
 export type MenuKind = 'none' | 'commands' | 'skills' | 'items' | 'swap';
@@ -54,6 +55,7 @@ export interface SubjectGaugeView {
 export interface CommandOption {
   kind: CommandKind;
   disabled: boolean;
+  blockReason?: BattleCommandBlockReason;
   /** 「なかまにさそう」が使えるようになったときなどに光らせる */
   glow?: boolean;
 }
@@ -79,6 +81,7 @@ export interface SkillOption {
   effect: 'damage' | 'heal' | 'buff' | 'debuff' | 'scan' | 'status';
   flavor?: string;
   disabled: boolean;
+  blockReason?: BattleCommandBlockReason;
   /** 使えない理由（問題じゅんびちゅう）。ゲージ不足は ゲージの 絵で 見せる */
   reason?: string;
 }
@@ -91,6 +94,7 @@ export interface ItemOption {
   /** どうぐの アイコン（data URL） */
   icon: string;
   disabled: boolean;
+  blockReason?: BattleCommandBlockReason;
   reason?: string;
 }
 
@@ -104,6 +108,7 @@ export interface SwapOption {
   /** オトモに したときの パッシブの 教科 */
   passive?: string;
   disabled: boolean;
+  blockReason?: BattleCommandBlockReason;
   active: boolean;
 }
 
