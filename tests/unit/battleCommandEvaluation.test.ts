@@ -126,6 +126,19 @@ describe('evaluateBattleCommand', () => {
     ).toMatchObject({ allowed: false, reason: 'actor-unavailable' });
   });
 
+  it('生存中でも覚えていない必殺技を skill-unavailable として拒否する', async () => {
+    const state = await setup();
+
+    expect(
+      evaluateBattleCommand(
+        state,
+        { kind: 'skill', skillId: 'sk-hinoko', actorId: state.ally.hero.id },
+        D,
+        context(),
+      ),
+    ).toMatchObject({ allowed: false, reason: 'skill-unavailable' });
+  });
+
   it('回復どうぐの最弱対象と所持数消費を解決する', async () => {
     const state = await setup();
     state.ally.monsters[0]!.hp = 1;
@@ -158,6 +171,26 @@ describe('evaluateBattleCommand', () => {
     ).toMatchObject({ allowed: false, reason: 'action-result-required' });
   });
 
+  it('不明・未所持・戦闘使用不可のどうぐを区別して拒否する', async () => {
+    const state = await setup();
+    const materialId = 'hokkaido-ryuhyo-no-shizuku';
+    state.ally.items[materialId] = 1;
+
+    expect(
+      evaluateBattleCommand(state, { kind: 'item', itemId: 'no-such-item' }, D, context()),
+    ).toMatchObject({
+      allowed: false,
+      reason: 'unknown-item',
+    });
+    expect(
+      evaluateBattleCommand(state, { kind: 'item', itemId: 'okinawa-okinawa-pineapple' }, D, context()),
+    ).toMatchObject({ allowed: false, reason: 'item-not-owned' });
+    expect(evaluateBattleCommand(state, { kind: 'item', itemId: materialId }, D, context())).toMatchObject({
+      allowed: false,
+      reason: 'item-unusable',
+    });
+  });
+
   it('交代先を解決し、現在の仲間・倒れた仲間を拒否する', async () => {
     const state = await setup();
     const c = await content();
@@ -170,6 +203,10 @@ describe('evaluateBattleCommand', () => {
     expect(evaluateBattleCommand(state, { kind: 'swap', monsterIndex: 0 }, D, context())).toMatchObject({
       allowed: false,
       reason: 'already-active',
+    });
+    expect(evaluateBattleCommand(state, { kind: 'swap', monsterIndex: 99 }, D, context())).toMatchObject({
+      allowed: false,
+      reason: 'invalid-swap-target',
     });
     state.ally.monsters[1]!.hp = 0;
     expect(evaluateBattleCommand(state, { kind: 'swap', monsterIndex: 1 }, D, context())).toMatchObject({
@@ -207,6 +244,32 @@ describe('evaluateBattleCommand', () => {
       allowed: true,
       resolvedTargets: [{ side: 'enemy', combatantId: state.enemy.id }],
       costs: [{ kind: 'item', itemId: 'aomori-ringo', amount: 1 }],
+    });
+  });
+
+  it('ボス・仲間化不可・撃破済みの敵をそれぞれ拒否する', async () => {
+    const boss = await setup();
+    boss.isBossBattle = true;
+    expect(evaluateBattleCommand(boss, { kind: 'recruit' }, D, context())).toMatchObject({
+      allowed: false,
+      reason: 'boss-recruit-blocked',
+    });
+
+    const unavailable = await setup();
+    const monster = D.monsters.get(unavailable.enemy.refId)!;
+    const noRecruitDeps: BattleDeps = {
+      ...D,
+      monsters: new Map(D.monsters).set(monster.id, { ...monster, recruitRate: 0 }),
+    };
+    expect(evaluateBattleCommand(unavailable, { kind: 'recruit' }, noRecruitDeps, context())).toMatchObject({
+      allowed: false,
+      reason: 'enemy-not-recruitable',
+    });
+
+    unavailable.enemy.hp = 0;
+    expect(evaluateBattleCommand(unavailable, { kind: 'recruit' }, D, context())).toMatchObject({
+      allowed: false,
+      reason: 'enemy-unavailable',
     });
   });
 
