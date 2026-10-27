@@ -4,17 +4,48 @@ import assignments from '../../tasks/animation-batch-assignments.json';
 import manifest from '../../assets/sprites/animations/batch-03/manifest.json';
 import { monsterAnimationSpec, type MonsterAnimationSpec } from '../../src/rendering/monsterAnimation';
 
-const firstSliceIds = ['aichi-boss-kinshachi-ou', 'aichi-kokekokkochin', 'aichi-shiborin'] as const;
+const producedIds = [
+  'aichi-boss-kinshachi-ou',
+  'aichi-kokekokkochin',
+  'aichi-shiborin',
+  'akita-chuken-maru',
+  'akita-lastboss-satake-yoshinobu',
+  'akita-wappa-toride',
+  'chiba-kujukurin',
+  'chiba-peanight',
+  'ehime-iyokan-musha',
+  'ehime-lastboss-murakami-takeyoshi',
+  'fukui-boss-echizen-gani-ou',
+  'fukui-lastboss-matsudaira-shungaku',
+  'fukui-raputorun',
+  'fukuoka-boss-hiraodaio',
+  'fukuoka-midboss-banana-taisho',
+  'fukuoka-suigo-maru',
+  'fukushima-akatsuki-momo',
+  'fukushima-kura-donburi',
+  'fukushima-yaoki-koboshi',
+  'gifu-kamiori-dori',
+  'gifu-oriben',
+  'gunma-boss-gankake-daruma',
+  'gunma-kyabezukin',
+  'gunma-purukon',
+  'hiroshima-kakigaran',
+  'hiroshima-onbashigame',
+  'hokkaido-ami-melon',
+  'hokkaido-hotaten',
+  'hokkaido-jet-hotate',
+  'hokkaido-lavendori',
+] as const;
 
 describe('animation batch-03', () => {
-  it('先頭3体の制作済みシートをmanifestへ登録する', () => {
+  it('制作済み30体のシートをmanifestへ登録する', () => {
     const batch = assignments.batches.find((candidate) => candidate.batch === 'batch-03');
     expect(batch?.ids).toHaveLength(110);
 
     const specs = manifest as MonsterAnimationSpec[];
-    expect(specs.map((spec) => spec.id)).toEqual(expect.arrayContaining([...firstSliceIds]));
+    expect(specs.map((spec) => spec.id)).toEqual(expect.arrayContaining([...producedIds]));
 
-    for (const id of firstSliceIds) {
+    for (const id of producedIds) {
       const spec = specs.find((candidate) => candidate.id === id);
       expect(spec).toEqual({
         id,

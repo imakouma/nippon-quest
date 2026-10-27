@@ -19,33 +19,33 @@
 | `aichi-boss-kinshachi-ou`               | 完了   | 待機は冠・ヒレ・瞬き、攻撃は前傾した水上突進。PC/横向きスマホで再生・復帰・KO確認済み |
 | `aichi-kokekokkochin`                   | 完了   | 待機は翼呼吸・瞬き、攻撃は二足のまま羽ばたき突進。PC/横向きスマホで再生・復帰・KO済み |
 | `aichi-shiborin`                        | 完了   | 待機は布の膨縮・瞬き、攻撃は絞り模様を伴う回転体当たり。PC/横向きスマホで再生・KO済み |
-| `akita-chuken-maru`                     | 未着手 | —                                                                                     |
-| `akita-lastboss-satake-yoshinobu`       | 未着手 | —                                                                                     |
-| `akita-wappa-toride`                    | 未着手 | —                                                                                     |
-| `chiba-kujukurin`                       | 未着手 | —                                                                                     |
-| `chiba-peanight`                        | 未着手 | —                                                                                     |
-| `ehime-iyokan-musha`                    | 未着手 | —                                                                                     |
-| `ehime-lastboss-murakami-takeyoshi`     | 未着手 | —                                                                                     |
-| `fukui-boss-echizen-gani-ou`            | 未着手 | —                                                                                     |
-| `fukui-lastboss-matsudaira-shungaku`    | 未着手 | —                                                                                     |
-| `fukui-raputorun`                       | 未着手 | —                                                                                     |
-| `fukuoka-boss-hiraodaio`                | 未着手 | —                                                                                     |
-| `fukuoka-midboss-banana-taisho`         | 未着手 | —                                                                                     |
-| `fukuoka-suigo-maru`                    | 未着手 | —                                                                                     |
-| `fukushima-akatsuki-momo`               | 未着手 | —                                                                                     |
-| `fukushima-kura-donburi`                | 未着手 | —                                                                                     |
-| `fukushima-yaoki-koboshi`               | 未着手 | —                                                                                     |
-| `gifu-kamiori-dori`                     | 未着手 | —                                                                                     |
-| `gifu-oriben`                           | 未着手 | —                                                                                     |
-| `gunma-boss-gankake-daruma`             | 未着手 | —                                                                                     |
-| `gunma-kyabezukin`                      | 未着手 | —                                                                                     |
-| `gunma-purukon`                         | 未着手 | —                                                                                     |
-| `hiroshima-kakigaran`                   | 未着手 | —                                                                                     |
-| `hiroshima-onbashigame`                 | 未着手 | —                                                                                     |
-| `hokkaido-ami-melon`                    | 未着手 | —                                                                                     |
-| `hokkaido-hotaten`                      | 未着手 | —                                                                                     |
-| `hokkaido-jet-hotate`                   | 未着手 | —                                                                                     |
-| `hokkaido-lavendori`                    | 未着手 | —                                                                                     |
+| `akita-chuken-maru`                     | 完了   | 胸・尻尾・襟巻きの呼吸と瞬き、四足の沈み込みから跳びかかり。PC/横向きスマホ確認済み   |
+| `akita-lastboss-satake-yoshinobu`       | 完了   | 肩・兜飾りの呼吸と瞬き、守りから肩で踏み込む攻撃。PC/横向きスマホ確認済み             |
+| `akita-wappa-toride`                    | 完了   | 三段曲げわっぱの圧縮と留め具の揺れ、傾いて突進。PC/横向きスマホ確認済み               |
+| `chiba-kujukurin`                       | 完了   | 貝殻状の胴と青い突起を保ち、つぶれから跳ねて殻で打撃。PC/横向きスマホ確認済み         |
+| `chiba-peanight`                        | 完了   | 花盾と落花生棍を保ち、盾受けから棍を振る攻撃。PC/横向きスマホ確認済み                 |
+| `ehime-iyokan-musha`                    | 完了   | 葉と側面の束を保ち、揺れ・瞬きからひねって転がる攻撃。PC/横向きスマホ確認済み         |
+| `ehime-lastboss-murakami-takeyoshi`     | 完了   | 大角兜・口髭を保ち、守りから肩で踏み込む攻撃。PC/横向きスマホ確認済み                 |
+| `fukui-boss-echizen-gani-ou`            | 完了   | 王冠・眼柄・鋏・脚・青い台座を保ち、鋏の引きから横突進。PC/横向きスマホ確認済み       |
+| `fukui-lastboss-matsudaira-shungaku`    | 完了   | 黄縁の本と装束を保ち、本を構えて踏み込む攻撃。PC/横向きスマホ確認済み                 |
+| `fukui-raputorun`                       | 完了   | 胸・小腕・尾の待機差分と瞬き、伏せから跳びかかる攻撃。PC/横向きスマホ確認済み         |
+| `fukuoka-boss-hiraodaio`                | 完了   | 羊毛・角・王冠の待機差分と瞬き、四足で角から突進。PC/横向きスマホ確認済み             |
+| `fukuoka-midboss-banana-taisho`         | 完了   | 両端・腕の待機差分と瞬き、低い構えから胴ごと体当たり。PC/横向きスマホ確認済み         |
+| `fukuoka-suigo-maru`                    | 完了   | 波輪・舟・笠・竹竿の待機差分と瞬き、波に沈んで前傾突進。PC/横向きスマホ確認済み       |
+| `fukushima-akatsuki-momo`               | 完了   | 葉と光輪の浮遊差分と瞬き、つぶれ・ひねりから桃先頭で突進。PC/横向きスマホ確認済み     |
+| `fukushima-kura-donburi`                | 完了   | 麺・眉・取っ手の待機差分と瞬き、どんぶりごと傾いて転がる攻撃。PC/横向きスマホ確認済み |
+| `fukushima-yaoki-koboshi`               | 完了   | 起き上がり小法師の揺れと旗の待機差分、後傾から転がる攻撃。PC/横向きスマホ確認済み     |
+| `gifu-kamiori-dori`                     | 完了   | 折り翼・冠羽の待機差分と瞬き、翼を折り込んで突き出す攻撃。PC/横向きスマホ確認済み     |
+| `gifu-oriben`                           | 完了   | 織部釉の器体を傾ける待機差分と瞬き、低く回って肩から突進。PC/横向きスマホ確認済み     |
+| `gunma-boss-gankake-daruma`             | 制作済 | 王冠と二本の炎角を保ち、揺れ・瞬きから角先頭で転がる攻撃。ゲーム確認待ち              |
+| `gunma-kyabezukin`                      | 制作済 | 葉層・葉尾・二脚を保ち、葉の揺れと瞬きから葉を閉じて頭突き。ゲーム確認待ち            |
+| `gunma-purukon`                         | 制作済 | 灰色角形・斑点・二脚を保ち、弾性変形と瞬きからつぶれて胴体打撃。ゲーム確認待ち        |
+| `hiroshima-kakigaran`                   | 制作済 | 上下殻・青い側突起・木台を保ち、殻の開閉と瞬きから殻を閉じて打撃。ゲーム確認待ち      |
+| `hiroshima-onbashigame`                 | 制作済 | 石帽子・苔・茶色胴・基部の脚を保ち、沈み込みから石帽子ごと突進。ゲーム確認待ち        |
+| `hokkaido-ami-melon`                    | 制作済 | 網目・茎葉・二脚を保ち、葉の揺れと瞬きからつぶれて回転体当たり。ゲーム確認待ち        |
+| `hokkaido-hotaten`                      | 制作済 | 放射状の帆立殻・二脚を保ち、殻の開閉と瞬きから殻先頭で跳躍。ゲーム確認待ち            |
+| `hokkaido-jet-hotate`                   | 制作済 | 上縁の青粒と二本の水流脚を保ち、噴射脈動と瞬きから前傾噴射。ゲーム確認待ち            |
+| `hokkaido-lavendori`                    | 制作済 | 紫の胴・側翼・二脚・頭上の花を保ち、揺れと瞬きから嘴先頭で突進。ゲーム確認待ち        |
 | `hokuriku-islandboss-kagamiutsushi`     | 未着手 | —                                                                                     |
 | `hyogo-lastboss-ikeda-terumasa`         | 未着手 | —                                                                                     |
 | `hyogo-sorobanban`                      | 未着手 | —                                                                                     |
@@ -154,6 +154,166 @@
 - built-in imagegen 原本: `docs/verification/animation-batch-03/generated/aichi-shiborin-source.png`
 - 最終: `assets/sprites/animations/batch-03/aichi-shiborin-v1.png`
 - 目視: 白い絞り模様・紺紫パレット・側面結び・顔を維持。回転姿勢に実差分あり。
+
+### akita-chuken-maru
+
+- 参照: `pixels/akita-chuken-maru.png`, `sheets/akita-chuken-maru.jpg`
+- 固有プロンプト: 四足の中立姿勢を保ち、待機は胸の呼吸・尻尾と襟巻きの揺れ・瞬き。攻撃は前脚を沈め、跳びかかって四足で着地。光輪・襟巻き・鈴・四脚を全コマで固定。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/akita-chuken-maru-source.png`
+- 最終: `assets/sprites/animations/batch-03/akita-chuken-maru-v1.png`
+- 目視: 光輪・襟巻き・鈴・四脚を維持し、伏せ・跳びかかり・着地に実差分あり。
+
+### akita-lastboss-satake-yoshinobu
+
+- 参照: `pixels/akita-lastboss-satake-yoshinobu.png`, `sheets/akita-lastboss-satake-yoshinobu.jpg`
+- 固有プロンプト: 待機は鎧肩と兜飾りの呼吸・瞬き。攻撃は膝を曲げて守り、肩を前へ出す踏み込み。武器や追加装備は禁止。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/akita-lastboss-satake-yoshinobu-source.png`
+- 最終: `assets/sprites/animations/batch-03/akita-lastboss-satake-yoshinobu-v1.png`
+- 目視: 鎧色・兜飾り・顔を維持し、守りと肩打ちに姿勢差あり。
+
+### akita-wappa-toride
+
+- 参照: `pixels/akita-wappa-toride.png`, `sheets/akita-wappa-toride.jpg`
+- 固有プロンプト: 三段の曲げわっぱ砦を保ち、待機は段の圧縮と留め具の揺れ・瞬き。攻撃は全体を低くして傾け、木製胴で突進。四肢は禁止。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/akita-wappa-toride-source.png`
+- 最終: `assets/sprites/animations/batch-03/akita-wappa-toride-v1.png`
+- 目視: 三段構造・留め具・顔を全コマで維持し、圧縮と突進の輪郭差あり。
+
+### chiba-kujukurin
+
+- 参照: `pixels/chiba-kujukurin.png`, `sheets/chiba-kujukurin.jpg`
+- 固有プロンプト: 丸い貝殻状の胴・継ぎ目・青い突起・二本足を保ち、待機は呼吸と瞬き。攻撃はつぶれ、跳び上がり、殻で打撃して着地。腕は禁止。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/chiba-kujukurin-source.png`
+- 最終: `assets/sprites/animations/batch-03/chiba-kujukurin-v1.png`
+- 目視: 殻・青い突起・二本足を維持し、つぶれ・跳躍・着地に実差分あり。
+
+### chiba-peanight
+
+- 参照: `pixels/chiba-peanight.png`, `sheets/chiba-peanight.jpg`
+- 固有プロンプト: 既存の花形盾と落花生型の棍を左右そのまま保持。待機は呼吸・瞬き、攻撃は盾で守り、棍を引き、振り抜く。装備の追加・交換は禁止。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/chiba-peanight-source.png`
+- 最終: `assets/sprites/animations/batch-03/chiba-peanight-v1.png`
+- 目視: 盾・棍・甲冑の左右関係を維持し、守りと振り抜きに姿勢差あり。
+
+### ehime-iyokan-musha
+
+- 参照: `pixels/ehime-iyokan-musha.png`, `sheets/ehime-iyokan-musha.jpg`
+- 固有プロンプト: 伊予柑の胴・葉・側面の束・二本足を保ち、待機は揺れと瞬き。攻撃は低く構え、ひねり、胴で転がるように打撃して復帰。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/ehime-iyokan-musha-source.png`
+- 最終: `assets/sprites/animations/batch-03/ehime-iyokan-musha-v1.png`
+- 目視: 葉・側面束・顔を維持し、低い構えと回転姿勢に実差分あり。
+
+### ehime-lastboss-murakami-takeyoshi
+
+- 参照: `pixels/ehime-lastboss-murakami-takeyoshi.png`, `sheets/ehime-lastboss-murakami-takeyoshi.jpg`
+- 固有プロンプト: 大きな角飾りの兜・鎧・口髭を保ち、待機は呼吸と瞬き。攻撃は膝を曲げて守り、肩を前へ出して踏み込む。武器は禁止。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/ehime-lastboss-murakami-takeyoshi-source.png`
+- 最終: `assets/sprites/animations/batch-03/ehime-lastboss-murakami-takeyoshi-v1.png`
+- 目視: 大角兜・口髭・鎧配色を維持し、守りと肩打ちに姿勢差あり。
+
+### fukui-boss-echizen-gani-ou
+
+- 参照: `pixels/fukui-boss-echizen-gani-ou.png`, `sheets/fukui-boss-echizen-gani-ou.jpg`
+- 固有プロンプト: 赤いカニ王の王冠・眼柄・左右の鋏・脚・青い台座を保ち、待機は各部の小さな上下と瞬き。攻撃は低く構え、鋏を引き、横へ突進して挟む。余計な火花・発光は禁止。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukui-boss-echizen-gani-ou-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukui-boss-echizen-gani-ou-v1.png`
+- 目視: 初稿は黄色い火花を含んだため不採用。再生成版はエフェクトなしで、王冠・眼柄・鋏・脚・台座を維持し、鋏の引きと突進に実差分あり。
+
+### fukui-lastboss-matsudaira-shungaku
+
+- 参照: `pixels/fukui-lastboss-matsudaira-shungaku.png`, `sheets/fukui-lastboss-matsudaira-shungaku.jpg`
+- 固有プロンプト: 紫の装束・白襟・赤帯・家紋・黄縁の本を保ち、待機は呼吸・本の小移動・瞬き。攻撃は本を構え、前へ差し出しながら肩で踏み込む。余計な火花・発光は禁止。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukui-lastboss-matsudaira-shungaku-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukui-lastboss-matsudaira-shungaku-v1.png`
+- 目視: 初稿は黄色い火花を含んだため不採用。再生成版はエフェクトなしで、装束・家紋・本を維持し、本の構えと踏み込みに実差分あり。
+
+### fukui-raputorun
+
+- 参照: `pixels/fukui-raputorun.png`, `sheets/fukui-raputorun.jpg`
+- 固有プロンプト: 二足・小腕・長い尾・腹当て・三本歯を固定。待機は胸呼吸・小腕と尾先・瞬き、攻撃は伏せて尾を引き、跳びかかりながら胴と尾で打撃。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukui-raputorun-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukui-raputorun-v1.png`
+- 目視: 部位数と顔を維持し、伏せ・横向きの跳躍・着地に実差分あり。
+
+### fukuoka-boss-hiraodaio
+
+- 参照: `pixels/fukuoka-boss-hiraodaio.png`, `sheets/fukuoka-boss-hiraodaio.jpg`
+- 固有プロンプト: 四脚・二本の巻角・白い羊毛・王冠・足元の草を固定。待機は羊毛圧縮・角と王冠・瞬き、攻撃は頭と前脚を下げて角から突進。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukuoka-boss-hiraodaio-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukuoka-boss-hiraodaio-v1.png`
+- 目視: 四脚・巻角・王冠・羊毛を維持し、低い構えと角突進に実差分あり。
+
+### fukuoka-midboss-banana-taisho
+
+- 参照: `pixels/fukuoka-midboss-banana-taisho.png`, `sheets/fukuoka-midboss-banana-taisho.jpg`
+- 固有プロンプト: 二端のバナナ頭・茶色部・王冠・市松鉢巻・赤縞服・二腕二脚を固定。待機は呼吸・端と腕・瞬き、攻撃は低く構えて胴ごと体当たり。武器は禁止。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukuoka-midboss-banana-taisho-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukuoka-midboss-banana-taisho-v1.png`
+- 目視: 左右端・装束・四肢を維持し、沈み込み・傾斜・体当たりに実差分あり。
+
+### fukuoka-suigo-maru
+
+- 参照: `pixels/fukuoka-suigo-maru.png`, `sheets/fukuoka-suigo-maru.jpg`
+- 固有プロンプト: 青い水霊・木舟・単一の波輪・穴あき笠・右の竹竿・赤い頬印・左右のひれを固定。待機は波と舟の上下・笠と竿・瞬き、攻撃は波へ沈み、竿と胴を傾けて突進。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukuoka-suigo-maru-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukuoka-suigo-maru-v1.png`
+- 目視: 舟・波輪・笠・竹竿の左右を維持し、沈み込みと前傾に実差分あり。
+
+### fukushima-akatsuki-momo
+
+- 参照: `pixels/fukushima-akatsuki-momo.png`, `sheets/fukushima-akatsuki-momo.jpg`
+- 固有プロンプト: 桃の胴・下部の赤いグラデーション・中央線・四枚葉・光輪を固定し、手足は禁止。待機は浮遊・葉と光輪・瞬き、攻撃はつぶれ、ひねり、桃先頭で突進。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukushima-akatsuki-momo-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukushima-akatsuki-momo-v1.png`
+- 目視: 桃色・中央線・葉・光輪を維持し、つぶれと横向き突進に実差分あり。
+
+### fukushima-kura-donburi
+
+- 参照: `pixels/fukushima-kura-donburi.png`, `sheets/fukushima-kura-donburi.jpg`
+- 固有プロンプト: 黄色い麺状の顔・白黒縞のどんぶり・二脚・太眉・赤橙端の取っ手を固定。待機は麺・眉・取っ手・瞬き、攻撃は器へ沈み、傾いて転がり体当たり。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukushima-kura-donburi-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukushima-kura-donburi-v1.png`
+- 目視: 麺面・縞器・二脚・取っ手を維持し、低姿勢・転がり・着地に実差分あり。
+
+### fukushima-yaoki-koboshi
+
+- 参照: `pixels/fukushima-yaoki-koboshi.png`, `sheets/fukushima-yaoki-koboshi.jpg`
+- 固有プロンプト: 赤い起き上がり小法師・紺頭巾・白い顔襟・金帯・前面の白印・右上の旗一本を固定。手足は禁止。待機は重心揺れ・旗・瞬き、攻撃は後傾して圧縮し、前へ転がって復帰。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/fukushima-yaoki-koboshi-source.png`
+- 最終: `assets/sprites/animations/batch-03/fukushima-yaoki-koboshi-v1.png`
+- 目視: 赤紺配色・顔・旗一本を維持し、左右への大きな傾斜と復帰に実差分あり。
+
+### gifu-kamiori-dori
+
+- 参照: `pixels/gifu-kamiori-dori.png`, `sheets/gifu-kamiori-dori.jpg`
+- 固有プロンプト: 白い折り紙鳥・広い三角翼・灰色の折り目と冠羽・黄くちばし・赤い胸印・灰色台座を固定。待機は翼と冠羽・瞬き、攻撃は翼を折り込み、前傾して両翼を鋭く突き出す。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/gifu-kamiori-dori-source.png`
+- 最終: `assets/sprites/animations/batch-03/gifu-kamiori-dori-v1.png`
+- 目視: 紙翼・折り目・胸印・台座を維持し、翼幅と前傾角に実差分あり。
+
+### gifu-oriben
+
+- 参照: `pixels/gifu-oriben.png`, `sheets/gifu-oriben.jpg`
+- 固有プロンプト: 乳白と深緑の織部器・開口・黄縁・斜め釉・茶色印・二つの側面突起・二脚を固定。待機は器体傾斜・突起・瞬き、攻撃は低く回って緑釉側の肩から突進。
+- built-in imagegen 原本: `docs/verification/animation-batch-03/generated/gifu-oriben-source.png`
+- 最終: `assets/sprites/animations/batch-03/gifu-oriben-v1.png`
+- 目視: 開口・斜め釉・印・二脚を維持し、低い傾斜と回り込みに実差分あり。
+
+### 第四スライス（群馬・広島・北海道）
+
+各行とも `pixels/<id>.png` と `sheets/<id>.jpg` を参照し、built-in imagegen 原本は `docs/verification/animation-batch-03/generated/<id>-source.png`、最終シートは `assets/sprites/animations/batch-03/<id>-v1.png` に保存した。
+
+| ID                          | 固有プロンプトと目視結果                                                                               |
+| --------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `gunma-boss-gankake-daruma` | 王冠・炎角二本・達磨胴を固定。重心揺れと瞬きから後傾・圧縮・炎角先頭の転がりへ変化し、余計な火花なし。 |
+| `gunma-kyabezukin`          | 葉層・左後方の葉尾・二脚・触角状突起を固定。葉の呼吸と瞬きから外葉を閉じる頭突きへ変化。               |
+| `gunma-purukon`             | 灰色の角形・黒斑点・二脚を固定。弾性揺れと瞬きから横長につぶれる胴体打撃へ変化。                       |
+| `hiroshima-kakigaran`       | 上下の灰殻・青い側突起二つ・木台を固定。殻の開閉と瞬きから殻を閉じて傾く打撃へ変化。真珠追加なし。     |
+| `hiroshima-onbashigame`     | 石帽子・苔・茶色胴・基部の脚と側突起を固定。沈み込みと瞬きから帽子ごと前傾突進へ変化。                 |
+| `hokkaido-ami-melon`        | 網目・茎葉・二脚を固定。葉の揺れと瞬きからつぶれ、網目の向きが変わる回転体当たりへ変化。               |
+| `hokkaido-hotaten`          | 放射状の帆立殻・二つの貝脚を固定。殻の呼吸と瞬きから殻先頭の横向き跳躍へ変化。水流追加なし。           |
+| `hokkaido-jet-hotate`       | 上縁の青粒・白い継手・二本の水流脚を固定。噴射脈動と瞬きから水流脚を後方へ向けた前傾噴射へ変化。       |
+| `hokkaido-lavendori`        | 紫胴・側翼・黄嘴・二脚・頭上の花を固定。花と翼の揺れ・瞬きから翼を引いて嘴先頭で突進。                 |
 
 ## 組込み提案
 

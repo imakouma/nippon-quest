@@ -11,7 +11,38 @@ type Battle = Phaser.Scene & {
   animate(event: BattleEvent): Promise<void>;
 };
 
-const ids = ['aichi-boss-kinshachi-ou', 'aichi-kokekokkochin', 'aichi-shiborin'] as const;
+const ids = [
+  'aichi-boss-kinshachi-ou',
+  'aichi-kokekokkochin',
+  'aichi-shiborin',
+  'akita-chuken-maru',
+  'akita-lastboss-satake-yoshinobu',
+  'akita-wappa-toride',
+  'chiba-kujukurin',
+  'chiba-peanight',
+  'ehime-iyokan-musha',
+  'ehime-lastboss-murakami-takeyoshi',
+  'fukui-boss-echizen-gani-ou',
+  'fukui-lastboss-matsudaira-shungaku',
+  'fukui-raputorun',
+  'fukuoka-boss-hiraodaio',
+  'fukuoka-midboss-banana-taisho',
+  'fukuoka-suigo-maru',
+  'fukushima-akatsuki-momo',
+  'fukushima-kura-donburi',
+  'fukushima-yaoki-koboshi',
+  'gifu-kamiori-dori',
+  'gifu-oriben',
+  'gunma-boss-gankake-daruma',
+  'gunma-kyabezukin',
+  'gunma-purukon',
+  'hiroshima-kakigaran',
+  'hiroshima-onbashigame',
+  'hokkaido-ami-melon',
+  'hokkaido-hotaten',
+  'hokkaido-jet-hotate',
+  'hokkaido-lavendori',
+] as const;
 
 for (const id of ids) {
   for (const viewport of [
@@ -33,7 +64,7 @@ for (const id of ids) {
       await expect(page.locator('.nq-box')).toBeVisible({ timeout: 60_000 });
       // 負荷の高いヘッドレス実行でもタイプライター完了を待ち続けず、実際のタップで全文表示する。
       await page.locator('.nq-box').click();
-      await expect(page.locator('.nq-box-next')).toBeVisible();
+      await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 30_000 });
       const initial = await page.evaluate((monsterId) => {
         const battle = window.__nq.scene.getScene('Battle') as Battle;
         const sprite = battle.enemySprite;
@@ -108,7 +139,10 @@ for (const id of ids) {
         const count = () =>
           (sprite.getData('observedAnimations') as string[]).filter((key) => key.endsWith('.attack')).length;
         const before = count();
-        const skillId = battle.content.monsters.get(monsterId)!.skills[0]!;
+        const monster = battle.content.monsters.get(monsterId)!;
+        const skillId =
+          monster.skills.find((id) => battle.content.skills.get(id)?.effect === 'damage') ??
+          monster.skills[0]!;
         await battle.animate({
           t: 'act',
           side: 'enemy',
