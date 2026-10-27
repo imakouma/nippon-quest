@@ -3,8 +3,8 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 40体。
-- 未着手: 70体（割当110体から下記完了40体を除いたもの）。
+- 完了: 50体。
+- 未着手: 60体（割当110体から下記完了50体を除いたもの）。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
@@ -108,10 +108,23 @@
 - `ishikawa-wajimanurin`: 赤漆椀、金縁、台座を固定。椀の傾き待機、回転打撃。出力 `exec-2177c438-e20a-4615-ace9-3adcd003614b.png`。
 - `kagawa-lastboss-hiraga-gennai`: 紺の羽織、灰袴、髷を固定。袖の待機、火花を伴う掌打。出力 `exec-702b964a-14f7-4131-ae3f-92b920ff04b8.png`。
 
+### 追加10体（香川〜甲信越）
+
+- `kagawa-oozenigani`: 銭形の蟹、爪2、眼柄2、歩脚を固定。爪待機、両鋏打撃。出力 `exec-b3961cf3-9efa-4f5c-add7-944b0244cfbb.png`。
+- `kagoshima-boss-sakurajimaguma`: 冠岩、巨腕2、脚2、溶岩亀裂を固定。溶岩待機、両拳の地面打撃。出力 `exec-f1ba9c5f-159a-4949-a7f1-50a514ddee9a.png`。
+- `kagoshima-lastboss-saigo-takamori`: 紺服の武人と黄犬1匹を固定。犬と袖の待機、前腕打撃。出力 `exec-a52fda99-c3d7-4131-a67b-ac715a1355a1.png`。
+- `kagoshima-roppaku-boo`: 黒豚、四肢、芋1個を固定。耳鼻待機、芋を抱えた突進。出力 `exec-488b0f9e-587f-44cd-9339-65d9f73cb596.png`。
+- `kanagawa-himitsubakon`: 寄木細工の箱、顔板、短い足を固定。板の待機、箱の回転打撃。出力 `exec-62e1bd58-b984-48bc-8d69-57fa791ce824.png`。
+- `kanagawa-lastboss-minamoto-yoritomo`: 白紺鎧、金兜、旗1本を固定。旗待機、旗槍の突進。出力 `exec-d7f66d33-6bdb-4a67-80d3-bfcaadbf3393.png`。
+- `kanto-islandboss-nanatsu-kage`: 暗色の影獣、光輪、七尾を固定。尾の波動待機、七尾の一斉打撃。出力 `exec-d0819fe2-78fd-4925-86fc-f560eb1fe84a.png`。
+- `kochi-homura-katsuo`: 青い鰹、銀腹、炎5つを固定。炎待機、炎を引く魚体突進。出力 `exec-78638bf3-d3d4-4442-8211-75c64ddc5cd8.png`。
+- `kochi-midboss-narukomai`: 冠、赤衣、腕2、鳴子2、足3を固定。鳴子待機、両鳴子打撃。出力 `exec-6fe0645b-d827-46cf-a50b-7c5356f59b73.png`。
+- `koshinetsu-islandboss-senrin-utsuro`: 黒い術者、帽、扇4枚、台座を固定。扇待機、四扇の斬撃。出力 `exec-109bfdc6-8d19-4369-8951-882720a3e142.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 40体とも512×256、RGBA、4列2行の契約。
+- PNG: 50体とも512×256、RGBA、4列2行の契約。
 - 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
 
 ## 統合担当への提案
