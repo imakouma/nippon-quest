@@ -16,6 +16,9 @@ describe('animation batch-01', () => {
     expect(manifest.map((entry) => entry.id)).toEqual([
       'aomori-bunakko',
       'aomori-doguukun',
+      'aomori-himemassu',
+      'aomori-kokeppi',
+      'aomori-magurodo',
       'aomori-nebutan',
       'iwate-kagurabi',
       'iwate-izumiko',
