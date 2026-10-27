@@ -5,11 +5,11 @@
 - Branch: `codex/animation-batch-05`
 - Assignment source: `tasks/animation-batch-assignments.json` (`batch-05.ids`)
 - Total: 110
-- Generated and normalized: 50
-- Manifest registered: 50
+- Generated and normalized: 70
+- Manifest registered: 70
 - Browser verified: 0
 - Failed: 0
-- Not started: 60
+- Not started: 40
 
 ## Completed production assets
 
@@ -63,15 +63,32 @@
 - [x] `kochi-kagayaki-yuzu` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
 - [x] `kochi-oowashigami` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
 - [x] `kumamoto-boss-mushagaeshi` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `kumamoto-karuderan` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `kumamoto-shimadama` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `kyoto-chasenshi` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `kyoto-funaya-don` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `kyoto-lastboss-murasaki-shikibu` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `mie-boss-iseebi-taisho` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `mie-kuwanaguri` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `miyagi-boss-mikazuki-shogun` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `miyagi-oo-sumibitan` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `miyagi-tanyakki` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `miyazaki-hyuganattsu` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `miyazaki-misaki-pony` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `nagano-koori-wakasagi` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `nagano-retasuke` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `nagasaki-boss-unzen-ryu` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `nagasaki-lastboss-siebold` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `nagasaki-yadoshima` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `nara-lastboss-shotoku-taishi` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `nara-sumiryu` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
+- [x] `niigata-hisui-koro` — references inspected; source preserved; 512×256 RGBA runtime visually inspected; manifest registered
 
 ## Remaining assignment
 
-The following 60 ids are not complete:
+The following 40 ids are not complete:
 
-`kumamoto-karuderan`, `kumamoto-shimadama`, `kyoto-chasenshi`, `kyoto-funaya-don`, `kyoto-lastboss-murasaki-shikibu`, `mie-boss-iseebi-taisho`,
-`mie-kuwanaguri`, `miyagi-boss-mikazuki-shogun`, `miyagi-oo-sumibitan`, `miyagi-tanyakki`, `miyazaki-hyuganattsu`, `miyazaki-misaki-pony`,
-`nagano-koori-wakasagi`, `nagano-retasuke`, `nagasaki-boss-unzen-ryu`, `nagasaki-lastboss-siebold`, `nagasaki-yadoshima`, `nara-lastboss-shotoku-taishi`,
-`nara-sumiryu`, `niigata-hisui-koro`, `niigata-midboss-sanjaku-don`, `oita-kabosu-daisho`, `oita-sekiajiro`, `okayama-bizen-ootsubo`,
+`niigata-midboss-sanjaku-don`, `oita-kabosu-daisho`, `oita-sekiajiro`, `okayama-bizen-ootsubo`,
 `okayama-fukuromomo`, `okinawa-boss-dairyuchu`, `okinawa-midboss-eisa-daiko`, `okinawa-yanbaru-totto`, `osaka-juwanasu`, `osaka-sakusaku-momiji`,
 `saga-higata-taisho`, `saga-sometsubon`, `saitama-haniwa-musha`, `saitama-negi-lancer`, `shiga-ibuki-no-oyama`, `shiga-naminori-tsuburi`,
 `shimane-chidorin`, `shimane-shijimin`, `shizuoka-boss-fujimine-ou`, `shizuoka-midboss-yogan-gani`, `shizuoka-wasabikko`, `tochigi-gyozan`,
