@@ -3,8 +3,8 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 100体。
-- 未着手: 10体（割当110体から下記完了100体を除いたもの）。
+- 完了: 110体。
+- 未着手: 0体。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
@@ -36,7 +36,7 @@
 ## 生成記録
 
 - 方式: built-in imagegen。外部課金API、fal、OmniRoute、追加資格情報は不使用。
-- 入力: 各IDの `dist/pixels/<id>.png` を正、`dist/sheets/<id>.jpg` を補助参照として生成前に目視。
+- 入力: 各IDの `dist/pixels/<id>.png` を正として生成前に目視。初期制作分は `dist/sheets/<id>.jpg` も補助参照として確認。
 - 共通指定: 透明RGBA、4列2行、上段 idle 4コマ・下段 attack 4コマ、同じ顔・輪郭・パレット・付属物・基準点、粗いpixel art、文字・影・背景なし、単なる平行移動や全体拡縮ではない形状差分。
 - 出力: built-in imagegenの2:1 RGBA原本を保存し、FFmpegのnearest-neighborで512×256へ機械整形。32px化はしていない。
 
@@ -186,13 +186,28 @@
 - `tottori-rakkyo-musha`: 辣韭武者2体、黄赤笠、二股脚を固定。交互待機、双体突進。出力 `exec-87e9d66a-7cf7-4c1f-bc95-aed913d9da18.png`。
 - `toyama-ginga-ika`: 銀河色の烏賊、金輪、触腕を固定。触腕待機、全触腕の前方打撃。出力 `exec-af612e87-7225-4296-add6-edb9b02f2d32.png`。
 
+### 追加10体（富山〜山梨）
+
+- `toyama-okojon`: 茶の貂体、淡色腹、尾、青緑の浮遊光を固定。耳尾待機、跳躍突進。出力 `exec-c3c08a5c-32df-48e6-9141-f184bef10c6a.png`。
+- `wakayama-boss-kuroshio-ryu`: 濃青海竜、金角、冠、白波鰭を固定。波待機、両波鰭の突進。出力 `exec-4617b463-0918-4556-902b-8c19721288a6.png`。
+- `wakayama-midboss-umeboshi-yokozuna`: 赤い梅横綱、冠葉、化粧まわしを固定。相撲待機、張り手。出力 `exec-2f99b41b-6815-4773-9dc5-b9ced1907a74.png`。
+- `yamagata-boss-juhyo-no-kami`: 青白鎧、氷角、冠、氷杖を固定。杖待機、氷杖の薙ぎ。出力 `exec-956b0b05-02ae-43d3-9dc9-04790e2a0d4f.png`。
+- `yamagata-midboss-juhyon`: 白青の樹氷体、冠、枝腕2を固定。枝待機、両枝の叩き付け。出力 `exec-14bdb6f3-a670-413c-b237-133c062d5617.png`。
+- `yamagata-yunohana-ryu`: 淡青のS字竜、黄ひげ、木台を固定。胴待機、湯気の前方噴射。出力 `exec-2b8f3361-28e1-427e-b464-047166ea31e1.png`。
+- `yamaguchi-midboss-kintai-shirohebi`: 冠白蛇、とぐろ、橋台を固定。舌とぐろ待機、白蛇の伸長突進。出力 `exec-f81067cb-9577-46d9-ab57-0b3978b89be3.png`。
+- `yamaguchi-oohashiwatari`: 白い大鳥、緑翼端、黄嘴脚を固定。翼待機、両翼の急降下。出力 `exec-d485156e-6156-4bbf-8645-e914ee8bcc9c.png`。
+- `yamanashi-hakuto-hime`: 桃姫体、中央線、葉2、緑脚を固定。葉待機、桃の回転体当たり。出力 `exec-fd082b10-47ff-4bfe-b72c-1f4f85db85c3.png`。
+- `yamanashi-suzuri-tatsujin`: 墨色硯体、右筆、縁枠を固定。筆待機、筆の墨斬撃。出力 `exec-85867398-d25f-49bf-a159-0890b311cb5e.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 100体とも512×256、RGBA、4列2行の契約。
-- 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
+- PNG: 110体とも512×256、RGBA、4列2行の契約。
+- 単体・全体ゲート: batch-04単体2件、全体167ファイル・1704件、lint、architecture、content検証、production buildが成功。
+- E2E: 4180の最新production previewで5/5成功。3体の待機、960×540・640×360の攻撃・復帰・KOを確認。
+- 実ゲーム: アプリ内ブラウザで `yamanashi-suzuri-tatsujin` の専用スプライトと待機アニメーションを確認。
 
 ## 統合担当への提案
 
 - 現時点で共通コード変更は不要。既存のmanifest自動集約で接続できる。
-- 110体すべてが終わるまで本記録を完了扱いにしない。
+- batch-04の110体は完了。統合担当は取り込み後に共通の全体ゲートを再実行する。

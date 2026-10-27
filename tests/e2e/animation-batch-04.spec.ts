@@ -15,9 +15,9 @@ const firstSlice = ['aichi-denkikun', 'aichi-lastboss-oda-nobunaga', 'aichi-teba
 
 for (const id of firstSlice) {
   test(`${id} のシートを読み込み待機コマを再生する`, async ({ page }) => {
-    test.setTimeout(90_000);
+    test.setTimeout(210_000);
     await page.goto(`/?debug=battle&enemy=${id}&lv=5`, { waitUntil: 'networkidle' });
-    await expect(page.locator('[role="meter"]').first()).toBeVisible({ timeout: 60_000 });
+    await expect(page.locator('[role="meter"]').first()).toBeVisible({ timeout: 180_000 });
     const initial = await page.evaluate(() => {
       const sprite = (window.__nq.scene.getScene('Battle') as Battle).enemySprite;
       const frames: string[] = [];
@@ -46,13 +46,13 @@ for (const viewport of [
   { width: 640, height: 360 },
 ]) {
   test(`batch-04 攻撃・わざ・復帰・KO ${viewport.width}`, async ({ page }, info) => {
-    test.setTimeout(120_000);
+    test.setTimeout(240_000);
     await page.setViewportSize(viewport);
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto('/?debug=battle&enemy=aichi-denkikun&lv=5', { waitUntil: 'networkidle' });
-    await expect(page.locator('[role="meter"]').first()).toBeVisible({ timeout: 60_000 });
-    await expect(page.locator('.nq-box')).toBeVisible({ timeout: 60_000 });
+    await expect(page.locator('[role="meter"]').first()).toBeVisible({ timeout: 180_000 });
+    await expect(page.locator('.nq-box')).toBeVisible({ timeout: 180_000 });
     await page.evaluate(() => {
       const battle = window.__nq.scene.getScene('Battle') as Battle;
       const animations: string[] = [];
@@ -61,7 +61,13 @@ for (const viewport of [
       );
       battle.enemySprite.setData('batch04Animations', animations);
     });
-    await page.locator('.nq-box').click();
+    const messageBox = page.locator('.nq-box');
+    const skillButton = page.locator('.nq-cmd[data-cmd="skill"]');
+    await messageBox.click();
+    if (!(await skillButton.isVisible())) {
+      await messageBox.click();
+    }
+    await expect(skillButton).toBeVisible({ timeout: 30_000 });
     await page.evaluate(() => {
       const battle = window.__nq.scene.getScene('Battle') as Battle;
       battle.askSkill = async () => ({ score: 0.6, timeMs: 1000, attempts: 1 });
@@ -70,7 +76,7 @@ for (const viewport of [
       battle.state.rngState = undefined;
       battle.state.enemy.skills = [];
     });
-    await page.locator('.nq-cmd[data-cmd="skill"]').click();
+    await skillButton.click();
     await page.locator('[data-skill]:not(.nq-opt-off)').first().click();
     await expect
       .poll(() =>
