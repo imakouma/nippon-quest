@@ -13,7 +13,7 @@ describe('animation batch-02', () => {
     ) as MonsterAnimationSpec[];
 
     expect(batch).toBeDefined();
-    expect(manifest.map((entry) => entry.id)).toEqual(firstSliceIds);
+    expect(manifest.map((entry) => entry.id)).toEqual(expect.arrayContaining(firstSliceIds));
 
     for (const spec of manifest) {
       expect(batch!.ids).toContain(spec.id);

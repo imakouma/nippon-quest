@@ -4,7 +4,7 @@
 - Base: `f31628f32a008dfc92ecb2ed4a7934e6d9d9516b`
 - Assignment source: `tasks/animation-batch-assignments.json` → `batch-02.ids`
 - Scope: 110 assigned monsters
-- Current counts: completed 3, failed 0, unstarted 107
+- Current counts: completed 23, failed 0, unstarted 87
 - Generator: built-in imagegen only; no paid fallback, provider credential, or OmniRoute use
 
 ## First quality slice
@@ -33,26 +33,26 @@ manifest file is part of this batch.
 - [x] `aichi-arimatsu-zome` — 完了
 - [x] `aichi-hatchon` — 完了
 - [x] `aichi-miso-yagura` — 完了
-- [ ] `akita-boss-namahage-ou` — 未着手
-- [ ] `akita-kiritanpon` — 未着手
-- [ ] `akita-oodama-hanabi` — 未着手
-- [ ] `chiba-kousui-hime` — 未着手
-- [ ] `chiba-naminori-gai` — 未着手
-- [ ] `ehime-boss-ishizuchi-ou` — 未着手
-- [ ] `ehime-komikan` — 未着手
-- [ ] `ehime-soratobi-taoru` — 未着手
-- [ ] `fukui-kamisukin` — 未着手
-- [ ] `fukui-midboss-kasumi-maru` — 未着手
-- [ ] `fukuoka-barikatan` — 未着手
-- [ ] `fukuoka-lastboss-kuroda-kanbei` — 未着手
-- [ ] `fukuoka-stroberion` — 未着手
-- [ ] `fukushima-akabekon` — 未着手
-- [ ] `fukushima-koboshi` — 未着手
-- [ ] `fukushima-momorin` — 未着手
-- [ ] `gifu-kakinoki-don` — 未着手
-- [ ] `gifu-oribe-musha` — 未着手
-- [ ] `gifu-washigamin` — 未着手
-- [ ] `gunma-kyabe-yoroi` — 未着手
+- [x] `akita-boss-namahage-ou` — 完了
+- [x] `akita-kiritanpon` — 完了
+- [x] `akita-oodama-hanabi` — 完了
+- [x] `chiba-kousui-hime` — 完了
+- [x] `chiba-naminori-gai` — 完了
+- [x] `ehime-boss-ishizuchi-ou` — 完了
+- [x] `ehime-komikan` — 完了
+- [x] `ehime-soratobi-taoru` — 完了
+- [x] `fukui-kamisukin` — 完了
+- [x] `fukui-midboss-kasumi-maru` — 完了
+- [x] `fukuoka-barikatan` — 完了
+- [x] `fukuoka-lastboss-kuroda-kanbei` — 完了
+- [x] `fukuoka-stroberion` — 完了
+- [x] `fukushima-akabekon` — 完了
+- [x] `fukushima-koboshi` — 完了
+- [x] `fukushima-momorin` — 完了
+- [x] `gifu-kakinoki-don` — 完了
+- [x] `gifu-oribe-musha` — 完了
+- [x] `gifu-washigamin` — 完了
+- [x] `gunma-kyabe-yoroi` — 完了
 - [ ] `gunma-midboss-yumomi-daisho` — 未着手
 - [ ] `hiroshima-kakigara-don` — 未着手
 - [ ] `hiroshima-midboss-fude-daisho` — 未着手
