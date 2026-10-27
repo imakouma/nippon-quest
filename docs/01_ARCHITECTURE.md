@@ -97,6 +97,14 @@ nihonquest/
 
 ## 3. 三分割の契約（最重要）
 
+### 描画素材の解像度と表示サイズ
+
+モンスターの完成PNGは `assets/sprites/monsters/<id>.png` に置き、メニューでは
+`monsterMenuArtUrl`、戦闘では `BattleScene.preload` から同じ画像を使う。
+戦闘の表示サイズは素材の実寸ではなく `monsterImageScale` で決め、縦横比を維持する。
+未制作・読み込み失敗時は既存の生成ドット絵へフォールバックする。
+御三家第一形態の限定アート規格は `06_ART_BIBLE.md` §0 を参照。
+
 ### 3.1 登場人物
 
 ```

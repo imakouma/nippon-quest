@@ -74,6 +74,8 @@ import { runBattleQuestion } from './battle/questionFlow';
 import { BattleHudFlow } from './battle/hudFlow';
 import { hasStoryCompanion } from '../core/progression/storyCompanion';
 import { monsterDisplaySize, monsterMenuArtUrl } from '../rendering/menuArt';
+import { monsterImageScale } from '../rendering/monsterImageScale';
+import { preloadMonsterImages } from './battle/preloadMonsterImages';
 import { BATTLE_SCALE as S, battleLayout, type BattleLayout, OFF_RIGHT, READY_STEP } from './battle/layout';
 import { createBattleClouds, createBattleWinds, moveBattleClouds, moveBattleWinds } from './battle/clouds';
 import { attachBattleBgm, finishBattleBgm, withBattleMusicDucked } from './battle/bgm';
@@ -199,6 +201,10 @@ export class BattleScene extends Phaser.Scene {
     );
   }
 
+  preload(): void {
+    preloadMonsterImages(this, this.opts.enemyId);
+  }
+
   create(): void {
     this.content = this.registry.get('content') as ContentIndex;
     this.bank = this.registry.get('bank') as QuestionBank;
@@ -293,8 +299,10 @@ export class BattleScene extends Phaser.Scene {
     this.enemySprite = this.add
       .image(this.layout.enemy.x, this.layout.enemy.y, eKey)
       .setOrigin(0.5, 1)
-      .setScale(this.enemyScale)
       .setDepth(10);
+    this.enemySprite.setScale(
+      monsterImageScale(this.enemySprite.width, this.enemySprite.height, this.enemySize, this.enemyScale),
+    );
     this.addShadow(
       this.enemySprite,
       this.layout.enemy.y,
@@ -354,9 +362,9 @@ export class BattleScene extends Phaser.Scene {
     const sp = this.add
       .image(x, this.layout.partner.y, this.monsterTexture(def, def.element, MONSTER_SIZE.normal, false))
       .setOrigin(0.5, 1)
-      .setScale(this.layout.partner.scale)
       .setDepth(11)
       .setAlpha(m.hp > 0 ? 1 : 0.35);
+    sp.setScale(monsterImageScale(sp.width, sp.height, MONSTER_SIZE.normal, this.layout.partner.scale));
     this.addShadow(sp, this.layout.partner.y, 22);
     return sp;
   }
@@ -378,7 +386,7 @@ export class BattleScene extends Phaser.Scene {
   private startIdle(): void {
     this.tweens.add({
       targets: this.enemySprite,
-      scaleY: this.enemyScale * 0.95,
+      scaleY: this.enemySprite.scaleY * 0.95,
       duration: 460,
       yoyo: true,
       repeat: -1,
