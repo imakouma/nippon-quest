@@ -39,6 +39,12 @@ vi.mock('localforage', () => ({
 import { createNewGame } from '../../src/core/state/newGame';
 import { load, remove, save, summaries } from '../../src/core/state/save';
 import type { GameState } from '../../src/core/state/schema';
+import { beginBattleResume } from '../../src/core/state/battleResume';
+import { createBattle } from '../../src/core/battle/engine';
+import { makeMonster } from '../../src/core/battle/factory';
+import { partyFromGameState } from '../../src/core/battle/setup';
+import { createRng } from '../../src/core/rng';
+import { content } from './helpers';
 
 const fresh = (gold: number) => {
   const state = createNewGame({ name: 'ハル', grade: 3 });
@@ -57,6 +63,45 @@ beforeEach(() => {
 });
 
 describe('セーブ永続化', () => {
+  it('進行中のbattle snapshotとledgerを保存・読み込みでround-tripする', async () => {
+    const c = await content();
+    const state = fresh(10);
+    state.seed = 'persistence-seed';
+    const enemy = c.monsters.get('aomori-nebutan')!;
+    const battleState = createBattle(
+      {
+        ally: partyFromGameState(state, c),
+        enemy: makeMonster(enemy, 2, 'enemy'),
+        seed: 'battle-seed',
+      },
+      {
+        settings: c.settings,
+        elements: c.elements,
+        skills: c.skills,
+        items: c.items,
+        monsters: c.monsters,
+      },
+    );
+    const questionRng = createRng('question-seed');
+    const started = beginBattleResume(state, {
+      launch: {
+        enemyId: enemy.id,
+        level: 2,
+        zone: 'field',
+        encounterId: 'temporary',
+        encounterSource: { type: 'random' },
+      },
+      battleState,
+      questionSeed: 'question-seed',
+      questionRngState: questionRng.state(),
+      perfectBySubject: {},
+    });
+
+    await save(1, started.state);
+
+    expect((await load(1))?.battle).toEqual(started.state.battle);
+  });
+
   it('向きと opt-in object を保存・読み込みで round-trip する', async () => {
     const state = fresh(10);
     state.progress.fieldSnapshot = {

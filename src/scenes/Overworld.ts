@@ -195,6 +195,7 @@ import { FieldResumeRuntime } from './overworld/fieldResumeRuntime';
 import { prepareResumeGame } from './overworld/fieldMapCatalog';
 import { createPhaserHarbor } from './overworld/phaserHarbor';
 import { addNpcRoleSign, createPhaserNpc } from './overworld/phaserNpc';
+import { createPersistedEncounterRuntime } from './overworld/persistedEncounterRuntime';
 
 const TILE = 16;
 const STEP_MS = 160;
@@ -206,16 +207,7 @@ const TRIGGER_RADIUS = 1;
 const WORLD_MAP_KEY = 'worldmap';
 type HeroLookIndex = GameState['player']['appearance'];
 /** 特産品（イベントの無い たべもの・こうげいひん）は ★ 看板ではなく宝箱（scripts/scaffold-maps.ts） */
-interface DebugBattle {
-  enemyId: string;
-  level: number;
-  zone?: 'field' | 'dungeon';
-  /** バトルの 背景を 見る ための 地面 */
-  ground?: Ground;
-  forceRecruitOffer?: boolean;
-  /** 比較用の戦闘画面配置。通常のゲーム進行では指定しない。 */
-  presentation?: BattleSceneData['presentation'];
-}
+type DebugBattle = Omit<BattleSceneData, 'zone'> & { zone?: 'field' | 'dungeon' };
 
 interface OverworldSceneData {
   mapKey?: string;
@@ -444,10 +436,10 @@ export class OverworldScene extends Phaser.Scene {
       applyResult: (context, _result, policy, flow) =>
         applyEncounterResultPolicy(context, policy, this.encounterResults, flow),
     });
+    const persistedEncounters = createPersistedEncounterRuntime(this.encounters, this.registry);
     for (const r of ['hud', 'title', 'fx', 'dialogue', 'travel'] as const) this.root(r);
 
-    const onBattleEnd = (event: BattleEndEvent) =>
-      void this.encounters.finish(event.encounterId, event.result);
+    const onBattleEnd = (event: BattleEndEvent) => void persistedEncounters.finish(event);
     this.game.events.on('battle:end', onBattleEnd);
     // タブが うしろに あると Phaser の カメラの フェードも 時間も 止まり、黒い まくが かかった ままに なる。
     // 画面に もどってきたら 消す（Phaser の タイマーは 止まるので、DOM の イベントで 受ける）
@@ -527,7 +519,9 @@ export class OverworldScene extends Phaser.Scene {
     const fadeGuard = window.setTimeout(() => this.clearStuckFade(), 800);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => window.clearTimeout(fadeGuard));
 
+    const persistedBattle = this.gs()?.battle.active ?? null;
     this.awaitingPrologue =
+      !persistedBattle &&
       !this.pendingDebugBattle &&
       this.mapKey === 'aomori-field' &&
       !this.gs()?.progress.counters['story.prologue'];
@@ -545,8 +539,12 @@ export class OverworldScene extends Phaser.Scene {
     this.markVisited();
     this.baseMap = this.readBaseMap();
     this.renderHud();
-    if (!this.pendingDebugBattle) this.showPlaceTitle();
-    if (!this.pendingDebugBattle) this.time.delayedCall(0, () => void this.showPrologue());
+    if (!this.pendingDebugBattle && !persistedBattle) this.showPlaceTitle();
+    if (!this.pendingDebugBattle && !persistedBattle)
+      this.time.delayedCall(0, () => void this.showPrologue());
+
+    if (persistedBattle && !this.pendingDebugBattle)
+      this.time.delayedCall(0, () => void persistedEncounters.resume(persistedBattle));
 
     const debug = this.pendingDebugBattle;
     if (debug) {
@@ -564,7 +562,6 @@ export class OverworldScene extends Phaser.Scene {
       );
     }
   }
-
   private resetMapState(): void {
     this.busy = false;
     this.awaitingPrologue = false;
@@ -2478,6 +2475,7 @@ export class OverworldScene extends Phaser.Scene {
     const id = `${this.mapKey}:${++this.encounterSequence}`;
     void this.encounters.start({ id, battle: data, source });
   }
+
   /** フィールドを止め、白い点滅から暗転までの演出を完了する。 */
   private async prepareEncounter(_context: EncounterContext): Promise<void> {
     this.inBattle = true;

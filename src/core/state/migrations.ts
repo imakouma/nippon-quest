@@ -196,6 +196,11 @@ const migrations: Record<number, Migration> = {
       },
     };
   },
+  12: (s) => ({
+    ...s,
+    schemaVersion: 13,
+    battle: { nextSequence: 1, finalizedThrough: 0, active: null },
+  }),
 };
 
 export interface MigrateResult {

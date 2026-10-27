@@ -4,10 +4,56 @@
  * リアルタイム：敵の こうげきタイマー・コマンドゲージ・オトモの タイマーは 時間の 1 コマ（tick）ごとに 書きかわる。
  */
 import { useEffect, useState } from 'preact/hooks';
+import type { BattleEvent } from '../../core/battle/types';
 import type { Element } from '../../core/content/schemas';
+import type { BattleCommandBlockReason } from '../../core/battle/commandEvaluation';
 
 export type CommandKind = 'attack' | 'skill' | 'item' | 'swap' | 'flee' | 'recruit';
 export type MenuKind = 'none' | 'commands' | 'skills' | 'items' | 'swap';
+
+export interface StatusEffectView {
+  kind: 'attack' | 'defense' | 'stopped';
+  direction: 'up' | 'down' | 'neutral';
+  turns: number;
+}
+
+export interface BattleHistoryEntry {
+  /** `BattleState.log` 内の1始まりの位置。 */
+  eventIndex: number;
+  lines: string[];
+}
+
+export interface HpChangeView {
+  before: number;
+  after: number;
+  delta: number;
+}
+
+export interface BattleTimelineEntry {
+  eventIndex: number;
+  turn: number;
+  t: BattleEvent['t'];
+  actorId?: string;
+  targetId?: string;
+  command?: 'attack' | 'skill' | 'scan' | 'defend';
+  skillId?: string;
+  side?: 'ally' | 'enemy';
+  hp?: HpChangeView;
+}
+
+export interface BattleHistoryView {
+  recent: BattleHistoryEntry[];
+  timeline: BattleTimelineEntry[];
+  totalPresentedEvents: number;
+  omittedTimelineEvents: number;
+}
+
+export const EMPTY_BATTLE_HISTORY: BattleHistoryView = {
+  recent: [],
+  timeline: [],
+  totalPresentedEvents: 0,
+  omittedTimelineEvents: 0,
+};
 
 export interface EnemyView {
   name: string;
@@ -19,6 +65,7 @@ export interface EnemyView {
   weaknessRevealed: boolean;
   isBoss: boolean;
   defMult: number;
+  effects: StatusEffectView[];
 }
 
 export interface AllyView {
@@ -32,6 +79,7 @@ export interface AllyView {
   /** 次のレベルまでの進み具合 0〜1（主人公だけ） */
   xpRatio?: number;
   defMult: number;
+  effects: StatusEffectView[];
   /** 前に 立って いる（敵に ねらわれる） */
   front: boolean;
   /** オトモの パッシブ（この 教科の ゲージが たまりやすい） */
@@ -54,6 +102,7 @@ export interface SubjectGaugeView {
 export interface CommandOption {
   kind: CommandKind;
   disabled: boolean;
+  blockReason?: BattleCommandBlockReason;
   /** 「なかまにさそう」が使えるようになったときなどに光らせる */
   glow?: boolean;
 }
@@ -79,6 +128,7 @@ export interface SkillOption {
   effect: 'damage' | 'heal' | 'buff' | 'debuff' | 'scan' | 'status';
   flavor?: string;
   disabled: boolean;
+  blockReason?: BattleCommandBlockReason;
   /** 使えない理由（問題じゅんびちゅう）。ゲージ不足は ゲージの 絵で 見せる */
   reason?: string;
 }
@@ -91,6 +141,7 @@ export interface ItemOption {
   /** どうぐの アイコン（data URL） */
   icon: string;
   disabled: boolean;
+  blockReason?: BattleCommandBlockReason;
   reason?: string;
 }
 
@@ -104,6 +155,7 @@ export interface SwapOption {
   /** オトモに したときの パッシブの 教科 */
   passive?: string;
   disabled: boolean;
+  blockReason?: BattleCommandBlockReason;
   active: boolean;
 }
 
@@ -194,6 +246,7 @@ export interface HudState {
   /** 問題の あいだに うけた こうげきの 回数（ふえるたびに 帯を ゆらして 赤く 光る） */
   shake: number;
   result: ResultView | null;
+  history: BattleHistoryView;
 }
 
 export type UiAction =
@@ -227,6 +280,7 @@ export const initialHudState = (): HudState => ({
   stripPops: [],
   shake: 0,
   result: null,
+  history: EMPTY_BATTLE_HISTORY,
 });
 
 export class HudStore {
@@ -250,6 +304,20 @@ export class HudStore {
     return () => this.subs.delete(fn);
   }
 
+  subscribeSelector<T>(
+    select: (state: HudState) => T,
+    listener: (value: T) => void,
+    equal: (previous: T, next: T) => boolean = Object.is,
+  ): () => void {
+    let selected = select(this.state);
+    return this.subscribe(() => {
+      const next = select(this.state);
+      if (equal(selected, next)) return;
+      selected = next;
+      listener(next);
+    });
+  }
+
   dispatch(a: UiAction): void {
     this.onAction?.(a);
   }
@@ -262,4 +330,17 @@ export function useHud(store: HudStore): HudState {
     return store.subscribe(() => setS(store.get()));
   }, [store]);
   return s;
+}
+
+export function useHudSelector<T>(
+  store: HudStore,
+  select: (state: HudState) => T,
+  equal: (previous: T, next: T) => boolean = Object.is,
+): T {
+  const [selected, setSelected] = useState(() => select(store.get()));
+  useEffect(() => {
+    setSelected(select(store.get()));
+    return store.subscribeSelector(select, setSelected, equal);
+  }, [equal, select, store]);
+  return selected;
 }

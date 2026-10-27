@@ -19,6 +19,16 @@ const ctx: NarrateCtx = {
   isBossBattle: false,
 };
 
+const ACTION = { actionId: 'turn:1:action:0' as const };
+const attack = (): BattleEvent => ({
+  t: 'act',
+  ...ACTION,
+  side: 'ally',
+  actorId: 'hero',
+  targetIds: ['enemy'],
+  command: 'attack',
+});
+
 beforeAll(() => {
   setDictionary({ battle: { attack: '{name} attacks', defeat: 'Defeat' } } as I18nDict);
 });
@@ -51,14 +61,15 @@ function turn(turnNumber: number): BattleEvent {
 
 describe('battle presentation command compiler', () => {
   it('keeps event boundaries ordered while allowing only declared within-event parallelism', () => {
-    const commands = compileBattlePresentation(
-      [{ t: 'act', side: 'ally', actorId: 'hero', command: 'attack' }, turn(2)],
-      ctx,
-    );
+    const action = attack();
+    const commands = compileBattlePresentation([action, turn(2)], ctx);
 
     expect(commands).toHaveLength(2);
     expect(commands[0]).toMatchObject({ kind: 'parallel' });
     expect(commands[1]).toMatchObject({ kind: 'visual', event: { t: 'turnStart', turn: 2 } });
+    expect(commands[0]).not.toHaveProperty('next');
+    expect(JSON.stringify(commands[0])).not.toContain('"next"');
+    expect(JSON.stringify(commands[0])).toContain('"targetIds":["enemy"]');
   });
 });
 
@@ -170,7 +181,7 @@ describe('BattlePresentationRuntime', () => {
     const runtime = new BattlePresentationRuntime(port);
     runtime.setFastForward(true);
 
-    await runtime.enqueue([{ t: 'act', side: 'ally', actorId: 'hero', command: 'attack' }], ctx);
+    await runtime.enqueue([attack()], ctx);
 
     expect(port.text.log).toHaveBeenCalledWith('hero attacks');
     expect(port.clock.wait).not.toHaveBeenCalled();
@@ -182,7 +193,7 @@ describe('BattlePresentationRuntime', () => {
     const runtime = new BattlePresentationRuntime(port);
     runtime.setFastForward(true);
 
-    await runtime.enqueue([{ t: 'defeat' }], ctx);
+    await runtime.enqueue([{ t: 'defeat', ...ACTION }], ctx);
 
     expect(port.text.say).toHaveBeenCalledWith('Defeat', 'wait', expect.any(AbortSignal));
     expect(port.visual.play).toHaveBeenCalledTimes(1);
@@ -200,7 +211,7 @@ describe('BattlePresentationRuntime', () => {
       },
     });
     const runtime = new BattlePresentationRuntime(port);
-    const task = runtime.enqueue([{ t: 'act', side: 'ally', actorId: 'hero', command: 'attack' }], ctx);
+    const task = runtime.enqueue([attack()], ctx);
 
     await started;
     runtime.skipSkippable();

@@ -20,7 +20,6 @@ export type BattleWaitCommand = {
 export type BattleVisualCommand = {
   kind: 'visual';
   event: BattleEvent;
-  next?: BattleEvent;
 };
 
 export type BattlePresentationCommand =
@@ -99,7 +98,6 @@ export function compileBattlePresentation(
     const visual: BattlePresentationCommand = {
       kind: 'visual',
       event,
-      next: events[index + 1],
     };
     const animation: BattlePresentationCommand =
       event.t === 'act' && event.command === 'skill'

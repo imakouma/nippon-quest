@@ -15,7 +15,7 @@ export function canRecruitByCommand(input: {
   const { state, enemy } = input;
   return (
     input.storyCompanion &&
-    !state.isBossBattle &&
+    state.ruleset.recruitment.mode === 'standard' &&
     enemy.recruitRate > 0 &&
     state.enemy.hp > 0 &&
     (Boolean(recruitGiftId(state, enemy)) || state.enemy.hp / state.enemy.stats.hp <= input.hpThreshold)

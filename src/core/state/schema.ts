@@ -12,8 +12,9 @@ import {
   statsSchema,
 } from '../content/schemas';
 import { attemptEventSchema, conceptStateSchema } from '../learning/state';
+import { battleResumeStateSchema } from './battleResume';
 
-export const SCHEMA_VERSION = 12;
+export const SCHEMA_VERSION = 13;
 
 export const fieldFacingSchema = z.enum(['down', 'left', 'right', 'up']);
 
@@ -72,6 +73,7 @@ export const gameStateSchema = z.object({
   createdAt: z.number(),
   updatedAt: z.number(),
   seed: z.string(),
+  battle: battleResumeStateSchema,
   player: z.object({
     name: z.string().min(1).max(6),
     appearance: z.object({

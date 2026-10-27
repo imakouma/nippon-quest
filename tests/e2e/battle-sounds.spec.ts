@@ -82,9 +82,18 @@ test('攻撃・通常/強ヒット・被ダメージ・回復を実音源で再�
     const battle = window.__nq.scene.getScene('Battle') as Combat;
     const hero = battle.state.ally.hero.id;
     const enemy = battle.state.enemy.id;
-    await battle.animate({ t: 'act', side: 'ally', actorId: hero, command: 'attack' });
+    const actionId = 'turn:1:action:0' as const;
+    await battle.animate({
+      t: 'act',
+      actionId,
+      side: 'ally',
+      actorId: hero,
+      targetIds: [enemy],
+      command: 'attack',
+    });
     const damage = {
       t: 'damage',
+      actionId,
       side: 'enemy',
       targetId: enemy,
       amount: 1,
@@ -98,7 +107,7 @@ test('攻撃・通常/強ヒット・被ダメージ・回復を実音源で再�
     await battle.animate({ ...damage, critical: true });
     await battle.animate({ ...damage, scoreBand: 'perfect' });
     await battle.animate({ ...damage, side: 'ally', targetId: hero });
-    await battle.animate({ t: 'heal', side: 'ally', targetId: hero, amount: 1 });
+    await battle.animate({ t: 'heal', actionId, side: 'ally', targetId: hero, amount: 1 });
   });
   expect(await page.evaluate(() => window.__combatPlayed.map((sound) => sound.name))).toEqual([
     'slash.mp3',
@@ -124,7 +133,13 @@ test('攻撃・通常/強ヒット・被ダメージ・回復を実音源で再�
     const state = game.registry.get('game');
     game.registry.set('game', { ...state, settings: { ...state.settings, seVolume: 0 } });
     const battle = game.scene.getScene('Battle') as Combat;
-    await battle.animate({ t: 'heal', side: 'ally', targetId: battle.state.ally.hero.id, amount: 1 });
+    await battle.animate({
+      t: 'heal',
+      actionId: 'turn:1:action:0',
+      side: 'ally',
+      targetId: battle.state.ally.hero.id,
+      amount: 1,
+    });
   });
   expect(await page.evaluate(() => window.__combatPlayed.length)).toBe(6);
   await expect.poll(bgmPlaying).toBe(true);
@@ -133,7 +148,13 @@ test('攻撃・通常/強ヒット・被ダメージ・回復を実音源で再�
     const state = game.registry.get('game');
     game.registry.set('game', { ...state, settings: { ...state.settings, seVolume: 0.8 } });
     const battle = game.scene.getScene('Battle') as Combat;
-    await battle.animate({ t: 'heal', side: 'ally', targetId: battle.state.ally.hero.id, amount: 1 });
+    await battle.animate({
+      t: 'heal',
+      actionId: 'turn:1:action:0',
+      side: 'ally',
+      targetId: battle.state.ally.hero.id,
+      amount: 1,
+    });
   });
   expect(await page.evaluate(() => window.__combatPlayed.length)).toBe(7);
   expect(requests).toHaveLength(5);

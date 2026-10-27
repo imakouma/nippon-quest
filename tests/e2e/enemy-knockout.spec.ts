@@ -133,7 +133,7 @@ for (const viewport of [
     expect(result.before.foot).toBe(result.initial.foot);
     expect(result.before.alpha).toBe(1);
     expect(result.events.filter(({ event }) => event.t === 'ko').map(({ event }) => event)).toEqual([
-      { t: 'ko', side: 'enemy', targetId: 'enemy' },
+      { t: 'ko', actionId: 'turn:1:action:0', side: 'enemy', targetId: 'enemy' },
     ]);
     expect(
       Math.max(...visible.map((frame) => Math.abs(frame.foot - result.before.foot))),

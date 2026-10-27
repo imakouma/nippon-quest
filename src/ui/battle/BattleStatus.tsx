@@ -2,7 +2,7 @@ import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
-import type { AllyView, EnemyView, HudState, SubjectGaugeView } from './store';
+import type { AllyView, EnemyView, HudState, StatusEffectView, SubjectGaugeView } from './store';
 
 export type BarKind = 'hp' | 'mp' | 'xp' | 'cmd' | 'time';
 
@@ -44,6 +44,33 @@ export function TurnBadge({ turn, class: cls }: { turn: number; class: string })
   return <span class={`nq-turn ${cls}`}>{t('battle.turn', { n: turn })}</span>;
 }
 
+function StatusEffects({ effects }: { effects: StatusEffectView[] }) {
+  if (effects.length === 0) return null;
+  return (
+    <div class="nq-effects" aria-label={t('battle.statusEffects')}>
+      {effects.map((effect) => {
+        const marker = effect.direction === 'up' ? '▲' : effect.direction === 'down' ? '▼' : '×';
+        return (
+          <span
+            key={effect.kind}
+            class={`nq-effect nq-effect-${effect.direction}`}
+            data-status-effect={effect.kind}
+            aria-label={t('battle.statusEffectLabel', {
+              name: t(`battle.status.${effect.kind}`),
+              direction: t(`battle.statusDirection.${effect.direction}`),
+              n: effect.turns,
+            })}
+          >
+            <RubyLabel text={t(`battle.status.${effect.kind}`)} />
+            <span aria-hidden="true">{marker}</span>
+            <span>{t('battle.statusTurns', { n: effect.turns })}</span>
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
 export function EnemyWindow({ e }: { e: EnemyView }) {
   return (
     <div class={`nq-win nq-foe ${e.isBoss ? 'nq-foe-boss' : ''}`}>
@@ -68,6 +95,7 @@ export function EnemyWindow({ e }: { e: EnemyView }) {
           showValue
         />
       </div>
+      <StatusEffects effects={e.effects} />
     </div>
   );
 }
@@ -98,7 +126,6 @@ export function AllyRow({
             <PixelIcon name={`subj-${a.passive}`} scale={2} />
           </span>
         )}
-        {a.defMult > 1 && <span class="nq-chip nq-def">{t('battle.defMark')}▲</span>}
       </div>
       <div class="nq-ally-hp">
         {down ? (
@@ -113,6 +140,7 @@ export function AllyRow({
           />
         )}
       </div>
+      <StatusEffects effects={a.effects} />
       {a.isHero && !down && gauges.length > 0 && <GaugeColumn list={gauges} compact />}
     </div>
   );

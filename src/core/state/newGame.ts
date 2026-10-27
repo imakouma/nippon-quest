@@ -18,6 +18,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLe
     createdAt: now,
     updatedAt: now,
     seed: freshSeed(),
+    battle: { nextSequence: 1, finalizedThrough: 0, active: null },
     player: {
       name: o.name,
       appearance: { hair: 0, skin: 0, cloth: 0, hairStyle: 0, eyes: 0, ...o.appearance },

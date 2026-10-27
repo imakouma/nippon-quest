@@ -1,4 +1,8 @@
-import type { BattleSkill } from '../../core/battle/engine';
+import type { BattleDeps, BattleSkill } from '../../core/battle/engine';
+import {
+  evaluateBattleCommand,
+  type BattleCommandEvaluationContext,
+} from '../../core/battle/commandEvaluation';
 import type { BattleEvent, BattleState } from '../../core/battle/types';
 import type { UiAction } from '../../ui/battle/store';
 
@@ -40,8 +44,14 @@ export function combatantName(state: BattleState, id: string): string {
 
 export function battleSkillStillUsable(
   state: BattleState,
-  skills: readonly BattleSkill[],
   entry: BattleSkill,
+  deps: BattleDeps,
+  context: BattleCommandEvaluationContext,
 ): boolean {
-  return skills.some((skill) => skill.actorId === entry.actorId && skill.skill.id === entry.skill.id);
+  return evaluateBattleCommand(
+    state,
+    { kind: 'skill', skillId: entry.skill.id, actorId: entry.actorId },
+    deps,
+    context,
+  ).allowed;
 }

@@ -28,6 +28,7 @@ describe('バトル結果の表示モデル', () => {
       summary,
       {
         t: 'victory',
+        actionId: 'turn:1:action:0',
         xp: 12,
         gold: 8,
         drops: summary.drops,
@@ -65,7 +66,16 @@ describe('バトル結果の表示モデル', () => {
         recruitAccepted: false,
         perfectBySubject: {},
       },
-      { t: 'victory', xp: 0, gold: 0, drops: [], recruitOffer: true, bonus: 1, maxCombo: 0 },
+      {
+        t: 'victory',
+        actionId: 'turn:1:action:0',
+        xp: 0,
+        gold: 0,
+        drops: [],
+        recruitOffer: true,
+        bonus: 1,
+        maxCombo: 0,
+      },
       'テストモンスター',
       game,
       c,
@@ -97,6 +107,7 @@ describe('バトル結果の表示モデル', () => {
       },
       {
         t: 'victory',
+        actionId: 'turn:1:action:0',
         xp: gainedXp,
         gold: 0,
         drops: [],

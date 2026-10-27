@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest';
+import { createBattle } from '../../src/core/battle/engine';
+import { makeMonster } from '../../src/core/battle/factory';
 import { applyBattleResult, type BattleSummary } from '../../src/core/progression/battleResult';
-import { settleBattleBag, syncCappedLevels } from '../../src/core/progression/battleSettlement';
+import {
+  settleBattleBag,
+  settleBattleOnce,
+  syncCappedLevels,
+} from '../../src/core/progression/battleSettlement';
 import { partyFromGameState } from '../../src/core/battle/setup';
+import { beginBattleResume, checkpointBattleResume } from '../../src/core/state/battleResume';
 import { createNewGame } from '../../src/core/state/newGame';
 import { recordPlayDuration } from '../../src/core/state/playTime';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
@@ -23,6 +30,47 @@ const summary = (overrides: Partial<BattleSummary> = {}): BattleSummary => ({
   perfectBySubject: {},
   ...overrides,
 });
+
+async function resumableBattle(game = createNewGame({ name: 'ハル', grade: 3 }, 1_000)) {
+  const c = await content();
+  game.seed = 'settlement-seed';
+  const enemy = c.monsters.get('aomori-nebutan')!;
+  const battleState = createBattle(
+    {
+      ally: partyFromGameState(game, c),
+      enemy: makeMonster(enemy, 2, 'enemy'),
+      seed: 'battle-seed',
+    },
+    {
+      settings: c.settings,
+      elements: c.elements,
+      skills: c.skills,
+      items: c.items,
+      monsters: c.monsters,
+    },
+  );
+  battleState.outcome = 'victory';
+  const started = beginBattleResume(game, {
+    launch: {
+      enemyId: enemy.id,
+      level: 2,
+      zone: 'field',
+      encounterId: 'temporary',
+      encounterSource: { type: 'random' },
+    },
+    battleState,
+    questionSeed: 'question-seed',
+    questionRngState: null,
+    perfectBySubject: {},
+  });
+  const ready = checkpointBattleResume(started.state, started.snapshot.battleId, {
+    battleState,
+    questionRngState: null,
+    perfectBySubject: {},
+    phase: { kind: 'awaiting-result' },
+  });
+  return { c, state: ready, snapshot: ready.battle.active! };
+}
 
 describe('バトル後のバッグ編成', () => {
   it('経験値後のレベルと、仲間になったモンスターの配置を純粋に決める', async () => {
@@ -166,5 +214,123 @@ describe('バトル後のバッグ編成', () => {
     expect(synced.state.party.owned[0]?.xp).toBe(capped.state.party.owned[0]?.xp);
     expect(synced.state.player.hp / newMax.hp).toBeCloseTo(before.player.hp / oldMax.hp, 1);
     expect(synced.state.player.mp / newMax.mp).toBeCloseTo(before.player.mp / oldMax.mp, 1);
+  });
+});
+
+describe('battle settlement ledger', () => {
+  it('同一battleIdの勝利報酬と仲間加入を一度だけ反映する', async () => {
+    const { c, state, snapshot } = await resumableBattle();
+    const result = summary({
+      xp: 12,
+      gold: 34,
+      drops: ['aomori-ringo'],
+      recruitAccepted: true,
+      perfectBySubject: { sansu: 2 },
+    });
+
+    const first = settleBattleOnce(
+      state,
+      { battleId: snapshot.battleId, sequence: snapshot.sequence, summary: result },
+      c,
+      2_000,
+    );
+    const second = settleBattleOnce(
+      first.state,
+      { battleId: snapshot.battleId, sequence: snapshot.sequence, summary: result },
+      c,
+      3_000,
+    );
+
+    expect(first.applied).toBe(true);
+    expect(first.settlement?.state).toEqual(first.state);
+    expect(first.state.player).toMatchObject({ xp: state.player.xp + 12, gold: state.player.gold + 34 });
+    expect(first.state.inventory['aomori-ringo']).toBe((state.inventory['aomori-ringo'] ?? 0) + 1);
+    expect(first.state.progress.counters['defeat:aomori-nebutan']).toBe(1);
+    expect(first.state.progress.counters['perfect:sansu']).toBe(2);
+    expect(first.state.progress.counters['recruit:aomori-nebutan']).toBe(1);
+    expect(first.state.party.owned.filter((monster) => monster.monsterId === 'aomori-nebutan')).toHaveLength(
+      1,
+    );
+    expect(first.state.battle.finalizedThrough).toBe(snapshot.sequence);
+    expect(first.state.battle.active?.phase).toEqual({
+      kind: 'settled',
+      result: { outcome: 'victory', goldLost: 0 },
+    });
+    expect(second).toMatchObject({ applied: false, state: first.state, settlement: null });
+    expect(second.state).toBe(first.state);
+  });
+
+  it('戦闘中に更新されたplaytimeとlearningを保持する', async () => {
+    const { c, state, snapshot } = await resumableBattle();
+    const latest = recordPlayDuration(state, '2026-10-27', 75, 1_500);
+    latest.learning.mastery['sansu.g1.tashizan'] = { value: 1, n: 1, lastAt: 1_500 };
+
+    const settled = settleBattleOnce(
+      latest,
+      {
+        battleId: snapshot.battleId,
+        sequence: snapshot.sequence,
+        summary: summary({ gold: 10 }),
+      },
+      c,
+      2_000,
+    );
+
+    expect(settled.state.learning.playSecondsByDate['2026-10-27']).toBe(75);
+    expect(settled.state.learning.mastery['sansu.g1.tashizan']).toEqual({
+      value: 1,
+      n: 1,
+      lastAt: 1_500,
+    });
+  });
+
+  it('異なるbattleIdと古いsequenceの結果を無視する', async () => {
+    const { c, state, snapshot } = await resumableBattle();
+
+    const wrongId = settleBattleOnce(
+      state,
+      { battleId: 'stale.battle.1', sequence: snapshot.sequence, summary: summary({ gold: 99 }) },
+      c,
+    );
+    const wrongSequence = settleBattleOnce(
+      state,
+      { battleId: snapshot.battleId, sequence: snapshot.sequence + 1, summary: summary({ gold: 99 }) },
+      c,
+    );
+
+    expect(wrongId).toMatchObject({ applied: false, settlement: null });
+    expect(wrongId.state).toBe(state);
+    expect(wrongSequence.state).toBe(state);
+  });
+
+  it('敗北時のお金減少も同じledgerで一度だけ反映する', async () => {
+    const game = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
+    game.player.gold = 1_000;
+    const { c, state, snapshot } = await resumableBattle(game);
+    const battleState = structuredClone(snapshot.battleState);
+    battleState.outcome = 'defeat';
+    const ready = checkpointBattleResume(state, snapshot.battleId, {
+      battleState,
+      questionRngState: null,
+      perfectBySubject: {},
+      phase: { kind: 'awaiting-result' },
+    });
+    const result = summary({ outcome: 'defeat' });
+
+    const first = settleBattleOnce(
+      ready,
+      { battleId: snapshot.battleId, sequence: snapshot.sequence, summary: result },
+      c,
+    );
+    const second = settleBattleOnce(
+      first.state,
+      { battleId: snapshot.battleId, sequence: snapshot.sequence, summary: result },
+      c,
+    );
+
+    expect(first.goldLost).toBe(100);
+    expect(first.state.player.gold).toBe(900);
+    expect(second.state.player.gold).toBe(900);
+    expect(second.applied).toBe(false);
   });
 });

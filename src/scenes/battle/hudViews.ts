@@ -1,12 +1,8 @@
+import { battleSkills, frontAlly, makeCompanion, SUBJECTS, type BattleDeps } from '../../core/battle/engine';
 import {
-  battleSkills,
-  canAfford,
-  canUseBattleItem,
-  frontAlly,
-  makeCompanion,
-  SUBJECTS,
-  type BattleDeps,
-} from '../../core/battle/engine';
+  evaluateBattleCommand,
+  type BattleCommandEvaluationContext,
+} from '../../core/battle/commandEvaluation';
 import type { BattleState, Combatant } from '../../core/battle/types';
 import type { ContentIndex } from '../../core/content/loader';
 import { heroLevel, xpToNextLevel } from '../../core/progression/battleResult';
@@ -23,25 +19,31 @@ import type {
   SwapOption,
 } from '../../ui/battle/store';
 import { itemIconUrl } from '../../rendering/itemIcons';
-import { canUseMusubiDama } from '../../core/battle/musubiDama';
 import { t } from '../../ui/i18n';
+import { buildStatusEffects } from './statusHistoryViews';
+
+const selectionContext = (context: BattleCommandEvaluationContext = {}): BattleCommandEvaluationContext => ({
+  ...context,
+  phase: 'selection',
+});
 
 export function battleItemAvailability(
   state: BattleState,
   item: Item,
   content: ContentIndex,
-): { disabled: boolean; reason?: string } {
-  if (!item.use?.recruit) return { disabled: false };
-  const monster = content.monsters.get(state.enemy.refId);
-  const usable = Boolean(
-    monster &&
-    canUseMusubiDama({
-      isBoss: state.isBossBattle || Boolean(state.enemy.isBoss),
-      hp: state.enemy.hp,
-      recruitRate: monster.recruitRate,
-    }),
+  context: BattleCommandEvaluationContext = {},
+): Pick<ItemOption, 'disabled' | 'blockReason' | 'reason'> {
+  const evaluation = evaluateBattleCommand(
+    state,
+    { kind: 'item', itemId: item.id, hasActionResult: false },
+    content,
+    selectionContext(context),
   );
-  return usable ? { disabled: false } : { disabled: true, reason: t('battle.musubiUnavailable') };
+  return {
+    disabled: !evaluation.allowed,
+    ...(evaluation.reason ? { blockReason: evaluation.reason } : {}),
+    ...(item.use?.recruit && !evaluation.allowed ? { reason: t('battle.musubiUnavailable') } : {}),
+  };
 }
 
 export function buildEnemyView(state: BattleState, hp = state.enemy.hp): EnemyView {
@@ -56,6 +58,7 @@ export function buildEnemyView(state: BattleState, hp = state.enemy.hp): EnemyVi
     weaknessRevealed: enemy.weaknessRevealed,
     isBoss: state.isBossBattle,
     defMult: enemy.buffs.def?.mult ?? 1,
+    effects: buildStatusEffects(enemy, enemy.skipTurns),
   };
 }
 
@@ -72,6 +75,7 @@ export function buildAllyViews(state: BattleState, game: GameState, content: Con
     element: combatant.element,
     isHero: combatant.isHero,
     defMult: combatant.buffs.def?.mult ?? 1,
+    effects: buildStatusEffects(combatant),
     front: combatant.id === front.id,
     ...extra,
   });
@@ -112,10 +116,18 @@ export function buildGaugeViews(
   );
 }
 
-export function buildItemOptions(state: BattleState, content: ContentIndex): ItemOption[] {
+export function buildItemOptions(
+  state: BattleState,
+  content: ContentIndex,
+  context: BattleCommandEvaluationContext = {},
+): ItemOption[] {
   return Object.entries(state.ally.items).flatMap(([id, count]) => {
     const item = content.items.get(id);
-    if (!item || count <= 0 || !canUseBattleItem(state, item)) return [];
+    if (!item || count <= 0) return [];
+    const availability = battleItemAvailability(state, item, content, context);
+    if (availability.blockReason === 'item-unusable' || availability.blockReason === 'item-no-effect') {
+      return [];
+    }
     return [
       {
         id,
@@ -123,38 +135,56 @@ export function buildItemOptions(state: BattleState, content: ContentIndex): Ite
         count,
         blurb: item.blurb,
         icon: itemIconUrl(item),
-        ...battleItemAvailability(state, item, content),
+        ...availability,
       },
     ];
   });
 }
 
-export function buildSwapOptions(state: BattleState, deps: BattleDeps): SwapOption[] {
+export function buildSwapOptions(
+  state: BattleState,
+  deps: BattleDeps,
+  context: BattleCommandEvaluationContext = {},
+): SwapOption[] {
   const ally = state.ally;
-  return ally.monsters.map((monster, index) => ({
-    index,
-    name: monster.name,
-    level: monster.level,
-    hp: monster.hp,
-    maxHp: monster.stats.hp,
-    element: monster.element,
-    passive: makeCompanion(monster, deps)?.passiveSkill?.subject,
-    disabled: index === ally.activeMonsterIndex || monster.hp <= 0,
-    active: index === ally.activeMonsterIndex,
-  }));
+  return ally.monsters.map((monster, index) => {
+    const evaluation = evaluateBattleCommand(
+      state,
+      { kind: 'swap', monsterIndex: index },
+      deps,
+      selectionContext(context),
+    );
+    return {
+      index,
+      name: monster.name,
+      level: monster.level,
+      hp: monster.hp,
+      maxHp: monster.stats.hp,
+      element: monster.element,
+      passive: makeCompanion(monster, deps)?.passiveSkill?.subject,
+      disabled: !evaluation.allowed,
+      ...(evaluation.reason ? { blockReason: evaluation.reason } : {}),
+      active: index === ally.activeMonsterIndex,
+    };
+  });
 }
 
 export function buildSkillOptions(input: {
   state: BattleState;
   deps: BattleDeps;
+  context: BattleCommandEvaluationContext;
   queryFor: (skill: Skill) => QuestionQuery;
-  hasQuestion: (skill: Skill) => boolean;
   nameOf: (id: string) => string;
   preparingLabel: string;
 }): SkillOption[] {
   const { state, deps } = input;
   return battleSkills(state, deps).map(({ skill, actorId }) => {
-    const noQuestion = !input.hasQuestion(skill);
+    const evaluation = evaluateBattleCommand(
+      state,
+      { kind: 'skill', skillId: skill.id, actorId },
+      deps,
+      selectionContext(input.context),
+    );
     return {
       key: `${actorId}:${skill.id}`,
       id: skill.id,
@@ -169,8 +199,9 @@ export function buildSkillOptions(input: {
       have: state.player.subjectGauges[skill.subject],
       effect: skill.effect,
       flavor: skill.flavor,
-      disabled: noQuestion || !canAfford(state, skill),
-      reason: noQuestion ? input.preparingLabel : undefined,
+      disabled: !evaluation.allowed,
+      ...(evaluation.reason ? { blockReason: evaluation.reason } : {}),
+      reason: evaluation.reason === 'question-unavailable' ? input.preparingLabel : undefined,
     };
   });
 }
@@ -178,27 +209,66 @@ export function buildSkillOptions(input: {
 export function buildCommandOptions(input: {
   state: BattleState;
   deps: BattleDeps;
-  hasQuestion: (skill: Skill) => boolean;
-  itemCount: number;
-  canRecruit: boolean;
+  context: BattleCommandEvaluationContext;
 }): CommandOption[] {
   const { state, deps } = input;
-  const skills = battleSkills(state, deps);
-  const special = skills.some(
-    ({ skill }) => skill.costGauge > 0 && canAfford(state, skill) && input.hasQuestion(skill),
+  const context = selectionContext(input.context);
+  const skills = battleSkills(state, deps).map((entry) => ({
+    entry,
+    evaluation: evaluateBattleCommand(
+      state,
+      { kind: 'skill', skillId: entry.skill.id, actorId: entry.actorId },
+      deps,
+      context,
+    ),
+  }));
+  const items = Object.entries(state.ally.items)
+    .filter(([, count]) => count > 0)
+    .map(([itemId]) =>
+      evaluateBattleCommand(state, { kind: 'item', itemId, hasActionResult: false }, deps, context),
+    );
+  const swaps = state.ally.monsters.map((_, monsterIndex) =>
+    evaluateBattleCommand(state, { kind: 'swap', monsterIndex }, deps, context),
   );
+  const recruitItem = deps.monsters.get(state.enemy.refId)?.recruitItem;
+  const recruit = evaluateBattleCommand(
+    state,
+    {
+      kind: 'recruit',
+      itemId: recruitItem && (state.ally.items[recruitItem] ?? 0) > 0 ? recruitItem : undefined,
+    },
+    deps,
+    context,
+  );
+  const flee = evaluateBattleCommand(state, { kind: 'flee' }, deps, context);
+  const skillAllowed = skills.some(({ evaluation }) => evaluation.allowed);
+  const itemAllowed = items.some((evaluation) => evaluation.allowed);
+  const swapAllowed = swaps.some((evaluation) => evaluation.allowed);
+  const special = skills.some(({ entry, evaluation }) => entry.skill.costGauge > 0 && evaluation.allowed);
   const list: CommandOption[] = [
-    { kind: 'skill', disabled: skills.length === 0, glow: special },
-    { kind: 'item', disabled: input.itemCount === 0 },
+    {
+      kind: 'skill',
+      disabled: !skillAllowed,
+      glow: special,
+      ...(!skillAllowed && skills[0]?.evaluation.reason ? { blockReason: skills[0].evaluation.reason } : {}),
+    },
+    {
+      kind: 'item',
+      disabled: !itemAllowed,
+      ...(!itemAllowed && items[0]?.reason ? { blockReason: items[0].reason } : {}),
+    },
     {
       kind: 'swap',
-      disabled: !state.ally.monsters.some(
-        (monster, index) => index !== state.ally.activeMonsterIndex && monster.hp > 0,
-      ),
+      disabled: !swapAllowed,
+      ...(!swapAllowed && swaps[0]?.reason ? { blockReason: swaps[0].reason } : {}),
     },
-    input.canRecruit
+    recruit.allowed
       ? { kind: 'recruit', disabled: false, glow: true }
-      : { kind: 'flee', disabled: state.isBossBattle },
+      : {
+          kind: 'flee',
+          disabled: !flee.allowed,
+          ...(flee.reason ? { blockReason: flee.reason } : {}),
+        },
   ];
   return list;
 }

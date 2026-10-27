@@ -19,6 +19,7 @@ import {
   scoreMultiplier,
 } from '../../src/core/battle/damage';
 import { createRng } from '../../src/core/rng';
+import { resolveBattleRuleset } from '../../src/core/battle/ruleset';
 import type { Skill } from '../../src/core/content/schemas';
 import type { ActionResult, BattleState, Combatant, Command } from '../../src/core/battle/types';
 import { battleItemAvailability, buildItemOptions } from '../../src/scenes/battle/hudViews';
@@ -352,7 +353,7 @@ describe('ターンの すすみかた（優先度 → すばやさ → 同速�
     const result = act(almostDown, { kind: 'attack' }, D);
     expect(result.state.outcome).toBe('victory');
     expect(result.events.filter((event) => event.t === 'ko')).toEqual([
-      { t: 'ko', side: 'enemy', targetId: state.enemy.id },
+      { t: 'ko', actionId: 'turn:1:action:0', side: 'enemy', targetId: state.enemy.id },
     ]);
   });
 
@@ -363,6 +364,11 @@ describe('ターンの すすみかた（優先度 → すばやさ → 同速�
     expect(r.state.turn).toBe(1);
     expect(r.state.enemy.hp).toBe(state.enemy.hp);
     expect(isHeroReady(r.state)).toBe(true);
+    expect(r.evaluation).toMatchObject({
+      allowed: false,
+      reason: 'insufficient-gauge',
+      consumesTurn: false,
+    });
   });
 
   it('ボスから にげられない ときも ターンは すすまない', async () => {
@@ -372,6 +378,7 @@ describe('ターンの すすみかた（優先度 → すばやさ → 同速�
     expect(r.events.some((e) => e.t === 'fleeAttempt' && !e.success)).toBe(true);
     expect(r.state.outcome).toBe('ongoing');
     expect(r.state.turn).toBe(1);
+    expect(r.evaluation).toMatchObject({ allowed: false, reason: 'boss-flee-blocked' });
   });
 
   it('何ターンか たたかうと 味方の HP が へる（バトルは すすむ）', async () => {
@@ -560,17 +567,23 @@ describe('教科の 固有スキル・オトモの 必殺技', () => {
     expect(r.state.player.comboCount).toBe(1);
   });
 
-  it('使えない わざ（知らない わざ・たおれた オトモの わざ）は エラー', async () => {
+  it('使えない わざ（知らない わざ・たおれた オトモの わざ）は理由つきで拒否する', async () => {
     const { state } = await setup({ withMonster: true });
-    expect(() => act(state, { kind: 'skill', skillId: 'sk-fubuki', result: R(1) }, D)).toThrow();
+    const unknown = act(state, { kind: 'skill', skillId: 'sk-fubuki', result: R(1) }, D);
+    expect(unknown.evaluation).toMatchObject({ allowed: false, reason: 'skill-unavailable' });
+    expect(unknown.state.turn).toBe(state.turn);
     const down: BattleState = {
       ...state,
       ally: { ...state.ally, monsters: [{ ...state.ally.monsters[0]!, hp: 0 }] },
       companion: null,
     };
-    expect(() =>
-      act(down, { kind: 'skill', skillId: 'sk-hono-no-mai', result: R(1), actorId: 'pal' }, D),
-    ).toThrow();
+    const unavailable = act(
+      down,
+      { kind: 'skill', skillId: 'sk-hono-no-mai', result: R(1), actorId: 'pal' },
+      D,
+    );
+    expect(unavailable.evaluation).toMatchObject({ allowed: false, reason: 'actor-unavailable' });
+    expect(unavailable.state.turn).toBe(down.turn);
   });
 });
 
@@ -703,13 +716,24 @@ describe('コマンド', () => {
     expect(r.state.ally.items['aomori-ringo']).toBe(2);
     expect(r.state.turn).toBe(1);
     expect(r.events).toEqual([]);
+    expect(r.evaluation).toMatchObject({ allowed: false, reason: 'item-no-effect' });
+  });
+
+  it('無効な交代先を理由つきで拒否し、ターンを進めない', async () => {
+    const { state } = await setup({ withMonster: true });
+    const r = act(state, { kind: 'swap', monsterIndex: state.ally.activeMonsterIndex }, D);
+    expect(r.evaluation).toMatchObject({ allowed: false, reason: 'already-active' });
+    expect(r.state.turn).toBe(state.turn);
+    expect(r.events).toEqual([]);
   });
 
   it('むすび玉は通常敵に表示し、ボス戦では理由つきで無効にする', async () => {
     const { state, c } = await setup();
     const item = c.items.get('common-musubi-dama')!;
+    state.ally.items[item.id] = 1;
     expect(battleItemAvailability(state, item, c).disabled).toBe(false);
     state.isBossBattle = true;
+    state.ruleset = resolveBattleRuleset({ isBossBattle: true });
     expect(battleItemAvailability(state, item, c)).toMatchObject({
       disabled: true,
       reason: expect.any(String),
@@ -786,6 +810,7 @@ describe('仲間化（GDD §4.6）', () => {
     const { state } = await setup({ seed: 'musubi-dama-unavailable' });
     state.ally.items['common-musubi-dama'] = 1;
     state.isBossBattle = true;
+    state.ruleset = resolveBattleRuleset({ isBossBattle: true });
     const boss = act(
       state,
       { kind: 'item', itemId: 'common-musubi-dama', result: R(1), timeLimitScale: 1 },
@@ -794,8 +819,14 @@ describe('仲間化（GDD §4.6）', () => {
     expect(boss.state.ally.items['common-musubi-dama']).toBe(1);
 
     state.isBossBattle = false;
+    state.ruleset = resolveBattleRuleset();
     const unanswered = act(state, { kind: 'item', itemId: 'common-musubi-dama' }, D);
     expect(unanswered.state.ally.items['common-musubi-dama']).toBe(1);
+    expect(unanswered.state.turn).toBe(state.turn);
+    expect(unanswered.evaluation).toMatchObject({
+      allowed: false,
+      reason: 'action-result-required',
+    });
   });
 
   it('指定された特産品をあげると 1こ消費して必ず仲間になる', async () => {
@@ -806,6 +837,7 @@ describe('仲間化（GDD §4.6）', () => {
     expect(result.state.ally.items['aomori-ringo']).toBe(1);
     expect(result.events).toContainEqual({
       t: 'recruitGift',
+      actionId: 'turn:1:action:0',
       targetId: state.enemy.id,
       itemId: 'aomori-ringo',
     });
@@ -817,6 +849,11 @@ describe('仲間化（GDD §4.6）', () => {
 
     expect(result.state.ally.items['aomori-ringo']).toBe(2);
     expect(result.events.some((event) => event.t === 'recruitGift')).toBe(false);
+    expect(result.state.turn).toBe(state.turn);
+    expect(result.evaluation).toMatchObject({
+      allowed: false,
+      reason: 'invalid-recruit-gift',
+    });
   });
 
   it('HP が高いうちは 0%', () => {

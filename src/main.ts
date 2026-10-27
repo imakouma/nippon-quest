@@ -29,6 +29,7 @@ import { enableMobileFullscreen, registerAppServiceWorker } from './ui/mobileApp
 import { showLearningRewardNotice, type LearningRewardNotice } from './ui/learningRewardNotice';
 import { ENCLAVES } from '../scripts/data/prefectures';
 import { prepareResumeGame } from './scenes/overworld/fieldMapCatalog';
+import { GAME_PERSISTENCE_PORT_KEY, type GamePersistencePort } from './core/state/persistence';
 
 // 通常辞書を読み込めない起動失敗でも、再試行画面だけは日本語で表示する。
 setDictionary(BOOTSTRAP_JA);
@@ -195,6 +196,19 @@ game.events.on('boot:error', (e: unknown) => {
 });
 let activeSlot: SlotId = 1;
 const autosave = new AutosaveCoordinator(save);
+let explicitGameCommit = false;
+const gamePersistence: GamePersistencePort = {
+  async commit(state) {
+    explicitGameCommit = true;
+    try {
+      game.registry.set('game', state);
+    } finally {
+      explicitGameCommit = false;
+    }
+    await persistGameState('戦闘状態の保存', activeSlot, state);
+  },
+};
+game.registry.set(GAME_PERSISTENCE_PORT_KEY, gamePersistence);
 function reportSaveFailure(
   context: string,
   error: unknown,
@@ -207,6 +221,25 @@ function reportSaveFailure(
       .request(slot, state)
       .catch((nextError) => reportSaveFailure(context, nextError, slot, state));
   });
+}
+
+/** Sceneの安全境界は保存成功まで先へ進めず、同じstateを利用者の操作で再試行する。 */
+async function persistGameState(
+  context: string,
+  slot: SlotId,
+  state: Parameters<typeof save>[1],
+): Promise<void> {
+  try {
+    await autosave.request(slot, state);
+  } catch (error) {
+    console.error(`[save] ${context}に失敗しました`, error);
+    await new Promise<void>((resolve) => {
+      showError(t('ui.saveError'), () => {
+        const latest = (game.registry.get('game') as Parameters<typeof save>[1] | undefined) ?? state;
+        void persistGameState(context, slot, latest).then(resolve);
+      });
+    });
+  }
 }
 let contentPromise: Promise<ContentIndex> | undefined;
 function ensureContent(): Promise<ContentIndex> {
@@ -365,6 +398,7 @@ game.events.on('title:continue', async (slot: SlotId = 1) => {
 game.registry.events.on('changedata-game', (_parent: unknown, value: unknown) => {
   const state = value as Parameters<typeof save>[1];
   setSfxVolume(state.settings.seVolume);
+  if (explicitGameCommit) return;
   void autosave
     .request(activeSlot, state)
     .catch((error) => reportSaveFailure('オートセーブ', error, activeSlot, state));

@@ -1,6 +1,9 @@
 import type { BattleSummary } from '../../core/progression/battleResult';
 import type { EncounterZone } from '../../core/encounter/contentAdapter';
+import type { BattleRulesetId } from '../../core/battle/ruleset';
+import type { Party } from '../../core/battle/types';
 import type { Ground } from '../../core/world/ground';
+import type { QuestionQuery } from '../../questions/contracts';
 import type { BattlePresentation } from './layout';
 
 /** Overworld から Battle Scene へ渡す、表示層間の安定した契約。 */
@@ -14,7 +17,7 @@ export type EncounterSource =
   | { type: 'arena'; opponentId: string }
   | { type: 'script' };
 
-export interface BattleSceneData {
+interface BattleSceneBase {
   enemyId: string;
   level: number;
   zone: EncounterZone;
@@ -30,10 +33,26 @@ export interface BattleSceneData {
   presentation?: BattlePresentation;
 }
 
-export interface BattleLaunchData extends BattleSceneData {
+type ScriptedQuestionQueries = readonly [QuestionQuery, ...QuestionQuery[]];
+
+export type PersistentBattleSceneData = BattleSceneBase & {
+  kind?: Exclude<BattleRulesetId, 'tutorial'>;
+  party?: never;
+  scriptedQuestions?: never;
+};
+
+export type TutorialBattleSceneData = BattleSceneBase & {
+  kind: 'tutorial';
+  party: Party;
+  scriptedQuestions: ScriptedQuestionQueries;
+};
+
+export type BattleSceneData = PersistentBattleSceneData | TutorialBattleSceneData;
+
+export type BattleLaunchData = BattleSceneData & {
   encounterId: string;
   encounterSource: EncounterSource;
-}
+};
 
 /** Battle Scene が終了時に通知する最小限の結果。 */
 export interface BattleEndPayload {

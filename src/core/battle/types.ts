@@ -10,6 +10,7 @@
  *  - ActionResult    … 問題の成績。ロジックは score だけを使う（docs/01 §3.3）
  */
 import type { Element, Skill, Stats, Subject } from '../content/schemas';
+import type { BattleRuleset } from './ruleset';
 
 /** ぼうぎょ などの 上げ下げ（倍率と のこりターン数） */
 export interface Buff {
@@ -112,24 +113,32 @@ export interface BattleState {
   seed: string;
   outcome: 'ongoing' | 'victory' | 'defeat' | 'fled' | 'recruited';
   isBossBattle: boolean;
-  /** 開発者モードのとき true：ボス戦でも にげられる（ふだんの ボス戦は にげられない） */
-  canFleeBoss?: boolean;
+  /** 行動制約・報酬・問題・パーティ供給の唯一の戦闘ルール。 */
+  ruleset: BattleRuleset;
   log: BattleEvent[];
 }
 
 export type ScoreBandName = 'perfect' | 'good' | 'weak' | 'miss';
 
-export type BattleEvent =
-  /** ターンの はじまり（主人公が 動く 前） */
-  | { t: 'turnStart'; turn: number }
+/** 1 回の成立行動を、event の並び順に依存せず束ねる決定論的 ID。 */
+export type BattleActionId = `turn:${number}:action:${number}`;
+
+export interface BattleActionRef {
+  actionId: BattleActionId;
+}
+
+type BattleActionEvent =
   /** auto = オトモの 自動こうげき */
   | {
       t: 'act';
       side: Side;
       actorId: string;
+      targetIds: readonly string[];
       command: 'attack' | 'skill' | 'scan' | 'defend';
       skillId?: string;
       auto?: boolean;
+      /** counter など、別行動から派生する action の発火元。 */
+      causedByActionId?: BattleActionId;
     }
   | {
       t: 'damage';
@@ -165,8 +174,6 @@ export type BattleEvent =
       unlocked: string[];
     }
   | { t: 'gaugeUse'; subject: Subject; amount: number; value: number }
-  /** 教科ゲージが たりなくて 打てない（ターンは すすまない） */
-  | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
   | { t: 'itemUsed'; itemId: string; targetId: string; side?: Side }
   | { t: 'recruitGift'; itemId: string; targetId: string }
   /** auto = オトモが たおれて、次の 仲間が 自動で 前に 出た */
@@ -188,3 +195,14 @@ export type BattleEvent =
   | { t: 'defeat' }
   | { t: 'fled' }
   | { t: 'recruited'; monsterId: string };
+
+export type BattleEvent =
+  /** ターンの はじまり（主人公が 動く 前） */
+  | { t: 'turnStart'; turn: number }
+  /** 教科ゲージが たりなくて 打てない（ターンは すすまない） */
+  | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
+  /** にげられないボスへの試行は成立行動ではないので actionId を持たない。 */
+  | { t: 'fleeAttempt'; success: false; chance: 0 }
+  /** 仲間にできない戦闘での試行も成立行動ではないので actionId を持たない。 */
+  | { t: 'recruitAttempt'; targetId: string; success: false; chance: 0 }
+  | (BattleActionEvent & BattleActionRef);

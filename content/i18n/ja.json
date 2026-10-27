@@ -142,6 +142,32 @@
   },
   "battle": {
     "commandMenu": "コマンド",
+    "historyTitle": "たたかいの きろく",
+    "historyEmpty": "まだ きろくが ないよ",
+    "eventsOpen": "イベント",
+    "eventsTitle": "イベント タイムライン",
+    "eventsClose": "とじる",
+    "eventsOmitted": "前[まえ]の {n}件[けん]を 省略[しょうりゃく]",
+    "timelineTurn": "T{n}",
+    "timelineSide": "side={value}",
+    "timelineActor": "actor={value}",
+    "timelineTarget": "target={value}",
+    "timelineCommand": "command={value}",
+    "timelineSkill": "skill={value}",
+    "timelineHp": "HP {before}→{after} ({delta})",
+    "statusEffects": "いまの こうか",
+    "statusTurns": "{n}T",
+    "statusEffectLabel": "{name} {direction} のこり {n}ターン",
+    "statusDirection": {
+      "up": "あがっている",
+      "down": "さがっている",
+      "neutral": "とまっている"
+    },
+    "status": {
+      "attack": "こうげき",
+      "defense": "ぼうぎょ",
+      "stopped": "うごけない"
+    },
     "appear": "{name}が あらわれた！",
     "appearBoss": "{name}が たちはだかった！",
     "whatWillDo": "{name}は どうする？",

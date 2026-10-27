@@ -241,6 +241,20 @@ describe('encounter lifecycle', () => {
     expect(calls).toEqual(['prepare:enc-1', 'launch:enc-1', 'restore:enc-1', 'apply:enc-1:complete-source']);
   });
 
+  it('settled結果の再開はBattleを再起動せず、既存policyだけを一度反映する', async () => {
+    const { lifecycle, ports, calls } = lifecycleHarness();
+    const resumed = await lifecycle.resumeResult(
+      context('boss-resume', { type: 'area-boss' }),
+      result('victory'),
+    );
+
+    expect(resumed).toBe(true);
+    expect(ports.prepareField).not.toHaveBeenCalled();
+    expect(ports.launchBattle).not.toHaveBeenCalled();
+    expect(ports.restoreField).not.toHaveBeenCalled();
+    expect(calls).toEqual(['apply:boss-resume:complete-source']);
+  });
+
   it('cancel後に届いたresultを無視し、fieldを復帰する', async () => {
     const { lifecycle, ports, flow } = lifecycleHarness();
     const started = lifecycle.start(context('enc-1'));

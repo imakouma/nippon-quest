@@ -1,9 +1,16 @@
 /** バトル結果をバッグ編成まで反映する純粋な後処理。Scene は通知の表示だけを担当する。 */
 import type { ContentIndex } from '../content/loader';
 import { partyFromGameState } from '../battle/setup';
-import { heroLevel, levelForXp, type AppliedBattle } from './battleResult';
+import {
+  applyBattleResult,
+  heroLevel,
+  levelForXp,
+  type AppliedBattle,
+  type BattleSummary,
+} from './battleResult';
 import { bagCapacity, bagContext, stowNewMonster } from './bag';
 import type { GameState } from '../state/schema';
+import { checkpointBattleResume, type PersistedBattleEndPayload } from '../state/battleResume';
 
 export interface BattleSettlement {
   state: AppliedBattle['state'];
@@ -16,6 +23,14 @@ export interface CappedLevelSync {
   state: GameState;
   level: { before: number; after: number };
   monsterLevelUps: { uid: string; before: number; after: number }[];
+}
+
+export interface BattleSettlementDecision {
+  applied: boolean;
+  state: GameState;
+  settlement: BattleSettlement | null;
+  goldLost: number;
+  result: PersistedBattleEndPayload | null;
 }
 
 const scaledResource = (current: number, oldMaximum: number, newMaximum: number, minimum: number) =>
@@ -100,5 +115,63 @@ export function settleBattleBag(
     },
     monsterLevelUps: synced.monsterLevelUps,
     recruitStored,
+  };
+}
+
+/**
+ * 永続 battleId/sequence を guard にして、戦闘結果と完了台帳を同じ state へ一度だけ反映する。
+ * 保存再試行や遅延した Scene event は no-op になり、最新の学習・プレイ時間更新を基底に保つ。
+ */
+export function settleBattleOnce(
+  previous: GameState,
+  input: { battleId: string; sequence: number; summary: BattleSummary },
+  content: ContentIndex,
+  now = Date.now(),
+): BattleSettlementDecision {
+  const active = previous.battle.active;
+  const duplicateResult =
+    active?.battleId === input.battleId && active.phase.kind === 'settled' ? active.phase.result : null;
+  if (
+    !active ||
+    active.battleId !== input.battleId ||
+    active.sequence !== input.sequence ||
+    active.sequence <= previous.battle.finalizedThrough ||
+    active.phase.kind !== 'awaiting-result' ||
+    active.battleState.outcome !== input.summary.outcome
+  ) {
+    return {
+      applied: false,
+      state: previous,
+      settlement: null,
+      goldLost: duplicateResult?.goldLost ?? 0,
+      result: duplicateResult,
+    };
+  }
+
+  const applied = applyBattleResult(previous, input.summary, content.settings, now);
+  const settled = settleBattleBag(previous, applied, content);
+  const result: PersistedBattleEndPayload = {
+    outcome: input.summary.outcome,
+    goldLost: applied.goldLost,
+  };
+  const withSettledPhase = checkpointBattleResume(settled.state, input.battleId, {
+    battleState: active.battleState,
+    questionRngState: active.questionRngState,
+    perfectBySubject: active.perfectBySubject,
+    phase: { kind: 'settled', result },
+  });
+  const state: GameState = {
+    ...withSettledPhase,
+    battle: {
+      ...withSettledPhase.battle,
+      finalizedThrough: active.sequence,
+    },
+  };
+  return {
+    applied: true,
+    state,
+    settlement: { ...settled, state },
+    goldLost: applied.goldLost,
+    result,
   };
 }

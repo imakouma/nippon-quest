@@ -1,5 +1,18 @@
 import type { Skill } from '../../core/content/schemas';
+import type { QuestionRule } from '../../core/battle/ruleset';
 import type { Grade, QuestionQuery, Subject } from '../../questions/contracts';
+
+/** ruleset に従い、従来の skill query または明示された scripted query を選ぶ。 */
+export function selectBattleQuestionQuery(
+  rule: QuestionRule,
+  skillDriven: QuestionQuery,
+  scripted: readonly QuestionQuery[] | undefined,
+  index: number,
+): QuestionQuery {
+  if (rule.mode === 'skill-driven') return skillDriven;
+  if (!scripted?.length) throw new Error('scripted question query is required for this battle ruleset');
+  return scripted[index % scripted.length]!;
+}
 
 /** スキルの質問条件。固有スキルはプレイヤー学年から段階的に候補を広げる。 */
 export function questionQueryForSkill(input: {

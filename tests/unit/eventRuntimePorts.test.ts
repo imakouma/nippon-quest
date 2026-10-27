@@ -20,6 +20,7 @@ function harness() {
     active: null,
     start: vi.fn(async () => true),
     startInFlow: vi.fn(async () => ({ outcome: 'victory' as const, goldLost: 0 })),
+    resumeResult: vi.fn(async () => true),
     finish: vi.fn(async () => undefined),
     cancel: vi.fn(),
   };
@@ -101,7 +102,7 @@ describe('event runtime scene ports', () => {
     expect(h.encounter.startInFlow).toHaveBeenCalledWith(
       {
         id: 'event:1',
-        battle: { enemyId: 'aomori-ringoron', level: 4, zone: 'field', isBoss: undefined },
+        battle: { enemyId: 'aomori-ringoron', level: 4, zone: 'field', isBoss: undefined, kind: 'event' },
         source: { type: 'script' },
       },
       h.flow,
