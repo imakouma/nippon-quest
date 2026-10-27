@@ -76,6 +76,45 @@ Top row: cheerful neutral, lantern bounce with three flames lifting, blink with 
 Constraints: preserve face, headband, exactly three attached flames, exactly two patterned side panels, belly, belt, two arms and two legs; real pose differences; transparent background; no shadow, text, grid, loose fire aura, extra lanterns, flames, limbs, weapons or loose effects.
 ```
 
+## aomori-himemassu
+
+- 出力: `assets/sprites/animations/batch-01/aomori-himemassu-v1.png`
+- 参照: `pixels/aomori-himemassu.png`, `sheets/aomori-himemassu.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI HIMEMASSU. Preserve an extremely round silver-gray princess trout mascot with white lower belly, broad curved pink lateral stripe, two white rectangular eyes, tiny dark mouth, one blue dorsal fin, two small blue side fins, and two tiny blue lower fins supporting the body.
+Top row: calm neutral, round-body breath with fins lifting, blink and dorsal dip, return. Bottom row: compressed wind-up, forward roll, real round fish body-check, balanced recovery.
+Constraints: preserve spherical fish face, pink stripe, white belly, one dorsal fin, two side fins and two lower fins; real pose differences; transparent background; no water aura, bubbles, shadow, text, grid, arms, hands, humanoid legs, extra fins, weapons or crop.
+```
+
+## aomori-kokeppi
+
+- 出力: `assets/sprites/animations/batch-01/aomori-kokeppi-v1.png`
+- 参照: `pixels/aomori-kokeppi.png`, `sheets/aomori-kokeppi.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI KOKEPPI. Preserve a low rounded gray river-stone spirit with no limbs, bright-green shaggy moss cap, white rectangular eyes, tiny dash mouth, centered dark O belly marking and two side dimples, moss drips, and exactly two glossy pale-blue attached water droplets.
+Top row: quiet neutral, subtle breath with moss/droplets lifting, slow blink, return. Bottom row: compressed wind-up, stone tilt, real rolling stone bash, settled recovery.
+Constraints: preserve face, stone base, moss rim, belly marking and exactly two attached droplets; real pose differences; transparent background; no loose water splash, aura, particles, shadow, text, grid, arms, hands, legs, extra droplets, weapons or crop.
+```
+
+## aomori-magurodo
+
+- 出力: `assets/sprites/animations/batch-01/aomori-magurodo-v1.png`
+- 参照: `pixels/aomori-magurodo.png`, `sheets/aomori-magurodo.jpg`, `assets/sprites/animations/aomori-ringoron-v1.png`
+
+```text
+Use case: stylized-concept
+Asset type: production 2D RPG pixel-art sprite sheet
+Primary request: Create one exact 4-column by 2-row animation sheet for AOMORI MAGURODO. Preserve a cheerful upright blue tuna warrior with dark-navy-backed oval body, bright-blue face/sides, pale-cyan belly, white eyes, smile, pink cheeks, one dorsal fin, two side fins, two lower fins, a large symmetrical crescent tuna tail, yellow flank checks, and exactly one short silver sword with yellow guard held in the right fin.
+Top row: sword-up guard idle, breath with tail/dorsal lift, blink and sword dip, return. Bottom row: sword-back wind-up, forward fin-step, real diagonal slash with tail counter-swing, sword-up recovery.
+Constraints: preserve tuna face, belly, fins, single crescent tail, flank marks and exactly one sword in the right fin; real pose differences; transparent background; no slash aura, particles, shadow, text, grid, humanoid hands, extra swords, fins, tails or crop.
+```
+
 ## iwate-izumiko
 
 - 出力: `assets/sprites/animations/batch-01/iwate-izumiko-v1.png`

@@ -14,6 +14,9 @@ type Battle = Phaser.Scene & {
 const monsters = [
   'aomori-bunakko',
   'aomori-doguukun',
+  'aomori-himemassu',
+  'aomori-kokeppi',
+  'aomori-magurodo',
   'aomori-nebutan',
   'iwate-kagurabi',
   'iwate-izumiko',
