@@ -2,6 +2,10 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import assignments from '../../tasks/animation-batch-assignments.json';
 import manifest from '../../assets/sprites/animations/batch-01/manifest.json';
+import {
+  characterAnimationReference,
+  fixedCharacterAnimationSpec,
+} from '../../src/rendering/characterAnimation';
 import { monsterAnimationSpec } from '../../src/rendering/monsterAnimation';
 
 const batch = assignments.batches.find((entry) => entry.batch === 'batch-01')!;
@@ -20,6 +24,23 @@ describe('animation batch-01', () => {
     for (const entry of manifest) {
       const png = readFileSync(`assets/${entry.path}`);
       expect(png.subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+      expect(png.readUInt32BE(16)).toBe(512);
+      expect(png.readUInt32BE(20)).toBe(256);
+      expect(png[25] & 4).toBe(4);
+    }
+  });
+
+  it('exposes named-character sheets without replacing the customizable hero', () => {
+    expect(characterAnimationReference('protagonist')?.integration).toBe('customizable-reference');
+    expect(characterAnimationReference('michiru')?.integration).toBe('fixed-character');
+    expect(characterAnimationReference('shiori')?.integration).toBe('fixed-character');
+    expect(fixedCharacterAnimationSpec('protagonist')).toBeUndefined();
+    expect(fixedCharacterAnimationSpec('michiru')?.path).toBe('sprites/animations/batch-01/michiru-v1.png');
+    expect(fixedCharacterAnimationSpec('shiori')?.path).toBe('sprites/animations/batch-01/shiori-v1.png');
+    for (const id of ['protagonist', 'michiru', 'shiori']) {
+      const spec = characterAnimationReference(id)!;
+      expect(batch.ids).toContain(spec.id);
+      const png = readFileSync(`assets/${spec.path}`);
       expect(png.readUInt32BE(16)).toBe(512);
       expect(png.readUInt32BE(20)).toBe(256);
       expect(png[25] & 4).toBe(4);
