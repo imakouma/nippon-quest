@@ -13,7 +13,14 @@ const batch = assignments.batches.find((entry) => entry.batch === 'batch-01')!;
 
 describe('animation batch-01', () => {
   it('registers only produced runtime monsters owned by batch-01', () => {
-    expect(manifest.map((entry) => entry.id)).toEqual(['iwate-kagurabi', 'iwate-izumiko', 'iwate-kodamaru']);
+    expect(manifest.map((entry) => entry.id)).toEqual([
+      'aomori-bunakko',
+      'aomori-doguukun',
+      'aomori-nebutan',
+      'iwate-kagurabi',
+      'iwate-izumiko',
+      'iwate-kodamaru',
+    ]);
     for (const entry of manifest) {
       expect(batch.ids).toContain(entry.id);
       expect(entry.id).not.toMatch(/-stage-[23]$/);

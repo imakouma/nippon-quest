@@ -11,20 +11,20 @@
 
 ## 進捗
 
-- 制作・登録・PC/横向きスマホE2E済み: 3
+- 制作・登録・PC/横向きスマホE2E済み: 6
 - 人物素材・専用API・unit済み（共通Scene未組込み）: 3
 - 進化資料室素材・unit済み（ゲーム未組込み）: 6
 - 既存完成・担当manifest対象外: 1
-- 未着手: 98
+- 未着手: 95
 - 失敗: 0
 
 | ID                                   | 状態                               |
 | ------------------------------------ | ---------------------------------- |
 | `aomori-boss-tsugaru-no-nushi`       | 未着手                             |
 | `aomori-buna-taiju`                  | 未着手                             |
-| `aomori-bunakko`                     | 未着手                             |
+| `aomori-bunakko`                     | 制作・登録・PC/横向きスマホE2E済み |
 | `aomori-dogu-jin`                    | 未着手                             |
-| `aomori-doguukun`                    | 未着手                             |
+| `aomori-doguukun`                    | 制作・登録・PC/横向きスマホE2E済み |
 | `aomori-hachiro-ryu`                 | 未着手                             |
 | `aomori-hanaikada`                   | 未着手                             |
 | `aomori-himemassu`                   | 未着手                             |
@@ -39,7 +39,7 @@
 | `aomori-nabe-shogun`                 | 未着手                             |
 | `aomori-nebuta-musha`                | 未着手                             |
 | `aomori-nebuta-taisho`               | 未着手                             |
-| `aomori-nebutan`                     | 未着手                             |
+| `aomori-nebutan`                     | 制作・登録・PC/横向きスマホE2E済み |
 | `aomori-nuri-kagayaki`               | 未着手                             |
 | `aomori-oirase-kokejin`              | 未着手                             |
 | `aomori-oka-musha`                   | 未着手                             |
@@ -141,9 +141,9 @@
 
 ## 検証記録
 
-- 関連unit: 4ファイル・9件成功。
-- 専用E2E: 6件成功（960×540 / 640×360、3体）。
-- 各E2Eで待機3フレーム超、通常攻撃、攻撃わざ、待機復帰、KO停止、透過、表示サイズ96px以下を確認。
+- 関連unit: 4ファイル・10件成功。
+- 専用E2E: 12件成功（960×540 / 640×360、6体）。
+- 各E2Eで待機3フレーム超、通常攻撃、攻撃わざ、待機復帰、KO停止、透過、表示サイズ96px以下を確認。自己強化わざしか持たない個体はE2E内で攻撃わざへフォールバックする。
 - 進化資料6件は512×256 RGBAとランタイムmanifest非登録をunitで確認。
 - `pnpm nrd -- --port 4177 --host 127.0.0.1` の最新ビルドをアプリ内ブラウザで目視。
 - PC/横向きスマホ画像は `docs/verification/animation-batch-01/` に保存。
