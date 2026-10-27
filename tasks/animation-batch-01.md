@@ -12,8 +12,9 @@
 ## 進捗
 
 - 制作・登録・PC/横向きスマホE2E済み: 3
+- 人物素材・専用API・unit済み（共通Scene未組込み）: 3
 - 既存完成・担当manifest対象外: 1
-- 未着手: 107
+- 未着手: 104
 - 失敗: 0
 
 | ID                                   | 状態                               |
@@ -65,9 +66,9 @@
 | `iwate-wakamekko`                    | 未着手                             |
 | `iwate-wankosobat`                   | 未着手                             |
 | `tohoku-boss-rokufuyu`               | 未着手                             |
-| `protagonist`                        | 未着手                             |
-| `michiru`                            | 未着手                             |
-| `shiori`                             | 未着手                             |
+| `protagonist`                        | 人物素材・API済み（未組込み）      |
+| `michiru`                            | 人物素材・API済み（未組込み）      |
+| `shiori`                             | 人物素材・API済み（未組込み）      |
 | `iwate-kagurabi-stage-2`             | 未着手                             |
 | `iwate-kagurabi-stage-3`             | 未着手                             |
 | `iwate-izumiko-stage-2`              | 未着手                             |
@@ -133,7 +134,8 @@
 ## 統合提案
 
 - 通常モンスターは既存の `src/rendering/monsterAnimation.ts` によりmanifestから自動集約されるため、共通コード変更は不要。
-- 人物素材は後続増分で人物専用APIを追加し、親チャットが共通Sceneへ接続できる形にする。
+- 人物素材は `src/rendering/characterAnimation.ts` の専用APIから参照できる。親チャットが共通Sceneへ接続する。
+- 主人公の固定素材は `customizable-reference` とし、自動適用しない。既存 `characters.ts` の外見カスタマイズと4方向歩行が正。
 - 進化資料6件は生成後も未組込みとして維持する。
 
 ## 検証記録
