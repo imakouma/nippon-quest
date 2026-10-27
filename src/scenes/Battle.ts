@@ -96,6 +96,7 @@ import {
 import { BattleEventAnimator } from './battle/eventAnimator';
 import { resolveBattleLaunchRuleset } from './battle/rulesetSetup';
 import { BattleResumeRuntime, runCheckpointedBattleCommand } from './battle/resumeRuntime';
+import { buildBattleHistoryView } from './battle/statusHistoryViews';
 type Sprite = Phaser.GameObjects.Image;
 export class BattleScene extends Phaser.Scene {
   private content!: ContentIndex;
@@ -140,6 +141,8 @@ export class BattleScene extends Phaser.Scene {
   private lastEnemyStyle: EnemyStyle = 'claw';
   private victory: Extract<BattleEvent, { t: 'victory' }> | null = null;
   private scriptedQuestionIndex = 0;
+  /** 演出が完了し、履歴へ出してよい `BattleState.log` の件数。 */
+  private presentedEventCount = 0;
 
   // ── ターンの 進行 ──
   private phase: Phase = 'intro';
@@ -182,6 +185,7 @@ export class BattleScene extends Phaser.Scene {
     this.lastEnemyStyle = 'claw';
     this.victory = null;
     this.scriptedQuestionIndex = 0;
+    this.presentedEventCount = 0;
     this.phase = 'intro';
     this.busy = false;
     this.overResolve = null;
@@ -486,7 +490,7 @@ export class BattleScene extends Phaser.Scene {
     this.hudRoot.className = `nq-battle-root nq-battle-root-${this.opts.presentation}`;
     layer.appendChild(this.hudRoot);
     this.hud.onAction = (a) => this.onUi(a);
-    render(h(BattleHud, { store: this.hud }), this.hudRoot);
+    render(h(BattleHud, { store: this.hud, devMode: this.opts.devMode === true }), this.hudRoot);
   }
 
   private teardown(): void {
@@ -592,6 +596,17 @@ export class BattleScene extends Phaser.Scene {
       allies: this.allyViews(),
       gauges: this.gaugeViews(),
       combo: { count: c, percent: Math.round((comboBonus(c, this.content.settings) - 1) * 100) },
+    });
+  }
+
+  private syncHistoryView(): void {
+    this.hud.set({
+      history: buildBattleHistoryView(
+        this.state,
+        this.narrateCtx(),
+        this.presentedEventCount,
+        this.opts.devMode === true,
+      ),
     });
   }
 
@@ -741,8 +756,12 @@ export class BattleScene extends Phaser.Scene {
   }
 
   /** 演出を じゅんばんに 再生する */
-  private enqueue(events: BattleEvent[]): Promise<void> {
-    return this.presentation.enqueue(normalizeEvents(events), this.narrateCtx());
+  private async enqueue(events: BattleEvent[]): Promise<void> {
+    const presentedThrough = this.state.log.length;
+    await this.presentation.enqueue(normalizeEvents(events), this.narrateCtx());
+    if (this.stopped) return;
+    this.presentedEventCount = Math.max(this.presentedEventCount, presentedThrough);
+    this.syncHistoryView();
   }
 
   private afterPlay(): void {

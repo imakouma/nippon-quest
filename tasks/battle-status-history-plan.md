@@ -37,34 +37,34 @@ BattleState.log + buffs + skipTurns
 
 ### Phase 1: Pure view-model contract
 
-- [ ] Task 1: 状態効果・直近履歴・イベントタイムラインの純粋変換をTDDで実装する。
+- [x] Task 1: 状態効果・直近履歴・イベントタイムラインの純粋変換をTDDで実装する。
 
 ### Checkpoint: Model
 
-- [ ] 状態効果、履歴4件、HP変化、ターン/イベント番号、120件制限のfocused unit testsが通る。
-- [ ] `BattleState.log` が変更されない。
+- [x] 状態効果、履歴4件、HP変化、ターン/イベント番号、120件制限のfocused unit testsが通る。
+- [x] `BattleState.log` が変更されない。
 
 ### Phase 2: Localized HUD rendering
 
-- [ ] Task 2: selector購読と通常履歴・devタイムラインをTDDで描画する。
-- [ ] Task 3: 敵・味方の状態チップと局所化文言・レスポンシブCSSを追加する。
+- [x] Task 2: selector購読と通常履歴・devタイムラインをTDDで描画する。
+- [x] Task 3: 敵・味方の状態チップと局所化文言・レスポンシブCSSを追加する。
 
 ### Checkpoint: UI contract
 
-- [ ] 無関係なstore更新で履歴selector listenerが発火しない。
-- [ ] 履歴とタイムラインにlive regionがなく、開閉操作がキーボード対応する。
+- [x] 無関係なstore更新で履歴selector listenerが発火しない。
+- [x] 履歴とタイムラインにlive regionがなく、開閉操作がキーボード対応する。
 
 ### Phase 3: Scene integration and browser verification
 
-- [ ] Task 4: Sceneの演出済みログ同期、E2E、横画面レイアウトを実装・検証する。
+- [x] Task 4: Sceneの演出済みログ同期、E2E、横画面レイアウトを実装・検証する。
 
 ### Checkpoint: Complete
 
-- [ ] focused unit/E2E testsが通る。
-- [ ] `pnpm check:fast` と変更ソースの `pnpm test:related` が通る。
-- [ ] 4175以降の一時プレビューで960×540・640×360、console、accessibilityを確認する。
-- [ ] Graphifyコードグラフを変更後に更新する。
-- [ ] 五軸自己レビューを行い、担当変更をコミットする。
+- [x] focused unit/E2E testsが通る。
+- [x] `pnpm check:fast` と変更ソースの `pnpm test:related` が通る。
+- [x] 4175以降の一時プレビューで960×540・640×360、console、accessibilityを確認する。
+- [x] Graphifyコードグラフを変更後に更新する。
+- [x] 五軸自己レビューを行い、担当変更をコミットする。
 
 ## Verification checkpoints
 
@@ -77,14 +77,14 @@ BattleState.log + buffs + skipTurns
 
 ## Risks and mitigations
 
-| Risk | Impact | Mitigation |
-| --- | --- | --- |
-| 未演出イベントを履歴で先に見せる | 高 | `presentedEventCount` を演出完了後に進め、表示変換へ渡す |
-| HPの初期値が満タンでない | 高 | 最終状態からイベントを逆走し、現在HPを起点に各変化を復元する |
-| 履歴配列でHUD全体の更新が重くなる | 中 | selector購読、memo境界、ログ進行時だけ参照更新、表示件数上限を使う |
-| 小さい横画面でHP・チップが衝突する | 中 | チップ折返しと固定レール内の高さをE2Eで計測する |
-| 読み上げが過去ログを繰り返す | 高 | 履歴・timelineは `aria-live="off"`、既存一時メッセージだけをlive通知にする |
-| `Battle.ts` がさらに肥大化する | 中 | Scene変更はカウンタと1つの同期helper呼び出しに限定する |
+| Risk                               | Impact | Mitigation                                                                 |
+| ---------------------------------- | ------ | -------------------------------------------------------------------------- |
+| 未演出イベントを履歴で先に見せる   | 高     | `presentedEventCount` を演出完了後に進め、表示変換へ渡す                   |
+| HPの初期値が満タンでない           | 高     | 最終状態からイベントを逆走し、現在HPを起点に各変化を復元する               |
+| 履歴配列でHUD全体の更新が重くなる  | 中     | selector購読、memo境界、ログ進行時だけ参照更新、表示件数上限を使う         |
+| 小さい横画面でHP・チップが衝突する | 中     | チップ折返しと固定レール内の高さをE2Eで計測する                            |
+| 読み上げが過去ログを繰り返す       | 高     | 履歴・timelineは `aria-live="off"`、既存一時メッセージだけをlive通知にする |
+| `Battle.ts` がさらに肥大化する     | 中     | Scene変更はカウンタと1つの同期helper呼び出しに限定する                     |
 
 ## Scope control
 

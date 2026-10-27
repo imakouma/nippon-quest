@@ -157,6 +157,12 @@
     "timelineHp": "HP {before}→{after} ({delta})",
     "statusEffects": "いまの こうか",
     "statusTurns": "{n}T",
+    "statusEffectLabel": "{name} {direction} のこり {n}ターン",
+    "statusDirection": {
+      "up": "あがっている",
+      "down": "さがっている",
+      "neutral": "とまっている"
+    },
     "status": {
       "attack": "こうげき",
       "defense": "ぼうぎょ",

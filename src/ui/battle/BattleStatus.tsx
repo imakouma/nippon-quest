@@ -55,6 +55,11 @@ function StatusEffects({ effects }: { effects: StatusEffectView[] }) {
             key={effect.kind}
             class={`nq-effect nq-effect-${effect.direction}`}
             data-status-effect={effect.kind}
+            aria-label={t('battle.statusEffectLabel', {
+              name: t(`battle.status.${effect.kind}`),
+              direction: t(`battle.statusDirection.${effect.direction}`),
+              n: effect.turns,
+            })}
           >
             <RubyLabel text={t(`battle.status.${effect.kind}`)} />
             <span aria-hidden="true">{marker}</span>

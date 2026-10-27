@@ -4,6 +4,7 @@
  * リアルタイム：敵の こうげきタイマー・コマンドゲージ・オトモの タイマーは 時間の 1 コマ（tick）ごとに 書きかわる。
  */
 import { useEffect, useState } from 'preact/hooks';
+import type { BattleEvent } from '../../core/battle/types';
 import type { Element } from '../../core/content/schemas';
 import type { BattleCommandBlockReason } from '../../core/battle/commandEvaluation';
 
@@ -31,7 +32,7 @@ export interface HpChangeView {
 export interface BattleTimelineEntry {
   eventIndex: number;
   turn: number;
-  t: string;
+  t: BattleEvent['t'];
   actorId?: string;
   targetId?: string;
   command?: 'attack' | 'skill' | 'scan' | 'defend';
