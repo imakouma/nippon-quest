@@ -59,12 +59,14 @@ const PRESETS: Readonly<Record<BattleRulesetId, BattleRuleset>> = {
   event: EVENT_BATTLE_RULESET,
 };
 
-export function resolveBattleRuleset(input: {
-  kind?: BattleRulesetId;
-  isBossBattle?: boolean;
-  canFleeBoss?: boolean;
-  enemyTactics?: EnemyTacticsPolicy;
-} = {}): BattleRuleset {
+export function resolveBattleRuleset(
+  input: {
+    kind?: BattleRulesetId;
+    isBossBattle?: boolean;
+    canFleeBoss?: boolean;
+    enemyTactics?: EnemyTacticsPolicy;
+  } = {},
+): BattleRuleset {
   const kind = input.kind ?? (input.isBossBattle ? 'boss' : 'normal');
   const preset = PRESETS[kind];
   const bossRestrictions = Boolean(input.isBossBattle && kind !== 'tutorial');
@@ -79,4 +81,8 @@ export function resolveBattleRuleset(input: {
           : preset.flee,
     recruitment: bossRestrictions ? { mode: 'disabled' } : preset.recruitment,
   };
+}
+
+export function shouldPersistBattleResult(ruleset: Pick<BattleRuleset, 'party'>): boolean {
+  return ruleset.party.persistence === 'standard';
 }

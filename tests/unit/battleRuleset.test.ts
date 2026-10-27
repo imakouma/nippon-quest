@@ -9,6 +9,7 @@ import {
   NORMAL_BATTLE_RULESET,
   TUTORIAL_BATTLE_RULESET,
   resolveBattleRuleset,
+  shouldPersistBattleResult,
   type BattleRuleset,
 } from '../../src/core/battle/ruleset';
 import type { ActionResult, BattleState } from '../../src/core/battle/types';
@@ -138,6 +139,11 @@ describe('resolveBattleRuleset', () => {
     expect(ruleset.enemyTactics).toEqual(AGGRESSIVE_ENEMY_TACTICS);
     expect(ruleset.flee).toEqual(NORMAL_BATTLE_RULESET.flee);
     expect(ruleset.rewards).toEqual(NORMAL_BATTLE_RULESET.rewards);
+  });
+
+  it('party persistence rule から結果の保存可否を一意に決める', () => {
+    expect(shouldPersistBattleResult(NORMAL_BATTLE_RULESET)).toBe(true);
+    expect(shouldPersistBattleResult(TUTORIAL_BATTLE_RULESET)).toBe(false);
   });
 });
 

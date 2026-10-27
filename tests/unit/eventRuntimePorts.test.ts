@@ -101,7 +101,7 @@ describe('event runtime scene ports', () => {
     expect(h.encounter.startInFlow).toHaveBeenCalledWith(
       {
         id: 'event:1',
-        battle: { enemyId: 'aomori-ringoron', level: 4, zone: 'field', isBoss: undefined },
+        battle: { enemyId: 'aomori-ringoron', level: 4, zone: 'field', isBoss: undefined, kind: 'event' },
         source: { type: 'script' },
       },
       h.flow,

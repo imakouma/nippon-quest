@@ -16,7 +16,7 @@ import type { RubyText } from '../../questions/contracts';
 import { MasteryStore, type QuestionBank } from '../../questions/engine';
 import { scopeQueryToGrade } from '../../questions/engine/gradeScope';
 import { QuestionFrame } from '../../ui/QuestionFrame';
-import type { BattleSceneData } from '../battle/contracts';
+import type { PersistentBattleSceneData } from '../battle/contracts';
 import { askFirst, buildAskEnv, relaxedQueries } from '../shared/askEnv';
 import type { EncounterLifecycle } from './encounterLifecycle';
 import type { FieldFlowContext, FieldFlowRuntime } from './fieldFlowRuntime';
@@ -97,7 +97,7 @@ export interface EventRuntimePortOptions {
   showReward(lines: readonly RewardLine[]): Promise<void>;
   onFlagSet(flag: string): void;
   nextEncounterId(): string;
-  battleData(command: BattleCommand): BattleSceneData;
+  battleData(command: BattleCommand): PersistentBattleSceneData;
 }
 
 function mutableRewardTable(table: readonly RewardByScore[]) {
@@ -142,7 +142,7 @@ export function createEventRuntimePorts(options: EventRuntimePortOptions): Event
       const result = await options.encounter.startInFlow(
         {
           id: options.nextEncounterId(),
-          battle: options.battleData(command),
+          battle: { ...options.battleData(command), kind: 'event' },
           source: { type: 'script' },
         },
         options.flow,

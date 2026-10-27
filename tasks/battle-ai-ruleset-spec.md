@@ -85,9 +85,7 @@ export interface BattleRuleset {
   recruitment: { mode: 'standard' } | { mode: 'disabled' };
   rewards: { mode: 'standard' } | { mode: 'none' };
   questions: { mode: 'skill-driven' } | { mode: 'scripted' };
-  party:
-    | { source: 'saved'; persistence: 'standard' }
-    | { source: 'provided'; persistence: 'discard' };
+  party: { source: 'saved'; persistence: 'standard' } | { source: 'provided'; persistence: 'discard' };
 }
 ```
 
@@ -95,12 +93,12 @@ export interface BattleRuleset {
 
 ## Default Rulesets
 
-| Kind | Enemy tactics | Flee | Recruitment | Rewards | Questions | Party |
-|---|---|---|---|---|---|---|
-| `normal` | 現行 60/30/10・HP 30% 回復優先 | 素早さ比 | 標準 | 標準 | わざ起点 | 保存パーティ・標準反映 |
-| `boss` | 現行と同じ。boss phase は従来どおり別処理 | 原則禁止。既存 dev mode のみ互換許可 | 禁止 | 標準 | わざ起点 | 保存パーティ・標準反映 |
-| `tutorial` | 現行標準を初期値とし、明示 policy へ差し替え可能 | 禁止 | 禁止 | なし | scripted | 明示パーティ・結果破棄 |
-| `event` | 現行標準を初期値とし、明示 policy へ差し替え可能 | 非 boss は素早さ比、boss は禁止 | 非 boss は標準、boss は禁止 | 標準 | わざ起点 | 保存パーティ・標準反映 |
+| Kind       | Enemy tactics                                    | Flee                                 | Recruitment                 | Rewards | Questions | Party                  |
+| ---------- | ------------------------------------------------ | ------------------------------------ | --------------------------- | ------- | --------- | ---------------------- |
+| `normal`   | 現行 60/30/10・HP 30% 回復優先                   | 素早さ比                             | 標準                        | 標準    | わざ起点  | 保存パーティ・標準反映 |
+| `boss`     | 現行と同じ。boss phase は従来どおり別処理        | 原則禁止。既存 dev mode のみ互換許可 | 禁止                        | 標準    | わざ起点  | 保存パーティ・標準反映 |
+| `tutorial` | 現行標準を初期値とし、明示 policy へ差し替え可能 | 禁止                                 | 禁止                        | なし    | scripted  | 明示パーティ・結果破棄 |
+| `event`    | 現行標準を初期値とし、明示 policy へ差し替え可能 | 非 boss は素早さ比、boss は禁止      | 非 boss は標準、boss は禁止 | 標準    | わざ起点  | 保存パーティ・標準反映 |
 
 既存 `BattleSceneData` の `isBoss` と `devMode` は互換入力として正規化する。通常、既存 boss、既存 script battle の省略時挙動は変えない。新しい tutorial/provided party や scripted question の具体的なシナリオ制作は、この ruleset を利用する別タスクで行う。
 

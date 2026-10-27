@@ -4,4 +4,5 @@ export * from './enemyPolicy';
 export * from './engine';
 export * from './factory';
 export * from './ruleset';
+export * from './rewards';
 export * from './setup';

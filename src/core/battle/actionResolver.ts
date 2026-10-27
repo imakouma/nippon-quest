@@ -1,9 +1,9 @@
-import { addProgressValue } from '../../shared/safeInteger';
 import type { Skill } from '../content/schemas';
 import type { Rng } from '../rng';
-import { comboBonus, computeDamage } from './damage';
+import { computeDamage } from './damage';
 import type { BattleDeps } from './dependencies';
 import { selectEnemyIntent } from './enemyPolicy';
+import { victoryEvent } from './rewards';
 import type {
   BattleActionRef,
   BattleEvent,
@@ -147,27 +147,8 @@ export function finishAction(
   if (state.enemy.hp <= 0) {
     events.push({ t: 'ko', ...action, side: 'enemy', targetId: state.enemy.id });
     const monster = def.monsters.get(state.enemy.refId);
-    const rewards = state.ruleset.rewards.mode === 'standard';
-    const drops = rewards
-      ? (monster?.drops ?? []).filter((drop) => rng.chance(drop.rate)).map((drop) => drop.itemId)
-      : [];
-    const recruitOffer =
-      rewards &&
-      state.ruleset.recruitment.mode === 'standard' &&
-      !state.enemy.isBoss &&
-      rng.chance(monster?.recruitRate ?? 0);
-    const bonus = comboBonus(state.player.maxCombo, def.settings);
     state.outcome = 'victory';
-    events.push({
-      t: 'victory',
-      ...action,
-      xp: rewards ? addProgressValue(0, Math.round((monster?.xp ?? 0) * bonus)) : 0,
-      gold: rewards ? addProgressValue(0, Math.round((monster?.gold ?? 0) * bonus)) : 0,
-      drops,
-      recruitOffer,
-      bonus,
-      maxCombo: state.player.maxCombo,
-    });
+    events.push(victoryEvent(state, monster, def.settings, rng, action));
     return;
   }
   if (state.ally.hero.hp <= 0 && state.ally.monsters.every((combatant) => combatant.hp <= 0)) {

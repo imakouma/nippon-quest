@@ -16,6 +16,7 @@ import { applySpecialtyTreasureBonus, specialtyTreasureBonus } from '../progress
 import type { Rng } from '../rng';
 import type { GameState } from '../state/schema';
 import { makeHero, makeMonster, makeParty } from './factory';
+import type { BattleRuleset } from './ruleset';
 import type { Party } from './types';
 
 export {
@@ -76,6 +77,16 @@ export function partyFromGameState(
   const active = owned.findIndex((o) => o.uid === gs.party.activeUid);
   party.activeMonsterIndex = Math.max(0, active);
   return party;
+}
+
+/** ruleset が指定した供給元だけから戦闘用 party を解決する。 */
+export function resolveBattleParty(
+  ruleset: Pick<BattleRuleset, 'party'>,
+  input: { saved: () => Party; provided?: Party },
+): Party {
+  if (ruleset.party.source === 'saved') return input.saved();
+  if (!input.provided) throw new Error('provided party is required for this battle ruleset');
+  return input.provided;
 }
 
 /** 県の encounters テーブルから 1 体抽選。テーブルが無ければ null */

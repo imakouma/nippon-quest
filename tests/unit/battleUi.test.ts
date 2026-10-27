@@ -17,8 +17,10 @@ import {
   enemyScalingLevel,
   partyFromGameState,
   pickEncounter,
+  resolveBattleParty,
   zoneForMap,
 } from '../../src/core/battle/setup';
+import { NORMAL_BATTLE_RULESET, TUTORIAL_BATTLE_RULESET } from '../../src/core/battle/ruleset';
 import {
   applyBattleResult,
   syncHeroLevel,
@@ -29,6 +31,8 @@ import { createRng } from '../../src/core/rng';
 import { normalizeEvents, narrate, type NarrateCtx } from '../../src/scenes/battle/narrate';
 import { format, lookup, setDictionary, type I18nDict } from '../../src/ui/i18n';
 import type { BattleEvent } from '../../src/core/battle/types';
+import { selectBattleQuestionQuery } from '../../src/scenes/battle/questionQueries';
+import { resolveBattleLaunchRuleset } from '../../src/scenes/battle/rulesetSetup';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const ja = JSON.parse(readFileSync(join(ROOT, 'content/i18n/ja.json'), 'utf8')) as I18nDict;
@@ -91,6 +95,80 @@ describe('GameState → Party', () => {
     const gs = newGame();
     gs.party.owned.push({ uid: 'ghost', monsterId: 'no-such-monster', level: 1, levelCap: 10, xp: 0 });
     expect(partyFromGameState(gs, c).monsters).toHaveLength(1);
+  });
+
+  it('ruleset の party source に応じて保存 party または supplied party を選ぶ', async () => {
+    const c = await content();
+    const supplied = partyFromGameState(newGame(), c);
+    const saved = partyFromGameState(newGame(), c);
+
+    expect(
+      resolveBattleParty(NORMAL_BATTLE_RULESET, {
+        saved: () => saved,
+      }),
+    ).toBe(saved);
+    expect(
+      resolveBattleParty(TUTORIAL_BATTLE_RULESET, {
+        saved: () => {
+          throw new Error('saved party must not be read');
+        },
+        provided: supplied,
+      }),
+    ).toBe(supplied);
+  });
+
+  it('supplied party ruleset で party が無ければ明示 error にする', () => {
+    expect(() =>
+      resolveBattleParty(TUTORIAL_BATTLE_RULESET, {
+        saved: () => {
+          throw new Error('saved party must not be read');
+        },
+      }),
+    ).toThrow(/provided party/i);
+  });
+});
+
+describe('Battle launch ruleset', () => {
+  it('既存 launch と script source を normal / boss / event へ解決する', () => {
+    const base = { encounterSource: { type: 'random' as const }, isBoss: false, devMode: false };
+
+    expect(resolveBattleLaunchRuleset(base).id).toBe('normal');
+    expect(resolveBattleLaunchRuleset({ ...base, isBoss: true }).id).toBe('boss');
+    expect(resolveBattleLaunchRuleset({ ...base, encounterSource: { type: 'script' } }).id).toBe('event');
+  });
+
+  it('明示 tutorial kind を source より優先する', () => {
+    expect(
+      resolveBattleLaunchRuleset({
+        kind: 'tutorial',
+        encounterSource: { type: 'script' },
+        isBoss: false,
+        devMode: false,
+      }).id,
+    ).toBe('tutorial');
+  });
+});
+
+describe('Battle question ruleset', () => {
+  const skillDriven = { subject: 'sansu' as const, gradeRange: [1, 2] as const };
+  const scripted = [
+    { subject: 'kokugo' as const, gradeRange: [1, 1] as const, tags: ['tutorial:first'] },
+    { subject: 'rika' as const, gradeRange: [2, 2] as const, tags: ['tutorial:second'] },
+  ];
+
+  it('skill-driven は従来 query、scripted は明示 query を順に使う', () => {
+    expect(selectBattleQuestionQuery(NORMAL_BATTLE_RULESET.questions, skillDriven, scripted, 1)).toBe(
+      skillDriven,
+    );
+    expect(selectBattleQuestionQuery(TUTORIAL_BATTLE_RULESET.questions, skillDriven, scripted, 1)).toBe(
+      scripted[1],
+    );
+  });
+
+  it('scripted query が無い状態を skill-driven へ黙って fallback しない', () => {
+    expect(() => selectBattleQuestionQuery(TUTORIAL_BATTLE_RULESET.questions, skillDriven, [], 0)).toThrow(
+      /scripted question/i,
+    );
   });
 });
 

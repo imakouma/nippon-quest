@@ -88,7 +88,7 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 ## Checkpoint 2
 
 - [x] Task 3〜4 の RED と GREEN を確認した。
-- [ ] engine/ruleset slice をコミットした。
+- [x] engine/ruleset slice をコミットした。
 
 ## Phase 3: Setup and Scene contracts
 
@@ -98,9 +98,9 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 既存 random/boss/script caller が従来 ruleset へ解決される。
-- [ ] supplied party の不足は明示 error になる。
-- [ ] event runtime が event kind を渡す。
+- [x] 既存 random/boss/script caller が従来 ruleset へ解決される。
+- [x] supplied party の不足は明示 error になる。
+- [x] event runtime が event kind を渡す。
 
 **Verification:** `pnpm exec vitest run tests/unit/battleUi.test.ts tests/unit/eventRuntimePorts.test.ts tests/unit/encounterLifecycle.test.ts`
 
@@ -116,9 +116,9 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] skill-driven questions は現行 query を維持する。
-- [ ] scripted mode は明示 query 入力を使い、core へ score だけを渡す。
-- [ ] persistence discard は GameState と通常報酬を変更しない。
+- [x] skill-driven questions は現行 query を維持する。
+- [x] scripted mode は明示 query 入力を使い、core へ score だけを渡す。
+- [x] persistence discard は GameState と通常報酬を変更しない。
 
 **Verification:** `pnpm exec vitest run tests/unit/battleUi.test.ts tests/unit/battleRuleset.test.ts tests/unit/eventRuntimePorts.test.ts`
 
@@ -130,7 +130,7 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 ## Checkpoint 3
 
-- [ ] Task 5〜6 の RED と GREEN を確認した。
+- [x] Task 5〜6 の RED と GREEN を確認した。
 - [ ] Scene/setup slice をコミットした。
 
 ## Phase 4: Verification and review

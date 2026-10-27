@@ -100,14 +100,14 @@ pnpm test:related src/core/battle/enemyPolicy.ts src/core/battle/ruleset.ts src/
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| 抽出で RNG 消費順が変わり、replay と戦闘結果が変わる | 高 | fake RNG の呼び出し列と fixed-seed event log を実装前に固定する |
-| `isBossBattle` と ruleset が二重の正になる | 高 | ruleset を行動制約の正、boss 値を表示・phase の互換情報と明記し、resolver に正規化を集約する |
-| tutorial/event の将来機能まで作り込みすぎる | 中 | preset、supplied party、scripted question port の最小契約だけ実装し、シナリオや文言は追加しない |
-| Scene がさらに巨大化する | 中 | resolver/setup/helper を新規 core/scene module に置き、Battle.ts は結線差分だけにする |
-| provided party の結果が誤ってセーブへ混入する | 高 | persistence discard の純粋判定と Scene 終了経路をテストし、applyBattleResult を通さない |
-| 無効 ruleset 入力が silent fallback する | 中 | 内部 typed contract を優先し、必要入力不足は明示 error。互換 fallback は旧省略入力だけに限定する |
+| Risk                                                 | Impact | Mitigation                                                                                       |
+| ---------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------ |
+| 抽出で RNG 消費順が変わり、replay と戦闘結果が変わる | 高     | fake RNG の呼び出し列と fixed-seed event log を実装前に固定する                                  |
+| `isBossBattle` と ruleset が二重の正になる           | 高     | ruleset を行動制約の正、boss 値を表示・phase の互換情報と明記し、resolver に正規化を集約する     |
+| tutorial/event の将来機能まで作り込みすぎる          | 中     | preset、supplied party、scripted question port の最小契約だけ実装し、シナリオや文言は追加しない  |
+| Scene がさらに巨大化する                             | 中     | resolver/setup/helper を新規 core/scene module に置き、Battle.ts は結線差分だけにする            |
+| provided party の結果が誤ってセーブへ混入する        | 高     | persistence discard の純粋判定と Scene 終了経路をテストし、applyBattleResult を通さない          |
+| 無効 ruleset 入力が silent fallback する             | 中     | 内部 typed contract を優先し、必要入力不足は明示 error。互換 fallback は旧省略入力だけに限定する |
 
 ## Open Questions
 
