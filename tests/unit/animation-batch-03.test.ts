@@ -53,10 +53,19 @@ const producedIds = [
   'kanagawa-kazakiri-tonbi',
   'kanagawa-piihyoro',
   'kochi-boss-kuroshio-kujira',
+  'kochi-lastboss-sakamoto-ryoma',
+  'kumamoto-ebi-musha',
+  'kumamoto-midboss-kindouro',
+  'kumamoto-tatamin',
+  'kyoto-chirimen-mai',
+  'kyoto-hontoha-karain',
+  'kyushu-okinawa-islandboss-chishikigui',
+  'mie-iga-jonin',
+  'mie-shinju-hime',
 ] as const;
 
 describe('animation batch-03', () => {
-  it('制作済み48体のシートをmanifestへ登録する', () => {
+  it('制作済み57体のシートをmanifestへ登録する', () => {
     const batch = assignments.batches.find((candidate) => candidate.batch === 'batch-03');
     expect(batch?.ids).toHaveLength(110);
 

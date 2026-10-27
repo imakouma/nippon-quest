@@ -60,6 +60,15 @@ const ids = [
   'kanagawa-kazakiri-tonbi',
   'kanagawa-piihyoro',
   'kochi-boss-kuroshio-kujira',
+  'kochi-lastboss-sakamoto-ryoma',
+  'kumamoto-ebi-musha',
+  'kumamoto-midboss-kindouro',
+  'kumamoto-tatamin',
+  'kyoto-chirimen-mai',
+  'kyoto-hontoha-karain',
+  'kyushu-okinawa-islandboss-chishikigui',
+  'mie-iga-jonin',
+  'mie-shinju-hime',
 ] as const;
 
 for (const id of ids) {

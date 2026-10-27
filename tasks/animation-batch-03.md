@@ -64,16 +64,16 @@
 | `kanagawa-kazakiri-tonbi`               | 完了   | 大きな両翼・胸の白模様・嘴・二脚を保ち、翼を引いて嘴先頭で急降下。PC/横向きスマホ確認済み     |
 | `kanagawa-piihyoro`                     | 完了   | 横に広い両翼・胸帯・嘴・二脚を保ち、翼を畳んで前方体当たり。PC/横向きスマホ確認済み           |
 | `kochi-boss-kuroshio-kujira`            | 完了   | 冠・二噴気口・両鰭・縞の鯨鬚・単一台座を保ち、胴を傾ける突進。PC/横向きスマホ確認済み         |
-| `kochi-lastboss-sakamoto-ryoma`         | 未着手 | —                                                                                             |
+| `kochi-lastboss-sakamoto-ryoma`         | 完了   | 髪・着物・袴・左手の白赤小物を保ち、袖を引いて踏み込む攻撃。PC/横向きスマホ確認済み           |
 | `koshinetsu-boss`                       | 失敗   | 指定の pixels/sheets 参照が双方欠損                                                           |
-| `kumamoto-ebi-musha`                    | 未着手 | —                                                                                             |
-| `kumamoto-midboss-kindouro`             | 未着手 | —                                                                                             |
-| `kumamoto-tatamin`                      | 未着手 | —                                                                                             |
-| `kyoto-chirimen-mai`                    | 未着手 | —                                                                                             |
-| `kyoto-hontoha-karain`                  | 未着手 | —                                                                                             |
-| `kyushu-okinawa-islandboss-chishikigui` | 未着手 | —                                                                                             |
-| `mie-iga-jonin`                         | 未着手 | —                                                                                             |
-| `mie-shinju-hime`                       | 未着手 | —                                                                                             |
+| `kumamoto-ebi-musha`                    | 完了   | 二触角・赤帯・青端の両腕・赤い台座を保ち、つぶれから胴体突進。PC/横向きスマホ確認済み         |
+| `kumamoto-midboss-kindouro`             | 完了   | 金楼体・屋根・二白手・白裙と赤帯を保ち、屋根ごと傾いて突進。PC/横向きスマホ確認済み           |
+| `kumamoto-tatamin`                      | 完了   | 畳二枚を全コマで保ち、逆位相の待機から同期二重体当たり。PC/横向きスマホ確認済み               |
+| `kyoto-chirimen-mai`                    | 完了   | 桃色布球・二角・二拳を保ち、布のうねりから角先頭で回転突進。PC/横向きスマホ確認済み           |
+| `kyoto-hontoha-karain`                  | 完了   | 赤唐辛子・緑葉・三炎突起・二腕・白歯を保ち、傾いて先端突進。PC/横向きスマホ確認済み           |
+| `kyushu-okinawa-islandboss-chishikigui` | 完了   | 王冠・紫三段胴・左右浮遊球・金印を保ち、球を引いて二重打撃。PC/横向きスマホ確認済み           |
+| `mie-iga-jonin`                         | 完了   | 紫頭巾・二角・赤蝶結び・白帯・二浮遊手を保ち、低姿勢から忍者体当たり。PC/横向きスマホ確認済み |
+| `mie-shinju-hime`                       | 完了   | 上下貝殻・中央真珠・側面飾りを保ち、貝を開いて真珠先頭で挟み込み。PC/横向きスマホ確認済み     |
 | `miyagi-lastboss-date-masamune`         | 未着手 | —                                                                                             |
 | `miyagi-sasakama-uo`                    | 未着手 | —                                                                                             |
 | `miyazaki-boss-takachiho-no-nushi`      | 未着手 | —                                                                                             |
@@ -346,6 +346,22 @@
 | `kanagawa-kazakiri-tonbi`          | 上向きの大翼二枚・胸の白斜線・黄嘴・二脚を固定。翼の交互差分から両翼を引く嘴先頭の急降下へ変化。羽根なし。     |
 | `kanagawa-piihyoro`                | 横向きの幅広翼二枚・胸の斜め帯・黄嘴・二脚を固定。低い羽ばたきと瞬きから翼を畳む跳躍体当たりへ変化。           |
 | `kochi-boss-kuroshio-kujira`       | 紺の鯨胴・金冠・白先端の二噴気口・両鰭・縞鯨鬚・単一波台座を固定。鰭の待機差分から台座上の前傾突進へ変化。     |
+
+### 第七スライス（高知・熊本・京都・九州沖縄・三重）
+
+各行とも `pixels/<id>.png` と `sheets/<id>.jpg` を参照し、built-in imagegen 原本は `docs/verification/animation-batch-03/generated/<id>-source.png`、最終シートは `assets/sprites/animations/batch-03/<id>-v1.png` に保存した。
+
+| ID                                      | 固有プロンプトと目視結果                                                                                           |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `kochi-lastboss-sakamoto-ryoma`         | 大髪・紺着物・白襟・灰袴・左手の白赤小物を固定。袖と髪の待機差分から踏み込み打撃へ変化。刀・銃の追加なし。         |
+| `kumamoto-ebi-musha`                    | 黄胴・二触角・赤蓋・二本の赤帯・青端の両腕・青鋲の赤台座を固定。つぶれから台座上の胴体突進へ変化。                 |
+| `kumamoto-midboss-kindouro`             | 金の楼体・広い屋根・赤印・二白手・赤帯付き白裙・二脚を固定。手の揺れと瞬きから屋根ごと傾く突進へ変化。             |
+| `kumamoto-tatamin`                      | 茶枠と緑編み面を持つ畳二枚を全8コマで固定。逆位相の傾きと瞬きから、寄り合って同期二重体当たり。融合・欠落なし。    |
+| `kyoto-chirimen-mai`                    | 桃色の布層球・黄角二本・黄拳二つ・下突起を固定。布層のうねりと瞬きから、一角を先頭にした回転突進へ変化。           |
+| `kyoto-hontoha-karain`                  | 赤い唐辛子胴・緑葉・三つの付着炎先端・二腕・白歯を固定。炎先端の待機差分から唐辛子先端の物理突進へ変化。火球なし。 |
+| `kyushu-okinawa-islandboss-chishikigui` | 金冠・紫の三段胴・青胸面・金下印・底部・金芯付き浮遊球二つを固定。浮遊差分から左右球を前へ出す打撃へ変化。         |
+| `mie-iga-jonin`                         | 紫頭巾と二角・赤蝶結び・白帯と茶袋・白い浮遊手二つ・小脚を固定。頭巾と手の待機差分から低い忍者体当たりへ変化。     |
+| `mie-shinju-hime`                       | 上下の茶貝殻・中央の青白真珠・黒い蝶番帯・側面飾りを固定。貝の開閉と瞬きから真珠を前へ出す挟み込みへ変化。         |
 
 ## 組込み提案
 
