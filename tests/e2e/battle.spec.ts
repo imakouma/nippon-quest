@@ -183,6 +183,11 @@ test('バトル：重複した敗北通知でも一度だけ再起動し、フ�
     const encounterId = overworld.encounters.active?.id;
     if (!encounterId) throw new Error('active encounter がありません');
     const event = { encounterId, result: { outcome: 'defeat', goldLost: 0 } };
+    const state = game.registry.get('game');
+    game.registry.set('game', {
+      ...state,
+      battle: { ...state.battle, active: null },
+    });
     game.events.emit('battle:end', event);
     game.events.emit('battle:end', event);
   });

@@ -50,18 +50,27 @@ async function fixture() {
     cancel: vi.fn(),
   };
   const commits: GameState[] = [];
-  const runtime = new PersistedEncounterRuntime(
-    lifecycle,
-    () => game,
-    {
-      commit: async (state) => {
-        game = state;
-        commits.push(state);
-      },
+  const persistence = {
+    commit: async (state: GameState) => {
+      game = state;
+      commits.push(state);
     },
-    (enemyId) => c.monsters.has(enemyId),
-  );
-  return { commits, getGame: () => game, lifecycle, runtime, snapshot: started.snapshot };
+  };
+  const runtimeFor = (target: EncounterLifecycle) =>
+    new PersistedEncounterRuntime(
+      target,
+      () => game,
+      persistence,
+      (enemyId) => c.monsters.has(enemyId),
+    );
+  return {
+    commits,
+    getGame: () => game,
+    lifecycle,
+    runtime: runtimeFor(lifecycle),
+    runtimeFor,
+    snapshot: started.snapshot,
+  };
 }
 
 function settled(snapshot: ActiveBattleResume): ActiveBattleResume {
@@ -137,6 +146,39 @@ describe('PersistedEncounterRuntime', () => {
     await Promise.all([first, duplicate]);
     expect(f.lifecycle.finish).toHaveBeenCalledOnce();
     expect(f.commits).toHaveLength(1);
+    expect(f.getGame().battle.active).toBeNull();
+  });
+
+  it('敗北遷移でSceneが再起動しても完了中のsnapshotを二重に再開しない', async () => {
+    const f = await fixture();
+    const snapshot = settled(f.snapshot);
+    Object.assign(f.getGame().battle, { active: snapshot, finalizedThrough: snapshot.sequence });
+    let completeField!: () => void;
+    f.lifecycle.finish = vi.fn(
+      () =>
+        new Promise<void>((resolve) => {
+          completeField = resolve;
+        }),
+    );
+    const event = { encounterId: 'field:1', result: { outcome: 'victory' as const, goldLost: 0 } };
+    const finishing = f.runtime.finish(event);
+
+    const restartedLifecycle: EncounterLifecycle = {
+      active: null,
+      start: vi.fn(async () => true),
+      startInFlow: vi.fn(async () => null),
+      resumeResult: vi.fn(async () => true),
+      finish: vi.fn(async () => undefined),
+      cancel: vi.fn(),
+    };
+    const resumed = f.runtimeFor(restartedLifecycle).resume(snapshot);
+    await Promise.resolve();
+
+    expect(restartedLifecycle.start).not.toHaveBeenCalled();
+    expect(restartedLifecycle.resumeResult).not.toHaveBeenCalled();
+    completeField();
+    await expect(finishing).resolves.toBeUndefined();
+    await expect(resumed).resolves.toBe('resumed');
     expect(f.getGame().battle.active).toBeNull();
   });
 });

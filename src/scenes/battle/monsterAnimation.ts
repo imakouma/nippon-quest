@@ -3,6 +3,45 @@ import { existingAssetUrl } from '../../rendering/assetCatalog';
 import { monsterAnimationSpec } from '../../rendering/monsterAnimation';
 
 type BattleImage = Phaser.GameObjects.Image;
+type ReadableImage = CanvasImageSource & { width: number; height: number };
+
+const footOrigins = new WeakMap<object, number>();
+
+/** 透明余白ではなく、全アニメフレームの最下端を地面へ合わせる。 */
+export function setMonsterFootOrigin(sprite: BattleImage): BattleImage {
+  const source = sprite.texture.getSourceImage() as ReadableImage;
+  let originY = footOrigins.get(source as object);
+  if (originY === undefined) {
+    originY = 1;
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = source.width;
+      canvas.height = source.height;
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      context?.drawImage(source, 0, 0);
+      const pixels = context?.getImageData(0, 0, canvas.width, canvas.height).data;
+      if (pixels) {
+        for (let y = canvas.height - 1; y >= 0; y -= 1) {
+          let opaque = false;
+          for (let x = 0; x < canvas.width; x += 1) {
+            if (pixels[(y * canvas.width + x) * 4 + 3]! > 0) {
+              opaque = true;
+              break;
+            }
+          }
+          if (opaque) {
+            originY = (y + 1) / sprite.height;
+            break;
+          }
+        }
+      }
+    } catch {
+      // 読み戻せない外部画像では従来どおり画像下端を使う。
+    }
+    footOrigins.set(source as object, originY);
+  }
+  return sprite.setOrigin(0.5, originY);
+}
 
 export function preloadMonsterAnimation(scene: Phaser.Scene, id: string): void {
   const spec = monsterAnimationSpec(id);

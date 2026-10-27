@@ -10,7 +10,7 @@ content検証、production buildに加えて3本の主要導線スモークを�
 
 | 対象             |             Before |           Local after | GitHub after |
 | ---------------- | -----------------: | --------------------: | -----------: |
-| 通常E2E          | 約32〜36分（直列） |          対象収集のみ | push後に記録 |
+| 通常E2E          | 約32〜36分（直列） |   修正対象7件 2分24秒 | push後に記録 |
 | 主要導線スモーク |               なし | 最終18.2秒（3/3成功） | push後に記録 |
 | production build |             約19秒 |                  成功 | push後に記録 |
 
@@ -28,13 +28,15 @@ GitHub-hosted runner上の高速ゲート5分以内、最長E2E shard 12分以�
 - 同じブランチへ新しいpushが来ると、古いCI runを自動cancelする。
 - 各shardの失敗時に`playwright-report`と`test-results`を別artifactとして7日保存する。
 - Pagesは`check`と4つのE2E shardすべてが成功した後だけデプロイする。
-- main由来で既知のE2E失敗7件はskipせず、該当shardの失敗として引き続き表示する。
+- main由来で確認したE2E失敗7件はskipせず修正し、同一実行で7/7成功を確認した。
 
 ## Local verification
 
 - CI契約テスト: 4/4成功。
 - Mutation確認: `cancel-in-progress`を一時的に無効化すると契約テスト1件が期待どおり失敗し、復元後に成功。
 - スモークE2E: 3回とも3/3成功（最終18.2秒）。
+- 既知E2E回帰: 7/7成功（2分24秒）。
+- 永続戦闘のScene再起動競合テスト: 条件反転で期待どおり失敗し、復元後5/5成功。
 - shard収集: 35 + 29 + 34 + 30 = 128件。
 - lint: 成功。
 - architecture: 成功。

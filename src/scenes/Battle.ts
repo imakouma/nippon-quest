@@ -86,6 +86,7 @@ import { preloadMonsterImages } from './battle/preloadMonsterImages';
 import {
   createMonsterSprite,
   playMonsterAttack,
+  setMonsterFootOrigin,
   startMonsterIdle,
   stopMonsterAnimation,
 } from './battle/monsterAnimation';
@@ -371,9 +372,9 @@ export class BattleScene extends Phaser.Scene {
     this.enemySize = monsterStageSize(def, this.content, isBoss);
     this.enemyScale = monsterStageScale(this.enemySize, isBoss, this.layout);
     const eKey = ensureMonsterTexture(this.textures, def, this.state.enemy.element, this.enemySize, isBoss);
-    this.enemySprite = createMonsterSprite(this, def.id, this.layout.enemy.x, this.layout.enemy.y, eKey)
-      .setOrigin(0.5, 1)
-      .setDepth(10);
+    this.enemySprite = setMonsterFootOrigin(
+      createMonsterSprite(this, def.id, this.layout.enemy.x, this.layout.enemy.y, eKey),
+    ).setDepth(10);
     this.enemySprite.setScale(
       monsterImageScale(this.enemySprite.width, this.enemySprite.height, this.enemySize, this.enemyScale),
     );

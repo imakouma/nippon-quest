@@ -140,6 +140,7 @@ test('実音源をデコードし、歩行・停止・壁・消音・入口・�
         ...state.progress,
         counters: { ...state.progress.counters, 'story.prologue': 1, 'dev:all': 1 },
       },
+      battle: { ...state.battle, active: null },
     });
     const battle = game.scene.getScene('Battle') as Phaser.Scene & {
       leave(outcome: string, gold: number): Promise<void>;
