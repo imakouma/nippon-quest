@@ -62,14 +62,14 @@
 
 ## Risks and mitigations
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| 学習履歴保存とBattle snapshotが競合する | 高 | 常にregistryの最新stateを基底にpatchし、保存queueの完了をawaitする |
-| Tween中断で行動が二重適用される | 高 | `resolved-command`はact前stateを保持し、Tween中はsnapshotを書かない |
-| settlement後にboss完了処理を失う | 高 | `settled` activeをfield acknowledgementまで保持する |
-| 古い/壊れたsnapshotでセーブ全体が読めない | 高 | snapshotだけをnullable salvageし、field checkpointへ戻す |
-| `Battle.ts`がさらに巨大化する | 中 | schema、state machine、persistence、resume判断を専用moduleへ分離する |
-| 並行変更と衝突する | 中 | 担当ファイルだけ変更し、共有branchへmerge/pushしない |
+| Risk                                      | Impact | Mitigation                                                           |
+| ----------------------------------------- | ------ | -------------------------------------------------------------------- |
+| 学習履歴保存とBattle snapshotが競合する   | 高     | 常にregistryの最新stateを基底にpatchし、保存queueの完了をawaitする   |
+| Tween中断で行動が二重適用される           | 高     | `resolved-command`はact前stateを保持し、Tween中はsnapshotを書かない  |
+| settlement後にboss完了処理を失う          | 高     | `settled` activeをfield acknowledgementまで保持する                  |
+| 古い/壊れたsnapshotでセーブ全体が読めない | 高     | snapshotだけをnullable salvageし、field checkpointへ戻す             |
+| `Battle.ts`がさらに巨大化する             | 中     | schema、state machine、persistence、resume判断を専用moduleへ分離する |
+| 並行変更と衝突する                        | 中     | 担当ファイルだけ変更し、共有branchへmerge/pushしない                 |
 
 ## Verification strategy
 

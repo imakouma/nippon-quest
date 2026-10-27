@@ -76,11 +76,15 @@ Phaser Scene は保存API実装へ直接依存しない。composition root が�
 - settled snapshot は `encounterSource` と `BattleEndPayload` を残し、フィールド側結果処理が完了するまで消さない。
 
 ```ts
-const decision = settleBattleOnce(latestGame, {
-  battleId: snapshot.battleId,
-  sequence: snapshot.sequence,
-  summary,
-}, content);
+const decision = settleBattleOnce(
+  latestGame,
+  {
+    battleId: snapshot.battleId,
+    sequence: snapshot.sequence,
+    summary,
+  },
+  content,
+);
 
 if (decision.applied) await persistence.commit(decision.state);
 ```
