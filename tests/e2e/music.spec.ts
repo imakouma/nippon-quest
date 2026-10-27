@@ -128,6 +128,7 @@ test('タイトル・各マップ・通常戦・ボス戦・勝敗で音源を�
   await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 60_000 });
   await page.locator('.nq-box').click();
   await expectTrack(page, 'battle');
+  await expect(page.locator('[data-cmd="skill"]')).toBeVisible({ timeout: 20_000 });
   await page.evaluate(() => {
     const audio = window.__musicAudio.find((a) => a.src.endsWith('/battle-theme.mp3'))!;
     audio.currentTime = audio.duration - 0.15;
@@ -140,12 +141,14 @@ test('タイトル・各マップ・通常戦・ボス戦・勝敗で音源を�
   await page.screenshot({ path: info.outputPath('battle-music.png') });
 
   // ローカル専用のゲーム診断窓口で結果を固定し、描画・音源・復帰を実ブラウザで検査する。
-  await page.evaluate(() => {
+  await page.evaluate(async () => {
     const battle = window.__nq.scene.getScene('Battle') as Phaser.Scene & {
       state: { outcome: string };
+      checkpoint(phase: { kind: 'awaiting-result' }): Promise<void>;
       finish(): Promise<void>;
     };
     battle.state.outcome = 'victory';
+    await battle.checkpoint({ kind: 'awaiting-result' });
     void battle.finish();
   });
   await expectTrack(page, 'victory');
@@ -190,17 +193,20 @@ test('タイトル・各マップ・通常戦・ボス戦・勝敗で音源を�
     game.registry.set('game', { ...state, settings: { ...state.settings, bgmVolume: 0.3 } });
     window.__musicAudio.find((a) => a.src.endsWith('/field-theme.mp3'))!.currentTime = 19;
     const field = game.scene.getScene('Overworld') as Phaser.Scene & { startBattle(data: unknown): void };
-    field.startBattle({ enemyId: 'aomori-ringoron', level: 1, isBoss: true });
+    field.startBattle({ enemyId: 'aomori-ringoron', level: 1, zone: 'field', isBoss: true });
   });
   await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 20_000 });
   await page.locator('.nq-box').click();
   await expectTrack(page, 'boss');
-  await page.evaluate(() => {
+  await expect(page.locator('[data-cmd="skill"]')).toBeVisible({ timeout: 20_000 });
+  await page.evaluate(async () => {
     const battle = window.__nq.scene.getScene('Battle') as Phaser.Scene & {
       state: { outcome: string };
+      checkpoint(phase: { kind: 'awaiting-result' }): Promise<void>;
       finish(): Promise<void>;
     };
     battle.state.outcome = 'defeat';
+    await battle.checkpoint({ kind: 'awaiting-result' });
     void battle.finish();
   });
   await expectTrack(page, 'defeat');

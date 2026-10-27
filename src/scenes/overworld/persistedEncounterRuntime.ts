@@ -7,10 +7,19 @@ import type { EncounterContext, EncounterLifecycle } from './encounterLifecycle'
 
 export type PersistedEncounterResumeResult = 'resumed' | 'discarded' | 'busy';
 
+const finishingByPersistence = new WeakMap<GamePersistencePort, Map<string, Promise<void>>>();
+
+function finishingEncounters(persistence: GamePersistencePort): Map<string, Promise<void>> {
+  let finishing = finishingByPersistence.get(persistence);
+  if (!finishing) {
+    finishing = new Map();
+    finishingByPersistence.set(persistence, finishing);
+  }
+  return finishing;
+}
+
 /** 永続戦闘を既存encounter lifecycleへ戻し、field処理完了後だけsnapshotを解放する。 */
 export class PersistedEncounterRuntime {
-  private finishing: { encounterId: string; promise: Promise<void> } | null = null;
-
   constructor(
     private readonly lifecycle: EncounterLifecycle,
     private readonly getGame: () => GameState | undefined,
@@ -24,6 +33,11 @@ export class PersistedEncounterRuntime {
   }
 
   async resume(snapshot: ActiveBattleResume): Promise<PersistedEncounterResumeResult> {
+    const finishing = finishingEncounters(this.persistence).get(snapshot.launch.encounterId);
+    if (finishing) {
+      await finishing;
+      return 'resumed';
+    }
     if (!this.hasEnemy(snapshot.launch.enemyId)) {
       await this.acknowledge(snapshot.battleId);
       return 'discarded';
@@ -38,12 +52,13 @@ export class PersistedEncounterRuntime {
   }
 
   finish(event: BattleEndEvent): Promise<void> {
-    if (this.finishing)
-      return this.finishing.encounterId === event.encounterId ? this.finishing.promise : Promise.resolve();
+    const encounters = finishingEncounters(this.persistence);
+    const finishing = encounters.get(event.encounterId);
+    if (finishing) return finishing;
     const promise = this.finishOnce(event).finally(() => {
-      if (this.finishing?.promise === promise) this.finishing = null;
+      if (encounters.get(event.encounterId) === promise) encounters.delete(event.encounterId);
     });
-    this.finishing = { encounterId: event.encounterId, promise };
+    encounters.set(event.encounterId, promise);
     return promise;
   }
 

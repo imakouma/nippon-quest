@@ -1,6 +1,37 @@
 import { expect, test, type Page } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
+async function pulseDirection(page: Page, key: 'ArrowRight' | 'ArrowUp'): Promise<void> {
+  await page.evaluate(async (arrow) => {
+    const canvas = document.querySelector<HTMLCanvasElement>('canvas[data-player-tile]');
+    if (!canvas) throw new Error('フィールドの canvas が見つかりません');
+    const before = canvas.dataset.playerTile;
+    const direction = arrow === 'ArrowRight' ? 'right' : 'up';
+    const field = window.__nq.scene.getScene('Overworld') as unknown as {
+      fieldInput: { setTouchDirection(direction: 'right' | 'up' | null): void };
+    };
+    await new Promise<void>((resolve) => {
+      let timeout = 0;
+      const finish = () => {
+        observer.disconnect();
+        window.clearTimeout(timeout);
+        field.fieldInput.setTouchDirection(null);
+        resolve();
+      };
+      const observer = new MutationObserver(() => {
+        const decision = canvas.dataset.lastMovement;
+        if (canvas.dataset.playerTile !== before || (decision && decision !== 'move')) finish();
+      });
+      observer.observe(canvas, {
+        attributes: true,
+        attributeFilter: ['data-last-movement', 'data-player-tile'],
+      });
+      timeout = window.setTimeout(finish, 1_000);
+      field.fieldInput.setTouchDirection(direction);
+    });
+  }, key);
+}
+
 async function walk(
   page: Page,
   key: 'ArrowRight' | 'ArrowUp',
@@ -15,10 +46,7 @@ async function walk(
     let sawExpected = false;
     for (let attempt = 0; attempt < 10 && !(sawExpected && (expected !== 'move' || moved)); attempt += 1) {
       await player.evaluate((canvas) => delete (canvas as HTMLElement).dataset.lastMovement);
-      await page.keyboard.down(key);
-      await page.waitForTimeout(60);
-      await page.keyboard.up(key);
-      await page.waitForTimeout(300);
+      await pulseDirection(page, key);
       decision = await player.getAttribute('data-last-movement');
       sawExpected ||= decision === expected;
       moved = (await player.getAttribute('data-player-tile')) !== before;

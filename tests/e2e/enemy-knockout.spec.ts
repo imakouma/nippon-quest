@@ -36,18 +36,14 @@ for (const viewport of [
     await page.evaluate(() => {
       const battle = window.__nq.scene.getScene('Battle') as Combat;
       const enemy = battle.enemySprite;
-      const image = enemy.texture.getSourceImage() as HTMLCanvasElement;
-      const canvas = document.createElement('canvas');
-      canvas.width = image.width;
-      canvas.height = image.height;
-      const ctx = canvas.getContext('2d')!;
-      ctx.drawImage(image, 0, 0);
-      const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-      let first = canvas.height,
+      const width = enemy.width;
+      const height = enemy.height;
+      const frame = enemy.frame.name;
+      let first = height,
         last = -1;
-      for (let y = 0; y < canvas.height; y++)
-        for (let x = 0; x < canvas.width; x++)
-          if (pixels[(y * canvas.width + x) * 4 + 3]! > 0) {
+      for (let y = 0; y < height; y++)
+        for (let x = 0; x < width; x++)
+          if ((battle.textures.getPixelAlpha(x, y, enemy.texture.key, frame) ?? 0) > 0) {
             first = Math.min(first, y);
             last = Math.max(last, y);
           }
@@ -103,7 +99,7 @@ for (const viewport of [
       window.__koRun = battle
         .runIntent({ kind: 'skill', entry: { actorId: battle.state.ally.hero.id, skill } })
         .then(() => ({
-          texture: { width: canvas.width, height: canvas.height, first, last },
+          texture: { width, height, frame, first, last },
           initial,
           before,
           frames,

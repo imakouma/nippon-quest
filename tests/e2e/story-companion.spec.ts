@@ -177,13 +177,31 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
     .getByRole('dialog', { name: 'メニュー' })
     .getByRole('button', { name: /とじる/ })
     .click();
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const field = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+          fieldFlow: { isRunning: boolean };
+        };
+        return field.fieldFlow.isRunning;
+      }),
+    )
+    .toBe(false);
   await page.evaluate(() => {
     const game = (window as unknown as { __nq: Phaser.Game }).__nq;
     const field = game.scene.getScene('Overworld') as unknown as {
-      startBattle: (data: { enemyId: string; level: number; presentation: 'depth' }) => void;
+      startBattle: (data: { enemyId: string; level: number; zone: 'field'; presentation: 'depth' }) => void;
     };
-    field.startBattle({ enemyId: 'aomori-ringoron', level: 3, presentation: 'depth' });
+    field.startBattle({ enemyId: 'aomori-ringoron', level: 3, zone: 'field', presentation: 'depth' });
   });
+  await expect
+    .poll(() =>
+      page.evaluate(() => ({
+        battleActive: window.__nq.scene.isActive('Battle'),
+        overworldPaused: window.__nq.scene.isPaused('Overworld'),
+      })),
+    )
+    .toEqual({ battleActive: true, overworldPaused: true });
   await expect(page.locator('.nq-box-text')).toBeVisible({ timeout: 30_000 });
   const partner = await page.evaluate(() => {
     const game = (window as unknown as { __nq: Phaser.Game }).__nq;

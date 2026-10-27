@@ -34,6 +34,7 @@
     "test:related": "vitest related --run --passWithNoTests",
     "test:watch": "vitest",
     "test:e2e": "playwright test --grep-invert '全問題をバトル問題枠'",
+    "test:e2e:smoke": "playwright test --config tests/e2e/playwright.prebuilt.config.ts ci-smoke.spec.ts",
     "test:e2e:full": "playwright test",
     "test:e2e:app": "pnpm test:e2e:field && pnpm test:e2e:bag && pnpm test:e2e:battle && pnpm test:e2e:onboarding && pnpm test:e2e:tools && pnpm test:e2e:flows",
     "test:e2e:field": "playwright test tests/e2e/aomori-boss-distance.spec.ts tests/e2e/area-map-navigation.spec.ts",

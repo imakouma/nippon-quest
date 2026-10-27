@@ -259,7 +259,13 @@ test('敗北後はフィールドの出発地点へ戻って入力が復帰す�
       },
     });
     const encounterId = scene.encounters.active!.id;
-    game.events.emit('battle:end', { encounterId, result: { outcome: 'defeat', goldLost: 0 } });
+    const result = { outcome: 'defeat' as const, goldLost: 0 };
+    const current = game.registry.get('game');
+    game.registry.set('game', {
+      ...current,
+      battle: { ...current.battle, active: null },
+    });
+    game.events.emit('battle:end', { encounterId, result });
   });
   await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 20_000 });
   await page.waitForTimeout(1_000);
