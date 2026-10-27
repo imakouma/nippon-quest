@@ -3,8 +3,8 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 70体。
-- 未着手: 40体（割当110体から下記完了70体を除いたもの）。
+- 完了: 80体。
+- 未着手: 30体（割当110体から下記完了80体を除いたもの）。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
@@ -147,10 +147,23 @@
 - `nara-suminosuke`: 墨色の猫硯、耳2、腕2、紫台を固定。耳待機、墨の滑走打撃。出力 `exec-a77ed32b-2612-44c6-917d-88f266d56f64.png`。
 - `niigata-hisui-goro`: 灰石体、翡翠結晶、腕2、脚2を固定。結晶待機、翡翠の両拳打撃。出力 `exec-7353f429-5400-472d-bf12-315b705dd3dd.png`。
 
+### 追加10体（新潟〜大阪）
+
+- `niigata-lastboss-uesugi-kenshin`: 白頭巾、紫鎧、旗1本を固定。旗待機、旗槍の薙ぎ。出力 `exec-a7d862f0-363a-4e94-97d2-cd25aa2a51b5.png`。
+- `oita-hodagi-oh`: 木蓋、木腕2、顔体を固定。木蓋待機、両木腕の叩き付け。出力 `exec-c6f5b42e-72b3-48e1-926e-bbaa2e278b92.png`。
+- `oita-oozeki-aji`: 鯵魚体、鰭、脚2、まわしを固定。鰭待機、相撲突進。出力 `exec-9ebde645-774c-4d2b-9af5-9c05124f9203.png`。
+- `okayama-aizomen`: 接続した藍滴2体と根脚を固定。交互待機、藍の双体回転打撃。出力 `exec-791a0eca-7ba4-4841-94df-54ab54591164.png`。
+- `okayama-emeraldou`: 緑葡萄体、房腕2、輪、星2を固定。房待機、宝石色の両拳打撃。出力 `exec-f942be09-b41d-4ffd-b55f-379e4e766fe0.png`。
+- `okayama-muscatton`: マスカット体、房腕2、茎を固定。房待機、両房パンチ。出力 `exec-8712975f-157c-4b19-8fdc-8556e4883671.png`。
+- `okinawa-lastboss-sho-hashi`: 王冠、赤衣、髭、金飾りを固定。衣待機、金飾りの前方打撃。出力 `exec-da1345ad-dd42-4ccd-ac0a-a6c541e8c28b.png`。
+- `okinawa-yanbaru-kakeru`: 接続した鳥2体、赤足を固定。交互待機、同時蹴り突進。出力 `exec-3dab3cc7-e7cc-4ef5-8efb-0d3f6336d442.png`。
+- `osaka-hafuhafu-yaki`: 茶の焼き玉、炎3、串1、手袋腕1を固定。炎待機、熱い回転体当たり。出力 `exec-f0649774-7a54-4306-a9c8-56188369f5b0.png`。
+- `osaka-momiji-fubuki`: 紅葉体、葉腕、幹を固定。葉待機、紅葉の回転斬撃。出力 `exec-91280230-c64d-471b-854a-8dcab0de73ac.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 70体とも512×256、RGBA、4列2行の契約。
+- PNG: 80体とも512×256、RGBA、4列2行の契約。
 - 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
 
 ## 統合担当への提案
