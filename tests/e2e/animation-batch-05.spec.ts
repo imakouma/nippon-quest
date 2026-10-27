@@ -56,7 +56,7 @@ for (const viewport of [
         };
       }, monsterId);
       expect(initial.key).toBe(initial.expected);
-      // Mid-boss display scale is intentionally larger than ordinary monsters.
+      // このアニメーション群は各キャラの設定身長を反映しても安全領域内に収まる。
       expect(initial.width).toBeLessThanOrEqual(160);
       expect(initial.height).toBeLessThanOrEqual(160);
 
@@ -117,7 +117,12 @@ for (const viewport of [
 
       await page.evaluate(async () => {
         const battle = window.__nq.scene.getScene('Battle') as Battle;
-        await battle.animate({ t: 'ko', side: 'enemy', targetId: battle.state.enemy.id });
+        await battle.animate({
+          t: 'ko',
+          actionId: 'turn:1:action:1',
+          side: 'enemy',
+          targetId: battle.state.enemy.id,
+        });
       });
       expect(
         await page.evaluate(() => {
