@@ -6,10 +6,18 @@
  * { state, events } を返し、Scene は events を じゅんばんに 再生するだけ。
  * 同じ seed・同じ コマンド列なら 必ず 同じ 結果に なる（replay。対戦の リプレイ・非同期対戦の 土台）。
  */
-import type { ElementTable, Item, Monster, Settings, Skill } from '../content/schemas';
+import type { Item, Skill } from '../content/schemas';
 import { createRng, type Rng } from '../rng';
-import { addProgressValue } from '../../shared/safeInteger';
-import { comboBonus, computeDamage, fleeChance, recruitChance, scoreBand, scoreMultiplier } from './damage';
+import {
+  finishAction,
+  frontAlly,
+  makeCompanion,
+  resolveCompanionAction,
+  resolveEnemyTurn,
+  resolveHit,
+} from './actionResolver';
+import { comboBonus, fleeChance, recruitChance, scoreBand, scoreMultiplier } from './damage';
+import type { BattleDeps } from './dependencies';
 import { commandPriority, initiativeOrder } from './initiative';
 import { useMusubiDama } from './musubiDama';
 import { clampBattleValue, cloneBattleValue, emptyGauges } from './utils';
@@ -20,20 +28,11 @@ import type {
   BattleState,
   Combatant,
   Command,
-  Companion,
   EnemyUnit,
   Party,
   Side,
   TargetType,
 } from './types';
-
-export interface BattleDeps {
-  settings: Settings;
-  elements: ElementTable;
-  skills: Map<string, Skill>;
-  items: Map<string, Item>;
-  monsters: Map<string, Monster>;
-}
 
 export interface StepOutput {
   state: BattleState;
@@ -59,12 +58,8 @@ export const SUBJECTS = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'
 const HEAL_RATIO = 0.25;
 /** ぼうぎょ アップ・ダウン：1 ± この割合 × いりょく倍率 */
 const GUARD_RATIO = 0.25;
-/** 敵の かいふく わざ：最大 HP × この割合 */
-const ENEMY_HEAL_RATIO = 0.25;
-/** 敵の「みを まもる」の ぼうぎょ倍率と つづく ターン数 */
-const ENEMY_GUARD_MULT = 1.5;
-const ENEMY_GUARD_TURNS = 1;
 export { emptyGauges } from './utils';
+export { frontAlly, makeCompanion };
 
 /** 必殺技の 対象。targetType を 省略したら effect から（かいふく・まもりは 自分、ほかは 敵） */
 export function skillTarget(sk: Pick<Skill, 'targetType' | 'effect'>): TargetType {
@@ -79,38 +74,6 @@ export function canAfford(s: BattleState, sk: Pick<Skill, 'subject' | 'costGauge
 /** 主人公が いま コマンドを 出せるか（ターン制：たたかいが つづいて いて たおれて いなければ いつでも） */
 export function isHeroReady(s: BattleState): boolean {
   return s.outcome === 'ongoing' && s.ally.hero.hp > 0;
-}
-
-/** 敵が ねらう 相手：前に 立つ オトモ。いなければ 主人公 */
-export function frontAlly(s: BattleState): Combatant {
-  const m = s.ally.monsters[s.ally.activeMonsterIndex];
-  return m && m.hp > 0 ? m : s.ally.hero;
-}
-
-/**
- * 出撃中の 仲間モンスターから オトモを つくる。
- * 自動で 使う わざは ゲージを 使わない こうげきわざ（いちばん いりょくの 高いもの）。
- * ゲージを 使う 強い わざは、プレイヤーが 問題に こたえて たのむ（battleSkills）。
- * パッシブは 自動わざの 教科の ゲージが たまりやすく なる
- */
-export function makeCompanion(
-  m: Combatant | undefined,
-  def: Pick<BattleDeps, 'skills' | 'settings'>,
-): Companion | null {
-  if (!m || m.hp <= 0) return null;
-  const skills = m.skills.map((id) => def.skills.get(id)).filter((sk): sk is Skill => !!sk);
-  const active = skills
-    .filter((sk) => sk.effect === 'damage' && sk.costGauge === 0)
-    .reduce<Skill | null>((best, sk) => (!best || sk.power > best.power ? sk : best), null);
-  const subject = m.subjectAffinity ?? (active ?? skills[0])?.subject;
-  return {
-    id: m.id,
-    name: m.name,
-    passiveSkill: subject
-      ? { kind: 'gaugeBoost', subject, mult: def.settings.subjectGauge.companionBoost }
-      : null,
-    activeSkill: active?.id ?? null,
-  };
 }
 
 /**
@@ -189,252 +152,6 @@ function decayBuffs(c: Combatant): void {
       if (b.turns <= 0) delete c.buffs[key];
     }
   }
-}
-
-/** ボスのフェーズ移行（HP 割合で切り替わる）。ターン制では わざ・すがたが かわる（行動の 回数は かわらない） */
-function checkBossPhase(enemy: EnemyUnit, def: BattleDeps, ev: BattleEvent[], action: ActionContext): void {
-  if (!enemy.isBoss) return;
-  const phases = def.monsters.get(enemy.refId)?.bossPhases ?? [];
-  const ratio = enemy.hp / enemy.stats.hp;
-  for (let i = enemy.phaseIndex + 1; i < phases.length; i++) {
-    const p = phases[i]!;
-    if (ratio > p.hpBelow) continue;
-    enemy.phaseIndex = i;
-    if (p.skills) enemy.skills = p.skills;
-    if (p.element) enemy.element = p.element;
-    ev.push({ t: 'bossPhase', ...action, phaseIndex: i, line: p.line });
-  }
-}
-
-/** 味方が たおれた。前に 立つ オトモなら、生きている 次の 仲間が 自動で 前に 出る */
-function allyDown(
-  s: BattleState,
-  c: Combatant,
-  def: BattleDeps,
-  ev: BattleEvent[],
-  action: ActionContext,
-): void {
-  ev.push({ t: 'ko', ...action, side: 'ally', targetId: c.id });
-  if (c.isHero || s.companion?.id !== c.id) return;
-  const next = s.ally.monsters.findIndex((m) => m.hp > 0);
-  if (next < 0) {
-    s.companion = null;
-    return;
-  }
-  s.ally.activeMonsterIndex = next;
-  s.companion = makeCompanion(s.ally.monsters[next], def);
-  ev.push({ t: 'swap', ...action, from: c.id, to: s.ally.monsters[next]!.id, auto: true });
-}
-
-/** こうげきを 当てる（ダメージ → HP → ダウン・ボスの フェーズ） */
-function hit(
-  s: BattleState,
-  def: BattleDeps,
-  rng: Rng,
-  ev: BattleEvent[],
-  action: ActionContext,
-  o: { attacker: Combatant; defender: Combatant; side: Side; skill: Skill | null; score: number | null },
-): void {
-  const byAlly = o.side === 'enemy';
-  const d = computeDamage({
-    attacker: o.attacker,
-    defender: o.defender,
-    skill: o.skill,
-    score: o.score,
-    combo: byAlly ? s.player.comboCount : 0,
-    canCrit: byAlly,
-    settings: def.settings,
-    elements: def.elements,
-    rng,
-  });
-  o.defender.hp = Math.max(0, o.defender.hp - d.amount);
-  ev.push({
-    t: 'damage',
-    ...action,
-    side: o.side,
-    targetId: o.defender.id,
-    amount: d.amount,
-    critical: d.critical,
-    elementMult: d.elementMult,
-    weakness: d.weaknessHit,
-    scoreBand: d.band,
-    comboMult: d.comboMult,
-  });
-  if (byAlly && o.defender.hp > 0) checkBossPhase(s.enemy, def, ev, action);
-  else if (!byAlly && o.defender.hp <= 0) allyDown(s, o.defender, def, ev, action);
-}
-
-function finishIfOver(
-  s: BattleState,
-  def: BattleDeps,
-  rng: Rng,
-  ev: BattleEvent[],
-  action: ActionContext,
-): void {
-  if (s.outcome !== 'ongoing') return;
-  if (s.enemy.hp <= 0) {
-    ev.push({ t: 'ko', ...action, side: 'enemy', targetId: s.enemy.id });
-    const m = def.monsters.get(s.enemy.refId);
-    const drops = (m?.drops ?? []).filter((d) => rng.chance(d.rate)).map((d) => d.itemId);
-    const recruitOffer = !s.enemy.isBoss && rng.chance(m?.recruitRate ?? 0);
-    // れんぞく せいかいの ボーナス（この バトルで いちばん 長かった コンボで けいけんち・おかねが ふえる）
-    const bonus = comboBonus(s.player.maxCombo, def.settings);
-    s.outcome = 'victory';
-    ev.push({
-      t: 'victory',
-      ...action,
-      xp: addProgressValue(0, Math.round((m?.xp ?? 0) * bonus)),
-      gold: addProgressValue(0, Math.round((m?.gold ?? 0) * bonus)),
-      drops,
-      recruitOffer,
-      bonus,
-      maxCombo: s.player.maxCombo,
-    });
-    return;
-  }
-  if (s.ally.hero.hp <= 0 && s.ally.monsters.every((x) => x.hp <= 0)) {
-    s.outcome = 'defeat';
-    ev.push({ t: 'defeat', ...action });
-  }
-}
-
-/** 敵の ターン。シンプルAI：通常60% / わざ30% / 防御10%。HP30%以下なら回復わざを優先 */
-function enemyAction(
-  s: BattleState,
-  def: BattleDeps,
-  rng: Rng,
-  ev: BattleEvent[],
-  action: ActionContext,
-): void {
-  const e = s.enemy;
-  const target = frontAlly(s);
-  const r = rng.next();
-  const skills = e.skills.map((id) => def.skills.get(id)).filter((sk): sk is Skill => !!sk);
-  const healSkill = skills.find((sk) => sk.effect === 'heal');
-  if (e.hp / e.stats.hp <= 0.3 && healSkill && e.mp >= healSkill.mp) {
-    e.mp -= healSkill.mp;
-    const before = e.hp;
-    e.hp = Math.min(e.stats.hp, e.hp + Math.round(e.stats.hp * ENEMY_HEAL_RATIO));
-    ev.push({
-      t: 'act',
-      ...action,
-      side: 'enemy',
-      actorId: e.id,
-      targetIds: [e.id],
-      command: 'skill',
-      skillId: healSkill.id,
-    });
-    ev.push({ t: 'heal', ...action, side: 'enemy', targetId: e.id, amount: e.hp - before });
-    return;
-  }
-  const usable = skills.filter((sk) => sk.effect === 'damage' && e.mp >= sk.mp);
-  if (r < 0.3 && usable.length) {
-    const sk = rng.pick(usable);
-    e.mp -= sk.mp;
-    ev.push({
-      t: 'act',
-      ...action,
-      side: 'enemy',
-      actorId: e.id,
-      targetIds: [target.id],
-      command: 'skill',
-      skillId: sk.id,
-    });
-    // 敵のわざには問題が絡まない → score は null 扱い（等倍）
-    hit(s, def, rng, ev, action, {
-      attacker: e,
-      defender: target,
-      side: 'ally',
-      skill: sk,
-      score: null,
-    });
-  } else if (r < 0.9) {
-    ev.push({
-      t: 'act',
-      ...action,
-      side: 'enemy',
-      actorId: e.id,
-      targetIds: [target.id],
-      command: 'attack',
-    });
-    hit(s, def, rng, ev, action, {
-      attacker: e,
-      defender: target,
-      side: 'ally',
-      skill: null,
-      score: null,
-    });
-  } else {
-    // 次の ターンまで みを まもる
-    e.buffs.def = { mult: ENEMY_GUARD_MULT, turns: ENEMY_GUARD_TURNS + 1 };
-    ev.push({
-      t: 'act',
-      ...action,
-      side: 'enemy',
-      actorId: e.id,
-      targetIds: [e.id],
-      command: 'defend',
-    });
-    ev.push({
-      t: 'buff',
-      ...action,
-      side: 'enemy',
-      targetId: e.id,
-      stat: 'def',
-      mult: ENEMY_GUARD_MULT,
-      turns: ENEMY_GUARD_TURNS,
-    });
-  }
-  finishIfOver(s, def, rng, ev, action);
-}
-
-/** 敵の ターン（休んで いれば 何も しない） */
-function enemyTurn(
-  s: BattleState,
-  def: BattleDeps,
-  rng: Rng,
-  ev: BattleEvent[],
-  action: ActionContext,
-): void {
-  const e = s.enemy;
-  if (e.skipTurns > 0) {
-    e.skipTurns -= 1;
-    ev.push({ t: 'skipTurn', ...action, targetId: e.id, remain: e.skipTurns });
-    return;
-  }
-  enemyAction(s, def, rng, ev, action);
-}
-
-/** オトモの ターン（問題は なし＝倍率 1、コンボは のる） */
-function companionAction(
-  s: BattleState,
-  def: BattleDeps,
-  rng: Rng,
-  ev: BattleEvent[],
-  action: ActionContext,
-): void {
-  const c = s.companion;
-  const m = c && s.ally.monsters.find((x) => x.id === c.id);
-  if (!c || !m || m.hp <= 0) return;
-  const sk = (c.activeSkill && def.skills.get(c.activeSkill)) || null;
-  ev.push({
-    t: 'act',
-    ...action,
-    side: 'ally',
-    actorId: m.id,
-    targetIds: [s.enemy.id],
-    command: sk ? 'skill' : 'attack',
-    skillId: sk?.id,
-    auto: true,
-  });
-  hit(s, def, rng, ev, action, {
-    attacker: m,
-    defender: s.enemy,
-    side: 'enemy',
-    skill: sk,
-    score: null,
-  });
-  finishIfOver(s, def, rng, ev, action);
 }
 
 /** かいふく・まもりの 対象（self は 使った 味方、party は 主人公と 前に 立つ オトモ） */
@@ -549,7 +266,7 @@ function useSkill(
   });
   switch (sk.effect) {
     case 'damage':
-      hit(s, def, rng, ev, action, {
+      resolveHit(s, def, rng, ev, action, {
         attacker: actor,
         defender: s.enemy,
         side: 'enemy',
@@ -632,7 +349,7 @@ function heroCommand(
         targetIds: [s.enemy.id],
         command: 'attack',
       });
-      hit(s, def, rng, ev, action, {
+      resolveHit(s, def, rng, ev, action, {
         attacker: hero,
         defender: s.enemy,
         side: 'enemy',
@@ -768,9 +485,9 @@ export function act(prev: BattleState, command: Command, def: BattleDeps): StepO
     if (s.outcome !== 'ongoing') break;
     const action: ActionContext = { actionId: battleActionId(s.turn, actionOrdinal++) };
     if (actor === 'hero') heroCommand(s, command, def, rng, ev, action);
-    else if (actor === 'companion') companionAction(s, def, rng, ev, action);
-    else enemyTurn(s, def, rng, ev, action);
-    finishIfOver(s, def, rng, ev, action);
+    else if (actor === 'companion') resolveCompanionAction(s, def, rng, ev, action);
+    else resolveEnemyTurn(s, def, rng, ev, action);
+    finishAction(s, def, rng, ev, action);
   }
   if (s.outcome === 'ongoing') {
     for (const c of [s.ally.hero, ...s.ally.monsters, s.enemy]) decayBuffs(c);
@@ -795,4 +512,5 @@ export function replay(initial: BattleState, commands: readonly Command[], def: 
   return s;
 }
 
+export type { BattleDeps } from './dependencies';
 export type { BattleEvent, BattleState, Combatant, Command, Party, Side };

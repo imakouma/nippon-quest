@@ -178,6 +178,7 @@ type BattleActionEvent =
   /** auto = オトモが たおれて、次の 仲間が 自動で 前に 出た */
   | { t: 'swap'; from: string; to: string; auto?: boolean }
   | { t: 'recruitAttempt'; targetId: string; success: boolean; chance: number }
+  | { t: 'fleeAttempt'; success: boolean; chance: number }
   | { t: 'ko'; side: Side; targetId: string }
   | { t: 'bossPhase'; phaseIndex: number; line?: string }
   /** xp・gold は コンボ ボーナス（bonus 倍）込み */
@@ -200,5 +201,5 @@ export type BattleEvent =
   /** 教科ゲージが たりなくて 打てない（ターンは すすまない） */
   | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
   /** にげられないボスへの試行は成立行動ではないので actionId を持たない。 */
-  | ({ t: 'fleeAttempt'; success: boolean; chance: number } & Partial<BattleActionRef>)
+  | { t: 'fleeAttempt'; success: false; chance: 0 }
   | (BattleActionEvent & BattleActionRef);

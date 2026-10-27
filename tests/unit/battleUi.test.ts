@@ -391,7 +391,7 @@ describe('メッセージ（narrate）', () => {
       { t: 'swap', ...ACTION, from: 'pal', to: 'hero' },
       { t: 'recruitAttempt', ...ACTION, targetId: 'enemy', success: false, chance: 0.1 },
       { t: 'recruited', ...ACTION, monsterId: 'x' },
-      { t: 'fleeAttempt', success: false, chance: 0.3 },
+      { t: 'fleeAttempt', ...ACTION, success: false, chance: 0.3 },
       { t: 'fled', ...ACTION },
       { t: 'ko', ...ACTION, side: 'ally', targetId: 'pal' },
       { t: 'bossPhase', ...ACTION, phaseIndex: 1, line: 'がおー' },
