@@ -32,7 +32,7 @@ counter、同一行動内の複数効果、表示上の parallel 化でも因果
   `pnpm exec vitest run tests/unit/battleActionCausality.test.ts tests/unit/battle.test.ts tests/unit/battlePresentationRuntime.test.ts tests/unit/battleUi.test.ts`
 - Fast gate: `pnpm check:fast`
 - Related tests:
-  `pnpm test:related src/core/battle/types.ts src/core/battle/engine.ts src/core/battle/musubiDama.ts src/scenes/battle/presentationRuntime.ts src/scenes/battle/eventAnimator.ts`
+  `pnpm test:related src/core/battle/types.ts src/core/battle/dependencies.ts src/core/battle/engine.ts src/core/battle/actionResolver.ts src/core/battle/musubiDama.ts src/scenes/Battle.ts src/scenes/battle/presentationRuntime.ts src/scenes/battle/eventAnimator.ts`
 - Integration owner gate after merge: `pnpm check:full`
 - Preview is unnecessary unless implementation changes visible behavior. If a regression requires visual confirmation:
   `pnpm exec vite preview --host 127.0.0.1 --port 4175 --strictPort`
@@ -40,7 +40,9 @@ counter、同一行動内の複数効果、表示上の parallel 化でも因果
 ## Project Structure
 
 - `src/core/battle/types.ts`: typed action identity and action-scoped event contract
-- `src/core/battle/engine.ts`: deterministic action-id allocation and propagation through effects/outcomes
+- `src/core/battle/dependencies.ts`: shared injected dependency type without an engine/resolver cycle
+- `src/core/battle/engine.ts`: deterministic action-id allocation and command-level propagation
+- `src/core/battle/actionResolver.ts`: damage, AI action, KO, phase, and outcome action propagation
 - `src/core/battle/musubiDama.ts`: item/recruit action events receive the caller's action context
 - `src/scenes/battle/presentationRuntime.ts`: visual command no longer transports a guessed `next` event
 - `src/scenes/battle/eventAnimator.ts`: uses explicit action target metadata; no adjacency inference

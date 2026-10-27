@@ -12,6 +12,7 @@
   index を使わない。
 - `ActionContext` は 1 回の `act()` 解決内だけで生成し、成立した initiative slot ごとに ordinal を
   進める。無効 command は事前検証され、ID を消費しない。
+- action 解決は `actionResolver.ts`、共有依存型は `dependencies.ts` へ分離し、engine の行数上限と循環依存を避ける。
 - action-scoped event variant は `actionId` を必須にする。`turnStart` と成立しない command の通知は
   action scope 外のままにする。
 - `act` event は `targetIds` を明示し、将来の派生 action 向けに optional `causedByActionId` を持つ。
@@ -28,27 +29,27 @@
 
 ### Phase 1: Contract and RED
 
-- [ ] Task 1: causality contract test を追加し、現状で RED を確認する。
+- [x] Task 1: causality contract test を追加し、現状で RED を確認する。
 
 ### Phase 2: Core Event Bundles
 
-- [ ] Task 2: `BattleActionId` と action-scoped union を定義し、engine / musubi へ action context を通す。
-- [ ] Task 3: replay、multi-target、KO/outcome、無効 command の causality test を GREEN にする。
+- [x] Task 2: `BattleActionId` と action-scoped union を定義し、engine / musubi へ action context を通す。
+- [x] Task 3: replay、multi-target、KO/outcome、無効 command の causality test を GREEN にする。
 
 ### Checkpoint: Core
 
-- [ ] focused core tests が通り、既存 event 順と RNG state が変わっていない。
+- [x] focused core tests が通り、既存 event 順と RNG state が変わっていない。
 
 ### Phase 3: Presentation Consumer
 
-- [ ] Task 4: presentation / animator / Battle scene から `next` event 契約を削除する。
-- [ ] Task 5: 手作り BattleEvent fixture と該当 E2E の期待値を新契約へ更新する。
+- [x] Task 4: presentation / animator / Battle scene から `next` event 契約を削除する。
+- [x] Task 5: 手作り BattleEvent fixture と該当 E2E の期待値を新契約へ更新する。
 
 ### Phase 4: Review and Handoff
 
-- [ ] Task 6: focused tests、`pnpm check:fast`、変更 source の `pnpm test:related` を実行する。
-- [ ] Task 7: correctness / readability / architecture / security / performance の自己レビューを行う。
-- [ ] Task 8: Graphify code-only graph を更新し、atomic commit と統合注意点を報告する。
+- [x] Task 6: focused tests、`pnpm check:fast`、変更 source の `pnpm test:related` を実行する。
+- [x] Task 7: correctness / readability / architecture / security / performance の自己レビューを行う。
+- [x] Task 8: Graphify code-only graph を更新し、atomic commit と統合注意点を報告する。
 
 ## Risks and Mitigations
 
