@@ -3,25 +3,35 @@
 ## 範囲と状態
 
 - 正: `tasks/animation-batch-assignments.json` の `batch-04.ids`（110体）。
-- 完了: 20体。
-- 未着手: 90体（割当110体から下記完了20体を除いたもの）。
+- 完了: 30体。
+- 未着手: 80体（割当110体から下記完了30体を除いたもの）。
 - 失敗: 0体。
 - 共通ファイルや他batchは編集しない。ゲーム内で制作・検証できたものだけmanifestへ登録する。
 
 ## 完了
 
-| ID                            | 待機差分                   | 攻撃差分                       | 原本                                                                                     | ランタイム                                                              | 状態               |
-| ----------------------------- | -------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------ |
-| `aichi-denkikun`              | 呼吸、葉の開閉、瞬き、火花 | 充電、前傾、放電、着地         | `docs/verification/animation-batch-04/generated-sources/aichi-denkikun.png`              | `assets/sprites/animations/batch-04/aichi-denkikun-v1.png`              | 制作・規格検査済み |
-| `aichi-lastboss-oda-nobunaga` | 肩呼吸、拳、瞬き、鎧の復帰 | 構え、踏み込み、前腕打撃、着地 | `docs/verification/animation-batch-04/generated-sources/aichi-lastboss-oda-nobunaga.png` | `assets/sprites/animations/batch-04/aichi-lastboss-oda-nobunaga-v1.png` | 制作・規格検査済み |
-| `aichi-tebasakky`             | 翼の開閉、瞬き、片足、復帰 | しゃがみ、跳躍、翼打撃、着地   | `docs/verification/animation-batch-04/generated-sources/aichi-tebasakky.png`             | `assets/sprites/animations/batch-04/aichi-tebasakky-v1.png`             | 制作・規格検査済み |
-| `akita-hanabii`               | 導火線、瞬き、呼吸         | ため、前傾、発光、着地         | `docs/verification/animation-batch-04/generated-sources/akita-hanabii.png`               | `assets/sprites/animations/batch-04/akita-hanabii-v1.png`               | 制作・規格検査済み |
-| `akita-magewappan`            | 蓋とご飯、瞬き             | 踏ん張り、蓋、体当たり、着地   | `docs/verification/animation-batch-04/generated-sources/akita-magewappan.png`            | `assets/sprites/animations/batch-04/akita-magewappan-v1.png`            | 制作・規格検査済み |
-| `chiba-boss-shoyu-ryu`        | 尾、ひげ、瞬き             | とぐろ、球、爪の突進、復帰     | `docs/verification/animation-batch-04/generated-sources/chiba-boss-shoyu-ryu.png`        | `assets/sprites/animations/batch-04/chiba-boss-shoyu-ryu-v1.png`        | 制作・規格検査済み |
-| `chiba-lastboss-ino-tadataka` | 地図、杖、瞬き             | 構え、歩み、測量杖、復帰       | `docs/verification/animation-batch-04/generated-sources/chiba-lastboss-ino-tadataka.png` | `assets/sprites/animations/batch-04/chiba-lastboss-ino-tadataka-v1.png` | 制作・規格検査済み |
-| `chiba-sharirin`              | 葉、瞬き、呼吸             | しゃがみ、転がり、体当たり     | `docs/verification/animation-batch-04/generated-sources/chiba-sharirin.png`              | `assets/sprites/animations/batch-04/chiba-sharirin-v1.png`              | 制作・規格検査済み |
-| `ehime-jakotendai`            | ヒレ、帽子、瞬き           | 圧縮、ヒレ、魚体突進、復帰     | `docs/verification/animation-batch-04/generated-sources/ehime-jakotendai.png`            | `assets/sprites/animations/batch-04/ehime-jakotendai-v1.png`            | 制作・規格検査済み |
-| `ehime-midboss-yuamisagi`     | 翼、湯気、瞬き             | しゃがみ、翼、風攻撃、着地     | `docs/verification/animation-batch-04/generated-sources/ehime-midboss-yuamisagi.png`     | `assets/sprites/animations/batch-04/ehime-midboss-yuamisagi-v1.png`     | 制作・規格検査済み |
+| ID                                      | 待機差分                   | 攻撃差分                       | 原本                                                                                               | ランタイム                                                                        | 状態               |
+| --------------------------------------- | -------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------ |
+| `aichi-denkikun`                        | 呼吸、葉の開閉、瞬き、火花 | 充電、前傾、放電、着地         | `docs/verification/animation-batch-04/generated-sources/aichi-denkikun.png`                        | `assets/sprites/animations/batch-04/aichi-denkikun-v1.png`                        | 制作・規格検査済み |
+| `aichi-lastboss-oda-nobunaga`           | 肩呼吸、拳、瞬き、鎧の復帰 | 構え、踏み込み、前腕打撃、着地 | `docs/verification/animation-batch-04/generated-sources/aichi-lastboss-oda-nobunaga.png`           | `assets/sprites/animations/batch-04/aichi-lastboss-oda-nobunaga-v1.png`           | 制作・規格検査済み |
+| `aichi-tebasakky`                       | 翼の開閉、瞬き、片足、復帰 | しゃがみ、跳躍、翼打撃、着地   | `docs/verification/animation-batch-04/generated-sources/aichi-tebasakky.png`                       | `assets/sprites/animations/batch-04/aichi-tebasakky-v1.png`                       | 制作・規格検査済み |
+| `akita-hanabii`                         | 導火線、瞬き、呼吸         | ため、前傾、発光、着地         | `docs/verification/animation-batch-04/generated-sources/akita-hanabii.png`                         | `assets/sprites/animations/batch-04/akita-hanabii-v1.png`                         | 制作・規格検査済み |
+| `akita-magewappan`                      | 蓋とご飯、瞬き             | 踏ん張り、蓋、体当たり、着地   | `docs/verification/animation-batch-04/generated-sources/akita-magewappan.png`                      | `assets/sprites/animations/batch-04/akita-magewappan-v1.png`                      | 制作・規格検査済み |
+| `chiba-boss-shoyu-ryu`                  | 尾、ひげ、瞬き             | とぐろ、球、爪の突進、復帰     | `docs/verification/animation-batch-04/generated-sources/chiba-boss-shoyu-ryu.png`                  | `assets/sprites/animations/batch-04/chiba-boss-shoyu-ryu-v1.png`                  | 制作・規格検査済み |
+| `chiba-lastboss-ino-tadataka`           | 地図、杖、瞬き             | 構え、歩み、測量杖、復帰       | `docs/verification/animation-batch-04/generated-sources/chiba-lastboss-ino-tadataka.png`           | `assets/sprites/animations/batch-04/chiba-lastboss-ino-tadataka-v1.png`           | 制作・規格検査済み |
+| `chiba-sharirin`                        | 葉、瞬き、呼吸             | しゃがみ、転がり、体当たり     | `docs/verification/animation-batch-04/generated-sources/chiba-sharirin.png`                        | `assets/sprites/animations/batch-04/chiba-sharirin-v1.png`                        | 制作・規格検査済み |
+| `ehime-jakotendai`                      | ヒレ、帽子、瞬き           | 圧縮、ヒレ、魚体突進、復帰     | `docs/verification/animation-batch-04/generated-sources/ehime-jakotendai.png`                      | `assets/sprites/animations/batch-04/ehime-jakotendai-v1.png`                      | 制作・規格検査済み |
+| `ehime-midboss-yuamisagi`               | 翼、湯気、瞬き             | しゃがみ、翼、風攻撃、着地     | `docs/verification/animation-batch-04/generated-sources/ehime-midboss-yuamisagi.png`               | `assets/sprites/animations/batch-04/ehime-midboss-yuamisagi-v1.png`               | 制作・規格検査済み |
+| `gifu-ukaidori`                         | 呼吸、瞬き、魚の傾き       | しゃがみ、魚槍の突き、復帰     | `docs/verification/animation-batch-04/generated-sources/gifu-ukaidori.png`                         | `assets/sprites/animations/batch-04/gifu-ukaidori-v1.png`                         | 制作・規格検査済み |
+| `gunma-dosshirikon`                     | 弾性変形、瞬き             | 圧縮、横膨張、体当たり、復帰   | `docs/verification/animation-batch-04/generated-sources/gunma-dosshirikon.png`                     | `assets/sprites/animations/batch-04/gunma-dosshirikon-v1.png`                     | 制作・規格検査済み |
+| `gunma-lastboss-nitta-yoshisada`        | 鎧の呼吸、旗の揺れ         | 構え、旗槍の突き、復帰         | `docs/verification/animation-batch-04/generated-sources/gunma-lastboss-nitta-yoshisada.png`        | `assets/sprites/animations/batch-04/gunma-lastboss-nitta-yoshisada-v1.png`        | 制作・規格検査済み |
+| `hiroshima-boss-momiji-ryu`             | 呼吸、瞬き、両腕と紅葉角   | 両腕の引き、紅葉角の薙ぎ、復帰 | `docs/verification/animation-batch-04/generated-sources/hiroshima-boss-momiji-ryu.png`             | `assets/sprites/animations/batch-04/hiroshima-boss-momiji-ryu-v1.png`             | 制作・規格検査済み |
+| `hiroshima-kasaneyakin`                 | 呼吸、瞬き、炎とヘラ       | ヘラの振りかぶり、斬撃、復帰   | `docs/verification/animation-batch-04/generated-sources/hiroshima-kasaneyakin.png`                 | `assets/sprites/animations/batch-04/hiroshima-kasaneyakin-v1.png`                 | 制作・規格検査済み |
+| `hiroshima-setolemon`                   | 弾性変形、瞬き、葉         | 圧縮、回転突進、復帰           | `docs/verification/animation-batch-04/generated-sources/hiroshima-setolemon.png`                   | `assets/sprites/animations/batch-04/hiroshima-setolemon-v1.png`                   | 制作・規格検査済み |
+| `hokkaido-boss-higuma-daio`             | 呼吸、瞬き、鮭の尾         | しゃがみ、両爪打撃、復帰       | `docs/verification/animation-batch-04/generated-sources/hokkaido-boss-higuma-daio.png`             | `assets/sprites/animations/batch-04/hokkaido-boss-higuma-daio-v1.png`             | 制作・規格検査済み |
+| `hokkaido-islandboss-shirogane-oowashi` | 翼の開閉、瞬き、羽毛       | 翼を畳む、突風の両翼打撃、復帰 | `docs/verification/animation-batch-04/generated-sources/hokkaido-islandboss-shirogane-oowashi.png` | `assets/sprites/animations/batch-04/hokkaido-islandboss-shirogane-oowashi-v1.png` | 制作・規格検査済み |
+| `hokkaido-kitakon`                      | 瞬き、耳、尾               | しゃがみ、跳躍、尾撃、着地     | `docs/verification/animation-batch-04/generated-sources/hokkaido-kitakon.png`                      | `assets/sprites/animations/batch-04/hokkaido-kitakon-v1.png`                      | 制作・規格検査済み |
+| `hokkaido-midboss-setsuzo-golem`        | 体の上下、瞬き、拳         | 両拳を引く、叩き付け、復帰     | `docs/verification/animation-batch-04/generated-sources/hokkaido-midboss-setsuzo-golem.png`        | `assets/sprites/animations/batch-04/hokkaido-midboss-setsuzo-golem-v1.png`        | 制作・規格検査済み |
 
 ## 生成記録
 
@@ -69,10 +79,26 @@
 - `gifu-boss-gassho-daiou`: 合掌造りの家、冠煙突、窓目、基礎足を固定。屋根呼吸、傾き、家の体当たり。出力 `exec-e90b0b89-4eed-4316-8f1e-c00cfadb186f.png`。
 - `gifu-lastboss-saito-dosan`: 青金兜、灰ひげ、緑黒鎧を固定。肩呼吸、踏み込み、前腕打撃。出力 `exec-3ad92378-cae0-477e-b684-b1b7393f6bca.png`。
 
+### 追加5体
+
+- `gifu-ukaidori`: 黒灰の鵜、白い頬、魚、短い足を固定。魚を傾ける待機、魚槍の突進。出力 `exec-824dd9e2-2aa3-4a5b-ae2d-e94d718dee81.png`。
+- `gunma-dosshirikon`: 灰色のこんにゃく体、白い結び、斑点を固定。弾性待機、圧縮からの体当たり。出力 `exec-ee7e306b-81c8-4ffb-9bf6-0e09cb218055.png`。
+- `gunma-lastboss-nitta-yoshisada`: 紺金の鎧、角兜、白紺の旗を固定。旗の揺れ、旗槍の突進。出力 `exec-c052d40c-fac7-4c76-9f76-33f551f5f050.png`。
+- `hiroshima-boss-momiji-ryu`: 青い龍、冠、腕2本、紅葉角、巻いた下半身を固定。腕と紅葉角の待機、両腕の薙ぎ。出力 `exec-5f2a26af-39c3-48f3-9a31-4595ec0cca8b.png`。
+- `hiroshima-kasaneyakin`: 黄・茶・緑の層、炎3つ、ヘラ1本を固定。炎とヘラの待機、ヘラの振り下ろし。出力 `exec-c22544d5-b213-437f-ab31-ec8d6be67aa7.png`。
+
+### 追加5体（北海道まで）
+
+- `hiroshima-setolemon`: 黄色いレモン体、葉1枚、黒帯の蓋を固定。弾性待機、回転突進。出力 `exec-00b26a11-05fd-4c4b-bc21-624e1381db50.png`。
+- `hokkaido-boss-higuma-daio`: 冠、熊の腕脚、雪、口の鮭を固定。鮭の尾待機、両爪の叩き付け。出力 `exec-04a93414-819e-4523-b31c-07835000f2ec.png`。
+- `hokkaido-islandboss-shirogane-oowashi`: 白い大鷲、翼2枚、冠、胸羽、鳥足を固定。翼待機、突風の両翼打撃。出力 `exec-915a9a2d-0ae1-49cc-8939-c397225797e6.png`。
+- `hokkaido-kitakon`: 橙の狐、耳2、四肢、尾1本、頭の飾りを固定。耳尾待機、跳躍と尾撃。出力 `exec-a786cc0f-dd75-4e99-b609-bb4262a6d174.png`。
+- `hokkaido-midboss-setsuzo-golem`: 氷雪ブロック、冠、腕2、脚2、台座を固定。拳待機、両拳の叩き付け。出力 `exec-28cee4e1-20ff-460e-8fcb-2c9b77d9afc2.png`。
+
 ## 検証記録
 
 - RED: manifestが空の状態で `tests/unit/animation-batch-04.test.ts` の3体登録テストが意図どおり失敗。
-- PNG: 20体とも512×256、RGBA、4列2行の契約。
+- PNG: 30体とも512×256、RGBA、4列2行の契約。
 - 実ゲーム: 4180で3体の待機、横向きスマホの通常攻撃・攻撃わざ・復帰・KOが成功。PCは初期ロードが60秒を超える不安定さがあり再検証中。
 
 ## 統合担当への提案
