@@ -14,118 +14,118 @@
 
 ## 進捗
 
-| ID                                      | 状態   | 理由・検証                                                                                  |
-| --------------------------------------- | ------ | ------------------------------------------------------------------------------------------- |
-| `aichi-boss-kinshachi-ou`               | 完了   | 待機は冠・ヒレ・瞬き、攻撃は前傾した水上突進。PC/横向きスマホで再生・復帰・KO確認済み       |
-| `aichi-kokekokkochin`                   | 完了   | 待機は翼呼吸・瞬き、攻撃は二足のまま羽ばたき突進。PC/横向きスマホで再生・復帰・KO済み       |
-| `aichi-shiborin`                        | 完了   | 待機は布の膨縮・瞬き、攻撃は絞り模様を伴う回転体当たり。PC/横向きスマホで再生・KO済み       |
-| `akita-chuken-maru`                     | 完了   | 胸・尻尾・襟巻きの呼吸と瞬き、四足の沈み込みから跳びかかり。PC/横向きスマホ確認済み         |
-| `akita-lastboss-satake-yoshinobu`       | 完了   | 肩・兜飾りの呼吸と瞬き、守りから肩で踏み込む攻撃。PC/横向きスマホ確認済み                   |
-| `akita-wappa-toride`                    | 完了   | 三段曲げわっぱの圧縮と留め具の揺れ、傾いて突進。PC/横向きスマホ確認済み                     |
-| `chiba-kujukurin`                       | 完了   | 貝殻状の胴と青い突起を保ち、つぶれから跳ねて殻で打撃。PC/横向きスマホ確認済み               |
-| `chiba-peanight`                        | 完了   | 花盾と落花生棍を保ち、盾受けから棍を振る攻撃。PC/横向きスマホ確認済み                       |
-| `ehime-iyokan-musha`                    | 完了   | 葉と側面の束を保ち、揺れ・瞬きからひねって転がる攻撃。PC/横向きスマホ確認済み               |
-| `ehime-lastboss-murakami-takeyoshi`     | 完了   | 大角兜・口髭を保ち、守りから肩で踏み込む攻撃。PC/横向きスマホ確認済み                       |
-| `fukui-boss-echizen-gani-ou`            | 完了   | 王冠・眼柄・鋏・脚・青い台座を保ち、鋏の引きから横突進。PC/横向きスマホ確認済み             |
-| `fukui-lastboss-matsudaira-shungaku`    | 完了   | 黄縁の本と装束を保ち、本を構えて踏み込む攻撃。PC/横向きスマホ確認済み                       |
-| `fukui-raputorun`                       | 完了   | 胸・小腕・尾の待機差分と瞬き、伏せから跳びかかる攻撃。PC/横向きスマホ確認済み               |
-| `fukuoka-boss-hiraodaio`                | 完了   | 羊毛・角・王冠の待機差分と瞬き、四足で角から突進。PC/横向きスマホ確認済み                   |
-| `fukuoka-midboss-banana-taisho`         | 完了   | 両端・腕の待機差分と瞬き、低い構えから胴ごと体当たり。PC/横向きスマホ確認済み               |
-| `fukuoka-suigo-maru`                    | 完了   | 波輪・舟・笠・竹竿の待機差分と瞬き、波に沈んで前傾突進。PC/横向きスマホ確認済み             |
-| `fukushima-akatsuki-momo`               | 完了   | 葉と光輪の浮遊差分と瞬き、つぶれ・ひねりから桃先頭で突進。PC/横向きスマホ確認済み           |
-| `fukushima-kura-donburi`                | 完了   | 麺・眉・取っ手の待機差分と瞬き、どんぶりごと傾いて転がる攻撃。PC/横向きスマホ確認済み       |
-| `fukushima-yaoki-koboshi`               | 完了   | 起き上がり小法師の揺れと旗の待機差分、後傾から転がる攻撃。PC/横向きスマホ確認済み           |
-| `gifu-kamiori-dori`                     | 完了   | 折り翼・冠羽の待機差分と瞬き、翼を折り込んで突き出す攻撃。PC/横向きスマホ確認済み           |
-| `gifu-oriben`                           | 完了   | 織部釉の器体を傾ける待機差分と瞬き、低く回って肩から突進。PC/横向きスマホ確認済み           |
-| `gunma-boss-gankake-daruma`             | 完了   | 王冠と二本の炎角を保ち、揺れ・瞬きから角先頭で転がる攻撃。PC/横向きスマホ確認済み           |
-| `gunma-kyabezukin`                      | 完了   | 葉層・葉尾・二脚を保ち、葉の揺れと瞬きから葉を閉じて頭突き。PC/横向きスマホ確認済み         |
-| `gunma-purukon`                         | 完了   | 灰色角形・斑点・二脚を保ち、弾性変形と瞬きからつぶれて胴体打撃。PC/横向きスマホ確認済み     |
-| `hiroshima-kakigaran`                   | 完了   | 上下殻・青い側突起・木台を保ち、殻の開閉と瞬きから殻を閉じて打撃。PC/横向きスマホ確認済み   |
-| `hiroshima-onbashigame`                 | 完了   | 石帽子・苔・茶色胴・基部の脚を保ち、沈み込みから石帽子ごと突進。PC/横向きスマホ確認済み     |
-| `hokkaido-ami-melon`                    | 完了   | 網目・茎葉・二脚を保ち、葉の揺れと瞬きからつぶれて回転体当たり。PC/横向きスマホ確認済み     |
-| `hokkaido-hotaten`                      | 完了   | 放射状の帆立殻・二脚を保ち、殻の開閉と瞬きから殻先頭で跳躍。PC/横向きスマホ確認済み         |
-| `hokkaido-jet-hotate`                   | 完了   | 上縁の青粒と二本の水流脚を保ち、噴射脈動と瞬きから前傾噴射。PC/横向きスマホ確認済み         |
-| `hokkaido-lavendori`                    | 完了   | 紫の胴・側翼・二脚・頭上の花を保ち、揺れと瞬きから嘴先頭で突進。PC/横向きスマホ確認済み     |
-| `hokuriku-islandboss-kagamiutsushi`     | 完了   | 金縁鏡・化粧飾り・縞腕・台座を保ち、鏡面と腕の待機差分から鏡縁突進。PC/横向きスマホ確認済み |
-| `hyogo-lastboss-ikeda-terumasa`         | 完了   | 大角兜・鎧・四肢を保ち、呼吸と瞬きから肩で踏み込む攻撃。PC/横向きスマホ確認済み             |
-| `hyogo-sorobanban`                      | 完了   | 算盤枠・珠列・二脚を保ち、珠の移動と瞬きから枠ごと傾いて突進。PC/横向きスマホ確認済み       |
-| `ibaraki-aozora-hime`                   | 完了   | 大花・二枚の花翼・二脚を保ち、花翼の待機差分から前傾飛び込み。PC/横向きスマホ確認済み       |
-| `ibaraki-hobikin`                       | 完了   | 二体一組を全コマで維持し、逆位相の待機差分から同期して二重突進。PC/横向きスマホ確認済み     |
-| `ibaraki-nemofin`                       | 完了   | 頭花・側翼・二脚・尾を保ち、待機差分から翼を引いて前方突進。PC/横向きスマホ確認済み         |
-| `ishikawa-gosai-bon`                    | 完了   | 多彩模様の器・赤い側突起・二脚を保ち、傾きから側面体当たり。PC/横向きスマホ確認済み         |
-| `ishikawa-kinpaku-cho`                  | 完了   | 金翅四枚・茶胴・金帯頭を保ち、翅の待機差分から前傾急降下。PC/横向きスマホ確認済み           |
-| `ishikawa-oo-hamashion`                 | 完了   | 塩山・三つの水色球・帯・右留め具を保ち、つぶれから留め具先頭で滑走。PC/横向きスマホ確認済み |
-| `kagawa-kororibu`                       | 未着手 | —                                                                                           |
-| `kagawa-mizukagami`                     | 未着手 | —                                                                                           |
-| `kagawa-zenigani`                       | 未着手 | —                                                                                           |
-| `kagoshima-kurogane-boo`                | 未着手 | —                                                                                           |
-| `kagoshima-nabezurun`                   | 未着手 | —                                                                                           |
-| `kanagawa-boss-yokohama-shishi-oh`      | 未着手 | —                                                                                           |
-| `kanagawa-kazakiri-tonbi`               | 未着手 | —                                                                                           |
-| `kanagawa-piihyoro`                     | 未着手 | —                                                                                           |
-| `kochi-boss-kuroshio-kujira`            | 未着手 | —                                                                                           |
-| `kochi-lastboss-sakamoto-ryoma`         | 未着手 | —                                                                                           |
-| `koshinetsu-boss`                       | 失敗   | 指定の pixels/sheets 参照が双方欠損                                                         |
-| `kumamoto-ebi-musha`                    | 未着手 | —                                                                                           |
-| `kumamoto-midboss-kindouro`             | 未着手 | —                                                                                           |
-| `kumamoto-tatamin`                      | 未着手 | —                                                                                           |
-| `kyoto-chirimen-mai`                    | 未着手 | —                                                                                           |
-| `kyoto-hontoha-karain`                  | 未着手 | —                                                                                           |
-| `kyushu-okinawa-islandboss-chishikigui` | 未着手 | —                                                                                           |
-| `mie-iga-jonin`                         | 未着手 | —                                                                                           |
-| `mie-shinju-hime`                       | 未着手 | —                                                                                           |
-| `miyagi-lastboss-date-masamune`         | 未着手 | —                                                                                           |
-| `miyagi-sasakama-uo`                    | 未着手 | —                                                                                           |
-| `miyazaki-boss-takachiho-no-nushi`      | 未着手 | —                                                                                           |
-| `miyazaki-mangocchi`                    | 未着手 | —                                                                                           |
-| `miyazaki-tarutaru-kokko`               | 未着手 | —                                                                                           |
-| `nagano-oomori-soba`                    | 未着手 | —                                                                                           |
-| `nagano-yukemuri-zaru`                  | 未着手 | —                                                                                           |
-| `nagasaki-kurawan-nushi`                | 未着手 | —                                                                                           |
-| `nagasaki-mogikko`                      | 未着手 | —                                                                                           |
-| `nara-happazushi`                       | 未着手 | —                                                                                           |
-| `nara-somen-tsururi`                    | 未着手 | —                                                                                           |
-| `niigata-boss-shinanogawa-no-nushi`     | 未着手 | —                                                                                           |
-| `niigata-kotoki`                        | 未着手 | —                                                                                           |
-| `oita-boss-yukemuryu`                   | 未着手 | —                                                                                           |
-| `oita-midboss-yabakeiwa`                | 未着手 | —                                                                                           |
-| `oita-yukemurin`                        | 未着手 | —                                                                                           |
-| `okayama-denim-bushi`                   | 未着手 | —                                                                                           |
-| `okayama-midboss-mouretsu-jersey`       | 未着手 | —                                                                                           |
-| `okinawa-goyamaru`                      | 未着手 | —                                                                                           |
-| `okinawa-painapon`                      | 未着手 | —                                                                                           |
-| `osaka-fusanari-don`                    | 未着手 | —                                                                                           |
-| `osaka-midboss-abare-danjiri`           | 未着手 | —                                                                                           |
-| `saga-chabashira`                       | 未着手 | —                                                                                           |
-| `saga-midboss-toumeika`                 | 未着手 | —                                                                                           |
-| `saitama-boss-yomatsuri-daio`           | 未着手 | —                                                                                           |
-| `saitama-midboss-gon-yagura`            | 未着手 | —                                                                                           |
-| `shiga-boss-dainamazu`                  | 未着手 | —                                                                                           |
-| `shiga-lastboss-ii-naosuke`             | 未着手 | —                                                                                           |
-| `shikoku-islandboss-yotsu-no-tenbin`    | 未着手 | —                                                                                           |
-| `shimane-oohi-rosoku`                   | 未着手 | —                                                                                           |
-| `shimane-warigon`                       | 未着手 | —                                                                                           |
-| `shizuoka-kazekiri-dako`                | 未着手 | —                                                                                           |
-| `shizuoka-unagi-nobori`                 | 未着手 | —                                                                                           |
-| `tochigi-go-bellmoo`                    | 未着手 | —                                                                                           |
-| `tochigi-lastboss-nasu-no-yoichi`       | 未着手 | —                                                                                           |
-| `tokushima-kazura-musasabi`             | 未着手 | —                                                                                           |
-| `tokushima-oogamedon`                   | 未着手 | —                                                                                           |
-| `tokyo-daikon-zamurai`                  | 未着手 | —                                                                                           |
-| `tokyo-musasabyun`                      | 未着手 | —                                                                                           |
-| `tottori-boss-sakyu-majin`              | 未着手 | —                                                                                           |
-| `tottori-perawashi`                     | 未着手 | —                                                                                           |
-| `toyama-fubuki-okojo`                   | 未着手 | —                                                                                           |
-| `toyama-midboss-gabujishi`              | 未着手 | —                                                                                           |
-| `wakayama-bincho-homura`                | 未着手 | —                                                                                           |
-| `wakayama-mamori-toudai`                | 未着手 | —                                                                                           |
-| `wakayama-toudain`                      | 未着手 | —                                                                                           |
-| `yamagata-lastboss-matsuo-basho`        | 未着手 | —                                                                                           |
-| `yamagata-yukemurin`                    | 未着手 | —                                                                                           |
-| `yamaguchi-lastboss-yoshida-shoin`      | 未着手 | —                                                                                           |
-| `yamaguchi-noborigaman`                 | 未着手 | —                                                                                           |
-| `yamanashi-budoon`                      | 未着手 | —                                                                                           |
-| `yamanashi-momorin`                     | 未着手 | —                                                                                           |
+| ID                                      | 状態   | 理由・検証                                                                                    |
+| --------------------------------------- | ------ | --------------------------------------------------------------------------------------------- |
+| `aichi-boss-kinshachi-ou`               | 完了   | 待機は冠・ヒレ・瞬き、攻撃は前傾した水上突進。PC/横向きスマホで再生・復帰・KO確認済み         |
+| `aichi-kokekokkochin`                   | 完了   | 待機は翼呼吸・瞬き、攻撃は二足のまま羽ばたき突進。PC/横向きスマホで再生・復帰・KO済み         |
+| `aichi-shiborin`                        | 完了   | 待機は布の膨縮・瞬き、攻撃は絞り模様を伴う回転体当たり。PC/横向きスマホで再生・KO済み         |
+| `akita-chuken-maru`                     | 完了   | 胸・尻尾・襟巻きの呼吸と瞬き、四足の沈み込みから跳びかかり。PC/横向きスマホ確認済み           |
+| `akita-lastboss-satake-yoshinobu`       | 完了   | 肩・兜飾りの呼吸と瞬き、守りから肩で踏み込む攻撃。PC/横向きスマホ確認済み                     |
+| `akita-wappa-toride`                    | 完了   | 三段曲げわっぱの圧縮と留め具の揺れ、傾いて突進。PC/横向きスマホ確認済み                       |
+| `chiba-kujukurin`                       | 完了   | 貝殻状の胴と青い突起を保ち、つぶれから跳ねて殻で打撃。PC/横向きスマホ確認済み                 |
+| `chiba-peanight`                        | 完了   | 花盾と落花生棍を保ち、盾受けから棍を振る攻撃。PC/横向きスマホ確認済み                         |
+| `ehime-iyokan-musha`                    | 完了   | 葉と側面の束を保ち、揺れ・瞬きからひねって転がる攻撃。PC/横向きスマホ確認済み                 |
+| `ehime-lastboss-murakami-takeyoshi`     | 完了   | 大角兜・口髭を保ち、守りから肩で踏み込む攻撃。PC/横向きスマホ確認済み                         |
+| `fukui-boss-echizen-gani-ou`            | 完了   | 王冠・眼柄・鋏・脚・青い台座を保ち、鋏の引きから横突進。PC/横向きスマホ確認済み               |
+| `fukui-lastboss-matsudaira-shungaku`    | 完了   | 黄縁の本と装束を保ち、本を構えて踏み込む攻撃。PC/横向きスマホ確認済み                         |
+| `fukui-raputorun`                       | 完了   | 胸・小腕・尾の待機差分と瞬き、伏せから跳びかかる攻撃。PC/横向きスマホ確認済み                 |
+| `fukuoka-boss-hiraodaio`                | 完了   | 羊毛・角・王冠の待機差分と瞬き、四足で角から突進。PC/横向きスマホ確認済み                     |
+| `fukuoka-midboss-banana-taisho`         | 完了   | 両端・腕の待機差分と瞬き、低い構えから胴ごと体当たり。PC/横向きスマホ確認済み                 |
+| `fukuoka-suigo-maru`                    | 完了   | 波輪・舟・笠・竹竿の待機差分と瞬き、波に沈んで前傾突進。PC/横向きスマホ確認済み               |
+| `fukushima-akatsuki-momo`               | 完了   | 葉と光輪の浮遊差分と瞬き、つぶれ・ひねりから桃先頭で突進。PC/横向きスマホ確認済み             |
+| `fukushima-kura-donburi`                | 完了   | 麺・眉・取っ手の待機差分と瞬き、どんぶりごと傾いて転がる攻撃。PC/横向きスマホ確認済み         |
+| `fukushima-yaoki-koboshi`               | 完了   | 起き上がり小法師の揺れと旗の待機差分、後傾から転がる攻撃。PC/横向きスマホ確認済み             |
+| `gifu-kamiori-dori`                     | 完了   | 折り翼・冠羽の待機差分と瞬き、翼を折り込んで突き出す攻撃。PC/横向きスマホ確認済み             |
+| `gifu-oriben`                           | 完了   | 織部釉の器体を傾ける待機差分と瞬き、低く回って肩から突進。PC/横向きスマホ確認済み             |
+| `gunma-boss-gankake-daruma`             | 完了   | 王冠と二本の炎角を保ち、揺れ・瞬きから角先頭で転がる攻撃。PC/横向きスマホ確認済み             |
+| `gunma-kyabezukin`                      | 完了   | 葉層・葉尾・二脚を保ち、葉の揺れと瞬きから葉を閉じて頭突き。PC/横向きスマホ確認済み           |
+| `gunma-purukon`                         | 完了   | 灰色角形・斑点・二脚を保ち、弾性変形と瞬きからつぶれて胴体打撃。PC/横向きスマホ確認済み       |
+| `hiroshima-kakigaran`                   | 完了   | 上下殻・青い側突起・木台を保ち、殻の開閉と瞬きから殻を閉じて打撃。PC/横向きスマホ確認済み     |
+| `hiroshima-onbashigame`                 | 完了   | 石帽子・苔・茶色胴・基部の脚を保ち、沈み込みから石帽子ごと突進。PC/横向きスマホ確認済み       |
+| `hokkaido-ami-melon`                    | 完了   | 網目・茎葉・二脚を保ち、葉の揺れと瞬きからつぶれて回転体当たり。PC/横向きスマホ確認済み       |
+| `hokkaido-hotaten`                      | 完了   | 放射状の帆立殻・二脚を保ち、殻の開閉と瞬きから殻先頭で跳躍。PC/横向きスマホ確認済み           |
+| `hokkaido-jet-hotate`                   | 完了   | 上縁の青粒と二本の水流脚を保ち、噴射脈動と瞬きから前傾噴射。PC/横向きスマホ確認済み           |
+| `hokkaido-lavendori`                    | 完了   | 紫の胴・側翼・二脚・頭上の花を保ち、揺れと瞬きから嘴先頭で突進。PC/横向きスマホ確認済み       |
+| `hokuriku-islandboss-kagamiutsushi`     | 完了   | 金縁鏡・化粧飾り・縞腕・台座を保ち、鏡面と腕の待機差分から鏡縁突進。PC/横向きスマホ確認済み   |
+| `hyogo-lastboss-ikeda-terumasa`         | 完了   | 大角兜・鎧・四肢を保ち、呼吸と瞬きから肩で踏み込む攻撃。PC/横向きスマホ確認済み               |
+| `hyogo-sorobanban`                      | 完了   | 算盤枠・珠列・二脚を保ち、珠の移動と瞬きから枠ごと傾いて突進。PC/横向きスマホ確認済み         |
+| `ibaraki-aozora-hime`                   | 完了   | 大花・二枚の花翼・二脚を保ち、花翼の待機差分から前傾飛び込み。PC/横向きスマホ確認済み         |
+| `ibaraki-hobikin`                       | 完了   | 二体一組を全コマで維持し、逆位相の待機差分から同期して二重突進。PC/横向きスマホ確認済み       |
+| `ibaraki-nemofin`                       | 完了   | 頭花・側翼・二脚・尾を保ち、待機差分から翼を引いて前方突進。PC/横向きスマホ確認済み           |
+| `ishikawa-gosai-bon`                    | 完了   | 多彩模様の器・赤い側突起・二脚を保ち、傾きから側面体当たり。PC/横向きスマホ確認済み           |
+| `ishikawa-kinpaku-cho`                  | 完了   | 金翅四枚・茶胴・金帯頭を保ち、翅の待機差分から前傾急降下。PC/横向きスマホ確認済み             |
+| `ishikawa-oo-hamashion`                 | 完了   | 塩山・三つの水色球・帯・右留め具を保ち、つぶれから留め具先頭で滑走。PC/横向きスマホ確認済み   |
+| `kagawa-kororibu`                       | 完了   | 緑の丸胴・二脚・茎・二枚葉を保ち、葉と瞬きの待機差分から回転体当たり。PC/横向きスマホ確認済み |
+| `kagawa-mizukagami`                     | 完了   | 水滴形の双子二体と連結部を全コマで保ち、逆位相の待機から同期二重突進。PC/横向きスマホ確認済み |
+| `kagawa-zenigani`                       | 完了   | 銭形胴・角穴・二鋏・二眼柄・歩脚を保ち、鋏を引いて横突進。PC/横向きスマホ確認済み             |
+| `kagoshima-kurogane-boo`                | 完了   | 鉄兜・二角・二籠手・猪鼻・帯を保ち、低い構えから肩と籠手で突進。PC/横向きスマホ確認済み       |
+| `kagoshima-nabezurun`                   | 完了   | 長い嘴・白い首・灰胴・冠羽・二脚・尾を保ち、首を引いて嘴突き。PC/横向きスマホ確認済み         |
+| `kanagawa-boss-yokohama-shishi-oh`      | 完了   | 冠・額石・耳紐・顎鬚・鱗衣・四脚を保ち、低姿勢から跳びかかり。PC/横向きスマホ確認済み         |
+| `kanagawa-kazakiri-tonbi`               | 完了   | 大きな両翼・胸の白模様・嘴・二脚を保ち、翼を引いて嘴先頭で急降下。PC/横向きスマホ確認済み     |
+| `kanagawa-piihyoro`                     | 完了   | 横に広い両翼・胸帯・嘴・二脚を保ち、翼を畳んで前方体当たり。PC/横向きスマホ確認済み           |
+| `kochi-boss-kuroshio-kujira`            | 完了   | 冠・二噴気口・両鰭・縞の鯨鬚・単一台座を保ち、胴を傾ける突進。PC/横向きスマホ確認済み         |
+| `kochi-lastboss-sakamoto-ryoma`         | 未着手 | —                                                                                             |
+| `koshinetsu-boss`                       | 失敗   | 指定の pixels/sheets 参照が双方欠損                                                           |
+| `kumamoto-ebi-musha`                    | 未着手 | —                                                                                             |
+| `kumamoto-midboss-kindouro`             | 未着手 | —                                                                                             |
+| `kumamoto-tatamin`                      | 未着手 | —                                                                                             |
+| `kyoto-chirimen-mai`                    | 未着手 | —                                                                                             |
+| `kyoto-hontoha-karain`                  | 未着手 | —                                                                                             |
+| `kyushu-okinawa-islandboss-chishikigui` | 未着手 | —                                                                                             |
+| `mie-iga-jonin`                         | 未着手 | —                                                                                             |
+| `mie-shinju-hime`                       | 未着手 | —                                                                                             |
+| `miyagi-lastboss-date-masamune`         | 未着手 | —                                                                                             |
+| `miyagi-sasakama-uo`                    | 未着手 | —                                                                                             |
+| `miyazaki-boss-takachiho-no-nushi`      | 未着手 | —                                                                                             |
+| `miyazaki-mangocchi`                    | 未着手 | —                                                                                             |
+| `miyazaki-tarutaru-kokko`               | 未着手 | —                                                                                             |
+| `nagano-oomori-soba`                    | 未着手 | —                                                                                             |
+| `nagano-yukemuri-zaru`                  | 未着手 | —                                                                                             |
+| `nagasaki-kurawan-nushi`                | 未着手 | —                                                                                             |
+| `nagasaki-mogikko`                      | 未着手 | —                                                                                             |
+| `nara-happazushi`                       | 未着手 | —                                                                                             |
+| `nara-somen-tsururi`                    | 未着手 | —                                                                                             |
+| `niigata-boss-shinanogawa-no-nushi`     | 未着手 | —                                                                                             |
+| `niigata-kotoki`                        | 未着手 | —                                                                                             |
+| `oita-boss-yukemuryu`                   | 未着手 | —                                                                                             |
+| `oita-midboss-yabakeiwa`                | 未着手 | —                                                                                             |
+| `oita-yukemurin`                        | 未着手 | —                                                                                             |
+| `okayama-denim-bushi`                   | 未着手 | —                                                                                             |
+| `okayama-midboss-mouretsu-jersey`       | 未着手 | —                                                                                             |
+| `okinawa-goyamaru`                      | 未着手 | —                                                                                             |
+| `okinawa-painapon`                      | 未着手 | —                                                                                             |
+| `osaka-fusanari-don`                    | 未着手 | —                                                                                             |
+| `osaka-midboss-abare-danjiri`           | 未着手 | —                                                                                             |
+| `saga-chabashira`                       | 未着手 | —                                                                                             |
+| `saga-midboss-toumeika`                 | 未着手 | —                                                                                             |
+| `saitama-boss-yomatsuri-daio`           | 未着手 | —                                                                                             |
+| `saitama-midboss-gon-yagura`            | 未着手 | —                                                                                             |
+| `shiga-boss-dainamazu`                  | 未着手 | —                                                                                             |
+| `shiga-lastboss-ii-naosuke`             | 未着手 | —                                                                                             |
+| `shikoku-islandboss-yotsu-no-tenbin`    | 未着手 | —                                                                                             |
+| `shimane-oohi-rosoku`                   | 未着手 | —                                                                                             |
+| `shimane-warigon`                       | 未着手 | —                                                                                             |
+| `shizuoka-kazekiri-dako`                | 未着手 | —                                                                                             |
+| `shizuoka-unagi-nobori`                 | 未着手 | —                                                                                             |
+| `tochigi-go-bellmoo`                    | 未着手 | —                                                                                             |
+| `tochigi-lastboss-nasu-no-yoichi`       | 未着手 | —                                                                                             |
+| `tokushima-kazura-musasabi`             | 未着手 | —                                                                                             |
+| `tokushima-oogamedon`                   | 未着手 | —                                                                                             |
+| `tokyo-daikon-zamurai`                  | 未着手 | —                                                                                             |
+| `tokyo-musasabyun`                      | 未着手 | —                                                                                             |
+| `tottori-boss-sakyu-majin`              | 未着手 | —                                                                                             |
+| `tottori-perawashi`                     | 未着手 | —                                                                                             |
+| `toyama-fubuki-okojo`                   | 未着手 | —                                                                                             |
+| `toyama-midboss-gabujishi`              | 未着手 | —                                                                                             |
+| `wakayama-bincho-homura`                | 未着手 | —                                                                                             |
+| `wakayama-mamori-toudai`                | 未着手 | —                                                                                             |
+| `wakayama-toudain`                      | 未着手 | —                                                                                             |
+| `yamagata-lastboss-matsuo-basho`        | 未着手 | —                                                                                             |
+| `yamagata-yukemurin`                    | 未着手 | —                                                                                             |
+| `yamaguchi-lastboss-yoshida-shoin`      | 未着手 | —                                                                                             |
+| `yamaguchi-noborigaman`                 | 未着手 | —                                                                                             |
+| `yamanashi-budoon`                      | 未着手 | —                                                                                             |
+| `yamanashi-momorin`                     | 未着手 | —                                                                                             |
 
 ## 生成プロンプトと出力
 
@@ -330,6 +330,22 @@
 | `ishikawa-gosai-bon`                | 乳白器・赤縁と側突起・多彩な十字模様・二脚を固定。器体傾斜と瞬きから側面突進へ変化。                                   |
 | `ishikawa-kinpaku-cho`              | 茶胴・金帯頭・金翅四枚を固定。翅を対で動かす待機と瞬きから、翅を後方へ畳む急降下へ変化。粒子なし。                     |
 | `ishikawa-oo-hamashion`             | 白い塩山・青い基部・縞帯・右留め具・青白球三つを固定。球と帯の待機差分から、つぶれて留め具先頭で滑走。塩粒なし。       |
+
+### 第六スライス（香川・鹿児島・神奈川・高知）
+
+各行とも `pixels/<id>.png` と `sheets/<id>.jpg` を参照し、built-in imagegen 原本は `docs/verification/animation-batch-03/generated/<id>-source.png`、最終シートは `assets/sprites/animations/batch-03/<id>-v1.png` に保存した。
+
+| ID                                 | 固有プロンプトと目視結果                                                                                       |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `kagawa-kororibu`                  | 緑の丸胴・二脚・茎・二枚葉を固定。葉の角度と瞬きから、低い構え・横向き回転体当たり・復帰へ変化。追加果実なし。 |
+| `kagawa-mizukagami`                | 水滴形の双子二体・各一顔・各二脚・上下の連結部を全8コマで固定。逆位相の揺れから同期二重突進。融合・欠落なし。  |
+| `kagawa-zenigani`                  | 銭形の丸胴・中央角穴・二鋏・二眼柄・歩脚を固定。鋏と脚の待機差分から横向きの鋏打ちへ変化。硬貨や武器なし。     |
+| `kagoshima-kurogane-boo`           | 黒い猪胴・白鼻・鉄兜と二角・二籠手・帯・巻尾を固定。重い呼吸と瞬きから肩と籠手の突進へ変化。火花なし。         |
+| `kagoshima-nabezurun`              | 黄嘴・白首・灰胴・赤冠・二脚・三枚尾を固定。首と尾の待機差分から、首を引いて嘴を突き出す攻撃へ変化。           |
+| `kanagawa-boss-yokohama-shishi-oh` | 金冠・青額石・耳紐と緑球・白顎鬚・赤金鱗衣・四脚を固定。紐の揺れと瞬きから四足の跳びかかりへ変化。             |
+| `kanagawa-kazakiri-tonbi`          | 上向きの大翼二枚・胸の白斜線・黄嘴・二脚を固定。翼の交互差分から両翼を引く嘴先頭の急降下へ変化。羽根なし。     |
+| `kanagawa-piihyoro`                | 横向きの幅広翼二枚・胸の斜め帯・黄嘴・二脚を固定。低い羽ばたきと瞬きから翼を畳む跳躍体当たりへ変化。           |
+| `kochi-boss-kuroshio-kujira`       | 紺の鯨胴・金冠・白先端の二噴気口・両鰭・縞鯨鬚・単一波台座を固定。鰭の待機差分から台座上の前傾突進へ変化。     |
 
 ## 組込み提案
 

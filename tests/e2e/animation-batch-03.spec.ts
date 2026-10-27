@@ -51,6 +51,15 @@ const ids = [
   'ishikawa-gosai-bon',
   'ishikawa-kinpaku-cho',
   'ishikawa-oo-hamashion',
+  'kagawa-kororibu',
+  'kagawa-mizukagami',
+  'kagawa-zenigani',
+  'kagoshima-kurogane-boo',
+  'kagoshima-nabezurun',
+  'kanagawa-boss-yokohama-shishi-oh',
+  'kanagawa-kazakiri-tonbi',
+  'kanagawa-piihyoro',
+  'kochi-boss-kuroshio-kujira',
 ] as const;
 
 for (const id of ids) {
