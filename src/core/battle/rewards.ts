@@ -6,7 +6,7 @@ import type { BattleActionRef, BattleEvent, BattleState } from './types';
 
 /** ruleset を適用し、勝利時の報酬イベントを従来の乱数順で組み立てる。 */
 export function victoryEvent(
-  state: Pick<BattleState, 'ruleset' | 'enemy' | 'player'>,
+  state: Pick<BattleState, 'ruleset' | 'player'>,
   monster: Monster | undefined,
   settings: Settings,
   rng: Rng,
@@ -17,10 +17,7 @@ export function victoryEvent(
     ? (monster?.drops ?? []).filter((drop) => rng.chance(drop.rate)).map((drop) => drop.itemId)
     : [];
   const recruitOffer =
-    rewards &&
-    state.ruleset.recruitment.mode === 'standard' &&
-    !state.enemy.isBoss &&
-    rng.chance(monster?.recruitRate ?? 0);
+    rewards && state.ruleset.recruitment.mode === 'standard' && rng.chance(monster?.recruitRate ?? 0);
   const bonus = comboBonus(state.player.maxCombo, settings);
   return {
     t: 'victory',

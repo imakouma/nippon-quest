@@ -131,7 +131,7 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 ## Checkpoint 3
 
 - [x] Task 5〜6 の RED と GREEN を確認した。
-- [ ] Scene/setup slice をコミットした。
+- [x] Scene/setup slice をコミットした。
 
 ## Phase 4: Verification and review
 
@@ -141,9 +141,9 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] focused test が成功する。
-- [ ] `pnpm check:fast` が成功する。
-- [ ] 全変更ソースを渡した `pnpm test:related` が成功する。
+- [x] focused test が成功する。
+- [x] `pnpm check:fast` が成功する。
+- [x] 全変更ソースを渡した `pnpm test:related` が成功する。
 
 **Verification:** 計画の担当完了ゲートを実行する。`pnpm test`、`pnpm build`、`pnpm check:full` は実行しない。
 
@@ -159,9 +159,9 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 **Acceptance criteria:**
 
-- [ ] 変異させた条件を focused test が検出する。
-- [ ] Critical/Required finding が残っていない。
-- [ ] ブランチ、全コミット、検査結果、統合時の注意点を報告できる。
+- [x] 変異させた条件を focused test が検出する。
+- [x] Critical/Required finding が残っていない。
+- [x] ブランチ、全コミット、検査結果、統合時の注意点を報告できる。
 
 **Verification:** `git diff --check`、staged diff review、`git status --short`
 
@@ -173,6 +173,6 @@ Plan: `tasks/battle-ai-ruleset-plan.md`
 
 ## Checkpoint: Complete
 
-- [ ] 仕様の成功条件をすべて満たした。
-- [ ] 担当変更だけが `codex/battle-ai-ruleset` にコミットされている。
-- [ ] 統合担当が cherry-pick できるコミット列と注意点を記録した。
+- [x] 仕様の成功条件をすべて満たした。
+- [x] 担当変更だけが `codex/battle-ai-ruleset` にコミットされている。
+- [x] 統合担当が cherry-pick できるコミット列と注意点を記録した。

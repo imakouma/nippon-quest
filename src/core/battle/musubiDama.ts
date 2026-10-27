@@ -46,7 +46,7 @@ export function useMusubiDama(
     !command.result ||
     !monster ||
     !canUseMusubiDama({
-      isBoss: state.isBossBattle || Boolean(state.enemy.isBoss),
+      isBoss: state.ruleset.recruitment.mode === 'disabled',
       hp: state.enemy.hp,
       recruitRate: monster.recruitRate,
     })

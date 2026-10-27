@@ -248,4 +248,30 @@ describe('battle engine ruleset integration', () => {
       ),
     ).toMatchObject({ kind: 'flee', disabled: true, blockReason: 'boss-flee-blocked' });
   });
+
+  it('明示 ruleset と旧 boss 表示 flag が食い違っても recruitment は ruleset を正とする', () => {
+    const state = battle(NORMAL_BATTLE_RULESET);
+    state.isBossBattle = true;
+    state.enemy.isBoss = true;
+    state.enemy.hp = 1;
+    state.ally.items['common-musubi-dama'] = 1;
+    const item = C.items.get('common-musubi-dama')!;
+
+    expect(battleItemAvailability(state, item, C).disabled).toBe(false);
+    const result = act(
+      state,
+      {
+        kind: 'item',
+        itemId: item.id,
+        result: answer,
+        timeLimitScale: 1,
+      },
+      D,
+    );
+
+    expect(result.state.ally.items[item.id]).toBe(0);
+    expect(result.events).toContainEqual(
+      expect.objectContaining({ t: 'itemUsed', itemId: item.id, targetId: 'enemy' }),
+    );
+  });
 });
