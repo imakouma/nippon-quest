@@ -5,10 +5,31 @@ import { partyFromGameState } from '../../src/core/battle/setup';
 import type { BattleSummary } from '../../src/core/progression/battleResult';
 import { createNewGame } from '../../src/core/state/newGame';
 import type { GameState } from '../../src/core/state/schema';
-import { BattleResumeRuntime, runCheckpointedBattleCommand } from '../../src/scenes/battle/resumeRuntime';
+import {
+  BattleResumeRuntime,
+  resumeLaunch,
+  runCheckpointedBattleCommand,
+} from '../../src/scenes/battle/resumeRuntime';
 import { content } from './helpers';
 
 describe('BattleResumeRuntime', () => {
+  it('再開データを保ちながらScene再起動の開発表示フラグを引き継ぐ', () => {
+    const launch = {
+      enemyId: 'aomori-ringoron',
+      level: 2,
+      zone: 'field' as const,
+      encounterId: 'field:1',
+      encounterSource: { type: 'random' as const },
+    };
+
+    expect(resumeLaunch(launch, true)).toMatchObject({
+      ...launch,
+      devMode: true,
+      presentation: 'depth',
+    });
+    expect(resumeLaunch({ ...launch, devMode: true }, false).devMode).toBe(true);
+  });
+
   it('演出中はresolved-commandを維持し、完了後だけsafe checkpointを書く', async () => {
     const c = await content();
     const game = createNewGame({ name: 'ハル', grade: 3 }, 1_000);

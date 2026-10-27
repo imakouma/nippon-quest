@@ -12,6 +12,16 @@ import {
 import type { GamePersistencePort } from '../../core/state/persistence';
 import type { GameState } from '../../core/state/schema';
 import type { BattleEvent, BattleState, Command } from '../../core/battle/types';
+import type { BattleLaunchData } from './contracts';
+
+/** 永続データを正としつつ、ローカル検証用の表示フラグだけはScene再起動要求を引き継ぐ。 */
+export function resumeLaunch(launch: PersistedBattleLaunch, requestedDevMode?: boolean): BattleLaunchData {
+  return {
+    ...launch,
+    devMode: launch.devMode || requestedDevMode,
+    presentation: launch.presentation ?? 'depth',
+  };
+}
 
 /** resolved-commandを先に保存し、演出完了までは次のcheckpointを書かない。 */
 export async function runCheckpointedBattleCommand(input: {

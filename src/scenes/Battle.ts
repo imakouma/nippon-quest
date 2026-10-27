@@ -96,7 +96,7 @@ import {
 } from './battle/sceneModel';
 import { BattleEventAnimator } from './battle/eventAnimator';
 import { resolveBattleLaunchRuleset } from './battle/rulesetSetup';
-import { BattleResumeRuntime, runCheckpointedBattleCommand } from './battle/resumeRuntime';
+import { BattleResumeRuntime, resumeLaunch, runCheckpointedBattleCommand } from './battle/resumeRuntime';
 import { buildBattleHistoryView } from './battle/statusHistoryViews';
 type Sprite = Phaser.GameObjects.Image;
 export class BattleScene extends Phaser.Scene {
@@ -242,7 +242,7 @@ export class BattleScene extends Phaser.Scene {
       } satisfies BattleEndEvent);
       return;
     }
-    if (active) this.opts = { ...active.launch, presentation: active.launch.presentation ?? 'depth' };
+    if (active) this.opts = resumeLaunch(active.launch, this.opts.devMode);
     const def = this.content?.monsters.get(this.opts.enemyId);
     if (!def || !this.gs || !persistence) {
       console.error('[battle] 敵かセーブデータが見つかりません', this.opts);
