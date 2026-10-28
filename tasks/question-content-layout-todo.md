@@ -57,7 +57,7 @@
 ## Checkpoint: Migration foundation
 
 - [x] Task 1・2のfocused testsが通る。
-- [ ] `pnpm check:fast` が通る。
+- [ ] `pnpm check:fast` が通る（既存の `SPEC-math-learning-content-pilot.md` のPrettier違反だけで停止）。
 - [x] 基盤ロジックをatomic commitにする。
 
 ## Task 3: manifest階層カタログ
@@ -132,19 +132,19 @@
 
 **Acceptance criteria:**
 
-- [ ] docsが正規パス、30問上限、生成カタログ、レビュー単位を説明する。
-- [ ] 仕様のSuccess CriteriaとDefinition of Doneを満たす。
-- [ ] 最新サーバーのQuestion Playgroundで問題を読み込み、ID直接表示できる。
-- [ ] correctness/readability/architecture/security/performanceのレビューで必須指摘が残らない。
+- [x] docsが正規パス、30問上限、生成カタログ、レビュー単位を説明する。
+- [x] 仕様のSuccess Criteriaを満たす（標準lintの既存ファイル違反は下記に記録）。
+- [x] 最新サーバーのQuestion Playgroundで問題を読み込み、ID直接表示できる。
+- [x] correctness/readability/architecture/security/performanceのレビューで必須指摘が残らない。
 
 **Verification:**
 
-- [ ] `pnpm lint`
-- [ ] `pnpm check:architecture`
-- [ ] `pnpm test`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm build`
-- [ ] 最新プレビューを開いて確認する。
+- [ ] `pnpm lint`（ESLintと変更ファイルのPrettierは成功。既存の `SPEC-math-learning-content-pilot.md` だけ失敗）
+- [x] `pnpm check:architecture`
+- [x] `pnpm test`
+- [x] `pnpm validate:content`
+- [x] `pnpm build`
+- [x] 最新プレビューを開いて確認する。
 
 **Dependencies:** Task 4
 
@@ -158,6 +158,6 @@
 
 ## Checkpoint: Complete
 
-- [ ] 全タスクと仕様のSuccess Criteriaが完了している。
-- [ ] 未コミット差分がなく、ブランチ名・コミットID・検査結果を報告できる。
-- [ ] merge/pushしていない。
+- [ ] 全タスクと仕様のSuccess Criteriaが完了している（既存ファイル由来の標準lintだけ例外）。
+- [x] 未コミット差分がなく、ブランチ名・コミットID・検査結果を報告できる。
+- [x] merge/pushしていない。

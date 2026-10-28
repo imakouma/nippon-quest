@@ -37,7 +37,7 @@ pnpm audit:academic-review
 
 ```bash
 pnpm academic-review:record -- \
-  --file questions/rika/g6/combustion-quality.json \
+  --file questions/rika/g6/combustion-quality/set-001.json \
   --reviewer "確認者名" \
   --date 2026-10-22 \
   --source mext-elementary-curriculum-2017 \
@@ -52,7 +52,7 @@ pnpm academic-review:record -- \
 
 ```bash
 pnpm academic-review:record -- \
-  --file questions/rika/g6/combustion-quality.json \
+  --file questions/rika/g6/combustion-quality/set-001.json \
   --reviewer "確認者名" \
   --date 2026-10-22 \
   --source mext-elementary-curriculum-2017 \

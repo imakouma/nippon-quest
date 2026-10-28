@@ -83,6 +83,15 @@ describe('content loader', () => {
         questionCatalog: { ...manifest.questionCatalog, maxQuestionsPerSet: 31 },
       }),
     ).toThrow('manifest.json');
+
+    const oversizedSetCatalog = structuredClone(manifest.questionCatalog!);
+    oversizedSetCatalog.subjects[0]!.grades[0]!.units[0]!.sets[0]!.count = 31;
+    expect(() =>
+      parseContentManifest({
+        ...base,
+        questionCatalog: oversizedSetCatalog,
+      }),
+    ).toThrow('manifest.json');
   });
 
   it('legacy と scripted のイベント形式を検証する', () => {

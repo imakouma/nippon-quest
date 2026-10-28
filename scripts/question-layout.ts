@@ -1,5 +1,5 @@
 import { isDeepStrictEqual } from 'node:util';
-import type { QuestionCatalog } from '../src/core/content/loader';
+import type { QuestionCatalog } from '../src/core/content/manifest';
 import type { Grade, QuestionBase, Subject } from '../src/questions/contracts';
 
 export const MAX_QUESTIONS_PER_SET = 30;

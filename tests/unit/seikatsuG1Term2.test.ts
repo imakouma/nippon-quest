@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { Unit } from '../../src/core/content/schemas';
 import { buildRoadmapNodes } from '../../src/scenes/overworld/roadmap';
+import { readUnitQuestionSets } from './questionSetFixture';
 
 type Question = {
   id: string;
@@ -14,14 +15,14 @@ type Question = {
 const root = process.cwd();
 const units = JSON.parse(readFileSync(join(root, 'content/units.json'), 'utf8')) as Unit[];
 
-function questions(file: string): Question[] {
-  return JSON.parse(readFileSync(join(root, 'content/questions/seikatsu/g1', file), 'utf8')) as Question[];
+function questions(unitSlug: string): Question[] {
+  return readUnitQuestionSets<Question>('seikatsu', 'g1', unitSlug);
 }
 
 describe('小学1年2学期の生活科教材', () => {
   const expectedUnits = [
-    ['seikatsu.g1.home-life', 'home-life.json'],
-    ['seikatsu.g1.living-things', 'living-things.json'],
+    ['seikatsu.g1.home-life', 'home-life'],
+    ['seikatsu.g1.living-things', 'living-things'],
   ] as const;
 
   it.each(expectedUnits)('%s は2学期の現行単元として6問以上を持つ', (unitId, file) => {
@@ -42,14 +43,14 @@ describe('小学1年2学期の生活科教材', () => {
   });
 
   it('家庭生活は家庭の形を決め付けず、自分で試して振り返る活動を扱う', () => {
-    const text = JSON.stringify(questions('home-life.json'));
+    const text = JSON.stringify(questions('home-life'));
     expect(text).toContain('じぶんに できる');
     expect(text).toContain('ふりかえる');
     expect(text).not.toContain('いっしょに しょくじ');
   });
 
   it('生き物の世話は観察・継続・安全な相談を扱う', () => {
-    const text = JSON.stringify(questions('living-things.json'));
+    const text = JSON.stringify(questions('living-things'));
     expect(text).toContain('かんさつ');
     expect(text).toContain('つづけ');
     expect(text).toContain('そうだん');

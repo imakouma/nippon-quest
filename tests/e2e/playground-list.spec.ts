@@ -30,7 +30,7 @@ test('Playground の問題いちらん：ぜんぶ出て、しぼりこめて、
   await rows.first().click();
   await expect(page.locator('.nq-q-pw')).toBeVisible({ timeout: 10_000 });
   await expect(page.locator('textarea#pg-json')).toHaveValue(/eigo\.g3\.sea\.0006/);
-  await expect(page.locator('select#pg-file')).toHaveValue('questions/eigo/g3/sea-pictures.json');
+  await expect(page.locator('select#pg-file')).toHaveValue('questions/eigo/g3/sea/set-001.json');
   await expect(page.locator('select#pg-question option:checked')).toContainText('eigo.g3.sea.0006');
   await expect(page).toHaveURL(/\?q=eigo\.g3\.sea\.0006/);
 });
