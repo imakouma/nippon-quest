@@ -27,8 +27,6 @@ export interface MenuOverlayProps {
   roadmap?: RoadmapNode[];
   /** 統合済みの純粋な表示モデル。Scene接続後はroadmap配列よりこちらを優先する。 */
   roadmapView?: RoadmapViewModel;
-  /** 回答後に一度だけ戻す、開始元の問題ID。 */
-  roadmapReturnQuestionId?: string;
   /** 開発者向けの教材フィルタと未解放教科を表示する。 */
   developerMode?: boolean;
   /** リストの上に出す 行（そうびの タブの ステータス など） */
@@ -41,7 +39,6 @@ export interface MenuOverlayProps {
   onBag: () => void;
   onAct: (key: string) => void;
   onRoadmapSelect: (unitId: string) => void;
-  onRoadmapTodaySelect?: (questionId: string) => void;
   onSave: () => void;
   onParent: () => void;
   onClose: () => void;
@@ -99,7 +96,6 @@ export function MenuOverlay({
   entries,
   roadmap = [],
   roadmapView,
-  roadmapReturnQuestionId,
   developerMode = false,
   summary,
   empty,
@@ -110,7 +106,6 @@ export function MenuOverlay({
   onBag,
   onAct,
   onRoadmapSelect,
-  onRoadmapTodaySelect,
   onSave,
   onParent,
   onClose,
@@ -420,9 +415,6 @@ export function MenuOverlay({
         ) : tab === 'roadmap' ? (
           <RoadmapView
             nodes={roadmapView?.nodes ?? roadmap}
-            todayPlan={roadmapView?.todayPlan}
-            onTodaySelect={onRoadmapTodaySelect}
-            returnQuestionId={roadmapReturnQuestionId}
             onSelect={onRoadmapSelect}
             developerMode={developerMode}
           />

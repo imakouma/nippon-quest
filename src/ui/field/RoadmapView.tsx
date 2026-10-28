@@ -1,11 +1,6 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 import { availableRoadmapSubjects, ROADMAP_SUBJECT_ORDER } from '../../core/learning/subjectUnlocks';
-import type {
-  RoadmapCompletedReason,
-  RoadmapNode,
-  RoadmapPendingReason,
-  RoadmapTodayPlanView,
-} from '../../shared/menuModel';
+import type { RoadmapNode } from '../../shared/menuModel';
 import { t, tOpt } from '../i18n';
 import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
@@ -24,18 +19,6 @@ function isNodeInTerm(node: RoadmapNode, term: RoadmapTerm): boolean {
 
 const isCompleted = (node: RoadmapNode) => node.state === 'cleared' || node.state === 'review';
 
-const pendingReasonKeys: Record<RoadmapPendingReason, string> = {
-  'due-review': 'field.roadmapTodayDueReview',
-  'weak-prerequisite': 'field.roadmapTodayWeakPrerequisite',
-  'unseen-primary': 'field.roadmapTodayUnseenPrimary',
-  'unseen-question': 'field.roadmapTodayUnseenQuestion',
-};
-
-const completedReasonKeys: Record<RoadmapCompletedReason, string> = {
-  review: 'field.roadmapTodayReviewComplete',
-  diagnosis: 'field.roadmapTodayDiagnosisComplete',
-};
-
 function subjectLongLabel(subject: string, label: string): string {
   return tOpt(`field.roadmapSubjectLong.${subject}`) ?? label;
 }
@@ -50,144 +33,12 @@ function currentLearningGrade(nodes: RoadmapNode[]): number {
   return Math.min(...nodes.map((node) => node.grade));
 }
 
-function TodayPlan({
-  plan,
-  onSelect,
-  returnQuestionId,
-}: {
-  plan: RoadmapTodayPlanView;
-  onSelect: (questionId: string) => void;
-  returnQuestionId?: string;
-}) {
-  const completed = plan.items.filter((item) => item.completed).length;
-  const rootRef = useRef<HTMLElement>(null);
-  const initialFocusDone = useRef(false);
-  const lastReturnQuestionId = useRef<string>();
-  const [announcement, setAnnouncement] = useState('');
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    const heading = root.querySelector<HTMLElement>('.nq-roadmap-today-title');
-    const findItem = (questionId: string) =>
-      [...root.querySelectorAll<HTMLElement>('[data-roadmap-focus-target]')].find(
-        (target) => target.dataset.roadmapQuestionId === questionId,
-      );
-    let target: HTMLElement | null | undefined;
-
-    if (returnQuestionId) {
-      if (lastReturnQuestionId.current === returnQuestionId) return;
-      lastReturnQuestionId.current = returnQuestionId;
-      initialFocusDone.current = true;
-      target = findItem(returnQuestionId) ?? heading;
-      const returnedItem = plan.items.find((item) => item.questionId === returnQuestionId);
-      if (returnedItem?.completed)
-        setAnnouncement(
-          t('field.roadmapTodayNotice', {
-            name: displayText(returnedItem.unitName),
-            done: completed,
-            total: plan.items.length,
-          }),
-        );
-    } else {
-      lastReturnQuestionId.current = undefined;
-      if (initialFocusDone.current) return;
-      initialFocusDone.current = true;
-      target = root.querySelector<HTMLElement>('.nq-roadmap-today-start') ?? heading;
-    }
-
-    if (!target) return;
-    const focusTarget = () => target?.focus();
-    focusTarget();
-    let secondFrame = 0;
-    const firstFrame = requestAnimationFrame(() => {
-      secondFrame = requestAnimationFrame(focusTarget);
-    });
-    return () => {
-      cancelAnimationFrame(firstFrame);
-      cancelAnimationFrame(secondFrame);
-    };
-  }, [completed, plan, returnQuestionId]);
-
-  return (
-    <section ref={rootRef} class="nq-roadmap-today" aria-labelledby="nq-roadmap-today-title">
-      <div class="nq-roadmap-today-head">
-        <h2 id="nq-roadmap-today-title" class="nq-roadmap-today-title" tabIndex={-1}>
-          <RubyLabel text={t('field.roadmapTodayTitle')} />
-        </h2>
-        <RubyLabel
-          class="nq-roadmap-today-progress"
-          text={t('field.roadmapTodayProgress', { done: completed, total: plan.items.length })}
-        />
-      </div>
-      {plan.items.length > 0 ? (
-        <ol class="nq-roadmap-today-list">
-          {plan.items.map((item) => (
-            <li
-              key={item.questionId}
-              class={`nq-roadmap-today-item nq-roadmap-summary-${item.subject}`}
-              data-roadmap-question-id={item.questionId}
-            >
-              <span class="nq-roadmap-today-copy">
-                <RubyLabel class="nq-roadmap-today-subject" text={item.subjectLabel} />
-                <RubyLabel class="nq-roadmap-today-unit" text={item.unitName} />
-                <RubyLabel
-                  class="nq-roadmap-today-reason"
-                  text={t(item.completed ? completedReasonKeys[item.reason] : pendingReasonKeys[item.reason])}
-                />
-              </span>
-              {item.completed ? (
-                <span
-                  class="nq-roadmap-today-done"
-                  data-roadmap-focus-target
-                  data-roadmap-question-id={item.questionId}
-                  tabIndex={-1}
-                >
-                  <span aria-hidden="true">✓</span>
-                  <RubyLabel text={t('field.roadmapTodayDone')} />
-                </span>
-              ) : (
-                <button
-                  type="button"
-                  class="nq-roadmap-today-start"
-                  data-roadmap-focus-target
-                  data-roadmap-question-id={item.questionId}
-                  onClick={() => {
-                    playSfx('select');
-                    onSelect(item.questionId);
-                  }}
-                >
-                  <RubyLabel text={t('field.roadmapTodayStart')} />
-                </button>
-              )}
-            </li>
-          ))}
-        </ol>
-      ) : (
-        <RubyLabel as="p" class="nq-roadmap-today-empty" text={t('field.roadmapTodayEmpty')} />
-      )}
-      {plan.allComplete && (
-        <RubyLabel as="p" class="nq-roadmap-today-complete" text={t('field.roadmapTodayAllComplete')} />
-      )}
-      <div class="nq-roadmap-today-status" role="status" aria-live="polite" aria-atomic="true">
-        {announcement && <RubyLabel text={announcement} />}
-      </div>
-    </section>
-  );
-}
-
 export function RoadmapView({
   nodes,
-  todayPlan,
-  onTodaySelect,
-  returnQuestionId,
   onSelect,
   developerMode = false,
 }: {
   nodes: RoadmapNode[];
-  todayPlan?: RoadmapTodayPlanView;
-  onTodaySelect?: (questionId: string) => void;
-  returnQuestionId?: string;
   onSelect: (unitId: string) => void;
   developerMode?: boolean;
 }) {
@@ -374,9 +225,6 @@ export function RoadmapView({
       </div>
       {activeSubject === 'all' ? (
         <div class="nq-roadmap-overview" role="group" aria-label={displayText(t('field.roadmapAllOverview'))}>
-          {todayPlan && onTodaySelect && (
-            <TodayPlan plan={todayPlan} onSelect={onTodaySelect} returnQuestionId={returnQuestionId} />
-          )}
           {recommendation && recommendationSubject && (
             <button
               type="button"

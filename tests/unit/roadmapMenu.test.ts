@@ -5,7 +5,6 @@ import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { h, render } from 'preact';
 import { act } from 'preact/test-utils';
 import type {
-  RoadmapCompletedReason,
   RoadmapNode,
   RoadmapPendingReason,
   RoadmapTodayItem,
@@ -238,8 +237,6 @@ async function showRoadmap(
   options: {
     container?: HTMLElement;
     roadmapView?: RoadmapViewModel;
-    roadmapReturnQuestionId?: string;
-    onRoadmapTodaySelect?: (questionId: string) => void;
   } = {},
 ): Promise<HTMLElement> {
   const container = options.container ?? document.createElement('div');
@@ -252,7 +249,6 @@ async function showRoadmap(
         entries: [],
         roadmap: nodes,
         roadmapView: options.roadmapView,
-        roadmapReturnQuestionId: options.roadmapReturnQuestionId,
         developerMode,
         empty: '',
         message: null,
@@ -262,7 +258,6 @@ async function showRoadmap(
         onBag: vi.fn(),
         onAct: vi.fn(),
         onRoadmapSelect,
-        onRoadmapTodaySelect: options.onRoadmapTodaySelect ?? vi.fn(),
         onSave: vi.fn(),
         onParent: vi.fn(),
         onClose: vi.fn(),
@@ -302,28 +297,8 @@ function pendingTodayItem(
   } as RoadmapTodayItem;
 }
 
-function completedTodayItem(
-  questionId: string,
-  reason: RoadmapCompletedReason,
-  overrides: Partial<RoadmapTodayItem> = {},
-): RoadmapTodayItem {
-  return {
-    questionId,
-    actualUnitId: `unit.${questionId}`,
-    unitName: '10までの かず',
-    subject: 'sansu',
-    subjectLabel: '算数[さんすう]',
-    grade: 1,
-    conceptIds: [],
-    progress: todayProgress,
-    completed: true,
-    reason,
-    ...overrides,
-  } as RoadmapTodayItem;
-}
-
-function roadmapView(items: RoadmapTodayItem[], allComplete = false): RoadmapViewModel {
-  return { nodes, todayPlan: { items, allComplete } };
+function roadmapView(items: RoadmapTodayItem[]): RoadmapViewModel {
+  return { nodes, todayPlan: { items, allComplete: false } };
 }
 
 function subjectButton(container: HTMLElement, subject: string): HTMLButtonElement {
@@ -339,221 +314,13 @@ function termButton(container: HTMLElement, term: string): HTMLButtonElement {
 }
 
 describe('きょうの3つ', () => {
-  it('上流の順番どおり0〜3件だけを表示し、空の枠や無効ボタンを足さない', async () => {
-    const items = [
-      pendingTodayItem('q-1', 'due-review'),
-      pendingTodayItem('q-2', 'weak-prerequisite', {
-        subject: 'kokugo',
-        subjectLabel: '国語[こくご]',
-        unitName: 'ひらがな',
-      }),
-      completedTodayItem('q-3', 'review'),
-    ];
-
-    for (const count of [0, 1, 2, 3]) {
-      const container = await showRoadmap(vi.fn(), true, false, {
-        roadmapView: roadmapView(items.slice(0, count)),
-      });
-      const cards = [...container.querySelectorAll<HTMLElement>('.nq-roadmap-today-item')];
-
-      expect(cards).toHaveLength(count);
-      expect(cards.map((card) => card.dataset.roadmapQuestionId)).toEqual(
-        items.slice(0, count).map((item) => item.questionId),
-      );
-      expect(container.querySelector('.nq-roadmap-today-placeholder')).toBeNull();
-      expect(container.querySelector('.nq-roadmap-today button:disabled')).toBeNull();
-    }
-  });
-
-  it.each([
-    ['due-review', '復習', '時期'],
-    ['weak-prerequisite', 'さきに ここから', ''],
-    ['unseen-primary', 'あたらしい 学', ''],
-    ['unseen-question', 'まだ といていない 問題', ''],
-  ] as const)('%s の理由を責めない文で表示する', async (reason, expected, extra) => {
+  it('表示モデルに候補があっても学習画面には表示しない', async () => {
     const container = await showRoadmap(vi.fn(), true, false, {
-      roadmapView: roadmapView([pendingTodayItem(`q-${reason}`, reason)]),
-    });
-    const item = container.querySelector<HTMLElement>('.nq-roadmap-today-item')!;
-
-    expect(item.textContent).toContain('算数');
-    expect(item.textContent).toContain('10までの かず');
-    expect(item.textContent).toContain(expected);
-    if (extra) expect(item.textContent).toContain(extra);
-  });
-
-  it.each([
-    ['review', ['復習', 'できた']],
-    ['diagnosis', ['取', '組', 'めた']],
-  ] as const)('%s の完了理由を一般文で静的表示する', async (reason, expectedParts) => {
-    const container = await showRoadmap(vi.fn(), true, false, {
-      roadmapView: roadmapView([completedTodayItem(`q-${reason}`, reason)], true),
-    });
-    const item = container.querySelector<HTMLElement>('.nq-roadmap-today-item')!;
-
-    expect(item.textContent).toContain('✓');
-    for (const part of expectedParts) expect(item.textContent).toContain(part);
-    expect(item.querySelector('button')).toBeNull();
-  });
-
-  it('候補0件と全完了をallCompleteで区別する', async () => {
-    const empty = await showRoadmap(vi.fn(), true, false, {
-      roadmapView: roadmapView([]),
-    });
-    const complete = await showRoadmap(vi.fn(), true, false, {
-      roadmapView: roadmapView([completedTodayItem('q-done', 'review')], true),
+      roadmapView: roadmapView([pendingTodayItem('q-hidden', 'unseen-primary')]),
     });
 
-    expect(empty.querySelector('.nq-roadmap-today-empty')?.textContent).toContain('おすすめ');
-    expect(empty.querySelector('.nq-roadmap-today-empty')?.textContent).not.toContain('ぜんぶ');
-    expect(complete.querySelector('.nq-roadmap-today-complete')?.textContent).toContain('ぜんぶ');
-  });
-
-  it('未完了のnative buttonだけがquestionIdを1回通知する', async () => {
-    const onRoadmapTodaySelect = vi.fn();
-    const container = await showRoadmap(vi.fn(), true, false, {
-      roadmapView: roadmapView([
-        pendingTodayItem('question-exact', 'unseen-question', {
-          actualUnitId: 'sansu.g1.kazu-10',
-        }),
-        completedTodayItem('question-done', 'diagnosis'),
-      ]),
-      onRoadmapTodaySelect,
-    });
-    const start = container.querySelector<HTMLButtonElement>('.nq-roadmap-today-start')!;
-
-    expect(start.tagName).toBe('BUTTON');
-    await act(async () => start.click());
-
-    expect(onRoadmapTodaySelect).toHaveBeenCalledTimes(1);
-    expect(onRoadmapTodaySelect).toHaveBeenCalledWith('question-exact');
-    expect(onRoadmapTodaySelect).not.toHaveBeenCalledWith('sansu.g1.kazu-10');
-  });
-});
-
-describe('きょうの3つのフォーカスと通知', () => {
-  it('初回表示では先頭の未完了CTAへフォーカスする', async () => {
-    const container = await showRoadmap(vi.fn(), true, false, {
-      roadmapView: roadmapView([
-        pendingTodayItem('q-first', 'due-review'),
-        pendingTodayItem('q-second', 'unseen-primary'),
-      ]),
-      onRoadmapTodaySelect: vi.fn(),
-    });
-
-    expect(document.activeElement).toBe(
-      container.querySelector('[data-roadmap-question-id="q-first"][data-roadmap-focus-target]'),
-    );
-  });
-
-  it('回答後は同じ完了項目へフォーカスし、進捗をpoliteかつatomicに通知する', async () => {
-    const container = await showRoadmap(vi.fn(), false, false, {
-      roadmapView: roadmapView([completedTodayItem('q-return', 'diagnosis')], true),
-      roadmapReturnQuestionId: 'q-return',
-      onRoadmapTodaySelect: vi.fn(),
-    });
-    await act(async () => undefined);
-
-    const completed = container.querySelector<HTMLElement>(
-      '[data-roadmap-question-id="q-return"][data-roadmap-focus-target]',
-    )!;
-    const status = container.querySelector<HTMLElement>('.nq-roadmap-today-status')!;
-    expect(document.activeElement).toBe(completed);
-    expect(completed.getAttribute('tabindex')).toBe('-1');
-    expect(status.getAttribute('role')).toBe('status');
-    expect(status.getAttribute('aria-live')).toBe('polite');
-    expect(status.getAttribute('aria-atomic')).toBe('true');
-    expect(status.textContent).toContain('10までの かず');
-    expect(status.textContent).toContain('1/1');
-  });
-
-  it('開始元が消えた場合はきょうの3つ見出しへフォーカスを戻す', async () => {
-    const container = await showRoadmap(vi.fn(), false, false, {
-      roadmapView: roadmapView([]),
-      roadmapReturnQuestionId: 'q-missing',
-      onRoadmapTodaySelect: vi.fn(),
-    });
-    await act(async () => undefined);
-
-    const heading = container.querySelector<HTMLElement>('.nq-roadmap-today-title')!;
-    expect(document.activeElement).toBe(heading);
-    expect(heading.getAttribute('tabindex')).toBe('-1');
-  });
-
-  it('同じ回答復帰propsの再描画では完了通知を更新しない', async () => {
-    const model = roadmapView([completedTodayItem('q-once', 'review')], true);
-    const onRoadmapTodaySelect = vi.fn();
-    const container = await showRoadmap(vi.fn(), false, false, {
-      roadmapView: model,
-      roadmapReturnQuestionId: 'q-once',
-      onRoadmapTodaySelect,
-    });
-    await act(async () => undefined);
-    const status = container.querySelector<HTMLElement>('.nq-roadmap-today-status')!;
-    const onMutation = vi.fn();
-    const observer = new MutationObserver(onMutation);
-    observer.observe(status, { childList: true, characterData: true, subtree: true });
-
-    await showRoadmap(vi.fn(), false, false, {
-      container,
-      roadmapView: model,
-      roadmapReturnQuestionId: 'q-once',
-      onRoadmapTodaySelect,
-    });
-    await act(async () => undefined);
-
-    observer.disconnect();
-    expect(onMutation).not.toHaveBeenCalled();
-  });
-});
-
-describe('きょうの3つのレスポンシブ・モーション・入力', () => {
-  it('狭幅と低高さのレイアウト、48px操作面、reduced-motionをCSSで保証する', () => {
-    const css = readFileSync('src/ui/field/menu.css', 'utf8');
-
-    expect(css).toMatch(
-      /@media\s+\(max-width:\s*700px\)[\s\S]*?\.nq-roadmap-today-list\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1fr\)/,
-    );
-    expect(css).toMatch(/@media\s+\(max-height:\s*420px\)[\s\S]*?\.nq-roadmap-overview\s*\{/);
-    expect(css).toMatch(
-      /\.nq-roadmap-today-start,[\s\S]*?\.nq-roadmap-today-done\s*\{[\s\S]*?min-height:\s*48px/,
-    );
-    expect(css).toMatch(
-      /@media\s+\(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.nq-roadmap-current\s+\.nq-roadmap-step\s*\{[\s\S]*?animation:\s*none/,
-    );
-  });
-
-  it('today CTAのnative Enter・Spaceをglobal handlerで二重処理しない', async () => {
-    const onRoadmapTodaySelect = vi.fn();
-    const container = await showRoadmap(vi.fn(), false, false, {
-      roadmapView: roadmapView([pendingTodayItem('q-keyboard', 'unseen-primary')]),
-      onRoadmapTodaySelect,
-    });
-    const start = container.querySelector<HTMLButtonElement>('.nq-roadmap-today-start')!;
-    start.focus();
-
-    await act(async () => {
-      start.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
-      start.dispatchEvent(new KeyboardEvent('keydown', { key: ' ', bubbles: true }));
-    });
-    expect(onRoadmapTodaySelect).not.toHaveBeenCalled();
-
-    await act(async () => start.click());
-    expect(onRoadmapTodaySelect).toHaveBeenCalledTimes(1);
-  });
-
-  it('Escapeで既存どおりロードマップからメニューホームへ戻る', async () => {
-    const container = await showRoadmap(vi.fn(), false, false, {
-      roadmapView: roadmapView([pendingTodayItem('q-escape', 'due-review')]),
-      onRoadmapTodaySelect: vi.fn(),
-    });
-
-    await act(async () => {
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
-    });
-
-    expect(container.querySelector('.nq-menu-home')).not.toBeNull();
-    expect(container.querySelector('.nq-roadmap')).toBeNull();
+    expect(container.querySelector('.nq-roadmap-today')).toBeNull();
+    expect(container.textContent).not.toContain('きょうの 3つ');
   });
 });
 

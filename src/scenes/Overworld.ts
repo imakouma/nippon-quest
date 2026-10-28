@@ -125,7 +125,7 @@ import {
   type TiledMapSource,
 } from './overworld/mapModels';
 import { buildRuntimeRoadmapViewModel } from './overworld/roadmap';
-import { runRoadmapPractice, runRoadmapPracticeByQuestionId } from './overworld/roadmapPractice';
+import { runRoadmapPractice } from './overworld/roadmapPractice';
 import { buildMenuView, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
 import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
 import { presentTownMenu, type TownMenuAction, type TownMenuViewFactory } from './overworld/townMenuFlow';
@@ -2684,7 +2684,6 @@ export class OverworldScene extends Phaser.Scene {
           tabs: menuTabs(this.gs()?.learning.mistakes.length ?? 0),
           entries: view.entries,
           roadmapView,
-          roadmapReturnQuestionId: tab === 'roadmap' ? focusKey : undefined,
           developerMode: this.devAll(),
           summary: view.summary,
           empty: view.empty,
@@ -2701,12 +2700,6 @@ export class OverworldScene extends Phaser.Scene {
           onRoadmapSelect: (unitId: string) => {
             render(null, root);
             void runRoadmapPractice(this, unitId).finally(() => draw('roadmap', undefined, null, false));
-          },
-          onRoadmapTodaySelect: (questionId: string) => {
-            render(null, root);
-            void runRoadmapPracticeByQuestionId(this, questionId).finally(() =>
-              draw('roadmap', questionId, null, false),
-            );
           },
           onSave: () => {
             const game = this.gs();

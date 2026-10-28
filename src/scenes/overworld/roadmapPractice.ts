@@ -58,7 +58,7 @@ export async function runRoadmapPractice(
   return runRoadmapPracticeSelection(hostScene, undefined, unitId);
 }
 
-/** 「きょうの3つ」の安定IDから、表示した項目と同じ問題を実行する。 */
+/** 安定した問題IDを使い、指定された問題をそのまま実行する。 */
 export async function runRoadmapPracticeByQuestionId(
   hostScene: RoadmapPracticeHost,
   questionId: string,
