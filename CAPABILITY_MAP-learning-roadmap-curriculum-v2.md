@@ -24,15 +24,15 @@
 
 ## 能力モジュール
 
-| Module id | Responsibility | Depends on | Agent |
-|---|---|---|---|
-| `unit-progress-normalization` | 既存の `canonicalUnitId()` とロードマップ内の習熟集約を再利用・抽出し、報酬マーカーだけ正規IDへ寄せて二重付与を防ぐ。保存データの一括移行はしない | — | 1 |
-| `learning-recommendation-policy` | 期限、弱い前提、未確認目標、未出題問題を順位付けする唯一の純粋ポリシーと、それを使う最大3件の今日プランを提供する | `unit-progress-normalization` | 2 |
-| `roadmap-relation-projection` | 過去実装と現存DTOを再利用し、`component`、`transfer`、`related`、`chronological` だけを非ロック案内線へ投影する | `unit-progress-normalization` | 3 |
-| `adaptive-roadmap-practice` | 単元内ランダム出題を共通推薦ポリシーに置き換え、実際に出すUnitと推薦理由を返す | `learning-recommendation-policy`, `roadmap-relation-projection` | 4 |
-| `roadmap-view-model` | Coreの結果をScene非依存の表示モデルへまとめ、全ロードマップと今日プランを同じ進捗定義で表示する | `learning-recommendation-policy`, `roadmap-relation-projection` | 5 |
-| `math-learning-content-pilot` | 承認済みの既存 `QuestionBase.tags` 規約だけを使い、小1算数の限定12問以内へ学習段階タグと追加のdraft誤概念シグナルを付ける | `learning-recommendation-policy` のタグ規約 | 6 |
-| `child-roadmap-experience` | 既存「がくしゅう」画面へ全幅の「きょうの3つ」、推薦理由、目標状態を追加し、回答後の復帰・フォーカス・狭幅表示を完成させる | `roadmap-view-model`, `adaptive-roadmap-practice`, `math-learning-content-pilot` | 7 |
+| Module id                        | Responsibility                                                                                                                                    | Depends on                                                                       | Agent |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----- |
+| `unit-progress-normalization`    | 既存の `canonicalUnitId()` とロードマップ内の習熟集約を再利用・抽出し、報酬マーカーだけ正規IDへ寄せて二重付与を防ぐ。保存データの一括移行はしない | —                                                                                | 1     |
+| `learning-recommendation-policy` | 期限、弱い前提、未確認目標、未出題問題を順位付けする唯一の純粋ポリシーと、それを使う最大3件の今日プランを提供する                                 | `unit-progress-normalization`                                                    | 2     |
+| `roadmap-relation-projection`    | 過去実装と現存DTOを再利用し、`component`、`transfer`、`related`、`chronological` だけを非ロック案内線へ投影する                                   | `unit-progress-normalization`                                                    | 3     |
+| `adaptive-roadmap-practice`      | 単元内ランダム出題を共通推薦ポリシーに置き換え、実際に出すUnitと推薦理由を返す                                                                    | `learning-recommendation-policy`, `roadmap-relation-projection`                  | 4     |
+| `roadmap-view-model`             | Coreの結果をScene非依存の表示モデルへまとめ、全ロードマップと今日プランを同じ進捗定義で表示する                                                   | `learning-recommendation-policy`, `roadmap-relation-projection`                  | 5     |
+| `math-learning-content-pilot`    | 承認済みの既存 `QuestionBase.tags` 規約だけを使い、小1算数の限定12問以内へ学習段階タグと追加のdraft誤概念シグナルを付ける                         | `learning-recommendation-policy` のタグ規約                                      | 6     |
+| `child-roadmap-experience`       | 既存「がくしゅう」画面へ全幅の「きょうの3つ」、推薦理由、目標状態を追加し、回答後の復帰・フォーカス・狭幅表示を完成させる                         | `roadmap-view-model`, `adaptive-roadmap-practice`, `math-learning-content-pilot` | 7     |
 
 ## 依存順序
 
@@ -60,15 +60,15 @@ learning-recommendation-policy ── math-learning-content-pilot ────�
 各エージェントはWave開始時の統合ブランチを基点に、専用worktreeと専用ブランチを作る。
 完了時はfocused testを通した1論理コミットを作り、統合担当へブランチ名・コミットID・検査結果を渡す。
 
-| Agent | Branch | Owned files | Shared files it must not edit |
-|---|---|---|---|
-| 1 | `codex/lr-v2-unit-progress` | `src/core/learning/unitProgress.ts`, `unitAliases.ts`, `learningRewards.ts`,専用テスト | `roadmap.ts`, `menuModel.ts`, `index.ts` |
-| 2 | `codex/lr-v2-recommendation-policy` | `src/core/learning/recommendationPolicy.ts`, `learningPlan.ts`,専用テスト | Scene、UI、`index.ts` |
-| 3 | `codex/lr-v2-relations` | `src/core/learning/roadmapRelations.ts`,専用テスト | `roadmap.ts`, `menuModel.ts`,UI |
-| 4 | `codex/lr-v2-adaptive-practice` | `roadmapPractice.ts`,専用テスト | Coreポリシー、UI、`Overworld.ts` |
-| 5 | `codex/lr-v2-view-model` | `roadmap.ts`, `menuModel.ts`, `roadmap.test.ts` | UI、Coreポリシー、`Overworld.ts` |
-| 6 | `codex/lr-v2-content-pilot` | 下記パイロット教材JSONと専用教材テスト | TypeScript実装、生成schema |
-| 7 | `codex/lr-v2-ui` | `RoadmapView.tsx`, `RoadmapGraph.tsx`, `MenuOverlay.tsx`, `menu.css`, `ja.json`, `roadmapMenu.test.ts` | Core、Scene選定ロジック |
+| Agent | Branch                              | Owned files                                                                                            | Shared files it must not edit            |
+| ----- | ----------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
+| 1     | `codex/lr-v2-unit-progress`         | `src/core/learning/unitProgress.ts`, `unitAliases.ts`, `learningRewards.ts`,専用テスト                 | `roadmap.ts`, `menuModel.ts`, `index.ts` |
+| 2     | `codex/lr-v2-recommendation-policy` | `src/core/learning/recommendationPolicy.ts`, `learningPlan.ts`,専用テスト                              | Scene、UI、`index.ts`                    |
+| 3     | `codex/lr-v2-relations`             | `src/core/learning/roadmapRelations.ts`,専用テスト                                                     | `roadmap.ts`, `menuModel.ts`,UI          |
+| 4     | `codex/lr-v2-adaptive-practice`     | `roadmapPractice.ts`,専用テスト                                                                        | Coreポリシー、UI、`Overworld.ts`         |
+| 5     | `codex/lr-v2-view-model`            | `roadmap.ts`, `menuModel.ts`, `roadmap.test.ts`                                                        | UI、Coreポリシー、`Overworld.ts`         |
+| 6     | `codex/lr-v2-content-pilot`         | 下記パイロット教材JSONと専用教材テスト                                                                 | TypeScript実装、生成schema               |
+| 7     | `codex/lr-v2-ui`                    | `RoadmapView.tsx`, `RoadmapGraph.tsx`, `MenuOverlay.tsx`, `menu.css`, `ja.json`, `roadmapMenu.test.ts` | Core、Scene選定ロジック                  |
 
 統合担当だけが `src/core/learning/index.ts`、`src/scenes/Overworld.ts`、仕様・計画・E2Eを編集する。
 Wave内のエージェントは互いのworktreeを編集せず、統合済みコミットを次Waveの新しい基点にする。
