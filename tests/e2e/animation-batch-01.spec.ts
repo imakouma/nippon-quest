@@ -1,6 +1,5 @@
 import { expect, test } from '@playwright/test';
 import type Phaser from 'phaser';
-import runtimeManifest from '../../assets/sprites/animations/batch-01/manifest.json' with { type: 'json' };
 import type { BattleEvent, BattleState } from '../../src/core/battle/types';
 import type { ContentIndex } from '../../src/core/content/loader';
 import type { PixelBounds } from '../../src/rendering/monsterImageScale';
@@ -13,7 +12,13 @@ type Battle = Phaser.Scene & {
   animate(event: BattleEvent): Promise<void>;
 };
 
-const monsters = runtimeManifest.map((entry) => entry.id);
+// 全101シートの登録・寸法・重複はユニットテストで検証し、実ブラウザでは
+// 通常敵・県ラスボス・全国制作波の代表で共通の戦闘アニメーション経路を確認する。
+const monsters = [
+  'aomori-bunakko',
+  'aomori-lastboss-tsugaru-tamenobu',
+  'yamanashi-lastboss-takeda-shingen',
+] as const;
 
 for (const viewport of [
   { width: 960, height: 540 },
