@@ -3,11 +3,10 @@ import type Phaser from 'phaser';
 import runtimeManifest from '../../assets/sprites/animations/batch-01/manifest.json' with { type: 'json' };
 import type { BattleEvent, BattleState } from '../../src/core/battle/types';
 import type { ContentIndex } from '../../src/core/content/loader';
+import type { PixelBounds } from '../../src/rendering/monsterImageScale';
 
 type Battle = Phaser.Scene & {
   enemySprite: Phaser.GameObjects.Sprite;
-  enemySize: number;
-  enemyScale: number;
   state: BattleState;
   content: ContentIndex;
   askSkill(): Promise<{ score: number; timeMs: number; attempts: number }>;
@@ -49,19 +48,22 @@ for (const viewport of [
         );
         sprite.setData('observedFrames', frames);
         sprite.setData('observedAnimations', animations);
+        const bounds = sprite.getData('visibleBodyBounds') as PixelBounds;
         return {
           key: sprite.texture.key,
           width: sprite.displayWidth,
           height: sprite.displayHeight,
+          bodyHeight: bounds.height * sprite.scaleY,
+          targetBodyHeight: sprite.getData('targetBodyHeight') as number,
           alpha: canvas.getContext('2d')!.getImageData(0, 0, 1, 1).data[3],
           expectedKey: `mon.animation.${id}.v1`,
-          expectedMaxSize: battle.enemySize * battle.enemyScale,
         };
       }, monsterId);
       expect(initial.key).toBe(initial.expectedKey);
       expect(initial.alpha).toBe(0);
-      expect(initial.width).toBeLessThanOrEqual(initial.expectedMaxSize);
-      expect(initial.height).toBeLessThanOrEqual(initial.expectedMaxSize);
+      expect(initial.width).toBeGreaterThan(0);
+      expect(initial.height).toBeGreaterThan(0);
+      expect(initial.bodyHeight).toBeCloseTo(initial.targetBodyHeight, 3);
       await expect
         .poll(
           () =>
@@ -116,8 +118,10 @@ for (const viewport of [
           'sk-hinoko';
         await battle.animate({
           t: 'act',
+          actionId: 'turn:1:action:0',
           side: 'enemy',
           actorId: battle.state.enemy.id,
+          targetIds: [battle.state.ally.hero.id],
           command: 'skill',
           skillId,
         });
@@ -126,7 +130,12 @@ for (const viewport of [
       expect(skillAttacks.after).toBeGreaterThan(skillAttacks.before);
       await page.evaluate(async () => {
         const battle = window.__nq.scene.getScene('Battle') as Battle;
-        await battle.animate({ t: 'ko', side: 'enemy', targetId: battle.state.enemy.id });
+        await battle.animate({
+          t: 'ko',
+          actionId: 'turn:1:action:0',
+          side: 'enemy',
+          targetId: battle.state.enemy.id,
+        });
       });
       expect(
         await page.evaluate(() => {

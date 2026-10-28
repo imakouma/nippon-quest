@@ -114,8 +114,10 @@ for (const monsterId of monsters) {
         const skillId = battle.content.monsters.get(id)!.skills.at(-1)!;
         await battle.animate({
           t: 'act',
+          actionId: 'turn:1:action:0',
           side: 'enemy',
           actorId: battle.state.enemy.id,
+          targetIds: [battle.state.ally.hero.id],
           command: 'skill',
           skillId,
         });
@@ -125,7 +127,12 @@ for (const monsterId of monsters) {
 
       await page.evaluate(async () => {
         const battle = window.__nq.scene.getScene('Battle') as Battle;
-        await battle.animate({ t: 'ko', side: 'enemy', targetId: battle.state.enemy.id });
+        await battle.animate({
+          t: 'ko',
+          actionId: 'turn:1:action:0',
+          side: 'enemy',
+          targetId: battle.state.enemy.id,
+        });
       });
       expect(
         await page.evaluate(() => {
