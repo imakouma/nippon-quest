@@ -24,6 +24,8 @@ interface RoadmapPracticeSelection {
   reason: LearningRecommendationReason;
   conceptIds: string[];
 }
+
+type LearningRecommendationReason = 'due-review' | 'weak-prerequisite' | 'unseen-primary' | 'unseen-question';
 ```
 
 - `questionId`: `QuestionBank` に実在し、実際に `askById` へ渡す問題ID。
@@ -41,9 +43,11 @@ interface RoadmapPracticeSelection {
 1. `learning-recommendation-policy` が、固定された優先順位・学年範囲・直近問題除外・正規Unit化を所有する。
 2. ロードマップ練習の対象範囲は、選択Unitとその直接前提である。無関係なUnitへ横断しない。
 3. `roadmap-relation-projection` への依存はWave順序とUnit関係の整合確認であり、このSceneアダプターは
-   表示線や関係投影を再実装しない。実行時importは承認済みprovider契約が要求する場合だけ行う。
+   表示線や関係投影を再実装しない。上流の公開関数・型は承認済みSPECの名前を正とし、実装時に
+   direct importで接続する。
 4. 推薦の `reason` と永続化する `AttemptEvent.reason` は別の契約である。ロードマップから解いた回答は
-   現状どおりすべて `review` として記録し、新しい永続理由を追加しない。
+   上流公開mappingで `due-review` を `review`、残る3種を `diagnosis` として記録し、新しい永続理由を
+   追加しない。
 5. `evaluationNow` の日境界・タイムゾーン計算は共通ポリシー側の責務であり、Scene側で複製しない。
    同じGameStateとAsia/Tokyoの同じ日なら、時刻経過や再読み込みだけで選定結果を変えない。
 6. このモジュールは推薦結果を返すが、推薦理由を子ども向け文言として表示するUIは
@@ -54,7 +58,9 @@ interface RoadmapPracticeSelection {
 ### 1. Pure selection adapter
 
 `src/scenes/overworld/roadmapPractice.ts` に、ランタイム描画と分離した純粋な選定入口を置く。
-正確なprovider関数名と型名は、承認済み `learning-recommendation-policy` 仕様の公開exportを使う。
+provider関数・型・推薦理由からAttemptEvent理由へのmappingは、承認済み
+`learning-recommendation-policy` 仕様の公開exportをdirect importして使う。ローカルで同名契約やmappingを
+複製しない。
 
 選定入口は少なくとも次をproviderへ渡す。
 
@@ -162,8 +168,8 @@ interface RoadmapPracticeSelection {
 
 ### Read-only dependencies
 
-- `src/core/learning/recommendationPolicy.ts` と公開export（最終名はprovider仕様に従う）
-- `src/core/learning/roadmapRelations.ts` と公開export（provider契約が要求する場合のみ）
+- `src/core/learning/recommendationPolicy.ts` と、承認済みSPEC名の公開export
+- `src/core/learning/roadmapRelations.ts` と、承認済みSPEC名の公開export
 - `src/core/learning/unitProgress.ts` / `unitAliases.ts`
 - `src/core/learning/catalog.ts` / `model.ts` / `state.ts`
 - `src/questions/engine/bank.ts` / `ask.ts`
@@ -177,6 +183,7 @@ interface RoadmapPracticeSelection {
 - `src/ui/`、`content/i18n/ja.json`、子ども向け推薦理由表示。
 - バトル選定、問題レンダラー、Question契約、GameState schema、migration。
 - ロードマップ表示モデル、今日プラン、教材JSON、E2E。
+- `tests/unit/roadmap.test.ts` と `tests/unit/sansuG1Term3.test.ts` の旧selector import更新。
 
 統合担当だけがCoreのbarrel exportと `Overworld.ts` を接続する。担当外ファイルに必要な変更が見つかった場合は、
 この作業で編集せず統合担当へ渡す。
@@ -198,6 +205,7 @@ export function selectRoadmapPracticeQuestion(
 
 - `any`、非null assertionによるBank参照、問題タイプ名による分岐を追加しない。
 - provider結果をScene側で再採点・再順位付けしない。
+- provider公開mappingを使い、推薦理由からAttemptEvent理由への変換表をScene側に複製しない。
 - 1回だけ使うwrapper、将来用option、Scene固有のalias表を追加しない。
 - `rng` は問題レンダラーの既存環境へ渡せるが、選定関数からは呼ばない。
 
@@ -223,7 +231,8 @@ Phase 2は、専用テストでREDを確認してから最小実装を行う。
 
 - 選定した `questionId` を1回だけ `askById` へ渡す。
 - 前提問題では `actualUnitId` のUnit名と実問題のsubjectを `QuestionFrame` へ渡す。
-- 永続 `AttemptEvent.reason` は `review` のまま。
+- 永続 `AttemptEvent.reason` は上流公開mappingにより、`due-review` だけ `review`、
+  `weak-prerequisite` / `unseen-primary` / `unseen-question` は `diagnosis` になる。
 - 候補なし、欠落dependency、provider/Bank不整合では回答経路を開始せず、安全に終了する。
 - 成功・失敗のどちらでも問題UIをunmountする。
 - 正常完了時は選定の4フィールド、候補なしは `null` を返す。
@@ -258,6 +267,7 @@ pnpm check:full
 - 実問題の既存 `askById` 経路でのみ回答・習熟・報酬を更新する。
 - 前提不足を推薦理由にだけ使い、ゲーム進行を止めない。
 - providerの公開型と正規Unit化を再利用し、入力を変更しない。
+- providerの公開mappingでAttemptEvent理由を決め、Scene独自の変換を作らない。
 
 ### Ask first
 
@@ -265,6 +275,7 @@ pnpm check:full
 - 3回答・習熟度0.80の報酬条件、まちがい直し条件、報酬IDの変更。
 - バトルの7割弱点／3割復習、recent window、学年範囲の変更。
 - 共通推薦理由の追加・改名、推薦順位や定着率0.65の変更。
+- 推薦理由からAttemptEvent理由への上流公開mappingの変更。
 - `Overworld.ts`、UI、content、i18n、Coreポリシー、barrel exportの編集。
 - 新規依存、Question renderer、Question契約の追加。
 - 所有外の既存テストから旧selector importを削除する変更。
@@ -273,6 +284,7 @@ pnpm check:full
 
 - `Math.random` またはScene rngで推薦を抽選する。
 - 共通ポリシーと同じ順位付け・概念判定・Unit正規化をSceneに複製する。
+- 推薦理由やAttemptEvent理由の型・mappingをSceneに複製する。
 - 前提問題を選択対象Unitの問題として表示・記録する。
 - 候補なしをランダム問題や別教科で埋める。
 - ロードマップを開く・選択するだけでGameStateを変更する。
@@ -282,12 +294,14 @@ pnpm check:full
 ## Success criteria
 
 - ロードマップ練習の実行経路が `pickRoadmapQuestionId` の乱数選定ではなく、承認済み共通推薦ポリシーを使う。
+- 旧 `pickRoadmapQuestionId` 互換helperを残さず、所有外の既存import更新は統合担当へ渡す。
 - 固定fixtureで `{ questionId, actualUnitId, reason, conceptIds }` が完全一致する。
 - 前提問題では、実際のUnit名・subjectで出題され、選択Unit名を偽装しない。
 - 同じGameState、QuestionBank、Graph、Asia/Tokyoの日付なら同じ結果を返す。
 - fresh候補をrecentより優先し、枯渇時だけ同じ順位で再利用する。
 - 候補なしは既存案内で安全に終了し、回答前のGameStateを変更しない。
-- 回答後は既存 `review` AttemptEvent、習熟更新、報酬経路だけが動く。
+- 回答後は上流公開mappingにより `due-review` は `review`、他3種は `diagnosis` のAttemptEventとなり、
+  既存の習熟更新・報酬経路だけが動く。
 - 3回答・0.80報酬、まちがい直し、正規Unitごとの冪等性が維持される。
 - バトルの7割弱点／3割復習とゲーム・地域進行に差分がない。
 - v13およびmigration済みlegacy/current/mixedセーブで新フィールドなしに動作し、既得進捗を保つ。
@@ -295,15 +309,9 @@ pnpm check:full
 
 ## Open questions before Phase 2
 
-1. `learning-recommendation-policy` の承認済み仕様で、公開関数名、入力型、
-   `LearningRecommendationReason` のliteral値を確定する必要がある。本仕様は意味と4フィールドを固定し、
-   providerの名前を重複定義しない。
-2. 現在 `tests/unit/roadmap.test.ts` と `tests/unit/sansuG1Term3.test.ts` が
-   `pickRoadmapQuestionId` を直接importしているが、両方とも本担当の所有外である。Phase 2では、統合担当が
-   それらのassertionを専用 `roadmapPractice.test.ts` へ移すか、旧helperを一時維持するかを承認する必要がある。
-   本担当だけで所有外テストを削除・変更しない。
+None. 上流契約名、推薦理由、AttemptEvent mapping、旧selectorの移行担当は横断レビューで確定済み。
 
 ## Approval gate
 
-人間がこの仕様とOpen Questionsの扱いを承認した後、同じチャットでPhase 2の計画を作る。
+人間がこの更新仕様を承認した後、同じチャットでPhase 2の計画を作る。
 承認前に `planning-and-task-breakdown` の成果物、実装、REDテスト、コードレビューへ進まない。
