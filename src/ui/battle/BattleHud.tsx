@@ -27,7 +27,6 @@ import {
   type SkillOption,
 } from './store';
 import { BattleResultPanel } from './BattleResultPanel';
-import { BattleHistory } from './BattleHistory';
 import { AllyRow, Bar, ComboBadge, EnemyWindow, TurnBadge } from './BattleStatus';
 import { pickBattleHudOption, useBattleHudInput } from './useBattleHudInput';
 import './battle.css';
@@ -421,7 +420,7 @@ function QuestionStrip({ s }: { s: HudState }) {
 
 // ───────────────────────── ルート ─────────────────────────
 
-export function BattleHud({ store, devMode = false }: { store: HudStore; devMode?: boolean }) {
+export function BattleHud({ store }: { store: HudStore }) {
   const s = useHud(store);
   const battleRef = useRef<HTMLDivElement>(null);
   const tw = useTypewriter(s.message ? s.message.id : null, s.message?.text ?? '');
@@ -482,12 +481,6 @@ export function BattleHud({ store, devMode = false }: { store: HudStore; devMode
           )}
         </div>
       )}
-
-      <BattleHistory
-        store={store}
-        devMode={devMode}
-        visible={s.menu === 'commands' && !s.question && !s.result}
-      />
 
       {s.combo.count >= 2 && !s.result && <ComboBadge c={s.combo} />}
 
