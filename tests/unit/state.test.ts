@@ -58,6 +58,13 @@ describe('GameState', () => {
     expect(state.battle).toEqual({ nextSequence: 1, finalizedThrough: 0, active: null });
     expect(state.inventory['common-renshu-no-bou']).toBe(1);
     expect(state.player.levelCap).toBe(10);
+    expect(state.player.skills).toEqual([
+      'sk-tashizan-giri',
+      'sk-hono-no-mai',
+      'sk-kanji-giri',
+      'sk-bun-no-tsubasa',
+      'sk-kotoba-asobi',
+    ]);
     expect(state.learning.masteredRewardUnits).toEqual([]);
     expect(state.learning.correctedRewardQuestionIds).toEqual([]);
     expect(state.progress.counters[ROADMAP_MASTERY_SNAPSHOT_COUNTER]).toBe(1);
@@ -101,7 +108,23 @@ describe('GameState', () => {
     expect(r.migratedFrom).toBeNull();
     expect(r.state.schemaVersion).toBe(SCHEMA_VERSION);
   });
-  it.each(Array.from({ length: 13 }, (_, version) => version))(
+  it('v13 のセーブに分けた国語技を重複なく追加する', () => {
+    const legacy = structuredClone(fresh()) as ReturnType<typeof fresh> & { schemaVersion: number };
+    legacy.schemaVersion = 13;
+    legacy.player.skills = ['sk-tashizan-giri', 'sk-hono-no-mai'];
+
+    const migrated = migrate(legacy).state;
+
+    expect(migrated.player.skills).toEqual([
+      'sk-tashizan-giri',
+      'sk-hono-no-mai',
+      'sk-kanji-giri',
+      'sk-bun-no-tsubasa',
+      'sk-kotoba-asobi',
+    ]);
+    expect(migrate(migrated).state.player.skills).toEqual(migrated.player.skills);
+  });
+  it.each(Array.from({ length: 14 }, (_, version) => version))(
     'v%d のセーブが現行 schema まで移行する',
     (version) => {
       const legacy = structuredClone(fresh()) as unknown as Record<string, unknown> & {
