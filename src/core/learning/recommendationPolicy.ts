@@ -73,8 +73,9 @@ export function rankLearningRecommendations(
   const eligible = eligibleQuestions(input);
   const isUnitMastered = unitMasteryChecker(input);
   const weakPriorities = weakPrerequisitePriorities(input, eligible, isUnitMastered);
+  const attemptedQuestionIds = new Set(input.attempts.map((attempt) => attempt.questionId));
   const ranked = eligible
-    .map((candidate): RankedCandidate => {
+    .map((candidate): RankedCandidate | undefined => {
       const duePriority = dueReviewPriority(candidate, input);
       if (duePriority > 0) {
         return { ...candidate, category: 0, priority: duePriority, reason: 'due-review' };
@@ -88,10 +89,26 @@ export function rankLearningRecommendations(
           reason: 'weak-prerequisite',
         };
       }
-      return { ...candidate, category: 3, priority: 0, reason: 'unseen-question' };
+      const hasUnseenPrimary = candidate.conceptLinks.some(
+        (mapping) =>
+          mapping.role === 'primary' &&
+          (input.conceptStates[mapping.conceptId] === undefined ||
+            input.conceptStates[mapping.conceptId]?.attempts === 0),
+      );
+      if (hasUnseenPrimary) {
+        return { ...candidate, category: 2, priority: 0, reason: 'unseen-primary' };
+      }
+      if (!attemptedQuestionIds.has(candidate.questionId)) {
+        return { ...candidate, category: 3, priority: 0, reason: 'unseen-question' };
+      }
+      return undefined;
     })
+    .filter((candidate): candidate is RankedCandidate => candidate !== undefined)
     .sort(compareCandidates);
-  return ranked.map((candidate) => ({
+  const recentQuestionIds = new Set(input.recentQuestionIds);
+  const fresh = ranked.filter((candidate) => !recentQuestionIds.has(candidate.questionId));
+  const reusable = ranked.filter((candidate) => recentQuestionIds.has(candidate.questionId));
+  return [...fresh, ...reusable].map((candidate) => ({
     questionId: candidate.questionId,
     actualUnitId: candidate.actualUnitId,
     reason: candidate.reason,

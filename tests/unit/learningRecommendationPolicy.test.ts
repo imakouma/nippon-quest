@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { CurriculumGraph, QuestionConceptLink } from '../../src/core/learning/model';
-import type { ConceptState } from '../../src/core/learning/state';
+import type { AttemptEvent, ConceptState } from '../../src/core/learning/state';
 import {
   rankLearningRecommendations,
   recommendationReasonToAttemptReason,
@@ -79,6 +79,30 @@ const conceptState = (overrides: Partial<ConceptState> = {}): ConceptState => ({
   intervalDays: 1,
   ...overrides,
 });
+
+const attempt = (questionId: string, overrides: Partial<AttemptEvent> = {}): AttemptEvent => ({
+  id: `attempt-${questionId}`,
+  profileId: 'local',
+  questionId,
+  presentedAt: 1,
+  answeredAt: 2,
+  score: 0,
+  timeMs: 100,
+  attempts: 1,
+  hintsUsed: 0,
+  timedOut: false,
+  reason: 'battle',
+  appVersion: 'test',
+  ...overrides,
+});
+
+const deepFreeze = <T>(value: T): T => {
+  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+    Object.freeze(value);
+    for (const child of Object.values(value)) deepFreeze(child);
+  }
+  return value;
+};
 
 const input = (
   curriculum: CurriculumGraph,
@@ -427,5 +451,208 @@ describe('rankLearningRecommendations weak prerequisites', () => {
     expect(grandfathered.find((item) => item.questionId === 'pre-question')?.reason).not.toBe(
       'weak-prerequisite',
     );
+  });
+});
+
+describe('rankLearningRecommendations deterministic fallbacks', () => {
+  it('primary未確認と全履歴で未出題の問題を区別し、証拠のある出題済み問題を除く', () => {
+    const curriculum = graph(
+      [
+        concept('new-primary', 3),
+        concept('seen-primary', 3),
+        concept('supporting', 3),
+        concept('attempted', 3),
+      ],
+      [
+        link('new-primary-question', ['new-primary'], { role: 'primary' }),
+        link('seen-primary-question', ['seen-primary'], { role: 'primary' }),
+        link('supporting-question', ['supporting']),
+        link('attempted-question', ['attempted']),
+      ],
+    );
+    const bank = bankWith(
+      question('new-primary-question', 3),
+      question('seen-primary-question', 3),
+      question('supporting-question', 3),
+      question('attempted-question', 3),
+    );
+
+    const ranked = rankLearningRecommendations(
+      input(curriculum, bank, {
+        conceptStates: {
+          'seen-primary': conceptState({ attempts: 1 }),
+          attempted: conceptState({ attempts: 1 }),
+        },
+        attempts: [attempt('attempted-question', { reason: 'event', score: 1 })],
+      }),
+    );
+
+    expect(ranked.map(({ questionId, reason }) => ({ questionId, reason }))).toEqual([
+      { questionId: 'new-primary-question', reason: 'unseen-primary' },
+      { questionId: 'seen-primary-question', reason: 'unseen-question' },
+      { questionId: 'supporting-question', reason: 'unseen-question' },
+    ]);
+  });
+
+  it('同一問題は最上位カテゴリだけを返し、4カテゴリ順を守る', () => {
+    const now = Date.UTC(2026, 0, 10);
+    const curriculum: CurriculumGraph = {
+      ...graph(
+        [
+          concept('due', 3, 'sansu.g3.due'),
+          concept('target', 3, 'sansu.g3.target'),
+          concept('pre', 3, 'sansu.g3.pre'),
+          concept('primary', 3, 'sansu.g3.primary'),
+          concept('unseen', 3, 'sansu.g3.unseen'),
+        ],
+        [
+          link('due-question', ['due'], { role: 'primary' }),
+          link('target-question', ['target'], { role: 'primary' }),
+          link('pre-question', ['pre'], { role: 'primary' }),
+          link('primary-question', ['primary'], { role: 'primary' }),
+          link('unseen-question', ['unseen']),
+        ],
+      ),
+      relations: [
+        {
+          from: 'pre',
+          to: 'target',
+          kind: 'prerequisite',
+          strength: 1,
+          rationale: 'direct',
+          sourceIds: [],
+          reviewStatus: 'draft',
+        },
+      ],
+    };
+    const bank = bankWith(
+      question('due-question', 3, 'sansu.g3.due'),
+      question('target-question', 3, 'sansu.g3.target'),
+      question('pre-question', 3, 'sansu.g3.pre'),
+      question('primary-question', 3, 'sansu.g3.primary'),
+      question('unseen-question', 3, 'sansu.g3.unseen'),
+    );
+
+    const ranked = rankLearningRecommendations(
+      input(curriculum, bank, {
+        evaluationNow: now,
+        conceptStates: {
+          due: conceptState({ retention: 0.2, lastSeenAt: now, dueAt: now }),
+          pre: conceptState({
+            understanding: 0,
+            retention: 0.8,
+            confidence: 0,
+            attempts: 1,
+            lastSeenAt: now,
+            dueAt: now + 1,
+          }),
+        },
+      }),
+    );
+
+    expect(ranked.map((item) => item.reason)).toEqual([
+      'due-review',
+      'weak-prerequisite',
+      'unseen-primary',
+      'unseen-primary',
+      'unseen-question',
+    ]);
+    expect(ranked.filter((item) => item.questionId === 'due-question')).toHaveLength(1);
+  });
+
+  it('カテゴリ内を固有優先値、diagnosticValue、ASCII questionIdの順で決める', () => {
+    const ids = ['z-low', 'z-high', 'a-high'];
+    const curriculum = graph(
+      ids.map((id) => concept(id, 3)),
+      [
+        link('z-low-question', ['z-low'], { diagnosticValue: 0.1, role: 'primary' }),
+        link('z-high-question', ['z-high'], { diagnosticValue: 0.9, role: 'primary' }),
+        link('a-high-question', ['a-high'], { diagnosticValue: 0.9, role: 'primary' }),
+      ],
+    );
+    const bank = bankWith(...ids.map((id) => question(`${id}-question`, 3)));
+
+    expect(rankLearningRecommendations(input(curriculum, bank)).map((item) => item.questionId)).toEqual([
+      'a-high-question',
+      'z-high-question',
+      'z-low-question',
+    ]);
+  });
+
+  it('fresh候補を使い切った後だけrecent候補を同じ順位で再利用する', () => {
+    const ids = ['recent-high', 'fresh-high', 'recent-low', 'fresh-low'];
+    const diagnostics: Record<string, number> = {
+      'recent-high': 0.9,
+      'fresh-high': 0.8,
+      'recent-low': 0.2,
+      'fresh-low': 0.1,
+    };
+    const curriculum = graph(
+      ids.map((id) => concept(id, 3)),
+      ids.map((id) => link(`${id}-question`, [id], { diagnosticValue: diagnostics[id] })),
+    );
+    const bank = bankWith(...ids.map((id) => question(`${id}-question`, 3)));
+
+    const ranked = rankLearningRecommendations(
+      input(curriculum, bank, {
+        recentQuestionIds: ['recent-high-question', 'recent-low-question'],
+      }),
+    );
+
+    expect(ranked.map((item) => item.questionId)).toEqual([
+      'fresh-high-question',
+      'fresh-low-question',
+      'recent-high-question',
+      'recent-low-question',
+    ]);
+  });
+
+  it('入力順を反転しても同じ結果になり、deep freezeした入力を変更しない', () => {
+    const concepts = [concept('b', 3), concept('a', 3)];
+    const links = [
+      link('b-question', ['b'], { diagnosticValue: 0.5, role: 'primary' }),
+      link('a-question', ['a'], { diagnosticValue: 0.5, role: 'primary' }),
+    ];
+    const attempts = [attempt('old-question')];
+    const recentQuestionIds = ['b-question'];
+    const unitMastery = { 'sansu.g3.unit': { value: 0.1, n: 1, lastAt: 1 } };
+    const firstGraph = deepFreeze(graph(structuredClone(concepts), structuredClone(links)));
+    const secondGraph = deepFreeze(
+      graph(structuredClone(concepts).reverse(), structuredClone(links).reverse()),
+    );
+    const firstBank = bankWith(question('b-question', 3), question('a-question', 3));
+    const secondBank = bankWith(question('a-question', 3), question('b-question', 3));
+    const frozenAttempts = deepFreeze(structuredClone(attempts));
+    const frozenRecent = deepFreeze(structuredClone(recentQuestionIds));
+    const frozenMastery = deepFreeze(structuredClone(unitMastery));
+    const before = {
+      graph: structuredClone(firstGraph),
+      attempts: structuredClone(frozenAttempts),
+      recent: structuredClone(frozenRecent),
+      mastery: structuredClone(frozenMastery),
+      questions: structuredClone(firstBank.all()),
+    };
+
+    const first = rankLearningRecommendations(
+      input(firstGraph, firstBank, {
+        attempts: frozenAttempts,
+        recentQuestionIds: frozenRecent,
+        unitMastery: frozenMastery,
+      }),
+    );
+    const second = rankLearningRecommendations(
+      input(secondGraph, secondBank, {
+        attempts: frozenAttempts,
+        recentQuestionIds: frozenRecent,
+        unitMastery: frozenMastery,
+      }),
+    );
+
+    expect(second).toEqual(first);
+    expect(firstGraph).toEqual(before.graph);
+    expect(frozenAttempts).toEqual(before.attempts);
+    expect(frozenRecent).toEqual(before.recent);
+    expect(frozenMastery).toEqual(before.mastery);
+    expect(firstBank.all()).toEqual(before.questions);
   });
 });
