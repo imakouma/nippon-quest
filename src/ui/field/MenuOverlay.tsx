@@ -417,6 +417,7 @@ export function MenuOverlay({
             nodes={roadmapView?.nodes ?? roadmap}
             onSelect={onRoadmapSelect}
             developerMode={developerMode}
+            initialUnitId={focusKey}
           />
         ) : (
           <>

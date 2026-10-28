@@ -236,6 +236,7 @@ async function showRoadmap(
   developerMode = false,
   options: {
     container?: HTMLElement;
+    focusKey?: string;
     roadmapView?: RoadmapViewModel;
   } = {},
 ): Promise<HTMLElement> {
@@ -252,6 +253,7 @@ async function showRoadmap(
         developerMode,
         empty: '',
         message: null,
+        focusKey: options.focusKey,
         initialHome,
         keys: '',
         onTab: vi.fn(),
@@ -458,6 +460,18 @@ describe('学習ロードマップの単元選択', () => {
 
     expect(container.querySelector('.nq-roadmap')).not.toBeNull();
     expect(container.querySelector('.nq-menu-home')).toBeNull();
+  });
+
+  it('問題の回答後は元の教科と単元詳細へ戻せる', async () => {
+    const container = await showRoadmap(vi.fn(), false, false, {
+      focusKey: 'sansu.g1.kazu-10',
+    });
+
+    expect(subjectButton(container, 'sansu').getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-selection')?.textContent).toContain('10までのかず');
+    expect(container.querySelector('.nq-roadmap-selected')?.getAttribute('aria-label')).toContain(
+      '10までのかず',
+    );
   });
 
   it('開いている単元を選び、主要ボタンを押したときだけ問題開始を通知する', async () => {

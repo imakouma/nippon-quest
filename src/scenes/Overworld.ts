@@ -2699,7 +2699,7 @@ export class OverworldScene extends Phaser.Scene {
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
           onRoadmapSelect: (unitId: string) => {
             render(null, root);
-            void runRoadmapPractice(this, unitId).finally(() => draw('roadmap', undefined, null, false));
+            void runRoadmapPractice(this, unitId).finally(() => draw('roadmap', unitId, null, false));
           },
           onSave: () => {
             const game = this.gs();

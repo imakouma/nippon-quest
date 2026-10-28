@@ -29,9 +29,11 @@ const clampZoom = (value: number) => Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, value
 export function RoadmapGraph({
   nodes,
   onSelect,
+  initialSelectedId,
 }: {
   nodes: RoadmapNode[];
   onSelect: (unitId: string) => void;
+  initialSelectedId?: string;
 }) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const focusRef = useRef<HTMLButtonElement>(null);
@@ -72,7 +74,10 @@ export function RoadmapGraph({
     focusNode?.visibility === 'revealed' && focusNode.state !== 'locked'
       ? focusNode
       : nodes.find((node) => node.visibility === 'revealed' && node.state !== 'locked');
-  const [selectedId, setSelectedId] = useState(selectableFocusNode?.id ?? '');
+  const initialSelectedNode = initialSelectedId
+    ? nodes.find((node) => node.id === initialSelectedId && node.visibility !== 'hidden')
+    : undefined;
+  const [selectedId, setSelectedId] = useState(initialSelectedNode?.id ?? selectableFocusNode?.id ?? '');
   const selectedNode = selectedId
     ? nodes.find((node) => node.id === selectedId && node.visibility !== 'hidden')
     : undefined;
