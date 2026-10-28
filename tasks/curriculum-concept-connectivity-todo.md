@@ -89,16 +89,16 @@ Approved for implementation on branch `codex/curriculum-concept-connectivity` fr
 
 ## Task 8: Shakai
 
-- [ ] Add at least 1 grade-4 Shakai relation.
-- [ ] Cover `shakai.g4.cur-1404-01`.
-- [ ] Run curriculum validation and strict audit.
-- [ ] Confirm global relations are at least 425 and isolation is 0.
+- [x] Add at least 1 grade-4 Shakai relation.
+- [x] Cover `shakai.g4.cur-1404-01`.
+- [x] Run curriculum validation and strict audit.
+- [x] Confirm global relations are at least 425 and isolation is 0.
 
 ### Checkpoint D
 
-- [ ] 357 unique Concepts, at least 425 relations, 0 isolated Concepts.
-- [ ] 280 Units, at least 336 Unit edges, 0 isolated Units.
-- [ ] 0 dangling endpoints, self-relations, duplicates, prerequisite cycles, reverse-grade locks, cross-subject locks, and draft prerequisites.
+- [x] 357 unique Concepts, at least 425 relations, 0 isolated Concepts.
+- [x] 280 Units, at least 336 Unit edges, 0 isolated Units.
+- [x] 0 dangling endpoints, self-relations, duplicates, prerequisite cycles, reverse-grade locks, cross-subject locks, and draft prerequisites.
 
 ## Task 9: Review and completion
 
