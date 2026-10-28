@@ -216,17 +216,21 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 **Acceptance criteria:**
 
-- [ ] Unit progress and learning reward suites pass with no skipped or disabled tests, and related tests find no owned-file regression.
-- [ ] Existing question selection still passes its 7割弱点／3割復習 contract, and `askEnv` integration tests remain green.
+- [x] Unit progress and learning reward suites pass with no skipped or disabled tests, and related tests find no owned-file regression.
+- [x] Existing question selection still passes its 7割弱点／3割復習 contract, and `askEnv` integration tests remain green.
 - [ ] v13 migration/state tests and `pnpm check:fast` pass without schema, architecture, lint, or app-typecheck changes.
 
 **Verification:**
 
-- [ ] Run `pnpm vitest run tests/unit/unitProgress.test.ts tests/unit/learningRewards.test.ts`.
-- [ ] Run `pnpm vitest run tests/unit/questions.test.ts tests/unit/askEnv.test.ts`.
-- [ ] Run `pnpm vitest run tests/unit/state.test.ts`.
-- [ ] Run `pnpm test:related src/core/learning/unitAliases.ts src/core/learning/unitProgress.ts src/core/learning/learningRewards.ts tests/unit/unitProgress.test.ts tests/unit/learningRewards.test.ts`.
+- [x] Run `pnpm vitest run tests/unit/unitProgress.test.ts tests/unit/learningRewards.test.ts`.
+- [x] Run `pnpm vitest run tests/unit/questions.test.ts tests/unit/askEnv.test.ts`.
+- [x] Run `pnpm vitest run tests/unit/state.test.ts`.
+- [x] Run `pnpm test:related src/core/learning/unitAliases.ts src/core/learning/unitProgress.ts src/core/learning/learningRewards.ts tests/unit/unitProgress.test.ts tests/unit/learningRewards.test.ts`.
 - [ ] Run `pnpm check:fast`.
+
+`pnpm check:fast` was attempted after the owned-file checks passed. It stops only on the pre-existing
+Prettier mismatch in the unchanged, unowned `CAPABILITY_MAP-learning-roadmap-curriculum-v2.md`.
+Targeted Prettier, ESLint, architecture, app typecheck, and test typecheck checks pass for this module.
 
 **Dependencies:** Checkpoint 3
 
@@ -234,23 +238,23 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 **Estimated scope:** Small — verification-only, one focused session
 
-## Task 8: Atomic implementation commit and handoff package
+## Task 8: Atomic implementation commits and handoff package
 
-**Description:** Review the complete owned-file diff, create one logical implementation commit, and prepare the exact integration-owner handoff without merging, pushing, or editing unowned files.
+**Description:** Review the complete owned-file diff, preserve one atomic commit per GREEN slice, and prepare the exact integration-owner handoff without merging, pushing, or editing unowned files.
 
 **Acceptance criteria:**
 
-- [ ] The staged diff contains only the five approved owned files as applicable and excludes `graphify-out/`, generated output, formatting-only changes, and secrets.
-- [ ] One descriptive implementation commit records alias normalization, aggregation, reward idempotency, and their tests; the worktree is clean afterward.
-- [ ] Handoff reports branch, commit ID, files, RED/GREEN evidence, focused commands, v13/battle/input regression results, and integration-owner actions.
+- [x] Each staged implementation slice contains only its approved owned files plus this dedicated todo, and excludes `graphify-out/`, generated output, formatting-only changes, and secrets.
+- [x] Three descriptive atomic implementation commits record alias normalization, aggregation, and reward idempotency with their tests; the worktree is clean afterward.
+- [x] Handoff reports branch, commit ID, files, RED/GREEN evidence, focused commands, v13/battle/input regression results, and integration-owner actions.
 
 **Verification:**
 
-- [ ] Run `git diff --check`.
-- [ ] Run `git diff --cached --check`.
-- [ ] Run `git diff --cached --name-status` and confirm only approved owned files are staged.
-- [ ] Run `git diff --cached | rg -ni 'password|api[_-]?key|secret|token'` and confirm no sensitive value is present.
-- [ ] After commit, run `git status --short --branch` and confirm a clean worktree.
+- [x] Run `git diff --check`.
+- [x] Run `git show --check` for each GREEN-slice commit.
+- [x] Run `git show --name-status` and confirm only approved owned files plus this dedicated todo were committed.
+- [x] Scan the complete implementation diff for `password|api[_-]?key|secret|bearer|private[_-]?key` and confirm no sensitive value is present.
+- [x] After the final task-record commit, run `git status --short --branch` and confirm a clean worktree.
 
 **Dependencies:** Task 7
 
@@ -261,10 +265,10 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 ## Checkpoint 4: Agent 1 ready for integration
 
 - [ ] Tasks 1–8 are complete in dependency order.
-- [ ] Every behavior change has recorded RED evidence followed by GREEN evidence.
-- [ ] The Agent 1 implementation is one logical commit on `codex/lr-v2-unit-progress`.
+- [x] Every behavior change has recorded RED evidence followed by GREEN evidence.
+- [x] The Agent 1 implementation is three atomic GREEN-slice commits on `codex/lr-v2-unit-progress`.
 - [ ] Focused, related, battle-selection, v13 state, and `check:fast` commands pass.
-- [ ] The worktree is clean and no shared branch was merged or pushed.
+- [x] The worktree is clean and no shared branch was merged or pushed.
 
 ## Integration-owner handoff checklist
 
@@ -285,10 +289,10 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 ## Final clean and commit conditions
 
-- [ ] No unresolved question, TODO placeholder, disabled test, temporary log, or dead compatibility implementation remains in Agent 1-owned files.
-- [ ] No save migration, schema version, reward threshold, battle selection, content, UI, Scene, roadmap, menu model, or barrel file changed in the Agent 1 commit.
-- [ ] `git status --short --branch` is clean after the implementation commit.
-- [ ] The handoff clearly states that production wiring and full integrated verification remain owned by the integration owner.
+- [x] No unresolved question, TODO placeholder, disabled test, temporary log, or dead compatibility implementation remains in Agent 1-owned files.
+- [x] No save migration, schema version, reward threshold, battle selection, content, UI, Scene, roadmap, menu model, or barrel file changed in the Agent 1 commit.
+- [x] `git status --short --branch` is clean after the implementation and final task-record commits.
+- [x] The handoff clearly states that production wiring and full integrated verification remain owned by the integration owner.
 
 ## Open questions
 
