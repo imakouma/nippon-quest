@@ -26,20 +26,14 @@ function marker(node: RoadmapNode): string {
 
 const clampZoom = (value: number) => Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, value));
 
-function questState(node: RoadmapNode): string {
-  if (node.state === 'locked') return t('field.roadmapQuestLocked');
-  if (node.state === 'current') return t('field.roadmapQuestCurrent');
-  if (node.state === 'review') return t('field.roadmapQuestReview');
-  if (node.state === 'cleared') return t('field.roadmapQuestCleared');
-  return t('field.roadmapQuestOpen');
-}
-
 export function RoadmapGraph({
   nodes,
   onSelect,
+  initialSelectedId,
 }: {
   nodes: RoadmapNode[];
   onSelect: (unitId: string) => void;
+  initialSelectedId?: string;
 }) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const focusRef = useRef<HTMLButtonElement>(null);
@@ -80,7 +74,10 @@ export function RoadmapGraph({
     focusNode?.visibility === 'revealed' && focusNode.state !== 'locked'
       ? focusNode
       : nodes.find((node) => node.visibility === 'revealed' && node.state !== 'locked');
-  const [selectedId, setSelectedId] = useState(selectableFocusNode?.id ?? '');
+  const initialSelectedNode = initialSelectedId
+    ? nodes.find((node) => node.id === initialSelectedId && node.visibility !== 'hidden')
+    : undefined;
+  const [selectedId, setSelectedId] = useState(initialSelectedNode?.id ?? selectableFocusNode?.id ?? '');
   const selectedNode = selectedId
     ? nodes.find((node) => node.id === selectedId && node.visibility !== 'hidden')
     : undefined;
@@ -92,6 +89,7 @@ export function RoadmapGraph({
   const completedPrerequisites = selectedPrerequisites.filter(
     (node) => node.state === 'cleared' || node.state === 'review',
   ).length;
+  const selectedMastery = Math.round((selectedNode?.mastery ?? 0) * 100);
 
   const clampPan = (next: Point, atZoom: number): Point => {
     const viewport = viewportRef.current;
@@ -447,22 +445,27 @@ export function RoadmapGraph({
           class={`nq-roadmap-selection nq-roadmap-selection-${selectedNode.state}`}
           aria-label={displayText(t('field.roadmapSelection'))}
         >
-          <span class="nq-roadmap-selection-marker" aria-hidden="true">
-            {marker(selectedNode)}
-          </span>
           <span class="nq-roadmap-selection-copy">
-            <RubyLabel text={questState(selectedNode)} class="nq-roadmap-selection-state" />
             <RubyLabel
               text={selectedNode.visibility === 'frontier' ? t('field.roadmapFog') : selectedNode.name}
               class="nq-roadmap-selection-name"
             />
             <span class="nq-roadmap-selection-meta">
               <RubyLabel text={t('field.roadmapGradeName', { n: selectedNode.grade })} />
-              <RubyLabel
-                text={t('field.roadmapQuestMastery', {
-                  percent: Math.round(selectedNode.mastery * 100),
-                })}
-              />
+              <span
+                class="nq-roadmap-selection-meter"
+                role="progressbar"
+                aria-label={displayText(
+                  t('field.roadmapQuestMastery', {
+                    percent: selectedMastery,
+                  }),
+                )}
+                aria-valuemin={0}
+                aria-valuenow={selectedMastery}
+                aria-valuemax={100}
+              >
+                <span class="nq-roadmap-selection-meter-fill" style={{ width: `${selectedMastery}%` }} />
+              </span>
             </span>
             {selectedPrerequisites.length > 0 && (
               <span class="nq-roadmap-prerequisites">

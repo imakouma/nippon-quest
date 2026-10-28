@@ -101,7 +101,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(roadmap).toContainText('10までのかず');
   const selection = page.locator('.nq-roadmap-selection');
   const currentUnit = page.locator('.nq-roadmap-current');
-  await expect(selection).toContainText('いまの もくひょう');
+  await expect(selection).not.toContainText('いまの もくひょう');
   await expect(selection).toContainText('10までのかず');
   await expect(currentUnit).not.toHaveAttribute('aria-pressed', /.+/);
   await expect(currentUnit).toHaveAttribute('aria-label', /えらんでいる/);

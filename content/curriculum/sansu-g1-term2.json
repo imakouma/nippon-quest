@@ -67,6 +67,21 @@
       }
     },
     {
+      "id": "sansu.g1.misconception.make-ten-arbitrary-split",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kuriagari-kurisagari",
+      "name": "10を作[つく]る補数[ほすう]を確[たし]かめずに分[わ]ける",
+      "description": "10を作[つく]る補数[ほすう]を確[たし]かめず、加[くわ]える数[かず]を任意[にんい]に分[わ]ける誤[あやま]り方[かた]。単一[たんいつ]の誤答[ごとう]だけでは断定[だんてい]しない。",
+      "kind": "misconception",
+      "memoryType": "concept",
+      "curriculumCodes": [],
+      "sourceIds": ["mext-h29-sansu-g1-term2"],
+      "review": {
+        "status": "draft"
+      }
+    },
+    {
       "id": "sansu.g1.measure.clock-hour-half-hour",
       "subject": "sansu",
       "grade": 1,
@@ -147,8 +162,15 @@
       "questionId": "sansu.g1.kuriagari-kurisagari.0001",
       "concepts": [{ "conceptId": "sansu.g1.operation.make-ten-strategy", "weight": 1, "role": "primary" }],
       "diagnosticValue": 0.9,
-      "reviewStatus": "source-checked",
-      "misconceptionSignals": []
+      "reviewStatus": "draft",
+      "misconceptionSignals": [
+        {
+          "answerId": "b",
+          "conceptId": "sansu.g1.misconception.make-ten-arbitrary-split",
+          "confidence": 0.65,
+          "rationale": "4を2と2に分け、9と合わせて10を作る補数を確かめていない可能性がある。ただし一度だけでは断定しない。"
+        }
+      ]
     },
     {
       "questionId": "sansu.g1.kuriagari-kurisagari.0002",
@@ -168,8 +190,15 @@
       "questionId": "sansu.g1.kuriagari-kurisagari.0004",
       "concepts": [{ "conceptId": "sansu.g1.operation.make-ten-strategy", "weight": 1, "role": "primary" }],
       "diagnosticValue": 0.9,
-      "reviewStatus": "source-checked",
-      "misconceptionSignals": []
+      "reviewStatus": "draft",
+      "misconceptionSignals": [
+        {
+          "answerId": "b",
+          "conceptId": "sansu.g1.misconception.add-instead-difference",
+          "confidence": 0.65,
+          "rationale": "13から5を引く場面で10に5を足す手順を選び、減法を加法として扱っている可能性がある。ただし一度だけでは断定しない。"
+        }
+      ]
     },
     {
       "questionId": "sansu.g1.kuriagari-kurisagari.0005",

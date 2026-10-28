@@ -17,8 +17,8 @@
 | ファイル | SHA-256 |
 |---|---|
 | `questions/rika/g4/mizu-experiment.json` | `d803cdec84f39c5064e3fee34f53800c11f1e9d28fa1888b0f435690c652f139` |
-| `questions/sansu/g1/ringo-number-build.json` | `d228c03711c81016e2b58b7e87e80403161896b95d7b187e767637be63fbb956` |
-| `questions/sansu/g1/tashizan.json` | `e9bd4b8a952489c7f2da25d5f03ce18833df2a68de5f0824fc353392bb27977d` |
+| `questions/sansu/g1/ringo-number-build.json` | `9b12c1ab55e25a213035f60895f288ef2b095e855d895c47bab68e9f4e3301ee` |
+| `questions/sansu/g1/tashizan.json` | `cf45b9b1673ac6afa9dee6588e10cd8129f1ed5d6a7d7862c8a9e49306a676ef` |
 | `questions/shakai/g4/todofuken.json` | `dbca6eb3b92ad1c778dd940da3f2066f100527fd6df4ed4187db1e2df3f8c2bc` |
 | `questions/shakai/g4/tohoku.json` | `78d29fd8752b970bf7b8dd88462cb0260673ae67a32e6cfdc3e4ba14228bc4e7` |
 

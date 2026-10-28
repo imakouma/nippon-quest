@@ -4,7 +4,12 @@ import { readFileSync } from 'node:fs';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { h, render } from 'preact';
 import { act } from 'preact/test-utils';
-import type { RoadmapNode } from '../../src/shared/menuModel';
+import type {
+  RoadmapNode,
+  RoadmapPendingReason,
+  RoadmapTodayItem,
+  RoadmapViewModel,
+} from '../../src/shared/menuModel';
 import { MenuOverlay } from '../../src/ui/field/MenuOverlay';
 import { RoadmapGraph } from '../../src/ui/field/RoadmapGraph';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
@@ -229,33 +234,73 @@ async function showRoadmap(
   onRoadmapSelect: (unitId: string) => void,
   initialHome = true,
   developerMode = false,
+  options: {
+    container?: HTMLElement;
+    focusKey?: string;
+    roadmapView?: RoadmapViewModel;
+  } = {},
 ): Promise<HTMLElement> {
-  const container = document.createElement('div');
-  document.body.append(container);
-  render(
-    h(MenuOverlay, {
-      tab: 'roadmap',
-      tabs: [{ key: 'roadmap', label: 'がくしゅう', icon: 'star' }],
-      entries: [],
-      roadmap: nodes,
-      developerMode,
-      empty: '',
-      message: null,
-      initialHome,
-      keys: '',
-      onTab: vi.fn(),
-      onBag: vi.fn(),
-      onAct: vi.fn(),
-      onRoadmapSelect,
-      onSave: vi.fn(),
-      onParent: vi.fn(),
-      onClose: vi.fn(),
-    } as unknown as Parameters<typeof MenuOverlay>[0]),
-    container,
+  const container = options.container ?? document.createElement('div');
+  if (!options.container) document.body.append(container);
+  await act(async () =>
+    render(
+      h(MenuOverlay, {
+        tab: 'roadmap',
+        tabs: [{ key: 'roadmap', label: 'がくしゅう', icon: 'star' }],
+        entries: [],
+        roadmap: nodes,
+        roadmapView: options.roadmapView,
+        developerMode,
+        empty: '',
+        message: null,
+        focusKey: options.focusKey,
+        initialHome,
+        keys: '',
+        onTab: vi.fn(),
+        onBag: vi.fn(),
+        onAct: vi.fn(),
+        onRoadmapSelect,
+        onSave: vi.fn(),
+        onParent: vi.fn(),
+        onClose: vi.fn(),
+      } as unknown as Parameters<typeof MenuOverlay>[0]),
+      container,
+    ),
   );
   if (initialHome)
     await act(async () => container.querySelector<HTMLButtonElement>('.nq-menu-card')!.click());
   return container;
+}
+
+const todayProgress = {
+  mastery: 0,
+  attempts: 0,
+  retention: 0,
+  state: 'current' as const,
+};
+
+function pendingTodayItem(
+  questionId: string,
+  reason: RoadmapPendingReason,
+  overrides: Partial<RoadmapTodayItem> = {},
+): RoadmapTodayItem {
+  return {
+    questionId,
+    actualUnitId: `unit.${questionId}`,
+    unitName: '10までの かず',
+    subject: 'sansu',
+    subjectLabel: '算数[さんすう]',
+    grade: 1,
+    conceptIds: [],
+    progress: todayProgress,
+    completed: false,
+    reason,
+    ...overrides,
+  } as RoadmapTodayItem;
+}
+
+function roadmapView(items: RoadmapTodayItem[]): RoadmapViewModel {
+  return { nodes, todayPlan: { items, allComplete: false } };
 }
 
 function subjectButton(container: HTMLElement, subject: string): HTMLButtonElement {
@@ -269,6 +314,17 @@ function gradeButton(container: HTMLElement, grade: string): HTMLButtonElement {
 function termButton(container: HTMLElement, term: string): HTMLButtonElement {
   return container.querySelector<HTMLButtonElement>(`.nq-roadmap-term[data-term="${term}"]`)!;
 }
+
+describe('きょうの3つ', () => {
+  it('表示モデルに候補があっても学習画面には表示しない', async () => {
+    const container = await showRoadmap(vi.fn(), true, false, {
+      roadmapView: roadmapView([pendingTodayItem('q-hidden', 'unseen-primary')]),
+    });
+
+    expect(container.querySelector('.nq-roadmap-today')).toBeNull();
+    expect(container.textContent).not.toContain('きょうの 3つ');
+  });
+});
 
 describe('学習ロードマップの単元選択', () => {
   it('通常モードでは解放済み教科だけを全文表示し、現在学んでいる学年も伝える', async () => {
@@ -406,6 +462,18 @@ describe('学習ロードマップの単元選択', () => {
     expect(container.querySelector('.nq-menu-home')).toBeNull();
   });
 
+  it('問題の回答後は元の教科と単元詳細へ戻せる', async () => {
+    const container = await showRoadmap(vi.fn(), false, false, {
+      focusKey: 'sansu.g1.kazu-10',
+    });
+
+    expect(subjectButton(container, 'sansu').getAttribute('aria-pressed')).toBe('true');
+    expect(container.querySelector('.nq-roadmap-selection')?.textContent).toContain('10までのかず');
+    expect(container.querySelector('.nq-roadmap-selected')?.getAttribute('aria-label')).toContain(
+      '10までのかず',
+    );
+  });
+
   it('開いている単元を選び、主要ボタンを押したときだけ問題開始を通知する', async () => {
     const onRoadmapSelect = vi.fn();
     const container = await showRoadmap(onRoadmapSelect);
@@ -426,7 +494,15 @@ describe('学習ロードマップの単元選択', () => {
     const selection = container.querySelector<HTMLElement>('.nq-roadmap-selection')!;
     expect(selection.textContent).toContain('10までのかず');
     expect(selection.textContent).toContain('1ねん');
-    expect(selection.textContent).toContain('いまの もくひょう');
+    expect(selection.querySelector('.nq-roadmap-selection-marker')).toBeNull();
+    expect(selection.textContent).not.toContain('いまの もくひょう');
+    expect(selection.textContent).not.toContain('できた 0%');
+    const mastery = selection.querySelector<HTMLElement>('[role="progressbar"]')!;
+    expect(mastery.getAttribute('aria-valuemin')).toBe('0');
+    expect(mastery.getAttribute('aria-valuenow')).toBe('0');
+    expect(mastery.getAttribute('aria-valuemax')).toBe('100');
+    expect(mastery.getAttribute('aria-label')).toBe('できた 0%');
+    expect(mastery.querySelector<HTMLElement>('.nq-roadmap-selection-meter-fill')?.style.width).toBe('0%');
     expect(selection.querySelector('.nq-roadmap-practice-label')?.textContent).toContain('ここを');
     expect(selection.querySelector('.nq-roadmap-practice-arrow')?.getAttribute('aria-hidden')).toBe('true');
 
