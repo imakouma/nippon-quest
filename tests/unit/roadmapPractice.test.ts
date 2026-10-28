@@ -1,6 +1,8 @@
 // @vitest-environment jsdom
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ContentIndex } from '../../src/core/content/loader';
+import type { Unit } from '../../src/core/content/schemas';
 import { curriculumGraph } from '../../src/core/learning/catalog';
 import * as learningPlanProvider from '../../src/core/learning/learningPlan';
 import type { CurriculumGraph, QuestionConceptLink } from '../../src/core/learning/model';
@@ -17,6 +19,12 @@ import {
   selectRoadmapPracticeQuestion,
   type RoadmapPracticeHost,
 } from '../../src/scenes/overworld/roadmapPractice';
+import { setDictionary, type I18nDict } from '../../src/ui/i18n';
+
+beforeAll(() => {
+  const dictionary = JSON.parse(readFileSync('content/i18n/ja.json', 'utf8')) as I18nDict;
+  setDictionary(dictionary);
+});
 
 const mocks = vi.hoisted(() => ({
   askById: vi.fn(),
@@ -46,6 +54,14 @@ const question = (
   grade: Grade = 1,
   subject: QuestionBase['subject'] = 'sansu',
 ): QuestionBase => ({ id, type: 'choice', subject, grade, unit, payload: {} });
+
+const unit = (id: string, name: string, legacyNode?: string): Unit => ({
+  id,
+  name,
+  subject: 'sansu',
+  grade: 1,
+  ...(legacyNode ? { legacyNode } : {}),
+});
 
 const concept = (id: string, unit = 'sansu.g1.target', grade: Grade = 1) => ({
   id,
@@ -410,6 +426,26 @@ describe('runRoadmapPractice', () => {
     expect(fixture.talk).toHaveBeenCalledOnce();
     expect(mocks.askById).not.toHaveBeenCalled();
     expect(fixture.game).toEqual(before);
+  });
+
+  it('前提単元が未完了のとき準備中ではなく必要な単元名を案内する', async () => {
+    const item = question('locked-question', 'sansu.g1.tashizan');
+    const fixture = runtimeFixture(item);
+    fixture.content.units.set(item.unit, unit(item.unit, 'たしざん'));
+    fixture.content.units.set(
+      'sansu.g1.legacy-math-1-1',
+      unit('sansu.g1.legacy-math-1-1', '10までのかず', 'math_1_1'),
+    );
+    vi.spyOn(learningPlanProvider, 'buildLearningPlan').mockReturnValue([]);
+
+    expect(await runRoadmapPractice(fixture.host, item.unit)).toBeNull();
+
+    expect(fixture.talk).toHaveBeenCalledWith([
+      {
+        text: 'この 単元[たんげん]の 問題[もんだい]を 解[と]くには、先[さき]に「10までのかず」の 単元[たんげん]を 解[と]く 必要[ひつよう]が あるよ',
+      },
+    ]);
+    expect(fixture.talk.mock.calls[0]?.[0]?.[0]?.text).not.toContain('じゅんびちゅう');
   });
 
   it('問題実行が失敗してもUIを片づけ、回答前状態を保持する', async () => {

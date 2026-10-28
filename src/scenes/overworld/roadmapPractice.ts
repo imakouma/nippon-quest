@@ -3,6 +3,7 @@ import type { ContentIndex } from '../../core/content/loader';
 import { curriculumGraph } from '../../core/learning/catalog';
 import * as learningPlanProvider from '../../core/learning/learningPlan';
 import { projectRoadmapRelations } from '../../core/learning/roadmapRelations';
+import { isCompletedRoadmapProgress } from '../../core/learning/subjectUnlocks';
 import {
   recommendationReasonToAttemptReason,
   type LearningRecommendation,
@@ -15,6 +16,7 @@ import { t } from '../../ui/i18n';
 import type { QuestionBank } from '../../questions/engine';
 import { askById, MasteryStore } from '../../questions/engine';
 import { buildAskEnv } from '../shared/askEnv';
+import { buildGameRoadmapNodes } from './roadmap';
 
 export type RoadmapPracticeSelection = Pick<
   LearningRecommendation,
@@ -94,12 +96,12 @@ async function runRoadmapPracticeSelection(
     preferredQuestionId,
   );
   if (!selection) {
-    await hostScene.talk([{ text: t('field.roadmapNoQuestion') }]);
+    await hostScene.talk([{ text: roadmapUnavailableMessage(content, game, targetUnitId) }]);
     return null;
   }
   const question = bank.get(selection.questionId);
   if (!question) {
-    await hostScene.talk([{ text: t('field.roadmapNoQuestion') }]);
+    await hostScene.talk([{ text: roadmapUnavailableMessage(content, game, targetUnitId) }]);
     return null;
   }
   const questionHost = document.createElement('div');
@@ -134,6 +136,33 @@ async function runRoadmapPracticeSelection(
   } finally {
     render(null, root);
   }
+}
+
+function roadmapUnavailableMessage(content: ContentIndex, game: GameState, targetUnitId?: string): string {
+  if (!targetUnitId) return t('field.roadmapNoQuestion');
+  const nodes = buildGameRoadmapNodes({
+    units: content.units.values(),
+    mastery: game.learning.mastery,
+    conceptStates: game.learning.conceptStates,
+    grandfatheredUnitIds: roadmapGrandfatheredUnitIds(game),
+    revealAll: false,
+    playerGrade: game.learning.grade,
+    challengeHigher: game.learning.challengeHigher,
+    subjectLabel: (subject) => subject,
+  });
+  const nodesById = new Map(nodes.map((node) => [canonicalUnitId(node.id), node]));
+  const target = nodesById.get(canonicalUnitId(targetUnitId));
+  const prerequisiteNames = [
+    ...new Set(
+      (target?.prerequisiteIds ?? []).flatMap((id) => {
+        const node = nodesById.get(canonicalUnitId(id));
+        return node && !isCompletedRoadmapProgress(node) ? [node.name] : [];
+      }),
+    ),
+  ];
+  return prerequisiteNames.length
+    ? t('field.roadmapPrerequisitesRequired', { names: prerequisiteNames.join('」「') })
+    : t('field.roadmapNoQuestion');
 }
 
 function roadmapUnitQuestionBank(
