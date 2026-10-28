@@ -12,6 +12,8 @@
   color: #fff;
   font-family: var(--nq-font, 'PixelMplus12', monospace);
   font-size: 24px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .nq-q ruby > rt {
   font-size: 12px;
