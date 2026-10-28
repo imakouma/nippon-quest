@@ -106,6 +106,15 @@
   ],
   "relations": [
     {
+      "from": "sansu.g1.measure.read-clock",
+      "to": "sansu.g1.measure.clock-hour-half-hour",
+      "kind": "related",
+      "strength": 0.8,
+      "rationale": "日常生活[にちじょうせいかつ]で時計[とけい]を読[よ]む力[ちから]と、何時[なんじ]・何時半[なんじはん]を読[よ]む学習[がくしゅう]を対応[たいおう]する内容[ないよう]として結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "source-checked"
+    },
+    {
       "from": "sansu.g1.number.to-twenty",
       "to": "sansu.g1.operation.make-ten-strategy",
       "kind": "prerequisite",

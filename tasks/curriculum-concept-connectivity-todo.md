@@ -59,24 +59,24 @@ Approved for implementation on branch `codex/curriculum-concept-connectivity` fr
 
 ## Task 5: Sansu grade 1
 
-- [ ] Add at least 5 source-backed relations.
-- [ ] Cover both learnable Concepts and all 3 misconception Concepts.
-- [ ] Ensure every misconception relation is non-`prerequisite`.
-- [ ] Preserve question links and diagnostic review states.
-- [ ] Run curriculum validation, audit, and related tests.
+- [x] Add at least 5 source-backed relations.
+- [x] Cover both learnable Concepts and all 3 misconception Concepts.
+- [x] Ensure every misconception relation is non-`prerequisite`.
+- [x] Preserve question links and diagnostic review states.
+- [x] Run curriculum validation, audit, and related tests.
 
 ## Task 6: Sansu grade 2
 
-- [ ] Add at least 2 source-backed relations.
-- [ ] Cover composing and ordering numbers above 1000.
-- [ ] Verify direction, no reverse-grade edge, and no cycle.
-- [ ] Confirm Sansu isolation is 0.
+- [x] Add at least 2 source-backed relations.
+- [x] Cover composing and ordering numbers above 1000.
+- [x] Verify direction, no reverse-grade edge, and no cycle.
+- [x] Confirm Sansu isolation is 0.
 
 ### Checkpoint C
 
-- [ ] Kokugo + Sansu have added at least 19 relations.
-- [ ] Kokugo and Sansu isolation are both 0.
-- [ ] Misconceptions do not affect unlock prerequisites.
+- [x] Kokugo + Sansu have added at least 19 relations.
+- [x] Kokugo and Sansu isolation are both 0.
+- [x] Misconceptions do not affect unlock prerequisites.
 
 ## Task 7: Seikatsu
 
