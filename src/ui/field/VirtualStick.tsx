@@ -49,6 +49,8 @@ export function VirtualStick({
       class={`nq-virtual-stick ${active ? 'is-active' : ''}`}
       role="group"
       aria-label={label}
+      // Phaser also listens for window touchstart; the stick owns this gesture.
+      onTouchStart={(event) => event.stopPropagation()}
       onPointerDown={(event) => {
         if (pointerId.current !== null) return;
         event.preventDefault();
