@@ -48,16 +48,16 @@ Plan: [`runtime-monsters-plan.md`](runtime-monsters-plan.md)
 
 ## Wave 3: Iwate part 1 (10)
 
-- [ ] `iwate-boss-konjiki-no-tora`
-- [ ] `iwate-dragon-blue`
-- [ ] `iwate-hayate-kamoshika`
-- [ ] `iwate-iwa-kamoshika`
-- [ ] `iwate-lastboss-minamoto-yoshitsune`
-- [ ] `iwate-midboss-tetsubin-game`
-- [ ] `iwate-okawari-bat`
-- [ ] `iwate-oo-kappa`
-- [ ] `iwate-ryusen-uo`
-- [ ] `iwate-tono-kappa`
+- [x] `iwate-boss-konjiki-no-tora`
+- [x] `iwate-dragon-blue`
+- [x] `iwate-hayate-kamoshika`
+- [x] `iwate-iwa-kamoshika`
+- [x] `iwate-lastboss-minamoto-yoshitsune`
+- [x] `iwate-midboss-tetsubin-game`
+- [x] `iwate-okawari-bat`
+- [x] `iwate-oo-kappa`
+- [x] `iwate-ryusen-uo`
+- [x] `iwate-tono-kappa`
 
 ## Wave 4: Iwate and nationwide part 1 (10)
 
@@ -138,14 +138,14 @@ Plan: [`runtime-monsters-plan.md`](runtime-monsters-plan.md)
 
 ## Per-wave checkpoint
 
-- [x] Source hashes still match (Waves 1-2).
-- [x] Accepted sources pass full-size and isolated-cell visual review (Waves 1-2).
-- [x] Runtime PNG/image-contract audit passes (Waves 1-2).
-- [x] Production ledger and manifest contain only accepted IDs (Waves 1-2).
-- [x] Unit and related tests pass (Waves 1-2).
-- [x] Desktop and landscape-mobile battle playback pass (Waves 1-2).
-- [x] `pnpm check:fast` and `git diff --check` pass (Waves 1-2).
-- [x] Staged diff is reviewed and committed atomically (Waves 1-2).
+- [x] Source hashes still match (Waves 1-3).
+- [x] Accepted sources pass full-size and isolated-cell visual review (Waves 1-3).
+- [x] Runtime PNG/image-contract audit passes (Waves 1-3).
+- [x] Production ledger and manifest contain only accepted IDs (Waves 1-3).
+- [x] Unit and related tests pass (Waves 1-3).
+- [x] Desktop and landscape-mobile battle playback pass (Waves 1-3).
+- [x] `pnpm check:fast` and `git diff --check` pass (Waves 1-3).
+- [x] Staged diff is reviewed and committed atomically (Waves 1-3).
 
 Repeat this checkpoint for every wave and record evidence in the production ledger.
 
