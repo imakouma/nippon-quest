@@ -1,4 +1,5 @@
 import { isDeepStrictEqual } from 'node:util';
+import type { QuestionCatalog } from '../src/core/content/loader';
 import type { Grade, QuestionBase, Subject } from '../src/questions/contracts';
 
 export const MAX_QUESTIONS_PER_SET = 30;
@@ -25,6 +26,8 @@ interface UnitDescriptor {
   unit: string;
   slug: string;
 }
+
+const SUBJECT_ORDER: Subject[] = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'];
 
 function describeUnit(question: QuestionBase): UnitDescriptor {
   const match = UNIT_PATTERN.exec(question.unit);
@@ -78,6 +81,66 @@ export function buildQuestionSets(
     }
   }
   return output;
+}
+
+export function buildQuestionCatalog(sources: readonly QuestionSourceFile[]): QuestionCatalog {
+  type SetNode = { file: string; count: number; types: Set<string> };
+  type UnitNode = UnitDescriptor & { count: number; sets: Map<string, SetNode> };
+  const units = new Map<string, UnitNode>();
+  let totalQuestions = 0;
+
+  for (const source of sources) {
+    if (source.file.startsWith('questions/_samples/')) continue;
+    for (const question of source.questions) {
+      const descriptor = describeUnit(question);
+      const unit = units.get(descriptor.unit) ?? { ...descriptor, count: 0, sets: new Map() };
+      const set = unit.sets.get(source.file) ?? { file: source.file, count: 0, types: new Set() };
+      set.count += 1;
+      set.types.add(question.type);
+      unit.count += 1;
+      unit.sets.set(source.file, set);
+      units.set(descriptor.unit, unit);
+      totalQuestions += 1;
+    }
+  }
+
+  const subjects = SUBJECT_ORDER.flatMap((subject) => {
+    const subjectUnits = [...units.values()].filter((unit) => unit.subject === subject);
+    if (subjectUnits.length === 0) return [];
+    const grades = ([1, 2, 3, 4, 5, 6] as Grade[]).flatMap((grade) => {
+      const gradeUnits = subjectUnits
+        .filter((unit) => unit.grade === grade)
+        .sort((a, b) => a.unit.localeCompare(b.unit));
+      if (gradeUnits.length === 0) return [];
+      return [
+        {
+          grade,
+          count: gradeUnits.reduce((sum, unit) => sum + unit.count, 0),
+          units: gradeUnits.map((unit) => ({
+            unit: unit.unit,
+            slug: unit.slug,
+            count: unit.count,
+            sets: [...unit.sets.values()]
+              .sort((a, b) => a.file.localeCompare(b.file))
+              .map((set) => ({
+                file: set.file,
+                count: set.count,
+                types: [...set.types].sort(),
+              })),
+          })),
+        },
+      ];
+    });
+    return [
+      {
+        subject,
+        count: grades.reduce((sum, grade) => sum + grade.count, 0),
+        grades,
+      },
+    ];
+  });
+
+  return { version: 1, maxQuestionsPerSet: 30, totalQuestions, subjects };
 }
 
 function orderedIdsByUnit(sources: readonly QuestionSourceFile[]): Map<string, string[]> {

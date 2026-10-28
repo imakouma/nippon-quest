@@ -5,6 +5,7 @@ import {
   bundledFetchReader,
   findBrokenReferences,
   loadContent as loadContentFromFiles,
+  parseContentManifest,
   type ContentIndex,
   type FileReader,
 } from '../../src/core/content/loader';
@@ -36,6 +37,54 @@ function loadContent(reader: FileReader, opts?: Parameters<typeof loadContentFro
 afterEach(() => vi.unstubAllGlobals());
 
 describe('content loader', () => {
+  it('問題カタログを後方互換に検証する', () => {
+    const base = { generatedAt: '2026-10-29T00:00:00.000Z', files: {}, questions: [] };
+    expect(parseContentManifest(base).questionCatalog).toBeUndefined();
+
+    const manifest = parseContentManifest({
+      ...base,
+      questionCatalog: {
+        version: 1,
+        maxQuestionsPerSet: 30,
+        totalQuestions: 1,
+        subjects: [
+          {
+            subject: 'sansu',
+            count: 1,
+            grades: [
+              {
+                grade: 1,
+                count: 1,
+                units: [
+                  {
+                    unit: 'sansu.g1.tashizan',
+                    slug: 'tashizan',
+                    count: 1,
+                    sets: [
+                      {
+                        file: 'questions/sansu/g1/tashizan/set-001.json',
+                        count: 1,
+                        types: ['choice'],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    });
+
+    expect(manifest.questionCatalog?.totalQuestions).toBe(1);
+    expect(() =>
+      parseContentManifest({
+        ...base,
+        questionCatalog: { ...manifest.questionCatalog, maxQuestionsPerSet: 31 },
+      }),
+    ).toThrow('manifest.json');
+  });
+
   it('legacy と scripted のイベント形式を検証する', () => {
     const scripted = {
       id: 'aomori-ev-scripted-proof',

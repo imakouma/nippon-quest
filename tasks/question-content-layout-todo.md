@@ -66,16 +66,16 @@
 
 **Acceptance criteria:**
 
-- [ ] 教科→学年→単元→セット、件数、タイプ一覧がmanifestへ生成される。
-- [ ] 本番問題だけを集計し、`_samples` を除外する。
-- [ ] 既存manifestにカタログがなくてもloaderが読める。
-- [ ] `questions`、`questionIndex`、`questionFilesByGrade`、bundle生成が維持される。
+- [x] 教科→学年→単元→セット、件数、タイプ一覧がmanifestへ生成される。
+- [x] 本番問題だけを集計し、`_samples` を除外する。
+- [x] 既存manifestにカタログがなくてもloaderが読める。
+- [x] `questions`、`questionIndex`、`questionFilesByGrade`、bundle生成が維持される。
 
 **Verification:**
 
-- [ ] catalog/loader testsがRED→GREENになる。
-- [ ] `pnpm gen:manifest` が成功し、同じ入力でカタログ順が安定する。
-- [ ] 関連unit testsが通る。
+- [x] catalog/loader testsがRED→GREENになる。
+- [x] `pnpm gen:manifest` が成功し、同じ入力でカタログ順が安定する。
+- [x] 関連unit testsが通る。
 
 **Dependencies:** Task 1
 

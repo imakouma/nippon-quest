@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  buildQuestionCatalog,
   buildQuestionSets,
   compareQuestionLayouts,
   validateQuestionSetLayout,
@@ -146,6 +147,83 @@ describe('question content layout', () => {
 
     expect(buildQuestionSets(once)).toEqual(once);
     expect(validateQuestionSetLayout(once)).toEqual([]);
+  });
+
+  it('本番セットだけを教科・学年・単元のカタログへ集計する', () => {
+    const production = buildQuestionSets([
+      source([
+        question(1),
+        question(2, { type: 'number-build' }),
+        question(3, {
+          id: 'kokugo.g2.kanji.0003',
+          subject: 'kokugo',
+          grade: 2,
+          unit: 'kokugo.g2.kanji',
+        }),
+      ]),
+    ]);
+    const sample = source(
+      [question(9, { id: 'sansu.g1.sample.0009', unit: 'sansu.g1.sample' })],
+      'questions/_samples/choice.json',
+    );
+
+    const catalog = buildQuestionCatalog([...production, sample]);
+
+    expect(catalog).toEqual({
+      version: 1,
+      maxQuestionsPerSet: 30,
+      totalQuestions: 3,
+      subjects: [
+        {
+          subject: 'kokugo',
+          count: 1,
+          grades: [
+            {
+              grade: 2,
+              count: 1,
+              units: [
+                {
+                  unit: 'kokugo.g2.kanji',
+                  slug: 'kanji',
+                  count: 1,
+                  sets: [
+                    {
+                      file: 'questions/kokugo/g2/kanji/set-001.json',
+                      count: 1,
+                      types: ['choice'],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          subject: 'sansu',
+          count: 2,
+          grades: [
+            {
+              grade: 1,
+              count: 2,
+              units: [
+                {
+                  unit: 'sansu.g1.tashizan',
+                  slug: 'tashizan',
+                  count: 2,
+                  sets: [
+                    {
+                      file: 'questions/sansu/g1/tashizan/set-001.json',
+                      count: 2,
+                      types: ['choice', 'number-build'],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    });
   });
 
   it('上限超過・異種単元・不正パス・連番欠けを検出する', () => {
