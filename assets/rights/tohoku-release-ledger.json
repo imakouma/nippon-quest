@@ -284,11 +284,16 @@
     },
     {
       "id": "favicon",
-      "paths": ["public/favicon.svg"],
+      "paths": [
+        "public/favicon.svg",
+        "public/icons/apple-touch-icon.png",
+        "public/icons/icon-192.png",
+        "public/icons/icon-512.png"
+      ],
       "status": "hold",
-      "origin": "初回コミット",
+      "origin": "初回コミットのfaviconと、2026-10-28に同SVGから機械変換したPWA用PNG",
       "author": "未確認",
-      "source": "Git履歴以外の制作・入手記録なし",
+      "source": "Git履歴以外の制作・入手記録なし。PNGはpublic/favicon.svgから変換",
       "license": "未確認",
       "licenseEvidence": null,
       "modificationAllowed": null,
