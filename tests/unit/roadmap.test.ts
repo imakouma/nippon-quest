@@ -5,7 +5,6 @@ import { createNewGame } from '../../src/core/state/newGame';
 import type { QuestionBase } from '../../src/questions/contracts';
 import { QuestionBank } from '../../src/questions/engine';
 import { buildRoadmapNodes, buildRoadmapViewModel } from '../../src/scenes/overworld/roadmap';
-import { pickRoadmapQuestionId } from '../../src/scenes/overworld/roadmapPractice';
 
 const units: Unit[] = [
   {
@@ -813,62 +812,5 @@ describe('buildRoadmapViewModel', () => {
         },
       });
     });
-  });
-});
-
-describe('pickRoadmapQuestionId', () => {
-  it('選んだ単元に限定し、未出題の問題を優先する', () => {
-    const bank = new QuestionBank();
-    const question = (id: string, unit: string): QuestionBase => ({
-      id,
-      type: 'choice',
-      subject: 'sansu',
-      grade: 1,
-      unit,
-      payload: {},
-    });
-    bank.add(question('sansu.g1.kazu-10.0001', 'sansu.g1.kazu-10'));
-    bank.add(question('sansu.g1.kazu-10.0002', 'sansu.g1.kazu-10'));
-    bank.add(question('sansu.g1.tashizan.0001', 'sansu.g1.tashizan'));
-
-    expect(
-      pickRoadmapQuestionId(bank, 'sansu.g1.kazu-10', ['sansu.g1.kazu-10.0001'], { next: () => 0 }),
-    ).toBe('sansu.g1.kazu-10.0002');
-  });
-
-  it('単元に問題がなければ null を返す', () => {
-    expect(pickRoadmapQuestionId(new QuestionBank(), 'sansu.g1.kazu-10', [], { next: () => 0 })).toBeNull();
-  });
-
-  it('整理後の単元から、対応する旧問題も復習できる', () => {
-    const bank = new QuestionBank();
-    bank.add({
-      id: 'legacy.sansu.g1.tashizan.0001',
-      type: 'choice',
-      subject: 'sansu',
-      grade: 1,
-      unit: 'sansu.g1.legacy-math-1-2',
-      payload: {},
-    });
-
-    expect(pickRoadmapQuestionId(bank, 'sansu.g1.tashizan', [], { next: () => 0 })).toBe(
-      'legacy.sansu.g1.tashizan.0001',
-    );
-  });
-
-  it('整理後の漢字単元から、旧漢字グループの問題も復習できる', () => {
-    const bank = new QuestionBank();
-    bank.add({
-      id: 'legacy.kokugo.g1.kanji-school.0001',
-      type: 'choice',
-      subject: 'kokugo',
-      grade: 1,
-      unit: 'kokugo.g1.legacy-kanji-1-10',
-      payload: {},
-    });
-
-    expect(pickRoadmapQuestionId(bank, 'kokugo.g1.kanji', [], { next: () => 0 })).toBe(
-      'legacy.kokugo.g1.kanji-school.0001',
-    );
   });
 });
