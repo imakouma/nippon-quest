@@ -2,9 +2,9 @@
 
 ## Status
 
-Draft for human approval. Capability map module: `math-learning-content-pilot`.
+Approved on 2026-10-28. Capability map module: `math-learning-content-pilot`.
 
-この文書は Phase 1 の仕様だけを定義する。人間が承認するまで実装計画、教材JSON、テスト、生成物を変更しない。
+この文書は Phase 1 の承認済み仕様を定義する。別途、実装継続の指示を受けるまで実装計画、教材JSON、テスト、生成物を変更しない。
 
 ## Objective
 
@@ -290,11 +290,10 @@ pnpm vitest run tests/unit/learningRewards.test.ts tests/unit/state.test.ts test
 - 専用教材テスト、curriculum graph validation、content validation、focused報酬・セーブ回帰が成功する。
 - 実装コミットは能力マップの所有ファイルだけを含む1論理コミットである。
 
-## Approval Point / Open Question
+## Resolved Decision
 
-`stage:visual` は、対象3 Conceptのprimary問題ではなく、同じ対象Unitにある `sansu.g1.kazu-100.ringo-numberline-0001` へ付ける案とする。現存する対象Conceptのprimary問題には、問題内容を変更せず「視覚表現」と呼べる設問がないためである。
+`stage:visual` は、対象3 Conceptのprimary問題だけに限定せず、同じ対象Unitにある既存の数直線問題 `sansu.g1.kazu-100.ringo-numberline-0001` へ付ける。
 
-人間承認では、次のどちらかを確定する。
+この問題は `sansu.g1.number.order` のprimary問題だが、対象Unit `sansu.g1.kazu-100` に属し、現存問題の中で実際に視覚表現を使う。問題内容の変更や新規問題追加をせずに4種類のstageを正確に表すため、Exact target matrixの確定対象とする。
 
-1. 推奨: このmatrixを承認し、対象Unit内の実在する視覚問題をパイロットに含める。
-2. 対象Conceptのprimary問題だけに限定する。その場合は、既存問題内容の変更または視覚問題の追加が必要になるため、本仕様の範囲を改訂して再承認する。
+未解決事項はない。
