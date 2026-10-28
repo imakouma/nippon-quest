@@ -13,20 +13,17 @@ const batch = assignments.batches.find((entry) => entry.batch === 'batch-01')!;
 
 describe('animation batch-01', () => {
   it('registers only produced runtime monsters owned by batch-01', () => {
-    expect(manifest.map((entry) => entry.id)).toEqual([
-      'aomori-bunakko',
-      'aomori-doguukun',
-      'aomori-himemassu',
-      'aomori-kokeppi',
-      'aomori-magurodo',
-      'aomori-nebutan',
-      'aomori-sakurapon',
-      'aomori-senbein',
-      'aomori-tsugaru-nurin',
-      'iwate-kagurabi',
-      'iwate-izumiko',
-      'iwate-kodamaru',
+    const nonRuntimeIds = new Set([
+      'aomori-ringoron',
+      'michiru',
+      'protagonist',
+      'shiori',
+      ...evolutionReferences.map((entry) => entry.id),
     ]);
+    const expectedRuntimeIds = batch.ids.filter((id) => !nonRuntimeIds.has(id));
+
+    expect(manifest.map((entry) => entry.id).sort()).toEqual(expectedRuntimeIds.sort());
+    expect(manifest).toHaveLength(101);
     for (const entry of manifest) {
       expect(batch.ids).toContain(entry.id);
       expect(entry.id).not.toMatch(/-stage-[23]$/);

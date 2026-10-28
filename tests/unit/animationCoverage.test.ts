@@ -70,21 +70,18 @@ describe('animation completion coverage', () => {
         .map((entry) => entry.id)
         .sort(),
     ).toEqual(evolutionReferences.map((entry) => entry.id).sort());
-    expect(byState('reference-ready')).toHaveLength(89);
+    expect(byState('produced-runtime')).toHaveLength(101);
+    expect(byState('reference-ready')).toHaveLength(0);
   });
 
-  it('records portable production metadata for every pending runtime monster', () => {
+  it('records an existing animation asset for every produced runtime monster', () => {
     const report = loadReport();
-    const pending = report.entries.filter((entry) => entry.state === 'reference-ready');
+    const produced = report.entries.filter((entry) => entry.state === 'produced-runtime');
 
-    for (const entry of pending) {
+    for (const entry of produced) {
       expect(entry.kind, entry.id).toBe('runtime-monster');
-      expect(entry.contentPath, entry.id).toBe(`content/monsters/${entry.id}.json`);
-      expect(existsSync(entry.contentPath!), entry.id).toBe(true);
-      for (const reference of [entry.pixelReference, entry.turnaroundReference]) {
-        expect(reference?.path, entry.id).toMatch(/^assets\/cinematics\/monsters\/.+\.png$/);
-        expect(reference?.sha256, entry.id).toMatch(/^[a-f0-9]{64}$/);
-      }
+      expect(entry.animationPath, entry.id).toBe(`sprites/animations/batch-01/${entry.id}-v1.png`);
+      expect(existsSync(`assets/${entry.animationPath}`), entry.id).toBe(true);
     }
   });
 
