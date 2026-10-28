@@ -6,19 +6,19 @@ Plan: [`runtime-monsters-plan.md`](runtime-monsters-plan.md)
 
 ## Phase 1: Test-first production contract
 
-- [ ] Add the failing exact-89 production coverage test.
-- [ ] Add failing production-ledger provenance checks.
-- [ ] Add failing PNG/per-cell/motion checks.
-- [ ] Record the expected RED result.
+- [x] Add the failing exact-89 production coverage test.
+- [x] Add failing production-ledger provenance checks.
+- [x] Add failing PNG/per-cell/motion checks.
+- [x] Record the expected RED result.
 
 ## Phase 2: Production tooling
 
-- [ ] Implement and test the production-ledger contract.
-- [ ] Implement and test deterministic sheet normalization.
-- [ ] Implement and test image-contract auditing.
-- [ ] Implement and test contact-sheet generation.
-- [ ] Confirm existing 12 runtime sheets satisfy the reusable image rules.
-- [ ] Run `pnpm check:fast`.
+- [x] Implement and test the production-ledger contract.
+- [x] Implement and test deterministic sheet normalization.
+- [x] Implement and test image-contract auditing.
+- [x] Implement and test contact-sheet generation.
+- [x] Confirm existing 12 runtime sheets satisfy the reusable image rules (with documented legacy boundary warnings for Magurodo and Tsugaru Nurin).
+- [x] Run `pnpm check:fast`.
 
 ## Wave 1: Aomori foundations (10)
 
