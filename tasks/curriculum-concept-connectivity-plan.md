@@ -22,17 +22,17 @@ Connect the current 30 isolated curriculum Concepts with at least 30 evidence-ba
 
 ## Current Baseline
 
-| Metric | Current | Target |
-|---|---:|---:|
-| Curriculum fragments | 75 | 75 |
-| Concept occurrences | 358 | 358 |
-| Merged unique Concepts | 357 | 357 |
-| Relations | 395 | at least 425 |
-| `prerequisite` relations | 369 | evidence-dependent; must not decrease |
-| Isolated Concepts | 30 | 0 |
-| Unit nodes | 280 | 280 |
-| Unit prerequisite edges | 336 | at least 336 |
-| Isolated Units | 0 | 0 |
+| Metric                   | Current |                                Target |
+| ------------------------ | ------: | ------------------------------------: |
+| Curriculum fragments     |      75 |                                    75 |
+| Concept occurrences      |     358 |                                   358 |
+| Merged unique Concepts   |     357 |                                   357 |
+| Relations                |     395 |                          at least 425 |
+| `prerequisite` relations |     369 | evidence-dependent; must not decrease |
+| Isolated Concepts        |      30 |                                     0 |
+| Unit nodes               |     280 |                                   280 |
+| Unit prerequisite edges  |     336 |                          at least 336 |
+| Isolated Units           |       0 |                                     0 |
 
 The 30 isolated Concepts are distributed as follows:
 
@@ -362,17 +362,17 @@ Run `pnpm check:full` only if this chat is confirmed as integration owner and no
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| Relation count is increased with weak semantics | High | Require a source matrix and relation-kind review before JSON edits |
-| A non-required relationship becomes a hard lock | High | Reserve `prerequisite`; explicitly use non-lock kinds for misconceptions and seasonal/lateral relations |
-| A relation creates a Concept or projected Unit cycle | High | Run graph validation and roadmap audit after every subject slice |
-| Existing duplicate Concept occurrence causes wrong totals | Medium | Count merged unique Concepts in the shared quality report and test the duplicate-definition case |
-| Misconceptions become roadmap prerequisites | High | Add explicit checks and keep existing projection exclusion unchanged |
-| Source URL or locator does not directly support a proposed edge | High | Downgrade/reclassify or reject the edge; never claim `source-checked` without direct support |
-| Academic-review hash is invalidated | Medium | Target files currently have no ledger entries; rerun full content validation and do not edit the ledger |
-| Parallel work edits the same files | High | Keep the dedicated worktree/branch, inspect status before each slice, and avoid unrelated files |
-| Full test/build contention with another chat | Medium | Use focused gates during slices and run full gates only once at completion per AGENTS.md |
+| Risk                                                            | Impact | Mitigation                                                                                              |
+| --------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| Relation count is increased with weak semantics                 | High   | Require a source matrix and relation-kind review before JSON edits                                      |
+| A non-required relationship becomes a hard lock                 | High   | Reserve `prerequisite`; explicitly use non-lock kinds for misconceptions and seasonal/lateral relations |
+| A relation creates a Concept or projected Unit cycle            | High   | Run graph validation and roadmap audit after every subject slice                                        |
+| Existing duplicate Concept occurrence causes wrong totals       | Medium | Count merged unique Concepts in the shared quality report and test the duplicate-definition case        |
+| Misconceptions become roadmap prerequisites                     | High   | Add explicit checks and keep existing projection exclusion unchanged                                    |
+| Source URL or locator does not directly support a proposed edge | High   | Downgrade/reclassify or reject the edge; never claim `source-checked` without direct support            |
+| Academic-review hash is invalidated                             | Medium | Target files currently have no ledger entries; rerun full content validation and do not edit the ledger |
+| Parallel work edits the same files                              | High   | Keep the dedicated worktree/branch, inspect status before each slice, and avoid unrelated files         |
+| Full test/build contention with another chat                    | Medium | Use focused gates during slices and run full gates only once at completion per AGENTS.md                |
 
 ## Open Questions
 

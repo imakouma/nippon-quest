@@ -102,19 +102,19 @@ Approved for implementation on branch `codex/curriculum-concept-connectivity` fr
 
 ## Task 9: Review and completion
 
-- [ ] Run focused tests and `pnpm audit:roadmap-graph --strict`.
-- [ ] Run `pnpm lint`.
-- [ ] Run `pnpm check:architecture`.
-- [ ] Run `pnpm test`.
-- [ ] Run `pnpm validate:content`.
-- [ ] Run `pnpm build`.
-- [ ] Run the review mutation and restore the file exactly.
-- [ ] Perform correctness, readability, architecture, security, and performance review.
-- [ ] Write `tasks/curriculum-concept-connectivity-walkthrough.md`.
-- [ ] Start and inspect the latest preview on the appropriate port.
-- [ ] Inspect staged diff for secrets, unrelated files, generated outputs, and formatting churn.
-- [ ] Commit tested increments with descriptive messages.
-- [ ] Record branch name, base commit, final commit IDs, final metrics, and all verification results.
+- [x] Run focused tests and `pnpm audit:roadmap-graph --strict`.
+- [x] Run `pnpm lint`.
+- [x] Run `pnpm check:architecture`.
+- [x] Run `pnpm test`.
+- [x] Run `pnpm validate:content`.
+- [x] Run `pnpm build`.
+- [x] Run the review mutation and restore the file exactly.
+- [x] Perform correctness, readability, architecture, security, and performance review.
+- [x] Write `tasks/curriculum-concept-connectivity-walkthrough.md`.
+- [x] Start and inspect the latest preview on the appropriate port.
+- [x] Inspect staged diff for secrets, unrelated files, generated outputs, and formatting churn.
+- [x] Commit tested increments with descriptive messages.
+- [x] Record branch name, base commit, final commit IDs, final metrics, and all verification results.
 
 ## Out of Scope
 
