@@ -40,17 +40,18 @@ for (const [kind, def] of Object.entries(contentKinds) as [ContentKind, { glob: 
 const questions = all.filter((f) => f.startsWith('questions/'));
 const questionIndex: Record<string, string> = {};
 const questionFilesByGrade: Record<string, string[]> = {};
+const isGameQuestionForGrade = (item: { grade?: unknown; subject?: unknown }, playerGrade: number) =>
+  typeof item.grade === 'number' && item.grade <= playerGrade && !(item.subject === 'eigo' && item.grade < 3);
 for (const file of questions) {
   const raw = JSON.parse(readFileSync(join(ROOT, file), 'utf8')) as unknown;
   if (!Array.isArray(raw)) continue;
-  const grades = new Set<number>();
   for (const item of raw) {
     const id = (item as { id?: unknown })?.id;
     if (typeof id === 'string' && !(id in questionIndex)) questionIndex[id] = file;
-    const grade = (item as { grade?: unknown })?.grade;
-    if (typeof grade === 'number' && grade >= 1 && grade <= 6) grades.add(grade);
   }
-  for (const grade of grades) (questionFilesByGrade[String(grade)] ??= []).push(file);
+  for (let playerGrade = 1; playerGrade <= 6; playerGrade += 1)
+    if (raw.some((item) => isGameQuestionForGrade(item, playerGrade)))
+      (questionFilesByGrade[String(playerGrade)] ??= []).push(file);
 }
 
 const manifest = {
@@ -72,7 +73,9 @@ for (let grade = 1; grade <= 6; grade += 1) {
     Object.entries(questionBundle)
       .map(([file, entries]) => [
         file,
-        (entries as { grade?: unknown }[]).filter((entry) => entry.grade === grade),
+        (entries as { grade?: unknown; subject?: unknown }[]).filter((entry) =>
+          isGameQuestionForGrade(entry, grade),
+        ),
       ])
       .filter(([, entries]) => (entries as unknown[]).length > 0),
   );

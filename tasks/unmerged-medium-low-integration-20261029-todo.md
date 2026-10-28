@@ -4,8 +4,8 @@
 
 **Acceptance criteria:**
 
-- [ ] 選択学年のbundleに、その学年以下の復習問題を含む。
-- [ ] 英語問題は小1・小2に含めず、小3以降に含む。
+- [x] 選択学年のbundleに、その学年以下の復習問題を含む。
+- [x] 英語問題は小1・小2に含めず、小3以降に含む。
 
 **Verification:** `pnpm test:related scripts/gen-manifest.ts tests/unit/questions.test.ts`
 
