@@ -487,7 +487,9 @@ export function BattleHud({ store }: { store: HudStore }) {
       <Popups list={s.popups} />
       {s.banner && <Banner b={s.banner} />}
 
-      <div class="nq-panel">{s.enemy && <EnemyWindow e={s.enemy} />}</div>
+      <div class={`nq-panel ${s.enemy?.isBoss ? 'nq-panel-boss' : ''}`}>
+        {s.enemy && <EnemyWindow e={s.enemy} />}
+      </div>
       {!s.intro && !s.result && (
         <div class="nq-bottom-rail">
           {s.menu === 'commands' && (
