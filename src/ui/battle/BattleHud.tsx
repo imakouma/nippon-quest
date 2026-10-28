@@ -463,11 +463,12 @@ export function BattleHud({ store }: { store: HudStore }) {
   };
 
   const bigMenu = s.menu === 'skills' || s.menu === 'items' || s.menu === 'swap';
+  const bossBattle = !!s.enemy?.isBoss;
 
   return (
     <div ref={battleRef} class="nq-battle" onClick={onStageClick}>
       {s.message && s.menu !== 'commands' && (
-        <div class="nq-win nq-box" onClick={() => !bigMenu && advance()}>
+        <div class={`nq-win nq-box ${bossBattle ? 'nq-box-boss' : ''}`} onClick={() => !bigMenu && advance()}>
           <p class="nq-box-text">
             <span class="nq-box-star" aria-hidden="true">
               ＊
@@ -487,7 +488,7 @@ export function BattleHud({ store }: { store: HudStore }) {
       <Popups list={s.popups} />
       {s.banner && <Banner b={s.banner} />}
 
-      <div class={`nq-panel ${s.enemy?.isBoss ? 'nq-panel-boss' : ''}`}>
+      <div class={`nq-panel ${bossBattle ? 'nq-panel-boss' : ''}`}>
         {s.enemy && <EnemyWindow e={s.enemy} />}
       </div>
       {!s.intro && !s.result && (

@@ -287,6 +287,23 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   await expect(page.locator('.nq-cmd[data-cmd="skill"]')).toBeVisible();
 });
 
+test('バトル：ボスのHP枠は敵の頭上に中央揃えし、会話枠と重ならない', async ({ page }) => {
+  test.setTimeout(60_000);
+  await page.goto('/?debug=battle&enemy=aomori-midboss-nebuta-taisho&lv=5');
+  await expect(page.locator('.nq-panel-boss')).toBeVisible({ timeout: 60_000 });
+  await expect(page.locator('.nq-box')).toBeVisible();
+
+  const [panel, message] = await Promise.all([
+    page.locator('.nq-panel-boss').boundingBox(),
+    page.locator('.nq-box').boundingBox(),
+  ]);
+
+  expect(panel).not.toBeNull();
+  expect(message).not.toBeNull();
+  expect(panel!.x + panel!.width / 2).toBeCloseTo(300, 0);
+  expect(message!.x - (panel!.x + panel!.width)).toBeGreaterThanOrEqual(8);
+});
+
 test('バトル：矢印で選んだコマンドへ実フォーカスが追従する', async ({ page }) => {
   test.setTimeout(60_000);
   await start(page, 8);
