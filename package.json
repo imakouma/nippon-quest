@@ -52,6 +52,7 @@
     "gen:monster-level-caps": "tsx scripts/set-monster-level-caps.ts",
     "gen:xp": "tsx scripts/gen-xp-table.ts",
     "gen:manifest": "tsx scripts/gen-manifest.ts && tsx scripts/gen-asset-catalog.ts",
+    "gen:animation-coverage": "tsx scripts/build-animation-coverage.ts",
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:curriculum-graph": "tsx scripts/validate-curriculum-graph.ts",
     "check:architecture": "tsx scripts/check-architecture.ts",
