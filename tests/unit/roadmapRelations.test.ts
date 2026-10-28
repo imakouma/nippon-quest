@@ -134,4 +134,96 @@ describe('projectRoadmapRelations', () => {
     );
     expect(first.supportingLinksByTarget).not.toBe(second.supportingLinksByTarget);
   });
+
+  it.each(['component', 'transfer', 'related', 'chronological'] as const)(
+    '%s をロックに使わないsupporting linkへ投影する',
+    (kind) => {
+      const graph = {
+        concepts: [concept('source', 'unit.a'), concept('target', 'unit.b')],
+        relations: [relation('source', 'target', kind)],
+      };
+
+      const projected = projectRoadmapRelations(graph, new Set(['unit.a', 'unit.b']));
+
+      expect([...projected.prerequisiteIdsByTarget]).toEqual([]);
+      expect([...projected.supportingLinksByTarget]).toEqual([
+        ['unit.b', [{ sourceId: 'unit.a', kind }]],
+      ]);
+    },
+  );
+
+  it('同じUnit pairではsupportingよりprerequisiteを優先する', () => {
+    const graph = {
+      concepts: [concept('source', 'unit.a'), concept('target', 'unit.b')],
+      relations: [
+        relation('source', 'target', 'chronological'),
+        relation('source', 'target', 'related'),
+        relation('source', 'target', 'transfer'),
+        relation('source', 'target', 'component'),
+        relation('source', 'target', 'prerequisite'),
+      ],
+    };
+
+    const projected = projectRoadmapRelations(graph, new Set(['unit.a', 'unit.b']));
+
+    expect([...projected.prerequisiteIdsByTarget]).toEqual([['unit.b', ['unit.a']]]);
+    expect([...projected.supportingLinksByTarget]).toEqual([]);
+  });
+
+  it('同じUnit pairのsupporting kindを固定優先順位で1本にし、安定順で返す', () => {
+    const concepts = [
+      concept('source.d', 'unit.source-d'),
+      concept('target.b', 'unit.target-b'),
+      concept('source.b', 'unit.source-b'),
+      concept('source.c', 'unit.source-c'),
+      concept('target.a', 'unit.target-a'),
+      concept('source.a', 'unit.source-a'),
+    ];
+    const relations = [
+      relation('source.d', 'target.b', 'chronological'),
+      relation('source.c', 'target.b', 'related'),
+      relation('source.b', 'target.a', 'related'),
+      relation('source.a', 'target.a', 'chronological'),
+      relation('source.c', 'target.b', 'component'),
+      relation('source.b', 'target.a', 'transfer'),
+      relation('source.a', 'target.a', 'related'),
+      relation('source.c', 'target.b', 'transfer'),
+      relation('source.d', 'target.b', 'chronological'),
+      relation('source.c', 'target.b', 'chronological'),
+    ];
+    const displayed = new Set([
+      'unit.source-a',
+      'unit.source-b',
+      'unit.source-c',
+      'unit.source-d',
+      'unit.target-a',
+      'unit.target-b',
+    ]);
+    const expected = [
+      [
+        'unit.target-a',
+        [
+          { sourceId: 'unit.source-a', kind: 'related' },
+          { sourceId: 'unit.source-b', kind: 'transfer' },
+        ],
+      ],
+      [
+        'unit.target-b',
+        [
+          { sourceId: 'unit.source-c', kind: 'component' },
+          { sourceId: 'unit.source-d', kind: 'chronological' },
+        ],
+      ],
+    ];
+
+    const projected = projectRoadmapRelations({ concepts, relations }, displayed);
+    const shuffled = projectRoadmapRelations(
+      { concepts: [...concepts].reverse(), relations: [...relations].reverse() },
+      displayed,
+    );
+
+    expect([...projected.supportingLinksByTarget]).toEqual(expected);
+    expect([...shuffled.supportingLinksByTarget]).toEqual(expected);
+    expect([...projected.prerequisiteIdsByTarget]).toEqual([]);
+  });
 });
