@@ -160,14 +160,14 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 **Acceptance criteria:**
 
-- [ ] Legacy/current/mixed mastery and marker combinations prove one mastery reward maximum, canonical marker convergence, and no increase after state re-entry.
-- [ ] A current v13 `createNewGame()` fixture keeps `schemaVersion`, mastery keys, attempts, progress, recent, mistakes, and unrelated markers unchanged.
-- [ ] Existing threshold, correction-every-three, exact-score, duplicate-question, simultaneous-two-reward, inventory, and dex expectations remain covered.
+- [x] Legacy/current/mixed mastery and marker combinations prove one mastery reward maximum, canonical marker convergence, and no increase after state re-entry.
+- [x] A current v13 `createNewGame()` fixture keeps `schemaVersion`, mastery keys, attempts, progress, recent, mistakes, and unrelated markers unchanged.
+- [x] Existing threshold, correction-every-three, exact-score, duplicate-question, simultaneous-two-reward, inventory, and dex expectations remain covered.
 
 **Verification:**
 
-- [ ] Run `pnpm vitest run tests/unit/learningRewards.test.ts` and record the expected non-zero RED result for the missing Core learning reward module or alias behavior.
-- [ ] Run `git diff --check`.
+- [x] Run `pnpm vitest run tests/unit/learningRewards.test.ts` and record the expected non-zero RED result for the missing Core learning reward module or alias behavior.
+- [x] Run `git diff --check`.
 
 **Dependencies:** Checkpoint 2
 
@@ -183,15 +183,15 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 **Acceptance criteria:**
 
-- [ ] Mastery remains exactly `n >= 3 && value >= 0.8`, and all alias-crossed mastery/marker cases award a canonical unit at most once.
-- [ ] Only the touched marker equivalence class is normalized to one canonical ID; no mastery key, schema, v13 field, or unrelated state is changed.
-- [ ] Existing correction reward, simultaneous two-reward, inventory saturation, dex registration, reasons, and state-identity behavior pass unchanged.
+- [x] Mastery remains exactly `n >= 3 && value >= 0.8`, and all alias-crossed mastery/marker cases award a canonical unit at most once.
+- [x] Only the touched marker equivalence class is normalized to one canonical ID; no mastery key, schema, v13 field, or unrelated state is changed.
+- [x] Existing correction reward, simultaneous two-reward, inventory saturation, dex registration, reasons, and state-identity behavior pass unchanged.
 
 **Verification:**
 
-- [ ] Run `pnpm vitest run tests/unit/unitProgress.test.ts tests/unit/learningRewards.test.ts`.
-- [ ] Run `pnpm test:related src/core/learning/unitAliases.ts src/core/learning/unitProgress.ts src/core/learning/learningRewards.ts tests/unit/unitProgress.test.ts tests/unit/learningRewards.test.ts`.
-- [ ] Run `git diff --check`.
+- [x] Run `pnpm vitest run tests/unit/unitProgress.test.ts tests/unit/learningRewards.test.ts`.
+- [x] Run `pnpm test:related src/core/learning/unitAliases.ts src/core/learning/unitProgress.ts src/core/learning/learningRewards.ts tests/unit/unitProgress.test.ts tests/unit/learningRewards.test.ts`.
+- [x] Run `git diff --check`.
 
 **Dependencies:** Task 5
 
@@ -204,11 +204,11 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 ## Checkpoint 3: Reward behavior complete
 
-- [ ] Tasks 5–6 acceptance criteria are complete.
-- [ ] The RED failure was observed before the GREEN implementation.
-- [ ] Legacy/current/mixed and repeated-state tests prove idempotency.
-- [ ] The v13 fixture and input-immutability assertions pass.
-- [ ] Existing reward thresholds, correction rewards, inventory, dex, and reason ordering remain unchanged.
+- [x] Tasks 5–6 acceptance criteria are complete.
+- [x] The RED failure was observed before the GREEN implementation.
+- [x] Legacy/current/mixed and repeated-state tests prove idempotency.
+- [x] The v13 fixture and input-immutability assertions pass.
+- [x] Existing reward thresholds, correction rewards, inventory, dex, and reason ordering remain unchanged.
 
 ## Task 7: Focused regression and architecture gate
 
