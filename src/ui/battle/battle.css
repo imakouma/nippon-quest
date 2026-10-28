@@ -202,9 +202,6 @@
 .nq-effect-neutral {
   color: var(--nq-yellow);
 }
-.nq-foe-boss {
-  border-color: var(--nq-yellow);
-}
 .nq-foe-row {
   display: flex;
   align-items: center;
@@ -218,16 +215,6 @@
   gap: 12px;
   min-width: 0;
   padding-right: 64px;
-}
-.nq-boss-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0 6px 0 4px;
-  font-size: 16px;
-  line-height: 20px;
-  background: #a8341f;
-  border: 2px solid var(--nq-yellow);
 }
 .nq-ally-lv {
   font-size: 16px;
