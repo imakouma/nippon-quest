@@ -214,6 +214,21 @@
       }
     },
     {
+      "id": "sansu.g1.misconception.tens-ones-reversed",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "10のまとまりとばらを逆[ぎゃく]に対応[たいおう]させる",
+      "description": "二位数[にいすう]で、10のまとまりとばらの個数[こすう]を逆[ぎゃく]に対応[たいおう]させる誤[あやま]り方[かた]。単一[たんいつ]の誤答[ごとう]だけでは断定[だんてい]しない。",
+      "kind": "misconception",
+      "memoryType": "concept",
+      "curriculumCodes": [],
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "draft"
+      }
+    },
+    {
       "id": "sansu.g1.subtraction.meaning",
       "subject": "sansu",
       "grade": 1,
@@ -747,8 +762,15 @@
       "questionId": "sansu.g1.kazu-100.place-value-0001",
       "concepts": [{ "conceptId": "sansu.g1.number.two-digit-place-value", "weight": 1, "role": "primary" }],
       "diagnosticValue": 0.8,
-      "reviewStatus": "source-checked",
-      "misconceptionSignals": []
+      "reviewStatus": "draft",
+      "misconceptionSignals": [
+        {
+          "answerId": "b",
+          "conceptId": "sansu.g1.misconception.tens-ones-reversed",
+          "confidence": 0.7,
+          "rationale": "10のまとまりとばらの個数を逆に対応させている可能性がある。ただし一度だけでは断定しない。"
+        }
+      ]
     },
     {
       "questionId": "sansu.g1.kazu-100.place-value-0002",
