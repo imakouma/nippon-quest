@@ -35,12 +35,12 @@ Checkpoint: tests fail for the intended missing-production reason, not a fixture
 ## Phase 2: Build deterministic production tooling
 
 1. Add a prompt-record generator that reads the coverage report and content metadata while preserving the adopted reference paths/hashes.
-2. Add a runtime-sheet normalizer using existing system tooling: exact 2:1 crop/pad when needed, nearest-neighbor resize to 512×256, RGBA output, and alpha-under-16 cleanup. No creative deformation happens in this script.
+2. Add a runtime-sheet normalizer using existing system tooling: require an exact 2:1 generated layout, nearest-neighbor resize to 512×256, RGBA output, and alpha-under-16 cleanup. A non-2:1 source is rejected rather than cropped through a character or cell. No creative deformation happens in this script.
 3. Add an image audit that measures all eight cells, safe margins, alpha, visible bounds, duplicate frames, translation-only differences, and ledger/output hashes.
 4. Add a contact-sheet generator for accepted sources and runtime sheets.
-5. Unit-test failure cases before implementing each rule.
+5. Unit-test failure cases before implementing each rule. The existing Magurodo sword tip and Tsugaru Nurin row edge are recorded as legacy margin warnings; new sheets use the strict zero-boundary-contact policy.
 
-Checkpoint: tooling tests and `pnpm check:fast` pass on existing completed sheets and intentionally reject bad fixtures.
+Checkpoint: tooling tests and `pnpm check:fast` pass on existing completed sheets with the two documented legacy margin exceptions and intentionally reject bad fixtures.
 
 ## Phase 3: Produce waves 1–9
 
