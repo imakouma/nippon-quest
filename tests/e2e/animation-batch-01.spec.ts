@@ -1,40 +1,20 @@
 import { expect, test } from '@playwright/test';
 import type Phaser from 'phaser';
+import runtimeManifest from '../../assets/sprites/animations/batch-01/manifest.json' with { type: 'json' };
 import type { BattleEvent, BattleState } from '../../src/core/battle/types';
 import type { ContentIndex } from '../../src/core/content/loader';
 
 type Battle = Phaser.Scene & {
   enemySprite: Phaser.GameObjects.Sprite;
+  enemySize: number;
+  enemyScale: number;
   state: BattleState;
   content: ContentIndex;
   askSkill(): Promise<{ score: number; timeMs: number; attempts: number }>;
   animate(event: BattleEvent): Promise<void>;
 };
 
-const monsters = [
-  'aomori-bunakko',
-  'aomori-doguukun',
-  'aomori-himemassu',
-  'aomori-kokeppi',
-  'aomori-magurodo',
-  'aomori-nebutan',
-  'aomori-sakurapon',
-  'aomori-senbein',
-  'aomori-tsugaru-nurin',
-  'iwate-kagurabi',
-  'iwate-izumiko',
-  'iwate-kodamaru',
-  'aomori-boss-tsugaru-no-nushi',
-  'aomori-buna-taiju',
-  'aomori-dogu-jin',
-  'aomori-hachiro-ryu',
-  'aomori-hanaikada',
-  'aomori-himemasu-lord',
-  'aomori-itakodori',
-  'aomori-kaza-mimizuku',
-  'aomori-kuro-magurodo',
-  'aomori-lastboss-tsugaru-tamenobu',
-] as const;
+const monsters = runtimeManifest.map((entry) => entry.id);
 
 for (const viewport of [
   { width: 960, height: 540 },
@@ -75,7 +55,7 @@ for (const viewport of [
           height: sprite.displayHeight,
           alpha: canvas.getContext('2d')!.getImageData(0, 0, 1, 1).data[3],
           expectedKey: `mon.animation.${id}.v1`,
-          expectedMaxSize: battle.content.monsters.get(id)?.isBoss ? 144 : 96,
+          expectedMaxSize: battle.enemySize * battle.enemyScale,
         };
       }, monsterId);
       expect(initial.key).toBe(initial.expectedKey);

@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -12,6 +12,7 @@ import {
   type DecodedRgbaImage,
 } from '../../scripts/animation-production/image-contract';
 import { normalizeAnimationSheet } from '../../scripts/animation-production/normalize-sheet';
+import { acceptAnimationWave } from '../../scripts/animation-production/accept-wave';
 
 function sheet(): DecodedRgbaImage {
   return { width: 512, height: 256, pixels: new Uint8Array(512 * 256 * 4) };
@@ -114,6 +115,22 @@ describe('animation production image contract', () => {
     }
   });
 
+  it('can inset every generated cell to repair unsafe source boundaries', () => {
+    const root = mkdtempSync(join(tmpdir(), 'nq-animation-inset-'));
+    const outputPath = join(root, 'aomori-oirase-kokejin-v1.png');
+    try {
+      normalizeAnimationSheet({
+        inputPath:
+          'docs/verification/animation-completion/runtime-monsters/aomori-oirase-kokejin-generated-source.png',
+        outputPath,
+        cellInset: 4,
+      });
+      expect(inspectAnimationSheet(decodeRgbaPng(readFileSync(outputPath))).issues).toEqual([]);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('renders a portable labelled contact sheet at native and enlarged scales', () => {
     const html = renderAnimationContactSheet([
       {
@@ -159,5 +176,57 @@ describe('animation production image contract', () => {
         registeredIds: ['aomori-bunakko'],
       }),
     ).rejects.toThrow(/aomori-bunakko: pending entry is registered/);
+  });
+
+  it('accepts a reviewed wave into the ledger and runtime manifest in one validated operation', () => {
+    const root = mkdtempSync(join(tmpdir(), 'nq-animation-accept-'));
+    const evidence = join(root, 'docs/verification/animation-completion/runtime-monsters');
+    const runtime = join(root, 'assets/sprites/animations/batch-01');
+    mkdirSync(evidence, { recursive: true });
+    mkdirSync(runtime, { recursive: true });
+    copyFileSync(
+      'docs/verification/animation-batch-01/aomori-bunakko-generated-source.png',
+      join(evidence, 'test-monster-generated-source.png'),
+    );
+    copyFileSync(
+      'assets/sprites/animations/batch-01/aomori-bunakko-v1.png',
+      join(runtime, 'test-monster-v1.png'),
+    );
+    writeFileSync(
+      join(evidence, 'production-ledger.json'),
+      `${JSON.stringify({ entries: [{ id: 'test-monster', state: 'pending' }] }, null, 2)}\n`,
+    );
+    writeFileSync(join(runtime, 'manifest.json'), '[]\n');
+    writeFileSync(
+      join(root, 'records.json'),
+      `${JSON.stringify([
+        {
+          id: 'test-monster',
+          prompt:
+            'Create an exact transparent four by two pixel-art animation sheet that preserves the supplied identity, palette, silhouette, equipment count and facial features. Frames zero through three form a readable breathing and blinking idle loop. Frames four through seven form anticipation, a strong transformed attack pose and recovery. Keep all eight full-body poses isolated inside equal cells with stable scale, true alpha transparency, ample empty margins, and no text, grid, scenery, shadow, detached effect or extra object.',
+        },
+      ])}\n`,
+    );
+
+    try {
+      expect(acceptAnimationWave({ root, recordsPath: 'records.json', reviewedAt: '2026-10-28' })).toEqual({
+        accepted: ['test-monster'],
+      });
+      const ledger = JSON.parse(readFileSync(join(evidence, 'production-ledger.json'), 'utf8'));
+      const manifest = JSON.parse(readFileSync(join(runtime, 'manifest.json'), 'utf8'));
+      expect(ledger.entries[0]).toMatchObject({
+        state: 'accepted',
+        visualReview: { fullSize: true, isolatedCells: true, reviewedAt: '2026-10-28' },
+      });
+      expect(ledger.entries[0].generatedSource.sha256).toMatch(/^[a-f0-9]{64}$/);
+      expect(manifest[0]).toMatchObject({
+        id: 'test-monster',
+        key: 'mon.animation.test-monster.v1',
+        idle: [0, 1, 0, 3, 0, 2, 0],
+        attack: [4, 5, 6, 7, 0],
+      });
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 });
