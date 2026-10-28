@@ -6,16 +6,16 @@
 
 **Acceptance criteria:**
 
-- [ ] `subject` / `grade` / `unit` から正規パスを導出し、不整合を拒否する。
-- [ ] 1・30・31・119問を空セットなしで30問以下へ分割する。
-- [ ] ID、完全JSON値、単元内順序、分類件数の不一致を検出する。
-- [ ] 正規化済み入力を再処理しても同じ出力になる。
+- [x] `subject` / `grade` / `unit` から正規パスを導出し、不整合を拒否する。
+- [x] 1・30・31・119問を空セットなしで30問以下へ分割する。
+- [x] ID、完全JSON値、単元内順序、分類件数の不一致を検出する。
+- [x] 正規化済み入力を再処理しても同じ出力になる。
 
 **Verification:**
 
-- [ ] focused testが実装前に失敗する。
-- [ ] `pnpm exec vitest run tests/unit/questionLayout.test.ts` が通る。
-- [ ] 変更ファイルへ `pnpm test:related` を実行する。
+- [x] focused testが実装前に失敗する。
+- [x] `pnpm exec vitest run tests/unit/questionLayout.test.ts` が通る。
+- [x] 変更ファイルへ `pnpm test:related` を実行する。
 
 **Dependencies:** なし
 
