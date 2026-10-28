@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { CurriculumGraph, QuestionConceptLink } from '../../src/core/learning/model';
 import type { AttemptEvent, ConceptState } from '../../src/core/learning/state';
+import type { UnitMasteryRecord } from '../../src/core/learning/unitProgress';
 import { buildLearningPlan, type LearningPlanInput } from '../../src/core/learning/learningPlan';
 import type { Grade, QuestionBase } from '../../src/questions/contracts';
 import { QuestionBank } from '../../src/questions/engine/bank';
@@ -93,6 +94,14 @@ const conceptState = (overrides: Partial<ConceptState> = {}): ConceptState => ({
   intervalDays: 1,
   ...overrides,
 });
+
+const deepFreeze = <T>(value: T): T => {
+  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+    Object.freeze(value);
+    for (const child of Object.values(value)) deepFreeze(child);
+  }
+  return value;
+};
 
 const input = (
   curriculum: CurriculumGraph,
@@ -239,5 +248,162 @@ describe('buildLearningPlan completed items', () => {
         completed: true,
       },
     ]);
+  });
+});
+
+describe('buildLearningPlan composition', () => {
+  it('完了を先頭に置き、残り枠は異なる正規Unitを順位順に優先する', () => {
+    const dayStart = Date.UTC(2026, 0, 1, 15);
+    const definitions = [
+      ['completed', 'sansu.g3.unit-a', 1],
+      ['same-unit-high', 'sansu.g3.unit-a', 0.9],
+      ['unit-b', 'sansu.g3.unit-b', 0.8],
+      ['unit-c', 'sansu.g3.unit-c', 0.7],
+    ] as const;
+    const curriculum = graph(
+      definitions.map(([id, unit]) => concept(id, 3, unit)),
+      definitions.map(([id, , diagnosticValue]) => ({
+        ...link(`${id}-question`, [id]),
+        diagnosticValue,
+      })),
+    );
+    const bank = bankWith(...definitions.map(([id, unit]) => question(`${id}-question`, 3, unit)));
+    const attempts = [attempt('completed', 'completed-question', dayStart + 1, 'review')];
+
+    const plan = buildLearningPlan(input(curriculum, bank, dayStart + 100, { attempts }));
+
+    expect(plan.map(({ questionId, completed }) => ({ questionId, completed }))).toEqual([
+      { questionId: 'completed-question', completed: true },
+      { questionId: 'unit-b-question', completed: false },
+      { questionId: 'unit-c-question', completed: false },
+    ]);
+  });
+
+  it('異なるUnitが足りなければ同Unit候補で埋め、候補不足なら0〜2件をそのまま返す', () => {
+    const dayStart = Date.UTC(2026, 0, 1, 15);
+    const sameUnitDefinitions = [
+      ['first', 0.9],
+      ['second', 0.8],
+      ['third', 0.7],
+    ] as const;
+    const sameUnitGraph = graph(
+      sameUnitDefinitions.map(([id]) => concept(id, 3, 'sansu.g3.same')),
+      sameUnitDefinitions.map(([id, diagnosticValue]) => ({
+        ...link(`${id}-question`, [id]),
+        diagnosticValue,
+      })),
+    );
+    const sameUnitBank = bankWith(
+      ...sameUnitDefinitions.map(([id]) => question(`${id}-question`, 3, 'sansu.g3.same')),
+    );
+
+    expect(
+      buildLearningPlan(input(sameUnitGraph, sameUnitBank, dayStart)).map((item) => item.questionId),
+    ).toEqual(['first-question', 'second-question', 'third-question']);
+
+    expect(buildLearningPlan(input(graph([], []), bankWith(), dayStart))).toEqual([]);
+    const twoGraph = graph(
+      [concept('one'), concept('two')],
+      [link('one-question', ['one']), link('two-question', ['two'])],
+    );
+    expect(
+      buildLearningPlan(
+        input(twoGraph, bankWith(question('one-question'), question('two-question')), dayStart),
+      ),
+    ).toHaveLength(2);
+  });
+
+  it('legacy/current/mixed習熟で同じ正規Unitと推薦順を返す', () => {
+    const dayStart = Date.UTC(2026, 0, 1, 15);
+    const curriculum: CurriculumGraph = {
+      ...graph(
+        [
+          concept('target', 1, 'sansu.g1.target'),
+          concept('pre-a', 1, 'sansu.g1.tashizan'),
+          concept('pre-b', 1, 'sansu.g1.tashizan'),
+        ],
+        [link('target-question', ['target'], 'primary'), link('pre-question', ['pre-a'], 'primary')],
+      ),
+      relations: [
+        {
+          from: 'pre-a',
+          to: 'target',
+          kind: 'prerequisite',
+          strength: 1,
+          rationale: 'direct',
+          sourceIds: [],
+          reviewStatus: 'draft',
+        },
+      ],
+    };
+    const bank = bankWith(
+      question('target-question', 1, 'sansu.g1.target'),
+      question('pre-question', 1, 'sansu.g1.legacy-math-1-2'),
+    );
+    const masteryInputs: Array<Record<string, UnitMasteryRecord>> = [
+      { 'sansu.g1.tashizan': { value: 0.9, n: 4, lastAt: 1 } },
+      { 'sansu.g1.legacy-math-1-2': { value: 0.9, n: 4, lastAt: 1 } },
+      {
+        'sansu.g1.tashizan': { value: 0.9, n: 2, lastAt: 1 },
+        math_1_2: { value: 0.9, n: 2, lastAt: 2 },
+      },
+    ];
+    const plans = masteryInputs.map((unitMastery) =>
+      buildLearningPlan(
+        input(curriculum, bank, dayStart, {
+          gradeScope: { grade: 1, includeLower: false, challengeHigher: false },
+          conceptStates: { 'pre-a': conceptState(), 'pre-b': conceptState() },
+          unitMastery,
+        }),
+      ),
+    );
+
+    expect(plans[1]).toEqual(plans[0]);
+    expect(plans[2]).toEqual(plans[0]);
+    expect(plans[0]?.find((item) => item.questionId === 'pre-question')?.actualUnitId).toBe(
+      'sansu.g1.tashizan',
+    );
+  });
+
+  it('GameState相当の入力と報酬・進捗フィールドを変更せず、新しい結果を返す', () => {
+    const dayStart = Date.UTC(2026, 0, 1, 15);
+    const curriculum = deepFreeze(
+      graph(
+        [concept('completed'), concept('due')],
+        [link('completed-question', ['completed']), link('due-question', ['due'])],
+      ),
+    );
+    const bank = bankWith(question('completed-question'), question('due-question'));
+    const stateEnvelope = deepFreeze({
+      learning: {
+        attempts: [attempt('completed', 'completed-question', dayStart + 1, 'diagnosis')],
+        conceptStates: {
+          due: conceptState({ lastSeenAt: dayStart, dueAt: dayStart, retention: 0.6 }),
+        },
+        recent: ['due-question'],
+        mastery: { 'sansu.g3.unit': { value: 0.4, n: 2, lastAt: 1 } },
+        masteredRewardUnits: ['sansu.g3.other'],
+        correctedRewardQuestionIds: ['old-question'],
+      },
+      inventory: { 'learning-fragment': 2 },
+      dex: { items: ['learning-fragment'] },
+      progress: { counters: { region: 1 } },
+    });
+    const before = structuredClone(stateEnvelope);
+    const planInput = input(curriculum, bank, dayStart + 100, {
+      attempts: stateEnvelope.learning.attempts,
+      conceptStates: stateEnvelope.learning.conceptStates,
+      recentQuestionIds: stateEnvelope.learning.recent,
+      unitMastery: stateEnvelope.learning.mastery,
+    });
+
+    const first = buildLearningPlan(planInput);
+    const second = buildLearningPlan(planInput);
+
+    expect(stateEnvelope).toEqual(before);
+    expect(second).toEqual(first);
+    expect(second).not.toBe(first);
+    expect(second[0]).not.toBe(first[0]);
+    expect(second[0]!.conceptIds).not.toBe(first[0]!.conceptIds);
   });
 });

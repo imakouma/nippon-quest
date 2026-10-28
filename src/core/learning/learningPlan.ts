@@ -21,15 +21,35 @@ export function buildLearningPlan(input: LearningPlanInput): LearningPlanItem[] 
   if (completed.length >= MAX_PLAN_ITEMS) return completed;
 
   const completedQuestionIds = new Set(completed.map((item) => item.questionId));
-  const recommendations = rankLearningRecommendations({ ...input, evaluationNow })
-    .filter((item) => !completedQuestionIds.has(item.questionId))
-    .slice(0, MAX_PLAN_ITEMS - completed.length)
-    .map((item): LearningPlanItem => ({
-      ...item,
-      conceptIds: [...item.conceptIds],
-      completed: false,
-    }));
-  return [...completed, ...recommendations];
+  const ranked = rankLearningRecommendations({ ...input, evaluationNow }).filter(
+    (item) => !completedQuestionIds.has(item.questionId),
+  );
+  const slots = MAX_PLAN_ITEMS - completed.length;
+  const usedUnitIds = new Set(completed.map((item) => item.actualUnitId));
+  const selected: LearningPlanItem[] = [];
+  const selectedQuestionIds = new Set<string>();
+
+  for (const item of ranked) {
+    if (usedUnitIds.has(item.actualUnitId)) continue;
+    selected.push(incompleteItem(item));
+    selectedQuestionIds.add(item.questionId);
+    usedUnitIds.add(item.actualUnitId);
+    if (selected.length === slots) return [...completed, ...selected];
+  }
+  for (const item of ranked) {
+    if (selectedQuestionIds.has(item.questionId)) continue;
+    selected.push(incompleteItem(item));
+    if (selected.length === slots) break;
+  }
+  return [...completed, ...selected];
+}
+
+function incompleteItem(item: ReturnType<typeof rankLearningRecommendations>[number]): LearningPlanItem {
+  return {
+    ...item,
+    conceptIds: [...item.conceptIds],
+    completed: false,
+  };
 }
 
 function completedItems(input: LearningPlanInput, evaluationNow: number): LearningPlanItem[] {

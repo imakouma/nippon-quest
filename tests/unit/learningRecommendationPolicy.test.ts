@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { CurriculumGraph, QuestionConceptLink } from '../../src/core/learning/model';
 import type { AttemptEvent, ConceptState } from '../../src/core/learning/state';
+import type { UnitMasteryRecord } from '../../src/core/learning/unitProgress';
 import {
   rankLearningRecommendations,
   recommendationReasonToAttemptReason,
@@ -411,7 +412,7 @@ describe('rankLearningRecommendations weak prerequisites', () => {
       question('pre-question', 1, 'sansu.g1.legacy-math-1-2'),
     );
     const completeStates = { 'pre-a': conceptState(), 'pre-b': conceptState() };
-    const masteryInputs = [
+    const masteryInputs: Array<Record<string, UnitMasteryRecord>> = [
       { 'sansu.g1.tashizan': { value: 0.9, n: 4, lastAt: 1 } },
       { 'sansu.g1.legacy-math-1-2': { value: 0.9, n: 4, lastAt: 1 } },
       {
