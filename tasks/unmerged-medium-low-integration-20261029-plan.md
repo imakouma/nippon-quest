@@ -15,13 +15,13 @@
 
 ## Capability Map
 
-| Module id | Responsibility | Depends on |
-| --- | --- | --- |
-| `question-bundles` | 選択学年までの復習問題を配信し、英語は小3からにする | — |
-| `input-layout-fixes` | 仮想スティックの二重入力と長文問題の到達不能を防ぐ | — |
-| `g1-kokugo-skills` | 小1国語を単元別の初期技へ分け、既存セーブへ追加する | `question-bundles` |
-| `equipment-set-ui` | 装備画面にセット進捗と完成効果を表示する | — |
-| `kokugo-review-workflow` | 国語問題をCSVで人手確認し、安全に反映する | `g1-kokugo-skills` |
+| Module id                | Responsibility                                      | Depends on         |
+| ------------------------ | --------------------------------------------------- | ------------------ |
+| `question-bundles`       | 選択学年までの復習問題を配信し、英語は小3からにする | —                  |
+| `input-layout-fixes`     | 仮想スティックの二重入力と長文問題の到達不能を防ぐ  | —                  |
+| `g1-kokugo-skills`       | 小1国語を単元別の初期技へ分け、既存セーブへ追加する | `question-bundles` |
+| `equipment-set-ui`       | 装備画面にセット進捗と完成効果を表示する            | —                  |
+| `kokugo-review-workflow` | 国語問題をCSVで人手確認し、安全に反映する           | `g1-kokugo-skills` |
 
 Build order: `question-bundles` → `input-layout-fixes` → `g1-kokugo-skills` → `equipment-set-ui` → `kokugo-review-workflow`
 
@@ -42,12 +42,12 @@ Build order: `question-bundles` → `input-layout-fixes` → `g1-kokugo-skills` 
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-| --- | --- | --- |
-| schema v13の既存移行と旧コミットのv11/v12が衝突する | 高 | 旧移行を上書きせずv13→v14として追加し、全旧version移行テストを維持する |
-| 高優先度レンダラー統合と共通CSSが競合する | 中 | 共通CSS変更はスクロール2行に限定し、レンダラー登録へ触れない |
-| CSV反映が問題IDや正解を壊す | 高 | ハッシュ、元ファイル、問題ID、選択肢ID、schemaを反映前に検証する |
-| 古い教材文言をそのまま戻す | 中 | 最終状態のRubyText対応コミットを採用し、教材検証とRubyテストを通す |
+| Risk                                                | Impact | Mitigation                                                             |
+| --------------------------------------------------- | ------ | ---------------------------------------------------------------------- |
+| schema v13の既存移行と旧コミットのv11/v12が衝突する | 高     | 旧移行を上書きせずv13→v14として追加し、全旧version移行テストを維持する |
+| 高優先度レンダラー統合と共通CSSが競合する           | 中     | 共通CSS変更はスクロール2行に限定し、レンダラー登録へ触れない           |
+| CSV反映が問題IDや正解を壊す                         | 高     | ハッシュ、元ファイル、問題ID、選択肢ID、schemaを反映前に検証する       |
+| 古い教材文言をそのまま戻す                          | 中     | 最終状態のRubyText対応コミットを採用し、教材検証とRubyテストを通す     |
 
 ## Open Questions
 

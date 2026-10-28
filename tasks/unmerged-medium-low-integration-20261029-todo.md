@@ -13,15 +13,15 @@
 
 **Acceptance criteria:**
 
-- [ ] 仮想スティック内のtouchstartがwindowの移動入力へ伝播しない。
-- [ ] 長い問題は問題枠全体を縦スクロールして操作できる。
+- [x] 仮想スティック内のtouchstartがwindowの移動入力へ伝播しない。
+- [x] 長い問題は問題枠全体を縦スクロールして操作できる。
 
 **Verification:** 関連unit、Playwrightの仮想スティック・問題監査、`pnpm check:fast`
 
 ## Checkpoint: 基本回帰
 
-- [ ] Task 1〜2の関連テストが通る。
-- [ ] 各変更を独立コミットにする。
+- [x] Task 1〜2の関連テストが通る。
+- [x] 各変更を独立コミットにする。
 
 ## Task 3: 小学1年国語の初期技
 
