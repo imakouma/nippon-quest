@@ -24,18 +24,18 @@ Approved for implementation on branch `codex/curriculum-concept-connectivity` fr
 
 ## Task 2: Concept-quality audit RED→GREEN
 
-- [ ] Add a failing test for Concept count, relation-kind counts, deterministic isolated IDs, and duplicate Concept merging.
-- [ ] Run the focused test and record the expected RED failure.
-- [ ] Extend `buildCurriculumGraphQuality()` with the minimal Concept-quality output.
-- [ ] Update `audit-roadmap-graph.ts` to print Concept metrics and fail strict mode on isolation.
-- [ ] Run the focused test, related tests, and non-strict audit GREEN.
-- [ ] Confirm baseline output is 357 / 395 / 30.
+- [x] Add a failing test for Concept count, relation-kind counts, deterministic isolated IDs, and duplicate Concept merging.
+- [x] Run the focused test and record the expected RED failure.
+- [x] Extend `buildCurriculumGraphQuality()` with the minimal Concept-quality output.
+- [x] Update `audit-roadmap-graph.ts` to print Concept metrics and fail strict mode on isolation.
+- [x] Run the focused test, related tests, and non-strict audit GREEN.
+- [x] Confirm baseline output is 357 / 395 / 30.
 
 ### Checkpoint A
 
-- [ ] Evidence covers all 30 Concepts.
-- [ ] Quality guardrail is GREEN.
-- [ ] Strict audit is RED only because content isolation remains.
+- [x] Evidence covers all 30 Concepts.
+- [x] Quality guardrail is GREEN.
+- [x] Strict audit is RED only because content isolation remains.
 
 ## Task 3: Kokugo grade 1
 
