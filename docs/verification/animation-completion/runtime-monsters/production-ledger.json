@@ -798,7 +798,7 @@
     },
     {
       "id": "iwate-wakame-ryu",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-wakame-ryu.png",
         "sha256": "604186a931e1455a27951ee07bc2568d9df69565878fa826c8a9d18a7f4e4eb8"
@@ -806,11 +806,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-wakame-ryu/turnaround-v1.png",
         "sha256": "20bf8e31a18c2079da75bc33d74f9d10d89c6749a55a0d43e97f7e0bf51252d5"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-wakame-ryu\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-wakame-ryu-generated-source.png",
+        "sha256": "eba696aee1e313b11c78754a5825ef0181e26dbd780b1dbd150f760a3ec179a5"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-wakame-ryu-v1.png",
+        "sha256": "a05341ea67238200f9948fcb3fd9d4a165700739678a212527dbb1fa4b31a8f9"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-wakamekko",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-wakamekko.png",
         "sha256": "734a3503fb79906c668bb30ef6b424931c0c2ded58be4696c7c525f67579429c"
@@ -818,11 +832,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-wakamekko/turnaround-v1.png",
         "sha256": "c68701ce4e4737a1b5c1721a5ad9d7c8a257b49a0b45fe75f3d239158abafca8"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-wakamekko\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-wakamekko-generated-source.png",
+        "sha256": "0df24d0c7e6c386e6a62555eac5064668834a9f71f63b053af85905fe8b0faab"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-wakamekko-v1.png",
+        "sha256": "9a8f1fc2d61fe5a5b051375ae5a487246a57bc6cc8ec00b4d5f55fb8c5f77197"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-wankosobat",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-roster-v1/iwate-wankosobat/concept-v1.png",
         "sha256": "a0f39e7da71ac663756d6003d05ec6bbc37484433819c5a034900ab4d65b382a"
@@ -830,11 +858,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-roster-v1/iwate-wankosobat/turnaround-v1.png",
         "sha256": "31270402b53185c630ea740ab564d21922fb853e3a72f1ecedc42f2968c7f1bf"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-wankosobat\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-wankosobat-generated-source.png",
+        "sha256": "bfea59301ba0854e7487ce8a8304d67679fde11c9e06b0b6b478ac2c334ab97b"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-wankosobat-v1.png",
+        "sha256": "eae429d0246a675e19dbc127f8758666b85a60eb7867c5a88140281bfdb1a548"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tohoku-boss-rokufuyu",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v7/pixel-references/tohoku-boss-rokufuyu.png",
         "sha256": "aa861050dffc8a5967d0a0c8d58b69346df0493bcd7a33b13713b70cb2e634f3"
@@ -842,11 +884,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v7/tohoku-boss-rokufuyu/turnaround-v1.png",
         "sha256": "441d0121e19a168840bd34c2166260b0f368ce0532f9a8f5a661b325ea898b58"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tohoku-boss-rokufuyu\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tohoku-boss-rokufuyu-generated-source.png",
+        "sha256": "1c8964250794ba93b31f38599d9a087af00c08d5356dce2cd292cd9764dee867"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tohoku-boss-rokufuyu-v1.png",
+        "sha256": "8a7cc96d702c80ba0fd4f98272dd2743e88f47ada096aa67b14ec87010a0f427"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "mie-donabee",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/mie-donabee.png",
         "sha256": "0850b996e471f9feb24adacc35cf0b3c28c7c0ff0e9463eb9fd522f7a10979a9"
@@ -854,11 +910,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/mie-donabee/turnaround-v1.png",
         "sha256": "bd5d5c7bef063bd768658a707f91cac0afb33446361db5f5535b250553351559"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"mie-donabee\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/mie-donabee-generated-source.png",
+        "sha256": "e7421299448a4a0c92a0f2e0a79f799111326c5f635f4d8a547f4d976f9a32e0"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/mie-donabee-v1.png",
+        "sha256": "9fa62a18b7736597f9e781b9899a0459ba3585f5502866dace1ff572ef509e34"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "mie-lastboss-todo-takatora",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/mie-lastboss-todo-takatora.png",
         "sha256": "0f95d8a7a36ec6cc82b7299a8e80b2e356dd92d68a77eda4ac1b2c3ed163f723"
@@ -866,11 +936,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/mie-lastboss-todo-takatora/turnaround-v1.png",
         "sha256": "00223181c63d71c227bc03d0a6758ff043f90d411bc0ce421f8278166167f149"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"mie-lastboss-todo-takatora\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/mie-lastboss-todo-takatora-generated-source.png",
+        "sha256": "d5673d93f5f23b5ce6e6935395b8923a441432793ee9c6de5ebc27911f91ae35"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/mie-lastboss-todo-takatora-v1.png",
+        "sha256": "8b821c293ab1c69054f590553982aac4be7e3a57e3a1e76dab9a05e9040abc23"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "miyagi-kokeshi-hime",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-kokeshi-hime.png",
         "sha256": "2a786ac5e28e24e588409699248036b110efe7ca1e502637c25990f746ce48eb"
@@ -878,11 +962,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-kokeshi-hime/turnaround-v1.png",
         "sha256": "8fcc057512ac326ef48a05c82e0976a8bcefd165d0645261cb8caed4038e5410"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"miyagi-kokeshi-hime\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/miyagi-kokeshi-hime-generated-source.png",
+        "sha256": "28a09bbc23a361d2c8395fd996d0457cd9ff3cd6fb65e7d62e61cb3e1b3e079b"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/miyagi-kokeshi-hime-v1.png",
+        "sha256": "d6ecf97c138d50c0b12dbaf0c4f949d563f9e074a4295b1cf8ff27c844b20d95"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "miyagi-oohakucho",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-oohakucho.png",
         "sha256": "70da3719943292541b0eb86cdec9d1b028b7b5bf9dfe78782226b720e9ec7074"
@@ -890,11 +988,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-oohakucho/turnaround-v2.png",
         "sha256": "8290e7fe36ec5a580d94c12d11fdd10755c91cb67a7bdf9cf7b2be08edd18b1c"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"miyagi-oohakucho\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/miyagi-oohakucho-generated-source.png",
+        "sha256": "43e5deae38241c3dc16c797a0dff5f5ff60ef7213ccaa39c9e29da0c186bbd12"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/miyagi-oohakucho-v1.png",
+        "sha256": "b7f915bdd7af668e629dbb870afcef55b874acccdb607890e62f342c20602d0d"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "miyagi-zundagon",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/miyagi-zundagon.png",
         "sha256": "7d446a9dc5e9b0732f36689248427b79dd8c469c82ae982d6c02e1dc3d8d6d95"
@@ -902,11 +1014,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/miyagi-zundagon/turnaround-v1.png",
         "sha256": "c7241f0112bdabbb2c315332e9038ad7b8497646fec66701fb157bea0535ab21"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"miyagi-zundagon\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/miyagi-zundagon-generated-source.png",
+        "sha256": "beb29ddd97d7073c9a356f9dead7f23fcb6496a3050cfc094703beac13a28b9e"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/miyagi-zundagon-v1.png",
+        "sha256": "b61c6a1d9f693bd91a9c630ba9808a6245e08379067f60a3f645d5f2bedc326a"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "miyazaki-kanjuku-mango",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/miyazaki-kanjuku-mango.png",
         "sha256": "5df7d6a77d368246a69a44217fc8a2313c843eaf22af382112bb32b6a2714fd4"
@@ -914,11 +1040,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/miyazaki-kanjuku-mango/turnaround-v1.png",
         "sha256": "719256049c55399f1ebabaeb5a23bd666305d81ee4a00bb5fe9bea09cb5802f1"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"miyazaki-kanjuku-mango\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/miyazaki-kanjuku-mango-generated-source.png",
+        "sha256": "bcc04449f791f13b37d0cc6825c9de62d86276fe8ef8d2ff495148e83f1f3b2d"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/miyazaki-kanjuku-mango-v1.png",
+        "sha256": "f097b95c9306703742950fee80e2fcc92086a272c14002056cb966517871d82d"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "miyazaki-misaki-tenba",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/miyazaki-misaki-tenba.png",
         "sha256": "209ff1accaab23486fce0a43955a9cbb5848a80abcb5772032988dae2cfb1280"
@@ -926,11 +1066,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/miyazaki-misaki-tenba/turnaround-v1.png",
         "sha256": "626abf10601231b38ae946186eecbbf4f27ff40e1536158359da0a416af08a94"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"miyazaki-misaki-tenba\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/miyazaki-misaki-tenba-generated-source.png",
+        "sha256": "cbef6d05b320dd969f2f5f8b8729156e7f73fd713581744707eff132ec9ff76b"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/miyazaki-misaki-tenba-v1.png",
+        "sha256": "c69e6c78cac4a81dda76bb133d4bfac5a28971218bfbf8e895e005abbc9c71d2"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "nagano-lastboss-sanada-yukimura",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/nagano-lastboss-sanada-yukimura.png",
         "sha256": "48a8ded73b657893bfe2acbadc1e6de189918a933de481d014ac9e531b0f142c"
@@ -938,11 +1092,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/nagano-lastboss-sanada-yukimura/turnaround-v1.png",
         "sha256": "aa572cef9e3fc01c9798f65118feb94fc15defd2ec52b76e32446e05e02f1679"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"nagano-lastboss-sanada-yukimura\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/nagano-lastboss-sanada-yukimura-generated-source.png",
+        "sha256": "42ca630e6a4893ffaeff04ca72860ee5cae575adf853c79052c76390dc28ba45"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/nagano-lastboss-sanada-yukimura-v1.png",
+        "sha256": "c8294604c00864b3b8f8a622668e5837002fb85a3922667cbf749386950c22cb"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "nagano-wakasagin",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/nagano-wakasagin.png",
         "sha256": "31e2164f2ba0198a00653660c3535495ca3ee7ce0df5ddd4eb9a6d59046bde47"
@@ -950,11 +1118,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/nagano-wakasagin/turnaround-v1.png",
         "sha256": "eb16b2652cf8350abced41893bd05e14e1bc39e547c40d916262a634ddcf9a5a"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"nagano-wakasagin\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/nagano-wakasagin-generated-source.png",
+        "sha256": "14be1c3970b34a176e549701a65864c5b11777d34cf776da54ac09fafa8f15b3"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/nagano-wakasagin-v1.png",
+        "sha256": "c1435607b25069eb78cc2e4c54e60aa87ea06fd6fcd9c2b9f4fd706f1eb2dc91"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "nagasaki-castel-knight",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/nagasaki-castel-knight.png",
         "sha256": "724d7ff33c41fc3d2115891c7791a6ffa1d5ac3fd226aadbbd9119353f2ecb36"
@@ -962,11 +1144,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/nagasaki-castel-knight/turnaround-v1.png",
         "sha256": "c708f1d57278d7641039059666f5ef5290f8f020547d7ffb36a8b000aa0917d1"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"nagasaki-castel-knight\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/nagasaki-castel-knight-generated-source.png",
+        "sha256": "51c58b116fb21fe3654c856434c910ae6049a9332fc166c72a2c8bfe94ffaa44"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/nagasaki-castel-knight-v1.png",
+        "sha256": "d87892e5fe58e025ee0cb5adff9bf5972a0416f4e5f87f392d3b81ef515acba7"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "nagasaki-midboss-megane-golem",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/nagasaki-midboss-megane-golem.png",
         "sha256": "47834cc06d3f0664a68eecdb751f62b8d3404ee669ffb2ffdfc101029f235a90"
@@ -974,11 +1170,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/nagasaki-midboss-megane-golem/turnaround-v1.png",
         "sha256": "7e22c3e1e1a2c377e0c76641c29c0b624944ea7c863a134a9e0f43563a7b61d6"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"nagasaki-midboss-megane-golem\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/nagasaki-midboss-megane-golem-generated-source.png",
+        "sha256": "0a4f9aed69543696ea2592b9936b8ac50e40ba48831eed64a27150c5ee92e202"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/nagasaki-midboss-megane-golem-v1.png",
+        "sha256": "ab0b14378a54509299ea6e63d478d3c75501a0607c70cd35602af696cb18f374"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "nara-boss-shika-daio",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/nara-boss-shika-daio.png",
         "sha256": "09f0dbfb453d7707522b838795fcf04c99794c1654b22bd5d9c5dddcb8f17ac7"
@@ -986,11 +1196,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/nara-boss-shika-daio/turnaround-v1.png",
         "sha256": "a2c82bb160e7f5bd40f216b2564523723129695c49bdc51394790c0ec39227f1"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"nara-boss-shika-daio\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/nara-boss-shika-daio-generated-source.png",
+        "sha256": "a949e883899485e6bae3b55621b8d91ce598ce2126b5637dfde41fc1ae99d7ef"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/nara-boss-shika-daio-v1.png",
+        "sha256": "8458844ccf22a828ab775d89329db47b572760cb563c44a5c94d588caec4364a"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "nara-matcha-arashi",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/nara-matcha-arashi.png",
         "sha256": "c05eac1209be635c3f44bda499f715354704a0e19e4fc18b594ba760efd55bad"
@@ -998,11 +1222,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/nara-matcha-arashi/turnaround-v1.png",
         "sha256": "261be0b9f699e1d74373c4f50f9ffd66339c44af34eff05658872f09e7ecac76"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"nara-matcha-arashi\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/nara-matcha-arashi-generated-source.png",
+        "sha256": "483f53f303b7bee820efb61ec72766ce412648fb7160fafb1bc0506efe4703f5"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/nara-matcha-arashi-v1.png",
+        "sha256": "8f2b66f223019af1799dddded2fc2ecc780e03a76458d0c3f377b69d37d966e4"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "nara-uzumaki-somen",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/nara-uzumaki-somen.png",
         "sha256": "273bcac2351191cfa7c952f02fb30e1b1e49eb5241622ca9216be87553d04378"
@@ -1010,11 +1248,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/nara-uzumaki-somen/turnaround-v1.png",
         "sha256": "5631e211159e5a2dbbc56fdc5aca99e24984943e16e6ea220ee8b9960c6027a2"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"nara-uzumaki-somen\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/nara-uzumaki-somen-generated-source.png",
+        "sha256": "d773679e27c0a5361be4dc22d57a400194151e1fb4c4b6b8465de59d78de822f"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/nara-uzumaki-somen-v1.png",
+        "sha256": "01d5d9d5fe4b000be795384084d6efb0235b58043507ccc54ac6233a2fa724e8"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "niigata-inahon",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/niigata-inahon.png",
         "sha256": "4c0012f75ca17f2e9bdd3810c5c1273b9677e0f588811f89e4f509aa322f0a7d"
@@ -1022,11 +1274,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/niigata-inahon/turnaround-v1.png",
         "sha256": "66fd310d45cc37078bd1d6560148286c9da26cea1979a6ce51a32517411c6444"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"niigata-inahon\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/niigata-inahon-generated-source.png",
+        "sha256": "809739a4f128373b34c69ecbcb08bccc0bb741287305b37854a9cbefc9367d0c"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/niigata-inahon-v1.png",
+        "sha256": "d6f2d916d0303cd06b31d72de7d505bdbfef652b30b64ee32820cffc4ba64231"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "niigata-minori-maru",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/niigata-minori-maru.png",
         "sha256": "1f4f468e8042886ed8aa49615c4203d488c69d301cd4f985c9d2961e077503b2"
@@ -1034,11 +1300,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/niigata-minori-maru/turnaround-v1.png",
         "sha256": "d953724ae779b8eb3b20b6a60b1b44d22b09ed13af89319520ceb6cfa0666536"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"niigata-minori-maru\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/niigata-minori-maru-generated-source.png",
+        "sha256": "c9d4f9932c5a1cd27c1ea279272a765ecf4defd3b715937cc7c827a34964d501"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/niigata-minori-maru-v1.png",
+        "sha256": "98432e345b95ffd00b64541eae610e47ef240caea42392e542f08a4f834cf652"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "oita-kabosuppa",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/oita-kabosuppa.png",
         "sha256": "22ee7866abbb6c334a7b8efaf509fa83c88e3c4fa48772cbd0313546919e0180"
@@ -1046,11 +1326,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/oita-kabosuppa/turnaround-v1.png",
         "sha256": "9658df78f1928f0d19be5bccb3b3688c9e2eabcf101f3bc71febaa77591aa202"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"oita-kabosuppa\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/oita-kabosuppa-generated-source.png",
+        "sha256": "55e716efa5d7b9fb5cd7537aed48d7a3ccde201bb7265953668a033b21a01794"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/oita-kabosuppa-v1.png",
+        "sha256": "375c27912158c787c133a0b89dd7cbbe4f8d7f10139dcba48fec259dcc2db7c4"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "oita-shiitaken",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/oita-shiitaken.png",
         "sha256": "eade1b05b9ad630f59ad89533dca437090e0c9d56dd283e0f8349885954c1973"
@@ -1058,11 +1352,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/oita-shiitaken/turnaround-v1.png",
         "sha256": "68a7bd3060144bc2f8e4588d2aaaff2ada1cab74eae4375edd77c431644e8f4b"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"oita-shiitaken\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/oita-shiitaken-generated-source.png",
+        "sha256": "55a34262e378bd314f265b4eec62748d40491fc2637407e28e14fe19d25cf54c"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/oita-shiitaken-v1.png",
+        "sha256": "36d9feacc1c88ca9abc54866973b517b454ce6ed21605f07bc4d8eac90d3ab6a"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "okayama-bizentsubon",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/okayama-bizentsubon.png",
         "sha256": "3a058cd7959f9dd493930d7fd1a01ae7258f116edc313ea1075df31cab2813b8"
@@ -1070,11 +1378,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/okayama-bizentsubon/turnaround-v1.png",
         "sha256": "31c39aa8c406fc05c591f25aee3cde5e4d055af730b59fe6c622ae97a658ec70"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"okayama-bizentsubon\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/okayama-bizentsubon-generated-source.png",
+        "sha256": "55761d1365d87cf8734830f5d46ad8ab87789a3a748e540603d78a30f26903d5"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/okayama-bizentsubon-v1.png",
+        "sha256": "7c45d1a3d7350d764ae50d225b41e0b597f9b2d4a534fbfb8d65de15d5c1c7df"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "okayama-hakuto-hime",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/okayama-hakuto-hime.png",
         "sha256": "41c1e9508ead9d3984f75a4d10550098099646bed197fe5780dce5d16116bd27"
@@ -1082,11 +1404,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/okayama-hakuto-hime/turnaround-v1.png",
         "sha256": "05bb357b2dc34df2132e476f3c4c49e1780045f159bd4a26f83605026eb18eb9"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"okayama-hakuto-hime\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/okayama-hakuto-hime-generated-source.png",
+        "sha256": "94b5553c0ca7b92109aeab7211ac282e0ff6bf124614ec962ba7619ca3cb991c"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/okayama-hakuto-hime-v1.png",
+        "sha256": "4a6d618dc32807fdc8b788907e32f793ef17716d69d5ffdca924154e1a543bff"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "okinawa-garasu-kurage",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/okinawa-garasu-kurage.png",
         "sha256": "d091a896a97e1e23a404cea06883d107637b63e7a44adee1594de31f4b9cc59d"
@@ -1094,11 +1430,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/okinawa-garasu-kurage/turnaround-v1.png",
         "sha256": "58cdb358d24249c881cdc5fda1fe4aff1caedd2dd831dc67d7b9226cbbb2f640"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"okinawa-garasu-kurage\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/okinawa-garasu-kurage-generated-source.png",
+        "sha256": "a7e7060b0143f1758eeb9dbc37aa25154b6defb367793d1585acb9ac6c7f960f"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/okinawa-garasu-kurage-v1.png",
+        "sha256": "0d8d7e9635b77554f9f66a82fda01dd9327f177c71e76c55c6db489f23188935"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "okinawa-niji-kurage",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/okinawa-niji-kurage.png",
         "sha256": "fb7a495449a97b623733986308fb276c27e810781c1dd784c05d57ebc95ed9bc"
@@ -1106,11 +1456,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/okinawa-niji-kurage/turnaround-v1.png",
         "sha256": "d7f8b54c711a95c2ca44b7d691c6d9e2a48fbe12debe7e8330522a29da4c50bd"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"okinawa-niji-kurage\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/okinawa-niji-kurage-generated-source.png",
+        "sha256": "53ece2e0c71a449875e6250b35ee5a5042bcf987d7b9507d4fda9f9464041816"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/okinawa-niji-kurage-v1.png",
+        "sha256": "7e00a565571a84befc1a12e92d2889b774a6ddee7025b2c6be272c7d52fe5b83"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "osaka-boss-takoishi-daio",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/osaka-boss-takoishi-daio.png",
         "sha256": "10bb45816ec6abe5b316718f601bac1c4851a3f66b81ed4b410061ec8d36cb0a"
@@ -1118,11 +1482,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/osaka-boss-takoishi-daio/turnaround-v1.png",
         "sha256": "915fa7b0d96f441483a089252152fe61a269265feb632e2c01f7dfba5368c100"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"osaka-boss-takoishi-daio\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/osaka-boss-takoishi-daio-generated-source.png",
+        "sha256": "575e8dd5799a35dde53dca54f0e0f5bc8fc5958fdf3b84dbfd617f34adf37ef0"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/osaka-boss-takoishi-daio-v1.png",
+        "sha256": "7d30644c5d2e61d791e43369ff1dbce4dc26b5141b859700c1a10256f0b46211"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "osaka-juwanasu-zamurai",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/osaka-juwanasu-zamurai.png",
         "sha256": "ca321a351f042683bd73fb5b3c2155f6ac67ba9d3de304b1832741af03019fd5"
@@ -1130,11 +1508,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/osaka-juwanasu-zamurai/turnaround-v1.png",
         "sha256": "8fcf3ff4ca0f913eee76034e3be28eae45b84f19618b04d2c5a419acf9b3d838"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"osaka-juwanasu-zamurai\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/osaka-juwanasu-zamurai-generated-source.png",
+        "sha256": "369b39c82179530e8e160b670a7e83e00de5a627d4a3b49db887bb5dbcac2dba"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/osaka-juwanasu-zamurai-v1.png",
+        "sha256": "b6d66519054ae37ebe7be1fbb357f9401f1f8a7c50daef29ace2ec270116edb5"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "osaka-takoyaki-sencho",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/osaka-takoyaki-sencho.png",
         "sha256": "302bdd23ec172ef3a3da2bbe9046a96b7210f077e6aef6a12624a2d03a4bd914"
@@ -1142,11 +1534,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/osaka-takoyaki-sencho/turnaround-v1.png",
         "sha256": "26bd32cb933bd0962eccdbec073847e5790f29bbec782e22fa9f89bda3d36041"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"osaka-takoyaki-sencho\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/osaka-takoyaki-sencho-generated-source.png",
+        "sha256": "2b9ed096e6aecfed72a56f2bc1cf40d38d00e3cf7c43587078c2e2c896725cfe"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/osaka-takoyaki-sencho-v1.png",
+        "sha256": "68864a1d530915129747b462ac4d05a3d06f33089cf6ec76a6a23cd4a5925137"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "saga-kinran-tsubo",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/saga-kinran-tsubo.png",
         "sha256": "7e16cf06c1d38fbf7550e53ea33e846428ae8df89c7fda39ab9523ff4c9a3c9b"
@@ -1154,11 +1560,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/saga-kinran-tsubo/turnaround-v1.png",
         "sha256": "f0d8834d0a066b1c903b3ba1472251df0494be0bcc98485a608dafbccfdbcae1"
+      },
+      "prompt": "Edit this existing sprite sheet for saga-kinran-tsubo while preserving the exact white porcelain jar, red/gold/blue kinran pattern, handles, face, palette, and strict transparent 4 by 2 layout. Keep the top-row idle frames. Redesign the bottom row so it is unmistakably a real attack animation rather than simple rotation or transform: frame 4 strongly squashes down with an angry determined face, frame 5 springs forward with visibly compressed body and shifted handles, frame 6 performs the strongest forceful shoulder/body ram with a pronounced asymmetrical jar-body deformation and aggressive face, frame 7 rebounds into a low recovery pose. The attack silhouettes must differ through character articulation/deformation, not just translation, rotation, or scaling. Exactly 8 isolated equal cells, generous transparent margins, no effects, particles, shadows, text, grid, scenery, extra character or detached parts.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/saga-kinran-tsubo-generated-source.png",
+        "sha256": "b25da3d9e1601f03e6d9f8577bdf8600838ca8a42053e1a44a7144968c77967c"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/saga-kinran-tsubo-v1.png",
+        "sha256": "f67a3e771ea68a6cd145477bcf5afeb2ef917b299dae4a440d337d03e33f3565"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "saga-yumon-douji",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/saga-yumon-douji.png",
         "sha256": "e52baf9a29a0ae836dc646f063207260963f05006e6c2e733195fcad18b82083"
@@ -1166,11 +1586,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/saga-yumon-douji/turnaround-v1.png",
         "sha256": "b6eded2d30d4dca9431f255951fb0796fd9a5b599f229eb970344ec638da7b1b"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"saga-yumon-douji\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/saga-yumon-douji-generated-source.png",
+        "sha256": "32934c02542ce69b83a09105f78c39d08e1b0783f8b279b1c2593c68f3628538"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/saga-yumon-douji-v1.png",
+        "sha256": "ad87b68afd700d03c09235380153b972b3f0002f218b04025696f14e0a428333"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "saitama-haniwaltz",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/saitama-haniwaltz.png",
         "sha256": "c11cc7527802cc23f20184bd1fa4d4e8a58084c5735149e3109bddfff8e724ff"
@@ -1178,11 +1612,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/saitama-haniwaltz/turnaround-v1.png",
         "sha256": "d0b79125c316e2d0ce15697bf1bf43bc0f847e351b964cfc9148d43d3c651dbe"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"saitama-haniwaltz\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/saitama-haniwaltz-generated-source.png",
+        "sha256": "ae3658fd813a34db587e0ad18b5e1cf705ebb550bddc6b084d7c6f7a6ecd6c66"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/saitama-haniwaltz-v1.png",
+        "sha256": "235eced3792b432158b75b0aeb13c19a695fbdd5bd85bea0df6003d97be85969"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "saitama-parissen",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/saitama-parissen.png",
         "sha256": "750ebad58973ab1870226ec95bb2886f4283b3ed50dfa464dcd2a9097bbcdc0d"
@@ -1190,11 +1638,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/saitama-parissen/turnaround-v1.png",
         "sha256": "4fd940d11a16347e113f5e134fa09b6dd53b4295617c95c6c26f4dcc08d83838"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"saitama-parissen\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/saitama-parissen-generated-source.png",
+        "sha256": "33486631aad3c050e29031ff29d6aec9ff0ae318eb57080324d247d252984419"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/saitama-parissen-v1.png",
+        "sha256": "3626bd233290dc7acfa3fa9f8562f2663357015d30cf04080493531c2b5a85e0"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "shiga-ibukikko",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/shiga-ibukikko.png",
         "sha256": "c4ef1d39c998be29e0660118fc1e6f9579e338533df3054b64cbb01de04471c8"
@@ -1202,11 +1664,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/shiga-ibukikko/turnaround-v1.png",
         "sha256": "d02a4e68dbbe72e12fa25bdb357563d8d3cdc5eb7351f1ef4245563811ca44ec"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"shiga-ibukikko\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/shiga-ibukikko-generated-source.png",
+        "sha256": "1f88570544e037c025dcba61d9ee3d8d33350fbae32ed7fc02b52e1821a8e660"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/shiga-ibukikko-v1.png",
+        "sha256": "4f824651e3d90d23ac3525413d186bae38f2c2f27beb34244b0bba1dc6bf0ab8"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "shiga-nigoron",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/shiga-nigoron.png",
         "sha256": "a9805006ae9c42a81cb5e2b8f6b0d326b8040d5aed0144ef1f312e985357b4b3"
@@ -1214,11 +1690,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/shiga-nigoron/turnaround-v1.png",
         "sha256": "c64ade94d5ff8bb00aeb1cd5202117225a7ce3fc1e0d34187fde9dc7b777b2e0"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"shiga-nigoron\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/shiga-nigoron-generated-source.png",
+        "sha256": "8804dc12a7e440d96efd2de87daa0942beeb92a742a8a27d93ebff1904f857d0"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/shiga-nigoron-v1.png",
+        "sha256": "ad8200ca37f80a46a2301a219222989c59e3146ef5c3b082869588fa94984bf4"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "shimane-lastboss-koizumi-yakumo",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/shimane-lastboss-koizumi-yakumo.png",
         "sha256": "31ee1ae75c4f036cb35a04437ce1f467cbdd04ec4d34eb1858e1e91488eda9d1"
@@ -1226,11 +1716,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/shimane-lastboss-koizumi-yakumo/turnaround-v1.png",
         "sha256": "c7ab4625c0481113586f2aa3bb34a6a934f553ace92b9e51bd3a775fa676ea94"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"shimane-lastboss-koizumi-yakumo\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/shimane-lastboss-koizumi-yakumo-generated-source.png",
+        "sha256": "6d94b8c33d856bb25f894fa7e4aaa098ac71832f37e7a180ffbf584cdf33c711"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/shimane-lastboss-koizumi-yakumo-v1.png",
+        "sha256": "7ba9ce8944ea1cdbba9ceab302349bebfa922dfd00ba4bb102e4a6ce98eb5b8a"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "shimane-tenshu-chidori",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/shimane-tenshu-chidori.png",
         "sha256": "85f0f453b508e5af92f1e5dd18eae9894e4d7dc27ec35cf2eaeb54c93a5f3b42"
@@ -1238,11 +1742,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/shimane-tenshu-chidori/turnaround-v1.png",
         "sha256": "9f0057c81fd88c8c594e6f873aca87608d2857404a25919ce22727a989189c26"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"shimane-tenshu-chidori\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/shimane-tenshu-chidori-generated-source.png",
+        "sha256": "a2afa84059726ffaf0e99458072acbb78cdf21bd1cec9714cb4238117fbf0588"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/shimane-tenshu-chidori-v1.png",
+        "sha256": "f7d9f8cfb052084ca68d6234ce0d06e55e858151e4f44394f18eeb1df458ed2b"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "shizuoka-chabashira",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/shizuoka-chabashira.png",
         "sha256": "fe130f260649545e27251f556f80ab7ee17cb0120ed5aaf3cd9edc57e93465bf"
@@ -1250,11 +1768,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/shizuoka-chabashira/turnaround-v1.png",
         "sha256": "83664dfb700a14d0c4c4724651bb2a31c7fa73bcd048184f200bd6aba544cdd4"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"shizuoka-chabashira\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/shizuoka-chabashira-generated-source.png",
+        "sha256": "af9c771be8b731902696271cda16c8d5469dcdc133b0cb17615edea4bb8150fc"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/shizuoka-chabashira-v1.png",
+        "sha256": "db9aee366b92ce0d23c88ca74d1248c4614f57b17bd93a8e88c20198bc3a2654"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "shizuoka-soradako",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/shizuoka-soradako.png",
         "sha256": "dcdc359def3f39780ece267d909d048a79d263964824b580d00f8fa47dad0bf2"
@@ -1262,11 +1794,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/shizuoka-soradako/turnaround-v1.png",
         "sha256": "8e6e2d4fcac86b7007c2b0fb2d357275bd2f5a1cef78834b134c0150723f688c"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"shizuoka-soradako\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/shizuoka-soradako-generated-source.png",
+        "sha256": "4bd8324641d961a8e675f660fcecf81ebd06b3961a08c89a4817824da5e80698"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/shizuoka-soradako-v1.png",
+        "sha256": "8500acb5634b4bbc48583d18e6294b772dd9a7570a6c4ba19f0ac0e3a996a985"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tochigi-bellmoo",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/tochigi-bellmoo.png",
         "sha256": "f25c82fd5deccbec7a1a750adb907d8b4ea64baa75926ef61b4fe1e98ac813a2"
@@ -1274,11 +1820,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/tochigi-bellmoo/turnaround-v1.png",
         "sha256": "62b180777c3ece4d8cba36a010ebd8323eb916617440cde7b850b876d2c2edc9"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tochigi-bellmoo\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tochigi-bellmoo-generated-source.png",
+        "sha256": "8f80e179fecc3469f0e9662b6e5376260237d5f3afe54a5d8f1defdd9c47cfe0"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tochigi-bellmoo-v1.png",
+        "sha256": "7e3e6a5ce38690d827d7a8b4f5ac578f1b4714212216e0635aedef30c3f44429"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tochigi-ichigo-ouji",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/tochigi-ichigo-ouji.png",
         "sha256": "0e858fc60ebab9414ba78b026269765ea2db8eaafdddf5ae7e2d7f06b57166e1"
@@ -1286,11 +1846,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/tochigi-ichigo-ouji/turnaround-v1.png",
         "sha256": "92ed1dc5c14f662b87075e212d1f72f539d756222d0aaa19e83c50eda80c9828"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tochigi-ichigo-ouji\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tochigi-ichigo-ouji-generated-source.png",
+        "sha256": "634c54d23de71e4349f992d81f86fdaf3b5104900d3f0186752f65beebabb91c"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tochigi-ichigo-ouji-v1.png",
+        "sha256": "ad63ffce248dce2f84a872ea1eaaea87c0be4e49fe6177811aacc4824878c32b"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tokushima-boss-awaodori-ou",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/tokushima-boss-awaodori-ou.png",
         "sha256": "339d8cfe3136c4bfe46d42db3f9c742ab25ef9c5275278f91a74e39bec818ff8"
@@ -1298,11 +1872,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/tokushima-boss-awaodori-ou/turnaround-v1.png",
         "sha256": "a0741f6df7791b7b9be6e4e2d7e6ee52b3b95244bebc175281f470554447b85d"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tokushima-boss-awaodori-ou\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tokushima-boss-awaodori-ou-generated-source.png",
+        "sha256": "045da2dd1b6f92a6e21aaf3b68713d33a6d7dbd1f662e3ee742b39a2459a4da2"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tokushima-boss-awaodori-ou-v1.png",
+        "sha256": "031c7ce2b69d797c52ab2488321c89a2dc48f2b0c4e222a00ef32e5c58859cc5"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tokushima-midboss-uzushion",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/tokushima-midboss-uzushion.png",
         "sha256": "23e151c11eb6e3f97d59d27d55d4ac0c474d548a85eb6972ee92abb5fdef3be6"
@@ -1310,11 +1898,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/tokushima-midboss-uzushion/turnaround-v1.png",
         "sha256": "0acb15963690af14319a62db9a62f7731b97e7000ca6acdb8f0410986af8691d"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tokushima-midboss-uzushion\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tokushima-midboss-uzushion-generated-source.png",
+        "sha256": "8c1bc7075f88cd4cec800f92565fdfd193780bd640fb549963d8c22659618899"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tokushima-midboss-uzushion-v1.png",
+        "sha256": "de1436a37d8e4bd8e6874fb11c6af5ff0fffd0f99d9f8d239e8a9bbd061d47ac"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tokushima-sudachibi",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/tokushima-sudachibi.png",
         "sha256": "3f435bba9ab413830b75824e703d97d394d510ca40224097471c1601ff8f13d6"
@@ -1322,11 +1924,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/tokushima-sudachibi/turnaround-v1.png",
         "sha256": "7d775e66b6a4856eccc0e36caccd45061209effdeac38d737bfde317b736f1fd"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tokushima-sudachibi\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tokushima-sudachibi-generated-source.png",
+        "sha256": "c34fdac5476897598b383a14ce2b25fae42db1c403dc668e2bfc0f7037945420"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tokushima-sudachibi-v1.png",
+        "sha256": "521a939e1144145e38ba0fc0c3f70754d316df4e89d63f283130a96ab0c458b8"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tokyo-lastboss-katsushika-hokusai",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/tokyo-lastboss-katsushika-hokusai.png",
         "sha256": "f84a53e48e9e48f2b241d890954aca34975816f967440041fb9c8c98a1fbbd98"
@@ -1334,11 +1950,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/tokyo-lastboss-katsushika-hokusai/turnaround-v1.png",
         "sha256": "1d0daa56e7c3d250c4ef966e454489fa3e218b983f7dac5232cf2873cc0045c8"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tokyo-lastboss-katsushika-hokusai\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tokyo-lastboss-katsushika-hokusai-generated-source.png",
+        "sha256": "4ce7c055fc03cad87e26214e9a6b1e9abc8c4287466046b57378f24f185cf2b5"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tokyo-lastboss-katsushika-hokusai-v1.png",
+        "sha256": "fbe842cc54932a3380e7291bc651535586ed0c85894379644ad748bf379da628"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tottori-beniganin",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/tottori-beniganin.png",
         "sha256": "a1f801f59dc0da67cdeb3206cf0197c2c95afd3cc0473be283895bf27f4b024f"
@@ -1346,11 +1976,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/tottori-beniganin/turnaround-v1.png",
         "sha256": "f2c64aedfd9178d7aafd5bdb7348e099f8609b0982d93dec7a68099702230127"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tottori-beniganin\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tottori-beniganin-generated-source.png",
+        "sha256": "8624ce0057dfad21074a478d08dbdc1089342e9be7aea3259ed18f37a7d5b65b"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tottori-beniganin-v1.png",
+        "sha256": "e7bd5517b75887ec8fc91bfff9eafd9d7c8336cf893c97b2f9246280c92b6b17"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tottori-nashikoron",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/tottori-nashikoron.png",
         "sha256": "3e1539302e73f9a21f87c0beaab611ec09e1c14412b0f73be2711281bd2b4023"
@@ -1358,11 +2002,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/tottori-nashikoron/turnaround-v1.png",
         "sha256": "e86cc122b1c91466642c1c6dfcce3bf39c9ff623c653ee020a4f5169936cdafe"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tottori-nashikoron\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tottori-nashikoron-generated-source.png",
+        "sha256": "92855af2b214068d5a20d6ed9eacff23032bc30facdfef2bbae0dfb25ce517ea"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tottori-nashikoron-v1.png",
+        "sha256": "e80b357c80b7150e008246b5d3b73bfa5e9aa4a71bec2ceaf776be5a18e6a7d1"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "tottori-sumiewashi",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/tottori-sumiewashi.png",
         "sha256": "79b693f53981dd1d6bfe56e086393d51a93fb782d7f474aad84c607dafb3156b"
@@ -1370,11 +2028,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/tottori-sumiewashi/turnaround-v1.png",
         "sha256": "d55a7d5c1915dbf67aadec2a5cbda959844ed44779cd3c5d0fce0f31639a38a1"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"tottori-sumiewashi\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/tottori-sumiewashi-generated-source.png",
+        "sha256": "4a197ab2fa704790a6eef3855fe92ee47aa6107e24ec711fcd0e8d46e4aeb213"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/tottori-sumiewashi-v1.png",
+        "sha256": "7ebee69c8a5c4a7be38fb4f9c212f03d9486148eece5366f6e5f8b4bcb2e3c02"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "toyama-mankai-churi",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/toyama-mankai-churi.png",
         "sha256": "cbfa269e740b89d7180d05a3d1275c87d6d57e3944bab663402a259d72fea032"
@@ -1382,11 +2054,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/toyama-mankai-churi/turnaround-v1.png",
         "sha256": "15c469a887d4486a27353ae6502921ef204f4505f7b60f50ca165b710c063579"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"toyama-mankai-churi\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/toyama-mankai-churi-generated-source.png",
+        "sha256": "735ac46499f870ca3cc500a077f016eb59cf95c96c5329b2e8dbe62d76295a82"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/toyama-mankai-churi-v1.png",
+        "sha256": "29549c9f0c63a14e3e4ff50463bb9ea5161da28937e189338e2494d04913ea28"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "toyama-pikka-ika",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/pixel-references/toyama-pikka-ika.png",
         "sha256": "d6f49ae21b7a2235c340bc335b8e6377d429d58c5e4383a57d338a085680dd1e"
@@ -1394,11 +2080,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v8/toyama-pikka-ika/turnaround-v1.png",
         "sha256": "fea546b315fe6ce27a9e88fa38c08afed1ae22374df1dd6c19f2434da1b83322"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"toyama-pikka-ika\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/toyama-pikka-ika-generated-source.png",
+        "sha256": "41d76049ac9a7428df27cb6bc35cda2fdcf005df8c0873c7090c331cf16eb9b5"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/toyama-pikka-ika-v1.png",
+        "sha256": "3bea15c6aa83ef516bb94458f0cf996107bc8b42664453f8426834f1f62ee3fe"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "wakayama-koromikan",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/wakayama-koromikan.png",
         "sha256": "a639a451d71d9027fd878e6fb1791c4b30d5dd888a3721d0c20b218aa071501b"
@@ -1406,11 +2106,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/wakayama-koromikan/turnaround-v1.png",
         "sha256": "2f31c3f0ed7f65472ece94ac3afa6bd6b6b4ff4b053307004fd8ac729c260e79"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"wakayama-koromikan\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/wakayama-koromikan-generated-source.png",
+        "sha256": "bbcbbc2ac3b9e2f722125e16d69f58c76e5afa29cba850391da4ac0f17ac08cd"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/wakayama-koromikan-v1.png",
+        "sha256": "ace54d1994704a994a06553434e0dbf1e26930e65f6472d35c19de7d44e95440"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "wakayama-ootakimaru",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/wakayama-ootakimaru.png",
         "sha256": "470903198a44bc5f5bd8014f06e2e79e6c3be3bf96e05b72eaeecbc10330485d"
@@ -1418,11 +2132,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/wakayama-ootakimaru/turnaround-v1.png",
         "sha256": "9c4f4ffa352bc6325e7903138d35714857b5ae8e2ded45e7aa37eeb490cc7e22"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"wakayama-ootakimaru\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/wakayama-ootakimaru-generated-source.png",
+        "sha256": "989575500f7560e26089a0a622278a7ff72a9e9fc7c03dc1e0fdc784902d51ff"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/wakayama-ootakimaru-v1.png",
+        "sha256": "71c16ef3650306ce0422efb557f88aead926abbc23b3af76cc70b09f293902d7"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "yamagata-imoni-nabe",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v6/pixel-references/yamagata-imoni-nabe.png",
         "sha256": "8bd0ad5225bfee4d35d6cddd3b18e574f45f9c201ae2af871e900c0c7d555298"
@@ -1430,11 +2158,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v6/yamagata-imoni-nabe/turnaround-v1.png",
         "sha256": "ae8c3c3498384837d00d025404a113df0a82e29aca1cb90fee45095012bdd251"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"yamagata-imoni-nabe\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/yamagata-imoni-nabe-generated-source.png",
+        "sha256": "b2d7a876cbf9a123eb161c9ec8de8e036bbba81f7f5bee90dc4868d9b8142789"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/yamagata-imoni-nabe-v1.png",
+        "sha256": "1be836138f6e9732fb11c8d3707ca1a96009586ec8713b121ee182da81d4a9e3"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "yamagata-sakuranboy",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v6/pixel-references/yamagata-sakuranboy.png",
         "sha256": "127b3a69ca5f210884b91925c6ef512593d0108cb45768745543dbbc0646f55b"
@@ -1442,11 +2184,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v6/yamagata-sakuranboy/turnaround-v2.png",
         "sha256": "3b45de7ad10251be69383d635c86603b37268e37fbac1ed17e8673c500455e0a"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"yamagata-sakuranboy\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/yamagata-sakuranboy-generated-source.png",
+        "sha256": "65abaa9d2b03e9b2085e355e6e47c8b88d837d539adfc4447de2289661f19064"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/yamagata-sakuranboy-v1.png",
+        "sha256": "746bfc55fe3f04976d740307cd1c78779db0eee1c27447e1ea92955410cd7005"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "yamaguchi-hashiwatari",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/yamaguchi-hashiwatari.png",
         "sha256": "76dca4cf054ac8f3aa8977f7f60383b2e64a06756539bf6d8ba013864cd1b1b7"
@@ -1454,11 +2210,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/yamaguchi-hashiwatari/turnaround-v1.png",
         "sha256": "9f260215938bc6e8956fd0e138fbb5c435fb0aa5d5e1d105e64172280778f29b"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"yamaguchi-hashiwatari\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/yamaguchi-hashiwatari-generated-source.png",
+        "sha256": "bc1654edca8b44f1dcf77a82a16df36def94810cbf7c8ae98ae6699407dfe577"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/yamaguchi-hashiwatari-v1.png",
+        "sha256": "0044ff47050801681afb27e95016a59725806f2059c63523f7504b926458f658"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "yamaguchi-nanabaken",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/yamaguchi-nanabaken.png",
         "sha256": "27ecffff48051c63027b1e2c2e32640c90c039cd4844edb3f7ffa2bd628fc8a5"
@@ -1466,11 +2236,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/yamaguchi-nanabaken/turnaround-v1.png",
         "sha256": "d563cd923388e2dd83378b2c23e4766d79c2a527229c2a927a50ff34f0c53bc5"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"yamaguchi-nanabaken\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/yamaguchi-nanabaken-generated-source.png",
+        "sha256": "9efa76d51ff3076d428850403546a3664f8f04e4dda053b94786005c9dbd19cd"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/yamaguchi-nanabaken-v1.png",
+        "sha256": "64f3aae708e593407de76a21af43e2b4d67f8f88292ed0bfc3b4755afb426652"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "yamanashi-atsuatsu-houtou",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/yamanashi-atsuatsu-houtou.png",
         "sha256": "a319b3f9f23e3310b81f40b90bd9d69cd52ee8c6fda6d8748bf28537d3a32e39"
@@ -1478,11 +2262,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/yamanashi-atsuatsu-houtou/turnaround-v1.png",
         "sha256": "b0655db4678ba932e65ed626b27b8d22aa750cb84edda23d988f232dc86137a8"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"yamanashi-atsuatsu-houtou\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/yamanashi-atsuatsu-houtou-generated-source.png",
+        "sha256": "b8ac6e8801732d6cd16fd412f72123bc062e3a54c22b780653d9f0149bd8adf4"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/yamanashi-atsuatsu-houtou-v1.png",
+        "sha256": "734199455c956c10a17953efd168a76a3500e07f3afbd11fda385246737c33b7"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "yamanashi-lastboss-takeda-shingen",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/yamanashi-lastboss-takeda-shingen.png",
         "sha256": "5f4472ef271075cb4fb2e49a2de72e0202c950e47505e65d0c49a07b818ab5e1"
@@ -1490,11 +2288,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/yamanashi-lastboss-takeda-shingen/turnaround-v1.png",
         "sha256": "de3a06479ae7db26564ab4ec3af167b551ec37ad67b6a8fc9c71326de2c81b3d"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"yamanashi-lastboss-takeda-shingen\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/yamanashi-lastboss-takeda-shingen-generated-source.png",
+        "sha256": "8f759e76a1e115e1f8b089d0843d14933196c3f06f2f94393ffbaaf77cce1a50"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/yamanashi-lastboss-takeda-shingen-v1.png",
+        "sha256": "864b4d9eced172703d90e95ce8847ebfb377f0a24fb5ca244845d262a8add012"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "yamanashi-tawawa-budou",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/pixel-references/yamanashi-tawawa-budou.png",
         "sha256": "3dab305560019d64ed428ce651a56134beb67940ec20615cfd595b9d178b6e1e"
@@ -1502,6 +2314,20 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/nationwide-turnarounds-v9/yamanashi-tawawa-budou/turnaround-v1.png",
         "sha256": "a2c29a94f203903d554b73c1a2e1f48b17f24a53bfc4cbee913a6a625fa3ebe7"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"yamanashi-tawawa-budou\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/yamanashi-tawawa-budou-generated-source.png",
+        "sha256": "e3548efd37b73e4b5050a2920a2c4c08a9729295d0faf271079f0e69bd046584"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/yamanashi-tawawa-budou-v1.png",
+        "sha256": "002951af16cb36088858ef106b7bf559fa7164c67310df79c22e3c8a57d084e3"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     }
   ]

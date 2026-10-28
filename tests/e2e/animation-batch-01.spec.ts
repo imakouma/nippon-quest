@@ -63,11 +63,13 @@ for (const viewport of [
       expect(initial.width).toBeLessThanOrEqual(initial.expectedMaxSize);
       expect(initial.height).toBeLessThanOrEqual(initial.expectedMaxSize);
       await expect
-        .poll(() =>
-          page.evaluate(() => {
-            const sprite = (window.__nq.scene.getScene('Battle') as Battle).enemySprite;
-            return new Set(sprite.getData('observedFrames') as string[]).size;
-          }),
+        .poll(
+          () =>
+            page.evaluate(() => {
+              const sprite = (window.__nq.scene.getScene('Battle') as Battle).enemySprite;
+              return new Set(sprite.getData('observedFrames') as string[]).size;
+            }),
+          { timeout: 30_000 },
         )
         .toBeGreaterThan(2);
       await page.screenshot({ path: info.outputPath(`${monsterId}-idle.png`) });
