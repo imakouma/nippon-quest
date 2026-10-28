@@ -39,23 +39,23 @@ Approved for implementation on branch `codex/curriculum-concept-connectivity` fr
 
 ## Task 3: Kokugo grade 1
 
-- [ ] Add at least 6 source-backed relations.
-- [ ] Cover all 6 grade-1 Kokugo baseline isolated Concepts.
-- [ ] Run curriculum validation, non-strict audit, and related tests.
-- [ ] Confirm no cycle, duplicate, reverse-grade, or Unit regression.
+- [x] Add at least 6 source-backed relations.
+- [x] Cover all 6 grade-1 Kokugo baseline isolated Concepts.
+- [x] Run curriculum validation, non-strict audit, and related tests.
+- [x] Confirm no cycle, duplicate, reverse-grade, or Unit regression.
 
 ## Task 4: Kokugo grade 2/3
 
-- [ ] Add at least 6 source-backed relations.
-- [ ] Cover all 6 grade-2/3 Kokugo baseline isolated Concepts.
-- [ ] Run curriculum validation, non-strict audit, and related tests.
-- [ ] Confirm Kokugo isolation is 0.
+- [x] Add at least 6 source-backed relations.
+- [x] Cover all 6 grade-2/3 Kokugo baseline isolated Concepts.
+- [x] Run curriculum validation, non-strict audit, and related tests.
+- [x] Confirm Kokugo isolation is 0.
 
 ### Checkpoint B
 
-- [ ] Kokugo added at least 12 relations.
-- [ ] Kokugo isolation is 0.
-- [ ] Global structural checks remain clean.
+- [x] Kokugo added at least 12 relations.
+- [x] Kokugo isolation is 0.
+- [x] Global structural checks remain clean.
 
 ## Task 5: Sansu grade 1
 
