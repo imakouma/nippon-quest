@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft for human approval. Capability map module: `question-content-layout`.
+Approved by the user on 2026-10-29. Capability map module: `question-content-layout`.
 
 ## Objective
 
