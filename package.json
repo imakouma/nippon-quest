@@ -68,6 +68,8 @@
     "audit:academic-review": "tsx scripts/audit-academic-review.ts",
     "audit:academic-review:strict": "tsx scripts/audit-academic-review.ts --strict",
     "academic-review:record": "tsx scripts/record-academic-review.ts",
+    "kokugo:review:export": "tsx scripts/kokugo-review.ts export",
+    "kokugo:review:apply": "tsx scripts/kokugo-review.ts apply",
     "inventory:cinematics": "tsx scripts/inventory-cinematic-assets.ts",
     "audit:worldmap": "tsx scripts/audit-worldmap.ts",
     "audit:battle-balance": "tsx scripts/audit-battle-balance.ts",
