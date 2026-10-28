@@ -1,4 +1,5 @@
 import type { Unit } from '../../core/content/schemas';
+import type { ContentIndex } from '../../core/content/loader';
 import {
   aggregateUnitMastery,
   buildLearningPlan,
@@ -10,7 +11,10 @@ import {
 } from '../../core/learning';
 import { availableRoadmapSubjects, isCompletedRoadmapProgress } from '../../core/learning/subjectUnlocks';
 import { canonicalUnitId, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
+import { roadmapGrandfatheredUnitIds } from '../../core/state/roadmapSnapshot';
+import type { GameState } from '../../core/state/schema';
 import type { Grade } from '../../questions/contracts';
+import type { QuestionBank } from '../../questions/engine';
 import type { MasteryData } from '../../questions/engine/mastery';
 import type { LearningPlanInput } from '../../core/learning/learningPlan';
 import type { RoadmapNode, RoadmapTodayItem, RoadmapViewModel } from '../../shared/menuModel';
@@ -45,6 +49,47 @@ export type RoadmapViewModelInput = Omit<RoadmapInput, 'curriculum' | 'now' | 'p
 /** ゲーム本体で使う正規カリキュラムを結びつけ、Sceneから教材定義の所在を隠す。 */
 export function buildGameRoadmapNodes(input: Omit<RoadmapInput, 'curriculum'>): RoadmapNode[] {
   return buildRoadmapNodes({ ...input, curriculum: curriculumGraph });
+}
+
+/** ゲーム本体の正規カリキュラムを使って、今日プラン込みの表示モデルを作る。 */
+export function buildGameRoadmapViewModel(
+  input: Omit<RoadmapViewModelInput, 'curriculum'>,
+): RoadmapViewModel {
+  return buildRoadmapViewModel({ ...input, curriculum: curriculumGraph });
+}
+
+/** Overworld が持つ既存状態を、Scene非依存の表示モデル入力へ変換する。 */
+export function buildRuntimeRoadmapViewModel(input: {
+  content: Pick<ContentIndex, 'units'>;
+  game: GameState;
+  questionBank?: QuestionBank;
+  revealAll: boolean;
+  now: number;
+  subjectLabel: (subject: string) => string;
+}): RoadmapViewModel {
+  const base = {
+    units: input.content.units.values(),
+    mastery: input.game.learning.mastery,
+    conceptStates: input.game.learning.conceptStates,
+    grandfatheredUnitIds: roadmapGrandfatheredUnitIds(input.game),
+    revealAll: input.revealAll,
+    playerGrade: input.game.learning.grade,
+    challengeHigher: input.game.learning.challengeHigher,
+    subjectLabel: input.subjectLabel,
+  };
+  if (!input.questionBank) {
+    return { nodes: buildGameRoadmapNodes(base), todayPlan: { items: [], allComplete: false } };
+  }
+  return buildGameRoadmapViewModel({
+    ...base,
+    now: input.now,
+    learningPlan: {
+      questionBank: input.questionBank,
+      attempts: input.game.learning.attempts,
+      recentQuestionIds: input.game.learning.recent,
+      includeLower: input.game.learning.includeLower,
+    },
+  });
 }
 
 /** 正規カリキュラム、今日プラン、ロードマップを一つの表示契約へまとめる。 */

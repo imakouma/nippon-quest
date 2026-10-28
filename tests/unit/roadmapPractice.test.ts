@@ -13,6 +13,7 @@ import type { AskEnv, AskResult } from '../../src/questions/engine';
 import { QuestionBank } from '../../src/questions/engine';
 import {
   runRoadmapPractice,
+  runRoadmapPracticeByQuestionId,
   selectRoadmapPracticeQuestion,
   type RoadmapPracticeHost,
 } from '../../src/scenes/overworld/roadmapPractice';
@@ -365,6 +366,31 @@ describe('runRoadmapPractice', () => {
     expect(fixture.root.childElementCount).toBe(0);
   });
 
+  it('今日カードが渡したquestionIdの問題を正確に実行する', async () => {
+    const first = question('first-question', 'sansu.g1.first');
+    const selected = question('selected-question', 'sansu.g1.selected');
+    const fixture = runtimeFixture(selected);
+    fixture.bank.add(first);
+    vi.spyOn(learningPlanProvider, 'buildLearningPlan').mockReturnValue([
+      incompletePlanItem(first, 'due-review'),
+      incompletePlanItem(selected, 'unseen-primary'),
+    ]);
+    mocks.askById.mockResolvedValue({
+      questionId: selected.id,
+      score: 1,
+      timeMs: 100,
+      attempts: 1,
+      unit: selected.unit,
+      subject: selected.subject,
+    });
+
+    const result = await runRoadmapPracticeByQuestionId(fixture.host, selected.id);
+
+    expect(result?.questionId).toBe(selected.id);
+    expect(mocks.askById).toHaveBeenCalledOnce();
+    expect(mocks.askById).toHaveBeenCalledWith(expect.any(Object), selected.id);
+  });
+
   it('候補なしとstale候補では回答前の状態を変えず既存案内だけを表示する', async () => {
     const item = question('stale-question');
     const fixture = runtimeFixture(item);
@@ -430,7 +456,7 @@ describe('runRoadmapPractice', () => {
 
     expect(planSpy).toHaveBeenCalledWith({
       graph: curriculumGraph,
-      questionBank: fixture.bank,
+      questionBank: expect.objectContaining({ get: expect.any(Function), all: expect.any(Function) }),
       conceptStates: fixture.game.learning.conceptStates,
       attempts: fixture.game.learning.attempts,
       recentQuestionIds: fixture.game.learning.recent,
@@ -439,5 +465,6 @@ describe('runRoadmapPractice', () => {
       gradeScope: { grade: item.grade, includeLower: true, challengeHigher: true },
       now: DAY_START + 1,
     });
+    expect(planSpy.mock.calls[0]?.[0].questionBank.all()).toEqual([]);
   });
 });
