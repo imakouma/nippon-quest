@@ -61,6 +61,7 @@
     "check:architecture": "tsx scripts/check-architecture.ts",
     "check:animation-production": "tsx scripts/animation-production/audit-production.ts",
     "check:animation-sources": "tsx scripts/check-animation-sources.ts",
+    "accept:animation-wave": "tsx scripts/animation-production/accept-wave.ts",
     "normalize:animation-sheet": "tsx scripts/animation-production/normalize-sheet.ts",
     "check:performance": "tsx scripts/check-performance-budget.ts",
     "typecheck:app": "tsc -p tsconfig.app.json --noEmit",
