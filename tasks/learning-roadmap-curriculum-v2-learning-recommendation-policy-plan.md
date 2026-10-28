@@ -391,18 +391,18 @@ ConceptState、AttemptEvent、masteryを明示する。QuestionBankは公開 `ad
 
 ## 7. 集中検証マトリクス
 
-| 契約 | 主テスト | 追加確認 |
-|---|---|---|
-| 学年・QuestionBank適格性 | `learningRecommendationPolicy.test.ts` | 境界1/6、lower/higher組合せ |
-| due順位 | `learningRecommendationPolicy.test.ts` | `dueAt`、0.65、overdue cap、weight合計 |
-| 直接前提 | `learningRecommendationPolicy.test.ts` | 1辺のみ、修得済み除外、stateなし |
-| unseenカテゴリ | `learningRecommendationPolicy.test.ts` | primary限定、全AttemptEvent履歴 |
-| 決定論 | `learningRecommendationPolicy.test.ts` | 逆順入力、全tie-break、recent再利用 |
-| JST日境界 | `learningPlan.test.ts` | 00:00直前/直後、同日、翌日 |
-| 完了復元 | `learningPlan.test.ts` | reason、重複、deleted question |
-| 最大3件・多様性 | `learningPlan.test.ts` | 異Unit優先、同Unit fallback、0〜2件 |
-| 非破壊 | 両専用test | deep freeze、新規結果配列/オブジェクト |
-| v13・報酬維持 | 両専用test + 統合確認 | schema/reward moduleにdiffなし |
+| 契約                     | 主テスト                               | 追加確認                               |
+| ------------------------ | -------------------------------------- | -------------------------------------- |
+| 学年・QuestionBank適格性 | `learningRecommendationPolicy.test.ts` | 境界1/6、lower/higher組合せ            |
+| due順位                  | `learningRecommendationPolicy.test.ts` | `dueAt`、0.65、overdue cap、weight合計 |
+| 直接前提                 | `learningRecommendationPolicy.test.ts` | 1辺のみ、修得済み除外、stateなし       |
+| unseenカテゴリ           | `learningRecommendationPolicy.test.ts` | primary限定、全AttemptEvent履歴        |
+| 決定論                   | `learningRecommendationPolicy.test.ts` | 逆順入力、全tie-break、recent再利用    |
+| JST日境界                | `learningPlan.test.ts`                 | 00:00直前/直後、同日、翌日             |
+| 完了復元                 | `learningPlan.test.ts`                 | reason、重複、deleted question         |
+| 最大3件・多様性          | `learningPlan.test.ts`                 | 異Unit優先、同Unit fallback、0〜2件    |
+| 非破壊                   | 両専用test                             | deep freeze、新規結果配列/オブジェクト |
+| v13・報酬維持            | 両専用test + 統合確認                  | schema/reward moduleにdiffなし         |
 
 Agent側の最終focused gateは次とする。
 
@@ -416,19 +416,19 @@ git diff --check
 
 ## 8. リスクと緩和策
 
-| リスク | 影響 | 緩和策 |
-|---|---|---|
-| Wave 1未統合 | alias別に異なる推薦、重複ロジック | Slice 0を停止ゲートにし、fallbackを作らない |
-| 既存review関数の変更 | Overworld等へ広い回帰 | `estimatedRetention` だけを再利用し、新モジュールへ閉じる |
-| mastery完全性の簡略化 | 部分状態を修得済みに誤判定 | 非misconception概念の完全性と2つの修得条件をfixture化 |
-| 暗黙の配列順 | 同じ入力で推薦が変動 | 全比較キーとASCII questionIdを明示し、逆順fixtureを使う |
-| recent処理で順位を崩す | 古い問題が新規候補より先になる | 同じcomparator後のfresh/reusable 2パスを固定する |
-| JST境界ずれ | 日中再読込やUTC境界でプラン交換 | 固定+09:00式を1回だけ計算し境界testを置く |
-| 完了reasonの逆推測 | 保存済み意味と表示が不一致 | AttemptEventの2値を保持し4値への逆変換を禁止する |
-| 削除済み問題の復元 | 架空カード、undefined参照 | QuestionBankとlinkから復元不能なら項目を作らない |
-| 入力mutation | GameStateやGraphの静かな破損 | readonly型、コピー後sort、deep freeze回帰 |
-| 保存・報酬へのscope creep | v13非互換、二重報酬 | schema/reward/callerを所有外とし、diff監査する |
-| 全体gateの並列実行 | CI/ローカル資源競合 | Agentはfocused gateだけ、統合担当が一度だけfull gate |
+| リスク                    | 影響                              | 緩和策                                                    |
+| ------------------------- | --------------------------------- | --------------------------------------------------------- |
+| Wave 1未統合              | alias別に異なる推薦、重複ロジック | Slice 0を停止ゲートにし、fallbackを作らない               |
+| 既存review関数の変更      | Overworld等へ広い回帰             | `estimatedRetention` だけを再利用し、新モジュールへ閉じる |
+| mastery完全性の簡略化     | 部分状態を修得済みに誤判定        | 非misconception概念の完全性と2つの修得条件をfixture化     |
+| 暗黙の配列順              | 同じ入力で推薦が変動              | 全比較キーとASCII questionIdを明示し、逆順fixtureを使う   |
+| recent処理で順位を崩す    | 古い問題が新規候補より先になる    | 同じcomparator後のfresh/reusable 2パスを固定する          |
+| JST境界ずれ               | 日中再読込やUTC境界でプラン交換   | 固定+09:00式を1回だけ計算し境界testを置く                 |
+| 完了reasonの逆推測        | 保存済み意味と表示が不一致        | AttemptEventの2値を保持し4値への逆変換を禁止する          |
+| 削除済み問題の復元        | 架空カード、undefined参照         | QuestionBankとlinkから復元不能なら項目を作らない          |
+| 入力mutation              | GameStateやGraphの静かな破損      | readonly型、コピー後sort、deep freeze回帰                 |
+| 保存・報酬へのscope creep | v13非互換、二重報酬               | schema/reward/callerを所有外とし、diff監査する            |
+| 全体gateの並列実行        | CI/ローカル資源競合               | Agentはfocused gateだけ、統合担当が一度だけfull gate      |
 
 ## 9. 報酬・v13セーブ・所有権の保全
 

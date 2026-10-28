@@ -10,3 +10,6 @@ export * from './catalog';
 export * from './review';
 export * from './unitAliases';
 export * from './unitProgress';
+export * from './recommendationPolicy';
+export * from './learningPlan';
+export * from './roadmapRelations';

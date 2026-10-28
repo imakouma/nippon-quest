@@ -82,10 +82,7 @@
 
 ```ts
 export type LearningRecommendationReason =
-  | 'due-review'
-  | 'weak-prerequisite'
-  | 'unseen-primary'
-  | 'unseen-question';
+  'due-review' | 'weak-prerequisite' | 'unseen-primary' | 'unseen-question';
 
 export type CompletedLearningPlanReason = 'review' | 'diagnosis';
 
@@ -131,11 +128,11 @@ export function recommendationReasonToAttemptReason(
 純粋変換 `recommendationReasonToAttemptReason` を次の固定表で適用する。
 
 | LearningRecommendationReason | AttemptEvent.reason |
-|---|---|
-| `due-review` | `review` |
-| `weak-prerequisite` | `diagnosis` |
-| `unseen-primary` | `diagnosis` |
-| `unseen-question` | `diagnosis` |
+| ---------------------------- | ------------------- |
+| `due-review`                 | `review`            |
+| `weak-prerequisite`          | `diagnosis`         |
+| `unseen-primary`             | `diagnosis`         |
+| `unseen-question`            | `diagnosis`         |
 
 この変換は入力reasonだけで決まり、GameState、時刻、QuestionBankを参照しない。既存
 `AttemptEvent.reason` enum、永続schema、migrationは変更しない。

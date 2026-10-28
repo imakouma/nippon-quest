@@ -224,13 +224,13 @@ Synthetic fixture concepts and relations are preferred over editing curriculum J
 
 ## Focused verification matrix
 
-| Concern | Evidence | Command |
-|---|---|---|
-| Upstream ID contract | Wave 1 canonicalization tests | `pnpm vitest run tests/unit/unitProgress.test.ts` |
-| Projection behavior | Dedicated unit suite | `pnpm vitest run tests/unit/roadmapRelations.test.ts` |
-| Directly affected tests | Vitest related selection | `pnpm test:related src/core/learning/roadmapRelations.ts tests/unit/roadmapRelations.test.ts` |
-| Type/import/format/architecture | Fast repository gate | `pnpm check:fast` |
-| Patch hygiene | Whitespace and scope | `git diff --check`, `git status --short` |
+| Concern                         | Evidence                      | Command                                                                                       |
+| ------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------- |
+| Upstream ID contract            | Wave 1 canonicalization tests | `pnpm vitest run tests/unit/unitProgress.test.ts`                                             |
+| Projection behavior             | Dedicated unit suite          | `pnpm vitest run tests/unit/roadmapRelations.test.ts`                                         |
+| Directly affected tests         | Vitest related selection      | `pnpm test:related src/core/learning/roadmapRelations.ts tests/unit/roadmapRelations.test.ts` |
+| Type/import/format/architecture | Fast repository gate          | `pnpm check:fast`                                                                             |
+| Patch hygiene                   | Whitespace and scope          | `git diff --check`, `git status --short`                                                      |
 
 Do not run `pnpm check:full`, `pnpm test`, or `pnpm build` from this parallel worktree. The integration owner runs complete gates once after combining the wave.
 
@@ -245,17 +245,17 @@ Do not run `pnpm check:full`, `pnpm test`, or `pnpm build` from this parallel wo
 
 ## Risks and mitigations
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| Implementation starts from base `canonicalUnitId()` before Wave 1 adds raw legacy support | High | Make Task 0 a hard gate; merge the approved Wave 1 implementation first and never add a local alias workaround. |
-| Unit normalization collapses an acyclic concept graph into a hard Unit cycle | High | Detect after normalization and throw with Unit IDs; never drop a prerequisite. |
-| Supporting cycles make layout recursion unstable | High | Add hard edges first, pre-sort supporting candidates, and skip only cycle-closing candidates; verify reciprocal and 3-node cases. |
-| Hard and supporting relations render coincident duplicate lines | Medium | Deduplicate by directed Unit pair with unconditional prerequisite dominance. |
-| Multiple supporting kinds for one pair produce input-order-dependent output | Medium | Apply the approved fixed priority before pair selection and test shuffled input. |
-| Core becomes coupled to the full UI implementation | Medium | Use only a type-level reference to the existing neutral shared DTO; do not import Preact, UI components, or Scene code. |
-| Output maps or arrays share mutable input references | Medium | Allocate fresh maps/arrays and run frozen/snapshot input tests on success and error paths. |
-| Current real data does not exercise all four kinds | Medium | Use focused synthetic fixtures; do not edit curriculum JSON to manufacture coverage. |
-| A full gate collides with parallel worktrees | Medium | Run only dedicated, related, and `check:fast`; reserve complete gates for the integration owner. |
+| Risk                                                                                      | Impact | Mitigation                                                                                                                        |
+| ----------------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| Implementation starts from base `canonicalUnitId()` before Wave 1 adds raw legacy support | High   | Make Task 0 a hard gate; merge the approved Wave 1 implementation first and never add a local alias workaround.                   |
+| Unit normalization collapses an acyclic concept graph into a hard Unit cycle              | High   | Detect after normalization and throw with Unit IDs; never drop a prerequisite.                                                    |
+| Supporting cycles make layout recursion unstable                                          | High   | Add hard edges first, pre-sort supporting candidates, and skip only cycle-closing candidates; verify reciprocal and 3-node cases. |
+| Hard and supporting relations render coincident duplicate lines                           | Medium | Deduplicate by directed Unit pair with unconditional prerequisite dominance.                                                      |
+| Multiple supporting kinds for one pair produce input-order-dependent output               | Medium | Apply the approved fixed priority before pair selection and test shuffled input.                                                  |
+| Core becomes coupled to the full UI implementation                                        | Medium | Use only a type-level reference to the existing neutral shared DTO; do not import Preact, UI components, or Scene code.           |
+| Output maps or arrays share mutable input references                                      | Medium | Allocate fresh maps/arrays and run frozen/snapshot input tests on success and error paths.                                        |
+| Current real data does not exercise all four kinds                                        | Medium | Use focused synthetic fixtures; do not edit curriculum JSON to manufacture coverage.                                              |
+| A full gate collides with parallel worktrees                                              | Medium | Run only dedicated, related, and `check:fast`; reserve complete gates for the integration owner.                                  |
 
 ## Integration-owner handoff
 
