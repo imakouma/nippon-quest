@@ -52,14 +52,14 @@ Plan: [`animation-coverage-plan.md`](animation-coverage-plan.md)
 
 **Acceptance criteria:**
 
-- [ ] The audit succeeds for all 89 pixel references and 89 turnaround references in the owner source library.
-- [ ] Missing files, changed bytes, and paths outside `assets/cinematics/` fail with the affected ID.
-- [ ] The audit does not copy or modify production originals.
+- [x] The audit succeeds for all 89 pixel references and 89 turnaround references in the owner source library.
+- [x] Missing files, changed bytes, and paths outside `assets/cinematics/` fail with the affected ID.
+- [x] The audit does not copy or modify production originals.
 
 **Verification:**
 
-- [ ] Run `pnpm check:animation-sources --source-root /Users/imamurakouma/Documents/ChatGPT/education-2d-RPG`.
-- [ ] Run `pnpm check:fast`.
+- [x] Run `pnpm check:animation-sources -- --source-root /Users/imamurakouma/Documents/ChatGPT/education-2d-RPG`.
+- [x] Run `pnpm check:fast`.
 
 **Dependencies:** Task 2
 
@@ -69,10 +69,10 @@ Plan: [`animation-coverage-plan.md`](animation-coverage-plan.md)
 
 ## Checkpoint: Coverage foundation
 
-- [ ] Focused unit tests pass.
-- [ ] Local audit reports 111 classified IDs and 89 reference-ready runtime monsters.
-- [ ] Failure cases for omission, duplication, missing originals, and hash mismatch are covered.
-- [ ] `pnpm check:fast` passes.
+- [x] Focused unit tests pass.
+- [x] Local audit reports 111 classified IDs and 89 reference-ready runtime monsters.
+- [x] Failure cases for omission, duplication, missing originals, and hash mismatch are covered.
+- [x] `pnpm check:fast` passes.
 
 ## Task 4: Record the verified handoff
 
@@ -80,14 +80,14 @@ Plan: [`animation-coverage-plan.md`](animation-coverage-plan.md)
 
 **Acceptance criteria:**
 
-- [ ] `tasks/animation-batch-01.md` distinguishes verified references from produced runtime sheets.
-- [ ] Graphify is updated in code-only mode after the source additions.
-- [ ] The commit contains only coverage-contract files and documentation.
+- [x] `tasks/animation-batch-01.md` distinguishes verified references from produced runtime sheets.
+- [x] Graphify is updated in code-only mode after the source additions.
+- [x] The commit contains only coverage-contract files and documentation.
 
 **Verification:**
 
-- [ ] Run `git diff --check` and inspect the staged diff.
-- [ ] Re-run the focused test and source audit.
+- [x] Run `git diff --check` and inspect the staged diff.
+- [x] Re-run the focused test and source audit.
 
 **Dependencies:** Tasks 1–3
 
@@ -97,6 +97,6 @@ Plan: [`animation-coverage-plan.md`](animation-coverage-plan.md)
 
 ## Checkpoint: Module complete
 
-- [ ] All `SPEC-animation-coverage.md` success criteria are met.
-- [ ] Coverage work is committed atomically on `codex/animation-completion`.
-- [ ] The next module can consume the committed report.
+- [x] All `SPEC-animation-coverage.md` success criteria are met.
+- [x] Coverage work is committed atomically on `codex/animation-completion`.
+- [x] The next module can consume the committed report.

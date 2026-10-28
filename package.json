@@ -57,6 +57,7 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:curriculum-graph": "tsx scripts/validate-curriculum-graph.ts",
     "check:architecture": "tsx scripts/check-architecture.ts",
+    "check:animation-sources": "tsx scripts/check-animation-sources.ts",
     "check:performance": "tsx scripts/check-performance-budget.ts",
     "typecheck:app": "tsc -p tsconfig.app.json --noEmit",
     "typecheck:tests": "tsc -p tsconfig.tests.json --noEmit",
