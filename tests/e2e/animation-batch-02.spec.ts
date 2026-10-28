@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import type Phaser from 'phaser';
 import type { BattleEvent, BattleState } from '../../src/core/battle/types';
 import type { ContentIndex } from '../../src/core/content/loader';
+import type { PixelBounds } from '../../src/rendering/monsterImageScale';
 
 type Battle = Phaser.Scene & {
   enemySprite: Phaser.GameObjects.Sprite;
@@ -42,10 +43,13 @@ for (const monsterId of monsters) {
         );
         sprite.setData('batch02ObservedFrames', frames);
         sprite.setData('batch02ObservedAnimations', animations);
+        const bounds = sprite.getData('visibleBodyBounds') as PixelBounds;
         return {
           key: sprite.texture.key,
           width: sprite.displayWidth,
           height: sprite.displayHeight,
+          bodyHeight: bounds.height * sprite.scaleY,
+          targetBodyHeight: sprite.getData('targetBodyHeight') as number,
           animation: sprite.anims.currentAnim?.key,
           expected: `mon.animation.${id}.v1`,
         };
@@ -53,8 +57,9 @@ for (const monsterId of monsters) {
 
       expect(initial.key).toBe(initial.expected);
       expect(initial.animation).toBe(`${initial.expected}.idle`);
-      expect(initial.width).toBeLessThanOrEqual(128);
-      expect(initial.height).toBeLessThanOrEqual(128);
+      expect(initial.width).toBeGreaterThan(0);
+      expect(initial.height).toBeGreaterThan(0);
+      expect(initial.bodyHeight).toBeCloseTo(initial.targetBodyHeight, 3);
       await expect
         .poll(
           () =>
