@@ -104,14 +104,14 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 **Acceptance criteria:**
 
-- [ ] Fixtures cover empty, current-only, legacy-only, raw legacy, mixed split, unknown, multiple units, and `n === 0` weighting.
-- [ ] Expected results use `max(1, n)` weighted `value`, summed `n`, and maximum `lastAt`; duplicate-looking mixed records remain additive.
-- [ ] The test snapshots or deep-compares inputs before and after and fails because `aggregateUnitMastery()` is not implemented, not because fixtures are invalid.
+- [x] Fixtures cover empty, current-only, legacy-only, raw legacy, mixed split, unknown, multiple units, and `n === 0` weighting.
+- [x] Expected results use `max(1, n)` weighted `value`, summed `n`, and maximum `lastAt`; duplicate-looking mixed records remain additive.
+- [x] The test snapshots or deep-compares inputs before and after and fails because `aggregateUnitMastery()` is not implemented, not because fixtures are invalid.
 
 **Verification:**
 
-- [ ] Run `pnpm vitest run tests/unit/unitProgress.test.ts` and record the expected non-zero RED result for the missing aggregation contract.
-- [ ] Run `git diff --check`.
+- [x] Run `pnpm vitest run tests/unit/unitProgress.test.ts` and record the expected non-zero RED result for the missing aggregation contract.
+- [x] Run `git diff --check`.
 
 **Dependencies:** Checkpoint 1
 
@@ -127,15 +127,15 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 **Acceptance criteria:**
 
-- [ ] Output is keyed by canonical unit ID, preserves unknown units, and exactly matches the approved weighted formula.
-- [ ] Legacy-only, current-only, and logically equivalent mixed-split fixtures return identical records; duplicate-looking records remain additive.
-- [ ] Inputs and nested records remain unchanged, and returned records do not expose shared mutable input objects.
+- [x] Output is keyed by canonical unit ID, preserves unknown units, and exactly matches the approved weighted formula.
+- [x] Legacy-only, current-only, and logically equivalent mixed-split fixtures return identical records; duplicate-looking records remain additive.
+- [x] Inputs and nested records remain unchanged, and returned records do not expose shared mutable input objects.
 
 **Verification:**
 
-- [ ] Run `pnpm vitest run tests/unit/unitProgress.test.ts`.
-- [ ] Run `pnpm test:related src/core/learning/unitAliases.ts src/core/learning/unitProgress.ts tests/unit/unitProgress.test.ts`.
-- [ ] Run `git diff --check`.
+- [x] Run `pnpm vitest run tests/unit/unitProgress.test.ts`.
+- [x] Run `pnpm test:related src/core/learning/unitAliases.ts src/core/learning/unitProgress.ts tests/unit/unitProgress.test.ts`.
+- [x] Run `git diff --check`.
 
 **Dependencies:** Task 3
 
@@ -148,11 +148,11 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 ## Checkpoint 2: Progress aggregation foundation
 
-- [ ] Tasks 3–4 acceptance criteria are complete.
-- [ ] The RED failure was observed before the GREEN implementation.
-- [ ] Focused and related tests pass after Task 4.
-- [ ] The aggregation formula matches current `roadmap.ts` behavior and introduces no second alias table.
-- [ ] Inputs remain immutable in every legacy/current/mixed fixture.
+- [x] Tasks 3–4 acceptance criteria are complete.
+- [x] The RED failure was observed before the GREEN implementation.
+- [x] Focused and related tests pass after Task 4.
+- [x] The aggregation formula matches current `roadmap.ts` behavior and introduces no second alias table.
+- [x] Inputs remain immutable in every legacy/current/mixed fixture.
 
 ## Task 5: RED — Canonical reward idempotency and regressions
 
