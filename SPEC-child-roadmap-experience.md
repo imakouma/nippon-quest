@@ -32,11 +32,11 @@
 
 このモジュールは能力マップで承認された次の3モジュールの出力だけを消費する。
 
-| Provider | Consumer requirement | This module must not do |
-|---|---|---|
-| `roadmap-view-model` | 今日プラン、ロードマップノード、表示用の状態をScene非依存の純粋モデルとして受け取れる | GameState、AttemptEvent、概念状態から表示状態を再計算する |
-| `adaptive-roadmap-practice` | 未完了項目の`questionId`と、実際のUnit/問題へつなぐ呼び出し境界がある | 問題候補の選定、`actualUnitId`の決定、再推薦を行う |
-| `math-learning-content-pilot` | 表示モデル経由で既存教材名・概念名を受け取れる | 教材JSON、タグ、誤概念シグナルを解釈・変更する |
+| Provider                      | Consumer requirement                                                                  | This module must not do                                   |
+| ----------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `roadmap-view-model`          | 今日プラン、ロードマップノード、表示用の状態をScene非依存の純粋モデルとして受け取れる | GameState、AttemptEvent、概念状態から表示状態を再計算する |
+| `adaptive-roadmap-practice`   | 未完了項目の`questionId`と、実際のUnit/問題へつなぐ呼び出し境界がある                 | 問題候補の選定、`actualUnitId`の決定、再推薦を行う        |
+| `math-learning-content-pilot` | 表示モデル経由で既存教材名・概念名を受け取れる                                        | 教材JSON、タグ、誤概念シグナルを解釈・変更する            |
 
 プロバイダーが所有する正確な型名と列挙値は、それぞれの承認済み仕様を正とする。UI側が必要とする意味上の
 最小契約は次のとおり。
@@ -217,11 +217,11 @@
 
 ## Responsive layout contract
 
-| Viewport | Required result |
-|---|---|
-| 960×540 | 「きょうの3つ」の見出しと少なくとも先頭項目が初期表示に入り、既存全教科概要へ縦スクロールで到達できる。教科列、戻る、閉じるを欠落させない |
-| 640×540 | 今日項目を縦積みにし、文言を省略して理由を失わない。横スクロールをページ全体へ発生させず、セクション内部の縦スクロールで全項目へ到達できる |
-| 844×390 | 横長・低高で見出し領域を圧縮し、48px操作面を維持する。今日項目、戻る、閉じる、教科切替、グラフの操作可能領域を相互に覆わせない |
+| Viewport | Required result                                                                                                                            |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 960×540  | 「きょうの3つ」の見出しと少なくとも先頭項目が初期表示に入り、既存全教科概要へ縦スクロールで到達できる。教科列、戻る、閉じるを欠落させない  |
+| 640×540  | 今日項目を縦積みにし、文言を省略して理由を失わない。横スクロールをページ全体へ発生させず、セクション内部の縦スクロールで全項目へ到達できる |
+| 844×390  | 横長・低高で見出し領域を圧縮し、48px操作面を維持する。今日項目、戻る、閉じる、教科切替、グラフの操作可能領域を相互に覆わせない             |
 
 全サイズで、200% text zoom相当の長いRubyTextが主要操作を画面外へ押し出さないことを確認する。
 省略が必要な補助表示でも、項目名と推薦理由のアクセス可能名は完全な内容を保持する。
@@ -268,14 +268,14 @@ pnpm check:full
 
 調査済みの実在パスと責務は次のとおり。
 
-| Path | Future implementation responsibility |
-|---|---|
-| `src/ui/field/RoadmapView.tsx` | 今日セクション、全教科概要、理由/完了/空状態、今日項目のfocus target |
-| `src/ui/field/RoadmapGraph.tsx` | 既存graph操作とreduced-motion/focus回帰の維持。今日プランの選定ロジックは置かない |
-| `src/ui/field/MenuOverlay.tsx` | Scene非依存props/callback、回答後の再表示に必要なfocus targetの受け渡し、Escape/back階層 |
-| `src/ui/field/menu.css` | 既存見た目に沿う今日セクション、48px操作面、3 viewport、reduced motion |
-| `content/i18n/ja.json` | 今日見出し、推薦理由、完了、空状態、通知のRubyText |
-| `tests/unit/roadmapMenu.test.ts` | UIのREDテスト、DOM semantics、callback、focus、live region、既存graph回帰 |
+| Path                             | Future implementation responsibility                                                     |
+| -------------------------------- | ---------------------------------------------------------------------------------------- |
+| `src/ui/field/RoadmapView.tsx`   | 今日セクション、全教科概要、理由/完了/空状態、今日項目のfocus target                     |
+| `src/ui/field/RoadmapGraph.tsx`  | 既存graph操作とreduced-motion/focus回帰の維持。今日プランの選定ロジックは置かない        |
+| `src/ui/field/MenuOverlay.tsx`   | Scene非依存props/callback、回答後の再表示に必要なfocus targetの受け渡し、Escape/back階層 |
+| `src/ui/field/menu.css`          | 既存見た目に沿う今日セクション、48px操作面、3 viewport、reduced motion                   |
+| `content/i18n/ja.json`           | 今日見出し、推薦理由、完了、空状態、通知のRubyText                                       |
+| `tests/unit/roadmapMenu.test.ts` | UIのREDテスト、DOM semantics、callback、focus、live region、既存graph回帰                |
 
 次はこのモジュールの所有外であり、実装時に編集しない。
 
@@ -297,11 +297,7 @@ pnpm check:full
 - 既存helper/型で足りる限り、新しいwrapper、store、context、dependencyを作らない。
 
 ```tsx
-<button
-  type="button"
-  class="nq-roadmap-today-start"
-  onClick={() => onTodaySelect(item.questionId)}
->
+<button type="button" class="nq-roadmap-today-start" onClick={() => onTodaySelect(item.questionId)}>
   <RubyLabel text={t('field.roadmapTodayStart')} />
 </button>
 ```

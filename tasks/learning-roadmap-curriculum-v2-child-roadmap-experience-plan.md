@@ -299,19 +299,19 @@ pnpm validate:content
 
 ## RED/GREEN verification matrix
 
-| Behavior | RED evidence | GREEN evidence | Owner |
-|---|---|---|---|
-| 0/1/2/3 items | DOM count/placeholder test fails | exact count, no fake/disabled item | UI module |
-| incomplete reasons | each enum text mapping fails | four exact RubyText mappings | UI module |
-| completion reasons | review/diagnosis generic text fails | no inferred original reason | UI module |
-| exact start | callback mismatch fails | only `questionId` called once | UI module |
-| empty vs complete | same copy/CTA fails | `allComplete` branches differ | UI module |
-| return focus | `document.activeElement` mismatch | item/static/fallback focus | UI module |
-| polite announcement | missing/repeated live text | one-shot polite+atomic text | UI module |
-| back/keyboard | existing behavior regression | existing tests remain green | UI module |
-| responsive/48px | browser bounding boxes fail | three viewport checks pass | Integration owner |
-| graph gestures | existing unit/E2E regression | zoom/pan/pinch suite unchanged | UI + integration owner |
-| v13/rewards | import/save/reload comparison fails | state/reward invariants unchanged | Integration owner |
+| Behavior            | RED evidence                        | GREEN evidence                     | Owner                  |
+| ------------------- | ----------------------------------- | ---------------------------------- | ---------------------- |
+| 0/1/2/3 items       | DOM count/placeholder test fails    | exact count, no fake/disabled item | UI module              |
+| incomplete reasons  | each enum text mapping fails        | four exact RubyText mappings       | UI module              |
+| completion reasons  | review/diagnosis generic text fails | no inferred original reason        | UI module              |
+| exact start         | callback mismatch fails             | only `questionId` called once      | UI module              |
+| empty vs complete   | same copy/CTA fails                 | `allComplete` branches differ      | UI module              |
+| return focus        | `document.activeElement` mismatch   | item/static/fallback focus         | UI module              |
+| polite announcement | missing/repeated live text          | one-shot polite+atomic text        | UI module              |
+| back/keyboard       | existing behavior regression        | existing tests remain green        | UI module              |
+| responsive/48px     | browser bounding boxes fail         | three viewport checks pass         | Integration owner      |
+| graph gestures      | existing unit/E2E regression        | zoom/pan/pinch suite unchanged     | UI + integration owner |
+| v13/rewards         | import/save/reload comparison fails | state/reward invariants unchanged  | Integration owner      |
 
 ## Focused verification policy
 
@@ -335,20 +335,20 @@ GREEN後に既存graph/back/focus testsも通す。
 
 ## Risks and mitigations
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| Wave 3 contractとUIのduplicate typeが分岐する | High | integrated provider型だけをimportし、sharedをUIブランチで編集しない |
-| 現行`runRoadmapPractice(unitId)`へ誤って接続する | High | today callbackは`questionId`専用に分け、Scene配線を統合担当へhandoffする |
-| 完了後button消失でfocusがbodyへ落ちる | High | 同一data IDのstatic focus target + `tabIndex=-1` + heading fallbackをREDテストする |
-| live regionがrerenderごとに繰り返す | Medium | one-shot return IDとannounced refで回答復帰時だけ更新する |
-| `allComplete`をitems lengthだけで推測する | High | provider flagを必須入力にし、0件/全完了の対テストを置く |
-| reasonのsilent fallbackで教材意図を偽る | Medium | exhaustive mappingと未知enumのcompile failureを維持する |
-| 640×540/844×390でheaderとtoday cardsが重なる | Medium | overview内部scroll、width/height media rules、browser bounding-box checks |
-| reduced-motionでも現在ノードが点滅する | Medium | current nodeを明示的に`animation:none`にしCSS検査を置く |
-| MenuOverlayのglobal key handlerがbuttonを二重発火する | Medium | native interactive guardを維持し、Enter/Space callback countをテストする |
-| UI操作が保存・報酬を変える | High | UIはdisplay model/callbackのみ。v13/reward比較を統合gateに置く |
-| 大きな既存ファイルへ責務が混ざる | Medium | today表示をRoadmapView内の小さな局所component/helperに閉じ、MenuOverlayはpass-throughだけにする |
-| 他チャットとfull test/buildが競合する | Medium | work chatはfocused/fastのみ、full gateと4174は統合担当だけが実行する |
+| Risk                                                  | Impact | Mitigation                                                                                      |
+| ----------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------- |
+| Wave 3 contractとUIのduplicate typeが分岐する         | High   | integrated provider型だけをimportし、sharedをUIブランチで編集しない                             |
+| 現行`runRoadmapPractice(unitId)`へ誤って接続する      | High   | today callbackは`questionId`専用に分け、Scene配線を統合担当へhandoffする                        |
+| 完了後button消失でfocusがbodyへ落ちる                 | High   | 同一data IDのstatic focus target + `tabIndex=-1` + heading fallbackをREDテストする              |
+| live regionがrerenderごとに繰り返す                   | Medium | one-shot return IDとannounced refで回答復帰時だけ更新する                                       |
+| `allComplete`をitems lengthだけで推測する             | High   | provider flagを必須入力にし、0件/全完了の対テストを置く                                         |
+| reasonのsilent fallbackで教材意図を偽る               | Medium | exhaustive mappingと未知enumのcompile failureを維持する                                         |
+| 640×540/844×390でheaderとtoday cardsが重なる          | Medium | overview内部scroll、width/height media rules、browser bounding-box checks                       |
+| reduced-motionでも現在ノードが点滅する                | Medium | current nodeを明示的に`animation:none`にしCSS検査を置く                                         |
+| MenuOverlayのglobal key handlerがbuttonを二重発火する | Medium | native interactive guardを維持し、Enter/Space callback countをテストする                        |
+| UI操作が保存・報酬を変える                            | High   | UIはdisplay model/callbackのみ。v13/reward比較を統合gateに置く                                  |
+| 大きな既存ファイルへ責務が混ざる                      | Medium | today表示をRoadmapView内の小さな局所component/helperに閉じ、MenuOverlayはpass-throughだけにする |
+| 他チャットとfull test/buildが競合する                 | Medium | work chatはfocused/fastのみ、full gateと4174は統合担当だけが実行する                            |
 
 ## Integration-owner handoff
 

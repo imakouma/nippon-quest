@@ -20,15 +20,15 @@ Complete this checklist before Task 1. If any item is false, stop implementation
 do not create a UI-local provider type or temporary Scene adapter.
 
 - [ ] Record the exact integrated commit IDs for `roadmap-view-model`, `adaptive-roadmap-practice`, and
-  `math-learning-content-pilot`, and verify each is an ancestor of the implementation branch with
-  `git merge-base --is-ancestor <commit> HEAD`.
+      `math-learning-content-pilot`, and verify each is an ancestor of the implementation branch with
+      `git merge-base --is-ancestor <commit> HEAD`.
 - [ ] Confirm the integrated provider contract exposes `questionId`, `actualUnitId`, display-ready actual Unit name,
-  subject, incomplete reason, completion reason, completed/startable state, progress count, and `allComplete`.
+      subject, incomplete reason, completion reason, completed/startable state, progress count, and `allComplete`.
 - [ ] Confirm adaptive practice starts the exact supplied `questionId`; it must not fall back to random selection within a Unit.
 - [ ] Confirm the branch starts clean and dedicated: `git status --short --branch`, `git rev-parse HEAD`, and
-  `git branch --show-current` show no unrelated or uncommitted changes.
+      `git branch --show-current` show no unrelated or uncommitted changes.
 - [ ] Confirm `tasks/plan.md`, `tasks/todo.md`, `FieldUi.tsx`, `field.css`, `src/core/**`, `src/scenes/**`,
-  `src/shared/menuModel.ts`, `src/questions/**`, `src/core/state/**`, and `schemas/**` are outside this module's edit set.
+      `src/shared/menuModel.ts`, `src/questions/**`, `src/core/state/**`, and `schemas/**` are outside this module's edit set.
 
 ## Dependency order
 
@@ -244,7 +244,7 @@ git diff --check
 - [ ] Preserve the RED failure evidence from Task 5 and the GREEN result from Task 6.
 - [ ] Confirm `RoadmapGraph.tsx` has no diff and its graph/input regression suite passes unchanged.
 - [ ] Use a temporary 4175-or-higher preview only if coordinated with the integration owner; verify 960×540, 640×540,
-  844×390, 200% text zoom, keyboard, mouse, touch emulation, and reduced motion, then stop that server.
+      844×390, 200% text zoom, keyboard, mouse, touch emulation, and reduced motion, then stop that server.
 - [ ] Do not use or replace canonical port 4174 in this module worktree.
 - [ ] Confirm no new dependency, renderer, persistent zoom control, generic design system, or hard-coded Japanese TSX string was added.
 
@@ -283,15 +283,15 @@ gate once after merging all Wave 3 modules.
 ## Regression invariants required before handoff
 
 - [ ] Today-plan completion never grants or relaxes `learning-fragment` mastery rewards; `mastery.n >= 3` and
-  `mastery.value >= 0.8` remain required and idempotent through `masteredRewardUnits`.
+      `mastery.value >= 0.8` remain required and idempotent through `masteredRewardUnits`.
 - [ ] Mistake-correction rewards still require score 1 on previously missed distinct questions and remain idempotent through
-  `correctedRewardQuestionIds`; score 0 today completion is not treated as correctness or mastery.
+      `correctedRewardQuestionIds`; score 0 today completion is not treated as correctness or mastery.
 - [ ] RPG experience, gold, damage, inventory, region unlocks, and battle question selection remain unchanged, including the
-  70% weakness / 30% review selection behavior.
+      70% weakness / 30% review selection behavior.
 - [ ] `SCHEMA_VERSION = 13` remains unchanged; no persistent field, migration, schema, or UI-owned normalization is added.
 - [ ] Opening, focusing, selecting, scrolling, panning, zooming, pinching, or closing the roadmap does not mutate GameState.
 - [ ] UI forwards `questionId` and `actualUnitId` unchanged and does not recalculate ranking, date boundaries, completion,
-  candidate fill, deduplication, Unit normalization, or question choice.
+      candidate fill, deduplication, Unit normalization, or question choice.
 
 ## Integration-owner handoff checklist
 
@@ -301,7 +301,7 @@ The module implementation commit must not include these changes. Hand the commit
 
 - [ ] Pass the integrated today plan from `Overworld.openMenu().draw()` to `MenuOverlay`.
 - [ ] Route the today CTA's exact `questionId` to adaptive practice; keep graph `onRoadmapSelect(unitId)` separate and never fall
-  back to random Unit selection for a today item.
+      back to random Unit selection for a today item.
 - [ ] After an answer, recompute the provider model and pass the starting `questionId` once when reopening the roadmap.
 
 ### Integration-owned files
@@ -315,25 +315,25 @@ The module implementation commit must not include these changes. Hand the commit
 ### Integration verification
 
 - [ ] Browser-test 0/1/2/3 items, partial/all complete, score 0 completion, `review | diagnosis`, answer → return → same-item
-  focus → one polite notice → reload.
+      focus → one polite notice → reload.
 - [ ] At 960×540, 640×540, and 844×390 verify bounding boxes, no page-level horizontal overflow, 48px targets, 200% text
-  zoom, keyboard/mouse/touch, drag/pinch/wheel, Escape/back, and reduced motion.
+      zoom, keyboard/mouse/touch, drag/pinch/wheel, Escape/back, and reduced motion.
 - [ ] Import a representative v13 save, answer, save, and reload; compare mastery rewards, correction rewards, inventory,
-  region progress, acquired roadmap progress, and 70% weakness / 30% review battle selection.
+      region progress, acquired roadmap progress, and 70% weakness / 30% review battle selection.
 - [ ] Run `graphify update .`, the relevant `graphify affected` query, and `pnpm check:full` once on the integrated branch.
 - [ ] Stop the old canonical server, start the latest integrated build on `127.0.0.1:4174`, verify the normal route with
-  `?resetSaves=1` and v13 compatibility separately, and leave the verified screen open in the Codex in-app browser.
+      `?resetSaves=1` and v13 compatibility separately, and leave the verified screen open in the Codex in-app browser.
 
 ## Final clean and commit checklist
 
 - [ ] `git diff --name-only` before commit contains only `tests/unit/roadmapMenu.test.ts`,
-  `src/ui/field/RoadmapView.tsx`, `src/ui/field/MenuOverlay.tsx`, `src/ui/field/menu.css`, and `content/i18n/ja.json`.
+      `src/ui/field/RoadmapView.tsx`, `src/ui/field/MenuOverlay.tsx`, `src/ui/field/menu.css`, and `content/i18n/ja.json`.
 - [ ] `RoadmapGraph.tsx`, Core, Scene, shared, questions, state/save, schema, content bundles, generated manifests,
-  `tasks/plan.md`, `tasks/todo.md`, the approved SPEC/plan, and this Phase 3 todo have no implementation-time diff.
+      `tasks/plan.md`, `tasks/todo.md`, the approved SPEC/plan, and this Phase 3 todo have no implementation-time diff.
 - [ ] `git diff --check`, focused verification, secret scan, and five-axis review are clean before staging.
 - [ ] Stage only the allowed implementation files and create one atomic implementation commit on the dedicated `codex/` branch.
 - [ ] After commit, `git status --short --branch` is clean and the handoff reports branch, full commit ID, changed files,
-  RED/GREEN evidence, commands/results, preview state, invariants, and integration-owned work.
+      RED/GREEN evidence, commands/results, preview state, invariants, and integration-owned work.
 
 ## Open questions
 
