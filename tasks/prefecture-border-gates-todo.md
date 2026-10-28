@@ -192,13 +192,14 @@
 
 ## Checkpoint C: 完成検査
 
-- [ ] `pnpm lint`
-- [ ] `pnpm check:architecture`
-- [ ] `pnpm test`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm build`
-- [ ] `tests/e2e/prefecture-border-gates.spec.ts`
+- [x] `pnpm lint`
+- [x] `pnpm check:architecture`
+- [x] `pnpm test`
+- [x] `pnpm validate:content`
+- [x] `pnpm build`
+- [x] `tests/e2e/prefecture-border-gates.spec.ts`
 - [ ] 別モデルの5軸コードレビューで必須指摘が0件。
-- [ ] `graphify update .` でコードグラフを更新する。
-- [ ] 統合済みブランチの最新版を4174で確認できる。
-- [ ] 未コミット・未push・未反映データを報告する。
+- [x] ローカル5軸コードレビューで必須指摘が0件。
+- [x] `graphify update .` でコードグラフを更新する。
+- [x] 統合済みブランチの最新版を4174で確認できる。
+- [x] 未コミット・未push・未反映データを報告する。
