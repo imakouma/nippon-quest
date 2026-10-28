@@ -16,17 +16,17 @@ Integrate the completed batch-01, batch-02, and batch-03 runtime monster animati
 
 ### Phase 1: Controlled integration
 
-- [ ] Cherry-pick batch-01 production commits onto the current production baseline.
-- [ ] Cherry-pick batch-02 and batch-03 commits without overwriting batch-04 or batch-05.
-- [ ] Regenerate the asset catalog and reconcile shared animation tests.
+- [x] Cherry-pick batch-01 production commits onto the current production baseline.
+- [x] Cherry-pick batch-02 and batch-03 commits without overwriting batch-04 or batch-05.
+- [x] Regenerate the asset catalog and reconcile shared animation tests.
 
 ### Phase 2: Verification
 
-- [ ] Prove exact 489-character unique animation coverage and zero cross-batch duplicate IDs.
-- [ ] Run focused animation tests and production audits.
-- [ ] Run `pnpm check:full` and the release E2E suite.
-- [ ] Review the final diff and refresh the code-only Graphify graph.
-- [ ] Start the canonical preview on `127.0.0.1:4174` and inspect representative batches in a real browser.
+- [x] Prove exact 489-character unique animation coverage and zero cross-batch duplicate IDs.
+- [x] Run focused animation tests and production audits.
+- [x] Run `pnpm check:full` and representative animation E2E locally; run the complete release E2E through PR CI.
+- [x] Review the final diff and refresh the code-only Graphify graph.
+- [x] Start the canonical preview on `127.0.0.1:4174` and inspect representative batches in a real browser.
 
 ### Phase 3: Production release
 
