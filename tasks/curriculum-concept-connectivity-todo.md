@@ -15,12 +15,12 @@ Approved for implementation on branch `codex/curriculum-concept-connectivity` fr
 
 ## Task 1: Evidence matrix
 
-- [ ] Fetch only the registered official MEXT/publisher pages needed for the 30 Concepts.
-- [ ] Record at least 30 proposed relations in `tasks/curriculum-concept-connectivity-evidence.md`.
-- [ ] Include endpoints, kind, source ID, locator, direction rationale, and target file.
-- [ ] Confirm all 30 baseline isolated IDs are covered.
-- [ ] Reject unsupported, reverse-grade, cross-subject-hard-lock, and misconception-prerequisite candidates.
-- [ ] Run `git diff --check` for the evidence document.
+- [x] Fetch only the registered official MEXT/publisher pages needed for the 30 Concepts.
+- [x] Record at least 30 proposed relations in `tasks/curriculum-concept-connectivity-evidence.md`.
+- [x] Include endpoints, kind, source ID, locator, direction rationale, and target file.
+- [x] Confirm all 30 baseline isolated IDs are covered.
+- [x] Reject unsupported, reverse-grade, cross-subject-hard-lock, and misconception-prerequisite candidates.
+- [x] Run `git diff --check` for the evidence document.
 
 ## Task 2: Concept-quality audit RED→GREEN
 

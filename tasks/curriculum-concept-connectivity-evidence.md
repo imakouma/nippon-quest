@@ -1,0 +1,59 @@
+# Curriculum Concept Connectivity Evidence
+
+## Scope
+
+This matrix records the 30 relations approved for the isolated-Concept cleanup. Sources are existing registered MEXT records in the curriculum fragments. `prerequisite` is reserved for a required learning progression; `related`, `transfer`, `contrast`, and `chronological` do not create unlock locks.
+
+## Registered official sources
+
+| Source ID | Official document | Locator used |
+|---|---|---|
+| `mext-h29-kokugo-g1-2` | [小学校学習指導要領（平成29年告示）解説 国語編](https://www.mext.go.jp/content/20220606-mxt_kyoiku02-100002607_002.pdf) | pp.46–50: kana, particles, punctuation, grade-1/2 kanji, sentence structure; pp.168–169: accurate writing |
+| `mext-h29-kokugo-g34` | [同 国語編](https://www.mext.go.jp/content/20220606-mxt_kyoiku02-100002607_002.pdf) | p.85: subject/predicate and modifiers build on grades 1–2; p.188: proverbs, idioms, and historical sayings |
+| `mext-h29-sansu-commentary` | [小学校学習指導要領（平成29年告示）解説 算数編](https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf) | pp.50, 81–82, 88–89: number composition and addition meaning/calculation; pp.98–99: clock reading |
+| `mext-h29-sansu-g2` | [同 算数編](https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf) | pp.109–111: decimal place-value representation, composition, magnitude, and order |
+| `mext-h29-seikatsu-g1-2` | [小学校学習指導要領（平成29年告示）解説 生活編](https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_05.pdf) | pp.29–33: contents (1)–(9) and non-hierarchical organization; pp.37–38: family roles/growth; pp.45–47: seasons and natural-material play; p.120: caring and observing |
+| `mext-h29-shakai-g3`, `mext-h29-shakai-g4` | [小学校学習指導要領（平成29年告示）解説 社会編](https://www.mext.go.jp/content/20230308-mxt_kyoiku02-100002607_003.pdf) | 第3章 第2節: grade 3 map/information skills and grade 4 prefectural study |
+
+## Proposed relations
+
+| # | From | To | Kind | Source / locator | Direction rationale | Target file |
+|---:|---|---|---|---|---|---|
+| 1 | `kokugo.g1.script.hiragana` | `kokugo.g1.legacy.kana-basics` | `related` | `mext-h29-kokugo-g1-2`, pp.46–47 | Both express the same first-stage kana literacy; no artificial lock. | `kokugo-g1-legacy-foundations.json` |
+| 2 | `kokugo.g1.script.grade1-kanji` | `kokugo.g1.legacy.kanji-basics` | `related` | `mext-h29-kokugo-g1-2`, pp.46–49 | Current and legacy grade-1 kanji foundations are lateral counterparts. | `kokugo-g1-legacy-foundations.json` |
+| 3 | `kokugo.g1.grammar.particles` | `kokugo.g1.legacy.particles` | `related` | `mext-h29-kokugo-g1-2`, pp.46–47 | Both cover correct use of は・へ・を. | `kokugo-g1-legacy-foundations.json` |
+| 4 | `kokugo.g1.sentence.subject-predicate` | `kokugo.g1.legacy.sentence-writing` | `prerequisite` | `mext-h29-kokugo-g1-2`, pp.49–50 | Awareness of sentence structure supports composing a sentence. | `kokugo-g1-legacy-foundations.json` |
+| 5 | `kokugo.g1.sound.syllable` | `kokugo.g1.legacy.word-play` | `prerequisite` | `mext-h29-kokugo-g1-2`, pp.46–47 | Recognizing Japanese sound units enables sound-based word play. | `kokugo-g1-legacy-foundations.json` |
+| 6 | `kokugo.g1.sentence.subject-predicate` | `kokugo.g1.writing.word-connections` | `prerequisite` | `mext-h29-kokugo-g1-2`, pp.49–50 | Sentence structure is required to judge how words connect. | `kokugo-g1-term1.json` |
+| 7 | `kokugo.g1.script.grade1-kanji` | `kokugo.g2.kanji.recognition` | `prerequisite` | `mext-h29-kokugo-g1-2`, pp.48–49 | Grade 2 reads grade-2 kanji while continuing to write/use grade-1 kanji. | `kokugo-g2-foundations.json` |
+| 8 | `kokugo.g2.kanji.recognition` | `kokugo.g2.kanji.onyomi-kunyomi` | `prerequisite` | `mext-h29-kokugo-g1-2`, pp.48–49 | A kanji must first be recognized before its readings can be classified and used. | `kokugo-g2-foundations.json` |
+| 9 | `kokugo.g3.culture.proverbs-idioms` | `kokugo.g3.culture.idioms` | `related` | `mext-h29-kokugo-g34`, p.188 | Idioms are one coordinated part of the same language-culture content. | `kokugo-g3-term2.json` |
+| 10 | `kokugo.g3.culture.proverbs-idioms` | `kokugo.g3.culture.koji-seigo` | `related` | `mext-h29-kokugo-g34`, p.188 | Historical sayings are coordinated with proverbs and idioms, not a lock. | `kokugo-g3-term2.json` |
+| 11 | `kokugo.g2.grammar.subject-predicate` | `kokugo.g3.grammar.subject-predicate` | `prerequisite` | `mext-h29-kokugo-g34`, p.85 | Grades 3–4 deepen the grades 1–2 subject/predicate foundation. | `kokugo-g3-term1.json` |
+| 12 | `kokugo.g1.writing.basic-format` | `kokugo.g3.writing.accurate-copying` | `transfer` | `mext-h29-kokugo-g1-2`, pp.168–169 | Basic writing conventions transfer to accurate copying without imposing a unit lock. | `kokugo-g3-term2.json` |
+| 13 | `sansu.g1.addition.meaning` | `sansu.g1.addition.within-ten` | `prerequisite` | `mext-h29-sansu-commentary`, pp.88–89 | Understanding combining/increase situations precedes calculation within ten. | `sansu-g1-foundations.json` |
+| 14 | `sansu.g1.measure.read-clock` | `sansu.g1.measure.clock-hour-half-hour` | `related` | `mext-h29-sansu-commentary`, pp.98–99 | Both describe initial everyday clock reading; they are lateral representations. | `sansu-g1-term2.json` |
+| 15 | `sansu.g1.misconception.add-instead-difference` | `sansu.g1.addition.meaning` | `contrast` | `mext-h29-sansu-commentary`, pp.88–89 | Contrasts an operation-choice error with correct addition meaning; never an unlock prerequisite. | `sansu-g1-foundations.json` |
+| 16 | `sansu.g1.misconception.make-ten-arbitrary-split` | `sansu.g1.operation.make-ten-strategy` | `contrast` | `mext-h29-sansu-commentary`, pp.81–82 | Contrasts arbitrary decomposition with place-value-aware making ten. | `sansu-g1-foundations.json` |
+| 17 | `sansu.g1.misconception.tens-ones-reversed` | `sansu.g1.number.two-digit-place-value` | `contrast` | `mext-h29-sansu-commentary`, pp.50, 81–82 | Contrasts reversed digits with correct tens/ones representation. | `sansu-g1-foundations.json` |
+| 18 | `sansu.g2.number.over-1000` | `sansu.g2.number.over-1000.compose` | `prerequisite` | `mext-h29-sansu-g2`, pp.109–111 | Recognizing the number range precedes composing it from place values. | `sansu-g2-term1.json` |
+| 19 | `sansu.g2.number.over-1000.compose` | `sansu.g2.number.over-1000.compare-order` | `prerequisite` | `mext-h29-sansu-g2`, pp.109–111 | Place-value composition is required to compare magnitude and order. | `sansu-g2-term1.json` |
+| 20 | `seikatsu.g1.home.roles-and-health` | `seikatsu.g1.self.first-year-growth` | `related` | `mext-h29-seikatsu-g1-2`, pp.37–38 | Family roles/support and reflection on growth inform each other without a fixed order. | `seikatsu-g1-term1.json` |
+| 21 | `seikatsu.g1.living-things.care` | `seikatsu.g1.living-things.observe-and-care` | `related` | `mext-h29-seikatsu-g1-2`, p.120 | Caring and continued observation are coordinated activities. | `seikatsu-g1-term1.json` |
+| 22 | `seikatsu.g1.nature.observe-seasons` | `seikatsu.g1.nature.spring-observation` | `related` | `mext-h29-seikatsu-g1-2`, pp.45–46 | Spring observation is one instance of repeated seasonal observation. | `seikatsu-g1-term1.json` |
+| 23 | `seikatsu.g1.nature.observe-seasons` | `seikatsu.g1.nature.autumn-play` | `transfer` | `mext-h29-seikatsu-g1-2`, pp.45–47 | Seasonal noticing transfers into play with autumn materials. | `seikatsu-g1-term1.json` |
+| 24 | `seikatsu.g1.nature.spring-observation` | `seikatsu.g1.nature.winter-change` | `chronological` | `mext-h29-seikatsu-g1-2`, pp.45–46 | Records seasonal time order without defining a learning lock. | `seikatsu-g1-term1.json` |
+| 25 | `seikatsu.g1.nature.winter-change` | `seikatsu.g1.seasons.life-and-events` | `related` | `mext-h29-seikatsu-g1-2`, pp.45–46 | Winter change is related to seasonal life/events, with no mandated hierarchy. | `seikatsu-g1-term1.json` |
+| 26 | `seikatsu.g1.nature.autumn-play` | `seikatsu.g1.seasons.make-and-play` | `transfer` | `mext-h29-seikatsu-g1-2`, pp.46–47 | Experience with autumn materials transfers to making and playing. | `seikatsu-g1-term1.json` |
+| 27 | `seikatsu.g2.community.public-use` | `seikatsu.g2.community.public-care-safety` | `related` | `mext-h29-seikatsu-g1-2`, pp.32–33 | Using public facilities is coordinated with care and safety. | `seikatsu-g2-foundations.json` |
+| 28 | `seikatsu.g2.self.growth-evidence` | `seikatsu.g2.self.future-wishes` | `related` | `mext-h29-seikatsu-g1-2`, pp.29–32, 37–38 | Evidence of growth can inform future wishes, but content (9) is not a hierarchy. | `seikatsu-g2-foundations.json` |
+| 29 | `seikatsu.g2.self.growth-evidence` | `seikatsu.g2.self.support-gratitude` | `related` | `mext-h29-seikatsu-g1-2`, pp.37–38 | Growth reflection includes awareness of support and gratitude. | `seikatsu-g2-foundations.json` |
+| 30 | `shakai.g3.map.skills` | `shakai.g4.cur-1404-01` | `prerequisite` | `mext-h29-shakai-g3` / `mext-h29-shakai-g4`, 第3章 第2節 | Grade-3 map/information skills support grade-4 investigation of the prefecture. | `shakai-g4-term1.json` |
+
+## Coverage and rejected patterns
+
+- The 30 rows cover each of the 30 baseline isolated Concept IDs exactly once as the newly connected endpoint; several established Concepts serve as anchors.
+- No relation crosses subjects. Every cross-grade `prerequisite` moves forward in grade; no reverse-grade lock is proposed.
+- All three `misconception` Concepts use `contrast`, so none can enter prerequisite projection or unlock logic.
+- Life-environment content is not treated as a hierarchy: seasonal order uses `chronological`, and the other links use `related` or `transfer`.
+- Rejected patterns: source-free semantic similarity, reverse-grade prerequisites, cross-subject prerequisites, misconception prerequisites, and `expert-reviewed` claims.
