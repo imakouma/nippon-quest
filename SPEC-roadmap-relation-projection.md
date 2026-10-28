@@ -6,7 +6,7 @@
 
 - `prerequisite` は単元の解放判定に使う唯一の関係とする。
 - `component`、`transfer`、`related`、`chronological` は、解放を妨げない案内線として既存の表示 DTO へ投影する。
-- 旧単元と現行単元の正規化は `unit-progress-normalization` の結果を受け取り、このモジュールで別実装しない。
+- 旧単元と現行単元は `unit-progress-normalization` が確定した `canonicalUnitId()` で正規化し、このモジュールで別実装しない。
 - 循環、重複線、入力オブジェクトの変更を生じさせず、同じ入力から同じ順序の出力を返す。
 
 対象ユーザーへの効果は、学習マップで「必ず先に身につける道」と「学びがつながる道」を区別して辿れることである。案内線によって練習やゲーム進行を新たにロックしない。
@@ -20,7 +20,7 @@
 - Reused contracts:
   - `CurriculumGraph` / `ConceptRelation` from `src/core/learning/model.ts`
   - `RoadmapNode['supportingLinks']` and `RoadmapSupportingKind` from `src/shared/menuModel.ts`
-  - canonical/display Unit resolver supplied from `unit-progress-normalization`
+  - `canonicalUnitId()` from `src/core/learning/unitAliases.ts`, extended by `unit-progress-normalization`
 - Explicitly out of scope: `src/scenes/overworld/roadmap.ts`, `src/shared/menuModel.ts`, `src/ui/**`, `src/core/learning/index.ts`, curriculum JSON, schema generation, layout, visibility, node state, reward application, and persistence.
 
 The integration owner will call this module from the roadmap/view-model work after the module is approved and implemented. This module does not wire itself into Scene or UI code.
@@ -37,6 +37,18 @@ The implementation must extract and narrow the behavior previously introduced by
 
 The extraction corrects two gaps in that past implementation: it must prevent projected Unit cycles and must not emit overlapping duplicate lines.
 
+## Approved projection decisions
+
+The cross-module review approved the following decisions:
+
+- supporting-kind priority is `component → transfer → related → chronological`;
+- `prerequisite` wins when a hard and supporting relation collapse to the same directed Unit pair;
+- a projected prerequisite cycle is a descriptive hard error;
+- a supporting edge that would close a cycle is omitted in stable candidate order;
+- Unit endpoint normalization uses the shared `canonicalUnitId()` contract.
+
+These are implementation requirements, not remaining alternatives.
+
 ## Public contract
 
 The intended API shape is:
@@ -44,6 +56,7 @@ The intended API shape is:
 ```ts
 import type { CurriculumGraph } from './model';
 import type { RoadmapNode } from '../../shared/menuModel';
+import { canonicalUnitId } from './unitAliases';
 
 type SupportingLink = NonNullable<RoadmapNode['supportingLinks']>[number];
 
@@ -54,22 +67,23 @@ export interface RoadmapRelationProjection {
 
 export function projectRoadmapRelations(
   graph: Pick<CurriculumGraph, 'concepts' | 'relations'>,
-  resolveDisplayUnitId: (unitId: string) => string | undefined,
+  displayUnitIds: ReadonlySet<string>,
 ): RoadmapRelationProjection;
 ```
 
 The exact local type names may change during the approved implementation, but the following behavioral contract may not:
 
-1. The Unit resolver is the boundary to `unit-progress-normalization`; relation projection must not copy or extend the alias table.
+1. Unit endpoints are resolved with `canonicalUnitId()`; relation projection must not copy or extend the alias table.
 2. The function accepts curriculum data, not `GameState`, mastery, rewards, Scene objects, or UI state.
-3. Every returned collection is newly allocated. The input graph, its nested arrays/objects, and resolver-owned data remain unchanged.
-4. Output target keys, prerequisite source IDs, and supporting links are stable-sorted by Unit ID; supporting kinds use the fixed priority `component → transfer → related → chronological`.
+3. `displayUnitIds` defines the Units present in the downstream roadmap. A normalized endpoint outside that set is unresolved and is ignored.
+4. Every returned collection is newly allocated. The input graph, its nested arrays/objects, and the display Unit set remain unchanged.
+5. Output target keys, prerequisite source IDs, and supporting links are stable-sorted by Unit ID; supporting kinds use the fixed priority `component → transfer → related → chronological`.
 
 ## Projection rules
 
 ### Endpoint resolution
 
-1. Build a concept-to-display-Unit lookup from non-`misconception` concepts using `resolveDisplayUnitId(concept.unit)`.
+1. Build a concept-to-display-Unit lookup from non-`misconception` concepts by applying `canonicalUnitId(concept.unit)` and retaining the result only when it exists in `displayUnitIds`.
 2. Ignore relations whose source or target concept is absent, is a misconception, or resolves to no displayed Unit.
 3. Ignore relations whose source and target resolve to the same Unit.
 4. Ignore relation kinds outside `prerequisite`, `component`, `transfer`, `related`, and `chronological`. In particular, `causal`, `spatial`, `category`, and `contrast` are not silently reclassified.
@@ -105,8 +119,8 @@ Relation projection is read-only and has no reward or save authority.
 - Reward-ID normalization belongs to `unit-progress-normalization`; relation kinds and projected edges never affect reward eligibility.
 - Do not add a `GameState` field, schema version, migration, counter, or serialized roadmap relation cache.
 - Preserve `roadmapSnapshot.ts` grandfathering: previously earned roadmap progress remains open, and merely projecting or viewing relations cannot update the snapshot or any save field.
-- Legacy/current/mixed save keys are resolved outside this module. The projector only receives their already-normalized display Unit resolver.
-- Opening the roadmap with the same curriculum and resolver returns equivalent fresh output and leaves the save byte-for-byte unchanged.
+- Legacy/current/mixed Unit IDs converge through `canonicalUnitId()`; learning progress aggregation remains owned by `unit-progress-normalization` and is not an input to this module.
+- Opening the roadmap with the same curriculum and display Unit set returns equivalent fresh output and leaves the save byte-for-byte unchanged.
 
 ## Tech stack and code style
 
@@ -142,13 +156,13 @@ Implementation starts with failing tests and proceeds in the following order:
 
 1. Project each of `component`, `transfer`, `related`, and `chronological` into the existing supporting-link DTO.
 2. Keep `prerequisite` separate and prove that supporting kinds never appear in lock input.
-3. Resolve legacy/current Unit IDs through the injected resolver without modifying its data.
+3. Resolve current, legacy-question, and raw-legacy Unit IDs through `canonicalUnitId()` without modifying the graph or display Unit set.
 4. Ignore unresolved concepts, misconception concepts, same-Unit edges, and non-display relation kinds.
 5. Collapse repeated concept edges to one Unit edge; prove prerequisite dominance and fixed supporting-kind priority on overlaps.
 6. Reject a projected prerequisite cycle with a descriptive error.
 7. Deterministically omit only supporting edges that would close a combined display cycle.
 8. Shuffle concepts and relations and prove byte-equivalent normalized output ordering.
-9. Deep-freeze or snapshot the graph and resolver inputs and prove they remain unchanged after success and error paths.
+9. Deep-freeze or snapshot the graph and display Unit set and prove they remain unchanged after success and error paths.
 10. Assert the final directed Unit graph contains neither duplicate pairs nor cycles.
 
 No browser test is owned by this module because it creates no UI. Rendering of the projected DTO is verified by `roadmap-view-model` and `child-roadmap-experience` after integration.
@@ -158,7 +172,7 @@ No browser test is owned by this module because it creates no UI. Rendering of t
 ### Always
 
 - Reuse existing curriculum and roadmap DTOs.
-- Normalize endpoints only through the dependency-provided resolver.
+- Normalize endpoints only through the shared `canonicalUnitId()` contract.
 - Keep the function deterministic, pure, and Scene/UI independent.
 - Preserve the distinction between hard prerequisites and non-lock guidance.
 - Deduplicate and cycle-check after Unit normalization, not only at concept level.
@@ -188,13 +202,13 @@ No browser test is owned by this module because it creates no UI. Rendering of t
 
 - All four supporting kinds project to the existing `{ sourceId, kind }` DTO and never enter prerequisite arrays.
 - Only `prerequisite` can contribute to a lock predicate.
-- Legacy/current Unit aliases collapse through the supplied normalizer to the same display edge.
+- Current, legacy-question, and raw-legacy Unit IDs collapse through `canonicalUnitId()` to the same display edge.
 - Same-Unit, unresolved, misconception, and unsupported-kind relations do not produce display edges.
 - A directed Unit pair produces at most one visible line; prerequisite wins over guidance, and supporting overlaps use the documented priority.
 - Valid prerequisite edges are retained exactly once; a projected hard cycle fails explicitly.
 - The combined returned graph is acyclic and duplicate-free, including when source supporting relations are reciprocal or cyclic.
 - Output is stable across repeated calls and shuffled input arrays.
-- The curriculum graph, resolver-owned data, rewards, save data, snapshot markers, and schema version are unchanged.
+- The curriculum graph, display Unit set, rewards, save data, snapshot markers, and schema version are unchanged.
 - Existing reward thresholds and grandfathered progress behavior remain unchanged.
 - Dedicated Vitest tests, related tests, and `pnpm check:fast` pass after implementation.
 - No files outside the owned implementation and dedicated test are changed in the implementation commit.
@@ -210,5 +224,4 @@ No browser test is owned by this module because it creates no UI. Rendering of t
 
 ## Open questions
 
-- The exact exported resolver symbol from `unit-progress-normalization` is not present at base commit `8dfff95c`. The integration contract is fixed as `string -> display Unit ID | undefined`; the implementation should adopt the approved Wave 1 symbol without changing projection behavior.
-- Human approval is required for the proposed deterministic handling of supporting cycles and cross-kind overlaps. Approval of this specification resolves that decision; otherwise revise the cycle/priority sections before implementation.
+None. The Unit normalizer and the deterministic priority, overlap, and cycle policies are approved.
