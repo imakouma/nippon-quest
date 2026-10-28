@@ -10,14 +10,14 @@ Plan: [`animation-coverage-plan.md`](animation-coverage-plan.md)
 
 **Acceptance criteria:**
 
-- [ ] The test requires exactly 111 unique IDs and exact equality with `batch-01.ids`.
-- [ ] The test requires the approved 12 runtime sheets, one existing sheet, three people, six visual-only evolutions, and 89 reference-ready runtime monsters.
-- [ ] The test rejects duplicate runtime IDs, Ringoron duplication, people in monster manifests, and visual-only evolutions in runtime manifests.
+- [x] The test requires exactly 111 unique IDs and exact equality with `batch-01.ids`.
+- [x] The test requires the approved 12 runtime sheets, one existing sheet, three people, six visual-only evolutions, and 89 reference-ready runtime monsters.
+- [x] The test rejects duplicate runtime IDs, Ringoron duplication, people in monster manifests, and visual-only evolutions in runtime manifests.
 
 **Verification:**
 
-- [ ] Confirm the test fails because the coverage report does not yet exist.
-- [ ] Run `pnpm vitest run tests/unit/animationCoverage.test.ts`.
+- [x] Confirm the test fails because the coverage report does not yet exist.
+- [x] Run `pnpm vitest run tests/unit/animationCoverage.test.ts`.
 
 **Dependencies:** None
 
@@ -31,14 +31,14 @@ Plan: [`animation-coverage-plan.md`](animation-coverage-plan.md)
 
 **Acceptance criteria:**
 
-- [ ] Every assigned ID has one explicit kind and state.
-- [ ] Each of the 89 pending runtime monsters has normalized pixel and turnaround paths plus SHA-256 metadata.
-- [ ] Duplicate turnaround versions resolve from adopted ledger data rather than filename sorting.
+- [x] Every assigned ID has one explicit kind and state.
+- [x] Each of the 89 pending runtime monsters has normalized pixel and turnaround paths plus SHA-256 metadata.
+- [x] Duplicate turnaround versions resolve from adopted ledger data rather than filename sorting.
 
 **Verification:**
 
-- [ ] Run the generator twice and confirm byte-identical output.
-- [ ] Run `pnpm vitest run tests/unit/animationCoverage.test.ts` and confirm it passes.
+- [x] Run the generator twice and confirm byte-identical output.
+- [x] Run `pnpm vitest run tests/unit/animationCoverage.test.ts` and confirm it passes.
 
 **Dependencies:** Task 1
 
