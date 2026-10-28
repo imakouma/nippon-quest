@@ -50,7 +50,8 @@
 - `CurriculumGraph`、`QuestionConceptLink`、`ConceptStateData`
 - `QuestionBank` の読み取りAPI (`get` / `all`)
 - 既存 `AttemptEvent[]`、`learning.recent`、学年設定
-- `unit-progress-normalization` が提供する正規Unit IDと既存進捗の集約結果
+- `unit-progress-normalization` が提供する正式シンボル `canonicalUnitId` と
+  `aggregateUnitMastery`
 - 既存の `estimatedRetention` と復習緊急度の意味
 
 ### Explicitly out of scope
@@ -77,10 +78,16 @@
 
 ## Public contract
 
-公開関数名は実装計画で既存命名と最終調整してよいが、意味上の契約は次から変えない。
+次の公開型名、関数名、意味上の契約を固定し、実装計画で別名へ変更しない。
 
 ```ts
-export type LearningRecommendationReason = 'review' | 'diagnosis';
+export type LearningRecommendationReason =
+  | 'due-review'
+  | 'weak-prerequisite'
+  | 'unseen-primary'
+  | 'unseen-question';
+
+export type CompletedLearningPlanReason = 'review' | 'diagnosis';
 
 export interface LearningRecommendation {
   questionId: string;
@@ -89,27 +96,49 @@ export interface LearningRecommendation {
   conceptIds: string[];
 }
 
-export interface LearningPlanItem extends LearningRecommendation {
-  completed: boolean;
-}
+export type LearningPlanItem =
+  | (LearningRecommendation & { completed: false })
+  | {
+      questionId: string;
+      actualUnitId: string;
+      reason: CompletedLearningPlanReason;
+      conceptIds: string[];
+      completed: true;
+    };
 
 export interface LearningGradeScope {
   grade: Grade;
   includeLower: boolean;
   challengeHigher: boolean;
 }
+
+export function recommendationReasonToAttemptReason(
+  reason: LearningRecommendationReason,
+): CompletedLearningPlanReason;
 ```
 
 `LearningRecommendation` の返り値は必ず新しいオブジェクトと新しい `conceptIds` 配列にする。
 `conceptIds` は対象 `QuestionConceptLink` の概念IDを重複排除し、ASCII IDの昇順で返す。
 
-`reason` は新しい永続値を作らず、既存 `AttemptEvent.reason` で完了を再構築できるよう、
-次の2値だけにする。
+未完了推薦の `reason` は4段階の順位と一対一に対応する。
 
-- `review`: 期限到来候補
-- `diagnosis`: 弱い直接前提、未確認primary目標、未出題問題
+- `due-review`: 期限到来候補
+- `weak-prerequisite`: 弱い直接前提
+- `unseen-primary`: 未確認primary目標
+- `unseen-question`: 未出題問題
 
-4段階の詳細カテゴリは順位決定の内部情報であり、GameStateへ保存しない。
+詳細reasonはGameStateへ保存しない。問題を出して `AttemptEvent` を記録するときだけ、公開された
+純粋変換 `recommendationReasonToAttemptReason` を次の固定表で適用する。
+
+| LearningRecommendationReason | AttemptEvent.reason |
+|---|---|
+| `due-review` | `review` |
+| `weak-prerequisite` | `diagnosis` |
+| `unseen-primary` | `diagnosis` |
+| `unseen-question` | `diagnosis` |
+
+この変換は入力reasonだけで決まり、GameState、時刻、QuestionBankを参照しない。既存
+`AttemptEvent.reason` enum、永続schema、migrationは変更しない。
 
 ## Time contract: JST-fixed `evaluationNow`
 
@@ -144,20 +173,22 @@ evaluationNow = Math.floor((now + JST_OFFSET_MS) / DAY_MS) * DAY_MS - JST_OFFSET
 
 ```text
 lower = includeLower ? 1 : grade
-upper = challengeHigher ? min(6, grade + 1) : grade
+upper = challengeHigher ? 6 : grade
 eligible = lower <= question.grade <= upper
 ```
 
-`challengeHigher` は、選択学年より上の全学年ではなく「次の1学年まで」を意味する。
-小6では上限を6に保つ。Concept側の目標学年も同じ上限を超えてはならない。
+`challengeHigher` は既存ロードマップ挙動を維持し、trueなら小6までの上位学年を許可する。
+Concept側の目標学年も同じ範囲を満たすものだけを対象にする。
 
 QuestionBankにない古いリンク、リンクのない問題、学年範囲外の問題は候補にせず、
 フォールバックとして学年制約を緩めない。該当問題がなければ空または0〜2件を返す。
 
 ## Existing mastery contract
 
-このモジュールは修得判定を再実装せず、`unit-progress-normalization` が正規Unit単位で返す
-共通判定を使う。修得済みとは、既存ロードマップと同じく次のいずれかを満たす状態である。
+このモジュールは修得判定を再実装せず、`unit-progress-normalization` の正式シンボル
+`aggregateUnitMastery` が正規Unit単位で返す共通判定を使う。問題の実Unit正規化には同じ
+依存先の `canonicalUnitId` を使う。修得済みとは、既存ロードマップと同じく次のいずれかを
+満たす状態である。
 
 - Unitに属する非misconception概念の状態がすべて揃い、集約習熟度 `>= 0.8` かつ
   合計回答数 `>= 3`
@@ -191,7 +222,7 @@ contribution = linkWeight * need * (1 + min(7, overdueDays) / 7)
 duePriority = 該当概念 contribution の合計
 ```
 
-`duePriority` の降順で並べ、`reason` は `review` とする。
+`duePriority` の降順で並べ、`reason` は `due-review` とする。
 
 ### 2. 弱い直接前提
 
@@ -206,20 +237,20 @@ duePriority = 該当概念 contribution の合計
 weakness = 1 - understanding * confidence
 ```
 
-`weakness` の降順で並べ、`reason` は `diagnosis` とする。返す `actualUnitId` は目標Unitではなく、
-実際に出題する前提問題の正規Unitである。前提不足は推薦理由にだけ使い、目標をロックしない。
+`weakness` の降順で並べ、`reason` は `weak-prerequisite` とする。返す `actualUnitId` は
+目標Unitではなく、実際に出題する前提問題の正規Unitである。前提不足は推薦理由にだけ使い、
+目標をロックしない。
 
 ### 3. 未確認primary目標
 
 問題リンクに `role: primary` の概念があり、その `ConceptState` が存在しない、または
 `attempts === 0` なら該当する。primary以外だけのリンクはこのカテゴリに入れない。
-`reason` は `diagnosis` とする。
+`reason` は `unseen-primary` とする。
 
 ### 4. 未出題問題
 
 既存の全 `AttemptEvent` に同じ `questionId` が一度もない適格問題を対象とする。
-イベント種別やscoreには依存しない。`reason` は、新しい学習証拠を取る目的のため
-`diagnosis` とする。
+イベント種別やscoreには依存しない。`reason` は `unseen-question` とする。
 
 ### Tie-breaking
 
@@ -251,8 +282,10 @@ weakness = 1 - understanding * confidence
 3. `(answeredAt, event.id, questionId)` の昇順で並べ、最大3件まで `completed: true` として先頭に保持する。
 4. 完了問題を除いた現在の推薦を再計算し、最大3件になるまで `completed: false` で補う。
 
-完了項目の `reason` は、その問題について当日最初に採用したAttemptEventの `review` または
-`diagnosis` をそのまま使う。
+`LearningPlanItem` は `completed` を判別子とするdiscriminated unionである。未完了項目は
+4値の詳細reasonを保持する。完了項目の `reason` は、その問題について当日最初に採用した
+AttemptEventの `review` または `diagnosis` をそのまま使う。永続化で失われた4値の詳細reasonを、
+現在の状態や順位から推測して復元してはならない。
 
 battle、event、playground、unknown のAttemptEventは今日プランの完了に数えない。
 完了項目もQuestionBankと概念リンクから必須出力を再構築できることを条件とし、削除済みまたは
@@ -292,7 +325,8 @@ Unit多様性は優先であり、同Unitを絶対禁止する条件ではない
 
 このモジュールは `applyLearningRewards` を呼ばず、inventory、dex、
 `masteredRewardUnits`、`correctedRewardQuestionIds` を変更しない。報酬IDの正規化は
-`unit-progress-normalization` の責務とし、ここで別のalias表を作らない。
+`unit-progress-normalization` の `canonicalUnitId` と `aggregateUnitMastery` の責務とし、
+ここで別のalias表を作らない。
 
 セーブ互換性は次を満たす。
 
@@ -335,8 +369,12 @@ return selectDiverseUnits([...fresh, ...reusable], limit);
 - 同一問題が複数カテゴリに入る場合、最上位カテゴリを1件だけ返す。
 - 同値を `diagnosticValue` 降順、`questionId` 昇順で決める。
 - QuestionBank不在、リンク不在、学年範囲外を除外する。
-- `includeLower`、`challengeHigher`、小1、小6の境界を検証する。
+- `includeLower`、`challengeHigher`、小1、小6の境界と、`challengeHigher=true` で
+  小6まで許可されることを検証する。
 - 前提問題の `actualUnitId` が目標Unitではなく出題問題の正規Unitになる。
+- 4値の詳細reasonが各順位カテゴリと一致する。
+- `recommendationReasonToAttemptReason` が `due-review` だけを `review`、他3値を
+  `diagnosis` へ変換し、入力を変更しない。
 - 直近問題より新しい候補を優先し、新しい候補不足時だけ同じ順位で再利用する。
 - 同じ入力と `evaluationNow` を複数回渡して完全に同じ出力になる。
 - deep freezeしたGraph、状態、履歴、recent、QuestionBaseを変更しない。
@@ -347,6 +385,8 @@ return selectDiverseUnits([...fresh, ...reusable], limit);
 - 同じJST日の異なる時刻で `evaluationNow` と未完了候補が同じになる。
 - JST 00:00ちょうどを当日、翌日00:00ちょうどを次の日として扱う。
 - review/diagnosisの誤答と時間切れも完了し、battle/eventは完了しない。
+- `completed: false` は4値の詳細reason、`completed: true` は `review | diagnosis` の
+  一般reasonを持ち、完了項目の詳細reasonを推測しない。
 - 完了問題を一意化して先頭に保持し、残りだけ再計算する。
 - 問題IDを重複させず、異なる正規Unitを先に選ぶ。
 - 空、1件、2件、3件と、完了が3件以上ある境界を検証する。
@@ -386,7 +426,7 @@ integration worktree.
 
 - Pure functions、固定 `evaluationNow`、stable IDで決定論的にする。
 - QuestionBank、学年範囲、概念リンクをすべて満たす候補だけを返す。
-- 正規Unit IDは `unit-progress-normalization` の単一契約を使う。
+- 正規Unit IDと集約修得判定は `canonicalUnitId` と `aggregateUnitMastery` を使う。
 - 期限到来、弱い直接前提、未確認primary、未出題の順を守る。
 - 最大3件、問題ID一意、実Unit名を偽らない。
 - REDテストから始め、focused test後にだけ実装コミットを作る。
@@ -396,7 +436,8 @@ integration worktree.
 
 - `src/questions/contracts.ts` の変更。
 - `GameState` schema version、新しい永続フィールド、migrationの追加。
-- `LearningRecommendation` の必須4フィールドまたは `reason` 2値の変更。
+- `LearningRecommendation` の必須4フィールド、詳細reason 4値、完了reason 2値、または
+  `recommendationReasonToAttemptReason` の固定変換表の変更。
 - 学年範囲、JST日境界、最大3件、4段階順位の変更。
 - 3回答・Unit習熟度0.80・独力成功2回という既存修得／報酬条件の変更。
 - 新しいQuestion renderer、content契約、依存パッケージの追加。
@@ -417,7 +458,9 @@ integration worktree.
 
 - 同じ読み取り専用入力とJST日付で、返り値が毎回完全一致する。
 - 4カテゴリの優先順、カテゴリ内優先値、`diagnosticValue`、`questionId` の比較がテストで固定される。
-- 返り値は `{ questionId, actualUnitId, reason, conceptIds }` を満たす。
+- 未完了の返り値は `{ questionId, actualUnitId, reason, conceptIds }` を満たし、reasonは
+  4段階の詳細カテゴリと一致する。
+- AttemptEvent記録境界では、`due-review → review`、他3種 `→ diagnosis` の純粋変換だけを使う。
 - 前提問題の実Unitが正しく、前提不足をハードロックに使わない。
 - QuestionBankと学年設定を満たさない問題が一件も返らない。
 - 直近問題は新しい候補がある間は除外され、枯渇時だけ同じ順位で再利用される。
@@ -427,15 +470,16 @@ integration worktree.
 - 新しい永続フィールドやmigrationなしで、旧セーブと既存報酬条件を維持する。
 - 専用unit test、focused test、`pnpm check:fast` が通り、最終統合で `pnpm check:full` が通る。
 
-## Approval decisions and open questions
+## Resolved cross-review decisions and open questions
 
-人間レビューでは、特に次の決定を承認対象とする。
+横断レビューにより次の決定を確定した。
 
-1. `challengeHigher` を「次の1学年まで」とし、全上位学年を一括許可しない。
-2. 新しい永続値を作らないため、公開 `reason` を `review | diagnosis` に保つ。
-3. リンクのない問題は `conceptIds` を捏造せず、推薦対象外にする。
-4. 今日完了した削除済み問題はダミー化せず、QuestionBankから復元可能な項目だけ保持する。
+1. `challengeHigher` は既存ロードマップと同じく小6までの上位学年を許可する。
+2. 未完了推薦は4値の詳細reasonを返す。
+3. AttemptEvent記録時だけ詳細reasonを既存の `review | diagnosis` へ純粋変換する。
+4. 今日プランは `completed` を判別子とし、完了済みの詳細reasonを推測しない。
+5. 依存先の正式シンボルは `canonicalUnitId` と `aggregateUnitMastery` とする。
+6. リンクのない問題は `conceptIds` を捏造せず、推薦対象外にする。
+7. 今日完了した削除済み問題はダミー化せず、QuestionBankから復元可能な項目だけ保持する。
 
-上記4点が承認されれば、要件レベルの未解決事項はない。依存先
-`unit-progress-normalization` の実際のexport名だけは、Wave 1統合後の承認済みAPIに合わせて
-実装計画で確定する。
+要件、公開契約、依存シンボルに未解決事項はない。
