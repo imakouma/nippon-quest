@@ -850,6 +850,7 @@ export class OverworldScene extends Phaser.Scene {
     const [dx, dy] = DELTA[this.facing];
     const frontTile = { x: player.x + dx, y: player.y + dy };
     const frame = this.game.loop.frame;
+    const candidates = this.fieldInteractionCandidates(intent, player, frontTile);
     const decision = resolveFieldInteraction({
       intent,
       player: { position: player, facing: this.facing },
@@ -867,7 +868,12 @@ export class OverworldScene extends Phaser.Scene {
         frame,
         lastHandledFrame: this.lastInteractionFrame,
       },
-      candidates: this.fieldInteractionCandidates(intent, player, frontTile),
+      candidates:
+        this.devAll() && intent === 'interact'
+          ? candidates.filter(
+              (candidate) => candidate.kind === 'npc' && this.npcs.get(Number(candidate.id))?.ferry,
+            )
+          : candidates,
     });
     if (decision.kind === 'none') return;
     this.lastInteractionFrame = frame;

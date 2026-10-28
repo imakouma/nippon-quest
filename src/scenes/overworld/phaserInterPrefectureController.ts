@@ -39,6 +39,10 @@ export class PhaserInterPrefectureController {
     return this.links.values();
   }
 
+  entries(): IterableIterator<[number, InterPrefectureLink]> {
+    return this.links.entries();
+  }
+
   register(
     object: InterPrefectureLinkObjectSource,
     x: number,

@@ -98,10 +98,12 @@ interface BrowserField {
     cooldownStepsRemaining: number;
   };
   midBoss: { tile: number } | null;
-  interPrefectureLinks: Map<number, BrowserInterPrefectureLink>;
+  interPrefecture: {
+    entries(): IterableIterator<[number, BrowserInterPrefectureLink]>;
+    isOpen(link: BrowserInterPrefectureLink): boolean;
+  };
   rng: { chance: (probability: number) => boolean };
   gateOpen(gate: BrowserGate): boolean;
-  interPrefectureOpen(link: BrowserInterPrefectureLink): boolean;
   isLocked(tile: number): boolean;
   checkRandomEncounter(): void;
   toggleDev(): void;
@@ -903,14 +905,7 @@ test('地域ボス撃破を保存し、開いた関所から次地域の出現�
     field.rng.chance = () => true;
     field.checkRandomEncounter();
   }, layout.encounterSteps);
-  await expect
-    .poll(() =>
-      page.evaluate(() => {
-        const game = (window as unknown as { __nq: BrowserGame }).__nq;
-        return game.scene.isActive('Battle');
-      }),
-    )
-    .toBe(true);
+  await expect(page.locator('.nq-battle')).toBeVisible({ timeout: 30_000 });
   const encountered = await page.evaluate(() => {
     const game = (window as unknown as { __nq: BrowserGame }).__nq;
     const battle = game.scene.getScene('Battle') as { state: { enemy: { refId: string } } };
@@ -1051,14 +1046,14 @@ test('県境門を常設し、開発者モードの切替直後に歩いて次�
     page.evaluate(() => {
       const game = (window as unknown as { __nq: BrowserGame }).__nq;
       const field = game.scene.getScene('Overworld') as BrowserField;
-      const link = [...field.interPrefectureLinks.entries()].find(
+      const link = [...field.interPrefecture.entries()].find(
         ([, candidate]) => candidate.id === 'land-iwate-miyagi',
       );
       return {
         midBossTile: field.midBoss?.tile ?? null,
         link: link
           ? {
-              open: field.interPrefectureOpen(link[1]),
+              open: field.interPrefecture.isOpen(link[1]),
               targetArea: link[1].targetArea,
               targetMap: link[1].targetMap,
               tile: link[0],
