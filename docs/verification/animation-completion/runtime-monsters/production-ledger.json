@@ -538,7 +538,7 @@
     },
     {
       "id": "iwate-boss-konjiki-no-tora",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-boss-konjiki-no-tora.png",
         "sha256": "d8b48c1684e6541ef004fdf6701ccb1280695a9abac6d8917c74f76531760c6f"
@@ -546,11 +546,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-boss-konjiki-no-tora/turnaround-v1.png",
         "sha256": "784855ccb962ece8062892b8a2d31b5f23aecd681be321ef14fbc761f1c8c0a5"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-boss-konjiki-no-tora\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-boss-konjiki-no-tora-generated-source.png",
+        "sha256": "d8807757e4d77a1bde7a4ef54ef72a8aedab55709f2f4a9c95b12b579fbed311"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-boss-konjiki-no-tora-v1.png",
+        "sha256": "06a6a638626c490a973cb718a82625f435d0c92f26274c42ce202661c7d82972"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-dragon-blue",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-dragon-blue.png",
         "sha256": "9dbdc7a558ecff7f67a06a5b613f6830dc7c0b78793a7ca5ab94a15e7bb6339a"
@@ -558,11 +572,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-dragon-blue/turnaround-v1.png",
         "sha256": "e4edf794a55273c731616d8382322772a00f59242c2e226dcb354d20059b73eb"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-dragon-blue\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-dragon-blue-generated-source.png",
+        "sha256": "09b0843a55873f7f81a3e8082fbe3c074173ac8cdf675057687dc065c1f73943"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-dragon-blue-v1.png",
+        "sha256": "769a8977994c70117743640dd603c488f685a8aae4f749599660108af246a0e7"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-hayate-kamoshika",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-hayate-kamoshika.png",
         "sha256": "48ed90780e4af5c1f1af2c22a8db72341786ca75619e94dae43aa34a50ff8fba"
@@ -570,11 +598,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-hayate-kamoshika/turnaround-v1.png",
         "sha256": "0610c21e726bc497575e3e99d6cc3675bd4c37608a1436f79f0f3e87383e3df7"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-hayate-kamoshika\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-hayate-kamoshika-generated-source.png",
+        "sha256": "d4a47f73381ecdf18bdbf2909bbe9ed6638c3637ca1ff2348ffb1f6b5154b6f7"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-hayate-kamoshika-v1.png",
+        "sha256": "4c48c0d019b1c0ab544ce74e9133cf53063052db8fbaf0df4ac6abaa08df5a77"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-iwa-kamoshika",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-iwa-kamoshika.png",
         "sha256": "6cbb217efa125979ab20b9f0e264e47279b32146df1c6fa2fa14536804f27420"
@@ -582,11 +624,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-iwa-kamoshika/turnaround-v1.png",
         "sha256": "32dbc9909205144631f2a822fa36bcb314824803afac86a7e38fca2fe8763f76"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-iwa-kamoshika\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-iwa-kamoshika-generated-source.png",
+        "sha256": "26d7c24465bd6c1cfdfdf6d7c8c73880e8eb141177db030c731af3e6180f4c56"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-iwa-kamoshika-v1.png",
+        "sha256": "3ca79b9283255f1d184d54ddb7c0afe9fb7e9de1a25409c0007b8087604e3b57"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-lastboss-minamoto-yoshitsune",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-lastboss-minamoto-yoshitsune.png",
         "sha256": "246915a85243fd320844ed44986cc5303a4316aae463175912836eaa078c7e78"
@@ -594,11 +650,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-lastboss-minamoto-yoshitsune/turnaround-v1.png",
         "sha256": "36ab2248bd609bbd33a0616162a2f5156b70226dec9b26951fb33c7649062aa8"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-lastboss-minamoto-yoshitsune\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-lastboss-minamoto-yoshitsune-generated-source.png",
+        "sha256": "9557eaa70f6c6632d88750b51fcda5b010b4d8a4570a2e5517cff1256bf1482f"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-lastboss-minamoto-yoshitsune-v1.png",
+        "sha256": "c5e51c1d50588e8644baa920cfc857b258a2f4e577bbd072b9fa9f9b27214225"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-midboss-tetsubin-game",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/pixel-references/iwate-midboss-tetsubin-game.png",
         "sha256": "ef9ef7c4a868468deb71a362160b4e71b71113e3709b2868891b90cde15a9321"
@@ -606,11 +676,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v5/iwate-midboss-tetsubin-game/turnaround-v1.png",
         "sha256": "a5c79b655699705406f39bac55102ae48b4815c754c5f79ecad0bf19bc97da4a"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-midboss-tetsubin-game\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-midboss-tetsubin-game-generated-source.png",
+        "sha256": "adee794f6d1e8552fcb95e5af9d231c4b9c60722c7388392983b7c4fd34663fe"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-midboss-tetsubin-game-v1.png",
+        "sha256": "c875da4ca1e42ccb7f8bb52a94525360c9756547655e252b70d29f43f1a2559a"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-okawari-bat",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-okawari-bat.png",
         "sha256": "efc45b68ba4748a8158a2c97d4252ac72779b4dd07c89f81bce3efee28add564"
@@ -618,11 +702,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-okawari-bat/turnaround-v2.png",
         "sha256": "46dc2e0afde393d9fc291800b2a0cc898db4334a023c2c7862119577858582fb"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-okawari-bat\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-okawari-bat-generated-source.png",
+        "sha256": "716547314adbe7b64c3c7e52e7018cbdad95ff0803621a61d373ab795481802d"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-okawari-bat-v1.png",
+        "sha256": "5cae0aa6548852d56ddd7ca38813ab54ea5047e382d457d0049af51f756cce3c"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-oo-kappa",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-oo-kappa.png",
         "sha256": "bf40cfe61e0ceece650ac8bef068637e5ea91865dfceb2cb0ec8ce70a8d4db7b"
@@ -630,11 +728,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-oo-kappa/turnaround-v2.png",
         "sha256": "a8fe6e3613e5f5d66f4738e4140087d26456f5b7868cd0495918fd6ea6d9a35b"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-oo-kappa\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-oo-kappa-generated-source.png",
+        "sha256": "37112978a235233bc7624b8749372267bdc3a2f95471c8b4b4256d494af2d3ed"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-oo-kappa-v1.png",
+        "sha256": "71f50186ea92cd20d0a48073745372487407c0256dccd36500616dfbca33536f"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-ryusen-uo",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/iwate-ryusen-uo.png",
         "sha256": "0c897677db0937f0470c1e50b59d98c635299f5ec32895fe26daf1ef6bdf4569"
@@ -642,11 +754,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/iwate-ryusen-uo/turnaround-v1.png",
         "sha256": "b4dff720f26dff68fdd4c8ca66a9d3cb9fa6b343aea0d1faa93bd26a2c670c9b"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-ryusen-uo\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-ryusen-uo-generated-source.png",
+        "sha256": "b0bbc4f070aed1ae213f6359ec830a4082989c59a742876382af4d974600c422"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-ryusen-uo-v1.png",
+        "sha256": "b7aa608bf35042c2b62aa6f9e952ea724d7bc56b6e4a440af80135c1736138dd"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "iwate-tono-kappa",
-      "state": "pending",
+      "state": "accepted",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-roster-v1/iwate-tono-kappa/concept-v1.png",
         "sha256": "aba66a673c830a234410ccd3dadcf47c33d0ec0c64c263a6311d57ef072f1116"
@@ -654,6 +780,20 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-roster-v1/iwate-tono-kappa/turnaround-v1.png",
         "sha256": "7a0678d47de7e1d2bcb15cfac1745d55d441df1b65ca5e9fd18f483046ce9a36"
+      },
+      "prompt": "Create one production-ready transparent pixel-art animation sprite sheet for the exact existing NIHON QUEST character \"iwate-tono-kappa\", faithfully matching both supplied reference images. Preserve the character's defining silhouette, palette, face, anatomy, clothing, accessory and weapon count and placement. Output exactly 8 isolated equal cells in a strict 4 columns by 2 rows layout: top row frames 0-3 are a subtle readable idle loop with breathing, blink and restrained secondary motion; bottom row frames 4-7 are anticipation, decisive attack/action, impact pose and recovery. Keep the character fully inside every cell with generous transparent margins. No background, floor, shadows, text, labels, grid, borders, UI, extra characters, detached parts, glow, particles, speed lines or other effects. Use crisp consistent pixel art, stable proportions and a true transparent alpha background.",
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/iwate-tono-kappa-generated-source.png",
+        "sha256": "cdc61d4859d2e7c6a3359f67d6bca7063c5f7ca7652f65e371736f3c353d23b3"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/iwate-tono-kappa-v1.png",
+        "sha256": "c02fa28f2956221dde54e6c11be01c06bd91af5b54d45e416fb82c33665b8ca1"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
