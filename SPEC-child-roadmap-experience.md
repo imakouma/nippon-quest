@@ -35,18 +35,20 @@
 | Provider | Consumer requirement | This module must not do |
 |---|---|---|
 | `roadmap-view-model` | 今日プラン、ロードマップノード、表示用の状態をScene非依存の純粋モデルとして受け取れる | GameState、AttemptEvent、概念状態から表示状態を再計算する |
-| `adaptive-roadmap-practice` | 未完了項目を開始するための安定した識別子と、実際のUnit/問題へつなぐ呼び出し境界がある | 問題候補の選定、`actualUnitId`の決定、再推薦を行う |
+| `adaptive-roadmap-practice` | 未完了項目の`questionId`と、実際のUnit/問題へつなぐ呼び出し境界がある | 問題候補の選定、`actualUnitId`の決定、再推薦を行う |
 | `math-learning-content-pilot` | 表示モデル経由で既存教材名・概念名を受け取れる | 教材JSON、タグ、誤概念シグナルを解釈・変更する |
 
 プロバイダーが所有する正確な型名と列挙値は、それぞれの承認済み仕様を正とする。UI側が必要とする意味上の
 最小契約は次のとおり。
 
-- 今日プラン全体: 0〜3件、Asia/Tokyoの同じ日の表示単位、完了数、全件完了か。
-- 各項目: 安定した項目ID、問題ID、実Unit ID、単元/問題の表示名、教科、推薦理由、完了状態、開始可能状態。
-- 推薦理由: 少なくとも「期限到来」「弱い直接前提」「未確認primary目標」「未出題問題」を区別できる。
+- 今日プラン全体: 0〜3件、Asia/Tokyoの同じ日の表示単位、完了数、候補0件と区別できる`allComplete`。
+- 各項目: 安定IDである`questionId`、`actualUnitId`、実Unit名、教科、推薦理由、完了状態、開始可能状態。
+- 表示名: 教科と`actualUnitId`に対応する実Unit名を表示し、問題名はカードの必須情報にしない。
+- 未完了理由: `due-review | weak-prerequisite | unseen-primary | unseen-question`の4値を区別できる。
+- 完了復元理由: `review | diagnosis`を区別できるが、UIは元の未完了理由を推測しない。
 - 完了状態: 同日の `review` または `diagnosis` のAttemptEventに基づき、scoreに関係なく完了となる。
-- 開始境界: UIは安定IDをcallbackへ渡すだけで、候補や出題を選ばない。
-- 復帰境界: 呼び出し側は、回答後の再表示時に開始元の安定IDをfocus targetとして返せる。
+- 開始境界: UIは`questionId`をcallbackへ渡すだけで、候補や出題を選ばない。
+- 復帰境界: 呼び出し側は、回答後の再表示時に開始元の`questionId`をfocus targetとして返す。
 
 `shared`のプロバイダー契約が上記を満たさない場合、UI側でGameStateへ逆依存せず、統合担当へ契約調整を依頼する。
 
@@ -95,7 +97,7 @@
 - ロードマップを開く、項目を選ぶ、マップを移動/拡大するだけではGameStateを変更しない。
 - `roadmapSnapshot.ts`が保護する旧単元の既得進捗を表示側で再ロックしない。
 - v13の代表セーブをimportし、回答、保存、reloadしても、学習報酬、地域進行、所持品、既得ロードマップ進捗を保持する。
-- legacy/current/mixed Unit IDの正規化は上流の責務とし、UIは受け取った安定IDを改変しない。
+- legacy/current/mixed Unit IDの正規化は上流の責務とし、UIは受け取った`questionId`と`actualUnitId`を改変しない。
 
 ## UX and visual design contract
 
@@ -123,9 +125,9 @@
 
 #### Incomplete
 
-- 教科、学習名、推薦理由、開始を示す主要操作を表示する。
+- 教科、`actualUnitId`の実Unit名、推薦理由、開始を示す主要操作を表示する。問題名はカードへ必須表示しない。
 - 項目全体を曖昧なclick targetにせず、ネイティブ`button`で開始操作を表す。
-- callbackにはその項目の安定IDだけを渡す。
+- callbackにはその項目の`questionId`だけを渡す。
 
 #### Completed
 
@@ -153,8 +155,11 @@
 ### Recommendation reasons
 
 - 理由文は短く、子どもを責めず、行動につながる表現にする。
-- 「期限到来」は復習の時期、「弱い直接前提」は先に土台を整えること、
-  「未確認primary目標」は新しい学び、「未出題問題」はまだ挑戦していないこととして伝える。
+- `due-review`は「復習[ふくしゅう]の 時期[じき]」、`weak-prerequisite`は「さきに ここから」、
+  `unseen-primary`は「あたらしい 学[まな]び」、`unseen-question`は
+  「まだ といていない 問題[もんだい]」として伝える。
+- 完了復元の`review`は一般的な「復習[ふくしゅう]できた」、`diagnosis`は一般的な
+  「取[と]り組[く]めた」に対応し、元の詳細な推薦理由を推測・復元しない。
 - 内部スコア、retention値、confidence、ranking weight、診断名などを表示しない。
 - 列挙値から文言への対応は`content/i18n/ja.json`に置き、TypeScriptへ日本語をハードコードしない。
 - 上流が未知の理由を返す可能性を黙って一般化しない。型の不一致として実装時に検出する。
@@ -164,7 +169,7 @@
 ### Focus lifecycle
 
 1. 「がくしゅう」を初めて開いたとき、既存のモーダルfocus trap内で最初の有効な主要操作へ入れる。
-2. 今日項目を開始するとき、開始元の安定IDを呼び出し側が保持できるcallback契約を使う。
+2. 今日項目を開始するとき、開始元の`questionId`を呼び出し側が保持できるcallback契約を使う。
 3. 回答後にロードマップが再表示されたら、その項目が存在する限り対応する要素へfocusする。
 4. 完了によりbuttonが静的表示へ変わった場合、その項目の完了要素を`tabindex=-1`で一時focus可能にし、
    完了状態と進捗を読み上げる。通常のTab順へ不要な停止点を増やさない。
@@ -295,7 +300,7 @@ pnpm check:full
 <button
   type="button"
   class="nq-roadmap-today-start"
-  onClick={() => onTodaySelect(item.id)}
+  onClick={() => onTodaySelect(item.questionId)}
 >
   <RubyLabel text={t('field.roadmapTodayStart')} />
 </button>
@@ -308,9 +313,10 @@ pnpm check:full
 各行動変更は`tests/unit/roadmapMenu.test.ts`の失敗するテストから始める。
 
 - 0、1、2、3件を正しい数だけ描画し、placeholder/disabled CTAを出さない。
-- 上流順、教科、学習名、4種類の理由文を表示する。
+- 上流順、教科、実Unit名、4種類の未完了理由文を表示し、問題名を必須表示にしない。
+- 完了復元の`review | diagnosis`を一般的な完了文へ対応し、元の詳細理由を表示しない。
 - completed項目は文言と記号を持ち、開始callbackを呼ばない。
-- incomplete項目の開始操作だけが、正しい安定IDでcallbackを1回呼ぶ。
+- incomplete項目の開始操作だけが、正しい`questionId`でcallbackを1回呼ぶ。
 - 候補0件と全件完了の空状態を区別する。
 - 回答後の再renderで開始元へfocusが戻り、buttonが完了表示に変わった場合も同項目へfallbackする。
 - 対象項目が消えた場合、今日セクション見出しへfocusが戻る。
@@ -367,8 +373,10 @@ pnpm check:full
 
 - [ ] 「がくしゅう」の全教科概要に、全幅の「きょうの3つ」が既存教科概要より前に表示される。
 - [ ] 0〜3件を上流順で表示し、問題ID重複や候補補充をUIで行わない。
-- [ ] 期限、弱い前提、未確認目標、未出題の理由を子ども向けRubyTextで区別できる。
-- [ ] 未完了項目から1回の主要操作で正しい安定IDをcallbackへ渡せる。
+- [ ] `due-review | weak-prerequisite | unseen-primary | unseen-question`を子ども向けRubyTextで区別できる。
+- [ ] 完了復元の`review | diagnosis`を一般的な完了文へ対応し、元の推薦理由を推測しない。
+- [ ] 各カードは教科と`actualUnitId`の実Unit名を表示し、問題名を必須表示にしない。
+- [ ] 未完了項目から1回の主要操作で正しい`questionId`をcallbackへ渡せる。
 - [ ] 同日のreview/diagnosis回答はscoreに関係なく完了表示になり、battle/event回答は上流状態どおり完了にならない。
 - [ ] 1〜2件でplaceholderを出さず、0件で無効な開始ボタンを出さず、全完了とデータなしを区別する。
 - [ ] 回答後に開始元へfocusが戻り、項目が消えた場合も今日セクション内へ安全にfallbackする。
@@ -383,21 +391,21 @@ pnpm check:full
 - [ ] 所有ファイルのfocused testsと`pnpm check:fast`が通り、統合後に`pnpm check:full`と対象E2Eが通る。
 - [ ] 統合済み4174プレビューで回答→focus復帰→reloadを目視確認できる。
 
-## Approval decisions requested
+## Resolved review decisions
 
-人間承認では次を明示的に確認する。
+横断レビューにより次を固定する。
 
 1. 今日項目の完了済み行は再挑戦buttonを残さず、静的な完了表示にする。
-2. 推薦理由の日本語はUIのi18nが所有するが、reason列挙値と意味は上流provider契約を正とする。
-3. 回答後focus復帰には、統合担当が開始元の安定IDを再表示時に渡す境界が必要である。
-4. 候補0件と全件完了を区別するフラグ/状態を上流表示モデルが提供する。
-5. 常設zoom controlは追加せず、既存gestureとキーボードでのノード操作を維持する。
+2. 安定ID、focus target、開始callback値はすべて`questionId`とする。
+3. カードは教科と`actualUnitId`の実Unit名を表示し、問題名は必須表示にしない。
+4. 未完了reasonは`due-review | weak-prerequisite | unseen-primary | unseen-question`とする。
+5. 完了復元reasonは`review | diagnosis`を一般的な完了文へ対応し、詳細理由を推測しない。
+6. 候補0件と全件完了は、上流表示モデルの`allComplete`で区別する。
+7. 代表v13 fixtureと対象E2Eの選定は統合担当が所有する。
+8. 推薦理由の日本語はUIのi18nが所有するが、reason列挙値と意味は上流provider契約を正とする。
+9. 回答後focus復帰では、統合担当が開始元の`questionId`を再表示時に渡す。
+10. 常設zoom controlは追加せず、既存gestureとキーボードでのノード操作を維持する。
 
 ## Open questions
 
-- 上流`roadmap-view-model`が採用する今日プラン型名、reason列挙値、focus targetフィールド名は、各provider仕様の承認後に確定する。
-- 今日項目の表示名を「単元名」と「実際の問題名」のどちらまで含めるかは、上流表示モデルの情報量と統合時の実画面で確認する。
-- 代表v13セーブfixtureと対象E2Eファイルは統合計画で指定する。UI担当は新しいsave fixtureを所有しない。
-
-上記は実装方式の未確定であり、目的・範囲・成功条件を変更しない。provider契約が不足する場合は実装で推測せず、
-統合担当と人間へ確認する。
+なし。
