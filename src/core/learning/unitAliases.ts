@@ -61,5 +61,5 @@ export const LEGACY_QUESTION_UNIT_ALIASES: Readonly<Record<string, string>> = Ob
 );
 
 export function canonicalUnitId(unitId: string): string {
-  return LEGACY_QUESTION_UNIT_ALIASES[unitId] ?? unitId;
+  return LEGACY_UNIT_ALIASES[unitId] ?? LEGACY_QUESTION_UNIT_ALIASES[unitId] ?? unitId;
 }
