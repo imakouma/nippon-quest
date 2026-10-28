@@ -180,24 +180,22 @@ describe('マップ', () => {
       const map = maps.get(key);
       if (!map) continue;
       const landLinks = objectsOf(map).filter(
-        (object) =>
-          object.type === 'interPrefectureLink' && prop(object, 'infrastructure') === 'landBorder',
+        (object) => object.type === 'interPrefectureLink' && prop(object, 'infrastructure') === 'landBorder',
       );
       if (landLinks.length === 0) continue;
       const background = map.layers.find((layer) => layer.name === 'background')?.data ?? [];
       const collision = map.layers.find((layer) => layer.name === 'collision')?.data ?? [];
       const cells = terrain.rows.join('');
       const openings = new Set(
-        landLinks
-          .flatMap((object) => {
-            const entry = tileIndex(map, object);
-            const arrival = objectsOf(map).find(
-              (candidate) =>
-                candidate.type === 'spawn' && candidate.name === `from_${String(prop(object, 'linkId'))}`,
-            );
-            const opening = arrival ? entry * 2 - tileIndex(map, arrival) : -1;
-            return neighbors(map, entry).includes(opening) && cells[opening] === 'x' ? [opening] : [];
-          }),
+        landLinks.flatMap((object) => {
+          const entry = tileIndex(map, object);
+          const arrival = objectsOf(map).find(
+            (candidate) =>
+              candidate.type === 'spawn' && candidate.name === `from_${String(prop(object, 'linkId'))}`,
+          );
+          const opening = arrival ? entry * 2 - tileIndex(map, arrival) : -1;
+          return neighbors(map, entry).includes(opening) && cells[opening] === 'x' ? [opening] : [];
+        }),
       );
       expect(terrain.rows, `${key}: 地形の高さ`).toHaveLength(terrain.height);
       for (const [y, row] of terrain.rows.entries()) {

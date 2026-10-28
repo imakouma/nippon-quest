@@ -71,14 +71,12 @@ import type { TerrainMap } from './gen-terrain.js';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 /** マップの唯一の編集・生成先。Vite が dev では直接配信し、build では dist/maps へコピーする。 */
 const MAPS_DIR = `${ROOT}maps/`;
-
 const args = process.argv.slice(2);
 const force = args.includes('--force');
 const townsOnly = args.includes('--towns-only');
 const only = args.find((a) => a.startsWith('--only='))?.slice('--only='.length);
 const worldMapOnly = args.includes('--worldmap-only');
 const linksOnly = args.includes('--links-only');
-
 if (!existsSync(MAPS_DIR)) mkdirSync(MAPS_DIR, { recursive: true });
 
 const TERRAIN_DATA = JSON.parse(readFileSync(`${ROOT}scripts/data/terrain.json`, 'utf8')) as {

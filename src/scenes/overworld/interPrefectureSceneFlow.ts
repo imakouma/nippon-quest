@@ -29,7 +29,7 @@ export const interPrefectureIsOpen = (
   devAll: boolean,
 ): boolean => interPrefectureAccess(world, link, progress, devAll).open;
 
-interface InterPrefectureInteraction {
+export interface InterPrefectureInteraction {
   world: World;
   link: InterPrefectureLink;
   progress: LinkUnlockProgress & { counters: Readonly<Record<string, number>> };
