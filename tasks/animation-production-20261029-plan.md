@@ -36,12 +36,12 @@ Integrate the completed batch-01, batch-02, and batch-03 runtime monster animati
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-| --- | --- | --- |
-| Older batch commits overwrite newer production behavior | High | Integrate only animation commits and resolve shared files against current production. |
-| Duplicate IDs select the wrong sprite sheet | High | Assert exact set cardinality and zero duplicates across all five manifests. |
-| Generated catalog drifts from committed assets | High | Regenerate with `pnpm gen:manifest` and require a clean post-build diff. |
-| Static asset volume breaks the production bundle | Medium | Run the full build, performance budget, E2E suite, and deployed smoke test. |
+| Risk                                                    | Impact | Mitigation                                                                            |
+| ------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
+| Older batch commits overwrite newer production behavior | High   | Integrate only animation commits and resolve shared files against current production. |
+| Duplicate IDs select the wrong sprite sheet             | High   | Assert exact set cardinality and zero duplicates across all five manifests.           |
+| Generated catalog drifts from committed assets          | High   | Regenerate with `pnpm gen:manifest` and require a clean post-build diff.              |
+| Static asset volume breaks the production bundle        | Medium | Run the full build, performance budget, E2E suite, and deployed smoke test.           |
 
 ## Open Questions
 
