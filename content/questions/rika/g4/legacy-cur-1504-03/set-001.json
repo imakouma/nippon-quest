@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-03.3b6f2a0371fd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんい検流計を使うとき、はじめに選ぶ目盛りはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さい方（0.5A）"
+        },
+        {
+          "id": "c2",
+          "text": "大きい方（5A）"
+        },
+        {
+          "id": "c3",
+          "text": "どちらでもよい"
+        },
+        {
+          "id": "c4",
+          "text": "使わない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "はじめに大きい目盛りで調べ、必要なら小さい目盛りにします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.ab91fb981c89",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんい検流計で調べられることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気温だけ"
+        },
+        {
+          "id": "c2",
+          "text": "電流の強さと向き"
+        },
+        {
+          "id": "c3",
+          "text": "重さだけ"
+        },
+        {
+          "id": "c4",
+          "text": "音の大きさ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "針の振れで強さと向きがわかります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.bb4cf50ece88",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回路を流れる電気のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電流"
+        },
+        {
+          "id": "c2",
+          "text": "磁力"
+        },
+        {
+          "id": "c3",
+          "text": "気温"
+        },
+        {
+          "id": "c4",
+          "text": "体積"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "回路を流れる電気を電流といいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.ceb312650c85",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池の向きを逆にするとモーターはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "回[まわ]る向[む]きは変[か]わらない"
+        },
+        {
+          "id": "c2",
+          "text": "回る向きが逆になる"
+        },
+        {
+          "id": "c3",
+          "text": "同[おな]じ向[む]きに速[はや]く回[まわ]る"
+        },
+        {
+          "id": "c4",
+          "text": "同[おな]じ向[む]きにおそく回[まわ]る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "電流の向きが逆になり、モーターの回る向きも逆になります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.d4d68c1c529c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "モーターを回すもとになるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "風だけ"
+        },
+        {
+          "id": "c2",
+          "text": "電流"
+        },
+        {
+          "id": "c3",
+          "text": "水だけ"
+        },
+        {
+          "id": "c4",
+          "text": "音"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "電流が流れるとモーターが回ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.ddaeff146f93",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんい検流計に電池だけをつないではいけない理由[りゆう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重くなるから"
+        },
+        {
+          "id": "c2",
+          "text": "大きな電流が流れて壊れることがあるから"
+        },
+        {
+          "id": "c3",
+          "text": "色が変わるから"
+        },
+        {
+          "id": "c4",
+          "text": "音が出るから"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "負荷なしでつなぐと大きな電流が流れ、壊れることがあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.df71eee3fe1a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流の強さと向きを調べる道具はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度計"
+        },
+        {
+          "id": "c2",
+          "text": "かんい検流計"
+        },
+        {
+          "id": "c3",
+          "text": "メスシリンダー"
+        },
+        {
+          "id": "c4",
+          "text": "てんびん"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かんい検流計で電流の強さと向きを調べます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-03.ff616c610e4d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流は電池のどちらからどちらへ流れますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "−から＋へ"
+        },
+        {
+          "id": "c2",
+          "text": "＋から−へ"
+        },
+        {
+          "id": "c3",
+          "text": "どちらでも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "流れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "電流は＋極から−極へ流れます。"
+  }
+]

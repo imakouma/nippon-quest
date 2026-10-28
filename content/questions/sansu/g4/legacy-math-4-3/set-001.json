@@ -1,0 +1,590 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-3.0e2787ecd5a4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3÷3 =",
+      "answers": [
+        "100"
+      ]
+    },
+    "explanation": "300 は、100のまとまりが、3つ。このまとまりを、3でわって、3÷3=1 100のまとまりが、1つ になるので、答えは100。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.154f951367f3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 123 ÷ 3 =",
+      "answers": [
+        "41"
+      ]
+    },
+    "explanation": "4 1 3 ) 1 2 3 1 2 3 3 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.16958e5a2927",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 6÷2 =",
+      "answers": [
+        "30"
+      ]
+    },
+    "explanation": "60 は、10のまとまりが、6つ。このまとまりを、2でわって、6÷2=3 10のまとまりが、3つ になるので、答えは30。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.1d02a2111c1a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 45÷5 =",
+      "answers": [
+        "90"
+      ]
+    },
+    "explanation": "450 は、10のまとまりが、45こ。このまとまりを、5でわって、45÷5=9 10のまとまりが、9つ になるので、答えは90。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.218fbb485995",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8÷2 =",
+      "answers": [
+        "400"
+      ]
+    },
+    "explanation": "800 は、100のまとまりが、8つ。このまとまりを、2でわって、8÷2=4 100のまとまりが、4つ になるので、答えは400。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.22ed9b8b2312",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 356 ÷ 4 =",
+      "answers": [
+        "89"
+      ]
+    },
+    "explanation": "8 9 4 ) 3 5 6 3 2 3 6 3 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.355bb0ac57d9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 42 ÷ 3 =",
+      "answers": [
+        "14"
+      ]
+    },
+    "explanation": "1 4 3 ) 4 2 3 1 2 1 2 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.3c058ed6735d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "13",
+        "1"
+      ],
+      "template": "7 ) 9 2 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "1 3 7 ) 9 2 7 2 2 2 1 1"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.3f0328574d02",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 91 ÷ 7 =",
+      "answers": [
+        "13"
+      ]
+    },
+    "explanation": "1 3 7 ) 9 1 7 2 1 2 1 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.470d5bee3119",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 116 ÷ 2 =",
+      "answers": [
+        "58"
+      ]
+    },
+    "explanation": "5 8 2 ) 1 1 6 1 0 1 6 1 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.5cd8dda63e1b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "11",
+        "4"
+      ],
+      "template": "5 ) 5 9 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "1 1 5 ) 5 9 5 9 5 4"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.5d340ed3301b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8÷2 =",
+      "answers": [
+        "40"
+      ]
+    },
+    "explanation": "80 は、10のまとまりが、8つ。このまとまりを、2でわって、8÷2=4 10のまとまりが、4つ になるので、答えは40。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.a17cfaa9ac6f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 72÷9 =",
+      "answers": [
+        "80"
+      ]
+    },
+    "explanation": "720 は、10のまとまりが、72こ。このまとまりを、9でわって、72÷9=8 10のまとまりが、8つ になるので、答えは80。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.a2582d74c368",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 342 ÷ 3 =",
+      "answers": [
+        "114"
+      ]
+    },
+    "explanation": "1 1 4 3 ) 3 4 2 3 4 3 1 2 1 2 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.a85614c0ad69",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "90",
+        "3"
+      ],
+      "template": "5 ) 4 5 3 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "9 0 5 ) 4 5 3 4 5 3 0 3"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.abcfa75d1ee5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 56 ÷ 4 =",
+      "answers": [
+        "14"
+      ]
+    },
+    "explanation": "1 4 4 ) 5 6 4 1 6 1 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.b3236862d08e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 16÷8 =",
+      "answers": [
+        "200"
+      ]
+    },
+    "explanation": "1600 は、100のまとまりが、16こ。このまとまりを、8でわって、16÷8=2 100のまとまりが、2つ になるので、答えは200。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.bb863ec542ce",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 84 ÷ 3 =",
+      "answers": [
+        "28"
+      ]
+    },
+    "explanation": "2 8 3 ) 8 4 6 2 4 2 4 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.be65be114189",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "134",
+        "4"
+      ],
+      "template": "5 ) 6 7 4 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "1 3 4 5 ) 6 7 4 5 1 7 1 5 2 4 2 0 4"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.ccd61b1a7f64",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "408",
+        "1"
+      ],
+      "template": "2 ) 8 1 7 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "4 0 8 2 ) 8 1 7 8 1 0 1 7 1 6 1"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.cfe2d1705a30",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "45",
+        "1"
+      ],
+      "template": "2 ) 9 1 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "4 5 2 ) 9 1 8 1 1 1 0 1"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.d11be149add8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "20",
+        "1"
+      ],
+      "template": "3 ) 6 1 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "2 0 3 ) 6 1 6 1 0 1"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.d9450278587d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 92 ÷ 4 =",
+      "answers": [
+        "23"
+      ]
+    },
+    "explanation": "2 3 4 ) 9 2 8 1 2 1 2 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.dca8cc33a9c0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 70 ÷ 5 =",
+      "answers": [
+        "14"
+      ]
+    },
+    "explanation": "1 4 5 ) 7 0 5 2 0 2 0 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.de4de150ef29",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "12",
+        "2"
+      ],
+      "template": "3 ) 3 8 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "1 2 3 ) 3 8 3 8 6 2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.e69a5d5736a2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 856 ÷ 4 =",
+      "answers": [
+        "214"
+      ]
+    },
+    "explanation": "2 1 4 4 ) 8 5 6 8 5 4 1 6 1 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.ee46e724531b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "11",
+        "1"
+      ],
+      "template": "4 ) 4 5 {{INPUT}} あまり {{INPUT}}"
+    },
+    "explanation": "1 1 4 ) 4 5 4 5 4 1"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.f2a01edc9110",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 84 ÷ 7 =",
+      "answers": [
+        "12"
+      ]
+    },
+    "explanation": "1 2 7 ) 8 4 7 1 4 1 4 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.f74c29fbfe89",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 87 ÷ 3 =",
+      "answers": [
+        "29"
+      ]
+    },
+    "explanation": "2 9 3 ) 8 7 6 2 7 2 7 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-3.facbf8776153",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12÷4 =",
+      "answers": [
+        "30"
+      ]
+    },
+    "explanation": "120 は、10のまとまりが、12こ。このまとまりを、4でわって、12÷4=3 10のまとまりが、3つ になるので、答えは30。"
+  }
+]

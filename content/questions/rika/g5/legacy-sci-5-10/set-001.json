@@ -1,0 +1,821 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-10.0344a263169b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこ時計のしくみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふれはば・変わらない・ふりこの長さ"
+        },
+        {
+          "id": "c2",
+          "text": "おもりの重[おも]さ・変[か]わらない・ふりこの長[なが]さ"
+        },
+        {
+          "id": "c3",
+          "text": "ふれはば・変[か]わる・おもりの重[おも]さ"
+        },
+        {
+          "id": "c4",
+          "text": "おもりの重[おも]さ・変[か]わる・ふりこの長[なが]さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9e679f06a681992f.png"
+    },
+    "explanation": "ふりこは、（ふれはば）や おもりの重さ が変わっても、１往復する時間は（変わらない） 。ふりこ時計は、この性質を利用して正確に時間をきざんでいる。ふりこの１往復する時間がずれてしまったときは、（ふりこの長さ）を変えて調節する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.05e393cd043f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        },
+        {
+          "id": "c5",
+          "text": "E"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+    },
+    "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふりこの長さがいちばん短い B のふりこが、１往復する時間がいちばん短い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.066cf2989695",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おもりの重さが10g、20g、30gのとき、ふりこが１往復するのにかかる時間を求めたところ、表のようになった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おもりの重さを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c2",
+          "text": "ふりこの重さを変えると、ふりこが１往復する時間は変わる。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこの長さを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c4",
+          "text": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cfd491a65f42ae69.png"
+    },
+    "explanation": "ふりこが１往復する時間は、すべて1.2 秒になった。つまり、おもりの重さを変えても、ふりこが１往復する時間は変わらない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.07c43e687ea6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこについて、A〜Dに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "支点・ふりこの長さ・ふれはば・１往復"
+        },
+        {
+          "id": "c2",
+          "text": "支点[してん]・ふれはば・ふりこの長[なが]さ・１往復[おうふく]"
+        },
+        {
+          "id": "c3",
+          "text": "おもり・ふりこの長[なが]さ・支点[してん]・１往復[おうふく]"
+        },
+        {
+          "id": "c4",
+          "text": "支点[してん]・ふりこの長[なが]さ・１往復[おうふく]・ふれはば"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c94f006e0ee83af2.png"
+    },
+    "explanation": "A：支し点 B：ふりこの長さ C：ふれはば D：１往おう復ふく"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.0a139ce40959",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゆれているふりこを そのままにしておくと、ふりこのふれはばは、時間がたつにつれてだんだん小さくなる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変わらない。"
+        },
+        {
+          "id": "c2",
+          "text": "長くなる。"
+        },
+        {
+          "id": "c3",
+          "text": "短くなる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a5561a8ae9a9ef96.png"
+    },
+    "explanation": "ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.14b2d34aa0f6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの長さが 25cm、50cm、75cm のとき、ふりこが１０往復する時間を３回測定した結果は表のとおりだった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c2",
+          "text": "ふりこのふれはばを変えると、ふりこが１往復する時間は変わる。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこの長さを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c4",
+          "text": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/51ab1924481a49fc.png"
+    },
+    "explanation": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.19d606f94ed5",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おもりの重さが10g、20g、30gのとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。①～③に当てはまる数をそれぞれ求めよう。（小数第１位まで求めよう。）",
+      "answers": [
+        "1.2",
+        "1.2",
+        "1.2"
+      ],
+      "template": "①：{{INPUT}} 秒 ②：{{INPUT}} 秒 ③：{{INPUT}} 秒",
+      "promptImage": "questions/legacy/80af412de438952f.png"
+    },
+    "explanation": "ふりこが「１往復する時間」は、ふりこが「10往復する時間の平均」を、それぞれ 10 でわって小数第１位まで求める。 ①：12.1 ÷ 10 = 1.2 秒 ②：12.1 ÷ 10 = 1.2 秒 ③：12.0 ÷ 10 = 1.2 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.1c8d950dbf2c",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの長さが 25cm、50cm、75cm のとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。",
+      "answers": [
+        "2.0"
+      ],
+      "template": "③に当てはまる数を求めよう。（小数第１位まで求めよう。） {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/6b71dbb43331a8b8.png"
+    },
+    "explanation": "①ふりこが 10 往復する時間の合計は、 20.1 秒 + 19.6 秒 + 19.7 秒 = 59.4 秒 ②ふりこが 10 往復する時間の平均は、 59.4 ÷ 3 = 19.8（秒） ③ふりこが１ 往復する時間は、 19.8 ÷ 10 = 1.98（秒） 四捨五入すると、答えは、2.0（秒）"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.2d4432fe1785",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの１往復とは、どの動きのことでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A→B"
+        },
+        {
+          "id": "c2",
+          "text": "A→B→C"
+        },
+        {
+          "id": "c3",
+          "text": "A→B→C→B→A"
+        },
+        {
+          "id": "c4",
+          "text": "A→B→A"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1be752771ecb3f0e.png"
+    },
+    "explanation": "ふりこの１往復とは、ふりこが A から C に行ってから、また A までかえってくる動きのことをいう。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.395e68764b33",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 30° のとき、ふりこが 10 往復する時間を３回測定した結果は、表のようになった。",
+      "answers": [
+        "12.1"
+      ],
+      "template": "①に当てはまる数を求めよう。（小数第１位まで求めよう。） {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/c6b8bb51f0b6a40e.png"
+    },
+    "explanation": "ふりこが「10 往復する時間の平均」は、「３回分の時間の合計」を、3 でわって求める。 ふりこが 10 往復する時間の「３回分の時間の合計」は、 12.1 + 12.2 + 11.9 = 36.2 （秒） これを 3 でわると、 36.2 ÷ 3 = 12.066… 小数第１位まで求めるので、小数第２位を四し捨しゃ五ご入にゅうすると、ふりこが「10 往復する時間の平均」は、 12.1 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.3a4e2b96a4eb",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 10° のとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。表の①〜③を計算し、ふりこが１往復する時間を求めよう。（小数第１位まで求めよう。）",
+      "answers": [
+        "36.1",
+        "12.0",
+        "1.2"
+      ],
+      "template": "①：{{INPUT}} 秒 ②：{{INPUT}} 秒 ③：{{INPUT}} 秒",
+      "promptImage": "questions/legacy/fcefc8a2771ed7a4.png"
+    },
+    "explanation": "①ふりこが 10 往復する時間の合計は、 11.9 秒 + 12.2 秒 + 12.0 秒 = 36.1 秒 ②ふりこが 10 往復する時間の平均は、 36.1 ÷ 3 = 12.0333… 四捨五入して、12.0 秒 ③ふりこが１ 往復する時間は、 12.0 ÷ 10 = 1.2 （秒） よって答えは、①：36.1 秒、②：12.0 秒、③：1.2 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.450bc1320191",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこが 10 往復する時間を３回測定した結果の平均を求めて、ふりこが１往復する時間を調べる。このときの手順について、ア、イ に当てはまる数字をそれぞれ答えよう。",
+      "answers": [
+        "3",
+        "10"
+      ],
+      "template": "① ふりこが 10 往復する時間を３回はかる。 ② ①の３回分の時間の合計を（ア）でわり、「10 往復する時間の平均」を求める。 10 往復の時間の合計 ÷ （ア） ＝ 10 往復する時間の平均 ③ 10 往復する時間の平均を（イ）でわり、「ふりこが１往復する時間」を求める。 10 往復する時間の平均 ÷（イ）＝ ふりこが１往復する時間 ア：{{INPUT}}、イ：{{INPUT}}"
+    },
+    "explanation": "ア：3、イ：10 平均を求めるときには、全部足して、個こ数でわる。②では、３回分の時間を足しているので、３でわる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.70c020e4febc",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの長さが 25cm、50cm、75cm のとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。",
+      "answers": [
+        "1.7"
+      ],
+      "template": "②に当てはまる数を求めよう。（小数第１位まで求めよう。） {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/6b71dbb43331a8b8.png"
+    },
+    "explanation": "①ふりこが 10 往復する時間の合計は、 16.7 秒 + 17.0 秒 + 16.7 秒 = 50.4 秒 ②ふりこが 10 往復する時間の平均は、 50.4 ÷ 3 = 16.8（秒） ③ふりこが１ 往復する時間は、 16.8 ÷ 10 = 1.68（秒） 四捨五入すると、答えは、1.7（秒）"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.7a872a25bbb8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、ふりこのきまりを利用したもの ではないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メトロノーム"
+        },
+        {
+          "id": "c2",
+          "text": "ブランコ"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこ時計"
+        },
+        {
+          "id": "c4",
+          "text": "シーソー"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/351472105d07fb4c.png"
+    },
+    "explanation": "糸などにおもりをつるして、ふれるようにしたものを ふりこ という。メトロノーム、ふりこ時計、ブランコには、ふりこのきまりが利用されている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.7e04df90268c",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 30° のとき、ふりこが 10 往復する時間を３回測定した結果は、表のようになった。",
+      "answers": [
+        "1.2"
+      ],
+      "template": "①に当てはまる数を求めよう。（小数第１位まで求めよう。） {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/bda5ad0cf9f4f6c4.png"
+    },
+    "explanation": "ふりこが「１往復する時間」は、ふりこが「10 往復する時間の平均」を、10 でわって求める。 ふりこが 10 往復する時間の「３回分の時間の合計」は、 12.1 + 12.2 + 11.9 = 36.2 （秒） これを 3 でわると、 36.2 ÷ 3 = 12.066… 小数第１位まで求めるので、小数第２位を四捨五入すると、ふりこが「10 往復する時間の平均」は、 12.1 秒 これを 10 でわると、 12.1 ÷ 10 = 1.21 秒 小数第１位まで求めるので、小数第２位を四捨五入すると、ふりこが「１往復する時間」は、 1.2 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.7f8e668422db",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        },
+        {
+          "id": "c5",
+          "text": "E"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+    },
+    "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふりこの長さがいちばん長い C のふりこが、１往復する時間がいちばん長い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.827918aa972d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おもりの数をふやすときには、おもりを A のようにつなぐ。なぜ B のようにつないではいけないのでしょう。正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこの長さが変わるから。"
+        },
+        {
+          "id": "c2",
+          "text": "おもりの重さが変わるから。"
+        },
+        {
+          "id": "c3",
+          "text": "ふれはばが変わるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3082f84b3ccf1cbb.png"
+    },
+    "explanation": "おもりの数をふやすとき、おもりを B のようにつなぐとふりこの長さが変わってしまうので、おもりを A のようにつなぐ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.84f331c58c6a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B"
+        },
+        {
+          "id": "c2",
+          "text": "C"
+        },
+        {
+          "id": "c3",
+          "text": "D"
+        },
+        {
+          "id": "c4",
+          "text": "E"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+    },
+    "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふれはば や おもりの重さ が変わっても、１往復する時間は変わらない 。 １往復する時間が A と同じになるふりこは、ふりこの長さが A と同じ 25 cm の D のふりこ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.cb0d7e4a1508",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこが１往復する時間を１回はかろうとしても、正確かくな時間を調べることがむずかしい。次のうち、１往復する時間をもっとも正確にはかることができるのはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこが 10 往復する時間を ３ 回測定し、平均を求める。"
+        },
+        {
+          "id": "c2",
+          "text": "ふりこが１往復する時間を 10 回測定し、平均を求める。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこが 20 往復する時間を １ 回測定し、平均を求める。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ストップウォッチをおすタイミングや、ふりこから手をはなすタイミングなどを毎回同じにすることはむずかしい。そのため、何度か測そく定した結果の平均きんを求めて、できるだけ正確な時間を調べる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.cfad5127034e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこの長さとして、正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1565b69275833480.png"
+    },
+    "explanation": "支点からおもりの中心までの長さを、ふりこの長さという。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.d44c2a3cd8cc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこ・ふりこ時計・メトロノーム"
+        },
+        {
+          "id": "c2",
+          "text": "てこ・ふりこ時計[どけい]・メトロノーム"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこ・メトロノーム・ふりこ時計[どけい]"
+        },
+        {
+          "id": "c4",
+          "text": "てこ・メトロノーム・ふりこ時計[どけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8a95ad08c8addeaf.png"
+    },
+    "explanation": "糸などにおもりをつるして、ふれるようにしたものを A（ふりこ）という。ふりこは、B（ふりこ時計）や C（メトロノーム）に利用されている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.d51c3bb2a5ac",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 10°、20°、30° のとき、ふりこが１往復する時間を求めたところ、表のようになった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c2",
+          "text": "ふりこのふれはばを変えると、ふりこが１往復する時間は変わる。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこの長さを変えても、ふりこが１往復する時間は変わらない。"
+        },
+        {
+          "id": "c4",
+          "text": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bd3edee7a3c65d69.png"
+    },
+    "explanation": "ふりこが１往復する時間は、すべて1.2 秒になった。つまり、ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.d8b8c02a88a1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メトロノームのしくみについて、かっこに当てはまることばをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長く・おそく・短く・速く"
+        },
+        {
+          "id": "c2",
+          "text": "短[みじか]く・速[はや]く・長[なが]く・おそく"
+        },
+        {
+          "id": "c3",
+          "text": "長[なが]く・速[はや]く・短[みじか]く・おそく"
+        },
+        {
+          "id": "c4",
+          "text": "短[みじか]く・おそく・長[なが]く・速[はや]く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/84d4be646fcbbd32.png"
+    },
+    "explanation": "メトロノームは、60のめもりにおもりをあわせると１分間に60回のテンポをきざむ。おもりを上にすると、ふりこの長さが（長く）なるのでテンポは（おそく）なる。おもりを下にすると、ふりこの長さが（短く）なるのでテンポは（速く）なる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.f31f512b595e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふりこが１往復する時間の説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふれはばが大きいほど、ふりこが１往復する時間は長い。"
+        },
+        {
+          "id": "c2",
+          "text": "おもりの重さが重いほど、ふりこが１往復する時間は短い。"
+        },
+        {
+          "id": "c3",
+          "text": "ふりこの長さが長いほど、ふりこが１往復する時間は長い。"
+        },
+        {
+          "id": "c4",
+          "text": "おもりの重さが軽いほど、ふりこが１往復する時間は短い。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふれはば や おもりの重さ が変わっても、１往復する時間は変わらない。ふりこの長さが長いほど、ふりこが１往復する時間は長い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.fa428e6687bd",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 20° のとき、ふりこが 10 往復する時間を３回測定した結果は表のとおりだった。表の①〜③を計算し、ふりこが１往復する時間を求めよう。（小数第１位まで求めよう。）",
+      "answers": [
+        "36.3",
+        "12.1",
+        "1.2"
+      ],
+      "template": "①：{{INPUT}} 秒 ②：{{INPUT}} 秒 ③：{{INPUT}} 秒",
+      "promptImage": "questions/legacy/7dab7498299fc102.png"
+    },
+    "explanation": "①ふりこが 10 往復する時間の合計は、 12.0 秒 + 12.2 秒 + 12.1 秒 = 36.3 秒 ②ふりこが 10 往復する時間の平均は、 36.3 ÷ 3 = 12.1（秒） ③ふりこが１ 往復する時間は、 12.1 ÷ 10 = 1.2（秒） よって答えは、①：36.3 秒、②：12.1 秒、③：1.2 秒"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-10.ff395bfcab2b",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふれはば 30° のとき、ふりこが 10 往復する時間を３回測定した結果は、表のようになった。",
+      "answers": [
+        "36.2"
+      ],
+      "template": "①に当てはまる数を求めよう。 {{INPUT}} 秒",
+      "suffix": "秒",
+      "promptImage": "questions/legacy/ade4458173dff49f.png"
+    },
+    "explanation": "ふりこが 10 往復する時間の「３回分の時間の合計」は、 12.1 + 12.2 + 11.9 = 36.2 （秒）"
+  }
+]

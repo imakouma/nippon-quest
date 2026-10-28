@@ -66,8 +66,8 @@ export async function validateTohokuAcademicLedger(root: string): Promise<string
 
   if (audit.questions.length !== 18)
     errors.push(`東北タグ付き問題数が18件から${audit.questions.length}件に変わりました`);
-  if (audit.files.size !== 5)
-    errors.push(`東北タグ付き問題ファイル数が5件から${audit.files.size}件に変わりました`);
+  if (audit.files.size !== 4)
+    errors.push(`東北タグ付き問題ファイル数が4件から${audit.files.size}件に変わりました`);
 
   for (const question of audit.questions) {
     const marker = `| \`${question.id}\` |`;
@@ -101,7 +101,7 @@ if (invokedPath === fileURLToPath(import.meta.url)) {
   } else {
     const audit = await collectTohokuAcademicPopulation(root);
     console.log(
-      `✔ 東北教材台帳: ${audit.questions.length}問 / ${audit.files.size}ファイル（全件 人間承認待ち）`,
+      `✔ 東北教材台帳: ${audit.questions.length}問 / ${audit.files.size}セット（全件 人間承認待ち）`,
     );
   }
 }

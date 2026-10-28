@@ -1,0 +1,655 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-13.0ec3d2d900b1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：４のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "24",
+        "28",
+        "32",
+        "36"
+      ],
+      "template": "4×6 = {{INPUT}} 4×7 = {{INPUT}} 4×8 = {{INPUT}} 4×9 = {{INPUT}}"
+    },
+    "explanation": "4の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが4ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.19eeb2d42e58",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのかけ算のしきと 同じことをあらわす たし算のしきを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2+2+2+2"
+        },
+        {
+          "id": "c2",
+          "text": "2+4"
+        },
+        {
+          "id": "c3",
+          "text": "4+4"
+        },
+        {
+          "id": "c4",
+          "text": "2+4+2+4"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "2×4 は、「2が4つ」ということなので、2+2+2+2 と同じ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.371db032bd35",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：２のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "2",
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "template": "2×1 = {{INPUT}} 2×2 = {{INPUT}} 2×3 = {{INPUT}} 2×4 = {{INPUT}} 2×5 = {{INPUT}}"
+    },
+    "explanation": "2の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが2ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.496965847170",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：２のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "12",
+        "14",
+        "16",
+        "18"
+      ],
+      "template": "2×6 = {{INPUT}} 2×7 = {{INPUT}} 2×8 = {{INPUT}} 2×9 = {{INPUT}}"
+    },
+    "explanation": "２のだんは、2ずつ ふえていく。「に、し、ろ、は、とう」と ２ずつの数え方、きいたことあるかな。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.4c6ab4bfb33b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "16"
+      ]
+    },
+    "explanation": "2×8=16 （にはち じゅうろく）"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.51403a0bbe49",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "45"
+      ]
+    },
+    "explanation": "5×9=45 （ごっく しじゅうご）"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.607c9afad3f2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "42"
+      ]
+    },
+    "explanation": "7×6=42 （しちろく しじゅうに）"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.6444ef5f38d2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：６のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "36",
+        "42",
+        "48",
+        "54"
+      ],
+      "template": "6×6 = {{INPUT}} 6×7 = {{INPUT}} 6×8 = {{INPUT}} 6×9 = {{INPUT}}"
+    },
+    "explanation": "6の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが6ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.706faa161f48",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：３のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "3",
+        "6",
+        "9",
+        "12",
+        "15"
+      ],
+      "template": "3×1 = {{INPUT}} 3×2 = {{INPUT}} 3×3 = {{INPUT}} 3×4 = {{INPUT}} 3×5 = {{INPUT}}"
+    },
+    "explanation": "3の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが3ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.736b78ee1c6c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：９のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "9",
+        "18",
+        "27",
+        "36",
+        "45"
+      ],
+      "template": "9×1 = {{INPUT}} 9×2 = {{INPUT}} 9×3 = {{INPUT}} 9×4 = {{INPUT}} 9×5 = {{INPUT}}"
+    },
+    "explanation": "9の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが9ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.7592a6f07dd1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：７のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "7",
+        "14",
+        "21",
+        "28",
+        "35"
+      ],
+      "template": "7×1 = {{INPUT}} 7×2 = {{INPUT}} 7×3 = {{INPUT}} 7×4 = {{INPUT}} 7×5 = {{INPUT}}"
+    },
+    "explanation": "7の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが7ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.77955bc84149",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：７のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "42",
+        "49",
+        "56",
+        "63"
+      ],
+      "template": "7×6 = {{INPUT}} 7×7 = {{INPUT}} 7×8 = {{INPUT}} 7×9 = {{INPUT}}"
+    },
+    "explanation": "7の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが7ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.79d79fc372bb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：８のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "8",
+        "16",
+        "24",
+        "32",
+        "40"
+      ],
+      "template": "8×1 = {{INPUT}} 8×2 = {{INPUT}} 8×3 = {{INPUT}} 8×4 = {{INPUT}} 8×5 = {{INPUT}}"
+    },
+    "explanation": "8の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが8ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.805f3df9f146",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "5dL のジュース 3本で、15dL になります。これをあらわした かけ算の「しき」を、えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5×3=15"
+        },
+        {
+          "id": "c2",
+          "text": "3×5=15"
+        },
+        {
+          "id": "c3",
+          "text": "5×5×5=15"
+        },
+        {
+          "id": "c4",
+          "text": "3×3×3=15"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「5dL」が「3本分」あつまるので、5×3 になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.86886f54fbb0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "48"
+      ]
+    },
+    "explanation": "6×8=48 （ろくは しじゅうはち）"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.8ba0c806b648",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのかけ算のしきと 同じことをあらわす たし算のしきを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4+4+4+4+4"
+        },
+        {
+          "id": "c2",
+          "text": "4+5"
+        },
+        {
+          "id": "c3",
+          "text": "5+5+5+5"
+        },
+        {
+          "id": "c4",
+          "text": "4+5+4+5"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "4×5 は、「4が5つ」ということなので、4+4+4+4+4 と同じ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.936aab841d5b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：３のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "18",
+        "21",
+        "24",
+        "27"
+      ],
+      "template": "3×6 = {{INPUT}} 3×7 = {{INPUT}} 3×8 = {{INPUT}} 3×9 = {{INPUT}}"
+    },
+    "explanation": "3の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが3ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.969f97b4124e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：５のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "25"
+      ],
+      "template": "5×1 = {{INPUT}} 5×2 = {{INPUT}} 5×3 = {{INPUT}} 5×4 = {{INPUT}} 5×5 = {{INPUT}}"
+    },
+    "explanation": "5の段[だん]は、答[こた]えの一[いち]の位[くらい]が5、0、5、0と交互[こうご]になります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.96d0d8aa3547",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：４のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "4",
+        "8",
+        "12",
+        "16",
+        "20"
+      ],
+      "template": "4×1 = {{INPUT}} 4×2 = {{INPUT}} 4×3 = {{INPUT}} 4×4 = {{INPUT}} 4×5 = {{INPUT}}"
+    },
+    "explanation": "4の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが4ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.9b32cfc00744",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "5"
+      ]
+    },
+    "explanation": "１のだん。かける数 5 が、そのままこたえになる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.9cd2a04a370d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごを１人に3こずつ、 4人にくばると、ぜんぶで12こいります。これをあらわした かけ算の「しき」を、えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3×4=12"
+        },
+        {
+          "id": "c2",
+          "text": "4×3=12"
+        },
+        {
+          "id": "c3",
+          "text": "3×3×3×3=12"
+        },
+        {
+          "id": "c4",
+          "text": "4×4×4=12"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「3こ」が「4人分」あつまるので、3×4 になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.a229703cbcd6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：５のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "30",
+        "35",
+        "40",
+        "45"
+      ],
+      "template": "5×6 = {{INPUT}} 5×7 = {{INPUT}} 5×8 = {{INPUT}} 5×9 = {{INPUT}}"
+    },
+    "explanation": "5の段[だん]は、答[こた]えの一[いち]の位[くらい]が5、0、5、0と交互[こうご]になります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.ad9aae9a2cc6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：８のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "48",
+        "56",
+        "64",
+        "72"
+      ],
+      "template": "8×6 = {{INPUT}} 8×7 = {{INPUT}} 8×8 = {{INPUT}} 8×9 = {{INPUT}}"
+    },
+    "explanation": "8の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが8ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.ba347e9d2c6f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：９のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "54",
+        "63",
+        "72",
+        "81"
+      ],
+      "template": "9×6 = {{INPUT}} 9×7 = {{INPUT}} 9×8 = {{INPUT}} 9×9 = {{INPUT}}"
+    },
+    "explanation": "9の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが9ずつふえます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.d10c9d1d64a3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "63"
+      ]
+    },
+    "explanation": "9×7=63 （くしち ろくじゅうさん）"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.d1917c81cc08",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "18"
+      ]
+    },
+    "explanation": "3×6=18 （さぶろく じゅうはち）"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-13.d46a52ec0f79",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]：６のだんにこたえよう。そのあと、くりかえし、よんでみよう。",
+      "answers": [
+        "6",
+        "12",
+        "18",
+        "24",
+        "30"
+      ],
+      "template": "6×1 = {{INPUT}} 6×2 = {{INPUT}} 6×3 = {{INPUT}} 6×4 = {{INPUT}} 6×5 = {{INPUT}}"
+    },
+    "explanation": "6の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが6ずつふえます。"
+  }
+]

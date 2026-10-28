@@ -1,0 +1,534 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.170fba68382e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の＿線の言葉の読み方は、音読み・訓読みのどちらですか。\n\n◆今度いっしょに（お祭り）に行きませんか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「（お）まつり」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.1e88c59ef682",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「遊ぶ」の読み方「あそぶ」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「あそ（ぶ）」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.2b93080fe6dd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の＿線の言葉の読み方は、音読み・訓読みのどちらですか。\n\n◆（庭）のそうじをする。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「にわ」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.309e797de467",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「聞いただけでは、意味がわかりにくい読み方」はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音読み"
+        },
+        {
+          "id": "c2",
+          "text": "訓読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中国の漢字の発音をもとにした「音読み」は、聞いただけで意味がわかりにくいものが多いです。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.359f0190c953",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「先」の読み方「せん」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音読み"
+        },
+        {
+          "id": "c2",
+          "text": "訓読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「せん」は「音読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.3ea65650784f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「数」の読み方「かず」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「かず」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.3ed64025c346",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「中国の漢字を、にた意味をもつ日本語で読んだもの」はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中国の漢字に、似た意味をもつ日本語をあてはめたのが「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.465ad82f26e3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の＿線の言葉の読み方は、音読み・訓読みのどちらですか。\n\n◆新種の恐竜の（化石）が発見される。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音読み"
+        },
+        {
+          "id": "c2",
+          "text": "訓読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「かせき」は「音読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.47bce367ec17",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「草」の読み方「くさ」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「くさ」は日本語の意味からきた「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.57c9bea16062",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「聞いただけで、意味がわかる読み方」はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本語の意味に合わせた「訓読み」は、聞いただけで意味がわかります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.626d512957d1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「整う」の読み方「ととのう」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ととの（う）」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.652a8131c39e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「炭」の読み方「すみ」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「すみ」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.76220511a361",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「育つ」の読み方「そだつ」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「そだ（つ）」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.95867b863cfc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の＿線の言葉の読み方は、音読み・訓読みのどちらですか。\n\n◆この料理は（苦くて）とても食べられない。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「にが（くて）」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.b3598d4f2bf7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「歯」の読み方「は」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「は」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.c3060cb28547",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「黒」の読み方「くろ」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「くろ」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.cc2f682ebd6c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「前」の読み方「まえ」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「まえ」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.d69a3e1692c1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字「月」の読み方「つき」は、音読み・訓読みのどちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「つき」は「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-6.f6f9ca31fb07",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「漢字の発音を、中国語の発音のように読んだもの」はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音読み"
+        },
+        {
+          "id": "c2",
+          "text": "訓読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中国の元の発音をもとに読んだのが「音読み」です。"
+  }
+]

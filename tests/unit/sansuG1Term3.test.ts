@@ -9,9 +9,12 @@ import { pickRoadmapQuestionId } from '../../src/scenes/overworld/roadmapPractic
 
 const root = process.cwd();
 const units = JSON.parse(readFileSync(join(root, 'content/units.json'), 'utf8')) as Unit[];
-const legacyQuestions = JSON.parse(
-  readFileSync(join(root, 'content/questions/legacy/sansu/g1.json'), 'utf8'),
-) as Array<QuestionBase & { payload: { prompt?: string } }>;
+const legacyQuestions = ['legacy-math-1-7', 'legacy-math-1-9'].flatMap(
+  (unit) =>
+    JSON.parse(readFileSync(join(root, `content/questions/sansu/g1/${unit}/set-001.json`), 'utf8')) as Array<
+      QuestionBase & { payload: { prompt?: string } }
+    >,
+);
 
 describe('小学1年3学期の算数教材', () => {
   it('旧単元を重複表示せず、現行6単元を学習順に並べる', () => {

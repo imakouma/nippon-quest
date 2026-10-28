@@ -1,0 +1,146 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-24.055f81d3b692",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-24",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_24",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "短歌④「ひさかたの光のどけき春の日にしづ心なく花の散るらむ」はどのような様子を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "のどかな春の日に、桜の花が落ち着かなく散っている様子"
+        },
+        {
+          "id": "c2",
+          "text": "春の雨が激しく降っている様子"
+        },
+        {
+          "id": "c3",
+          "text": "桜の花が満開で、誰も見に来ない様子"
+        },
+        {
+          "id": "c4",
+          "text": "のどかな春の日に、鳥たちがさえずっている様子"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「のどかな春の日に…しづ心なく（落ち着いた心もなく）花の散るらむ」とあることから、のどかな日に桜がせわしなく散っている様子を表しています。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-24.50492db87166",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-24",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_24",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "短歌③「君がため春の野に出て若菜つむ我が衣手に雪は降りつつ」で、作者は何のために若菜を摘んでいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大切な人（君）のため"
+        },
+        {
+          "id": "c2",
+          "text": "自分の食べるため"
+        },
+        {
+          "id": "c3",
+          "text": "薬にするため"
+        },
+        {
+          "id": "c4",
+          "text": "売るため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「君がため」とあります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-24.d29e2a4002fb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-24",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_24",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "短歌①「金色のちひさき鳥のかたちして銀杏散るなり夕日の岡に」の季節を、漢字一字で書きましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "秋"
+        },
+        {
+          "id": "c2",
+          "text": "春"
+        },
+        {
+          "id": "c3",
+          "text": "夏"
+        },
+        {
+          "id": "c4",
+          "text": "冬"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「銀杏（いちょう）」が散るとあるため、秋です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-24.ea37d5033fa7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-24",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_24",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "短歌②「くれなゐの二尺伸びたるばらの芽の針やはらかに春雨のふる」で「二尺伸びている」のは何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ばらの芽"
+        },
+        {
+          "id": "c2",
+          "text": "春雨"
+        },
+        {
+          "id": "c3",
+          "text": "針"
+        },
+        {
+          "id": "c4",
+          "text": "ばらの花"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「二尺伸びたるばらの芽」とあります。"
+  }
+]

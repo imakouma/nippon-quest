@@ -1,0 +1,918 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-6.05cbe3cc1ec0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外側の地面[じめん]がけずられたから。"
+        },
+        {
+          "id": "c2",
+          "text": "外側に土が積もったから。"
+        },
+        {
+          "id": "c3",
+          "text": "外側も内側も地面[じめん]がけずられたから。"
+        },
+        {
+          "id": "c4",
+          "text": "外側にも内側にも土が積もったから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/668eaac423bbb5e0.png"
+    },
+    "explanation": "土で山を作って水を流したとき、曲がって流れているところの外側では地面[じめん]がけずられ、内側には土が積もる。そのため、外側に立てた旗だけがたおれる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.0be9481aa222",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の曲がったところの川底のようすについて、正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "内側は浅く、小さい石が多い。外側は深く、大きい石が多い。"
+        },
+        {
+          "id": "c2",
+          "text": "内側は深く、小さい石が多い。外側は浅く、大きい石が多い。"
+        },
+        {
+          "id": "c3",
+          "text": "内側は浅く、大きい石が多い。外側は深く、小さい石が多い。"
+        },
+        {
+          "id": "c4",
+          "text": "内側は深く、大きい石が多い。外側は浅く、小さい石が多い。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43b0f63647ece486.png"
+    },
+    "explanation": "川の曲がったところでは、内側の流れはおそく、たい積のはたらきが大きくなるので、川底は浅く 小さな石が多くなる。外側の流れは速く、しん食や運ぱんのはたらきが大きくなるので、川底は深く 大きい石が多くなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.0fa64b613ae6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川原の石は下流ほど小さくなり、丸みをおびる。このようになる理由[りゆう]として、もっとも正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "運ぱんされる間にぶつかり合って小さくなり、角が取れるから。"
+        },
+        {
+          "id": "c2",
+          "text": "上流にある小さくて丸みをおびた石だけが、下流まで運ぱんされるから。"
+        },
+        {
+          "id": "c3",
+          "text": "下流まで運ぱんされるのは、軽い石だけだから。"
+        },
+        {
+          "id": "c4",
+          "text": "上流では小さな石が長い間に固まって、大きな岩になるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "運ぱんされる間にぶつかり合って小さくなり、角が取れるため、川原の石は下流ほど小さくなり、丸みをおびる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.1fe55c0e8999",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の曲がったところの水のはたらきについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "速く・しん食・ゆるやかで・たい積"
+        },
+        {
+          "id": "c2",
+          "text": "速[はや]く・運[うん]ぱん・ゆるやかで・たい積[せき]"
+        },
+        {
+          "id": "c3",
+          "text": "速[はや]く・たい積[せき]・ゆるやかで・しん食[しょく]"
+        },
+        {
+          "id": "c4",
+          "text": "ゆるやかで・たい積[せき]・速[はや]く・しん食[しょく]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43b0f63647ece486.png"
+    },
+    "explanation": "川の曲がったところでは、川の外側では水の流れが（速く）、（しん食）や運ぱんのはたらきが大きい。川の内側では水の流れが（ゆるやかで）、（たい積）のはたらきが大きい。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.39ba4ad88b4c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外側ではさらに深く地面[じめん]がけずられ、内側ではさらに土が積もった。"
+        },
+        {
+          "id": "c2",
+          "text": "内側ではさらに深く地面[じめん]がけずられ、外側ではさらに土が積もった。"
+        },
+        {
+          "id": "c3",
+          "text": "外側も内側もさらに深く地面[じめん]がけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "外側にも内側にもさらに土が積もった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+    },
+    "explanation": "水を流す量を増やすと、（B）曲がって流れているところでは、外側ではさらに深く地面[じめん]がけずられ、内側ではさらに土が積もる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.45c7a42af58c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "平地・海・たい積・三角州"
+        },
+        {
+          "id": "c2",
+          "text": "平地[へいち]・海[うみ]・たい積[せき]・せん状地[じょうち]"
+        },
+        {
+          "id": "c3",
+          "text": "平地[へいち]・海[うみ]・しん食[しょく]・三角州[さんかくす]"
+        },
+        {
+          "id": "c4",
+          "text": "山地[さんち]・平地[へいち]・たい積[せき]・せん状地[じょうち]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d4f2179ca51729cc.png"
+    },
+    "explanation": "この地形は、川が（平地）から（海）に流れ込む場所にできる地形で、流れる水の（たい積）のはたらきによってできる。このような地形を（三角州さんかくす）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.52d12c0fa1fa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の流れが速く、底が深くけずられた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の流れがおそく、土が積もった。"
+        },
+        {
+          "id": "c3",
+          "text": "水の流れがおそく、地面[じめん]がけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "水の流れが速く、土が積もった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+    },
+    "explanation": "（A）かたむきが急でまっすぐ流れているところ では、水の流れが速く、底が深くけずられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.5cace333aab5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の流れが速く、地面[じめん]がけずられた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の流れがおそく、土が積もった。"
+        },
+        {
+          "id": "c3",
+          "text": "水の流れがおそく、地面[じめん]がけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "水の流れが速く、土が積もった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+    },
+    "explanation": "（B）曲がって流れているところの外側 では、水の流れが速いので、地面[じめん]がけずられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.5e28fdc46e15",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石の形や大きさ、川の様子[ようす]について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すなやどろ・ゆるやかで・広い"
+        },
+        {
+          "id": "c2",
+          "text": "すなやどろ・速[はや]く・せまい"
+        },
+        {
+          "id": "c3",
+          "text": "大[おお]きな岩[いわ]・ゆるやかで・広[ひろ]い"
+        },
+        {
+          "id": "c4",
+          "text": "すなやどろ・ゆるやかで・せまい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bf0e150358fe8228.png"
+    },
+    "explanation": "海の近く（下流）では、中流よりもさらに小さくて丸みのある石が多く、（すなやどろ）も見られる。中流よりも川の流れは（ゆるやかで）、川はばや川原は（広い）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.632588c9ac86",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ゆっくりと・森が豊かな"
+        },
+        {
+          "id": "c2",
+          "text": "すぐに・森[もり]が豊[ゆた]かな"
+        },
+        {
+          "id": "c3",
+          "text": "ゆっくりと・木[き]が少[すく]ない"
+        },
+        {
+          "id": "c4",
+          "text": "すぐに・木[き]が少[すく]ない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "山に降った雨は、落ち葉や土にしみこみながら、（ゆっくりと）川や海へと流れこむ。つまり、（森が豊ゆたかな）山は、一時的に水をたくわえる自然のダムになっている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.811743e626cc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地面[じめん]を流れる水について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "高い・低い・すなやどろ"
+        },
+        {
+          "id": "c2",
+          "text": "高[たか]い・低[ひく]い・大[おお]きな石[いし]"
+        },
+        {
+          "id": "c3",
+          "text": "低[ひく]い・高[たか]い・すなやどろ"
+        },
+        {
+          "id": "c4",
+          "text": "低[ひく]い・高[たか]い・大[おお]きな石[いし]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地面[じめん]を流れる水は、（高い）ところから（低い）ところに向かって流れる。（すなやどろ）が混じって、にごって見えることもある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.985a622d92fa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の流れについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山・海・速さ・ことなる"
+        },
+        {
+          "id": "c2",
+          "text": "山[やま]・海[うみ]・速[はや]さ・同[おな]じ"
+        },
+        {
+          "id": "c3",
+          "text": "海[うみ]・山[やま]・速[はや]さ・ことなる"
+        },
+        {
+          "id": "c4",
+          "text": "海[うみ]・山[やま]・速[はや]さ・同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "川は、（山）から（海）に向かって流れる。山の中（上流）、平地（中流）、海の近く（下流）では、水の流れの（速さ）や、川はば、河原の広さなどが（ことなる）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.9c69db6009c2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山地・平地・たい積・扇状地"
+        },
+        {
+          "id": "c2",
+          "text": "平地[へいち]・海[うみ]・たい積[せき]・三角州[さんかくす]"
+        },
+        {
+          "id": "c3",
+          "text": "山地[さんち]・平地[へいち]・しん食[しょく]・せん状地[じょうち]"
+        },
+        {
+          "id": "c4",
+          "text": "山地[さんち]・海[うみ]・たい積[せき]・せん状地[じょうち]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5906f240691c9c65.png"
+    },
+    "explanation": "この地形は、川が（山地）から（平地）に移る場所で見られ、水の流れがゆるやかになることによる、（たい積）のはたらきによってできる。このような地形を（扇せん状じょう 地ち）という。「おうぎ（扇）」の形をしている地形。「扇」は「せん」とも読む。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.a4e6c713b07a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の曲がったところの水の流れについて、正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "川の内側の流れはおそく、外側の流れは速い。"
+        },
+        {
+          "id": "c2",
+          "text": "川の内側の流れは速く、外側の流れはおそい。"
+        },
+        {
+          "id": "c3",
+          "text": "川の中央ほど流れが速い。"
+        },
+        {
+          "id": "c4",
+          "text": "川のどの部分も流れる速さは同じ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43b0f63647ece486.png"
+    },
+    "explanation": "川の曲がったところでは、川の内側の流れはおそく、外側の流れは速い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.b460bf78c352",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さらに深くけずられ、はばが少し広がった。"
+        },
+        {
+          "id": "c2",
+          "text": "積もっていた土が、より下に流された。"
+        },
+        {
+          "id": "c3",
+          "text": "さらに流れが速くなり、地面[じめん]はけずられなくなった。"
+        },
+        {
+          "id": "c4",
+          "text": "さらに土が積もり、はばが少しせまくなった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+    },
+    "explanation": "水を流す量を増やすと、まっすぐで流れが速いところでは、さらに深くけずられ、はばが少し広がる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.b4e4015eaf48",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さらに多くの土が運ばれ、積もった。"
+        },
+        {
+          "id": "c2",
+          "text": "流されてくる土の量が少なくなり、きれいな水が流れてきた。"
+        },
+        {
+          "id": "c3",
+          "text": "さらに流れが速くなり、地面[じめん]が深くけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "流す水の量を増やしても、水の流れや土の様子[ようす]に変化はなかった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+    },
+    "explanation": "水を流す量を増やすと、（C）流れがゆるやかなところ では、積もっていた土が、より下に流される。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.ba63745c8eea",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石の形や大きさ、川の様子[ようす]について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きくて角ばった・速く・せまい"
+        },
+        {
+          "id": "c2",
+          "text": "大[おお]きくて角[かく]ばった・速[はや]く・広[ひろ]い"
+        },
+        {
+          "id": "c3",
+          "text": "大[おお]きくて角[かく]ばった・ゆるやかで・せまい"
+        },
+        {
+          "id": "c4",
+          "text": "小[ちい]さくて丸[まる]みのある・速[はや]く・せまい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7198744deb099d49.png"
+    },
+    "explanation": "山の中（上流）では、（大きくて角ばった）石が多い。水の流れは（速く）、両岸はがけになっているところが多い。川はばや河原は（せまい）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.c9e5ea36c559",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように川の曲がったところの、AとBを結んだ川底の形として近いものを、ア～ウからえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/67c8adaa19b16a3d.png"
+    },
+    "explanation": "川の曲がったところでは、内側の流れはおそく、たい積のはたらきが大きくなるので、川底は浅く 小さな石が多くなる。外側の流れは速く、しん食や運ぱんのはたらきが大きくなるので、川底は深く 大きい石が多くなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.ca10a8a2a18e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石の形や大きさ、川の様子[ようす]について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さくて丸みのある・ゆるやかで・広い"
+        },
+        {
+          "id": "c2",
+          "text": "小[ちい]さくて丸[まる]みのある・速[はや]く・広[ひろ]い"
+        },
+        {
+          "id": "c3",
+          "text": "大[おお]きくて角[かく]ばった・ゆるやかで・広[ひろ]い"
+        },
+        {
+          "id": "c4",
+          "text": "小[ちい]さくて丸[まる]みのある・ゆるやかで・せまい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ce99132e33d4d2a5.png"
+    },
+    "explanation": "平地（中流）では、上流に比べると（小さくて丸みのある）石が多い。上流よりも川の流れは（ゆるやかで）、川はばや河原は（広い）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.d596541807fb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の流れが速く、地面[じめん]がけずられた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の流れがおそく、土が積もった。"
+        },
+        {
+          "id": "c3",
+          "text": "水の流れがおそく、地面[じめん]がけずられた。"
+        },
+        {
+          "id": "c4",
+          "text": "水の流れが速く、土が積もった。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+    },
+    "explanation": "（C）曲がって流れているところの内側 では、水の流れがおそくなっているため、上から水とともに流れてきた土が積もる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.d5c3725fe066",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "流れる水のはたらきについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "速く・大きく"
+        },
+        {
+          "id": "c2",
+          "text": "おそく・大[おお]きく"
+        },
+        {
+          "id": "c3",
+          "text": "速[はや]く・小[ちい]さく"
+        },
+        {
+          "id": "c4",
+          "text": "おそく・小[ちい]さく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "流れる水の量が増えると、水の流れは（速く）なり、しん食や運ぱんのはたらきが（大きく）なる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.dbc63b4d19c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山の中・しん食・V字谷"
+        },
+        {
+          "id": "c2",
+          "text": "山[やま]の中[なか]・たい積[せき]・V字谷[じこく]"
+        },
+        {
+          "id": "c3",
+          "text": "平地[へいち]・しん食[しょく]・V字谷[じこく]"
+        },
+        {
+          "id": "c4",
+          "text": "山[やま]の中[なか]・たい積[せき]・三角州[さんかくす]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d0fe0228b72e54f4.png"
+    },
+    "explanation": "この地形は、（山の中）に見られ、流れる水の（しん食）のはたらきによってできる。このような地形を（Vブイ字じ谷こく）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.dc2e2fe35245",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川がまっすぐに流れるところの川底の形は、図のようになっていた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "川の右側の流れはおそく、左側の流れは速い。"
+        },
+        {
+          "id": "c2",
+          "text": "川の右側の流れは速く、左側の流れはおそい。"
+        },
+        {
+          "id": "c3",
+          "text": "川の中央ほど流れが速い。"
+        },
+        {
+          "id": "c4",
+          "text": "川のどの部分も流れる速さは同じ。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7126939781d57538.png"
+    },
+    "explanation": "水の流れが速いところでは、土がけずられたり、運ぱんされたりするはたらきが大きい。川底の中央が深くけずれていることから、川の中央ほど流れが速いと考えられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.ec28ffb05367",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の曲がったところの土地のようすについて、正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "内側はすなやどろがたい積して、河原になる。外側はけずられてがけになる。"
+        },
+        {
+          "id": "c2",
+          "text": "外側はすなやどろがたい積して、河原になる。内側はけずられてがけになる。"
+        },
+        {
+          "id": "c3",
+          "text": "外側にも内側にもすなやどろがたい積して、河原になる。"
+        },
+        {
+          "id": "c4",
+          "text": "内側も外側もけずられてがけになる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43b0f63647ece486.png"
+    },
+    "explanation": "川の曲がったところでは、川の内側はすなやどろがたい積して、河原になる。外側はけずられてがけになる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-6.ef14fbce6df8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "速く・けずられたり・あふれたり・こう水"
+        },
+        {
+          "id": "c2",
+          "text": "おそく・けずられたり・あふれたり・こう水[ずい]"
+        },
+        {
+          "id": "c3",
+          "text": "速[はや]く・積[つ]もったり・しみこんだり・こう水[ずい]"
+        },
+        {
+          "id": "c4",
+          "text": "おそく・けずられたり・あふれたり・地震[じしん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fa97d0f360da2b3e.png"
+    },
+    "explanation": "大雨で川の水が増えると、川の流れが（速く）なり、川岸が（けずられたり）、川の外に水が（あふれたり）して、（こう水）が起こることがある。"
+  }
+]

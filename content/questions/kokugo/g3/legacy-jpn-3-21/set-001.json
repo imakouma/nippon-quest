@@ -1,0 +1,542 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.1f16714e5787",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）がいたい」の空欄に入る体の一部はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭"
+        },
+        {
+          "id": "c2",
+          "text": "顔"
+        },
+        {
+          "id": "c3",
+          "text": "耳"
+        },
+        {
+          "id": "c4",
+          "text": "目"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "心配事などで悩むことを「頭が痛い」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.265d12071769",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）を切る」の空欄に入る色はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "白"
+        },
+        {
+          "id": "c2",
+          "text": "青"
+        },
+        {
+          "id": "c3",
+          "text": "赤"
+        },
+        {
+          "id": "c4",
+          "text": "黒"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "知っているのに知らないふりをすることを「しら（白）を切る」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.281181791e21",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）が広い」の空欄に入る体の一部はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "顔"
+        },
+        {
+          "id": "c2",
+          "text": "頭"
+        },
+        {
+          "id": "c3",
+          "text": "耳"
+        },
+        {
+          "id": "c4",
+          "text": "目"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "知り合いが多いことを「顔が広い」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.2c7fe4be862c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「ねこの手もかりたい」の意味はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とてもいそがしい。"
+        },
+        {
+          "id": "c2",
+          "text": "ねこが好きな様子"
+        },
+        {
+          "id": "c3",
+          "text": "手が足りていてひまな様子"
+        },
+        {
+          "id": "c4",
+          "text": "ねこを飼いたい様子"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "非常に忙しくて誰でもいいから手伝ってほしい様子を言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.37ae82d7aa28",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「開いた口がふさがらない」の意味はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あきれて何も言えない。"
+        },
+        {
+          "id": "c2",
+          "text": "大笑いすること"
+        },
+        {
+          "id": "c3",
+          "text": "お腹がいっぱいになること"
+        },
+        {
+          "id": "c4",
+          "text": "話し続けること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "相手の言動があまりにひどく、あきれ返る様子を表します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.3e340faa1ca5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「きつねのよめ入り」の意味はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れているのに雨がふる。"
+        },
+        {
+          "id": "c2",
+          "text": "きつねが結婚すること"
+        },
+        {
+          "id": "c3",
+          "text": "天気がとても良いこと"
+        },
+        {
+          "id": "c4",
+          "text": "夜に雪が降ること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日が照っているのに、雨が降る現象を言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.6fadfdbd1ab8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）がかたい」の空欄に入る体の一部はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "口"
+        },
+        {
+          "id": "c2",
+          "text": "顔"
+        },
+        {
+          "id": "c3",
+          "text": "頭"
+        },
+        {
+          "id": "c4",
+          "text": "耳"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "秘密をしっかり守って他人に話さないことを「口が堅い」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.7b8c8a3f634b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「頭をひねる」の意味はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いろいろと考える。"
+        },
+        {
+          "id": "c2",
+          "text": "頭痛がすること"
+        },
+        {
+          "id": "c3",
+          "text": "反対すること"
+        },
+        {
+          "id": "c4",
+          "text": "あきらめること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "どうすればよいか、知恵をしぼって深く考えることを言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.879f5bb6f939",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）のとおぼえ」の空欄に入る動物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "犬"
+        },
+        {
+          "id": "c2",
+          "text": "牛"
+        },
+        {
+          "id": "c3",
+          "text": "馬"
+        },
+        {
+          "id": "c4",
+          "text": "猫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "おくびょうな人が影でいばったりすることを「犬の遠吠え」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.aeb37f32e8ce",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「かみなりを落とす」の意味はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大声でしかりつける。"
+        },
+        {
+          "id": "c2",
+          "text": "天気が悪くなること"
+        },
+        {
+          "id": "c3",
+          "text": "びっくりすること"
+        },
+        {
+          "id": "c4",
+          "text": "静かになること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "大声で雷のように激しく叱ることを言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.b561b5634407",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）がない」の空欄に入る体の一部はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "目"
+        },
+        {
+          "id": "c2",
+          "text": "顔"
+        },
+        {
+          "id": "c3",
+          "text": "頭"
+        },
+        {
+          "id": "c4",
+          "text": "耳"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とても好きで、冷静でいられなくなることを「目がない」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.cd1c651700af",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）菜にしお」の空欄に入る色はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "青"
+        },
+        {
+          "id": "c2",
+          "text": "白"
+        },
+        {
+          "id": "c3",
+          "text": "赤"
+        },
+        {
+          "id": "c4",
+          "text": "黒"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "がっかりして元気がなくなる様子を「青菜に塩」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.e8a8f9077818",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）の歩み」の空欄に入る動物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "牛"
+        },
+        {
+          "id": "c2",
+          "text": "犬"
+        },
+        {
+          "id": "c3",
+          "text": "馬"
+        },
+        {
+          "id": "c4",
+          "text": "猫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "進み方が遅いことを「牛の歩み」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.eb8c357e94cc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）を運ぶ」の空欄に入る体の一部はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "足"
+        },
+        {
+          "id": "c2",
+          "text": "顔"
+        },
+        {
+          "id": "c3",
+          "text": "頭"
+        },
+        {
+          "id": "c4",
+          "text": "耳"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある場所へわざわざ出向くことを「足を運ぶ」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-21.f53cda5bd27b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「（　）が早い」の空欄に入る体の一部はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "耳"
+        },
+        {
+          "id": "c2",
+          "text": "顔"
+        },
+        {
+          "id": "c3",
+          "text": "頭"
+        },
+        {
+          "id": "c4",
+          "text": "目"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "世間の情報やうわさを早く知ることを「耳が早い」と言います。"
+  }
+]

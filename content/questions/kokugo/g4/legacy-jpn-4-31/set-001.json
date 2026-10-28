@@ -1,0 +1,105 @@
+[
+  {
+    "id": "kokugo.g4.supplemental.story-a.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-31",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「ユウタは落[お]ちていたりんごを拾[ひろ]い、持[も]ち主[ぬし]を探[さが]した。」この行動[こうどう]から分[わ]かるユウタの性格[せいかく]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "正直[しょうじき]で親切[しんせつ]"
+        },
+        {
+          "id": "b",
+          "text": "乱暴[らんぼう]である"
+        },
+        {
+          "id": "c",
+          "text": "何[なに]にも関心[かんしん]がない"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "人物[じんぶつ]の性格[せいかく]は、書[か]かれている行動[こうどう]を根拠[こんきょ]に考[かんが]える。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-31.c4499447c517",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-31",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_31",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物語の舞台である「トウキビ畑」の情景は、どのような雰囲気（空気感）を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "緊張感のただよう空気"
+        },
+        {
+          "id": "c2",
+          "text": "のどかで平和な空気"
+        },
+        {
+          "id": "c3",
+          "text": "にぎやかで楽しげな空気"
+        },
+        {
+          "id": "c4",
+          "text": "悲しくて静まりかえった空気"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "トウキビ畑の中でどろぼうと出くわす場面には、張り詰めた緊張感が漂っています。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-31.e392172ca672",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-31",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_31",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物語「りんごどろぼう」で、りんごどろぼうと突然出くわしたときの「ぼく」の気持ちや様子を表すものとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動揺と驚きでいっぱいになった様子"
+        },
+        {
+          "id": "c2",
+          "text": "うれしくて喜びだした様子"
+        },
+        {
+          "id": "c3",
+          "text": "特に気にせず通りすぎた様子"
+        },
+        {
+          "id": "c4",
+          "text": "どろぼうを大声でどなりつけた様子"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "りんごどろぼうとばったり会った時の「ぼく」の動揺と驚きが描かれています。"
+  }
+]

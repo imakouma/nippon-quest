@@ -1,0 +1,100 @@
+[
+  {
+    "id": "kokugo.g4.supplemental.meaning.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-38",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「計画[けいかく]を実行[じっこう]に移[うつ]す」の「実行[じっこう]」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "実際[じっさい]に行[おこな]うこと"
+        },
+        {
+          "id": "b",
+          "text": "詳[くわ]しく調[しら]べること"
+        },
+        {
+          "id": "c",
+          "text": "途中[とちゅう]でやめること"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "実行[じっこう]は、考[かんが]えたことを実際[じっさい]に行[おこな]うこと。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.meaning.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-38",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「友[とも]だちの意見[いけん]に納得[なっとく]した」の「納得[なっとく]」に近[ちか]い意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なるほどと思[おも]い、受[う]け入[い]れる"
+        },
+        {
+          "id": "b",
+          "text": "大声[おおごえ]で反対[はんたい]する"
+        },
+        {
+          "id": "c",
+          "text": "聞[き]かなかったことにする"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "納得[なっとく]は、理由[りゆう]が分[わ]かって受[う]け入[い]れること。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-38.bff888d57a04",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-38",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_38",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「彼の話は矛盾している。」という文の「矛盾」の意味として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "前後のつじつまが合わないこと"
+        },
+        {
+          "id": "c2",
+          "text": "とても分かりやすいこと"
+        },
+        {
+          "id": "c3",
+          "text": "真実を述めていること"
+        },
+        {
+          "id": "c4",
+          "text": "おもしろくて笑えること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「矛（ほこ）」と「盾（たて）」の故事から、つじつまが合わないことを「矛盾」と言います。"
+  }
+]

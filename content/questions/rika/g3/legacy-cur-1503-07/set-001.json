@@ -1,0 +1,434 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-07.2b2e5dc2a113",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日[ひ]なたと日陰[ひかげ]の地面[じめん]の温度[おんど]を正[ただ]しく比[くら]べる方法[ほうほう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同[おな]じ時刻[じこく]に、同[おな]じ温度計[おんどけい]の使[つか]い方[かた]で測[はか]る"
+        },
+        {
+          "id": "c2",
+          "text": "日[ひ]なたは朝[あさ]、日陰[ひかげ]は昼[ひる]に測[はか]る"
+        },
+        {
+          "id": "c3",
+          "text": "日[ひ]なたは地面[じめん]、日陰[ひかげ]は空気[くうき]の温度[おんど]を測[はか]る"
+        },
+        {
+          "id": "c4",
+          "text": "それぞれ別[べつ]の単位[たんい]で記録[きろく]する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日[ひ]なたと日陰[ひかげ]以外[いがい]の条件[じょうけん]をそろえると、日光[にっこう]による地面[じめん]の暖[あたた]まり方[かた]の違[ちが]いを比[くら]べられます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.2f951fbe25b6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "方位じしんの色のついた針は、だいたいどちらを指しますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "東"
+        },
+        {
+          "id": "c2",
+          "text": "西"
+        },
+        {
+          "id": "c3",
+          "text": "南"
+        },
+        {
+          "id": "c4",
+          "text": "北"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "方位じしんの色のついた針は北を指します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.45545669c0bb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温度計を読むとき、正しい見方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "斜め上から見る"
+        },
+        {
+          "id": "c2",
+          "text": "液の先と同じ高さで見る"
+        },
+        {
+          "id": "c3",
+          "text": "下から見る"
+        },
+        {
+          "id": "c4",
+          "text": "遠くから当てずっぽう"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "液の先と同じ高さの目で目もりを読みます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.5b194e123371",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かげができるのは、何がさえぎられるからですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音"
+        },
+        {
+          "id": "c2",
+          "text": "光（日光）"
+        },
+        {
+          "id": "c3",
+          "text": "磁石"
+        },
+        {
+          "id": "c4",
+          "text": "電気"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日光が物でさえぎられるとかげができます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.5f2169dd2509",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かげができる向きとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太陽[たいよう]と同じ側"
+        },
+        {
+          "id": "c2",
+          "text": "太陽[たいよう]と反対側"
+        },
+        {
+          "id": "c3",
+          "text": "関係ない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず東"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かげは太陽[たいよう]と反対側にできます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.6225f0a93f00",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太陽[たいよう]は1日でだいたいどの向きに動きますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西→東"
+        },
+        {
+          "id": "c2",
+          "text": "東→南→西"
+        },
+        {
+          "id": "c3",
+          "text": "北→南だけ"
+        },
+        {
+          "id": "c4",
+          "text": "動かない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽[たいよう]は東から南を通って西へ動きます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.7814e9d5dcba",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太陽[たいよう]を直接見てよいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "よい"
+        },
+        {
+          "id": "c2",
+          "text": "いけない"
+        },
+        {
+          "id": "c3",
+          "text": "夜だけよい"
+        },
+        {
+          "id": "c4",
+          "text": "雨の日だけよい"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽[たいよう]を直接[ちょくせつ]見[み]てはいけません。位置[いち]を調[しら]べるときは、学校[がっこう]で用意[ようい]した太陽観察用[たいようかんさつよう]の遮光板[しゃこうばん]を正[ただ]しく使[つか]います。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.8865ac68a7c5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "しめり気について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同じ"
+        },
+        {
+          "id": "c2",
+          "text": "日陰の方がしめっていることが多い"
+        },
+        {
+          "id": "c3",
+          "text": "日なたの方が必ずしめっている"
+        },
+        {
+          "id": "c4",
+          "text": "関係ない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日陰の方がしめっていることが多いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.a443c7ae33a4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "方位じしんの正しい使い方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "立てて振り回す"
+        },
+        {
+          "id": "c2",
+          "text": "水平に持ち、針が止まってから読む"
+        },
+        {
+          "id": "c3",
+          "text": "水に入れる"
+        },
+        {
+          "id": "c4",
+          "text": "磁石に近づけたまま使う"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水平に持ち、針が止まってから方位を読みます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.c8975261bcb0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太陽[たいよう]の位置が変わると、かげはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変わらない"
+        },
+        {
+          "id": "c2",
+          "text": "向きや長さが変わる"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ変わる"
+        },
+        {
+          "id": "c4",
+          "text": "消えない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽[たいよう]の位置が変わると、かげの向きや長さも変わります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.df505e894844",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "晴[は]れた日[ひ]、同[おな]じ場所[ばしょ]の日[ひ]なたの地面[じめん]を午前[ごぜん]9時[じ]と正午[しょうご]に測[はか]りました。正午[しょうご]の温度[おんど]はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "低い"
+        },
+        {
+          "id": "c2",
+          "text": "高い"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "晴[は]れた日[ひ]の同[おな]じ場所[ばしょ]では、日光[にっこう]に暖[あたた]められる時間[じかん]が長[なが]い正午[しょうご]の方[ほう]が、午前[ごぜん]9時[じ]より高[たか]くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-07.f68930a086f5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かげぼうし遊びに向いている天気[てんき]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れ"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "雨"
+        },
+        {
+          "id": "c4",
+          "text": "雪"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "晴れの日はかげがはっきりできます。"
+  }
+]

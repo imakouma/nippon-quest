@@ -1,0 +1,703 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-12.0136db29ea92",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "長方形[ちょうほうけい]を、正しくあらわした ことばを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すべてのかどが 直角[ちょっかく]になった四角形[しかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "すべての辺の長さが 同じ四角形[しかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "４本の直線でかこまれた形"
+        },
+        {
+          "id": "c4",
+          "text": "すべてのかどが直角[ちょっかく]で 辺の長さもおなじ四角形[しかくけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/18c6ec5fecde3366.png"
+    },
+    "explanation": "長方形[ちょうほうけい]は、「すべてのかどが 直角[ちょっかく]になった四角形[しかくけい]」のこと。下の図のような形だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.10932d31cfc7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの中から、三角形[さんかくけい]でないものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cab4b7714daf750a.png"
+    },
+    "explanation": "三角形[さんかくけい]は、「３本の直線でかこまれている形」のこと。①は、直線が つながってない ところが あるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.10ef66404599",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のような 四角形[しかくけい]を、何というでしょう。すべての辺のながさは、同じとします。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正方形[せいほうけい]"
+        },
+        {
+          "id": "c2",
+          "text": "長方形[ちょうほうけい]"
+        },
+        {
+          "id": "c3",
+          "text": "直角四角形"
+        },
+        {
+          "id": "c4",
+          "text": "直方形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/90a1d71c51f9de99.png"
+    },
+    "explanation": "すべてのかどが 直角[ちょっかく]で、辺の長さもおなじ四角形[しかくけい]を、正方形[せいほうけい]という。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.329284c7c26e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]を、正しくあらわした ことばを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3つの点で かこまれている形"
+        },
+        {
+          "id": "c2",
+          "text": "4つの丸で かこまれている形"
+        },
+        {
+          "id": "c3",
+          "text": "4本の線で かこまれている形"
+        },
+        {
+          "id": "c4",
+          "text": "4本の直線で かこまれている形"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/701a61ac1d303796.png"
+    },
+    "explanation": "四角形[しかくけい]は、「4本の直線で かこまれている形」のこと。下の図のような形だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.36dfc2e04461",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの中から、四角形[しかくけい]でないものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8c76782079cc985b.png"
+    },
+    "explanation": "四角形[しかくけい]は、「４本の直線でかこまれている形」のこと。③は、線がまがっている ところがあるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.3c28766a1c49",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの中から、正方形[せいほうけい] になっているものを えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おり紙"
+        },
+        {
+          "id": "c2",
+          "text": "はがき"
+        },
+        {
+          "id": "c3",
+          "text": "ノート"
+        },
+        {
+          "id": "c4",
+          "text": "しんぶん紙"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正方形[せいほうけい]は、「すべてのかどが 直角[ちょっかく]で 辺の長さもおなじ四角形[しかくけい]」のこと。おり紙は、辺のながさが同じだね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.42ad9dba7ed9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のような かどの形を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "直角[ちょっかく]"
+        },
+        {
+          "id": "c2",
+          "text": "三角"
+        },
+        {
+          "id": "c3",
+          "text": "平角"
+        },
+        {
+          "id": "c4",
+          "text": "ちょう点"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c54c0b0b6ce2ff14.png"
+    },
+    "explanation": "四角[しかく]い紙[かみ]のかどのように、ぴったり重[かさ]なるかどを直角[ちょっかく]といいます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.43d4514f24ce",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "三角形[さんかくけい]や四角形[しかくけい]の かどの点を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ちょう点"
+        },
+        {
+          "id": "c2",
+          "text": "点"
+        },
+        {
+          "id": "c3",
+          "text": "丸"
+        },
+        {
+          "id": "c4",
+          "text": "ちょぼ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "三角形[さんかくけい]や四角形[しかくけい]の かどの点を 「ちょう点」という。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.70ddbe8b8632",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のような 三角形[さんかくけい]を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "直角三角形"
+        },
+        {
+          "id": "c2",
+          "text": "長方形[ちょうほうけい]"
+        },
+        {
+          "id": "c3",
+          "text": "正三角形"
+        },
+        {
+          "id": "c4",
+          "text": "正方形[せいほうけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/20914c6ba3ed062f.png"
+    },
+    "explanation": "直角[ちょっかく]がはいった 三角形[さんかくけい]を、直角三角形というよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.7e899aa0668d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おり紙を、下の図のようにおったとき、どんな形になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長方形[ちょうほうけい]"
+        },
+        {
+          "id": "c2",
+          "text": "正方形[せいほうけい]"
+        },
+        {
+          "id": "c3",
+          "text": "直角三角形"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f598824b1210fef3.png"
+    },
+    "explanation": "おり紙は おるまえは、正方形[せいほうけい]になっている。おったあとも、直角[ちょっかく]がある三角形[さんかくけい]になるので、こたえは、直角三角形。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.81a325da04bc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの中から、正方形[せいほうけい]を えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/221053f2f8f6e898.png"
+    },
+    "explanation": "①は、すべてのかどが 直角[ちょっかく]で 辺の長さもおなじなので、正方形[せいほうけい]だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.849261b573ec",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの中から、直角三角形を えらびましょう",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/71caef4ab9360ec8.png"
+    },
+    "explanation": "②には、直角[ちょっかく]があるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.918935d2509f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おり紙を、下の図の線で切ったとき、どんな形になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "四角形[しかくけい] と 四角形[しかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "三角形[さんかくけい] と 四角形[しかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "三角形[さんかくけい] と 三角形[さんかくけい]"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2c40aa2d336c859b.png"
+    },
+    "explanation": "図の線できったとき、それぞれの図形[ずけい]は、３つの直線でかこまれた 三角形[さんかくけい]になる。直角[ちょっかく]がはいっているので、直角三角形にもなっているぞ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.91c402fc10d3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの中から、長方形[ちょうほうけい]を えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/23ee93db80c541c9.png"
+    },
+    "explanation": "③は、すべてのかどが 直角[ちょっかく]になっているので、長方形[ちょうほうけい]だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.927fada1eb15",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のような 四角形[しかくけい]を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長方形[ちょうほうけい]"
+        },
+        {
+          "id": "c2",
+          "text": "正方形[せいほうけい]"
+        },
+        {
+          "id": "c3",
+          "text": "直角四角形"
+        },
+        {
+          "id": "c4",
+          "text": "直方形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ccc7cb9faba10e4a.png"
+    },
+    "explanation": "すべてのかどが、直角[ちょっかく]になった四角形[しかくけい]を、長方形[ちょうほうけい]という。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.a62de1e0a80e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "三角形[さんかくけい]や四角形[しかくけい]の まわりの直線を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺（へん）"
+        },
+        {
+          "id": "c2",
+          "text": "直線"
+        },
+        {
+          "id": "c3",
+          "text": "かど"
+        },
+        {
+          "id": "c4",
+          "text": "えん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "三角形[さんかくけい]や四角形[しかくけい]の まわりの直線を 「辺」という。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.aaf25c1fd60c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おり紙を、下の図の線で切ったとき、どんな形になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "四角形[しかくけい] と 四角形[しかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "三角形[さんかくけい] と 四角形[しかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "三角形[さんかくけい] と 三角形[さんかくけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e85916da9cb0c861.png"
+    },
+    "explanation": "図の線できったとき、それぞれの図形[ずけい]は、４つの直線でかこまれた 四角形[しかくけい]になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.ac5143d7cabc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "三角形[さんかくけい]を、正しくあらわした ことばを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3本の直線で かこまれている形"
+        },
+        {
+          "id": "c2",
+          "text": "3つの点で かこまれている形"
+        },
+        {
+          "id": "c3",
+          "text": "3本の線で かこまれている形"
+        },
+        {
+          "id": "c4",
+          "text": "4本の直線で かこまれている形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e9fd4c95ae63bf9d.png"
+    },
+    "explanation": "三角形[さんかくけい]は、「3本の直線でかこまれている形」のこと。下の図のような形だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.cd064b86f196",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おり紙を、下の図のようにおったとき、どんな形になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長方形[ちょうほうけい]"
+        },
+        {
+          "id": "c2",
+          "text": "正方形[せいほうけい]"
+        },
+        {
+          "id": "c3",
+          "text": "直角三角形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/892610abe66780e0.png"
+    },
+    "explanation": "おり紙は おるまえは、正方形[せいほうけい]になっている。おったあとも、直角[ちょっかく]がある四角形[しかくけい]になるので、こたえは、長方形[ちょうほうけい]。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-12.f602ff155dc0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "正方形[せいほうけい]を、正しくあらわしたことばを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すべてのかどが 直角[ちょっかく]になった四角形[しかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "すべての辺の長さが 同じ四角形[しかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "４本の直線でかこまれた形"
+        },
+        {
+          "id": "c4",
+          "text": "すべてのかどが直角[ちょっかく]で 辺の長さもおなじ四角形[しかくけい]"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/dac079d233ebcb82.png"
+    },
+    "explanation": "正方形[せいほうけい]は、「すべてのかどが 直角[ちょっかく]で 辺の長さもおなじ四角形[しかくけい]」のこと。下の図のような形だ。"
+  }
+]

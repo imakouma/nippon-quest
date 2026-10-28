@@ -1,0 +1,423 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-11.01b9128edae0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みらいさんの ５０m走３回の平均タイムを 求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(9.9+9.6+10.2)÷3"
+        },
+        {
+          "id": "c2",
+          "text": "9.9+9.6+10.2"
+        },
+        {
+          "id": "c3",
+          "text": "(9.9+9.6+10.2)×3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (9.9+9.6+10.2)÷3=9.9 秒"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.0f63319e0db4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10kg 3200円 のお米 1kg あたりの値段を求めよう。",
+      "answers": [
+        "320"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "「お米 1kg あたり」というふうに、単位量あたりの大きさを求めているので、お米の値段（3200円）を お米の重さ（10kg）で割れば、求めることができる。 3200÷10=320 円"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.18c7efbfdac7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "30L のガソリンで 600km 走る自動車が、ガソリン 1L あたりで走るきょり（燃費）を求めよう。",
+      "answers": [
+        "20"
+      ],
+      "template": "{{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "「ガソリン 1L あたり」というふうに、単位量あたりの大きさを求めているので、走るきょり（600km）を ガソリンの量（30L）で割れば、求めることができる。 600÷30=20km"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.1e46e57ee8fb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "兄弟3人の平均身長は、136.5cmでした。さとるくんの身長が140.5cm、お兄さんの身長が152.2cmのとき、弟の身長は、何cmでしょう。 cm",
+      "answers": [
+        "116.8"
+      ],
+      "template": "兄弟3人の平均身長は、136.5cmでした。さとるくんの身長が140.5cm、お兄さんの身長が152.2cmのとき、弟の身長は、何cmでしょう。 {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "平均 ＝ 合計÷個数 なので、「平均×個数」をすれば 合計を求めることができる。３人の身長の合計は、 136.5×3=409.5 弟の身長は、409.5-140.5-152.2=116.8cm"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.28713cbd69aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の平均を求めよう。",
+      "answers": [
+        "7.6"
+      ],
+      "template": "今週全校で休んだ人の数 6人, 10人, 8人, 9人, 5人 {{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (6+10+8+9+5)÷5=7.6 人"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.3257fb02b85b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "班の５人のテストの平均点は 7.2点で、そのうち４人の点数は下の通りでした。このとき、のこりの１人の点数は、何点でしょう。",
+      "answers": [
+        "7"
+      ],
+      "template": "10, 6, 8, 5 {{INPUT}}点",
+      "suffix": "点"
+    },
+    "explanation": "平均 ＝ 合計÷個数 なので、「平均×個数」をすれば 合計を求めることができる。５人のテストの点数の合計は、 7.2×5=36 のこりの１人の点数は、36-10-6-8-5=7点。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.3dc127a69d39",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の平均を求めよう。",
+      "answers": [
+        "79.5"
+      ],
+      "template": "班の４人のテストの平均 67点, 89点, 90点, 72点 {{INPUT}}点",
+      "suffix": "点"
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (67+89+90+72)÷4=79.5 点"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.3ee1f47ddd77",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の平均を求めよう。",
+      "answers": [
+        "8"
+      ],
+      "template": "野球６試合の得点 6点, 8点, 9点, 12点, 3点, 10点 {{INPUT}}点",
+      "suffix": "点"
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (6+8+9+12+3+10)÷6=8点"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.4b88b8786d56",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みさきさんの ５０m走３回の平均タイムを 求めよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(10.4+9.4+10.2)÷3"
+        },
+        {
+          "id": "c2",
+          "text": "(10.4+9.4+10.2)×3"
+        },
+        {
+          "id": "c3",
+          "text": "10.4+9.4+10.2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (10.4+9.4+10.2)÷3=10 秒"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.516c975a519f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人口が910万人、面積[めんせき]が2400km^2 の神奈川県の人口密度（1km^2 あたりの人口）を 整数で求めよう（小数第一位を四捨五入）。",
+      "answers": [
+        "3792"
+      ],
+      "template": "{{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "人口密度は、「1km^2 あたりの人口」のこと。単位量あたりの大きさを求めているので、人口（人）を面積[めんせき]（km^2）で割れば、求めることができる。 9100000÷2400=3791.6 四捨五入をして、3792人。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.5636bcd951d8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の平均を求めよう。",
+      "answers": [
+        "36.22"
+      ],
+      "template": "５日間の平均体温 36.2℃, 36℃, 35.8℃, 36.6℃, 36.5℃ {{INPUT}}℃",
+      "suffix": "℃"
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (36.2+36+35.8+36.6+36.5)÷5=36.22 ℃"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.5963dffdc599",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の平均を求めよう。",
+      "answers": [
+        "299"
+      ],
+      "template": "りんご３個の平均の重さ 300g, 286g, 311g {{INPUT}}g",
+      "suffix": "g"
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (300+286+311)÷3=299g"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.60a6917a5737",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "20kmを1時間28分で走る人が、1km あたりを走るのにかかる時間（分）を求めよう。",
+      "answers": [
+        "4.4"
+      ],
+      "template": "{{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "「1km あたりを走る」というふうに、単位量あたりの大きさを求めているので、走った時間（1時間28分=88分）を 走ったきょり（20km）で割れば、求めることができる。 88÷20=4.4 分"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.75295c63d9e5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "50L のガソリンで 900km 走る自動車が、ガソリン 1L あたりで走るきょり（燃費）を求めよう。",
+      "answers": [
+        "18"
+      ],
+      "template": "{{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "「ガソリン 1L あたり」というふうに、単位量あたりの大きさを求めているので、走るきょり（900km）を ガソリンの量（50L）で割れば、求めることができる。 900÷50=18km"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.9142178ced51",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人口が880万人、面積[めんせき]が1900km^2 の大阪府の人口密度（1km^2 あたりの人口）を 整数で求めよう（小数第一位を四捨五入）。",
+      "answers": [
+        "4632"
+      ],
+      "template": "{{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "人口密度は、「1km^2 あたりの人口」のこと。単位量あたりの大きさを求めているので、人口（人）を面積[めんせき]（km^2）で割れば、求めることができる。 8800000÷1900=4631.5 四捨五入をして、4632人。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.9ba227355c61",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "30kmを2時間18分で走る人が、1km あたりを走るのにかかる時間（分）を求めよう。",
+      "answers": [
+        "4.6"
+      ],
+      "template": "{{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "「1km あたりを走る」というふうに、単位量あたりの大きさを求めているので、走った時間（2時間18分=138分）を 走ったきょり（30km）で割れば、求めることができる。 138÷30=4.6 分"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.ab51f5e19a6d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の平均を求めよう。",
+      "answers": [
+        "13.9"
+      ],
+      "template": "４日間の平均気温（午前10時） 12.2℃, 15.3℃, 16.4℃, 11.7℃ {{INPUT}}℃",
+      "suffix": "℃"
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (12.2+15.3+16.4+11.7)÷4=13.9℃"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.dcb0fd7fc6d3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の平均を求めよう。",
+      "answers": [
+        "31.9"
+      ],
+      "template": "兄弟３人の平均の体重 34.2kg, 19.4kg, 42.1kg {{INPUT}}kg",
+      "suffix": "kg"
+    },
+    "explanation": "平均は「合計÷個数」で求めることができる。 (34.2+19.4+42.1)÷3=31.9kg"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-11.f925619621d0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "15kg 4500円 のお米 1kg あたりの値段を求めよう。",
+      "answers": [
+        "300"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "「お米 1kg あたり」というふうに、単位量あたりの大きさを求めているので、お米の値段（4500円）を お米の重さ（15kg）で割れば、求めることができる。 4500÷15=300 円"
+  }
+]

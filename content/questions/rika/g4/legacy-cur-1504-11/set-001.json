@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-11.06e31b0b265c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の観察に向いている天気[てんき]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "厚い雲の日"
+        },
+        {
+          "id": "c2",
+          "text": "晴れた夜"
+        },
+        {
+          "id": "c3",
+          "text": "大雨の夜"
+        },
+        {
+          "id": "c4",
+          "text": "霧だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "晴れた夜は星が見えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.14b63a37f958",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北極星の見え方として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きく動く"
+        },
+        {
+          "id": "c2",
+          "text": "ほとんど動かない位置に見える"
+        },
+        {
+          "id": "c3",
+          "text": "南だけ"
+        },
+        {
+          "id": "c4",
+          "text": "昼に見える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "北極星はほとんど動かない位置に見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.56221769fa98",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の位置を記録するときに使うとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "方位や目印"
+        },
+        {
+          "id": "c2",
+          "text": "てんびん"
+        },
+        {
+          "id": "c3",
+          "text": "シリンジ"
+        },
+        {
+          "id": "c4",
+          "text": "モーター"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位や建物などを目印にします。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.573724f6bdc8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の位置の変化を調べるとわかることの例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時間がたつと動くこと"
+        },
+        {
+          "id": "c2",
+          "text": "重さ"
+        },
+        {
+          "id": "c3",
+          "text": "電流"
+        },
+        {
+          "id": "c4",
+          "text": "気温だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "時間がたつと位置が変わることがわかります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.93c897e6d701",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北極星のまわりの星はどう見えやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一直線だけ"
+        },
+        {
+          "id": "c2",
+          "text": "北極星のまわりを回るように見える"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "北極星を中心に回るように見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.bf78a904668d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "多くの星はどの向きに動いて見えやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西から東へ"
+        },
+        {
+          "id": "c2",
+          "text": "東から西へ"
+        },
+        {
+          "id": "c3",
+          "text": "上下だけ"
+        },
+        {
+          "id": "c4",
+          "text": "不动"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "東から西へ動いて見えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.d7b450ec2247",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ夜に星を観察すると、位置はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動かない"
+        },
+        {
+          "id": "c2",
+          "text": "時間がたつと動いて見える"
+        },
+        {
+          "id": "c3",
+          "text": "消えるだけ"
+        },
+        {
+          "id": "c4",
+          "text": "音が出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "星も時間がたつと動いて見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-11.e60ff2cacc91",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星が動いて見える主な理由[りゆう]に近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "星が走っている"
+        },
+        {
+          "id": "c2",
+          "text": "地球が自転している"
+        },
+        {
+          "id": "c3",
+          "text": "風が吹く"
+        },
+        {
+          "id": "c4",
+          "text": "雲が押す"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "地球の自転により星が動いて見えます。"
+  }
+]

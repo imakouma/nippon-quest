@@ -1,0 +1,561 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-8.0ec3e47c1f9e",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の森林について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "天然林",
+        "人工林",
+        "竹林"
+      ],
+      "template": "日本の森林のうち、約50% が自然に育った {{INPUT}} 、約40% が木材をとるために人が育てた {{INPUT}} 、約10％が {{INPUT}} などである。"
+    },
+    "explanation": "日本の森林のうち、約50% が自然に育った（天然林）、約40% が木材をとるために人が育てた（人工林）、約10%が（竹林）などである。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.214928456fa8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の国土のうち、森林はどれくらいあるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "約４分の３"
+        },
+        {
+          "id": "c2",
+          "text": "約２分の１"
+        },
+        {
+          "id": "c3",
+          "text": "約３分の２"
+        },
+        {
+          "id": "c4",
+          "text": "約３分の１"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本の国土のうち、約３分の２が森林である。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.4642deacf8fd",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "公害[こうがい]に対する国の取り組みについて、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "公害対策基本法",
+        "環境庁",
+        "環境基本法",
+        "環境省"
+      ],
+      "template": "1967年 {{INPUT}} を制定し、公害の種類や守るべき基準などを定める 1971年 ① {{INPUT}} を設置 1993年 {{INPUT}} を制定 2001年 ① が {{INPUT}} となる"
+    },
+    "explanation": "1967年 （公害対策基本法）を制定し、公害[こうがい]の種類や守るべき基準などを定める 1971年 ①（環境庁）を設置 1993年 （環境基本法）を制定 2001年 ① 環境庁が（環境省）となる"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.66a95ebcfbba",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "森林から木を切り出し、木材を生産[せいさん]する産業[さんぎょう]を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "工業"
+        },
+        {
+          "id": "c2",
+          "text": "農業"
+        },
+        {
+          "id": "c3",
+          "text": "漁業"
+        },
+        {
+          "id": "c4",
+          "text": "林業"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "森林から木を切り出し、木材を生産[せいさん]する産業[さんぎょう]を林業という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.6d2fde951561",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水鳥が集まるしっ地が失われないよう、その地いきを登録し保ほ護ごすることを目的とした条約を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ラムサール条約"
+        },
+        {
+          "id": "c2",
+          "text": "気候変動枠組み条約"
+        },
+        {
+          "id": "c3",
+          "text": "生物の多様性に関する条約"
+        },
+        {
+          "id": "c4",
+          "text": "ワシントン条約"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水鳥が集まるしっ地が失われないよう、その地いきを登録し保護することを目的とした条約を、ラムサール条約という。日本では、琵琶湖や、釧路湿原くしろしつげんなどが、登録されている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.706a533b7f16",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表は、工業が急速に成長した1950～1960年代を中心に、大きなひ害のあった４つの公害[こうがい]について、まとめたものである。表のかっこに、当てはまる公害[こうがい]をえらぼう。",
+      "answers": [
+        "水俣病",
+        "新潟水俣病",
+        "イタイイタイ病",
+        "四日市ぜんそく"
+      ],
+      "template": "公害 発生した地域 原因物質 人体へのえいきょう {{INPUT}} 熊本県・鹿児島県八代海沿岸 メチル水銀 手足のしびれなど {{INPUT}} 新潟県阿賀野川流域 メチル水銀 手足のしびれなど {{INPUT}} 富山県神通川流域 カドミウム 骨がもろくなる。はげしいいたみ。 {{INPUT}} 三重県四日市市 亜硫酸ありゅうさんガス 息が苦しくなる。ぜんそく。"
+    },
+    "explanation": "公害[こうがい] 発生した地域 原因物質 人体へのえいきょう 水俣病 熊本県・鹿児島県八代海沿岸 メチル水銀 手足のしびれなど 新潟水俣病 新潟県阿賀野川流域 メチル水銀 手足のしびれなど イタイイタイ病 富山県神通川流域 カドミウム 骨がもろくなる。はげしいいたみ。 四日市ぜんそく 三重県四日市市 亜硫酸ありゅうさんガス 息が苦しくなる。ぜんそく。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.78503f4b4e1b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "森林のはたらきとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "生き物のすみかとなる。"
+        },
+        {
+          "id": "c2",
+          "text": "土をとどめ、水をたくわえる。"
+        },
+        {
+          "id": "c3",
+          "text": "風や雪、土砂によるさい害をふせぐ。"
+        },
+        {
+          "id": "c4",
+          "text": "酸素をきゅうしゅうし、二酸化炭素をはい出する。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「酸素をきゅうしゅうし、二酸化炭素をはい出する。」が、正しくない。植物は、二酸化炭素をきゅうしゅうし、酸素をはい出している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.8176d1e2587f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、日本で登録されている世界自然遺い産として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "知床"
+        },
+        {
+          "id": "c2",
+          "text": "白神山地"
+        },
+        {
+          "id": "c3",
+          "text": "小笠原諸島"
+        },
+        {
+          "id": "c4",
+          "text": "富士山"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "世界自然遺産は、世界の中でも特に貴重な自然環境を登録し、保護を進めていく取り組み。日本では、知床しれとこ、白神山地、屋久島、小笠原おがさわら諸島が登録されている。富士山は、世界文化遺産に登録されている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.8d4e2fde2343",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地球温暖化によって、引き起こされる問題[もんだい]として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "海面が上しょうする。"
+        },
+        {
+          "id": "c2",
+          "text": "これまでになかったような大雨がふる。"
+        },
+        {
+          "id": "c3",
+          "text": "生物がくらしてきた範囲が、変わってしまう。"
+        },
+        {
+          "id": "c4",
+          "text": "しがい線が、直せつ地表にふりそそぐ。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「しがい線が、直せつ地表にふりそそぐ。」が、正しくない。これは、フロンガスというガスによって、オゾン層がこわされることで起こる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.a08a61292ca6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "二酸化炭素などの温室効果ガスによって、地球の気温が上がってしまうことをなんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地球温暖化"
+        },
+        {
+          "id": "c2",
+          "text": "気候変動"
+        },
+        {
+          "id": "c3",
+          "text": "ヒートアイランド現象"
+        },
+        {
+          "id": "c4",
+          "text": "エルニーニョ現象"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "二酸化炭素などの温室効果ガスによって、地球の気温が上がってしまうことを、地球温暖おんだん化という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.a50cc9907fff",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の林業の説明[せつめい]として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "林業の国内生産は減少[げんしょう]し、輸入[ゆにゅう]が増加している。"
+        },
+        {
+          "id": "c2",
+          "text": "日本産の木材は、外国産の木材にくらべて高い。"
+        },
+        {
+          "id": "c3",
+          "text": "林業ではたらく人の数は減少[げんしょう]し、高れい化が進んでいる。"
+        },
+        {
+          "id": "c4",
+          "text": "木材の輸入[ゆにゅう]が増えているのは、外国産の木材の質が高いからである。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「木材の輸入[ゆにゅう]が増えているのは、外国産の木材の質が高いからである。」が、正しくない。木材の輸入[ゆにゅう]が増えている主な理由[りゆう]は、外国産木材の価格が安いから。輸入木材におされて、国内生産は減少[げんしょう]し、林業ではたらく人の数も減少[げんしょう]している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.b193309d2bda",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の自然災害が多い理由[りゆう]として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "比かく的新しい大地のため、大地の動きがさかんだから。"
+        },
+        {
+          "id": "c2",
+          "text": "山がけわしく、平野が少ないから。"
+        },
+        {
+          "id": "c3",
+          "text": "川が長く、ゆるやかだから。"
+        },
+        {
+          "id": "c4",
+          "text": "年間を通して、雨が多いから。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本はとても自然災害が多い。その理由[りゆう]として、日本は比かく的新しい大地のため、大地の動きがさかんであること、山がけわしく平野が少ないこと、川が短く急なこと、年間を通して雨が多いこと、などがあげられる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.b74b857cde80",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "会社[かいしゃ]の産業活動によって、自然が破はかいされたり、人々の生活に悪いえいきょうが生まれたりすることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公害[こうがい]"
+        },
+        {
+          "id": "c2",
+          "text": "災害"
+        },
+        {
+          "id": "c3",
+          "text": "環境破壊"
+        },
+        {
+          "id": "c4",
+          "text": "環境問題"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "会社[かいしゃ]の産業活動によって、自然が破かいされたり、人々の生活に悪いえいきょうが生まれたりすることを、公害[こうがい]という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.bbca6cb0909b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昭和の高度経済成長期に、工場の排煙や汚水によって発生した「四日市ぜんそく」や「水俣病」などの健康被害をまとめて何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公害（こうがい）"
+        },
+        {
+          "id": "c2",
+          "text": "自然災害"
+        },
+        {
+          "id": "c3",
+          "text": "食料危機"
+        },
+        {
+          "id": "c4",
+          "text": "冷害"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "産業[さんぎょう]の発達にともなって発生した大気汚染や水質汚濁による被害を「公害[こうがい]」といい、現在は工場への環境基準が厳しく定められています。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.d0f71ccb9b3b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自然が破かいされることを防ぐため、お金を出しあって自然を買いとる運動を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "トレーサビリティ"
+        },
+        {
+          "id": "c2",
+          "text": "ナショナルトラスト運動"
+        },
+        {
+          "id": "c3",
+          "text": "エコ・エコノミー"
+        },
+        {
+          "id": "c4",
+          "text": "環境アセスメント"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "自然が破かいされることを防ぐため、お金を出しあって自然を買いとる運動を、ナショナルトラスト運動という。日本では、埼玉県の狭山さやまで、この運動が行われている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.e688d0da836d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国連が定めた「持続可能な開発目標」として、環境問題や貧困、平和など17の目標を定めた世界共通の取り組みを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "SDGs（エス・ディー・ジーズ）"
+        },
+        {
+          "id": "c2",
+          "text": "UNESCO"
+        },
+        {
+          "id": "c3",
+          "text": "PKO"
+        },
+        {
+          "id": "c4",
+          "text": "EEZ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "SDGs（Sustainable Development Goals）は、将来の世代に豊かな地球を残すために、2030年までに達成を目指す17の国際目標です。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-8.f668b8127cb8",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で起きる自然災害について、下の表のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "津波",
+        "火山のふん火",
+        "台風",
+        "冷害"
+      ],
+      "template": "災害の種類 起こされるひ害 大地のうごきによるもの 地震 建物がたおれる{{INPUT}} や火災が発生 {{INPUT}} 岩石、火山ばい、ガスなどのふん出 火さい流 気候によるもの 雨、風{{INPUT}} やつゆ こう水、土石流、土しゃくずれ、高潮 雪 交通機関がとまる、屋根がくずれる {{INPUT}} 夏の気温が上がらず、農作物の生長がおくれること"
+    },
+    "explanation": "災害の種類 起こされるひ害 大地のうごきによるもの 地震 建物がたおれる津波[つなみ]や火災が発生 火山のふん火 岩石、火山ばい、ガスなどのふん出 火さい流 気候によるもの 雨、風台風やつゆ こう水、土石流、土しゃくずれ、高潮 雪 交通機関がとまる、屋根がくずれる 冷害 夏の気温が上がらず、農作物の生長がおくれること"
+  }
+]

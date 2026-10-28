@@ -1,0 +1,332 @@
+[
+  {
+    "id": "eigo.g6.school-life-past.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I enjoyed the sports day.」で分[わ]かることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "運動会[うんどうかい]を楽[たの]しんだ。"
+        },
+        {
+          "id": "b",
+          "text": "これから運動会[うんどうかい]を開[ひら]く。"
+        },
+        {
+          "id": "c",
+          "text": "毎日[まいにち]運動会[うんどうかい]がある。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "enjoyed は過去[かこ]の出来事[できごと]を表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「What did you see?」への答[こた]えはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I saw a beautiful bird."
+        },
+        {
+          "id": "b",
+          "text": "I see tomorrow."
+        },
+        {
+          "id": "c",
+          "text": "I can a bird."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "過去[かこ]に見[み]たものを saw で答[こた]える。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "会話[かいわ]「How was the school trip?」「It was exciting.」で分[わ]かることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "修学旅行[しゅうがくりょこう]はわくわくするものだった。"
+        },
+        {
+          "id": "b",
+          "text": "修学旅行[しゅうがくりょこう]は中止[ちゅうし]だった。"
+        },
+        {
+          "id": "c",
+          "text": "旅行[りょこう]の値段[ねだん]を聞[き]いている。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "How was ...? は過去[かこ]の感想[かんそう]をたずねる。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I went to Kyoto.」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "京都[きょうと]へ行[い]った。"
+        },
+        {
+          "id": "b",
+          "text": "京都[きょうと]へ行[い]きたい。"
+        },
+        {
+          "id": "c",
+          "text": "京都[きょうと]に住[す]んでいる。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "went は go の過去形[かこけい]。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "友達[ともだち]の思[おも]い出[で]を詳[くわ]しく聞[き]く質問[しつもん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "What did you do there?"
+        },
+        {
+          "id": "b",
+          "text": "How much is it?"
+        },
+        {
+          "id": "c",
+          "text": "Can I have water?"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "そこで何[なに]をしたかをたずねる質問[しつもん]。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「We played soccer after school.」で、いつしたかを表[あらわ]す部分[ぶぶん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "after school"
+        },
+        {
+          "id": "b",
+          "text": "played soccer"
+        },
+        {
+          "id": "c",
+          "text": "We"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "after school が時[とき]を表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "思[おも]い出[で]を順番[じゅんばん]に話[はな]すときに使[つか]える語[ご]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "first, next, finally"
+        },
+        {
+          "id": "b",
+          "text": "left, right, straight"
+        },
+        {
+          "id": "c",
+          "text": "big, bigger, biggest"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "順序[じゅんじょ]を表[あらわ]す語[ご]で出来事[できごと]を整理[せいり]できる。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Did you enjoy the festival?」に肯定[こうてい]で答[こた]えるならどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Yes, I did."
+        },
+        {
+          "id": "b",
+          "text": "Yes, I can."
+        },
+        {
+          "id": "c",
+          "text": "Yes, it is."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "did で始[はじ]まる質問[しつもん]には did で答[こた]える。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "短[みじか]い会話[かいわ]から必要[ひつよう]な情報[じょうほう]を得[え]るには何[なに]に注目[ちゅうもく]する？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "人物[じんぶつ]・場所[ばしょ]・時[とき]・したこと。"
+        },
+        {
+          "id": "b",
+          "text": "話[はな]し手[て]の声[こえ]の高[たか]さだけ。"
+        },
+        {
+          "id": "c",
+          "text": "知[し]っている単語[たんご]を一[ひと]つだけ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "目的[もくてき]に応[おう]じて5W1Hに関[かか]わる語[ご]を聞[き]き取[と]る。"
+  },
+  {
+    "id": "eigo.g6.school-life-past.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.school-life-past",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「My best memory is the music festival.」が伝[つた]えることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "一番[いちばん]の思[おも]い出[で]は音楽会[おんがくかい]。"
+        },
+        {
+          "id": "b",
+          "text": "音楽会[おんがくかい]は明日[あした]。"
+        },
+        {
+          "id": "c",
+          "text": "音楽[おんがく]が聞[き]こえない。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "best memory は一番[いちばん]心[こころ]に残[のこ]る思[おも]い出[で]。"
+  }
+]

@@ -1,0 +1,571 @@
+[
+  {
+    "id": "legacy.shakai.g6.soc-6-4.0afc196c9f52",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "東大寺の正倉院におさめられている宝物には次のような特ちょうがある。このことからわかる、奈良時代の文化についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国際色豊かな文化"
+        },
+        {
+          "id": "c2",
+          "text": "町人が中心のしょ民的な文化"
+        },
+        {
+          "id": "c3",
+          "text": "武士の力強さを表す文化"
+        },
+        {
+          "id": "c4",
+          "text": "キリスト教のえいきょうを受けた文化"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c07ef0a66b5b3099.png"
+    },
+    "explanation": "奈良時代の日本は、中国の唐を通じてさまざまな地ち域いきとの交流があったため、奈良時代には国際色豊かな文化が発展はってんした。東大寺の正倉院には、ペルシャ（現在のイラン）やインドなど各地のえいきょうを受けた宝物が多くおさめられている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.1d65be7f04a8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "隋がほろびた後も、中国の制度や文化を学ぶため、隋の後の中国王朝へ使いが送られていた。この隋の後の王朝を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "唐"
+        },
+        {
+          "id": "c2",
+          "text": "魏"
+        },
+        {
+          "id": "c3",
+          "text": "漢"
+        },
+        {
+          "id": "c4",
+          "text": "宋"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "隋がほろびた後も、中国の制度・技術・文化などを学ぶため、唐とうへ使いが送られていた。これを遣唐使という。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.3af69c574730",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平安時代中期から後期の文化についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本の風土に合った文化であった。"
+        },
+        {
+          "id": "c2",
+          "text": "清少納言による『万葉集』などの作品がうまれた。"
+        },
+        {
+          "id": "c3",
+          "text": "初めて漢字が日本に伝わり、広まった。"
+        },
+        {
+          "id": "c4",
+          "text": "農民たちを中心に栄えた文化であった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平安時代中期から後期の文化は、国風文化といわれ、日本の風土に合った文化であった。 ・『万葉集』は奈良時代の歌集。国風文化を代表する文学作品には、清少納言の『枕草子』などがある。 ・漢字は、古墳時代に渡来人によって日本に伝えられたと考えられている。平安時代には、漢字をもとに日本でひらがな・かたかなが作られた。 ・国風文化は、農民ではなく、貴族を中心に栄えた。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.49726f2cc06a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "聖武天皇についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "各地に国分寺・国分尼寺を建てた。"
+        },
+        {
+          "id": "c2",
+          "text": "都に唐招提寺を建てて大仏をつくらせた。"
+        },
+        {
+          "id": "c3",
+          "text": "聖徳太子と力をあわせて政治をおこなった。"
+        },
+        {
+          "id": "c4",
+          "text": "仏教を禁止して天皇の力を強くしようとした。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "聖武天皇は、仏教の力で社会の不安をとりのぞこうと考え、都に東大寺を建てて大仏をつくらせた。また、各地には国分こくぶん寺じ・国分こくぶん尼に寺じを建てた。 ・聖武天皇は奈良時代の天皇。聖徳太子とともに政治をおこなったのは飛鳥時代の推すい古こ天皇。 ・聖武天皇は仏教を禁止したのではなく、仏教をあつく信じた。 ・唐招提寺は、中国から日本に来た鑑真が建てた。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.498de28b65fa",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "藤原氏は、どのように力をのばしていったのか、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "天皇との結びつきを強めることで力をのばした。"
+        },
+        {
+          "id": "c2",
+          "text": "中国で進んだ政治のしくみを学び、力をのばした。"
+        },
+        {
+          "id": "c3",
+          "text": "仏教を信じ、僧にみとめられて力をのばした。"
+        },
+        {
+          "id": "c4",
+          "text": "貧しい人びとを助けることで人気を得て力をのばした。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "藤原氏は、むすめを天皇のきさきとして、生まれた子を次の天皇にした。自分は天皇の親せきとして重要な役職につき、天皇との結びつきを強め、力をのばしていった。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.605e59516785",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の史料は、聖徳太子が定めたとされる、役人の心がまえを示したものの一部である。これを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "十七条の憲法"
+        },
+        {
+          "id": "c2",
+          "text": "冠位十二階"
+        },
+        {
+          "id": "c3",
+          "text": "古事記"
+        },
+        {
+          "id": "c4",
+          "text": "日本書紀"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d8df400c23acb087.png"
+    },
+    "explanation": "史料は、聖徳太子が定めたとされる十七条の憲法の一部。十七条の憲法は、役人の心がまえを示しており、仏教の考え方もとりいれられた。 ・冠かん位い十じゅう二に階かいは、役人の位を12に分けてかんむりの色で区別する制度。 ・『古事記』・『日本書紀』は、奈良時代に完成した歴史書。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.61b71e84ff40",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "聖徳太子は、役人の位を12に分け、かんむりの色で区別する冠位十二階を定めた。冠位十二階のもとでは、どのように役人がえらばれたのか、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "才能や功績がある人を役人にえらんだ。"
+        },
+        {
+          "id": "c2",
+          "text": "金と権力をもつ人を役人にえらんだ。"
+        },
+        {
+          "id": "c3",
+          "text": "天皇の一族のみから役人をえらんだ。"
+        },
+        {
+          "id": "c4",
+          "text": "家がらを大切にして役人をえらんだ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "冠位十二階のもとでは、才能や功績がある人が役人にえらばれた。天皇中心の国づくりをめざすため、豪族などが力を持つことがないよう、家がらにとらわれずに役人をえらぶようにした。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.629f375c672b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "律令で定められた税についての説明[せつめい]として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "収入の一部を現金でおさめる。"
+        },
+        {
+          "id": "c2",
+          "text": "地方の特産物をおさめる。"
+        },
+        {
+          "id": "c3",
+          "text": "都で働くか、布をおさめる。"
+        },
+        {
+          "id": "c4",
+          "text": "都や北九州の守りにつく。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "律令で定められた税に、現金でおさめる税はない。田からとれた稲の約３％をおさめる税（租そ）があった。また、地方の特産物をおさめる調ちょう、都で働くか布をおさめる庸よう、都や北九州の守りにつく兵役へいえきもあった。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.723333160adb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平安時代、政治をおこなう力をもち、次のような和歌をよんだ人物をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "藤原道長"
+        },
+        {
+          "id": "c2",
+          "text": "小野妹子"
+        },
+        {
+          "id": "c3",
+          "text": "中大兄皇子"
+        },
+        {
+          "id": "c4",
+          "text": "中臣鎌足"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/db4039331691cee7.png"
+    },
+    "explanation": "藤ふじ原わらの道長みちながのころは、藤原氏が最も力をもっていた時代であった。上の和歌は、この世の中は自分のものであり、満月のように欠けているものがない、という意味。 ・小野妹子：飛鳥時代に遣隋使として中国にわたった人物 ・中大兄皇子：大化の改新をおこない、のちに天智天皇となった人物 ・中臣鎌足：中大兄皇子とともに大化の改新をおこなった人物"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.8727fa24787b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "奈良時代にまとめられ、天皇や貴き族ぞくだけでなく農民などの歌もおさめられている歌集をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "『万葉集』"
+        },
+        {
+          "id": "c2",
+          "text": "『古事記』"
+        },
+        {
+          "id": "c3",
+          "text": "『日本書紀』"
+        },
+        {
+          "id": "c4",
+          "text": "『風土記』"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "『万葉まんよう集しゅう』は、奈良時代にまとめられた歌集である。『万葉集』には、天皇や貴族の歌だけでなく、農民などの歌もおさめられている。 ・『古事記』・『日本書紀』は、奈良時代に完成した歴史書。 ・『風土記』は、奈良時代にまとめられ、国ごとに産物や地名の由来[ゆらい]、伝説などを記録している。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.877980176106",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "奈良時代に、帰国する遣唐使とともに日本にやってきて、唐招提寺を建てた中国の僧をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鑑真"
+        },
+        {
+          "id": "c2",
+          "text": "行基"
+        },
+        {
+          "id": "c3",
+          "text": "最澄"
+        },
+        {
+          "id": "c4",
+          "text": "空海"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d2d162bdb695f62e.jpg"
+    },
+    "explanation": "奈良時代に、帰国する遣唐使とともに日本にやってきて、唐招提寺を建てた中国の僧は、鑑真。 ・行基：奈良時代の僧で、仏教の教えを広めるだけでなく、橋やため池をつくり、大仏をつくることにも協力した。 ・最澄さいちょう、空海くうかいは、平安時代の僧。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.b1c77bb15266",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平安時代にひらがなやかたかなが広まったことで、どのような変化が起こったのか、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本で漢字が使われなくなった。"
+        },
+        {
+          "id": "c2",
+          "text": "感情を書き表しやすくなった。"
+        },
+        {
+          "id": "c3",
+          "text": "女性による文学作品が多くうまれた。"
+        },
+        {
+          "id": "c4",
+          "text": "ひらがなやかたかなを使って物語や日記[にっき]が書かれた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ひらがな・かたかなが使われるようになってからも漢字は使い続けられ、現在も使われている。 平安時代にひらがなやかたかなが広まったことで、日本語の音をそのまま書くことができるようになり、感情を書き表しやすくなった。そして、『源氏物語』や『枕草子』など、女性によるすぐれた文学作品が多くうまれ、日記[にっき]も多く記された。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.c2cc72021b70",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "奈良時代に、仏教の教えを広めるだけでなく、橋やため池をつくり、大仏をつくることにも協力した僧そうをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "行基"
+        },
+        {
+          "id": "c2",
+          "text": "鑑真"
+        },
+        {
+          "id": "c3",
+          "text": "最澄"
+        },
+        {
+          "id": "c4",
+          "text": "空海"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b04e4eb307b6afa9.jpg"
+    },
+    "explanation": "奈良時代に、仏教の教えを広めるだけでなく、橋やため池をつくり、大仏をつくることにも協力した僧は行ぎょう基き。 ・鑑がん真じん：帰国する遣唐使とともに中国から日本にやって来て、唐とう招しょう提だい寺じを建てた。 ・最澄さいちょう、空海くうかいは、平安時代の僧。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.cc48ea82caa1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "聖徳太子がおこなったこととして、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "うらないの力を使って、人びとを従えた。"
+        },
+        {
+          "id": "c2",
+          "text": "十七条の憲法を定め、役人の心がまえを示した。"
+        },
+        {
+          "id": "c3",
+          "text": "中国の制度や文化を学ぶため、遣隋使を送った。"
+        },
+        {
+          "id": "c4",
+          "text": "冠位十二階を定め、才能がある人を役人にえらんだ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "聖徳太子は、天皇中心の国づくりを進めるため、次のようなことをおこなった。 ・十七条の憲法を定め、役人の心がまえを示した。 ・冠位十二階を定め、才能がある人を役人にえらんだ。 ・中国の制度や文化を学ぶため、遣隋使を送った。 うらないの力を使って人びとを従えていたとされるのは、邪馬台国の女王卑弥呼。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.cfae05ba4ac8",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平安時代に日本でつくられた文字について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "漢字",
+        "ひらがな",
+        "かたかな"
+      ],
+      "template": "平安時代、① {{INPUT}} をもとに日本で文字がつくられた。図の A は、 ① をくずしてつくられた ② {{INPUT}} 、図の B は ① の一部分をとってつくられた ③ {{INPUT}} である。",
+      "promptImage": "questions/legacy/3338d46ddd547c53.png"
+    },
+    "explanation": "平安時代、①（漢字）をもとに日本で文字がつくられた。図の A は、 ① 漢字をくずしてつくられた ②（ひらがな）、図の B は ① 漢字の一部分をとってつくられた ③（かたかな）である。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-4.e154ea58c948",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の図からわかる、平安時代の貴族の生活についての説明[せつめい]として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "男性は頭にかんむりをつけている。"
+        },
+        {
+          "id": "c2",
+          "text": "女性は十二単とよばれる着物を着ている。"
+        },
+        {
+          "id": "c3",
+          "text": "たたみがしかれた部屋がある。"
+        },
+        {
+          "id": "c4",
+          "text": "室内には自然を題材にした絵が見られる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/48b690250d86d871.jpg"
+    },
+    "explanation": "平安時代の貴族の男性は、頭にかんむりをつけていたが、上の図の中に男性はいない。"
+  }
+]

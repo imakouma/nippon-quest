@@ -1,0 +1,908 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-8.0234406a0eed",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水・均一・とうめいな"
+        },
+        {
+          "id": "c2",
+          "text": "水[みず]・均一[きんいつ]・にごった"
+        },
+        {
+          "id": "c3",
+          "text": "空気[くうき]・均一[きんいつ]・とうめいな"
+        },
+        {
+          "id": "c4",
+          "text": "空気[くうき]・均一[きんいつ]・にごった"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f540951c689fed5c.png"
+    },
+    "explanation": "（水）の中で、ものが（均きん一いつ）に広がり、（とうめいな）液になることを、「ものが水にとけた」という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.02d5b4a6af7a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "50 mL、100 mLの水に、計量スプーン何はい分の食塩、ミョウバンがとけるかを調べ、結果を表にした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の量を増やすと、とけるミョウバンの量は増えた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の量を増やすと、とける食塩の量は増えた。"
+        },
+        {
+          "id": "c3",
+          "text": "水の量を２倍にすると、水にとけるものの量は２倍になった。"
+        },
+        {
+          "id": "c4",
+          "text": "水の量を２倍にすると、水にとけるものの量は半分になった。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7dfda2bb5d79e021.png"
+    },
+    "explanation": "食塩、ミョウバンともに、水の量を増やすととける量が増えた。また、水の量を２倍にすると、とける量も２倍になった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.0317681a9dff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "15℃、60℃の水50 mL に、計量スプーン何はい分の食塩、ミョウバンがとけるかを調べ、結果を表にした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の温度を上げても、とける食塩の量は変化しなかった。"
+        },
+        {
+          "id": "c2",
+          "text": "水の温度をあげると、とける食塩の量は増えた。"
+        },
+        {
+          "id": "c3",
+          "text": "水の温度をあげると、とける食塩の量は減った。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/064aa229127ad4a7.png"
+    },
+    "explanation": "水50 mL にとける食塩の量は、水の温度が15℃のときも60℃のときも、計量スプーン３ばい分だった。つまり、水の温度を上げても、とける食塩の量は変化しなかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.099adb66f2a6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "液の中に とけきれないつぶがあるときは、図のようなそうちで こして取り出すことができる。この方法を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ろうと"
+        },
+        {
+          "id": "c2",
+          "text": "じょう発"
+        },
+        {
+          "id": "c3",
+          "text": "ろ過"
+        },
+        {
+          "id": "c4",
+          "text": "ろ紙"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/85b76e3d261a4d2b.png"
+    },
+    "explanation": "液の中に とけきれないつぶがあるときは、ろ紙でこして取り出すことができる。この方法をろ過という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.12dfb06e8f0f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水・水よう液・食塩・さとう"
+        },
+        {
+          "id": "c2",
+          "text": "水[みず]・水[みず]よう液[えき]・さとう・食塩[しょくえん]"
+        },
+        {
+          "id": "c3",
+          "text": "空気[くうき]・水[みず]よう液[えき]・食塩[しょくえん]・さとう"
+        },
+        {
+          "id": "c4",
+          "text": "水[みず]・混合物[こんごうぶつ]・食塩[しょくえん]・さとう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ものが（水）にとけた液のことを、（水よう液）という。食塩水は（食塩）、さとう水は（さとう）がとけた水よう液である。 水溶液すいようえきの溶は、溶とけるという漢字。つまりそのまま、「ものが水に溶けた液体」という意味になるよ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.143d35c53ce7",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "115"
+      ],
+      "template": "水と食塩の重さをはかると、合わせて115 g だった。この食塩を水にとかすと、できあがった食塩水の重さは何 g になるでしょう。 {{INPUT}} g",
+      "suffix": "g"
+    },
+    "explanation": "食塩を水にとかして食塩水をつくるとき、水と食塩の重さの合計は、食塩水の重さに等しく、「水の重さ + 食塩の重さ ＝ 食塩水の重さ」と表すことができる。 食塩と水の重さは合わせて115 g だったので、できあがった食塩水の重さも 115 g になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.194df9b1675a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、水にとけない ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さとう"
+        },
+        {
+          "id": "c2",
+          "text": "食塩"
+        },
+        {
+          "id": "c3",
+          "text": "ミョウバン"
+        },
+        {
+          "id": "c4",
+          "text": "でんぷん"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/84b84a4903cc1e74.png"
+    },
+    "explanation": "ものが水にとけた液は、ものが均一に広がり、とうめいで、時間がたってもとけたものが水と分かれない。にごっていたり、時間がたつと ものと水が分かれて均一でなくなる場合、ものが水にとけたとはいえない。 さとう、食塩、ミョウバンは水にとけ、とうめいで均一な液体になるが、でんぷんはしばらくすると水と分かれて均一ではなくなるため、水にとけるとはいえない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.21c3997bd2ff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、上皿てんびんを使ってものの重さを調べたい。このとき、まず最初に皿にのせる分銅はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100 gの分銅"
+        },
+        {
+          "id": "c2",
+          "text": "50 gの分銅"
+        },
+        {
+          "id": "c3",
+          "text": "0.1 gの分銅"
+        },
+        {
+          "id": "c4",
+          "text": "2 g の分銅"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e2dd124b02db180c.png"
+    },
+    "explanation": "重い分銅から順にのせて、重さを調べる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.26dfbfca14c4",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、上皿てんびんを使ってものの重さを調べた。",
+      "answers": [
+        "37"
+      ],
+      "template": "右の皿に、20 g, 10 g, 5 g, 2 g の分銅をのせてつり合ったとき、左の皿にのっているものの重さを求めよう。 {{INPUT}} g",
+      "suffix": "g",
+      "promptImage": "questions/legacy/4894f0ef7dd47868.png"
+    },
+    "explanation": "つり合ったときに、のっている分銅の合計を求めよう。 20 + 10 + 5 + 2 = 37 よって、左の皿にのっているものの重さは 37 g。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.29d79bcf0381",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水にとけるものの量と水の温度との関係について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変わらない・増える・温度・ちがう"
+        },
+        {
+          "id": "c2",
+          "text": "減[へ]る・増[ふ]える・温度[おんど]・ちがう"
+        },
+        {
+          "id": "c3",
+          "text": "増[ふ]える・変[か]わらない・温度[おんど]・ちがう"
+        },
+        {
+          "id": "c4",
+          "text": "増[ふ]える・増[ふ]える・温度[おんど]・同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水の温度をあげると、水にとける食塩の量は（変わらない）が、水にとけるミョウバンの量は（増える）。つまり、水の（温度）を上げたときにとける量の変化の仕方は、とかすものによって（ちがう）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.3178ed7fced5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "上皿てんびん・重さ・水平・つり合っている・分銅"
+        },
+        {
+          "id": "c2",
+          "text": "上皿[うわざら]てんびん・体積[たいせき]・水平[すいへい]・つり合[あ]っている・分銅[ふんどう]"
+        },
+        {
+          "id": "c3",
+          "text": "上皿[うわざら]てんびん・重[おも]さ・かたむいたところ・分銅[ふんどう]・つり合[あ]っている"
+        },
+        {
+          "id": "c4",
+          "text": "電子[でんし]てんびん・重[おも]さ・水平[すいへい]・つり合[あ]っている・分銅[ふんどう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6838a2b198decf25.png"
+    },
+    "explanation": "図の道具 A を（上皿てんびん）といい、ものの（重さ）をはかるときに使う。はかり取るときは（水平）なところに置いて、 （つり合っている）ことを確かめてからはかる。はかりたいものを一方の皿にのせ、もう一方の皿に B（分ふん銅どう）をのせて、つり合わせてはかる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.3b5ae4c9afa4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の土地は「塩田」といい、海水から塩を作るために使われる。この塩田では、どのようにして塩を作っているのでしょう。もっとも正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "海水の水をじょう発させて、塩を作っている。"
+        },
+        {
+          "id": "c2",
+          "text": "海水の温度を下げて、塩を作っている。"
+        },
+        {
+          "id": "c3",
+          "text": "海水をすなでろ過して、塩を作っている。"
+        },
+        {
+          "id": "c4",
+          "text": "すなに海水をしみこませて、塩を作っている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/99a4fa5279395baa.png"
+    },
+    "explanation": "くんできた海水を何度も塩田にまくと、海水の水がじょう発し、すなに塩のつぶがつく。この塩のつぶがついたすなに何度も海水をかけてこい海水をつくり、かま でにつめて水をじょう発させ、塩を取り出す。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.42e02ef9febf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "15℃、60℃の水50 mL に、計量スプーン何はい分の食塩、ミョウバンがとけるかを調べ、結果を表にした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の温度をあげると、とけるミョウバンの量は増えた。"
+        },
+        {
+          "id": "c2",
+          "text": "水の温度をあげると、とけるミョウバンの量は減った。"
+        },
+        {
+          "id": "c3",
+          "text": "水の温度を上げても、とけるミョウバンの量は変化しなかった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/064aa229127ad4a7.png"
+    },
+    "explanation": "水50 mL にとけるミョウバンの量は、水の温度が15℃のときは計量スプーン１ぱい分、水の温度が60℃のときは計量スプーン６ぱい分だった。つまり、水の温度をあげると、とけるミョウバンの量は増えた。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.5873cbbd2dfc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表とグラフは、50 mLの水にとける食塩とミョウバンの量を表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "18.5 g"
+        },
+        {
+          "id": "c2",
+          "text": "18.2 g"
+        },
+        {
+          "id": "c3",
+          "text": "5.7 g"
+        },
+        {
+          "id": "c4",
+          "text": "✕"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8efba82a68daa711.png"
+    },
+    "explanation": "食塩水は、温度を下げてもつぶを取り出すことができない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.651bd310e21a",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のメスシリンダーには、何 mL の水が入っているでしょう。",
+      "answers": [
+        "50"
+      ],
+      "template": "{{INPUT}} mL",
+      "suffix": "mL",
+      "promptImage": "questions/legacy/e3c0a498afcb85ef.png"
+    },
+    "explanation": "メスシリンダーのめもりは、液面のへこんだ下の面を、真横から見て読む。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.7fbcce511f9f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表とグラフは、50 mLの水にとける食塩とミョウバンの量を表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "28.7 g"
+        },
+        {
+          "id": "c2",
+          "text": "23 g"
+        },
+        {
+          "id": "c3",
+          "text": "5.7 g"
+        },
+        {
+          "id": "c4",
+          "text": "✕"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8efba82a68daa711.png"
+    },
+    "explanation": "60℃の水 50 mLには、28.7 g のミョウバンがとけている。この水よう液を20℃まで冷やすと、とけきれなくなったミョウバンが出てくる。20℃の水 50 mLにとけるミョウバンの量は 5.7 g なので、 28.7 (g) - 5.7 (g) = 23 (g) よって、23 g のミョウバンのつぶが出てくる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.843af3900dcb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、ものが水にとけた液の条じょう件けんとして、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すき通っている"
+        },
+        {
+          "id": "c2",
+          "text": "ものが均一に広がっている"
+        },
+        {
+          "id": "c3",
+          "text": "時間がたっても、とけたものが水と分かれない"
+        },
+        {
+          "id": "c4",
+          "text": "にごっている"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b3cd699efdc77dcf.png"
+    },
+    "explanation": "ものが水にとけた液は、ものが均一に広がり、とうめいで、時間がたってもとけたものが水と分かれない。にごっていたり、時間がたつとものと水が分かれて均一でなくなる場合、ものが水にとけたとはいえない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.86390ed7436f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水よう液の中にある・なくならない"
+        },
+        {
+          "id": "c2",
+          "text": "水[みず]よう液[えき]の中[なか]にある・消[き]えてなくなる"
+        },
+        {
+          "id": "c3",
+          "text": "水[みず]よう液[えき]の外[そと]に出[で]る・なくなる"
+        },
+        {
+          "id": "c4",
+          "text": "水[みず]よう液[えき]の底[そこ]にある・なくなる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ものが水にとけて見えなくなったとき、ものは（水よう液の中にある）。そのため、とけたものの重さは（なくならない）。 さとう水はあまい、食塩水はしょっぱいので、消えてなくなったわけではないんだね。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.8e63e1e24190",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電子てんびん・重さ・水平・０"
+        },
+        {
+          "id": "c2",
+          "text": "電子[でんし]てんびん・重[おも]さ・水平[すいへい]・100"
+        },
+        {
+          "id": "c3",
+          "text": "電子[でんし]てんびん・体積[たいせき]・水平[すいへい]・０"
+        },
+        {
+          "id": "c4",
+          "text": "電子[でんし]てんびん・体積[たいせき]・水平[すいへい]・100"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/65b510063e914248.png"
+    },
+    "explanation": "図の道具 A を（電子てんびん）といい、ものの（重さ）をはかるときに使う。はかり取るときは（水平）なところに置いて、表示が（０）gになるようにしてから、はかりたいものをのせる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.93469736da52",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食塩を水にとかして食塩水をつくるとき、食塩をとかす前の全体の重さと、とかした後の全体の重さは等しい。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の重さ + 食塩の重さ ＝ 食塩水の重さ"
+        },
+        {
+          "id": "c2",
+          "text": "水の重さ - 食塩の重さ ＝ 食塩水の重さ"
+        },
+        {
+          "id": "c3",
+          "text": "食塩の重さ ÷ 水の重さ ＝ 食塩水の重さ"
+        },
+        {
+          "id": "c4",
+          "text": "水の重さ × 食塩の重さ ＝ 食塩水の重さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水と食塩の重さの合計は、「水の重さ + 食塩の重さ」と表すことができる。これが食塩水の重さに等しいので、「水の重さ + 食塩の重さ ＝ 食塩水の重さ」と表すことができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.95de5998a0e0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水50 mL に、計量スプーン何ばい分の食塩、ミョウバンがとけるかを調べ、結果を表にした。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "３ばい・１ぱい・あり・ちがう"
+        },
+        {
+          "id": "c2",
+          "text": "３ばい・１ぱい・なく・同[おな]じ"
+        },
+        {
+          "id": "c3",
+          "text": "１ぱい・３ばい・あり・ちがう"
+        },
+        {
+          "id": "c4",
+          "text": "１ぱい・３ばい・なく・同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/abd7a4f2474d3b31.png"
+    },
+    "explanation": "水50 mL に、食塩は計量スプーン（３ばい）分、ミョウバンは計量スプーン（１ぱい）分とけた。このことから、ものが水にとける量には限りが（あり）、ものによって水にとける量が（ちがう）ことがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.a3fd7dd5cc5b",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "10"
+      ],
+      "template": "水100 g にミョウバンをとかして、できた水よう液の重さをはかると 110 g だった。このとき、とかしたミョウバンの重さは、何 g でしょう。 {{INPUT}} g",
+      "suffix": "g"
+    },
+    "explanation": "「水の重さ + とかしたものの重さ ＝ 水よう液の重さ」なので、とかしたミョウバンの重さを □ g とすると、 100 (g) + □ = 110 (g) □ = 110 (g) - 100 (g) □ = 10 よって、とかしたミョウバンの重さは 10 g になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.a8e7017222ae",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水50 mL には、計量スプーン３ばい分の食塩がとけ、それ以上はとけなかった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の量を増やす。"
+        },
+        {
+          "id": "c2",
+          "text": "たくさんの食塩をいれる。"
+        },
+        {
+          "id": "c3",
+          "text": "もっとよくかきまぜる。"
+        },
+        {
+          "id": "c4",
+          "text": "水の量を減らす。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水の量を増ふやすと、もっとたくさんの食塩を水にとかすことができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.ba5c1094cfcb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、水にとけるものの量を増やす方法として、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の温度をあげると、とけるミョウバンの量は増える。"
+        },
+        {
+          "id": "c2",
+          "text": "水の量を増やすと、とけるミョウバンの量は増える。"
+        },
+        {
+          "id": "c3",
+          "text": "水の温度をあげると、とける食塩の量は増える。"
+        },
+        {
+          "id": "c4",
+          "text": "水の量を増やすと、とける食塩の量は増える。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "水の温度をあげると、水にとける食塩の量は変化しないが、水にとけるミョウバンの量は増える。また、水の量を増やすと、水にとけるものの量は増える。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.d9451562aebe",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "105"
+      ],
+      "template": "水100 g に食塩 5 g をとかした。できあがった食塩水の重さは何 g になるでしょう。 {{INPUT}} g",
+      "suffix": "g"
+    },
+    "explanation": "「水の重さ + 食塩の重さ ＝ 食塩水の重さ」なので、 100 (g) + 5 (g) =105 (g) よって、できあがった食塩水の重さは 105 g になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.eab0e5d6de1c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水にとけるものの量と水の量との関係について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える・２倍"
+        },
+        {
+          "id": "c2",
+          "text": "増[ふ]える・半分[はんぶん]"
+        },
+        {
+          "id": "c3",
+          "text": "減[へ]る・２倍[ばい]"
+        },
+        {
+          "id": "c4",
+          "text": "減[へ]る・半分[はんぶん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水の量を増やすと、水にとけるものの量は（増える）。水の量を２倍にすると、水にとけるものの量は（２倍）になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-8.fd3ed104b261",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メスシリンダー・体積・水平・真横"
+        },
+        {
+          "id": "c2",
+          "text": "メスシリンダー・重[おも]さ・水平[すいへい]・真横[まよこ]"
+        },
+        {
+          "id": "c3",
+          "text": "スポイト・体積[たいせき]・水平[すいへい]・真横[まよこ]"
+        },
+        {
+          "id": "c4",
+          "text": "スポイト・重[おも]さ・水平[すいへい]・真横[まよこ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f3e0da9a3be44d78.png"
+    },
+    "explanation": "図の道具を（メスシリンダー）といい、液体の（体積）をはかるときに使う。液体をはかり取るときは、（水平）なところに置いて、（真横）から見る。"
+  }
+]

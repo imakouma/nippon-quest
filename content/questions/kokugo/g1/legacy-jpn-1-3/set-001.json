@@ -1,0 +1,1082 @@
+[
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.0448e0b20a5a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「がっこう__ いく。」の__に入るくっつき言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "向かう方向は「へ（え）」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.0f1682126b5b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "場所を表す「で」の例は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "学校で勉強"
+        },
+        {
+          "id": "c2",
+          "text": "学校へ行く"
+        },
+        {
+          "id": "c3",
+          "text": "学校を見る"
+        },
+        {
+          "id": "c4",
+          "text": "学校が好き"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "動作の場所は「で」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.15976af53dd9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、くっつき言葉（助詞）はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "を"
+        },
+        {
+          "id": "c2",
+          "text": "ねこ"
+        },
+        {
+          "id": "c3",
+          "text": "はしる"
+        },
+        {
+          "id": "c4",
+          "text": "あかい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「を・は・へ」などが助詞（くっつき言葉）。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.1786abaccd1b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「と」を正しく使っている文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ともだちと あそぶ。"
+        },
+        {
+          "id": "c2",
+          "text": "ほんと よむ。"
+        },
+        {
+          "id": "c3",
+          "text": "がっこうと いく。"
+        },
+        {
+          "id": "c4",
+          "text": "みずと のむ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "いっしょにする あいては「と」。「ともだちと あそぶ」が正しい。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.28d1a515550e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「を」を正しく使っている文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ほんを よむ。"
+        },
+        {
+          "id": "c2",
+          "text": "がっこうを いく。"
+        },
+        {
+          "id": "c3",
+          "text": "ともだちを あう。"
+        },
+        {
+          "id": "c4",
+          "text": "そらを たかい。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「を」は動作の相手（〜を する）につける。「ほんを よむ」が正しい。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.2be1bbbc1d7b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「えんぴつ___消しゴムを買う。」の空欄に入る、並べる助詞はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "と"
+        },
+        {
+          "id": "c2",
+          "text": "で"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "を"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "物を並べるときは「と」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.2c6b87e1797b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「へ」を正しく使っている文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "がっこうへ いく。"
+        },
+        {
+          "id": "c2",
+          "text": "ごはんへ たべる。"
+        },
+        {
+          "id": "c3",
+          "text": "ほんへ よむ。"
+        },
+        {
+          "id": "c4",
+          "text": "うたへ うたう。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「へ」は向かう方向につける。「がっこうへ いく」が正しい。ほかは「を」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.3de2f3322e37",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「で」を正しく使っている文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こうえんで あそぶ。"
+        },
+        {
+          "id": "c2",
+          "text": "がっこうで いく。"
+        },
+        {
+          "id": "c3",
+          "text": "ほんで よむ。"
+        },
+        {
+          "id": "c4",
+          "text": "うたで うたう。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "うごきをする場所は「で」。「こうえんで あそぶ」が正しい。「いく」は「へ」、「よむ・うたう」は「を」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.3f64c924d8e5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「私は小学生です」の「は」の正しい発音（読み）はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "わ"
+        },
+        {
+          "id": "c3",
+          "text": "あ"
+        },
+        {
+          "id": "c4",
+          "text": "お"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "助詞の「は」は「わ」と発音します。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.491136f1d46a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「あさ7じ___おきる。」の空欄に入る、時こくを表す助詞はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "に"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "で"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「〜じに」のように、時こくには「に」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.4b1680f092cb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "動作の対象を表す助詞は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「ごはんを食べる」の「を」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.52f07ff8c13e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「こうえん___あそぶ。」の空欄に入る、場所を表す助詞はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "で"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "は"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "動作をする場所を表すときは「で」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.5a0da1ada651",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くっつき言葉の「へ」の読み方は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "へ"
+        },
+        {
+          "id": "c2",
+          "text": "え"
+        },
+        {
+          "id": "c3",
+          "text": "べ"
+        },
+        {
+          "id": "c4",
+          "text": "け"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "助詞の「へ」は「え」と読む。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.5e0db57ec969",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「が」を正しく使っている文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あめが ふる。"
+        },
+        {
+          "id": "c2",
+          "text": "ほんが よむ。"
+        },
+        {
+          "id": "c3",
+          "text": "みずが のむ。"
+        },
+        {
+          "id": "c4",
+          "text": "うたが うたう。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「が」はどうさをする もの・人につける。「あめが ふる」が正しい。「ほん・みず・うた」はあいてなので「を」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.69e2470fbd56",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ともだち___あう。」の空欄に入る助詞はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "に"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「会う」あいてを表すときは「に」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.72341077030e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ほん__ よむ。」の__に入るくっつき言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "に"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "動作の対象は「を」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.7fe1fb6ce079",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くっつき言葉の「は」の読み方は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "わ"
+        },
+        {
+          "id": "c3",
+          "text": "あ"
+        },
+        {
+          "id": "c4",
+          "text": "や"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "助詞の「は」は「わ」と読む。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.96d4272351a0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "助詞の「へ」（学校へ行く、の「へ」）は、どう発音しますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "へ"
+        },
+        {
+          "id": "c2",
+          "text": "え"
+        },
+        {
+          "id": "c3",
+          "text": "は"
+        },
+        {
+          "id": "c4",
+          "text": "べ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "向かう方向を表す助詞の「へ」は「え」と発音します。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.9989559f65bf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「に」を正しく使っている文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ともだちに あう。"
+        },
+        {
+          "id": "c2",
+          "text": "ほんに よむ。"
+        },
+        {
+          "id": "c3",
+          "text": "みずに のむ。"
+        },
+        {
+          "id": "c4",
+          "text": "うたに うたう。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「会う」あいては「に」。「ともだちに あう」が正しい。ほかは「を」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.ab3d9fc1b287",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "助詞「は」の発音は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "わ"
+        },
+        {
+          "id": "c3",
+          "text": "あ"
+        },
+        {
+          "id": "c4",
+          "text": "お"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "助詞の「は」は「わ」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.b45ee097589b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「おとうと___走る。」の空欄に入る、主語を表す助詞はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "を"
+        },
+        {
+          "id": "c2",
+          "text": "が"
+        },
+        {
+          "id": "c3",
+          "text": "に"
+        },
+        {
+          "id": "c4",
+          "text": "へ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「〜が走る」のように「が」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.b95352c94f1c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「学校___行く。」の空欄に入る正しい助詞はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "向かう方向を表すときは「へ（え）」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.c0967e9a92f6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「あめ___ふる。」の空欄に入る、主語を表す助詞はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "が"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "と"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「あめがふる」のように、主語には「が」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.c4f290afe794",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「走る」の主語を示す助詞は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "を"
+        },
+        {
+          "id": "c2",
+          "text": "が"
+        },
+        {
+          "id": "c3",
+          "text": "に"
+        },
+        {
+          "id": "c4",
+          "text": "へ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「犬が走る」の「が」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.d3128c59a295",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「に」の使い方として正しいのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "友達に会う"
+        },
+        {
+          "id": "c2",
+          "text": "友達を会う"
+        },
+        {
+          "id": "c3",
+          "text": "友達が会う"
+        },
+        {
+          "id": "c4",
+          "text": "友達へ会う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「会う」の相手は「に」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.db57ec6d2db3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "主語を表す助詞は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "に"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ぼくは」の「は」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.ef253c12ca9b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "並べるときの助詞は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "と"
+        },
+        {
+          "id": "c2",
+          "text": "で"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "を"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「えんぴつと消しゴム」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.fb3fcab5c1f5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いえ__ かえる。」の__に入るのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "向かう先は「へ」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.fcf998092860",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "向かう方向を表す助詞は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "を"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "で"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "「学校へ行く」の「へ」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-3.ffe28c91672e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ぼく___いぬが好きだ。」の空欄に入る助詞はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "へ"
+        },
+        {
+          "id": "c3",
+          "text": "を"
+        },
+        {
+          "id": "c4",
+          "text": "で"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "主語を示す助詞は「は」になります。"
+  }
+]

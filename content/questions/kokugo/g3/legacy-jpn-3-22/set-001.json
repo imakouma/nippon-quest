@@ -1,0 +1,578 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.04378f13c08c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆通りに（電柱）がならぶ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんちゅう"
+        },
+        {
+          "id": "c2",
+          "text": "でんしゅ"
+        },
+        {
+          "id": "c3",
+          "text": "でんじゅ"
+        },
+        {
+          "id": "c4",
+          "text": "てんちゅう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「電柱」は「でんちゅう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.0b3f1d41b649",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆映画が（お）わる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "終"
+        },
+        {
+          "id": "c2",
+          "text": "冬"
+        },
+        {
+          "id": "c3",
+          "text": "終う"
+        },
+        {
+          "id": "c4",
+          "text": "お"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「終（お）わる」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.1d96f31c3027",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆日本（列島）の地図を見る。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "れっとう"
+        },
+        {
+          "id": "c2",
+          "text": "れと"
+        },
+        {
+          "id": "c3",
+          "text": "れいとう"
+        },
+        {
+          "id": "c4",
+          "text": "つしま"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「列島」は「れっとう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.38be63f6d51d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆よい（おこな）いをつつしむ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "行い"
+        },
+        {
+          "id": "c2",
+          "text": "行"
+        },
+        {
+          "id": "c3",
+          "text": "修い"
+        },
+        {
+          "id": "c4",
+          "text": "終い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「行（おこな）い」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.3e7f5ace63a6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆恐竜の（化石）を見つける。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かせき"
+        },
+        {
+          "id": "c2",
+          "text": "どうわ"
+        },
+        {
+          "id": "c3",
+          "text": "れっとう"
+        },
+        {
+          "id": "c4",
+          "text": "しめい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「化石」は「かせき」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.449e662e5d6a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆勝敗の（しょうぶ）を決める。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "勝負"
+        },
+        {
+          "id": "c2",
+          "text": "小部"
+        },
+        {
+          "id": "c3",
+          "text": "正負"
+        },
+        {
+          "id": "c4",
+          "text": "しょうぶ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「勝負（しょうぶ）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.584c10d9cc0a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆意見に（はんたい）する。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "反対"
+        },
+        {
+          "id": "c2",
+          "text": "反向"
+        },
+        {
+          "id": "c3",
+          "text": "半対"
+        },
+        {
+          "id": "c4",
+          "text": "坂対"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「反対（はんたい）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.6e5183a84ff5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆（みどり）の豊かな町。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "緑"
+        },
+        {
+          "id": "c2",
+          "text": "縁"
+        },
+        {
+          "id": "c3",
+          "text": "線"
+        },
+        {
+          "id": "c4",
+          "text": "緑う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「緑（みどり）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.944b853b9de6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆世界の（童話）を読む。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どうわ"
+        },
+        {
+          "id": "c2",
+          "text": "とわ"
+        },
+        {
+          "id": "c3",
+          "text": "おはなし"
+        },
+        {
+          "id": "c4",
+          "text": "はなし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「童話」は「どうわ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.b69731111a35",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆代表に（指名）される。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しめい"
+        },
+        {
+          "id": "c2",
+          "text": "しめ"
+        },
+        {
+          "id": "c3",
+          "text": "いしん"
+        },
+        {
+          "id": "c4",
+          "text": "じみょう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「指名」は「しめい」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.c22ca111f497",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆荷物を（運ぶ）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はこぶ"
+        },
+        {
+          "id": "c2",
+          "text": "おくる"
+        },
+        {
+          "id": "c3",
+          "text": "うごかす"
+        },
+        {
+          "id": "c4",
+          "text": "ながす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「運ぶ」は「はこぶ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.d4acecee3e5d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆列車が（てっきょう）をわたる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄橋"
+        },
+        {
+          "id": "c2",
+          "text": "鉄橋う"
+        },
+        {
+          "id": "c3",
+          "text": "鉄向"
+        },
+        {
+          "id": "c4",
+          "text": "天橋"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「鉄橋（てっきょう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.e43a71442599",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆文章を（くぎ）る。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "区切"
+        },
+        {
+          "id": "c2",
+          "text": "区切る"
+        },
+        {
+          "id": "c3",
+          "text": "分切"
+        },
+        {
+          "id": "c4",
+          "text": "分る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「区切（くぎ）る」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.edc0a5fcff68",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆プールで（泳ぐ）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "泳ぐ"
+        },
+        {
+          "id": "c2",
+          "text": "およぐぐ"
+        },
+        {
+          "id": "c3",
+          "text": "すい"
+        },
+        {
+          "id": "c4",
+          "text": "およ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「泳ぐ」は「およぐ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.f7c09ce02645",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（ちょうし）を整える。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "調子"
+        },
+        {
+          "id": "c2",
+          "text": "調子う"
+        },
+        {
+          "id": "c3",
+          "text": "重子"
+        },
+        {
+          "id": "c4",
+          "text": "町子"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「調子（ちょうし）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-22.fe4258fd6afd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-22",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_22",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆色づいた（葉）が落ちる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "は"
+        },
+        {
+          "id": "c2",
+          "text": "はあ"
+        },
+        {
+          "id": "c3",
+          "text": "ば"
+        },
+        {
+          "id": "c4",
+          "text": "よう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「葉」は「は」と読みます。"
+  }
+]

@@ -1,0 +1,420 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-2.07e97bce5691",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つ50円で仕入れたリンゴを、70円で売ります。売る個数をx個、利益をy円として、xとyの関係を表す式をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=70×x-50×x"
+        },
+        {
+          "id": "c2",
+          "text": "y=70×x-50"
+        },
+        {
+          "id": "c3",
+          "text": "y=120×x"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "１つ50円で x個のリンゴを仕入れると、50×x円。これを１つ70円で売ると、売り上げは 70×x円になる。利益は、この２つの差になるので y=70×x-50×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.11262ad23077",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=80×x について、x=10 のときの yの値を求めましょう。",
+      "answers": [
+        "800"
+      ],
+      "template": "y={{INPUT}}"
+    },
+    "explanation": "y=80×x の x に、10をあてはめて計算してみよう。 y=80×10=800"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.1b47a5379c91",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が xcm の正方形[せいほうけい]があります。このとき、下の式は何を表しているでしょう。次の中からえらぼう。 x×4",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正方形[せいほうけい]のまわりの長さ"
+        },
+        {
+          "id": "c2",
+          "text": "正方形[せいほうけい]の面積[めんせき]"
+        },
+        {
+          "id": "c3",
+          "text": "正方形[せいほうけい]の対角線の長さ"
+        },
+        {
+          "id": "c4",
+          "text": "正方形[せいほうけい]４つ分の面積[めんせき]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "実際に正方形[せいほうけい]をかいて考えてみよう。x×4 は、辺４つ分の長さになるので、正方形[せいほうけい]のまわりの長さになる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.205f930fa115",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=x×0.8 について、y=1200 のときの xの値を求めましょう。 x=",
+      "answers": [
+        "1500"
+      ],
+      "template": "y=x×0.8 について、y=1200 のときの xの値を求めましょう。 x={{INPUT}}"
+    },
+    "explanation": "y=x×0.8 の y に、1200をあてはめて計算してみよう。 1200=x×0.8 x=1200÷0.8 x=1500"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.28b68745535e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1000円を持って買い物に行き、x円のものを買いました。残ったお金を y円として、xとyの関係を式にしたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=1000-x"
+        },
+        {
+          "id": "c2",
+          "text": "x=y-1000"
+        },
+        {
+          "id": "c3",
+          "text": "y=1000+x"
+        },
+        {
+          "id": "c4",
+          "text": "x=1000+y"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "100円のものを買うと 1000-100、200円のものを買うと 1000-200になる。これと同じように考えて、x円のものを買うと、1000-xになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.504739e422c6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "24個のあめを、x人で分けます。１人分のあめの個数を y個として、xとyの関係を式にしたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=24÷x"
+        },
+        {
+          "id": "c2",
+          "text": "y=24×x"
+        },
+        {
+          "id": "c3",
+          "text": "y=24+x"
+        },
+        {
+          "id": "c4",
+          "text": "x=24-x"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "2人で分けると 24÷2、3人で分けると 24÷3になる。これと同じように考えて、x人で分けると、24÷xになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.76886e123974",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が xcm の正方形[せいほうけい]があります。このとき、下の式は何を表しているでしょう。次の中からえらぼう。 x×x",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正方形[せいほうけい]のまわりの長さ"
+        },
+        {
+          "id": "c2",
+          "text": "正方形[せいほうけい]の面積[めんせき]"
+        },
+        {
+          "id": "c3",
+          "text": "正方形[せいほうけい]の対角線の長さ"
+        },
+        {
+          "id": "c4",
+          "text": "この中にはない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "実際に正方形[せいほうけい]をかいて考えてみよう。x×x は、１辺×１辺を表すので、正方形[せいほうけい]の面積[めんせき]になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.8a233ebb05dc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つ 80円のりんごを、x個買いました。代金を y円として、xとyの関係を式にしたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "x=80×y"
+        },
+        {
+          "id": "c2",
+          "text": "y=80×x"
+        },
+        {
+          "id": "c3",
+          "text": "y=80+y"
+        },
+        {
+          "id": "c4",
+          "text": "x=80-y"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "80円のりんごを2つ買うと 80×2、3つ買うと 80×3になる。これと同じように考えて、80円のりんごをx個買うと、80×xになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.949a471a08b3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=80×x について、x=5 のときの yの値を求めましょう。",
+      "answers": [
+        "400"
+      ],
+      "template": "y={{INPUT}}"
+    },
+    "explanation": "y=80×x の x に、5をあてはめて計算してみよう。 y=80×5=400"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.a429c49d33b0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の台形の面積[めんせき]を、式にしたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(3+a)×4"
+        },
+        {
+          "id": "c2",
+          "text": "(3×a)×8÷2"
+        },
+        {
+          "id": "c3",
+          "text": "(3+a)×8×2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b0fa8dc58ddc716a.png"
+    },
+    "explanation": "台形の面積[めんせき]は、「(上底+下底)×高さ÷2」で求めることができるので、この公式にそのまま数字や文字を当てはめればいい。 (3+a)×8÷2=(3+a)×4"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.ab3414ab62a0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=80×x について、y=1200 のときの xの値を求めましょう。 x=",
+      "answers": [
+        "15"
+      ],
+      "template": "y=80×x について、y=1200 のときの xの値を求めましょう。 x={{INPUT}}"
+    },
+    "explanation": "y=80×x の y に、1200をあてはめて計算してみよう。 1200=80×x x=1200÷80 x=15"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.b1bfa96e3f73",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "y=70×x-50×x について、x=100 のときの yの値を求めましょう。 y=",
+      "answers": [
+        "2000"
+      ],
+      "template": "y=70×x-50×x について、x=100 のときの yの値を求めましょう。 y={{INPUT}}"
+    },
+    "explanation": "y=70×x-50×x の x に、100をあてはめて計算してみよう。 y=70×100-50×100=7000-5000=2000"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.b8c86c695bd7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の三角形[さんかくけい]の面積[めんせき]を、式にしましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "a×4"
+        },
+        {
+          "id": "c2",
+          "text": "a×8"
+        },
+        {
+          "id": "c3",
+          "text": "(a+8)÷2"
+        },
+        {
+          "id": "c4",
+          "text": "4"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/694c764c99e62e7c.png"
+    },
+    "explanation": "三角形[さんかくけい]の面積[めんせき]は、「底辺×高さ÷2」で求めることができるので、この公式にそのまま数字や文字を当てはめればいい。 a×8÷2=a×4"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-2.dc9abb303caf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "x円で買った服を、買った値段から ２割引いて、インターネットで売ろうと思います。このときの売値を y 円として、xとyの関係を表す式をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=x×0.8"
+        },
+        {
+          "id": "c2",
+          "text": "y=x×8"
+        },
+        {
+          "id": "c3",
+          "text": "y=x×0.2"
+        },
+        {
+          "id": "c4",
+          "text": "y=x×12"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「２割引」で売るとは、全体の８割の値段で売るということなので、0.8を元の値段にかければいい。 y=x×0.8"
+  }
+]

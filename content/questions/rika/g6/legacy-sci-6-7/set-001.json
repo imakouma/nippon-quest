@@ -1,0 +1,701 @@
+[
+  {
+    "id": "legacy.rika.g6.sci-6-7.064fe18e2b6d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、地震によって土地の様子[ようす]が変化した様子[ようす]である。この様子[ようす]について、正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大地がずれて、土地がもりあがった。"
+        },
+        {
+          "id": "c2",
+          "text": "山のしゃめんがくずれて、山くずれが起こった。"
+        },
+        {
+          "id": "c3",
+          "text": "大地がずれて、土地がしずんだ。"
+        },
+        {
+          "id": "c4",
+          "text": "大地がずれて、地割れが起こった。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a6e9398ea9a48612.png"
+    },
+    "explanation": "地震によって大地がずれて、地割れが起こることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.06a6d41f2791",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、火山の噴火によって土地の様子[ようす]が変化した様子[ようす]である。この様子[ようす]について、正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山の噴火によって、新しい島ができた。"
+        },
+        {
+          "id": "c2",
+          "text": "火山の噴火によってできたくぼみに、湖ができた。"
+        },
+        {
+          "id": "c3",
+          "text": "火山の噴火によって流れ出した溶岩で、島が大きくなった。"
+        },
+        {
+          "id": "c4",
+          "text": "火山の噴火によって、新しい山ができた。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fc98dfef40178797.png"
+    },
+    "explanation": "火山の噴火によって流れ出した溶岩が固まって、もとの島よりも大きい島になった。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.084bcb4e54c9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火山灰について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角ばった・とうめい・そろっていない"
+        },
+        {
+          "id": "c2",
+          "text": "丸[まる]みをおびている・とうめい・そろっていない"
+        },
+        {
+          "id": "c3",
+          "text": "角[かく]ばった・黒[くろ]っぽい・そろっている"
+        },
+        {
+          "id": "c4",
+          "text": "角[かく]ばった・とうめい・どれも同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火山灰のつぶは、（角ばった）ものが多く、（とうめい）なガラスのようなものもあり、色や形は（そろっていない）。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.088976700f94",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山灰・よう岩・島や山・湖"
+        },
+        {
+          "id": "c2",
+          "text": "よう岩[がん]・火山灰[かざんばい]・湖[みずうみ]・島[しま]や山[やま]"
+        },
+        {
+          "id": "c3",
+          "text": "火山灰[かざんばい]・水[みず]・平地[へいち]・川[かわ]"
+        },
+        {
+          "id": "c4",
+          "text": "砂[すな]・どろ・谷[たに]・海[うみ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火山が噴火すると、（火山灰）がふき出たり、（よう岩）が流れ出たりする。この活動により、新しく（島や山）ができることがある。逆に、溶岩が流れ出たことで火山にくぼみができたり、できたくぼみに雨がふるなどして（湖）ができることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.227b01b05bed",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火山の利用とめぐみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温泉・水・地熱発電・水はけ"
+        },
+        {
+          "id": "c2",
+          "text": "水[みず]・温泉[おんせん]・水力発電[すいりょくはつでん]・水[みず]もち"
+        },
+        {
+          "id": "c3",
+          "text": "温泉[おんせん]・水[みず]・火力発電[かりょくはつでん]・水[みず]もち"
+        },
+        {
+          "id": "c4",
+          "text": "海水[かいすい]・雨水[あまみず]・風力発電[ふうりょくはつでん]・水[みず]はけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cb1dedbaa8ec4c90.png"
+    },
+    "explanation": "火山の近くでは、あたたかい（温泉）がわき出たり、火山のふもとではきれいな（水）がわき出ることも多い。また、火山の熱を利用して電気をつくる（地熱発電）が行われる。火山灰でできた土地は（水はけ）が良いので、キャベツやダイコンなどのさいばいに適している。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.2b4f695cd2f9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、少しはなれた３地点 A～C のボーリング試料をもとに、地下の様子[ようす]を表したものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "砂の層"
+        },
+        {
+          "id": "c2",
+          "text": "れきの層"
+        },
+        {
+          "id": "c3",
+          "text": "どろの層"
+        },
+        {
+          "id": "c4",
+          "text": "火山灰の層"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8b359cabde9298f5.png"
+    },
+    "explanation": "地層は、横にも、おくにも広がっている。A、C の層の順番と同じように、B の ア の層は、砂の層だと考えられる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.5099345d62cd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、地震によって土地の様子[ようす]が変化した様子[ようす]である。この様子[ようす]について、正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大地がずれて、土地がもりあがった。"
+        },
+        {
+          "id": "c2",
+          "text": "山のしゃめんがくずれて、山くずれが起こった。"
+        },
+        {
+          "id": "c3",
+          "text": "大地がずれて、土地がしずんだ。"
+        },
+        {
+          "id": "c4",
+          "text": "大地がずれて、地割れが起こった。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b28fb6b2fbf63f94.png"
+    },
+    "explanation": "地震によって山のしゃめんがくずれ、山くずれが起こることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.5f84e1b5ebb3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "丸みをおびた・流れる水のはたらき"
+        },
+        {
+          "id": "c2",
+          "text": "丸[まる]みをおびた・人間[にんげん]のはたらき"
+        },
+        {
+          "id": "c3",
+          "text": "角[かく]ばった・人間[にんげん]のはたらき"
+        },
+        {
+          "id": "c4",
+          "text": "角[かく]ばった・流[なが]れる水[みず]のはたらき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5276749a7fba795f.png"
+    },
+    "explanation": "地層に見られる れきや砂は、（丸みをおびた）形をしているものが多い。これは、れきやすなが（流れる水のはたらき）によってけずられたからである。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.68877e7d8924",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地層をつくっているつぶについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きさ・れき・砂・どろ"
+        },
+        {
+          "id": "c2",
+          "text": "形[かたち]・れき・砂[すな]・どろ"
+        },
+        {
+          "id": "c3",
+          "text": "色[いろ]・れき・砂[すな]・どろ"
+        },
+        {
+          "id": "c4",
+          "text": "大[おお]きさ・どろ・砂[すな]・れき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c8950b20e25022cf.png"
+    },
+    "explanation": "地層に見られる、れき、砂、どろは、つぶの（大きさ）で区別されている。つぶの大きさが 2 mm以上のものを（れき）、2 mmよりも小さく目に見えるくらいのつぶのものを（砂）、さらに小さく虫眼鏡などで拡大[かくだい]しないと見えないようなつぶを（どろ）という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.6f846af2919f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、火山の噴火によって土地の様子[ようす]が変化した様子[ようす]である。この様子[ようす]について、正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山の噴火によって、新しい島ができた。"
+        },
+        {
+          "id": "c2",
+          "text": "火山の噴火によってできたくぼみに、湖ができた。"
+        },
+        {
+          "id": "c3",
+          "text": "火山の噴火によって流れ出した溶岩で、島が大きくなった。"
+        },
+        {
+          "id": "c4",
+          "text": "火山の噴火によって、新しい山ができた。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6729a1747804af38.png"
+    },
+    "explanation": "火山の噴火によってできたくぼみ（カルデラ）に、雨水などの水がたまって、湖ができた。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.75343754bfaf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地面[じめん]の下は、れき、砂すな、どろ、火山灰ばいなどが重なってしま模も様ようになっている。このような層そうの重なりを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地層"
+        },
+        {
+          "id": "c2",
+          "text": "化石"
+        },
+        {
+          "id": "c3",
+          "text": "たい積岩"
+        },
+        {
+          "id": "c4",
+          "text": "れき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/36b93290fc03d47a.png"
+    },
+    "explanation": "地面[じめん]の下は、れき、砂、どろ、火山灰などが重なってしま模様になっている。このような層の重なりを地層という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.7b5ed487bc0f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地層からは、図のような角ばったつぶが見られることがある。これを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山灰"
+        },
+        {
+          "id": "c2",
+          "text": "化石"
+        },
+        {
+          "id": "c3",
+          "text": "れき"
+        },
+        {
+          "id": "c4",
+          "text": "砂"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/344f136f52b6e70a.png"
+    },
+    "explanation": "地層からは、図のような角ばったつぶが見られることがある。これを火山灰という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.962f22225582",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の説明[せつめい]のうち、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山灰の層は、水のはたらきによってできる。"
+        },
+        {
+          "id": "c2",
+          "text": "つぶの大きさによって、れき、砂、どろ、火山灰に分けることができる。"
+        },
+        {
+          "id": "c3",
+          "text": "火山灰のつぶは、丸みを帯びているものが多い。"
+        },
+        {
+          "id": "c4",
+          "text": "火山の噴火によって、火山灰の層ができることがある。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "火山の噴火によって、火山灰の層ができることがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.9e76bad89cc6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この写真は、地震によって土地の様子[ようす]が変化した様子[ようす]である。この様子[ようす]について、正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大地がずれて、土地がもりあがった。"
+        },
+        {
+          "id": "c2",
+          "text": "山のしゃめんがくずれて、山くずれが起こった。"
+        },
+        {
+          "id": "c3",
+          "text": "大地がずれて、土地がしずんだ。"
+        },
+        {
+          "id": "c4",
+          "text": "大地がずれて、地割れが起こった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7874f78ba97af33a.png"
+    },
+    "explanation": "道路の左側の土地を見てみると、土地の高さがななめ一直線に変わっている。これは、地震によって大地がずれて、土地がもりあがったからである。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.a725e31255bb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "化石・時代"
+        },
+        {
+          "id": "c2",
+          "text": "化石[かせき]・時間[じかん]"
+        },
+        {
+          "id": "c3",
+          "text": "地層[ちそう]・時代[じだい]"
+        },
+        {
+          "id": "c4",
+          "text": "化石[かせき]・場所[ばしょ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/598ed5df4eca4c13.png"
+    },
+    "explanation": "地層には、大昔の生物の体や生活のあとが見つかることがある。これを（化石）という。化石 は、地層ができたときのかん境や（時代）などのようすを知る手がかりになる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.b678ad92b78a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、地面[じめん]の土と水をペットボトルに入れて、土がたい積するようすを観察した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "つぶの大きさが大きいものから下に積もる。"
+        },
+        {
+          "id": "c2",
+          "text": "つぶの大きさが小さいものから下に積もる。"
+        },
+        {
+          "id": "c3",
+          "text": "土は均一に混ざったまま下に積もる。"
+        },
+        {
+          "id": "c4",
+          "text": "つぶの色が黒いものから下に積もる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c46e3f84d9e32cad.png"
+    },
+    "explanation": "土は、つぶの大きさが大きいものから下に積もる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.c3fe96e4f9c1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たい積岩"
+        },
+        {
+          "id": "c2",
+          "text": "火山岩"
+        },
+        {
+          "id": "c3",
+          "text": "化石"
+        },
+        {
+          "id": "c4",
+          "text": "地層"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f47740fa0c04d930.png"
+    },
+    "explanation": "地面[じめん]にたい積した れき、砂、どろ、火山灰などが、長い年月の間に固まってかたい岩石になったものを、たい積岩という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.ec5c7787bc2f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のような装置に、地面[じめん]の土と水をまぜて流し、土がたい積するようすを観察した。これを２回くり返すと、土はどのようにたい積したでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "れき、砂、どろの層が２組できる。"
+        },
+        {
+          "id": "c2",
+          "text": "分厚いれき、砂、どろの層が１組できる。"
+        },
+        {
+          "id": "c3",
+          "text": "れき、砂、どろは混ざってたい積する。"
+        },
+        {
+          "id": "c4",
+          "text": "１度目の層の上に、下からどろ、砂、れきの順でたい積する。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/555fda85e609bb6a.png"
+    },
+    "explanation": "２回くり返すと、れき、砂、どろの層が２組できる。これが長い間くり返されることで、しま模様の地層ができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-7.eff84167a8d3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火山灰の層は、どのようにしてできたでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火山の噴火によってできた。"
+        },
+        {
+          "id": "c2",
+          "text": "水のはたらきによってできた。"
+        },
+        {
+          "id": "c3",
+          "text": "海の底にたまった土が変化してできた。"
+        },
+        {
+          "id": "c4",
+          "text": "火山の中でできた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火山が噴ふん火かするときに上空に吹き出す火山灰が、地面[じめん]や海底にたい積して、火山灰の層ができる。"
+  }
+]

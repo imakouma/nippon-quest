@@ -1,0 +1,611 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-7.038db6febe26",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの受精後、約１６〜２４週後、約３６週後のようすについて、図のア〜エに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "目、耳、鼻・性別・体・いつ生まれてもいい"
+        },
+        {
+          "id": "c2",
+          "text": "体[からだ]・性別[せいべつ]・目[め]、耳[みみ]、鼻[はな]・いつ生[う]まれてもいい"
+        },
+        {
+          "id": "c3",
+          "text": "目[め]、耳[みみ]、鼻[はな]・体[からだ]・性別[せいべつ]・まだ生[う]まれない"
+        },
+        {
+          "id": "c4",
+          "text": "手足[てあし]・性別[せいべつ]・体[からだ]・いつ生[う]まれてもいい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f1474df57a9edcba.png"
+    },
+    "explanation": "ア：目、耳、鼻 イ：性別 ウ：体 エ：いつ生まれてもいい"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.145483829531",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "へそのお のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばんと子どもをつなぐ。養分やいらないものが通る。"
+        },
+        {
+          "id": "c2",
+          "text": "子宮の中にある液体。しょうげきから子どもを守る。"
+        },
+        {
+          "id": "c3",
+          "text": "養分を受けとり、いらないものをわたしている。"
+        },
+        {
+          "id": "c4",
+          "text": "母親の体内で、子どもが育つところ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "赤ちゃんと子宮のかべのたいばんは、へそのおでつながっていて、養分やいらないものを受けわたししている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.1aade3ad3109",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の動物のうち、ヒトと同じ生まれかたをするものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "カエル"
+        },
+        {
+          "id": "c2",
+          "text": "ニワトリ"
+        },
+        {
+          "id": "c3",
+          "text": "メダカ"
+        },
+        {
+          "id": "c4",
+          "text": "イヌ"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "イヌは、ヒトと同じように、母親の体内で育ってから生まれる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.25d37a695329",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトとメダカのたんじょうについて、かっこに当てはまる語をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１・38・10 〜 20・10"
+        },
+        {
+          "id": "c2",
+          "text": "１・10・38・20"
+        },
+        {
+          "id": "c3",
+          "text": "２・38・10 〜 20・10"
+        },
+        {
+          "id": "c4",
+          "text": "１・24・１・38"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトはふつう１回に（１）人の子どもを産む。出産までには約（38）週かかる。メダカは１回に（10～20）個の卵を産み、１ヶ月に約（10）回産卵する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.286f98b4dcf6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "羊水のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばんと子どもをつなぐ。養分やいらないものが通る。"
+        },
+        {
+          "id": "c2",
+          "text": "子宮の中にある液体。しょうげきから子どもを守る。"
+        },
+        {
+          "id": "c3",
+          "text": "養分を受けとり、いらないものをわたしている。"
+        },
+        {
+          "id": "c4",
+          "text": "母親の体内で、子どもが育つところ。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "子宮の中にある液体を羊水といい、しょうげきから子どもを守るはたらきがある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.43d309d78bef",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの赤ちゃんがおなかの中で育つ様子[ようす]について、次のA〜Dを成長の順にならべよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B・C・D・A"
+        },
+        {
+          "id": "c2",
+          "text": "B・D・C・A"
+        },
+        {
+          "id": "c3",
+          "text": "C・B・D・A"
+        },
+        {
+          "id": "c4",
+          "text": "A・D・C・B"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bebca64202e14eb5.png"
+    },
+    "explanation": "B→C→D→A→たんじょう"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.46bd0060459a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトは、受精してからどれくらいの期間でたんじょうするでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "約38週"
+        },
+        {
+          "id": "c2",
+          "text": "約11週"
+        },
+        {
+          "id": "c3",
+          "text": "約24週"
+        },
+        {
+          "id": "c4",
+          "text": "約46週"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトは、受精してから母親の体内でだんだん育ち、約38週でたんじょうする。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.49a2ace2b033",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たいばん のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばんと子どもをつなぐ。養分やいらないものが通る。"
+        },
+        {
+          "id": "c2",
+          "text": "子宮の中にある液体。しょうげきから子どもを守る。"
+        },
+        {
+          "id": "c3",
+          "text": "養分を受けとり、いらないものをわたしている。"
+        },
+        {
+          "id": "c4",
+          "text": "母親の体内で、子どもが育つところ。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "たいばんでは、母親から養分を受けとり、いらないものをわたしている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.4c72bd7311f8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの受精後、約４週後、約８週後のようすについて、図のア〜エに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "心ぞう・どう体と頭・顔・手足"
+        },
+        {
+          "id": "c2",
+          "text": "どう体[たい]と頭[あたま]・心[しん]ぞう・顔[かお]・手足[てあし]"
+        },
+        {
+          "id": "c3",
+          "text": "心[しん]ぞう・どう体[たい]と頭[あたま]・手足[てあし]・顔[かお]"
+        },
+        {
+          "id": "c4",
+          "text": "顔[かお]・手足[てあし]・心[しん]ぞう・どう体[たい]と頭[あたま]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/44df833ad4de2f9b.png"
+    },
+    "explanation": "ア：心ぞう イ：どう体と頭 ウ：顔 エ：手足"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.536697ab9198",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "母親の子宮の中のア〜エのつくりについて、当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばん・へそのお・羊水・子宮"
+        },
+        {
+          "id": "c2",
+          "text": "へそのお・たいばん・羊水[ようすい]・子宮[しきゅう]"
+        },
+        {
+          "id": "c3",
+          "text": "たいばん・羊水[ようすい]・へそのお・子宮[しきゅう]"
+        },
+        {
+          "id": "c4",
+          "text": "子宮[しきゅう]・へそのお・羊水[ようすい]・たいばん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/16a1d28c6af7e4c6.png"
+    },
+    "explanation": "ア：たいばん イ：へそのお ウ：羊よう水すい エ：子し宮きゅう"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.8159e0ec60f1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトとメダカのたんじょうについて、かっこに当てはまる語をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまご・母親の体内・小さい・大きい"
+        },
+        {
+          "id": "c2",
+          "text": "母親[ははおや]の体内[たいない]・たまご・小[ちい]さい・大[おお]きい"
+        },
+        {
+          "id": "c3",
+          "text": "たまご・母親[ははおや]の体内[たいない]・大[おお]きい・小[ちい]さい"
+        },
+        {
+          "id": "c4",
+          "text": "水中[すいちゅう]・母親[ははおや]の体内[たいない]・同[おな]じ・同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "メダカ（たまご）の中で育つのに比べて、ヒトは（母親の体内）で大きくなってからたんじょうする。そのため、ヒトの受精卵は、メダカの受精卵よりも（小さい）が、生まれる子どもはヒトのほうが（大きい）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.82432288a4c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "母親の子宮の中のようすについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "子宮・羊水・たいばん・へそのお"
+        },
+        {
+          "id": "c2",
+          "text": "子宮[しきゅう]・たいばん・羊水[ようすい]・へそのお"
+        },
+        {
+          "id": "c3",
+          "text": "羊水[ようすい]・子宮[しきゅう]・たいばん・へそのお"
+        },
+        {
+          "id": "c4",
+          "text": "子宮[しきゅう]・羊水[ようすい]・へそのお・たいばん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/93d335f35708aa71.png"
+    },
+    "explanation": "ヒトの受精卵は、母親の体内の（子宮）の中で育つ。子宮は（羊水）という液体で満たされていて、子どもと子宮のかべの（たいばん）は、（へそのお）でつながっている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.84bb6ad76ecc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの赤ちゃんの成長について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ヒトの赤ちゃんは、たんじょうしたあと半年以上の間、乳を飲んで育つ。"
+        },
+        {
+          "id": "c2",
+          "text": "ヒトの赤ちゃんは、たんじょうしたあと２〜３日でごはんを食べはじめる。"
+        },
+        {
+          "id": "c3",
+          "text": "ヒトの赤ちゃんは、たんじょうしてすぐに歩きはじめる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトの赤ちゃんは、たんじょうしたあと半年以上の間、乳を飲んで育つ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.a52071f8af56",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの赤ちゃんのたんじょうについて、かっこに当てはまる数字をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "50・3000"
+        },
+        {
+          "id": "c2",
+          "text": "10・3000"
+        },
+        {
+          "id": "c3",
+          "text": "50・300"
+        },
+        {
+          "id": "c4",
+          "text": "10・300"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトの赤ちゃんは母親の体内で育ち、生まれてくる。生まれるころには、身長約（50）cm、体重約（3000）g になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.ad88abcafa9b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトとメダカのたんじょうに共通することとして、 まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１つの受精卵からたんじょうする。"
+        },
+        {
+          "id": "c2",
+          "text": "生まれてすぐは、自分でごはんを食べない。"
+        },
+        {
+          "id": "c3",
+          "text": "卵（卵子）もしくはたまごと、精子が受精した受精卵から、新しい生命がたんじょうする。"
+        },
+        {
+          "id": "c4",
+          "text": "受精卵は母親の体内で育ち、子どもが生まれる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ヒトの受精卵は母親の体内で育ち、子どもが生まれるが、メダカは水中に産みつけられた たまごの中で育ち、たまごから生まれる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.e48ec50265b9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒトの子どもは生まれるまでの間、どこで育つでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "母親の体内"
+        },
+        {
+          "id": "c2",
+          "text": "たまごの中"
+        },
+        {
+          "id": "c3",
+          "text": "父親の体内"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヒトの子どもは生まれるまでの間、母親の体内で育つ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-7.e5275a698570",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "子宮の説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいばんと子どもをつなぐ。養分やいらないものが通る。"
+        },
+        {
+          "id": "c2",
+          "text": "子宮の中にある液体。しょうげきから子どもを守る。"
+        },
+        {
+          "id": "c3",
+          "text": "養分を受けとり、いらないものをわたしている。"
+        },
+        {
+          "id": "c4",
+          "text": "母親の体内で、子どもが育つところ。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ヒトの子どもは、生まれるまでの間、母親の体内の子宮で育つ。"
+  }
+]

@@ -1,0 +1,326 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.593c2e21ef07",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「テン」という漢字の使い分けで、正しい組み合わせはどれですか。\n\n①（テン）当に立つ / ②（テン）気がいい",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "① 店 / ② 天"
+        },
+        {
+          "id": "c2",
+          "text": "① 天 / ② 店"
+        },
+        {
+          "id": "c3",
+          "text": "① 点 / ② 天"
+        },
+        {
+          "id": "c4",
+          "text": "① 店 / ② 点"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「店頭（てんとう）」「天気（てんき）」です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.5bba180a873e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ビョウ」という漢字の使い分けで、正しい組み合わせはどれですか。\n\n①（ビョウ）気になる / ②一（ビョウ）を争う",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "@ 病 / ② 秒"
+        },
+        {
+          "id": "c2",
+          "text": "① 秒 / ② 病"
+        },
+        {
+          "id": "c3",
+          "text": "① 描 / ② 秒"
+        },
+        {
+          "id": "c4",
+          "text": "① 病 / ② 猫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「病気（びょうき）」「秒（びょう）」です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.6502cfcd58ae",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆げきの（シュ）役をえんじる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "主"
+        },
+        {
+          "id": "c2",
+          "text": "首"
+        },
+        {
+          "id": "c3",
+          "text": "手"
+        },
+        {
+          "id": "c4",
+          "text": "守"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「主役（しゅやく）」なので「主」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.760f9ed9bf00",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆食品関係の（カイ）社につとめる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "会"
+        },
+        {
+          "id": "c2",
+          "text": "回"
+        },
+        {
+          "id": "c3",
+          "text": "開"
+        },
+        {
+          "id": "c4",
+          "text": "改"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「会社（かいしゃ）」なので「会」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.8bd185155ae0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆児童が校庭に（シュウ）合する。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "集"
+        },
+        {
+          "id": "c2",
+          "text": "終"
+        },
+        {
+          "id": "c3",
+          "text": "習"
+        },
+        {
+          "id": "c4",
+          "text": "周"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「集合（しゅうごう）」なので「集」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.9904c4abe3f1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆転んで（トウ）部を打つ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭"
+        },
+        {
+          "id": "c2",
+          "text": "当"
+        },
+        {
+          "id": "c3",
+          "text": "島"
+        },
+        {
+          "id": "c4",
+          "text": "投"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「頭部（とうぶ）」なので「頭」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.bc2065756a6a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆学校を休んだ（リ）由を話す。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "理"
+        },
+        {
+          "id": "c2",
+          "text": "里"
+        },
+        {
+          "id": "c3",
+          "text": "利"
+        },
+        {
+          "id": "c4",
+          "text": "裏"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「理由（りゆう）」なので「理」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.d9f1e3779f54",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「シン」という漢字の使い分けで、正しい組み合わせはどれですか.\n\n①（シン）海魚 / ②（シン）切な人",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "① 深 / ② 親"
+        },
+        {
+          "id": "c2",
+          "text": "① 親 / ② 深"
+        },
+        {
+          "id": "c3",
+          "text": "① 新 / ② 親"
+        },
+        {
+          "id": "c4",
+          "text": "① 心 / ② 新"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「深海（しんかい）」「親切（しんせつ）」です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-27.e4db412700d9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-27",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_27",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆太（ヨウ）がかがやく。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "陽"
+        },
+        {
+          "id": "c2",
+          "text": "洋"
+        },
+        {
+          "id": "c3",
+          "text": "用"
+        },
+        {
+          "id": "c4",
+          "text": "様"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「太陽（たいよう）」なので「陽」と書きます。"
+  }
+]

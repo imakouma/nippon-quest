@@ -1,0 +1,362 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-05.16fe7ff6d3a6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かがみで反射した日光は、どのように進みますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "曲がって進む"
+        },
+        {
+          "id": "c2",
+          "text": "まっすぐ進む"
+        },
+        {
+          "id": "c3",
+          "text": "反射[はんしゃ]した場所[ばしょ]から広[ひろ]がって進[すす]む"
+        },
+        {
+          "id": "c4",
+          "text": "かがみに当[あ]たったところで止[と]まる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "反射した日光も、まっすぐ進みます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.1baad717e855",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "音が出ているとき、物はどうなっていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず溶ける"
+        },
+        {
+          "id": "c2",
+          "text": "震えている"
+        },
+        {
+          "id": "c3",
+          "text": "重くなる"
+        },
+        {
+          "id": "c4",
+          "text": "光るだけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "音が出ているとき、物は震えています。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.4c167c73fe8e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太鼓を強くたたくと、紙くずの動きはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さくなる"
+        },
+        {
+          "id": "c2",
+          "text": "大きくなる"
+        },
+        {
+          "id": "c3",
+          "text": "動かなくなる"
+        },
+        {
+          "id": "c4",
+          "text": "必ず消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "音が大きいとき、震えも大きくなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.5a2f7fb57c47",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かがみで反射した光を重ねると、どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず暗くなる"
+        },
+        {
+          "id": "c2",
+          "text": "明るくあたたかくなりやすい"
+        },
+        {
+          "id": "c3",
+          "text": "重さが増える"
+        },
+        {
+          "id": "c4",
+          "text": "音が出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "光を重ねると、明るさやあたたかさが増します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.6f88211fcc69",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねで日光を集めると、その場所はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "暗くなる"
+        },
+        {
+          "id": "c2",
+          "text": "明るくあたたかくなる"
+        },
+        {
+          "id": "c3",
+          "text": "冷えるだけ"
+        },
+        {
+          "id": "c4",
+          "text": "重くなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日光を集めると、明るくあたたかくなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.7a3744f8f36a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "集めた光の点を小さくすると、どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "暗く冷える"
+        },
+        {
+          "id": "c2",
+          "text": "より明るくあたたかくなりやすい"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "音が大きくなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "集める面積[めんせき]が小さいほど、明るさ・あたたかさが強くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.9ad45c04607c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "光を集める実験で気をつけることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "黒い紙などに短い時間で調べる"
+        },
+        {
+          "id": "c2",
+          "text": "長い時間じっとのぞく"
+        },
+        {
+          "id": "c3",
+          "text": "目で太陽[たいよう]を追う"
+        },
+        {
+          "id": "c4",
+          "text": "水に沈める"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "集めた光は熱くなるので、短い時間で安全に調べます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.cdddd90ce47f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "糸電話で音がよく伝わるつなぎ方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "糸をたるませる"
+        },
+        {
+          "id": "c2",
+          "text": "糸をはっておく"
+        },
+        {
+          "id": "c3",
+          "text": "糸を切る"
+        },
+        {
+          "id": "c4",
+          "text": "糸を水につける"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "糸をはっておくと、震えが伝わって音が聞こえます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.cf4ced4396dc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "トライアングルを強くにぎると、音はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きくなる"
+        },
+        {
+          "id": "c2",
+          "text": "止まる（小さくなる）"
+        },
+        {
+          "id": "c3",
+          "text": "色が変わる"
+        },
+        {
+          "id": "c4",
+          "text": "重くなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "震えを止めると音も止まります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-05.fd7140bac78c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねで太陽[たいよう]を直接見てよいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "よい"
+        },
+        {
+          "id": "c2",
+          "text": "いけない"
+        },
+        {
+          "id": "c3",
+          "text": "夜だけよい"
+        },
+        {
+          "id": "c4",
+          "text": "曇りならよい"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "虫めがねで太陽[たいよう]を見ると目を傷つけるのでいけません。"
+  }
+]

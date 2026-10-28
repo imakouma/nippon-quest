@@ -1,0 +1,390 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-3.1abeecae54b8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の図は、北海道[ほっかいどう]の家の写真である。これを見ながら、北海道[ほっかいどう]の家の特ちょうとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "寒さを防ぐため、かべや天井に 断熱材が使われている。"
+        },
+        {
+          "id": "c2",
+          "text": "寒さを防ぐため、かべやまどが 二重になっている。"
+        },
+        {
+          "id": "c3",
+          "text": "積もった雪の重さで つぶれないように、屋根は急になっている。"
+        },
+        {
+          "id": "c4",
+          "text": "雪が積もっても外に出られるよう、玄関が床より高くなっている。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/86b8830d56bbbe96.png"
+    },
+    "explanation": "「雪が積もっても外に出られるよう、玄関が床より高くなっている。」が、正しくない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.5bc9cc0d89aa",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北海道[ほっかいどう]では、それぞれの地いきに合わせた 農業が行われている。次の文のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "石狩平野",
+        "十勝平野",
+        "根釧台地"
+      ],
+      "template": "・{{INPUT}}、上川盆地：寒い地いきでも さいばいできるよう工夫が重ねられ、稲作がさかんになっている。 ・{{INPUT}}：日本最大の 畑作地いき となっており、小麦やじゃがいも、大豆のさいばいが さかん。 ・{{INPUT}}：生乳をバターやチーズに加工して出荷する 酪農がさかんである。",
+      "promptImage": "questions/legacy/7cc002499ce79572.png"
+    },
+    "explanation": "・（石いし狩かり平野）、上川盆地：寒い地いきでも さいばいができるよう工夫が重ねられ、稲作がさかんになっている。 ・（十と勝かち平野）：日本最大の 畑作地いき となっており、小麦やじゃがいも、大豆のさいばいが さかん。 ・（根こん釧せん台地）：生乳をバターやチーズに加工して出荷する 酪農がさかんである。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.68a6189ed7dd",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "嬬恋村の農業について、次の中から正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "他の地域の出荷がへる夏に、大都市に出荷している。"
+        },
+        {
+          "id": "c2",
+          "text": "夜は気温が下がってしまうため、ビニルハウスで温度の調整をしている。"
+        },
+        {
+          "id": "c3",
+          "text": "雨がとても多いため、昔は米作りがさかんだった。"
+        },
+        {
+          "id": "c4",
+          "text": "農業以外にあまりさかんな産業[さんぎょう]はないため、ほとんどの人が農業を仕事にしている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "すずしい気候を生かして、他の産地[さんち]の出荷が少ない夏から秋に、キャベツをしゅうかく できるようにしている。 ・昼と夜の気温差は、おいしいキャベツづくり に必要なため、ビニルハウスなどは使っていない。 ・中央高地は、雨があまり多くない。嬬恋村の土は 火山ばい土が多く、米作りにはむかない。 ・嬬恋村には、高原の自然環境や温泉、スキー場などがあり、観光業もさかん。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.7619ee204a95",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "今の北海道[ほっかいどう]から、からふと南部、千島列島には 先住民の人々がおり、狩りの生活をしてきた。しかし、明治時代に北海道[ほっかいどう]がおかれると、日本語による教育や 生活の制限せいげんが行われ、その言語や文化の中には、失われてしまうものもあった。この北海道[ほっかいどう]の先住民の人々を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "エスキモー"
+        },
+        {
+          "id": "c2",
+          "text": "アボリジニ"
+        },
+        {
+          "id": "c3",
+          "text": "イヌイット"
+        },
+        {
+          "id": "c4",
+          "text": "アイヌ"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "今の北海道[ほっかいどう]から、からふと南部、千島列島に 住んでいた先住民を アイヌ という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.81b200433530",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川に囲まれていることから、家や田畑を守るため、周りを てい防で囲んだ土地を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輪中"
+        },
+        {
+          "id": "c2",
+          "text": "扇状地"
+        },
+        {
+          "id": "c3",
+          "text": "三角州"
+        },
+        {
+          "id": "c4",
+          "text": "中州"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3321dc0b0fdb7365.png"
+    },
+    "explanation": "川に囲まれていることから、家や田畑を守るため、周りを てい防で囲んだ土地を 輪中わじゅう という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.87edc2aa9ba8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北海道[ほっかいどう]の農業について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "広い土地を生かして、大規模な農業が行われている。"
+        },
+        {
+          "id": "c2",
+          "text": "寒い気候のため、米作りは行われず、畑作がさかんになっている。"
+        },
+        {
+          "id": "c3",
+          "text": "雪が多いことから、稲作・畑作ができないため、牧畜や酪農だけが 行われている。"
+        },
+        {
+          "id": "c4",
+          "text": "山地や森林が多いため、農業はあまりさかんではない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "広い土地を生かした大規き模ぼな農業が行われている。畑作だけでなく、寒い気候の中でも 工夫を重ね、米作り（稲作）もさかんになっている地域がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.b74be18fe2a5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "嬬恋村では、その気候を生かした農作物のさいばいが行われている。次のうち、嬬恋村でのさいばいが さかんな農作物をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "トマト"
+        },
+        {
+          "id": "c2",
+          "text": "キャベツ"
+        },
+        {
+          "id": "c3",
+          "text": "きゅうり"
+        },
+        {
+          "id": "c4",
+          "text": "白菜"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "嬬恋村では、夏はすずしく 、昼と夜や 夏と冬の気温差が大きい気候を生かして、キャベツの栽培がさかんになっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.b948d10b0847",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、岐阜県、愛知県[あいちけん]、三重県の県境の写真である。ここに写る ３つの川の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "木曽川、長良川、揖斐川"
+        },
+        {
+          "id": "c2",
+          "text": "庄内川、長良川、矢作川"
+        },
+        {
+          "id": "c3",
+          "text": "木曽川、庄内川、揖斐川"
+        },
+        {
+          "id": "c4",
+          "text": "木曽川、長良川、矢作川"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3321dc0b0fdb7365.png"
+    },
+    "explanation": "写真右から順番に 木曽きそ川、長良ながら川、揖斐いび川 となっている。この３つの川を、木き曽そ三さん川せんという。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.bc427fe3fcf5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の図は、よく見られる形の沖縄の家の写真である。これを見ながら、今の沖縄の家の特ちょうとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "沖縄では、雪がふらないため、屋根は平らになっている。"
+        },
+        {
+          "id": "c2",
+          "text": "屋根には、水をためる貯水タンクが置かれている。"
+        },
+        {
+          "id": "c3",
+          "text": "部屋の気温が上がらないよう、かべの色には 光を反射する 白が使われている。"
+        },
+        {
+          "id": "c4",
+          "text": "台風による てい電を防ぐため、電線は地下にあり、電柱がない。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fdd7c799af197136.png"
+    },
+    "explanation": "「台風による てい電を防ぐため、電線は地下にあり、電柱がない。」が、正しくない。写真の上の方には、電柱や電線が見える。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.d5ded88c5e49",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "沖縄県[おきなわけん]では、あたたかい気候を生かした野菜や果物の さいばいがさかんである。その中でも、沖縄の畑の およそ半分で さいばいされている農作物は、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さとうきび"
+        },
+        {
+          "id": "c2",
+          "text": "パイナップル"
+        },
+        {
+          "id": "c3",
+          "text": "マンゴー"
+        },
+        {
+          "id": "c4",
+          "text": "バナナ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "沖縄県[おきなわけん]では、さとうきびやパイナップルなど、あたたかい気候に合わせた農作物が生産[せいさん]されている。その中でも、さとうの原料になる さとうきびの さいばい はさかんで、沖縄県[おきなわけん]の畑の半分、農家の約70%で つくられている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-3.dc1759dd319b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の図は、沖縄の伝統とう的な家の写真である。これを見ながら、沖縄の伝統的な家の特ちょうとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台風の強い風を受けないよう、屋根は低くなっている。"
+        },
+        {
+          "id": "c2",
+          "text": "風や雨から家を守るため、石がきが置かれている。"
+        },
+        {
+          "id": "c3",
+          "text": "気温が高いため、風通しのよい つくりになっている。"
+        },
+        {
+          "id": "c4",
+          "text": "台風の強い風で飛ばされないよう、屋根は コンクリートでできている。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43312cb8d8198e5e.png"
+    },
+    "explanation": "「台風の強い風で飛ばされないよう、屋根は コンクリートでできている。」が、正しくない。屋根は かわらでつくられていて、雨を流しやすいよう、急になっていることが多い。"
+  }
+]

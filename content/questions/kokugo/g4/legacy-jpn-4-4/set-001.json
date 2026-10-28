@@ -1,0 +1,326 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.158f3207c23f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「大阪府」の読みは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おおさかふ"
+        },
+        {
+          "id": "c2",
+          "text": "とうきょうと"
+        },
+        {
+          "id": "c3",
+          "text": "ほっかいどう"
+        },
+        {
+          "id": "c4",
+          "text": "かごしま"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "関西。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.159d2b7127b2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「北海道」の読みは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ほっかいどう"
+        },
+        {
+          "id": "c2",
+          "text": "とうきょう"
+        },
+        {
+          "id": "c3",
+          "text": "おおさか"
+        },
+        {
+          "id": "c4",
+          "text": "ふくおか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "47都道府県。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.27ee3b6b1b44",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "都道府県の数は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "43"
+        },
+        {
+          "id": "c2",
+          "text": "47"
+        },
+        {
+          "id": "c3",
+          "text": "50"
+        },
+        {
+          "id": "c4",
+          "text": "52"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "47都道府県。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.4cb3f951443c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「東京都」の「都」の読み方はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "と"
+        },
+        {
+          "id": "c2",
+          "text": "ど"
+        },
+        {
+          "id": "c3",
+          "text": "みやこ"
+        },
+        {
+          "id": "c4",
+          "text": "し"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「東京都」は「とうきょうと」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.60a00d555185",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「愛知県」の「愛」の漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "相"
+        },
+        {
+          "id": "c2",
+          "text": "合"
+        },
+        {
+          "id": "c3",
+          "text": "愛"
+        },
+        {
+          "id": "c4",
+          "text": "藍"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "「あいちけん」は「愛知県」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.aa03d2d4fddc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「大阪府」の「阪」の漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "坂"
+        },
+        {
+          "id": "c2",
+          "text": "阪"
+        },
+        {
+          "id": "c3",
+          "text": "板"
+        },
+        {
+          "id": "c4",
+          "text": "販"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "大阪の「さか」は、こざとへんの「阪」を使います（「坂」ではありません）。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.b75d295c480d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「北海道」の正しい漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北海度"
+        },
+        {
+          "id": "c2",
+          "text": "北海島"
+        },
+        {
+          "id": "c3",
+          "text": "北海道"
+        },
+        {
+          "id": "c4",
+          "text": "北回道"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "「ほっかいどう」は「北海道」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.c7834ec4178b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「新潟県」の「潟」の正しい漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "潟"
+        },
+        {
+          "id": "c2",
+          "text": "潟(さんずいなし)"
+        },
+        {
+          "id": "c3",
+          "text": "潟(別字)"
+        },
+        {
+          "id": "c4",
+          "text": "潟(略字)"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「にいがた」の「がた」はさんずいに写・臼・れっかの「潟」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-4.ecbfc1b839fa",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「東京都」の読みは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とうきょうと"
+        },
+        {
+          "id": "c2",
+          "text": "ほっかいどう"
+        },
+        {
+          "id": "c3",
+          "text": "きょうと"
+        },
+        {
+          "id": "c4",
+          "text": "なごや"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "首都。"
+  }
+]

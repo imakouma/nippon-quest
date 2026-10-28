@@ -1,0 +1,478 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.0cc07d0d5f15",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「[  ]絵がほめられた。」の空欄に当てはまる修飾語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "兄のかいた"
+        },
+        {
+          "id": "c2",
+          "text": "小さな"
+        },
+        {
+          "id": "c3",
+          "text": "きれいに"
+        },
+        {
+          "id": "c4",
+          "text": "学校で"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "絵を説明する「兄のかいた」が適当な修飾語です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.1ee2d9d477c9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「水そうの中に魚がいる。」で、「水そうの中に」という修飾語がくわしくしている言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いる。"
+        },
+        {
+          "id": "c2",
+          "text": "魚が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「水そうの中に」はどこに「いる」かを説明しているため、「いる。」が正解です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.271e104c89c9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「たくさんの本がある。」で、「たくさんの」という修飾語がくわしくしている言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "本が"
+        },
+        {
+          "id": "c2",
+          "text": "ある。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「たくさんの」は「本」にかかるため、「本が」が正解です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.2d367e388746",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「[  ]子どもが走る。」の空欄に当てはまる修飾語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さな"
+        },
+        {
+          "id": "c2",
+          "text": "きれいに"
+        },
+        {
+          "id": "c3",
+          "text": "にゃあと"
+        },
+        {
+          "id": "c4",
+          "text": "一本の"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "子どもを説明する「小さな」が適当な修飾語です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.3ee273f33607",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「きれいな色の糸を使ってししゅうした。」で、「きれいな色の」という修飾語がくわしくしている言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "糸を"
+        },
+        {
+          "id": "c2",
+          "text": "使って"
+        },
+        {
+          "id": "c3",
+          "text": "ししゅうした。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「きれいな色の」は「糸」にかかるため、「糸を」が正解です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.4e44626de908",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「花が[  ]さいた。」の空欄に当てはまる修飾語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きれいに"
+        },
+        {
+          "id": "c2",
+          "text": "小さな"
+        },
+        {
+          "id": "c3",
+          "text": "にゃあと"
+        },
+        {
+          "id": "c4",
+          "text": "一本の"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "さいた様子を説明する「きれいに」が適当な修飾語です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.4f29ba72ae6e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「絵が[  ]ほめられた。」の空欄に当てはまる修飾語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "学校で"
+        },
+        {
+          "id": "c2",
+          "text": "小さな"
+        },
+        {
+          "id": "c3",
+          "text": "きれいに"
+        },
+        {
+          "id": "c4",
+          "text": "兄のかいた"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ほめられた場所を説明する「学校で」が適当な修飾語です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.6593d825665d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の（ ）に入る修飾語としてもっともふさわしいものはどれですか。\n\n◆（ ）ごぼうを買った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一本の"
+        },
+        {
+          "id": "c2",
+          "text": "絵本を"
+        },
+        {
+          "id": "c3",
+          "text": "青い"
+        },
+        {
+          "id": "c4",
+          "text": "にゃあと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「（一本の）ごぼうを買った」が一番自然です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.693328e51033",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「犬が元気に走る。」の主語と述語の正しい組み合わせはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "主語(犬が) 述語(走る。)"
+        },
+        {
+          "id": "c2",
+          "text": "主語(元気に) 述語(走る。)"
+        },
+        {
+          "id": "c3",
+          "text": "主語(犬が) 述語(元気に)"
+        },
+        {
+          "id": "c4",
+          "text": "主語(走る。) 述語(犬が)"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なにが」を表す「犬が」が主語で、「どうする」を表す「走る。」が述語です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.6d9b415d4756",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「水がしずかに流れる。」の主語と述語の正しい組み合わせはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "主語(水が) 述語(流れる。)"
+        },
+        {
+          "id": "c2",
+          "text": "主語(しずかに) 述語(流れる。)"
+        },
+        {
+          "id": "c3",
+          "text": "主語(水が) 述語(しずかに)"
+        },
+        {
+          "id": "c4",
+          "text": "主語(流れる。) 述語(水が)"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なにが」を表す「水が」が主語で、「どうする」を表す「流れる。」が述語です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.7df06ee97fc8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「赤い大きな玉が転がった。」で、「大きな」という修飾語がくわしくしている言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "玉が"
+        },
+        {
+          "id": "c2",
+          "text": "転がった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「大きな」は「玉」にかかるため、「玉が」が正解です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.abe542f19aec",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の（ ）に入る修飾語としてもっともふさわしいものはどれですか。\n\n◆ねこが（ ）鳴いた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "にゃあと"
+        },
+        {
+          "id": "c2",
+          "text": "絵本を"
+        },
+        {
+          "id": "c3",
+          "text": "青い"
+        },
+        {
+          "id": "c4",
+          "text": "一本の"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ねこが（にゃあと）鳴いた」が一番自然です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.d08cc129d2b5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の（ ）に入る修飾語としてもっともふさわしいものはどれですか。\n\n◆（ ）空を見上げた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "青い"
+        },
+        {
+          "id": "c2",
+          "text": "絵本を"
+        },
+        {
+          "id": "c3",
+          "text": "にゃあと"
+        },
+        {
+          "id": "c4",
+          "text": "一本の"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「（青い）空を見上げた」が一番自然です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-16.fa0908413ff4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の（ ）に入る修飾語としてもっともふさわしいものはどれですか。\n\n◆兄が（ ）くれた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "絵本を"
+        },
+        {
+          "id": "c2",
+          "text": "青い"
+        },
+        {
+          "id": "c3",
+          "text": "にゃあと"
+        },
+        {
+          "id": "c4",
+          "text": "一本の"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「兄が（絵本を）くれた」が一番自然です。"
+  }
+]

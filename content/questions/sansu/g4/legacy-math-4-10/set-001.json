@@ -1,0 +1,557 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-10.0001860d578e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。",
+      "answers": [
+        "2100000"
+      ]
+    },
+    "explanation": "「万の位までのがい数」なので、1つ下の「千の位」を見る。 千の位は、9で「切り上げ」になるので、答えは 2100000 になる。切り上げる位が 9のときは、次の位まで 位が上がる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.05d5e269a59c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みはるさんは、スポーツ店で２つの商品を買いました。 ・ランニングシューズ 4835円 ・Tシャツ 1882円 それぞれの値段を、四捨五入で 百の位までのがい数にした。このとき 代金を求めたときの式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4800+1900=6700"
+        },
+        {
+          "id": "c2",
+          "text": "5000+2000=7000"
+        },
+        {
+          "id": "c3",
+          "text": "4800+1800=6600"
+        },
+        {
+          "id": "c4",
+          "text": "4900+1900=6800"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "四捨五入で 正しくがい数になったものをえらぼう。 4835円 → 4800円 1882円 → 1900円"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.13c24a1292c1",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、ある数を 百の位までのがい数にするとき、何の位を見ればいいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "十の位"
+        },
+        {
+          "id": "c2",
+          "text": "百の位"
+        },
+        {
+          "id": "c3",
+          "text": "千の位"
+        },
+        {
+          "id": "c4",
+          "text": "一の位"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "四捨五入で、がい数にするときは、１つ下の位を見てあげればいい。「百の位までのがい数」であれば、十の位を見て、切り上げか切り捨てか 考えよう。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.1498b07c1b4b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。",
+      "answers": [
+        "5540000"
+      ]
+    },
+    "explanation": "「万の位までのがい数」なので、1つ下の「千の位」を見る。 千の位は、6で「切り上げ」になるので、答えは 5540000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.1c655b819918",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。",
+      "answers": [
+        "5500000"
+      ]
+    },
+    "explanation": "「上から２けたのがい数」なので、１つ下の「上から３けたの位（万の位）」を見る。 「万の位」は、3で「切り捨て」になるので、答えは 5500000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.1f506f0b4372",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。",
+      "answers": [
+        "1900"
+      ]
+    },
+    "explanation": "「百の位までのがい数」なので、1つ下の「十の位」を見る。 十の位は、8で「切り上げ」になるので、答えは 1900 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.2172e4438493",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、千の位までのがい数にしたとき、12000になる整数の範囲は、次のうち どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "11500 以上 12499 以下"
+        },
+        {
+          "id": "c2",
+          "text": "11499 以上 12500 以下"
+        },
+        {
+          "id": "c3",
+          "text": "11500 以上 12499 未満"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "四捨五入で、百の位までのがい数にしたとき、12000になるのは ①「切り上げ」の場合で、11500以上 ②「切り捨て」の場合で、12499以下 「〇以上」や「〇以下」には、〇の数も入るぞ。「未満」は、その数はふくまない。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.2b2ebb67f1e1",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「120cm 以上 180cm 以下」に入らない数字は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "120cm"
+        },
+        {
+          "id": "c2",
+          "text": "180cm"
+        },
+        {
+          "id": "c3",
+          "text": "この中にはない"
+        },
+        {
+          "id": "c4",
+          "text": "120.1cm"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "「〇以上」や「〇以下」には 〇の数も入り、「未満」は その数はふくまない。 120cm や 180cm、その間の数も入るので、「この中にはない」が正解。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.41c6708a3895",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。",
+      "answers": [
+        "2100000"
+      ]
+    },
+    "explanation": "「上から２けたのがい数」なので、１つ下の「上から３けたの位（万の位）」を見る。 「万の位」は、9で「切り上げ」になるので、答えは 2100000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.44cd64d766a6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。",
+      "answers": [
+        "14000000"
+      ]
+    },
+    "explanation": "「上から２けたのがい数」なので、１つ下の「上から３けたの位（十万の位）」を見る。 「十万の位」は、5で「切り上げ」になるので、答えは 14000000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.544e3be1072d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。",
+      "answers": [
+        "13510000"
+      ]
+    },
+    "explanation": "「万の位までのがい数」なので、1つ下の「千の位」を見る。 千の位は、3で「切り捨て」になるので、答えは 13510000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.5e58ca8feb75",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「30kg 以上 70kg 未満」に入らない数字は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "70kg"
+        },
+        {
+          "id": "c2",
+          "text": "30kg"
+        },
+        {
+          "id": "c3",
+          "text": "この中にはない"
+        },
+        {
+          "id": "c4",
+          "text": "69.9kg"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「〇以上」や「〇以下」には 〇の数も入り、「未満」はその数はふくまない。 「未満」の場合はふくまれないので、「70kg」が正解。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.60c41086b044",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を じゅん番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "がい数・四捨五入"
+        },
+        {
+          "id": "c2",
+          "text": "切り捨て"
+        },
+        {
+          "id": "c3",
+          "text": "約数"
+        },
+        {
+          "id": "c4",
+          "text": "正確[せいかく]な数[かず]・切[き]り上[あ]げ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数を およその大きさで表したものを（がい数）といい、（四捨五入） で表すことが多い。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.7697fb277917",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "遠足にかかるお金は、１人390円です。４年生109人で行ったときにかかる金額を、四捨五入で 上から１けたまでのがい数で求めた。このときの式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "400×100=40000"
+        },
+        {
+          "id": "c2",
+          "text": "390×100=39000"
+        },
+        {
+          "id": "c3",
+          "text": "390×110=42900"
+        },
+        {
+          "id": "c4",
+          "text": "400×110=44000"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "四捨五入で 正しくがい数になったものをえらぼう。 390円 → 400円 109人 → 100人"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.8900919b5adf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "中村先生は、クラス28人分の分度器を買いに、文ぼう具店に行きました。4246円持っていたとき、およそ１ついくらの分度器なら買えるでしょう。持っていたお金を「上から２けた」、クラスの人数を「上から１けた」までのがい数として 四捨五入して求めたとき、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4200÷30=140"
+        },
+        {
+          "id": "c2",
+          "text": "4200÷20=210"
+        },
+        {
+          "id": "c3",
+          "text": "4000÷20=200"
+        },
+        {
+          "id": "c4",
+          "text": "5000÷30=およそ166"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "四捨五入で 正しくがい数になったものをえらぼう。 4246円（上から２けた）→4200円 28人（上から１けた）→30人"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.a15d232ea7fe",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、百の位までのがい数にしたとき、4500になる整数の範囲は、次のうち どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4450 以上 4549 以下"
+        },
+        {
+          "id": "c2",
+          "text": "4449 以上 4550 以下"
+        },
+        {
+          "id": "c3",
+          "text": "4450 以上 4549 未満"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "四捨五入で、百の位までのがい数にしたとき、4500になるのは ①「切り上げ」の場合で、4450以上 ②「切り捨て」の場合で、4549以下 「〇以上」や「〇以下」には、〇の数も入るぞ。「未満」は、その数はふくまない。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.ab39d001e247",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の中から、四捨五入について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1つ上の位を見て、切り上げか 切り捨てかを考える。"
+        },
+        {
+          "id": "c2",
+          "text": "1つ下の位が 4のときは、切り上げになる。"
+        },
+        {
+          "id": "c3",
+          "text": "1つ下の位が 5のときは、切り上げになる。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "四捨五入の漢字の通り、1つ下の位が 0, 1, 2, 3, 4 → 切り捨て 5, 6, 7, 8, 9 → 切り上げ になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.b6194b1a3147",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。",
+      "answers": [
+        "4800"
+      ]
+    },
+    "explanation": "「百の位までのがい数」なので、1つ下の「十の位」を見る。 十の位は、3で「切り捨て」になるので、答えは 4800 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.ca82004ec288",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの都道府県の人口を、それぞれ四捨五入で 上から２けたまでのがい数にした後、人口のちがいを求めた。このときの式として、正しいものをえらぼう。 ・北海道[ほっかいどう] 5383579人 ・沖縄県[おきなわけん] 1434138人",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5400000-1400000=4000000"
+        },
+        {
+          "id": "c2",
+          "text": "5380000-1430000=3950000"
+        },
+        {
+          "id": "c3",
+          "text": "5000000-1000000=4000000"
+        },
+        {
+          "id": "c4",
+          "text": "5300000-1400000=3900000"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "四捨五入で 正しくがい数になったものをえらぼう。 5383579人 → 5400000人 1434138円 → 1400000人"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-10.ca8fcbcd11be",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。",
+      "answers": [
+        "2900"
+      ]
+    },
+    "explanation": "「百の位までのがい数」なので、1つ下の「十の位」を見る。 十の位は、0で「切り捨て」になるので、答えは 2900 になる。"
+  }
+]

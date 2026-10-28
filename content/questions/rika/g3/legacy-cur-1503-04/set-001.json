@@ -1,0 +1,434 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-04.1e1561d0b8f9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "茎の太さはどう変化しやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "細くなる"
+        },
+        {
+          "id": "c2",
+          "text": "変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "太くなる"
+        },
+        {
+          "id": "c4",
+          "text": "光る"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "茎はだんだん太くなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.20c6ed71fda1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "多くの植物の体について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根・茎・葉がある"
+        },
+        {
+          "id": "c2",
+          "text": "根[ね]とくきだけがある"
+        },
+        {
+          "id": "c3",
+          "text": "くきと葉[は]だけがある"
+        },
+        {
+          "id": "c4",
+          "text": "花[はな]と実[み]だけがある"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "多くの植物は根・茎・葉のつくりをもちます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.36a0387cbcd4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ホウセンカをしばらくかんさつすると、高さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "低くなる"
+        },
+        {
+          "id": "c2",
+          "text": "高くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "時間がたつと高さは高くなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.45969d4c94f1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉の数はどう変化しやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減るだけ"
+        },
+        {
+          "id": "c2",
+          "text": "変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "増える"
+        },
+        {
+          "id": "c4",
+          "text": "必ず0になる"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "葉の数は増えていきます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.4d18732ae6c6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植[う]えかえのとき、根[ね]を大切[たいせつ]にする理由[りゆう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根[ね]が土[つち]の中[なか]から水[みず]を取[と]り入[い]れるから"
+        },
+        {
+          "id": "c2",
+          "text": "根が光るから"
+        },
+        {
+          "id": "c3",
+          "text": "根が音を出すから"
+        },
+        {
+          "id": "c4",
+          "text": "根が磁石になるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "根[ね]は土[つち]の中[なか]に広[ひろ]がり、植物[しょくぶつ]に必要[ひつよう]な水[みず]を取[と]り入[い]れる大切[たいせつ]な部分[ぶぶん]です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.82a733220e1f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "花だんに植えかえたあと、大切にすることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水をやる"
+        },
+        {
+          "id": "c2",
+          "text": "水をまったくやらない"
+        },
+        {
+          "id": "c3",
+          "text": "日光を完全にさえぎる"
+        },
+        {
+          "id": "c4",
+          "text": "土を全部取る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植えかえのあとも、水をやって育てます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.9913caa90f00",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の体の主なつくりはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根[ね]・くき・花[はな]"
+        },
+        {
+          "id": "c2",
+          "text": "根・茎・葉"
+        },
+        {
+          "id": "c3",
+          "text": "くき・葉[は]・実[み]"
+        },
+        {
+          "id": "c4",
+          "text": "根[ね]・花[はな]・実[み]"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "植物の体は根・茎・葉などからできています。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.9bc36598332d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヒマワリとホウセンカの葉の形について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがうことがある"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ同じで形も同じ"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "植物によって葉の形はちがいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.a3b9a7931fb6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物を大切に扱うとき、正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根をていねいに扱う"
+        },
+        {
+          "id": "c2",
+          "text": "茎を折って持ち帰る"
+        },
+        {
+          "id": "c3",
+          "text": "葉を全部むしる"
+        },
+        {
+          "id": "c4",
+          "text": "土を捨てる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "根や茎・葉をていねいに扱います。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.ad90e75aae3f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ビニールポットから花だんに植えかえるとき、正しい方法はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土を洗って落とす"
+        },
+        {
+          "id": "c2",
+          "text": "土をつけたまま植える"
+        },
+        {
+          "id": "c3",
+          "text": "根を切って植える"
+        },
+        {
+          "id": "c4",
+          "text": "土[つち]を落[お]として、根[ね]だけを水[みず]につけてから植[う]える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "根のまわりの土をつけたまま植えかえます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.dd879a5ec396",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "土の中に広がっている部分はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉"
+        },
+        {
+          "id": "c2",
+          "text": "茎"
+        },
+        {
+          "id": "c3",
+          "text": "根"
+        },
+        {
+          "id": "c4",
+          "text": "花"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "根は土の中に広がっています。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-04.e4366cfde9ef",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉の働きとして近いものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土から水を吸うだけ"
+        },
+        {
+          "id": "c2",
+          "text": "光を受けて育つのに大切な部分"
+        },
+        {
+          "id": "c3",
+          "text": "磁石を引きつける"
+        },
+        {
+          "id": "c4",
+          "text": "電気を通す"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "葉は光を受け、植物が育つために大切な部分です。"
+  }
+]

@@ -1,0 +1,903 @@
+[
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.0fa69fe8f3bb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "農家がやさいを収穫するにあたって、少しずつ長く出荷できるようにするために行う工夫はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時期をずらして少しずつ種をまく"
+        },
+        {
+          "id": "c2",
+          "text": "すべての種を一度にまく"
+        },
+        {
+          "id": "c3",
+          "text": "水をまったくやらない"
+        },
+        {
+          "id": "c4",
+          "text": "農薬を多く使う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "一時期に収穫が集中するのを防ぎ、長期間出荷できるように種まきの時期をずらす工夫が行われます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.139f7dc7dce1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "イチゴ農家などで、収穫したイチゴを傷つけないように、大きさや品質ごとに箱に詰める作業を行う建物のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "出荷場（選果場）"
+        },
+        {
+          "id": "c2",
+          "text": "ビニールハウス"
+        },
+        {
+          "id": "c3",
+          "text": "たいひ小屋"
+        },
+        {
+          "id": "c4",
+          "text": "トラクター倉庫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "収穫した農産物の傷や形、大きさをチェックし、梱包して出荷する施設を「出荷場」や「選果場」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.14aec85a967a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "コンビニやスーパーが、天気[てんき]の予報や気温の変化、曜日などを考えて、仕入れる商品の数を調節するのはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "売れ残り（食品ロス）を減らし、お客さんが欲しいものを売り切れないようにするため"
+        },
+        {
+          "id": "c2",
+          "text": "お店の倉庫を空っぽにしたいから"
+        },
+        {
+          "id": "c3",
+          "text": "仕入れ先の人とケンカしたから"
+        },
+        {
+          "id": "c4",
+          "text": "特に理由[りゆう]はない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "暑い日には冷たい麺類、寒い日には温かいおでんなどを多めに仕入れるなど、無駄（ロス）をなくし需要に応えるための工夫です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.16323347aa52",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自動車工場や食品工場などで、作業を分担して効率よく製品を作るために、ベルトコンベアに乗せて順々に組み立てていく生産方法を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "流れ作業（ライン生産[せいさん]）"
+        },
+        {
+          "id": "c2",
+          "text": "手づくり生産[せいさん]"
+        },
+        {
+          "id": "c3",
+          "text": "注文生産"
+        },
+        {
+          "id": "c4",
+          "text": "自由作業"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "それぞれの人が決まった一部分の作業を順番に行う「流れ作業」により、短時間で大量[たいりょう]の製品を作ることができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.2331f774f5bb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "私たちが日常の買い物で、プラスチックごみを減らすために「レジ袋を買わずに自分の袋を使う」買い物の工夫を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "マイバッグ（エコバッグ）の活用"
+        },
+        {
+          "id": "c2",
+          "text": "まとめ買い"
+        },
+        {
+          "id": "c3",
+          "text": "カード決済"
+        },
+        {
+          "id": "c4",
+          "text": "通販利用"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "マイバッグを持ち歩くことで、使い捨てのレジ袋（プラスチックごみ）を減らし、環境を守る買い物ができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.273d85369446",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生鮮食品（野菜や肉、魚など）を、産地[さんち]からお店まで冷たい温度のまま凍らせずに運ぶ、便利な運送の仕組みを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コールドチェーン（低温流通体系）"
+        },
+        {
+          "id": "c2",
+          "text": "高速道路網"
+        },
+        {
+          "id": "c3",
+          "text": "新幹線輸送"
+        },
+        {
+          "id": "c4",
+          "text": "ドローン宅配"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生産[せいさん]・収穫から輸送、消費地での店舗保管まで、一貫して低温に保って鮮度を守る流通[りゅうつう]システムを「コールドチェーン」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.2f95c2ee2a0a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットで売られている野菜やくだもの、肉などについて、それらが「つくられた場所（都道府県名や国名）」のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "産地（さんち）"
+        },
+        {
+          "id": "c2",
+          "text": "仕入れ先"
+        },
+        {
+          "id": "c3",
+          "text": "販売店"
+        },
+        {
+          "id": "c4",
+          "text": "消費地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "農産物や水産物などが生産[せいさん]された場所を「産地[さんち]」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.50cef253b63c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、他地域や外国とのつながりとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "産地[さんち]の品が遠くの地域にも運ばれる"
+        },
+        {
+          "id": "c2",
+          "text": "地域の品はその地域だけで消費[しょうひ]される"
+        },
+        {
+          "id": "c3",
+          "text": "地図帳は使わない"
+        },
+        {
+          "id": "c4",
+          "text": "国旗は関係ない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d983689fa8a0f1e2.png"
+    },
+    "explanation": "スーパーには県外や外国から運ばれてきた商品も並んでいます。地図帳で産地[さんち]を調べましょう。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.634835dcc2d9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食品工場などで働く人が、衛生管理（せいけつさを保つ）のために、工場に入る前に行うこととして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず手を洗い、風で服についたホコリをはらう"
+        },
+        {
+          "id": "c2",
+          "text": "何もせずに入る"
+        },
+        {
+          "id": "c3",
+          "text": "香水をつける"
+        },
+        {
+          "id": "c4",
+          "text": "靴を履き替えないで入る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "異物混入を防ぐため、粘着ローラーやエアーシャワーでほこりを払い、念入りな手洗いを行います。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.6a64636f69a7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットで働く人が、車いすの人や体の不自由な人のために用意している設備はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "幅の広い通路や、専用の駐車場"
+        },
+        {
+          "id": "c2",
+          "text": "エスカレーターだけ"
+        },
+        {
+          "id": "c3",
+          "text": "階段だけの入り口"
+        },
+        {
+          "id": "c4",
+          "text": "高い棚だけの商品棚"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "バリアフリーとして、車いすでも通りやすい広い通路や専用駐車場が整備されています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.7159c4cf3cf6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かまぼこ工場などが、海の近く（港の近く）や駅の近くに建てられてきた歴史的な理由[りゆう]は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "魚などの原材料やできあがった製品の運搬に便利だから"
+        },
+        {
+          "id": "c2",
+          "text": "景色が良いから"
+        },
+        {
+          "id": "c3",
+          "text": "土地が安いから"
+        },
+        {
+          "id": "c4",
+          "text": "水が豊富だから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "海沿いや港・駅の近くは、原材料（魚など）の調達や製品の輸送に有利な立地です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.93b41eb14518",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "屋根がある道（アーケード）にそって、専門店や色々なお店が集まっている場所を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "商店街（しょうてんがい）"
+        },
+        {
+          "id": "c2",
+          "text": "オフィス街"
+        },
+        {
+          "id": "c3",
+          "text": "工業団地"
+        },
+        {
+          "id": "c4",
+          "text": "住宅地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地元の商店が集まり、アーケードなどを設けて買い物しやすくした通りを商店街[しょうてんがい]といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.a4bdfb2b7114",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物事を比べるのに適した、データの大きさごとに棒の長さで表すグラフを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "棒グラフ"
+        },
+        {
+          "id": "c2",
+          "text": "折れ線グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "円グラフ"
+        },
+        {
+          "id": "c4",
+          "text": "帯グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "データの大小を比較するのには「棒グラフ」が適しています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.aba37ee56337",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットなどで、お客さんが欲しい商品をすぐに見つけられるように、売り場を「野菜」「お肉」「魚」などに分けることを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コーナー分け（部門分け）"
+        },
+        {
+          "id": "c2",
+          "text": "値引きセール"
+        },
+        {
+          "id": "c3",
+          "text": "品出し"
+        },
+        {
+          "id": "c4",
+          "text": "仕入れ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "商品を種類ごとに分類して並べることで、お客さんが買い物をしやすくなるよう配置を工夫しています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.bc0ecca3f13a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本が、外国からたくさんのバナナや小麦、石油などを買うことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輸入（ゆにゅう）"
+        },
+        {
+          "id": "c2",
+          "text": "輸出（ゆしゅつ）"
+        },
+        {
+          "id": "c3",
+          "text": "流通（りゅうつう）"
+        },
+        {
+          "id": "c4",
+          "text": "消費（しょうひ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "外国の製品や資源を自国へ買い入れることを「輸入[ゆにゅう]」、逆に自国の製品を外国へ売ることを「輸出[ゆしゅつ]」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.bdead77b274b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "農家が育てた野菜をトラックに乗せて、大量[たいりょう]に集めてセリ（競り）を行い、スーパーや八百屋に売り分ける大きな施設を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "卸売市場（おろしうりしじょう）"
+        },
+        {
+          "id": "c2",
+          "text": "清掃工場"
+        },
+        {
+          "id": "c3",
+          "text": "道の駅"
+        },
+        {
+          "id": "c4",
+          "text": "郵便局"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "卸売市場[おろしうりしじょう]には全国から野菜や魚が集まり、競り売りによって適正な価格が決められて全国の小売店へと出荷されます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.c2693aac636f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お店のレジで商品のバーコードを読み取り、売れた商品の種類や時間を記録して、仕入れや品揃えに役立てる情報システムを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "POS（ポス）システム"
+        },
+        {
+          "id": "c2",
+          "text": "カーナビゲーション"
+        },
+        {
+          "id": "c3",
+          "text": "自動販売機"
+        },
+        {
+          "id": "c4",
+          "text": "ロボット掃除機"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "販売時点の情報管理を行う「POSシステム」により、どの商品が何時にどれだけ売れたかを記録し、品切れないように発注を行います。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.c7f3408388be",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "農家でつくられた野菜が、私たちの家に届くまでの一般的な流通[りゅうつう]ルートとして、正しい並び順はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "畑 → おろし売り市場 → スーパーや八百屋 → 家"
+        },
+        {
+          "id": "c2",
+          "text": "畑 → 家 → スーパーや八百屋"
+        },
+        {
+          "id": "c3",
+          "text": "おろし売り市場 → 畑 → スーパーや八百屋 → 家"
+        },
+        {
+          "id": "c4",
+          "text": "スーパーや八百屋 → 畑 → おろし売り市場 → 家"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "収穫された野菜は、卸売市場[おろしうりしじょう]を経由して小売店（スーパー等）に運ばれ、家庭に届きます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.ce4178e93d12",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットが、地元の農家が作った新鮮な野菜を直接仕入れて、専用の棚で売るコーナーのことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "産地直売（地産地消）コーナー"
+        },
+        {
+          "id": "c2",
+          "text": "輸入食品コーナー"
+        },
+        {
+          "id": "c3",
+          "text": "お惣菜コーナー"
+        },
+        {
+          "id": "c4",
+          "text": "日用品コーナー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地元（地域内）で生産[せいさん]されたものを地元で消費[しょうひ]する「地産地消」の取り組みとして、直売コーナーがよく設けられています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.d2f75440ba83",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "沖縄のシークワーサーや北海道[ほっかいどう]のじゃがいものように、その土地の気候や自然の特色を生かして作られる特別な農産物や製品のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "特産物（特産品・名産品）"
+        },
+        {
+          "id": "c2",
+          "text": "輸入品"
+        },
+        {
+          "id": "c3",
+          "text": "工業用原料"
+        },
+        {
+          "id": "c4",
+          "text": "加工食品"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "その地域独自の気候や自然条件を利用して作られ、その地域の名物となっている製品を「特産物」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.e9969a2bd37c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "工場で製品をつくる手順（工程）について、お菓子（クッキーやパンなど）ができるまでの正しい流れはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "原料の仕入れ → 生地を混ぜる → 形をつくる → 焼く → つめる → 出荷"
+        },
+        {
+          "id": "c2",
+          "text": "焼く → 生地を混ぜる → 原料の仕入れ → 出荷"
+        },
+        {
+          "id": "c3",
+          "text": "出荷 → 形をつくる → 焼く → 原料の仕入れ"
+        },
+        {
+          "id": "c4",
+          "text": "原料の仕入れ → 焼く → 生地を混ぜる → 出荷"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "原材料を仕入れて混ぜ合わせ、成形して焼き、包装してから出荷します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.eb888d26b8cd",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーの商品[しょうひん]がどこから来[き]たかを調[しら]べるとき、産地[さんち]ラベルを記録[きろく]した後[あと]にするとよいことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地図帳[ちずちょう]で産地[さんち]の位置[いち]を確[たし]かめ、地域別[ちいきべつ]にまとめる"
+        },
+        {
+          "id": "c2",
+          "text": "産地[さんち]を見[み]ずに近[ちか]い場所[ばしょ]だと決[き]める"
+        },
+        {
+          "id": "c3",
+          "text": "一[ひと]つの商品[しょうひん]だけで全体[ぜんたい]を決[き]める"
+        },
+        {
+          "id": "c4",
+          "text": "記録[きろく]を捨[す]てて覚[おぼ]えていることだけを書く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "産地[さんち]ラベルを資料[しりょう]として記録[きろく]し、地図帳[ちずちょう]で位置[いち]を確[たし]かめてまとめると、品物[しなもの]が他地域[たりいき]や外国[がいこく]から届[とど]く様子[ようす]が分[わ]かります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.f92585117e1b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "スーパーマーケットなどの小売店において、消費者の「少しでも安く買いたい」という願いに応えるための店の工夫はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お買い得品（特売品）のコーナーをつくる"
+        },
+        {
+          "id": "c2",
+          "text": "商品の値段をすべて同じにする"
+        },
+        {
+          "id": "c3",
+          "text": "商品をわざと隠す"
+        },
+        {
+          "id": "c4",
+          "text": "チラシを一切配らない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「特売日」を設けたり、「お買い得コーナー」を作ったりして、安く買いたいという客の要望に応えています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.fb11f1f1ee5b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "工場で働く人々が、衛生面や安全面に気をつけて、帽子やマスク、専用の服（白衣など）を着て作業するのはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "製品にゴミや髪の毛が入るのを防ぐため"
+        },
+        {
+          "id": "c2",
+          "text": "私服が汚れるのが嫌だから"
+        },
+        {
+          "id": "c3",
+          "text": "みんなで同じ服を着て楽しむため"
+        },
+        {
+          "id": "c4",
+          "text": "外がとても寒いから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食品工場などでは、髪の毛やゴミが製品に混ざる（混入する）のを絶対に防ぐため、全身を覆う作業着やマスク、帽子を着用するルールがあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-02.fc5ba3760b26",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "工場で作られた製品が、お店や消費者に届くまでに、運送トラックや倉庫を経由して運ばれる一連の流れを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "流通（りゅうつう）"
+        },
+        {
+          "id": "c2",
+          "text": "生産（せいさん）"
+        },
+        {
+          "id": "c3",
+          "text": "消費（しょうひ）"
+        },
+        {
+          "id": "c4",
+          "text": "販売（はんばい）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生産者から消費者に品物が運ばれて届くまでの全体の道のりを「流通[りゅうつう]」といいます。"
+  }
+]

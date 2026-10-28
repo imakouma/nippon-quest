@@ -1,0 +1,707 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-6.0bd9593a067b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "愛知県豊田市・岡崎市、三重県鈴鹿すずか市などでは、機械工業が発達している。次の中から、ここでの製造が特にさかんな工業製品をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家電製品"
+        },
+        {
+          "id": "c2",
+          "text": "コンピューター"
+        },
+        {
+          "id": "c3",
+          "text": "飛行機"
+        },
+        {
+          "id": "c4",
+          "text": "自動車"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "愛知県豊田市・岡崎市、三重県鈴鹿市などでは、自動車の生産[せいさん]がさかんである。 愛知県[あいちけん]の豊田市の市の名前[なまえ]は、自動車メーカーのトヨタに由来[ゆらい]する。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.11beec90347f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の主な石炭輸入相手国の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オーストラリア、インドネシア"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア、ブラジル"
+        },
+        {
+          "id": "c3",
+          "text": "アメリカ、カタール"
+        },
+        {
+          "id": "c4",
+          "text": "アメリカ、インドネシア"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は、主にオーストラリア、インドネシア、ロシアなどの国から石炭[せきたん]を輸入[ゆにゅう]している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.17b73cab75bb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の主な石油（原油）輸入相手国の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "サウジアラビア、アラブ首長国連邦"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア、ブラジル"
+        },
+        {
+          "id": "c3",
+          "text": "オーストラリア、インドネシア"
+        },
+        {
+          "id": "c4",
+          "text": "アメリカ、カタール"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は、主に中東とよばれる西アジアの国々、サウジアラビア、アラブ首長国連邦れんぽう、カタール、クウェートなどから、石油（原油）を輸入[ゆにゅう]している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.1a789bd01c05",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、工業製品にふくまれないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "カップめん"
+        },
+        {
+          "id": "c2",
+          "text": "パソコン"
+        },
+        {
+          "id": "c3",
+          "text": "毛糸"
+        },
+        {
+          "id": "c4",
+          "text": "牛肉[ぎゅうにく]"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "カップめんは食料品工業、パソコンは機械工業、毛糸はせんい工業になる。牛肉[ぎゅうにく]は、加工されていないので、農業（ちく産業[さんぎょう]）になる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.2618028b60ea",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "工業について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "軽工業",
+        "重工業",
+        "重化学工業"
+      ],
+      "template": "せんい工業、製せい紙・印刷工業など、重さの軽いものをつくる工業を {{INPUT}} という。金属ぞくや機械など、重さの重いものをつくる工業を {{INPUT}} といい、これと化学工業をあわせて {{INPUT}} という。"
+    },
+    "explanation": "せんい工業、製紙・印刷工業など、重さの軽いものをつくる工業を（軽工業）という。金属や機械など、重さの重いものをつくる工業を（重工業）といい、これと化学工業をあわせて（重化学工業）という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.273c4138ab81",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ものに道具や機械を使って手を加え、形や性質せいしつを変えたり、組み立てたりして、人の役にたつものをつくる産業[さんぎょう]のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "農業"
+        },
+        {
+          "id": "c2",
+          "text": "水産業"
+        },
+        {
+          "id": "c3",
+          "text": "林業"
+        },
+        {
+          "id": "c4",
+          "text": "工業"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ものに道具や機械を使って手を加え、形や性質を変えたり、組み立てたりして、人の役にたつものをつくる産業[さんぎょう]のことを工業という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.27a4c2358cd2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "原料を輸入[ゆにゅう]し、加工した製品を輸出[ゆしゅつ]する貿ぼう易えきのことをなんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輸出貿易"
+        },
+        {
+          "id": "c2",
+          "text": "加工貿易"
+        },
+        {
+          "id": "c3",
+          "text": "自動車貿易"
+        },
+        {
+          "id": "c4",
+          "text": "原料輸入貿易"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日本はエネルギー資げんや原料があまりとれないので、外国から輸入[ゆにゅう]している。原料を加工した製品を輸出[ゆしゅつ]する貿易を加工貿易という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.32699770777f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "関東から北九州までつづく、太平洋側にそったベルト（帯）状じょうの工業がさかんな地いきのことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "四大工業地帯"
+        },
+        {
+          "id": "c2",
+          "text": "コンビナート"
+        },
+        {
+          "id": "c3",
+          "text": "太平洋ベルト"
+        },
+        {
+          "id": "c4",
+          "text": "工業団地"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "関東から北九州までつづく、太平洋側にそったベルト状の工業がさかんな地いきのことを、太平洋ベルトという。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.40ee58d86b04",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の主な自動車輸出国（輸出額）の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アメリカ、オーストラリア"
+        },
+        {
+          "id": "c2",
+          "text": "アメリカ、インド"
+        },
+        {
+          "id": "c3",
+          "text": "中国、インド"
+        },
+        {
+          "id": "c4",
+          "text": "中国、韓国"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は、世界中に自動車を輸出[ゆしゅつ]している。アメリカ、オーストラリア、中国などが特に多い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.4a259057be95",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "太平洋ベルトで工業が発達した理由[りゆう]として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "工業に必要な原料や燃料を、船で輸入[ゆにゅう]しやすい。"
+        },
+        {
+          "id": "c2",
+          "text": "海岸をうめたてることで、工業用地を確保できる。"
+        },
+        {
+          "id": "c3",
+          "text": "工業製品を利用する人が多い大都市が近い。"
+        },
+        {
+          "id": "c4",
+          "text": "新幹線にそって工業を発展させることで、人や原料を高速に運ぶことができる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「新幹線にそって工業を発展させることで、人やものを高速に運ぶことができる。」が、正しくない。太平洋ベルトにある工業地帯の発展が始まってから、新幹線はととのえられていった。また、新幹線で、重たい工業の原料を運ぶことはできない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.5514780fd9df",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上のグラフは、日本の工場の事業所数、従業者じゅうぎょうしゃ数、出荷額がくのうち、300人以上の大工場と300人未満の中小工場が、それぞれどれくらいになるかを表している。このグラフからわかることとして、 正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本の工場のほとんどは、中小工場である。"
+        },
+        {
+          "id": "c2",
+          "text": "日本では、大工場で働く人より、中小工場で働く人の方が多い。"
+        },
+        {
+          "id": "c3",
+          "text": "大工場で働く一人当たりの出荷額は、中小工場で働く一人当たりの出荷額より大きい。"
+        },
+        {
+          "id": "c4",
+          "text": "大工場の出荷額が大きいのは、大工場の数が多いからである。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ebca75d68f2ef93a.png"
+    },
+    "explanation": "「大工場の出荷額が大きいのは、大工場の数が多いからである。」が、正しくない。大工場の数は、約0.8%ととても少なくなっている。しかし、１つの大工場での出荷額が大きいため、出荷額全体では、大工場の方が大きくなっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.57a9415add63",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で最大の工業地帯は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中京工業地帯"
+        },
+        {
+          "id": "c2",
+          "text": "京浜工業地帯"
+        },
+        {
+          "id": "c3",
+          "text": "阪神工業地帯"
+        },
+        {
+          "id": "c4",
+          "text": "北九州工業地帯"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本で最大の工業地帯は、中京工業地帯。機械工業の中でも、特に輸送用機械の生産[せいさん]がさかん。部品や材料をつくる工場が、集まっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.6929b4d324e1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の写真は、石油化学に関係する、建物や工場が集まった三重県四日市の工業エリアの写真である。このように、ある工業に関係する原料や燃料の建物や工場が集まったところを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "シリコンアイランド"
+        },
+        {
+          "id": "c2",
+          "text": "太平洋ベルト"
+        },
+        {
+          "id": "c3",
+          "text": "コンビナート"
+        },
+        {
+          "id": "c4",
+          "text": "中京工業地帯"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d68975abb4af132f.png"
+    },
+    "explanation": "ある工業に関係する原料や燃料の建物や工場が集まったところを「コンビナート」という。三重県四日市は、石油化学工業がさかんで、海ぞいに石油化学コンビナートが広がっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.7b385ea8e988",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "産業[さんぎょう]の空どう化の説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "安い人件費を求めて、国内の工場が外国に移転し、国内の産業[さんぎょう]がおとろえてしまうこと。"
+        },
+        {
+          "id": "c2",
+          "text": "安い人件費を求めて、工場で外国人ばかりをやとうことで、日本人の仕事がなくなってしまうこと。"
+        },
+        {
+          "id": "c3",
+          "text": "安い人件費を求めて、国内の工場を外国に移転したことで、技術が外国の会社[かいしゃ]にもれてしまうこと。"
+        },
+        {
+          "id": "c4",
+          "text": "都市部の人件費が高まり、安い人件費を求めて、都市部の工場が地方に移動すること。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "安い人件費を求めて、国内の工場が外国に移転し、国内の産業[さんぎょう]がおとろえてしまうことを、産業[さんぎょう]の空どう化という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.7e73c274dc1f",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四大工業地帯ア〜エについて、それぞれ正しいものをえらぼう。",
+      "answers": [
+        "北九州",
+        "阪神",
+        "中京",
+        "京浜"
+      ],
+      "template": "ア： {{INPUT}} 工業地帯 イ： {{INPUT}} 工業地帯 ウ： {{INPUT}} 工業地帯 エ： {{INPUT}} 工業地帯",
+      "promptImage": "questions/legacy/73f8db4a22bf20b8.png"
+    },
+    "explanation": "ア：（北九州）工業地帯…日本で最初に発達した工業地帯。今は他の工業地帯とくらべると、規模が小さくなっている。 イ：（阪神）工業地帯…大阪から神戸にかけて、海ぞいに広がる工業地帯。 ウ：（中京）工業地帯…日本最大の工業地帯。中京とは、東京・京都の２つの「京」の間にあるということ。 エ：（京浜）工業地帯…東京から横浜にかけて、海ぞいに広がる工業地帯。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.86b0e71e36d7",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人やものが移動する手段には、主に鉄道、飛行機、自動車、船の４つがある。それぞれの長所をまとめた以下の表について、かっこに当てはまるものをえらぼう。",
+      "answers": [
+        "自動車",
+        "鉄道",
+        "船",
+        "飛行機"
+      ],
+      "template": "交通手段 長所 {{INPUT}} 小回りがきくため、人やものを目的地まで直接運ぶことができる。 {{INPUT}} おくれが発生しづらいため、たくさんの人を運ぶことに向いている。 {{INPUT}} 時間はかかるが、大きくて重たいものを運ぶことができるので、貿易で活やくする。 {{INPUT}} 短い時間で長いきょりを移動できる。費用が高いので、人や軽くて高価なものの移動に向いている。"
+    },
+    "explanation": "交通手段 長所 自動車 小回りがきくため、人やものを目的地まで直接運ぶことができる。 鉄道 おくれが発生しづらいため、たくさんの人を運ぶことに向いている。 船 時間はかかるが、大きくて重たいものを運ぶことができるので、貿易で活やくする。 飛行機 短い時間で長いきょりを移動できる。費用が高いので、人や軽くて高価なものの移動に向いている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.99c9da06dd9b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1980年代、日本からアメリカ への自動車輸出が多くなり、アメリカ製の自動車はん売にえいきょうした。アメリカでは日本からの自動車の輸入[ゆにゅう]に反対[はんたい]する声がふえ、問題[もんだい]になった。このような輸入国と輸出国の間での 貿易に関する争いのことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "貿易まさつ"
+        },
+        {
+          "id": "c2",
+          "text": "加工貿易"
+        },
+        {
+          "id": "c3",
+          "text": "産業[さんぎょう]の空洞化"
+        },
+        {
+          "id": "c4",
+          "text": "グローバル化"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "輸入国と輸出国の間での 貿易に関する争いのことを、貿易まさつ、という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.a5491e4a708f",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の工業地域ア〜オについて、それぞれ正しいものをえらぼう。",
+      "answers": [
+        "瀬戸内",
+        "東海",
+        "京葉",
+        "関東内陸",
+        "北陸"
+      ],
+      "template": "ア： {{INPUT}} 工業地域いき イ： {{INPUT}} 工業地域 ウ： {{INPUT}} 工業地域 エ： {{INPUT}} 工業地域 オ： {{INPUT}} 工業地域",
+      "promptImage": "questions/legacy/cce13b9cdd7af494.png"
+    },
+    "explanation": "ア：（瀬戸内）工業地域 イ：（東海）工業地域 ウ：（京葉）工業地域 エ：（関東内陸）工業地域 オ：（北陸）工業地域"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.a8c96b1c1aa6",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、2017年の日本の輸出[ゆしゅつ]・輸入製品のわり合を表したグラフである。これを参考にしながら、以下の文のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "石油",
+        "機械類",
+        "自動車"
+      ],
+      "template": "原料や燃料などの資源しげんの少ない日本は、{{INPUT}} や液化ガス、石炭などの資源を輸入している。近年は、コンピューターや電化製品、機械部品などの {{INPUT}} を、アジアを中心とした国々から輸入している。 輸入した資源や部品を元に製品をつくって輸出し、輸出の多くは機械類で、その中でも {{INPUT}} の割合が高い。",
+      "promptImage": "questions/legacy/e7a798c6c963e8cd.png"
+    },
+    "explanation": "原料や燃料などの資源しげんの少ない日本は、（石油）や液化ガス、石炭[せきたん]などの資源を輸入[ゆにゅう]している。近年は、コンピューターや電化製品、機械部品などの（機械類）を、アジアを中心とした国々から輸入[ゆにゅう]している。 輸入[ゆにゅう]した資源や部品を元に製品をつくって輸出[ゆしゅつ]し、輸出[ゆしゅつ]の多くは機械類で、その中でも（自動車）の割合[わりあい]が高い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.b059945f3dcc",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、1960年と2009年の貨物・旅客輸送について、日本国内の交通手段別のわり合を表している。これを参考にしながら、次の文のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "鉄道",
+        "自動車",
+        "船",
+        "飛行機"
+      ],
+      "template": "1960年の旅客（人）の移動については、{{INPUT}} が主な手段になっていたが、2009年には旅客・貨物（もの）の移動共に、{{INPUT}} がその中心になっている。{{INPUT}} は1960年代から、主に貨物の移動手段として使われている。外国への人の移動は {{INPUT}} が多いが、国内でのわり合は低い。",
+      "promptImage": "questions/legacy/20b4bec078363455.png"
+    },
+    "explanation": "1960年の旅客（人）の移動については、（鉄道）が主な手段になっていたが、2009年には旅客・貨物（もの）の移動共に、（自動車）がその中心になっている。（船）は1960年代から、主に貨物の移動手段として使われている。外国への人の移動は（飛行機）が多いが、国内でのわり合は低い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.e230d0e5d7fb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の主な鉄鉱こう石輸入相手国の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オーストラリア、ブラジル"
+        },
+        {
+          "id": "c2",
+          "text": "アメリカ、カタール"
+        },
+        {
+          "id": "c3",
+          "text": "中国、アメリカ"
+        },
+        {
+          "id": "c4",
+          "text": "ロシア、中国"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は、主にオーストラリア、ブラジル、カナダなどの国から鉄鉱石を輸入[ゆにゅう]している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-6.ed778057868e",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の工業について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "せんい",
+        "重化学",
+        "機械"
+      ],
+      "template": "日本では、1930年代までは {{INPUT}} 工業 を中心に、軽工業が発展していった。戦争が終わり、1950〜70年代になると日本の工業は急速に成長し、{{INPUT}} 工業がさかんになった。現在も工業の中では、{{INPUT}} 工業 が最もさかんになっている。"
+    },
+    "explanation": "日本では、1930年代までは（せんい）工業 を中心に、軽工業が発展していった。戦争が終わり、1950〜70年代になると日本の工業は急速に成長し、（重化学）工業がさかんになった。現在も工業の中では、（機械）工業 が最もさかんになっている。"
+  }
+]

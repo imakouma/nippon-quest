@@ -58,7 +58,7 @@
 
 - [x] Task 1・2のfocused testsが通る。
 - [ ] `pnpm check:fast` が通る。
-- [ ] 基盤ロジックをatomic commitにする。
+- [x] 基盤ロジックをatomic commitにする。
 
 ## Task 3: manifest階層カタログ
 
@@ -95,18 +95,18 @@
 
 **Acceptance criteria:**
 
-- [ ] 4,829問・309単元・323セットとなり、完全JSON値とID集合が移行前と一致する。
-- [ ] 全本番セットが正規パス、1〜30問、単一単元を満たす。
-- [ ] 東北18問と「人間承認待ち」が維持され、レビューキューが新セット単位になる。
-- [ ] `_samples` と `academic-reviews.json` のレビュー状態を変更しない。
+- [x] 4,829問・309単元・323セットとなり、完全JSON値とID集合が移行前と一致する。
+- [x] 全本番セットが正規パス、1〜30問、単一単元を満たす。
+- [x] 東北18問と「人間承認待ち」が維持され、レビューキューが新セット単位になる。
+- [x] `_samples` と `academic-reviews.json` のレビュー状態を変更しない。
 
 **Verification:**
 
-- [ ] `pnpm gen:manifest`
-- [ ] `pnpm audit:academic-review`
-- [ ] `pnpm test:data`
-- [ ] `pnpm validate:content`
-- [ ] QuestionBank関連テスト
+- [x] `pnpm gen:manifest`
+- [x] `pnpm audit:academic-review`
+- [x] `pnpm test:data`
+- [x] `pnpm validate:content`
+- [x] QuestionBank関連テスト
 
 **Dependencies:** Task 2、Task 3
 
@@ -122,9 +122,9 @@
 
 ## Checkpoint: Data parity
 
-- [ ] 移行レポートの全parity項目が一致する。
-- [ ] QuestionBankとコンテンツ監査が通る。
-- [ ] データ移行をロジックとは別のatomic commitにする。
+- [x] 移行レポートの全parity項目が一致する。
+- [x] QuestionBankとコンテンツ監査が通る。
+- [x] データ移行をロジックとは別のatomic commitにする。
 
 ## Task 5: 文書・全体検証・レビュー
 

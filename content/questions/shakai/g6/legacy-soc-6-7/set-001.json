@@ -1,0 +1,519 @@
+[
+  {
+    "id": "legacy.shakai.g6.soc-6-7.1e922bd3217f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "参勤交代についての説明[せつめい]として正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "各地の大名を政治に参加させるためにおこなわれた。"
+        },
+        {
+          "id": "c2",
+          "text": "大名は、１年ごとに江戸と領地を行き来した。"
+        },
+        {
+          "id": "c3",
+          "text": "大名の妻子は江戸に住まわせた。"
+        },
+        {
+          "id": "c4",
+          "text": "往復の交通費や江戸のたい在にかかる費用は大名が出した。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fb5a63ca4127865c.jpg"
+    },
+    "explanation": "徳川家光は、大名に対して１年ごとに江戸と領地の行き来を義務づけ、大名の妻子は江戸に住まわせた。往復の交通費や江戸のたい在にかかる費用は大名が出した。大名にとっては、妻子が人質ひとじちにとられたようなものであり、参勤交代にかかる経済けいざい的な負ふ担たんも大きかった。参勤交代の義務化により、大名の反乱をふせぐ結果となった。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.32790a4d6039",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "京都で始められたおどりがもとになったと考えられており、江戸時代に演劇えんげきとして発展した芸能を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "歌舞伎"
+        },
+        {
+          "id": "c2",
+          "text": "能"
+        },
+        {
+          "id": "c3",
+          "text": "落語"
+        },
+        {
+          "id": "c4",
+          "text": "相撲"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/80a0803c35b2e05b.jpg"
+    },
+    "explanation": "京都で始められた、かぶきおどりがもとになったと考えられており、江戸時代に演劇として発展した芸能は歌か舞ぶ伎き。歌舞伎は民衆の代表的な娯ご楽らくで、歌舞伎役者の浮世絵が数多くえがかれた。 ・能は、古くから寺社などでおこなわれていた猿楽・田楽をもとにして、室町時代に発展した。 ・落らく語ごは、こっけいな話をきかせる話芸で、江戸時代後半には落語などを楽しむ寄よ席せが多くつくられた。 ・相撲すもうは、江戸時代の人たちの娯楽の１つであった。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.3532cb931a91",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代に１万石ごく以上の領地をもち、将軍に従った武士のことを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大名"
+        },
+        {
+          "id": "c2",
+          "text": "御家人"
+        },
+        {
+          "id": "c3",
+          "text": "執権"
+        },
+        {
+          "id": "c4",
+          "text": "守護"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "江戸時代に１万石以上の領地をもち、将軍に従った武士のことを大名という。大名は、それぞれの領地をおさめた。 ・御家人：鎌倉幕府の将軍に従った武士 ・執権：鎌倉幕府の将軍を助ける職 ・守護：鎌倉時代や室町時代に国ごとにおかれた職"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.3a19820b8214",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヨーロッパの国の中で、オランダだけが貿易を認められた理由[りゆう]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オランダがキリスト教を広めなかったため。"
+        },
+        {
+          "id": "c2",
+          "text": "オランダが、ヨーロッパ全体を支配したため。"
+        },
+        {
+          "id": "c3",
+          "text": "日本が必要な銀を輸出[ゆしゅつ]していたのが、オランダだけであったため。"
+        },
+        {
+          "id": "c4",
+          "text": "貿易を認め、オランダに日本を守ってもらうたため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "オランダは、キリスト教を広めようとせず、貿易をおこなうことのみ求めたため、江戸幕府は貿易を続けることを許可した。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.449fadb279dc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代、村や町では複数の家で１つのまとまりをつくり、年貢を納おさめるときなど、共同で責任を負わせた。このしくみを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "五人組"
+        },
+        {
+          "id": "c2",
+          "text": "惣"
+        },
+        {
+          "id": "c3",
+          "text": "株仲間"
+        },
+        {
+          "id": "c4",
+          "text": "座"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "江戸時代、村や町では、となり近所の家５戸で１つのまとまりをつくり、年貢を納めるときなど、共同で責任を負わせた。このしくみを五人組という。 ・惣そうは、農民の自治組織。 ・座ざは、商人や手工業者による同業者団体。 ・株仲かぶなか間まは、江戸幕府に税を納おさめるかわりに営業の独せんを認められた、商工業者の同業者組合。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.467b833489f1",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代の 大名について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "親藩",
+        "譜代",
+        "外様"
+      ],
+      "template": "大名は、徳川氏との関係性により３種類に分かれていた。 ・徳川氏の親せきにあたる大名： {{INPUT}} ・関ヶ原の戦いの前から徳川氏の家臣であった大名： {{INPUT}} ・関ヶ原の戦いの前後から徳川氏の家臣となった大名： {{INPUT}}"
+    },
+    "explanation": "大名は、徳川氏との関係性により３種類に分かれていた。 ・徳川氏の親せきにあたる大名：（親藩しんぱん） ・関ヶ原の戦いの前から徳川氏の家臣であった大名：（譜ふ代だい） ・関ヶ原の戦いの前後から徳川氏の家臣となった大名：（外と様ざま）"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.4908eef92d6b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代の人口構成（推定すいてい）を表す上の図も参考にしながら、江戸時代のさまざまな身分についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "最も割合[わりあい]の小さい”その他”には、差別された人たちがふくまれた。"
+        },
+        {
+          "id": "c2",
+          "text": "支配する身分の”武士”は、最も大きい割合[わりあい]をしめていた。"
+        },
+        {
+          "id": "c3",
+          "text": "商人や職人は、”百姓”にふくまれた。"
+        },
+        {
+          "id": "c4",
+          "text": "”町人”は人口の半分をしめた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a3eae6b2afc8e171.png"
+    },
+    "explanation": "人口構成のグラフで最も小さな割合[わりあい]わりあいをしめる”その他”には、差別された人たちがふくまれた。このような人たちは、住む場所や職業などが制限された。 ・支配する身分の”武士”は約７％であり、約84％の”百姓”の次に大きな割合[わりあい]をしめている。 ・商人や職人のことをさす”町人”は、約６％である。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.4e805bb18964",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代に多くつくられた、次の図のような絵画を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "浮世絵"
+        },
+        {
+          "id": "c2",
+          "text": "大和絵"
+        },
+        {
+          "id": "c3",
+          "text": "水墨画"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c312251d3be90b56.png"
+    },
+    "explanation": "江戸時代には、上の図のような浮うき世よ絵えが多くつくられた。女性をえがいた美人画、歌舞伎役者をえがいた役者絵、風景画などの種類があった。 ・大和絵は、平安時代によくえがかれた日本風の絵画。 ・水墨画は、室町時代によくえがかれた、すみで自然などを表現する絵画。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.4f4ae509a365",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代後半に全国の海沿ぞいを測量し、日本全国の地図の作成を進めた人物をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "伊能忠敬"
+        },
+        {
+          "id": "c2",
+          "text": "杉田玄白"
+        },
+        {
+          "id": "c3",
+          "text": "松尾芭蕉"
+        },
+        {
+          "id": "c4",
+          "text": "前野良沢"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1d168103a01d0f20.jpg"
+    },
+    "explanation": "江戸時代後半、伊能忠敬は17年にわたって全国の海沿いを測量し、日本全国の地図の作成を進めた。完成前に亡くなったが、伊能忠敬の死後に弟子たちが地図を完成させた。 ・松尾芭蕉は、江戸時代を代表する俳人で、『おくのほそ道』などの紀行文を残した。 ・杉田玄白と前野良沢は、協力して『解体新書』を完成させた。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.592d56dc5114",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代の大名についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外様は、江戸から遠くはなれた場所に配置された。"
+        },
+        {
+          "id": "c2",
+          "text": "大名は、財力によって３つの階級に分けられた。"
+        },
+        {
+          "id": "c3",
+          "text": "大名は、領地と京都を行き来する義務があった。"
+        },
+        {
+          "id": "c4",
+          "text": "譜代は、政治上の重要な役職につけなかった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "江戸幕府は、大名による反乱をふせぎ、安定した政権を続けるために大名の配置に気を配った。関ヶ原の戦いの前後から徳川氏の家臣となった外様は、政治・経済上の重要な場所には配置されず、江戸から遠い東北・四国・九州に主に配置された。 ・大名は、財力ではなく、徳川氏との関係性により３種類に分けられた。 ・大名は、領地と江戸を行き来する参勤交代が義務付けられた。 ・古くから徳川氏の家臣であった譜代は、政治上の重要な役職についた。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.6a0a0227f1c9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代に栄えた文化についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大阪や江戸を中心に栄えた町人文化"
+        },
+        {
+          "id": "c2",
+          "text": "国際色豊かな文化"
+        },
+        {
+          "id": "c3",
+          "text": "貴族を中心に栄え日本の風土に合った文化"
+        },
+        {
+          "id": "c4",
+          "text": "中国や仏教のえいきょうを受けた文化"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "江戸時代には、大阪や江戸を中心に町人の文化が栄えた。 ・中国や仏教のえいきょうを受けていたのは、飛鳥時代の文化。 ・国際色豊かであったのは、奈良時代の文化。 ・貴族を中心に栄え日本の風土に合った文化は、平安時代の文化。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.ad9254a9ca4c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代の鎖国[さこく]についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "貿易相手を制限し、幕府が貿易を管理した。"
+        },
+        {
+          "id": "c2",
+          "text": "外国との貿易を完全に停止した。"
+        },
+        {
+          "id": "c3",
+          "text": "自由な貿易は認めたが、観光は認めなかった。"
+        },
+        {
+          "id": "c4",
+          "text": "財産を多くもつ人だけに、外国との自由な貿易を認めた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "江戸時代の日本は、鎖国[さこく]の状態にあったが、外国との貿易を完全に停止したわけではない。特定の相手と、限られた場所でのみ貿易をおこない、貿易の利益や外国に関する情報は、幕府が独せんした。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.b9c1ecdf2569",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代初めには、外国に行って貿易をおこなうさいに幕府が許可書を出していた。この許可書を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "朱印状"
+        },
+        {
+          "id": "c2",
+          "text": "遣唐使"
+        },
+        {
+          "id": "c3",
+          "text": "遣隋使"
+        },
+        {
+          "id": "c4",
+          "text": "勘合"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7b79189be9176eba.jpg"
+    },
+    "explanation": "江戸時代初めには、外国に行って貿易をおこなうことを許可する朱印しゅいん状じょうが幕府から発行され、貿易がさかんにおこなわれていた。 ・遣隋使：中国の王朝が隋であった時に日本から送られた使節 ・遣唐使：中国の王朝が唐であった時に日本から送られた使節 ・勘合かんごう：室町時代に、海ぞくの船と区別するために正式な船にあたえられた証明書"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.bfa08bda8029",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の地図は、江戸時代の貿易の窓口を表している。それぞれの窓口について、貿易相手をえらぼう。",
+      "answers": [
+        "アイヌの人たち",
+        "朝鮮",
+        "オランダ・中国（清）",
+        "琉球王国"
+      ],
+      "template": "・松前藩まつまえはん： {{INPUT}} ・対馬つしま藩： {{INPUT}} ・長崎： {{INPUT}} ・薩さつ摩ま藩： {{INPUT}}",
+      "promptImage": "questions/legacy/928312b486ee55a5.png"
+    },
+    "explanation": "・松前藩：（アイヌの人たち） ・対馬藩：（朝鮮） ・長崎：（オランダ・中国（清しん）） ・薩摩藩：（琉りゅう球きゅう王国）"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-7.d50383b8e67b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "江戸時代後半につくられた、百姓や町人の子のための教育し設をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "寺子屋"
+        },
+        {
+          "id": "c2",
+          "text": "藩校"
+        },
+        {
+          "id": "c3",
+          "text": "小学校"
+        },
+        {
+          "id": "c4",
+          "text": "大学"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9b86810f6dcf3797.png"
+    },
+    "explanation": "江戸時代後半には、百姓や町人の子のための教育し設である寺てら子こ屋やが数多くつくられ、読み書きやそろばんなどが教えられていた。 藩校はんこうは、武士の人材育成を目的とする教育し設。"
+  }
+]
