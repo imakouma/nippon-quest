@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import type { Concept, ConceptRelation } from '../../src/core/learning/model';
-import { projectRoadmapRelations } from '../../src/core/learning/roadmapRelations';
+import {
+  projectRoadmapRelations,
+  type RoadmapRelationProjection,
+} from '../../src/core/learning/roadmapRelations';
 
 function concept(id: string, unit: string, kind: Concept['kind'] = 'concept'): Concept {
   return {
@@ -18,11 +21,7 @@ function concept(id: string, unit: string, kind: Concept['kind'] = 'concept'): C
   };
 }
 
-function relation(
-  from: string,
-  to: string,
-  kind: ConceptRelation['kind'] = 'prerequisite',
-): ConceptRelation {
+function relation(from: string, to: string, kind: ConceptRelation['kind'] = 'prerequisite'): ConceptRelation {
   return {
     from,
     to,
@@ -32,6 +31,47 @@ function relation(
     sourceIds: [],
     reviewStatus: 'draft',
   };
+}
+
+function deepFreeze<T>(value: T): T {
+  if (value === null || typeof value !== 'object' || Object.isFrozen(value)) return value;
+  for (const nested of Object.values(value)) deepFreeze(nested);
+  return Object.freeze(value);
+}
+
+function expectAcyclicUniqueProjection(projected: RoadmapRelationProjection): void {
+  const edges: [sourceId: string, targetId: string][] = [];
+  for (const [targetId, sourceIds] of projected.prerequisiteIdsByTarget) {
+    for (const sourceId of sourceIds) edges.push([sourceId, targetId]);
+  }
+  for (const [targetId, links] of projected.supportingLinksByTarget) {
+    for (const link of links) edges.push([link.sourceId, targetId]);
+  }
+
+  expect(new Set(edges.map(([sourceId, targetId]) => `${sourceId}\u0000${targetId}`)).size).toBe(
+    edges.length,
+  );
+
+  const targetsBySource = new Map<string, string[]>();
+  for (const [sourceId, targetId] of edges) {
+    targetsBySource.set(sourceId, [...(targetsBySource.get(sourceId) ?? []), targetId]);
+  }
+  const visiting = new Set<string>();
+  const visited = new Set<string>();
+  const hasCycleFrom = (unitId: string): boolean => {
+    if (visiting.has(unitId)) return true;
+    if (visited.has(unitId)) return false;
+    visiting.add(unitId);
+    for (const targetId of targetsBySource.get(unitId) ?? []) {
+      if (hasCycleFrom(targetId)) return true;
+    }
+    visiting.delete(unitId);
+    visited.add(unitId);
+    return false;
+  };
+
+  const units = new Set(edges.flat());
+  expect([...units].some(hasCycleFrom)).toBe(false);
 }
 
 describe('projectRoadmapRelations', () => {
@@ -50,14 +90,9 @@ describe('projectRoadmapRelations', () => {
       ],
     };
 
-    const projected = projectRoadmapRelations(
-      graph,
-      new Set(['sansu.g1.tashizan', 'sansu.g1.hikizan']),
-    );
+    const projected = projectRoadmapRelations(graph, new Set(['sansu.g1.tashizan', 'sansu.g1.hikizan']));
 
-    expect([...projected.prerequisiteIdsByTarget]).toEqual([
-      ['sansu.g1.hikizan', ['sansu.g1.tashizan']],
-    ]);
+    expect([...projected.prerequisiteIdsByTarget]).toEqual([['sansu.g1.hikizan', ['sansu.g1.tashizan']]]);
     expect([...projected.supportingLinksByTarget]).toEqual([]);
   });
 
@@ -80,10 +115,7 @@ describe('projectRoadmapRelations', () => {
       ],
     };
 
-    const projected = projectRoadmapRelations(
-      graph,
-      new Set(['unit.a', 'unit.b', 'unit.c', 'unit.same']),
-    );
+    const projected = projectRoadmapRelations(graph, new Set(['unit.a', 'unit.b', 'unit.c', 'unit.same']));
 
     expect([...projected.prerequisiteIdsByTarget]).toEqual([]);
     expect([...projected.supportingLinksByTarget]).toEqual([]);
@@ -146,9 +178,7 @@ describe('projectRoadmapRelations', () => {
       const projected = projectRoadmapRelations(graph, new Set(['unit.a', 'unit.b']));
 
       expect([...projected.prerequisiteIdsByTarget]).toEqual([]);
-      expect([...projected.supportingLinksByTarget]).toEqual([
-        ['unit.b', [{ sourceId: 'unit.a', kind }]],
-      ]);
+      expect([...projected.supportingLinksByTarget]).toEqual([['unit.b', [{ sourceId: 'unit.a', kind }]]]);
     },
   );
 
@@ -225,5 +255,116 @@ describe('projectRoadmapRelations', () => {
     expect([...projected.supportingLinksByTarget]).toEqual(expected);
     expect([...shuffled.supportingLinksByTarget]).toEqual(expected);
     expect([...projected.prerequisiteIdsByTarget]).toEqual([]);
+  });
+
+  it('正規化後のprerequisite cycleをUnit ID付きのhard errorにする', () => {
+    const graph = deepFreeze({
+      concepts: [
+        concept('current', 'sansu.g1.tashizan'),
+        concept('target', 'sansu.g1.hikizan'),
+        concept('raw-legacy', 'math_1_2'),
+      ],
+      relations: [relation('current', 'target'), relation('target', 'raw-legacy')],
+    });
+    const displayed = new Set(['sansu.g1.tashizan', 'sansu.g1.hikizan']);
+    const graphBefore = structuredClone(graph);
+    const displayedBefore = [...displayed];
+
+    let thrown: unknown;
+    try {
+      projectRoadmapRelations(graph, displayed);
+    } catch (error) {
+      thrown = error;
+    }
+
+    expect(thrown).toBeInstanceOf(Error);
+    const message = thrown instanceof Error ? thrown.message : '';
+    expect(message).toMatch(/prerequisite cycle/i);
+    expect(message).toContain('sansu.g1.tashizan');
+    expect(message).toContain('sansu.g1.hikizan');
+    expect(graph).toEqual(graphBefore);
+    expect([...displayed]).toEqual(displayedBefore);
+  });
+
+  it('hard辺を保持し、combined cycleを閉じるsupporting辺だけを省略する', () => {
+    const graph = {
+      concepts: [concept('a', 'unit.a'), concept('b', 'unit.b'), concept('c', 'unit.c')],
+      relations: [
+        relation('c', 'a', 'transfer'),
+        relation('a', 'b', 'prerequisite'),
+        relation('b', 'c', 'component'),
+      ],
+    };
+
+    const projected = projectRoadmapRelations(graph, new Set(['unit.a', 'unit.b', 'unit.c']));
+
+    expect([...projected.prerequisiteIdsByTarget]).toEqual([['unit.b', ['unit.a']]]);
+    expect([...projected.supportingLinksByTarget]).toEqual([
+      ['unit.c', [{ sourceId: 'unit.b', kind: 'component' }]],
+    ]);
+    expectAcyclicUniqueProjection(projected);
+  });
+
+  it('reciprocal supporting辺をsource ID順で決定的に1本だけ残す', () => {
+    const graph = {
+      concepts: [concept('a', 'unit.a'), concept('b', 'unit.b')],
+      relations: [relation('b', 'a', 'related'), relation('a', 'b', 'related')],
+    };
+
+    const projected = projectRoadmapRelations(graph, new Set(['unit.a', 'unit.b']));
+
+    expect([...projected.supportingLinksByTarget]).toEqual([
+      ['unit.b', [{ sourceId: 'unit.a', kind: 'related' }]],
+    ]);
+    expectAcyclicUniqueProjection(projected);
+  });
+
+  it('3-node supporting cycleをkind・source・target順で安定して刈り込む', () => {
+    const concepts = [concept('a', 'unit.a'), concept('b', 'unit.b'), concept('c', 'unit.c')];
+    const relations = [
+      relation('c', 'a', 'related'),
+      relation('b', 'c', 'transfer'),
+      relation('a', 'b', 'component'),
+    ];
+    const displayed = new Set(['unit.a', 'unit.b', 'unit.c']);
+    const expected = [
+      ['unit.b', [{ sourceId: 'unit.a', kind: 'component' }]],
+      ['unit.c', [{ sourceId: 'unit.b', kind: 'transfer' }]],
+    ];
+    const permutations = [
+      { concepts, relations },
+      {
+        concepts: [concepts[2]!, concepts[0]!, concepts[1]!],
+        relations: [relations[1]!, relations[2]!, relations[0]!],
+      },
+      { concepts: [...concepts].reverse(), relations: [...relations].reverse() },
+    ];
+
+    for (const graph of permutations) {
+      const projected = projectRoadmapRelations(graph, displayed);
+      expect([...projected.supportingLinksByTarget]).toEqual(expected);
+      expectAcyclicUniqueProjection(projected);
+    }
+  });
+
+  it('成功時もfrozen入力を変更せず、同値なfresh outputを返す', () => {
+    const graph = deepFreeze({
+      concepts: [concept('a', 'unit.a'), concept('b', 'unit.b'), concept('c', 'unit.c')],
+      relations: [relation('a', 'b'), relation('b', 'c', 'transfer')],
+    });
+    const displayed = new Set(['unit.a', 'unit.b', 'unit.c']);
+    const graphBefore = structuredClone(graph);
+    const displayedBefore = [...displayed];
+
+    const first = projectRoadmapRelations(graph, displayed);
+    const second = projectRoadmapRelations(graph, displayed);
+
+    expect([...first.prerequisiteIdsByTarget]).toEqual([...second.prerequisiteIdsByTarget]);
+    expect([...first.supportingLinksByTarget]).toEqual([...second.supportingLinksByTarget]);
+    expect(first.prerequisiteIdsByTarget).not.toBe(second.prerequisiteIdsByTarget);
+    expect(first.supportingLinksByTarget).not.toBe(second.supportingLinksByTarget);
+    expect(graph).toEqual(graphBefore);
+    expect([...displayed]).toEqual(displayedBefore);
+    expectAcyclicUniqueProjection(first);
   });
 });
