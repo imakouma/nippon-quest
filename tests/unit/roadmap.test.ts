@@ -188,11 +188,13 @@ const planCurriculum: CurriculumGraph = {
     planConcept('concept.number', 'sansu.g1.kazu-20'),
   ],
   relations: [],
-  questionLinks: [
-    ['q-add', 'concept.add'],
-    ['q-subtract', 'concept.subtract'],
-    ['q-number', 'concept.number'],
-  ].map(([questionId, conceptId], index) => ({
+  questionLinks: (
+    [
+      ['q-add', 'concept.add'],
+      ['q-subtract', 'concept.subtract'],
+      ['q-number', 'concept.number'],
+    ] as const
+  ).map(([questionId, conceptId], index) => ({
     questionId,
     concepts: [{ conceptId, role: 'primary' as const, weight: 1 }],
     diagnosticValue: 1 - index * 0.1,
@@ -334,7 +336,7 @@ describe('buildRoadmapNodes', () => {
     const nodes = buildRoadmapNodes({
       units,
       mastery: { 'sansu.g1.tashizan': { value: 0.9, n: 3, lastAt: 1 } },
-      playerGrade: 1,
+      playerGrade: 1 as const,
       challengeHigher: false,
       subjectLabel: (subject) => subject,
     });
@@ -592,7 +594,7 @@ describe('buildRoadmapViewModel', () => {
       curriculum,
       conceptStates: {},
       grandfatheredUnitIds: [],
-      playerGrade: 1,
+      playerGrade: 1 as const,
       challengeHigher: false,
       subjectLabel: (subject: string) => subject,
       now: Date.UTC(2026, 9, 28),
