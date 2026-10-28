@@ -2,7 +2,7 @@
 
 ## Status and approval gate
 
-本書は Capability Map `roadmap-view-model` の Phase 1 仕様である。人間が本書を承認するまで、実装計画、RED テスト、実装、UI 接続へ進まない。
+本書は Capability Map `roadmap-view-model` の Phase 1 仕様である。横断レビューの決定は反映済みであり、未解決事項はない。人間から Phase 2 開始の明示承認を得るまで、実装計画、RED テスト、実装、UI 接続へ進まない。
 
 ## Objective
 
@@ -11,8 +11,9 @@
 表示モデルは UI に次を渡す。
 
 - 全ロードマップの単元、進捗、状態、前提線、非ロック関係線
-- 今日プランの推薦理由、実際に出題する正規 Unit、対象 Concept、当日完了状態
+- 今日プランの安定 ID 兼 focus target、推薦または完了復元理由、実際に出題する正規 Unit、対象 Concept、当日完了状態
 - 今日プランが参照する Unit の名前・教科・進捗（全ロードマップと同じ導出結果）
+- 今日プランの全項目完了と、候補が0件の空状態を区別する状態
 
 ロードマップを開く、再描画する、フィルタするだけでは `GameState`、教材グラフ、推薦結果、QuestionBank を変更しない。不正解、前提不足、非ロック関係によってゲーム進行や単元練習へ新しいハードロックを加えない。
 
@@ -22,7 +23,8 @@
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Core の結果を Scene 非依存の表示モデルへまとめる   | 正規化済み進捗、今日プラン、投影済み関係を純粋関数で UI DTO へ合成する                                  |
 | 全ロードマップと今日プランを同じ進捗定義で表示する | 今日プランの Unit 進捗を、同じ呼び出しで作ったロードマップノードから投影する                            |
-| 理由・実 Unit・完了状態を渡す                      | `reason`、`actualUnitId`、`conceptIds`、`completed` を欠落させず渡す                                    |
+| 理由・実 Unit・完了状態を渡す                      | 安定IDの `questionId`、`reason`、`actualUnitId`、`conceptIds`、`completed` を欠落させず渡す             |
+| 全完了と候補なしを区別する                         | `todayPlan.items` と `todayPlan.allComplete` を別に渡し、空配列を完了扱いしない                         |
 | 非ロック関係線を渡す                               | `component`、`transfer`、`related`、`chronological` だけを `supportingLinks` へ渡し、解放判定へ使わない |
 | 開くだけで GameState を変更しない                  | 入力を読み取る純粋関数とし、保存・報酬・snapshot 作成を呼ばない                                         |
 | v13 互換                                           | schema、migration、永続フィールドを変更せず、代表 v13 state の前後同値をテストする                      |
@@ -33,6 +35,7 @@
 
 1. `unit-progress-normalization`
    - legacy/current/mixed の Unit キーを一つの正規 Unit へ集約する。
+   - 公開シンボル `canonicalUnitId` と `aggregateUnitMastery` を直接使う。
    - 本モジュールで alias 集約や報酬 ID 正規化を再実装しない。
 2. `learning-recommendation-policy`
    - 今日プランの順序、推薦理由、実 Unit、Concept、当日完了を決める。
@@ -55,14 +58,16 @@
 
 `src/core/learning/roadmap.ts` と `src/scenes/overworld/menuModel.ts` は現時点では存在しない。現行 `src/scenes/overworld/roadmap.ts` は Phaser、DOM、保存 API を import せず、すでに純粋な表示モデル境界として使われている。Graphify の code-only 影響調査では `Overworld.ts` と複数のロードマップ教材テストがこのファイルを直接利用している。
 
-したがって、Ponytail full の最小変更方針として、新しい中継ファイルや一括移動は作らない。上記3ファイルだけを実装所有範囲とする。`src/scenes/Overworld.ts`、`src/core/learning/index.ts`、UI ファイルへの接続は統合担当の所有範囲である。
+横断レビューで承認された Ponytail full の最小変更方針として、新しい中継ファイルや一括移動は作らない。上記3ファイルだけを実装所有範囲とする。`src/scenes/Overworld.ts`、`src/core/learning/index.ts`、UI ファイルへの接続は統合担当の所有範囲である。
 
 読み取り専用の既存依存は次のとおり。
 
 - `src/scenes/overworld/roadmapLayout.ts`: 既存の決定論的レイアウト
 - `src/core/state/roadmapSnapshot.ts`: v13 以前からの既得進捗 ID の読み取り
 - `src/core/progression/learningRewards.ts`: 変更してはならない既存報酬条件
-- Wave 1/2 の `unitProgress.ts`、`learningPlan.ts`、`recommendationPolicy.ts`、`roadmapRelations.ts`（最終名は各承認済み仕様を正とする）
+- `src/core/learning/unitAliases.ts` の `canonicalUnitId`
+- Wave 1 の `src/core/learning/unitProgress.ts` にある `aggregateUnitMastery`
+- Wave 2 の `learningPlan.ts`、`recommendationPolicy.ts`、`roadmapRelations.ts`（最終パスと公開型名は各承認済み仕様を正とする）
 
 ## Architecture and data flow
 
@@ -97,8 +102,9 @@ unit-progress-normalization
 以下は意図する契約形である。依存モジュールが同等の公開型を持つ場合は、その型を再定義せず import する。
 
 ```ts
-export type RoadmapRecommendationReason =
-  'due-review' | 'weak-prerequisite' | 'unverified-primary' | 'unseen-question';
+export type RoadmapPendingReason = 'due-review' | 'weak-prerequisite' | 'unseen-primary' | 'unseen-question';
+
+export type RoadmapCompletedReason = 'review' | 'diagnosis';
 
 export interface RoadmapUnitProgressView {
   mastery: number;
@@ -107,24 +113,39 @@ export interface RoadmapUnitProgressView {
   state: RoadmapNode['state'];
 }
 
-export interface RoadmapTodayItem {
+export interface RoadmapTodayItemBase {
+  /** 安定IDであり、回答後に戻すfocus targetとしても使う。 */
   questionId: string;
   actualUnitId: string;
   unitName: string;
   subject: string;
   subjectLabel: string;
   grade: number;
-  reason: RoadmapRecommendationReason;
   conceptIds: readonly string[];
-  /** 同じ Asia/Tokyo 日内の review / diagnosis 回答が存在する。score には依存しない。 */
-  completed: boolean;
   /** 同じ呼び出しで作った全ロードマップノードから投影する。別計算しない。 */
   progress: RoadmapUnitProgressView;
 }
 
+export type RoadmapTodayItem =
+  | (RoadmapTodayItemBase & {
+      completed: false;
+      reason: RoadmapPendingReason;
+    })
+  | (RoadmapTodayItemBase & {
+      /** 同じ Asia/Tokyo 日内の review / diagnosis 回答が存在する。score には依存しない。 */
+      completed: true;
+      reason: RoadmapCompletedReason;
+    });
+
+export interface RoadmapTodayPlanView {
+  items: RoadmapTodayItem[];
+  /** items が1件以上あり、すべて completed の場合だけ true。候補0件は false。 */
+  allComplete: boolean;
+}
+
 export interface RoadmapViewModel {
   nodes: RoadmapNode[];
-  todayPlan: RoadmapTodayItem[];
+  todayPlan: RoadmapTodayPlanView;
 }
 ```
 
@@ -145,8 +166,12 @@ export interface RoadmapNode {
 - 新しい合成 API は、正規化済み単元進捗、今日プラン、投影済み関係線を受け、`RoadmapViewModel` を返す。
 - 互換 API は新しい合成処理の `nodes` を返す薄い入口にするか、共通の一つの内部処理を共有する。進捗ロジックを二重化しない。
 - 今日プランの順序、件数（0〜3件）、完了済み項目の保持順を変更しない。
+- `questionId` は未完了項目と完了復元項目の両方で安定 ID とし、UI が回答後の focus target にそのまま使える値を渡す。別の表示専用 ID は作らない。
 - `actualUnitId` は正規 Unit ID とし、その Unit の名前を使う。弱い前提問題を出すときに、推薦元の目標 Unit の名前へ偽装しない。
+- UI 契約には `questionId`、`actualUnitId`、`subject`、実 Unit の `unitName`、`conceptIds`、`completed`、`reason` を含める。問題名や問題文は必須フィールドにしない。
+- 未完了項目の `reason` は `due-review | weak-prerequisite | unseen-primary | unseen-question`、完了復元項目の `reason` は `review | diagnosis` とし、`completed` を discriminant として型で組み合わせを制約する。
 - `progress` は `actualUnitId` と一致する `nodes` の `mastery`、`attempts`、`retention`、`state` から作る。今日プラン専用の習熟計算を作らない。
+- `todayPlan.allComplete` は items が1件以上あり、全 item が `completed: true` の場合だけ `true` とする。`items: []` は常に `allComplete: false` とし、UI が「今日ぶん完了」と「候補なし」を区別できるようにする。
 - 正規化後も対応ノードが存在しない不正な今日プラン項目は、壊れた開始ボタンとして UI へ渡さない。production 出力から除外し、fixture テストでは依存契約違反として検出する。
 - 入力配列、入力オブジェクト、`GameState` 内の配列・record を in-place sort、push、splice、代入しない。
 
@@ -154,7 +179,7 @@ export interface RoadmapNode {
 
 全ロードマップと今日プランの Unit 進捗は、次の既存定義を共通で使う。
 
-1. legacy/current/mixed の mastery と既得進捗 ID は `unit-progress-normalization` で正規 Unit に集約する。
+1. legacy/current/mixed の mastery と既得進捗 ID は、`unit-progress-normalization` の `canonicalUnitId` と `aggregateUnitMastery` で正規 Unit に集約する。
 2. `roadmapSnapshot.ts` に記録済みの既得 Unit は `cleared` とし、概念完全性の導入によって再ロックしない。
 3. Concept 証拠がある Unit は、対象の全 Concept がそろったうえで次のいずれかを満たすと修得済みにする。
    - 平均 `understanding >= 0.8` かつ合計 `attempts >= 3`
@@ -163,7 +188,7 @@ export interface RoadmapNode {
 5. 修得済みで、いずれかの Concept が `dueAt <= now` かつ `estimatedRetention < 0.65` なら `review` とする。`review` は修得済みとして扱い、再ロックしない。
 6. `current`、`open`、`locked`、`visibility`、最初の教科入口の既存挙動は維持する。
 
-今日プランの `completed` は Unit の修得済み状態とは別概念である。`learning-recommendation-policy` が、当日内の一意な問題に対する `review` または `diagnosis` AttemptEvent の有無から導出し、score が0でも `true` になり得る。本モジュールは値をそのまま表示契約へ渡す。
+今日プランの `completed` は Unit の修得済み状態とは別概念である。`learning-recommendation-policy` が、当日内の一意な問題に対する `review` または `diagnosis` AttemptEvent の有無から導出し、score が0でも `true` になり得る。完了復元時はその AttemptEvent reason を `review | diagnosis` として渡し、本モジュールは値を変換せず表示契約へ渡す。
 
 ### Non-lock relation lines
 
@@ -211,9 +236,13 @@ export interface RoadmapNode {
 ```ts
 export function buildRoadmapViewModel(input: RoadmapViewModelInput): RoadmapViewModel {
   const nodes = buildRoadmapNodesFromNormalizedProgress(input);
+  const items = projectTodayPlan(input.todayPlan, nodes);
   return {
     nodes: attachSupportingLinks(nodes, input.supportingRelations),
-    todayPlan: projectTodayPlan(input.todayPlan, nodes),
+    todayPlan: {
+      items,
+      allComplete: items.length > 0 && items.every((item) => item.completed),
+    },
   };
 }
 ```
@@ -229,16 +258,19 @@ export function buildRoadmapViewModel(input: RoadmapViewModelInput): RoadmapView
 1. 全ロードマップと今日プランの同じ正規 Unit が、同じ mastery、attempts、retention、state を返す。
 2. legacy/current/mixed mastery のどの入力でも同じ正規 Unit と進捗を返す。
 3. 今日プラン0、1、2、3件を順序どおり返し、無効な placeholder を作らない。
-4. 弱い前提推薦で `actualUnitId`、Unit 名、reason、conceptIds を偽らず渡す。
-5. score 0 の当日 review/diagnosis 完了を `completed: true` として渡し、Unit の修得状態とは混同しない。
-6. completed item と未完了 item を上流 plan の順序どおり維持する。
-7. 4種類の supporting relation を重複排除して安定順で返す。
-8. supporting relation を追加しても prerequisiteIds、state、visibility、教科解放結果が変わらない。
-9. source/target Unit がない supporting relation を壊れた UI 線として返さない。
-10. builder 呼び出し前後で、入力 GameState 相当 fixture、curriculum、plan、relations が深い同値を保つ。
-11. 代表 v13 fixture でロードマップを構築しても、報酬 marker、所持品、地域進行、AttemptEvent が不変である。
-12. 同じ固定 `now` と同じ入力から完全一致する DTO を返す。
-13. 既存の概念完全性、既得進捗、復習、AND 前提、霧、決定論的 layout のテストを維持する。
+4. `items: []` が `allComplete: false`、1件以上の全 item 完了が `allComplete: true`、一部未完了が `false` になる。
+5. 弱い前提推薦で `questionId`、`actualUnitId`、subject、Unit 名、reason、conceptIds を偽らず渡し、問題名を要求しない。
+6. 未完了4 reason と完了復元2 reason が `completed` と正しく組み合わさる。
+7. score 0 の当日 review/diagnosis 完了を `completed: true` として渡し、Unit の修得状態とは混同しない。
+8. completed item と未完了 item を上流 plan の順序どおり維持し、`questionId` を安定 ID 兼 focus target として保持する。
+9. `canonicalUnitId` と `aggregateUnitMastery` の結果を使い、ローカルの別集約を作らない。
+10. 4種類の supporting relation を重複排除して安定順で返す。
+11. supporting relation を追加しても prerequisiteIds、state、visibility、教科解放結果が変わらない。
+12. source/target Unit がない supporting relation を壊れた UI 線として返さない。
+13. builder 呼び出し前後で、入力 GameState 相当 fixture、curriculum、plan、relations が深い同値を保つ。
+14. 代表 v13 fixture でロードマップを構築しても、報酬 marker、所持品、地域進行、AttemptEvent が不変である。
+15. 同じ固定 `now` と同じ入力から完全一致する DTO を返す。
+16. 既存の概念完全性、既得進捗、復習、AND 前提、霧、決定論的 layout のテストを維持する。
 
 ### Verification commands
 
@@ -273,7 +305,7 @@ pnpm build
 
 ### Always
 
-- 正規 Unit、今日 plan、relation projection は先行モジュールの公開 API を再利用する。
+- 正規 Unit、今日 plan、relation projection は先行モジュールの公開 API を再利用し、`canonicalUnitId` と `aggregateUnitMastery` を依存シンボルとして扱う。
 - 既存 `RoadmapNode` のフィールドと利用者を後方互換に保つ。
 - 同じ単元進捗導出結果から roadmap node と today item を作る。
 - 固定 `now` と安定 ID で決定論的に返す。
@@ -315,8 +347,11 @@ pnpm build
 
 ## Success criteria
 
-- 一つの純粋な `RoadmapViewModel` が全ロードマップと0〜3件の今日プランを返す。
-- 今日プランの各項目は `questionId`、正規 `actualUnitId`、正しい Unit 名、reason、conceptIds、当日 completed、共通 Unit 進捗を持つ。
+- 一つの純粋な `RoadmapViewModel` が全ロードマップと0〜3件の今日プラン、および `allComplete` を返す。
+- 今日プランの各項目は、安定 ID 兼 focus target の `questionId`、正規 `actualUnitId`、subject、正しい Unit 名、conceptIds、当日 completed、判別可能な reason、共通 Unit 進捗を持ち、問題名を必須にしない。
+- `items: [] / allComplete: false` の候補なしと、1件以上の全 item 完了による `allComplete: true` を UI が区別できる。
+- 未完了 reason は `due-review | weak-prerequisite | unseen-primary | unseen-question`、完了復元 reason は `review | diagnosis` だけである。
+- Unit 正規化と mastery 集約は `canonicalUnitId` と `aggregateUnitMastery` を再利用し、同等ロジックを複製しない。
 - 今日プランと全ロードマップの同じ Unit で mastery、attempts、retention、state が一致する。
 - `component`、`transfer`、`related`、`chronological` が UI 契約へ渡り、どの解放・表示・報酬判定も変更しない。
 - 既存の prerequisite AND 条件、概念完全性、既得進捗、復習状態、霧、layout が維持される。
@@ -327,7 +362,6 @@ pnpm build
 - focused tests、related tests、`pnpm check:fast` が実装担当の状態で成功する。
 - UI、推薦ポリシー、`Overworld.ts` に担当外差分がない。
 
-## Open questions for human approval
+## Open questions
 
-1. 実在パスと Graphify 影響調査に基づき、純粋ビルダーを `src/scenes/overworld/roadmap.ts` に維持し、`src/shared/menuModel.ts` を UI 契約の正とする最小変更方針を承認するか。
-2. `RoadmapRecommendationReason` の stable string は上記4値を採用するか。Wave 2 の承認済み推薦仕様が別名を確定した場合は、その公開型を本書より優先して直接再利用する。
+なし。実在する `src/scenes/overworld/roadmap.ts` と `src/shared/menuModel.ts` を使う最小変更方針、reason union、安定 focus ID、`allComplete`、依存シンボルは横断レビューで確定済み。
