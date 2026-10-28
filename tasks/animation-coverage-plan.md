@@ -55,13 +55,13 @@ assignment + existing manifests + production ledgers
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-| --- | --- | --- |
-| Duplicate turnaround versions select an obsolete design | High | Read explicit adopted destinations from generation ledgers and record the selected path/hash. |
-| Absolute paths make reports machine-specific | Medium | Normalize paths from `assets/cinematics/` and accept a configurable local source root. |
-| Gitignored originals disappear from a worktree | High | Keep portable metadata tests separate from the explicit local source audit. |
-| A future manifest update silently omits an assignment | High | Assert exact set equality and one classification per ID. |
-| Report generation reads large image bodies repeatedly | Medium | Hash files in a streaming pass and keep unit tests metadata-only. |
+| Risk                                                    | Impact | Mitigation                                                                                    |
+| ------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------- |
+| Duplicate turnaround versions select an obsolete design | High   | Read explicit adopted destinations from generation ledgers and record the selected path/hash. |
+| Absolute paths make reports machine-specific            | Medium | Normalize paths from `assets/cinematics/` and accept a configurable local source root.        |
+| Gitignored originals disappear from a worktree          | High   | Keep portable metadata tests separate from the explicit local source audit.                   |
+| A future manifest update silently omits an assignment   | High   | Assert exact set equality and one classification per ID.                                      |
+| Report generation reads large image bodies repeatedly   | Medium | Hash files in a streaming pass and keep unit tests metadata-only.                             |
 
 ## Open Questions
 

@@ -2,12 +2,12 @@
 
 Approved by the user on 2026-10-28.
 
-| Module id | Responsibility | Depends on |
-| --- | --- | --- |
-| `animation-coverage` | Freeze the 111 assigned IDs, adopted references, completion states, and no-duplicate rules. | — |
-| `runtime-monsters` | Produce and register battle animation sheets for the 89 unstarted runtime monsters. | `animation-coverage` |
-| `named-character-runtime` | Connect Michiru and Shiori to their fixed animation sheets while preserving the customizable protagonist renderer. | `animation-coverage` |
-| `animation-verification` | Prove complete assignment coverage, asset validity, battle playback, responsive rendering, and catalog consistency. | `runtime-monsters`, `named-character-runtime` |
+| Module id                 | Responsibility                                                                                                      | Depends on                                    |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `animation-coverage`      | Freeze the 111 assigned IDs, adopted references, completion states, and no-duplicate rules.                         | —                                             |
+| `runtime-monsters`        | Produce and register battle animation sheets for the 89 unstarted runtime monsters.                                 | `animation-coverage`                          |
+| `named-character-runtime` | Connect Michiru and Shiori to their fixed animation sheets while preserving the customizable protagonist renderer.  | `animation-coverage`                          |
+| `animation-verification`  | Prove complete assignment coverage, asset validity, battle playback, responsive rendering, and catalog consistency. | `runtime-monsters`, `named-character-runtime` |
 
 Build order: `animation-coverage` → (`runtime-monsters`, `named-character-runtime`) → `animation-verification`.
 
