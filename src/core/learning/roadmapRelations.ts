@@ -116,7 +116,7 @@ export function projectRoadmapRelations(
     const targetId = unitByConceptId.get(relation.to);
     if (!sourceId || !targetId || sourceId === targetId) continue;
     if (prerequisitesByTarget.get(targetId)?.has(sourceId)) continue;
-    const linksBySource = supportingByTarget.get(targetId) ?? new Map();
+    const linksBySource: Map<string, SupportingLink['kind']> = supportingByTarget.get(targetId) ?? new Map();
     const currentKind = linksBySource.get(sourceId);
     if (currentKind === undefined || supportingKindPriority[kind] < supportingKindPriority[currentKind]) {
       linksBySource.set(sourceId, kind);
