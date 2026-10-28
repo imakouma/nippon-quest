@@ -80,12 +80,12 @@ Approved for implementation on branch `codex/curriculum-concept-connectivity` fr
 
 ## Task 7: Seikatsu
 
-- [ ] Add at least 7 grade-1 relations.
-- [ ] Add at least 3 grade-2 relations.
-- [ ] Cover all 10 Seikatsu baseline isolated Concepts.
-- [ ] Use `chronological` for time order that is not a learning lock.
-- [ ] Run curriculum validation, audit, and related tests.
-- [ ] Confirm Seikatsu isolation is 0.
+- [x] Add at least 7 grade-1 relations.
+- [x] Add at least 3 grade-2 relations.
+- [x] Cover all 10 Seikatsu baseline isolated Concepts.
+- [x] Use `chronological` for time order that is not a learning lock.
+- [x] Run curriculum validation, audit, and related tests.
+- [x] Confirm Seikatsu isolation is 0.
 
 ## Task 8: Shakai
 
