@@ -29,7 +29,7 @@ describe('強敵の初回しれん報酬', () => {
     expect(repeated).toEqual({ state: first.state, awarded: 0 });
   });
 
-  it('地方ボスは島クリア進行を保ったまま初回だけ4個付与する', async () => {
+  it('地方ボスは次地方を訪問済みにせず、島クリア時に初回だけ4個付与する', async () => {
     const c = await content();
     const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
     game.progress.areaSigns = [...c.world.islands.find((island) => island.id === 'tohoku')!.areas];
@@ -39,7 +39,7 @@ describe('強敵の初回しれん報酬', () => {
     const repeated = applyFirstBossReward(first.state, complete, 4);
 
     expect(first.state.progress.islandsCleared).toEqual(['tohoku']);
-    expect(first.state.progress.counters['visit:hokkaido-field']).toBe(1);
+    expect(first.state.progress.counters['visit:hokkaido-field']).toBeUndefined();
     expect(first.state.inventory[TRIAL_CORE_ID]).toBe(4);
     expect(repeated).toEqual({ state: first.state, awarded: 0 });
   });
