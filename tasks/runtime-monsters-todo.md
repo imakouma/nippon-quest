@@ -165,5 +165,5 @@ Repeat this checkpoint for every wave and record evidence in the production ledg
 - [x] `pnpm build` passes.
 - [x] Graphify is updated in code-only mode.
 - [x] Five-axis code review has no unresolved required findings.
-- [ ] User-facing preview opens a newly completed monster battle.
-- [ ] Module is committed and ready for integration.
+- [x] User-facing preview opens a newly completed monster battle.
+- [x] Module is committed and ready for integration.
