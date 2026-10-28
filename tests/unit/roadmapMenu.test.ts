@@ -480,7 +480,15 @@ describe('学習ロードマップの単元選択', () => {
     const selection = container.querySelector<HTMLElement>('.nq-roadmap-selection')!;
     expect(selection.textContent).toContain('10までのかず');
     expect(selection.textContent).toContain('1ねん');
-    expect(selection.textContent).toContain('いまの もくひょう');
+    expect(selection.querySelector('.nq-roadmap-selection-marker')).toBeNull();
+    expect(selection.textContent).not.toContain('いまの もくひょう');
+    expect(selection.textContent).not.toContain('できた 0%');
+    const mastery = selection.querySelector<HTMLElement>('[role="progressbar"]')!;
+    expect(mastery.getAttribute('aria-valuemin')).toBe('0');
+    expect(mastery.getAttribute('aria-valuenow')).toBe('0');
+    expect(mastery.getAttribute('aria-valuemax')).toBe('100');
+    expect(mastery.getAttribute('aria-label')).toBe('できた 0%');
+    expect(mastery.querySelector<HTMLElement>('.nq-roadmap-selection-meter-fill')?.style.width).toBe('0%');
     expect(selection.querySelector('.nq-roadmap-practice-label')?.textContent).toContain('ここを');
     expect(selection.querySelector('.nq-roadmap-practice-arrow')?.getAttribute('aria-hidden')).toBe('true');
 
