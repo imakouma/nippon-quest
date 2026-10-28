@@ -18,7 +18,8 @@
   "entries": [
     {
       "id": "aomori-boss-tsugaru-no-nushi",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Boss Tsugaru no Nushi, faithfully preserving the supplied pixel reference and turnaround: the pale blue supernatural lake master, its distinctive head and body silhouette, facial features, fins and regional ornament. Frames 0 to 3 are a breathing and blinking idle loop; frames 4 to 7 are a coherent body-lunge attack and recovery. Keep one character per equal cell, stable proportions and palette, crisp near-black outlines, true alpha transparency, generous cell padding, and no text, scenery, shadows, detached effects, extra props or grid lines.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-boss-tsugaru-no-nushi.png",
         "sha256": "126369b5c6d9a72791ddc8b349bb1d860c11eb28fd1e48486e0da0261c8b17d7"
@@ -26,11 +27,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-boss-tsugaru-no-nushi/turnaround-v2.png",
         "sha256": "9c8e325264378554c9068c7b97949f68834904d86aa9a3a9bb26e6a023b2581b"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-boss-tsugaru-no-nushi-generated-source.png",
+        "sha256": "4fd4163673bd0e9cb86e32de814e6277d1d104847224a678bd5cd0049fcbb36e"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-boss-tsugaru-no-nushi-v1.png",
+        "sha256": "f1471c0a98d6432a7b306df530e0394557940f5b0ad8bd3bfbeebfd8fdb14d29"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-buna-taiju",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Buna Taiju, matching the supplied pixel reference and turnaround. Preserve the ancient beech-tree guardian identity, broad trunk-like body, leafy crown, bark colors, face, roots and every defining natural detail without adding props. Frames 0 to 3 form a subtle breathing, foliage-sway and blink idle; frames 4 to 7 form a readable rooted body-slam attack and recovery. Use equal isolated cells, consistent scale and palette, crisp pixel edges, true transparent alpha, generous internal margins, and no labels, grid, background, shadows or detached effects.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-buna-taiju.png",
         "sha256": "4c98654d66f618c03ac227aa4e2daa470308c4db9e8d528f0a69287a56c9b8a3"
@@ -38,11 +53,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-buna-taiju/turnaround-v1.png",
         "sha256": "8086caa4bc4f10efcc21e61246487aa3f37c2023b8e02027e49e4d0822835de8"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-buna-taiju-generated-source.png",
+        "sha256": "efa884cf3ae03fc9a86bb753da8157e12b3c751ef8eb749929cbb6bd4c543e1b"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-buna-taiju-v1.png",
+        "sha256": "9dd18830d2f434af022d5a96bf397e8109eec17f9ea0fe2fad605cb8aa108a51"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-dogu-jin",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Dogu Jin using the supplied pixel reference and turnaround as locked identity references. Preserve the squat clay dogu guardian silhouette, goggle-like eyes, ear and crown shapes, carved markings, clay palette, arms and legs in every frame. Frames 0 to 3 are a restrained breathing and blink idle loop; frames 4 to 7 are a clear wind-up, heavy forward guardian strike and recovery. Keep all eight full-body poses isolated in equal cells with stable scale, crisp pixel outlines, true alpha transparency and generous padding; add no weapon, text, scenery, grid, shadow or detached hit effect.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/aomori-turnarounds-v2/pixel-references/aomori-dogu-jin.png",
         "sha256": "516b73bd94d8aec06860415ab9c7d9494646833a8c4a0e90f8f74113b611b3df"
@@ -50,11 +79,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/aomori-turnarounds-v2/aomori-dogu-jin/turnaround-v2.png",
         "sha256": "aa8cd32c26cb595de70af26935561ab1f93a31bc46fcf89c22e0fa70ed518733"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-dogu-jin-generated-source.png",
+        "sha256": "46f9cf747e614bdf8ffe0b74dc250708eba6ebf0bd4b62b9335632389c5f570d"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-dogu-jin-v1.png",
+        "sha256": "84e50957d980fb640efeaff299fb5de3fdcdb58ef1b1b334b1f18d5a1fc66cc0"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-hachiro-ryu",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Hachiro Ryu and faithfully preserve the supplied pixel reference and turnaround. Keep the compact blue dragon identity, horn and crest shapes, face, segmented body, limbs, tail, underside and regional color accents consistent across every pose. Frames 0 to 3 show a breathing, blink and slight tail-sway idle; frames 4 to 7 show anticipation, a strong serpentine body lunge and recovery. Use eight equal isolated cells, stable proportions and palette, crisp pixel-art edges, true transparency and ample cell padding. Do not add text, scenery, grid lines, ground shadows, detached effects or new accessories.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-hachiro-ryu.png",
         "sha256": "5291551dcea0ab5b6ffde79b4b9582955acaecf32163c2f0d4fdec1f943e951c"
@@ -62,11 +105,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hachiro-ryu/turnaround-v3.png",
         "sha256": "7acb1bb053043ef04fc1f8d7fb42038b059f511f809fae0f014730ee44927206"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-hachiro-ryu-generated-source.png",
+        "sha256": "b69b3c6eb089a85008a9281259a29a7737b1d9fa9b72a68655d5a18227e987d2"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-hachiro-ryu-v1.png",
+        "sha256": "252ea657a12cbf722bf43eaf1f6495d28461dfe1557d0ecf90b54027e945b145"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-hanaikada",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Hanaikada, matching the supplied pixel reference and turnaround. Preserve the pink scalloped blossom-cloud body with white rectangular eyes and dash mouth, darker and pale square petal marks, exactly two green leaves, the wooden raft ring and attached blue wave base; add no limbs. Frames 0 to 3 show breathing and blinking idle motion. Frames 4 to 7 show compression, a sideways raft-and-wave body bump, strongest contact pose and recovery. Keep eight equal isolated cells, stable pixel scale and palette, true alpha transparency and generous margins with no text, grid, scenery, shadow or detached effect.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-hanaikada.png",
         "sha256": "71071bc0460ad62a746d3b1eb91b58f438c600edb09e9e6fc34bd6dba4fa750f"
@@ -74,11 +131,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-hanaikada/turnaround-v1.png",
         "sha256": "5a8c9d84d2ebb42caa47ccfb4e4121e191bcb34db8df12d2180255d4c65c01ac"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-hanaikada-generated-source.png",
+        "sha256": "9f1bc78117e13f0264dbb92b61fa211e57ca73b15d63bd6ff6f28ca1bc305cbe"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-hanaikada-v1.png",
+        "sha256": "579ba834a09e1d338798be81e2574058b93e25fb2083c93e004771ecdf57d715"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-himemasu-lord",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Himemasu Lord using the supplied pixel reference and turnaround. Preserve the spherical green upper body, red middle, white belly, rectangular eyes, dark mouth notch, two pink cheek or gill marks, one yellow crown-like dorsal fin, two blue side fins and two lower fins. Frames 0 to 3 are a buoyant breathing, fin-lift and blink idle loop; frames 4 to 7 are a squash, roll, body-check and recovery attack. Keep eight equal isolated cells, consistent scale and palette, crisp pixel outlines, true alpha transparency and generous padding. Add no text, grid, scenery, shadow, detached effect or extra appendage.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-himemasu-lord.png",
         "sha256": "479d44c9369301d1734af1ce672e5452871bda7c1f103900fc60003b3c9970dd"
@@ -86,11 +157,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-himemasu-lord/turnaround-v1.png",
         "sha256": "f93a1b0670f78792480aef354bf5407012c10b5e11bb93ff12c10911cb5533a3"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-himemasu-lord-generated-source.png",
+        "sha256": "a2cd73d1c7bab6a2f9ac3e3dfdebda2ebc90552e2196836859365ea0aa0c5238"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-himemasu-lord-v1.png",
+        "sha256": "5af074110a0ff366e9df917b421b137264cb8d24c064e11f3eb8d61fd06caf92"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-itakodori",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Itakodori, faithfully matching the supplied pixel reference and turnaround. Preserve the round purple owl-like blackbird, two ear tufts, pale eye patches with yellow-framed black eyes, ochre beak, pink cheek dots, lavender belly V, two wings, tiny tail and two yellow bird feet. Include exactly two four-color pinwheels: one on the head and one on the right wing. Frames 0 to 3 are a breathing, blink and pinwheel idle; frames 4 to 7 are a pinwheel baton swipe and body peck with recovery. Keep equal isolated cells, stable proportions, true transparency, generous margins, and no text, grid, scenery, shadow or extra object.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/aomori-turnarounds-v3/pixel-references/aomori-itakodori.png",
         "sha256": "39f8c8e44aef5f2871d719feda9ec8bc86eb3f0eded89dcbe7157bfea0cf59ac"
@@ -98,11 +183,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/aomori-turnarounds-v3/aomori-itakodori/turnaround-v2.png",
         "sha256": "f158393378ad9afaeeb96ecf6fbcdaff8d374c092af967e88c103044561ad582"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-itakodori-generated-source.png",
+        "sha256": "aef780a216e4c89261d0b6acf1e5bcf1a6b9223fbd35d796a9e10ae3ef3f651b"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-itakodori-v1.png",
+        "sha256": "a280fa5a8d969b294d692e8baa63914fbfc27522e1f72ffce7f48660aacbb540"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-kaza-mimizuku",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Kaza Mimizuku, faithfully matching the supplied references. Preserve the evolved deep-purple owl with two very tall pointed ear tufts, broad layered wings, pale lavender face and double-V belly, yellow-framed eyes, ochre beak, yellow feet and brown eyebrow bars. Include exactly three red-yellow-green-blue pinwheels: one above the head and one on each wing. Frames 0 to 3 are a wing, blink and pinwheel idle; frames 4 to 7 form a broad wing-and-pinwheel sweep attack and recovery. Keep equal isolated cells, stable pixel scale, true transparency and safe margins; add no text, grid, scenery, shadow or detached effect.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-kaza-mimizuku.png",
         "sha256": "331d99dad2346c3181c8de4c2259ffe7b8ab9f68030fc11138d937836c8be5f5"
@@ -110,11 +209,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kaza-mimizuku/turnaround-v1.png",
         "sha256": "30ccc2003aa4f05ddcde5f483d8bedaf3236572fb4d765ab82e114ea6c4a99e6"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-kaza-mimizuku-generated-source.png",
+        "sha256": "ade3317ebfb4f3dc8b54b9e4df6c9171d74c5585d780b43381d9beaf7a4d29d0"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-kaza-mimizuku-v1.png",
+        "sha256": "b52d14ab247a5f6d98939fab94c5b10de6ea40c974239fc154bc2dd9884eb581"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-kuro-magurodo",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Kuro Magurodo, matching the supplied references. Preserve the upright navy tuna samurai with bright-blue face and sides, segmented silver chest armor with gold trim, white headband and bow, dorsal and side fins, two feet, large crescent tuna tail, exactly one short silver sword with gold guard in the right fin and one red-white bobber at the left hip. Frames 0 to 3 are a sword-guard idle; frames 4 to 7 are a coherent diagonal sword slash and recovery without a detached slash effect. Keep equal isolated cells, stable proportions, true transparent alpha and ample padding; add no text, grid, scenery, shadow or extra prop.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-kuro-magurodo.png",
         "sha256": "448a2c83793a2df2d8f4ed46fbbfd82152aaf97cd44d886b53546721733ff707"
@@ -122,11 +235,25 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-kuro-magurodo/turnaround-v1.png",
         "sha256": "1222a12ad1673e8bd08beb75ee9a1a871303a5d81744c126eebbe787eb021504"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-kuro-magurodo-generated-source.png",
+        "sha256": "0b713a9a8d7f96465e826667a42fc393bf90bf64029aab9088b472c14f176d1f"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-kuro-magurodo-v1.png",
+        "sha256": "1775b034e63721a06e44fc9c3148a200a57f41deadca1684ef66ea328d1df9b4"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {
       "id": "aomori-lastboss-tsugaru-tamenobu",
-      "state": "pending",
+      "state": "accepted",
+      "prompt": "Create an exact transparent 4 by 2 pixel-art animation sheet for Aomori Lastboss Tsugaru Tamenobu, faithfully matching the supplied references. Preserve the compact historical warlord with stern pale face, blocky dark mustache, red-and-gold layered armor, red helmet and skirt plates, broad gold horned crest ending in star-like tips, two armored arms and two legs. Keep him unarmed with no sword, spear or prop. Frames 0 to 3 are a guarded armor-breath and blink idle; frames 4 to 7 are an unarmed shoulder-and-palm body strike with recovery. Keep equal isolated cells, stable identity and palette, crisp pixel art, true transparency and generous padding; add no text, grid, scenery, shadow or effect.",
       "pixelReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/pixel-references/aomori-lastboss-tsugaru-tamenobu.png",
         "sha256": "04e6f001be5c3a178cff4d3f0c655cfef445236feeca9ca5252d87a984dd6306"
@@ -134,6 +261,19 @@
       "turnaroundReference": {
         "path": "assets/cinematics/monsters/tohoku-turnarounds-v4/aomori-lastboss-tsugaru-tamenobu/turnaround-v1.png",
         "sha256": "46d7471ab6dad2862473c50f70dffa72900d5af8d0d028f6e3f9a6befc3b068b"
+      },
+      "generatedSource": {
+        "path": "docs/verification/animation-completion/runtime-monsters/aomori-lastboss-tsugaru-tamenobu-generated-source.png",
+        "sha256": "d41b7d1fe7e13f6c68890a739dfd696a5562ae9c25ad2f7b561859c710c1b31f"
+      },
+      "runtimeOutput": {
+        "path": "assets/sprites/animations/batch-01/aomori-lastboss-tsugaru-tamenobu-v1.png",
+        "sha256": "03c7cb9931a4ca135cba96aeae48e0cf989cea6ee6a2ad54352a6e88f04f2102"
+      },
+      "visualReview": {
+        "fullSize": true,
+        "isolatedCells": true,
+        "reviewedAt": "2026-10-28"
       }
     },
     {

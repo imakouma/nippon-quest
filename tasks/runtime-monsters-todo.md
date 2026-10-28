@@ -22,16 +22,16 @@ Plan: [`runtime-monsters-plan.md`](runtime-monsters-plan.md)
 
 ## Wave 1: Aomori foundations (10)
 
-- [ ] `aomori-boss-tsugaru-no-nushi`
-- [ ] `aomori-buna-taiju`
-- [ ] `aomori-dogu-jin`
-- [ ] `aomori-hachiro-ryu`
-- [ ] `aomori-hanaikada`
-- [ ] `aomori-himemasu-lord`
-- [ ] `aomori-itakodori`
-- [ ] `aomori-kaza-mimizuku`
-- [ ] `aomori-kuro-magurodo`
-- [ ] `aomori-lastboss-tsugaru-tamenobu`
+- [x] `aomori-boss-tsugaru-no-nushi`
+- [x] `aomori-buna-taiju`
+- [x] `aomori-dogu-jin`
+- [x] `aomori-hachiro-ryu`
+- [x] `aomori-hanaikada`
+- [x] `aomori-himemasu-lord`
+- [x] `aomori-itakodori`
+- [x] `aomori-kaza-mimizuku`
+- [x] `aomori-kuro-magurodo`
+- [x] `aomori-lastboss-tsugaru-tamenobu`
 
 ## Wave 2: Aomori completion (10)
 
@@ -138,14 +138,14 @@ Plan: [`runtime-monsters-plan.md`](runtime-monsters-plan.md)
 
 ## Per-wave checkpoint
 
-- [ ] Source hashes still match.
-- [ ] Accepted sources pass full-size and isolated-cell visual review.
-- [ ] Runtime PNG/image-contract audit passes.
-- [ ] Production ledger and manifest contain only accepted IDs.
-- [ ] Unit and related tests pass.
-- [ ] Desktop and landscape-mobile battle playback pass.
-- [ ] `pnpm check:fast` and `git diff --check` pass.
-- [ ] Staged diff is reviewed and committed atomically.
+- [x] Source hashes still match (Wave 1).
+- [x] Accepted sources pass full-size and isolated-cell visual review (Wave 1).
+- [x] Runtime PNG/image-contract audit passes (Wave 1).
+- [x] Production ledger and manifest contain only accepted IDs (Wave 1).
+- [x] Unit and related tests pass (Wave 1).
+- [x] Desktop and landscape-mobile battle playback pass (Wave 1).
+- [x] `pnpm check:fast` and `git diff --check` pass (Wave 1).
+- [x] Staged diff is reviewed and committed atomically (Wave 1).
 
 Repeat this checkpoint for every wave and record evidence in the production ledger.
 

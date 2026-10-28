@@ -24,6 +24,16 @@ const monsters = [
   'iwate-kagurabi',
   'iwate-izumiko',
   'iwate-kodamaru',
+  'aomori-boss-tsugaru-no-nushi',
+  'aomori-buna-taiju',
+  'aomori-dogu-jin',
+  'aomori-hachiro-ryu',
+  'aomori-hanaikada',
+  'aomori-himemasu-lord',
+  'aomori-itakodori',
+  'aomori-kaza-mimizuku',
+  'aomori-kuro-magurodo',
+  'aomori-lastboss-tsugaru-tamenobu',
 ] as const;
 
 for (const viewport of [
@@ -65,12 +75,13 @@ for (const viewport of [
           height: sprite.displayHeight,
           alpha: canvas.getContext('2d')!.getImageData(0, 0, 1, 1).data[3],
           expectedKey: `mon.animation.${id}.v1`,
+          expectedMaxSize: battle.content.monsters.get(id)?.isBoss ? 144 : 96,
         };
       }, monsterId);
       expect(initial.key).toBe(initial.expectedKey);
       expect(initial.alpha).toBe(0);
-      expect(initial.width).toBeLessThanOrEqual(96);
-      expect(initial.height).toBeLessThanOrEqual(96);
+      expect(initial.width).toBeLessThanOrEqual(initial.expectedMaxSize);
+      expect(initial.height).toBeLessThanOrEqual(initial.expectedMaxSize);
       await expect
         .poll(() =>
           page.evaluate(() => {
