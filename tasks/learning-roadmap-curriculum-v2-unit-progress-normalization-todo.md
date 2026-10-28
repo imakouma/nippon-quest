@@ -12,12 +12,12 @@
 
 ## Wave start conditions
 
-- [ ] The human has approved this Phase 3 task breakdown before implementation starts.
-- [ ] The branch is `codex/lr-v2-unit-progress`, based on the approved Phase 1–3 documentation commits, and `git status --short --branch` is clean.
-- [ ] No other chat is editing `src/core/learning/unitAliases.ts`, `unitProgress.ts`, `learningRewards.ts`, `tests/unit/unitProgress.test.ts`, or `tests/unit/learningRewards.test.ts`.
-- [ ] `graphify-out/graph.json` exists from `graphify extract . --code-only --no-cluster`; semantic labeling and external LLM backends remain unused.
-- [ ] `graphify query "canonicalUnitId applyLearningRewards roadmap mergedMastery callers" --budget 7000` and affected checks still show the expected alias, roadmap, reward, and `askEnv` boundaries.
-- [ ] No other module commit is required before Wave 1. Do not cherry-pick recommendation, relation, view-model, UI, or content-pilot work into this branch.
+- [x] The human has approved this Phase 3 task breakdown before implementation starts.
+- [x] The branch is `codex/lr-v2-unit-progress`, based on the approved Phase 1–3 documentation commits, and `git status --short --branch` is clean.
+- [x] No other chat is editing `src/core/learning/unitAliases.ts`, `unitProgress.ts`, `learningRewards.ts`, `tests/unit/unitProgress.test.ts`, or `tests/unit/learningRewards.test.ts`.
+- [x] `graphify-out/graph.json` exists from `graphify extract . --code-only --no-cluster`; semantic labeling and external LLM backends remain unused.
+- [x] `graphify query "canonicalUnitId applyLearningRewards roadmap mergedMastery callers" --budget 7000` and affected checks still show the expected alias, roadmap, reward, and `askEnv` boundaries.
+- [x] No other module commit is required before Wave 1. Do not cherry-pick recommendation, relation, view-model, UI, or content-pilot work into this branch.
 - [ ] Wave 2 modules may begin only after the final Agent 1 implementation commit is integrated and the integration owner passes the focused normalization/reward checkpoint.
 
 ## Ownership guard
@@ -48,14 +48,14 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 **Acceptance criteria:**
 
-- [ ] The test expects current ID passthrough and both legacy forms to resolve to `sansu.g1.tashizan`.
-- [ ] The test expects an unmapped ID to remain unchanged and does not mutate either alias map.
-- [ ] The focused run fails specifically because raw `math_1_2` is not yet canonicalized; existing cases do not regress.
+- [x] The test expects current ID passthrough and both legacy forms to resolve to `sansu.g1.tashizan`.
+- [x] The test expects an unmapped ID to remain unchanged and does not mutate either alias map.
+- [x] The focused run fails specifically because raw `math_1_2` is not yet canonicalized; existing cases do not regress.
 
 **Verification:**
 
-- [ ] Run `pnpm vitest run tests/unit/unitProgress.test.ts` and record the expected non-zero RED result for the raw legacy case.
-- [ ] Run `git diff --check`.
+- [x] Run `pnpm vitest run tests/unit/unitProgress.test.ts` and record the expected non-zero RED result for the raw legacy case.
+- [x] Run `git diff --check`.
 
 **Dependencies:** Wave start conditions
 
@@ -71,15 +71,15 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 **Acceptance criteria:**
 
-- [ ] `canonicalUnitId()` resolves current, legacy question, and raw legacy forms deterministically while preserving unknown IDs.
-- [ ] Existing `LEGACY_UNIT_ALIASES` and `LEGACY_QUESTION_UNIT_ALIASES` entries and targets remain unchanged.
-- [ ] The implementation adds no recursion, migration, dependency, mutation, or unrelated cleanup.
+- [x] `canonicalUnitId()` resolves current, legacy question, and raw legacy forms deterministically while preserving unknown IDs.
+- [x] Existing `LEGACY_UNIT_ALIASES` and `LEGACY_QUESTION_UNIT_ALIASES` entries and targets remain unchanged.
+- [x] The implementation adds no recursion, migration, dependency, mutation, or unrelated cleanup.
 
 **Verification:**
 
-- [ ] Run `pnpm vitest run tests/unit/unitProgress.test.ts`.
-- [ ] Run `pnpm test:related src/core/learning/unitAliases.ts tests/unit/unitProgress.test.ts`.
-- [ ] Run `git diff --check`.
+- [x] Run `pnpm vitest run tests/unit/unitProgress.test.ts`.
+- [x] Run `pnpm test:related src/core/learning/unitAliases.ts tests/unit/unitProgress.test.ts`.
+- [x] Run `git diff --check`.
 
 **Dependencies:** Task 1
 
@@ -92,11 +92,11 @@ If an owned-file collision or a need to edit an unowned file appears, stop imple
 
 ## Checkpoint 1: Canonical ID foundation
 
-- [ ] Tasks 1–2 acceptance criteria are complete.
-- [ ] The RED failure was observed before the GREEN implementation.
-- [ ] Focused and related tests pass after Task 2.
-- [ ] Graphify-identified direct consumers in coverage, graph quality, and roadmap have not been edited.
-- [ ] Only Task 1–2 owned files are modified.
+- [x] Tasks 1–2 acceptance criteria are complete.
+- [x] The RED failure was observed before the GREEN implementation.
+- [x] Focused and related tests pass after Task 2.
+- [x] Graphify-identified direct consumers in coverage, graph quality, and roadmap have not been edited.
+- [x] Only Task 1–2 owned files are modified.
 
 ## Task 3: RED — Alias-aware mastery aggregation
 
