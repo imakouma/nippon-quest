@@ -62,10 +62,10 @@
 
 ## Final Checkpoint
 
-- [ ] `pnpm lint`
-- [ ] `pnpm check:architecture`
-- [ ] `pnpm test`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm build`
-- [ ] 最新previewを4175以降で起動してUIを確認する。
-- [ ] 差分を5軸レビューし、作業ツリーをcleanにする。
+- [x] `pnpm lint`
+- [x] `pnpm check:architecture`
+- [x] `pnpm test`
+- [x] `pnpm validate:content`
+- [x] `pnpm build`
+- [x] 最新previewを4175以降で起動してUIを確認する。
+- [x] 差分を5軸レビューし、作業ツリーをcleanにする。

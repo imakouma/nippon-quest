@@ -2,6 +2,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { content } from './helpers';
 import { equipSetProgress, type EquipSlot } from '../../src/core/progression/inventory';
 import { createNewGame } from '../../src/core/state/newGame';
+import { equippedBagThings } from '../../src/scenes/overworld/bagItems';
 import { equipmentMenu } from '../../src/scenes/overworld/menuEntries';
 import { setDictionary, t } from '../../src/ui/i18n';
 import ja from '../../content/i18n/ja.json';
@@ -37,7 +38,9 @@ describe('セット そうび', () => {
     const set = c.sets.get('set-aomori')!;
     const gs = fresh();
     gs.player.equipment.weapon = 'aomori-maguro-zutsuki';
-    const partial = equipmentMenu(c, gs, stats, () => '').entries.find((entry) => entry.key === 'slot:weapon')!;
+    const partial = equipmentMenu(c, gs, stats, () => '').entries.find(
+      (entry) => entry.key === 'slot:weapon',
+    )!;
     expect(partial.lines).toContain(t('field.equipSetProgress', { name: set.name, have: 1, total: 5 }));
     expect(partial.lines).not.toContain(set.bonus.description);
 
@@ -48,5 +51,10 @@ describe('セット そうび', () => {
     const done = equipmentMenu(c, gs, stats, () => '').entries.find((entry) => entry.key === 'slot:head')!;
     expect(done.lines).toContain(t('field.equipSetDone', { name: set.name }));
     expect(done.lines).toContain(set.bonus.description);
+
+    gs.progress.islandsCleared = ['tohoku'];
+    const currentBagEntry = equippedBagThings(gs, c).find((entry) => entry.key === 'eq:head')!;
+    expect(currentBagEntry.lines).toContain(t('field.equipSetDone', { name: set.name }));
+    expect(currentBagEntry.lines).toContain(set.bonus.description);
   });
 });
