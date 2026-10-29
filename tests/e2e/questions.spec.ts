@@ -55,6 +55,46 @@ test('sort-order：カードの順位と移動ボタンの意味を読み上げ�
   await expect(cards.first().getByRole('button').nth(1)).toHaveAttribute('aria-label', /ひとつ うしろへ/);
 });
 
+test('pair-match：見えているカードをキーボードで合わせると score 1', async ({ page }) => {
+  await page.goto('/playground.html');
+  await page.locator('select#pg-file').selectOption('questions/_samples/pair-match.json');
+  await page.locator('select#pg-question').selectOption('1');
+  await page.click('button.pg-run');
+
+  const card = (text: string) => page.locator('.nq-pm-card', { hasText: text });
+  await expect(card('秋田')).toHaveAttribute('aria-describedby', 'nq-question-prompt');
+  for (const text of ['秋田', 'きりたんぽ', '岩手', 'わんこそば']) {
+    await card(text).focus();
+    await page.keyboard.press('Enter');
+  }
+
+  await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
+});
+
+test('pair-match：最大6ペアが960×540の問題枠に収まる', async ({ page }) => {
+  await page.setViewportSize({ width: 960, height: 540 });
+  await page.goto('/playground.html');
+  await page.locator('select#pg-file').selectOption('questions/_samples/pair-match.json');
+  await page.locator('select#pg-question').selectOption('2');
+  await page.click('button.pg-run');
+
+  const cards = page.locator('.nq-pm-card');
+  await expect(cards).toHaveCount(12);
+  const insideStage = await page.locator('.nq-q-pair-match').evaluate((stage) => {
+    const bounds = stage.getBoundingClientRect();
+    return [...stage.querySelectorAll('.nq-pm-card')].every((card) => {
+      const rect = card.getBoundingClientRect();
+      return (
+        rect.left >= bounds.left &&
+        rect.right <= bounds.right &&
+        rect.top >= bounds.top &&
+        rect.bottom <= bounds.bottom
+      );
+    });
+  });
+  expect(insideStage).toBe(true);
+});
+
 test('number-build：現在値と操作部から設問を読み上げで参照できる', async ({ page }) => {
   await page.goto('/playground.html');
   await page.locator('select#pg-file').selectOption('questions/_samples/number-build.json');

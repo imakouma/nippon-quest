@@ -601,6 +601,69 @@
 .nq-feedback-correct .nq-feedback-text {
   color: #ffe66d;
 }
+.nq-pm-grid {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.nq-pm-grid-4,
+.nq-pm-grid-6 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.nq-pm-columns {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: 1fr 1fr;
+}
+.nq-pm-column {
+  display: grid;
+  gap: 8px;
+}
+.nq-pm-card {
+  min-height: 56px;
+  padding: 8px;
+  border: 4px solid #f6e7c1;
+  border-radius: 0;
+  background: #172448;
+  color: #fff;
+  font: inherit;
+  display: grid;
+  gap: 4px;
+  place-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.nq-pm-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.nq-pm-card:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 2px;
+}
+.nq-pm-back {
+  background: #f4a53a;
+  color: #2a1a05;
+  font-size: 36px;
+}
+.nq-pm-open {
+  border-color: #6aa9ff;
+}
+.nq-pm-matched {
+  border-color: #ffe66d;
+  opacity: 0.75;
+}
+.nq-pm-miss {
+  border-color: #ff9f6d;
+}
 @keyframes nq-pop {
   from {
     transform: scale(0.4);
