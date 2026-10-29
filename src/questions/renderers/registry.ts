@@ -5,6 +5,7 @@
 import type { QuestionRenderer } from '../contracts';
 import { choiceRenderer } from './choice';
 import { experimentRenderer } from './experiment';
+import { kanjiTraceRenderer } from './kanji-trace';
 import { numberBuildRenderer } from './number-build';
 import { pictureWordRenderer } from './picture-word';
 import { textInputRenderer } from './text-input';
@@ -42,5 +43,5 @@ registerRenderer(mapTapRenderer);
 registerRenderer(sortOrderRenderer);
 // registerRenderer(mapTapRenderer);
 registerRenderer(experimentRenderer);
-// registerRenderer(kanjiTraceRenderer);
+registerRenderer(kanjiTraceRenderer);
 registerRenderer(pairMatchRenderer);

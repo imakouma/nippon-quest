@@ -1,0 +1,47 @@
+[
+  {
+    "$schema": "../../../schemas/questions/kanji-trace.schema.json",
+    "id": "sample.kanji-trace.0001",
+    "type": "kanji-trace",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "mode": "trace",
+      "kanji": "山",
+      "reading": "やま",
+      "hintWord": "山[やま]",
+      "strokeCount": 3
+    }
+  },
+  {
+    "$schema": "../../../schemas/questions/kanji-trace.schema.json",
+    "id": "sample.kanji-trace.0002",
+    "type": "kanji-trace",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "mode": "trace",
+      "kanji": "川",
+      "reading": "かわ",
+      "hintWord": "川[かわ]",
+      "strokeCount": 3
+    }
+  },
+  {
+    "$schema": "../../../schemas/questions/kanji-trace.schema.json",
+    "id": "sample.kanji-trace.0003",
+    "type": "kanji-trace",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "payload": {
+      "mode": "reading",
+      "kanji": "石",
+      "reading": "いし",
+      "choices": ["いし", "いわ", "すな"],
+      "answer": "いし"
+    }
+  }
+]
