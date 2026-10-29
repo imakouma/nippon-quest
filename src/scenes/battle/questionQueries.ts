@@ -22,16 +22,17 @@ export function questionQueryForSkill(input: {
   hasCandidate: (query: QuestionQuery) => boolean;
 }): QuestionQuery {
   const { skill, grade, hasCandidate } = input;
+  const units = skill.unitHint;
   if (!new Set(input.uniqueSkillIds).has(skill.id))
-    return { subject: skill.subject, gradeRange: skill.gradeRange, tags: skill.questionTags };
+    return { subject: skill.subject, gradeRange: skill.gradeRange, tags: skill.questionTags, units };
   const ranges: [Grade, Grade][] = [
     [Math.max(1, grade - 1) as Grade, grade],
     [1, grade],
     [1, 6],
   ];
   const gradeRange =
-    ranges.find((range) => hasCandidate({ subject: skill.subject, gradeRange: range })) ?? ranges[2]!;
-  return { subject: skill.subject, gradeRange, tags: skill.questionTags };
+    ranges.find((range) => hasCandidate({ subject: skill.subject, gradeRange: range, units })) ?? ranges[2]!;
+  return { subject: skill.subject, gradeRange, tags: skill.questionTags, units };
 }
 
 export const recruitQuestionQuery = (skill: Skill, areaId: string): QuestionQuery => ({

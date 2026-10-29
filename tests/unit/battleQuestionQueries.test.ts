@@ -7,12 +7,18 @@ import {
 } from '../../src/scenes/battle/questionQueries';
 import { selectMusubiDamaQuestion } from '../../src/scenes/battle/musubiDamaFlow';
 
-const skill = { id: 'sk-test', subject: 'sansu', gradeRange: [2, 4], questionTags: ['theme:test'] } as Skill;
+const skill = {
+  id: 'sk-test',
+  subject: 'sansu',
+  gradeRange: [2, 4],
+  questionTags: ['theme:test'],
+  unitHint: ['sansu.g2.kuku'],
+} as Skill;
 
 describe('バトル問題の問い合わせ', () => {
   it('通常スキルは定義済みの学年・タグをそのまま使う', () => {
     expect(questionQueryForSkill({ skill, grade: 3, uniqueSkillIds: [], hasCandidate: () => false })).toEqual(
-      { subject: 'sansu', gradeRange: [2, 4], tags: ['theme:test'] },
+      { subject: 'sansu', gradeRange: [2, 4], tags: ['theme:test'], units: ['sansu.g2.kuku'] },
     );
   });
 
@@ -21,7 +27,10 @@ describe('バトル問題の問い合わせ', () => {
       skill,
       grade: 3,
       uniqueSkillIds: ['sk-test'],
-      hasCandidate: (candidate) => candidate.gradeRange[0] === 1 && candidate.gradeRange[1] === 3,
+      hasCandidate: (candidate) =>
+        candidate.gradeRange[0] === 1 &&
+        candidate.gradeRange[1] === 3 &&
+        candidate.units?.[0] === 'sansu.g2.kuku',
     });
     expect(query.gradeRange).toEqual([1, 3]);
     expect(recruitQuestionQuery(skill, 'aomori').tags).toEqual(['prefecture:aomori']);
