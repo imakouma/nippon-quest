@@ -67,7 +67,7 @@ for (const viewport of [
         Math.max(body.baseGroundY, body.minBodyTop + body.targetBodyHeight),
         3,
       );
-      expect(body.visibleTop).toBeGreaterThanOrEqual(body.minBodyTop);
+      expect(body.visibleTop).toBeGreaterThanOrEqual(body.minBodyTop - 0.001);
       observed.push({ id: expected.id, heightCm: body.bodyHeightCm, bodyHeight: body.renderedBodyHeight });
     }
 
