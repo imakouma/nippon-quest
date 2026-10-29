@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved on 2026-10-27; implementation in progress.
+Approved on 2026-10-27. Revised on 2026-10-29 to raise the maximum body height to 250px.
 
 2026-10-27の初稿は、進化段階によるバッグ占有サイズを体格の代理値にしていたため撤回する。本仕様は、すでに全キャラクターへ設定された身長・高さデータを直接使う。
 
@@ -81,10 +81,10 @@ type RuntimeCharacterBodySize = {
 
 ### Physical height compression
 
-100cmのキャラを現行の通常敵相当の基準表示高とし、平方根で実寸差を圧縮する。
+100cmのキャラを現行の通常敵相当の基準表示高とし、0.55乗で実寸差を圧縮する。平方根より大型キャラを少し強く反映し、最大級の設定身長が250pxの上限まで届くようにする。
 
 ```ts
-const rawBodyHeight = referencePixels * Math.sqrt(heightCm / 100);
+const rawBodyHeight = referencePixels * (heightCm / 100) ** 0.55;
 const targetBodyHeight = clamp(rawBodyHeight, minBodyPixels, maxBodyPixels);
 ```
 
@@ -92,15 +92,15 @@ Phaserの論理キャンバスはビューポート幅にかかわらず960×540
 
 | レイアウト           | 100cm基準 | 最小表示高 | 最大表示高 |
 | -------------------- | --------: | ---------: | ---------: |
-| side view            |      96px |       48px |      224px |
-| canonical depth view |      96px |       60px |      188px |
+| side view            |      96px |       48px |      250px |
+| canonical depth view |      96px |       60px |      250px |
 
-canonical depth viewの最小60論理pxは、640×360表示で約40画面pxになる。最大188論理pxは既存HUDの安全領域内に収める値である。
+canonical depth viewの最小60論理pxは、640×360表示で約40画面pxになる。最大250論理pxの敵は、足元を下へ補正して身体上端をHUDの安全ライン内に収める。
 
 この関数の性質：
 
 - 10cmと580cmの実寸比58倍を、そのまま画面へ出さない。
-- 平方根により約7.6倍へ圧縮し、さらに画面上限・下限で安全に収める。
+- 0.55乗により実寸差を圧縮し、さらに画面上限・下限で安全に収める。
 - 100cmは現行の通常敵と同程度なので、中型キャラの見え方を大きく変えない。
 - 体格差は連続値で表現し、通常敵・中ボス・県ボス・地方ボスの固定段階へ丸めない。
 
@@ -110,12 +110,22 @@ canonical depth viewの最小60論理pxは、640×360表示で約40画面pxに�
 
 | キャラ                      | 設定高 | 圧縮前の計算 | 目標表示高 |
 | --------------------------- | -----: | -----------: | ---------: |
-| `yamanashi-suzurin`         |   32cm |       約54px |     約54px |
-| `yamanashi-houtoun`         |   38cm |       約59px |     約59px |
-| `yamanashi-suzuri-tatsujin` |  120cm |      約105px |    約105px |
-| `yamanashi-boss-suisho-ryu` |  350cm |      約180px |    約180px |
+| `yamanashi-suzurin`         |   32cm |       約51px |     約51px |
+| `yamanashi-houtoun`         |   38cm |       約56px |     約56px |
+| `yamanashi-suzuri-tatsujin` |  120cm |      約106px |    約106px |
+| `yamanashi-boss-suisho-ryu` |  350cm |      約191px |    約191px |
 
-スズリンと硯達人の実寸比は3.75倍だが、画面上は約1.9倍へ圧縮される。小型キャラを読める大きさに保ちながら、設定上の明確な差を残す。
+スズリンと硯達人の実寸比は3.75倍だが、画面上は約2.1倍へ圧縮される。canonical depth viewではスズリンを60pxの下限へ収め、小型キャラを読める大きさに保ちながら設定上の明確な差を残す。
+
+### Large-enemy placement
+
+通常サイズの敵は既存の足元位置を維持する。大型の敵だけ、身体上端が140論理pxより上へ出ないように足元を下へ補正する。
+
+```ts
+const groundY = Math.max(baseGroundY, minBodyTop + targetBodyHeight);
+```
+
+canonical depth viewでは、250pxの敵の足元は286pxから390pxへ移動し、身体上端を140pxに保つ。攻撃エフェクト、影、踏みつけ演出も補正後の足元を基準にする。
 
 ### Visible body bounds
 

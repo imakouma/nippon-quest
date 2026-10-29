@@ -107,6 +107,7 @@ import { resolveBattleLaunchRuleset } from './battle/rulesetSetup';
 import { BattleResumeRuntime, resumeLaunch, runCheckpointedBattleCommand } from './battle/resumeRuntime';
 import {
   ensureMonsterTexture,
+  monsterBodyGroundY,
   monsterBodyTargetHeight,
   monsterFrameVisibleBounds,
   monsterStageSize,
@@ -374,15 +375,12 @@ export class BattleScene extends Phaser.Scene {
     const bodySize = resolveCharacterBodySize(def.id);
     if (!bodySize) throw new Error(`Missing character body size: ${def.id}`);
     const targetBodyHeight = monsterBodyTargetHeight(bodySize.heightCm, this.layout);
+    const enemyGroundY = monsterBodyGroundY(targetBodyHeight, this.layout);
     this.enemyScale = targetBodyHeight / this.enemySize;
     const eKey = ensureMonsterTexture(this.textures, def, this.state.enemy.element, this.enemySize, isBoss);
-    this.enemySprite = createMonsterSprite(
-      this,
-      def.id,
-      this.layout.enemy.x,
-      this.layout.enemy.y,
-      eKey,
-    ).setDepth(10);
+    this.enemySprite = createMonsterSprite(this, def.id, this.layout.enemy.x, enemyGroundY, eKey).setDepth(
+      10,
+    );
     const bodyBounds = monsterFrameVisibleBounds(
       this.textures,
       this.enemySprite.texture.key,
@@ -400,7 +398,7 @@ export class BattleScene extends Phaser.Scene {
       .setData('visibleBodyBounds', bodyBounds);
     this.addShadow(
       this.enemySprite,
-      this.layout.enemy.y,
+      enemyGroundY,
       Math.max(8, Math.round((bodyBounds.width * imageScale * 0.7) / S)),
     );
 
@@ -1192,7 +1190,7 @@ export class BattleScene extends Phaser.Scene {
     const fx = this.add
       .sprite(
         this.layout.enemy.x,
-        this.layout.enemy.y - (this.enemySize * this.enemyScale) / 2,
+        this.enemySprite.y - (this.enemySize * this.enemyScale) / 2,
         'bt.fx.slash',
         0,
       )
@@ -1220,7 +1218,7 @@ export class BattleScene extends Phaser.Scene {
     const fx = this.add
       .sprite(
         this.layout.enemy.x,
-        this.layout.enemy.y - (this.enemySize * this.enemyScale) / 2,
+        this.enemySprite.y - (this.enemySize * this.enemyScale) / 2,
         'bt.fx.slash',
         0,
       )
@@ -1256,7 +1254,7 @@ export class BattleScene extends Phaser.Scene {
     if (kind === 'cross') this.time.delayedCall(150, () => playSfx('slash'));
     const at = {
       x: this.layout.enemy.x,
-      y: this.layout.enemy.y - (this.enemySize * this.enemyScale) / 2,
+      y: this.enemySprite.y - (this.enemySize * this.enemyScale) / 2,
     };
     await this.fx.swing(kind, at, ELEMENT_FX[this.lastElement]);
     void this.walk(sp, this.layout.hero.x, 280).then(() => {
@@ -1289,7 +1287,7 @@ export class BattleScene extends Phaser.Scene {
     const k = this.enemyAttacks++;
     if (this.state.isBossBattle && k % 2 === 1) {
       this.lastEnemyStyle = 'quake';
-      await this.fx.stomp(sp, 40 * S, this.layout.enemy.y);
+      await this.fx.stomp(sp, 40 * S, this.enemySprite.y);
     } else if (k % 3 === 1) {
       this.lastEnemyStyle = 'bash';
       await this.fx.dash(sp, 30 * S);

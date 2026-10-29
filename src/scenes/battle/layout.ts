@@ -11,6 +11,7 @@ export interface BattleLayout {
     referenceBodyHeight: number;
     minBodyHeight: number;
     maxBodyHeight: number;
+    minBodyTop: number;
   };
   hero: { x: number; y: number; scale: number };
   partner: { x: number; y: number; scale: number };
@@ -23,7 +24,8 @@ const SIDE_LAYOUT: BattleLayout = {
     scaleStep: 0,
     referenceBodyHeight: 96,
     minBodyHeight: 48,
-    maxBodyHeight: 224,
+    maxBodyHeight: 250,
+    minBodyTop: 130,
   },
   hero: { x: 690, y: 388, scale: BATTLE_SCALE },
   partner: { x: 820, y: 356, scale: BATTLE_SCALE },
@@ -37,7 +39,8 @@ const DEPTH_LAYOUT: BattleLayout = {
     scaleStep: -1,
     referenceBodyHeight: 96,
     minBodyHeight: 60,
-    maxBodyHeight: 188,
+    maxBodyHeight: 250,
+    minBodyTop: 140,
   },
   hero: { x: 676, y: 432, scale: BATTLE_SCALE + 1 },
   partner: { x: 828, y: 404, scale: BATTLE_SCALE + 1 },
