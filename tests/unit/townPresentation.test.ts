@@ -51,4 +51,12 @@ describe('町の decor 表示', () => {
     expect(addTownDecor(scene as never, map as never, 16)).toBe(false);
     expect(copy.destroy).toHaveBeenCalledOnce();
   });
+
+  it('対象の木がない場合はコピーや描画物を作らず元decorへ戻す', () => {
+    const tilemap = vi.fn();
+    const scene = { make: { tilemap } };
+    const map = { width: 2, height: 1, getLayer: () => ({ data: [[{ index: 31 }, { index: 34 }]] }) };
+    expect(addTownDecor(scene as never, map as never, 16)).toBe(false);
+    expect(tilemap).not.toHaveBeenCalled();
+  });
 });

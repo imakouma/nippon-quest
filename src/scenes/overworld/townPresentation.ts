@@ -40,6 +40,7 @@ export function addTownDecor(scene: Phaser.Scene, map: Phaser.Tilemaps.Tilemap, 
   if (!decor) return false;
   const ids = decor.data.flatMap((row) => row.map((tile) => tile.index));
   const trees = townTrees(ids, map.width);
+  if (!trees.length) return false;
   const copy = scene.make.tilemap({
     tileWidth: tileSize,
     tileHeight: tileSize,
