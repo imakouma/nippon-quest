@@ -47,7 +47,7 @@ test('歩行位置・向き・歩き回る町人の位置/向き/表示を保存
         ...state.progress,
         currentMap: 'aomori-town',
         position: { x: 25 * 16, y: 35 * 16 },
-        counters: { ...state.progress.counters, 'story.prologue': 1 },
+        counters: { ...state.progress.counters, 'story.prologue': 1, 'visit:aomori-town': 1 },
       },
     });
     game.scene.getScene('Overworld').scene.restart({

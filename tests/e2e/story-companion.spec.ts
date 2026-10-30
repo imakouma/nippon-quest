@@ -24,6 +24,8 @@ async function putPlayerInIwateTown(page: Page): Promise<void> {
         state.progress.currentMap = 'iwate-town';
         state.progress.position = { x: 400, y: 560 };
         state.progress.counters['story.prologue'] = 1;
+        state.progress.areaSigns.push('aomori');
+        state.progress.counters['visit:iwate-town'] = 1;
         state.party = {
           owned: [],
           activeUid: null,

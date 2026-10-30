@@ -184,8 +184,19 @@ test('鳥取県の大きな地図で現在県だけを詳しく、周辺県を�
       request.onsuccess = () => {
         const state = request.result;
         state.progress.currentArea = 'tottori';
+        state.progress.currentIsland = 'chugoku';
         state.progress.currentMap = 'tottori-field';
         state.progress.position = { x: 1328, y: 224 };
+        state.progress.islandsCleared = [
+          'tohoku',
+          'hokkaido',
+          'kanto',
+          'hokuriku',
+          'koshinetsu',
+          'tokai',
+          'kinki',
+        ];
+        state.progress.counters['visit:tottori-field'] = 1;
         state.progress.counters['story.chapter.chugoku'] = 1;
         for (const area of ['shimane', 'okayama', 'hiroshima', 'yamaguchi']) {
           state.progress.counters[`visit:${area}-field`] = 1;

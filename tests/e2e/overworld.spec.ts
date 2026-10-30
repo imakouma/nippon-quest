@@ -8,6 +8,8 @@ interface SavedFieldState {
     currentArea: string;
     currentMap: string;
     position: { x: number; y: number };
+    areaSigns: string[];
+    islandsCleared: string[];
     counters: Record<string, number>;
     eventsDone: string[];
     chestsOpened: string[];
@@ -47,6 +49,20 @@ async function teleport(
   if (destination.island) state.progress.currentIsland = destination.island;
   state.progress.position = { x: tile[0] * 16, y: tile[1] * 16 };
   state.progress.counters['story.prologue'] = 1;
+  if (destination.area === 'kagoshima') {
+    state.progress.islandsCleared = [
+      'tohoku',
+      'hokkaido',
+      'kanto',
+      'hokuriku',
+      'koshinetsu',
+      'tokai',
+      'kinki',
+      'chugoku',
+      'shikoku',
+    ];
+    state.progress.areaSigns.push('kagoshima');
+  }
   if (destination.devAll) state.progress.counters['dev:all'] = 1;
   await jsonBox.fill(JSON.stringify(state));
   await page.getByRole('button', { name: /JSONを(?:読みこむ|よみこむ)/ }).click();
