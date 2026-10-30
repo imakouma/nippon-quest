@@ -57,7 +57,11 @@ export function buildTownViewTexture(scene: Phaser.Scene): void {
         } else if (roof === 7) {
           for (const ry of [3, 7, 11]) ctx.fillRect(x + (ry % 2 ? 2 : 5), y + ry, 3, 1);
         }
-        if (!(mask & 4)) ctx.fillRect(x, y + 14, 16, 2);
+        if (!(mask & 4)) {
+          if (roof === 6) ctx.fillStyle = NQ.brown;
+          ctx.fillRect(x, y + 14, 16, 2);
+          ctx.fillStyle = dark;
+        }
         if (!(mask & 8)) ctx.fillRect(x, y + 2, 1, 12);
         if (!(mask & 2)) ctx.fillRect(x + 15, y + 2, 1, 12);
         ctx.fillStyle = [NQ.lime, NQ.white, NQ.sand, NQ.beige, NQ.silver, NQ.slate][ground]!;

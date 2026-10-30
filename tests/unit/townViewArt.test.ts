@@ -29,11 +29,12 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
     for (let y = 0; y < 16; y++)
       for (let x = 0; x < 16; x++) expect(NQ48).toContain(pixels.get(`${originX + x},${originY + y}`));
   }
-  const roofPixel = (roof: number, x: number, y: number) => {
-    const tile = TOWN_ROOF_START + roof * 16 + 15;
+  const roofPixel = (roof: number, x: number, y: number, mask = 15) => {
+    const tile = TOWN_ROOF_START + roof * 16 + mask;
     return pixels.get(`${(tile % 8) * 16 + x},${Math.floor(tile / 8) * 16 + y}`);
   };
   expect(roofPixel(5, 3, 2)).toBe(NQ.brick);
   expect(roofPixel(6, 2, 9)).toBe(NQ.cloud);
+  expect(roofPixel(6, 8, 15, 11)).toBe(NQ.brown);
   expect(roofPixel(7, 2, 3)).toBe(NQ.brown);
 });
