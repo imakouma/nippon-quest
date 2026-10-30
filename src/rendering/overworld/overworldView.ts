@@ -52,8 +52,10 @@ export const VIEW = {
   ROAD: 72,
   /** 門のない県境を示す石垣 */
   PREFECTURE_BORDER: 88,
+  ORCHARD_ALT: 89,
+  ORCHARD_PEACH_ALT: 90,
 } as const;
-export const VIEW_COUNT = 89;
+export const VIEW_COUNT = 91;
 
 /** background の 番号（fieldArt.ts・core/world/ground.ts） */
 const WATER = 3;
@@ -86,7 +88,10 @@ export function viewTileAt(bg: readonly number[], w: number, h: number, i: numbe
     const m = mask((n) => FOREST.has(n));
     return m === 15 && t === 150 ? VIEW.FOREST_PINE : VIEW.FOREST + m;
   }
-  if (ORCHARD.has(t)) return t === 158 ? VIEW.ORCHARD_PEACH : VIEW.ORCHARD;
+  if (ORCHARD.has(t)) {
+    if (t === 158) return r % 5 < 2 ? VIEW.ORCHARD_PEACH_ALT : VIEW.ORCHARD_PEACH;
+    return r % 5 < 2 ? VIEW.ORCHARD_ALT : VIEW.ORCHARD;
+  }
   if (MOUNTAIN.has(t)) return t === 12 ? VIEW.PEAK_SNOW : r % 3 === 0 ? VIEW.PEAK2 : VIEW.PEAK;
   switch (t) {
     case 159:

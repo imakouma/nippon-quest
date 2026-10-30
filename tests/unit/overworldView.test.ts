@@ -48,6 +48,16 @@ describe('フィールドの 見た目（overworldView）', () => {
     expect(first.every((tile) => tile === -1 || (tile >= 0 && tile < VIEW_COUNT))).toBe(true);
   });
 
+  it('果樹の種類を保ちつつ座標で原画を選ぶ', () => {
+    for (const [ground, variants] of [
+      [157, [VIEW.ORCHARD, VIEW.ORCHARD_ALT]],
+      [158, [VIEW.ORCHARD_PEACH, VIEW.ORCHARD_PEACH_ALT]],
+    ] as const) {
+      const bg = Array<number>(16).fill(ground);
+      expect(new Set(overworldView(bg, 4, 4))).toEqual(new Set(variants));
+    }
+  });
+
   it('海は となりが 陸の がわに 波（北 1・東 2・南 4・西 8）', () => {
     expect(
       viewTileAt(

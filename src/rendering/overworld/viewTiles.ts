@@ -94,7 +94,7 @@ function grove(
 }
 
 /** 果樹園の 木：草の 上に 1 本（まるい こずえ・みき・足もとの かげ・2×2 の 実） */
-function fruitTree(p: Px, fruit: string, fruitShade: string): void {
+function fruitTree(p: Px, fruit: string, fruitShade: string, alternate = false): void {
   for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, grassAt(x, y, 0));
   for (let y = 13; y <= 14; y++)
     for (let x = 4; x <= 11; x++) if (y === 13 || (x > 4 && x < 11)) p(x, y, NQ.green);
@@ -112,11 +112,17 @@ function fruitTree(p: Px, fruit: string, fruitShade: string): void {
     }
   p(5, 3, NQ.lime);
   p(6, 3, NQ.lime);
-  for (const [fx, fy] of [
-    [4, 6],
-    [9, 3],
-    [9, 8],
-  ] as const) {
+  for (const [fx, fy] of alternate
+    ? ([
+        [5, 4],
+        [10, 6],
+        [6, 9],
+      ] as const)
+    : ([
+        [4, 6],
+        [9, 3],
+        [9, 8],
+      ] as const)) {
     p(fx, fy, fruit);
     p(fx + 1, fy, fruit);
     p(fx, fy + 1, fruitShade);
@@ -242,6 +248,8 @@ function drawView(px: (n: number) => Px): void {
   // 果樹園（1 本ずつ 実の なる 木）
   fruitTree(px(VIEW.ORCHARD), NQ.red, NQ.brick);
   fruitTree(px(VIEW.ORCHARD_PEACH), NQ.blush, NQ.berry);
+  fruitTree(px(VIEW.ORCHARD_ALT), NQ.red, NQ.brick, true);
+  fruitTree(px(VIEW.ORCHARD_PEACH_ALT), NQ.blush, NQ.berry, true);
   // 道：草原の 上の 土の 道。まん中と、となりが 道の がわへ のびる（ふちは 草に なじむ こげ茶の 点）
   for (let mask = 0; mask < 16; mask++) {
     const p = px(VIEW.ROAD + mask);
