@@ -23,6 +23,19 @@ const assets = {
 };
 const speak = createSpeaker();
 const nextFrame = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+const waitForImages = async (host: HTMLElement) => {
+  await Promise.all(
+    [...host.querySelectorAll('img')].map(
+      (image) =>
+        image.complete ||
+        new Promise<void>((resolve) => {
+          image.addEventListener('load', () => resolve(), { once: true });
+          image.addEventListener('error', () => resolve(), { once: true });
+        }),
+    ),
+  );
+  await nextFrame();
+};
 
 interface AuditFailure {
   id: string;
@@ -143,7 +156,7 @@ function AuditApp() {
               signal: abort.signal,
             })
             .catch((error: unknown) => console.error('question mount failed', question.id, error));
-          await nextFrame();
+          await waitForImages(host.current);
           if (!disposed) {
             for (const reason of inspectQuestion(host.current))
               found.push({ id: question.id, type: question.type, reason });
