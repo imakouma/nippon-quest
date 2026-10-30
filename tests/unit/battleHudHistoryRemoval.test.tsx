@@ -52,5 +52,7 @@ describe('BattleHud', () => {
 
     expect(normalHost.querySelector('.nq-panel')?.classList.contains('nq-panel-boss')).toBe(false);
     expect(bossHost.querySelector('.nq-panel')?.classList.contains('nq-panel-boss')).toBe(true);
+    render(null, normalHost);
+    render(null, bossHost);
   });
 });
