@@ -12,6 +12,9 @@ import { tOpt } from '../ui/i18n';
 import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
 import { QuestionTree } from './QuestionTree';
+import { FIRST_GRADE_READING_UNITS, kanjiCategory, type KanjiCategory } from './kanjiCategory';
+import { defaultFolderHidden, defaultFolderKey, folderSubject, isUnfiled } from './folderLayout';
+import { useFolderState } from './useFolderState';
 
 export interface QuestionEntry {
   /** "<ファイル>#<何番目>" */
@@ -109,18 +112,57 @@ export function QuestionList({
   const [text, setText] = useState('');
   const [samples, setSamples] = useState(false);
   const [onlyBad, setOnlyBad] = useState(false);
-  const [scopeFile, setScopeFile] = useState<string | null>(null);
+  const [scopeUnit, setScopeUnit] = useState<string | null | undefined>(undefined);
+  const [scopeCategory, setScopeCategory] = useState<KanjiCategory | undefined>();
+  const folderTools = useFolderState();
+  const folderReady =
+    !catalog || entries.filter((entry) => !isSample(entry)).length >= catalog.totalQuestions;
+  const activeFolderTools = { ...folderTools, busy: folderTools.busy || !folderReady };
   const search = useMemo(() => new Map(entries.map((e) => [e.key, haystack(e)])), [entries]);
 
-  const pool = entries.filter((e) => (samples || !isSample(e)) && (!scopeFile || e.file === scopeFile));
+  const unitFiles = new Set(
+    catalog?.subjects.flatMap((subject) =>
+      subject.grades.flatMap((grade) =>
+        grade.units
+          .filter(
+            (unit) =>
+              unit.unit === scopeUnit ||
+              (scopeUnit === FIRST_GRADE_READING_UNITS[0] &&
+                scopeCategory === 'reading' &&
+                unit.unit === FIRST_GRADE_READING_UNITS[1]),
+          )
+          .flatMap((unit) => unit.sets.map((set) => set.file)),
+      ),
+    ),
+  );
+  const pool = entries.filter(
+    (e) =>
+      (samples || !isSample(e)) &&
+      (!scopeUnit ||
+        (scopeUnit.startsWith('custom:')
+          ? !!e.q &&
+            !!folderTools.state &&
+            folderTools.state.layout.assignments[e.q.id] === scopeUnit.slice(7) &&
+            !isUnfiled(e.q, units, folderTools.state.layout)
+          : scopeUnit.startsWith('unfiled:')
+            ? !!e.q &&
+              !!folderTools.state &&
+              isUnfiled(e.q, units, folderTools.state.layout) &&
+              `unfiled:${folderSubject(e.q, units)}:${e.q.grade}` === scopeUnit
+            : unitFiles.has(e.file) &&
+              (!e.q || !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)))) &&
+      (!scopeCategory || kanjiCategory(e.q) === scopeCategory),
+  );
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');
   const needle = text.trim().toLowerCase();
+  const filtering = !!needle || samples || onlyBad || FACETS.some((key) => !!f[key]);
   /** skip の しぼりこみ だけ 外して あてはまるか（えらぶ ところの 件数に つかう） */
   const match = (e: QuestionEntry, skip?: Facet) =>
     (!onlyBad || !!e.problem) &&
     FACETS.every((k) => k === skip || !f[k] || valueOf(e, k) === f[k]) &&
     (!needle || (search.get(e.key) ?? '').includes(needle));
-  const shown = pool.filter((e) => match(e));
+  const awaitingFolder = !!catalog && scopeUnit === undefined && !filtering;
+  const shown = awaitingFolder ? [] : pool.filter((e) => match(e));
   const visible = shown.slice(0, 200);
   const bad = pool.filter((e) => e.problem).length;
 
@@ -153,19 +195,26 @@ export function QuestionList({
     );
   };
   const byText = (a: string, b: string) => a.localeCompare(b);
+  const questionRows = (
+    <div class="pg-question-list" role="list">
+      {visible.map((e) => (
+        <Row
+          key={e.key}
+          e={e}
+          unitName={e.q ? units.get(e.q.unit) : undefined}
+          selected={selected === e.key}
+          onPick={onPick}
+          imageUrl={imageUrl}
+          folderTools={activeFolderTools}
+          units={units}
+        />
+      ))}
+      {shown.length > visible.length && <p class="pg-empty">{pgText('first200')}</p>}
+    </div>
+  );
 
   return (
     <nav class="pg-list" aria-label={pgText('find')}>
-      <div class="pg-list-head">
-        <div>
-          <p class="pg-section-label">{pgText('library')}</p>
-          <h2>{pgText('find')}</h2>
-        </div>
-        <button type="button" class="pg-reload" onClick={onReload}>
-          ↻ {pgText('reload')}
-        </button>
-      </div>
-
       <details class="pg-filter-details">
         <summary>{pgText('filters')}</summary>
         <div class="pg-filters">
@@ -218,50 +267,51 @@ export function QuestionList({
               {pgText('onlyErrors')}
             </label>
           </div>
+          <button type="button" class="pg-reload" onClick={onReload}>
+            ↻ {pgText('reload')}
+          </button>
         </div>
       </details>
 
-      <div class="pg-browser">
+      <div class={`pg-browser${filtering ? ' pg-browser-filtering' : ''}`}>
         {catalog && (
           <QuestionTree
             catalog={catalog}
             units={units}
             subjects={subjects}
-            selectedFile={scopeFile}
-            onSelectFile={setScopeFile}
+            selectedUnit={scopeUnit}
+            selectedCategory={scopeCategory}
+            onSelectUnit={(unit, category) => {
+              setScopeUnit(unit);
+              setScopeCategory(category);
+            }}
+            entries={entries}
+            questions={filtering ? null : questionRows}
+            folderTools={activeFolderTools}
           />
         )}
-        <div class="pg-results">
-          <div class="pg-results-head">
-            <strong>{pgText('searchResults')}</strong>
-            <span class="pg-count">
-              {shown.length}
-              {pgText('questionSuffix')} / {pool.length}
-              {pgText('questionSuffix')}
-              {bad > 0 && (
-                <b class="pg-err">
-                  {' '}
-                  · {pgText('error')} {bad}
-                </b>
-              )}
-            </span>
+        {(filtering || !catalog) && (
+          <div class="pg-results">
+            <div class="pg-results-head">
+              <strong>{pgText('searchResults')}</strong>
+              <span class="pg-count">
+                {shown.length}
+                {pgText('questionSuffix')} / {pool.length}
+                {pgText('questionSuffix')}
+                {bad > 0 && (
+                  <b class="pg-err">
+                    {' '}
+                    · {pgText('error')} {bad}
+                  </b>
+                )}
+              </span>
+            </div>
+            {questionRows}
+            {shown.length === 0 && (
+              <p class="pg-empty">{pgText(awaitingFolder ? 'chooseFolder' : 'noMatches')}</p>
+            )}
           </div>
-          <div class="pg-question-list" role="list">
-            {visible.map((e) => (
-              <Row
-                key={e.key}
-                e={e}
-                unitName={e.q ? units.get(e.q.unit) : undefined}
-                subjectName={e.q ? subjects.get(e.q.subject) : undefined}
-                selected={selected === e.key}
-                onPick={onPick}
-                imageUrl={imageUrl}
-              />
-            ))}
-          </div>
-          {shown.length === 0 && <p class="pg-empty">{pgText('noMatches')}</p>}
-          {shown.length > visible.length && <p class="pg-empty">{pgText('first200')}</p>}
-        </div>
+        )}
       </div>
     </nav>
   );
@@ -270,13 +320,14 @@ export function QuestionList({
 interface RowProps {
   e: QuestionEntry;
   unitName?: string;
-  subjectName?: string;
   selected: boolean;
   onPick: (e: QuestionEntry) => void;
   imageUrl: (path: string) => string;
+  folderTools: ReturnType<typeof useFolderState>;
+  units: ReadonlyMap<string, string>;
 }
 
-function Row({ e, unitName, subjectName, selected, onPick, imageUrl }: RowProps) {
+function Row({ e, unitName, selected, onPick, imageUrl, folderTools, units }: RowProps) {
   const q = e.q;
   const s = q ? summarize(q) : null;
   const cls = [selected && 'pg-sel', e.problem && 'pg-bad'].filter(Boolean).join(' ');
@@ -309,10 +360,6 @@ function Row({ e, unitName, subjectName, selected, onPick, imageUrl }: RowProps)
               (q?.id ?? `${e.file}[${e.index}]`)
             )}
           </strong>
-          <span class="pg-question-facts">
-            {q && `${subjectName ?? q.subject} · ${pgText('gradePrefix')}${q.grade} · ${q.type}`}
-          </span>
-          <code class="pg-id">{q?.id ?? `${e.file}[${e.index}]`}</code>
           {s && s.options.length > 0 && (
             <span class="pg-question-options">
               {s.options.slice(0, 4).map((option) => (
@@ -328,11 +375,43 @@ function Row({ e, unitName, subjectName, selected, onPick, imageUrl }: RowProps)
           ›
         </span>
       </button>
-      {selected && q?.explanation && (
-        <div class="pg-question-explanation">
-          <span>{pgText('explanation')}</span>
-          <RubyLabel text={q.explanation} />
-        </div>
+      {q && !e.problem && selected && !isSample(e) && folderTools.state && (
+        <select
+          class="pg-folder-move"
+          aria-label={`${pgText('folderMove')}: ${s?.prompt ?? q.id}`}
+          disabled={folderTools.busy}
+          value={
+            isUnfiled(q, units, folderTools.state.layout)
+              ? 'unfiled'
+              : (folderTools.state.layout.assignments[q.id] ?? 'original')
+          }
+          onChange={(event) => {
+            const value = (event.currentTarget as HTMLSelectElement).value;
+            const layout = folderTools.state!.layout;
+            const assignments = { ...layout.assignments };
+            if (value === 'original') delete assignments[q.id];
+            else assignments[q.id] = value === 'unfiled' ? null : value;
+            void folderTools.change({ ...layout, assignments });
+          }}
+        >
+          <option
+            value="original"
+            disabled={defaultFolderHidden(folderTools.state.layout, defaultFolderKey(q, units))}
+          >
+            {pgText('folderOriginal')}
+          </option>
+          <option value="unfiled">{pgText('folderUnfiled')}</option>
+          {folderTools.state.layout.folders
+            .filter(
+              (folder) =>
+                folder.grade === q.grade &&
+                folder.subject === folderSubject(q, units) &&
+                (!folder.category || folder.category === kanjiCategory(q)),
+            )
+            .map((folder) => (
+              <option value={folder.id}>{folder.name}</option>
+            ))}
+        </select>
       )}
     </div>
   );

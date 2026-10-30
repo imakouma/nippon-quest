@@ -1,4 +1,5 @@
 import type { Grade, QuestionBase, Subject } from '../questions/contracts';
+import { useRef, useState } from 'preact/hooks';
 
 type EditorQuestionFormProps = {
   question: QuestionBase;
@@ -93,6 +94,8 @@ export function EditorQuestionForm({
   onFieldChange,
   onPayloadChange,
 }: EditorQuestionFormProps) {
+  const draggedChoice = useRef<string | null>(null);
+  const [dropTarget, setDropTarget] = useState<string | null>(null);
   const rawChoices = (question.payload as Record<string, unknown>)?.choices;
   const choices = Array.isArray(rawChoices)
     ? rawChoices.filter(
@@ -100,6 +103,48 @@ export function EditorQuestionForm({
           !!choice && typeof choice === 'object' && typeof (choice as { id?: unknown }).id === 'string',
       )
     : [];
+  const canChangeType = question.type === 'choice' || question.type === 'text-input';
+
+  const moveChoice = (id: string, target: number) => {
+    const from = choices.findIndex((choice) => choice.id === id);
+    if (from < 0 || target < 0 || target >= choices.length || from === target) return;
+    const next = [...choices];
+    next.splice(target, 0, next.splice(from, 1)[0]!);
+    onPayloadChange('choices', next);
+  };
+
+  const changeType = (type: string) => {
+    if (type === question.type || !canChangeType) return;
+    if (
+      !window.confirm(
+        '問題文と正解を引き継ぎますが、それ以外の内容は引き継がれない場合があります。変更しますか？',
+      )
+    )
+      return;
+    const payload = question.payload as Record<string, unknown>;
+    const prompt = typeof payload.prompt === 'string' ? payload.prompt : '';
+    const image = typeof payload.promptImage === 'string' ? { promptImage: payload.promptImage } : {};
+    if (type === 'text-input') {
+      const answer = choices.find((choice) => choice.id === payload.answer)?.text ?? '';
+      onQuestionChange({ ...question, type, payload: { prompt, ...image, answers: [answer] } });
+    } else if (type === 'choice') {
+      const answer =
+        Array.isArray(payload.answers) && typeof payload.answers[0] === 'string' ? payload.answers[0] : '';
+      onQuestionChange({
+        ...question,
+        type,
+        payload: {
+          prompt,
+          ...image,
+          choices: [
+            { id: 'a', text: answer },
+            { id: 'b', text: '' },
+          ],
+          answer: 'a',
+        },
+      });
+    }
+  };
 
   return (
     <>
@@ -121,7 +166,49 @@ export function EditorQuestionForm({
             <div class="ed-field">
               <span class="ed-label">選択肢一覧</span>
               {choices.map((choice, index) => (
-                <div key={choice.id} class="ed-choice-row">
+                <div
+                  key={choice.id}
+                  class={`ed-choice-row${dropTarget === choice.id ? ' ed-choice-drop-target' : ''}`}
+                  onDragOver={(event) => {
+                    if (draggedChoice.current) {
+                      event.preventDefault();
+                      setDropTarget(draggedChoice.current === choice.id ? null : choice.id);
+                    }
+                  }}
+                  onDragLeave={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget as Node | null))
+                      setDropTarget(null);
+                  }}
+                  onDrop={(event) => {
+                    event.preventDefault();
+                    if (draggedChoice.current) moveChoice(draggedChoice.current, index);
+                    draggedChoice.current = null;
+                    setDropTarget(null);
+                  }}
+                >
+                  <button
+                    type="button"
+                    class="ed-drag-handle"
+                    draggable
+                    aria-label={`選択肢 ${index + 1}をドラッグして並べ替え`}
+                    title="ドラッグ、または上下の矢印キーで並べ替え"
+                    onKeyDown={(event) => {
+                      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+                        event.preventDefault();
+                        moveChoice(choice.id, index + (event.key === 'ArrowUp' ? -1 : 1));
+                      }
+                    }}
+                    onDragStart={(event) => {
+                      draggedChoice.current = choice.id;
+                      event.dataTransfer?.setData('text/plain', choice.id);
+                    }}
+                    onDragEnd={() => {
+                      draggedChoice.current = null;
+                      setDropTarget(null);
+                    }}
+                  >
+                    ⠿
+                  </button>
                   <input
                     type="radio"
                     name="correct"
@@ -257,7 +344,26 @@ export function EditorQuestionForm({
             <label class="ed-label" for="ed-question-type">
               問題タイプ
             </label>
-            <input id="ed-question-type" class="ed-input" value={question.type} readOnly />
+            <select
+              id="ed-question-type"
+              class="ed-select"
+              value={question.type}
+              disabled={!canChangeType}
+              onChange={(event) => {
+                const select = event.target as HTMLSelectElement;
+                const value = select.value;
+                select.value = question.type;
+                changeType(value);
+              }}
+            >
+              {!canChangeType && <option value={question.type}>{question.type}</option>}
+              {canChangeType && (
+                <>
+                  <option value="choice">選択式</option>
+                  <option value="text-input">記述式</option>
+                </>
+              )}
+            </select>
           </div>
         </div>
         <div class="ed-field">

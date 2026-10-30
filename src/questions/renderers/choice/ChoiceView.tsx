@@ -116,8 +116,10 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
               onClick={() => finish(c.id, false)}
             >
               <span class="nq-choice-key">{i + 1}</span>
-              {c.image && <img src={ctx.assets.image(c.image)} alt="" />}
-              {c.text && <RubyLabel text={c.text} grade={ctx.grade} />}
+              <span class="nq-choice-content">
+                {c.image && <img src={ctx.assets.image(c.image)} alt="" />}
+                {c.text && <RubyLabel text={c.text} grade={ctx.grade} />}
+              </span>
             </button>
           );
         })}

@@ -40,4 +40,12 @@ describe('問題の保存準備', () => {
       replaceQuestionForSave([question], [question], question.id, { ...question, payload: {} }),
     ).toThrow();
   });
+
+  it('選択式と記述式の変更は内容を検証して保存する', () => {
+    const updated = { ...question, type: 'text-input', payload: { prompt: '問題', answers: ['答え'] } };
+    expect(replaceQuestionForSave([question], [question], question.id, updated)).toEqual([updated]);
+    expect(() =>
+      replaceQuestionForSave([question], [question], question.id, { ...updated, payload: {} }),
+    ).toThrow();
+  });
 });

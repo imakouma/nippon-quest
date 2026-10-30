@@ -1,5 +1,32 @@
 import { expect, test } from '@playwright/test';
 
+test('長い選択肢の文字は番号と重ならず、枠からはみ出さない', async ({ page }) => {
+  await page.goto('/battle-question-audit.html?q=legacy.rika.g5.sci-5-5.abadeb364b15');
+  const choices = page.locator('.nq-q-choice .nq-choice');
+  await expect(choices.first()).toBeVisible({ timeout: 20_000 });
+  for (const choice of await choices.all()) {
+    const content = choice.locator('.nq-choice-content');
+    await expect(content).toBeVisible();
+    const bounds = await choice.evaluate((button) => {
+      const box = button.getBoundingClientRect();
+      const key = button.querySelector('.nq-choice-key')!.getBoundingClientRect();
+      const text = button.querySelector('.nq-choice-content')!.getBoundingClientRect();
+      return {
+        box: { left: box.left, right: box.right, top: box.top, bottom: box.bottom },
+        key: { right: key.right },
+        text: { left: text.left, right: text.right, top: text.top, bottom: text.bottom },
+        scroll: button.scrollWidth,
+        width: button.clientWidth,
+      };
+    });
+    expect(bounds.text.left).toBeGreaterThanOrEqual(bounds.key.right);
+    expect(bounds.text.right).toBeLessThanOrEqual(bounds.box.right);
+    expect(bounds.text.top).toBeGreaterThanOrEqual(bounds.box.top);
+    expect(bounds.text.bottom).toBeLessThanOrEqual(bounds.box.bottom);
+    expect(bounds.scroll).toBeLessThanOrEqual(bounds.width + 1);
+  }
+});
+
 test('テンプレート型の文字入力問題は問題文を二重に表示しない', async ({ page }) => {
   await page.goto('/battle-question-audit.html?q=legacy.sansu.g1.math-1-9.3e2f1449e1d8');
   await expect(page.locator('.nq-q-input')).toBeVisible({ timeout: 20_000 });

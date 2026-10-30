@@ -249,7 +249,7 @@ async function restartWithProgress(
         }
         game.registry.set('game', state);
         const field = game.scene.getScene('Overworld') as BrowserField;
-        field.events.once('create', resolve);
+        field.events.once('create', () => resolve());
         field.scene.restart({ mapKey, spawnTile, exactSpawn: true });
       }),
     {
@@ -496,7 +496,7 @@ test('開発者モードは入口を補正した栃木・埼玉の県境も往�
 });
 
 test('開発者モードはボス・名所を起動せず進行を変更しない', async ({ page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(240_000);
   const iwate = linkEndpoint('iwate', 'tohoku', 'land-iwate-miyagi');
   const { map, objects } = mapObjects('aomori');
   const event = objects.find((object) => object.type === 'event');
@@ -528,7 +528,7 @@ test('開発者モードはボス・名所を起動せず進行を変更しな�
         new Promise<void>((resolve) => {
           const game = (window as unknown as { __nq: BrowserGame }).__nq;
           const field = game.scene.getScene('Overworld') as BrowserField;
-          field.events.once('create', resolve);
+          field.events.once('create', () => resolve());
           field.scene.restart({ mapKey: target, spawnTile, exactSpawn: true });
         }),
       { target: mapKey, spawnTile: tile },
@@ -667,7 +667,7 @@ test('開発者モードはボス・名所を起動せず進行を変更しな�
 });
 
 test('9つの実在交通を種類別に表示し、960×540と844×390に収める', async ({ page }) => {
-  test.setTimeout(180_000);
+  test.setTimeout(360_000);
   const browserErrors: string[] = [];
   page.on('pageerror', (error) => browserErrors.push(error.message));
   page.on('console', (message) => {

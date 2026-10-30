@@ -157,7 +157,9 @@ export function PictureWordView({ ctx, payload, order, onDone }: PictureWordView
               onClick={() => pick(w.id)}
             >
               <span class="nq-choice-key">{i + 1}</span>
-              <span lang="en">{w.text}</span>
+              <span class="nq-choice-content" lang="en">
+                {w.text}
+              </span>
             </button>
           );
         })}

@@ -809,7 +809,7 @@ async function restartRepresentativeArea(
         delete state.progress.counters['dev:all'];
         game.registry.set('game', state);
         const field = game.scene.getScene('Overworld') as BrowserField;
-        field.events.once('create', resolve);
+        field.events.once('create', () => resolve());
         field.scene.restart({ mapKey, spawnTile, exactSpawn: true });
       }),
     {
@@ -833,7 +833,7 @@ async function restartFieldAt(page: Page, tile: Tile): Promise<void> {
       new Promise<void>((resolve) => {
         const game = (window as unknown as { __nq: BrowserGame }).__nq;
         const field = game.scene.getScene('Overworld') as BrowserField;
-        field.events.once('create', resolve);
+        field.events.once('create', () => resolve());
         field.scene.restart({ mapKey, spawnTile, exactSpawn: true });
       }),
     { mapKey: MAP_KEY, spawnTile: tile },
