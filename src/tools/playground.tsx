@@ -15,7 +15,8 @@ import { allRenderers, getRenderer } from '../questions/renderers/registry';
 import { fetchReader, parseContentManifest, type QuestionCatalog } from '../core/content/loader';
 import { setDictionary, tOpt, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
-import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
+import { kanjiGradeTable, setKanjiLevel, stripRuby, type KanjiGradeTable } from '../ui/ruby';
+import { RubyLabel } from '../ui/RubyLabel';
 import { QuestionList, type QuestionEntry } from './QuestionList';
 import '../questions/renderers/shared/questions.css';
 import './playground.css';
@@ -71,6 +72,24 @@ async function readQuestionFiles(files: string[]) {
     }),
   );
   return loaded;
+}
+
+function parseQuestion(text: string): QuestionBase | null {
+  try {
+    const parsed = questionBaseSchema.safeParse(JSON.parse(text));
+    return parsed.success ? (parsed.data as QuestionBase) : null;
+  } catch {
+    return null;
+  }
+}
+
+const pgText = (key: string) => stripRuby(tOpt(`tools.playground.${key}`) ?? '', 'kanji');
+
+function resultStatus(result: QuestionResult): { key: string; label: string } {
+  if (result.timedOut) return { key: 'timeout', label: pgText('statusTimeout') };
+  if (result.score >= 1) return { key: 'correct', label: pgText('statusCorrect') };
+  if (result.score > 0) return { key: 'partial', label: pgText('statusPartial') };
+  return { key: 'review', label: pgText('statusReview') };
 }
 
 function App() {
@@ -238,106 +257,32 @@ function App() {
     if (e) pick(e);
   }, [entries, kanji]);
 
+  const question = parseQuestion(json);
+  const payload = question?.payload as Record<string, unknown> | undefined;
+  const prompt = typeof payload?.prompt === 'string' ? payload.prompt : undefined;
+  const questionTitle = prompt ?? (question ? units.get(question.unit) : undefined) ?? question?.id;
+  const subject = question ? (subjects.get(question.subject) ?? question.subject) : '';
+  const status = result ? resultStatus(result) : null;
+
   return (
     <div class="pg">
-      <div class="pg-side">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
-          <h2 style="margin:0">Question Playground</h2>
-          <div style="display:flex; gap:8px; align-items:center;">
-            <a
-              href={`${base}/`}
-              style="font-size:13px; font-weight:bold; color:#334155; text-decoration:none; background:#e2e8f0; padding:4px 8px; border-radius:4px;"
-            >
-              ← {tOpt('ui.backToGame')}
-            </a>
-            <a
-              href={`${base}/editor.html`}
-              style="font-size:13px; font-weight:bold; color:#4f46e5; text-decoration:none; background:#e0e7ff; padding:4px 8px; border-radius:4px;"
-            >
-              ✏️ Webエディタ＆共同編集
-            </a>
-          </div>
+      <header class="pg-header">
+        <div>
+          <p class="pg-eyebrow">{pgText('eyebrow')}</p>
+          <h1>{pgText('title')}</h1>
+          <p class="pg-header-copy">{pgText('headerCopy')}</p>
         </div>
-        <div class="pg-row">
-          <label for="pg-grade">学年</label>
-          <select
-            id="pg-grade"
-            value={grade}
-            onChange={(e) => setGrade(Number((e.target as HTMLSelectElement).value) as Grade)}
-          >
-            {[1, 2, 3, 4, 5, 6].map((g) => (
-              <option value={g}>小{g}</option>
-            ))}
-          </select>
-          <label for="pg-time-limit">制限(秒)</label>
-          <input
-            id="pg-time-limit"
-            type="number"
-            value={timeLimit}
-            min={3}
-            max={120}
-            onInput={(e) => setTimeLimit(Number((e.target as HTMLInputElement).value))}
-          />
-        </div>
-        <label for="pg-file">問題ファイル</label>
-        <select id="pg-file" value={file} onChange={(e) => setFile((e.target as HTMLSelectElement).value)}>
-          <option value="">-- content/questions から選ぶ --</option>
-          {files.map((f) => (
-            <option value={f}>{f}</option>
-          ))}
-        </select>
-        {items.length > 0 && (
-          <select
-            id="pg-question"
-            aria-label="このファイルの 問題"
-            value={String(
-              Math.max(
-                0,
-                items.findIndex((item) => item.id === selectedItemId),
-              ),
-            )}
-            onChange={(e) => {
-              const item = items[Number((e.target as HTMLSelectElement).value)];
-              if (!item) return;
-              setSelectedItemId(item.id);
-              setGrade(item.grade);
-              setJson(JSON.stringify(item, null, 2));
-            }}
-          >
-            {items.map((q, i) => (
-              <option value={i}>
-                {q.id} ({q.type})
-              </option>
-            ))}
-          </select>
-        )}
-        <label for="pg-json">問題 JSON（直接編集して試せます）</label>
-        <textarea
-          id="pg-json"
-          value={json}
-          onInput={(e) => setJson((e.target as HTMLTextAreaElement).value)}
-          spellcheck={false}
-        />
-        <div class="pg-row">
-          <button type="button" class="pg-run" onClick={() => void run()} disabled={running}>
-            ▶ 表示
-          </button>
-          <button type="button" onClick={() => abort.current?.abort()} disabled={!running}>
-            中断
-          </button>
-          <span style="font-size:12px">
-            登録タイプ:{' '}
-            {allRenderers()
-              .map((r) => r.type)
-              .join(', ')}
-          </span>
-        </div>
-        {error && <pre class="pg-warn">{error}</pre>}
-        <label>QuestionResult</label>
-        <pre class="pg-result">{result ? JSON.stringify(result, null, 2) : '(まだ結果はありません)'}</pre>
-      </div>
-      <div class="pg-main">
-        <div class="pg-stage" ref={stage} />
+        <nav class="pg-header-actions" aria-label={pgText('pageNavigation')}>
+          <a class="pg-link pg-link-secondary" href={`${base}/`}>
+            ← {tOpt('ui.backToGame')}
+          </a>
+          <a class="pg-link pg-link-primary" href={`${base}/editor.html`}>
+            {pgText('editQuestion')}
+          </a>
+        </nav>
+      </header>
+
+      <main class="pg-workspace">
         <QuestionList
           entries={entries}
           units={units}
@@ -348,7 +293,200 @@ function App() {
           onReload={() => void loadAll()}
           imageUrl={assets.image}
         />
-      </div>
+
+        <div class="pg-review">
+          <section class="pg-preview" aria-label={pgText('preview')}>
+            <div class="pg-preview-head">
+              <div class="pg-question-heading">
+                <p class="pg-section-label">{pgText('selectedQuestion')}</p>
+                <h2>{questionTitle ? <RubyLabel text={questionTitle} /> : pgText('chooseQuestion')}</h2>
+                {question && (
+                  <div class="pg-question-meta">
+                    <span>{subject}</span>
+                    <span>
+                      {pgText('gradePrefix')}
+                      {question.grade}
+                    </span>
+                    <span>{question.type}</span>
+                    <code>{question.id}</code>
+                  </div>
+                )}
+              </div>
+              <div class="pg-test-controls" aria-label={pgText('testSettings')}>
+                <label for="pg-grade">
+                  {pgText('displayGrade')}
+                  <select
+                    id="pg-grade"
+                    value={grade}
+                    onChange={(e) => setGrade(Number((e.target as HTMLSelectElement).value) as Grade)}
+                  >
+                    {[1, 2, 3, 4, 5, 6].map((g) => (
+                      <option value={g}>
+                        {pgText('gradePrefix')}
+                        {g}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label for="pg-time-limit">
+                  {pgText('timeLimit')}
+                  <span class="pg-number-input">
+                    <input
+                      id="pg-time-limit"
+                      type="number"
+                      value={timeLimit}
+                      min={3}
+                      max={120}
+                      onInput={(e) => setTimeLimit(Number((e.target as HTMLInputElement).value))}
+                    />
+                    {pgText('seconds')}
+                  </span>
+                </label>
+                <button
+                  type="button"
+                  class="pg-run"
+                  onClick={() => void run()}
+                  disabled={running || !question}
+                >
+                  {result ? pgText('retryQuestion') : pgText('tryQuestion')}
+                </button>
+                <button
+                  type="button"
+                  class="pg-stop"
+                  onClick={() => abort.current?.abort()}
+                  disabled={!running}
+                >
+                  {pgText('stop')}
+                </button>
+              </div>
+            </div>
+
+            {error && (
+              <pre class="pg-warn" role="alert">
+                {error}
+              </pre>
+            )}
+            <div class="pg-stage-shell">
+              <div class="pg-stage" ref={stage} />
+              {!question && <p class="pg-stage-empty">{pgText('stageEmpty')}</p>}
+            </div>
+          </section>
+
+          <section class="pg-result-summary" aria-label={pgText('testResult')}>
+            <div class="pg-result-heading">
+              <p class="pg-section-label">{pgText('testResult')}</p>
+              {running ? (
+                <strong class="pg-result-state">{pgText('answering')}</strong>
+              ) : status ? (
+                <strong class={`pg-result-state pg-result-state-${status.key}`}>{status.label}</strong>
+              ) : (
+                <strong class="pg-result-state">{pgText('noResult')}</strong>
+              )}
+            </div>
+            {result ? (
+              <dl class="pg-result-metrics">
+                <div>
+                  <dt>{pgText('score')}</dt>
+                  <dd>{Math.round(result.score * 100)}%</dd>
+                </div>
+                <div>
+                  <dt>{pgText('duration')}</dt>
+                  <dd>
+                    {(result.timeMs / 1000).toFixed(1)}
+                    {pgText('seconds')}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{pgText('attempts')}</dt>
+                  <dd>
+                    {result.attempts}
+                    {pgText('times')}
+                  </dd>
+                </div>
+              </dl>
+            ) : (
+              <p class="pg-result-help">{pgText('resultHelp')}</p>
+            )}
+          </section>
+
+          <details class="pg-technical">
+            <summary>
+              <span>{pgText('technical')}</span>
+              <small>{pgText('technicalHelp')}</small>
+            </summary>
+            <div class="pg-technical-body">
+              <div class="pg-technical-grid">
+                <label for="pg-file">
+                  {pgText('questionFile')}
+                  <select
+                    id="pg-file"
+                    value={file}
+                    onChange={(e) => setFile((e.target as HTMLSelectElement).value)}
+                  >
+                    <option value="">{pgText('chooseFile')}</option>
+                    {files.map((f) => (
+                      <option value={f}>{f}</option>
+                    ))}
+                  </select>
+                </label>
+                {items.length > 0 && (
+                  <label for="pg-question">
+                    {pgText('questionInFile')}
+                    <select
+                      id="pg-question"
+                      value={String(
+                        Math.max(
+                          0,
+                          items.findIndex((item) => item.id === selectedItemId),
+                        ),
+                      )}
+                      onChange={(e) => {
+                        const item = items[Number((e.target as HTMLSelectElement).value)];
+                        if (!item) return;
+                        setSelectedItemId(item.id);
+                        setGrade(item.grade);
+                        setJson(JSON.stringify(item, null, 2));
+                      }}
+                    >
+                      {items.map((q, i) => (
+                        <option value={i}>
+                          {q.id} ({q.type})
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+              </div>
+              <label for="pg-json">
+                {pgText('questionJson')}
+                <textarea
+                  id="pg-json"
+                  value={json}
+                  onInput={(e) => setJson((e.target as HTMLTextAreaElement).value)}
+                  spellcheck={false}
+                />
+              </label>
+              <div class="pg-technical-actions">
+                <button type="button" onClick={() => void run()} disabled={running || !question}>
+                  {pgText('tryJson')}
+                </button>
+                <span>
+                  {pgText('registeredTypes')}：
+                  {allRenderers()
+                    .map((r) => r.type)
+                    .join(', ')}
+                </span>
+              </div>
+              <div>
+                <span class="pg-technical-label">QuestionResult</span>
+                <pre class="pg-result">
+                  {result ? JSON.stringify(result, null, 2) : `(${pgText('noResult')})`}
+                </pre>
+              </div>
+            </div>
+          </details>
+        </div>
+      </main>
     </div>
   );
 }

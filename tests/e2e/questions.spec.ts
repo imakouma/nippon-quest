@@ -1,5 +1,9 @@
 import { expect, test, type Page } from '@playwright/test';
 
+async function openTechnicalInfo(page: Page) {
+  await page.locator('details.pg-technical > summary').click();
+}
+
 test('choice：旧版の横長画像を正方形へ潰さず表示する', async ({ page }) => {
   await page.goto('/playground.html?q=legacy.sansu.g1.math-1-1.d29b83d0c753');
   const image = page.locator('.nq-q-prompt-img');
@@ -16,6 +20,7 @@ test('choice：旧版の横長画像を正方形へ潰さず表示する', async
 /** Playground で picture-word のサンプル（1 問目：りんごの絵）を出す */
 async function showPictureWord(page: Page) {
   await page.goto('/playground.html');
+  await openTechnicalInfo(page);
   await page.locator('select#pg-file').selectOption('questions/_samples/picture-word.json');
   await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.picture-word\.0001/, {
     timeout: 10_000,
@@ -43,6 +48,7 @@ test('picture-word：1 回まちがえてから 正解すると score 0.5', asyn
 
 test('sort-order：カードの順位と移動ボタンの意味を読み上げ用に持つ', async ({ page }) => {
   await page.goto('/playground.html');
+  await openTechnicalInfo(page);
   await page.locator('select#pg-file').selectOption('questions/_samples/sort-order.json');
   await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.sort-order\.0001/, {
     timeout: 10_000,
@@ -57,6 +63,7 @@ test('sort-order：カードの順位と移動ボタンの意味を読み上げ�
 
 test('pair-match：やりなおし後にキーボードで合わせると score 1', async ({ page }) => {
   await page.goto('/playground.html');
+  await openTechnicalInfo(page);
   await page.locator('select#pg-file').selectOption('questions/_samples/pair-match.json');
   await page.locator('select#pg-question').selectOption('1');
   await page.click('button.pg-run');
@@ -82,6 +89,7 @@ test('pair-match：やりなおし後にキーボードで合わせると score 
 test('pair-match：最大6ペアが960×540の問題枠に収まる', async ({ page }) => {
   await page.setViewportSize({ width: 960, height: 540 });
   await page.goto('/playground.html');
+  await openTechnicalInfo(page);
   await page.locator('select#pg-file').selectOption('questions/_samples/pair-match.json');
   await page.locator('select#pg-question').selectOption('2');
   await page.click('button.pg-run');
@@ -105,6 +113,7 @@ test('pair-match：最大6ペアが960×540の問題枠に収まる', async ({ p
 
 test('number-build：現在値と操作部から設問を読み上げで参照できる', async ({ page }) => {
   await page.goto('/playground.html');
+  await openTechnicalInfo(page);
   await page.locator('select#pg-file').selectOption('questions/_samples/number-build.json');
   await expect(page.locator('textarea')).toHaveValue(/sample\.number-build\.blocks\.0001/, {
     timeout: 10_000,
@@ -125,6 +134,7 @@ test('number-build：現在値と操作部から設問を読み上げで参照�
 
 test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page }) => {
   await page.goto('/playground.html');
+  await openTechnicalInfo(page);
   await page.locator('select#pg-file').selectOption('questions/sansu/g1/kazu-100/set-001.json');
   await page.locator('select#pg-question').selectOption('20');
   await page.click('button.pg-run');
@@ -137,6 +147,7 @@ test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page
 
 test('experiment：予想・操作・結果の状態を読み上げ用に持つ', async ({ page }) => {
   await page.goto('/playground.html');
+  await openTechnicalInfo(page);
   await page.locator('select#pg-file').selectOption('questions/_samples/experiment.json');
   await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.experiment\.water\.0001/, {
     timeout: 10_000,

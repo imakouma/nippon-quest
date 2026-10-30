@@ -49,24 +49,24 @@ Raw JSON/result ───────────→ collapsed technical details
 
 ### Phase 3: Review workspace
 
-- [ ] Task 3: Playground を探索・プレビュー・結果・技術情報へ再構成する。
-- [ ] Task 4: 320/768/1024/1440px とキーボード操作を整える。
+- [x] Task 3: Playground を探索・プレビュー・結果・技術情報へ再構成する。
+- [x] Task 4: 320/768/1024/1440px とキーボード操作を整える。
 
 ### Checkpoint: Behavior
 
-- [ ] 問題選択、直リンク、検索、フォルダ、実行、中断、再読込が維持される。
-- [ ] 結果を生 JSON なしで確認できる。
-- [ ] JSON と技術情報は初期状態で閉じている。
+- [x] 問題選択、直リンク、検索、フォルダ、実行、中断、再読込が維持される。
+- [x] 結果を生 JSON なしで確認できる。
+- [x] JSON と技術情報は初期状態で閉じている。
 
 ### Phase 4: Documentation and verification
 
-- [ ] Task 5: アーキテクチャ文書、全体検査、実ブラウザ確認、5軸レビューを完了する。
+- [x] Task 5: アーキテクチャ文書、全体検査、実ブラウザ確認、5軸レビューを完了する。
 
 ### Checkpoint: Complete
 
-- [ ] 標準ゲートと対象 E2E が成功する。
-- [ ] 開発用プレビューでゲーム内導線と Playground を確認できる。
-- [ ] correctness / readability / architecture / security / performance の必須指摘が残っていない。
+- [x] 標準ゲートと対象 E2E が成功する。
+- [x] 開発用プレビューでゲーム内導線と Playground を確認できる。
+- [x] correctness / readability / architecture / security / performance の必須指摘が残っていない。
 
 ## Task Details
 

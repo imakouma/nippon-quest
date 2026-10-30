@@ -8,6 +8,7 @@ import { useMemo, useState } from 'preact/hooks';
 import type { QuestionCatalog } from '../core/content/manifest';
 import type { QuestionBase } from '../questions/contracts';
 import { PICTURE_KEYS, pictureUrl, type PictureKey } from '../questions/renderers/shared/pictures';
+import { tOpt } from '../ui/i18n';
 import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
 import { QuestionTree } from './QuestionTree';
@@ -57,6 +58,7 @@ const SUBJECT_ORDER = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'];
 const PICTURES = new Set<string>(PICTURE_KEYS);
 const str = (v: unknown) => (typeof v === 'string' ? v : undefined);
 const isSample = (e: QuestionEntry) => e.file.startsWith('questions/_samples/');
+const pgText = (key: string) => stripRuby(tOpt(`tools.playground.${key}`) ?? '', 'kanji');
 
 /** 表に 出す 中身。タイプを 知らなくても、よくある 形から 拾う */
 function summarize(q: QuestionBase): Summary {
@@ -135,6 +137,7 @@ export function QuestionList({
     return (
       <select
         id={`pg-f-${k}`}
+        aria-label={all}
         value={f[k]}
         onChange={(ev) => setF({ ...f, [k]: (ev.target as HTMLSelectElement).value })}
       >
@@ -152,53 +155,64 @@ export function QuestionList({
   const byText = (a: string, b: string) => a.localeCompare(b);
 
   return (
-    <section class="pg-list">
-      <div class="pg-filters">
-        <strong>問題いちらん</strong>
-        {facet(
-          'subject',
-          '教科：すべて',
-          (v) => subjects.get(v) ?? v,
-          (a, b) => SUBJECT_ORDER.indexOf(a) - SUBJECT_ORDER.indexOf(b),
-        )}
-        {facet(
-          'grade',
-          '学年：すべて',
-          (v) => `小${v}`,
-          (a, b) => Number(a) - Number(b),
-        )}
-        {facet('type', 'タイプ：すべて', (v) => v, byText)}
-        {facet('unit', '単元：すべて', (v) => `${stripRuby(units.get(v) ?? '', 'kanji')} ${v}`, byText)}
-        <input
-          id="pg-f-text"
-          type="search"
-          placeholder="id・問題文・選択肢・解説で さがす"
-          value={text}
-          onInput={(ev) => setText((ev.target as HTMLInputElement).value)}
-        />
-        <label>
-          <input
-            type="checkbox"
-            checked={samples}
-            onChange={(ev) => setSamples((ev.target as HTMLInputElement).checked)}
-          />
-          _samples も
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={onlyBad}
-            onChange={(ev) => setOnlyBad((ev.target as HTMLInputElement).checked)}
-          />
-          エラーだけ
-        </label>
-        <span class="pg-count">
-          {shown.length} もん（ぜんぶで {pool.length}）{bad > 0 && <b class="pg-err"> ⚠ エラー {bad}</b>}
-        </span>
-        <button type="button" onClick={onReload}>
-          ↻ よみなおす
+    <nav class="pg-list" aria-label={pgText('find')}>
+      <div class="pg-list-head">
+        <div>
+          <p class="pg-section-label">{pgText('library')}</p>
+          <h2>{pgText('find')}</h2>
+        </div>
+        <button type="button" class="pg-reload" onClick={onReload}>
+          ↻ {pgText('reload')}
         </button>
       </div>
+
+      <div class="pg-filters">
+        <label class="pg-search" for="pg-f-text">
+          <span>{pgText('searchLabel')}</span>
+          <input
+            id="pg-f-text"
+            type="search"
+            placeholder={pgText('searchPlaceholder')}
+            value={text}
+            onInput={(ev) => setText((ev.target as HTMLInputElement).value)}
+          />
+        </label>
+        <div class="pg-filter-grid">
+          {facet(
+            'subject',
+            pgText('allSubjects'),
+            (v) => subjects.get(v) ?? v,
+            (a, b) => SUBJECT_ORDER.indexOf(a) - SUBJECT_ORDER.indexOf(b),
+          )}
+          {facet(
+            'grade',
+            pgText('allGrades'),
+            (v) => `${pgText('gradePrefix')}${v}`,
+            (a, b) => Number(a) - Number(b),
+          )}
+          {facet('type', pgText('allTypes'), (v) => v, byText)}
+          {facet('unit', pgText('allUnits'), (v) => `${stripRuby(units.get(v) ?? '', 'kanji')} ${v}`, byText)}
+        </div>
+        <div class="pg-filter-options">
+          <label>
+            <input
+              type="checkbox"
+              checked={samples}
+              onChange={(ev) => setSamples((ev.target as HTMLInputElement).checked)}
+            />
+            {pgText('showSamples')}
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={onlyBad}
+              onChange={(ev) => setOnlyBad((ev.target as HTMLInputElement).checked)}
+            />
+            {pgText('onlyErrors')}
+          </label>
+        </div>
+      </div>
+
       <div class="pg-browser">
         {catalog && (
           <QuestionTree
@@ -209,41 +223,39 @@ export function QuestionList({
             onSelectFile={setScopeFile}
           />
         )}
-        <div class="pg-table-wrap">
-          <table class="pg-table">
-            <thead>
-              <tr>
-                <th />
-                <th>id</th>
-                <th>教科・学年</th>
-                <th>単元</th>
-                <th>タイプ</th>
-                <th>問題</th>
-                <th>選択肢（緑が正解）</th>
-                <th>解説</th>
-              </tr>
-            </thead>
-            <tbody>
-              {visible.map((e) => (
-                <Row
-                  key={e.key}
-                  e={e}
-                  unitName={e.q ? units.get(e.q.unit) : undefined}
-                  subjectName={e.q ? subjects.get(e.q.subject) : undefined}
-                  selected={selected === e.key}
-                  onPick={onPick}
-                  imageUrl={imageUrl}
-                />
-              ))}
-            </tbody>
-          </table>
-          {shown.length === 0 && <p class="pg-empty">あてはまる 問題が ありません</p>}
-          {shown.length > visible.length && (
-            <p class="pg-empty">先頭 200 問を表示しています。フォルダか検索で絞り込んでください。</p>
-          )}
+        <div class="pg-results">
+          <div class="pg-results-head">
+            <strong>{pgText('searchResults')}</strong>
+            <span class="pg-count">
+              {shown.length}
+              {pgText('questionSuffix')} / {pool.length}
+              {pgText('questionSuffix')}
+              {bad > 0 && (
+                <b class="pg-err">
+                  {' '}
+                  · {pgText('error')} {bad}
+                </b>
+              )}
+            </span>
+          </div>
+          <div class="pg-question-list" role="list">
+            {visible.map((e) => (
+              <Row
+                key={e.key}
+                e={e}
+                unitName={e.q ? units.get(e.q.unit) : undefined}
+                subjectName={e.q ? subjects.get(e.q.subject) : undefined}
+                selected={selected === e.key}
+                onPick={onPick}
+                imageUrl={imageUrl}
+              />
+            ))}
+          </div>
+          {shown.length === 0 && <p class="pg-empty">{pgText('noMatches')}</p>}
+          {shown.length > visible.length && <p class="pg-empty">{pgText('first200')}</p>}
         </div>
       </div>
-    </section>
+    </nav>
   );
 }
 
@@ -261,39 +273,60 @@ function Row({ e, unitName, subjectName, selected, onPick, imageUrl }: RowProps)
   const s = q ? summarize(q) : null;
   const cls = [selected && 'pg-sel', e.problem && 'pg-bad'].filter(Boolean).join(' ');
   return (
-    <tr class={cls} title={e.file} onClick={() => onPick(e)}>
-      <td class="pg-mark">{e.problem ? '⚠' : '✓'}</td>
-      <td class="pg-id">{q?.id ?? `${e.file}[${e.index}]`}</td>
-      <td class="pg-nowrap">{q && `${subjectName ?? q.subject} 小${q.grade}`}</td>
-      <td>
-        {unitName ? <RubyLabel text={unitName} /> : q?.unit}
-        <div class="pg-sub">
-          {q?.unit}
-          {q?.tags?.map((t) => (
-            <span class="pg-tag">{t}</span>
-          ))}
-        </div>
-      </td>
-      <td class="pg-nowrap">{q?.type}</td>
-      <td>
-        {s?.picture && <img class="pg-thumb" src={pictureUrl(s.picture)} alt={s.picture} />}
-        {s?.image && <Thumb src={imageUrl(s.image)} />}
-        {s?.prompt && <RubyLabel text={s.prompt} />}
-        {s && !s.prompt && !s.picture && s.options.length === 0 && (
-          <code class="pg-sub">{JSON.stringify(q?.payload).slice(0, 120)}</code>
-        )}
-        {e.problem && <div class="pg-err">{e.problem}</div>}
-      </td>
-      <td>
-        {s?.options.map((o) => (
-          <span class={`pg-opt${o.correct ? ' pg-opt-ok' : ''}`}>
-            {o.image && <Thumb src={imageUrl(o.image)} />}
-            <RubyLabel text={o.text} />
+    <div role="listitem">
+      <button
+        type="button"
+        class={`pg-question-row ${cls}`}
+        title={e.file}
+        aria-current={selected ? 'true' : undefined}
+        data-question-type={q?.type}
+        onClick={() => onPick(e)}
+      >
+        <span class="pg-mark" aria-label={e.problem ? pgText('error') : pgText('verified')}>
+          {e.problem ? '!' : '✓'}
+        </span>
+        {(s?.picture || s?.image) && (
+          <span class="pg-question-thumb">
+            {s.picture && <img class="pg-thumb" src={pictureUrl(s.picture)} alt={s.picture} />}
+            {s.image && <Thumb src={imageUrl(s.image)} />}
           </span>
-        ))}
-      </td>
-      <td class="pg-exp">{q?.explanation && <RubyLabel text={q.explanation} />}</td>
-    </tr>
+        )}
+        <span class="pg-question-copy">
+          <strong>
+            {s?.prompt ? (
+              <RubyLabel text={s.prompt} />
+            ) : unitName ? (
+              <RubyLabel text={unitName} />
+            ) : (
+              (q?.id ?? `${e.file}[${e.index}]`)
+            )}
+          </strong>
+          <span class="pg-question-facts">
+            {q && `${subjectName ?? q.subject} · ${pgText('gradePrefix')}${q.grade} · ${q.type}`}
+          </span>
+          <code class="pg-id">{q?.id ?? `${e.file}[${e.index}]`}</code>
+          {s && s.options.length > 0 && (
+            <span class="pg-question-options">
+              {s.options.slice(0, 4).map((option) => (
+                <span class={option.correct ? 'pg-option-correct' : undefined}>
+                  <RubyLabel text={option.text} />
+                </span>
+              ))}
+            </span>
+          )}
+          {e.problem && <span class="pg-err">{e.problem}</span>}
+        </span>
+        <span class="pg-question-arrow" aria-hidden="true">
+          ›
+        </span>
+      </button>
+      {selected && q?.explanation && (
+        <div class="pg-question-explanation">
+          <span>{pgText('explanation')}</span>
+          <RubyLabel text={q.explanation} />
+        </div>
+      )}
+    </div>
   );
 }
 

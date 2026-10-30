@@ -12,21 +12,38 @@ test('Playground は翻訳辞書の読込前に欠落警告を出さない', asy
   expect(warnings.filter((message) => message.includes('[i18n] キーがありません'))).toEqual([]);
 });
 
+test('Playground は問題を探して試すレビュー画面として表示する', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+
+  await expect(page.getByRole('heading', { name: '問題レビュー' })).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole('navigation', { name: '問題を探す' })).toBeVisible();
+  await expect(page.getByRole('region', { name: '問題プレビュー' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'テスト結果' })).toContainText(
+    /まだ結果はありません|回答中です/,
+  );
+
+  const technical = page.locator('details.pg-technical');
+  await expect(technical).not.toHaveAttribute('open', '');
+  await expect(page.locator('textarea#pg-json')).toBeHidden();
+  await technical.locator('summary').click();
+  await expect(page.locator('textarea#pg-json')).toBeVisible();
+});
+
 test('Playground の問題いちらん：全件数と先頭200問が出て、しぼりこめる', async ({ page }) => {
   await page.goto('/playground.html');
-  const rows = page.locator('.pg-table tbody tr');
+  const rows = page.locator('.pg-question-row');
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
   const allQuestionCount = await rows.count();
   expect(allQuestionCount).toBe(200);
-  await expect(page.locator('.pg-count')).toContainText('ぜんぶで 4829');
+  await expect(page.locator('.pg-count')).toContainText('4829問 / 4829問');
   await expect(page.locator('.pg-empty')).toContainText('先頭 200 問');
-  await expect(page.locator('.pg-table tr.pg-bad')).toHaveCount(0);
+  await expect(page.locator('.pg-question-row.pg-bad')).toHaveCount(0);
 
   await page.locator('select#pg-f-type').selectOption('picture-word');
   await expect(rows.first()).toBeVisible();
-  expect(await rows.locator('td:nth-child(5)').allTextContents()).toEqual(
-    Array(await rows.count()).fill('picture-word'),
-  );
+  expect(
+    await rows.evaluateAll((items) => items.map((item) => item.getAttribute('data-question-type'))),
+  ).toEqual(Array(await rows.count()).fill('picture-word'));
   await page.locator('input#pg-f-text').fill('eigo.g3.sea.0006');
   await expect(rows).toHaveCount(1);
   await rows.first().click();
@@ -49,16 +66,16 @@ test('Playground の問題ファイル読込は8並列を超えない', async ({
   });
 
   await page.goto('/playground.html');
-  await expect(page.locator('.pg-count')).toContainText('ぜんぶで 4829', { timeout: 30_000 });
+  await expect(page.locator('.pg-count')).toContainText('4829問 / 4829問', { timeout: 30_000 });
   expect(maximum).toBeLessThanOrEqual(8);
 });
 
 test('Playground の問題ツリー：教科からセットを選び、キーボードで全件へ戻せる', async ({ page }) => {
   await page.goto('/playground.html');
-  const rows = page.locator('.pg-table tbody tr');
+  const rows = page.locator('.pg-question-row');
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
 
-  const tree = page.getByRole('navigation', { name: '問題フォルダ' });
+  const tree = page.getByRole('region', { name: '問題フォルダ' });
   const all = tree.getByRole('button', { name: /すべて.*4829/ });
   await expect(all).toHaveAttribute('aria-pressed', 'true');
 
@@ -94,17 +111,16 @@ test('Playground の問題ツリー：狭い画面では表の上に並ぶ', asy
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto('/playground.html');
 
-  const tree = page.getByRole('navigation', { name: '問題フォルダ' });
-  const table = page.locator('.pg-table-wrap');
+  const tree = page.getByRole('region', { name: '問題フォルダ' });
+  const results = page.locator('.pg-results');
   await expect(tree).toBeVisible({ timeout: 20_000 });
-  await expect(table).toBeVisible();
+  await expect(results).toBeVisible();
 
   const treeBox = await tree.boundingBox();
-  const tableBox = await table.boundingBox();
+  const resultsBox = await results.boundingBox();
   expect(treeBox).not.toBeNull();
-  expect(tableBox).not.toBeNull();
-  expect(tableBox!.y).toBeGreaterThanOrEqual(treeBox!.y + treeBox!.height);
-  expect(await table.evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(true);
+  expect(resultsBox).not.toBeNull();
+  expect(resultsBox!.y).toBeGreaterThanOrEqual(treeBox!.y + treeBox!.height);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
@@ -117,20 +133,20 @@ test('Playground は旧 manifest でも問題表を全幅で表示する', async
   });
   await page.goto('/playground.html');
 
-  const table = page.locator('.pg-table-wrap');
-  await expect(table.locator('tbody tr').first()).toBeVisible({ timeout: 20_000 });
-  await expect(page.getByRole('navigation', { name: '問題フォルダ' })).toHaveCount(0);
+  const results = page.locator('.pg-results');
+  await expect(results.locator('.pg-question-row').first()).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole('region', { name: '問題フォルダ' })).toHaveCount(0);
   const widths = await page.locator('.pg-browser').evaluate((browser) => ({
     browser: browser.getBoundingClientRect().width,
-    table: browser.querySelector('.pg-table-wrap')!.getBoundingClientRect().width,
+    results: browser.querySelector('.pg-results')!.getBoundingClientRect().width,
   }));
-  expect(widths.table).toBe(widths.browser);
+  expect(widths.results).toBe(widths.browser);
 });
 
 test('Playground：?q=<問題 id> で ひらくと その問題が出る', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
-  await expect(page.locator('.pg-table tr.pg-sel')).toContainText('eigo.g1.alphabet.0002');
+  await expect(page.locator('.pg-question-row.pg-sel')).toContainText('eigo.g1.alphabet.0002');
   await expect(page.locator('textarea#pg-json')).toHaveValue(/eigo\.g1\.alphabet\.0002/);
   await expect(page.locator('select#pg-question')).toHaveValue('1');
 });
