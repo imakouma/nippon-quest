@@ -1,6 +1,6 @@
 import { afterEach, expect, it, vi } from 'vitest';
-import { NQ48 } from '../../src/rendering/palette';
-import { TOWN_ROOFS, TOWN_ROOF_START } from '../../src/rendering/overworld/townView';
+import { NQ, NQ48 } from '../../src/rendering/palette';
+import { TOWN_GROUND_COUNT, TOWN_ROOFS, TOWN_ROOF_START } from '../../src/rendering/overworld/townView';
 import { buildTownViewTexture } from '../../src/rendering/overworld/townViewArt';
 
 afterEach(() => vi.unstubAllGlobals());
@@ -19,10 +19,21 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
   const scene = { textures: { exists: () => false, addCanvas: () => undefined } };
   buildTownViewTexture(scene as unknown as Parameters<typeof buildTownViewTexture>[0]);
 
-  for (let tile = TOWN_ROOF_START; tile < TOWN_ROOF_START + 3 * TOWN_ROOFS.length * 16; tile++) {
+  for (
+    let tile = TOWN_ROOF_START;
+    tile < TOWN_ROOF_START + TOWN_GROUND_COUNT * TOWN_ROOFS.length * 16;
+    tile++
+  ) {
     const originX = (tile % 8) * 16;
     const originY = Math.floor(tile / 8) * 16;
     for (let y = 0; y < 16; y++)
       for (let x = 0; x < 16; x++) expect(NQ48).toContain(pixels.get(`${originX + x},${originY + y}`));
   }
+  const roofPixel = (roof: number, x: number, y: number) => {
+    const tile = TOWN_ROOF_START + roof * 16 + 15;
+    return pixels.get(`${(tile % 8) * 16 + x},${Math.floor(tile / 8) * 16 + y}`);
+  };
+  expect(roofPixel(5, 3, 2)).toBe(NQ.brick);
+  expect(roofPixel(6, 2, 9)).toBe(NQ.cloud);
+  expect(roofPixel(7, 2, 3)).toBe(NQ.brown);
 });

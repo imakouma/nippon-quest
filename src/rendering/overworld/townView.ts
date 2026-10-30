@@ -1,21 +1,48 @@
+import { CITY_ROAD_TILES } from '../../shared/cityRoadTiles';
+
 export const TOWN_ROOFS = [6, 16, 17, 18, 65, 66, 67, 68] as const;
 export const TOWN_ROOF_START = 19;
+export const TOWN_GROUND_COUNT = 6;
 
 /** Town-only display indices; -1 keeps the original background tile. */
 export function townView(background: readonly number[], width: number, height: number): number[] {
   const stone = (tile: number | undefined) => tile === 5 || tile === 15;
-  const groundCounts = [0, 0, 0];
-  for (const tile of background) {
-    if (tile === 1 || tile === 13 || tile === 14) groundCounts[0]!++;
-    if (tile === 61 || tile === 62) groundCounts[1]!++;
-    if (tile === 63 || tile === 64) groundCounts[2]!++;
-  }
-  const ground = groundCounts.indexOf(Math.max(...groundCounts));
+  const groundType = (tile: number | undefined) => {
+    if (tile === 1 || tile === 13 || tile === 14) return 0;
+    if (tile === 61 || tile === 62) return 1;
+    if (tile === 63 || tile === 64) return 2;
+    if (tile === 5 || tile === 15 || tile === 168 || tile === 169) return 3;
+    if (tile === 166 || tile === 167) return 4;
+    if (
+      tile === CITY_ROAD_TILES.road ||
+      tile === CITY_ROAD_TILES.lineV ||
+      tile === CITY_ROAD_TILES.lineH ||
+      tile === 164 ||
+      tile === 165
+    )
+      return 5;
+    return -1;
+  };
   return background.map((tile, index) => {
     const x = index % width;
     const y = Math.floor(index / width);
     const roof = TOWN_ROOFS.findIndex((id) => id === tile);
     if (roof >= 0) {
+      let ground = 0;
+      search: for (let distance = 1; distance < width + height; distance++) {
+        for (let dy = -distance; dy <= distance; dy++) {
+          for (const dx of [-1, 1].map((sign) => sign * (distance - Math.abs(dy)))) {
+            const nx = x + dx;
+            const ny = y + dy;
+            if (nx < 0 || ny < 0 || nx >= width || ny >= height) continue;
+            const candidate = groundType(background[ny * width + nx]);
+            if (candidate >= 0) {
+              ground = candidate;
+              break search;
+            }
+          }
+        }
+      }
       const same = (dx: number, dy: number) => {
         const nx = x + dx;
         const ny = y + dy;

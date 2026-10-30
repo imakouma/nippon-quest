@@ -99,4 +99,17 @@ describe('町の地面の表示写像', () => {
     const sand = townView([63, 6, 63], 3, 1)[1];
     expect(new Set([grass, snow, sand]).size).toBe(3);
   });
+
+  it('屋根の切り欠きは町全体の多数派より近くの舗装を優先する', () => {
+    const background = grid([
+      [1, 1, 1, 1, 1],
+      [1, 5, 5, 5, 1],
+      [1, 5, 6, 5, 1],
+      [1, 5, 5, 5, 1],
+      [1, 1, 1, 1, 1],
+    ]);
+    const paved = townView(background, 5, 5)[12];
+    const grass = townView([1, 6, 1], 3, 1)[1];
+    expect(paved).not.toBe(grass);
+  });
 });
