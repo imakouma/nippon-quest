@@ -60,11 +60,11 @@ button:disabled {
 
 .pg-header {
   display: flex;
-  min-height: 94px;
+  min-height: 48px;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 18px clamp(16px, 2vw, 32px);
+  gap: 8px;
+  padding: 2px clamp(16px, 2vw, 32px);
   border-bottom: 1px solid #d8dedb;
   background: rgba(248, 250, 249, 0.94);
 }
@@ -1010,16 +1010,6 @@ button:disabled {
   .pg-workspace {
     display: flex;
     flex-direction: column;
-  }
-
-  .pg-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .pg-header-actions {
-    width: 100%;
-    justify-content: flex-start;
   }
 
   .pg-list {
