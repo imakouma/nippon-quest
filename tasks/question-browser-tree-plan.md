@@ -51,15 +51,15 @@ QuestionTree UI    file scope filter
 
 ### Phase 3: Documentation and verification
 
-- [ ] Task 3: 文書、全体検査、実ブラウザ確認、5軸レビューを完了する
+- [x] Task 3: 文書、全体検査、実ブラウザ確認、5軸レビューを完了する
 
 ### Checkpoint: Complete
 
-- [ ] 960px幅と320px幅で操作可能
-- [ ] キーボードでセットを選択可能
-- [ ] 標準ゲートと実ブラウザ確認が完了
-- [ ] 必須レビュー指摘が残っていない
-- [ ] 専用ブランチへatomic commitし、merge/pushしていない
+- [x] 960px幅と320px幅で操作可能
+- [x] キーボードでセットを選択可能
+- [x] 標準ゲートと実ブラウザ確認が完了（既存の全体Prettier違反を除く）
+- [x] 必須レビュー指摘が残っていない
+- [x] 専用ブランチへatomic commitし、merge/pushしていない
 
 ## Task Details
 

@@ -147,6 +147,9 @@
   min-width: 0;
   overflow: auto;
 }
+.pg-browser > .pg-table-wrap:only-child {
+  grid-column: 1 / -1;
+}
 .pg-tree {
   position: sticky;
   top: 48px;

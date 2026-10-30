@@ -90,6 +90,25 @@ test('Playground の問題ツリー：狭い画面では表の上に並ぶ', asy
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
+test('Playground は旧 manifest でも問題表を全幅で表示する', async ({ page }) => {
+  await page.route('**/content/manifest.json', async (route) => {
+    const response = await route.fetch();
+    const manifest = (await response.json()) as Record<string, unknown>;
+    delete manifest.questionCatalog;
+    await route.fulfill({ response, json: manifest });
+  });
+  await page.goto('/playground.html');
+
+  const table = page.locator('.pg-table-wrap');
+  await expect(table.locator('tbody tr').first()).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole('navigation', { name: '問題フォルダ' })).toHaveCount(0);
+  const widths = await page.locator('.pg-browser').evaluate((browser) => ({
+    browser: browser.getBoundingClientRect().width,
+    table: browser.querySelector('.pg-table-wrap')!.getBoundingClientRect().width,
+  }));
+  expect(widths.table).toBe(widths.browser);
+});
+
 test('Playground：?q=<問題 id> で ひらくと その問題が出る', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });

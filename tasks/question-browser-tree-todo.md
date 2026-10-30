@@ -36,21 +36,21 @@
 
 **Acceptance criteria:**
 
-- [ ] アーキテクチャ文書とWalkthroughを更新する。
-- [ ] 5軸レビューの必須指摘が残らない。
-- [ ] 最新ビルドを実ブラウザで確認する。
+- [x] アーキテクチャ文書とWalkthroughを更新する。
+- [x] 5軸レビューの必須指摘が残らない。
+- [x] 最新ビルドを実ブラウザで確認する。
 
 **Verification:**
 
-- [ ] `pnpm lint`
-- [ ] `pnpm check:architecture`
-- [ ] `pnpm test`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm build`
-- [ ] Playwrightとアプリ内ブラウザ確認
+- [ ] `pnpm lint`（今回未変更の `SPEC-math-learning-content-pilot.md` の既存Prettier違反のみ）
+- [x] `pnpm check:architecture`
+- [x] `pnpm test`
+- [x] `pnpm validate:content`
+- [x] `pnpm build`
+- [x] Playwrightとアプリ内ブラウザ確認
 
 ## Checkpoint: Complete
 
-- [ ] 仕様のSuccess Criteriaを満たす。
-- [ ] 作業ツリーがcleanで、ブランチ名・コミットID・検査結果を報告できる。
-- [ ] merge/pushしていない。
+- [x] 仕様のSuccess Criteriaを満たす。
+- [x] 作業ツリーがcleanで、ブランチ名・コミットID・検査結果を報告できる。
+- [x] merge/pushしていない。
