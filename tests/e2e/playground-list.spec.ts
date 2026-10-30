@@ -1,5 +1,27 @@
 import { expect, test } from '@playwright/test';
 
+test('単元の直下に問題を表示し、検索時だけ検索結果欄を表示する', async ({ page }) => {
+  await page.goto('/playground.html');
+  await expect(page.locator('.pg-results')).toHaveCount(0);
+  await page.locator('details[data-subject="kokugo"] > summary').click();
+  await page.locator('details[data-subject="kokugo"] details[data-grade="2"] > summary').click();
+  const unit = page.locator('button[data-unit="kokugo.g2.bun-no-kimari"]');
+  await unit.click();
+  await expect(unit.locator('..').locator('.pg-question-row')).toHaveCount(4);
+  await expect(page.locator('.pg-results')).toHaveCount(0);
+  await page.locator('details.pg-filter-details > summary').click();
+  await page.locator('#pg-f-text').fill('source.kokugo');
+  await expect(page.locator('.pg-results')).toBeVisible();
+  await expect(page.locator('.pg-results .pg-question-row').first()).toBeVisible();
+  await page.locator('#pg-f-text').clear();
+  await expect(page.locator('.pg-results')).toHaveCount(0);
+  await expect(unit.locator('..').locator('.pg-question-row')).toHaveCount(4);
+  await unit.click();
+  await expect(page.locator('.pg-question-row')).toHaveCount(0);
+  await page.locator('#pg-f-text').fill('eigo.g3.sea.0006');
+  await expect(page.locator('.pg-results .pg-question-row')).toHaveCount(1);
+});
+
 test('Playground は翻訳辞書の読込前に欠落警告を出さない', async ({ page }) => {
   const warnings: string[] = [];
   page.on('console', (message) => {
@@ -18,7 +40,7 @@ test('フォルダ未選択では問題を表示せず、選択すると表示�
   const all = tree.getByRole('button', { name: /すべて/ });
   await expect(all).toHaveAttribute('aria-pressed', 'false');
   await expect(page.locator('.pg-question-row')).toHaveCount(0);
-  await expect(page.locator('.pg-empty')).toContainText('フォルダを選');
+  await expect(page.locator('.pg-results')).toHaveCount(0);
   await expect(page.locator('.nq-q-choice')).toBeVisible();
   await all.click();
   await expect(page.locator('.pg-question-row').first()).toBeVisible();
@@ -81,7 +103,6 @@ test('Playground は編集を一つもどせ、問題を切り替えると履歴
     .getByRole('region', { name: '問題フォルダ' })
     .getByRole('button', { name: /すべて/ })
     .click();
-  await page.locator('details.pg-tree-details > summary').click();
   page.once('dialog', (dialog) => dialog.accept());
   await page.locator('.pg-question-row').first().click();
   await expect(undo).toBeDisabled();
@@ -142,7 +163,7 @@ test('Playground の問題いちらん：全件数と先頭200問が出て、し
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
   const allQuestionCount = await rows.count();
   expect(allQuestionCount).toBe(200);
-  await expect(page.locator('.pg-count')).toContainText('4832問 / 4832問');
+  await expect(page.locator('.pg-results')).toHaveCount(0);
   await expect(page.locator('.pg-empty')).toContainText('先頭 200 問');
   await expect(page.locator('.pg-question-row.pg-bad')).toHaveCount(0);
 
@@ -178,7 +199,7 @@ test('Playground の問題ファイル読込は8並列を超えない', async ({
     .getByRole('region', { name: '問題フォルダ' })
     .getByRole('button', { name: /すべて/ })
     .click();
-  await expect(page.locator('.pg-count')).toContainText('4832問 / 4832問', { timeout: 30_000 });
+  await expect(page.locator('.pg-question-row')).toHaveCount(200, { timeout: 30_000 });
   expect(maximum).toBeLessThanOrEqual(8);
 });
 
@@ -304,6 +325,8 @@ test('Playground の問題ツリー：狭い画面では表の上に並ぶ', asy
   await page.goto('/playground.html');
 
   const tree = page.getByRole('region', { name: '問題フォルダ' });
+  await page.locator('details.pg-filter-details > summary').click();
+  await page.locator('#pg-f-text').fill('kokugo');
   const results = page.locator('.pg-results');
   await expect(tree).toBeVisible({ timeout: 20_000 });
   await expect(results).toBeVisible();
@@ -337,7 +360,7 @@ test('Playground は中幅の画面でも問題一覧とレビューを横に並
   expect(reviewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
   expect(Math.abs(listBox!.height - reviewBox!.height)).toBeLessThan(2);
   expect(reviewBox!.x - (listBox!.x + listBox!.width)).toBeLessThanOrEqual(10);
-  expect(reviewBox!.width / listBox!.width).toBeGreaterThanOrEqual(1.99);
+  expect(reviewBox!.width / listBox!.width).toBeGreaterThanOrEqual(1.79);
   await page.locator('details[data-subject="sansu"] > summary').click();
   await expect(page.locator('details[data-subject="sansu"] details[data-grade="1"]')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);

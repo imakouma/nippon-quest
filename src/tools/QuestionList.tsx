@@ -124,12 +124,13 @@ export function QuestionList({
   const pool = entries.filter((e) => (samples || !isSample(e)) && (!scopeUnit || unitFiles.has(e.file)));
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');
   const needle = text.trim().toLowerCase();
+  const filtering = !!needle || samples || onlyBad || FACETS.some((key) => !!f[key]);
   /** skip の しぼりこみ だけ 外して あてはまるか（えらぶ ところの 件数に つかう） */
   const match = (e: QuestionEntry, skip?: Facet) =>
     (!onlyBad || !!e.problem) &&
     FACETS.every((k) => k === skip || !f[k] || valueOf(e, k) === f[k]) &&
     (!needle || (search.get(e.key) ?? '').includes(needle));
-  const awaitingFolder = !!catalog && scopeUnit === undefined;
+  const awaitingFolder = !!catalog && scopeUnit === undefined && !filtering;
   const shown = awaitingFolder ? [] : pool.filter((e) => match(e));
   const visible = shown.slice(0, 200);
   const bad = pool.filter((e) => e.problem).length;
@@ -163,6 +164,21 @@ export function QuestionList({
     );
   };
   const byText = (a: string, b: string) => a.localeCompare(b);
+  const questionRows = (
+    <div class="pg-question-list" role="list">
+      {visible.map((e) => (
+        <Row
+          key={e.key}
+          e={e}
+          unitName={e.q ? units.get(e.q.unit) : undefined}
+          selected={selected === e.key}
+          onPick={onPick}
+          imageUrl={imageUrl}
+        />
+      ))}
+      {shown.length > visible.length && <p class="pg-empty">{pgText('first200')}</p>}
+    </div>
+  );
 
   return (
     <nav class="pg-list" aria-label={pgText('find')}>
@@ -224,7 +240,7 @@ export function QuestionList({
         </div>
       </details>
 
-      <div class="pg-browser">
+      <div class={`pg-browser${filtering ? ' pg-browser-filtering' : ''}`}>
         {catalog && (
           <QuestionTree
             catalog={catalog}
@@ -232,40 +248,31 @@ export function QuestionList({
             subjects={subjects}
             selectedUnit={scopeUnit}
             onSelectUnit={setScopeUnit}
+            questions={filtering ? null : questionRows}
           />
         )}
-        <div class="pg-results">
-          <div class="pg-results-head">
-            <strong>{pgText('searchResults')}</strong>
-            <span class="pg-count">
-              {shown.length}
-              {pgText('questionSuffix')} / {pool.length}
-              {pgText('questionSuffix')}
-              {bad > 0 && (
-                <b class="pg-err">
-                  {' '}
-                  · {pgText('error')} {bad}
-                </b>
-              )}
-            </span>
+        {(filtering || !catalog) && (
+          <div class="pg-results">
+            <div class="pg-results-head">
+              <strong>{pgText('searchResults')}</strong>
+              <span class="pg-count">
+                {shown.length}
+                {pgText('questionSuffix')} / {pool.length}
+                {pgText('questionSuffix')}
+                {bad > 0 && (
+                  <b class="pg-err">
+                    {' '}
+                    · {pgText('error')} {bad}
+                  </b>
+                )}
+              </span>
+            </div>
+            {questionRows}
+            {shown.length === 0 && (
+              <p class="pg-empty">{pgText(awaitingFolder ? 'chooseFolder' : 'noMatches')}</p>
+            )}
           </div>
-          <div class="pg-question-list" role="list">
-            {visible.map((e) => (
-              <Row
-                key={e.key}
-                e={e}
-                unitName={e.q ? units.get(e.q.unit) : undefined}
-                selected={selected === e.key}
-                onPick={onPick}
-                imageUrl={imageUrl}
-              />
-            ))}
-          </div>
-          {shown.length === 0 && (
-            <p class="pg-empty">{pgText(awaitingFolder ? 'chooseFolder' : 'noMatches')}</p>
-          )}
-          {shown.length > visible.length && <p class="pg-empty">{pgText('first200')}</p>}
-        </div>
+        )}
       </div>
     </nav>
   );

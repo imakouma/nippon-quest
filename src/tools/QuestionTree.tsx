@@ -1,4 +1,5 @@
 import type { QuestionCatalog } from '../core/content/manifest';
+import type { ComponentChildren } from 'preact';
 import { tOpt } from '../ui/i18n';
 import { stripRuby } from '../ui/ruby';
 
@@ -8,6 +9,7 @@ interface QuestionTreeProps {
   subjects: ReadonlyMap<string, string>;
   selectedUnit: string | null | undefined;
   onSelectUnit: (unit: string | null | undefined) => void;
+  questions: ComponentChildren;
 }
 
 const pgText = (key: string) => stripRuby(tOpt(`tools.playground.${key}`) ?? '', 'kanji');
@@ -16,7 +18,14 @@ const closeChildren = (folder: HTMLDetailsElement) => {
     folder.querySelectorAll('details[open]').forEach((child) => child.removeAttribute('open'));
 };
 
-export function QuestionTree({ catalog, units, subjects, selectedUnit, onSelectUnit }: QuestionTreeProps) {
+export function QuestionTree({
+  catalog,
+  units,
+  subjects,
+  selectedUnit,
+  onSelectUnit,
+  questions,
+}: QuestionTreeProps) {
   const isKanji = (unit: { unit: string }) =>
     /漢字|かんじ|おんよみ・くんよみ|へんとつくり/.test(units.get(unit.unit) ?? '') ||
     unit.unit.includes('kanji');
@@ -65,6 +74,7 @@ export function QuestionTree({ catalog, units, subjects, selectedUnit, onSelectU
             {pgText('questionSuffix')}
           </span>
         </button>
+        {selectedUnit === null && questions}
         {treeSubjects.map((subject) => (
           <details
             name="question-tree-subject"
@@ -113,18 +123,23 @@ export function QuestionTree({ catalog, units, subjects, selectedUnit, onSelectU
                   </span>
                 </summary>
                 {grade.units.map((unit) => (
-                  <button
-                    type="button"
-                    data-unit={unit.unit}
-                    aria-pressed={selectedUnit === unit.unit}
-                    onClick={() => onSelectUnit(unit.unit)}
-                  >
-                    <span class="pg-tree-label">{stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}</span>
-                    <span class="pg-tree-count">
-                      {unit.count}
-                      {pgText('questionSuffix')}
-                    </span>
-                  </button>
+                  <div>
+                    <button
+                      type="button"
+                      data-unit={unit.unit}
+                      aria-pressed={selectedUnit === unit.unit}
+                      onClick={() => onSelectUnit(selectedUnit === unit.unit ? undefined : unit.unit)}
+                    >
+                      <span class="pg-tree-label">
+                        {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
+                      </span>
+                      <span class="pg-tree-count">
+                        {unit.count}
+                        {pgText('questionSuffix')}
+                      </span>
+                    </button>
+                    {selectedUnit === unit.unit && questions}
+                  </div>
                 ))}
               </details>
             ))}
