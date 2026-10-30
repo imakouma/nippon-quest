@@ -1,0 +1,462 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-2.094cd706a4db",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "本州の中央部には、3000m級の山々が連なる飛騨ひだ山脈みゃく、木曽そ山脈、赤石山脈 が走っている。この３つの山脈を、まとめて何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本アルプス"
+        },
+        {
+          "id": "c2",
+          "text": "太平洋ベルト"
+        },
+        {
+          "id": "c3",
+          "text": "中央高地"
+        },
+        {
+          "id": "c4",
+          "text": "中央アルプス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "本州の中央部にある3000m級の山々が連なる 飛騨山脈、木曽山脈、赤石山脈をまとめて日本アルプスとよぶ。 中央アルプスは、木曽山脈のことをいう。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.268e021514fe",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、東京の雨温図である。これを見ながら、太平洋側の気候について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "太平洋",
+        "日本海",
+        "夏",
+        "冬"
+      ],
+      "template": "季節風は、夏に ①{{INPUT}} 側から ②{{INPUT}} 側に、冬は逆に ②側から①側 にふく。そのため、太平洋側では、{{INPUT}} に雨が多く、{{INPUT}} に雨が少ない。",
+      "promptImage": "questions/legacy/25fb4012d6e2b93c.png"
+    },
+    "explanation": "季節風は、夏に ①（太平洋）側から ②（日本海）側に、冬は逆に ②日本海側 から①太平洋側 にふく。そのため、太平洋側では、（夏）に雨が多く、（冬）に雨が少ない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.29930242eeaf",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "海流",
+        "暖流",
+        "寒流"
+      ],
+      "template": "決まった向きの海水の大きな流れを ① {{INPUT}} という。① には、あたたかい海水を運んでくる {{INPUT}} と、冷たい海水を運んでくる {{INPUT}} がある。"
+    },
+    "explanation": "決まった向きの海水の大きな流れを ①（海流）という。① 海流には、あたたかい海水を運んでくる（暖だん流） と、冷たい海水を運んでくる（寒流）がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.543110c544e6",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の国土について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "火山",
+        "地震",
+        "温泉"
+      ],
+      "template": "日本には、多くの ① {{INPUT}} があり、2011年の 東日本大震災しんさい のような 大きな {{INPUT}} も多く発生する。しかし、①のエネルギーを使った {{INPUT}} にも、めぐまれている。"
+    },
+    "explanation": "日本には、多くの ①（火山）があり、2011年の 東日本大震災 のような 大きな（地震）も多く発生する。しかし、① 火山のエネルギーを使った（温泉）にも、めぐまれている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.5997c65873ba",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図を見ながら、夏の季節風について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "日本海",
+        "太平洋",
+        "日本海",
+        "太平洋"
+      ],
+      "template": "夏には、大陸（{{INPUT}} 側）の空気の方があたたかいため、季節風は、{{INPUT}} 側から {{INPUT}} 側に向かってふく。このとき、日本列島の山地に雲がぶつかって 雨をふらせるため、夏は {{INPUT}} 側に多くの雨をふらせる。",
+      "promptImage": "questions/legacy/6623e4d5cf3b6338.png"
+    },
+    "explanation": "夏には、大陸（日本海側）の空気の方があたたかいため、季節風は、（太平洋）側から（日本海）側に向かってふく。このとき、日本列島の山地に雲がぶつかって 雨をふらせるため、夏は（太平洋）側に多くの雨をふらせる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.59992036714b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で最も大きい平野は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大阪平野"
+        },
+        {
+          "id": "c2",
+          "text": "濃尾平野"
+        },
+        {
+          "id": "c3",
+          "text": "石狩平野"
+        },
+        {
+          "id": "c4",
+          "text": "関東平野"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "関東平野の広さは、約1万7000km²で、四国と同じぐらいの面積[めんせき]がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.6604c1d04f1a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の川の特色として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "川は長く、流れがゆるやかである。"
+        },
+        {
+          "id": "c2",
+          "text": "川は長く、流れが急である。"
+        },
+        {
+          "id": "c3",
+          "text": "川は短く、流れが急である。"
+        },
+        {
+          "id": "c4",
+          "text": "川は短く、流れがゆるやかである。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本の川は短く、流れが急である。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.7f5bf2476dab",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で最も長い川、最も大きな川（流いき面積[めんせき]の大きい川）は、それぞれどれでしょう。その組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "最も長い：信濃川 最も大きい：利根川"
+        },
+        {
+          "id": "c2",
+          "text": "最も長い：利根川 最も大きい：石狩川"
+        },
+        {
+          "id": "c3",
+          "text": "最も長い：北上川 最も大きい：信濃川"
+        },
+        {
+          "id": "c4",
+          "text": "最も長い：石狩川 最も大きい：淀川"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本で最も長い川は、信濃しなの川で 全長367km。最も大きな川は利根とね川で、流いき面積[めんせき]は16840km²。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.88eb2380add1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "季節によって ふく向きが変わる風を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "季節風"
+        },
+        {
+          "id": "c2",
+          "text": "台風"
+        },
+        {
+          "id": "c3",
+          "text": "からっ風"
+        },
+        {
+          "id": "c4",
+          "text": "春一番"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "季節によって ふく向きが変わる風を、季節風 という。冬は 大陸から大洋に、夏は 大洋から大陸に向かって ふく。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.8dd4624f5357",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の季節風について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "太平洋",
+        "日本海",
+        "太平洋",
+        "日本海"
+      ],
+      "template": "冬には、大洋（{{INPUT}} 側）の空気の方があたたかいため、季節風は、{{INPUT}} 側から {{INPUT}} 側に向かってふく。このとき、日本列島の山地に雲がぶつかって 雨をふらせるため、冬は {{INPUT}} 側に多くの雨や雪をふらせる。",
+      "promptImage": "questions/legacy/f38d91f0e6c031fd.png"
+    },
+    "explanation": "冬には、大洋（太平洋側）の空気の方があたたかいため、季節風は、（日本海）側から（太平洋）側に向かってふく。このとき、日本列島の山地に雲がぶつかって 雨をふらせるため、冬は（日本海）側に多くの雨や雪をふらせる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.ac7cfe1083b2",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、東京と新潟の雨温図である。この図の説明[せつめい]について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "左の図",
+        "右の図",
+        "東京",
+        "新潟"
+      ],
+      "template": "{{INPUT}}は、夏に降水量が多く、冬に降水量が少ない。{{INPUT}} は、夏に降水量が少なく、冬に降水量が多くなっている。このことから、左の図が {{INPUT}} で、右の図が {{INPUT}} の雨温図と考えることができる。",
+      "promptImage": "questions/legacy/9347cb4141f590da.png"
+    },
+    "explanation": "（左の図）は、夏に降水量が多く、冬に降水量が少ない。（右の図）は、夏に降水量が少なく、冬に降水量が多くなっている。このことから、左の図が（東京）で、右の図が（新潟）の雨温図と考えることができる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.b1d1b3ff15dc",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の近海には、４つの大きな海流が流れている。以下の地図中のA〜Dに当てはまる海流をえらぼう。",
+      "answers": [
+        "日本海流（黒潮）",
+        "対馬海流",
+        "千島海流（親潮）",
+        "リマン海流"
+      ],
+      "template": "A : {{INPUT}} B : {{INPUT}} C : {{INPUT}} D : {{INPUT}}",
+      "promptImage": "questions/legacy/72d88d671b0c8b8f.png"
+    },
+    "explanation": "A :（日本海流（黒潮しお）） B :（対馬つしま海流） C :（千島ちしま海流（親潮）） D :（リマン海流） 日本海流と対馬海流は 暖流、千島海流とリマン海流は 寒流。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.c0c3324f3799",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本で最も大きな湖は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "琵琶湖"
+        },
+        {
+          "id": "c2",
+          "text": "霞ヶ浦"
+        },
+        {
+          "id": "c3",
+          "text": "サロマ湖"
+        },
+        {
+          "id": "c4",
+          "text": "浜名湖"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "滋賀県にある 琵琶びわ湖が、日本で最も大きい。滋賀県の面積[めんせき]の約６分の１が、琵琶湖になっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.c29d4f4d1e5c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の気候について、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "季節の変化がはっきりしている。"
+        },
+        {
+          "id": "c2",
+          "text": "国土が南北に長く、地いき によるちがいがある。"
+        },
+        {
+          "id": "c3",
+          "text": "年間を通して、温かくてすごしやすく、雨が少ない。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本は、年間を通して、温かくてすごしやすく、雨が多い。世界の中で見ると、日本は雨が多い。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.e23ce6467169",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、新潟の雨温図である。これを見ながら、日本海側の気候について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "太平洋",
+        "日本海",
+        "冬",
+        "夏"
+      ],
+      "template": "季節風は、夏に ①{{INPUT}} 側から ②{{INPUT}} 側に、冬は逆に ②側から①側 にふく。そのため、日本海側では、{{INPUT}} に雨が多く、{{INPUT}} に雨が少ない。",
+      "promptImage": "questions/legacy/f57f7cb3d2d14f4c.png"
+    },
+    "explanation": "季節風は、夏に ①（太平洋）側から ②（日本海）側に、冬は逆に ②日本海側 から①太平洋側 にふく。そのため、日本海側では、（冬）に雨が多く、（夏）に雨が少ない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-2.eb69c80f1ccd",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本は、下の地図のA〜Dの４つの海をへだてて、外国につながっている。A〜Dの海の名前[なまえ]をえらぼう。",
+      "answers": [
+        "太平洋",
+        "日本海",
+        "東シナ海",
+        "オホーツク海"
+      ],
+      "template": "A ： {{INPUT}} B ： {{INPUT}} C ： {{INPUT}} D ： {{INPUT}}",
+      "promptImage": "questions/legacy/6ffa339a67838284.png"
+    },
+    "explanation": "A ：（太平洋） B ：（日本海） C ：（東シナ海） D ：（オホーツク海）"
+  }
+]

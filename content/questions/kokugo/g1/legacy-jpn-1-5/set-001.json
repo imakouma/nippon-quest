@@ -1,0 +1,722 @@
+[
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.00fc6b621f19",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「くま」の文字を入れかえてできることばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まく"
+        },
+        {
+          "id": "c2",
+          "text": "くも"
+        },
+        {
+          "id": "c3",
+          "text": "うま"
+        },
+        {
+          "id": "c4",
+          "text": "かめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「くま」→「まく」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.14071d8b2a45",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「あめ」と同じ音でおわることばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かめ"
+        },
+        {
+          "id": "c2",
+          "text": "あり"
+        },
+        {
+          "id": "c3",
+          "text": "いぬ"
+        },
+        {
+          "id": "c4",
+          "text": "そら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「あめ」も「かめ」も「め」でおわる。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.25914c45d209",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "うしろから読んでも同じになることばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とまと"
+        },
+        {
+          "id": "c2",
+          "text": "りんご"
+        },
+        {
+          "id": "c3",
+          "text": "みかん"
+        },
+        {
+          "id": "c4",
+          "text": "ばなな"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「とまと」は前から読んでも後ろから読んでも同じ（かいぶん）。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.2bd89a2f8efe",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「りんご」のつぎに、しりとりでつづくことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ごりら"
+        },
+        {
+          "id": "c2",
+          "text": "りす"
+        },
+        {
+          "id": "c3",
+          "text": "みかん"
+        },
+        {
+          "id": "c4",
+          "text": "さる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "しりとりは前のことばのさいごの音からはじめます。「りんご」→「ご」→「ごりら」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.5a4ec9c6a6f8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「い・か・す」をならびかえてできる、たべものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すいか"
+        },
+        {
+          "id": "c2",
+          "text": "かいす"
+        },
+        {
+          "id": "c3",
+          "text": "さいか"
+        },
+        {
+          "id": "c4",
+          "text": "いさか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「い・か・す」をならべかえると「すいか」になります。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.5cd3f6d9b85d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ぞう」のさいごの音は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぞ"
+        },
+        {
+          "id": "c2",
+          "text": "う"
+        },
+        {
+          "id": "c3",
+          "text": "お"
+        },
+        {
+          "id": "c4",
+          "text": "を"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ぞ・うで、さいごは「う」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.64c8669a9213",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「たいこ」は音がいくつある？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1つ"
+        },
+        {
+          "id": "c2",
+          "text": "2つ"
+        },
+        {
+          "id": "c3",
+          "text": "3つ"
+        },
+        {
+          "id": "c4",
+          "text": "4つ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "た・い・こで3つ。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.76a63002d5d3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「あか・あお・きいろ」はなんのなかま？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いろ"
+        },
+        {
+          "id": "c2",
+          "text": "たべもの"
+        },
+        {
+          "id": "c3",
+          "text": "どうぶつ"
+        },
+        {
+          "id": "c4",
+          "text": "のりもの"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ぜんぶ「いろ」をあらわすことば。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.77697290ce93",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "しりとりをはじめるのによいことば（「ん」でおわらないもの）はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ねこ"
+        },
+        {
+          "id": "c2",
+          "text": "きりん"
+        },
+        {
+          "id": "c3",
+          "text": "みかん"
+        },
+        {
+          "id": "c4",
+          "text": "ぱん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ほかは「ん」でおわるのでつづかない。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.7aaf3107993d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「とけい」のつぎに、しりとりでつづくことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いるか"
+        },
+        {
+          "id": "c2",
+          "text": "とり"
+        },
+        {
+          "id": "c3",
+          "text": "けむし"
+        },
+        {
+          "id": "c4",
+          "text": "とんぼ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「とけい」の「い」から「いるか」へ。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.88439e2fdeb9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のことばの中で、音の数がいちばん多いものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ねこ"
+        },
+        {
+          "id": "c2",
+          "text": "きりん"
+        },
+        {
+          "id": "c3",
+          "text": "ぞう"
+        },
+        {
+          "id": "c4",
+          "text": "うま"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "き・り・んで3つ。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.8fafdbbc918a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ねこ」→「こま」→「まど」のつぎにつづくことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どんぐり"
+        },
+        {
+          "id": "c2",
+          "text": "まり"
+        },
+        {
+          "id": "c3",
+          "text": "こねこ"
+        },
+        {
+          "id": "c4",
+          "text": "ねずみ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「まど」の「ど」から「どんぐり」へ。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.a7869d075174",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "しりとりで「ん」がつくことばを言うとどうなる？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まけ（おわり）になる"
+        },
+        {
+          "id": "c2",
+          "text": "もう一度言える"
+        },
+        {
+          "id": "c3",
+          "text": "とくてんになる"
+        },
+        {
+          "id": "c4",
+          "text": "なんでもよい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ん」でおわるとつづかないのでまけ。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.c3e08b13adf1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「さかな」のさいしょの音は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さ"
+        },
+        {
+          "id": "c2",
+          "text": "か"
+        },
+        {
+          "id": "c3",
+          "text": "な"
+        },
+        {
+          "id": "c4",
+          "text": "あ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "さ・か・なで、さいしょは「さ」。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.cb7e60b7715f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中で、たべものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "みかん"
+        },
+        {
+          "id": "c2",
+          "text": "つくえ"
+        },
+        {
+          "id": "c3",
+          "text": "えんぴつ"
+        },
+        {
+          "id": "c4",
+          "text": "くるま"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「みかん」はくだもの（たべもの）です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.d1909a71279f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「さくら」は音がいくつありますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2つ"
+        },
+        {
+          "id": "c2",
+          "text": "3つ"
+        },
+        {
+          "id": "c3",
+          "text": "4つ"
+        },
+        {
+          "id": "c4",
+          "text": "5つ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "さ・く・らで3つです。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.e176b2030c0e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「すいか」のつぎに、しりとりでつづくことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "からす"
+        },
+        {
+          "id": "c2",
+          "text": "すいとう"
+        },
+        {
+          "id": "c3",
+          "text": "いか"
+        },
+        {
+          "id": "c4",
+          "text": "すずめ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「すいか」の「か」から「からす」へつづく。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.e872a63fd376",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「しんぶんし」をうしろから読むとどうなる？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しんぶんし（同じ）"
+        },
+        {
+          "id": "c2",
+          "text": "しぶんんし"
+        },
+        {
+          "id": "c3",
+          "text": "読めない"
+        },
+        {
+          "id": "c4",
+          "text": "ちがうことば"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "前からも後ろからも同じことばを「かいぶん」という。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.e92a79331448",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ん」でおわることばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "みかん"
+        },
+        {
+          "id": "c2",
+          "text": "りんご"
+        },
+        {
+          "id": "c3",
+          "text": "すいか"
+        },
+        {
+          "id": "c4",
+          "text": "さくら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「みかん」は「ん」でおわる。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-5.ea7785205abe",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「か」ではじまることばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かさ"
+        },
+        {
+          "id": "c2",
+          "text": "さかな"
+        },
+        {
+          "id": "c3",
+          "text": "たこ"
+        },
+        {
+          "id": "c4",
+          "text": "いか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「かさ」は「か」ではじまります。"
+  }
+]

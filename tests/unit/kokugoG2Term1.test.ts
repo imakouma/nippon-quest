@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { Unit } from '../../src/core/content/schemas';
 import { buildRoadmapNodes } from '../../src/scenes/overworld/roadmap';
+import { readUnitQuestionSets } from './questionSetFixture';
 
 type Question = {
   id: string;
@@ -14,14 +15,13 @@ type Question = {
 
 const root = process.cwd();
 const units = JSON.parse(readFileSync(join(root, 'content/units.json'), 'utf8')) as Unit[];
-const questions = (file: string) =>
-  JSON.parse(readFileSync(join(root, 'content/questions/kokugo/g2', file), 'utf8')) as Question[];
+const questions = (unitSlug: string) => readUnitQuestionSets<Question>('kokugo', 'g2', unitSlug);
 
 describe('小学2年1学期の国語教材', () => {
   const newUnits = [
-    ['kokugo.g2.reading-sequence', 'reading-sequence.json'],
-    ['kokugo.g2.speaking-listening', 'speaking-listening.json'],
-    ['kokugo.g2.observation-writing', 'observation-writing.json'],
+    ['kokugo.g2.reading-sequence', 'reading-sequence'],
+    ['kokugo.g2.speaking-listening', 'speaking-listening'],
+    ['kokugo.g2.observation-writing', 'observation-writing'],
   ] as const;
 
   it.each(newUnits)('%s は1学期の現行単元として6問以上を持つ', (unitId, file) => {
@@ -34,21 +34,21 @@ describe('小学2年1学期の国語教材', () => {
   });
 
   it('読む問題は時間や出来事の順序と、根拠になる言葉を扱う', () => {
-    const text = JSON.stringify(questions('reading-sequence.json'));
+    const text = JSON.stringify(questions('reading-sequence'));
     expect(text).toContain('じゅん');
     expect(text).toContain('ことば');
     expect(text).toContain('はじめ');
   });
 
   it('話す・聞く問題は要点を落とさず、聞き返して伝える活動を扱う', () => {
-    const text = JSON.stringify(questions('speaking-listening.json'));
+    const text = JSON.stringify(questions('speaking-listening'));
     expect(text).toContain('だいじ');
     expect(text).toContain('ききかえ');
     expect(text).toContain('つたえ');
   });
 
   it('観察文は対象・様子・変化を順序立て、見た事実を書く', () => {
-    const text = JSON.stringify(questions('observation-writing.json'));
+    const text = JSON.stringify(questions('observation-writing'));
     expect(text).toContain('かんさつ');
     expect(text).toContain('ようす');
     expect(text).toContain('じゅん');

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-19.2f10f53b2af5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ねむらないでまっていた」とありますが、このときのじんざの気持ちとしてもっとも適当なものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "楽しみ"
+        },
+        {
+          "id": "c2",
+          "text": "あせり"
+        },
+        {
+          "id": "c3",
+          "text": "悲しみ"
+        },
+        {
+          "id": "c4",
+          "text": "怒り"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "男の子が来るのが楽しみで、眠らずに待っていました。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-19.79f54db33e7d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いきをはずませてとんできた」とありますが、このときの男の子の気持ちとしてもっとも適当なものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こうふん"
+        },
+        {
+          "id": "c2",
+          "text": "うたがい"
+        },
+        {
+          "id": "c3",
+          "text": "ぜつぼう"
+        },
+        {
+          "id": "c4",
+          "text": "怒り"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "お母さんの退院が決まって興奮し、嬉しそうにとんできました。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-19.848362467da6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「うれしかった」とありますが、じんざは何がうれしかったのですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "男の子が、じんざとチョコレートをはんぶんこしたこと。"
+        },
+        {
+          "id": "c2",
+          "text": "チョコレートを食べられたこと"
+        },
+        {
+          "id": "c3",
+          "text": "サーカスの仕事が終わること"
+        },
+        {
+          "id": "c4",
+          "text": "退院の話を聞いたこと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "男の子が自分とチョコレートをはんぶんこして分けてくれたのがうれしかったのです。"
+  }
+]

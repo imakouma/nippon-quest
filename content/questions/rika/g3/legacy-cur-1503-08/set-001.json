@@ -1,0 +1,434 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-08.1b90f658c982",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "周りをビニールでおおった導線の外側だけにつなぐと、豆電球が光らない理由[りゆう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中の金属は電気を通さないから"
+        },
+        {
+          "id": "c2",
+          "text": "ビニールが電気を通しにくく、中の金属まで届かないから"
+        },
+        {
+          "id": "c3",
+          "text": "必ず切れているから"
+        },
+        {
+          "id": "c4",
+          "text": "音が出るから"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "導線の中は金属ですが、まわりのビニールは電気を通しにくいので、外側だけつなぐと光りません。両はしをむいて金属を出してつなぎます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.1e75a02b83d2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気を通すか調べる実験でわかることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度だけ"
+        },
+        {
+          "id": "c2",
+          "text": "電気が通るかどうか"
+        },
+        {
+          "id": "c3",
+          "text": "紙かどうかだけ"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "回路につないで豆電球が光るかどうかで調べます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.2d105d494dd5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気が流れる道を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "回路"
+        },
+        {
+          "id": "c2",
+          "text": "かげ"
+        },
+        {
+          "id": "c3",
+          "text": "子葉"
+        },
+        {
+          "id": "c4",
+          "text": "方位"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電気が流れる道を回路といいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.3ac86d4160a6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気を通しにくい物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "銅"
+        },
+        {
+          "id": "c2",
+          "text": "アルミニウムはく"
+        },
+        {
+          "id": "c3",
+          "text": "プラスチック"
+        },
+        {
+          "id": "c4",
+          "text": "鉄くぎ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "プラスチックやゴム・紙は電気を通しにくいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.3d64605e8be5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "豆電球を光らせるために必要なものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かん電池[でんち]と豆電球[まめでんきゅう]だけ"
+        },
+        {
+          "id": "c2",
+          "text": "かん電池・導線・豆電球のつながった回路"
+        },
+        {
+          "id": "c3",
+          "text": "導線[どうせん]と豆電球[まめでんきゅう]だけ"
+        },
+        {
+          "id": "c4",
+          "text": "かん電池[でんち]・導線[どうせん]・豆電球[まめでんきゅう]がとちゅうで切[き]れた回路[かいろ]"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かん電池・導線・豆電球がつながった回路が必要です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.498c16e51fe0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "豆電球のガラス部分だけにつなぐとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "光る"
+        },
+        {
+          "id": "c2",
+          "text": "光らない"
+        },
+        {
+          "id": "c3",
+          "text": "必ず爆発する"
+        },
+        {
+          "id": "c4",
+          "text": "重くなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ガラスは電気を通さないので光りません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.5e58452f94a5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回路の途中が切れているとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず明るくなる"
+        },
+        {
+          "id": "c2",
+          "text": "光らない"
+        },
+        {
+          "id": "c3",
+          "text": "音が出る"
+        },
+        {
+          "id": "c4",
+          "text": "磁石になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "回路が切れていると電気が流れず光りません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.5f64bd3987e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "鉄・銅・アルミニウムのような物を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気体"
+        },
+        {
+          "id": "c2",
+          "text": "金属"
+        },
+        {
+          "id": "c3",
+          "text": "こん虫"
+        },
+        {
+          "id": "c4",
+          "text": "子葉"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "鉄・銅・アルミニウムは金属です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.8b4fbe78fa4b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "導線のビニールをどうすると電気がつながりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "両はしをむく"
+        },
+        {
+          "id": "c2",
+          "text": "片はしだけむく"
+        },
+        {
+          "id": "c3",
+          "text": "むかない"
+        },
+        {
+          "id": "c4",
+          "text": "ぬらす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "両はしのビニールをむいて金属を出します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.988c0be26210",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電気を通しやすい物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輪ゴム"
+        },
+        {
+          "id": "c2",
+          "text": "鉄のクリップ"
+        },
+        {
+          "id": "c3",
+          "text": "紙"
+        },
+        {
+          "id": "c4",
+          "text": "プラスチック"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "鉄などの金属は電気を通しやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.9ea5bfe12c6d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かん電池の両端を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭と腹"
+        },
+        {
+          "id": "c2",
+          "text": "＋きょくと－きょく"
+        },
+        {
+          "id": "c3",
+          "text": "N極とS極"
+        },
+        {
+          "id": "c4",
+          "text": "根と葉"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かん電池には＋きょくと－きょくがあります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-08.e9416fa6bbec",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-08",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-08",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "豆電球が光るつなぎ方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "＋だけにつなぐ"
+        },
+        {
+          "id": "c2",
+          "text": "－だけにつなぐ"
+        },
+        {
+          "id": "c3",
+          "text": "＋と－の両方につなぐ"
+        },
+        {
+          "id": "c4",
+          "text": "どちらにもつながない"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "＋きょくと－きょくの両方につながる回路が必要です。"
+  }
+]

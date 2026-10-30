@@ -46,9 +46,9 @@ nihonquest/
 │   ├── recipes.json              ← 合成レシピ
 │   ├── skills.json               ← わざ（教科・学年帯・威力・属性）
 │   ├── questions/                ★★ 問題作成者の主戦場
-│   │   ├── sansu/g1/*.json
-│   │   ├── kokugo/g2/*.json
-│   │   ├── rika/g4/*.json
+│   │   ├── sansu/g1/<unit>/set-*.json
+│   │   ├── kokugo/g2/<unit>/set-*.json
+│   │   ├── rika/g4/<unit>/set-*.json
 │   │   └── ...
 │   ├── balance/                  ← 経験値テーブル、エンカウント率、ドロップ率補正
 │   └── i18n/ja.json              ← システムUIの文言（ボタン名など）
@@ -172,6 +172,7 @@ export interface QuestionQuery {
   subject: Subject;
   gradeRange: [Grade, Grade];
   tags?: string[];             // 県イベントなどで指定
+  units?: string[];            // 技ごとの対象単元を指定
   excludeIds?: string[];       // 直近出題の除外
   preferUnits?: string[];      // 習熟度の低い単元
 }
@@ -184,12 +185,14 @@ export interface QuestionQuery {
 3. **`schema` はレンダラーが所有する。** `scripts/gen-schemas.ts` が全レンダラーの `schema` から `schemas/questions/*.schema.json` を生成し、問題作成者はそれで補完・検証する。
 4. **問題JSONが増えてもビルド不要。** `content/` は Vite の `import.meta.glob` で読むか、`public/content` に置いて fetch する。MVPでは後者（問題作成者がファイルを置くだけでリロードで反映）。
 5. 新タイプ追加の手順（UI担当）：`renderers/<type>/` を作る → `index.ts` で `QuestionRenderer` を export → `renderers/registry.ts` に1行追加 → `content/questions/_samples/<type>.json` にサンプル問題を3問 → `pnpm gen:schemas`。**これ以外のファイルを触らずに済むこと。**
+6. 本番問題は `questions/<subject>/g<grade>/<unit-slug>/set-<NNN>.json` に置く。1セットは同じ単元の1〜30問とし、`unit-slug` は単元IDの末尾と一致させる。
+7. `pnpm gen:manifest` は、実行時の平坦な索引に加えて `questionCatalog`（教科→学年→単元→セット）を生成する。カタログとbundleは生成物であり、手編集しない。
 
 ### 3.5 教材の学術レビュー
 
 - 自動検査は構造・参照・正解形式を保証するが、設問内容の学術的正確性を承認しない。
 - 公式出典と承認記録は `content/quality/academic-reviews.json` に集約する。
-- 人間が問題ファイルを確認したら、担当者・確認日・出典ID・ファイルの SHA-256 を `reviews` に記録する。
+- 人間が30問以下の問題セットを確認したら、担当者・確認日・出典ID・ファイルの SHA-256 を `reviews` に記録する。
 - 有効な承認は、対象ファイルが現存し、SHA-256 が一致し、レビュー日・出典確認日が未来日でも期限切れでもなく、参照する全出典が台帳に存在して対象ファイルの全教科を扱うものだけ。同一ファイルの重複記録も無効とする。
 - 記録は `pnpm academic-review:record -- ...` でプレビューし、人間が内容と根拠を確認したあと `--apply` を付ける。詳細は `docs/quality/ACADEMIC_REVIEW_WORKFLOW.md`。
 - 承認済みファイルの内容が変わると `pnpm validate:content` が失敗する。変更内容を再確認してからハッシュと確認日を更新する。
@@ -204,7 +207,9 @@ export interface QuestionQuery {
 
 `/playground.html` — ゲームを起動せずに、任意の問題JSONを貼り付け／ファイル選択して、そのタイプのレンダラーで即表示・採点確認できる画面。**MVPの最初の週に作る**（問題作成者とUI担当がゲーム本体の完成を待たずに並行作業できるようになる）。
 
-ステージの下は **問題いちらん**（開発用。`src/tools/QuestionList.tsx`）：`content/questions` の問題を全部 表で出し（id・教科・学年・単元・タイプ・問題文・選択肢と正解・解説）、教科・学年・タイプ・単元・ことばで しぼりこめる。行を押すと その問題を上のステージで出し、URL が `?q=<問題 id>` になる（リロード・共有しても同じ問題が開く）。スキーマに合わない問題・未登録タイプ・id の重複は赤く出る。「↻ よみなおす」で JSON を置き直したあとも読み直せる。左の学年を選ぶと、ゲームと同じく まだ習っていない漢字のことばは ひらがなで出る。いちらんは問題タイプで分岐しない（`prompt`・`choices`/`words`/`cards`・`answer` という よくある形から拾う）。
+ステージの下は **問題ブラウザ**（開発用。`src/tools/QuestionList.tsx`）：生成済み `questionCatalog` を使うフォルダツリーで、教科 → 学年 → 単元 → セットと各問題数をたどれる。セットを選ぶと既存の問題表をそのファイルだけに絞り、「すべて」で全件へ戻す。ツリーは問題本文から階層を再構築せず、カタログがない旧manifestでは表示しない。
+
+問題表は `content/questions` の問題を全部出し（id・教科・学年・単元・タイプ・問題文・選択肢と正解・解説）、教科・学年・タイプ・単元・ことばでさらに絞りこめる。行を押すとその問題を上のステージで出し、URL が `?q=<問題 id>` になる（リロード・共有しても同じ問題が開く）。スキーマに合わない問題・未登録タイプ・id の重複は赤く出る。「↻ よみなおす」で JSON を置き直したあとも読み直せる。左の学年を選ぶと、ゲームと同じくまだ習っていない漢字のことばはひらがなで出る。いちらんは問題タイプで分岐しない（`prompt`・`choices`/`words`/`cards`・`answer` というよくある形から拾う）。
 
 ---
 

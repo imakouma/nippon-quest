@@ -1,0 +1,720 @@
+[
+  {
+    "id": "source.kokugo.g2.jpn-2-5.21cf840ff956",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "つぎの ことばを ただしい じゅんばんに ならべた ものは どれですか。［ わたしは / よみました / 本を ］",
+      "choices": [
+        {
+          "id": "a",
+          "text": "わたしは よみました 本を。"
+        },
+        {
+          "id": "b",
+          "text": "本を よみました わたしは。"
+        },
+        {
+          "id": "c",
+          "text": "わたしは 本を よみました。"
+        },
+        {
+          "id": "d",
+          "text": "よみました わたしは 本を。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "この文[ぶん]は、「だれが（わたしは）」「なにを（本[ほん]を）」「どうする（よみました）」の順[じゅん]に並[なら]べると、意味[いみ]が分[わ]かりやすくなります。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-5.10eac5fd83ed",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "じかんの じゅんばんに ただしく ならんでいる ものは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あさおきて、よるねて、ひるごはんをたべる。"
+        },
+        {
+          "id": "b",
+          "text": "あさおきて、ひるごはんをたべて、よるねる。"
+        },
+        {
+          "id": "c",
+          "text": "ひるごはんをたべて、あさおきて、よるねる。"
+        },
+        {
+          "id": "d",
+          "text": "よるねて、あさおきて、ひるごはんをたべる。"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "朝、昼、夜という時間の順序（事柄の順序）に合わせて文をつなぎます。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.07a69da44386",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ぼく・は・ごはん・を・たべる」で文をつくると、さいごにくることばは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たべる"
+        },
+        {
+          "id": "c2",
+          "text": "ぼく"
+        },
+        {
+          "id": "c3",
+          "text": "ごはん"
+        },
+        {
+          "id": "c4",
+          "text": "を"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "動きを表すことばは文の終わり。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.09ea2d509c84",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ことばをならべて正しい文にすると、どれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いぬが ほえる。"
+        },
+        {
+          "id": "c2",
+          "text": "ほえる いぬが。"
+        },
+        {
+          "id": "c3",
+          "text": "が いぬ ほえる。"
+        },
+        {
+          "id": "c4",
+          "text": "ほえる が いぬ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「だれが」→「どうする」の順にならべる。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.20558135d634",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「__を のむ。」の__に合うことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "みず"
+        },
+        {
+          "id": "c2",
+          "text": "やま"
+        },
+        {
+          "id": "c3",
+          "text": "つき"
+        },
+        {
+          "id": "c4",
+          "text": "いし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「みずを のむ」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.2c183f79c5b9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、文として正しいものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ねこが ねる。"
+        },
+        {
+          "id": "c2",
+          "text": "ねこが さく。"
+        },
+        {
+          "id": "c3",
+          "text": "ねこが ふる。"
+        },
+        {
+          "id": "c4",
+          "text": "ねこが なる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ねこが ねる」は意味が通る。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.3ec6ac5146c7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「__ がっこうへ いく。」の__に入る、主語をしめすことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたしは"
+        },
+        {
+          "id": "c2",
+          "text": "わたしを"
+        },
+        {
+          "id": "c3",
+          "text": "わたしへ"
+        },
+        {
+          "id": "c4",
+          "text": "わたしの"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "この文[ぶん]では、「わたしは」が、だれが学校[がっこう]へ行[い]くのかを表[あらわ]します。主語[しゅご]を表[あらわ]す言葉[ことば]には、「は」や「が」が付[つ]くことがあります。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.474b8690e3c0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "正しい文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とりが そらを とぶ。"
+        },
+        {
+          "id": "c2",
+          "text": "とりが とぶ そらを。"
+        },
+        {
+          "id": "c3",
+          "text": "そらを とぶ とりが。"
+        },
+        {
+          "id": "c4",
+          "text": "とぶ そらを とりが。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "動きを表すことば（とぶ）は文の終わりにくる。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.4b2a9e61d44e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "主語と述語が正しく合うものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はなが さく。"
+        },
+        {
+          "id": "c2",
+          "text": "はなが はしる。"
+        },
+        {
+          "id": "c3",
+          "text": "はなが たべる。"
+        },
+        {
+          "id": "c4",
+          "text": "はなが よむ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「はなが さく」は自然につながる。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.576a83753e99",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「__を たべる。」の__に合うことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "りんご"
+        },
+        {
+          "id": "c2",
+          "text": "がっこう"
+        },
+        {
+          "id": "c3",
+          "text": "こうえん"
+        },
+        {
+          "id": "c4",
+          "text": "そら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「りんごを たべる」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.5afdf8c25d98",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いぬが はしる。」の主語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いぬが"
+        },
+        {
+          "id": "c2",
+          "text": "はしる"
+        },
+        {
+          "id": "c3",
+          "text": "が"
+        },
+        {
+          "id": "c4",
+          "text": "いぬ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なにが」にあたる「いぬが」が主語です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.5fd96c78d466",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ぼくは ほんを __。」に合うことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "よむ"
+        },
+        {
+          "id": "c2",
+          "text": "よる"
+        },
+        {
+          "id": "c3",
+          "text": "とぶ"
+        },
+        {
+          "id": "c4",
+          "text": "なく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「本を」につづく動きは「よむ」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.6c0d97b17e8e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いもうとは うたを うたう。」の述語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "うたう"
+        },
+        {
+          "id": "c2",
+          "text": "いもうとは"
+        },
+        {
+          "id": "c3",
+          "text": "うたを"
+        },
+        {
+          "id": "c4",
+          "text": "うた"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "動きを表す「うたう」が述語。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.89e6068f4697",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「__が およぐ。」に合うことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さかな"
+        },
+        {
+          "id": "c2",
+          "text": "つくえ"
+        },
+        {
+          "id": "c3",
+          "text": "えんぴつ"
+        },
+        {
+          "id": "c4",
+          "text": "ぼうし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「さかなが およぐ」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.8c516dd40d8f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「__は あまい。」の__に合うことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ケーキ"
+        },
+        {
+          "id": "c2",
+          "text": "いす"
+        },
+        {
+          "id": "c3",
+          "text": "くつ"
+        },
+        {
+          "id": "c4",
+          "text": "かさ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ケーキは あまい」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.966f5c485a13",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「あかい はなが さく。」で「あかい」はどのことばをくわしくしている？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はな"
+        },
+        {
+          "id": "c2",
+          "text": "さく"
+        },
+        {
+          "id": "c3",
+          "text": "あかい"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どんな はな」かを説明しているので「はな」をくわしくしています。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.b45bf2243ef0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「、」「。」の使い方が正しい文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きょうは、はれです。"
+        },
+        {
+          "id": "c2",
+          "text": "きょうは。はれです、"
+        },
+        {
+          "id": "c3",
+          "text": "きょうは はれです"
+        },
+        {
+          "id": "c4",
+          "text": "、きょうは はれです。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とちゅうに「、」、終わりに「。」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.b7ac73ddd221",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ねこが __。」正しくつづくのはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ニャーと なく"
+        },
+        {
+          "id": "c2",
+          "text": "そらを とぶ"
+        },
+        {
+          "id": "c3",
+          "text": "はなを さかせる"
+        },
+        {
+          "id": "c4",
+          "text": "あめを ふらせる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ねこのすることは「ニャーと なく」です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.c31a5c2ea75d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ことばをならべて正しい文にすると、どれ？（「はなが」「さく」）",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はなが さく。"
+        },
+        {
+          "id": "c2",
+          "text": "さく はなが。"
+        },
+        {
+          "id": "c3",
+          "text": "が はな さく。"
+        },
+        {
+          "id": "c4",
+          "text": "さく が はな。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なにが」→「どうする」の順にならべます。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-5.ed997c1fa38f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「とりが __。」に合う、動きを表すことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "なく"
+        },
+        {
+          "id": "c2",
+          "text": "あおい"
+        },
+        {
+          "id": "c3",
+          "text": "ほん"
+        },
+        {
+          "id": "c4",
+          "text": "つくえ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "述語になるのは動きを表す「なく」です。"
+  }
+]

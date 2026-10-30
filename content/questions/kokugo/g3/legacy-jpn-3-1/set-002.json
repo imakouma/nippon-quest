@@ -1,0 +1,866 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.951b4118c81c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「感想[かんそう]」の「感」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かん"
+        },
+        {
+          "id": "c2",
+          "text": "がん"
+        },
+        {
+          "id": "c3",
+          "text": "そう"
+        },
+        {
+          "id": "c4",
+          "text": "か"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「感想[かんそう]」の「感」は「かん」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.972ab2c8d58b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「駅[えき]」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "えき"
+        },
+        {
+          "id": "c2",
+          "text": "いき"
+        },
+        {
+          "id": "c3",
+          "text": "えぎ"
+        },
+        {
+          "id": "c4",
+          "text": "やく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「駅」は「えき」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.9921668b8cff",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「お客[きゃく]さん」の「客」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きゃく"
+        },
+        {
+          "id": "c2",
+          "text": "きゃう"
+        },
+        {
+          "id": "c3",
+          "text": "かく"
+        },
+        {
+          "id": "c4",
+          "text": "げき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「お客[きゃく]さん」の「客」は「きゃく」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.9a7c3fb10e52",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆せつめいに図を（使用）する。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しよう"
+        },
+        {
+          "id": "c2",
+          "text": "しよ"
+        },
+        {
+          "id": "c3",
+          "text": "しゆ"
+        },
+        {
+          "id": "c4",
+          "text": "しようう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「使用」は「しよう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.9ec659e84a10",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「岸[きし]」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きし"
+        },
+        {
+          "id": "c2",
+          "text": "がん"
+        },
+        {
+          "id": "c3",
+          "text": "きじ"
+        },
+        {
+          "id": "c4",
+          "text": "かわ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「岸」は「きし」と読[よ]みます。海[うみ]や川[かわ]と陸地[りくち]の境[さかい]を表[あらわ]す言葉[ことば]です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.ad553cc6f85c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「中央[ちゅうおう]」の「央」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おう"
+        },
+        {
+          "id": "c2",
+          "text": "よう"
+        },
+        {
+          "id": "c3",
+          "text": "ちゅう"
+        },
+        {
+          "id": "c4",
+          "text": "お"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「中央[ちゅうおう]」の「央」は「おう」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.af4b43b9cc53",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（鼻血）を止める。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はなぢ"
+        },
+        {
+          "id": "c2",
+          "text": "はなじ"
+        },
+        {
+          "id": "c3",
+          "text": "はなち"
+        },
+        {
+          "id": "c4",
+          "text": "びじ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「鼻血」は「はなぢ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.afc467e5374c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「意見[いけん]」の「意」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "い"
+        },
+        {
+          "id": "c2",
+          "text": "なら"
+        },
+        {
+          "id": "c3",
+          "text": "なか"
+        },
+        {
+          "id": "c4",
+          "text": "おも"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「意見[いけん]」の「意」は「い」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.b07093033025",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆そろばんを（習う）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ならう"
+        },
+        {
+          "id": "c2",
+          "text": "まなぶ"
+        },
+        {
+          "id": "c3",
+          "text": "おしえる"
+        },
+        {
+          "id": "c4",
+          "text": "ならうう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「習う」は「ならう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.b555262def2c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「温[あたた]かい食事[しょくじ]」の「温かい」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あたたかい"
+        },
+        {
+          "id": "c2",
+          "text": "おんかい"
+        },
+        {
+          "id": "c3",
+          "text": "あたかい"
+        },
+        {
+          "id": "c4",
+          "text": "あたたがい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「温[あたた]かい」は「あたたかい」と読[よ]みます。送り仮名[おくりがな]まで続[つづ]けて読[よ]みましょう。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.bbd91188c1ac",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆学校の（おくじょう）へ行く。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "屋上"
+        },
+        {
+          "id": "c2",
+          "text": "おく上"
+        },
+        {
+          "id": "c3",
+          "text": "奥上"
+        },
+        {
+          "id": "c4",
+          "text": "屋じょう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「屋上（おくじょう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.c5c60712e6fa",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「寒[さむ]い朝[あさ]」の「寒い」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さむい"
+        },
+        {
+          "id": "c2",
+          "text": "かんい"
+        },
+        {
+          "id": "c3",
+          "text": "さぶい"
+        },
+        {
+          "id": "c4",
+          "text": "つめたい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「寒[さむ]い」は「さむい」と読[よ]みます。気温[きおん]が低[ひく]い様子[ようす]を表[あらわ]します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.c5c6eccfddbb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「朝[あさ]に起[お]きる」の「起きる」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おきる"
+        },
+        {
+          "id": "c2",
+          "text": "きる"
+        },
+        {
+          "id": "c3",
+          "text": "おこる"
+        },
+        {
+          "id": "c4",
+          "text": "おぎる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「起[お]きる」は「おきる」と読[よ]みます。この文[ぶん]では、ねむりから目[め]を覚[さ]ますことです。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.c7bf94313f34",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆（つぎ）のバスを待つ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "次"
+        },
+        {
+          "id": "c2",
+          "text": "二"
+        },
+        {
+          "id": "c3",
+          "text": "地"
+        },
+        {
+          "id": "c4",
+          "text": "自"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「次（つぎ）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.c9f7b9c7062b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「暗[くら]い部屋[へや]」の「暗い」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くらい"
+        },
+        {
+          "id": "c2",
+          "text": "あんい"
+        },
+        {
+          "id": "c3",
+          "text": "ぐらい"
+        },
+        {
+          "id": "c4",
+          "text": "くろい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「暗[くら]い」は「くらい」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.cef3fb21ab0b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「電球[でんきゅう]」の「球」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きゅう"
+        },
+        {
+          "id": "c2",
+          "text": "あ"
+        },
+        {
+          "id": "c3",
+          "text": "つた"
+        },
+        {
+          "id": "c4",
+          "text": "くらい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「電球[でんきゅう]」の「球」は「きゅう」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.d0e7eee1a9e4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「植物[しょくぶつ]が育[そだ]つ」の「育つ」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そだつ"
+        },
+        {
+          "id": "c2",
+          "text": "いくつ"
+        },
+        {
+          "id": "c3",
+          "text": "そたつ"
+        },
+        {
+          "id": "c4",
+          "text": "そだてる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「育[そだ]つ」は「そだつ」と読[よ]みます。「育[そだ]てる」と送[おく]り仮名[がな]が変[か]わる言葉[ことば]もあります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.d24cd1f21829",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「委員[いいん]」の「員」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いん"
+        },
+        {
+          "id": "c2",
+          "text": "おも"
+        },
+        {
+          "id": "c3",
+          "text": "きゅう"
+        },
+        {
+          "id": "c4",
+          "text": "こと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「委員[いいん]」の「員」は「いん」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.daf6f54a26c7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「変化[へんか]」の「化」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "か"
+        },
+        {
+          "id": "c2",
+          "text": "から"
+        },
+        {
+          "id": "c3",
+          "text": "なに"
+        },
+        {
+          "id": "c4",
+          "text": "つく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「変化[へんか]」の「化」は「か」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.e4744cda254f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆花を（そだ）てる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "育"
+        },
+        {
+          "id": "c2",
+          "text": "生"
+        },
+        {
+          "id": "c3",
+          "text": "植"
+        },
+        {
+          "id": "c4",
+          "text": "体"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「育（そだ）てる」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.e488fc840b2a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「値段[ねだん]が安[やす]い」の「安い」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "やすい"
+        },
+        {
+          "id": "c2",
+          "text": "あんい"
+        },
+        {
+          "id": "c3",
+          "text": "やずい"
+        },
+        {
+          "id": "c4",
+          "text": "やす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「安[やす]い」は「やすい」と読[よ]みます。送り仮名[おくりがな]の「い」まで確[たし]かめましょう。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.e924f69e8f4c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆絵の（ぐ）の色をそろえる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "具"
+        },
+        {
+          "id": "c2",
+          "text": "工"
+        },
+        {
+          "id": "c3",
+          "text": "空"
+        },
+        {
+          "id": "c4",
+          "text": "器"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "絵の具の「ぐ」は「具」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.e999c5101e28",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「二階[にかい]」の「階」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かい"
+        },
+        {
+          "id": "c2",
+          "text": "がい"
+        },
+        {
+          "id": "c3",
+          "text": "だん"
+        },
+        {
+          "id": "c4",
+          "text": "かえ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「二階[にかい]」の「階」は「かい」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-1.f639b6f59de4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「横[よこ]」の読[よ]み方[かた]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "よこ"
+        },
+        {
+          "id": "c2",
+          "text": "おう"
+        },
+        {
+          "id": "c3",
+          "text": "よご"
+        },
+        {
+          "id": "c4",
+          "text": "たて"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「横」は「よこ」と読[よ]みます。「縦[たて]」と反対[はんたい]の向[む]きです。"
+  }
+]

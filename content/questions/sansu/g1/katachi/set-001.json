@@ -1,0 +1,83 @@
+[
+  {
+    "id": "sansu.g1.katachi.0001",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "つみきの なかで、ころがりやすい かたちは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ボールの ような まるい かたち"
+        },
+        {
+          "id": "b",
+          "text": "はこの ような かたち"
+        },
+        {
+          "id": "c",
+          "text": "さいころの ような かたち"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "ボールの ような まるい かたちは、どの むきにも ころがりやすい かたちです。"
+  },
+  {
+    "id": "sansu.g1.katachi.0002",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "おなじ しかくい はこを 2こ つかって、たかい かたちを つくるには？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "はこを うえと したに かさねる"
+        },
+        {
+          "id": "b",
+          "text": "はこを はなして おく"
+        },
+        {
+          "id": "c",
+          "text": "はこを よこに ならべる"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "うえと したに かさねると、もとの はこより たかい かたちを つくれます。"
+  },
+  {
+    "id": "sansu.g1.katachi.0003",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "ねこは いすの した、かばんは いすの うえに あります。いすの うえに あるのは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ねこ"
+        },
+        {
+          "id": "b",
+          "text": "かばん"
+        },
+        {
+          "id": "c",
+          "text": "ねこと かばん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「うえ・した」の ことばで いちを たしかめると、いすの うえは かばんです。"
+  }
+]

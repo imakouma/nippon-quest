@@ -1,0 +1,525 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-18.05a8c666af07",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "五角柱の側面は、いくつありますか。次の中から、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5つ"
+        },
+        {
+          "id": "c2",
+          "text": "4つ"
+        },
+        {
+          "id": "c3",
+          "text": "3つ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "側面は、底面の辺の数だけある。五角柱の底面は 五角形なので、側面はそれに合わせて、５つになるね。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.0d52925fc7a5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの図形[ずけい]は、同じ三角柱の見取図と展開図です。",
+      "answers": [
+        "7"
+      ],
+      "template": "展開図内の辺IH の長さは、いくらになるでしょう。 {{INPUT}} cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/0734a99dd3fa7357.png"
+    },
+    "explanation": "辺IHは、三角柱の高さになる部分なので、7cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.2babbc1ae591",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "五角柱の側面は、どんな形になっていますか。次の中から、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角形[さんかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "四角形[しかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "五角形"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "角柱は、底面の形によって 呼び方が決まる。五角柱の底面は、五角形になるけど、側面は四角形[しかくけい]になる。どの角柱でも、側面は四角形[しかくけい]だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.388823be7f76",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの図形[ずけい]は、同じ円柱の見取図と展開図です。",
+      "answers": [
+        "18.84"
+      ],
+      "template": "展開図内の辺BC の長さは、いくらになるでしょう。 {{INPUT}} cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/cc76a25a06b51b08.png"
+    },
+    "explanation": "円柱では、展開図の側面の長方形[ちょうほうけい]の横の 辺BC は、底面の円周と重なり、等しくなる 6×3.14=18.84cm"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.3b9134453b9c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "五角柱の底面は、どんな形になっていますか。次の中から、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角形[さんかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "四角形[しかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "五角形"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "五角柱の底面は、五角形になっている。角柱は、底面の形によって 呼び方が決まる。底面が四角形[しかくけい]であれば、四角柱だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.453d76d28db9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの図形[ずけい]は、同じ三角柱の見取図と展開図です。",
+      "answers": [
+        "3"
+      ],
+      "template": "展開図内の辺JI の長さは、いくらになるでしょう。 {{INPUT}} cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/0734a99dd3fa7357.png"
+    },
+    "explanation": "辺JIは 辺AJ と重なる底面の直角[ちょっかく]をつくる辺なので、見取図から 3cm ということがわかる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.529fce9aaf8c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの図形[ずけい]は、同じ円柱の見取図と展開図です。",
+      "answers": [
+        "5"
+      ],
+      "template": "展開図内の辺AB の長さは、いくらになるでしょう。 {{INPUT}} cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/cf404e251b9bdc92.png"
+    },
+    "explanation": "円柱では、展開図の側面の長方形[ちょうほうけい]のたての長さ（辺AB）は、その立体の高さになる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.58dafe1fb89d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図形[ずけい]を何というでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角柱"
+        },
+        {
+          "id": "c2",
+          "text": "四角柱"
+        },
+        {
+          "id": "c3",
+          "text": "円柱"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bdd77360c62f2ef4.png"
+    },
+    "explanation": "底面が三角形[さんかくけい]の角柱なので、三角柱になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.5b9c6aa965d9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "直方体や立方体は、次のうち どれにあたるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角柱"
+        },
+        {
+          "id": "c2",
+          "text": "四角柱"
+        },
+        {
+          "id": "c3",
+          "text": "円柱"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "直方体や立方体は、どちらも底面が四角形[しかくけい]になっているので、四角柱にあたる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.72ee883c5a61",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "底面・側面"
+        },
+        {
+          "id": "c2",
+          "text": "曲面"
+        },
+        {
+          "id": "c3",
+          "text": "直面"
+        },
+        {
+          "id": "c4",
+          "text": "側面[そくめん]・底面[ていめん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "円柱や角柱の上下の面を（底面）といい、横の面を（側面）という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.800bfe66e952",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの図形[ずけい]は、同じ円柱の見取図と展開図です。",
+      "answers": [
+        "9.42"
+      ],
+      "template": "展開図内の辺BC の長さは、いくらになるでしょう。 {{INPUT}} cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/cf404e251b9bdc92.png"
+    },
+    "explanation": "円柱では、展開図の側面の長方形[ちょうほうけい]の横の 辺BC は、底面の円周と重なり、等しくなる 3×3.14=9.42cm"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.8276aea9a99f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "三角柱の側面は、いくつありますか。次の中から、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5つ"
+        },
+        {
+          "id": "c2",
+          "text": "4つ"
+        },
+        {
+          "id": "c3",
+          "text": "3つ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "側面は、底面の辺の数だけある。三角柱の底面は 三角形[さんかくけい]なので、側面はそれに合わせて、３つになるね。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.93367f6c9b57",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "三角柱の側面は、どんな形になっていますか。次の中から、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角形[さんかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "四角形[しかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "五角形"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "角柱は、底面の形によって 呼び方が決まる。三角柱の底面は、三角形[さんかくけい]になるけど、側面は四角形[しかくけい]になる。どの角柱でも、側面は四角形[しかくけい]だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.a14546e77879",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "円柱の側面を、底面に垂直になるように たてに切り開くと、どんな形になっていますか。次の中から、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "四角形[しかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "円"
+        },
+        {
+          "id": "c3",
+          "text": "三角形[さんかくけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "円柱を展開すると、側面が四角形[しかくけい]になることがわかる。この四角形[しかくけい]のたての長さは 円柱の高さ、横の長さは 底面の円周と等しくなるんだ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.bdc709e440ee",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "三角柱の底面は、どんな形になっていますか。次の中から、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角形[さんかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "四角形[しかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "五角形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "三角柱の底面は、三角形[さんかくけい]になっている。角柱は、底面の形によって 呼び方が決まる。底面が四角形[しかくけい]であれば、四角柱だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.c476ca87435d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図形[ずけい]を何というでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角柱"
+        },
+        {
+          "id": "c2",
+          "text": "四角柱"
+        },
+        {
+          "id": "c3",
+          "text": "五角柱"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/643b9cd945c19172.png"
+    },
+    "explanation": "底面が五角形の角柱なので、五角柱になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.cb37b594871b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図形[ずけい]を何というでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角柱"
+        },
+        {
+          "id": "c2",
+          "text": "四角柱"
+        },
+        {
+          "id": "c3",
+          "text": "円柱"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3edbb362fa7859be.png"
+    },
+    "explanation": "底面が 円になっている柱ちゅうなので、円柱だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-18.f5e9e0355248",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの図形[ずけい]は、同じ三角柱の見取図と展開図です。",
+      "answers": [
+        "5"
+      ],
+      "template": "展開図内の辺AB の長さは、いくらになるでしょう。 {{INPUT}} cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/0734a99dd3fa7357.png"
+    },
+    "explanation": "辺ABは、底面の直角三角形の一番長い辺なので、5cm になる。"
+  }
+]

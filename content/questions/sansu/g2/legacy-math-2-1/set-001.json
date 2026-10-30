@@ -1,0 +1,305 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-1.03e76e3d3de4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "グラフを 見て、ひょうの ウ に あてはまる すうじを こたえよう。",
+      "answers": [
+        "5"
+      ],
+      "promptImage": "questions/legacy/dea2f00ae96d8e54.png"
+    },
+    "explanation": "グラフの ○の かずが、ひょうの すう字です。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.0d0288b30c74",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなに、すきな きゅうしょくの おかずを かみに かいてもらい、あつめました。",
+      "answers": [
+        "6"
+      ],
+      "template": "カレーと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/e5a87f0aa11f2a32.png"
+    },
+    "explanation": "あつめたカードを しゅるいごとに ならべると、カレーのカードは 6まい あります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.0efdcce0ec27",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなが すきな そとあそびを、グラフに まとめました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おにごっこ"
+        },
+        {
+          "id": "c2",
+          "text": "サッカー"
+        },
+        {
+          "id": "c3",
+          "text": "なわとび"
+        },
+        {
+          "id": "c4",
+          "text": "かくれんぼ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/042b8f841570d883.png"
+    },
+    "explanation": "グラフの ○の かずが 一ばん すくないのは、なわとびです。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.14017faba940",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなに、すきな きゅうしょくの おかずを かみに かいてもらい、あつめました。",
+      "answers": [
+        "3"
+      ],
+      "template": "やきそばと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/e5a87f0aa11f2a32.png"
+    },
+    "explanation": "あつめたカードを しゅるいごとに ならべると、やきそばのカードは 3まい あります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.2b01dbbab681",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "グラフを 見て、ひょうの イ に あてはまる すうじを こたえよう。",
+      "answers": [
+        "4"
+      ],
+      "promptImage": "questions/legacy/dea2f00ae96d8e54.png"
+    },
+    "explanation": "グラフの ○の かずが、ひょうの すう字です。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.5e2eccb90428",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなが すきな そとあそびを、グラフに まとめました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おにごっこ"
+        },
+        {
+          "id": "c2",
+          "text": "ドッジボール"
+        },
+        {
+          "id": "c3",
+          "text": "なわとび"
+        },
+        {
+          "id": "c4",
+          "text": "かくれんぼ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/042b8f841570d883.png"
+    },
+    "explanation": "グラフの ○の かずが 一ばん おおいのは、ドッジボールです。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.796aacaeb2c3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "グラフを 見て、ひょうの ア に あてはまる すうじを こたえよう。",
+      "answers": [
+        "3"
+      ],
+      "promptImage": "questions/legacy/dea2f00ae96d8e54.png"
+    },
+    "explanation": "グラフの ○の かずが、ひょうの すう字です。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.ac73faced8c7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなが すきな きゅうしょくの おかずを、グラフに まとめました。",
+      "answers": [
+        "3"
+      ],
+      "template": "にくじゃがと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/e3b222688127ce94.png"
+    },
+    "explanation": "グラフの にくじゃが の ところに ある ○の かずを かぞえよう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.b38b4d2428a9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなが すきな そとあそびを、グラフに まとめました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おにごっこが サッカーより 2人 おおい。"
+        },
+        {
+          "id": "c2",
+          "text": "サッカーが おにごっこより 2人 おおい。"
+        },
+        {
+          "id": "c3",
+          "text": "おにごっこが サッカーより 5人 おおい。"
+        },
+        {
+          "id": "c4",
+          "text": "サッカーが おにごっこより 3人 おおい。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/042b8f841570d883.png"
+    },
+    "explanation": "おにごっこが すきな人の かずと、サッカーが すきな 人の かずを くらべましょう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.c180e1dfdd4a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなが すきな きゅうしょくの おかずを、グラフに まとめました。",
+      "answers": [
+        "4"
+      ],
+      "template": "ハンバーグと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/e3b222688127ce94.png"
+    },
+    "explanation": "グラフの ハンバーグ の ところに ある ○の かずを かぞえよう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.d3a784d0f3f1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなが すきな きゅうしょくの おかずを、グラフに まとめました。",
+      "answers": [
+        "6"
+      ],
+      "template": "カレーと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/e3b222688127ce94.png"
+    },
+    "explanation": "グラフの カレー の ところに ある ○の かずを かぞえよう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-1.e0d7170d99d8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスの みんなに、すきな きゅうしょくの おかずを かみに かいてもらい、あつめました。",
+      "answers": [
+        "4"
+      ],
+      "template": "スパゲティと こたえた 人は、なん人 いますか。 {{INPUT}} 人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/e5a87f0aa11f2a32.png"
+    },
+    "explanation": "あつめたカードを しゅるいごとに ならべると、スパゲティのカードは 4まい あります。"
+  }
+]

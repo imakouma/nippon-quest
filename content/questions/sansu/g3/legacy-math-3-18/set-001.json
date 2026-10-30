@@ -1,0 +1,521 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-18.1c8f423a9eee",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "250"
+      ],
+      "template": "{{INPUT}} - 100 = 150",
+      "suffix": "- 100 = 150"
+    },
+    "explanation": "100を引いて、150になるのは、250だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.28a4b749d728",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "□+6 = 20"
+        },
+        {
+          "id": "c2",
+          "text": "□+20 = 6"
+        },
+        {
+          "id": "c3",
+          "text": "□-6 = 20"
+        },
+        {
+          "id": "c4",
+          "text": "□-20 = 6"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ふくろに入っていたチョコの数を □こ とすると、□と ばらの6こをあわせて 20こになる。これを式にすると、□+6 = 20"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.39c46b6654ea",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}} × 7 = 63",
+      "suffix": "× 7 = 63"
+    },
+    "explanation": "7をかけて、63になるのは、9だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.532403b16d1b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "62"
+      ],
+      "template": "52 + {{INPUT}} = 114",
+      "suffix": "= 114"
+    },
+    "explanation": "52に足して、114になるのは、62だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.5dd703a8e8dd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "15"
+      ],
+      "template": "{{INPUT}} × 3 = 45",
+      "suffix": "× 3 = 45"
+    },
+    "explanation": "3をかけて、45になるのは、15だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.641782793ff8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "140"
+      ],
+      "template": "{{INPUT}} +120 = 260",
+      "suffix": "+120 = 260"
+    },
+    "explanation": "120を足して、260になるのは、140だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.6a4af24fc3b9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "14"
+      ],
+      "template": "{{INPUT}} +6 = 20",
+      "suffix": "+6 = 20"
+    },
+    "explanation": "6を足して、20になるのは、14だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.7fc9bf4f7f8f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "42"
+      ],
+      "template": "{{INPUT}} ÷6 = 7",
+      "suffix": "÷6 = 7"
+    },
+    "explanation": "6でわって、7になるのは、42だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.8301c8293841",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "□÷6 = 7"
+        },
+        {
+          "id": "c2",
+          "text": "□×6 = 7"
+        },
+        {
+          "id": "c3",
+          "text": "□×7 = 6"
+        },
+        {
+          "id": "c4",
+          "text": "□÷7 = 6"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "はじめにあったチョコを □ことする。□こを6人で分けると、7こになるので、□÷6 = 7"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.836dfd415775",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "5"
+      ],
+      "template": "80 × {{INPUT}} = 400",
+      "suffix": "= 400"
+    },
+    "explanation": "80にかけて、400になるのは、5だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.9c4f141bdf39",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "□+120 = 260"
+        },
+        {
+          "id": "c2",
+          "text": "□-120 = 260"
+        },
+        {
+          "id": "c3",
+          "text": "120×□ = 260"
+        },
+        {
+          "id": "c4",
+          "text": "260÷□ = 120"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "お茶のねだんを □円 とすると、□と おにぎりの120円をあわせて 260円になる。これを式にすると、□+120 = 260"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.a0432f39553e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "18-□ = 6"
+        },
+        {
+          "id": "c2",
+          "text": "18+□ = 6"
+        },
+        {
+          "id": "c3",
+          "text": "6-□ = 18"
+        },
+        {
+          "id": "c4",
+          "text": "6×□ = 18"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食べたチョコの数を □こ とすると、18こから、食べた□こを引くと、6こになる。これを式にすると、18-□ = 6"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.a35af0dc336f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "6"
+      ],
+      "template": "48 ÷ {{INPUT}} = 8",
+      "suffix": "= 8"
+    },
+    "explanation": "48をわって、8になるのは、6だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.a426013b9173",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "96"
+      ],
+      "template": "145 - {{INPUT}} = 49",
+      "suffix": "= 49"
+    },
+    "explanation": "145から引いて、49になるのは、96だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.a7e235b0a501",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "□-100 = 150"
+        },
+        {
+          "id": "c2",
+          "text": "□+100 = 150"
+        },
+        {
+          "id": "c3",
+          "text": "150-□ =100"
+        },
+        {
+          "id": "c4",
+          "text": "100-□ = 250"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "はじめにあった水を □mLとすると、□から 使った100mLをひくと、 150mLになる。これを式にすると、□-100 = 150"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.c7a637d97dc4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を もとめよう。",
+      "answers": [
+        "12"
+      ],
+      "template": "18 - {{INPUT}} = 6",
+      "suffix": "= 6"
+    },
+    "explanation": "18から引いて、6になるのは、12だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.d037a27ee191",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "□×3 = 45"
+        },
+        {
+          "id": "c2",
+          "text": "□+3 = 45"
+        },
+        {
+          "id": "c3",
+          "text": "□÷3 = 45"
+        },
+        {
+          "id": "c4",
+          "text": "3÷□ = 45"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1ふくろに入っているチョコの数を □ことすると、チョコは 3ふくろで、45こ あるので、□×3 = 45"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.f08bac6cf2eb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "45÷□ = 9"
+        },
+        {
+          "id": "c2",
+          "text": "45-□ = 9"
+        },
+        {
+          "id": "c3",
+          "text": "9÷□ = 45"
+        },
+        {
+          "id": "c4",
+          "text": "45×□ = 9"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "分けた人数を □人とする。チョコの数45こを□で割ると1人分の数になるので、45÷□ = 9"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-18.f50edb56f425",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "80×□ = 400"
+        },
+        {
+          "id": "c2",
+          "text": "80+□ = 400"
+        },
+        {
+          "id": "c3",
+          "text": "400-□ = 80"
+        },
+        {
+          "id": "c4",
+          "text": "80÷□ = 400"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "おにぎりの数を □ことすると、おにぎりは □こで、400円になるので、80×□ = 400"
+  }
+]

@@ -1,0 +1,891 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-9.02f38d637e55",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=3×x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e68863e6a720e68e.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=3×x のグラフは、(1, 3)を通るので、②のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.0dea44d82c7a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1m が 2kg の金属のぼうがあります。この ぼうの長さと重さについてまとめた 下の表にあてはまる数をうめよう。",
+      "answers": [
+        "2",
+        "6",
+        "8"
+      ],
+      "template": "ぼうの長さ（m） 1 2 3 4 5 ぼうの重さ（kg） {{INPUT}} 4 {{INPUT}} {{INPUT}} 10"
+    },
+    "explanation": "1m の重さが 2kg なので、＜ぼうの重さ＞＝ 2 × ＜ぼうの長さ＞ で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.1679f1da7f39",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、反比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1分間に 5L ずつ 水そうに水をいれたときの「水をいれた時間」と「水そうの水の量」"
+        },
+        {
+          "id": "c2",
+          "text": "500mLの ジュースを「飲んだ量」と「残りの量」"
+        },
+        {
+          "id": "c3",
+          "text": "20個のあめを分けるときの「分けた人数」と「1人がもらえるあめの数」"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「分けた人数」が 2倍、3倍になれば「１人がもらえるあめの数」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.1a613dba29a9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある数が 2倍、3倍になると、もう一方の数は \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "比例"
+        },
+        {
+          "id": "c2",
+          "text": "反比例"
+        },
+        {
+          "id": "c3",
+          "text": "関数"
+        },
+        {
+          "id": "c4",
+          "text": "文字式"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数は \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係を「反比例」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.2ba316fffe50",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=2×x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e68863e6a720e68e.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=2×x のグラフは、(1, 2)を通るので、①のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.337d7e0826ac",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "比例のグラフの特徴として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(0, 0) を通る"
+        },
+        {
+          "id": "c2",
+          "text": "グラフの式は、y=□÷x の形になる"
+        },
+        {
+          "id": "c3",
+          "text": "右下がりな直線になる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "比例のグラフは、(0, 0) を通る 右上がりの直線になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.35508423c21f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "比例"
+        },
+        {
+          "id": "c2",
+          "text": "反比例"
+        },
+        {
+          "id": "c3",
+          "text": "関数"
+        },
+        {
+          "id": "c4",
+          "text": "文字式"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係を「比例」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.483a67832c0c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=12÷x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4db486000d06007d.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=12÷xのグラフは、(1, 12)を通るので、②のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.5b5250351724",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=2×x"
+        },
+        {
+          "id": "c2",
+          "text": "y=1×x"
+        },
+        {
+          "id": "c3",
+          "text": "y=\\frac{1}{2}×x"
+        },
+        {
+          "id": "c4",
+          "text": "y=2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ぼうの重さは、2kg × ＜ぼうの長さ＞ で求めることができるので、 y=2×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.5d4e0868232a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1分間に 5L ずつ 水そうに水をいれたときの「水をいれた時間」と「水そうの水の量」"
+        },
+        {
+          "id": "c2",
+          "text": "500mLの ジュースを「飲んだ量」と「残りの量」"
+        },
+        {
+          "id": "c3",
+          "text": "20個のあめを分けるときの「分けた人数」と「1人がもらえるあめの数」"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「水をいれた時間」が 2倍、3倍になれば「水そうの水の量」も 2倍、3倍になるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.60f7b24a85f0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の式は、次の２つの数の関係を表したものです。□にあてはまる数を答えましょう。",
+      "answers": [
+        "40"
+      ],
+      "template": "時速 40km の車の「走った時間（x時間）」と「道のり（ykm）」 y= {{INPUT}} × x",
+      "suffix": "× x"
+    },
+    "explanation": "道のりは、40km × ＜走った時間＞ で求めることができるので、 y=40×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.69eb5eda5b64",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の式は、次の２つの数の関係を表したものです。□にあてはまる数を答えましょう。",
+      "answers": [
+        "20"
+      ],
+      "template": "20個 のあめを分けるときの 分けた人数（x 人）と １人がもらえるあめの数（y 個） y= {{INPUT}} ÷ x",
+      "suffix": "÷ x"
+    },
+    "explanation": "は、 20個 ÷ ＜分けた人数＞ で求めることができるので、 y=20÷x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.762f8811fff0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1分間 に 5L ずつ、水を入れます。水を入れた時間と水の量についてまとめた 下の表にあてはまる数をうめよう。",
+      "answers": [
+        "10",
+        "20",
+        "25"
+      ],
+      "template": "時間（分） 1 2 3 4 5 水の量（L） 5 {{INPUT}} 15 {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "1分間 で入れる水の量が 5L なので、＜水の量＞＝ 5 × ＜時間＞ で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.784e2613eb27",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "時速 40km の車の走った時間と道のりについてまとめた 下の表にあてはまる数をうめよう。",
+      "answers": [
+        "40",
+        "160",
+        "200"
+      ],
+      "template": "走った時間（時間） 1 2 3 4 5 道のり（km） {{INPUT}} 80 120 {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "× ＜速さ＞ = なので、＜道のり> ＝ 40 × で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.9dfc941fa652",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横 3cm の長方形[ちょうほうけい]の 縦の長さと面積[めんせき]についてまとめた 下の表にあてはまる数をうめよう。",
+      "answers": [
+        "3",
+        "6",
+        "9"
+      ],
+      "template": "縦の長さ（cm） 1 2 3 4 5 面積（cm^2） {{INPUT}} {{INPUT}} {{INPUT}} 12 15"
+    },
+    "explanation": "× ＜横の長さ＞ = なので、＜面積[めんせき]> ＝ 3 × で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.a3176b883657",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "面積[めんせき]が 12cm^2 の長方形[ちょうほうけい]について、縦の長さと横の長さを 下の表にまとめました。空らんに あてはまる数をうめよう。 縦の長さ（cm） 1 2 3 4 5 6 横の長さ（cm） 6 4 3",
+      "answers": [
+        "12",
+        "2.4",
+        "2"
+      ],
+      "template": "面積が 12cm^2 の長方形について、縦の長さと横の長さを 下の表にまとめました。空らんに あてはまる数をうめよう。 縦の長さ（cm） 1 2 3 4 5 6 横の長さ（cm） {{INPUT}} 6 4 3 {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "面積[めんせき]が 12cm^2 なので、＜縦の長さ＞ × ＜横の長さ＞＝ 12cm^2 で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.a664393671f4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横3cm の長方形[ちょうほうけい]の「縦の長さ」と「面積[めんせき]」"
+        },
+        {
+          "id": "c2",
+          "text": "20L 入る水そうに水を入れるときの「１分間にいれる水の量」と「いっぱいになるのにかかる時間」"
+        },
+        {
+          "id": "c3",
+          "text": "500円の商品を買ったときの「はらうお金」と「おつり」"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「縦の長さ」が 2倍、3倍になれば「面積[めんせき]」も 2倍、3倍になるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.a7a24237e6f2",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=3×x"
+        },
+        {
+          "id": "c2",
+          "text": "y=1×x"
+        },
+        {
+          "id": "c3",
+          "text": "y=\\frac{1}{3}×x"
+        },
+        {
+          "id": "c4",
+          "text": "y=3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "面積[めんせき]は、3cm × ＜縦の長さ＞ で求めることができるので、 y=3×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.aa7dcca63249",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=12÷x"
+        },
+        {
+          "id": "c2",
+          "text": "y=x÷12"
+        },
+        {
+          "id": "c3",
+          "text": "y=12×x"
+        },
+        {
+          "id": "c4",
+          "text": "y=12-x"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "は、 × = より、 12cm^2 ÷ ＜縦の長さ＞ で求めることができるので、 y=12÷x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.b33ab6181153",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=6÷x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4db486000d06007d.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=6÷xのグラフは、(1, 6)を通るので、①のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.c3db4361ca46",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "時速 3km で歩いたときの 歩いた時間を x 時間、進んだ道のりを y km としました。このときの x と y の関係を、グラフにしたものを、えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5617a8c5b35efad6.png"
+    },
+    "explanation": "＜道のり＞ ＝ ＜速さ＞ × ＜時間＞ で求めることができるので、x と y の関係を式で表すと、y=3 × x の比例の関係になる。 y=3 × x のグラフは、(1, 3)を通るので、③のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.c6fd59d350a3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時速40km で走る車の「走った時間」と「道のり」"
+        },
+        {
+          "id": "c2",
+          "text": "面積[めんせき]が 20cm^2の三角形[さんかくけい]の「底辺」と「高さ」"
+        },
+        {
+          "id": "c3",
+          "text": "全員で 30人のクラスの「男子の人数」と「女子の人数」"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「走った時間」が 2倍、3倍になれば「道のり」も 2倍、3倍になるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.c9c02fee9e72",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の式は、次の２つの数の関係を表したものです。□にあてはまる数を答えましょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "1分間に 5L ずつ、水そうに水を入れたときの 「水を入れた時間（x 分）」と「水そうの水の量（y L）」 y= {{INPUT}} × x",
+      "suffix": "× x"
+    },
+    "explanation": "水そうの水の量は、5L × ＜水を入れた時間＞ で求めることができるので、 y=5×x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.ccfaea692963",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の①〜④のグラフから、y=1×x のグラフをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e68863e6a720e68e.png"
+    },
+    "explanation": "それぞれのグラフが、どこを通っているかに注目しよう。y=1×x のグラフは、(1, 1)を通るので、③のグラフだ。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.cea54380c2ee",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "反比例のグラフの特徴として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(0, 0) を通る"
+        },
+        {
+          "id": "c2",
+          "text": "グラフの式は、y=□×x の形になる"
+        },
+        {
+          "id": "c3",
+          "text": "曲線になる"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "反比例のグラフは、曲線になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.d4f604baf9f3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "y=30÷x"
+        },
+        {
+          "id": "c2",
+          "text": "y=x÷30"
+        },
+        {
+          "id": "c3",
+          "text": "y=30×x"
+        },
+        {
+          "id": "c4",
+          "text": "y=30-x"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "は、 30km ÷ ＜速さ＞ で求めることができるので、 y=30÷x"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.d6897dce29e9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "24L のジュースを何人かで等分した時、人数と1人分の量を 下の表にまとめました。空らんにあてはまる数をうめよう。",
+      "answers": [
+        "12",
+        "4.8",
+        "4"
+      ],
+      "template": "人数（人） 1 2 3 4 5 6 1人分の量（L） 24 {{INPUT}} 8 6 {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "ジュースの量が 24L なので、24L ÷ ＜人数＞ ＝ ＜1人分の量＞ で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.e0bc64e5a688",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、反比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横3cm の長方形[ちょうほうけい]の「縦の長さ」と「面積[めんせき]」"
+        },
+        {
+          "id": "c2",
+          "text": "30km の道のりを移動するときの「速さ」と「かかる時間」"
+        },
+        {
+          "id": "c3",
+          "text": "500円の商品を買ったときの「はらうお金」と「おつり」"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「速さ」が 2倍、3倍になれば「かかる時間」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-9.ff23e6f3babf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、反比例の関係にあるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時速 40km で走る車の「走った時間」と「道のり」"
+        },
+        {
+          "id": "c2",
+          "text": "面積[めんせき]が 20cm^2 の平行四辺形の「底辺」と「高さ」"
+        },
+        {
+          "id": "c3",
+          "text": "全員で 30人のクラスの「男子の人数」と「女子の人数」"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「底辺」が 2倍、3倍になれば「高さ」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
+  }
+]

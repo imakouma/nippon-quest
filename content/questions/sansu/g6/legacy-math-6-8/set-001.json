@@ -1,0 +1,444 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-8.0e4d9ef5705f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、下図のようになりました。このデータの最頻値（モード）は、いくつになるでしょう。",
+      "answers": [
+        "21"
+      ],
+      "promptImage": "questions/legacy/9419a4d588bd3a52.png"
+    },
+    "explanation": "最頻値（モード）とは、データの中で最もよく出てくる値のこと。21 だけが４回出てきていて、最頻値になっている。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.16f57e3ff4da",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "度数分布表をグラフで表すときによく使われる、下図のようなグラフを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "柱状グラフ"
+        },
+        {
+          "id": "c2",
+          "text": "棒グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "ドットプロット"
+        },
+        {
+          "id": "c4",
+          "text": "折れ線グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4e53d8dced278de1.png"
+    },
+    "explanation": "上図のように、度数分布表をグラフで表すときによく使われるグラフを、柱状グラフ（ヒストグラム）という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.1c29829accf2",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "最頻値（モード）の説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "データの中で最もよく出てくる値のこと。"
+        },
+        {
+          "id": "c2",
+          "text": "データを小さいものから並べたとき、真ん中にくる値のこと。"
+        },
+        {
+          "id": "c3",
+          "text": "データの中で、最も大きい値のこと。"
+        },
+        {
+          "id": "c4",
+          "text": "データの合計をデータの個数で割った値のこと。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "データの中で最もよく出てくる値を、最頻値（モード）という。 ・中央値：データを小さいものから並べたとき、真ん中にくる値のこと。 ・最大値：データの中で、最も大きい値のこと。 ・平均値：データの合計をデータの個数で割った値のこと。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.3c0f38e89803",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、データの特ちょうを表す代表値として、適切でないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "最小値"
+        },
+        {
+          "id": "c2",
+          "text": "平均値"
+        },
+        {
+          "id": "c3",
+          "text": "最頻値（モード）"
+        },
+        {
+          "id": "c4",
+          "text": "中央値（メジアン）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平均値、最頻値（モード）、中央値（メジアン）のように、そのデータの特ちょうを表す値を 代表値という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.594e99c92c46",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、柱状グラフ（ヒストグラム）を使うとわかりやすくなるのは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "東京では、それぞれの月にどれくらいの雨が降るか。"
+        },
+        {
+          "id": "c2",
+          "text": "算数テストのクラスの平均点が、どう変わっていったか。"
+        },
+        {
+          "id": "c3",
+          "text": "空気の中には、どんな気体がふくまれているか。"
+        },
+        {
+          "id": "c4",
+          "text": "クラスにどれくらいの身長の人が、どれくらいいるのか。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "度数分布表をグラフで表すときに よく使われる 柱状グラフ（ヒストグラム）は、数や量のちらばりを表すのに適している。クラスにどれくらいの身長の人が、どれくらいいるのかを調べるためには、適しているといえる。 ・東京では、それぞれの月にどれくらいの雨が降るか。：月ごとの降水量は、比べやすいように 棒グラフ（たて）で表すことが多い。棒グラフと柱状グラフはにているけど、目的がちがう。 ・算数テストのクラスの平均点が、どう変わっていったか。：数や量の変化を知りたいときは、折れ線グラフや棒グラフ（たて）がいい。 ・空気の中には、どんな気体がふくまれているか。：空気の中にふくまれている それぞれの気体の「割合[わりあい]」を表すことになるので、円グラフや帯グラフがむいている。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.5e0c7c3cfdb4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図は、６年１組の上体起こしの結果について、ドットプロットで表したものです。このドットプロットからわかることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "上体起こしを21回できた人が、一番多い。"
+        },
+        {
+          "id": "c2",
+          "text": "25回以上、上体起こしができた人はいない。"
+        },
+        {
+          "id": "c3",
+          "text": "上体起こしを14回できた人は、いない。"
+        },
+        {
+          "id": "c4",
+          "text": "上体起こしの回数の平均は、21回になる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1d5e1175aedc750e.png"
+    },
+    "explanation": "「上体起こしを21回できた人が、一番多い。」が正しい。 ・「25回以上」には、25回もふくまれる。25回上体起こしをできた人が、1人いる。 ・上体起こしを14回できた人は、1人いる。 ・「上体起こしを21回できた人が、一番多い。」が、それが平均になるわけではない。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.70bdd7a4898d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、ドットプロットで表すことが適しているデータは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ある場所の８月の気温の変化"
+        },
+        {
+          "id": "c2",
+          "text": "ある資源の日本の輸入相手国の割合[わりあい]"
+        },
+        {
+          "id": "c3",
+          "text": "コメの都道府県別生産量"
+        },
+        {
+          "id": "c4",
+          "text": "算数の小テストの点数のちらばり"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ドットプロットは、データのちらばりを表すことに適している。算数の小テストの点数のちらばりが、最も適しているといえる。 ・ある場所の８月の気温の変化：時間にあわせた数や量の変化は、折れ線グラフや棒グラフ（たて）で表すといい。 ・ある資源の日本の輸入相手国の割合[わりあい]：割合[わりあい]については、帯グラフや円グラフで表そう。 ・コメの都道府県別生産量：量をくらべたいときは、棒グラフ（横）がよく使われる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.90d63d386b4a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平均値をもとめる式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "（すべてのデータの合計）÷（データの個数）"
+        },
+        {
+          "id": "c2",
+          "text": "（最大値＋最小値）÷２"
+        },
+        {
+          "id": "c3",
+          "text": "（最頻値＋中央値）÷２"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平均値は、（すべてのデータの合計）÷（データの個数）でもとめることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.9197a4c0b137",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "中央値（メジアン）の説明として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "データの中で最もよく出てくる値のこと。"
+        },
+        {
+          "id": "c2",
+          "text": "データを小さいものから並べたとき、真ん中にくる値のこと。"
+        },
+        {
+          "id": "c3",
+          "text": "データの中で、最も大きい値のこと。"
+        },
+        {
+          "id": "c4",
+          "text": "データの合計をデータの個数で割った値のこと。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "データを小さいものから並べたとき、真ん中にくる値を、中央値（メジアン）という。 ・最頻値：データの中で最もよく出てくる値のこと。 ・最大値：データの中で、最も大きい値のこと。 ・平均値：データの合計をデータの個数で割った値のこと。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.a08cd2930228",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、下図のようになりました。このデータの中央値（メジアン）は、いくつになるでしょう。",
+      "answers": [
+        "19"
+      ],
+      "promptImage": "questions/legacy/9419a4d588bd3a52.png"
+    },
+    "explanation": "中央値（メジアン）とは、データを小さいものから並べたとき、真ん中にくる値のこと。表のデータを、小さい順に並べると、次のようになり、25このデータの真ん中になるのは、13番目の 19 になる。 11, 12, 12, 14, 15, 15, 16, 17, 17, 18, 18, 18, 19, 19, 20, 20, 21, 21, 21, 21, 22, 22, 23, 23, 25"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.a4b45983a0a0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、下図のようになりました。このデータの平均値は、いくつになるでしょう。",
+      "answers": [
+        "18.4"
+      ],
+      "promptImage": "questions/legacy/9419a4d588bd3a52.png"
+    },
+    "explanation": "平均値は、（すべてのデータの合計）÷（データの個数）でもとめることができる。 すべてのデータの合計は 460、これを 25 で割ると、18.4 になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.ec4f8fc2434f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、左図のようになりました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ドットプロット"
+        },
+        {
+          "id": "c2",
+          "text": "ヒストグラム"
+        },
+        {
+          "id": "c3",
+          "text": "度数分布表"
+        },
+        {
+          "id": "c4",
+          "text": "柱状グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/32bd0010849f28fb.png"
+    },
+    "explanation": "右図のように、数直線の上にデータの数だけ点をとったグラフを、ドットプロットという。ドットプロットを使うと、データのちらばりがわかりやすくなる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.ecb89af20936",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、左図のようになりました。このデータについて、度数分布表の①〜③にあてはまる数をこたえよう。",
+      "answers": [
+        "4",
+        "10",
+        "25"
+      ],
+      "template": "① {{INPUT}} ② {{INPUT}} ③ {{INPUT}}",
+      "promptImage": "questions/legacy/c81e6a8aca19464d.png"
+    },
+    "explanation": "① 10回以上 15回未満：4 ② 15回以上 20回未満：10 ③ すべての階級の合計＝データの個数：25"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-8.fd06ef0bbff8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10以上15未満に当てはまらない数は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "15"
+        },
+        {
+          "id": "c2",
+          "text": "10"
+        },
+        {
+          "id": "c3",
+          "text": "11"
+        },
+        {
+          "id": "c4",
+          "text": "14"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「以上」や「以下」は、その数をふくみ、「未満」はその数をふくまないので、「10以上15未満」には、10はふくまれるけど、15はふくまれない。"
+  }
+]

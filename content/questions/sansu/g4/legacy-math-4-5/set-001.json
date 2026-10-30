@@ -1,0 +1,714 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-5.1cc2f815ad49",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の直角三角形で、辺ABと垂直な関係にある辺をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺BC"
+        },
+        {
+          "id": "c2",
+          "text": "辺CA"
+        },
+        {
+          "id": "c3",
+          "text": "辺BCと辺CA"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f4e631be78c0db6c.png"
+    },
+    "explanation": "直角[ちょっかく]をつくって２つの直線が交わるとき、２つの直線は「垂直」であるという。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.2222774a7ad4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "向かい合った２組の辺が どちらも平行な四角形[しかくけい]を、何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台形"
+        },
+        {
+          "id": "c2",
+          "text": "平行四辺形"
+        },
+        {
+          "id": "c3",
+          "text": "ひし形"
+        },
+        {
+          "id": "c4",
+          "text": "長方形[ちょうほうけい]"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "向かい合った２組の辺が どちらも平行な四角形[しかくけい]を、「平行四辺形」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.28ed170e81ea",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平行四辺形の「辺」のきまりとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "向かい合った辺の長さは、等しい。"
+        },
+        {
+          "id": "c2",
+          "text": "となり合った辺の長さは、等しい。"
+        },
+        {
+          "id": "c3",
+          "text": "すべての辺の長さは、等しい。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平行四辺形では、向かい合った辺の長さは、等しい。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.2bfdba38c286",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の四角形[しかくけい]の中から、平行四辺形の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "④と⑤"
+        },
+        {
+          "id": "c2",
+          "text": "①と⑥"
+        },
+        {
+          "id": "c3",
+          "text": "②と③"
+        },
+        {
+          "id": "c4",
+          "text": "①と⑤"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9fabc93922cc3474.png"
+    },
+    "explanation": "向かい合った２組の辺が どちらも平行な四角形[しかくけい]を、「平行四辺形」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.2c2e48fc0912",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平行四辺形の対角線について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "平行四辺形の対角線は、垂直にまじわる。"
+        },
+        {
+          "id": "c2",
+          "text": "平行四辺形の対角線は、それぞれの真ん中でまじわる。"
+        },
+        {
+          "id": "c3",
+          "text": "平行四辺形の対角線は、まじわらない。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "平行四辺形の対角線は、それぞれの真ん中でまじわる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.2ec7ecb571bb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "すべての辺の長さが等しい四角形[しかくけい]を、何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台形"
+        },
+        {
+          "id": "c2",
+          "text": "平行四辺形"
+        },
+        {
+          "id": "c3",
+          "text": "ひし形"
+        },
+        {
+          "id": "c4",
+          "text": "正方形[せいほうけい]"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "すべての辺の長さが等しい四角形[しかくけい]を、「ひし形」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.3efa16b5add3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "向かい合う角どうしをむすんだ直線を 何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対角線"
+        },
+        {
+          "id": "c2",
+          "text": "辺"
+        },
+        {
+          "id": "c3",
+          "text": "垂直線"
+        },
+        {
+          "id": "c4",
+          "text": "平行線"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "向かい合う角どうしをむすんだ直線を 「対角線」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.53229288da6a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図で、垂直である直線の組み合わせは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アとウ"
+        },
+        {
+          "id": "c2",
+          "text": "イとウ"
+        },
+        {
+          "id": "c3",
+          "text": "イとエ"
+        },
+        {
+          "id": "c4",
+          "text": "エとオ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e7bf3d7d79eaadd9.png"
+    },
+    "explanation": "直角[ちょっかく]をつくって２つの直線が交わるとき、２つの直線は「垂直」であるという。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.5a307a9b3ae8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の四角形[しかくけい]は、平行四辺形です。",
+      "answers": [
+        "60"
+      ],
+      "template": "角Dの大きさは、何度になるでしょう。 {{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/c403e909ba9493b5.png"
+    },
+    "explanation": "平行四辺形では、向かい合った角の大きさは等しいので、角Dの大きさは 角Bと同じになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.5b5a07c90b0e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図で、直線アと直線イ、直線ウと直線エ は、それぞれ平行になっている。このとき、● がついた角と同じ大きさの角は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角う、角え、角か"
+        },
+        {
+          "id": "c2",
+          "text": "角え、角か"
+        },
+        {
+          "id": "c3",
+          "text": "角あ、角い、角お"
+        },
+        {
+          "id": "c4",
+          "text": "角あ、角い、角う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c70f4026008c1eb5.png"
+    },
+    "explanation": "平行な直線に もう１つ直線がまじわるとき、同じ位置にできる角やむかい側にある角の大きさは、同じになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.5f224b668d19",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の四角形[しかくけい]は、平行四辺形です。",
+      "answers": [
+        "9"
+      ],
+      "template": "辺ADの長さは、何cmになるでしょう。 {{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/c403e909ba9493b5.png"
+    },
+    "explanation": "平行四辺形では、向かい合った辺の長さは等しいので、辺ADと辺BCの長さは 同じになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.63d2f5ef5a3e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を じゅん番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "垂直・平行"
+        },
+        {
+          "id": "c2",
+          "text": "直角[ちょっかく]"
+        },
+        {
+          "id": "c3",
+          "text": "水平"
+        },
+        {
+          "id": "c4",
+          "text": "平行[へいこう]・垂直[すいちょく]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/78cb51a691b0bc33.png"
+    },
+    "explanation": "上の図の直線アと直線イのように、直角[ちょっかく]をつくって２つの角が交わるとき、２つの直線は（垂直）であるといいます。直線アと直線ウのように、交わらない２つの直線は、（平行）であるといいます。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.67701ae2bd8e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の長方形[ちょうほうけい]で、辺ABと垂直な関係にある辺の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺BC と 辺DA"
+        },
+        {
+          "id": "c2",
+          "text": "辺CD"
+        },
+        {
+          "id": "c3",
+          "text": "辺BC"
+        },
+        {
+          "id": "c4",
+          "text": "辺DA"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/722382148fb68d15.png"
+    },
+    "explanation": "直角[ちょっかく]をつくって２つの直線が交わるとき、２つの直線は「垂直」であるという。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.6bf38e2c5542",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図で、直線アと直線イ、直線ウと直線エ は、それぞれ平行になっている。次の角の大きさをもとめよう。",
+      "answers": [
+        "40",
+        "40",
+        "140"
+      ],
+      "template": "角あ {{INPUT}}° 角い {{INPUT}}° 角う {{INPUT}}°",
+      "promptImage": "questions/legacy/3520c597b56b0adb.png"
+    },
+    "explanation": "平行な直線に もう１つ直線がまじわるとき、同じ位置にできる角やむかい側にある角の大きさは、同じになる。 角うは、となりにある角が 40° になるので、180-40=140° になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.7e28c38e7023",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の四角形[しかくけい]は、平行四辺形です。",
+      "answers": [
+        "5"
+      ],
+      "template": "AEの長さは、何cmになるでしょう。 {{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/5929ff4c5cc06c56.png"
+    },
+    "explanation": "平行四辺形の対角線は、それぞれの真ん中でまじわるので、AEはちょうどACの半分の長さになる。 10÷2=5cm"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.88b22209edd7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図で、平行である直線の組み合わせは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "エとオ"
+        },
+        {
+          "id": "c2",
+          "text": "アとウ"
+        },
+        {
+          "id": "c3",
+          "text": "エとウ"
+        },
+        {
+          "id": "c4",
+          "text": "ウとオ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e7bf3d7d79eaadd9.png"
+    },
+    "explanation": "交わらない２つの直線は、「平行」であるといいます。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.9f08d2768ab4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ひし形の対角線について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ひし形の対角線は、垂直にまじわる。"
+        },
+        {
+          "id": "c2",
+          "text": "ひし形の対角線は、３本ある。"
+        },
+        {
+          "id": "c3",
+          "text": "ひし形の対角線は、まじわらない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ひし形の対角線は、垂直にまじわる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.adf23ca6b117",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の長方形[ちょうほうけい]で、辺ABと平行な関係にある辺の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺BC と 辺CD"
+        },
+        {
+          "id": "c2",
+          "text": "辺CD"
+        },
+        {
+          "id": "c3",
+          "text": "辺BC"
+        },
+        {
+          "id": "c4",
+          "text": "辺CDと辺DA"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/722382148fb68d15.png"
+    },
+    "explanation": "交わらない２つの直線は、「平行」であるといいます。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.aef30bb11252",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の四角形[しかくけい]の中から、台形の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "④と⑤"
+        },
+        {
+          "id": "c2",
+          "text": "①と⑥"
+        },
+        {
+          "id": "c3",
+          "text": "②と③"
+        },
+        {
+          "id": "c4",
+          "text": "②と⑤"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9fabc93922cc3474.png"
+    },
+    "explanation": "向かい合った１組の辺が 平行な四角形[しかくけい]を、「台形」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.af563957f997",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平行四辺形の「角」のきまりとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "向かい合った角の大きさは、等しい。"
+        },
+        {
+          "id": "c2",
+          "text": "となり合った角の大きさは、等しい。"
+        },
+        {
+          "id": "c3",
+          "text": "すべての角の大きさは、等しい。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平行四辺形では、向かい合った角の大きさは、等しい。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.b3df177bf2aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の四角形[しかくけい]は、ひし形です。しるしをつけた角の大きさは、何度になるでしょう。",
+      "answers": [
+        "90"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/9e6ec20584ca90a3.png"
+    },
+    "explanation": "ひし形の対角線は、垂直にまじわるので、しるしをつけた角は、90°になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-5.f60e78cbfe7a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "向かい合った１組の辺が 平行な四角形[しかくけい]を、何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台形"
+        },
+        {
+          "id": "c2",
+          "text": "平行四辺形"
+        },
+        {
+          "id": "c3",
+          "text": "ひし形"
+        },
+        {
+          "id": "c4",
+          "text": "長方形[ちょうほうけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "向かい合った１組の辺が 平行な四角形[しかくけい]を、「台形」という。"
+  }
+]

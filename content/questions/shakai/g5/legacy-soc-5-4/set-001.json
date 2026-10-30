@@ -1,0 +1,340 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-4.1f6bb557986a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いろいろな果物の さいばいがさかんで、その中でも全国のさくらんぼの 約70% を生産[せいさん]する県は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山形県[やまがたけん]"
+        },
+        {
+          "id": "c2",
+          "text": "青森県"
+        },
+        {
+          "id": "c3",
+          "text": "愛媛県"
+        },
+        {
+          "id": "c4",
+          "text": "和歌山県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "山形県[やまがたけん]は、全国のさくらんぼの 約70% を生産[せいさん]している。そのほかにも、ぶどう、もも、なし などのさいばい がさかん。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.25dd00e5fbd0",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お米（イネ）を育てることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "稲作"
+        },
+        {
+          "id": "c2",
+          "text": "畑作"
+        },
+        {
+          "id": "c3",
+          "text": "麦作"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "イネをさいばいし、米をとることを稲いな作という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.2a63117435c9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "寒さに強いなどの特ちょうを持った農作物を作るために、ちがう品種をかけ合わせて、新しい品種をつくることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "遺伝子改良"
+        },
+        {
+          "id": "c2",
+          "text": "品種改良"
+        },
+        {
+          "id": "c3",
+          "text": "品種組みかえ"
+        },
+        {
+          "id": "c4",
+          "text": "遺伝子組みかえ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ちがう品種をかけあわせて、新しい品種をつくり出すことを品種改良という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.3113fb5b6e85",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本では、北海道[ほっかいどう]や新潟県、東北地方などの寒い地域、特に北日本の日本海側で、稲作がさかんになっている。この理由[りゆう]として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "豊富な雪どけ水を、米作りに利用することができるから。"
+        },
+        {
+          "id": "c2",
+          "text": "寒さに強い品種をつくるため、品種改良を重ねてきたから。"
+        },
+        {
+          "id": "c3",
+          "text": "イネは、もともと寒い地いきで生まれた農作物だから。"
+        },
+        {
+          "id": "c4",
+          "text": "夏は気温が高く、晴れた日が多いなど、イネのさいばいに合った気候だから。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "「イネは、もともと寒い地いきで生まれた農作物だから。」が、正しくない。イネは、もともと赤道[せきどう]に近い、１年を通して暑く、雨の多い地域の植物。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.661afeb79b7f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごのさいばいが さかんな都道府県の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "青森県、長野県"
+        },
+        {
+          "id": "c2",
+          "text": "山形県[やまがたけん]、山梨県"
+        },
+        {
+          "id": "c3",
+          "text": "山梨県、長野県"
+        },
+        {
+          "id": "c4",
+          "text": "北海道[ほっかいどう]、青森県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "りんごは、すずしい気候での さいばいに 適しており、青森県や長野県での さいばいがさかん。特に、青森県は 全国のりんご生産量の 半分以上をしめる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.66c6a685ead3",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食料と産業[さんぎょう]について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "農業",
+        "畜産業",
+        "漁業"
+      ],
+      "template": "食料を生産する産業には、農作物を生産する {{INPUT}} 、畜ちく産物を生産する {{INPUT}} 、水産物を生産する {{INPUT}} がある。"
+    },
+    "explanation": "食料を生産[せいさん]する産業[さんぎょう]には、農作物を生産[せいさん]する（農業）、畜産物を生産[せいさん]する（畜産業）、水産物を生産[せいさん]する（漁業）がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.7e9b57e4e7af",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "関東や関西などの 大都市の周辺では、人口の多い大都市に すぐに出荷ができるため、新せんさが大事になる 野菜や花のさいばいがさかんになっている。このような 大都市周辺で行われる農業を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "園芸農業"
+        },
+        {
+          "id": "c2",
+          "text": "近こう農業"
+        },
+        {
+          "id": "c3",
+          "text": "家庭菜園"
+        },
+        {
+          "id": "c4",
+          "text": "都市さいばい"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "大都市周辺で行われる農業を、近こう農業という。いたみやすいレタスなどの葉物野菜や、花などの さいばいがさかん。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.9b27d522d83d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みかんのさいばいが さかんな都道府県の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和歌山県、愛媛県"
+        },
+        {
+          "id": "c2",
+          "text": "青森県、長野県"
+        },
+        {
+          "id": "c3",
+          "text": "山梨県、山形県[やまがたけん]"
+        },
+        {
+          "id": "c4",
+          "text": "千葉県[ちばけん]、茨城県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "みかんは、温暖な気候での さいばい に適しているため、太平洋側で 暖流の黒潮であたためられた風のふく 和歌山県や愛媛県、静岡県などでの さいばいが さかん。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.daff2e3e5c88",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小麦、じゃがいもなどの さいばいがさかんで、日本最大の畑作地帯となっている北海道[ほっかいどう]の平野を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "十勝平野"
+        },
+        {
+          "id": "c2",
+          "text": "石狩平野"
+        },
+        {
+          "id": "c3",
+          "text": "釧路平野"
+        },
+        {
+          "id": "c4",
+          "text": "天塩平野"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "北海道[ほっかいどう]では、日本海側の石狩平野や上川盆地では 稲作が、太平洋側の十勝平野では 畑作が、さかんになっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-4.faf7a6626d56",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北日本で夏に気温が上がらず、イネが十分に育たなくなることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冷害"
+        },
+        {
+          "id": "c2",
+          "text": "冷夏"
+        },
+        {
+          "id": "c3",
+          "text": "やませ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "北日本で夏に気温が上がらず、イネが十分に育たなくなることを、冷害 という。 やませ は、北日本の太平洋側で、夏にふく冷たい風のこと。やませで 気温が下がると、冷害になることがある。"
+  }
+]

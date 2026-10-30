@@ -1,0 +1,476 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-16.0535bbea9f5d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の漢字を、数字になおしましょう。",
+      "answers": [
+        "5005"
+      ]
+    },
+    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「百」「十」が出てきていないので、百のくらい と 十のくらいは、0になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.0ae531ccae18",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる 数は、いくつでしょう。",
+      "answers": [
+        "8000"
+      ]
+    },
+    "explanation": "数は、10 ずつふえているね。ちょうど くらいが上がって、1000 が 8つになる 8000 だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.1ffa9ec437be",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "100を 12こ あつめた数は、いくらになるでしょう。",
+      "answers": [
+        "1200"
+      ]
+    },
+    "explanation": "100が 10こ あつまると、1000 になる。12こ だと、1200 だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.34d0521d92a6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三千九百二十六"
+        },
+        {
+          "id": "c2",
+          "text": "三十九百二十六"
+        },
+        {
+          "id": "c3",
+          "text": "三千九百二十"
+        },
+        {
+          "id": "c4",
+          "text": "三千九百二六"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "千[せん]の位[くらい]から順[じゅん]に読[よ]むと、3926は「三千九百二十六[さんぜんきゅうひゃくにじゅうろく]」です。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.3962c42d18d9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "六千八百二"
+        },
+        {
+          "id": "c2",
+          "text": "六千八百二十"
+        },
+        {
+          "id": "c3",
+          "text": "六千八二"
+        },
+        {
+          "id": "c4",
+          "text": "六千八十二"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0 になっているくらいは、とばして読もう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.3c0c83e6efd1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の漢字を、数字になおしましょう。",
+      "answers": [
+        "8013"
+      ]
+    },
+    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「百」が出てきていないので、百のくらいは、0になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.448d3ccd57d9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる 数は、いくつでしょう。",
+      "answers": [
+        "9900"
+      ]
+    },
+    "explanation": "数は、100 ずつふえているね。10000 より、100 小さい数なので、9900 だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.58c5f0f7f9fb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1000を ２こ、100 を ８こ、10 を ５こ、それに 1 をあわせた数は、いくらになるでしょう。",
+      "answers": [
+        "2851"
+      ]
+    },
+    "explanation": "2000＋800＋50＋1＝2851です。千[せん]・百[ひゃく]・十[じゅう]・一[いち]の位[くらい]を順[じゅん]に考[かんが]えます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.64f14e36da63",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "３つの数で、いちばん 小さい数をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2900"
+        },
+        {
+          "id": "c2",
+          "text": "3000"
+        },
+        {
+          "id": "c3",
+          "text": "920"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "数の大小をくらべるときは、大きなくらいの数から、じゅんばんに 見ていこう。千のくらいがない 920 が一ばん小さいね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.74d9aacd2e62",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる 数は、いくつでしょう。",
+      "answers": [
+        "10000"
+      ]
+    },
+    "explanation": "数は、1000 ずつふえているので、□には、1000が 10こ あつまった数が はいる。10000（１万）だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.8a892ac360b1",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "３つの数で、いちばん 大きい数をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4530"
+        },
+        {
+          "id": "c2",
+          "text": "5430"
+        },
+        {
+          "id": "c3",
+          "text": "5340"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "数の大小をくらべるときは、大きなくらいの数から、じゅんばんに 見ていこう。千のくらいと 百のくらいが 54と大きくなっている 5430 が一ばん大きいね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.8f8305c216db",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の漢字を、数字になおしましょう。",
+      "answers": [
+        "1102"
+      ]
+    },
+    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「十」が出てきていないので、十のくらいは、0になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.964d32b0ff14",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1000を ４こ、100 を ３こ、10 を ７こ、それに 9 をあわせた数は、いくらになるでしょう。",
+      "answers": [
+        "4379"
+      ]
+    },
+    "explanation": "4000＋300＋70＋9＝4379です。千[せん]・百[ひゃく]・十[じゅう]・一[いち]の位[くらい]を順[じゅん]に考[かんが]えます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.adcb3cbe433b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる 数は、いくつでしょう。",
+      "answers": [
+        "5000"
+      ]
+    },
+    "explanation": "数は、100 ずつふえているね。ちょうど くらいが上がって、1000 が 5つになる 5000 だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.b1b0796b5505",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1000を ３こ、100 を １こ、それに 7 をあわせた数は、いくらになるでしょう。",
+      "answers": [
+        "3107"
+      ]
+    },
+    "explanation": "十のくらいが ないので、「0（れい）」をいれよう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.b66fdb25f090",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "九千七百五十"
+        },
+        {
+          "id": "c2",
+          "text": "九千七百五十れい"
+        },
+        {
+          "id": "c3",
+          "text": "九千七百五"
+        },
+        {
+          "id": "c4",
+          "text": "九十七百五十"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0 になっているくらいは、とばして読もう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.d62a8c39ddd3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の漢字を、数字になおしましょう。",
+      "answers": [
+        "4574"
+      ]
+    },
+    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。千や百、十をとばして 数字にしていくと、分かりやすい。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.e334c51373ad",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "千四十"
+        },
+        {
+          "id": "c2",
+          "text": "一千四"
+        },
+        {
+          "id": "c3",
+          "text": "千四"
+        },
+        {
+          "id": "c4",
+          "text": "千れい百四十"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0 になっているくらいは、とばして読もう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.ea34d5d396f4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1000を ８こ、それに 5 をあわせた数は、いくらになるでしょう。",
+      "answers": [
+        "8005"
+      ]
+    },
+    "explanation": "百のくらい、十のくらいが ないので、「0（れい）」をいれよう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-16.fa9c3380a02b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "100を 30こ あつめた数は、いくらになるでしょう。",
+      "answers": [
+        "3000"
+      ]
+    },
+    "explanation": "100が 10こ あつまると、1000 になる。30こ だと、3000 だね。"
+  }
+]

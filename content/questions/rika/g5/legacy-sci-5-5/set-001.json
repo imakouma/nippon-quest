@@ -1,0 +1,696 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-5.1ed27d4231db",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のア～エのうち、９月ごろに日本に近づく台風の進路として、もっともふさわしいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        },
+        {
+          "id": "c4",
+          "text": "エ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/15617cd5ba19bdc7.png"
+    },
+    "explanation": "台風の進路は、台風が発生する月によって異なる。日本には、８～９月ごろに上陸することが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.426d1f6e8548",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の天気[てんき]の特ちょうとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "強い風がふき、短い時間に大雨が降る。"
+        },
+        {
+          "id": "c2",
+          "text": "強い風がふき、長い間しとしとと雨が降る。"
+        },
+        {
+          "id": "c3",
+          "text": "風はあまりなく、短い時間に大雨が降る。"
+        },
+        {
+          "id": "c4",
+          "text": "風はあまりなく、長い間しとしとと雨が降る。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "台風が近づくと、多量の雨が降ふり、強い風がふく。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.675f855afcd7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の A〜D を、台風の進む順番になるように並べよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B・C・D・A"
+        },
+        {
+          "id": "c2",
+          "text": "B・D・C・A"
+        },
+        {
+          "id": "c3",
+          "text": "C・B・D・A"
+        },
+        {
+          "id": "c4",
+          "text": "A・D・C・B"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cb9711ac8d247a25.png"
+    },
+    "explanation": "B → C → D → A 台風はカーブをえがくように移動する。日本の南の海上で発生した台風は、初めは西の方へ移動するが、やがて北や東へ向かう。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.6a3acd719cff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ダムのやくわりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨水・こう水・発電"
+        },
+        {
+          "id": "c2",
+          "text": "津波[つなみ]・こう水[ずい]・発電[はつでん]"
+        },
+        {
+          "id": "c3",
+          "text": "雨水[あまみず]・こう水[ずい]・農業[のうぎょう]"
+        },
+        {
+          "id": "c4",
+          "text": "海水[かいすい]・津波[つなみ]・発電[はつでん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2241e99cc21a8ac9.png"
+    },
+    "explanation": "ダムは、台風によって短い時間に降る（雨水）をたくわえることで（こう水）を防ぐ。また、ダムにためられた水は飲料水や（発電）に利用される。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.6a4b6fd49b78",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風が１年間に何度もやってくる沖縄では、強い風から家を守るために様々な工夫がされている。次のうち、台風から家を守るための工夫としてまちがっているものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家の周りに木を植える。"
+        },
+        {
+          "id": "c2",
+          "text": "石がきをつくる。"
+        },
+        {
+          "id": "c3",
+          "text": "かわらをしっくいでぬり固めて飛ばされないようにする。"
+        },
+        {
+          "id": "c4",
+          "text": "木で家を建てる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7bc23c918e49d626.png"
+    },
+    "explanation": "沖縄では、風に強い鉄てっ筋きんコンクリートの家が建てられるほか、家の周りに木を植える、石がきをつくる、かわらをしっくいでぬり固めるなど、強い風から家を守る工夫がされている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.75f7c08460c0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本では、10月には台風による雨はあまりない。この理由[りゆう]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10月には、台風はあまり日本に近づかないから。"
+        },
+        {
+          "id": "c2",
+          "text": "10月には、台風は発生しないから。"
+        },
+        {
+          "id": "c3",
+          "text": "10月の台風は、あまり雨を降らさないから。"
+        },
+        {
+          "id": "c4",
+          "text": "10月の台風は移動するのがはやいから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6587dae1a75cefc7.png"
+    },
+    "explanation": "10月は台風があまり日本に近づかないので、日本では、10月には台風による雨はあまりない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.83cffe7c2183",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の特ちょうとして、まちがっている 説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "強い風がふく。"
+        },
+        {
+          "id": "c2",
+          "text": "短い時間に大雨が降る。"
+        },
+        {
+          "id": "c3",
+          "text": "うずをまいた形をしていて、中心は雲が少ない。"
+        },
+        {
+          "id": "c4",
+          "text": "日本には春に近づくことが多い。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "台風は、夏から秋ごろに日本に近づくことが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.95bfbf41330e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風は、どの季節に日本に近づくことが多いでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "春から夏"
+        },
+        {
+          "id": "c2",
+          "text": "夏から秋"
+        },
+        {
+          "id": "c3",
+          "text": "秋から冬"
+        },
+        {
+          "id": "c4",
+          "text": "冬から春"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "台風は、夏から秋ごろに日本に近づくことが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.9c44bb5775ee",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の進む方向に向かって右側では、ひ害が大きくなることが多い。この理由[りゆう]について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中心・同じ・強い風がふく"
+        },
+        {
+          "id": "c2",
+          "text": "中心[ちゅうしん]・ちがう・強[つよ]い風[かぜ]がふく"
+        },
+        {
+          "id": "c3",
+          "text": "外側[そとがわ]・同[おな]じ・強[つよ]い風[かぜ]がふく"
+        },
+        {
+          "id": "c4",
+          "text": "中心[ちゅうしん]・同[おな]じ・強[つよ]い雨[あめ]が降[ふ]る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c41218fdd789e5d0.png"
+    },
+    "explanation": "台風の進む方向に向かって右側では、台風を動かす風の向きと、台風の（中心）に向かってふきこむ風の向きが（同じ）なので、（強い風がふく）から。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.abadeb364b15",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の情報は、図のような予想進路図で表される。A〜D は、何を表しているでしょう。それぞれ正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "風速25m以上の強い風がふくおそれがあるはんい・台風の中心の位置・風速15m以上の風がふくおそれがあるはんい・台風が動いてくると考えられるはんい"
+        },
+        {
+          "id": "c2",
+          "text": "台風[たいふう]の中心[ちゅうしん]の位置[いち]・風速[ふうそく]25m以上[いじょう]の強[つよ]い風[かぜ]がふくおそれがあるはんい・風速[ふうそく]15m以上[いじょう]の風[かぜ]がふくおそれがあるはんい・台風[たいふう]が動[うご]いてくると考[かんが]えられるはんい"
+        },
+        {
+          "id": "c3",
+          "text": "風速[ふうそく]25m以上[いじょう]の強[つよ]い風[かぜ]がふくおそれがあるはんい・台風[たいふう]の中心[ちゅうしん]の位置[いち]・台風[たいふう]が動[うご]いてくると考[かんが]えられるはんい・風速[ふうそく]15m以上[いじょう]の風[かぜ]がふくおそれがあるはんい"
+        },
+        {
+          "id": "c4",
+          "text": "風速[ふうそく]15m以上[いじょう]の風[かぜ]がふくおそれがあるはんい・台風[たいふう]の中心[ちゅうしん]の位置[いち]・風速[ふうそく]25m以上[いじょう]の強[つよ]い風[かぜ]がふくおそれがあるはんい・台風[たいふう]が動[うご]いてくると考[かんが]えられるはんい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/056e65ea00711ced.png"
+    },
+    "explanation": "A：風速25m以上の強い風がふくおそれがあるはんい B：台風の中心の位置 C：風速15m以上の風がふくおそれがあるはんい D：台風が動いてくると考えられるはんい"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.b8423b363955",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の動きについて、正しく説明[せつめい]している文をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台風は西から東に進む。"
+        },
+        {
+          "id": "c2",
+          "text": "台風が日本以外の国に上陸することはない。"
+        },
+        {
+          "id": "c3",
+          "text": "台風は日本の南の海上で発生し、日本に向かってまっすぐすすむ。"
+        },
+        {
+          "id": "c4",
+          "text": "台風の進路は、台風が発生する月によって異なる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "台風は日本の南の海上で発生し、初めは西の方へ移動するが、やがて北や東へ向かう。台風の進路は、台風が発生する月によって異なり、夏から秋にかけて日本に近づくことが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.d0075ea7917d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "台風の目・弱く・あまり降らない"
+        },
+        {
+          "id": "c2",
+          "text": "台風[たいふう]の目[め]・強[つよ]く・あまり降[ふ]らない"
+        },
+        {
+          "id": "c3",
+          "text": "台風[たいふう]の目[め]・弱[よわ]く・たくさん降[ふ]る"
+        },
+        {
+          "id": "c4",
+          "text": "台風[たいふう]の目[め]・強[つよ]く・たくさん降[ふ]る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5e70e03faa384976.png"
+    },
+    "explanation": "台風の中心は雲が少なくなっている。この部分 A を（台風の目）という。台風の目では、風が（弱く）、雨が（あまり降らない）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.d5234b74b17c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "積乱雲・中心・うず"
+        },
+        {
+          "id": "c2",
+          "text": "乱層雲[らんそううん]・中心[ちゅうしん]・うず"
+        },
+        {
+          "id": "c3",
+          "text": "積乱雲[せきらんうん]・外側[そとがわ]・うず"
+        },
+        {
+          "id": "c4",
+          "text": "乱層雲[らんそううん]・外側[そとがわ]・うず"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "台風は（積せき乱らん雲うん）の集まりで、（中心）に向かって強い風がふきこみ、（うず）をまいている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.d85d3afc6786",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風が過すぎ去ると、天気[てんき]はどうなることが多いでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨や風はおさまり、おだやかに晴れることが多い。"
+        },
+        {
+          "id": "c2",
+          "text": "雨はやむが、強い風がふき続けることが多い。"
+        },
+        {
+          "id": "c3",
+          "text": "風はおさまるが、長い間雨がしとしと降り続けることが多い。"
+        },
+        {
+          "id": "c4",
+          "text": "雨や風はおさまり、しばらくくもりになることが多い。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "台風が過ぎ去ると、雨や風はおさまり、おだやかに晴れることが多い。このように、台風が通り過ぎ去り、一気に青空が広がることを、「台風一過いっか」という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.deac27534880",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "過去の自然災害さいがいなどから、その地いきのひ害を予想して地図に表したものを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ハザードマップ"
+        },
+        {
+          "id": "c2",
+          "text": "進路予想図"
+        },
+        {
+          "id": "c3",
+          "text": "ダム"
+        },
+        {
+          "id": "c4",
+          "text": "気象情報"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "過去の自然災害などから、その地いきのひ害を予想して地図に表したものを、ハザードマップという。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.e9e1657b1fc5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風によるひ害について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨・こう水・風・建物"
+        },
+        {
+          "id": "c2",
+          "text": "風[かぜ]・こう水[ずい]・雨[あめ]・建物[たてもの]"
+        },
+        {
+          "id": "c3",
+          "text": "雨[あめ]・地震[じしん]・風[かぜ]・建物[たてもの]"
+        },
+        {
+          "id": "c4",
+          "text": "雪[ゆき]・こう水[ずい]・風[かぜ]・道路[どうろ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "台風による多量の（雨）で土砂くずれや（こう水）が起こったり、強い（風）で木や（建物）がたおれたりすることがある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.f0c3a5f42e8e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風によるひ害から身を守る行動として、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "川や土砂くずれが起こりそうな場所には近づかない。"
+        },
+        {
+          "id": "c2",
+          "text": "自転車や植木ばちは家の中にしまう。"
+        },
+        {
+          "id": "c3",
+          "text": "避難する場所や安全な道を確認しておく。"
+        },
+        {
+          "id": "c4",
+          "text": "建物の外に出て雨や風のようすを観察する。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "台風による強い風で、木がたおれたり、ものが飛んでくることがあるので、むやみに建物の外に出ないようにする。また台風が来る前に、飛ばされそうなものは家の中にしまっておく。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.f47a32b7fd69",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の進路について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "南・西・北や東"
+        },
+        {
+          "id": "c2",
+          "text": "北[きた]・西[にし]・北[きた]や東[ひがし]"
+        },
+        {
+          "id": "c3",
+          "text": "南[みなみ]・東[ひがし]・北[きた]や西[にし]"
+        },
+        {
+          "id": "c4",
+          "text": "北[きた]・西[にし]・南[みなみ]や東[ひがし]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/489482f4a116e86a.png"
+    },
+    "explanation": "台風は日本の（南）の海上で発生し、初めは（西）の方へ移動するが、やがて（北や東）へ向かう。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-5.f5860a942560",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "台風の進路について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "月・８～９"
+        },
+        {
+          "id": "c2",
+          "text": "月[つき]・６〜７"
+        },
+        {
+          "id": "c3",
+          "text": "月[つき]・１０〜１１"
+        },
+        {
+          "id": "c4",
+          "text": "年[とし]・８〜９"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/489482f4a116e86a.png"
+    },
+    "explanation": "台風の進路は、台風が発生する（月）によって異なる。日本には、（８～９）月ごろに上陸することが多い。"
+  }
+]

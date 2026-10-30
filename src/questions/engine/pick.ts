@@ -22,6 +22,10 @@ export function filterCandidates(bank: QuestionBank, q: QuestionQuery): Question
   const [lo, hi] = q.gradeRange;
   const exclude = new Set(q.excludeIds ?? []);
   let list = bank.subject(q.subject).filter((x) => x.grade >= lo && x.grade <= hi && !exclude.has(x.id));
+  if (q.units?.length) {
+    const units = new Set(q.units);
+    list = list.filter((x) => units.has(x.unit));
+  }
   if (q.type) list = list.filter((x) => x.type === q.type);
   if (q.tags?.length) {
     const tagged = list.filter((x) => q.tags!.every((t) => x.tags?.includes(t)));

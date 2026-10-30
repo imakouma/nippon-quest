@@ -1,0 +1,300 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-9.0cd58ce46ac8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしくんのお父さんの身長は 180cmで、さとしくんの弟の身長は 60cm です。お父さんの身長は、弟の何倍でしょう。 倍",
+      "answers": [
+        "3"
+      ],
+      "template": "さとしくんのお父さんの身長は 180cmで、さとしくんの弟の身長は 60cm です。お父さんの身長は、弟の何倍でしょう。 {{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "「弟の」何倍かをもとめるので、弟を１つ分として考える。お父さんの身長 180cm は、弟 60cm いくつ分になるかは、お父さんの身長を弟の身長でわればいいね。 180÷60=3倍"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.17f65f4c948d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くらべられる大きさが、もとにする大きさのどれくらいになるかを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "割合（わりあい）"
+        },
+        {
+          "id": "c2",
+          "text": "もとにする大きさ"
+        },
+        {
+          "id": "c3",
+          "text": "くらべられる大きさ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "くらべられる大きさが、もとにする大きさの どれくらいになるかを 割合[わりあい]わりあいという。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.1b26a442cd2a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A町からB町までのきょりは 28kmで、A町からC町までのきょりは 4km です。A町からB町までのきょりは、A町からC町までの きょりの何倍でしょう。 倍",
+      "answers": [
+        "7"
+      ],
+      "template": "A町からB町までのきょりは 28kmで、A町からC町までのきょりは 4km です。A町からB町までのきょりは、A町からC町までの きょりの何倍でしょう。 {{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "「A町からC町までの きょりの」何倍かをもとめるので、A町からC町までの きょりを 1 として考える。A町からB町までのきょり 28km の中に、A町からC町までのきょり 4km がいくつ分あるかを考えるので、わり算でもとめることができる。 28÷4=7倍"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.1fcf1f50e9fa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "マラソン大会で ６年生が走るきょりは 6kmで、４年生が走るきょりの 2倍になっています。４年生が走る きょりは、何kmでしょう。 km",
+      "answers": [
+        "3"
+      ],
+      "template": "マラソン大会で ６年生が走るきょりは 6kmで、４年生が走るきょりの 2倍になっています。４年生が走る きょりは、何kmでしょう。 {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "６年生が走るきょりが、４年生が走るきょりの 2倍になっている。2つ分が 6kmなので、1つ分をもとめるには、わり算をする。 6÷2=3km"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.3563a6ba44e8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A駅からB駅までのバスの りょう金は630円で、C駅からD駅までの りょう金の3倍になっています。C駅からD駅までの りょう金をもとめるための式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "630÷3"
+        },
+        {
+          "id": "c2",
+          "text": "630×3"
+        },
+        {
+          "id": "c3",
+          "text": "630-3"
+        },
+        {
+          "id": "c4",
+          "text": "3÷630"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "A駅からB駅までの りょう金が、C駅からD駅までの りょう金の3倍 になっている。3つ分が630円なので、1つ分をもとめるには、わり算をする。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.4e5ae6b5545c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしくんは、ミニトマトを育てています。はじめに植えたとき、なえの大きさは 15cm でしたが、今は 4倍の大きさになりました。今のミニトマトの大きさは、何cm でしょう。 cm",
+      "answers": [
+        "60"
+      ],
+      "template": "さとしくんは、ミニトマトを育てています。はじめに植えたとき、なえの大きさは 15cm でしたが、今は 4倍の大きさになりました。今のミニトマトの大きさは、何cm でしょう。 {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "4倍の大きさは、はじめの なえの大きさの 4つ分になるので、かけ算をする。 15×4=60cm"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.57b377663cec",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある大きさが べつの大きさの何倍かを考えるとき、１とみる大きさのほうを 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "もとにする大きさ"
+        },
+        {
+          "id": "c2",
+          "text": "くらべられる大きさ"
+        },
+        {
+          "id": "c3",
+          "text": "割合（わりあい）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある大きさが べつの大きさの何倍かを考えるとき、1とみる大きさを「もとにする大きさ」という。もう一方の大きさを「くらべられる大きさ」や「くらべる大きさ」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.bac3831335b9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A駅からB駅までのバスの りょう金は630円で、C駅からD駅までの りょう金の3倍になっています。C駅からD駅までの りょう金は、いくらになるでしょう。 円",
+      "answers": [
+        "210"
+      ],
+      "template": "A駅からB駅までのバスの りょう金は630円で、C駅からD駅までの りょう金の3倍になっています。C駅からD駅までの りょう金は、いくらになるでしょう。 {{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "A駅からB駅までの りょう金が、C駅からD駅までの りょう金の3倍 になっている。3つ分が630円なので、1つ分をもとめるには、わり算をする。 630÷3=210円"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.c25078776d73",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしくんのお父さんの身長は 180cmで、さとしくんの弟の身長は 60㎝ です。お父さんの身長が 弟の何倍かをもとめるための式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "180÷60"
+        },
+        {
+          "id": "c2",
+          "text": "180-60"
+        },
+        {
+          "id": "c3",
+          "text": "180×60"
+        },
+        {
+          "id": "c4",
+          "text": "60÷180"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「弟の」何倍かをもとめるので、弟を１つ分として考える。お父さんの身長 180cm は、弟 60cm いくつ分になるかは、お父さんの身長を弟の身長でわればいいので、180÷60 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.c28b485ebd6e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしくんの弟の身長は 60cmで、さとしくんの身長は、弟の 2倍 あります。さとしくんの身長は、何cmでしょう。 cm",
+      "answers": [
+        "120"
+      ],
+      "template": "さとしくんの弟の身長は 60cmで、さとしくんの身長は、弟の 2倍 あります。さとしくんの身長は、何cmでしょう。 {{INPUT}} cm",
+      "suffix": "cm"
+    },
+    "explanation": "弟の2倍は、弟の身長 2つ分になるので、かけ算をする。 60×2=120cm"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-9.f05ac9c64165",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしくんの弟の身長は 60cm で、さとしくんの身長は、弟の 2倍あります。さとしくんの身長を もとめるための式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "60×2"
+        },
+        {
+          "id": "c2",
+          "text": "60÷2"
+        },
+        {
+          "id": "c3",
+          "text": "2÷60"
+        },
+        {
+          "id": "c4",
+          "text": "60+2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "弟の2倍は、弟の身長 2つ分になるので、かけ算をする。"
+  }
+]

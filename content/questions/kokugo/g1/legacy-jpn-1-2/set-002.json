@@ -1,0 +1,578 @@
+[
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.98bdbf6df8a6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「円」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "えん"
+        },
+        {
+          "id": "c2",
+          "text": "うえ"
+        },
+        {
+          "id": "c3",
+          "text": "した"
+        },
+        {
+          "id": "c4",
+          "text": "なら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「円」は「えん」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.a1c559add4fd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「金」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かね"
+        },
+        {
+          "id": "c2",
+          "text": "つた"
+        },
+        {
+          "id": "c3",
+          "text": "くらい"
+        },
+        {
+          "id": "c4",
+          "text": "から"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「金」は「かね」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.acad20a5cb23",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「下」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "した"
+        },
+        {
+          "id": "c2",
+          "text": "おも"
+        },
+        {
+          "id": "c3",
+          "text": "きゅう"
+        },
+        {
+          "id": "c4",
+          "text": "こと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「下」は「した」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.b0ef6068d5e3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いぬ」を表す漢字はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "猫"
+        },
+        {
+          "id": "c2",
+          "text": "犬"
+        },
+        {
+          "id": "c3",
+          "text": "鳥"
+        },
+        {
+          "id": "c4",
+          "text": "魚"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「いぬ」は「犬」と書きます（「猫」はねこです）。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.d0142a79b81d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「校」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こう"
+        },
+        {
+          "id": "c2",
+          "text": "さん"
+        },
+        {
+          "id": "c3",
+          "text": "うえ"
+        },
+        {
+          "id": "c4",
+          "text": "した"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「校」は「こう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.d308f430177b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「四」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "し"
+        },
+        {
+          "id": "c2",
+          "text": "おも"
+        },
+        {
+          "id": "c3",
+          "text": "きゅう"
+        },
+        {
+          "id": "c4",
+          "text": "こと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「四」は「し」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.d58fd86f3a53",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「手」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "て"
+        },
+        {
+          "id": "c2",
+          "text": "だい"
+        },
+        {
+          "id": "c3",
+          "text": "あ"
+        },
+        {
+          "id": "c4",
+          "text": "つた"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「手」は「て」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.df25792e9241",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「火」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ひ"
+        },
+        {
+          "id": "c2",
+          "text": "おも"
+        },
+        {
+          "id": "c3",
+          "text": "きゅう"
+        },
+        {
+          "id": "c4",
+          "text": "こと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「火」は「ひ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.e9d8dbfd5bc4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「口」の読み方（くんよみ）はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くち"
+        },
+        {
+          "id": "c2",
+          "text": "め"
+        },
+        {
+          "id": "c3",
+          "text": "みみ"
+        },
+        {
+          "id": "c4",
+          "text": "て"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「口」の訓読みは「くち」です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.ef5ee3b2b821",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「花」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はな"
+        },
+        {
+          "id": "c2",
+          "text": "きゅう"
+        },
+        {
+          "id": "c3",
+          "text": "こと"
+        },
+        {
+          "id": "c4",
+          "text": "に"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「花」は「はな」と読[よ]みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.f028e2db54cc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「月」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "つき"
+        },
+        {
+          "id": "c2",
+          "text": "から"
+        },
+        {
+          "id": "c3",
+          "text": "なに"
+        },
+        {
+          "id": "c4",
+          "text": "つく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「月」は「つき」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.f79febee20d1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「山」の漢字の画数はいくつですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2画"
+        },
+        {
+          "id": "c2",
+          "text": "3画"
+        },
+        {
+          "id": "c3",
+          "text": "4画"
+        },
+        {
+          "id": "c4",
+          "text": "5画"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「山」は3画（縦、折れ、縦）で書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.f844a8bb85f4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「あおい空」の「空」の読み方はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くも"
+        },
+        {
+          "id": "c2",
+          "text": "うみ"
+        },
+        {
+          "id": "c3",
+          "text": "そら"
+        },
+        {
+          "id": "c4",
+          "text": "かぜ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "「空」は「そら」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.f84ab27cab27",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「休」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "やす"
+        },
+        {
+          "id": "c2",
+          "text": "だい"
+        },
+        {
+          "id": "c3",
+          "text": "あ"
+        },
+        {
+          "id": "c4",
+          "text": "つた"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「休」は「やす」と読[よ]み、「休[やす]む」と書[か]きます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.fa8de03cabde",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「子」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こ"
+        },
+        {
+          "id": "c2",
+          "text": "なか"
+        },
+        {
+          "id": "c3",
+          "text": "おも"
+        },
+        {
+          "id": "c4",
+          "text": "きゅう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「子」は「こ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-2.faab337666fb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「車」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くるま"
+        },
+        {
+          "id": "c2",
+          "text": "つ"
+        },
+        {
+          "id": "c3",
+          "text": "だい"
+        },
+        {
+          "id": "c4",
+          "text": "あ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「車」は「くるま」と読みます。"
+  }
+]

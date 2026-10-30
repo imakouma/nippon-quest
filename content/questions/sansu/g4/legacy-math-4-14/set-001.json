@@ -1,0 +1,589 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-14.0860a726afbb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の帯分数を 仮分数にしよう。",
+      "answers": [
+        "26"
+      ]
+    },
+    "explanation": "整数 2=\\dfrac{18}{9} になる。これと真分数 \\dfrac{8}{9}を合わせて、\\dfrac{26}{9}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.17996dbc432c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "\\dfrac{1}{2} と等しい分数は、次のうち どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{2}{4}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{2}{3}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "数直線を考えてみよう。\\dfrac{1}{2} は、1 を２つに分けたうちの１つ分の大きさ。つまり、1 の半分になるので、\\dfrac{2}{4} と等しい。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.235a7a59b326",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2-3/5 =",
+      "answers": [
+        "1,2"
+      ]
+    },
+    "explanation": "整数から、そのまま分数を引くことができない。整数を仮分数にしてから、引き算しよう。 2-\\dfrac{3}{5} = \\dfrac{10}{5}-\\dfrac{3}{5} = \\dfrac{7}{5} = 1\\dfrac{2}{5}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.2cabcb73feff",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の大きさをくらべて、□に入る 等号や不等号をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\lt"
+        },
+        {
+          "id": "c2",
+          "text": "\\gt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "分母が同じときは、分子の大きさをくらべればいい。 \\dfrac{1}{3} \\lt \\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.3310a91b7368",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12/4-3/4 =",
+      "answers": [
+        "3"
+      ]
+    },
+    "explanation": "分数部分での引き算ができない。帯分数を仮分数にしてから、引き算しよう。 1\\dfrac{2}{4}-\\dfrac{3}{4} = \\dfrac{6}{4}-\\dfrac{3}{4} = \\dfrac{3}{4}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.3fc704017d2d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 22/8+6/8 =",
+      "answers": [
+        "8,3"
+      ]
+    },
+    "explanation": "分数の部分どうしを 足し算しよう。 2\\dfrac{2}{8}+\\dfrac{6}{8} = 2\\dfrac{8}{8} \\dfrac{8}{8} は1、整数 1 になるので、答えは 3 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.49fe9abad9aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5/3-3/3 =",
+      "answers": [
+        "2"
+      ]
+    },
+    "explanation": "分数の足し算・引き算では、分母はそのままに 分子どうしでだけ、足し算や引き算をしよう。 \\dfrac{5}{3}-\\dfrac{3}{3} = \\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.4e518741d9b2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の帯分数を 仮分数にしよう。",
+      "answers": [
+        "23"
+      ]
+    },
+    "explanation": "整数 3=\\dfrac{21}{7} になる。これと真分数 \\dfrac{2}{7}を合わせて、\\dfrac{23}{7}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.5661c2418960",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "分数の大きさについて、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "分子が同じ分数は、分母が小さいほど大きくなる。"
+        },
+        {
+          "id": "c2",
+          "text": "分母が同じ分数は、分子が小さいほど大きくなる。"
+        },
+        {
+          "id": "c3",
+          "text": "ある分数と等しい分数は、１つしかない。"
+        },
+        {
+          "id": "c4",
+          "text": "分数と整数は、大きさをくらべることができない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「分子が同じ分数は、分母が小さいほど大きくなる。」が正しい。 ・「分母が同じ分数は、分子が小さいほど大きくなる。」は、まちがい。分母が同じ分数は、分子が大きいほど大きくなる。 ・\\dfrac{1}{2}と等しい分数が、\\dfrac{2}{4}, \\dfrac{3}{6} とあるように、ある分数と等しい分数は、たくさん考えることができる。 ・分数と整数も、大きさをくらべることができる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.5ccf819e2c29",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1\\dfrac{1}{2} のように、整数と真分数で表された分数を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "帯分数"
+        },
+        {
+          "id": "c2",
+          "text": "真分数"
+        },
+        {
+          "id": "c3",
+          "text": "仮分数"
+        },
+        {
+          "id": "c4",
+          "text": "分母"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1\\dfrac{1}{2} のように、整数と真分数で表された分数を 帯分数という。仮分数は、帯分数で表すことができる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.68561e8b48be",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12/3+2/3 =",
+      "answers": [
+        "4,2,1"
+      ]
+    },
+    "explanation": "分数の部分どうしを 足し算しよう。 1\\dfrac{2}{3}+\\dfrac{2}{3} = 1\\dfrac{4}{3} \\dfrac{4}{3} を帯分数にすると、1\\dfrac{1}{3} になるので、答えは 2\\dfrac{1}{3} になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.6cf01a246af7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 19/7-5/7 =",
+      "answers": [
+        "14,2"
+      ]
+    },
+    "explanation": "分数の足し算・引き算では、分母はそのままに 分子どうしでだけ、足し算や引き算をしよう。 \\dfrac{19}{7}-\\dfrac{5}{7} = \\dfrac{14}{7} =2 答えが整数になるときは、必ず整数にして答えよう。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.86c7ddb4e9a8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の仮分数を 整数または帯分数にしよう。",
+      "answers": [
+        "2"
+      ],
+      "template": "\\dfrac{10}{5}= {{INPUT}}"
+    },
+    "explanation": "分子の 10 の中に 分母の 5は、10÷5=2 で 2つ入っている。 わり切れたので、答えは整数 2 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.8b14f0adbca7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12/5+4/5 =",
+      "answers": [
+        "6,2,1"
+      ]
+    },
+    "explanation": "分数の部分どうしを 足し算しよう。 1\\dfrac{2}{5}+\\dfrac{4}{5} = 1\\dfrac{6}{5} \\dfrac{6}{5} を帯分数にすると、1\\dfrac{1}{5} になるので、答えは 2\\dfrac{1}{5} になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.95e83927566d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 14/6+2/6 =",
+      "answers": [
+        "1,6,2"
+      ]
+    },
+    "explanation": "分数の部分どうしを 足し算しよう。 1\\dfrac{4}{6}+\\dfrac{2}{6} = 1\\dfrac{6}{6} \\dfrac{6}{6} は1、整数 1 になるので、答えは 2 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.a78485ffaa9a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2-1/3 =",
+      "answers": [
+        "1,2"
+      ]
+    },
+    "explanation": "整数から、そのまま分数を引くことができない。整数を仮分数にしてから、引き算しよう。 2-\\dfrac{1}{3} = \\dfrac{6}{3}-\\dfrac{1}{3} = \\dfrac{5}{3} =1\\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.aa2f795f52cb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の帯分数を 仮分数にしよう。",
+      "answers": [
+        "4"
+      ]
+    },
+    "explanation": "整数 1=\\dfrac{3}{3} になる。これと真分数 \\dfrac{1}{3}を合わせて、\\dfrac{4}{3}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.ac518e6196db",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の仮分数を 整数または帯分数にしよう。",
+      "answers": [
+        "2,1"
+      ]
+    },
+    "explanation": "分子の 13 の中に 分母の 6は、13÷6=2 あまり 1 で 2つ入っている。 これが帯分数の整数の部分、あまりが分子になるので、答えは 2\\dfrac{1}{6} になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.acb42b4e6766",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の仮分数を 整数または帯分数にしよう。",
+      "answers": [
+        "1,1"
+      ]
+    },
+    "explanation": "分子の 3 の中に 分母の 2は、3÷2=1 あまり 1 で 1つ入っている。 これが帯分数の整数の部分、あまりが分子になるので、答えは 1\\dfrac{1}{2} になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.aee5d2c4b87c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の帯分数を 仮分数にしよう。",
+      "answers": [
+        "11"
+      ]
+    },
+    "explanation": "整数 2=\\dfrac{8}{4} になる。これと真分数 \\dfrac{3}{4}を合わせて、\\dfrac{11}{4}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.c0a010c16f09",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 11/7-6/7 =",
+      "answers": [
+        "2"
+      ]
+    },
+    "explanation": "分数部分での引き算ができない。帯分数を仮分数にしてから、引き算しよう。 1\\dfrac{1}{7}-\\dfrac{6}{7} = \\dfrac{8}{7}-\\dfrac{6}{7} = \\dfrac{2}{7}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.cf04e564b113",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の仮分数を 整数または帯分数にしよう。",
+      "answers": [
+        "2,2"
+      ]
+    },
+    "explanation": "分子の 8 の中に 分母の 3は、8÷3=2 あまり 2 で 2つ入っている。 これが帯分数の整数の部分、あまりが分子になるので、答えは 2\\dfrac{2}{3} になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.d35715741676",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3/4+2/4 =",
+      "answers": [
+        "5,1,1"
+      ]
+    },
+    "explanation": "分数の足し算・引き算では、分母はそのままに 分子どうしでだけ、足し算や引き算をしよう。 \\dfrac{3}{4}+\\dfrac{2}{4} = \\dfrac{5}{4} =1\\dfrac{1}{4}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.d5e455751a6b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の大きさをくらべて、□に入る 等号や不等号をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\lt"
+        },
+        {
+          "id": "c2",
+          "text": "\\gt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "分子が同じ分数では、分母が小さいほど、大きくなる。1 を３つに分けたうちの２つ分の方が、４つに分けたうちの２つ分より大きいね。 \\dfrac{2}{3} \\gt \\dfrac{2}{4}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.d7d0333e6aa0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12/5-4/5 =",
+      "answers": [
+        "3"
+      ]
+    },
+    "explanation": "分数部分での引き算ができない。帯分数を仮分数にしてから、引き算しよう。 1\\dfrac{2}{5}-\\dfrac{4}{5} = \\dfrac{7}{5}-\\dfrac{4}{5} = \\dfrac{3}{5}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.f47c5f82fff6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12/8-7/8 =",
+      "answers": [
+        "3"
+      ]
+    },
+    "explanation": "分数部分での引き算ができない。帯分数を仮分数にしてから、引き算しよう。 1\\dfrac{2}{8}-\\dfrac{7}{8} = \\dfrac{10}{8}-\\dfrac{7}{8} = \\dfrac{3}{8}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-14.ff7d3a341dc8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4/5+6/5 =",
+      "answers": [
+        "10,2"
+      ]
+    },
+    "explanation": "分数の足し算・引き算では、分母はそのままに 分子どうしでだけ、足し算や引き算をしよう。 \\dfrac{4}{5}+\\dfrac{6}{5} = \\dfrac{10}{5} =2 答えが整数になるときは、必ず整数にして答えよう。"
+  }
+]

@@ -1,0 +1,686 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.034606af640c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（悲しい）物語を読む。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かなしい"
+        },
+        {
+          "id": "c2",
+          "text": "かなしいい"
+        },
+        {
+          "id": "c3",
+          "text": "ひしい"
+        },
+        {
+          "id": "c4",
+          "text": "かなし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「悲しい」は「かなしい」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.15fc5c9ad3d4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆一（秒）をあらそう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "びょう"
+        },
+        {
+          "id": "c2",
+          "text": "びょ"
+        },
+        {
+          "id": "c3",
+          "text": "みょう"
+        },
+        {
+          "id": "c4",
+          "text": "びょうう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「秒」は「びょう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.31dd9db23c3b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆（にわ）にアサガオを植える。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "庭"
+        },
+        {
+          "id": "c2",
+          "text": "園"
+        },
+        {
+          "id": "c3",
+          "text": "場"
+        },
+        {
+          "id": "c4",
+          "text": "庭う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「庭（にわ）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.325f3a472d75",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆王に（仕える）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "つかえる"
+        },
+        {
+          "id": "c2",
+          "text": "つかえるる"
+        },
+        {
+          "id": "c3",
+          "text": "しえる"
+        },
+        {
+          "id": "c4",
+          "text": "つかえ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「仕える」は「つかえる」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.34b187942c21",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（太陽）がのぼる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たいよう"
+        },
+        {
+          "id": "c2",
+          "text": "たよう"
+        },
+        {
+          "id": "c3",
+          "text": "だいよう"
+        },
+        {
+          "id": "c4",
+          "text": "たいよ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「太陽」は「たいよう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.3ff6d287d8c1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆太鼓を（う）つ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "打"
+        },
+        {
+          "id": "c2",
+          "text": "討"
+        },
+        {
+          "id": "c3",
+          "text": "撃"
+        },
+        {
+          "id": "c4",
+          "text": "打つ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「打（う）つ」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.4b34e763cc35",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（すみび）で肉を焼く。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "炭火"
+        },
+        {
+          "id": "c2",
+          "text": "炭火う"
+        },
+        {
+          "id": "c3",
+          "text": "住火"
+        },
+        {
+          "id": "c4",
+          "text": "角火"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「炭火（すみび）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.52c149818807",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆地図（きごう）を覚える。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "記号"
+        },
+        {
+          "id": "c2",
+          "text": "記号う"
+        },
+        {
+          "id": "c3",
+          "text": "起号"
+        },
+        {
+          "id": "c4",
+          "text": "紀号"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「記号（きごう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.67d509252a33",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆山に（登る）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "のぼる"
+        },
+        {
+          "id": "c2",
+          "text": "のぼるる"
+        },
+        {
+          "id": "c3",
+          "text": "とうる"
+        },
+        {
+          "id": "c4",
+          "text": "のぼ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「登る」は「のぼる」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.6a383ad0d481",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆周りの（ようす）をうかがう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "様子"
+        },
+        {
+          "id": "c2",
+          "text": "洋子"
+        },
+        {
+          "id": "c3",
+          "text": "容子"
+        },
+        {
+          "id": "c4",
+          "text": "用事"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「様子（ようす）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.7aa89f95663c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（洋服）を買う。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ようふく"
+        },
+        {
+          "id": "c2",
+          "text": "よふく"
+        },
+        {
+          "id": "c3",
+          "text": "ようふくく"
+        },
+        {
+          "id": "c4",
+          "text": "ようぶく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「洋服」は「ようふく」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.9ae54f8551aa",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆まめ（でんきゅう）をつける。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電球"
+        },
+        {
+          "id": "c2",
+          "text": "田球"
+        },
+        {
+          "id": "c3",
+          "text": "電九"
+        },
+        {
+          "id": "c4",
+          "text": "電級"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「電球（でんきゅう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.acc6593c1eb9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（いいん）会に出席する。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "委員会"
+        },
+        {
+          "id": "c2",
+          "text": "医院会"
+        },
+        {
+          "id": "c3",
+          "text": "意員会"
+        },
+        {
+          "id": "c4",
+          "text": "言員会"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「委員会（いいんかい）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.bfe704c6d1b5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆身なりを（ととの）える。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "整"
+        },
+        {
+          "id": "c2",
+          "text": "正"
+        },
+        {
+          "id": "c3",
+          "text": "斉"
+        },
+        {
+          "id": "c4",
+          "text": "調"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「整（ととの）える」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.d52b1879f6ee",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（けんどう）を走る。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "県道"
+        },
+        {
+          "id": "c2",
+          "text": "健道"
+        },
+        {
+          "id": "c3",
+          "text": "建道"
+        },
+        {
+          "id": "c4",
+          "text": "険道"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「県道（けんどう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.e0d0e77b7983",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（着物）を着る。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きもの"
+        },
+        {
+          "id": "c2",
+          "text": "ちゃくもの"
+        },
+        {
+          "id": "c3",
+          "text": "きもの物"
+        },
+        {
+          "id": "c4",
+          "text": "きんもの"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「着物」は「きもの」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.e59bf13024e9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆体積が二（倍）になる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ばい"
+        },
+        {
+          "id": "c2",
+          "text": "はい"
+        },
+        {
+          "id": "c3",
+          "text": "ばいい"
+        },
+        {
+          "id": "c4",
+          "text": "ぱい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「倍」は「ばい」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.eb706cf55f2d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（写真）をとる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しゃしん"
+        },
+        {
+          "id": "c2",
+          "text": "さしん"
+        },
+        {
+          "id": "c3",
+          "text": "ちゃしん"
+        },
+        {
+          "id": "c4",
+          "text": "しゃしんん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「写真」は「しゃしん」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-9.ed2ad74e3b1e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（かぞく）で旅行する。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家族"
+        },
+        {
+          "id": "c2",
+          "text": "家旅"
+        },
+        {
+          "id": "c3",
+          "text": "家屋"
+        },
+        {
+          "id": "c4",
+          "text": "家足"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「家族（かぞく）」と書きます。"
+  }
+]

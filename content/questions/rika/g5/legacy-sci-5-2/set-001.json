@@ -1,0 +1,650 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-2.03637e42b7a2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の A〜E のように、インゲンマメの種子を用いて種子の発芽の条件を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "AとB・AとC・DとE"
+        },
+        {
+          "id": "c2",
+          "text": "BとC・AとB・DとE"
+        },
+        {
+          "id": "c3",
+          "text": "AとE・AとC・DとE"
+        },
+        {
+          "id": "c4",
+          "text": "AとC・AとB・DとE"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e198edb0a00637c3.png"
+    },
+    "explanation": "種子の発芽には「水」が必要かどうか：AとB 種子の発芽には「空気」が必要かどうか：AとC 種子の発芽には「適当な温度」が必要かどうか：DとE"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.3be7b6992898",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヨウ素液について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・青むらさき"
+        },
+        {
+          "id": "c2",
+          "text": "赤[あか]・青[あお]むらさき"
+        },
+        {
+          "id": "c3",
+          "text": "水[みず]・とうめい"
+        },
+        {
+          "id": "c4",
+          "text": "でんぷん・赤[あか]むらさき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヨウ素液（茶色）は、（でんぷん）と反応すると、（青むらさき）色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.4d5cd3946b14",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じくらいに育ったインゲンマメのなえを２つ用意し、Aには肥料をあたえ、Bには肥料をあたえないで育てると、図のようになった。結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "肥料をあたえて育てたなえ（A）・肥料をあたえずに育てたなえ（B）・肥料をあたえると"
+        },
+        {
+          "id": "c2",
+          "text": "肥料[ひりょう]をあたえずに育[そだ]てたなえ（B）・肥料[ひりょう]をあたえて育[そだ]てたなえ（A）・肥料[ひりょう]をあたえないほうが"
+        },
+        {
+          "id": "c3",
+          "text": "肥料[ひりょう]をあたえずに育[そだ]てたなえ（B）・肥料[ひりょう]をあたえて育[そだ]てたなえ（A）・肥料[ひりょう]をあたえないと"
+        },
+        {
+          "id": "c4",
+          "text": "肥料[ひりょう]をあたえて育[そだ]てたなえ（A）・肥料[ひりょう]をあたえずに育[そだ]てたなえ（B）・肥料[ひりょう]をあたえないと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/dcb6497c9439e13c.png"
+    },
+    "explanation": "（肥料をあたえて育てたなえ（A））のほうが、（肥料をあたえずに育てたなえ（B））よりもよく成長した。このことから、植物は（肥料をあたえると）よく成長することがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.50f33ad2edf1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子の中にふくまれている養分について調べるため、次の実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "インゲンマメの種子にはでんぷんがふくまれている。"
+        },
+        {
+          "id": "c2",
+          "text": "インゲンマメの種子には水がふくまれている。"
+        },
+        {
+          "id": "c3",
+          "text": "このインゲンマメの種子はもうすぐ発芽する。"
+        },
+        {
+          "id": "c4",
+          "text": "このインゲンマメの種子は発芽できない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f59fdc135009b20b.png"
+    },
+    "explanation": "ヨウ素液は、でんぷんがあると、青むらさき色に変化する。インゲンマメの種子は青むらさき色に変化したので、インゲンマメの種子にはでんぷんがふくまれていることが分かる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.5df22a155f5a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、インゲンマメの種子を用いて種子の発芽の条件を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "適当な温度"
+        },
+        {
+          "id": "c2",
+          "text": "空気"
+        },
+        {
+          "id": "c3",
+          "text": "水"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fd30ddfa35daf7ce.png"
+    },
+    "explanation": "水をあたえた種子（A）は発芽したが、水をあたえなかった種子（B）は発芽しなかった。このことから、種子の発芽には「水」が必要だということがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.601799657f6f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、インゲンマメの種子を用いて種子の発芽の条件を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "適当な温度"
+        },
+        {
+          "id": "c2",
+          "text": "水"
+        },
+        {
+          "id": "c3",
+          "text": "空気"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/27ab3926013bd70c.png"
+    },
+    "explanation": "空気にふれていた種子（B）は発芽したが、空気にふれていない種子（A）は発芽しなかった。このことから種子の発芽には、「空気」が必要だということがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.62a0c5b77911",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じくらいに育ったインゲンマメのなえを４つ用意し、次のA〜Dの条件で育て、植物の成長について調べる実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ba0a7704a83f080e.png"
+    },
+    "explanation": "植物は、日光に当てると、よく成長する。また、植物は肥料をあたえると、よく成長する。なので、日光に当てて、さらに肥料をあたえている「C」のインゲンマメがもっともよく成長すると考えられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.76ec94e370e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子のつくりについて、かっこに当てはまる言葉をそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "子葉・根、くき、葉・成長して・しぼんで"
+        },
+        {
+          "id": "c2",
+          "text": "子葉[しよう]・根[ね]、くき、葉[は]・しぼんで・成長[せいちょう]して"
+        },
+        {
+          "id": "c3",
+          "text": "根[ね]・子葉[しよう]・成長[せいちょう]して・しぼんで"
+        },
+        {
+          "id": "c4",
+          "text": "子葉[しよう]・花[はな]、実[み]・成長[せいちょう]して・大[おお]きくなって"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a92a60d30e894e8a.png"
+    },
+    "explanation": "図の A の部分を（子し葉よう）といい、発芽や成長のための養分が含まれている。B の部分は、成長すると（根、くき、葉）になる。種子が発芽すると、B の部分は（成長して）いくが、A の部分は（しぼんで）いく。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.78367fc10da4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "根、くき、葉の成長とともに子葉がしぼむのはなぜかを調べるため、次の実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷんが多くふくまれている・でんぷんがあまりふくまれていない"
+        },
+        {
+          "id": "c2",
+          "text": "水[みず]があまりふくまれていない・水[みず]が多[おお]くふくまれている"
+        },
+        {
+          "id": "c3",
+          "text": "水[みず]が多[おお]くふくまれている・水[みず]があまりふくまれていない"
+        },
+        {
+          "id": "c4",
+          "text": "でんぷんがあまりふくまれていない・でんぷんが多[おお]くふくまれている"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "種子は切り口が青むらさき色に変化したので、 （でんぷんが多くふくまれている）ことがわかった。しぼんだ子葉は色の変化がなかったので、（でんぷんがあまりふくまれていない）ことがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.7ea3ef436840",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子の発芽には「温度」が関係するのかどうかを調べるため、図のように、インゲンマメの種子を室温と冷ぞう庫の中に置き、発芽するかどうかを調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冷ぞう庫の中は暗いので、Aも暗くするために箱をかぶせた。"
+        },
+        {
+          "id": "c2",
+          "text": "クーラーの冷たい空気があたらないように箱をかぶせた。"
+        },
+        {
+          "id": "c3",
+          "text": "ネコやカラスに種子を食べられないように箱をかぶせた。"
+        },
+        {
+          "id": "c4",
+          "text": "温度があまり変化しないように箱をかぶせた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8a9c68b7ae4792ed.png"
+    },
+    "explanation": "「温度」以外の条件を同じにするため、冷ぞう庫の中は暗いので、Aも暗くするために箱をかぶせる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.824115120864",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じくらいに育ったインゲンマメのなえを２つ用意し、Aは日光にあたる場所で育て、Bには日光に当てないように箱をかぶせて育てると、図のようになった。結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日光に当てて育てたなえ（A）・日光に当てずに育てたなえ（B）・日光に当てると"
+        },
+        {
+          "id": "c2",
+          "text": "日光[にっこう]に当[あ]てずに育[そだ]てたなえ（B）・日光[にっこう]に当[あ]てて育[そだ]てたなえ（A）・日光[にっこう]に当[あ]てないほうが"
+        },
+        {
+          "id": "c3",
+          "text": "日光[にっこう]に当[あ]てずに育[そだ]てたなえ（B）・日光[にっこう]に当[あ]てて育[そだ]てたなえ（A）・日光[にっこう]に当[あ]てないと"
+        },
+        {
+          "id": "c4",
+          "text": "日光[にっこう]に当[あ]てて育[そだ]てたなえ（A）・日光[にっこう]に当[あ]てずに育[そだ]てたなえ（B）・日光[にっこう]に当[あ]てないと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/62d4064692c318b9.png"
+    },
+    "explanation": "（日光に当てて育てたなえ（A）） のほうが、（日光に当てずに育てたなえ（B））よりもよく成長した。このことから、植物は（日光に当てると）よく成長することがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.9bd195644dfc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、インゲンマメの種子を用いて種子の発芽の条件を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "適当な温度"
+        },
+        {
+          "id": "c2",
+          "text": "水"
+        },
+        {
+          "id": "c3",
+          "text": "空気"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2bc0646f5a944500.png"
+    },
+    "explanation": "室温においた種子（A）は発芽したが、冷蔵庫においた種子（B）は発芽しなかった。このことから種子の発芽には、適当な温度が必要ということがわかった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.a389a6eed208",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子の発芽には「空気」が必要かどうかを調べるため、図のように、インゲンマメの種子をあたたかい場所に置き、発芽するかどうかを調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "◯・×・20 ℃"
+        },
+        {
+          "id": "c2",
+          "text": "◯・×・5 ℃"
+        },
+        {
+          "id": "c3",
+          "text": "◯・◯・20 ℃"
+        },
+        {
+          "id": "c4",
+          "text": "×・◯・20 ℃"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/596e9c6fe7510778.png"
+    },
+    "explanation": "２つ以上の条件を変えて実験を行うと、結果のちがいが出たときに、どうしてちがいが出たのかがわからなくなる。そのため、調べたい１つの条件だけを変えて、他の条件は同じにして実験を行うようにする。今回は、種子の発芽には「空気」が必要かどうかを調べたいので、水や温度の条件は、AとBどちらも同じにする。 A 条件 B ◯ 水 ◯ × 空気 ◯ 20 ℃ 温度 20 ℃"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.c3e6d083d142",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "発芽後しばらくたってしぼんだインゲンマメの子葉には、でんぷんがあまりふくまれていない。このことから、根、くき、葉の成長とともに子葉がしぼむ理由[りゆう]について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・発芽や成長"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷん・成長[せいちょう]"
+        },
+        {
+          "id": "c3",
+          "text": "水[みず]・発芽[はつが]や成長[せいちょう]"
+        },
+        {
+          "id": "c4",
+          "text": "水[みず]・成長[せいちょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "根、くき、葉の成長とともに子葉がしぼむのは、種子にふくまれている（でんぷん）が、（発芽や成長）のために使われるから。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.c7a2088d9d7b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の種子が芽を出すことを何というでしょう。正しい言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "発芽"
+        },
+        {
+          "id": "c2",
+          "text": "発生"
+        },
+        {
+          "id": "c3",
+          "text": "たんじょう"
+        },
+        {
+          "id": "c4",
+          "text": "成長"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物の種子が芽を出すことを、発はつ芽がという。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.ee47449d7eb9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、種子の発芽に 必要ではないもの を１つえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水"
+        },
+        {
+          "id": "c2",
+          "text": "適当な温度"
+        },
+        {
+          "id": "c3",
+          "text": "空気"
+        },
+        {
+          "id": "c4",
+          "text": "日光"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "植物の種子の発芽に必要な条件は、水、空気、適当な温度の３つ。植物の種子は、土の中などの暗いところでも発芽するため、種子の発芽に日光は必要ではない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.ef307b43abfa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "種子の発芽には「温度」が関係するのかどうかを調べるため、図のように、インゲンマメの種子を室温と冷ぞう庫の中に置き、発芽するかどうかを調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "◯・◯・5 ℃"
+        },
+        {
+          "id": "c2",
+          "text": "×・◯・5 ℃"
+        },
+        {
+          "id": "c3",
+          "text": "◯・◯・20 ℃"
+        },
+        {
+          "id": "c4",
+          "text": "◯・×・5 ℃"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8a9c68b7ae4792ed.png"
+    },
+    "explanation": "２つ以上の条件を変えて実験を行うと、結果のちがいが出たときに、どうしてちがいが出たのかがわからなくなる。そのため、調べたい１つの条件だけを変えて、他の条件は同じにして実験を行うようにする。今回は、種子の発芽には「温度」が関係するかどうかを調べたいので、水や空気の条件は、AとBどちらも同じにする。 A 条件 B ◯ 水 ◯ ◯ 空気 ◯ 20 ℃ 温度 5 ℃"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-2.fe0ee81a9e27",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の種子の発芽や成長に必要なものとして、正しいものをそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水、空気、適当な温度・水、空気、適当な温度、肥料、日光"
+        },
+        {
+          "id": "c2",
+          "text": "肥料[ひりょう]、日光[にっこう]・水[みず]、空気[くうき]、適当[てきとう]な温度[おんど]"
+        },
+        {
+          "id": "c3",
+          "text": "水[みず]、空気[くうき]、日光[にっこう]・水[みず]、空気[くうき]、適当[てきとう]な温度[おんど]、日光[にっこう]"
+        },
+        {
+          "id": "c4",
+          "text": "水[みず]、空気[くうき]、日光[にっこう]・水[みず]、空気[くうき]、肥料[ひりょう]、日光[にっこう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物の成長には、日光と肥料だけでなく、発芽に必要な３つの条件も必要。 発芽に必要なもの：水、空気、適当な温度 成長に必要なもの：水、空気、適当な温度、肥料、日光"
+  }
+]

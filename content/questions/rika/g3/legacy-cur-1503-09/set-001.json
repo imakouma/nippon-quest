@@ -1,0 +1,434 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-09.027f51f5d70c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "棒磁石で鉄をいちばん強く引きつける場所はどこですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まん中"
+        },
+        {
+          "id": "c2",
+          "text": "両はし（きょく）"
+        },
+        {
+          "id": "c3",
+          "text": "どこでも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "側面だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "きょく（両はし）がいちばん強いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.1da0cd3c9d1d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石に近づけた鉄がクリップを引きつけるとき、言えることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄が磁石になった"
+        },
+        {
+          "id": "c2",
+          "text": "鉄がプラスチックになった"
+        },
+        {
+          "id": "c3",
+          "text": "回路ができた"
+        },
+        {
+          "id": "c4",
+          "text": "音が出た"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "鉄が磁石の性質をもった（磁石になった）といえます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.42f3e50c6206",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ極どうしを近づけるとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "引き合う"
+        },
+        {
+          "id": "c2",
+          "text": "しりぞけ合う"
+        },
+        {
+          "id": "c3",
+          "text": "光る"
+        },
+        {
+          "id": "c4",
+          "text": "溶ける"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "同じ極どうしはしりぞけ合います。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.49e5b2f7126c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石と鉄のきょりが遠くなると、引きつける力はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "強くなる"
+        },
+        {
+          "id": "c2",
+          "text": "弱くなる（またはなくなる）"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず同じ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "きょりが遠くなると、引きつける力は弱くなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.76b1b18ef7de",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石と鉄の間にプラスチック板があっても、引きつける力はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず0になる"
+        },
+        {
+          "id": "c2",
+          "text": "はたらくことがある"
+        },
+        {
+          "id": "c3",
+          "text": "音が出る"
+        },
+        {
+          "id": "c4",
+          "text": "重さが増える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "間に物があっても、きょりが近ければ引きつけることがあります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.7d8945a82ba2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石につけた鉄くぎに、別の鉄くぎがつくことがあります。これはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄くぎが磁石になったから"
+        },
+        {
+          "id": "c2",
+          "text": "音が出たから"
+        },
+        {
+          "id": "c3",
+          "text": "電気が流れたから"
+        },
+        {
+          "id": "c4",
+          "text": "重くなったから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "磁石に近づけた鉄は、一時的に磁石になります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.826215f6a7df",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "棒磁石のまん中あたりの引きつける力はどうですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いちばん強い"
+        },
+        {
+          "id": "c2",
+          "text": "弱い（またはほとんどつかない）"
+        },
+        {
+          "id": "c3",
+          "text": "音が大きい"
+        },
+        {
+          "id": "c4",
+          "text": "必ず溶ける"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "まん中は引きつける力が弱いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.89b4fcaefc8e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ちがう極どうしを近づけるとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しりぞけ合う"
+        },
+        {
+          "id": "c2",
+          "text": "引き合う"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "音が出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ちがう極どうしは引き合います。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.8cfe9816af21",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石につく物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ガラスのコップ"
+        },
+        {
+          "id": "c2",
+          "text": "鉄くぎ"
+        },
+        {
+          "id": "c3",
+          "text": "消しゴム"
+        },
+        {
+          "id": "c4",
+          "text": "わりばし"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "鉄でできた物は磁石につきます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.9e8f507c75e5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石につかない物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄の空きかん"
+        },
+        {
+          "id": "c2",
+          "text": "プラスチックの消しゴム"
+        },
+        {
+          "id": "c3",
+          "text": "鉄のはさみ"
+        },
+        {
+          "id": "c4",
+          "text": "鉄くぎ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "プラスチック・木・ガラス・アルミニウムはつきません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.a11c4f96e5d4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石から鉄くぎをはずすと、下のくぎはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ついたまま"
+        },
+        {
+          "id": "c2",
+          "text": "落ちる"
+        },
+        {
+          "id": "c3",
+          "text": "光る"
+        },
+        {
+          "id": "c4",
+          "text": "伸びる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "磁石から離すと磁力が弱まり、下のくぎは落ちやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-09.d4c16a39487c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "磁石の利用として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄の物を引きつけて拾う"
+        },
+        {
+          "id": "c2",
+          "text": "水を温める"
+        },
+        {
+          "id": "c3",
+          "text": "植物を発芽させる"
+        },
+        {
+          "id": "c4",
+          "text": "音を消す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "磁石は鉄の物を引きつける性質を利用します。"
+  }
+]

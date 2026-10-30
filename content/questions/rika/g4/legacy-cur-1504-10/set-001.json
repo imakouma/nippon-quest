@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-10.0e079e9bc4d2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月はどの向きに動いて見えやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西から東へ"
+        },
+        {
+          "id": "c2",
+          "text": "東から西へ"
+        },
+        {
+          "id": "c3",
+          "text": "上下だけ"
+        },
+        {
+          "id": "c4",
+          "text": "動かない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽[たいよう]と同じく東から西へ動いて見えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.31f6f4dba2d8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の観察記録に書くとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時刻・方角・形"
+        },
+        {
+          "id": "c2",
+          "text": "時刻[じこく]だけ"
+        },
+        {
+          "id": "c3",
+          "text": "方角[ほうがく]と天気[てんき]だけ"
+        },
+        {
+          "id": "c4",
+          "text": "形[かたち]と気温[きおん]だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "時刻・方角・形などを記録します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.405644258fa8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ日に月を観察すると、位置はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動かない"
+        },
+        {
+          "id": "c2",
+          "text": "時間がたつと動いて見える"
+        },
+        {
+          "id": "c3",
+          "text": "消えるだけ"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "時間がたつと月の位置は動いて見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.4f4e7575bf4d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月は自分で光っていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "光っている"
+        },
+        {
+          "id": "c2",
+          "text": "太陽[たいよう]の光を反射して見える"
+        },
+        {
+          "id": "c3",
+          "text": "電気で光る"
+        },
+        {
+          "id": "c4",
+          "text": "星と同じ熱源"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "月は太陽[たいよう]の光を反射して見えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.794b16e15cbb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夕方と夜中では月の位置はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがう位置に見える"
+        },
+        {
+          "id": "c3",
+          "text": "見えない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず南だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "時刻が変わると見える位置も変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.9ca9f26bec56",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の見える方角は日によってどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "毎日[まいにち]、同[おな]じ時刻[じこく]に同[おな]じ方角[ほうがく]に見[み]える"
+        },
+        {
+          "id": "c2",
+          "text": "変わる"
+        },
+        {
+          "id": "c3",
+          "text": "毎日[まいにち]、北[きた]の空[そら]だけに見[み]える"
+        },
+        {
+          "id": "c4",
+          "text": "形[かたち]が変[か]わる日[ひ]は見[み]えない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "日によって見える方角や時刻が変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.ba09bd125739",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の位置の変化を調べる目的はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動くようすを知る"
+        },
+        {
+          "id": "c2",
+          "text": "重さを測る"
+        },
+        {
+          "id": "c3",
+          "text": "電流を測る"
+        },
+        {
+          "id": "c4",
+          "text": "気温だけ測る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "時間がたつとどう動くかを知るためです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-10.cf2c8954c155",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の位置を調べるときに使うとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "方位や建物などの目印"
+        },
+        {
+          "id": "c2",
+          "text": "星[ほし]の位置[いち]だけ"
+        },
+        {
+          "id": "c3",
+          "text": "観察[かんさつ]した時刻[じこく]だけ"
+        },
+        {
+          "id": "c4",
+          "text": "月[つき]の形[かたち]だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位や建物を目印に位置を記録します。"
+  }
+]

@@ -1,0 +1,515 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-8.1017a8c9d218",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/2 + 1/3 =",
+      "answers": [
+        "5,6"
+      ]
+    },
+    "explanation": "分母が最小公倍数の 6 になるよう、通分してから計算する。 \\dfrac{1}{2} + \\dfrac{1}{3} = \\dfrac{3}{6} + \\dfrac{2}{6} = \\dfrac{5}{6}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.1dac15f6e8d7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3/4 - 1/2 =",
+      "answers": [
+        "1,4"
+      ]
+    },
+    "explanation": "分母が最小公倍数の 4 になるよう、通分してから計算する。 \\dfrac{3}{4} - \\dfrac{1}{2} = \\dfrac{3}{4} - \\dfrac{2}{4} = \\dfrac{1}{4}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.1f49baf419bf",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を通分したとき、□にあてはまる数を答えよう。",
+      "answers": [
+        "40,40"
+      ]
+    },
+    "explanation": "それぞれの分母である 8 と 10 の最小公倍数 40 が分母になるよう、\\dfrac{3}{8} には 5 を、\\dfrac{7}{10} には 4 を分母と分子の両方にかける。 \\dfrac{3}{8}, \\dfrac{7}{10} = \\dfrac{3×5}{8×5}, \\dfrac{7×4}{10×4} = \\dfrac{15}{40}, \\dfrac{28}{40}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.2415db353a8e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を通分したとき、□にあてはまる数を答えよう。",
+      "answers": [
+        "6,6"
+      ]
+    },
+    "explanation": "それぞれの分母である2と3の最小公倍数 6 が分母になるよう、\\dfrac{1}{2} には 3 を、\\dfrac{1}{3} には 2 を分母と分子の両方にかける。 \\dfrac{1}{2}, \\dfrac{1}{3} = \\dfrac{1×3}{2×3}, \\dfrac{1×2}{3×2} = \\dfrac{3}{6}, \\dfrac{2}{6}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.2dbc13510cba",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を通分しよう。ただし、分母はできるだけ 小さい数で答えること。",
+      "answers": [
+        "25,60,8,60"
+      ]
+    },
+    "explanation": "それぞれの分母である 12 と 15 の最小公倍数 60 が分母になるよう、\\dfrac{5}{12} には 5 を、\\dfrac{2}{15} には 4 を分母と分子の両方にかける。 \\dfrac{5}{12}, \\dfrac{2}{15} = \\dfrac{5×5}{12×5}, \\dfrac{2×4}{15×4} = \\dfrac{25}{60}, \\dfrac{8}{60}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.371c1b00d1d1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 25/9 + 29/12 =",
+      "answers": [
+        "5,7,36"
+      ]
+    },
+    "explanation": "帯分数の足し算では、①仮分数にしてから計算する、②帯分数のまま、整数・分数の部分をそれぞれ計算する 方法がある。 ① \\dfrac{25}{9} + \\dfrac{29}{12} = \\dfrac{100}{36} + \\dfrac{87}{36} = \\dfrac{187}{36} ② 2\\dfrac{7}{9} + 2\\dfrac{5}{12} = 4 +\\dfrac{7}{9} + \\dfrac{5}{12} = 4 + \\dfrac{28}{36} + \\dfrac{15}{36} = 4+\\dfrac{43}{36} = 5\\dfrac{7}{36}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.3e7dd4374955",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を通分しよう。ただし、分母はできるだけ 小さい数で答えること。",
+      "answers": [
+        "21,48,22,48"
+      ]
+    },
+    "explanation": "それぞれの分母である 16 と 24 の最小公倍数 48 が分母になるよう、\\dfrac{7}{16} には 3 を、\\dfrac{11}{24} には 2 を分母と分子の両方にかける。 \\dfrac{7}{16}, \\dfrac{11}{24} = \\dfrac{7×3}{16×3}, \\dfrac{11×2}{24×2} = \\dfrac{21}{48}, \\dfrac{22}{48}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.443bea2dbd1c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5/12 + 1/4 =",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "分母が最小公倍数の 12 になるよう、通分してから計算する。 \\dfrac{5}{12} + \\dfrac{1}{4} = \\dfrac{5}{12} + \\dfrac{3}{12} = \\dfrac{8}{12} = \\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.52521958c6cc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数と 大きさが等しい分数になるよう、かっこをうめよう。",
+      "answers": [
+        "2,6,4"
+      ]
+    },
+    "explanation": "分数では、分母と分子に同じ数をかけても、同じ数でわっても、分数の大きさは変わらない。 \\dfrac{1}{2} = \\dfrac{2}{4} = \\dfrac{3}{6} = \\dfrac{4}{8}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.5a643e829ba8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5/2 + 5/3 =",
+      "answers": [
+        "4,1,6"
+      ]
+    },
+    "explanation": "帯分数の足し算では、①仮分数にしてから計算する、②帯分数のまま、整数・分数の部分をそれぞれ計算する 方法がある。 ① \\dfrac{5}{2} + \\dfrac{5}{3} = \\dfrac{15}{6} + \\dfrac{10}{6} = \\dfrac{25}{6} ② 2\\dfrac{1}{2} + 1\\dfrac{2}{3} = 3 +\\dfrac{1}{2} + \\dfrac{2}{3} = 3 + \\dfrac{3}{6} + \\dfrac{4}{6} = 3+\\dfrac{7}{6} = 4\\dfrac{1}{6}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.6463f2e7fd7b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 47/10 - 23/6 =",
+      "answers": [
+        "13,15"
+      ]
+    },
+    "explanation": "帯分数の引き算では、①仮分数にしてから計算する、②帯分数のまま、整数から分数の部分を計算する 方法がある。 ① \\dfrac{47}{10} - \\dfrac{23}{6} = \\dfrac{141}{30} - \\dfrac{115}{30} = \\dfrac{26}{30} = \\dfrac{13}{15} ② 4\\dfrac{21}{30} - 3\\dfrac{25}{30} = 4-\\dfrac{25}{30} + \\dfrac{21}{30}-3 = 3\\dfrac{5}{30}+ \\dfrac{21}{30} -3 = \\dfrac{26}{30} = \\dfrac{13}{15}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.6be290688309",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を約分しよう。",
+      "answers": [
+        "1,2"
+      ]
+    },
+    "explanation": "分母と分子を 同じ数 5 でわると、 \\dfrac{5}{10} = \\dfrac{5÷5}{10÷5} = \\dfrac{1}{2}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.6f72f9be4857",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3/12 + 3/8 =",
+      "answers": [
+        "5,8"
+      ]
+    },
+    "explanation": "分母が最小公倍数の 24 になるよう、通分してから計算する。 \\dfrac{3}{12} + \\dfrac{3}{8} = \\dfrac{6}{24} + \\dfrac{9}{24} = \\dfrac{15}{24} = \\dfrac{5}{8}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.81ea94966799",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 13/15 - 1/6 =",
+      "answers": [
+        "7,10"
+      ]
+    },
+    "explanation": "分母が最小公倍数の 30 になるよう、通分してから計算する。 \\dfrac{13}{15} - \\dfrac{1}{6} = \\dfrac{26}{30} - \\dfrac{5}{30} = \\dfrac{21}{30} = \\dfrac{7}{10}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.81f95e2101de",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を通分しよう。ただし、分母はできるだけ 小さい数で答えること。",
+      "answers": [
+        "4,6,5,6"
+      ]
+    },
+    "explanation": "それぞれの分母である 3 と 6 の最小公倍数 6 が分母になるよう、\\dfrac{2}{3} には 2 を、分母と分子の両方にかける。 \\dfrac{2}{3}, \\dfrac{5}{6} = \\dfrac{2×2}{3×2}, \\dfrac{5}{6} = \\dfrac{4}{6}, \\dfrac{5}{6}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.878b78c1269c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を通分したとき、□にあてはまる数を答えよう。",
+      "answers": [
+        "20"
+      ]
+    },
+    "explanation": "それぞれの分母である 9 と 12 の最小公倍数 36 が分母になるよう、\\dfrac{5}{9} には 4 を、\\dfrac{1}{12} には 3 を分母と分子の両方にかける。 \\dfrac{5}{9}, \\dfrac{1}{12} = \\dfrac{5×4}{9×4}, \\dfrac{1×3}{12×3} = \\dfrac{20}{36}, \\dfrac{3}{36}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.87b322595f48",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 21/4 - 15/6 =",
+      "answers": [
+        "5,12"
+      ]
+    },
+    "explanation": "帯分数の引き算では、①仮分数にしてから計算する、②帯分数のまま、整数から分数の部分を計算する 方法がある。 ① 2\\dfrac{1}{4} - 1\\dfrac{5}{6} = \\dfrac{9}{4} - \\dfrac{11}{6} = \\dfrac{27}{12} - \\dfrac{22}{12} = \\dfrac{5}{12} ② 2\\dfrac{3}{12} - 1\\dfrac{10}{12} = 2-\\dfrac{10}{12} + \\dfrac{3}{12}-1 = 1\\dfrac{2}{12} + \\dfrac{3}{12}-1 = \\dfrac{5}{12}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.9651ae31d82c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を通分しよう。ただし、分母はできるだけ 小さい数で答えること。",
+      "answers": [
+        "4,12,3,12"
+      ]
+    },
+    "explanation": "それぞれの分母である3と4の最小公倍数 12 が分母になるよう、\\dfrac{1}{3} には 4 を、\\dfrac{1}{4} には 3 を分母と分子の両方にかける。 \\dfrac{1}{3}, \\dfrac{1}{4} = \\dfrac{1×4}{3×4}, \\dfrac{1×3}{4×3} = \\dfrac{4}{12}, \\dfrac{3}{12}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.9e62009c4afa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数と 大きさが等しい分数になるよう、かっこをうめよう。",
+      "answers": [
+        "4,12,16"
+      ]
+    },
+    "explanation": "分数では、分母と分子に同じ数をかけても、同じ数でわっても、分数の大きさは変わらない。 \\dfrac{2}{3} = \\dfrac{4}{6} = \\dfrac{8}{12} = \\dfrac{16}{24}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.a4258a4f87fe",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの分数が等しくなるように、□に当てはまる数を答えよう。",
+      "answers": [
+        "40"
+      ]
+    },
+    "explanation": "それぞれの分母である 15 と 25 の最小公倍数 75 が分母になるよう、\\dfrac{8}{15} には 5 を、\\dfrac{8}{25} には 3 を分母と分子の両方にかける。 \\dfrac{8}{15}, \\dfrac{8}{25} = \\dfrac{8×5}{15×5}, \\dfrac{8×3}{25×3} = \\dfrac{40}{75}, \\dfrac{24}{75}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.a590fbd0011d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 19/6 - 13/9 =",
+      "answers": [
+        "1,13,18"
+      ]
+    },
+    "explanation": "帯分数の引き算では、①仮分数にしてから計算する、②帯分数のまま、整数から分数の部分を計算する 方法がある。 ① \\dfrac{19}{6} - \\dfrac{13}{9} = \\dfrac{57}{18} - \\dfrac{26}{18} = \\dfrac{31}{18} ② 3\\dfrac{3}{18} - 1\\dfrac{8}{18} = 3-\\dfrac{8}{18} + \\dfrac{3}{18}-1 = 2\\dfrac{10}{18} + \\dfrac{3}{18}-1 = 1\\dfrac{13}{18}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.a914e1f7fec4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 67/10 + 43/15 =",
+      "answers": [
+        "9,17,30"
+      ]
+    },
+    "explanation": "帯分数の足し算では、①仮分数にしてから計算する、②帯分数のまま、整数・分数の部分をそれぞれ計算する 方法がある。 ① \\dfrac{67}{10} + \\dfrac{43}{15} = \\dfrac{201}{30} + \\dfrac{86}{30} = \\dfrac{287}{30} ② 6\\dfrac{7}{10} + 2\\dfrac{13}{15} = 8 +\\dfrac{7}{10} + \\dfrac{13}{15} = 8 + \\dfrac{21}{30} + \\dfrac{26}{30} = 8+\\dfrac{47}{30} = 9\\dfrac{17}{30}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.cb5bb00c2add",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5/7 - 5/9 =",
+      "answers": [
+        "10,63"
+      ]
+    },
+    "explanation": "分母が最小公倍数の 63 になるよう、通分してから計算する。 \\dfrac{5}{7} - \\dfrac{5}{9} = \\dfrac{45}{63} - \\dfrac{35}{63} = \\dfrac{10}{63}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.d143c05b3d36",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 41/12 - 23/8 =",
+      "answers": [
+        "1,17,24"
+      ]
+    },
+    "explanation": "帯分数の引き算では、①仮分数にしてから計算する、②帯分数のまま、整数から分数の部分を計算する 方法がある。 ① 4\\dfrac{1}{12} - 2\\dfrac{3}{8} = \\dfrac{49}{12} - \\dfrac{19}{8} = \\dfrac{98}{24} - \\dfrac{57}{24} = \\dfrac{41}{24} ② 4\\dfrac{2}{24} - 2\\dfrac{9}{24} = 4-\\dfrac{9}{24} + \\dfrac{2}{24}-2 = 3\\dfrac{15}{24} + \\dfrac{2}{24}-2 = 1\\dfrac{17}{24}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.d67ff00c4f69",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 31/8 + 25/6 =",
+      "answers": [
+        "8,1,24"
+      ]
+    },
+    "explanation": "帯分数の足し算では、①仮分数にしてから計算する、②帯分数のまま、整数・分数の部分をそれぞれ計算する 方法がある。 ① \\dfrac{31}{8} + \\dfrac{25}{6} = \\dfrac{93}{24} + \\dfrac{100}{24} = \\dfrac{193}{24} ② 3\\dfrac{7}{8} + 4\\dfrac{1}{6} = 7 +\\dfrac{7}{8} + \\dfrac{1}{6} = 7 + \\dfrac{21}{24} + \\dfrac{4}{24} = 7+\\dfrac{25}{24} = 8\\dfrac{1}{24}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.d9622df740e8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を約分しよう。",
+      "answers": [
+        "1,4"
+      ]
+    },
+    "explanation": "分母と分子を 同じ数 15 でわると、 \\dfrac{15}{60} = \\dfrac{15÷15}{60÷15} = \\dfrac{1}{4}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-8.e4814f575854",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を約分しよう。",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "分母と分子を 同じ数 3 でわると、 \\dfrac{6}{9} = \\dfrac{6÷3}{9÷3} = \\dfrac{2}{3}"
+  }
+]

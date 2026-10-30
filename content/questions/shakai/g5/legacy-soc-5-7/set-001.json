@@ -1,0 +1,386 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-7.2cb80e8887d4",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "インターネット上に他人の写真や文章[ぶんしょう]、音楽などを許可なく無断でコピーして掲載したときに侵害してしまう権利は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "著作権（ちょさくけん）"
+        },
+        {
+          "id": "c2",
+          "text": "所有権"
+        },
+        {
+          "id": "c3",
+          "text": "選挙権"
+        },
+        {
+          "id": "c4",
+          "text": "生存権[せいぞんけん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "他人が作詞・作曲した音楽や撮影した写真、文章[ぶんしょう]などには「著作権[ちょさくけん]」があり、無断使用は法律で禁止されています。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.7fc4ad1231e8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "コンピューターやインターネットなど、情報のしょ理や伝達に関係する技術のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ICT（情報通信技術）"
+        },
+        {
+          "id": "c2",
+          "text": "AI（人工知能）"
+        },
+        {
+          "id": "c3",
+          "text": "IoT（モノのインターネット）"
+        },
+        {
+          "id": "c4",
+          "text": "スマートデバイス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "コンピューターやインターネットなど、情報のしょ理や伝達に関係する技術のことを、ICT（情報通信技術）という。英語の Information and Communication Technology の略。 ・AI（人工知能）… コンピューターなどを利用した、知能のようなはたらきをするシステムのこと。 ・IoT（モノのインターネット）… パソコンやスマートフォンだけでなく、様々なものが、インターネットにつながること。 ・スマートデバイス … スマートフォンやタブレットをまとめてさす時に使われる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.98f2b889864d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メディアリテラシーの説明[せつめい]として、正しいものを選ぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必要な情報を自分でえらび、内容を確認して、活用する能力や技能のこと。"
+        },
+        {
+          "id": "c2",
+          "text": "自分や自分の生活について、他人に公開されないよう求めること。"
+        },
+        {
+          "id": "c3",
+          "text": "インターネットに、他人がいやがるような内容を書きこんだりしないこと。"
+        },
+        {
+          "id": "c4",
+          "text": "様々なメディアを使って、社会の最新の情報を常に知っていること。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "必要な情報を自分でえらび、内容を確認かくにんして、活用する能力のうりょくや技能ぎのうのことを、メディアリテラシーという。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.9c9ec2b8b781",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "インターネットやスマートフォンを長時間使いすぎたり、やめたくてもやめられなかったりなど「ネットいぞん」が問題[もんだい]になっている。次の中から、ネットいぞんの対さくとして、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "使ってみないとわからないことが多いので、子どもが使い始めるときは、ルールはもうけない方がよい。"
+        },
+        {
+          "id": "c2",
+          "text": "ネットいぞんの問題[もんだい]について学ぶ。"
+        },
+        {
+          "id": "c3",
+          "text": "インターネットやスマートフォンを、さわらない時間を決める。"
+        },
+        {
+          "id": "c4",
+          "text": "インターネットやスマートフォンを使わないで、楽しくすごせる時間を持てるようにする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「使ってみないとわからないことが多いので、子どもが使い始めるときは、ルールはもうけない方がよい。」が、正しくない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.9ec8c13519d7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "情報社会の問題[もんだい]として、正しくないものを次の中からえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "スマートフォンやインターネットを手放せない、ネットいぞんの人が増えてきている。"
+        },
+        {
+          "id": "c2",
+          "text": "画像を加工する技術などが発達し、フェイクニュースが広まりやすくなっている。"
+        },
+        {
+          "id": "c3",
+          "text": "インターネット上にある個人情報が増えており、個人情報がもれてしまうことがある。"
+        },
+        {
+          "id": "c4",
+          "text": "インターネット上の情報がまちがっていることが多いため、新聞を読む人が増えている。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「インターネット上の情報がまちがっていることが多いため、新聞を読む人が増えている。」が、正しくない。インターネット上の情報だからといって、まちがっているわけではない。また、新聞を読む人は、だんだんと減ってきている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.aa48eb558b84",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "インターネットやSNSで流れてくる大量[たいりょう]の情報の中から、嘘や誤解に惑わされず、正しい情報を見極めて安全に活用する力を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "情報メディアリテラシー"
+        },
+        {
+          "id": "c2",
+          "text": "プログラミング"
+        },
+        {
+          "id": "c3",
+          "text": "情報発信"
+        },
+        {
+          "id": "c4",
+          "text": "著作権[ちょさくけん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "情報メディアリテラシーとは、情報を鵜呑みにせず、事実[じじつ]かどうか確かめ（ファクトチェック）、正しく読み解き発信できる能力のことです。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.b0f4467ddc1c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "2010年代に入ると、わたし達が生活の中でふれる情報の量は、急速に増えた。その理由[りゆう]として、正しくないものを 次の中からえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "多くの人が、スマートフォンを利用するようになったから。"
+        },
+        {
+          "id": "c2",
+          "text": "動画などの容量の大きい情報が、インターネットでやりとりされるようになったから。"
+        },
+        {
+          "id": "c3",
+          "text": "SNSなどで、情報を受け取るだけでなく、発信する人が増えたから。"
+        },
+        {
+          "id": "c4",
+          "text": "仕事でも、パソコンが使われ始めたから。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "「仕事でも、パソコンが使われ始めたから。」が、正しくない。仕事では、2010年よりも前からパソコンがよく使われていた。2010年代からは、多くの人が、スマートフォンを利用するようになり、動画などの容量の大きい情報も、SNSなどでよくやりとりするようになったから。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.dfa771e3023a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "情報社会の発展によって、個人情報がもれてしまうことが、問題[もんだい]となっている。個人情報とは、個人が特定される可能性がある情報をいうが、次のうち、個人情報に当たらないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "知らない人の顔が写っている写真"
+        },
+        {
+          "id": "c2",
+          "text": "レストランの電話番号"
+        },
+        {
+          "id": "c3",
+          "text": "名前[なまえ]が書かれたテストの答案"
+        },
+        {
+          "id": "c4",
+          "text": "インターネットで公開されているアイドルの写真"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "レストランの電話番号は、個人情報には当たらない。公開されているかどうかや、知っている人かどうかは関係なく、その人が特定される可能性がある情報は、個人情報に当たる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.e793396648b7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "様々なものがインターネットにつながり、情報をやりとりするようになることを、アルファベットで何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "IoT"
+        },
+        {
+          "id": "c2",
+          "text": "Wi-Fi"
+        },
+        {
+          "id": "c3",
+          "text": "5G"
+        },
+        {
+          "id": "c4",
+          "text": "AI"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "様々なものがインターネットにつながり、情報をやりとりするようになることを IoT という。Internet of Things の略で、 日本語では「モノのインターネット」言われる。 ・AI（人工知能）… コンピューターなどを利用した、知能のようなはたらきをするシステムのこと。 ・5G … 第5世代移動通信システムのことで、日本では2020年から本格的に使われるようになった、情報通信のしくみ。3G（第3世代）、4G（第4世代）と発展してきた。 ・Wi-Fiワイファイ … ケーブルなどを使わずに情報をやりとりする「無線通信」ネットワークのきまり。様々な場所で、このWi-Fiのきまりを使って、インターネットにつながることができる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.f55f992e21cf",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "社会でやりとりされる情報の量が増え、仕事や生活を進める上で、情報がかかせなくなった社会のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "情報社会"
+        },
+        {
+          "id": "c2",
+          "text": "高れい社会"
+        },
+        {
+          "id": "c3",
+          "text": "工業社会"
+        },
+        {
+          "id": "c4",
+          "text": "ネット社会"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "情報量が一気に増え、仕事や生活を進める上で、情報がかかせなくなった社会のことを、情報社会という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-7.fcad0691609e",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メディアとその特ちょうについて、表のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "新聞",
+        "雑誌",
+        "ラジオ",
+        "テレビ",
+        "インターネット"
+      ],
+      "template": "メディア いつから 伝え方 特ちょう {{INPUT}} 江戸時代末 主に文字 持ち運びできる。社会全体の情報を、まとめて知ることができる。 {{INPUT}} 江戸時代末 文字、写真、画像 持ち運びできる。決まった分野の情報を知ることができる。 {{INPUT}} 1925年 音声 車の運転など、何かをしながら聞くことができる。 {{INPUT}} 1953年 映像 映像で伝えることができ、わかりやすい。 {{INPUT}} 1989年 文字、画像、映像 ・世界中の情報を、自分で集めることができる。・情報の発信ができる。"
+    },
+    "explanation": "メディア いつから 伝え方 特ちょう 新聞 江戸時代末 主に文字 持ち運びできる。社会全体の情報を、まとめて知ることができる。 雑誌 江戸時代末 文字、写真、画像 持ち運びできる。決まった分野の情報を知ることができる。 ラジオ 1925年 音声 車の運転など、何かをしながら聞くことができる。 テレビ 1953年 映像 映像で伝えることができ、わかりやすい。 インターネット 1989年 文字、画像、映像 ・世界中の情報を、自分で集めることができる。・情報の発信ができる。"
+  }
+]

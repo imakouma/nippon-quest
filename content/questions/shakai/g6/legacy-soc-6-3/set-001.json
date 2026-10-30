@@ -1,0 +1,403 @@
+[
+  {
+    "id": "legacy.shakai.g6.soc-6-3.03443772cdcd",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大きな古墳が、近きん畿き地方に多く見られることから考えられるのはどのようなことか、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "近畿地方に強い勢力をもつ豪族がいた。"
+        },
+        {
+          "id": "c2",
+          "text": "一番稲作がさかんなのが近畿地方だった。"
+        },
+        {
+          "id": "c3",
+          "text": "政治の中心が九州から近畿地方にうつった。"
+        },
+        {
+          "id": "c4",
+          "text": "他の地域には古墳をつくる技術が広まらなかった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "大王や豪族の墓である古墳は、大きなものが近畿地方に多く見られる。大きな古墳は権力の大きさを示すものであり、また大きな古墳をつくるには多くの人手が必要であるため、近畿地方には強い勢力をもつ豪族がいたと考えられる。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.2740c2f0b476",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "古墳のまわりや頂上には、次の写真のような、人や馬などの形をした焼き物が置かれた。これを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土偶"
+        },
+        {
+          "id": "c2",
+          "text": "銅剣"
+        },
+        {
+          "id": "c3",
+          "text": "銅鐸"
+        },
+        {
+          "id": "c4",
+          "text": "はにわ"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bb64e82f3d8abbab.jpg"
+    },
+    "explanation": "古墳のまわりや頂上には、人や馬、家などの形をしたはにわが置かれていた。このようなはにわは当時の人たちの生活のようすを知る上で、貴き重ちょうな史料となる。 ・土偶は土でできた人形で、日本では縄文時代に多くつくられた。 ・銅剣は青銅の剣で、副そう品として古墳におさめられていた。 ・銅鐸は、弥生時代につくられた、つりがねのような形の青銅器。祭りなどに使われたと考えられている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.2a173579c044",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の写真のような、円形と方形（四角形[しかくけい]）を組み合わせた形の古墳を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "円墳"
+        },
+        {
+          "id": "c2",
+          "text": "方墳"
+        },
+        {
+          "id": "c3",
+          "text": "前方後円墳"
+        },
+        {
+          "id": "c4",
+          "text": "前方後方墳"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ac1e0b933652b824.jpg"
+    },
+    "explanation": "円形と方形（四角形[しかくけい]）を組み合わせた形の古墳を前方後円墳という。写真は大阪府堺さかい市にある大だい仙せん古こ墳ふん（仁にん徳とく天てん皇のう陵りょう）で、最大規き模ぼの前方後円墳。大きい古墳はどれも前方後円墳で、この形の古墳が重要であったと考えられている。 ・円墳えんぷんは円形の古墳。 ・方墳は方形の古墳。 ・前方後方墳は方形と方形を組み合わせた形の古墳。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.43f26aa3dd61",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "縄文時代に祭りやいのりで使われたと考えられている、土でできた人形を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土偶"
+        },
+        {
+          "id": "c2",
+          "text": "はにわ"
+        },
+        {
+          "id": "c3",
+          "text": "土器"
+        },
+        {
+          "id": "c4",
+          "text": "石器"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/bede1a69c4b2d6ae.jpg"
+    },
+    "explanation": "縄文時代には、土でできた人形である土ど偶ぐうがつくられた。祭りやいのりで使われたと考えられている。 はにわは、古こ墳ふんのまわりや頂ちょう上じょうに置かれた、人や馬、家などの形をした焼き物。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.7ebf2f6bd15b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の国の成り立ちを記した歴史書の組み合わせとして正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "『古事記』・『日本書紀』"
+        },
+        {
+          "id": "c2",
+          "text": "『日本書紀』・『風土記』"
+        },
+        {
+          "id": "c3",
+          "text": "『風土記』・『万葉集』"
+        },
+        {
+          "id": "c4",
+          "text": "『万葉集』・『古事記』"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "８世紀、日本の国の成り立ちを記した『古こ事じ記き』・『日に本ほん書しょ紀き』が完成した。 ・『風ふ土ど記き』は、各地の産物や地名の由来[ゆらい]、伝説などが記録されている。 ・『万葉まんよう集しゅう』は、今も残っている中で最も古い歌集。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.82f8e544eab6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "邪馬台国の女王であった卑弥呼がおこなったこととして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "うらないの力を使って人びとを従えた。"
+        },
+        {
+          "id": "c2",
+          "text": "仏教の力を使って国をまもろうとした。"
+        },
+        {
+          "id": "c3",
+          "text": "子や孫に権力を引きつぎ、力を持ち続けた。"
+        },
+        {
+          "id": "c4",
+          "text": "北海道[ほっかいどう]から沖縄までの地域を支配した。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "邪馬台国の女王であった卑弥呼は、うらないの力を使って人びとを従えたといわれる。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.9e930b5313e5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "佐賀県にある吉よし野のヶが里り遺跡からは、ほりやさくで囲まれた集落のあとがみつかった。このことから考えられることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "集落の間で争いがあった。"
+        },
+        {
+          "id": "c2",
+          "text": "集落の間で協力して稲作がおこなわれた。"
+        },
+        {
+          "id": "c3",
+          "text": "集落内に貧富の差があった。"
+        },
+        {
+          "id": "c4",
+          "text": "集落内で豊作をいのる祭りがおこなわれた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9e419112cec342c0.jpg"
+    },
+    "explanation": "佐賀県にある吉野ヶ里遺跡は、弥生時代の遺跡である。この遺跡からは、ほりやさくで囲まれた集落のあとがみつかった。ほりやさくは、外の人が集落に入るのを防ぐ役割があることから、集落の間で争いがあったことが考えられる。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.af5f5c2d5e1e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "３世紀中ごろから７世紀はじめにかけて、大王おおきみや豪族ごうぞくの大きな墓が各地でつくられた。これを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "貝塚"
+        },
+        {
+          "id": "c2",
+          "text": "古墳"
+        },
+        {
+          "id": "c3",
+          "text": "遺跡"
+        },
+        {
+          "id": "c4",
+          "text": "ピラミッド"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "３世紀中ごろから７世紀はじめにかけて、大王や豪族の大きな墓である古墳が各地でたくさんつくられた。古墳がさかんにつくられた時代を古墳時代という。 ・遺跡は昔の人の活動のあとが残る場所のこと。 ・貝塚は古代の人が捨てた貝がらなどが積もってできた遺跡で、日本では主に縄文時代のものがみられる。 ・ピラミッドは古代エジプトでつくられた王の墓。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.b10c5de3133d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "弥生時代に稲作が広まったことによって、生活や社会にはどのような変化がおこったのか、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お金を使った売買が広まった。"
+        },
+        {
+          "id": "c2",
+          "text": "人びとの間に貧富の差ができた。"
+        },
+        {
+          "id": "c3",
+          "text": "争いがおこるようになった。"
+        },
+        {
+          "id": "c4",
+          "text": "集落の中で指導者となる人が現れた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "稲作の広まりによって、多く収穫できる人とそうでない人との間で貧富の差ができた。集落の中で人びとをまとめる指導者が現れ、やがて支配する者と支配される者という身分のちがいも生まれた。また、稲作に適した土地や水の利用などをめぐり、人びとの間で争いがおこるようになった。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.d1433fae4224",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "渡来人は、技術だけでなく大陸の文化も伝えた。古墳時代に渡来人によって伝えられたものではないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "漢字"
+        },
+        {
+          "id": "c2",
+          "text": "ひらがな"
+        },
+        {
+          "id": "c3",
+          "text": "儒教（じゅきょう）"
+        },
+        {
+          "id": "c4",
+          "text": "仏教"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "渡来人は技術のほかに、漢字、儒じゅ教きょう・仏教といった大陸の文化や思想も伝えた。ひらがなは、漢字をもとに日本でつくられた文字で、平安時代から使われたといわれる。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-3.d3d33be34d81",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "青森県にある三内丸山さんないまるやま遺い跡せきからは、多くのたて穴住居のあとや大きな建物のあとがみつかった。このことから考えられることとして正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人びとが集団で生活していた。"
+        },
+        {
+          "id": "c2",
+          "text": "人びとが狩りや採集中心のくらしをしていた。"
+        },
+        {
+          "id": "c3",
+          "text": "人びとはよく争いをしていた。"
+        },
+        {
+          "id": "c4",
+          "text": "人びとは土器を調理に使っていた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5c1886c1b89c7ee3.jpg"
+    },
+    "explanation": "青森県にある三内丸山遺跡は、縄文時代の遺跡である。この遺跡からは、多くのたて穴住居のあとや大きな建物のあとがみつかった。このことから、人びとが集団で生活していたと考えられる。墓、土器・石器・土偶などもみつかっている。 縄文時代の人たちは、狩りや採集中心の生活をし、土器を調理に使っていたと考えられているが、たて穴住居のあとや大きな建物のあとからは判断できない。"
+  }
+]

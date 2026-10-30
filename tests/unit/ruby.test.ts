@@ -182,7 +182,7 @@ describe('RubyText', () => {
     );
     const folders = ['arena', 'curriculum', 'items', 'monsters', 'prefectures', 'world'];
     const questionFiles = jsonFiles(join(rootPath, 'questions')).filter(
-      (file) => !file.includes('/kokugo/') && !file.includes('/legacy/'),
+      (file) => !file.includes('/kokugo/') && !file.split('/').some((part) => part.startsWith('legacy-')),
     );
     const files = [
       ...fixedFiles,
@@ -199,9 +199,9 @@ describe('RubyText', () => {
   it('旧教材も、読みが検証できた通常語は RubyText にし、出題意図のある表記は保護する', () => {
     const contentRoot = new URL('../../content/', import.meta.url);
     const rootPath = decodeURIComponent(contentRoot.pathname);
-    const legacyRoot = join(rootPath, 'questions', 'legacy');
-    const files = ['sansu', 'rika', 'seikatsu', 'shakai'].flatMap((subject) =>
-      jsonFiles(join(legacyRoot, subject)),
+    const questionRoot = join(rootPath, 'questions');
+    const files = jsonFiles(questionRoot).filter(
+      (file) => !file.includes('/kokugo/') && file.split('/').some((part) => part.startsWith('legacy-')),
     );
     const strings = files.flatMap((file) => {
       const data = JSON.parse(readFileSync(file, 'utf8')) as unknown;
@@ -230,11 +230,17 @@ describe('RubyText', () => {
     });
     expect(stillBare).toEqual([]);
 
-    const protectedSource = readFileSync(join(legacyRoot, 'shakai', 'g4.json'), 'utf8');
+    const protectedSource = readFileSync(
+      join(questionRoot, 'shakai', 'g4', 'legacy-cur-1404-01', 'set-001.json'),
+      'utf8',
+    );
     expect(protectedSource).toContain('雨温図（うおんず）');
     expect(protectedSource).toContain('経線（けいせん）');
 
-    const kokugoSource = readFileSync(join(legacyRoot, 'kokugo', 'g2.json'), 'utf8');
+    const kokugoSource = jsonFiles(join(questionRoot, 'kokugo', 'g2'))
+      .filter((file) => file.split('/').some((part) => part.startsWith('legacy-')))
+      .map((file) => readFileSync(file, 'utf8'))
+      .join('\n');
     expect(kokugoSource).not.toContain('漢字[かんじ]');
   });
 

@@ -1,0 +1,970 @@
+[
+  {
+    "id": "source.kokugo.g6.jpn-6-2.c4d48e6fc1be",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "相手の動作を高めて言う「尊敬語」として正しいものはどれですか。◆先生が 本を（見る）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "拝見する"
+        },
+        {
+          "id": "b",
+          "text": "見られる"
+        },
+        {
+          "id": "c",
+          "text": "ご覧になる"
+        },
+        {
+          "id": "d",
+          "text": "見ませる"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "目上の人が「見る」ことは、尊敬語で「ご覧になる」と言います。"
+  },
+  {
+    "id": "source.kokugo.g6.jpn-6-2.b31934b6165d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "自分の動作をへりくだって言い、相手を立てる「謙譲語（けんじょうご）」として正しいものはどれですか。◆私が 本を（見る）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ご覧になる"
+        },
+        {
+          "id": "b",
+          "text": "拝見する"
+        },
+        {
+          "id": "c",
+          "text": "見られる"
+        },
+        {
+          "id": "d",
+          "text": "見ていただく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "自分の「見る」という動作をへりくだって言うときは「拝見する」を使います。"
+  },
+  {
+    "id": "source.kokugo.g6.jpn-6-2.9eaab2cc0a55",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "次の文のうち、主語と述語の対応が正しくない「ねじれ文」はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "私の夢は、医者になることだ。"
+        },
+        {
+          "id": "b",
+          "text": "ぼくの趣味は、本を読む。"
+        },
+        {
+          "id": "c",
+          "text": "兄の特技は、速く走ることだ。"
+        },
+        {
+          "id": "d",
+          "text": "私の目標は、大会で優勝することだ。"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「ぼくの趣味は」という主語に対しては、「本を読むことだ」と結ぶのが正しい対応です。"
+  },
+  {
+    "id": "source.kokugo.g6.jpn-6-2.6739f15cc737",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "漢字三文字でできている「三字熟語」はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "一生懸命"
+        },
+        {
+          "id": "b",
+          "text": "保健室"
+        },
+        {
+          "id": "c",
+          "text": "共通語"
+        },
+        {
+          "id": "d",
+          "text": "身体測定"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「少人数」「保健室」などは、漢字三文字で構成された三字熟語です。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.067a48e72468",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「言う」の謙譲語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "申し上げる"
+        },
+        {
+          "id": "c2",
+          "text": "おっしゃる"
+        },
+        {
+          "id": "c3",
+          "text": "言います"
+        },
+        {
+          "id": "c4",
+          "text": "言え"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "謙譲語「申す・申し上げる」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.3883497fc188",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「言う」の謙譲語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "申す（申し上げる）"
+        },
+        {
+          "id": "c2",
+          "text": "おっしゃる"
+        },
+        {
+          "id": "c3",
+          "text": "言います"
+        },
+        {
+          "id": "c4",
+          "text": "言うな"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "謙譲語は「申す・申し上げる」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.38d05c7a12c4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自分をへりくだる言い方は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "尊敬語"
+        },
+        {
+          "id": "c2",
+          "text": "謙譲語"
+        },
+        {
+          "id": "c3",
+          "text": "命令形"
+        },
+        {
+          "id": "c4",
+          "text": "断定"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "謙譲語。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.4bb5a801711c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「です・ます」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "尊敬語"
+        },
+        {
+          "id": "c2",
+          "text": "謙譲語"
+        },
+        {
+          "id": "c3",
+          "text": "丁寧語"
+        },
+        {
+          "id": "c4",
+          "text": "外来語"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "丁寧語。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.56d010b3bbd1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「見る」の尊敬語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ご覧になる"
+        },
+        {
+          "id": "c2",
+          "text": "拝見する"
+        },
+        {
+          "id": "c3",
+          "text": "見ます"
+        },
+        {
+          "id": "c4",
+          "text": "見ろ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "尊敬語は「ご覧になる」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.5912cd45ce12",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「行く」の尊敬語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いらっしゃる"
+        },
+        {
+          "id": "c2",
+          "text": "参る"
+        },
+        {
+          "id": "c3",
+          "text": "行きます"
+        },
+        {
+          "id": "c4",
+          "text": "行け"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "目上の人の動作を高める尊敬語は「いらっしゃる」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.5959bd62cd45",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「見る」の謙譲語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "拝見する"
+        },
+        {
+          "id": "c2",
+          "text": "ご覧になる"
+        },
+        {
+          "id": "c3",
+          "text": "見ます"
+        },
+        {
+          "id": "c4",
+          "text": "見る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "謙譲語は「拝見する」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.59676d75e502",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "目上の人への言い方は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "尊敬語"
+        },
+        {
+          "id": "c2",
+          "text": "謙譲語"
+        },
+        {
+          "id": "c3",
+          "text": "方言"
+        },
+        {
+          "id": "c4",
+          "text": "スラング"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "尊敬語。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.7b671084ed44",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「お花」「ご飯」のように、ものごとを上品に言う言い方は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "美化語"
+        },
+        {
+          "id": "c2",
+          "text": "尊敬語"
+        },
+        {
+          "id": "c3",
+          "text": "謙譲語"
+        },
+        {
+          "id": "c4",
+          "text": "命令語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「お・ご」をつけて上品にする美化語。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.7fb66b9ebabd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「見る」の尊敬語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ご覧になる"
+        },
+        {
+          "id": "c2",
+          "text": "拝見する"
+        },
+        {
+          "id": "c3",
+          "text": "見ます"
+        },
+        {
+          "id": "c4",
+          "text": "見ろ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "尊敬語「ご覧になる」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.966b69f6f2ac",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "先生が来ることを表す、正しい敬語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "先生がいらっしゃる"
+        },
+        {
+          "id": "c2",
+          "text": "先生が参る"
+        },
+        {
+          "id": "c3",
+          "text": "先生がまいる"
+        },
+        {
+          "id": "c4",
+          "text": "先生が来てやる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "目上の動作には尊敬語を使う。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.a1e892b34bbb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自分や身内を一歩下げてへりくだることで、間接的に相手を高める敬語は何ですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "丁寧語"
+        },
+        {
+          "id": "c2",
+          "text": "尊敬語"
+        },
+        {
+          "id": "c3",
+          "text": "謙譲語（けんじょうご）"
+        },
+        {
+          "id": "c4",
+          "text": "美化語"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "自分の動作をへりくだって表す敬語は「謙譲語」です（例：申し上げる、参る）。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.a313620c327c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "相手（先生など）を高めて、敬意を表す敬語の種類は何ですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "丁寧語（ていねいご）"
+        },
+        {
+          "id": "c2",
+          "text": "尊敬語（そんけいご）"
+        },
+        {
+          "id": "c3",
+          "text": "謙譲語（けんじょうご）"
+        },
+        {
+          "id": "c4",
+          "text": "美化語"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "相手の動作や状態を高めて表現する敬語は「尊敬語」です（例：おっしゃる、いらっしゃる）。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.a3e22861d366",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「行く・来る」の謙譲語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "参る"
+        },
+        {
+          "id": "c2",
+          "text": "いらっしゃる"
+        },
+        {
+          "id": "c3",
+          "text": "おいでになる"
+        },
+        {
+          "id": "c4",
+          "text": "行きます"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分をへりくだる謙譲語「参る」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.ac3cabd5eb15",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "先生の動作にはどの敬語を使う？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "尊敬語"
+        },
+        {
+          "id": "c2",
+          "text": "謙譲語"
+        },
+        {
+          "id": "c3",
+          "text": "命令形"
+        },
+        {
+          "id": "c4",
+          "text": "ため口"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "目上の人の動作は尊敬語で高める。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.c0b21c308b0d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「言う」の尊敬語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おっしゃる"
+        },
+        {
+          "id": "c2",
+          "text": "申す"
+        },
+        {
+          "id": "c3",
+          "text": "言います"
+        },
+        {
+          "id": "c4",
+          "text": "言え"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "尊敬語は「おっしゃる」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.c759762b0041",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「行く」の尊敬語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いらっしゃる"
+        },
+        {
+          "id": "c2",
+          "text": "参る"
+        },
+        {
+          "id": "c3",
+          "text": "行きます"
+        },
+        {
+          "id": "c4",
+          "text": "行け"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "相手を高める尊敬語「いらっしゃる」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.ca73abebff9f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「行く・来る」の謙譲語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "参る"
+        },
+        {
+          "id": "c2",
+          "text": "いらっしゃる"
+        },
+        {
+          "id": "c3",
+          "text": "行きます"
+        },
+        {
+          "id": "c4",
+          "text": "おいでになる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分がへりくだる謙譲語は「参る」。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.d73bccd0b436",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「食べる」の「尊敬語（目上の人が食べるとき）」はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いただく"
+        },
+        {
+          "id": "c2",
+          "text": "召し上がる"
+        },
+        {
+          "id": "c3",
+          "text": "食べます"
+        },
+        {
+          "id": "c4",
+          "text": "食す"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "目上の人が食べる動作を高める表現は「召し上がる」です（「いただく」は謙譲語）。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.d8b752aa807f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文末に「です・ます」をつけて上品に言う敬語は何ですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "丁寧語"
+        },
+        {
+          "id": "c2",
+          "text": "尊敬語"
+        },
+        {
+          "id": "c3",
+          "text": "謙譲語"
+        },
+        {
+          "id": "c4",
+          "text": "美化語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "話し相手に対して丁寧に表現する敬語は「丁寧語」です。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.d940e471fa09",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「もらう」の謙譲語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いただく"
+        },
+        {
+          "id": "c2",
+          "text": "くださる"
+        },
+        {
+          "id": "c3",
+          "text": "もらいます"
+        },
+        {
+          "id": "c4",
+          "text": "あげる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "謙譲語「いただく」（尊敬語は「くださる」）。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.f5077dd8c193",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「食べる・もらう」の「謙譲語（自分が食べるとき・もらうとき）」はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いただく"
+        },
+        {
+          "id": "c2",
+          "text": "召し上がる"
+        },
+        {
+          "id": "c3",
+          "text": "食べます"
+        },
+        {
+          "id": "c4",
+          "text": "お食べになる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分が食べる・もらうことをへりくだって言うときは「いただく」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-2.f80ffe3a5166",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「言う」の尊敬語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おっしゃる"
+        },
+        {
+          "id": "c2",
+          "text": "申す"
+        },
+        {
+          "id": "c3",
+          "text": "言います"
+        },
+        {
+          "id": "c4",
+          "text": "言うな"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "尊敬語「おっしゃる」。"
+  }
+]

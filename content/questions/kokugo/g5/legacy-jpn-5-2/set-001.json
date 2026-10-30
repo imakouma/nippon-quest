@@ -1,0 +1,899 @@
+[
+  {
+    "id": "source.kokugo.g5.jpn-5-2.0c14b683b09b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "目上の人の動きを高めて言う「尊敬語（そんけいご）」として正しいものはどれですか。◆先生が（来る）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "まいる"
+        },
+        {
+          "id": "b",
+          "text": "くる"
+        },
+        {
+          "id": "c",
+          "text": "うかがう"
+        },
+        {
+          "id": "d",
+          "text": "いらっしゃる"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "先生などの目上の人が「来る・行く・いる」ことは、尊敬語で「いらっしゃる」と言います。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-2.b34c5b5d2063",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「先生が（言う）」の（ ）に入る正しい尊敬語はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おっしゃる"
+        },
+        {
+          "id": "b",
+          "text": "もうす"
+        },
+        {
+          "id": "c",
+          "text": "いただく"
+        },
+        {
+          "id": "d",
+          "text": "ごらんになる"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "目上の人が「言う」ことは、尊敬語で「おっしゃる」と言います。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-2.27386d5031fc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "作文やレポートにふさわしい「書き言葉」はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "これ、めっちゃいいと思う。"
+        },
+        {
+          "id": "b",
+          "text": "すごくいい感じだ。"
+        },
+        {
+          "id": "c",
+          "text": "これは非常に良いと考える。"
+        },
+        {
+          "id": "d",
+          "text": "ちょーおすすめだよ。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "話し言葉と書き言葉には違いがあります。レポートなどでは「非常に」「〜と考える」といった正しい書き言葉を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.17da9de9249f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「希望」と似た意味の言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "願い"
+        },
+        {
+          "id": "c2",
+          "text": "絶望"
+        },
+        {
+          "id": "c3",
+          "text": "失望"
+        },
+        {
+          "id": "c4",
+          "text": "不安"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "希望≒願い（類義語）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.374e7fd9a13d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「安全」の対義語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "危険"
+        },
+        {
+          "id": "c2",
+          "text": "安心"
+        },
+        {
+          "id": "c3",
+          "text": "平和"
+        },
+        {
+          "id": "c4",
+          "text": "無事"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "安全⇔危険。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.4521dbfe2a13",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「購入する」とだいたい同じ意味（類義語）の言葉はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "売却する"
+        },
+        {
+          "id": "c2",
+          "text": "手に入れる（買う）"
+        },
+        {
+          "id": "c3",
+          "text": "廃棄する"
+        },
+        {
+          "id": "c4",
+          "text": "交換する"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「購入」は物を買うことなので、「買う・手に入れる」が類義語です。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.699749fb0a7a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「拡大（かくだい）」の反対の意味（対義語）の言葉はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "縮小（しゅくしょう）"
+        },
+        {
+          "id": "c2",
+          "text": "上昇（じょうしょう）"
+        },
+        {
+          "id": "c3",
+          "text": "減少（げんしょう）"
+        },
+        {
+          "id": "c4",
+          "text": "消滅（しょうめつ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "大きさを広げる「拡大」の対義語は、小さくする「縮小」です。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.806f5fab75b5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「成功」の対義語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "失敗"
+        },
+        {
+          "id": "c2",
+          "text": "達成"
+        },
+        {
+          "id": "c3",
+          "text": "完成"
+        },
+        {
+          "id": "c4",
+          "text": "成長"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "成功⇔失敗。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.80b2652f39af",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「全体」の対義語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "部分"
+        },
+        {
+          "id": "c2",
+          "text": "全部"
+        },
+        {
+          "id": "c3",
+          "text": "一部"
+        },
+        {
+          "id": "c4",
+          "text": "中心"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "全体⇔部分。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.95cb524cf4b7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「暑い」と似た意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱い"
+        },
+        {
+          "id": "c2",
+          "text": "寒い"
+        },
+        {
+          "id": "c3",
+          "text": "冷たい"
+        },
+        {
+          "id": "c4",
+          "text": "涼しい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "類義語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.9b3944c9a4f0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「現実」の対義語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "理想"
+        },
+        {
+          "id": "c2",
+          "text": "事実"
+        },
+        {
+          "id": "c3",
+          "text": "本当"
+        },
+        {
+          "id": "c4",
+          "text": "現在"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "現実⇔理想。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.a092a2a91078",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「発見」と似た意味の言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見つけること"
+        },
+        {
+          "id": "c2",
+          "text": "なくすこと"
+        },
+        {
+          "id": "c3",
+          "text": "つくること"
+        },
+        {
+          "id": "c4",
+          "text": "こわすこと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "発見≒見つけること。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.ab637f4764ac",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「賛成」の対義語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "反対"
+        },
+        {
+          "id": "c2",
+          "text": "同意"
+        },
+        {
+          "id": "c3",
+          "text": "賛同"
+        },
+        {
+          "id": "c4",
+          "text": "承知"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "賛成⇔反対。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.c1441105767f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「出発」の対義語はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "到着"
+        },
+        {
+          "id": "c2",
+          "text": "旅行"
+        },
+        {
+          "id": "c3",
+          "text": "帰宅"
+        },
+        {
+          "id": "c4",
+          "text": "移動"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "出ていく「出発」の対義語は、たどり着く「到着（とうちゃく）」です。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.c1bbc8eb9cae",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「原因」の対義語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "結果"
+        },
+        {
+          "id": "c2",
+          "text": "理由"
+        },
+        {
+          "id": "c3",
+          "text": "もと"
+        },
+        {
+          "id": "c4",
+          "text": "わけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "原因⇔結果。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.c525c4a3f109",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「容易」の対義語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "困難"
+        },
+        {
+          "id": "c2",
+          "text": "簡単"
+        },
+        {
+          "id": "c3",
+          "text": "平易"
+        },
+        {
+          "id": "c4",
+          "text": "気軽"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "容易（やさしい）⇔困難（むずかしい）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.c9cba36365d4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「集合」の対義語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "解散"
+        },
+        {
+          "id": "c2",
+          "text": "集会"
+        },
+        {
+          "id": "c3",
+          "text": "合計"
+        },
+        {
+          "id": "c4",
+          "text": "団体"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "集合（あつまる）⇔解散（ちらばる）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.d5551842805e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「勝利」の対義語はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "敗北"
+        },
+        {
+          "id": "c2",
+          "text": "成功"
+        },
+        {
+          "id": "c3",
+          "text": "引分"
+        },
+        {
+          "id": "c4",
+          "text": "挑戦"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "勝つこと「勝利」の対義語は、負けること「敗北（はいぼく）」です。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.db0e7de5e188",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「うれしい」と似た意味の言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "楽しい"
+        },
+        {
+          "id": "c2",
+          "text": "悲しい"
+        },
+        {
+          "id": "c3",
+          "text": "苦しい"
+        },
+        {
+          "id": "c4",
+          "text": "つらい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "うれしい≒楽しい（類義語）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.e3099f5698b0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「簡単」の類義語（似た意味の言葉）はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "複雑"
+        },
+        {
+          "id": "c2",
+          "text": "容易（ようい）"
+        },
+        {
+          "id": "c3",
+          "text": "困難"
+        },
+        {
+          "id": "c4",
+          "text": "微妙"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "簡単と容易（たやすいこと）は類義語です。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.e4ed36626473",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「自然」の対義語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人工"
+        },
+        {
+          "id": "c2",
+          "text": "天然"
+        },
+        {
+          "id": "c3",
+          "text": "野生"
+        },
+        {
+          "id": "c4",
+          "text": "森林"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自然⇔人工。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.ed4409c0b732",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「大きい」の反対語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さい"
+        },
+        {
+          "id": "c2",
+          "text": "高い"
+        },
+        {
+          "id": "c3",
+          "text": "長い"
+        },
+        {
+          "id": "c4",
+          "text": "多い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "対義語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.f99ac36672d3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「前進」の対義語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "後退"
+        },
+        {
+          "id": "c2",
+          "text": "進歩"
+        },
+        {
+          "id": "c3",
+          "text": "出発"
+        },
+        {
+          "id": "c4",
+          "text": "移動"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "前進⇔後退。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.fd5c66f6a509",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「短所」の対義語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長所"
+        },
+        {
+          "id": "c2",
+          "text": "欠点"
+        },
+        {
+          "id": "c3",
+          "text": "弱点"
+        },
+        {
+          "id": "c4",
+          "text": "短気"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "短所（よくない点）⇔長所（よい点）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-2.febbc2abcf4b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「進歩」と反対の意味の言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "後退"
+        },
+        {
+          "id": "c2",
+          "text": "発展"
+        },
+        {
+          "id": "c3",
+          "text": "向上"
+        },
+        {
+          "id": "c4",
+          "text": "上達"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "進む⇔もどる（後退）。"
+  }
+]

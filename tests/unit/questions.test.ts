@@ -73,8 +73,9 @@ describe('QuestionBank', () => {
   });
 
   it('1年生の旧問題は表示材料不足を通常警告へ残さず、復元不能分だけ明示的に隔離する', async () => {
-    const questions = (await read('questions/legacy/sansu/g1.json')) as QuestionBase[];
-    const { report } = await QuestionBank.load(['questions/legacy/sansu/g1.json'], async () => questions);
+    const manifest = (await read('manifest.json')) as { questions: string[] };
+    const files = manifest.questions.filter((file) => file.startsWith('questions/sansu/g1/legacy-math-1-'));
+    const { report } = await QuestionBank.load(files, read);
 
     expect(report.omitted).toBe(0);
     expect(report).toMatchObject({ quarantined: 13 });
@@ -193,6 +194,19 @@ describe('pick（出題選択・GDD §5.4）', () => {
   it('教科が違うものは出ない', () => {
     const bank = bankOf([q('a.0001'), q('b.0001', { subject: 'kokugo', unit: 'kokugo.g1.kanji' })]);
     expect(filterCandidates(bank, baseQuery).map((x) => x.id)).toEqual(['a.0001']);
+  });
+
+  it('units 指定では、その技の単元だけが出る', () => {
+    const bank = bankOf([
+      q('kanji.0001', { subject: 'kokugo', unit: 'kokugo.g1.kanji' }),
+      q('shiritori.0001', { subject: 'kokugo', unit: 'kokugo.g1.kotoba-asobi' }),
+    ]);
+    const got = filterCandidates(bank, {
+      subject: 'kokugo',
+      gradeRange: [1, 1],
+      units: ['kokugo.g1.kanji'],
+    });
+    expect(got.map((x) => x.id)).toEqual(['kanji.0001']);
   });
 
   it('excludeIds（直近出題）は除外される', () => {

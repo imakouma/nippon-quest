@@ -1,0 +1,286 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-15.045462a9d9e5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正三角形を１列にならべていきます。ならべる正三角形の数とまわりの長さをまとめた表について、□に当てはまる数をうめよう。",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "template": "正三角形の数（こ） １ ２ ３ ４ まわりの長さ（cm） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}",
+      "promptImage": "questions/legacy/1f2edcf64161539b.png"
+    },
+    "explanation": "正三角形の数（こ） １ ２ ３ ４ まわりの長さ（cm） 3 4 5 6"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.41468bc19db0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正方形[せいほうけい]で、階だんを作っていきます。階だんのだんの数とまわりの長さをまとめた表について、□に当てはまる数をうめよう。",
+      "answers": [
+        "4",
+        "8",
+        "12",
+        "16"
+      ],
+      "template": "階だんの数（だん） １ ２ ３ ４ まわりの長さ（cm） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}",
+      "promptImage": "questions/legacy/f8442ba6a576e72b.png"
+    },
+    "explanation": "階だんの数（だん） １ ２ ３ ４ まわりの長さ（cm） 4 8 12 16"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.5685397478e9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正三角形を１列にならべていきます。ならべる正三角形の数とまわりの長さには、どのような関係があるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ならべる正三角形が１つふえると、まわりの長さも 1cm ふえる。"
+        },
+        {
+          "id": "c2",
+          "text": "ならべる正三角形が１つふえると、まわりの長さは 1cm へる。"
+        },
+        {
+          "id": "c3",
+          "text": "ならべる正三角形の数に 3 をかけると、まわりの長さになる。"
+        },
+        {
+          "id": "c4",
+          "text": "ならべる正三角形の数に 3 をたすと、まわりの長さになる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1f2edcf64161539b.png"
+    },
+    "explanation": "正三角形の数（こ） １ ２ ３ ４ まわりの長さ（cm） 3 4 5 6 ならべる正三角形の数とまわりの長さをまとめた表を見ると、ならべる正三角形が１つふえるときに、まわりの長さも 1cm ふえることがわかる。また、ならべる正三角形の数に、２をたすと、まわりの長さになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.7621b9726904",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正方形[せいほうけい]で、階だんを作っていきます。階だんのだんの数を〇だん、まわりの長さを△ cm とします。〇と△の関係を表した式として正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "〇 ×4= △"
+        },
+        {
+          "id": "c2",
+          "text": "〇 +3= △"
+        },
+        {
+          "id": "c3",
+          "text": "△ +4= 〇"
+        },
+        {
+          "id": "c4",
+          "text": "△ -3= 〇"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f8442ba6a576e72b.png"
+    },
+    "explanation": "階だんのだんの数 〇（だん） １ ２ ３ ４ まわりの長さ △（cm） 4 8 12 16 階だんのだんの数と、まわりの長さをまとめた表を見ると、階だんのだんの数に４をかけると、まわりの長さになることがわかる。階だんのだんの数を〇だん、まわりの長さを△ cm とすると、〇と△の関係は 〇 ×4= △ と表すことができる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.798c00ae5e2b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正三角形を１列にならべていきます。正三角形が10このとき、この図形[ずけい]のまわりの長さは 何cm になるでしょう。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/1f2edcf64161539b.png"
+    },
+    "explanation": "正三角形の数（こ） １ ２ ３ ４ まわりの長さ（cm） 3 4 5 6 表から、ならべる正三角形の数に２をたすと、まわりの長さになるということがわかる。正三角形が10このとき、まわりの長さは、10+2=12 で 12cm になるね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.8d660829c9f0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正三角形を１列にならべていきます。正三角形が１つのとき、まわりの長さは、何cm になるでしょう。",
+      "answers": [
+        "3"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/1f2edcf64161539b.png"
+    },
+    "explanation": "正三角形は、３つの辺の長さがすべて等しい。１辺が 1cm の正三角形のまわりの長さは、 1×3=3 で 3cm 。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.8fe755fb1bae",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正方形[せいほうけい]で、階だんを作っていきます。階だんのだんの数とまわりの長さには、どのような関係があるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "階だんのだんの数が１だんふえると、まわりの長さが 4cm ふえる。"
+        },
+        {
+          "id": "c2",
+          "text": "階だんのだんの数が１だんふえると、まわりの長さが 3cm ふえる。"
+        },
+        {
+          "id": "c3",
+          "text": "階だんのだんの数に４をたすと、まわりの長さになる。"
+        },
+        {
+          "id": "c4",
+          "text": "階だんのだんの数に３をかけると、まわりの長さになる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f8442ba6a576e72b.png"
+    },
+    "explanation": "階だんの数（だん） １ ２ ３ 4 まわりの長さ（cm） 4 8 12 16 階だんのだんの数と、まわりの長さをまとめた表を見ると、階だんが１だんふえるときに、まわりの長さが 4cm ふえることがわかる。また、階だんのだんの数に４をかけると、まわりの長さになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.c0d59b33ac1f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正三角形を１列にならべていきます。正三角形の数を〇こ、まわりの長さを△ cm とします。〇と△の関係を表した式として正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "〇 +2= △"
+        },
+        {
+          "id": "c2",
+          "text": "△ ÷2= 〇"
+        },
+        {
+          "id": "c3",
+          "text": "△ -3= 〇"
+        },
+        {
+          "id": "c4",
+          "text": "〇 ×3= △"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1f2edcf64161539b.png"
+    },
+    "explanation": "正三角形の数 〇（こ） １ ２ ３ ４ まわりの長さ △（cm） ３ ４ ５ ６ 正三角形の数とまわりの長さをまとめた表を見ると、正三角形の数に、２をたすと、まわりの長さになることがわかる。正三角形の数を〇こ、まわりの長さを△ cm とすると、〇と△の関係は 〇 +2= △ と表すことができる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.c2e0a2a6d24a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正方形[せいほうけい]で、階だんを作っていきます。１だんのとき、まわりの長さは 何cm になるでしょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/f8442ba6a576e72b.png"
+    },
+    "explanation": "正方形[せいほうけい]は、４つの辺の長さがすべて等しい。１辺が 1cm の正方形[せいほうけい]のまわりの長さは、 1×4=4 で 4cm 。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-15.fd12b42688ec",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、１辺が 1cm の正方形[せいほうけい]で、階だんを作っていきます。10だんのとき、この図形[ずけい]のまわりの長さは 何cm になるでしょう。",
+      "answers": [
+        "40"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/f8442ba6a576e72b.png"
+    },
+    "explanation": "階だんの数（だん） １ ２ ３ 4 まわりの長さ（cm） 4 8 12 16 表から、階だんのだんの数に４をかけると、まわりの長さになるということがわかる。階だんが10だんのとき、まわりの長さは、10×4=40 で 40cm になるね。"
+  }
+]

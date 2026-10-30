@@ -1,0 +1,443 @@
+[
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.382fd2528b02",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この学校[がっこう]の施設はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "図書室"
+        },
+        {
+          "id": "c2",
+          "text": "工場"
+        },
+        {
+          "id": "c3",
+          "text": "郵便局"
+        },
+        {
+          "id": "c4",
+          "text": "スーパー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/730606279e4fc5fc.jpg"
+    },
+    "explanation": "図書室は、本を読んだり借りたりする学校[がっこう]の施設です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.45d343b9f727",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、クラスのしごととして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ごみを分別してすてる"
+        },
+        {
+          "id": "c2",
+          "text": "ごみを道にすてる"
+        },
+        {
+          "id": "c3",
+          "text": "遊具を壊す"
+        },
+        {
+          "id": "c4",
+          "text": "大声で騒ぐ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/0ff9ef3df5db267c.jpg"
+    },
+    "explanation": "掃除やごみの分別など、みんなのしごとに参加しましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.5859e2628e2b",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みんなで遊ぶときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ルールを守って全員が参加できるようにする"
+        },
+        {
+          "id": "c2",
+          "text": "一人だけ遊ぶ"
+        },
+        {
+          "id": "c3",
+          "text": "負けたらあきらめる"
+        },
+        {
+          "id": "c4",
+          "text": "道具を片づけない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "みんなで協力して遊ぶことが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.850f8a311e43",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この学校[がっこう]の場所の名前[なまえ]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "教室"
+        },
+        {
+          "id": "c2",
+          "text": "図書室"
+        },
+        {
+          "id": "c3",
+          "text": "給食室"
+        },
+        {
+          "id": "c4",
+          "text": "保健室"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c553768188d4bef9.jpg"
+    },
+    "explanation": "教室は、授業を受けたり友達と過ごしたりする場所です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.8e0796e9f01d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、みんなで遊ぶ場所として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公園の遊具"
+        },
+        {
+          "id": "c2",
+          "text": "道路の真ん中"
+        },
+        {
+          "id": "c3",
+          "text": "工場の中"
+        },
+        {
+          "id": "c4",
+          "text": "海の底"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fcd5e1c405f4819f.jpg"
+    },
+    "explanation": "遊具のある公園などは、みんなで安全に遊べる場所です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.94fdf5abac98",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、道を渡るときに守るものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "信号の色"
+        },
+        {
+          "id": "c2",
+          "text": "友達の名前[なまえ]"
+        },
+        {
+          "id": "c3",
+          "text": "靴の色"
+        },
+        {
+          "id": "c4",
+          "text": "かばんの重さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fa5c57b6d3a66ec2.jpg"
+    },
+    "explanation": "信号の色を守って、安全に道を渡りましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.9d253b14f435",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、通学路で使うものとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横断歩道[おうだんほどう]"
+        },
+        {
+          "id": "c2",
+          "text": "トンネルの中"
+        },
+        {
+          "id": "c3",
+          "text": "川の上"
+        },
+        {
+          "id": "c4",
+          "text": "屋上[おくじょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/04973e910fe1c44e.jpg"
+    },
+    "explanation": "横断歩道[おうだんほどう]は、安全に道路を渡るための場所です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.ac4c31822718",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校[がっこう]の場所を調べるときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "場所の名前[なまえ]と役割を記録する"
+        },
+        {
+          "id": "c2",
+          "text": "大声で走りまわる"
+        },
+        {
+          "id": "c3",
+          "text": "道具を壊す"
+        },
+        {
+          "id": "c4",
+          "text": "記録をしない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "見たことを絵や言葉で記録することが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.daa4abe8975d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "安全[あんぜん]に登下校[とうげこう]するために、大切[たいせつ]なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "決[き]められた通学路[つうがくろ]を歩[ある]く"
+        },
+        {
+          "id": "c2",
+          "text": "一人で暗い道を歩く"
+        },
+        {
+          "id": "c3",
+          "text": "道路の真ん中を走る"
+        },
+        {
+          "id": "c4",
+          "text": "見ずに飛び出す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d131d0bec4d9bac6.jpg"
+    },
+    "explanation": "決[き]められた通学路[つうがくろ]を通[とお]り、交通[こうつう]ルールを守[まも]って歩[ある]きます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.e163d4cc8378",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この場所で行われる活動として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体を動かす運動"
+        },
+        {
+          "id": "c2",
+          "text": "本を借りる"
+        },
+        {
+          "id": "c3",
+          "text": "食事を作る"
+        },
+        {
+          "id": "c4",
+          "text": "手紙を出す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/35b40dd11625c045.jpg"
+    },
+    "explanation": "体育館では、体を動かす運動や体育の授業が行われます。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.f38edb617d4e",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "通学路の安全を守る人はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交通整理をする警察官"
+        },
+        {
+          "id": "c2",
+          "text": "野球選手"
+        },
+        {
+          "id": "c3",
+          "text": "歌手"
+        },
+        {
+          "id": "c4",
+          "text": "画家"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "警察官やボランティアの方が安全を守ってくれています。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-01.f7ea232fc6e3",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、友達と仲よくするために大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一緒に遊び、話を聞く"
+        },
+        {
+          "id": "c2",
+          "text": "友達を無視する"
+        },
+        {
+          "id": "c3",
+          "text": "一人だけ遊ぶ"
+        },
+        {
+          "id": "c4",
+          "text": "けんかをする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e66d04bc983c2792.jpg"
+    },
+    "explanation": "友達と一緒に遊び、話をよく聞くことが大切です。"
+  }
+]

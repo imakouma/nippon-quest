@@ -202,6 +202,24 @@
   "relations": [
     {
       "from": "kokugo.g1.script.grade1-kanji",
+      "to": "kokugo.g2.kanji.recognition",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "第[だい]1学年[がくねん]の漢字[かんじ]を読[よ]み書[か]きする力[ちから]を、第[だい]2学年[がくねん]の漢字[かんじ]を認識[にんしき]する基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g2.kanji.recognition",
+      "to": "kokugo.g2.kanji.onyomi-kunyomi",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "漢字[かんじ]を形[かたち]と意味[いみ]から認識[にんしき]する力[ちから]を、音読[おんよ]みと訓読[くんよ]みを確[たし]かめる基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.script.grade1-kanji",
       "to": "kokugo.g2.kanji.context",
       "kind": "prerequisite",
       "strength": 0.9,

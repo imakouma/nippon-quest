@@ -12,7 +12,7 @@ import {
   type QuestionResult,
 } from '../questions/contracts';
 import { allRenderers, getRenderer } from '../questions/renderers/registry';
-import { fetchReader, parseContentManifest } from '../core/content/loader';
+import { fetchReader, parseContentManifest, type QuestionCatalog } from '../core/content/loader';
 import { setDictionary, tOpt, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
@@ -64,6 +64,7 @@ function App() {
   const [entries, setEntries] = useState<QuestionEntry[]>([]);
   const [units, setUnits] = useState<ReadonlyMap<string, string>>(new Map());
   const [subjects, setSubjects] = useState<ReadonlyMap<string, string>>(new Map());
+  const [catalog, setCatalog] = useState<QuestionCatalog>();
   const [kanji, setKanji] = useState<{ table: KanjiGradeTable; names: ReadonlySet<string> } | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [selectedItemId, setSelectedItemId] = useState('');
@@ -86,13 +87,18 @@ function App() {
     try {
       const m = parseContentManifest(await read('manifest.json'));
       setFiles(m.questions);
+      setCatalog(m.questionCatalog);
       const requestedId = new URLSearchParams(location.search).get('q');
       const directFile = requestedId ? m.questionIndex?.[requestedId] : undefined;
       if (requestedId && directFile) {
         const raw = await read(directFile);
         setEntries(toEntries([{ file: directFile, raw }]));
+        setItems(
+          (Array.isArray(raw) ? raw : []).filter(
+            (q) => questionBaseSchema.safeParse(q).success,
+          ) as QuestionBase[],
+        );
         setFile(directFile);
-        return;
       }
       setEntries(
         toEntries(await Promise.all(m.questions.map(async (f) => ({ file: f, raw: await read(f) })))),
@@ -322,6 +328,7 @@ function App() {
           entries={entries}
           units={units}
           subjects={subjects}
+          catalog={catalog}
           selected={selected}
           onPick={pick}
           onReload={() => void loadAll()}

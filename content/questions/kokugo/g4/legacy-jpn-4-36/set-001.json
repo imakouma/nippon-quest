@@ -1,0 +1,146 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-36.021e66a343fb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-36",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_36",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「青い空に」という言葉は、どの言葉を修飾（説明）していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "広がる"
+        },
+        {
+          "id": "c2",
+          "text": "雲が"
+        },
+        {
+          "id": "c3",
+          "text": "ゆっくりと"
+        },
+        {
+          "id": "c4",
+          "text": "青い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どこに広がる」のかを説明しているので、「広がる」を修飾しています。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-36.0b27c7ebfee3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-36",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_36",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「白い雲が青い空にゆっくりと広がる。」という文の中で、主語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲が"
+        },
+        {
+          "id": "c2",
+          "text": "空に"
+        },
+        {
+          "id": "c3",
+          "text": "広がる"
+        },
+        {
+          "id": "c4",
+          "text": "白い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「何が」にあたる「雲が」が主語です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-36.573401d5cc64",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-36",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_36",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「白い雲が青い空にゆっくりと広がる。」という文の中で、述語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "広がる"
+        },
+        {
+          "id": "c2",
+          "text": "雲が"
+        },
+        {
+          "id": "c3",
+          "text": "空に"
+        },
+        {
+          "id": "c4",
+          "text": "ゆっくりと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どうする」にあたる「広がる」が述語です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-36.ec309ca0d71a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-36",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_36",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ゆっくりと」という言葉は、どの言葉を修飾していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "広がる"
+        },
+        {
+          "id": "c2",
+          "text": "雲が"
+        },
+        {
+          "id": "c3",
+          "text": "空に"
+        },
+        {
+          "id": "c4",
+          "text": "白い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どのように広がる」のかを説明しているので、「広がる」を修飾しています。"
+  }
+]

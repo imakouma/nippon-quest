@@ -7,6 +7,8 @@ import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { contentKinds, type ContentKind } from '../src/core/content/schemas';
+import { questionBaseSchema, type QuestionBase } from '../src/questions/contracts';
+import { buildQuestionCatalog, type QuestionSourceFile } from './question-layout';
 
 const ROOT = fileURLToPath(new URL('../content/', import.meta.url));
 
@@ -40,6 +42,7 @@ for (const [kind, def] of Object.entries(contentKinds) as [ContentKind, { glob: 
 const questions = all.filter((f) => f.startsWith('questions/'));
 const questionIndex: Record<string, string> = {};
 const questionFilesByGrade: Record<string, string[]> = {};
+const questionSources: QuestionSourceFile[] = [];
 for (const file of questions) {
   const raw = JSON.parse(readFileSync(join(ROOT, file), 'utf8')) as unknown;
   if (!Array.isArray(raw)) continue;
@@ -51,6 +54,9 @@ for (const file of questions) {
     if (typeof grade === 'number' && grade >= 1 && grade <= 6) grades.add(grade);
   }
   for (const grade of grades) (questionFilesByGrade[String(grade)] ??= []).push(file);
+  if (!file.startsWith('questions/_samples/')) {
+    questionSources.push({ file, questions: questionBaseSchema.array().parse(raw) as QuestionBase[] });
+  }
 }
 
 const manifest = {
@@ -59,6 +65,7 @@ const manifest = {
   questions,
   questionIndex,
   questionFilesByGrade,
+  questionCatalog: buildQuestionCatalog(questionSources),
 };
 writeFileSync(join(ROOT, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 const readEntries = (paths: string[]) =>

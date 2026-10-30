@@ -1,0 +1,55 @@
+[
+  {
+    "$schema": "../../../schemas/questions/pair-match.schema.json",
+    "id": "sample.pair-match.0001",
+    "type": "pair-match",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.tohoku-meibutsu",
+    "payload": {
+      "prompt": "県[けん]と 名物[めいぶつ]を あわせよう",
+      "pairs": [
+        { "a": { "text": "青森[あおもり]" }, "b": { "text": "りんご" } },
+        { "a": { "text": "山形[やまがた]" }, "b": { "text": "さくらんぼ" } },
+        { "a": { "text": "宮城[みやぎ]" }, "b": { "text": "牛[ぎゅう]タン" } }
+      ],
+      "faceDown": true
+    }
+  },
+  {
+    "$schema": "../../../schemas/questions/pair-match.schema.json",
+    "id": "sample.pair-match.0002",
+    "type": "pair-match",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.tohoku-meibutsu",
+    "payload": {
+      "prompt": "県[けん]と 名物[めいぶつ]を えらんで あわせよう",
+      "pairs": [
+        { "a": { "text": "秋田[あきた]" }, "b": { "text": "きりたんぽ" } },
+        { "a": { "text": "岩手[いわて]" }, "b": { "text": "わんこそば" } }
+      ],
+      "faceDown": false
+    }
+  },
+  {
+    "$schema": "../../../schemas/questions/pair-match.schema.json",
+    "id": "sample.pair-match.0003",
+    "type": "pair-match",
+    "subject": "eigo",
+    "grade": 3,
+    "unit": "eigo.g3.sea",
+    "payload": {
+      "prompt": "海[うみ]の 生[い]きものを あわせよう",
+      "pairs": [
+        { "a": { "text": "crab" }, "b": { "text": "かに" } },
+        { "a": { "text": "fish" }, "b": { "text": "さかな" } },
+        { "a": { "text": "octopus" }, "b": { "text": "たこ" } },
+        { "a": { "text": "dolphin" }, "b": { "text": "いるか" } },
+        { "a": { "text": "whale" }, "b": { "text": "くじら" } },
+        { "a": { "text": "shark" }, "b": { "text": "さめ" } }
+      ],
+      "faceDown": true
+    }
+  }
+]

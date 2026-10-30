@@ -1,0 +1,590 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.0784ea9cfc92",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「手に（お）えない」にあてはまる正しい漢字はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "負えない"
+        },
+        {
+          "id": "c2",
+          "text": "追えない"
+        },
+        {
+          "id": "c3",
+          "text": "終えない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分の力で負担しきれないので「負えない」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.20fee1de66dc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「戸を（あ）ける」にあてはまる正しい漢字はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "開ける"
+        },
+        {
+          "id": "c2",
+          "text": "明ける"
+        },
+        {
+          "id": "c3",
+          "text": "空ける"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ドアをひらくことは「開ける」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.283954308a5b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆（はや）い朝。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "早い"
+        },
+        {
+          "id": "c2",
+          "text": "速い"
+        },
+        {
+          "id": "c3",
+          "text": "帰る"
+        },
+        {
+          "id": "c4",
+          "text": "買った"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "時間が早い場合は「早い」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.358e1a52ad97",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「目で（お）えない」にあてはまる正しい漢字はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "追えない"
+        },
+        {
+          "id": "c2",
+          "text": "負えない"
+        },
+        {
+          "id": "c3",
+          "text": "終えない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "視線で追いかけることができないので「追えない」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.3cea964e3d36",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆（おお）いに役立つ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大いに"
+        },
+        {
+          "id": "c2",
+          "text": "早い"
+        },
+        {
+          "id": "c3",
+          "text": "上る"
+        },
+        {
+          "id": "c4",
+          "text": "帰る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "非常にという意味は「大いに」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.4023d91f201f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆家へ（かえ）る。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "帰る"
+        },
+        {
+          "id": "c2",
+          "text": "返る"
+        },
+        {
+          "id": "c3",
+          "text": "買える"
+        },
+        {
+          "id": "c4",
+          "text": "変える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分の家へもどる場合は「帰る」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.5767afa15195",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「夜が（あ）ける」にあてはまる正しい漢字はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "明ける"
+        },
+        {
+          "id": "c2",
+          "text": "開ける"
+        },
+        {
+          "id": "c3",
+          "text": "空ける"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "夜が明るくなることは「明ける」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.7681b7362f72",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆お互いに（はな）す。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "話す"
+        },
+        {
+          "id": "c2",
+          "text": "放す"
+        },
+        {
+          "id": "c3",
+          "text": "離す"
+        },
+        {
+          "id": "c4",
+          "text": "花す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "言葉で対話することは「話す」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.8a3e286d407a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「せきを（あ）ける」にあてはまる正しい漢字はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空ける"
+        },
+        {
+          "id": "c2",
+          "text": "明ける"
+        },
+        {
+          "id": "c3",
+          "text": "開ける"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "席をからっぽにすることは「空ける」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.8e4913f16927",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆王に（つか）える。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "仕える"
+        },
+        {
+          "id": "c2",
+          "text": "生ける"
+        },
+        {
+          "id": "c3",
+          "text": "合う"
+        },
+        {
+          "id": "c4",
+          "text": "放す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「仕える」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.916e122a1a43",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆話題に（のぼ）る。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "上る"
+        },
+        {
+          "id": "c2",
+          "text": "登る"
+        },
+        {
+          "id": "c3",
+          "text": "早い"
+        },
+        {
+          "id": "c4",
+          "text": "大いに"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "話題にあがることは「上る」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.92395ede9d2d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「仕事を（お）える」にあてはまる正しい漢字はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "終える"
+        },
+        {
+          "id": "c2",
+          "text": "追えない"
+        },
+        {
+          "id": "c3",
+          "text": "負えない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "仕事を終わらせることは「終える」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.a6e33c544702",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆夕焼けで空が（あか）らむ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "明らむ"
+        },
+        {
+          "id": "c2",
+          "text": "赤らむ"
+        },
+        {
+          "id": "c3",
+          "text": "空ける"
+        },
+        {
+          "id": "c4",
+          "text": "明ける"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "空が明るくなるので「明（あか）らむ」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.a884f2931da0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆お米を（か）った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "買った"
+        },
+        {
+          "id": "c2",
+          "text": "早い"
+        },
+        {
+          "id": "c3",
+          "text": "帰る"
+        },
+        {
+          "id": "c4",
+          "text": "生ける"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「買った」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.a941228fbc29",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆犬を（はな）す。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "放す"
+        },
+        {
+          "id": "c2",
+          "text": "合う"
+        },
+        {
+          "id": "c3",
+          "text": "仕える"
+        },
+        {
+          "id": "c4",
+          "text": "生ける"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自由にさせる場合は「放す」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.d12d4955bc0a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆体に（あ）う服。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "合う"
+        },
+        {
+          "id": "c2",
+          "text": "仕える"
+        },
+        {
+          "id": "c3",
+          "text": "生ける"
+        },
+        {
+          "id": "c4",
+          "text": "放す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「合う」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-18.f29a13f63552",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆花を（い）ける。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "生ける"
+        },
+        {
+          "id": "c2",
+          "text": "仕える"
+        },
+        {
+          "id": "c3",
+          "text": "合う"
+        },
+        {
+          "id": "c4",
+          "text": "放す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "花をかざることは「生ける」と書きます。"
+  }
+]

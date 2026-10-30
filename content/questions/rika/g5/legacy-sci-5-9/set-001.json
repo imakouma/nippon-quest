@@ -1,0 +1,758 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-9.023c71fdae5b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石について説明[せつめい]した次の文のうち、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コイルに流す電流を大きくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c2",
+          "text": "コイルのまき数を多くすると、電磁石は弱くなる。"
+        },
+        {
+          "id": "c3",
+          "text": "コイルのまき数を少なくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c4",
+          "text": "電磁石の強さは、変えることができない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "コイルに流す電流を大きくすると、電磁石は強くなる。また、コイルのまき数を多くすると、電磁石は強くなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.15888e856eff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように組み立てたブザーのしくみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "流れる・はなれる・流れない・音がなる"
+        },
+        {
+          "id": "c2",
+          "text": "流[なが]れない・はなれる・流[なが]れる・音[おと]がなる"
+        },
+        {
+          "id": "c3",
+          "text": "流[なが]れる・ふれる・流[なが]れない・音[おと]がなる"
+        },
+        {
+          "id": "c4",
+          "text": "流[なが]れる・はなれる・流[なが]れる・音[おと]が止[と]まる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d6e762aa1e9cf371.png"
+    },
+    "explanation": "①金具Aと金具Bがふれていると、電磁石に電流が（流れる）ため、金具Bは電磁石に引きつけられ、金具Aから（はなれる）。 ②金具Aと金具Bがはなれると、電磁石に電流が（流れない）ため、電磁石は磁石のはたらきを失う。これにより、金具Bは電磁石からはなれ、金具Aとぶつかって（音がなる）。 このように①と②をくり返すことで、ブザーがなり続ける。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.18bffa2e2ccf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電流計・直列・+・−"
+        },
+        {
+          "id": "c2",
+          "text": "電流計[でんりゅうけい]・並列[へいれつ]・+・−"
+        },
+        {
+          "id": "c3",
+          "text": "電源[でんげん]そうち・直列[ちょくれつ]・+・−"
+        },
+        {
+          "id": "c4",
+          "text": "電源[でんげん]そうち・並列[へいれつ]・+・−"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/afeb07ad209327de.png"
+    },
+    "explanation": "図のア（電流計）を使うと、回路に流れる電流の大きさを測定することができる。回路につなぐときには、図のように ア を（直列）つなぎにし、 + たんしをかん電池の（+）極側に、電流計の − たんしをかん電池の（−）極側につなぐ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.2169f9214d54",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、磁石の力が最も強い電磁石はどれでしょう。A〜Dからえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6f4915566834bf34.png"
+    },
+    "explanation": "コイルに流す電流を大きくすると、電磁石は強くなる。また、コイルのまき数を多くすると、電磁石は強くなる。よって、かん電池２こ、コイルのまき数100回のDが、磁石の力が最も強い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.25b7ff8976c5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の問いに答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア：N極、イ：S極"
+        },
+        {
+          "id": "c2",
+          "text": "ア：S極、イ：N極"
+        },
+        {
+          "id": "c3",
+          "text": "ア：N極、イ：N極"
+        },
+        {
+          "id": "c4",
+          "text": "ア：S極、イ：S極"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/39dd7e320631fb81.png"
+    },
+    "explanation": "磁石には、同じ極どうしは反発し、ちがう極どうしは引き合うという性質があるため、方位磁針の N極 は電磁石の S極 に引きよせられる。逆ぎゃくに、方位磁針の S極 は電磁石の N極 に引きよせられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.2fa9f234fb43",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流計をつないで、回路に流れる電流の大きさを測定した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "20 mA"
+        },
+        {
+          "id": "c2",
+          "text": "2 A"
+        },
+        {
+          "id": "c3",
+          "text": "200 mA"
+        },
+        {
+          "id": "c4",
+          "text": "2 mA"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/391590b45ee5f830.png"
+    },
+    "explanation": "数字が書かれているめもりは、10 mA、20 mA、30 mA ... となる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.40a877f8ed70",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下に落ちる・流れているときだけ"
+        },
+        {
+          "id": "c2",
+          "text": "ついたままになる・流[なが]れているときだけ"
+        },
+        {
+          "id": "c3",
+          "text": "下[した]に落[お]ちる・流[なが]れていなくても"
+        },
+        {
+          "id": "c4",
+          "text": "ついたままになる・流[なが]れていなくても"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c1f64b7c4876013a.png"
+    },
+    "explanation": "電磁石に電流を流すと、図のようにクリップがついた。電流を流すのをやめると、このクリップは（下に落ちる）。このことから電磁石は、電流が（流れているときだけ）磁石の性質をもつことが分かる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.5169c8f7dc5b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石の性質について、次の実験結果から分かることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コイルに流す電流を大きくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c2",
+          "text": "コイルに流す電流を小さくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c3",
+          "text": "コイルに流す電流の大きさと、電磁石の強さには関係がない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/52aff01ce578806f.png"
+    },
+    "explanation": "かん電池を増ふやして、電流の大きさを変えている。かん電池２このときのほうがクリップがたくさんついたので、コイルに流す電流を大きくすると、電磁石は強くなることがわかる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.534dd855967a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流計をつないで、回路に流れる電流の大きさを測定した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "360 mA"
+        },
+        {
+          "id": "c2",
+          "text": "3.6 A"
+        },
+        {
+          "id": "c3",
+          "text": "3.6 mA"
+        },
+        {
+          "id": "c4",
+          "text": "36 mA"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fcfa8ae88bdcb990.png"
+    },
+    "explanation": "数字が書かれているめもりは、100 mA、200 mA、300 mA…となるので、１めもりごとに 10 mA ずつ増える。 はりが指しているのは、300 からめもり ６こ分増えたところなので、360 mAとなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.5f4bfd9ed4f5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石に方位磁針を近づけると、方位磁針の針は図のようになった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ed54d861c7db8e3c.png"
+    },
+    "explanation": "コイルに流れる電流の向きが逆になると、電磁石のN極とS極が入れかわる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.61878f33a9e0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流の大きさを変えて、電磁石を強くすることができるのかを調べたい。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "AとB"
+        },
+        {
+          "id": "c2",
+          "text": "AとC"
+        },
+        {
+          "id": "c3",
+          "text": "BとC"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4431f01bbe3e7b4d.png"
+    },
+    "explanation": "電流の大きさを変えて電磁石の強さを調べるときは、コイルのまき数は変えない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.64e8a4dfc048",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電磁石・電流・モーター"
+        },
+        {
+          "id": "c2",
+          "text": "リニアモーターカー・電流[でんりゅう]・モーター"
+        },
+        {
+          "id": "c3",
+          "text": "永久磁石[えいきゅうじしゃく]・電流[でんりゅう]・モーター"
+        },
+        {
+          "id": "c4",
+          "text": "電磁石[でんじしゃく]・電流[でんりゅう]・発電機[はつでんき]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9e61af05823c3f18.png"
+    },
+    "explanation": "せん風機には、A のようなそうちが組みこまれている。A は（電磁石）と磁石（永久磁石）を組み合わせて、（電流）を流すと回転するようになっている。この A のそうちを（モーター）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.7aa8cfda1f63",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "コイルのまき数を変えて、電磁石を強くすることができるのかを調べたい。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "AとB"
+        },
+        {
+          "id": "c2",
+          "text": "AとC"
+        },
+        {
+          "id": "c3",
+          "text": "BとC"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4431f01bbe3e7b4d.png"
+    },
+    "explanation": "コイルのまき数を変えて、電磁石を強さを調べるときは、電流の大きさは変えない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.89f1d97da5d9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のクレーンのしくみについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電磁石・電流を流したり止めたり・流れる電流を大きく"
+        },
+        {
+          "id": "c2",
+          "text": "磁石[じしゃく]・電流[でんりゅう]を流[なが]したり止[と]めたり・流[なが]れる電流[でんりゅう]を大[おお]きく"
+        },
+        {
+          "id": "c3",
+          "text": "電磁石[でんじしゃく]・流[なが]れる電流[でんりゅう]の向[む]きを変[か]える・流[なが]れる電流[でんりゅう]を大[おお]きく"
+        },
+        {
+          "id": "c4",
+          "text": "磁石[じしゃく]・流[なが]れる電流[でんりゅう]の向[む]きを変[か]える・流[なが]れる電流[でんりゅう]を大[おお]きく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/0a09d160cbb9ad9e.png"
+    },
+    "explanation": "このクレーンには（電磁石）が使われているので、（電流を流したり止めたり）することで、鉄を引きつけたりはなしたりすることができる。また（流れる電流を大きく）することで、磁石の力を強くすることができるので、重いものも持ち上げることができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.8a8346651bd4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "流れる電流の向きを逆にすると、電磁石はどうなるでしょう。正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電磁石のN極とS極が入れかわる。"
+        },
+        {
+          "id": "c2",
+          "text": "磁石の性質がなくなる。"
+        },
+        {
+          "id": "c3",
+          "text": "磁石の力が強くなる。"
+        },
+        {
+          "id": "c4",
+          "text": "電磁石は、特に変化しない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "流れる電流の向きを逆にすると、電磁石のN極とS極が入れかわる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.912a0dd4389a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石について説明[せつめい]した次の文のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電磁石は、コイルに電流が流れているときだけ、磁石の性質を持つ。"
+        },
+        {
+          "id": "c2",
+          "text": "電磁石には、ぼう磁石のように、N極とS極がある。"
+        },
+        {
+          "id": "c3",
+          "text": "コイルに流れる電流の向きが逆になると、電磁石のN極とS極が入れかわる。"
+        },
+        {
+          "id": "c4",
+          "text": "電磁石とぼう磁石は、いつでも磁石の性質を持つ。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "電磁石は、電流が流れているときだけ磁石の性質をもつのに対して、ぼう磁石はいつも磁石の性質をもつ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.c7d68110d4a8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石の性質について説明[せつめい]した次の文のうち、ふつうの磁石と同じ性質をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電流を流した時だけ磁石になる。"
+        },
+        {
+          "id": "c2",
+          "text": "磁石の力を変えられる。"
+        },
+        {
+          "id": "c3",
+          "text": "磁石の極を変えられる。"
+        },
+        {
+          "id": "c4",
+          "text": "Ｎ極とＳ極がある。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "電磁石と磁石の同じところ：Ｎ極とＳ極がある。鉄を引きつける。 電磁石と磁石のちがうところ：（電磁石は）電流を流した時だけ磁石になる。磁石の力を変えられる。磁石の極を変えられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.cffaafd3fb61",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A・アンペア・1000"
+        },
+        {
+          "id": "c2",
+          "text": "A・アンペア・100"
+        },
+        {
+          "id": "c3",
+          "text": "mA・ミリアンペア・10"
+        },
+        {
+          "id": "c4",
+          "text": "mA・アンペア・1000"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電流の単位は（A）で表し、（アンペア）と読む。1 A =（1000）mA（ミリアンペア）になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.e389972bb978",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電流計をつないで、回路に流れる電流の大きさを測定した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1.2 A"
+        },
+        {
+          "id": "c2",
+          "text": "1 A"
+        },
+        {
+          "id": "c3",
+          "text": "1.5 A"
+        },
+        {
+          "id": "c4",
+          "text": "12 A"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a567672544303707.png"
+    },
+    "explanation": "数字が書かれているめもりは、1A、2A、3A…となるので、１めもりごとに 0.1 A ずつ増える。 はりが指しているのは、1A からめもり ２こ分増えたところなので、1.2 Aとなる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.edf0f12cc9a5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "N極とS極・両はし"
+        },
+        {
+          "id": "c2",
+          "text": "+極[きょく]と−極[きょく]・両[りょう]はし"
+        },
+        {
+          "id": "c3",
+          "text": "N極[きょく]とS極[きょく]・全体[ぜんたい]"
+        },
+        {
+          "id": "c4",
+          "text": "+極[きょく]と−極[きょく]・全体[ぜんたい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/539dc0d59ab9707d.png"
+    },
+    "explanation": "電磁石には、ぼう磁石のように、（N極とS極）があり、鉄は電磁石の（両はし）に強く引きつけられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-9.ef06b096aa19",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電磁石の性質について、次の実験結果から分かることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コイルのまき数を多くすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c2",
+          "text": "コイルのまき数を少なくすると、電磁石は強くなる。"
+        },
+        {
+          "id": "c3",
+          "text": "コイルのまき数と、電磁石の強さには関係がない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6d7e9a8be8bdf639.png"
+    },
+    "explanation": "50回まきよりも100回まきのときのほうがクリップがたくさんついたので、コイルのまき数を多くすると、電磁石は強くなることがわかる。"
+  }
+]

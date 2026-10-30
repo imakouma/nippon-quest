@@ -1,0 +1,650 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.090bb8d834b4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆絵を（描く）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "えがく"
+        },
+        {
+          "id": "c2",
+          "text": "かく"
+        },
+        {
+          "id": "c3",
+          "text": "びょうく"
+        },
+        {
+          "id": "c4",
+          "text": "えかく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「描く」は「えがく」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.0dadf22e6ebe",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆輪に（加わる）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くわわる"
+        },
+        {
+          "id": "c2",
+          "text": "くわわるる"
+        },
+        {
+          "id": "c3",
+          "text": "かわる"
+        },
+        {
+          "id": "c4",
+          "text": "くわる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「加わる」は「くわわる」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.10247b561839",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（管）を通す。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くだ"
+        },
+        {
+          "id": "c2",
+          "text": "かん"
+        },
+        {
+          "id": "c3",
+          "text": "くだだ"
+        },
+        {
+          "id": "c4",
+          "text": "つつ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「管」は「くだ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.19f698714b73",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（周り）をみわたす。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まわり"
+        },
+        {
+          "id": "c2",
+          "text": "しゅうり"
+        },
+        {
+          "id": "c3",
+          "text": "まわりり"
+        },
+        {
+          "id": "c4",
+          "text": "めぐり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「周り」は「まわり」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.1cf871e67ac3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆ひもを（束ねる）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たばねる"
+        },
+        {
+          "id": "c2",
+          "text": "そくねる"
+        },
+        {
+          "id": "c3",
+          "text": "たばねるる"
+        },
+        {
+          "id": "c4",
+          "text": "まとめる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「束ねる」は「たばねる」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.225493ea34ff",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆合格の（わりあい）を調べる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "割合"
+        },
+        {
+          "id": "c2",
+          "text": "割会"
+        },
+        {
+          "id": "c3",
+          "text": "比合"
+        },
+        {
+          "id": "c4",
+          "text": "割相"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「割合（わりあい）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.261407d9d40b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（労働）をする。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ろうどう"
+        },
+        {
+          "id": "c2",
+          "text": "どうろう"
+        },
+        {
+          "id": "c3",
+          "text": "ろうと"
+        },
+        {
+          "id": "c4",
+          "text": "ろうどうう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「労働」は「ろうどう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.36835b7f4179",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（清らか）な水。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きよらか"
+        },
+        {
+          "id": "c2",
+          "text": "きよらかか"
+        },
+        {
+          "id": "c3",
+          "text": "せいらか"
+        },
+        {
+          "id": "c4",
+          "text": "さやらか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「清らか」は「きよらか」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.375cfc047079",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆土地の（めんせき）を求める。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "面積"
+        },
+        {
+          "id": "c2",
+          "text": "面関"
+        },
+        {
+          "id": "c3",
+          "text": "面接"
+        },
+        {
+          "id": "c4",
+          "text": "免積"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「面積（めんせき）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.43e774b9a67f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆友だちと（共に）進む。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ともに"
+        },
+        {
+          "id": "c2",
+          "text": "とも"
+        },
+        {
+          "id": "c3",
+          "text": "どもに"
+        },
+        {
+          "id": "c4",
+          "text": "きょうに"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「共に」は「ともに」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.bc7b92ade405",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆肉を（や）く。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "焼"
+        },
+        {
+          "id": "c2",
+          "text": "火"
+        },
+        {
+          "id": "c3",
+          "text": "炙"
+        },
+        {
+          "id": "c4",
+          "text": "温"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「焼（や）く」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.bf394bd16fb8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆道路が（こうさ）する。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交差"
+        },
+        {
+          "id": "c2",
+          "text": "考差"
+        },
+        {
+          "id": "c3",
+          "text": "校差"
+        },
+        {
+          "id": "c4",
+          "text": "交査"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「交差（こうさ）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.c0a629d87206",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆（たいそう）の練習。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体操"
+        },
+        {
+          "id": "c2",
+          "text": "体騒"
+        },
+        {
+          "id": "c3",
+          "text": "対操"
+        },
+        {
+          "id": "c4",
+          "text": "大操"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「体操（たいそう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.dd0c1278182e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆国が（さか）える。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "栄"
+        },
+        {
+          "id": "c2",
+          "text": "坂"
+        },
+        {
+          "id": "c3",
+          "text": "咲"
+        },
+        {
+          "id": "c4",
+          "text": "逆"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「栄（さか）える」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.e39f944880fb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（かいすいよく）に行く。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "海水浴"
+        },
+        {
+          "id": "c2",
+          "text": "界水浴"
+        },
+        {
+          "id": "c3",
+          "text": "開水浴"
+        },
+        {
+          "id": "c4",
+          "text": "会水浴"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「海水浴（かいすいよく）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.e6505e48ee6f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（発言）をする。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はつげん"
+        },
+        {
+          "id": "c2",
+          "text": "はつげ"
+        },
+        {
+          "id": "c3",
+          "text": "ほつげん"
+        },
+        {
+          "id": "c4",
+          "text": "はっけん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「発言」は「はつげん」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.e7eb46b16e37",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆地元の（さんぎょう）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "産業"
+        },
+        {
+          "id": "c2",
+          "text": "産事"
+        },
+        {
+          "id": "c3",
+          "text": "三業"
+        },
+        {
+          "id": "c4",
+          "text": "山業"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「産業（さんぎょう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-29.f9e00cbe15dc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-29",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_29",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆（つめ）たい水。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冷"
+        },
+        {
+          "id": "c2",
+          "text": "凍"
+        },
+        {
+          "id": "c3",
+          "text": "冬"
+        },
+        {
+          "id": "c4",
+          "text": "涼"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「冷（つめ）たい」と書きます。"
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "kokugo.g6.writing-quotation-argument.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.writing-quotation-argument",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-argument",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "意見文[いけんぶん]で資料[しりょう]を引用[いんよう]するとき、最[もっと]も適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "引用部分[いんようぶぶん]と出典[しゅってん]を示[しめ]し、自分[じぶん]の意見[いけん]との関係[かんけい]を説明[せつめい]する。"
+        },
+        {
+          "id": "b",
+          "text": "資料[しりょう]の文[ぶん]を自分[じぶん]の考[かんが]えとして書[か]く。"
+        },
+        {
+          "id": "c",
+          "text": "出典[しゅってん]を隠[かく]して全文[ぜんぶん]を写[うつ]す。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "引用は出典を明示し、主張をどう支えるか説明する。"
+  },
+  {
+    "id": "kokugo.g6.writing-quotation-argument.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.writing-quotation-argument",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-argument",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「校庭[こうてい]に日陰[ひかげ]を増[ふ]やすべきだ」という主張[しゅちょう]の根拠[こんきょ]として適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "夏[なつ]の場所別[ばしょべつ]気温[きおん]と休憩[きゅうけい]した児童数[じどうすう]の記録[きろく]。"
+        },
+        {
+          "id": "b",
+          "text": "好[す]きな動物[どうぶつ]のアンケート。"
+        },
+        {
+          "id": "c",
+          "text": "去年[きょねん]の図書貸出数[としょかしだしすう]。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "主張と直接関係する測定結果や利用状況が根拠になる。"
+  },
+  {
+    "id": "kokugo.g6.writing-quotation-argument.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.writing-quotation-argument",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-argument",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "反対意見[はんたいいけん]を取[と]り上[あ]げる書[か]き方[かた]としてよいものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "反対意見[はんたいいけん]の理由[りゆう]を正確[せいかく]に示[しめ]した上[うえ]で、自分[じぶん]の考[かんが]えを述[の]べる。"
+        },
+        {
+          "id": "b",
+          "text": "相手[あいて]の意見[いけん]を実際[じっさい]より弱[よわ]く書[か]く。"
+        },
+        {
+          "id": "c",
+          "text": "理由[りゆう]を読[よ]まず間違[まちが]いだと決[き]める。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "反対意見も公平に扱うと、論の妥当性を検討できる。"
+  },
+  {
+    "id": "kokugo.g6.writing-quotation-argument.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.writing-quotation-argument",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-argument",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "文章全体[ぶんしょうぜんたい]の構成[こうせい]として説得力[せっとくりょく]が高[たか]いものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "問題提起[もんだいていき]→主張[しゅちょう]→根拠[こんきょ]→反対意見[はんたいいけん]への検討[けんとう]→結論[けつろん]。"
+        },
+        {
+          "id": "b",
+          "text": "結論[けつろん]→関係[かんけい]のない話[はなし]→同[おな]じ結論[けつろん]。"
+        },
+        {
+          "id": "c",
+          "text": "資料[しりょう]の列挙[れっきょ]だけで主張[しゅちょう]なし。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "読み手が論のつながりを追える順序で構成する。"
+  },
+  {
+    "id": "kokugo.g6.writing-quotation-argument.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.writing-quotation-argument",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-argument",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "推敲[すいこう]で「このことから」の指[さ]す内容[ないよう]が不明確[ふめいかく]だった。直[なお]し方[かた]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "直前[ちょくぜん]の事実[じじつ]や資料名[しりょうめい]を具体的[ぐたいてき]に示[しめ]す。"
+        },
+        {
+          "id": "b",
+          "text": "「このことから」を何度[なんど]も増[ふ]やす。"
+        },
+        {
+          "id": "c",
+          "text": "主語[しゅご]をすべて省[はぶ]く。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "指示語の内容を具体化すると論理関係が明確になる。"
+  },
+  {
+    "id": "kokugo.g6.writing-quotation-argument.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.writing-quotation-argument",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-argument",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "友達[ともだち]から文章[ぶんしょう]への意見[いけん]をもらった後[あと]にすることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "目的[もくてき]と主張[しゅちょう]に照[て]らして意見[いけん]を検討[けんとう]し、よい点[てん]を生[い]かして直[なお]す。"
+        },
+        {
+          "id": "b",
+          "text": "すべての意見[いけん]を理由[りゆう]なく採用[さいよう]する。"
+        },
+        {
+          "id": "c",
+          "text": "文章[ぶんしょう]を読[よ]まず題名[だいめい]だけ変[か]える。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "交流した意見を目的に照らして選び、自分の文章を改善する。"
+  }
+]

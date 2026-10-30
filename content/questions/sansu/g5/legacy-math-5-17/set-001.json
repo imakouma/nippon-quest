@@ -1,0 +1,267 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-17.4166b036f7cd",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "円周・直径[ちょっけい]・円周率"
+        },
+        {
+          "id": "c2",
+          "text": "半径[はんけい]"
+        },
+        {
+          "id": "c3",
+          "text": "円周[えんしゅう]・半径[はんけい]・直径[ちょっけい]"
+        },
+        {
+          "id": "c4",
+          "text": "直径[ちょっけい]・半径[はんけい]・円周率[えんしゅうりつ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "円の周りの長さである（円周）は、必ず円の（直径[ちょっけい]）の約 3.14 倍になっている。この倍率のことを、（円周率）という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.45de7ab62f00",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "多角形・正多角形"
+        },
+        {
+          "id": "c2",
+          "text": "正角形"
+        },
+        {
+          "id": "c3",
+          "text": "正方形[せいほうけい]"
+        },
+        {
+          "id": "c4",
+          "text": "多角形[たかくけい]・正方形[せいほうけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "三角形[さんかくけい]や四角形[しかくけい]、五角形のように直線で囲まれた形を（多角形）という。その中でも、すべての辺が等しく、角の大きさも等しいものを（正多角形）という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.54d10f6758b6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形[ずけい]のまわりの長さをもとめよう。",
+      "answers": [
+        "51.4"
+      ],
+      "template": "{{INPUT}} cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/69e936d13dc8904a.png"
+    },
+    "explanation": "円の半分、半円の形。円周の半分に、直径[ちょっけい]の長さを足して、まわりの長さをもとめよう。 直径[ちょっけい]は 10×2=20cm なので、 20×3.14÷2=31.4cm これに直径[ちょっけい]の長さを足せばいいので、31.4+20=51.4cm"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.6de6192432a6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図形[ずけい]を何というでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正五角形"
+        },
+        {
+          "id": "c2",
+          "text": "正八角形"
+        },
+        {
+          "id": "c3",
+          "text": "正六角形"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/77c80ea084c480b1.png"
+    },
+    "explanation": "すべての辺や角が等しい正六角形だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.731b48de0083",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "直径[ちょっけい] 3cm の円の円周を求めよう。 cm",
+      "answers": [
+        "9.42"
+      ],
+      "template": "直径 3cm の円の円周を求めよう。 {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。 3×3.14=9.42cm"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.868404b850cc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "半径[はんけい] 4m の円の円周を求めよう。 m",
+      "answers": [
+        "25.12"
+      ],
+      "template": "半径 4m の円の円周を求めよう。 {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。半径[はんけい]が 4m なので、直径[ちょっけい]は 4×2=8m 8×3.14=25.12m"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.8f1a0dc8059a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "直径[ちょっけい] 2cm の円の円周を求めよう。 cm",
+      "answers": [
+        "6.28"
+      ],
+      "template": "直径 2cm の円の円周を求めよう。 {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。 2×3.14=6.28cm"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.8f3bb21ecab8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "円周が 14cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約cm",
+      "answers": [
+        "4.46"
+      ],
+      "template": "円周が 14cm の円の直径は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。 円周が分かっているときは、逆に「円周 ÷3.14」で直径[ちょっけい]を出すことができるね。 14÷3.14=4.458… よって、約4.46cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.903b7a4a0c14",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "円周が 20cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約cm",
+      "answers": [
+        "6.37"
+      ],
+      "template": "円周が 20cm の円の直径は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。 円周が分かっているときは、逆に「円周 ÷3.14」で直径[ちょっけい]を出すことができるね。 20÷3.14=6.369… よって、約6.37cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-17.cd9c52641adc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図形[ずけい]を何というでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正五角形"
+        },
+        {
+          "id": "c2",
+          "text": "正八角形"
+        },
+        {
+          "id": "c3",
+          "text": "正六角形"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8adae8a3751ff7a0.png"
+    },
+    "explanation": "すべての辺や角が等しい正八角形だ。"
+  }
+]

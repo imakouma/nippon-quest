@@ -616,6 +616,42 @@ describe('学習ロードマップの単元選択', () => {
     );
   });
 
+  it('4種類の案内線を前提線と区別して描く', async () => {
+    const container = document.createElement('div');
+    document.body.append(container);
+    const relationNodes: RoadmapNode[] = [
+      ...nodes.slice(0, 4).map((node, index) => ({
+        ...node,
+        id: `source-${index}`,
+        prerequisiteIds: [],
+        visibility: 'revealed' as const,
+        state: 'open' as const,
+      })),
+      {
+        ...nodes[4]!,
+        id: 'target',
+        prerequisiteIds: ['source-0'],
+        supportingLinks: [
+          { sourceId: 'source-0', kind: 'component' },
+          { sourceId: 'source-1', kind: 'transfer' },
+          { sourceId: 'source-2', kind: 'related' },
+          { sourceId: 'source-3', kind: 'chronological' },
+          { sourceId: 'missing', kind: 'related' },
+        ],
+        visibility: 'revealed',
+        state: 'open',
+      },
+    ];
+    await act(async () => render(h(RoadmapGraph, { nodes: relationNodes, onSelect: vi.fn() }), container));
+
+    expect(container.querySelectorAll('.nq-roadmap-edge')).toHaveLength(5);
+    expect(container.querySelectorAll('.nq-roadmap-edge-supporting')).toHaveLength(4);
+    for (const kind of ['component', 'transfer', 'related', 'chronological']) {
+      expect(container.querySelectorAll(`.nq-roadmap-edge-${kind}`)).toHaveLength(1);
+    }
+    expect(container.querySelectorAll('.nq-roadmap-edge:not(.nq-roadmap-edge-supporting)')).toHaveLength(1);
+  });
+
   it('選択中の進路だけを強調し、ほかの前提線は背景へ下げる', async () => {
     const container = document.createElement('div');
     document.body.append(container);

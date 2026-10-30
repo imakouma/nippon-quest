@@ -1,0 +1,548 @@
+[
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.23873eb36d36",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域の気候の特色を調べるときに、月ごとの「気温」と「降水量」をグラフにしたものを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨温図（うおんず）"
+        },
+        {
+          "id": "c2",
+          "text": "人口ピラミッド"
+        },
+        {
+          "id": "c3",
+          "text": "白地図"
+        },
+        {
+          "id": "c4",
+          "text": "棒グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "雨温図は、気温の変化（折れ線グラフ）と降水量（棒グラフ）を組み合わせて、その地域の気候の傾向を表したものです。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.50e1192bb52c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、日本で最も面積[めんせき]が広い「北海道[ほっかいどう]」の次に面積[めんせき]が広い都道府県はどこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "岩手県"
+        },
+        {
+          "id": "c2",
+          "text": "福島県"
+        },
+        {
+          "id": "c3",
+          "text": "長野県"
+        },
+        {
+          "id": "c4",
+          "text": "新潟県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/823ba85223df25c6.png"
+    },
+    "explanation": "日本の都道府県で最も広いのは北海道[ほっかいどう]で、2番目に広いのが東北地方の岩手県です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.54999a4c2525",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自分の県の特色を調べてまとめる活動で、最も大切な姿勢はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地図やグラフ・文章[ぶんしょう]を使って、他県との違いや工夫をわかりやすく説明[せつめい]する"
+        },
+        {
+          "id": "c2",
+          "text": "インターネットの文章[ぶんしょう]をそのままコピーして読む"
+        },
+        {
+          "id": "c3",
+          "text": "数字やグラフは使わずに感想だけを書く"
+        },
+        {
+          "id": "c4",
+          "text": "他の県と比べることを禁止する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "調査したデータや地図を根拠にし、自分たちの県の魅力や工夫を客観的にまとめることが社会科の学習[がくしゅう]で重要です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.5880569e3aa6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "都道府県の場所や地球上の位置を確かめる際に、南北の位置を示す「緯線」と東西の位置を示す何を使いますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "経線（けいせん）"
+        },
+        {
+          "id": "c2",
+          "text": "赤道（せきどう）"
+        },
+        {
+          "id": "c3",
+          "text": "子午線（しごせん）"
+        },
+        {
+          "id": "c4",
+          "text": "等高線（とうこうせん）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地球上の位置は、南北の位置を表す「緯線（緯度）」と、東西の位置を表す「経線[けいせん]（経度）」を使って正確に示します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.65624ac48104",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "県の地理的環境（平野や川など）と、人々の暮らしの関係について正しい説明[せつめい]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水が得やすく平らな土地に人が集まり、街や交通が発達した"
+        },
+        {
+          "id": "c2",
+          "text": "山頂の近くに大きな駅や工場が集まっている"
+        },
+        {
+          "id": "c3",
+          "text": "川の近くには危険なので家を建ててはいけない"
+        },
+        {
+          "id": "c4",
+          "text": "海岸沿いには人が住めない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "平野や川の周辺は生活用水や農業用水が得やすく、建物や道路を建てやすいため、古くから人が集まり都市が発展しました。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.69bcf69a3d6b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、日本海側の地域で冬に雪が多く降る主な理由[りゆう]は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "シベリアからの冷たい風が日本海で水分を含み、高い山脈にぶつかるから"
+        },
+        {
+          "id": "c2",
+          "text": "太平洋から温かい湿った風が吹いてくるから"
+        },
+        {
+          "id": "c3",
+          "text": "夏に雨が全く降らないから"
+        },
+        {
+          "id": "c4",
+          "text": "海が凍って風が冷たくなるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/94bbeed2555ff1c1.png"
+    },
+    "explanation": "冬の北西の季節風が日本海で水蒸気を吸い込み、奥羽山脈や日本アルプスなどの高い山にぶつかって日本海側に大雪を降らせます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.9d0bf54d6b8a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "県の「県庁所在地（県庁がある都市）」の役割や特色として、正しい説明[せつめい]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交通の拠点であり、県の政治や経済・文化の中心となっている"
+        },
+        {
+          "id": "c2",
+          "text": "農業だけを行う農村地帯である"
+        },
+        {
+          "id": "c3",
+          "text": "人がほとんど住んでいない山の中にある"
+        },
+        {
+          "id": "c4",
+          "text": "毎年場所が交代で変わる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "県庁所在地は、県内の交通網が集まる主要な都市に位置し、県の行政や経済の中心として発展しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.a0f1409a5acc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、県の地理的環境として調べるものとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山・川・平野・海岸などの地形"
+        },
+        {
+          "id": "c2",
+          "text": "友だちの身長"
+        },
+        {
+          "id": "c3",
+          "text": "教室の色"
+        },
+        {
+          "id": "c4",
+          "text": "給食の味"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/589c7873d8b41ca9.png"
+    },
+    "explanation": "4年生からの社会科では、県全体の地形（山地、平野、河川、海岸など）や位置の特色を地図帳で確認します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.a1720f7a504e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「なぜこの県ではこの産業[さんぎょう]がさかんなのか」を考えるとき、結びつけて考える要素として最も適切なものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土地の地形や気候、交通などの地理的条件"
+        },
+        {
+          "id": "c2",
+          "text": "その地域の人の苗字の多さ"
+        },
+        {
+          "id": "c3",
+          "text": "学校[がっこう]のチャイムの音"
+        },
+        {
+          "id": "c4",
+          "text": "曜日の並び順"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「温かい気候だからミカンが育つ」「港があるから工業が栄える」のように、地理的な条件と結びつけて考えると理由[りゆう]が分かります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.c1f05ba9ce2f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の都道府県は全部で47あります。「都・道・府・県」の内訳として正しい組み合わせはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1都・1道・2府・43県"
+        },
+        {
+          "id": "c2",
+          "text": "1都・2道・1府・43県"
+        },
+        {
+          "id": "c3",
+          "text": "2都・1道・2府・42県"
+        },
+        {
+          "id": "c4",
+          "text": "1都・1道・4府・41県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "東京都（1都）、北海道[ほっかいどう]（1道）、京都府・大阪府（2府）、および43の県を合わせて47都道府県となります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.e43294b7ecc3",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "山から平地へ出た場所にできる水はけが良い「扇状地」で、米作りより「果樹栽培」がさかんな理由[りゆう]は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "石や砂が多くて水がたまりにくいため"
+        },
+        {
+          "id": "c2",
+          "text": "雨が一年中降らないから"
+        },
+        {
+          "id": "c3",
+          "text": "雪が何メートルも積もるから"
+        },
+        {
+          "id": "c4",
+          "text": "田んぼを作る土地が狭いから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/57e5f76af2d2ba75.png"
+    },
+    "explanation": "扇状地は石や砂が多く水が地下へ抜けやすいため、水をためる田んぼよりも、水はけを好む果物（ぶどうや桃など）の栽培に適しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.e8aa0746fd4d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の47都道府県のうち、周りがすべて海に囲まれている「島」で構成されている県はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "沖縄県[おきなわけん]"
+        },
+        {
+          "id": "c2",
+          "text": "長野県"
+        },
+        {
+          "id": "c3",
+          "text": "群馬県"
+        },
+        {
+          "id": "c4",
+          "text": "岐阜県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "沖縄県は多くの島々からなる島嶼（とうしょ）県です。長野県や群馬県、岐阜県は海に接していない「内陸県」です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.ef439edcacb2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "本州と四国を結ぶ「本州四国連絡橋」のように、海をはさんだ地域同士をつなぐ交通網の役割は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人や物の行き来を速くし、生活や産業[さんぎょう]を便利にする"
+        },
+        {
+          "id": "c2",
+          "text": "外国からの船の進入を防ぐため"
+        },
+        {
+          "id": "c3",
+          "text": "橋の上で生活するため"
+        },
+        {
+          "id": "c4",
+          "text": "魚をとるための網をかけるため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "橋や高速道路が開通したことで、フェリーを使わずに自動車や列車で短時間で行き来できるようになり、地域の生活が便利になりました。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.f1298ed60a6f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、九州地方の一番南に位置し、屋久島や種子島などの島々も含まれる県はどこですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鹿児島県"
+        },
+        {
+          "id": "c2",
+          "text": "宮崎県"
+        },
+        {
+          "id": "c3",
+          "text": "熊本県"
+        },
+        {
+          "id": "c4",
+          "text": "福岡県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9e789c5aeacd00da.png"
+    },
+    "explanation": "鹿児島県は九州本島の最南端に位置し、桜島や屋久島・種子島などの豊かな自然や島々を有しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-01.fdcf3a11be69",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図帳の「縮尺（しゅくしゃく）」で、同じ範囲をより詳しく拡大して表しているのはどちらの地図でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1:25,000の地図"
+        },
+        {
+          "id": "c2",
+          "text": "1:50,000の地図"
+        },
+        {
+          "id": "c3",
+          "text": "どちらも同じ詳しさ"
+        },
+        {
+          "id": "c4",
+          "text": "地球儀"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/589c7873d8b41ca9.png"
+    },
+    "explanation": "縮尺[しゅくしゃく]の分母が小さい「1:25,000」の地図の方が、実際の土地を大きく拡大[かくだい]して細かく表示することができます。"
+  }
+]

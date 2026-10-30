@@ -1,0 +1,523 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-17.1baa95311c41",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つの正方形[せいほうけい]を、つぎのように 分けます。色が ついたところを 分数で あらわすと、何分の１になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{5}"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/150f50fd3ebc0270.png"
+    },
+    "explanation": "１つの正方形[せいほうけい]を ３つに 分けたうちの １つ分 なので、答えは \\dfrac{1}{3} になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.28d58316a19a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのように、１つのものを 同じ 大きさに ４つに分けたとき、１つ分を なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{5}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{6}"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/499e9ab12fe1cced.png"
+    },
+    "explanation": "１つのものを 同じ 大きさに ４つに分けたとき、１つ分を \\dfrac{1}{4}（よんぶんのいち）という。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.47bcf0c13ec5",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つの正方形[せいほうけい]を、つぎのように 分けます。色が ついたところを 分数で あらわすと、何分の１になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{5}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/31000de29c717f9d.png"
+    },
+    "explanation": "１つの正方形[せいほうけい]を ２つに 分けたうちの １つ分 なので、答えは \\dfrac{1}{2} になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.544275171ee9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つの正方形[せいほうけい]を、つぎのように 分けます。色が ついたところを 分数で あらわすと、何分の１になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{5}"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d9c74c70f0990f6a.png"
+    },
+    "explanation": "１つの正方形[せいほうけい]を ４つに 分けたうちの １つ分 なので、答えは \\dfrac{1}{4} になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.56b737970858",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "左のような \\dfrac{1}{4} の ケーキを 何ばいすると 右のような まるいケーキに なるでしょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}} ばい",
+      "suffix": "ばい",
+      "promptImage": "questions/legacy/c8679d3c10f88a63.png"
+    },
+    "explanation": "\\dfrac{1}{4} のケーキを ４ばいすると まるいケーキになる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.6267c1594057",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１本のテープを、つぎのように 同じ大きさに 分けます。色が ついたところを 分数で あらわすと、何分の１になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{5}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{6}"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7b66886b1d8cf122.png"
+    },
+    "explanation": "１本のテープを 同じ大きさに ４つに 分けたうちの １つ分 なので、答えは \\dfrac{1}{4} になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.6a31345deb9e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "\\dfrac{1}{4} は、なんとよむでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4分の1"
+        },
+        {
+          "id": "c2",
+          "text": "1分の4"
+        },
+        {
+          "id": "c3",
+          "text": "1の4ばい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "\\dfrac{1}{4} は、4分の1（よんぶんのいち）とよむ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.76dfb42ff65d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１本のテープを、つぎのように 同じ大きさに 分けます。色が ついたところを 分数で あらわすと、何分の１になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{5}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{6}"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c38722c0fa177aa0.png"
+    },
+    "explanation": "１本のテープを 同じ大きさに ６つに 分けたうちの １つ分 なので、答えは \\dfrac{1}{6} になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.803423b0cf0b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１本のテープを、つぎのように 同じ大きさに 分けます。色が ついたところを 分数で あらわすと、何分の１になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{5}"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/15faf5f1e3a6a970.png"
+    },
+    "explanation": "１本のテープを 同じ大きさに ３つに 分けたうちの １つ分 なので、答えは \\dfrac{1}{3} になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.8ce273336ef2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "\\dfrac{1}{6} を 何ばいすると １になるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} ばい",
+      "suffix": "ばい",
+      "promptImage": "questions/legacy/839a82593d793225.png"
+    },
+    "explanation": "\\dfrac{1}{6} を ６ばいすると １になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.9bf8bf5a24e4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１本のテープを、つぎのように 同じ大きさに 分けます。色が ついたところを 分数で あらわすと、何分の１になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{5}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cbbd2266ba7b59d1.png"
+    },
+    "explanation": "１本のテープを 同じ大きさに ２つに 分けたうちの １つ分 なので、答えは \\dfrac{1}{2} になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.9c33c2d7e269",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのように、１つのものを 同じ 大きさに ２つに分けたとき、１つ分を なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{4}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{5}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1c1fc32afe3812ac.png"
+    },
+    "explanation": "１つのものを 同じ 大きさに ２つに分けたとき、１つ分を \\dfrac{1}{2}（にぶんのいち）という。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.af88270cdba0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "左のような \\dfrac{1}{2} の ケーキを 何ばいすると 右のような まるいケーキに なるでしょう。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}} ばい",
+      "suffix": "ばい",
+      "promptImage": "questions/legacy/bc4be7d41925ca55.png"
+    },
+    "explanation": "\\dfrac{1}{2} のケーキを ２ばいすると まるいケーキになる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.b1feaad2960d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "\\dfrac{1}{3} を 何ばいすると １になるでしょう。",
+      "answers": [
+        "3"
+      ],
+      "template": "{{INPUT}} ばい",
+      "suffix": "ばい",
+      "promptImage": "questions/legacy/c0739efce67df77f.png"
+    },
+    "explanation": "\\dfrac{1}{3} を ３ばいすると １になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.b8fb1fbdea33",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "\\dfrac{1}{2} や \\dfrac{1}{4} のような かずを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "分数"
+        },
+        {
+          "id": "c2",
+          "text": "小数"
+        },
+        {
+          "id": "c3",
+          "text": "ばい"
+        },
+        {
+          "id": "c4",
+          "text": "せい数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "\\dfrac{1}{2} や \\dfrac{1}{4} のような かずを 分数という。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-17.bd5116ba0ddb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_17",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "\\dfrac{1}{2} は、なんとよむでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2分の1"
+        },
+        {
+          "id": "c2",
+          "text": "1分の2"
+        },
+        {
+          "id": "c3",
+          "text": "1の2ばい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "\\dfrac{1}{2} は、2分の1（にぶんのいち）とよむ。"
+  }
+]
