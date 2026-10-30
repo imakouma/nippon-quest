@@ -12,7 +12,7 @@ import { tOpt } from '../ui/i18n';
 import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
 import { QuestionTree } from './QuestionTree';
-import { kanjiCategory, type KanjiCategory } from './kanjiCategory';
+import { FIRST_GRADE_READING_UNITS, kanjiCategory, type KanjiCategory } from './kanjiCategory';
 
 export interface QuestionEntry {
   /** "<ファイル>#<何番目>" */
@@ -118,7 +118,13 @@ export function QuestionList({
     catalog?.subjects.flatMap((subject) =>
       subject.grades.flatMap((grade) =>
         grade.units
-          .filter((unit) => unit.unit === scopeUnit)
+          .filter(
+            (unit) =>
+              unit.unit === scopeUnit ||
+              (scopeUnit === FIRST_GRADE_READING_UNITS[0] &&
+                scopeCategory === 'reading' &&
+                unit.unit === FIRST_GRADE_READING_UNITS[1]),
+          )
           .flatMap((unit) => unit.sets.map((set) => set.file)),
       ),
     ),

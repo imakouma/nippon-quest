@@ -3,7 +3,7 @@ import type { ComponentChildren } from 'preact';
 import { tOpt } from '../ui/i18n';
 import { stripRuby } from '../ui/ruby';
 import type { QuestionBase } from '../questions/contracts';
-import { kanjiCategory, type KanjiCategory } from './kanjiCategory';
+import { FIRST_GRADE_READING_UNITS, kanjiCategory, type KanjiCategory } from './kanjiCategory';
 
 interface QuestionTreeProps {
   catalog: QuestionCatalog;
@@ -135,7 +135,7 @@ export function QuestionTree({
                 </summary>
                 {subject.subject === 'kanji'
                   ? (['reading', 'writing', 'review'] as const).map((category) => {
-                      const categoryUnits = grade.units
+                      let categoryUnits = grade.units
                         .map((unit) => {
                           const files = new Set(unit.sets.map((set) => set.file));
                           const count = entries.filter(
@@ -144,6 +144,21 @@ export function QuestionTree({
                           return { ...unit, count };
                         })
                         .filter((unit) => unit.count > 0);
+                      if (grade.grade === 1 && category === 'reading') {
+                        const primary = categoryUnits.find(
+                          (unit) => unit.unit === FIRST_GRADE_READING_UNITS[0],
+                        );
+                        const extra = categoryUnits.find(
+                          (unit) => unit.unit === FIRST_GRADE_READING_UNITS[1],
+                        );
+                        if (primary && extra) {
+                          categoryUnits = categoryUnits
+                            .filter((unit) => unit !== extra)
+                            .map((unit) =>
+                              unit === primary ? { ...unit, count: unit.count + extra.count } : unit,
+                            );
+                        }
+                      }
                       return (
                         <details
                           name="question-tree-kanji-category"

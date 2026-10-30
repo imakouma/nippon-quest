@@ -419,6 +419,28 @@ test('漢字の単元を国語から分けて表示する', async ({ page }) => 
   await expect(page.locator('.pg-question-row')).toHaveCount(8);
 });
 
+test('小1の漢字の読みを一つにまとめて両単元の問題を表示する', async ({ page }) => {
+  await page.goto('/playground.html');
+  const kanji = page.locator('details[data-subject="kanji"]');
+  await kanji.locator(':scope > summary').click();
+  await kanji.locator('details[data-grade="1"] > summary').click();
+  const reading = kanji.locator('details[data-grade="1"] details[data-kanji-category="reading"]');
+  await reading.locator(':scope > summary').click();
+  const merged = reading.locator('button[data-unit="kokugo.g1.kanji"]');
+  await expect(merged).toBeVisible();
+  await expect(reading.locator('button[data-unit="kokugo.g1.legacy-jpn-1-2"]')).toHaveCount(0);
+  await merged.click();
+  const rows = reading.locator('.pg-question-row');
+  await expect(rows.first()).toBeVisible();
+  const files = await rows.evaluateAll((elements) => elements.map((row) => row.title));
+  expect(files).toContain('questions/kokugo/g1/kanji/set-001.json');
+  expect(files).toContain('questions/kokugo/g1/legacy-jpn-1-2/set-001.json');
+  const count = Number((await merged.locator('.pg-tree-count').textContent())?.replace(/\D/g, ''));
+  expect(files).toHaveLength(count);
+  await merged.click();
+  await expect(rows).toHaveCount(0);
+});
+
 test('問題フォルダの教科名を漢字で表示する', async ({ page }) => {
   await page.goto('/playground.html');
   for (const [subject, label] of Object.entries({
