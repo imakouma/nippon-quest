@@ -19,6 +19,7 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
   const scene = { textures: { exists: () => false, addCanvas: () => undefined } };
   buildTownViewTexture(scene as unknown as Parameters<typeof buildTownViewTexture>[0]);
 
+  const invalid = new Set<string | undefined>();
   for (
     let tile = TOWN_ROOF_START;
     tile < TOWN_ROOF_START + TOWN_GROUND_COUNT * TOWN_ROOFS.length * 16;
@@ -27,8 +28,12 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
     const originX = (tile % 8) * 16;
     const originY = Math.floor(tile / 8) * 16;
     for (let y = 0; y < 16; y++)
-      for (let x = 0; x < 16; x++) expect(NQ48).toContain(pixels.get(`${originX + x},${originY + y}`));
+      for (let x = 0; x < 16; x++) {
+        const color = pixels.get(`${originX + x},${originY + y}`);
+        if (!color || !NQ48.includes(color)) invalid.add(color);
+      }
   }
+  expect([...invalid]).toEqual([]);
   const roofPixel = (roof: number, x: number, y: number, mask = 15) => {
     const tile = TOWN_ROOF_START + roof * 16 + mask;
     return pixels.get(`${(tile % 8) * 16 + x},${Math.floor(tile / 8) * 16 + y}`);
