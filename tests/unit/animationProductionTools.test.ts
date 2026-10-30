@@ -13,6 +13,7 @@ import {
 } from '../../scripts/animation-production/image-contract';
 import { normalizeAnimationSheet } from '../../scripts/animation-production/normalize-sheet';
 import { acceptAnimationWave } from '../../scripts/animation-production/accept-wave';
+import { exportMonsterReferences } from '../../scripts/animation-production/export-references';
 
 function sheet(): DecodedRgbaImage {
   return { width: 512, height: 256, pixels: new Uint8Array(512 * 256 * 4) };
@@ -63,6 +64,19 @@ function validSyntheticSheet(): DecodedRgbaImage {
 }
 
 describe('animation production image contract', () => {
+  it('rejects unsafe or duplicate reference-export IDs before opening a browser', async () => {
+    await expect(
+      exportMonsterReferences({ baseUrl: 'http://127.0.0.1:4175', ids: ['../monster'], outputDir: 'out' }),
+    ).rejects.toThrow('Invalid monster id');
+    await expect(
+      exportMonsterReferences({
+        baseUrl: 'http://127.0.0.1:4175',
+        ids: ['same-id', 'same-id'],
+        outputDir: 'out',
+      }),
+    ).rejects.toThrow('Duplicate monster id');
+  });
+
   it('accepts every existing reviewed batch sheet', () => {
     for (const entry of runtimeManifest) {
       const png = readFileSync(`assets/${entry.path}`);
@@ -180,8 +194,8 @@ describe('animation production image contract', () => {
 
   it('accepts a reviewed wave into the ledger and runtime manifest in one validated operation', () => {
     const root = mkdtempSync(join(tmpdir(), 'nq-animation-accept-'));
-    const evidence = join(root, 'docs/verification/animation-completion/runtime-monsters');
-    const runtime = join(root, 'assets/sprites/animations/batch-01');
+    const evidence = join(root, 'docs/verification/animation-completion/remaining-runtime-monsters');
+    const runtime = join(root, 'assets/sprites/animations/batch-06');
     mkdirSync(evidence, { recursive: true });
     mkdirSync(runtime, { recursive: true });
     copyFileSync(
@@ -191,6 +205,11 @@ describe('animation production image contract', () => {
     copyFileSync(
       'assets/sprites/animations/batch-01/aomori-bunakko-v1.png',
       join(runtime, 'test-monster-v1.png'),
+    );
+    mkdirSync(join(evidence, 'references'), { recursive: true });
+    copyFileSync(
+      'docs/verification/animation-completion/remaining-runtime-monsters/references/koshinetsu-boss-reference.png',
+      join(evidence, 'references/test-monster-reference.png'),
     );
     writeFileSync(
       join(evidence, 'production-ledger.json'),
@@ -209,24 +228,44 @@ describe('animation production image contract', () => {
     );
 
     try {
-      expect(acceptAnimationWave({ root, recordsPath: 'records.json', reviewedAt: '2026-10-28' })).toEqual({
-        accepted: ['test-monster'],
-      });
+      expect(
+        acceptAnimationWave({
+          root,
+          recordsPath: 'records.json',
+          reviewedAt: '2026-10-30',
+          batch: 'batch-06',
+          verificationId: 'remaining-runtime-monsters',
+        }),
+      ).toEqual({ accepted: ['test-monster'] });
       const ledger = JSON.parse(readFileSync(join(evidence, 'production-ledger.json'), 'utf8'));
       const manifest = JSON.parse(readFileSync(join(runtime, 'manifest.json'), 'utf8'));
       expect(ledger.entries[0]).toMatchObject({
         state: 'accepted',
-        visualReview: { fullSize: true, isolatedCells: true, reviewedAt: '2026-10-28' },
+        visualReview: { fullSize: true, isolatedCells: true, reviewedAt: '2026-10-30' },
       });
       expect(ledger.entries[0].generatedSource.sha256).toMatch(/^[a-f0-9]{64}$/);
+      expect(ledger.entries[0].pixelReference).toMatchObject({
+        path: 'docs/verification/animation-completion/remaining-runtime-monsters/references/test-monster-reference.png',
+      });
+      expect(ledger.entries[0].pixelReference.sha256).toMatch(/^[a-f0-9]{64}$/);
       expect(manifest[0]).toMatchObject({
         id: 'test-monster',
         key: 'mon.animation.test-monster.v1',
+        path: 'sprites/animations/batch-06/test-monster-v1.png',
         idle: [0, 1, 0, 3, 0, 2, 0],
         attack: [4, 5, 6, 7, 0],
       });
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('rejects unsafe batch and verification path selectors before reading production files', () => {
+    const base = { recordsPath: 'records.json', reviewedAt: '2026-10-30' };
+
+    expect(() => acceptAnimationWave({ ...base, batch: '../batch-06' })).toThrow('Invalid animation batch');
+    expect(() => acceptAnimationWave({ ...base, verificationId: '../evidence' })).toThrow(
+      'Invalid verification id',
+    );
   });
 });

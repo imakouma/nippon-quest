@@ -74,10 +74,11 @@ export async function auditAnimationProduction(
 }
 
 async function main(): Promise<void> {
-  const ledger = JSON.parse(
-    readFileSync('docs/verification/animation-completion/runtime-monsters/production-ledger.json', 'utf8'),
-  ) as { entries: AnimationProductionAuditEntry[] };
-  const manifest = JSON.parse(readFileSync('assets/sprites/animations/batch-01/manifest.json', 'utf8')) as {
+  const ledgerPath =
+    process.argv[2] ?? 'docs/verification/animation-completion/runtime-monsters/production-ledger.json';
+  const manifestPath = process.argv[3] ?? 'assets/sprites/animations/batch-01/manifest.json';
+  const ledger = JSON.parse(readFileSync(ledgerPath, 'utf8')) as { entries: AnimationProductionAuditEntry[] };
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8')) as {
     id: string;
   }[];
   const result = await auditAnimationProduction({
